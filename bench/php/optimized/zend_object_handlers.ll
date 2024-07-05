@@ -566,10 +566,10 @@ define ptr @zend_get_property_info(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %29
 
 29:                                               ; preds = %25, %27
-  %.0 = phi ptr [ %28, %27 ], [ %26, %25 ]
+  %.036 = phi ptr [ %28, %27 ], [ %26, %25 ]
   %30 = getelementptr inbounds i8, ptr %21, i64 32
   %31 = load ptr, ptr %30, align 8
-  %.not43 = icmp eq ptr %31, %.0
+  %.not43 = icmp eq ptr %31, %.036
   br i1 %.not43, label %is_protected_compatible_scope.exit.thread60, label %32
 
 32:                                               ; preds = %29
@@ -578,8 +578,8 @@ define ptr @zend_get_property_info(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not44, label %52, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ne ptr %.0, %0
-  %36 = icmp ne ptr %.0, null
+  %35 = icmp ne ptr %.036, %0
+  %36 = icmp ne ptr %.036, null
   %or.cond.i = and i1 %36, %35
   br i1 %or.cond.i, label %.preheader.i, label %.loopexit
 
@@ -591,11 +591,11 @@ define ptr @zend_get_property_info(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.not.i, label %.loopexit, label %37
 
 37:                                               ; preds = %.preheader.i
-  %38 = icmp eq ptr %.021.i, %.0
+  %38 = icmp eq ptr %.021.i, %.036
   br i1 %38, label %39, label %.preheader.i
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.0, i64 120
+  %40 = getelementptr inbounds i8, ptr %.036, i64 120
   %41 = tail call ptr @zend_hash_find(ptr noundef nonnull %40, ptr noundef %1) #15
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %.loopexit, label %42
@@ -611,7 +611,7 @@ define ptr @zend_get_property_info(ptr noundef %0, ptr noundef %1, i32 noundef %
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %43, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %.0
+  %50 = icmp eq ptr %49, %.036
   br i1 %50, label %is_protected_compatible_scope.exit.thread60, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.i, %34, %39, %42, %47
@@ -643,7 +643,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %57, %is_protected_c
   %59 = icmp ne i32 %58, 0
   tail call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr %30, align 8
-  %.not.i53 = icmp eq ptr %.0, null
+  %.not.i53 = icmp eq ptr %.036, null
   br i1 %.not.i53, label %is_protected_compatible_scope.exit.thread, label %.preheader.i54
 
 .preheader.i54:                                   ; preds = %57, %61
@@ -654,11 +654,11 @@ is_protected_compatible_scope.exit.thread:        ; preds = %57, %is_protected_c
   br i1 %.not21.not.i, label %.critedge.i56, label %61
 
 61:                                               ; preds = %.preheader.i54
-  %62 = icmp eq ptr %.017.i, %.0
+  %62 = icmp eq ptr %.017.i, %.036
   br i1 %62, label %is_protected_compatible_scope.exit.thread60, label %.preheader.i54
 
 .critedge.i56:                                    ; preds = %.preheader.i54, %.critedge.i56
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i56 ], [ %.0, %.preheader.i54 ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i56 ], [ %.036, %.preheader.i54 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -670,9 +670,9 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i56
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread60, label %is_protected_compatible_scope.exit.thread
 
 is_protected_compatible_scope.exit.thread60:      ; preds = %61, %47, %20, %is_protected_compatible_scope.exit, %29, %.loopexit
-  %.037 = phi ptr [ %21, %.loopexit ], [ %21, %is_protected_compatible_scope.exit ], [ %21, %29 ], [ %21, %20 ], [ %43, %47 ], [ %21, %61 ]
-  %.036 = phi i32 [ %23, %.loopexit ], [ %23, %is_protected_compatible_scope.exit ], [ %23, %29 ], [ %23, %20 ], [ %45, %47 ], [ %23, %61 ]
-  %64 = and i32 %.036, 16
+  %.038 = phi ptr [ %21, %.loopexit ], [ %21, %is_protected_compatible_scope.exit ], [ %21, %29 ], [ %21, %20 ], [ %43, %47 ], [ %21, %61 ]
+  %.037 = phi i32 [ %23, %.loopexit ], [ %23, %is_protected_compatible_scope.exit ], [ %23, %29 ], [ %23, %20 ], [ %45, %47 ], [ %23, %61 ]
+  %64 = and i32 %.037, 16
   %65 = icmp eq i32 %64, 0
   %66 = icmp ne i32 %2, 0
   %or.cond = or i1 %66, %65
@@ -687,8 +687,8 @@ is_protected_compatible_scope.exit.thread60:      ; preds = %61, %47, %20, %is_p
   br label %72
 
 72:                                               ; preds = %is_protected_compatible_scope.exit.thread60, %67, %is_protected_compatible_scope.exit.thread, %56, %15, %11, %54, %18, %19
-  %.038 = phi ptr [ inttoptr (i64 -1 to ptr), %19 ], [ inttoptr (i64 -1 to ptr), %18 ], [ null, %54 ], [ null, %11 ], [ null, %15 ], [ inttoptr (i64 -1 to ptr), %56 ], [ inttoptr (i64 -1 to ptr), %is_protected_compatible_scope.exit.thread ], [ %.037, %67 ], [ %.037, %is_protected_compatible_scope.exit.thread60 ]
-  ret ptr %.038
+  %.0 = phi ptr [ inttoptr (i64 -1 to ptr), %19 ], [ inttoptr (i64 -1 to ptr), %18 ], [ null, %54 ], [ null, %11 ], [ null, %15 ], [ inttoptr (i64 -1 to ptr), %56 ], [ inttoptr (i64 -1 to ptr), %is_protected_compatible_scope.exit.thread ], [ %.038, %67 ], [ %.038, %is_protected_compatible_scope.exit.thread60 ]
+  ret ptr %.0
 }
 
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1048,13 +1048,13 @@ define ptr @zend_get_property_guard(ptr noundef %0, ptr noundef %1) local_unname
   br label %98
 
 92:                                               ; preds = %73, %72
-  %.090 = phi ptr [ %53, %72 ], [ %74, %73 ]
+  %.091 = phi ptr [ %53, %72 ], [ %74, %73 ]
   %93 = call noalias ptr @_emalloc_8() #15
   store i32 0, ptr %93, align 4
   store ptr %93, ptr %4, align 8
   %94 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 13, ptr %94, align 8
-  %95 = call ptr @zend_hash_add_new(ptr noundef %.090, ptr noundef %1, ptr noundef nonnull %4) #15
+  %95 = call ptr @zend_hash_add_new(ptr noundef %.091, ptr noundef %1, ptr noundef nonnull %4) #15
   %.not102 = icmp eq ptr %95, null
   br i1 %.not102, label %98, label %96
 
@@ -1063,8 +1063,8 @@ define ptr @zend_get_property_guard(ptr noundef %0, ptr noundef %1) local_unname
   br label %98
 
 98:                                               ; preds = %96, %92, %88, %76, %51, %29
-  %.091 = phi ptr [ %30, %29 ], [ %31, %51 ], [ %80, %76 ], [ %89, %88 ], [ %97, %96 ], [ null, %92 ]
-  ret ptr %.091
+  %.090 = phi ptr [ %30, %29 ], [ %31, %51 ], [ %80, %76 ], [ %89, %88 ], [ %97, %96 ], [ null, %92 ]
+  ret ptr %.090
 }
 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #1
@@ -1206,10 +1206,10 @@ define ptr @zend_std_read_property(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %57
 
 57:                                               ; preds = %53, %55
-  %.0286 = phi ptr [ %56, %55 ], [ %54, %53 ]
+  %.0280 = phi ptr [ %56, %55 ], [ %54, %53 ]
   %58 = getelementptr inbounds i8, ptr %49, i64 32
   %59 = load ptr, ptr %58, align 8
-  %.not322 = icmp eq ptr %59, %.0286
+  %.not322 = icmp eq ptr %59, %.0280
   br i1 %.not322, label %is_protected_compatible_scope.exit.thread403, label %60
 
 60:                                               ; preds = %57
@@ -1218,8 +1218,8 @@ define ptr @zend_std_read_property(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not323, label %82, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ne ptr %.0286, %10
-  %64 = icmp ne ptr %.0286, null
+  %63 = icmp ne ptr %.0280, %10
+  %64 = icmp ne ptr %.0280, null
   %or.cond.i = and i1 %64, %63
   br i1 %or.cond.i, label %.preheader.i, label %zend_get_parent_private_property.exit.thread
 
@@ -1231,11 +1231,11 @@ define ptr @zend_std_read_property(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.not.i, label %zend_get_parent_private_property.exit.thread, label %65
 
 65:                                               ; preds = %.preheader.i
-  %66 = icmp eq ptr %.021.i, %.0286
+  %66 = icmp eq ptr %.021.i, %.0280
   br i1 %66, label %67, label %.preheader.i
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.0286, i64 120
+  %68 = getelementptr inbounds i8, ptr %.0280, i64 120
   %69 = tail call ptr @zend_hash_find(ptr noundef nonnull %68, ptr noundef %1) #15
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %zend_get_parent_private_property.exit.thread, label %70
@@ -1251,7 +1251,7 @@ define ptr @zend_std_read_property(ptr noundef %0, ptr noundef %1, i32 noundef %
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %71, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, %.0286
+  %78 = icmp eq ptr %77, %.0280
   br i1 %78, label %zend_get_parent_private_property.exit, label %zend_get_parent_private_property.exit.thread
 
 zend_get_parent_private_property.exit:            ; preds = %75
@@ -1290,7 +1290,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %87, %is_protected_c
   %89 = icmp ne i32 %88, 0
   tail call void @llvm.assume(i1 %89)
   %90 = load ptr, ptr %58, align 8
-  %.not.i381 = icmp eq ptr %.0286, null
+  %.not.i381 = icmp eq ptr %.0280, null
   br i1 %.not.i381, label %is_protected_compatible_scope.exit.thread, label %.preheader.i382
 
 .preheader.i382:                                  ; preds = %87, %91
@@ -1301,11 +1301,11 @@ is_protected_compatible_scope.exit.thread:        ; preds = %87, %is_protected_c
   br i1 %.not21.not.i, label %.critedge.i384, label %91
 
 91:                                               ; preds = %.preheader.i382
-  %92 = icmp eq ptr %.017.i, %.0286
+  %92 = icmp eq ptr %.017.i, %.0280
   br i1 %92, label %is_protected_compatible_scope.exit.thread403, label %.preheader.i382
 
 .critedge.i384:                                   ; preds = %.preheader.i382, %.critedge.i384
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i384 ], [ %.0286, %.preheader.i382 ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i384 ], [ %.0280, %.preheader.i382 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -1317,9 +1317,9 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i384
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread403, label %is_protected_compatible_scope.exit.thread
 
 is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_parent_private_property.exit, %48, %is_protected_compatible_scope.exit, %57, %zend_get_parent_private_property.exit.thread
-  %.0285 = phi i32 [ %51, %zend_get_parent_private_property.exit.thread ], [ %51, %is_protected_compatible_scope.exit ], [ %51, %57 ], [ %51, %48 ], [ %73, %zend_get_parent_private_property.exit ], [ %51, %91 ]
-  %.0283 = phi ptr [ %49, %zend_get_parent_private_property.exit.thread ], [ %49, %is_protected_compatible_scope.exit ], [ %49, %57 ], [ %49, %48 ], [ %71, %zend_get_parent_private_property.exit ], [ %49, %91 ]
-  %94 = and i32 %.0285, 16
+  %.0279 = phi i32 [ %51, %zend_get_parent_private_property.exit.thread ], [ %51, %is_protected_compatible_scope.exit ], [ %51, %57 ], [ %51, %48 ], [ %73, %zend_get_parent_private_property.exit ], [ %51, %91 ]
+  %.0278 = phi ptr [ %49, %zend_get_parent_private_property.exit.thread ], [ %49, %is_protected_compatible_scope.exit ], [ %49, %57 ], [ %49, %48 ], [ %71, %zend_get_parent_private_property.exit ], [ %49, %91 ]
+  %94 = and i32 %.0279, 16
   %.not331 = icmp eq i32 %94, 0
   br i1 %.not331, label %101, label %95
 
@@ -1335,13 +1335,13 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br label %.thread436
 
 101:                                              ; preds = %is_protected_compatible_scope.exit.thread403
-  %102 = load i32, ptr %.0283, align 8
+  %102 = load i32, ptr %.0278, align 8
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %.0283, i64 48
+  %104 = getelementptr inbounds i8, ptr %.0278, i64 48
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 33554431
   %.not332 = icmp eq i32 %106, 0
-  %..0283 = select i1 %.not332, ptr null, ptr %.0283
+  %..0278 = select i1 %.not332, ptr null, ptr %.0278
   br i1 %.not, label %111, label %107
 
 107:                                              ; preds = %101
@@ -1350,17 +1350,17 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   %109 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %..0283, ptr %110, align 8
+  store ptr %..0278, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %101, %107, %21
-  %.1301 = phi ptr [ %23, %21 ], [ %..0283, %107 ], [ %..0283, %101 ]
-  %.0282 = phi i64 [ %26, %21 ], [ %103, %107 ], [ %103, %101 ]
-  %112 = icmp sgt i64 %.0282, 0
+  %.1301 = phi ptr [ %23, %21 ], [ %..0278, %107 ], [ %..0278, %101 ]
+  %.0 = phi i64 [ %26, %21 ], [ %103, %107 ], [ %103, %101 ]
+  %112 = icmp sgt i64 %.0, 0
   br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %0, i64 %.0282
+  %114 = getelementptr inbounds i8, ptr %0, i64 %.0
   %115 = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load i8, ptr %115, align 8
   %.not338 = icmp eq i8 %116, 0
@@ -1451,7 +1451,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br i1 %.not341, label %205, label %390
 
 .thread:                                          ; preds = %111
-  %154 = icmp slt i64 %.0282, 0
+  %154 = icmp slt i64 %.0, 0
   br i1 %154, label %155, label %.thread.thread431
 
 155:                                              ; preds = %.thread
@@ -1467,11 +1467,11 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br i1 %.not335439, label %205, label %.thread442
 
 160:                                              ; preds = %155
-  %161 = icmp eq i64 %.0282, -1
+  %161 = icmp eq i64 %.0, -1
   br i1 %161, label %.thread442, label %162
 
 162:                                              ; preds = %160
-  %163 = sub nuw nsw i64 -2, %.0282
+  %163 = sub nuw nsw i64 -2, %.0
   %164 = getelementptr inbounds i8, ptr %157, i64 24
   %165 = load i32, ptr %164, align 8
   %166 = zext i32 %165 to i64
@@ -1579,7 +1579,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br label %221
 
 221:                                              ; preds = %218, %214
-  %.0 = phi ptr [ null, %214 ], [ %1, %218 ]
+  %.0284 = phi ptr [ null, %214 ], [ %1, %218 ]
   %222 = load i32, ptr %0, align 4
   %223 = add i32 %222, 1
   store i32 %223, ptr %0, align 4
@@ -1698,19 +1698,19 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br i1 %.not344, label %281, label %329
 
 281:                                              ; preds = %269, %277
-  %.0278 = phi ptr [ %278, %277 ], [ %211, %269 ]
+  %.0286 = phi ptr [ %278, %277 ], [ %211, %269 ]
   %282 = load i32, ptr %0, align 4
   %283 = add i32 %282, 1
   store i32 %283, ptr %0, align 4
-  %.pre452 = load i32, ptr %.0278, align 4
+  %.pre452 = load i32, ptr %.0286, align 4
   br label %284
 
 284:                                              ; preds = %254, %281
   %285 = phi i32 [ %.pre452, %281 ], [ %255, %254 ]
-  %.1279 = phi ptr [ %.0278, %281 ], [ %211, %254 ]
-  %.1 = phi ptr [ null, %281 ], [ %.0, %254 ]
+  %.1287 = phi ptr [ %.0286, %281 ], [ %211, %254 ]
+  %.1285 = phi ptr [ null, %281 ], [ %.0284, %254 ]
   %286 = or i32 %285, 1
-  store i32 %286, ptr %.1279, align 4
+  store i32 %286, ptr %.1287, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %287 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1725,9 +1725,9 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   %294 = load ptr, ptr %293, align 8
   call void @zend_call_known_function(ptr noundef %294, ptr noundef nonnull %0, ptr noundef %292, ptr noundef %4, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %295 = load i32, ptr %.1279, align 4
+  %295 = load i32, ptr %.1287, align 4
   %296 = and i32 %295, -2
-  store i32 %296, ptr %.1279, align 4
+  store i32 %296, ptr %.1287, align 4
   %297 = getelementptr inbounds i8, ptr %4, i64 8
   %298 = load i8, ptr %297, align 8
   switch i8 %298, label %299 [
@@ -1759,7 +1759,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br label %308
 
 308:                                              ; preds = %299, %284, %301, %300, %307
-  %.0280 = phi ptr [ %4, %301 ], [ %4, %300 ], [ %4, %299 ], [ @executor_globals, %307 ], [ %4, %284 ]
+  %.0289 = phi ptr [ %4, %301 ], [ %4, %300 ], [ %4, %299 ], [ @executor_globals, %307 ], [ %4, %284 ]
   %.not368 = icmp eq ptr %.1301408, null
   br i1 %.not368, label %317, label %309
 
@@ -1770,7 +1770,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   %313 = getelementptr inbounds i8, ptr %312, i64 4
   %314 = load i32, ptr %313, align 4
   %315 = icmp slt i32 %314, 0
-  %316 = call zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef nonnull %.1301408, ptr noundef %.0280, i1 noundef zeroext %315, i32 noundef 1) #15
+  %316 = call zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef nonnull %.1301408, ptr noundef %.0289, i1 noundef zeroext %315, i32 noundef 1) #15
   br label %317
 
 317:                                              ; preds = %309, %308
@@ -1847,10 +1847,10 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br label %356
 
 356:                                              ; preds = %352, %354
-  %.0290 = phi ptr [ %355, %354 ], [ %353, %352 ]
+  %.0288 = phi ptr [ %355, %354 ], [ %353, %352 ]
   %357 = getelementptr inbounds i8, ptr %348, i64 32
   %358 = load ptr, ptr %357, align 8
-  %.not347 = icmp eq ptr %358, %.0290
+  %.not347 = icmp eq ptr %358, %.0288
   br i1 %.not347, label %is_protected_compatible_scope.exit399.thread414, label %359
 
 359:                                              ; preds = %356
@@ -1859,7 +1859,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   br i1 %.not348, label %370, label %361
 
 361:                                              ; preds = %359
-  %362 = tail call fastcc ptr @zend_get_parent_private_property(ptr noundef %.0290, ptr noundef nonnull %331, ptr noundef %1)
+  %362 = tail call fastcc ptr @zend_get_parent_private_property(ptr noundef %.0288, ptr noundef nonnull %331, ptr noundef %1)
   %.not349 = icmp eq ptr %362, null
   br i1 %.not349, label %368, label %363
 
@@ -1898,7 +1898,7 @@ is_protected_compatible_scope.exit399.thread:     ; preds = %374, %372, %is_prot
   %376 = icmp ne i32 %375, 0
   tail call void @llvm.assume(i1 %376)
   %377 = load ptr, ptr %357, align 8
-  %.not.i387 = icmp eq ptr %.0290, null
+  %.not.i387 = icmp eq ptr %.0288, null
   br i1 %.not.i387, label %is_protected_compatible_scope.exit399.thread, label %.preheader.i388
 
 .preheader.i388:                                  ; preds = %374, %378
@@ -1909,11 +1909,11 @@ is_protected_compatible_scope.exit399.thread:     ; preds = %374, %372, %is_prot
   br i1 %.not21.not.i392, label %.critedge.i393, label %378
 
 378:                                              ; preds = %.preheader.i388
-  %379 = icmp eq ptr %.017.i391, %.0290
+  %379 = icmp eq ptr %.017.i391, %.0288
   br i1 %379, label %is_protected_compatible_scope.exit399.thread414, label %.preheader.i388
 
 .critedge.i393:                                   ; preds = %.preheader.i388, %.critedge.i393
-  %.pn23.i394 = phi ptr [ %.019.i396, %.critedge.i393 ], [ %.0290, %.preheader.i388 ]
+  %.pn23.i394 = phi ptr [ %.019.i396, %.critedge.i393 ], [ %.0288, %.preheader.i388 ]
   %.019.in.i395 = getelementptr inbounds i8, ptr %.pn23.i394, i64 16
   %.019.i396 = load ptr, ptr %.019.in.i395, align 8
   %.not22.i397 = icmp ne ptr %.019.i396, null
@@ -1925,8 +1925,8 @@ is_protected_compatible_scope.exit399:            ; preds = %.critedge.i393
   br i1 %.not22.i397, label %is_protected_compatible_scope.exit399.thread414, label %is_protected_compatible_scope.exit399.thread
 
 is_protected_compatible_scope.exit399.thread414:  ; preds = %378, %363, %347, %is_protected_compatible_scope.exit399, %356, %368
-  %.0289 = phi i32 [ %350, %368 ], [ %350, %is_protected_compatible_scope.exit399 ], [ %350, %356 ], [ %350, %347 ], [ %365, %363 ], [ %350, %378 ]
-  %381 = and i32 %.0289, 16
+  %.0283 = phi i32 [ %350, %368 ], [ %350, %is_protected_compatible_scope.exit399 ], [ %350, %356 ], [ %350, %347 ], [ %365, %363 ], [ %350, %378 ]
+  %381 = and i32 %.0283, 16
   %.not356 = icmp eq i32 %381, 0
   br i1 %.not356, label %387, label %382
 
@@ -1972,8 +1972,8 @@ is_protected_compatible_scope.exit399.thread414:  ; preds = %378, %363, %347, %i
   br label %.thread421
 
 .thread417:                                       ; preds = %263, %268, %262, %322, %328, %323, %249
-  %.1281 = phi ptr [ %.0280, %322 ], [ %.0280, %328 ], [ %.0280, %323 ], [ @executor_globals, %249 ], [ @executor_globals, %262 ], [ @executor_globals, %268 ], [ @executor_globals, %263 ]
-  %.3 = phi ptr [ %.1, %322 ], [ %.1, %328 ], [ %.1, %323 ], [ %.0, %249 ], [ %.0, %262 ], [ %.0, %268 ], [ %.0, %263 ]
+  %.1290 = phi ptr [ %.0289, %322 ], [ %.0289, %328 ], [ %.0289, %323 ], [ @executor_globals, %249 ], [ @executor_globals, %262 ], [ @executor_globals, %268 ], [ @executor_globals, %263 ]
+  %.3 = phi ptr [ %.1285, %322 ], [ %.1285, %328 ], [ %.1285, %323 ], [ %.0284, %249 ], [ %.0284, %262 ], [ %.0284, %268 ], [ %.0284, %263 ]
   %.not375 = icmp eq ptr %.3, null
   br i1 %.not375, label %.thread421, label %405
 
@@ -1998,8 +1998,8 @@ is_protected_compatible_scope.exit399.thread414:  ; preds = %378, %363, %347, %i
   br label %.thread421
 
 .thread421:                                       ; preds = %269, %390, %399, %392, %.thread.thread431, %169, %188, %148, %130, %125, %194, %195, %387, %147, %117, %118, %122, %139, %137, %405, %414, %409, %.thread417
-  %.1281425 = phi ptr [ %.1281, %405 ], [ %.1281, %414 ], [ %.1281, %409 ], [ %.1281, %.thread417 ], [ @executor_globals, %390 ], [ @executor_globals, %399 ], [ @executor_globals, %392 ], [ @executor_globals, %.thread.thread431 ], [ %172, %169 ], [ %172, %188 ], [ @executor_globals, %148 ], [ %4, %130 ], [ %4, %125 ], [ %193, %194 ], [ %193, %195 ], [ @executor_globals, %387 ], [ @executor_globals, %147 ], [ %114, %117 ], [ %114, %118 ], [ %114, %122 ], [ @executor_globals, %139 ], [ %114, %137 ], [ @executor_globals, %269 ]
-  ret ptr %.1281425
+  %.1290425 = phi ptr [ %.1290, %405 ], [ %.1290, %414 ], [ %.1290, %409 ], [ %.1290, %.thread417 ], [ @executor_globals, %390 ], [ @executor_globals, %399 ], [ @executor_globals, %392 ], [ @executor_globals, %.thread.thread431 ], [ %172, %169 ], [ %172, %188 ], [ @executor_globals, %148 ], [ %4, %130 ], [ %4, %125 ], [ %193, %194 ], [ %193, %195 ], [ @executor_globals, %387 ], [ @executor_globals, %147 ], [ %114, %117 ], [ %114, %118 ], [ %114, %122 ], [ @executor_globals, %139 ], [ %114, %137 ], [ @executor_globals, %269 ]
+  ret ptr %.1290425
 }
 
 declare void @zend_readonly_property_modification_error(ptr noundef) local_unnamed_addr #1
@@ -2042,8 +2042,8 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %.not349 = icmp eq ptr %3, null
-  %.0310.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.0310.sroa.gep324 = getelementptr i8, ptr %2, i64 8
+  %.0311.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.0311.sroa.gep324 = getelementptr i8, ptr %2, i64 8
   br i1 %.not349, label %21, label %12
 
 12:                                               ; preds = %4
@@ -2119,10 +2119,10 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %51
 
 51:                                               ; preds = %47, %49
-  %.0314 = phi ptr [ %50, %49 ], [ %48, %47 ]
+  %.0310 = phi ptr [ %50, %49 ], [ %48, %47 ]
   %52 = getelementptr inbounds i8, ptr %43, i64 32
   %53 = load ptr, ptr %52, align 8
-  %.not352 = icmp eq ptr %53, %.0314
+  %.not352 = icmp eq ptr %53, %.0310
   br i1 %.not352, label %is_protected_compatible_scope.exit.thread428, label %54
 
 54:                                               ; preds = %51
@@ -2131,8 +2131,8 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not353, label %76, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ne ptr %.0314, %9
-  %58 = icmp ne ptr %.0314, null
+  %57 = icmp ne ptr %.0310, %9
+  %58 = icmp ne ptr %.0310, null
   %or.cond.i = and i1 %58, %57
   br i1 %or.cond.i, label %.preheader.i, label %zend_get_parent_private_property.exit.thread
 
@@ -2144,11 +2144,11 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.not.i, label %zend_get_parent_private_property.exit.thread, label %59
 
 59:                                               ; preds = %.preheader.i
-  %60 = icmp eq ptr %.021.i, %.0314
+  %60 = icmp eq ptr %.021.i, %.0310
   br i1 %60, label %61, label %.preheader.i
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.0314, i64 120
+  %62 = getelementptr inbounds i8, ptr %.0310, i64 120
   %63 = tail call ptr @zend_hash_find(ptr noundef nonnull %62, ptr noundef %1) #15
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %zend_get_parent_private_property.exit.thread, label %64
@@ -2164,7 +2164,7 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds i8, ptr %65, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, %.0314
+  %72 = icmp eq ptr %71, %.0310
   br i1 %72, label %zend_get_parent_private_property.exit, label %zend_get_parent_private_property.exit.thread
 
 zend_get_parent_private_property.exit:            ; preds = %69
@@ -2203,7 +2203,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %81, %is_protected_c
   %83 = icmp ne i32 %82, 0
   tail call void @llvm.assume(i1 %83)
   %84 = load ptr, ptr %52, align 8
-  %.not.i410 = icmp eq ptr %.0314, null
+  %.not.i410 = icmp eq ptr %.0310, null
   br i1 %.not.i410, label %is_protected_compatible_scope.exit.thread, label %.preheader.i411
 
 .preheader.i411:                                  ; preds = %81, %85
@@ -2214,11 +2214,11 @@ is_protected_compatible_scope.exit.thread:        ; preds = %81, %is_protected_c
   br i1 %.not21.not.i, label %.critedge.i413, label %85
 
 85:                                               ; preds = %.preheader.i411
-  %86 = icmp eq ptr %.017.i, %.0314
+  %86 = icmp eq ptr %.017.i, %.0310
   br i1 %86, label %is_protected_compatible_scope.exit.thread428, label %.preheader.i411
 
 .critedge.i413:                                   ; preds = %.preheader.i411, %.critedge.i413
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i413 ], [ %.0314, %.preheader.i411 ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i413 ], [ %.0310, %.preheader.i411 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -2230,9 +2230,9 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i413
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread428, label %is_protected_compatible_scope.exit.thread
 
 is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_parent_private_property.exit, %42, %is_protected_compatible_scope.exit, %51, %zend_get_parent_private_property.exit.thread
-  %.0313 = phi i32 [ %45, %zend_get_parent_private_property.exit.thread ], [ %45, %is_protected_compatible_scope.exit ], [ %45, %51 ], [ %45, %42 ], [ %67, %zend_get_parent_private_property.exit ], [ %45, %85 ]
-  %.0311 = phi ptr [ %43, %zend_get_parent_private_property.exit.thread ], [ %43, %is_protected_compatible_scope.exit ], [ %43, %51 ], [ %43, %42 ], [ %65, %zend_get_parent_private_property.exit ], [ %43, %85 ]
-  %88 = and i32 %.0313, 16
+  %.0309 = phi i32 [ %45, %zend_get_parent_private_property.exit.thread ], [ %45, %is_protected_compatible_scope.exit ], [ %45, %51 ], [ %45, %42 ], [ %67, %zend_get_parent_private_property.exit ], [ %45, %85 ]
+  %.0307 = phi ptr [ %43, %zend_get_parent_private_property.exit.thread ], [ %43, %is_protected_compatible_scope.exit ], [ %43, %51 ], [ %43, %42 ], [ %65, %zend_get_parent_private_property.exit ], [ %43, %85 ]
+  %88 = and i32 %.0309, 16
   %.not361 = icmp eq i32 %88, 0
   br i1 %.not361, label %95, label %89
 
@@ -2248,13 +2248,13 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %.thread.thread
 
 95:                                               ; preds = %is_protected_compatible_scope.exit.thread428
-  %96 = load i32, ptr %.0311, align 8
+  %96 = load i32, ptr %.0307, align 8
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %.0311, i64 48
+  %98 = getelementptr inbounds i8, ptr %.0307, i64 48
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 33554431
   %.not362 = icmp eq i32 %100, 0
-  %..0311 = select i1 %.not362, ptr null, ptr %.0311
+  %..0307 = select i1 %.not362, ptr null, ptr %.0307
   br i1 %.not349, label %105, label %101
 
 101:                                              ; preds = %95
@@ -2263,17 +2263,17 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   %103 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %..0311, ptr %104, align 8
+  store ptr %..0307, ptr %104, align 8
   br label %105
 
 105:                                              ; preds = %95, %101, %15
-  %.1329 = phi ptr [ %17, %15 ], [ %..0311, %101 ], [ %..0311, %95 ]
-  %.0307 = phi i64 [ %20, %15 ], [ %97, %101 ], [ %97, %95 ]
-  %106 = icmp sgt i64 %.0307, 0
+  %.1329 = phi ptr [ %17, %15 ], [ %..0307, %101 ], [ %..0307, %95 ]
+  %.0306 = phi i64 [ %20, %15 ], [ %97, %101 ], [ %97, %95 ]
+  %106 = icmp sgt i64 %.0306, 0
   br i1 %106, label %107, label %.thread
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 %.0307
+  %108 = getelementptr inbounds i8, ptr %0, i64 %.0306
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = load i8, ptr %109, align 8
   %.not369 = icmp eq i8 %110, 0
@@ -2330,9 +2330,9 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 .critedge:                                        ; preds = %119, %123
   %135 = load ptr, ptr %2, align 8
-  %136 = load i32, ptr %.0310.sroa.gep324, align 8
+  %136 = load i32, ptr %.0311.sroa.gep324, align 8
   store ptr %135, ptr %6, align 8
-  store i32 %136, ptr %.0310.sroa.gep, align 8
+  store i32 %136, ptr %.0311.sroa.gep, align 8
   %137 = load i32, ptr %0, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %0, align 4
@@ -2394,9 +2394,9 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %167
 
 167:                                              ; preds = %286, %283, %118, %163, %411
-  %.0310.sroa.phi = phi ptr [ %.0310.sroa.gep, %163 ], [ %.0310.sroa.gep324, %118 ], [ %.0310.sroa.gep, %411 ], [ %.0310.sroa.gep324, %286 ], [ %.0310.sroa.gep324, %283 ]
-  %.0310 = phi ptr [ %6, %163 ], [ %2, %118 ], [ %6, %411 ], [ %2, %286 ], [ %2, %283 ]
-  %.0308 = phi ptr [ %108, %163 ], [ %108, %118 ], [ %339, %411 ], [ %282, %286 ], [ %282, %283 ]
+  %.0312 = phi ptr [ %108, %163 ], [ %108, %118 ], [ %339, %411 ], [ %282, %286 ], [ %282, %283 ]
+  %.0311.sroa.phi = phi ptr [ %.0311.sroa.gep, %163 ], [ %.0311.sroa.gep324, %118 ], [ %.0311.sroa.gep, %411 ], [ %.0311.sroa.gep324, %286 ], [ %.0311.sroa.gep324, %283 ]
+  %.0311 = phi ptr [ %6, %163 ], [ %2, %118 ], [ %6, %411 ], [ %2, %286 ], [ %2, %283 ]
   store ptr null, ptr %7, align 8
   %168 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %.not390 = icmp eq ptr %168, null
@@ -2416,26 +2416,26 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 176:                                              ; preds = %172, %169, %167
   %177 = phi i1 [ false, %169 ], [ false, %167 ], [ %175, %172 ]
-  %178 = getelementptr inbounds i8, ptr %.0308, i64 9
+  %178 = getelementptr inbounds i8, ptr %.0312, i64 9
   %179 = load i8, ptr %178, align 1
   %.not392 = icmp eq i8 %179, 0
   br i1 %.not392, label %196, label %180
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds i8, ptr %.0308, i64 8
+  %181 = getelementptr inbounds i8, ptr %.0312, i64 8
   %182 = load i8, ptr %181, align 8
   %183 = icmp eq i8 %182, 10
   br i1 %183, label %184, label %194
 
 184:                                              ; preds = %180
-  %185 = load ptr, ptr %.0308, align 8
+  %185 = load ptr, ptr %.0312, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8
   %.not393 = icmp eq ptr %187, null
   br i1 %.not393, label %190, label %188
 
 188:                                              ; preds = %184
-  %189 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0308, ptr noundef nonnull %.0310, i8 noundef zeroext 2, i1 noundef zeroext %177, ptr noundef nonnull %7) #15
+  %189 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0312, ptr noundef nonnull %.0311, i8 noundef zeroext 2, i1 noundef zeroext %177, ptr noundef nonnull %7) #15
   br label %200
 
 190:                                              ; preds = %184
@@ -2446,15 +2446,15 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br i1 %.not394, label %196, label %194
 
 194:                                              ; preds = %190, %180
-  %.0305 = phi ptr [ %191, %190 ], [ %.0308, %180 ]
+  %.0305 = phi ptr [ %191, %190 ], [ %.0312, %180 ]
   %195 = load ptr, ptr %.0305, align 8
   store ptr %195, ptr %7, align 8
   br label %196
 
 196:                                              ; preds = %176, %194, %190
-  %.1 = phi ptr [ %191, %190 ], [ %.0305, %194 ], [ %.0308, %176 ]
-  %197 = load ptr, ptr %.0310, align 8
-  %198 = load i32, ptr %.0310.sroa.phi, align 8
+  %.1 = phi ptr [ %191, %190 ], [ %.0305, %194 ], [ %.0312, %176 ]
+  %197 = load ptr, ptr %.0311, align 8
+  %198 = load i32, ptr %.0311.sroa.phi, align 8
   store ptr %197, ptr %.1, align 8
   %199 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %198, ptr %199, align 8
@@ -2542,14 +2542,14 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %241
 
 241:                                              ; preds = %.sink.split, %223, %230
-  %.0306 = phi ptr [ %232, %230 ], [ %.0304, %223 ], [ %.sink470, %.sink.split ]
+  %.0314 = phi ptr [ %232, %230 ], [ %.0304, %223 ], [ %.sink470, %.sink.split ]
   %242 = load ptr, ptr %208, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 16
   %244 = load i32, ptr %243, align 8
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr %208, i64 %245
-  %247 = load ptr, ptr %.0306, align 8
-  %248 = getelementptr inbounds i8, ptr %.0306, i64 8
+  %247 = load ptr, ptr %.0314, align 8
+  %248 = getelementptr inbounds i8, ptr %.0314, i64 8
   %249 = load i32, ptr %248, align 8
   store ptr %247, ptr %246, align 8
   %250 = getelementptr inbounds i8, ptr %246, i64 8
@@ -2557,7 +2557,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %251
 
 251:                                              ; preds = %241, %220, %216, %214, %212, %209, %207
-  %.1309 = phi ptr [ null, %241 ], [ %.0304, %220 ], [ %.0304, %216 ], [ %.0304, %214 ], [ %.0304, %212 ], [ %.0304, %209 ], [ %.0304, %207 ]
+  %.1313 = phi ptr [ null, %241 ], [ %.0304, %220 ], [ %.0304, %216 ], [ %.0304, %214 ], [ %.0304, %212 ], [ %.0304, %209 ], [ %.0304, %207 ]
   %252 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %252) #15
   br label %zend_deprecated_dynamic_property.exit.thread
@@ -2584,12 +2584,12 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br i1 %.not370, label %.thread457, label %.thread438
 
 .thread:                                          ; preds = %105
-  %265 = icmp slt i64 %.0307, 0
+  %265 = icmp slt i64 %.0306, 0
   br i1 %265, label %.thread.thread, label %.thread.thread449
 
 .thread.thread:                                   ; preds = %39, %38, %90, %89, %.thread
   %.1329434447 = phi ptr [ %.1329, %.thread ], [ null, %89 ], [ null, %90 ], [ null, %38 ], [ null, %39 ]
-  %.0307436446 = phi i64 [ %.0307, %.thread ], [ -1, %89 ], [ -1, %90 ], [ -1, %38 ], [ -1, %39 ]
+  %.0306436446 = phi i64 [ %.0306, %.thread ], [ -1, %89 ], [ -1, %90 ], [ -1, %38 ], [ -1, %39 ]
   %266 = getelementptr inbounds i8, ptr %0, i64 32
   %267 = load ptr, ptr %266, align 8
   %.not365 = icmp eq ptr %267, null
@@ -2645,7 +2645,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br i1 %.not364, label %291, label %zend_deprecated_dynamic_property.exit.thread
 
 291:                                              ; preds = %280, %.thread.thread, %.thread.thread449
-  %.0307435 = phi i64 [ %.0307436446, %280 ], [ %.0307436446, %.thread.thread ], [ 0, %.thread.thread449 ]
+  %.0306435 = phi i64 [ %.0306436446, %280 ], [ %.0306436446, %.thread.thread ], [ 0, %.thread.thread449 ]
   %.1329433 = phi ptr [ %.1329434447, %280 ], [ %.1329434447, %.thread.thread ], [ %.1329434453, %.thread.thread449 ]
   %292 = load ptr, ptr %8, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 288
@@ -2662,7 +2662,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 298:                                              ; preds = %.thread457, %291
   %.1329433464 = phi ptr [ %.1329, %.thread457 ], [ %.1329433, %291 ]
-  %.0307435461 = phi i64 [ %.0307, %.thread457 ], [ %.0307435, %291 ]
+  %.0306435461 = phi i64 [ %.0306, %.thread457 ], [ %.0306435, %291 ]
   %299 = phi i1 [ true, %.thread457 ], [ false, %291 ]
   %300 = tail call ptr @zend_get_property_guard(ptr noundef nonnull %0, ptr noundef %1)
   %301 = load i32, ptr %300, align 4
@@ -2678,7 +2678,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   %307 = or i32 %306, 2
   store i32 %307, ptr %300, align 4
   %.val407 = load ptr, ptr %2, align 8
-  %.val408 = load i32, ptr %.0310.sroa.gep324, align 8
+  %.val408 = load i32, ptr %.0311.sroa.gep324, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %1, ptr %5, align 16
   %308 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2724,7 +2724,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %zend_deprecated_dynamic_property.exit.thread
 
 331:                                              ; preds = %298
-  %.not373 = icmp eq i64 %.0307435461, 0
+  %.not373 = icmp eq i64 %.0306435461, 0
   br i1 %.not373, label %332, label %338
 
 332:                                              ; preds = %331
@@ -2736,7 +2736,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %zend_deprecated_dynamic_property.exit.thread
 
 336:                                              ; preds = %291
-  %337 = icmp ne i64 %.0307435, 0
+  %337 = icmp ne i64 %.0306435, 0
   tail call void @llvm.assume(i1 %337)
   br label %417
 
@@ -2749,8 +2749,8 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 .thread438:                                       ; preds = %.thread457, %261, %338
   %.1329432442 = phi ptr [ %.1329433464, %338 ], [ %.1329, %261 ], [ %.1329, %.thread457 ]
-  %.0307437441 = phi i64 [ %.0307435461, %338 ], [ %.0307, %261 ], [ %.0307, %.thread457 ]
-  %339 = getelementptr inbounds i8, ptr %0, i64 %.0307437441
+  %.0306437441 = phi i64 [ %.0306435461, %338 ], [ %.0306, %261 ], [ %.0306, %.thread457 ]
+  %339 = getelementptr inbounds i8, ptr %0, i64 %.0306437441
   %340 = getelementptr inbounds i8, ptr %2, i64 9
   %341 = load i8, ptr %340, align 1
   %.not378 = icmp eq i8 %341, 0
@@ -2785,14 +2785,14 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br label %356
 
 356:                                              ; preds = %354, %351
-  %.0.i = phi ptr [ %355, %354 ], [ %353, %351 ]
+  %.028.i = phi ptr [ %355, %354 ], [ %353, %351 ]
   %357 = getelementptr inbounds i8, ptr %.1329432442, i64 32
   %358 = load ptr, ptr %357, align 8
-  %359 = icmp eq ptr %358, %.0.i
+  %359 = icmp eq ptr %358, %.028.i
   br i1 %359, label %.critedge406, label %360
 
 360:                                              ; preds = %356
-  %.not34.i = icmp eq ptr %.0.i, null
+  %.not34.i = icmp eq ptr %.028.i, null
   br i1 %.not34.i, label %378, label %.preheader.i416
 
 .preheader.i416:                                  ; preds = %360, %361
@@ -2803,11 +2803,11 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   br i1 %.not35.not.i, label %.critedge.i418, label %361
 
 361:                                              ; preds = %.preheader.i416
-  %362 = icmp eq ptr %.029.i, %.0.i
+  %362 = icmp eq ptr %.029.i, %.028.i
   br i1 %362, label %363, label %.preheader.i416
 
 363:                                              ; preds = %361
-  %364 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  %364 = getelementptr inbounds i8, ptr %.028.i, i64 120
   %365 = tail call ptr @zend_hash_find(ptr noundef nonnull %364, ptr noundef %1) #15
   %.not36.i = icmp eq ptr %365, null
   br i1 %.not36.i, label %.critedge.i418, label %366
@@ -2821,11 +2821,11 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
   tail call void @llvm.assume(i1 %371)
   %372 = getelementptr inbounds i8, ptr %367, i64 32
   %373 = load ptr, ptr %372, align 8
-  %374 = icmp eq ptr %373, %.0.i
+  %374 = icmp eq ptr %373, %.028.i
   br i1 %374, label %.critedge406, label %.critedge.i418
 
 .critedge.i418:                                   ; preds = %.preheader.i416, %366, %363
-  %375 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %375 = getelementptr inbounds i8, ptr %.028.i, i64 8
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 24
   %.pn42.pre.i = load ptr, ptr %357, align 8
@@ -2855,9 +2855,9 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 .critedge406:                                     ; preds = %366, %356, %347
   %389 = load ptr, ptr %2, align 8
-  %390 = load i32, ptr %.0310.sroa.gep324, align 8
+  %390 = load i32, ptr %.0311.sroa.gep324, align 8
   store ptr %389, ptr %6, align 8
-  store i32 %390, ptr %.0310.sroa.gep, align 8
+  store i32 %390, ptr %.0311.sroa.gep, align 8
   %391 = load i32, ptr %0, align 4
   %392 = add i32 %391, 1
   store i32 %392, ptr %0, align 4
@@ -2908,7 +2908,7 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 413:                                              ; preds = %346
   %414 = load ptr, ptr %2, align 8
-  %415 = load i32, ptr %.0310.sroa.gep324, align 8
+  %415 = load i32, ptr %.0311.sroa.gep324, align 8
   store ptr %414, ptr %339, align 8
   %416 = getelementptr inbounds i8, ptr %339, i64 8
   store i32 %415, ptr %416, align 8
@@ -2996,7 +2996,7 @@ zend_deprecated_dynamic_property.exit:            ; preds = %428, %426
   br label %zend_deprecated_dynamic_property.exit.thread
 
 zend_deprecated_dynamic_property.exit.thread:     ; preds = %441, %438, %384, %378, %324, %330, %325, %.thread.thread449, %158, %156, %455, %413, %200, %253, %260, %251, %422, %410, %408, %332, %154, %134
-  %.2 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %134 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %154 ], [ %.1309, %251 ], [ %.0304, %260 ], [ %.0304, %253 ], [ %.0304, %200 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %408 ], [ %339, %410 ], [ %339, %413 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %422 ], [ %457, %455 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %332 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %156 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %158 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %.thread.thread449 ], [ %2, %325 ], [ %2, %330 ], [ %2, %324 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %378 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %384 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %438 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %441 ]
+  %.2 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %134 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %154 ], [ %.1313, %251 ], [ %.0304, %260 ], [ %.0304, %253 ], [ %.0304, %200 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %408 ], [ %339, %410 ], [ %339, %413 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %422 ], [ %457, %455 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %332 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %156 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %158 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %.thread.thread449 ], [ %2, %325 ], [ %2, %330 ], [ %2, %324 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %378 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %384 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %438 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %441 ]
   ret ptr %.2
 }
 
@@ -3055,10 +3055,10 @@ define internal fastcc void @zend_wrong_offset(ptr noundef %0, ptr noundef %1) u
   br label %27
 
 27:                                               ; preds = %23, %25
-  %.060 = phi ptr [ %26, %25 ], [ %24, %23 ]
+  %.061 = phi ptr [ %26, %25 ], [ %24, %23 ]
   %28 = getelementptr inbounds i8, ptr %19, i64 32
   %29 = load ptr, ptr %28, align 8
-  %.not66 = icmp eq ptr %29, %.060
+  %.not66 = icmp eq ptr %29, %.061
   br i1 %.not66, label %is_protected_compatible_scope.exit.thread85, label %30
 
 30:                                               ; preds = %27
@@ -3067,8 +3067,8 @@ define internal fastcc void @zend_wrong_offset(ptr noundef %0, ptr noundef %1) u
   br i1 %.not67, label %52, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ne ptr %.060, %0
-  %34 = icmp ne ptr %.060, null
+  %33 = icmp ne ptr %.061, %0
+  %34 = icmp ne ptr %.061, null
   %or.cond.i = and i1 %34, %33
   br i1 %or.cond.i, label %.preheader.i, label %zend_get_parent_private_property.exit.thread
 
@@ -3080,11 +3080,11 @@ define internal fastcc void @zend_wrong_offset(ptr noundef %0, ptr noundef %1) u
   br i1 %.not.not.i, label %zend_get_parent_private_property.exit.thread, label %35
 
 35:                                               ; preds = %.preheader.i
-  %36 = icmp eq ptr %.021.i, %.060
+  %36 = icmp eq ptr %.021.i, %.061
   br i1 %36, label %37, label %.preheader.i
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.060, i64 120
+  %38 = getelementptr inbounds i8, ptr %.061, i64 120
   %39 = tail call ptr @zend_hash_find(ptr noundef nonnull %38, ptr noundef %1) #15
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %zend_get_parent_private_property.exit.thread, label %40
@@ -3100,7 +3100,7 @@ define internal fastcc void @zend_wrong_offset(ptr noundef %0, ptr noundef %1) u
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %41, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, %.060
+  %48 = icmp eq ptr %47, %.061
   br i1 %48, label %zend_get_parent_private_property.exit, label %zend_get_parent_private_property.exit.thread
 
 zend_get_parent_private_property.exit:            ; preds = %45
@@ -3141,7 +3141,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %61, %54, %is_protec
   %63 = icmp ne i32 %62, 0
   tail call void @llvm.assume(i1 %63)
   %64 = load ptr, ptr %28, align 8
-  %.not.i78 = icmp eq ptr %.060, null
+  %.not.i78 = icmp eq ptr %.061, null
   br i1 %.not.i78, label %is_protected_compatible_scope.exit.thread, label %.preheader.i79
 
 .preheader.i79:                                   ; preds = %61, %65
@@ -3152,11 +3152,11 @@ is_protected_compatible_scope.exit.thread:        ; preds = %61, %54, %is_protec
   br i1 %.not21.not.i, label %.critedge.i81, label %65
 
 65:                                               ; preds = %.preheader.i79
-  %66 = icmp eq ptr %.017.i, %.060
+  %66 = icmp eq ptr %.017.i, %.061
   br i1 %66, label %is_protected_compatible_scope.exit.thread85, label %.preheader.i79
 
 .critedge.i81:                                    ; preds = %.preheader.i79, %.critedge.i81
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i81 ], [ %.060, %.preheader.i79 ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i81 ], [ %.061, %.preheader.i79 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -3168,8 +3168,8 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i81
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread85, label %is_protected_compatible_scope.exit.thread
 
 is_protected_compatible_scope.exit.thread85:      ; preds = %65, %zend_get_parent_private_property.exit, %18, %is_protected_compatible_scope.exit, %27, %zend_get_parent_private_property.exit.thread
-  %.061 = phi i32 [ %21, %zend_get_parent_private_property.exit.thread ], [ %21, %is_protected_compatible_scope.exit ], [ %21, %27 ], [ %21, %18 ], [ %43, %zend_get_parent_private_property.exit ], [ %21, %65 ]
-  %68 = and i32 %.061, 16
+  %.060 = phi i32 [ %21, %zend_get_parent_private_property.exit.thread ], [ %21, %is_protected_compatible_scope.exit ], [ %21, %27 ], [ %21, %18 ], [ %43, %zend_get_parent_private_property.exit ], [ %21, %65 ]
+  %68 = and i32 %.060, 16
   %.not75 = icmp eq i32 %68, 0
   br i1 %.not75, label %74, label %69
 
@@ -3278,9 +3278,9 @@ define noundef ptr @zend_std_read_dimension(ptr noundef %0, ptr noundef readonly
   br label %32
 
 32:                                               ; preds = %.sink.split, %14, %21
-  %.099 = phi ptr [ %23, %21 ], [ %1, %14 ], [ %.sink142, %.sink.split ]
-  %33 = load ptr, ptr %.099, align 8
-  %34 = getelementptr inbounds i8, ptr %.099, i64 8
+  %.0100 = phi ptr [ %23, %21 ], [ %1, %14 ], [ %.sink142, %.sink.split ]
+  %33 = load ptr, ptr %.0100, align 8
+  %34 = getelementptr inbounds i8, ptr %.0100, i64 8
   %35 = load i32, ptr %34, align 8
   store ptr %33, ptr %5, align 8
   %36 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3496,8 +3496,8 @@ define noundef ptr @zend_std_read_dimension(ptr noundef %0, ptr noundef readonly
   br label %134
 
 134:                                              ; preds = %121, %125, %127, %131, %106, %59
-  %.0100 = phi ptr [ null, %59 ], [ @executor_globals, %106 ], [ null, %131 ], [ null, %127 ], [ null, %125 ], [ %3, %121 ]
-  ret ptr %.0100
+  %.099 = phi ptr [ null, %59 ], [ @executor_globals, %106 ], [ null, %131 ], [ null, %127 ], [ null, %125 ], [ %3, %121 ]
+  ret ptr %.099
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3854,8 +3854,8 @@ define range(i32 0, 2) i32 @zend_std_has_dimension(ptr noundef %0, ptr nocapture
   br label %121
 
 121:                                              ; preds = %.loopexit, %.loopexit117
-  %.093.in = phi i1 [ %.091.shrunk, %.loopexit ], [ %.089, %.loopexit117 ]
-  %.093 = zext i1 %.093.in to i32
+  %.094.in = phi i1 [ %.091.shrunk, %.loopexit ], [ %.089, %.loopexit117 ]
+  %.094 = zext i1 %.094.in to i32
   %122 = load i32, ptr %0, align 4
   %123 = icmp ne i32 %122, 0
   call void @llvm.assume(i1 %123)
@@ -3891,8 +3891,8 @@ define range(i32 0, 2) i32 @zend_std_has_dimension(ptr noundef %0, ptr nocapture
   br label %137
 
 137:                                              ; preds = %133, %134
-  %.094 = phi i32 [ %.093, %133 ], [ 0, %134 ]
-  ret i32 %.094
+  %.093 = phi i32 [ %.094, %133 ], [ 0, %134 ]
+  ret i32 %.093
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3978,10 +3978,10 @@ define ptr @zend_std_get_property_ptr_ptr(ptr noundef %0, ptr noundef %1, i32 no
   br label %48
 
 48:                                               ; preds = %44, %46
-  %.0120 = phi ptr [ %47, %46 ], [ %45, %44 ]
+  %.0119 = phi ptr [ %47, %46 ], [ %45, %44 ]
   %49 = getelementptr inbounds i8, ptr %40, i64 32
   %50 = load ptr, ptr %49, align 8
-  %.not143 = icmp eq ptr %50, %.0120
+  %.not143 = icmp eq ptr %50, %.0119
   br i1 %.not143, label %is_protected_compatible_scope.exit.thread183, label %51
 
 51:                                               ; preds = %48
@@ -3990,8 +3990,8 @@ define ptr @zend_std_get_property_ptr_ptr(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not144, label %73, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ne ptr %.0120, %6
-  %55 = icmp ne ptr %.0120, null
+  %54 = icmp ne ptr %.0119, %6
+  %55 = icmp ne ptr %.0119, null
   %or.cond.i = and i1 %55, %54
   br i1 %or.cond.i, label %.preheader.i, label %zend_get_parent_private_property.exit.thread
 
@@ -4003,11 +4003,11 @@ define ptr @zend_std_get_property_ptr_ptr(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not.not.i, label %zend_get_parent_private_property.exit.thread, label %56
 
 56:                                               ; preds = %.preheader.i
-  %57 = icmp eq ptr %.021.i, %.0120
+  %57 = icmp eq ptr %.021.i, %.0119
   br i1 %57, label %58, label %.preheader.i
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %.0120, i64 120
+  %59 = getelementptr inbounds i8, ptr %.0119, i64 120
   %60 = tail call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %1) #15
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %zend_get_parent_private_property.exit.thread, label %61
@@ -4023,7 +4023,7 @@ define ptr @zend_std_get_property_ptr_ptr(ptr noundef %0, ptr noundef %1, i32 no
 66:                                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %62, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, %.0120
+  %69 = icmp eq ptr %68, %.0119
   br i1 %69, label %zend_get_parent_private_property.exit, label %zend_get_parent_private_property.exit.thread
 
 zend_get_parent_private_property.exit:            ; preds = %66
@@ -4062,7 +4062,7 @@ is_protected_compatible_scope.exit.thread:        ; preds = %78, %is_protected_c
   %80 = icmp ne i32 %79, 0
   tail call void @llvm.assume(i1 %80)
   %81 = load ptr, ptr %49, align 8
-  %.not.i176 = icmp eq ptr %.0120, null
+  %.not.i176 = icmp eq ptr %.0119, null
   br i1 %.not.i176, label %is_protected_compatible_scope.exit.thread, label %.preheader.i177
 
 .preheader.i177:                                  ; preds = %78, %82
@@ -4073,11 +4073,11 @@ is_protected_compatible_scope.exit.thread:        ; preds = %78, %is_protected_c
   br i1 %.not21.not.i, label %.critedge.i179, label %82
 
 82:                                               ; preds = %.preheader.i177
-  %83 = icmp eq ptr %.017.i, %.0120
+  %83 = icmp eq ptr %.017.i, %.0119
   br i1 %83, label %is_protected_compatible_scope.exit.thread183, label %.preheader.i177
 
 .critedge.i179:                                   ; preds = %.preheader.i177, %.critedge.i179
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i179 ], [ %.0120, %.preheader.i177 ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i179 ], [ %.0119, %.preheader.i177 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -4089,9 +4089,9 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i179
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread183, label %is_protected_compatible_scope.exit.thread
 
 is_protected_compatible_scope.exit.thread183:     ; preds = %82, %zend_get_parent_private_property.exit, %39, %is_protected_compatible_scope.exit, %48, %zend_get_parent_private_property.exit.thread
-  %.0119 = phi i32 [ %42, %zend_get_parent_private_property.exit.thread ], [ %42, %is_protected_compatible_scope.exit ], [ %42, %48 ], [ %42, %39 ], [ %64, %zend_get_parent_private_property.exit ], [ %42, %82 ]
+  %.0118 = phi i32 [ %42, %zend_get_parent_private_property.exit.thread ], [ %42, %is_protected_compatible_scope.exit ], [ %42, %48 ], [ %42, %39 ], [ %64, %zend_get_parent_private_property.exit ], [ %42, %82 ]
   %.0116 = phi ptr [ %40, %zend_get_parent_private_property.exit.thread ], [ %40, %is_protected_compatible_scope.exit ], [ %40, %48 ], [ %40, %39 ], [ %62, %zend_get_parent_private_property.exit ], [ %40, %82 ]
-  %85 = and i32 %.0119, 16
+  %85 = and i32 %.0118, 16
   %.not152 = icmp eq i32 %85, 0
   br i1 %.not152, label %92, label %86
 
@@ -4127,12 +4127,12 @@ is_protected_compatible_scope.exit.thread183:     ; preds = %82, %zend_get_paren
 
 102:                                              ; preds = %92, %98, %12
   %.1130 = phi ptr [ %14, %12 ], [ %..0116, %98 ], [ %..0116, %92 ]
-  %.0115 = phi i64 [ %17, %12 ], [ %94, %98 ], [ %94, %92 ]
-  %103 = icmp sgt i64 %.0115, 0
+  %.0 = phi i64 [ %17, %12 ], [ %94, %98 ], [ %94, %92 ]
+  %103 = icmp sgt i64 %.0, 0
   br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 %.0115
+  %105 = getelementptr inbounds i8, ptr %0, i64 %.0
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load i8, ptr %106, align 8
   %108 = icmp eq i8 %107, 0
@@ -4231,7 +4231,7 @@ is_protected_compatible_scope.exit.thread183:     ; preds = %82, %zend_get_paren
   br label %.critedge
 
 .thread:                                          ; preds = %102
-  %156 = icmp slt i64 %.0115, 0
+  %156 = icmp slt i64 %.0, 0
   br i1 %156, label %.thread.thread, label %.thread.thread190
 
 .thread.thread:                                   ; preds = %36, %35, %87, %86, %.thread
@@ -4350,8 +4350,8 @@ is_protected_compatible_scope.exit.thread183:     ; preds = %82, %zend_get_paren
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread.thread190, %152, %151, %.critedge173, %147, %126, %141, %133, %178, %207, %143, %117, %118, %193, %171, %187
-  %.0118 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %187 ], [ %173, %171 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %193 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %126 ], [ %105, %141 ], [ %105, %133 ], [ %105, %147 ], [ %105, %.critedge173 ], [ %105, %151 ], [ %209, %207 ], [ null, %178 ], [ null, %143 ], [ null, %117 ], [ null, %118 ], [ %spec.select, %152 ], [ %spec.select174, %.thread.thread190 ]
-  ret ptr %.0118
+  %.0120 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %187 ], [ %173, %171 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %193 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %126 ], [ %105, %141 ], [ %105, %133 ], [ %105, %147 ], [ %105, %.critedge173 ], [ %105, %151 ], [ %209, %207 ], [ null, %178 ], [ null, %143 ], [ null, %117 ], [ null, %118 ], [ %spec.select, %152 ], [ %spec.select174, %.thread.thread190 ]
+  ret ptr %.0120
 }
 
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4700,14 +4700,14 @@ is_protected_compatible_scope.exit.thread177:     ; preds = %83, %zend_get_paren
   br label %157
 
 157:                                              ; preds = %155, %152
-  %.0.i = phi ptr [ %156, %155 ], [ %154, %152 ]
+  %.028.i = phi ptr [ %156, %155 ], [ %154, %152 ]
   %158 = getelementptr inbounds i8, ptr %.1125, i64 32
   %159 = load ptr, ptr %158, align 8
-  %160 = icmp eq ptr %159, %.0.i
+  %160 = icmp eq ptr %159, %.028.i
   br i1 %160, label %.critedge163, label %161
 
 161:                                              ; preds = %157
-  %.not34.i = icmp eq ptr %.0.i, null
+  %.not34.i = icmp eq ptr %.028.i, null
   br i1 %.not34.i, label %verify_readonly_initialization_access.exit, label %.preheader.i170
 
 .preheader.i170:                                  ; preds = %161, %162
@@ -4718,11 +4718,11 @@ is_protected_compatible_scope.exit.thread177:     ; preds = %83, %zend_get_paren
   br i1 %.not35.not.i, label %.critedge.i172, label %162
 
 162:                                              ; preds = %.preheader.i170
-  %163 = icmp eq ptr %.029.i, %.0.i
+  %163 = icmp eq ptr %.029.i, %.028.i
   br i1 %163, label %164, label %.preheader.i170
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  %165 = getelementptr inbounds i8, ptr %.028.i, i64 120
   %166 = tail call ptr @zend_hash_find(ptr noundef nonnull %165, ptr noundef %1) #15
   %.not36.i = icmp eq ptr %166, null
   br i1 %.not36.i, label %.critedge.i172, label %167
@@ -4736,11 +4736,11 @@ is_protected_compatible_scope.exit.thread177:     ; preds = %83, %zend_get_paren
   tail call void @llvm.assume(i1 %172)
   %173 = getelementptr inbounds i8, ptr %168, i64 32
   %174 = load ptr, ptr %173, align 8
-  %175 = icmp eq ptr %174, %.0.i
+  %175 = icmp eq ptr %174, %.028.i
   br i1 %175, label %.critedge163, label %.critedge.i172
 
 .critedge.i172:                                   ; preds = %.preheader.i170, %167, %164
-  %176 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %176 = getelementptr inbounds i8, ptr %.028.i, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 24
   %.pn42.pre.i = load ptr, ptr %158, align 8
@@ -5172,22 +5172,22 @@ define ptr @zend_std_get_method(ptr nocapture noundef readonly %0, ptr noundef %
   br label %26
 
 26:                                               ; preds = %17, %5
-  %.091 = phi ptr [ %6, %5 ], [ %18, %17 ]
-  %.0 = phi i1 [ false, %5 ], [ %12, %17 ]
+  %.093 = phi ptr [ %6, %5 ], [ %18, %17 ]
+  %.091 = phi i1 [ false, %5 ], [ %12, %17 ]
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 64
-  %30 = call ptr @zend_hash_find(ptr noundef nonnull %29, ptr noundef %.091) #15
+  %30 = call ptr @zend_hash_find(ptr noundef nonnull %29, ptr noundef %.093) #15
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %26
-  %.0.not = xor i1 %.0, true
-  %brmerge = or i1 %.not, %.0.not
+  %.091.not = xor i1 %.091, true
+  %brmerge = or i1 %.not, %.091.not
   br i1 %brmerge, label %34, label %33
 
 33:                                               ; preds = %32
-  call void @_efree(ptr noundef %.091) #15
+  call void @_efree(ptr noundef %.093) #15
   br label %34
 
 34:                                               ; preds = %32, %33
@@ -5242,7 +5242,7 @@ define ptr @zend_std_get_method(ptr nocapture noundef readonly %0, ptr noundef %
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %46, i64 64
-  %60 = call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %.091) #15
+  %60 = call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %.093) #15
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %.loopexit, label %61
 
@@ -5376,17 +5376,17 @@ zend_get_parent_private_method.exit.thread120:    ; preds = %66, %40, %45, %.loo
 
 118:                                              ; preds = %zend_get_parent_private_method.exit.thread124, %112, %zend_get_parent_private_method.exit.thread120, %zend_get_parent_private_method.exit
   %.1 = phi ptr [ null, %112 ], [ %.092123, %zend_get_parent_private_method.exit.thread120 ], [ null, %zend_get_parent_private_method.exit ], [ null, %zend_get_parent_private_method.exit.thread124 ]
-  %.0.not112 = xor i1 %.0, true
-  %brmerge113 = or i1 %.not, %.0.not112
+  %.091.not112 = xor i1 %.091, true
+  %brmerge113 = or i1 %.not, %.091.not112
   br i1 %brmerge113, label %120, label %119
 
 119:                                              ; preds = %118
-  call void @_efree(ptr noundef %.091) #15
+  call void @_efree(ptr noundef %.093) #15
   br label %120
 
 120:                                              ; preds = %119, %118, %34, %38
-  %.093 = phi ptr [ %39, %38 ], [ null, %34 ], [ %.1, %118 ], [ %.1, %119 ]
-  ret ptr %.093
+  %.0 = phi ptr [ %39, %38 ], [ null, %34 ], [ %.1, %118 ], [ %.1, %119 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -5410,9 +5410,9 @@ define ptr @zend_std_get_static_method(ptr noundef %0, ptr noundef %1, ptr nound
   br label %8
 
 8:                                                ; preds = %6, %4
-  %.080 = phi ptr [ %5, %4 ], [ %7, %6 ]
+  %.083 = phi ptr [ %5, %4 ], [ %7, %6 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = tail call ptr @zend_hash_find(ptr noundef nonnull %9, ptr noundef %.080) #15
+  %10 = tail call ptr @zend_hash_find(ptr noundef nonnull %9, ptr noundef %.083) #15
   %.not95 = icmp eq ptr %10, null
   br i1 %.not95, label %77, label %11
 
@@ -5525,8 +5525,8 @@ zend_check_protected.exit:                        ; preds = %36, %.preheader.i, 
   br label %60
 
 60:                                               ; preds = %58, %.critedge
-  %.082 = phi ptr [ %54, %.critedge ], [ %59, %58 ]
-  %.not106 = icmp eq ptr %.082, null
+  %.0 = phi ptr [ %54, %.critedge ], [ %59, %58 ]
+  %.not106 = icmp eq ptr %.0, null
   br i1 %.not106, label %.thread, label %zend_check_protected.exit.thread
 
 .thread:                                          ; preds = %55, %60
@@ -5606,54 +5606,54 @@ zend_bad_method_call.exit:                        ; preds = %68, %70
   br label %zend_check_protected.exit.thread
 
 zend_check_protected.exit.thread:                 ; preds = %.lr.ph.i, %.lr.ph18.i, %.critedge2, %97, %94, %60, %zend_bad_method_call.exit, %11, %16
-  %.0 = phi ptr [ %12, %11 ], [ %12, %16 ], [ null, %zend_bad_method_call.exit ], [ %.082, %60 ], [ %93, %.critedge2 ], [ %98, %97 ], [ null, %94 ], [ %12, %.lr.ph18.i ], [ %12, %.lr.ph.i ]
+  %.082 = phi ptr [ %12, %11 ], [ %12, %16 ], [ null, %zend_bad_method_call.exit ], [ %.0, %60 ], [ %93, %.critedge2 ], [ %98, %97 ], [ null, %94 ], [ %12, %.lr.ph18.i ], [ %12, %.lr.ph.i ]
   br i1 %.not, label %99, label %109
 
 99:                                               ; preds = %zend_check_protected.exit.thread
-  %100 = getelementptr inbounds i8, ptr %.080, i64 4
+  %100 = getelementptr inbounds i8, ptr %.083, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 64
   %.not107 = icmp eq i32 %102, 0
   br i1 %.not107, label %103, label %109
 
 103:                                              ; preds = %99
-  %104 = load i32, ptr %.080, align 4
+  %104 = load i32, ptr %.083, align 4
   %105 = icmp ne i32 %104, 0
   tail call void @llvm.assume(i1 %105)
   %106 = add i32 %104, -1
-  store i32 %106, ptr %.080, align 4
+  store i32 %106, ptr %.083, align 4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %103
-  tail call void @_efree(ptr noundef nonnull %.080) #15
+  tail call void @_efree(ptr noundef nonnull %.083) #15
   br label %109
 
 109:                                              ; preds = %99, %108, %103, %zend_check_protected.exit.thread
-  %.not108 = icmp eq ptr %.0, null
+  %.not108 = icmp eq ptr %.082, null
   br i1 %.not108, label %134, label %110
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %.0, i64 4
+  %111 = getelementptr inbounds i8, ptr %.082, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 64
   %.not109 = icmp eq i32 %113, 0
   br i1 %.not109, label %120, label %114
 
 114:                                              ; preds = %110
-  %115 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load ptr, ptr %115, align 8
-  %116 = getelementptr i8, ptr %.0, i64 16
-  %.0.val112 = load ptr, ptr %116, align 8
-  %117 = getelementptr i8, ptr %.0.val112, i64 8
-  %.0.val112.val = load ptr, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %.0.val112.val, i64 24
-  %119 = getelementptr inbounds i8, ptr %.0.val, i64 24
+  %115 = getelementptr i8, ptr %.082, i64 8
+  %.082.val = load ptr, ptr %115, align 8
+  %116 = getelementptr i8, ptr %.082, i64 16
+  %.082.val112 = load ptr, ptr %116, align 8
+  %117 = getelementptr i8, ptr %.082.val112, i64 8
+  %.082.val112.val = load ptr, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %.082.val112.val, i64 24
+  %119 = getelementptr inbounds i8, ptr %.082.val, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %118, ptr noundef nonnull %119) #15
   br label %134
 
 120:                                              ; preds = %110
-  %121 = getelementptr inbounds i8, ptr %.0, i64 16
+  %121 = getelementptr inbounds i8, ptr %.082, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 28
   %124 = load i32, ptr %123, align 4
@@ -5665,17 +5665,17 @@ zend_check_protected.exit.thread:                 ; preds = %.lr.ph.i, %.lr.ph18
   %127 = getelementptr inbounds i8, ptr %122, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
-  %130 = getelementptr inbounds i8, ptr %.0, i64 8
+  %130 = getelementptr inbounds i8, ptr %.082, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef nonnull %129, ptr noundef nonnull %132) #15
   %133 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not111 = icmp eq ptr %133, null
-  %spec.select = select i1 %.not111, ptr %.0, ptr null
+  %spec.select = select i1 %.not111, ptr %.082, ptr null
   br label %134
 
 134:                                              ; preds = %126, %109, %120, %114
-  %.081 = phi ptr [ null, %114 ], [ %.0, %120 ], [ null, %109 ], [ %spec.select, %126 ]
+  %.081 = phi ptr [ null, %114 ], [ %.082, %120 ], [ null, %109 ], [ %spec.select, %126 ]
   ret ptr %.081
 }
 
@@ -5899,16 +5899,16 @@ define ptr @zend_std_get_static_property_with_info(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %12, %14
   %.pre = phi i32 [ %.pre.pre, %14 ], [ %10, %12 ]
-  %.0 = phi ptr [ %15, %14 ], [ %13, %12 ]
+  %.050 = phi ptr [ %15, %14 ], [ %13, %12 ]
   %17 = getelementptr inbounds i8, ptr %8, i64 32
   %18 = load ptr, ptr %17, align 8
-  %.not58 = icmp eq ptr %18, %.0
+  %.not58 = icmp eq ptr %18, %.050
   br i1 %.not58, label %is_protected_compatible_scope.exit.thread70, label %19
 
 19:                                               ; preds = %16
   %20 = and i32 %.pre, 4
   %.not59 = icmp ne i32 %20, 0
-  %.not.i = icmp eq ptr %.0, null
+  %.not.i = icmp eq ptr %.050, null
   %or.cond72 = or i1 %.not.i, %.not59
   br i1 %or.cond72, label %is_protected_compatible_scope.exit.thread, label %.preheader.i
 
@@ -5920,11 +5920,11 @@ define ptr @zend_std_get_static_property_with_info(ptr noundef %0, ptr noundef %
   br i1 %.not21.not.i, label %.critedge.i, label %21
 
 21:                                               ; preds = %.preheader.i
-  %22 = icmp eq ptr %.017.i, %.0
+  %22 = icmp eq ptr %.017.i, %.050
   br i1 %22, label %is_protected_compatible_scope.exit.thread70, label %.preheader.i
 
 .critedge.i:                                      ; preds = %.preheader.i, %.critedge.i
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i ], [ %.0, %.preheader.i ]
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i ], [ %.050, %.preheader.i ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
@@ -6032,13 +6032,13 @@ is_protected_compatible_scope.exit.thread70:      ; preds = %21, %16, %is_protec
   br label %74
 
 74:                                               ; preds = %64, %72
-  %.050 = phi ptr [ %73, %72 ], [ %68, %64 ]
+  %.051 = phi ptr [ %73, %72 ], [ %68, %64 ]
   %75 = and i32 %2, -3
   %or.cond = icmp eq i32 %75, 0
   br i1 %or.cond, label %76, label %.critedge
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.050, i64 8
+  %77 = getelementptr inbounds i8, ptr %.051, i64 8
   %78 = load i8, ptr %77, align 8
   %79 = icmp eq i8 %78, 0
   br i1 %79, label %80, label %.critedge
@@ -6077,7 +6077,7 @@ is_protected_compatible_scope.exit.thread70:      ; preds = %21, %16, %is_protec
   br label %100
 
 100:                                              ; preds = %.critedge, %93, %43, %33, %34, %is_protected_compatible_scope.exit.thread, %24, %84
-  %.052 = phi ptr [ null, %84 ], [ null, %24 ], [ null, %is_protected_compatible_scope.exit.thread ], [ null, %34 ], [ null, %33 ], [ null, %43 ], [ %.050, %93 ], [ %.050, %.critedge ]
+  %.052 = phi ptr [ null, %84 ], [ null, %24 ], [ null, %is_protected_compatible_scope.exit.thread ], [ null, %34 ], [ null, %33 ], [ null, %43 ], [ %.051, %93 ], [ %.051, %.critedge ]
   ret ptr %.052
 }
 
@@ -6220,15 +6220,15 @@ define i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   %9 = icmp eq i8 %5, 8
-  %. = select i1 %9, ptr %0, ptr %1
-  %.100 = select i1 %9, ptr %1, ptr %0
-  %10 = getelementptr inbounds i8, ptr %.100, i64 8
+  %. = select i1 %9, ptr %1, ptr %0
+  %.100 = select i1 %9, ptr %0, ptr %1
+  %10 = getelementptr inbounds i8, ptr %., i64 8
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
   %switch = icmp eq i8 %12, 2
   %narrow = select i1 %switch, i8 18, i8 %11
   %spec.select = zext i8 %narrow to i32
-  %13 = load ptr, ptr %., align 8
+  %13 = load ptr, ptr %.100, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 136
@@ -6244,7 +6244,7 @@ define i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #0 {
 
 .sink.split:                                      ; preds = %20
   %22 = icmp eq i8 %narrow, 4
-  %23 = load ptr, ptr %., align 8
+  %23 = load ptr, ptr %.100, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -6430,8 +6430,8 @@ define i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #0 {
   br label %119
 
 119:                                              ; preds = %55, %44, %40, %115, %._crit_edge, %95, %89, %84, %38, %31
-  %.077 = phi i32 [ %39, %38 ], [ %32, %31 ], [ %118, %115 ], [ %83, %84 ], [ 1, %89 ], [ 1, %95 ], [ 0, %._crit_edge ], [ 0, %40 ], [ 1, %44 ], [ 0, %55 ]
-  ret i32 %.077
+  %.0 = phi i32 [ %39, %38 ], [ %32, %31 ], [ %118, %115 ], [ %83, %84 ], [ 1, %89 ], [ 1, %95 ], [ 0, %._crit_edge ], [ 0, %40 ], [ 1, %44 ], [ 0, %55 ]
+  ret i32 %.0
 }
 
 declare ptr @zend_get_type_by_const(i32 noundef) local_unnamed_addr #1
@@ -6627,38 +6627,38 @@ is_protected_compatible_scope.exit:               ; preds = %.critedge.i238
   br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread243, label %.thread.thread256
 
 is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_parent_private_property.exit, %35, %is_protected_compatible_scope.exit, %44, %zend_get_parent_private_property.exit.thread
-  %.0178 = phi i32 [ %38, %zend_get_parent_private_property.exit.thread ], [ %38, %is_protected_compatible_scope.exit ], [ %38, %44 ], [ %38, %35 ], [ %60, %zend_get_parent_private_property.exit ], [ %38, %77 ]
-  %.0176 = phi ptr [ %36, %zend_get_parent_private_property.exit.thread ], [ %36, %is_protected_compatible_scope.exit ], [ %36, %44 ], [ %36, %35 ], [ %58, %zend_get_parent_private_property.exit ], [ %36, %77 ]
-  %80 = and i32 %.0178, 16
+  %.0174 = phi i32 [ %38, %zend_get_parent_private_property.exit.thread ], [ %38, %is_protected_compatible_scope.exit ], [ %38, %44 ], [ %38, %35 ], [ %60, %zend_get_parent_private_property.exit ], [ %38, %77 ]
+  %.0171 = phi ptr [ %36, %zend_get_parent_private_property.exit.thread ], [ %36, %is_protected_compatible_scope.exit ], [ %36, %44 ], [ %36, %35 ], [ %58, %zend_get_parent_private_property.exit ], [ %36, %77 ]
+  %80 = and i32 %.0174, 16
   %.not204 = icmp eq i32 %80, 0
   br i1 %.not204, label %81, label %.thread258
 
 81:                                               ; preds = %is_protected_compatible_scope.exit.thread243
-  %82 = load i32, ptr %.0176, align 8
+  %82 = load i32, ptr %.0171, align 8
   %83 = zext i32 %82 to i64
   br i1 %.not, label %91, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.0176, i64 48
+  %85 = getelementptr inbounds i8, ptr %.0171, i64 48
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 33554431
   %.not205 = icmp eq i32 %87, 0
-  %..0176 = select i1 %.not205, ptr null, ptr %.0176
+  %..0171 = select i1 %.not205, ptr null, ptr %.0171
   store ptr %8, ptr %3, align 8
   %88 = inttoptr i64 %83 to ptr
   %89 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %..0176, ptr %90, align 8
+  store ptr %..0171, ptr %90, align 8
   br label %91
 
 91:                                               ; preds = %81, %84, %12
-  %.0175 = phi i64 [ %15, %12 ], [ %83, %84 ], [ %83, %81 ]
-  %92 = icmp sgt i64 %.0175, 0
+  %.0170 = phi i64 [ %15, %12 ], [ %83, %84 ], [ %83, %81 ]
+  %92 = icmp sgt i64 %.0170, 0
   br i1 %92, label %93, label %.thread
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %0, i64 %.0175
+  %94 = getelementptr inbounds i8, ptr %0, i64 %.0170
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i8, ptr %95, align 8
   %.not211 = icmp eq i8 %96, 0
@@ -6674,8 +6674,8 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br i1 %or.cond230, label %.thread248, label %172
 
 .thread:                                          ; preds = %71, %28, %91
-  %.0175246 = phi i64 [ %.0175, %91 ], [ %.mux, %71 ], [ %.mux234, %28 ]
-  %101 = icmp slt i64 %.0175246, 0
+  %.0170246 = phi i64 [ %.0170, %91 ], [ %.mux, %71 ], [ %.mux234, %28 ]
+  %101 = icmp slt i64 %.0170246, 0
   br i1 %101, label %102, label %.thread.thread256
 
 102:                                              ; preds = %.thread
@@ -6691,11 +6691,11 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br i1 %.not208260, label %171, label %.thread262
 
 107:                                              ; preds = %102
-  %108 = icmp eq i64 %.0175246, -1
+  %108 = icmp eq i64 %.0170246, -1
   br i1 %108, label %.thread262, label %109
 
 109:                                              ; preds = %107
-  %110 = sub nuw nsw i64 -2, %.0175246
+  %110 = sub nuw nsw i64 -2, %.0170246
   %111 = getelementptr inbounds i8, ptr %104, i64 24
   %112 = load i32, ptr %111, align 8
   %113 = zext i32 %112 to i64
@@ -6764,12 +6764,12 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br label %151
 
 151:                                              ; preds = %116, %135, %141, %142, %93
-  %.0170 = phi ptr [ %94, %93 ], [ %140, %142 ], [ %140, %141 ], [ %119, %135 ], [ %119, %116 ]
+  %.0175 = phi ptr [ %94, %93 ], [ %140, %142 ], [ %140, %141 ], [ %119, %135 ], [ %119, %116 ]
   %152 = icmp eq i32 %2, 1
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %151
-  %154 = tail call i32 @zend_is_true(ptr noundef nonnull %.0170) #15
+  %154 = tail call i32 @zend_is_true(ptr noundef nonnull %.0175) #15
   br label %.thread248
 
 155:                                              ; preds = %151
@@ -6779,13 +6779,13 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
 157:                                              ; preds = %155
   %158 = icmp eq i32 %2, 0
   tail call void @llvm.assume(i1 %158)
-  %159 = getelementptr inbounds i8, ptr %.0170, i64 8
+  %159 = getelementptr inbounds i8, ptr %.0175, i64 8
   %160 = load i8, ptr %159, align 8
   %161 = icmp eq i8 %160, 10
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %157
-  %163 = load ptr, ptr %.0170, align 8
+  %163 = load ptr, ptr %.0175, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %163, i64 16
   %.pre280 = load i8, ptr %.phi.trans.insert, align 8
   br label %164
@@ -6840,7 +6840,7 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br label %187
 
 187:                                              ; preds = %184, %180
-  %.0169 = phi ptr [ null, %180 ], [ %1, %184 ]
+  %.0172 = phi ptr [ null, %180 ], [ %1, %184 ]
   %188 = load i32, ptr %0, align 4
   %189 = add i32 %188, 1
   store i32 %189, ptr %0, align 4
@@ -6978,13 +6978,13 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br label %.loopexit
 
 .loopexit:                                        ; preds = %215, %.loopexit.loopexit, %247, %234, %218, %238, %245, %229, %230, %233, %220, %223
-  %.0174.shrunk = phi i1 [ %246, %245 ], [ true, %233 ], [ false, %230 ], [ false, %229 ], [ true, %223 ], [ false, %220 ], [ %.not224, %218 ], [ %.not221, %234 ], [ true, %238 ], [ %.not220, %247 ], [ false, %.loopexit.loopexit ], [ true, %215 ]
-  %.0174 = zext i1 %.0174.shrunk to i32
+  %.0169.shrunk = phi i1 [ %246, %245 ], [ true, %233 ], [ false, %230 ], [ false, %229 ], [ true, %223 ], [ false, %220 ], [ %.not224, %218 ], [ %.not221, %234 ], [ true, %238 ], [ %.not220, %247 ], [ false, %.loopexit.loopexit ], [ true, %215 ]
+  %.0169 = zext i1 %.0169.shrunk to i32
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #15
   br label %254
 
 254:                                              ; preds = %202, %204, %208, %.loopexit, %187
-  %.0172 = phi i32 [ %.0174, %.loopexit ], [ %199, %187 ], [ 0, %208 ], [ 0, %204 ], [ 0, %202 ]
+  %.0177 = phi i32 [ %.0169, %.loopexit ], [ %199, %187 ], [ 0, %208 ], [ 0, %204 ], [ 0, %202 ]
   %255 = load i32, ptr %177, align 4
   %256 = and i32 %255, -9
   store i32 %256, ptr %177, align 4
@@ -7012,32 +7012,32 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   br label %268
 
 268:                                              ; preds = %261, %267, %262
-  %.not225 = icmp eq ptr %.0169, null
+  %.not225 = icmp eq ptr %.0172, null
   br i1 %.not225, label %.thread248, label %269
 
 269:                                              ; preds = %268
-  %270 = getelementptr inbounds i8, ptr %.0169, i64 4
+  %270 = getelementptr inbounds i8, ptr %.0172, i64 4
   %271 = load i32, ptr %270, align 4
   %272 = and i32 %271, 64
   %.not226 = icmp eq i32 %272, 0
   br i1 %.not226, label %273, label %.thread248
 
 273:                                              ; preds = %269
-  %274 = load i32, ptr %.0169, align 4
+  %274 = load i32, ptr %.0172, align 4
   %275 = icmp ne i32 %274, 0
   call void @llvm.assume(i1 %275)
   %276 = add i32 %274, -1
-  store i32 %276, ptr %.0169, align 4
+  store i32 %276, ptr %.0172, align 4
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %278, label %.thread248
 
 278:                                              ; preds = %273
-  call void @_efree(ptr noundef nonnull %.0169) #15
+  call void @_efree(ptr noundef nonnull %.0172) #15
   br label %.thread248
 
 .thread248:                                       ; preds = %.thread.thread256, %97, %171, %172, %176, %168, %164, %153, %269, %278, %273, %268
-  %.1173252 = phi i32 [ %.0172, %269 ], [ %.0172, %278 ], [ %.0172, %273 ], [ %.0172, %268 ], [ 0, %.thread.thread256 ], [ 0, %97 ], [ 0, %171 ], [ 0, %172 ], [ 0, %176 ], [ 1, %168 ], [ %167, %164 ], [ %154, %153 ]
-  ret i32 %.1173252
+  %.1178252 = phi i32 [ %.0177, %269 ], [ %.0177, %278 ], [ %.0177, %273 ], [ %.0177, %268 ], [ 0, %.thread.thread256 ], [ 0, %97 ], [ 0, %171 ], [ 0, %172 ], [ 0, %176 ], [ 1, %168 ], [ %167, %164 ], [ %154, %153 ]
+  ret i32 %.1178252
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

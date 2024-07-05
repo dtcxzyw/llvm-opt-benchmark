@@ -834,8 +834,8 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
   br label %18
 
 18:                                               ; preds = %3, %._crit_edge
-  %.020 = phi ptr [ %10, %._crit_edge ], [ null, %3 ]
-  ret ptr %.020
+  %.0 = phi ptr [ %10, %._crit_edge ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2395,13 +2395,13 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.010 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.010, i64 24
+  %.0710 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.0710, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %.010, align 8
+  %9 = load ptr, ptr %.0710, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.010) #22
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
@@ -2438,10 +2438,10 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.010 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.010, i64 8
+  %.0710 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.0710, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.010) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710) #20
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
@@ -2481,10 +2481,10 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.010.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %.0710.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.0710.i, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.010.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #20
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
@@ -2522,13 +2522,13 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.010.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.010.i, i64 24
+  %.0710.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.0710.i, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %.010.i, align 8
+  %9 = load ptr, ptr %.0710.i, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.010.i) #22
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
@@ -2783,13 +2783,13 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %.010.i = phi ptr [ %26, %.lr.ph.i ], [ %24, %21 ]
-  %25 = getelementptr inbounds i8, ptr %.010.i, i64 24
+  %.0710.i = phi ptr [ %26, %.lr.ph.i ], [ %24, %21 ]
+  %25 = getelementptr inbounds i8, ptr %.0710.i, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %.010.i, align 8
+  %27 = load ptr, ptr %.0710.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.010.i) #22
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
@@ -2822,10 +2822,10 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   br i1 %.not9.i7, label %._crit_edge.i11, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %36, %.lr.ph.i8
-  %.010.i9 = phi ptr [ %41, %.lr.ph.i8 ], [ %39, %36 ]
-  %40 = getelementptr inbounds i8, ptr %.010.i9, i64 8
+  %.0710.i9 = phi ptr [ %41, %.lr.ph.i8 ], [ %39, %36 ]
+  %40 = getelementptr inbounds i8, ptr %.0710.i9, i64 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.010.i9) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #20
   %.not.i10 = icmp eq ptr %41, null
   br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !23
 

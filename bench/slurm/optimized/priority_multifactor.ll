@@ -732,8 +732,8 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %306
   %79 = phi i64 [ %307, %306 ], [ %.pre, %.lr.ph.preheader ]
-  %.03373 = phi i16 [ %.2, %306 ], [ %15, %.lr.ph.preheader ]
-  %.03472 = phi i64 [ %.3, %306 ], [ 0, %.lr.ph.preheader ]
+  %.073 = phi i64 [ %.3, %306 ], [ 0, %.lr.ph.preheader ]
+  %.03372 = phi i16 [ %.235, %306 ], [ %15, %.lr.ph.preheader ]
   %80 = call i32 @pthread_mutex_lock(ptr noundef nonnull @decay_lock) #15
   %.not53 = icmp eq i32 %80, 0
   br i1 %.not53, label %83, label %81
@@ -762,9 +762,9 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br label %90
 
 90:                                               ; preds = %84, %83
-  %.135 = phi i64 [ 0, %84 ], [ %.03472, %83 ]
-  %.1 = phi i16 [ %85, %84 ], [ %.03373, %83 ]
-  switch i16 %.1, label %100 [
+  %.134 = phi i16 [ %85, %84 ], [ %.03372, %83 ]
+  %.1 = phi i64 [ 0, %84 ], [ %.073, %83 ]
+  switch i16 %.134, label %100 [
     i16 6, label %92
     i16 1, label %91
     i16 2, label %92
@@ -779,28 +779,28 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br label %100
 
 92:                                               ; preds = %90, %90, %90, %90, %90
-  %93 = icmp eq i64 %.135, 0
+  %93 = icmp eq i64 %.1, 0
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
   %95 = load i64, ptr %8, align 8
-  %96 = call fastcc i64 @_next_reset(i16 noundef zeroext %.1, i64 noundef %95)
+  %96 = call fastcc i64 @_next_reset(i16 noundef zeroext %.134, i64 noundef %95)
   br label %97
 
 97:                                               ; preds = %94, %92
-  %.236 = phi i64 [ %96, %94 ], [ %.135, %92 ]
-  %.not56 = icmp slt i64 %79, %.236
+  %.2 = phi i64 [ %96, %94 ], [ %.1, %92 ]
+  %.not56 = icmp slt i64 %79, %.2
   br i1 %.not56, label %100, label %98
 
 98:                                               ; preds = %97
   call fastcc void @_reset_usage()
-  store i64 %.236, ptr %8, align 8
-  %99 = call fastcc i64 @_next_reset(i16 noundef zeroext %.1, i64 noundef %.236)
+  store i64 %.2, ptr %8, align 8
+  %99 = call fastcc i64 @_next_reset(i16 noundef zeroext %.134, i64 noundef %.2)
   br label %100
 
 100:                                              ; preds = %97, %98, %91, %90
-  %.3 = phi i64 [ %.135, %90 ], [ %.135, %91 ], [ %99, %98 ], [ %.236, %97 ]
-  %.2 = phi i16 [ %.1, %90 ], [ 0, %91 ], [ %.1, %98 ], [ %.1, %97 ]
+  %.235 = phi i16 [ %.134, %90 ], [ 0, %91 ], [ %.134, %98 ], [ %.134, %97 ]
+  %.3 = phi i64 [ %.1, %90 ], [ %.1, %91 ], [ %99, %98 ], [ %.2, %97 ]
   %101 = load i32, ptr @flags, align 4
   %102 = and i32 %101, 32
   %.not57 = icmp eq i32 %102, 0
@@ -832,7 +832,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   %115 = load double, ptr @decay_factor, align 8
   %116 = call double @pow(double noundef %115, double noundef %112) #15
   %117 = fcmp olt double %116, 0x10000000000000
-  %.0 = select i1 %117, double 0x10000000000000, double %116
+  %.036 = select i1 %117, double 0x10000000000000, double %116
   %118 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %119 = and i64 %118, 2048
   %.not59 = icmp eq i64 %119, 0
@@ -845,14 +845,14 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
 
 123:                                              ; preds = %120
   %124 = load double, ptr @decay_factor, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._decay_thread, double noundef %112, double noundef %124, double noundef %.0) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._decay_thread, double noundef %112, double noundef %124, double noundef %.036) #15
   br label %125
 
 125:                                              ; preds = %114, %120, %123
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) @__const._apply_decay.locks, i64 28, i1 false)
   %.b.i = load i1, ptr @calc_fairshare, align 1
-  %126 = fcmp oeq double %.0, 1.000000e+00
+  %126 = fcmp oeq double %.036, 1.000000e+00
   %or.cond.i = or i1 %126, %.b.i
   br i1 %or.cond.i, label %199, label %127
 
@@ -865,7 +865,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br i1 %.not52.i, label %._crit_edge55.i, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %127
-  %131 = fpext double %.0 to x86_fp80
+  %131 = fpext double %.036 to x86_fp80
   br label %132
 
 132:                                              ; preds = %169, %.lr.ph54.i
@@ -901,7 +901,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   %147 = load ptr, ptr %134, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 48
   %149 = load double, ptr %148, align 16
-  %150 = fmul double %.0, %149
+  %150 = fmul double %.036, %149
   store double %150, ptr %148, align 16
   %151 = getelementptr inbounds i8, ptr %133, i64 144
   %152 = load ptr, ptr %151, align 8
@@ -941,7 +941,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   %165 = load ptr, ptr %151, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 48
   %167 = load double, ptr %166, align 16
-  %168 = fmul double %.0, %167
+  %168 = fmul double %.036, %167
   store double %168, ptr %166, align 16
   br label %169
 
@@ -959,7 +959,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br i1 %.not4360.i, label %._crit_edge63.i, label %.lr.ph62.i
 
 .lr.ph62.i:                                       ; preds = %._crit_edge55.i
-  %174 = fpext double %.0 to x86_fp80
+  %174 = fpext double %.036 to x86_fp80
   br label %175
 
 175:                                              ; preds = %.backedge.i, %.lr.ph62.i
@@ -1002,7 +1002,7 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   %194 = load ptr, ptr %181, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 64
   %196 = load double, ptr %195, align 16
-  %197 = fmul double %.0, %196
+  %197 = fmul double %.036, %196
   store double %197, ptr %195, align 16
   br label %.backedge.i
 
@@ -1106,11 +1106,11 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br i1 %242, label %.lr.ph.i67, label %.loopexit.i
 
 .lr.ph.i67:                                       ; preds = %235, %256
-  %.02738.i = phi i32 [ %257, %256 ], [ %237, %235 ]
-  %.02837.i = phi i32 [ %258, %256 ], [ 0, %235 ]
-  %243 = sext i32 %.02837.i to i64
+  %.02838.i = phi i32 [ %257, %256 ], [ %237, %235 ]
+  %.02937.i = phi i32 [ %258, %256 ], [ 0, %235 ]
+  %243 = sext i32 %.02937.i to i64
   %244 = getelementptr inbounds i8, ptr %239, i64 %243
-  %245 = zext nneg i32 %.02738.i to i64
+  %245 = zext nneg i32 %.02838.i to i64
   %246 = call i64 @write(i32 noundef %228, ptr noundef %244, i64 noundef %245) #15
   %247 = trunc i64 %246 to i32
   %248 = icmp slt i32 %247, 0
@@ -1129,19 +1129,19 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   br label %.loopexit.i
 
 256:                                              ; preds = %249, %.lr.ph.i67
-  %257 = sub nsw i32 %.02738.i, %247
-  %258 = add nsw i32 %.02837.i, %247
+  %257 = sub nsw i32 %.02838.i, %247
+  %258 = add nsw i32 %.02937.i, %247
   %259 = icmp sgt i32 %257, 0
   br i1 %259, label %.lr.ph.i67, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %256, %252, %235
-  %.029.i = phi i32 [ %255, %252 ], [ 0, %235 ], [ 0, %256 ]
+  %.027.i = phi i32 [ %255, %252 ], [ 0, %235 ], [ 0, %256 ]
   %260 = call i32 @fsync(i32 noundef %228) #15
   %261 = call i32 @close(i32 noundef %228) #15
   br label %262
 
 262:                                              ; preds = %.loopexit.i, %230
-  %.1.i = phi i32 [ %234, %230 ], [ %.029.i, %.loopexit.i ]
+  %.1.i = phi i32 [ %234, %230 ], [ %.027.i, %.loopexit.i ]
   %.not33.i = icmp eq i32 %.1.i, 0
   br i1 %.not33.i, label %263, label %287
 
@@ -1553,7 +1553,7 @@ _get_tres_prio_weighted.exit.loopexit:            ; preds = %.lr.ph.i
 
 _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weighted.exit.loopexit, %.preheader.i, %92, %53
   %104 = phi ptr [ %.pre189, %92 ], [ %.pre189, %53 ], [ %.pre189, %.preheader.i ], [ %.pre188, %_get_tres_prio_weighted.exit.loopexit ]
-  %.0124 = phi double [ 0.000000e+00, %92 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %.preheader.i ], [ %103, %_get_tres_prio_weighted.exit.loopexit ]
+  %.0120 = phi double [ 0.000000e+00, %92 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %.preheader.i ], [ %103, %_get_tres_prio_weighted.exit.loopexit ]
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load double, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 16
@@ -1571,7 +1571,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   %119 = getelementptr inbounds i8, ptr %104, i64 48
   %120 = load double, ptr %119, align 8
   %121 = fadd double %118, %120
-  %122 = fadd double %.0124, %121
+  %122 = fadd double %.0120, %121
   %123 = getelementptr inbounds i8, ptr %104, i64 56
   %124 = load i32, ptr %123, align 8
   %125 = zext i32 %124 to i64
@@ -1584,8 +1584,8 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   %132 = sitofp i64 %131 to double
   %133 = fsub double %128, %132
   %134 = fcmp olt double %133, 1.000000e+00
-  %.0119 = select i1 %134, double 1.000000e+00, double %133
-  %135 = fptoui double %.0119 to i64
+  %.0118 = select i1 %134, double 1.000000e+00, double %133
+  %135 = fptoui double %.0118 to i64
   %136 = icmp ugt i64 %135, 4294967295
   br i1 %136, label %137, label %139
 
@@ -1594,7 +1594,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   br label %139
 
 139:                                              ; preds = %137, %_get_tres_prio_weighted.exit
-  %.1 = phi double [ 0x41EFFFFFFFE00000, %137 ], [ %.0119, %_get_tres_prio_weighted.exit ]
+  %.1 = phi double [ 0x41EFFFFFFFE00000, %137 ], [ %.0118, %_get_tres_prio_weighted.exit ]
   %140 = getelementptr inbounds i8, ptr %1, i64 648
   %141 = load ptr, ptr %140, align 8
   %.not143 = icmp eq ptr %141, null
@@ -1786,7 +1786,7 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
   br label %215
 
 215:                                              ; preds = %_get_tres_prio_weighted.exit169, %157
-  %.0120 = phi double [ %.011.i161, %_get_tres_prio_weighted.exit169 ], [ 0.000000e+00, %157 ]
+  %.0123 = phi double [ %.011.i161, %_get_tres_prio_weighted.exit169 ], [ 0.000000e+00, %157 ]
   %216 = load i32, ptr @flags, align 4
   %217 = and i32 %216, 256
   %.not149 = icmp eq i32 %217, 0
@@ -1823,7 +1823,7 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
   %242 = getelementptr inbounds i8, ptr %230, i64 48
   %243 = load double, ptr %242, align 8
   %244 = fadd double %241, %243
-  %245 = fadd double %.0120, %244
+  %245 = fadd double %.0123, %244
   %246 = getelementptr inbounds i8, ptr %230, i64 56
   %247 = load i32, ptr %246, align 8
   %248 = zext i32 %247 to i64
@@ -1837,8 +1837,8 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
   %256 = fsub double %251, %255
   %257 = fadd double %229, %256
   %258 = fcmp olt double %257, 1.000000e+00
-  %.0122 = select i1 %258, double 1.000000e+00, double %257
-  %259 = fptoui double %.0122 to i64
+  %.0121 = select i1 %258, double 1.000000e+00, double %257
+  %259 = fptoui double %.0121 to i64
   %260 = icmp ugt i64 %259, 4294967295
   br i1 %260, label %261, label %263
 
@@ -1849,20 +1849,20 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
 
 263:                                              ; preds = %261, %225
   %264 = phi i32 [ %.pre191, %261 ], [ %216, %225 ]
-  %.1123 = phi double [ 0x41EFFFFFFFE00000, %261 ], [ %.0122, %225 ]
+  %.1122 = phi double [ 0x41EFFFFFFFE00000, %261 ], [ %.0121, %225 ]
   %265 = and i32 %264, 64
   %266 = icmp eq i32 %265, 0
   %.pre192 = load ptr, ptr %143, align 8
   br i1 %266, label %._crit_edge193, label %267
 
 ._crit_edge193:                                   ; preds = %263
-  %.pre194 = fptoui double %.1123 to i32
+  %.pre194 = fptoui double %.1122 to i32
   br label %272
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds i32, ptr %.pre192, i64 %indvars.iv
   %269 = load i32, ptr %268, align 4
-  %270 = fptoui double %.1123 to i32
+  %270 = fptoui double %.1122 to i32
   %271 = icmp ult i32 %269, %270
   br i1 %271, label %272, label %274
 
@@ -2107,7 +2107,7 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
   %418 = load i32, ptr %405, align 8
   %419 = zext i32 %418 to i64
   %420 = add nsw i64 %419, -2147483648
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.62, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_priority_internal, i32 noundef %404, i64 noundef %307, double noundef %407, double noundef %409, double noundef %411, double noundef %413, double noundef %415, double noundef %417, double noundef %.0124, i64 noundef %420, double noundef %.1) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.62, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_priority_internal, i32 noundef %404, i64 noundef %307, double noundef %407, double noundef %409, double noundef %411, double noundef %413, double noundef %415, double noundef %417, double noundef %.0120, i64 noundef %420, double noundef %.1) #15
   br label %421
 
 421:                                              ; preds = %402, %399
@@ -2119,8 +2119,8 @@ _get_tres_prio_weighted.exit169:                  ; preds = %.lr.ph.i164, %_get_
   br label %424
 
 424:                                              ; preds = %11, %14, %22, %28, %422
-  %.0118 = phi i32 [ %423, %422 ], [ 0, %28 ], [ 0, %22 ], [ %.pre, %14 ], [ %10, %11 ]
-  ret i32 %.0118
+  %.0 = phi i32 [ %423, %422 ], [ 0, %28 ], [ 0, %22 ], [ %.pre, %14 ], [ %10, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2738,8 +2738,8 @@ _set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124
   br label %186
 
 186:                                              ; preds = %183, %180
-  %.032.i = phi ptr [ @.str.77, %183 ], [ @.str.76, %180 ]
-  %.0.i = phi ptr [ %185, %183 ], [ %182, %180 ]
+  %.032.i = phi ptr [ %185, %183 ], [ %182, %180 ]
+  %.0.i = phi ptr [ @.str.77, %183 ], [ @.str.76, %180 ]
   %187 = tail call i32 @get_log_level() #15
   %188 = icmp sgt i32 %187, 2
   br i1 %188, label %189, label %208
@@ -2763,7 +2763,7 @@ _set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124
   %205 = load x86_fp80, ptr %204, align 16
   %206 = getelementptr inbounds i8, ptr %190, i64 128
   %207 = load x86_fp80, ptr %206, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.80, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.032.i, ptr noundef %.0.i, ptr noundef %194, ptr noundef %198, x86_fp80 noundef %200, x86_fp80 noundef %205, x86_fp80 noundef %207) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.80, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %194, ptr noundef %198, x86_fp80 noundef %200, x86_fp80 noundef %205, x86_fp80 noundef %207) #15
   br label %208
 
 208:                                              ; preds = %189, %186
@@ -2793,7 +2793,7 @@ _set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124
   %228 = load x86_fp80, ptr %227, align 16
   %229 = getelementptr inbounds i8, ptr %218, i64 128
   %230 = load x86_fp80, ptr %229, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.032.i, ptr noundef %.0.i, ptr noundef %222, ptr noundef %226, x86_fp80 noundef %228, x86_fp80 noundef %230) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %222, ptr noundef %226, x86_fp80 noundef %228, x86_fp80 noundef %230) #15
   br label %_priority_p_set_assoc_usage_debug.exit
 
 231:                                              ; preds = %208
@@ -2814,7 +2814,7 @@ _set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 112
   %244 = load x86_fp80, ptr %243, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.032.i, ptr noundef %.0.i, ptr noundef %240, x86_fp80 noundef %244) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %240, x86_fp80 noundef %244) #15
   br label %_priority_p_set_assoc_usage_debug.exit
 
 245:                                              ; preds = %231
@@ -2849,7 +2849,7 @@ _set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124
   %269 = load i32, ptr %268, align 16
   %270 = getelementptr inbounds i8, ptr %252, i64 112
   %271 = load x86_fp80, ptr %270, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.032.i, ptr noundef %.0.i, ptr noundef %256, ptr noundef %260, x86_fp80 noundef %262, x86_fp80 noundef %266, x86_fp80 noundef %262, i32 noundef %267, i32 noundef %269, x86_fp80 noundef %271) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.83, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %256, ptr noundef %260, x86_fp80 noundef %262, x86_fp80 noundef %266, x86_fp80 noundef %262, i32 noundef %267, i32 noundef %269, x86_fp80 noundef %271) #15
   br label %_priority_p_set_assoc_usage_debug.exit
 
 _priority_p_set_assoc_usage_debug.exit:           ; preds = %251, %248, %245, %238, %235, %217, %214, %_set_assoc_usage_efctv.exit
@@ -3382,7 +3382,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %.0138 = select i1 %or.cond, i64 %18, i64 %2
   %21 = tail call double @difftime(i64 noundef %.0138, i64 noundef %spec.select) #17
   %22 = fcmp olt double %21, 0.000000e+00
-  %.0143 = select i1 %22, double 0.000000e+00, double %21
+  %.0145 = select i1 %22, double 0.000000e+00, double %21
   %23 = getelementptr inbounds i8, ptr %0, i64 944
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
@@ -3417,11 +3417,11 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br label %43
 
 41:                                               ; preds = %36
-  %42 = fptoui double %.0143 to i64
+  %42 = fptoui double %.0145 to i64
   br label %43
 
 43:                                               ; preds = %38, %14, %34, %41
-  %.0134 = phi i64 [ %35, %34 ], [ %42, %41 ], [ 0, %14 ], [ %spec.select179, %38 ]
+  %.0135 = phi i64 [ %35, %34 ], [ %42, %41 ], [ 0, %14 ], [ %spec.select179, %38 ]
   br i1 %3, label %44, label %45
 
 44:                                               ; preds = %43
@@ -3442,7 +3442,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 392
   %53 = load i32, ptr %52, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.69, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, i32 noundef %53, double noundef %.0143) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.69, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, i32 noundef %53, double noundef %.0145) #15
   br label %54
 
 54:                                               ; preds = %51, %48
@@ -3502,8 +3502,8 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 
 .loopexit186:                                     ; preds = %72, %.preheader185, %79, %76, %45
   %83 = load double, ptr @decay_factor, align 8
-  %84 = tail call double @pow(double noundef %83, double noundef %.0143) #15
-  %85 = fmul double %.0143, %84
+  %84 = tail call double @pow(double noundef %83, double noundef %.0145) #15
+  %85 = fmul double %.0145, %84
   %86 = shl nuw nsw i64 %7, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %86, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 0, i64 %86, i1 false)
@@ -3512,7 +3512,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   call void @assoc_mgr_lock(ptr noundef nonnull %5) #15
   %88 = call double @calc_job_billable_tres(ptr noundef nonnull %0, i64 noundef %spec.select, i1 noundef zeroext true) #15
   %89 = fmul double %85, %88
-  %90 = fmul double %.0143, %88
+  %90 = fmul double %.0145, %88
   %91 = getelementptr inbounds i8, ptr %0, i64 760
   %92 = load ptr, ptr %91, align 8
   %.not166 = icmp eq ptr %92, null
@@ -3528,18 +3528,18 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %98 = fmul double %89, %95
   %99 = fmul double %85, %95
   %100 = fmul double %90, %95
-  %101 = fmul double %.0143, %95
-  %102 = uitofp i64 %.0134 to double
+  %101 = fmul double %.0145, %95
+  %102 = uitofp i64 %.0135 to double
   %103 = fmul double %95, %102
   %104 = fptoui double %103 to i64
   br label %105
 
 105:                                              ; preds = %97, %93, %.loopexit186
-  %.0142 = phi double [ %99, %97 ], [ %85, %93 ], [ %85, %.loopexit186 ]
-  %.0141 = phi double [ %101, %97 ], [ %.0143, %93 ], [ %.0143, %.loopexit186 ]
-  %.0140 = phi double [ %98, %97 ], [ %89, %93 ], [ %89, %.loopexit186 ]
-  %.0139 = phi double [ %100, %97 ], [ %90, %93 ], [ %90, %.loopexit186 ]
-  %.1135 = phi i64 [ %104, %97 ], [ %.0134, %93 ], [ %.0134, %.loopexit186 ]
+  %.0144 = phi double [ %99, %97 ], [ %85, %93 ], [ %85, %.loopexit186 ]
+  %.0143 = phi double [ %101, %97 ], [ %.0145, %93 ], [ %.0145, %.loopexit186 ]
+  %.0142 = phi double [ %98, %97 ], [ %89, %93 ], [ %89, %.loopexit186 ]
+  %.0141 = phi double [ %100, %97 ], [ %90, %93 ], [ %90, %.loopexit186 ]
+  %.1136 = phi i64 [ %104, %97 ], [ %.0135, %93 ], [ %.0135, %.loopexit186 ]
   %106 = getelementptr inbounds i8, ptr %0, i64 1040
   %107 = load ptr, ptr %106, align 8
   %.not167 = icmp eq ptr %107, null
@@ -3551,8 +3551,8 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br i1 %109, label %.lr.ph189, label %.loopexit
 
 .lr.ph189:                                        ; preds = %.preheader
-  %110 = fpext double %.0142 to x86_fp80
-  %111 = fpext double %.0141 to x86_fp80
+  %110 = fpext double %.0144 to x86_fp80
+  %111 = fpext double %.0143 to x86_fp80
   %wide.trip.count = zext nneg i32 %108 to i64
   br label %112
 
@@ -3566,7 +3566,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   ]
 
 115:                                              ; preds = %112
-  %116 = mul i64 %114, %.1135
+  %116 = mul i64 %114, %.1136
   %117 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv194
   store i64 %116, ptr %117, align 8
   %118 = uitofp i64 %114 to x86_fp80
@@ -3598,12 +3598,12 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %131 = getelementptr inbounds i8, ptr %130, i64 64
   %132 = load double, ptr %131, align 16
   %133 = getelementptr inbounds i8, ptr %0, i64 392
+  %.0144..0143 = select i1 %.not168, double %.0144, double %.0143
   %.0142..0141 = select i1 %.not168, double %.0142, double %.0141
-  %.0140..0139 = select i1 %.not168, double %.0140, double %.0139
   %. = select i1 %.not168, ptr %9, ptr %10
-  %134 = fadd double %.0142..0141, %132
+  %134 = fadd double %.0144..0143, %132
   store double %134, ptr %131, align 16
-  %135 = fpext double %.0140..0139 to x86_fp80
+  %135 = fpext double %.0142..0141 to x86_fp80
   %136 = load ptr, ptr %129, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 96
   %138 = load x86_fp80, ptr %137, align 16
@@ -3637,12 +3637,12 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %152 = getelementptr inbounds i8, ptr %151, i64 64
   %153 = load double, ptr %152, align 16
   %154 = getelementptr inbounds i8, ptr %0, i64 392
-  %.0142..0141216 = select i1 %.not172, double %.0142, double %.0141
-  %.0140..0139217 = select i1 %.not172, double %.0140, double %.0139
+  %.0144..0143216 = select i1 %.not172, double %.0144, double %.0143
+  %.0142..0141217 = select i1 %.not172, double %.0142, double %.0141
   %.218 = select i1 %.not172, ptr %9, ptr %10
-  %155 = fadd double %.0142..0141216, %153
+  %155 = fadd double %.0144..0143216, %153
   store double %155, ptr %152, align 16
-  %156 = fpext double %.0140..0139217 to x86_fp80
+  %156 = fpext double %.0142..0141217 to x86_fp80
   %157 = load ptr, ptr %150, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 96
   %159 = load x86_fp80, ptr %158, align 16
@@ -3657,17 +3657,17 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br i1 %.not173190, label %._crit_edge, label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %.thread
-  %162 = fpext double %.0140 to x86_fp80
+  %162 = fpext double %.0142 to x86_fp80
   %163 = getelementptr inbounds i8, ptr %0, i64 392
   br label %164
 
 164:                                              ; preds = %.lr.ph192, %193
-  %.0144191 = phi ptr [ %125, %.lr.ph192 ], [ %197, %193 ]
-  %165 = getelementptr inbounds i8, ptr %.0144191, i64 312
+  %.0140191 = phi ptr [ %125, %.lr.ph192 ], [ %197, %193 ]
+  %165 = getelementptr inbounds i8, ptr %.0140191, i64 312
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 48
   %168 = load double, ptr %167, align 16
-  %169 = fadd double %.0142, %168
+  %169 = fadd double %.0144, %168
   store double %169, ptr %167, align 16
   %170 = load ptr, ptr %165, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 144
@@ -3685,25 +3685,25 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br i1 %178, label %179, label %193
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %.0144191, i64 132
+  %180 = getelementptr inbounds i8, ptr %.0140191, i64 132
   %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds i8, ptr %.0144191, i64 8
+  %182 = getelementptr inbounds i8, ptr %.0140191, i64 8
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %.0144191, i64 320
+  %184 = getelementptr inbounds i8, ptr %.0140191, i64 320
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %.0144191, i64 272
+  %186 = getelementptr inbounds i8, ptr %.0140191, i64 272
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %165, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 144
   %190 = load x86_fp80, ptr %189, align 16
   %191 = getelementptr inbounds i8, ptr %188, i64 48
   %192 = load double, ptr %191, align 16
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.72, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, double noundef %.0140, i32 noundef %181, ptr noundef %183, ptr noundef %185, ptr noundef %187, x86_fp80 noundef %190, double noundef %.0142, double noundef %192) #15
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.72, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, double noundef %.0142, i32 noundef %181, ptr noundef %183, ptr noundef %185, ptr noundef %187, x86_fp80 noundef %190, double noundef %.0144, double noundef %192) #15
   br label %193
 
 193:                                              ; preds = %176, %179, %164
   %194 = load i32, ptr %163, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %194, ptr noundef nonnull %.0144191)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %194, ptr noundef nonnull %.0140191)
   %195 = load ptr, ptr %165, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
@@ -3715,8 +3715,8 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br label %198
 
 198:                                              ; preds = %4, %._crit_edge
-  %.0136 = phi i32 [ 1, %._crit_edge ], [ 0, %4 ]
-  ret i32 %.0136
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3942,10 +3942,10 @@ define void @set_priority_factors(i64 noundef %0, ptr nocapture noundef %1) loca
   %21 = icmp slt i64 %20, %0
   %22 = sub nsw i64 %0, %20
   %23 = trunc i64 %22 to i32
-  %.0105 = select i1 %21, i32 %23, i32 0
+  %.0103 = select i1 %21, i32 %23, i32 0
   %24 = load i32, ptr @max_age, align 4
-  %25 = icmp ult i32 %.0105, %24
-  %26 = uitofp i32 %.0105 to double
+  %25 = icmp ult i32 %.0103, %24
+  %26 = uitofp i32 %.0103 to double
   %27 = uitofp i32 %24 to double
   %28 = fdiv double %26, %27
   %.sink = select i1 %25, double %28, double 1.000000e+00
@@ -4143,21 +4143,21 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br i1 %.not130, label %.thread.thread162, label %.thread.thread
 
 .thread.thread:                                   ; preds = %134, %131, %.thread
-  %.0104160 = phi i32 [ %127, %.thread ], [ %136, %134 ], [ %133, %131 ]
+  %.0105160 = phi i32 [ %127, %.thread ], [ %136, %134 ], [ %133, %131 ]
   %137 = getelementptr inbounds i8, ptr %129, i64 284
   %138 = load i32, ptr %137, align 4
   br label %.thread.thread162
 
 .thread.thread162:                                ; preds = %130, %.thread.thread, %.thread
-  %.0104161 = phi i32 [ %.0104160, %.thread.thread ], [ %127, %.thread ], [ 0, %130 ]
-  %.0103 = phi i32 [ %138, %.thread.thread ], [ 1, %.thread ], [ 1, %130 ]
+  %.0105161 = phi i32 [ %.0105160, %.thread.thread ], [ %127, %.thread ], [ 0, %130 ]
+  %.0104 = phi i32 [ %138, %.thread.thread ], [ 1, %.thread ], [ 1, %130 ]
   %139 = load i32, ptr @flags, align 4
   %140 = and i32 %139, 4
   %.not135 = icmp eq i32 %140, 0
   br i1 %.not135, label %180, label %141
 
 141:                                              ; preds = %.thread.thread162
-  %142 = uitofp i32 %.0103 to double
+  %142 = uitofp i32 %.0104 to double
   %143 = uitofp i32 %123 to double
   %144 = fmul double %143, %142
   %145 = sitofp i32 %121 to double
@@ -4165,7 +4165,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %147 = load ptr, ptr %5, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 32
   store double %146, ptr %148, align 8
-  %149 = uitofp i32 %.0104161 to double
+  %149 = uitofp i32 %.0105161 to double
   %150 = load ptr, ptr %5, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 32
   %152 = load double, ptr %151, align 8
@@ -4224,8 +4224,8 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br i1 %.not136, label %203, label %182
 
 182:                                              ; preds = %180
-  %183 = icmp ugt i32 %121, %.0103
-  %184 = sub i32 %121, %.0103
+  %183 = icmp ugt i32 %121, %.0104
+  %184 = sub i32 %121, %.0104
   %185 = uitofp i32 %184 to double
   %186 = sitofp i32 %121 to double
   %187 = fdiv double %185, %186
@@ -4233,11 +4233,11 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %188 = load ptr, ptr %5, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 32
   store double %.sink168, ptr %189, align 8
-  %.not138 = icmp eq i32 %.0104161, 0
+  %.not138 = icmp eq i32 %.0105161, 0
   br i1 %.not138, label %221, label %190
 
 190:                                              ; preds = %182
-  %191 = sub i32 %123, %.0104161
+  %191 = sub i32 %123, %.0105161
   %192 = uitofp i32 %191 to double
   %193 = uitofp i32 %123 to double
   %194 = fdiv double %192, %193
@@ -4254,17 +4254,17 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br label %221
 
 203:                                              ; preds = %180
-  %204 = uitofp i32 %.0103 to double
+  %204 = uitofp i32 %.0104 to double
   %205 = sitofp i32 %121 to double
   %206 = fdiv double %204, %205
   %207 = load ptr, ptr %5, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 32
   store double %206, ptr %208, align 8
-  %.not137 = icmp eq i32 %.0104161, 0
+  %.not137 = icmp eq i32 %.0105161, 0
   br i1 %.not137, label %221, label %209
 
 209:                                              ; preds = %203
-  %210 = uitofp i32 %.0104161 to double
+  %210 = uitofp i32 %.0105161 to double
   %211 = uitofp i32 %123 to double
   %212 = fdiv double %210, %211
   %213 = load ptr, ptr %5, align 8
@@ -4845,8 +4845,8 @@ define internal fastcc i64 @_next_reset(i16 noundef zeroext %0, i64 noundef %1) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit18, %.loopexit.loopexit, %8, %2, %73
-  %.012 = phi i64 [ %74, %73 ], [ 0, %2 ], [ 0, %8 ], [ %21, %.loopexit.loopexit ], [ %39, %.loopexit.loopexit18 ]
-  ret i64 %.012
+  %.0 = phi i64 [ %74, %73 ], [ 0, %2 ], [ 0, %8 ], [ %21, %.loopexit.loopexit ], [ %39, %.loopexit.loopexit18 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

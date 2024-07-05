@@ -633,8 +633,8 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   br i1 %6, label %.lr.ph.i, label %rbound_bsearch.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %7, %5 ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ -1, %5 ]
+  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %5 ]
+  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %7, %5 ]
   %8 = add nsw i32 %.020.i, 1
   %9 = add i32 %8, %.01519.i
   %10 = sdiv i32 %9, 2
@@ -646,24 +646,24 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %or.cond.i = and i1 %15, %4
   %or.cond18.i = or i1 %14, %or.cond.i
   %16 = add nsw i32 %10, -1
-  %.116.i = select i1 %or.cond18.i, i32 %10, i32 %.01519.i
-  %.1.i = select i1 %or.cond18.i, i32 %.020.i, i32 %16
-  %17 = icmp slt i32 %.116.i, %.1.i
+  %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
+  %.1.i = select i1 %or.cond18.i, i32 %10, i32 %.020.i
+  %17 = icmp slt i32 %.1.i, %.116.i
   br i1 %17, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
 
 rbound_bsearch.exit:                              ; preds = %.lr.ph.i, %5
-  %.015.lcssa.i = phi i32 [ -1, %5 ], [ %.116.i, %.lr.ph.i ]
-  %18 = tail call i32 @llvm.smax.i32(i32 %.015.lcssa.i, i32 0)
+  %.0.lcssa.i = phi i32 [ -1, %5 ], [ %.1.i, %.lr.ph.i ]
+  %18 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 0)
   %19 = uitofp nneg i32 %18 to double
   %20 = uitofp nneg i32 %7 to double
   %21 = fdiv double %19, %20
-  %22 = icmp sgt i32 %.015.lcssa.i, -1
-  %23 = icmp slt i32 %.015.lcssa.i, %7
+  %22 = icmp sgt i32 %.0.lcssa.i, -1
+  %23 = icmp slt i32 %.0.lcssa.i, %7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %80
 
 24:                                               ; preds = %rbound_bsearch.exit
-  %25 = zext nneg i32 %.015.lcssa.i to i64
+  %25 = zext nneg i32 %.0.lcssa.i to i64
   %26 = getelementptr %struct.RangeBound, ptr %2, i64 %25
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds i8, ptr %0, i64 392
@@ -762,8 +762,8 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
+  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
+  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
   %10 = add nsw i32 %.020.i, 1
   %11 = add i32 %10, %.01519.i
   %12 = sdiv i32 %11, 2
@@ -772,18 +772,18 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef %1) #10
   %or.cond18.i = icmp slt i32 %15, 1
   %16 = add nsw i32 %12, -1
-  %.116.i = select i1 %or.cond18.i, i32 %12, i32 %.01519.i
-  %.1.i = select i1 %or.cond18.i, i32 %.020.i, i32 %16
-  %17 = icmp slt i32 %.116.i, %.1.i
+  %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
+  %.1.i = select i1 %or.cond18.i, i32 %12, i32 %.020.i
+  %17 = icmp slt i32 %.1.i, %.116.i
   br i1 %17, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
 
 rbound_bsearch.exit:                              ; preds = %.lr.ph.i
-  %18 = icmp slt i32 %.116.i, 0
+  %18 = icmp slt i32 %.1.i, 0
   br i1 %18, label %rbound_bsearch.exit.thread, label %19
 
 19:                                               ; preds = %rbound_bsearch.exit
   %20 = add nsw i32 %4, -2
-  %21 = tail call i32 @llvm.smin.i32(i32 %.116.i, i32 %20)
+  %21 = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 %20)
   %22 = zext i32 %21 to i64
   %23 = getelementptr %struct.RangeBound, ptr %3, i64 %22
   %24 = sext i32 %21 to i64
@@ -1003,8 +1003,8 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
+  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
+  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
   %15 = add nsw i32 %.020.i, 1
   %16 = add i32 %15, %.01519.i
   %17 = sdiv i32 %16, 2
@@ -1013,18 +1013,18 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   %20 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %19, ptr noundef %2) #10
   %21 = icmp slt i32 %20, 0
   %22 = add nsw i32 %17, -1
-  %.116.i = select i1 %21, i32 %17, i32 %.01519.i
-  %.1.i = select i1 %21, i32 %.020.i, i32 %22
-  %23 = icmp slt i32 %.116.i, %.1.i
+  %.116.i = select i1 %21, i32 %.01519.i, i32 %22
+  %.1.i = select i1 %21, i32 %17, i32 %.020.i
+  %23 = icmp slt i32 %.1.i, %.116.i
   br i1 %23, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
 
 rbound_bsearch.exit:                              ; preds = %.lr.ph.i
-  %24 = icmp slt i32 %.116.i, 0
+  %24 = icmp slt i32 %.1.i, 0
   br i1 %24, label %rbound_bsearch.exit.thread, label %25
 
 25:                                               ; preds = %rbound_bsearch.exit
   %26 = add nsw i32 %4, -2
-  %27 = tail call i32 @llvm.smin.i32(i32 %.116.i, i32 %26)
+  %27 = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 %26)
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr %struct.RangeBound, ptr %3, i64 %28
   %30 = sext i32 %27 to i64
@@ -1114,7 +1114,7 @@ get_position.exit:                                ; preds = %46, %47, %54, %62, 
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   %85 = getelementptr inbounds i8, ptr %1, i64 10
   %86 = uitofp nneg i32 %14 to double
-  %87 = zext nneg i32 %.116.i to i64
+  %87 = zext nneg i32 %.1.i to i64
   %88 = sext i32 %26 to i64
   %smin = tail call i64 @llvm.smin.i64(i64 %87, i64 %88)
   br label %89
@@ -1334,9 +1334,9 @@ define internal fastcc double @calc_length_hist_frac(ptr nocapture noundef reado
   br i1 %4, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.021.us.i = phi i32 [ %.1.us.i, %.lr.ph.split.us.i ], [ %11, %.lr.ph.i ]
-  %.01420.us.i = phi i32 [ %.115.us.i, %.lr.ph.split.us.i ], [ -1, %.lr.ph.i ]
-  %13 = add i32 %.021.us.i, 1
+  %.021.us.i = phi i32 [ %.1.us.i, %.lr.ph.split.us.i ], [ -1, %.lr.ph.i ]
+  %.01420.us.i = phi i32 [ %.115.us.i, %.lr.ph.split.us.i ], [ %11, %.lr.ph.i ]
+  %13 = add nsw i32 %.021.us.i, 1
   %14 = add i32 %13, %.01420.us.i
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
@@ -1344,15 +1344,15 @@ define internal fastcc double @calc_length_hist_frac(ptr nocapture noundef reado
   %18 = load double, ptr %17, align 8
   %19 = fcmp olt double %18, %2
   %20 = add nsw i32 %15, -1
-  %.115.us.i = select i1 %19, i32 %15, i32 %.01420.us.i
-  %.1.us.i = select i1 %19, i32 %.021.us.i, i32 %20
-  %21 = icmp slt i32 %.115.us.i, %.1.us.i
+  %.115.us.i = select i1 %19, i32 %.01420.us.i, i32 %20
+  %.1.us.i = select i1 %19, i32 %15, i32 %.021.us.i
+  %21 = icmp slt i32 %.1.us.i, %.115.us.i
   br i1 %21, label %.lr.ph.split.us.i, label %length_hist_bsearch.exit, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.021.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ %11, %.lr.ph.i ]
-  %.01420.i = phi i32 [ %.115.i, %.lr.ph.split.i ], [ -1, %.lr.ph.i ]
-  %22 = add i32 %.021.i, 1
+  %.021.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ -1, %.lr.ph.i ]
+  %.01420.i = phi i32 [ %.115.i, %.lr.ph.split.i ], [ %11, %.lr.ph.i ]
+  %22 = add nsw i32 %.021.i, 1
   %23 = add i32 %22, %.01420.i
   %24 = sdiv i32 %23, 2
   %25 = sext i32 %24 to i64
@@ -1360,22 +1360,22 @@ define internal fastcc double @calc_length_hist_frac(ptr nocapture noundef reado
   %27 = load double, ptr %26, align 8
   %28 = add nsw i32 %24, -1
   %29 = fcmp ole double %27, %2
-  %.115.i = select i1 %29, i32 %24, i32 %.01420.i
-  %.1.i = select i1 %29, i32 %.021.i, i32 %28
-  %30 = icmp slt i32 %.115.i, %.1.i
+  %.115.i = select i1 %29, i32 %.01420.i, i32 %28
+  %.1.i = select i1 %29, i32 %24, i32 %.021.i
+  %30 = icmp slt i32 %.1.i, %.115.i
   br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !10
 
 length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i
-  %.014.lcssa.i = phi i32 [ %.115.i, %.lr.ph.split.i ], [ %.115.us.i, %.lr.ph.split.us.i ]
-  %.not = icmp slt i32 %.014.lcssa.i, %11
+  %.0.lcssa.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ %.1.us.i, %.lr.ph.split.us.i ]
+  %.not = icmp slt i32 %.0.lcssa.i, %11
   br i1 %.not, label %31, label %length_hist_bsearch.exit.thread
 
 31:                                               ; preds = %length_hist_bsearch.exit
-  %32 = icmp slt i32 %.014.lcssa.i, 0
+  %32 = icmp slt i32 %.0.lcssa.i, 0
   br i1 %32, label %get_len_position.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = zext nneg i32 %.014.lcssa.i to i64
+  %34 = zext nneg i32 %.0.lcssa.i to i64
   %35 = getelementptr i64, ptr %0, i64 %34
   %36 = load double, ptr %35, align 8
   %37 = getelementptr i8, ptr %35, i64 8
@@ -1412,28 +1412,28 @@ length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, 
   br label %get_len_position.exit
 
 get_len_position.exit:                            ; preds = %53, %52, %51, %46, %43, %31
-  %.079 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
-  %.077 = phi i32 [ 0, %31 ], [ %.014.lcssa.i, %53 ], [ %.014.lcssa.i, %46 ], [ %.014.lcssa.i, %43 ], [ %.014.lcssa.i, %51 ], [ %.014.lcssa.i, %52 ]
-  %54 = uitofp nneg i32 %.077 to double
-  %55 = fadd double %.079, %54
+  %.080 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
+  %.078 = phi i32 [ 0, %31 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %46 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %52 ]
+  %54 = uitofp nneg i32 %.078 to double
+  %55 = fadd double %.080, %54
   %56 = sitofp i32 %11 to double
   %57 = fdiv double %55, %56
   %58 = fcmp oeq double %3, %2
   br i1 %58, label %length_hist_bsearch.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %get_len_position.exit
-  %59 = icmp slt i32 %.077, %11
+  %59 = icmp slt i32 %.078, %11
   br i1 %59, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %60 = zext nneg i32 %.077 to i64
+  %60 = zext nneg i32 %.078 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %76
   %indvars.iv = phi i64 [ %60, %.lr.ph.preheader ], [ %indvars.iv.next, %76 ]
-  %.0116 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %76 ]
-  %.081114 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
-  %.082113 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
+  %.077116 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %76 ]
+  %.082114 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
+  %.083113 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr i64, ptr %0, i64 %indvars.iv.next
   %62 = load double, ptr %61, align 8
@@ -1447,20 +1447,20 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 66:                                               ; preds = %.lr.ph
   %67 = uitofp nneg i32 %65 to double
   %68 = fdiv double %67, %56
-  %69 = fcmp ogt double %.081114, 0.000000e+00
+  %69 = fcmp ogt double %.082114, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
   %or.cond = or i1 %69, %70
   br i1 %or.cond, label %71, label %76
 
 71:                                               ; preds = %66
-  %72 = fadd double %.081114, %68
+  %72 = fadd double %.082114, %68
   %73 = fmul double %72, 5.000000e-01
-  %74 = fsub double %62, %.082113
-  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.0116)
+  %74 = fsub double %62, %.083113
+  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.077116)
   br label %76
 
 76:                                               ; preds = %71, %66
-  %.1 = phi double [ %75, %71 ], [ %.0116, %66 ]
+  %.1 = phi double [ %75, %71 ], [ %.077116, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !11
@@ -1479,39 +1479,39 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %.preheader, %79, %86
-  %.082112 = phi double [ %.082113, %86 ], [ %.082113, %79 ], [ %2, %.preheader ], [ %62, %76 ]
-  %.081110 = phi double [ %.081114, %86 ], [ %.081114, %79 ], [ %57, %.preheader ], [ %68, %76 ]
-  %.178108 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.077, %.preheader ], [ %77, %76 ]
-  %.0106 = phi double [ %.0116, %86 ], [ %.0116, %79 ], [ 0.000000e+00, %.preheader ], [ %.1, %76 ]
-  %.180 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
-  %88 = uitofp nneg i32 %.178108 to double
-  %89 = fadd double %.180, %88
+  %.083112 = phi double [ %.083113, %86 ], [ %.083113, %79 ], [ %2, %.preheader ], [ %62, %76 ]
+  %.082110 = phi double [ %.082114, %86 ], [ %.082114, %79 ], [ %57, %.preheader ], [ %68, %76 ]
+  %.179108 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.078, %.preheader ], [ %77, %76 ]
+  %.077106 = phi double [ %.077116, %86 ], [ %.077116, %79 ], [ 0.000000e+00, %.preheader ], [ %.1, %76 ]
+  %.181 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
+  %88 = uitofp nneg i32 %.179108 to double
+  %89 = fadd double %.181, %88
   %90 = fdiv double %89, %56
-  %91 = fcmp ogt double %.081110, 0.000000e+00
+  %91 = fcmp ogt double %.082110, 0.000000e+00
   %92 = fcmp ogt double %90, 0.000000e+00
   %or.cond3 = select i1 %91, i1 true, i1 %92
   br i1 %or.cond3, label %93, label %98
 
 93:                                               ; preds = %.loopexit
-  %94 = fadd double %.081110, %90
+  %94 = fadd double %.082110, %90
   %95 = fmul double %94, 5.000000e-01
-  %96 = fsub double %3, %.082112
-  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.0106)
+  %96 = fsub double %3, %.083112
+  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.077106)
   br label %98
 
 98:                                               ; preds = %.loopexit, %93
-  %.2 = phi double [ %97, %93 ], [ %.0106, %.loopexit ]
+  %.2 = phi double [ %97, %93 ], [ %.077106, %.loopexit ]
   %99 = tail call double @llvm.fabs.f64(double %.2)
   %100 = fcmp une double %99, 0x7FF0000000000000
   %brmerge97 = or i1 %9, %100
   %101 = fsub double %3, %2
   %102 = fdiv double %.2, %101
-  %.083 = select i1 %brmerge97, double %102, double 5.000000e-01
+  %.084 = select i1 %brmerge97, double %102, double 5.000000e-01
   br label %length_hist_bsearch.exit.thread
 
 length_hist_bsearch.exit.thread:                  ; preds = %10, %get_len_position.exit, %length_hist_bsearch.exit, %7, %5, %98
-  %.084 = phi double [ %.083, %98 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
-  ret double %.084
+  %.0 = phi double [ %.084, %98 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

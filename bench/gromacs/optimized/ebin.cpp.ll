@@ -735,24 +735,24 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %35
 
 35:                                               ; preds = %.lr.ph114, %94
-  %.065113 = phi i32 [ 0, %.lr.ph114 ], [ %95, %94 ]
-  %.068112 = phi i32 [ %2, %.lr.ph114 ], [ %.371.lcssa, %94 ]
+  %.063113 = phi i32 [ %2, %.lr.ph114 ], [ %.3.lcssa, %94 ]
+  %.066112 = phi i32 [ 0, %.lr.ph114 ], [ %95, %94 ]
   br i1 %6, label %.preheader, label %55
 
 .preheader:                                       ; preds = %35
   br i1 %30, label %.lr.ph.preheader, label %.critedge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %36 = zext i32 %.068112 to i64
+  %36 = zext i32 %.063113 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %indvars.iv = phi i64 [ %36, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
-  %.183 = phi i32 [ %.065113, %.lr.ph.preheader ], [ %.2, %51 ]
-  %.06682 = phi i32 [ 0, %.lr.ph.preheader ], [ %52, %51 ]
+  %.16782 = phi i32 [ %.066112, %.lr.ph.preheader ], [ %.268, %51 ]
+  %.07081 = phi i32 [ 0, %.lr.ph.preheader ], [ %52, %51 ]
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = icmp sgt i32 %spec.select, %37
-  %39 = icmp sgt i32 %.183, -1
+  %39 = icmp sgt i32 %.16782, -1
   %or.cond = and i1 %38, %39
   br i1 %or.cond, label %40, label %.critedge
 
@@ -774,15 +774,15 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %51
 
 51:                                               ; preds = %46, %49
-  %.2 = phi i32 [ %48, %46 ], [ %50, %49 ]
-  %52 = add nuw nsw i32 %.06682, 1
+  %.268 = phi i32 [ %48, %46 ], [ %50, %49 ]
+  %52 = add nuw nsw i32 %.07081, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %52, %4
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %51, %.lr.ph
-  %.1.lcssa = phi i32 [ %.2, %51 ], [ %.183, %.lr.ph ]
-  %53 = icmp sgt i32 %.1.lcssa, -1
+  %.167.lcssa = phi i32 [ %.268, %51 ], [ %.16782, %.lr.ph ]
+  %53 = icmp sgt i32 %.167.lcssa, -1
   br i1 %53, label %.critedge.thread, label %55
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
@@ -790,7 +790,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %55
 
 55:                                               ; preds = %.critedge, %.critedge.thread, %35
-  %.4 = phi i32 [ %.065113, %35 ], [ %54, %.critedge.thread ], [ %.1.lcssa, %.critedge ]
+  %.4 = phi i32 [ %.066112, %35 ], [ %54, %.critedge.thread ], [ %.167.lcssa, %.critedge ]
   br i1 %30, label %.lr.ph89, label %.critedge2
 
 .lr.ph89:                                         ; preds = %55
@@ -800,22 +800,22 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   ]
 
 .lr.ph89.split.us98.preheader:                    ; preds = %.lr.ph89
-  %56 = zext i32 %.068112 to i64
-  %57 = add i32 %.068112, %4
+  %56 = zext i32 %.063113 to i64
+  %57 = add i32 %.063113, %4
   br label %.lr.ph89.split.us98
 
 .lr.ph89.split.us.preheader:                      ; preds = %.lr.ph89
-  %58 = zext i32 %.068112 to i64
-  %59 = add i32 %.068112, %4
+  %58 = zext i32 %.063113 to i64
+  %59 = add i32 %.063113, %4
   br label %.lr.ph89.split.us
 
 .lr.ph89.split.us:                                ; preds = %.lr.ph89.split.us.preheader, %63
   %indvars.iv124 = phi i64 [ %58, %.lr.ph89.split.us.preheader ], [ %indvars.iv.next125, %63 ]
-  %.588.us = phi i32 [ %.4, %.lr.ph89.split.us.preheader ], [ %68, %63 ]
-  %.16787.us = phi i32 [ 0, %.lr.ph89.split.us.preheader ], [ %69, %63 ]
+  %.587.us = phi i32 [ %.4, %.lr.ph89.split.us.preheader ], [ %68, %63 ]
+  %.17186.us = phi i32 [ 0, %.lr.ph89.split.us.preheader ], [ %69, %63 ]
   %60 = trunc nuw i64 %indvars.iv124 to i32
   %61 = icmp sgt i32 %spec.select, %60
-  %62 = icmp sgt i32 %.588.us, -1
+  %62 = icmp sgt i32 %.587.us, -1
   %or.cond5.us = and i1 %61, %62
   br i1 %or.cond5.us, label %63, label %.critedge2
 
@@ -825,18 +825,18 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   %66 = load float, ptr %65, align 8
   %67 = fpext float %66 to double
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, double noundef %67) #15
-  %69 = add nuw nsw i32 %.16787.us, 1
+  %69 = add nuw nsw i32 %.17186.us, 1
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i32 %69, %4
   br i1 %exitcond127.not, label %.critedge2, label %.lr.ph89.split.us, !llvm.loop !13
 
 .lr.ph89.split.us98:                              ; preds = %.lr.ph89.split.us98.preheader, %85
   %indvars.iv120 = phi i64 [ %56, %.lr.ph89.split.us98.preheader ], [ %indvars.iv.next121, %85 ]
-  %.588.us99 = phi i32 [ %.4, %.lr.ph89.split.us98.preheader ], [ %.6.us103, %85 ]
-  %.16787.us100 = phi i32 [ 0, %.lr.ph89.split.us98.preheader ], [ %86, %85 ]
+  %.587.us100 = phi i32 [ %.4, %.lr.ph89.split.us98.preheader ], [ %.6.us103, %85 ]
+  %.17186.us101 = phi i32 [ 0, %.lr.ph89.split.us98.preheader ], [ %86, %85 ]
   %70 = trunc nuw i64 %indvars.iv120 to i32
   %71 = icmp sgt i32 %spec.select, %70
-  %72 = icmp sgt i32 %.588.us99, -1
+  %72 = icmp sgt i32 %.587.us100, -1
   %or.cond5.us102 = and i1 %71, %72
   br i1 %or.cond5.us102, label %73, label %.critedge2
 
@@ -860,13 +860,13 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 85:                                               ; preds = %78, %76
   %.6.us103 = phi i32 [ %84, %78 ], [ %77, %76 ]
-  %86 = add nuw nsw i32 %.16787.us100, 1
+  %86 = add nuw nsw i32 %.17186.us101, 1
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i32 %86, %4
   br i1 %exitcond123.not, label %.critedge2, label %.lr.ph89.split.us98, !llvm.loop !13
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89
-  %87 = icmp slt i32 %.068112, %spec.select
+  %87 = icmp slt i32 %.063113, %spec.select
   %88 = icmp sgt i32 %.4, -1
   %or.cond5 = and i1 %87, %88
   br i1 %or.cond5, label %89, label %.critedge2
@@ -885,14 +885,14 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %103
 
 .critedge2:                                       ; preds = %85, %.lr.ph89.split.us98, %63, %.lr.ph89.split.us, %.lr.ph89.split, %55
-  %.371.lcssa = phi i32 [ %.068112, %55 ], [ %.068112, %.lr.ph89.split ], [ %60, %.lr.ph89.split.us ], [ %59, %63 ], [ %70, %.lr.ph89.split.us98 ], [ %57, %85 ]
-  %.5.lcssa = phi i32 [ %.4, %55 ], [ %.4, %.lr.ph89.split ], [ %.588.us, %.lr.ph89.split.us ], [ %68, %63 ], [ %.588.us99, %.lr.ph89.split.us98 ], [ %.6.us103, %85 ]
+  %.5.lcssa = phi i32 [ %.4, %55 ], [ %.4, %.lr.ph89.split ], [ %.587.us, %.lr.ph89.split.us ], [ %68, %63 ], [ %.587.us100, %.lr.ph89.split.us98 ], [ %.6.us103, %85 ]
+  %.3.lcssa = phi i32 [ %.063113, %55 ], [ %.063113, %.lr.ph89.split ], [ %60, %.lr.ph89.split.us ], [ %59, %63 ], [ %70, %.lr.ph89.split.us98 ], [ %57, %85 ]
   %93 = icmp sgt i32 %.5.lcssa, -1
   br i1 %93, label %94, label %._crit_edge.thread132
 
 94:                                               ; preds = %.critedge2
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18) #15
-  %96 = icmp slt i32 %.371.lcssa, %spec.select
+  %96 = icmp slt i32 %.3.lcssa, %spec.select
   %97 = icmp sgt i32 %95, -1
   %98 = and i1 %96, %97
   br i1 %98, label %35, label %._crit_edge, !llvm.loop !14

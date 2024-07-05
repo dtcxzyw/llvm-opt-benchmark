@@ -7539,10 +7539,10 @@ for.body21.preheader.i.i:                         ; preds = %invoke.cont15.i.i
 
 for.body21.i.i:                                   ; preds = %if.end114.i.i, %for.body21.preheader.i.i
   %791 = phi ptr [ %844, %if.end114.i.i ], [ %785, %for.body21.preheader.i.i ]
-  %i.0268.i.i = phi i64 [ %inc.i111.i, %if.end114.i.i ], [ 0, %for.body21.preheader.i.i ]
-  %out_data.0267.i.i = phi ptr [ %add.ptr119.i.i, %if.end114.i.i ], [ %cond.i.i.i1032, %for.body21.preheader.i.i ]
-  %add.ptr.i.i105.i = getelementptr inbounds %"class.std::shared_ptr", ptr %791, i64 %i.0268.i.i
-  %add.ptr.i40.i.i = getelementptr inbounds %"class.std::shared_ptr.39", ptr %790, i64 %i.0268.i.i
+  %out_data.0268.i.i = phi ptr [ %add.ptr119.i.i, %if.end114.i.i ], [ %cond.i.i.i1032, %for.body21.preheader.i.i ]
+  %i.0267.i.i = phi i64 [ %inc.i111.i, %if.end114.i.i ], [ 0, %for.body21.preheader.i.i ]
+  %add.ptr.i.i105.i = getelementptr inbounds %"class.std::shared_ptr", ptr %791, i64 %i.0267.i.i
+  %add.ptr.i40.i.i = getelementptr inbounds %"class.std::shared_ptr.39", ptr %790, i64 %i.0267.i.i
   %792 = load ptr, ptr %add.ptr.i40.i.i, align 8, !noalias !245
   %is_cpu_.i41.i.i = getelementptr inbounds i8, ptr %792, i64 9
   %793 = load i8, ptr %is_cpu_.i41.i.i, align 1, !noalias !245
@@ -7580,7 +7580,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit58.i.i: ; preds = %_ZNK5arrow9Array
   %802 = load i64, ptr %offset.i.i1041, align 8, !noalias !245
   %length43.i.i = getelementptr inbounds i8, ptr %795, i64 16
   %803 = load i64, ptr %length43.i.i, align 8, !noalias !245
-  invoke void @_ZN5arrow8internal13TransposeIntsERKNS_8DataTypeES3_PKhPhlllPKi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp37.i.i, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef %retval.0.i57.i.i, ptr noundef %out_data.0267.i.i, i64 noundef %802, i64 noundef 0, i64 noundef %803, ptr noundef %cond.i44.i.i)
+  invoke void @_ZN5arrow8internal13TransposeIntsERKNS_8DataTypeES3_PKhPhlllPKi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp37.i.i, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef %retval.0.i57.i.i, ptr noundef %out_data.0268.i.i, i64 noundef %802, i64 noundef 0, i64 noundef %803, ptr noundef %cond.i44.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i117.i unwind label %lpad29.loopexit.split-lp.i.i, !noalias !245
 
 _ZN5arrow6StatusD2Ev.exit.i117.i:                 ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit58.i.i
@@ -7740,7 +7740,7 @@ do.body76.i.i:                                    ; preds = %if.end74.i.i
   %offset80.i.i = getelementptr inbounds i8, ptr %825, i64 32
   %826 = load i64, ptr %offset80.i.i, align 8, !noalias !245
   %add81.i.i = add nsw i64 %826, %position.0.i.i
-  invoke void @_ZN5arrow8internal13TransposeIntsERKNS_8DataTypeES3_PKhPhlllPKi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp78.i.i, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef %retval.0.i257.i.i, ptr noundef %out_data.0267.i.i, i64 noundef %add81.i.i, i64 noundef %position.0.i.i, i64 noundef %823, ptr noundef %cond.i44.i.i)
+  invoke void @_ZN5arrow8internal13TransposeIntsERKNS_8DataTypeES3_PKhPhlllPKi(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp78.i.i, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef %retval.0.i257.i.i, ptr noundef %out_data.0268.i.i, i64 noundef %add81.i.i, i64 noundef %position.0.i.i, i64 noundef %823, ptr noundef %cond.i44.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit137.i.i unwind label %lpad29.loopexit.i.i, !noalias !245
 
 _ZN5arrow6StatusD2Ev.exit137.i.i:                 ; preds = %do.body76.i.i
@@ -7850,7 +7850,7 @@ if.else101.i.i:                                   ; preds = %if.end74.i.i
   br i1 %cmp.not3.i.i.i.i.i1040, label %while.cond.i.i.backedge, label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.else101.i.i
-  %add.ptr.i109.i = getelementptr inbounds i8, ptr %out_data.0267.i.i, i64 %mul103.i.i
+  %add.ptr.i109.i = getelementptr inbounds i8, ptr %out_data.0268.i.i, i64 %mul103.i.i
   %gepdiff.i.i = mul i64 %823, %conv.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i109.i, i8 0, i64 %gepdiff.i.i, i1 false), !noalias !245
   br label %while.cond.i.i.backedge
@@ -7864,8 +7864,8 @@ if.end114.i.i:                                    ; preds = %invoke.cont69.i.i, 
   %length116.i.i = getelementptr inbounds i8, ptr %840, i64 16
   %841 = load i64, ptr %length116.i.i, align 8, !noalias !245
   %mul118.i.i = mul nsw i64 %841, %conv.i.i
-  %add.ptr119.i.i = getelementptr inbounds i8, ptr %out_data.0267.i.i, i64 %mul118.i.i
-  %inc.i111.i = add nuw i64 %i.0268.i.i, 1
+  %add.ptr119.i.i = getelementptr inbounds i8, ptr %out_data.0268.i.i, i64 %mul118.i.i
+  %inc.i111.i = add nuw i64 %i.0267.i.i, 1
   %842 = load ptr, ptr %this, align 8, !noalias !248
   %_M_finish.i39.i.i = getelementptr inbounds i8, ptr %842, i64 8
   %843 = load ptr, ptr %_M_finish.i39.i.i, align 8, !noalias !245
@@ -8402,14 +8402,14 @@ for.body.lr.ph.i1139:                             ; preds = %sw.bb82.i
   br label %for.body.i1143
 
 for.cond.i1160:                                   ; preds = %_ZN5arrow9ArraySpanD2Ev.exit.i1159
-  %incdec.ptr.i.i1161 = getelementptr inbounds i8, ptr %__begin2.sroa.0.016.i, i64 16
+  %incdec.ptr.i.i1161 = getelementptr inbounds i8, ptr %__begin2.sroa.0.015.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i1161, %914
   br i1 %cmp.i.not.i, label %invoke.cont17.loopexit.i, label %for.body.i1143
 
 for.body.i1143:                                   ; preds = %for.cond.i1160, %for.body.lr.ph.i1139
-  %__begin2.sroa.0.016.i = phi ptr [ %913, %for.body.lr.ph.i1139 ], [ %incdec.ptr.i.i1161, %for.cond.i1160 ]
-  %physical_length.015.i = phi i64 [ 0, %for.body.lr.ph.i1139 ], [ %919, %for.cond.i1160 ]
-  %915 = load ptr, ptr %__begin2.sroa.0.016.i, align 8, !noalias !272
+  %physical_length.016.i = phi i64 [ 0, %for.body.lr.ph.i1139 ], [ %919, %for.cond.i1160 ]
+  %__begin2.sroa.0.015.i = phi ptr [ %913, %for.body.lr.ph.i1139 ], [ %incdec.ptr.i.i1161, %for.cond.i1160 ]
+  %915 = load ptr, ptr %__begin2.sroa.0.015.i, align 8, !noalias !272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1134, i8 0, i64 16, i1 false), !noalias !272
   store i64 -1, ptr %null_count.i.i1140, align 8, !noalias !272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i.i1141, i8 0, i64 104, i1 false), !noalias !272
@@ -8427,7 +8427,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i:    ; preds = %for.body.i1143
           to label %invoke.cont8.i1148 unwind label %lpad.i1147, !noalias !272
 
 invoke.cont8.i1148:                               ; preds = %_ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit.i
-  %917 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %physical_length.015.i, i64 %call7.i)
+  %917 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %physical_length.016.i, i64 %call7.i)
   %918 = extractvalue { i64, i1 } %917, 1
   %919 = extractvalue { i64, i1 } %917, 0
   %920 = load ptr, ptr %child_data.i16.i, align 8, !noalias !272
@@ -11399,11 +11399,11 @@ entry:
   br i1 %cmp.i.not35, label %invoke.cont, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.sroa.0.037 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %bitmaps.val, %entry ]
-  %out_length.036 = phi i64 [ %4, %for.inc ], [ 0, %entry ]
-  %length = getelementptr inbounds i8, ptr %__begin2.sroa.0.037, i64 16
+  %out_length.037 = phi i64 [ %4, %for.inc ], [ 0, %entry ]
+  %__begin2.sroa.0.036 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %bitmaps.val, %entry ]
+  %length = getelementptr inbounds i8, ptr %__begin2.sroa.0.036, i64 16
   %1 = load i64, ptr %length, align 8
-  %2 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %out_length.036, i64 %1)
+  %2 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %out_length.037, i64 %1)
   %3 = extractvalue { i64, i1 } %2, 1
   br i1 %3, label %if.then, label %for.inc
 
@@ -11413,7 +11413,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %4 = extractvalue { i64, i1 } %2, 0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.037, i64 24
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.036, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %bitmaps.val11
   br i1 %cmp.i.not, label %invoke.cont, label %for.body
 

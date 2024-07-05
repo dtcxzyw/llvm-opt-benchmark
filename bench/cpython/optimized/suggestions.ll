@@ -1196,9 +1196,9 @@ if.then7:                                         ; preds = %if.end4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %conv27 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
-  %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %suggestion_distance.026 = phi i64 [ 9223372036854775807, %for.body.lr.ph ], [ %suggestion_distance.1, %for.inc ]
   %suggestion.025 = phi ptr [ null, %for.body.lr.ph ], [ %suggestion.1, %for.inc ]
-  %suggestion_distance.024 = phi i64 [ 9223372036854775807, %for.body.lr.ph ], [ %suggestion_distance.1, %for.inc ]
+  %i.024 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %1, i64 %conv27
   %2 = load ptr, ptr %arrayidx, align 8
@@ -1222,7 +1222,7 @@ if.end19:                                         ; preds = %if.end14
   %add20 = shl i64 %add, 1
   %mul = add i64 %add20, 6
   %div = sdiv i64 %mul, 6
-  %sub = add i64 %suggestion_distance.024, -1
+  %sub = add i64 %suggestion_distance.026, -1
   %cond = call i64 @llvm.smin.i64(i64 %div, i64 %sub)
   %call24 = call fastcc i64 @levenshtein_distance(ptr noundef nonnull %call1, i64 noundef %3, ptr noundef nonnull %call15, i64 noundef %4, i64 noundef %cond, ptr noundef nonnull %call5)
   %cmp25 = icmp sgt i64 %call24, %cond
@@ -1230,16 +1230,16 @@ if.end19:                                         ; preds = %if.end14
 
 if.end28:                                         ; preds = %if.end19
   %tobool29.not = icmp eq ptr %suggestion.025, null
-  %cmp30 = icmp slt i64 %call24, %suggestion_distance.024
+  %cmp30 = icmp slt i64 %call24, %suggestion_distance.026
   %or.cond = select i1 %tobool29.not, i1 true, i1 %cmp30
-  %spec.select = select i1 %or.cond, i64 %call24, i64 %suggestion_distance.024
-  %spec.select21 = select i1 %or.cond, ptr %2, ptr %suggestion.025
+  %spec.select = select i1 %or.cond, ptr %2, ptr %suggestion.025
+  %spec.select21 = select i1 %or.cond, i64 %call24, i64 %suggestion_distance.026
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end28, %if.end19, %for.body
-  %suggestion_distance.1 = phi i64 [ %suggestion_distance.024, %for.body ], [ %suggestion_distance.024, %if.end19 ], [ %spec.select, %if.end28 ]
-  %suggestion.1 = phi ptr [ %suggestion.025, %for.body ], [ %suggestion.025, %if.end19 ], [ %spec.select21, %if.end28 ]
-  %inc = add i32 %i.026, 1
+  %suggestion.1 = phi ptr [ %suggestion.025, %for.body ], [ %suggestion.025, %if.end19 ], [ %spec.select, %if.end28 ]
+  %suggestion_distance.1 = phi i64 [ %suggestion_distance.026, %for.body ], [ %suggestion_distance.026, %if.end19 ], [ %spec.select21, %if.end28 ]
+  %inc = add i32 %i.024, 1
   %conv = sext i32 %inc to i64
   %cmp10 = icmp sgt i64 %dir.val, %conv
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !5

@@ -628,7 +628,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   br i1 %or.cond417.i, label %.lr.ph.i55, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h85eec9196d1c3182E.exit"
 
 .lr.ph26.i:                                       ; preds = %190, %.lr.ph26.i
-  %.02825.i = phi ptr [ %204, %.lr.ph26.i ], [ %187, %190 ]
+  %.02725.i = phi ptr [ %204, %.lr.ph26.i ], [ %187, %190 ]
   %.sroa.10.024.i = phi ptr [ %203, %.lr.ph26.i ], [ %192, %190 ]
   %.sroa.18.023.i = phi ptr [ %201, %.lr.ph26.i ], [ %186, %190 ]
   %198 = getelementptr inbounds i8, ptr %.sroa.10.024.i, i64 -8
@@ -641,9 +641,9 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   %202 = xor i1 %200, true
   %.neg34.i = sext i1 %202 to i64
   %203 = getelementptr inbounds i64, ptr %.sroa.10.024.i, i64 %.neg34.i
-  %.027.i = select i1 %200, ptr %201, ptr %203
-  %204 = getelementptr inbounds i8, ptr %.02825.i, i64 -8
-  %205 = load i64, ptr %.027.i, align 8
+  %.026.i = select i1 %200, ptr %201, ptr %203
+  %204 = getelementptr inbounds i8, ptr %.02725.i, i64 -8
+  %205 = load i64, ptr %.026.i, align 8
   store i64 %205, ptr %204, align 8, !alias.scope !78
   %206 = icmp ugt ptr %201, %185
   %207 = icmp ugt ptr %203, %14
@@ -651,17 +651,17 @@ _ZN4core5slice4sort20provide_sorted_batch17h4897165395c61f1aE.exit: ; preds = %.
   br i1 %or.cond.i57, label %.lr.ph26.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h85eec9196d1c3182E.exit"
 
 .lr.ph.i55:                                       ; preds = %194, %.lr.ph.i55
-  %.02620.i = phi ptr [ %212, %.lr.ph.i55 ], [ %186, %194 ]
+  %.02820.i = phi ptr [ %212, %.lr.ph.i55 ], [ %186, %194 ]
   %.sroa.0.119.i = phi ptr [ %215, %.lr.ph.i55 ], [ %14, %194 ]
   %.sroa.18.218.i = phi ptr [ %210, %.lr.ph.i55 ], [ %185, %194 ]
-  %.026.val.i = load i64, ptr %.02620.i, align 8, !alias.scope !78, !noundef !7
+  %.028.val.i = load i64, ptr %.02820.i, align 8, !alias.scope !78, !noundef !7
   %.val.i56 = load i64, ptr %.sroa.0.119.i, align 8, !noalias !78, !noundef !7
-  %208 = icmp ult i64 %.026.val.i, %.val.i56
-  %209 = tail call i64 @llvm.umin.i64(i64 %.026.val.i, i64 %.val.i56)
+  %208 = icmp ult i64 %.028.val.i, %.val.i56
+  %209 = tail call i64 @llvm.umin.i64(i64 %.028.val.i, i64 %.val.i56)
   store i64 %209, ptr %.sroa.18.218.i, align 8, !alias.scope !78
   %210 = getelementptr inbounds i8, ptr %.sroa.18.218.i, i64 8
   %211 = zext i1 %208 to i64
-  %212 = getelementptr inbounds i64, ptr %.02620.i, i64 %211
+  %212 = getelementptr inbounds i64, ptr %.02820.i, i64 %211
   %213 = xor i1 %208, true
   %214 = zext i1 %213 to i64
   %215 = getelementptr inbounds i64, ptr %.sroa.0.119.i, i64 %214

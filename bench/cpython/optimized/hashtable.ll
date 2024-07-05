@@ -444,8 +444,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
-  %alloc.sroa.5.0 = phi ptr [ %alloc.sroa.5.0.copyload, %if.else ], [ @PyMem_Free, %entry ]
   %alloc.sroa.0.0 = phi ptr [ %alloc.sroa.0.0.copyload, %if.else ], [ @PyMem_Malloc, %entry ]
+  %alloc.sroa.5.0 = phi ptr [ %alloc.sroa.5.0.copyload, %if.else ], [ @PyMem_Free, %entry ]
   %call = tail call ptr %alloc.sroa.0.0(i64 noundef 80) #7
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end4

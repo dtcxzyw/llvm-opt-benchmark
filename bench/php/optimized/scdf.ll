@@ -491,12 +491,12 @@ zend_bitset_pop_first.exit154.backedge:           ; preds = %scdf_mark_edge_feas
   %118 = getelementptr inbounds i8, ptr %115, i64 28
   %119 = load i8, ptr %118, align 4
   %120 = icmp eq i8 %119, -119
-  %.0105.idx = select i1 %120, i64 -32, i64 0
-  %.0105 = getelementptr inbounds i8, ptr %115, i64 %.0105.idx
-  %.0104.idx = select i1 %120, i64 -36, i64 0
-  %.0104 = getelementptr inbounds i8, ptr %117, i64 %.0104.idx
+  %.0105.idx = select i1 %120, i64 -36, i64 0
+  %.0105 = getelementptr inbounds i8, ptr %117, i64 %.0105.idx
+  %.0104.idx = select i1 %120, i64 -32, i64 0
+  %.0104 = getelementptr inbounds i8, ptr %115, i64 %.0104.idx
   %121 = load ptr, ptr %17, align 8
-  tail call void %121(ptr noundef nonnull %0, ptr noundef %.0105, ptr noundef %.0104) #8
+  tail call void %121(ptr noundef nonnull %0, ptr noundef %.0104, ptr noundef %.0105) #8
   %122 = getelementptr inbounds i8, ptr %111, i64 12
   %123 = load i32, ptr %122, align 4
   %124 = getelementptr inbounds i8, ptr %111, i64 16
@@ -623,7 +623,7 @@ scdf_edge.exit.i:                                 ; preds = %148
 
 210:                                              ; preds = %208
   %211 = load ptr, ptr %18, align 8
-  tail call void %211(ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull %111, ptr noundef nonnull %.0105, ptr noundef %.0104) #8
+  tail call void %211(ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull %111, ptr noundef nonnull %.0104, ptr noundef %.0105) #8
   br label %scdf_mark_edge_feasible.exit
 
 scdf_mark_edge_feasible.exit:                     ; preds = %.lr.ph.i142, %190, %180, %scdf_edge.exit.i, %108, %208, %210, %89
@@ -1018,7 +1018,7 @@ define hidden i32 @scdf_remove_unreachable_blocks(ptr nocapture noundef readonly
 
 8:                                                ; preds = %.lr.ph, %150
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %150 ]
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %.1, %150 ]
+  %.01932 = phi i32 [ 0, %.lr.ph ], [ %.1, %150 ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds %struct._zend_basic_block, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %7, align 8
@@ -1140,7 +1140,7 @@ is_live_loop_var_free.exit.thread.i:              ; preds = %is_live_loop_var_fr
 
 .loopexit:                                        ; preds = %is_live_loop_var_free.exit.thread.i, %..loopexit_crit_edge, %27
   %77 = phi i32 [ %.pre36, %..loopexit_crit_edge ], [ %31, %27 ], [ %31, %is_live_loop_var_free.exit.thread.i ]
-  %78 = add i32 %77, %.033
+  %78 = add i32 %77, %.01932
   %79 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @zend_ssa_remove_block(ptr noundef %22, ptr noundef nonnull %3, i32 noundef %79) #8
   br label %150
@@ -1191,7 +1191,7 @@ kept_alive_by_loop_var_free.exit:                 ; preds = %is_live_loop_var_fr
   %96 = phi i32 [ %91, %.lr.ph44.i ], [ %142, %141 ]
   %97 = phi i32 [ %92, %.lr.ph44.i ], [ %143, %141 ]
   %indvars.iv.i22 = phi i64 [ %94, %.lr.ph44.i ], [ %indvars.iv.next.i24, %141 ]
-  %.03541.i = phi i32 [ 0, %.lr.ph44.i ], [ %.1.i, %141 ]
+  %.042.i = phi i32 [ 0, %.lr.ph44.i ], [ %.1.i, %141 ]
   %98 = load ptr, ptr %34, align 8
   %99 = getelementptr inbounds %struct._zend_op, ptr %98, i64 %indvars.iv.i22
   %100 = load ptr, ptr %2, align 8
@@ -1263,7 +1263,7 @@ is_live_loop_var_free.exit.i25:                   ; preds = %128, %123
 is_live_loop_var_free.exit.thread.i23:            ; preds = %is_live_loop_var_free.exit.i25, %112, %zend_optimizer_is_loop_var_free.exit.i.i28, %106, %95
   tail call void @zend_ssa_remove_defs_of_instr(ptr noundef %23, ptr noundef %103) #8
   tail call void @zend_ssa_remove_instr(ptr noundef %23, ptr noundef nonnull %99, ptr noundef %103) #8
-  %140 = add i32 %.03541.i, 1
+  %140 = add i32 %.042.i, 1
   %.pre.i = load i32, ptr %28, align 4
   %.pre47.i = load i32, ptr %30, align 8
   br label %141
@@ -1271,7 +1271,7 @@ is_live_loop_var_free.exit.thread.i23:            ; preds = %is_live_loop_var_fr
 141:                                              ; preds = %is_live_loop_var_free.exit.thread.i23, %is_live_loop_var_free.exit.i25, %95
   %142 = phi i32 [ %96, %95 ], [ %96, %is_live_loop_var_free.exit.i25 ], [ %.pre47.i, %is_live_loop_var_free.exit.thread.i23 ]
   %143 = phi i32 [ %97, %95 ], [ %97, %is_live_loop_var_free.exit.i25 ], [ %.pre.i, %is_live_loop_var_free.exit.thread.i23 ]
-  %.1.i = phi i32 [ %.03541.i, %95 ], [ %.03541.i, %is_live_loop_var_free.exit.i25 ], [ %140, %is_live_loop_var_free.exit.thread.i23 ]
+  %.1.i = phi i32 [ %.042.i, %95 ], [ %.042.i, %is_live_loop_var_free.exit.i25 ], [ %140, %is_live_loop_var_free.exit.thread.i23 ]
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
   %144 = add i32 %143, %142
   %145 = zext i32 %144 to i64
@@ -1279,15 +1279,15 @@ is_live_loop_var_free.exit.thread.i23:            ; preds = %is_live_loop_var_fr
   br i1 %146, label %95, label %cleanup_loop_var_free_block.exit
 
 cleanup_loop_var_free_block.exit:                 ; preds = %141, %._crit_edge.i
-  %.035.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %141 ]
+  %.0.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %141 ]
   %147 = lshr exact i64 %84, 6
   %148 = trunc i64 %147 to i32
   tail call void @zend_ssa_remove_block_from_cfg(ptr noundef %23, i32 noundef %148) #8
-  %149 = add i32 %.035.lcssa.i, %.033
+  %149 = add i32 %.0.lcssa.i, %.01932
   br label %150
 
 150:                                              ; preds = %8, %18, %cleanup_loop_var_free_block.exit, %.loopexit
-  %.1 = phi i32 [ %.033, %8 ], [ %149, %cleanup_loop_var_free_block.exit ], [ %78, %.loopexit ], [ %.033, %18 ]
+  %.1 = phi i32 [ %.01932, %8 ], [ %149, %cleanup_loop_var_free_block.exit ], [ %78, %.loopexit ], [ %.01932, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load i32, ptr %3, align 8
   %152 = sext i32 %151 to i64
@@ -1295,8 +1295,8 @@ cleanup_loop_var_free_block.exit:                 ; preds = %141, %._crit_edge.i
   br i1 %153, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %150, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %150 ]
-  ret i32 %.0.lcssa
+  %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %150 ]
+  ret i32 %.019.lcssa
 }
 
 declare void @zend_ssa_remove_block(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

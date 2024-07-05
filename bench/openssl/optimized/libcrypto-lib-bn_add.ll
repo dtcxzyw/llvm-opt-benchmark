@@ -53,11 +53,11 @@ while.body.preheader.i:                           ; preds = %if.end6.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %carry.031.i = phi i64 [ %and17.i, %while.body.i ], [ %call10.i, %while.body.preheader.i ]
   %rp.030.i = phi ptr [ %incdec.ptr14.i, %while.body.i ], [ %add.ptr.i, %while.body.preheader.i ]
-  %ap.029.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
-  %dif.028.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
-  %dec.i = add nsw i32 %dif.028.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.029.i, i64 8
-  %9 = load i64, ptr %ap.029.i, align 8
+  %dif.029.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
+  %ap.028.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
+  %dec.i = add nsw i32 %dif.029.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.028.i, i64 8
+  %9 = load i64, ptr %ap.028.i, align 8
   %add13.i = add i64 %9, %carry.031.i
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %rp.030.i, i64 8
   store i64 %add13.i, ptr %rp.030.i, align 8
@@ -101,8 +101,8 @@ if.else13:                                        ; preds = %if.else8
   br label %if.end15
 
 if.end15:                                         ; preds = %while.end.i, %if.then, %if.then5, %if.else13, %if.then10
-  %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 1, %while.end.i ], [ 0, %if.then ]
-  %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %14, %if.then10 ], [ 0, %if.else13 ], [ %0, %while.end.i ], [ %0, %if.then ]
+  %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %14, %if.then10 ], [ 0, %if.else13 ], [ %0, %if.then ], [ %0, %while.end.i ]
+  %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 0, %if.then ], [ 1, %while.end.i ]
   %neg16 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %r_neg.0, ptr %neg16, align 8
   ret i32 %ret.0
@@ -147,11 +147,11 @@ while.body.preheader:                             ; preds = %if.end6
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %carry.031 = phi i64 [ %and17, %while.body ], [ %call10, %while.body.preheader ]
   %rp.030 = phi ptr [ %incdec.ptr14, %while.body ], [ %add.ptr, %while.body.preheader ]
-  %ap.029 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr12, %while.body.preheader ]
-  %dif.028 = phi i32 [ %dec, %while.body ], [ %sub, %while.body.preheader ]
-  %dec = add nsw i32 %dif.028, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %ap.029, i64 8
-  %7 = load i64, ptr %ap.029, align 8
+  %dif.029 = phi i32 [ %dec, %while.body ], [ %sub, %while.body.preheader ]
+  %ap.028 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr12, %while.body.preheader ]
+  %dec = add nsw i32 %dif.029, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ap.028, i64 8
+  %7 = load i64, ptr %ap.028, align 8
   %add13 = add i64 %7, %carry.031
   %incdec.ptr14 = getelementptr inbounds i8, ptr %rp.030, i64 8
   store i64 %add13, ptr %rp.030, align 8
@@ -313,11 +313,11 @@ while.body.preheader.i:                           ; preds = %if.end6.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %carry.031.i = phi i64 [ %and17.i, %while.body.i ], [ %call10.i, %while.body.preheader.i ]
   %rp.030.i = phi ptr [ %incdec.ptr14.i, %while.body.i ], [ %add.ptr.i, %while.body.preheader.i ]
-  %ap.029.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
-  %dif.028.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
-  %dec.i = add nsw i32 %dif.028.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.029.i, i64 8
-  %9 = load i64, ptr %ap.029.i, align 8
+  %dif.029.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
+  %ap.028.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
+  %dec.i = add nsw i32 %dif.029.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.028.i, i64 8
+  %9 = load i64, ptr %ap.028.i, align 8
   %add13.i = add i64 %9, %carry.031.i
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %rp.030.i, i64 8
   store i64 %add13.i, ptr %rp.030.i, align 8
@@ -363,8 +363,8 @@ if.else13:                                        ; preds = %if.else8
   br label %if.end15
 
 if.end15:                                         ; preds = %while.end.i, %if.then, %if.then5, %if.else13, %if.then10
-  %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 1, %while.end.i ], [ 0, %if.then ]
-  %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %lnot.ext, %if.then10 ], [ 0, %if.else13 ], [ %0, %while.end.i ], [ %0, %if.then ]
+  %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %lnot.ext, %if.then10 ], [ 0, %if.else13 ], [ %0, %if.then ], [ %0, %while.end.i ]
+  %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 0, %if.then ], [ 1, %while.end.i ]
   %neg16 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %r_neg.0, ptr %neg16, align 8
   ret i32 %ret.0

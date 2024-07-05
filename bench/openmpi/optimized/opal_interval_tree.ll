@@ -566,12 +566,12 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %.not33.i, label %._crit_edge.thread.i, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %115, %163
-  %.03034.i = phi ptr [ %164, %163 ], [ %125, %115 ]
+  %.03134.i = phi ptr [ %164, %163 ], [ %125, %115 ]
   %131 = load i64, ptr %117, align 8
   %132 = load i64, ptr %118, align 8
   %133 = load ptr, ptr %116, align 8
   %.not.i.i27 = icmp eq ptr %133, null
-  %134 = getelementptr inbounds i8, ptr %.03034.i, i64 104
+  %134 = getelementptr inbounds i8, ptr %.03134.i, i64 104
   %135 = load i64, ptr %134, align 8
   br i1 %.not.i.i27, label %.critedge.i.i, label %136
 
@@ -580,13 +580,13 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %137, label %138, label %149
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %.03034.i, i64 112
+  %139 = getelementptr inbounds i8, ptr %.03134.i, i64 112
   %140 = load i64, ptr %139, align 8
   %141 = icmp eq i64 %140, %132
   br i1 %141, label %142, label %.thread29.i.i
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %.03034.i, i64 96
+  %143 = getelementptr inbounds i8, ptr %.03134.i, i64 96
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, %133
   br i1 %145, label %opal_interval_tree_compare_node.exit.i, label %.thread.i
@@ -596,7 +596,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %.not27.i.i, label %149, label %146
 
 146:                                              ; preds = %.critedge.i.i
-  %147 = getelementptr inbounds i8, ptr %.03034.i, i64 112
+  %147 = getelementptr inbounds i8, ptr %.03134.i, i64 112
   %148 = load i64, ptr %147, align 8
   %.not28.i.i = icmp ult i64 %148, %132
   br i1 %.not28.i.i, label %149, label %opal_interval_tree_compare_node.exit.i
@@ -610,7 +610,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %152, label %opal_interval_tree_compare_node.exit.i, label %..thread29.i_crit_edge.i
 
 ..thread29.i_crit_edge.i:                         ; preds = %151
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03034.i, i64 112
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03134.i, i64 112
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %.thread29.i.i
 
@@ -624,7 +624,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %156, label %opal_interval_tree_compare_node.exit.i, label %..thread.i_crit_edge
 
 ..thread.i_crit_edge:                             ; preds = %155
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03034.i, i64 96
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03134.i, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread.i
 
@@ -635,7 +635,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 
 opal_interval_tree_compare_node.exit.i:           ; preds = %.thread.i, %155, %.thread29.i.i, %151, %149, %146, %142
   %.0.i.i = phi i1 [ false, %146 ], [ false, %142 ], [ true, %149 ], [ false, %151 ], [ true, %.thread29.i.i ], [ false, %155 ], [ %158, %.thread.i ]
-  %159 = getelementptr inbounds i8, ptr %.03034.i, i64 120
+  %159 = getelementptr inbounds i8, ptr %.03134.i, i64 120
   %160 = load i64, ptr %159, align 8
   %161 = icmp ult i64 %160, %132
   br i1 %161, label %162, label %163
@@ -646,7 +646,7 @@ opal_interval_tree_compare_node.exit.i:           ; preds = %.thread.i, %155, %.
 
 163:                                              ; preds = %162, %opal_interval_tree_compare_node.exit.i
   %.in.v.i = select i1 %.0.i.i, i64 72, i64 80
-  %.in.i = getelementptr inbounds i8, ptr %.03034.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds i8, ptr %.03134.i, i64 %.in.v.i
   %164 = load ptr, ptr %.in.i, align 8
   %.not.i28 = icmp eq ptr %164, %126
   br i1 %.not.i28, label %._crit_edge.i29, label %.lr.ph.i26, !llvm.loop !11
@@ -655,19 +655,19 @@ opal_interval_tree_compare_node.exit.i:           ; preds = %.thread.i, %155, %.
   br i1 %.0.i.i, label %._crit_edge.thread.i, label %166
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i29, %115
-  %.031.lcssa38.i = phi ptr [ %.03034.i, %._crit_edge.i29 ], [ %123, %115 ]
-  %165 = getelementptr inbounds i8, ptr %.031.lcssa38.i, i64 72
+  %.030.lcssa38.i = phi ptr [ %.03134.i, %._crit_edge.i29 ], [ %123, %115 ]
+  %165 = getelementptr inbounds i8, ptr %.030.lcssa38.i, i64 72
   br label %opal_interval_tree_insert_node.exit
 
 166:                                              ; preds = %._crit_edge.i29
-  %167 = getelementptr inbounds i8, ptr %.03034.i, i64 80
+  %167 = getelementptr inbounds i8, ptr %.03134.i, i64 80
   br label %opal_interval_tree_insert_node.exit
 
 opal_interval_tree_insert_node.exit:              ; preds = %._crit_edge.thread.i, %166
   %.sink.i = phi ptr [ %167, %166 ], [ %165, %._crit_edge.thread.i ]
-  %.031.lcssa39.i = phi ptr [ %.03034.i, %166 ], [ %.031.lcssa38.i, %._crit_edge.thread.i ]
+  %.030.lcssa39.i = phi ptr [ %.03134.i, %166 ], [ %.030.lcssa38.i, %._crit_edge.thread.i ]
   store ptr %.0.i, ptr %.sink.i, align 8
-  store ptr %.031.lcssa39.i, ptr %128, align 8
+  store ptr %.030.lcssa39.i, ptr %128, align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 696
   %169 = load volatile i64, ptr %168, align 8
   %170 = add i64 %169, 1
@@ -2246,7 +2246,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   br label %26
 
 26:                                               ; preds = %24, %20
-  %.046 = phi i64 [ %22, %20 ], [ %25, %24 ]
+  %.047 = phi i64 [ %22, %20 ], [ %25, %24 ]
   %27 = icmp eq ptr %5, %18
   br i1 %27, label %28, label %32
 
@@ -2264,7 +2264,7 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
 
 35:                                               ; preds = %32, %28
   %.pre-phi = phi i64 [ %.pre, %32 ], [ %29, %28 ]
-  %.0 = phi i64 [ %34, %32 ], [ %30, %28 ]
+  %.046 = phi i64 [ %34, %32 ], [ %30, %28 ]
   %36 = getelementptr inbounds i8, ptr %.tr5054, i64 104
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %.tr5054, i64 112
@@ -2275,8 +2275,8 @@ define internal fastcc void @opal_interval_tree_dump_node(ptr noundef %0, ptr no
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.13, i64 noundef %.pre-phi, ptr noundef nonnull %14, i64 noundef %37, i64 noundef %39, i64 noundef %41, i64 noundef %44, i32 noundef %spec.select55) #14
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef %.pre-phi, i64 noundef %.046) #14
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %.0) #14
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef %.pre-phi, i64 noundef %.047) #14
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.15, i64 noundef %.pre-phi, i64 noundef %.046) #14
   %48 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %48, %.tr5054
   br i1 %.not, label %tailrecurse, label %49

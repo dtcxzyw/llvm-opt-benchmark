@@ -5190,7 +5190,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   br label %73
 
 73:                                               ; preds = %63, %69
-  %.070 = phi ptr [ %66, %69 ], [ null, %63 ]
+  %.069 = phi ptr [ %66, %69 ], [ null, %63 ]
   %.0 = phi i64 [ %72, %69 ], [ 255, %63 ]
   store i64 %.0, ptr %31, align 8
   store i64 0, ptr %30, align 8
@@ -5298,10 +5298,10 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   br i1 %.not82, label %117, label %122
 
 117:                                              ; preds = %136, %139, %110
-  %.069.shrunk = phi i1 [ false, %110 ], [ %140, %139 ], [ %.mux, %136 ]
+  %.070.shrunk = phi i1 [ false, %110 ], [ %140, %139 ], [ %.mux, %136 ]
   %118 = load i8, ptr %22, align 1, !range !6, !noundef !3
   %119 = trunc nuw i8 %118 to i1
-  %120 = xor i1 %.069.shrunk, true
+  %120 = xor i1 %.070.shrunk, true
   %narrow = select i1 %119, i1 %120, i1 false
   %storemerge85 = zext i1 %narrow to i8
   store i8 %storemerge85, ptr %21, align 1
@@ -5348,13 +5348,13 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
 
 136:                                              ; preds = %129
   %137 = icmp eq ptr %132, null
-  %138 = icmp eq ptr %.070, null
+  %138 = icmp eq ptr %.069, null
   %brmerge = select i1 %137, i1 true, i1 %138
   %.mux = select i1 %137, i1 %138, i1 false
   br i1 %brmerge, label %117, label %139
 
 139:                                              ; preds = %136
-  %140 = invoke zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0e662d5452d1154aE"(ptr nonnull align 8 %132, ptr nonnull align 8 %.070)
+  %140 = invoke zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0e662d5452d1154aE"(ptr nonnull align 8 %132, ptr nonnull align 8 %.069)
           to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 141:                                              ; preds = %117
@@ -5541,7 +5541,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %206 = load ptr, ptr %96, align 8, !nonnull !3, !noundef !3
   %207 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %206, i64 0, i64 %107
   %208 = load ptr, ptr %42, align 8, !nonnull !3, !align !4, !noundef !3
-  invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %26, ptr nonnull align 8 %207, ptr align 8 %.070, ptr nonnull align 8 %208)
+  invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %26, ptr nonnull align 8 %207, ptr align 8 %.069, ptr nonnull align 8 %208)
           to label %209 unwind label %.loopexit
 
 209:                                              ; preds = %205
@@ -5552,7 +5552,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %211 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
   %212 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %211, i64 0, i64 %89
   %213 = load ptr, ptr %42, align 8, !nonnull !3, !align !4, !noundef !3
-  invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr nonnull align 8 %212, ptr align 8 %.070, ptr nonnull align 8 %213)
+  invoke void @_ZN22cranelift_codegen_meta8gen_inst14get_constraint17h8263bb762428218dE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr nonnull align 8 %212, ptr align 8 %.069, ptr nonnull align 8 %213)
           to label %214 unwind label %.loopexit.split-lp.loopexit
 
 214:                                              ; preds = %210

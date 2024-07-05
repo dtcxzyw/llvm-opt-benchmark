@@ -69,12 +69,12 @@ define i16 @f16_mul(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %30, %28
-  %.065 = phi i64 [ %12, %28 ], [ %33, %30 ]
-  %.062 = phi i8 [ %11, %28 ], [ %32, %30 ]
-  %35 = add i8 %.062, %.0
+  %.061 = phi i64 [ %12, %28 ], [ %33, %30 ]
+  %.060 = phi i8 [ %11, %28 ], [ %32, %30 ]
+  %35 = add i8 %.060, %.0
   %36 = shl i64 %.059, 4
   %37 = or i64 %36, 16384
-  %38 = shl i64 %.065, 5
+  %38 = shl i64 %.061, 5
   %39 = or i64 %38, 32768
   %40 = mul i64 %39, %37
   %41 = lshr i64 %40, 16
@@ -83,11 +83,11 @@ define i16 @f16_mul(i16 %0, i16 %1) local_unnamed_addr #0 {
   %43 = zext i1 %.not75 to i64
   %spec.select = or i64 %41, %43
   %44 = icmp ult i64 %40, 1073741824
-  %.063.v = select i1 %44, i8 -16, i8 -15
-  %.063 = add i8 %35, %.063.v
+  %.065.v = select i1 %44, i8 -16, i8 -15
+  %.065 = add i8 %35, %.065.v
   %45 = zext i1 %44 to i64
   %.1 = shl nuw nsw i64 %spec.select, %45
-  %46 = sext i8 %.063 to i64
+  %46 = sext i8 %.065 to i64
   %47 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %13, i64 noundef %46, i64 noundef %.1) #2
   br label %58
 

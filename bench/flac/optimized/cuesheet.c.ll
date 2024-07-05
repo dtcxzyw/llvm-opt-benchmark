@@ -153,14 +153,14 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end499.i, %while.body.lr.ph.i
-  %has_forced_leadout.0995.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %has_forced_leadout.1.i, %if.end499.i ]
-  %track_has_isrc.0994.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %track_has_isrc.1.i, %if.end499.i ]
-  %track_has_flags.0993.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %track_has_flags.1.i, %if.end499.i ]
-  %disc_has_catalog.0992.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %disc_has_catalog.1.i, %if.end499.i ]
-  %in_index_num.0991.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %in_index_num.1.i, %if.end499.i ]
-  %in_track_num.0990.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %in_track_num.1.i, %if.end499.i ]
-  %forced_leadout_track_offset.0989.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %forced_leadout_track_offset.1.i, %if.end499.i ]
-  %forced_leadout_track_num.0988.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %forced_leadout_track_num.1.i, %if.end499.i ]
+  %forced_leadout_track_num.0995.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %forced_leadout_track_num.1.i, %if.end499.i ]
+  %forced_leadout_track_offset.0994.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %forced_leadout_track_offset.1.i, %if.end499.i ]
+  %in_track_num.0993.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %in_track_num.1.i, %if.end499.i ]
+  %in_index_num.0992.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %in_index_num.1.i, %if.end499.i ]
+  %disc_has_catalog.0991.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %disc_has_catalog.1.i, %if.end499.i ]
+  %track_has_flags.0990.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %track_has_flags.1.i, %if.end499.i ]
+  %track_has_isrc.0989.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %track_has_isrc.1.i, %if.end499.i ]
+  %has_forced_leadout.0988.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %has_forced_leadout.1.i, %if.end499.i ]
   %0 = load i32, ptr %last_line_read, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %last_line_read, align 4
@@ -243,7 +243,7 @@ if.then17.i:                                      ; preds = %while.body39.i.i, %
   br i1 %cmp19.i, label %if.then21.i, label %if.else.i
 
 if.then21.i:                                      ; preds = %if.then17.i
-  %tobool22.not.i = icmp eq i32 %disc_has_catalog.0992.i, 0
+  %tobool22.not.i = icmp eq i32 %disc_has_catalog.0991.i, 0
   br i1 %tobool22.not.i, label %if.end24.i, label %if.then2
 
 if.end24.i:                                       ; preds = %if.then21.i
@@ -357,12 +357,12 @@ if.else.i:                                        ; preds = %if.then17.i
   br i1 %cmp48.i, label %if.then50.i, label %if.else73.i
 
 if.then50.i:                                      ; preds = %if.else.i
-  %tobool51.not.i = icmp eq i32 %track_has_flags.0993.i, 0
+  %tobool51.not.i = icmp eq i32 %track_has_flags.0990.i, 0
   br i1 %tobool51.not.i, label %if.end53.i, label %if.then2
 
 if.end53.i:                                       ; preds = %if.then50.i
-  %cmp54.i = icmp slt i32 %in_track_num.0990.i, 0
-  %cmp57.i = icmp sgt i32 %in_index_num.0991.i, -1
+  %cmp54.i = icmp slt i32 %in_track_num.0993.i, 0
+  %cmp57.i = icmp sgt i32 %in_index_num.0992.i, -1
   %or.cond1.i = select i1 %cmp54.i, i1 true, i1 %cmp57.i
   br i1 %or.cond1.i, label %if.then2, label %while.cond61.preheader.i
 
@@ -468,7 +468,7 @@ if.then77.i:                                      ; preds = %if.else73.i
   %sub80.i = add i32 %46, -1
   %idxprom81.i = zext i32 %sub80.i to i64
   %arrayidx82.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %45, i64 %idxprom81.i
-  %cmp83.i = icmp slt i32 %in_track_num.0990.i, 0
+  %cmp83.i = icmp slt i32 %in_track_num.0993.i, 0
   br i1 %cmp83.i, label %if.then2, label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then77.i
@@ -1011,12 +1011,12 @@ if.else243.i:                                     ; preds = %if.else73.i
   br i1 %cmp245.i, label %if.then247.i, label %if.else290.i
 
 if.then247.i:                                     ; preds = %if.else243.i
-  %tobool248.not.i = icmp eq i32 %track_has_isrc.0994.i, 0
+  %tobool248.not.i = icmp eq i32 %track_has_isrc.0989.i, 0
   br i1 %tobool248.not.i, label %if.end250.i, label %if.then2
 
 if.end250.i:                                      ; preds = %if.then247.i
-  %cmp251.i = icmp slt i32 %in_track_num.0990.i, 0
-  %cmp254.i = icmp sgt i32 %in_index_num.0991.i, -1
+  %cmp251.i = icmp slt i32 %in_track_num.0993.i, 0
+  %cmp254.i = icmp sgt i32 %in_index_num.0992.i, -1
   %or.cond5.i = select i1 %cmp251.i, i1 true, i1 %cmp254.i
   br i1 %or.cond5.i, label %if.then2, label %if.end257.i
 
@@ -1560,7 +1560,7 @@ if.else457.i:                                     ; preds = %if.then433.i
   br i1 %cmp459.i, label %if.then461.i, label %if.end499.i
 
 if.then461.i:                                     ; preds = %if.else457.i
-  %tobool463.not.i = icmp eq i32 %has_forced_leadout.0995.i, 0
+  %tobool463.not.i = icmp eq i32 %has_forced_leadout.0988.i, 0
   br i1 %tobool463.not.i, label %if.end465.i, label %if.then2
 
 if.end465.i:                                      ; preds = %if.then461.i
@@ -1611,14 +1611,14 @@ if.end485.i:                                      ; preds = %local__parse_int64_
   br i1 %cmp486.not.i, label %if.end499.i, label %if.then2
 
 if.end499.i:                                      ; preds = %if.end72.i, %if.end485.i, %if.else457.i, %if.end455.i, %local__get_field_.exit552.thread644.i, %if.else425.i, %if.end405.i, %if.end282.i, %if.end225.i, %local__get_field_.exit267.thread596.i, %while.cond61.preheader.i, %if.end44.i, %local__get_field_.exit.thread.i
-  %forced_leadout_track_num.1.i = phi i32 [ %forced_leadout_track_num.0988.i, %if.end44.i ], [ %forced_leadout_track_num.0988.i, %if.end225.i ], [ %forced_leadout_track_num.0988.i, %if.end282.i ], [ %forced_leadout_track_num.0988.i, %if.end405.i ], [ %forced_leadout_track_num.0988.i, %if.end455.i ], [ %forced_leadout_track_num.0988.i, %if.else457.i ], [ %forced_leadout_track_num.0988.i, %if.else425.i ], [ %call471.i, %if.end485.i ], [ %forced_leadout_track_num.0988.i, %local__get_field_.exit.thread.i ], [ %forced_leadout_track_num.0988.i, %local__get_field_.exit267.thread596.i ], [ %forced_leadout_track_num.0988.i, %local__get_field_.exit552.thread644.i ], [ %forced_leadout_track_num.0988.i, %while.cond61.preheader.i ], [ %forced_leadout_track_num.0988.i, %if.end72.i ]
-  %forced_leadout_track_offset.1.i = phi i64 [ %forced_leadout_track_offset.0989.i, %if.end44.i ], [ %forced_leadout_track_offset.0989.i, %if.end225.i ], [ %forced_leadout_track_offset.0989.i, %if.end282.i ], [ %forced_leadout_track_offset.0989.i, %if.end405.i ], [ %forced_leadout_track_offset.0989.i, %if.end455.i ], [ %forced_leadout_track_offset.0989.i, %if.else457.i ], [ %forced_leadout_track_offset.0989.i, %if.else425.i ], [ %lead_out_offset, %if.end485.i ], [ %forced_leadout_track_offset.0989.i, %local__get_field_.exit.thread.i ], [ %forced_leadout_track_offset.0989.i, %local__get_field_.exit267.thread596.i ], [ %forced_leadout_track_offset.0989.i, %local__get_field_.exit552.thread644.i ], [ %forced_leadout_track_offset.0989.i, %while.cond61.preheader.i ], [ %forced_leadout_track_offset.0989.i, %if.end72.i ]
-  %in_track_num.1.i = phi i32 [ %in_track_num.0990.i, %if.end44.i ], [ %in_track_num.0990.i, %if.end225.i ], [ %in_track_num.0990.i, %if.end282.i ], [ %conv.i476.i, %if.end405.i ], [ %in_track_num.0990.i, %if.end455.i ], [ %in_track_num.0990.i, %if.else457.i ], [ %in_track_num.0990.i, %if.else425.i ], [ %in_track_num.0990.i, %if.end485.i ], [ %in_track_num.0990.i, %local__get_field_.exit.thread.i ], [ %in_track_num.0990.i, %local__get_field_.exit267.thread596.i ], [ %in_track_num.0990.i, %local__get_field_.exit552.thread644.i ], [ %in_track_num.0990.i, %while.cond61.preheader.i ], [ %in_track_num.0990.i, %if.end72.i ]
-  %in_index_num.1.i = phi i32 [ %in_index_num.0991.i, %if.end44.i ], [ %conv.i304.i, %if.end225.i ], [ -1, %if.end282.i ], [ -1, %if.end405.i ], [ %in_index_num.0991.i, %if.end455.i ], [ %in_index_num.0991.i, %if.else457.i ], [ %in_index_num.0991.i, %if.else425.i ], [ %in_index_num.0991.i, %if.end485.i ], [ %in_index_num.0991.i, %local__get_field_.exit.thread.i ], [ %in_index_num.0991.i, %local__get_field_.exit267.thread596.i ], [ %in_index_num.0991.i, %local__get_field_.exit552.thread644.i ], [ %in_index_num.0991.i, %while.cond61.preheader.i ], [ %in_index_num.0991.i, %if.end72.i ]
-  %disc_has_catalog.1.i = phi i32 [ 1, %if.end44.i ], [ %disc_has_catalog.0992.i, %if.end225.i ], [ %disc_has_catalog.0992.i, %if.end282.i ], [ %disc_has_catalog.0992.i, %if.end405.i ], [ %disc_has_catalog.0992.i, %if.end455.i ], [ %disc_has_catalog.0992.i, %if.else457.i ], [ %disc_has_catalog.0992.i, %if.else425.i ], [ %disc_has_catalog.0992.i, %if.end485.i ], [ %disc_has_catalog.0992.i, %local__get_field_.exit.thread.i ], [ %disc_has_catalog.0992.i, %local__get_field_.exit267.thread596.i ], [ %disc_has_catalog.0992.i, %local__get_field_.exit552.thread644.i ], [ %disc_has_catalog.0992.i, %while.cond61.preheader.i ], [ %disc_has_catalog.0992.i, %if.end72.i ]
-  %track_has_flags.1.i = phi i32 [ %track_has_flags.0993.i, %if.end44.i ], [ %track_has_flags.0993.i, %if.end225.i ], [ %track_has_flags.0993.i, %if.end282.i ], [ 0, %if.end405.i ], [ %track_has_flags.0993.i, %if.end455.i ], [ %track_has_flags.0993.i, %if.else457.i ], [ %track_has_flags.0993.i, %if.else425.i ], [ %track_has_flags.0993.i, %if.end485.i ], [ %track_has_flags.0993.i, %local__get_field_.exit.thread.i ], [ 1, %local__get_field_.exit267.thread596.i ], [ %track_has_flags.0993.i, %local__get_field_.exit552.thread644.i ], [ 1, %while.cond61.preheader.i ], [ 1, %if.end72.i ]
-  %track_has_isrc.1.i = phi i32 [ %track_has_isrc.0994.i, %if.end44.i ], [ %track_has_isrc.0994.i, %if.end225.i ], [ 1, %if.end282.i ], [ 0, %if.end405.i ], [ %track_has_isrc.0994.i, %if.end455.i ], [ %track_has_isrc.0994.i, %if.else457.i ], [ %track_has_isrc.0994.i, %if.else425.i ], [ %track_has_isrc.0994.i, %if.end485.i ], [ %track_has_isrc.0994.i, %local__get_field_.exit.thread.i ], [ %track_has_isrc.0994.i, %local__get_field_.exit267.thread596.i ], [ %track_has_isrc.0994.i, %local__get_field_.exit552.thread644.i ], [ %track_has_isrc.0994.i, %while.cond61.preheader.i ], [ %track_has_isrc.0994.i, %if.end72.i ]
-  %has_forced_leadout.1.i = phi i32 [ %has_forced_leadout.0995.i, %if.end44.i ], [ %has_forced_leadout.0995.i, %if.end225.i ], [ %has_forced_leadout.0995.i, %if.end282.i ], [ %has_forced_leadout.0995.i, %if.end405.i ], [ %has_forced_leadout.0995.i, %if.end455.i ], [ %has_forced_leadout.0995.i, %if.else457.i ], [ %has_forced_leadout.0995.i, %if.else425.i ], [ 1, %if.end485.i ], [ %has_forced_leadout.0995.i, %local__get_field_.exit.thread.i ], [ %has_forced_leadout.0995.i, %local__get_field_.exit267.thread596.i ], [ %has_forced_leadout.0995.i, %local__get_field_.exit552.thread644.i ], [ %has_forced_leadout.0995.i, %while.cond61.preheader.i ], [ %has_forced_leadout.0995.i, %if.end72.i ]
+  %has_forced_leadout.1.i = phi i32 [ %has_forced_leadout.0988.i, %if.end44.i ], [ %has_forced_leadout.0988.i, %if.end225.i ], [ %has_forced_leadout.0988.i, %if.end282.i ], [ %has_forced_leadout.0988.i, %if.end405.i ], [ %has_forced_leadout.0988.i, %if.end455.i ], [ %has_forced_leadout.0988.i, %if.else457.i ], [ %has_forced_leadout.0988.i, %if.else425.i ], [ 1, %if.end485.i ], [ %has_forced_leadout.0988.i, %local__get_field_.exit.thread.i ], [ %has_forced_leadout.0988.i, %local__get_field_.exit267.thread596.i ], [ %has_forced_leadout.0988.i, %local__get_field_.exit552.thread644.i ], [ %has_forced_leadout.0988.i, %while.cond61.preheader.i ], [ %has_forced_leadout.0988.i, %if.end72.i ]
+  %track_has_isrc.1.i = phi i32 [ %track_has_isrc.0989.i, %if.end44.i ], [ %track_has_isrc.0989.i, %if.end225.i ], [ 1, %if.end282.i ], [ 0, %if.end405.i ], [ %track_has_isrc.0989.i, %if.end455.i ], [ %track_has_isrc.0989.i, %if.else457.i ], [ %track_has_isrc.0989.i, %if.else425.i ], [ %track_has_isrc.0989.i, %if.end485.i ], [ %track_has_isrc.0989.i, %local__get_field_.exit.thread.i ], [ %track_has_isrc.0989.i, %local__get_field_.exit267.thread596.i ], [ %track_has_isrc.0989.i, %local__get_field_.exit552.thread644.i ], [ %track_has_isrc.0989.i, %while.cond61.preheader.i ], [ %track_has_isrc.0989.i, %if.end72.i ]
+  %track_has_flags.1.i = phi i32 [ %track_has_flags.0990.i, %if.end44.i ], [ %track_has_flags.0990.i, %if.end225.i ], [ %track_has_flags.0990.i, %if.end282.i ], [ 0, %if.end405.i ], [ %track_has_flags.0990.i, %if.end455.i ], [ %track_has_flags.0990.i, %if.else457.i ], [ %track_has_flags.0990.i, %if.else425.i ], [ %track_has_flags.0990.i, %if.end485.i ], [ %track_has_flags.0990.i, %local__get_field_.exit.thread.i ], [ 1, %local__get_field_.exit267.thread596.i ], [ %track_has_flags.0990.i, %local__get_field_.exit552.thread644.i ], [ 1, %while.cond61.preheader.i ], [ 1, %if.end72.i ]
+  %disc_has_catalog.1.i = phi i32 [ 1, %if.end44.i ], [ %disc_has_catalog.0991.i, %if.end225.i ], [ %disc_has_catalog.0991.i, %if.end282.i ], [ %disc_has_catalog.0991.i, %if.end405.i ], [ %disc_has_catalog.0991.i, %if.end455.i ], [ %disc_has_catalog.0991.i, %if.else457.i ], [ %disc_has_catalog.0991.i, %if.else425.i ], [ %disc_has_catalog.0991.i, %if.end485.i ], [ %disc_has_catalog.0991.i, %local__get_field_.exit.thread.i ], [ %disc_has_catalog.0991.i, %local__get_field_.exit267.thread596.i ], [ %disc_has_catalog.0991.i, %local__get_field_.exit552.thread644.i ], [ %disc_has_catalog.0991.i, %while.cond61.preheader.i ], [ %disc_has_catalog.0991.i, %if.end72.i ]
+  %in_index_num.1.i = phi i32 [ %in_index_num.0992.i, %if.end44.i ], [ %conv.i304.i, %if.end225.i ], [ -1, %if.end282.i ], [ -1, %if.end405.i ], [ %in_index_num.0992.i, %if.end455.i ], [ %in_index_num.0992.i, %if.else457.i ], [ %in_index_num.0992.i, %if.else425.i ], [ %in_index_num.0992.i, %if.end485.i ], [ %in_index_num.0992.i, %local__get_field_.exit.thread.i ], [ %in_index_num.0992.i, %local__get_field_.exit267.thread596.i ], [ %in_index_num.0992.i, %local__get_field_.exit552.thread644.i ], [ %in_index_num.0992.i, %while.cond61.preheader.i ], [ %in_index_num.0992.i, %if.end72.i ]
+  %in_track_num.1.i = phi i32 [ %in_track_num.0993.i, %if.end44.i ], [ %in_track_num.0993.i, %if.end225.i ], [ %in_track_num.0993.i, %if.end282.i ], [ %conv.i476.i, %if.end405.i ], [ %in_track_num.0993.i, %if.end455.i ], [ %in_track_num.0993.i, %if.else457.i ], [ %in_track_num.0993.i, %if.else425.i ], [ %in_track_num.0993.i, %if.end485.i ], [ %in_track_num.0993.i, %local__get_field_.exit.thread.i ], [ %in_track_num.0993.i, %local__get_field_.exit267.thread596.i ], [ %in_track_num.0993.i, %local__get_field_.exit552.thread644.i ], [ %in_track_num.0993.i, %while.cond61.preheader.i ], [ %in_track_num.0993.i, %if.end72.i ]
+  %forced_leadout_track_offset.1.i = phi i64 [ %forced_leadout_track_offset.0994.i, %if.end44.i ], [ %forced_leadout_track_offset.0994.i, %if.end225.i ], [ %forced_leadout_track_offset.0994.i, %if.end282.i ], [ %forced_leadout_track_offset.0994.i, %if.end405.i ], [ %forced_leadout_track_offset.0994.i, %if.end455.i ], [ %forced_leadout_track_offset.0994.i, %if.else457.i ], [ %forced_leadout_track_offset.0994.i, %if.else425.i ], [ %lead_out_offset, %if.end485.i ], [ %forced_leadout_track_offset.0994.i, %local__get_field_.exit.thread.i ], [ %forced_leadout_track_offset.0994.i, %local__get_field_.exit267.thread596.i ], [ %forced_leadout_track_offset.0994.i, %local__get_field_.exit552.thread644.i ], [ %forced_leadout_track_offset.0994.i, %while.cond61.preheader.i ], [ %forced_leadout_track_offset.0994.i, %if.end72.i ]
+  %forced_leadout_track_num.1.i = phi i32 [ %forced_leadout_track_num.0995.i, %if.end44.i ], [ %forced_leadout_track_num.0995.i, %if.end225.i ], [ %forced_leadout_track_num.0995.i, %if.end282.i ], [ %forced_leadout_track_num.0995.i, %if.end405.i ], [ %forced_leadout_track_num.0995.i, %if.end455.i ], [ %forced_leadout_track_num.0995.i, %if.else457.i ], [ %forced_leadout_track_num.0995.i, %if.else425.i ], [ %call471.i, %if.end485.i ], [ %forced_leadout_track_num.0995.i, %local__get_field_.exit.thread.i ], [ %forced_leadout_track_num.0995.i, %local__get_field_.exit267.thread596.i ], [ %forced_leadout_track_num.0995.i, %local__get_field_.exit552.thread644.i ], [ %forced_leadout_track_num.0995.i, %while.cond61.preheader.i ], [ %forced_leadout_track_num.0995.i, %if.end72.i ]
   %call.i = call ptr @fgets(ptr noundef nonnull %buffer.i, i32 noundef 4096, ptr noundef %file)
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %while.end500.loopexit.i, label %while.body.i, !llvm.loop !13
@@ -1628,9 +1628,9 @@ while.end500.loopexit.i:                          ; preds = %if.end499.i
   br label %while.end500.i
 
 while.end500.i:                                   ; preds = %while.end500.loopexit.i, %if.end.i
-  %forced_leadout_track_num.0.lcssa.i = phi i32 [ 0, %if.end.i ], [ %forced_leadout_track_num.1.i, %while.end500.loopexit.i ]
-  %forced_leadout_track_offset.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %forced_leadout_track_offset.1.i, %while.end500.loopexit.i ]
   %has_forced_leadout.0.lcssa.i = phi i1 [ true, %if.end.i ], [ %209, %while.end500.loopexit.i ]
+  %forced_leadout_track_offset.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %forced_leadout_track_offset.1.i, %while.end500.loopexit.i ]
+  %forced_leadout_track_num.0.lcssa.i = phi i32 [ 0, %if.end.i ], [ %forced_leadout_track_num.1.i, %while.end500.loopexit.i ]
   %num_tracks501.i = getelementptr inbounds i8, ptr %call, i64 164
   %210 = load i32, ptr %num_tracks501.i, align 4
   %cmp502.i = icmp eq i32 %210, 0
@@ -1689,9 +1689,9 @@ if.end553.i:                                      ; preds = %land.lhs.true542.i,
   br i1 %tobool561.not.i, label %if.then2, label %if.end563.i
 
 if.end563.i:                                      ; preds = %if.end553.i
-  %spec.select203.i = select i1 %has_forced_leadout.0.lcssa.i, i64 %lead_out_offset, i64 %forced_leadout_track_offset.0.lcssa.i
-  %spec.select.i = select i1 %has_forced_leadout.0.lcssa.i, i32 %cond557.i, i32 %forced_leadout_track_num.0.lcssa.i
-  %conv564.i = trunc i32 %spec.select.i to i8
+  %spec.select203.i = select i1 %has_forced_leadout.0.lcssa.i, i32 %cond557.i, i32 %forced_leadout_track_num.0.lcssa.i
+  %spec.select.i = select i1 %has_forced_leadout.0.lcssa.i, i64 %lead_out_offset, i64 %forced_leadout_track_offset.0.lcssa.i
+  %conv564.i = trunc i32 %spec.select203.i to i8
   %218 = load ptr, ptr %tracks507.i, align 8
   %219 = load i32, ptr %num_tracks501.i, align 4
   %sub567.i = add i32 %219, -1
@@ -1703,7 +1703,7 @@ if.end563.i:                                      ; preds = %if.end553.i
   %sub573.i = add i32 %221, -1
   %idxprom574.i = zext i32 %sub573.i to i64
   %arrayidx575.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %220, i64 %idxprom574.i
-  store i64 %spec.select203.i, ptr %arrayidx575.i, align 8
+  store i64 %spec.select.i, ptr %arrayidx575.i, align 8
   %call577.i = call i32 @feof(ptr noundef %file) #14
   %tobool578.not.i = icmp eq i32 %call577.i, 0
   br i1 %tobool578.not.i, label %if.then2, label %local__cuesheet_parse_.exit

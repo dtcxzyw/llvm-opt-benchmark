@@ -381,8 +381,8 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %75, %6
-  %.059.ph.ph = phi ptr [ %.160, %75 ], [ null, %6 ]
-  %.057.ph.ph = phi ptr [ %76, %75 ], [ null, %6 ]
+  %.060.ph.ph = phi ptr [ %.161, %75 ], [ null, %6 ]
+  %.058.ph.ph = phi ptr [ %76, %75 ], [ null, %6 ]
   %.046.ph.ph = phi i32 [ %56, %75 ], [ 0, %6 ]
   %.0.ph.ph = phi i32 [ %58, %75 ], [ 0, %6 ]
   %8 = mul nsw i32 %.0.ph.ph, %.046.ph.ph
@@ -392,14 +392,14 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %.split.us
-  %.057.ph = phi ptr [ %.us-phi, %.split.us ], [ %.057.ph.ph, %.outer.outer ]
+  %.058.ph = phi ptr [ %.us-phi, %.split.us ], [ %.058.ph.ph, %.outer.outer ]
   br i1 %9, label %.outer73.us, label %.outer73, !llvm.loop !8
 
 .outer73.us.loopexit:                             ; preds = %20
   br label %.outer73.us, !llvm.loop !9
 
 .outer73.us:                                      ; preds = %.outer, %.outer73.us.loopexit
-  %.057.ph74.us = phi ptr [ null, %.outer73.us.loopexit ], [ %.057.ph, %.outer ]
+  %.058.ph74.us = phi ptr [ null, %.outer73.us.loopexit ], [ %.058.ph, %.outer ]
   br label %35
 
 10:                                               ; preds = %35
@@ -413,7 +413,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %15, label %.split.us, label %.preheader72.us
 
 ._crit_edge.us:                                   ; preds = %30, %.preheader.us
-  %.2.lcssa.us = phi ptr [ %.15678.us, %.preheader.us ], [ %31, %30 ]
+  %.2.lcssa.us = phi ptr [ %.15778.us, %.preheader.us ], [ %31, %30 ]
   %16 = load i8, ptr %.2.lcssa.us, align 1
   %17 = icmp eq i8 %16, 45
   br i1 %17, label %20, label %18
@@ -450,12 +450,12 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
 
 .preheader.us:                                    ; preds = %.preheader72.us, %20
   %indvars.iv = phi i64 [ 0, %.preheader72.us ], [ %indvars.iv.next, %20 ]
-  %.15678.us = phi ptr [ %11, %.preheader72.us ], [ %24, %20 ]
-  %33 = icmp eq ptr %.15678.us, null
+  %.15778.us = phi ptr [ %11, %.preheader72.us ], [ %24, %20 ]
+  %33 = icmp eq ptr %.15778.us, null
   br i1 %33, label %.lr.ph.us, label %._crit_edge.us
 
 .preheader72.us:                                  ; preds = %13
-  %34 = getelementptr inbounds i8, ptr %.057.ph74.us, i64 24
+  %34 = getelementptr inbounds i8, ptr %.058.ph74.us, i64 24
   br label %.preheader.us
 
 35:                                               ; preds = %10, %.outer73.us
@@ -464,7 +464,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not.us, label %.split82.us, label %10
 
 .outer73:                                         ; preds = %.outer, %.preheader72
-  %.057.ph74 = phi ptr [ null, %.preheader72 ], [ %.057.ph, %.outer ]
+  %.058.ph74 = phi ptr [ null, %.preheader72 ], [ %.058.ph, %.outer ]
   br label %37
 
 37:                                               ; preds = %.outer73, %39
@@ -483,7 +483,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %43, label %.split.us, label %.outer73
 
 .split.us:                                        ; preds = %.preheader72, %13
-  %.us-phi = phi ptr [ %.057.ph74.us, %13 ], [ %.057.ph74, %.preheader72 ]
+  %.us-phi = phi ptr [ %.058.ph74.us, %13 ], [ %.058.ph74, %.preheader72 ]
   %.us-phi80 = phi ptr [ %11, %13 ], [ %40, %.preheader72 ]
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.us-phi80, ptr noundef nonnull dereferenceable(5) @.str.3) #22
   %.not67 = icmp eq i32 %44, 0
@@ -514,38 +514,38 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   br i1 %.not6884, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_UtilStrsav.exit, %65
-  %.04988 = phi i8 [ %.150, %65 ], [ 0, %Abc_UtilStrsav.exit ]
-  %.05187 = phi i8 [ %.152, %65 ], [ 0, %Abc_UtilStrsav.exit ]
-  %.05386 = phi i8 [ %.154, %65 ], [ 0, %Abc_UtilStrsav.exit ]
-  %.05585 = phi ptr [ %66, %65 ], [ %59, %Abc_UtilStrsav.exit ]
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05585, ptr noundef nonnull dereferenceable(4) @.str.4) #22
+  %.05088 = phi i8 [ %.151, %65 ], [ 0, %Abc_UtilStrsav.exit ]
+  %.05287 = phi i8 [ %.153, %65 ], [ 0, %Abc_UtilStrsav.exit ]
+  %.05486 = phi i8 [ %.155, %65 ], [ 0, %Abc_UtilStrsav.exit ]
+  %.05685 = phi ptr [ %66, %65 ], [ %59, %Abc_UtilStrsav.exit ]
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05685, ptr noundef nonnull dereferenceable(4) @.str.4) #22
   %.not69 = icmp eq i32 %60, 0
   br i1 %.not69, label %65, label %61
 
 61:                                               ; preds = %.lr.ph
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05585, ptr noundef nonnull dereferenceable(6) @.str.5) #22
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05685, ptr noundef nonnull dereferenceable(6) @.str.5) #22
   %.not70 = icmp eq i32 %62, 0
   br i1 %.not70, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05585, ptr noundef nonnull dereferenceable(6) @.str.6) #22
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.05685, ptr noundef nonnull dereferenceable(6) @.str.6) #22
   %.not71 = icmp eq i32 %64, 0
-  %spec.select = select i1 %.not71, i8 1, i8 %.04988
+  %spec.select = select i1 %.not71, i8 1, i8 %.05088
   br label %65
 
 65:                                               ; preds = %63, %61, %.lr.ph
-  %.154 = phi i8 [ 1, %.lr.ph ], [ %.05386, %61 ], [ %.05386, %63 ]
-  %.152 = phi i8 [ %.05187, %.lr.ph ], [ 1, %61 ], [ %.05187, %63 ]
-  %.150 = phi i8 [ %.04988, %.lr.ph ], [ %.04988, %61 ], [ %spec.select, %63 ]
+  %.155 = phi i8 [ 1, %.lr.ph ], [ %.05486, %61 ], [ %.05486, %63 ]
+  %.153 = phi i8 [ %.05287, %.lr.ph ], [ 1, %61 ], [ %.05287, %63 ]
+  %.151 = phi i8 [ %.05088, %.lr.ph ], [ %.05088, %61 ], [ %spec.select, %63 ]
   %66 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %.not68 = icmp eq ptr %66, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %65, %Abc_UtilStrsav.exit
-  %.053.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.154, %65 ]
-  %.051.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.152, %65 ]
-  %.049.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.150, %65 ]
-  %67 = icmp eq ptr %.059.ph.ph, null
+  %.054.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.155, %65 ]
+  %.052.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.153, %65 ]
+  %.050.lcssa = phi i8 [ 0, %Abc_UtilStrsav.exit ], [ %.151, %65 ]
+  %67 = icmp eq ptr %.060.ph.ph, null
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %._crit_edge
@@ -562,17 +562,17 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   br label %75
 
 75:                                               ; preds = %68, %._crit_edge
-  %.160 = phi ptr [ %69, %68 ], [ %.059.ph.ph, %._crit_edge ]
+  %.161 = phi ptr [ %69, %68 ], [ %.060.ph.ph, %._crit_edge ]
   %76 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %54, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 12
   store i32 %47, ptr %77, align 4
   %78 = getelementptr inbounds i8, ptr %76, i64 8
-  store i8 %.053.lcssa, ptr %78, align 8
+  store i8 %.054.lcssa, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %76, i64 9
-  store i8 %.051.lcssa, ptr %79, align 1
+  store i8 %.052.lcssa, ptr %79, align 1
   %80 = getelementptr inbounds i8, ptr %76, i64 10
-  store i8 %.049.lcssa, ptr %80, align 2
+  store i8 %.050.lcssa, ptr %80, align 2
   %81 = getelementptr inbounds i8, ptr %76, i64 16
   store i32 %56, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %76, i64 20
@@ -582,7 +582,7 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   %85 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 4) #19
   %86 = getelementptr inbounds i8, ptr %76, i64 24
   store ptr %85, ptr %86, align 8
-  tail call void @If_LibBoxAdd(ptr noundef nonnull %.160, ptr noundef nonnull %76)
+  tail call void @If_LibBoxAdd(ptr noundef nonnull %.161, ptr noundef nonnull %76)
   br label %.outer.outer, !llvm.loop !8
 
 .split82.us:                                      ; preds = %37, %35
@@ -598,8 +598,8 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   br label %90
 
 90:                                               ; preds = %88, %4
-  %.062 = phi ptr [ null, %4 ], [ %.059.ph.ph, %88 ]
-  ret ptr %.062
+  %.048 = phi ptr [ null, %4 ], [ %.060.ph.ph, %88 ]
+  ret ptr %.048
 }
 
 ; Function Attrs: nofree nounwind
@@ -744,11 +744,11 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
-  %.03948 = phi ptr [ %7, %17 ], [ %65, %._crit_edge ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03948) #22
+  %.03848 = phi ptr [ %7, %17 ], [ %65, %._crit_edge ]
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03848) #22
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03948) #20
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03848) #20
   %28 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
   %29 = tail call i32 @atoi(ptr nocapture noundef %28) #22
   %30 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)

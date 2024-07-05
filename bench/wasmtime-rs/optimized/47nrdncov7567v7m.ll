@@ -123,8 +123,8 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   ]
 
 6:                                                ; preds = %2, %14, %15
-  %.0 = phi i64 [ %.1, %14 ], [ %17, %15 ], [ %5, %2 ]
-  %7 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
+  %.010 = phi i64 [ %.1, %14 ], [ %17, %15 ], [ %5, %2 ]
+  %7 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.010)
   %8 = extractvalue { i64, i64 } %7, 0
   %switch = icmp eq i64 %8, 0
   br i1 %switch, label %18, label %19

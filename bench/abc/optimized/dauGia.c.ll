@@ -144,9 +144,9 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %36, label %.lr.ph184, label %._crit_edge185
 
 .lr.ph184:                                        ; preds = %28, %.lr.ph184
-  %.0150182 = phi i32 [ %38, %.lr.ph184 ], [ 1, %28 ]
+  %.0143182 = phi i32 [ %38, %.lr.ph184 ], [ 1, %28 ]
   %37 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %38 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0150182, i32 noundef %37) #17
+  %38 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0143182, i32 noundef %37) #17
   %39 = load ptr, ptr %2, align 8
   %storemerge159 = getelementptr inbounds i8, ptr %39, i64 1
   store ptr %storemerge159, ptr %2, align 8
@@ -154,9 +154,9 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %40, label %.lr.ph184, label %._crit_edge185, !llvm.loop !4
 
 ._crit_edge185:                                   ; preds = %.lr.ph184, %28
-  %.0150.lcssa = phi i32 [ 1, %28 ], [ %38, %.lr.ph184 ]
+  %.0143.lcssa = phi i32 [ 1, %28 ], [ %38, %.lr.ph184 ]
   %41 = zext i1 %14 to i32
-  %42 = xor i32 %.0150.lcssa, %41
+  %42 = xor i32 %.0143.lcssa, %41
   br label %154
 
 43:                                               ; preds = %27
@@ -177,22 +177,22 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %53
 
 53:                                               ; preds = %.lr.ph178, %60
-  %.0148176 = phi i32 [ 0, %.lr.ph178 ], [ %.1149, %60 ]
+  %.0144176 = phi i32 [ 0, %.lr.ph178 ], [ %.1, %60 ]
   %54 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %55 = load ptr, ptr %52, align 8
   %.not157 = icmp eq ptr %55, null
   br i1 %.not157, label %58, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call i32 @Gia_ManHashXorReal(ptr noundef nonnull %0, i32 noundef %.0148176, i32 noundef %54) #17
+  %57 = tail call i32 @Gia_ManHashXorReal(ptr noundef nonnull %0, i32 noundef %.0144176, i32 noundef %54) #17
   br label %60
 
 58:                                               ; preds = %53
-  %59 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %0, i32 noundef %.0148176, i32 noundef %54) #17
+  %59 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %0, i32 noundef %.0144176, i32 noundef %54) #17
   br label %60
 
 60:                                               ; preds = %56, %58
-  %.1149 = phi i32 [ %57, %56 ], [ %59, %58 ]
+  %.1 = phi i32 [ %57, %56 ], [ %59, %58 ]
   %61 = load ptr, ptr %2, align 8
   %storemerge156 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %storemerge156, ptr %2, align 8
@@ -200,9 +200,9 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %62, label %53, label %._crit_edge179, !llvm.loop !6
 
 ._crit_edge179:                                   ; preds = %60, %43
-  %.0148.lcssa = phi i32 [ 0, %43 ], [ %.1149, %60 ]
+  %.0144.lcssa = phi i32 [ 0, %43 ], [ %.1, %60 ]
   %63 = zext i1 %14 to i32
-  %64 = xor i32 %.0148.lcssa, %63
+  %64 = xor i32 %.0144.lcssa, %63
   br label %154
 
 65:                                               ; preds = %27
@@ -244,7 +244,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %76, %65
-  %.0144165 = phi ptr [ %4, %65 ], [ %8, %76 ], [ %8, %.lr.ph ]
+  %.0148165 = phi ptr [ %4, %65 ], [ %8, %76 ], [ %8, %.lr.ph ]
   store ptr %.pn168, ptr %2, align 8
   %89 = load i32, ptr %69, align 4
   %90 = sext i32 %89 to i64
@@ -255,10 +255,10 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %92, label %.lr.ph172, label %._crit_edge173
 
 .lr.ph172:                                        ; preds = %.loopexit, %.lr.ph172
-  %.0146170 = phi ptr [ %94, %.lr.ph172 ], [ %7, %.loopexit ]
-  %93 = call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0144165, ptr noundef %5)
-  %94 = getelementptr inbounds i8, ptr %.0146170, i64 4
-  store i32 %93, ptr %.0146170, align 4
+  %.0150170 = phi ptr [ %94, %.lr.ph172 ], [ %7, %.loopexit ]
+  %93 = call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0148165, ptr noundef %5)
+  %94 = getelementptr inbounds i8, ptr %.0150170, i64 4
+  store i32 %93, ptr %.0150170, align 4
   %.pn = load ptr, ptr %2, align 8
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %2, align 8
@@ -304,9 +304,9 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %119
 
 119:                                              ; preds = %117, %115
-  %.0145 = phi i32 [ %116, %115 ], [ %118, %117 ]
+  %.0149 = phi i32 [ %116, %115 ], [ %118, %117 ]
   %120 = zext i1 %14 to i32
-  %121 = xor i32 %.0145, %120
+  %121 = xor i32 %.0149, %120
   br label %154
 
 122:                                              ; preds = %27
@@ -365,8 +365,8 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %154
 
 154:                                              ; preds = %122, %._crit_edge190, %119, %._crit_edge179, %._crit_edge185, %20
-  %.0141 = phi i32 [ %26, %20 ], [ %42, %._crit_edge185 ], [ %64, %._crit_edge179 ], [ %121, %119 ], [ %153, %._crit_edge190 ], [ 0, %122 ]
-  ret i32 %.0141
+  %.0 = phi i32 [ %26, %20 ], [ %42, %._crit_edge185 ], [ %64, %._crit_edge179 ], [ %121, %119 ], [ %153, %._crit_edge190 ], [ 0, %122 ]
+  ret i32 %.0
 }
 
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -392,7 +392,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(pt
 
 9:                                                ; preds = %5, %2
   %10 = phi i8 [ %3, %2 ], [ %.pre, %5 ]
-  %.039 = phi ptr [ %1, %2 ], [ %spec.select, %5 ]
+  %.038 = phi ptr [ %1, %2 ], [ %spec.select, %5 ]
   %11 = add i8 %10, -58
   %or.cond.i49 = icmp ult i8 %11, -10
   %12 = and i8 %10, -33
@@ -404,7 +404,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(pt
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds i8, ptr %.039, i64 %indvars.iv.next
+  %15 = getelementptr inbounds i8, ptr %.038, i64 %indvars.iv.next
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, -58
   %or.cond.i = icmp ult i8 %17, -10
@@ -486,7 +486,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(pt
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next66, %Abc_TtReadHexDigit.exit ]
   %42 = xor i64 %indvars.iv65, -1
   %43 = add nsw i64 %41, %42
-  %44 = getelementptr inbounds i8, ptr %.039, i64 %43
+  %44 = getelementptr inbounds i8, ptr %.038, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = sext i8 %45 to i32
   %47 = add i8 %45, -48
@@ -1228,8 +1228,8 @@ Dau_DsdAddToArray.exit:                           ; preds = %.lr.ph.i, %61, %40
   br label %._crit_edge272
 
 ._crit_edge272:                                   ; preds = %._crit_edge272.loopexit, %30
-  %.0178.lcssa = phi i32 [ 0, %30 ], [ %66, %._crit_edge272.loopexit ]
-  %67 = call i32 @Dau_DsdBalance(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %.0178.lcssa, i32 noundef 1)
+  %.0171.lcssa = phi i32 [ 0, %30 ], [ %66, %._crit_edge272.loopexit ]
+  %67 = call i32 @Dau_DsdBalance(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %.0171.lcssa, i32 noundef 1)
   %68 = zext i1 %16 to i32
   %69 = xor i32 %67, %68
   br label %462
@@ -1311,8 +1311,8 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   br label %._crit_edge266
 
 ._crit_edge266:                                   ; preds = %._crit_edge266.loopexit, %70
-  %.0177.lcssa = phi i32 [ 0, %70 ], [ %106, %._crit_edge266.loopexit ]
-  %107 = call i32 @Dau_DsdBalance(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0177.lcssa, i32 noundef 0)
+  %.0172.lcssa = phi i32 [ 0, %70 ], [ %106, %._crit_edge266.loopexit ]
+  %107 = call i32 @Dau_DsdBalance(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0172.lcssa, i32 noundef 0)
   %108 = zext i1 %16 to i32
   %109 = xor i32 %107, %108
   br label %462
@@ -1356,7 +1356,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   br i1 %133, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %121, %110
-  %.0172247 = phi ptr [ %4, %110 ], [ %10, %121 ], [ %10, %.lr.ph ]
+  %.0174247 = phi ptr [ %4, %110 ], [ %10, %121 ], [ %10, %.lr.ph ]
   store ptr %.pn255, ptr %2, align 8
   %134 = load i32, ptr %114, align 4
   %135 = sext i32 %134 to i64
@@ -1367,10 +1367,10 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   br i1 %137, label %.lr.ph259, label %._crit_edge260
 
 .lr.ph259:                                        ; preds = %.loopexit, %.lr.ph259
-  %.0174257 = phi ptr [ %139, %.lr.ph259 ], [ %9, %.loopexit ]
-  %138 = call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0172247, ptr noundef %5)
-  %139 = getelementptr inbounds i8, ptr %.0174257, i64 4
-  store i32 %138, ptr %.0174257, align 4
+  %.0176257 = phi ptr [ %139, %.lr.ph259 ], [ %9, %.loopexit ]
+  %138 = call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0174247, ptr noundef %5)
+  %139 = getelementptr inbounds i8, ptr %.0176257, i64 4
+  store i32 %138, ptr %.0176257, align 4
   %.pn = load ptr, ptr %2, align 8
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %2, align 8
@@ -1439,8 +1439,8 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   br label %178
 
 178:                                              ; preds = %174, %176, %163, %171
-  %.0173 = phi i32 [ %170, %163 ], [ %172, %171 ], [ %175, %174 ], [ %177, %176 ]
-  %179 = ashr i32 %.0173, 1
+  %.0175 = phi i32 [ %170, %163 ], [ %172, %171 ], [ %175, %174 ], [ %177, %176 ]
+  %179 = ashr i32 %.0175, 1
   %180 = getelementptr i8, ptr %0, i64 32
   %.val199 = load ptr, ptr %180, align 8
   %181 = sext i32 %179 to i64
@@ -1674,7 +1674,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
 
 328:                                              ; preds = %190, %286, %178
   %329 = zext i1 %16 to i32
-  %330 = xor i32 %.0173, %329
+  %330 = xor i32 %.0175, %329
   br label %462
 
 331:                                              ; preds = %29
@@ -1912,8 +1912,8 @@ Gia_ObjSetGateLevel.exit:                         ; preds = %380, %407, %Gia_Obj
   br label %462
 
 462:                                              ; preds = %331, %._crit_edge282, %328, %._crit_edge266, %._crit_edge272, %22
-  %.0169 = phi i32 [ %28, %22 ], [ %69, %._crit_edge272 ], [ %109, %._crit_edge266 ], [ %330, %328 ], [ %461, %._crit_edge282 ], [ 0, %331 ]
-  ret i32 %.0169
+  %.0 = phi i32 [ %28, %22 ], [ %69, %._crit_edge272 ], [ %109, %._crit_edge266 ], [ %330, %328 ], [ %461, %._crit_edge282 ], [ 0, %331 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

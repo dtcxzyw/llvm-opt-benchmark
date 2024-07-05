@@ -4157,20 +4157,20 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
   br i1 %31, label %.lr.ph, label %.preheader46
 
 .preheader46:                                     ; preds = %49, %Vec_PtrGrow.exit
-  %.040.lcssa = phi ptr [ %28, %Vec_PtrGrow.exit ], [ %.141, %49 ]
+  %.040.lcssa = phi ptr [ %8, %Vec_PtrGrow.exit ], [ %.141, %49 ]
   %.037.lcssa = phi ptr [ %6, %Vec_PtrGrow.exit ], [ %.138, %49 ]
-  %.0.lcssa = phi ptr [ %8, %Vec_PtrGrow.exit ], [ %.1, %49 ]
+  %.0.lcssa = phi ptr [ %28, %Vec_PtrGrow.exit ], [ %.1, %49 ]
   %32 = icmp ult ptr %.037.lcssa, %12
   br i1 %32, label %.lr.ph54, label %.preheader
 
 .lr.ph:                                           ; preds = %Vec_PtrGrow.exit, %49
-  %.049 = phi ptr [ %.1, %49 ], [ %8, %Vec_PtrGrow.exit ]
+  %.049 = phi ptr [ %.1, %49 ], [ %28, %Vec_PtrGrow.exit ]
   %.03748 = phi ptr [ %.138, %49 ], [ %6, %Vec_PtrGrow.exit ]
-  %.04047 = phi ptr [ %.141, %49 ], [ %28, %Vec_PtrGrow.exit ]
+  %.04047 = phi ptr [ %.141, %49 ], [ %8, %Vec_PtrGrow.exit ]
   %33 = load ptr, ptr %.03748, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 36
   %35 = load i32, ptr %34, align 4
-  %36 = load ptr, ptr %.049, align 8
+  %36 = load ptr, ptr %.04047, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %35, %38
@@ -4178,8 +4178,8 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds i8, ptr %.03748, i64 8
-  store ptr %33, ptr %.04047, align 8
-  %42 = getelementptr inbounds i8, ptr %.049, i64 8
+  store ptr %33, ptr %.049, align 8
+  %42 = getelementptr inbounds i8, ptr %.04047, i64 8
   br label %49
 
 43:                                               ; preds = %.lr.ph
@@ -4188,50 +4188,50 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %.03748, i64 8
-  store ptr %33, ptr %.04047, align 8
+  store ptr %33, ptr %.049, align 8
   br label %49
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.049, i64 8
-  store ptr %36, ptr %.04047, align 8
+  %48 = getelementptr inbounds i8, ptr %.04047, i64 8
+  store ptr %36, ptr %.049, align 8
   br label %49
 
 49:                                               ; preds = %45, %47, %40
+  %.141 = phi ptr [ %42, %40 ], [ %.04047, %45 ], [ %48, %47 ]
   %.138 = phi ptr [ %41, %40 ], [ %46, %45 ], [ %.03748, %47 ]
-  %.1 = phi ptr [ %42, %40 ], [ %.049, %45 ], [ %48, %47 ]
-  %.141 = getelementptr inbounds i8, ptr %.04047, i64 8
+  %.1 = getelementptr inbounds i8, ptr %.049, i64 8
   %50 = icmp ult ptr %.138, %12
-  %51 = icmp ult ptr %.1, %16
+  %51 = icmp ult ptr %.141, %16
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %.lr.ph, label %.preheader46, !llvm.loop !56
 
 .preheader:                                       ; preds = %.lr.ph54, %.preheader46
-  %.242.lcssa = phi ptr [ %.040.lcssa, %.preheader46 ], [ %56, %.lr.ph54 ]
-  %53 = icmp ult ptr %.0.lcssa, %16
+  %.2.lcssa = phi ptr [ %.0.lcssa, %.preheader46 ], [ %56, %.lr.ph54 ]
+  %53 = icmp ult ptr %.040.lcssa, %16
   br i1 %53, label %.lr.ph58, label %._crit_edge
 
 .lr.ph54:                                         ; preds = %.preheader46, %.lr.ph54
-  %.23953 = phi ptr [ %54, %.lr.ph54 ], [ %.037.lcssa, %.preheader46 ]
-  %.24252 = phi ptr [ %56, %.lr.ph54 ], [ %.040.lcssa, %.preheader46 ]
-  %54 = getelementptr inbounds i8, ptr %.23953, i64 8
-  %55 = load ptr, ptr %.23953, align 8
-  %56 = getelementptr inbounds i8, ptr %.24252, i64 8
-  store ptr %55, ptr %.24252, align 8
+  %.253 = phi ptr [ %56, %.lr.ph54 ], [ %.0.lcssa, %.preheader46 ]
+  %.23952 = phi ptr [ %54, %.lr.ph54 ], [ %.037.lcssa, %.preheader46 ]
+  %54 = getelementptr inbounds i8, ptr %.23952, i64 8
+  %55 = load ptr, ptr %.23952, align 8
+  %56 = getelementptr inbounds i8, ptr %.253, i64 8
+  store ptr %55, ptr %.253, align 8
   %57 = icmp ult ptr %54, %12
   br i1 %57, label %.lr.ph54, label %.preheader, !llvm.loop !57
 
 .lr.ph58:                                         ; preds = %.preheader, %.lr.ph58
-  %.257 = phi ptr [ %58, %.lr.ph58 ], [ %.0.lcssa, %.preheader ]
-  %.356 = phi ptr [ %60, %.lr.ph58 ], [ %.242.lcssa, %.preheader ]
-  %58 = getelementptr inbounds i8, ptr %.257, i64 8
-  %59 = load ptr, ptr %.257, align 8
-  %60 = getelementptr inbounds i8, ptr %.356, i64 8
-  store ptr %59, ptr %.356, align 8
+  %.357 = phi ptr [ %60, %.lr.ph58 ], [ %.2.lcssa, %.preheader ]
+  %.24256 = phi ptr [ %58, %.lr.ph58 ], [ %.040.lcssa, %.preheader ]
+  %58 = getelementptr inbounds i8, ptr %.24256, i64 8
+  %59 = load ptr, ptr %.24256, align 8
+  %60 = getelementptr inbounds i8, ptr %.357, i64 8
+  store ptr %59, ptr %.357, align 8
   %61 = icmp ult ptr %58, %16
   br i1 %61, label %.lr.ph58, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %.preheader
-  %.3.lcssa = phi ptr [ %.242.lcssa, %.preheader ], [ %60, %.lr.ph58 ]
+  %.3.lcssa = phi ptr [ %.2.lcssa, %.preheader ], [ %60, %.lr.ph58 ]
   %62 = load ptr, ptr %4, align 8
   %63 = ptrtoint ptr %.3.lcssa to i64
   %64 = ptrtoint ptr %62 to i64
@@ -4292,13 +4292,13 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_PtrGrow.exit, %49
-  %.036 = phi ptr [ %.1, %49 ], [ %8, %Vec_PtrGrow.exit ]
+  %.036 = phi ptr [ %.1, %49 ], [ %28, %Vec_PtrGrow.exit ]
   %.02735 = phi ptr [ %.128, %49 ], [ %6, %Vec_PtrGrow.exit ]
-  %.02934 = phi ptr [ %.130, %49 ], [ %28, %Vec_PtrGrow.exit ]
+  %.02934 = phi ptr [ %.130, %49 ], [ %8, %Vec_PtrGrow.exit ]
   %32 = load ptr, ptr %.02735, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 36
   %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %.036, align 8
+  %35 = load ptr, ptr %.02934, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %34, %37
@@ -4306,9 +4306,9 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds i8, ptr %.02735, i64 8
-  %41 = getelementptr inbounds i8, ptr %.02934, i64 8
-  store ptr %32, ptr %.02934, align 8
-  %42 = getelementptr inbounds i8, ptr %.036, i64 8
+  %41 = getelementptr inbounds i8, ptr %.036, i64 8
+  store ptr %32, ptr %.036, align 8
+  %42 = getelementptr inbounds i8, ptr %.02934, i64 8
   br label %49
 
 43:                                               ; preds = %.lr.ph
@@ -4320,15 +4320,15 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
   br label %49
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.036, i64 8
+  %48 = getelementptr inbounds i8, ptr %.02934, i64 8
   br label %49
 
 49:                                               ; preds = %45, %47, %39
-  %.130 = phi ptr [ %41, %39 ], [ %.02934, %45 ], [ %.02934, %47 ]
+  %.130 = phi ptr [ %42, %39 ], [ %.02934, %45 ], [ %48, %47 ]
   %.128 = phi ptr [ %40, %39 ], [ %46, %45 ], [ %.02735, %47 ]
-  %.1 = phi ptr [ %42, %39 ], [ %.036, %45 ], [ %48, %47 ]
+  %.1 = phi ptr [ %41, %39 ], [ %.036, %45 ], [ %.036, %47 ]
   %50 = icmp ult ptr %.128, %12
-  %51 = icmp ult ptr %.1, %16
+  %51 = icmp ult ptr %.130, %16
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !59
 
@@ -4338,8 +4338,8 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrGrow.exit
   %53 = phi ptr [ %28, %Vec_PtrGrow.exit ], [ %.pre37, %._crit_edge.loopexit ]
-  %.029.lcssa = phi ptr [ %28, %Vec_PtrGrow.exit ], [ %.130, %._crit_edge.loopexit ]
-  %54 = ptrtoint ptr %.029.lcssa to i64
+  %.0.lcssa = phi ptr [ %28, %Vec_PtrGrow.exit ], [ %.1, %._crit_edge.loopexit ]
+  %54 = ptrtoint ptr %.0.lcssa to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = lshr exact i64 %56, 3

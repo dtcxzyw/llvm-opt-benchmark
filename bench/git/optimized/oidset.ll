@@ -397,8 +397,8 @@ while.cond.preheader.i:                           ; preds = %if.end5.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %site.0.i = phi i32 [ %spec.select.i, %while.body.i ], [ %4, %while.cond.preheader.i ]
+  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %step.0.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %while.cond.preheader.i ]
   %shr16.i = lshr i32 %i.0.i, 4
   %idxprom17.i = zext nneg i32 %shr16.i to i64
@@ -456,7 +456,7 @@ oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i
   %15 = shl nuw nsw i32 1, %shl20.i
-  %16 = and i32 %10, %15
+  %16 = and i32 %15, %10
   %tobool45.not.i = icmp eq i32 %16, 0
   %spec.select.i = select i1 %tobool45.not.i, i32 %site.0.i, i32 %i.0.i
   %inc.i = add i32 %step.0.i, 1
@@ -477,11 +477,11 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %17, %if.then55.loopexit.i ], [ true, %while.end.i ]
-  %site.266.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %4, %while.end.i ]
-  %i.165.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.266.i, %4
+  %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
+  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %4, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.265.i, %4
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.165.i, i32 %site.266.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i

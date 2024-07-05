@@ -1940,8 +1940,8 @@ Gia_ManTerStateInsert.exit:                       ; preds = %.lr.ph.i.i, %Gia_Ma
   br label %85
 
 85:                                               ; preds = %284, %Gia_ManTerStateInsert.exit
-  %.034 = phi ptr [ null, %Gia_ManTerStateInsert.exit ], [ %240, %284 ]
-  %.0 = phi i32 [ 0, %Gia_ManTerStateInsert.exit ], [ %285, %284 ]
+  %.034 = phi i32 [ 0, %Gia_ManTerStateInsert.exit ], [ %285, %284 ]
+  %.0 = phi ptr [ null, %Gia_ManTerStateInsert.exit ], [ %240, %284 ]
   %86 = load i32, ptr %77, align 4
   %87 = and i32 %86, -4
   %88 = or disjoint i32 %87, 1
@@ -2273,22 +2273,22 @@ Gia_ManTerStateInsert.exit67:                     ; preds = %.lr.ph.i.i62, %.loo
   store ptr %277, ptr %278, align 8
   store ptr %240, ptr %276, align 8
   %279 = load i32, ptr %84, align 8
-  %.not36 = icmp sge i32 %.0, %279
-  %280 = urem i32 %.0, 10
+  %.not36 = icmp sge i32 %.034, %279
+  %280 = urem i32 %.034, 10
   %281 = icmp eq i32 %280, 0
   %or.cond = and i1 %281, %.not36
   br i1 %or.cond, label %282, label %284
 
 282:                                              ; preds = %Gia_ManTerStateInsert.exit67
-  %283 = call i32 @Gia_ManTerRetire(ptr noundef nonnull %13, ptr noundef nonnull %240, ptr noundef %.034)
+  %283 = call i32 @Gia_ManTerRetire(ptr noundef nonnull %13, ptr noundef nonnull %240, ptr noundef %.0)
   br label %284
 
 284:                                              ; preds = %282, %Gia_ManTerStateInsert.exit67
-  %285 = add nuw nsw i32 %.0, 1
+  %285 = add nuw nsw i32 %.034, 1
   br label %85
 
 286:                                              ; preds = %Vec_PtrFind.exit
-  %287 = add nuw nsw i32 %.0, 1
+  %287 = add nuw nsw i32 %.034, 1
   %288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %287)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

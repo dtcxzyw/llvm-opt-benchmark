@@ -2141,8 +2141,8 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
   br label %cleanup29.i
 
 cleanup29.i:                                      ; preds = %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i, %if.then24.i
-  %optional_sv_code_cache.sroa.2.0.i = phi ptr [ %.sink.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
   %optional_sv_code_cache.sroa.0.0.i = phi i64 [ %.sink2.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
+  %optional_sv_code_cache.sroa.2.0.i = phi ptr [ %.sink.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
   %retval.2.i = phi i32 [ 0, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ 1, %if.then24.i ]
   %57 = load i8, ptr %_M_engaged.i.i32.i, align 8
   %tobool.i.i.i.i.i17 = trunc i8 %57 to i1
@@ -2185,8 +2185,8 @@ cond.false.i:                                     ; preds = %if.end33.i, %if.end
   %68 = phi ptr [ %60, %if.end33.thread.i ], [ %62, %if.end33.i ]
   %69 = phi i64 [ %59, %if.end33.thread.i ], [ %61, %if.end33.i ]
   %70 = phi i32 [ %58, %if.end33.thread.i ], [ %42, %if.end33.i ]
-  %optional_sv_code_cache.sroa.0.181.i = phi i64 [ %optional_sv_code_cache.sroa.0.0.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
   %optional_sv_code_cache.sroa.2.179.i = phi ptr [ %optional_sv_code_cache.sroa.2.0.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
+  %optional_sv_code_cache.sroa.0.177.i = phi i64 [ %optional_sv_code_cache.sroa.0.0.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
   %call41.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %main_script.i) #23
   %call42.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %main_script.i) #23
   br label %cond.end.i
@@ -2195,9 +2195,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %71 = phi ptr [ %68, %cond.false.i ], [ %63, %cond.true.i ]
   %72 = phi i64 [ %69, %cond.false.i ], [ %64, %cond.true.i ]
   %73 = phi i32 [ %70, %cond.false.i ], [ %65, %cond.true.i ]
-  %optional_sv_code_cache.sroa.0.180.i = phi i64 [ %optional_sv_code_cache.sroa.0.181.i, %cond.false.i ], [ undef, %cond.true.i ]
+  %optional_sv_code_cache.sroa.4.280.i = phi i1 [ %tobool15.not.i, %cond.false.i ], [ false, %cond.true.i ]
   %optional_sv_code_cache.sroa.2.178.i = phi ptr [ %optional_sv_code_cache.sroa.2.179.i, %cond.false.i ], [ undef, %cond.true.i ]
-  %optional_sv_code_cache.sroa.4.276.i = phi i1 [ %tobool15.not.i, %cond.false.i ], [ false, %cond.true.i ]
+  %optional_sv_code_cache.sroa.0.176.i = phi i64 [ %optional_sv_code_cache.sroa.0.177.i, %cond.false.i ], [ undef, %cond.true.i ]
   %sea.sroa.15.0.i = phi ptr [ %call41.i, %cond.false.i ], [ %66, %cond.true.i ]
   %sea.sroa.10.0.i = phi i64 [ %call42.i, %cond.false.i ], [ %sub.ptr.sub.i.i, %cond.true.i ]
   %74 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
@@ -2293,11 +2293,11 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i: ; pre
   %and.i.i31.lobit.i.i = and i32 %and.i.i31.i.i, 1
   %cond24.i.i = xor i32 %and.i.i31.lobit.i.i, 1
   call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %sea.sroa.10.0.i, ptr %sea.sroa.15.0.i, i32 noundef %cond24.i.i)
-  br i1 %optional_sv_code_cache.sroa.4.276.i, label %if.then.i54.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
+  br i1 %optional_sv_code_cache.sroa.4.280.i, label %if.then.i54.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 if.then.i54.i:                                    ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
   store ptr %optional_sv_code_cache.sroa.2.178.i, ptr %ref.tmp28.i.i, align 8
-  store i64 %optional_sv_code_cache.sroa.0.180.i, ptr %ref.tmp32.i.i, align 8
+  store i64 %optional_sv_code_cache.sroa.0.176.i, ptr %ref.tmp32.i.i, align 8
   %83 = load i8, ptr %serializer.i, align 8
   %tobool.i34.i.i = trunc i8 %83 to i1
   br i1 %tobool.i34.i.i, label %if.then.i36.i.i, label %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i
@@ -2308,7 +2308,7 @@ if.then.i36.i.i:                                  ; preds = %if.then.i54.i
   br label %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i
 
 _ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i: ; preds = %if.then.i36.i.i, %if.then.i54.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.180.i, ptr %optional_sv_code_cache.sroa.2.178.i, i32 noundef 0)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.176.i, ptr %optional_sv_code_cache.sroa.2.178.i, i32 noundef 0)
   br label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 _ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i: ; preds = %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
@@ -2749,9 +2749,9 @@ for.body.preheader.i:                             ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %n.06.i = phi i64 [ %dec.i, %for.inc.i ], [ %conv.i, %for.body.preheader.i ]
-  %p.05.i = phi i64 [ %add45.i, %for.inc.i ], [ %3, %for.body.preheader.i ]
-  %4 = inttoptr i64 %p.05.i to ptr
+  %p.06.i = phi i64 [ %add45.i, %for.inc.i ], [ %3, %for.body.preheader.i ]
+  %n.05.i = phi i64 [ %dec.i, %for.inc.i ], [ %conv.i, %for.body.preheader.i ]
+  %4 = inttoptr i64 %p.06.i to ptr
   %5 = load i32, ptr %4, align 8
   %cmp7.not.i = icmp eq i32 %5, 4
   br i1 %cmp7.not.i, label %if.end9.i, label %for.inc.i
@@ -2813,8 +2813,8 @@ if.end31.i:                                       ; preds = %land.lhs.true19.i, 
   br i1 %cmp11.i, label %while.body.i, label %for.inc.i, !llvm.loop !31
 
 for.inc.i:                                        ; preds = %if.end31.i, %while.body.i, %if.end9.i, %for.body.i
-  %dec.i = add nsw i64 %n.06.i, -1
-  %add45.i = add i64 %p.05.i, 56
+  %dec.i = add nsw i64 %n.05.i, -1
+  %add45.i = add i64 %p.06.i, 56
   %cmp6.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp6.not.i, label %_ZL22postject_find_resourcePKcPmPK16postject_options.exit, label %for.body.i, !llvm.loop !32
 
@@ -3532,35 +3532,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.021.i, 2
+  %add11.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.021.i, 3
+  %add15.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
+  %div.i = udiv i64 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !113
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -3943,35 +3943,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !145
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

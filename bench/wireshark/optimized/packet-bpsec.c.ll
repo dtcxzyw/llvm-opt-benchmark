@@ -498,7 +498,7 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
   br label %26
 
 26:                                               ; preds = %.lr.ph, %62
-  %.0239284 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
+  %.0235284 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
   %27 = load ptr, ptr %10, align 8
   %28 = call ptr @wscbor_chunk_read(ptr noundef %27, ptr noundef %0, ptr noundef nonnull %6) #5
   %29 = load ptr, ptr %10, align 8
@@ -550,9 +550,9 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
   br label %62
 
 55:                                               ; preds = %42, %44, %51
-  %.0240.in = phi ptr [ %.in, %51 ], [ %43, %42 ], [ %45, %44 ]
-  %.0240 = load ptr, ptr %.0240.in, align 8
-  %.not254 = icmp eq ptr %.0240, null
+  %.0236.in = phi ptr [ %.in, %51 ], [ %43, %42 ], [ %45, %44 ]
+  %.0236 = load ptr, ptr %.0236.in, align 8
+  %.not254 = icmp eq ptr %.0236, null
   br i1 %.not254, label %62, label %56
 
 56:                                               ; preds = %55
@@ -563,11 +563,11 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not255, label %62, label %60
 
 60:                                               ; preds = %56
-  %61 = call ptr @wmem_map_insert(ptr noundef nonnull %.0240, ptr noundef nonnull %59, ptr noundef null) #5
+  %61 = call ptr @wmem_map_insert(ptr noundef nonnull %.0236, ptr noundef nonnull %59, ptr noundef null) #5
   br label %62
 
 62:                                               ; preds = %.thread, %26, %60, %56, %55
-  %63 = add nuw i64 %.0239284, 1
+  %63 = add nuw i64 %.0235284, 1
   %64 = load i64, ptr %23, align 8
   %65 = icmp ult i64 %63, %64
   br i1 %65, label %26, label %._crit_edge, !llvm.loop !4
@@ -660,7 +660,7 @@ define internal fastcc i32 @dissect_block_asb(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not297, label %._crit_edge288, label %.lr.ph287
 
 .lr.ph287:                                        ; preds = %117, %179
-  %.0238285 = phi i64 [ %180, %179 ], [ 0, %117 ]
+  %.0237285 = phi i64 [ %180, %179 ], [ 0, %117 ]
   %122 = load ptr, ptr %10, align 8
   %123 = call ptr @wscbor_chunk_read(ptr noundef %122, ptr noundef %0, ptr noundef nonnull %6) #5
   %124 = call i32 @wscbor_require_array_size(ptr noundef %123, i64 noundef 2, i64 noundef 2) #5
@@ -762,7 +762,7 @@ dissect_value.exit:                               ; preds = %171, %.thread.i
   br label %179
 
 179:                                              ; preds = %.lr.ph287, %dissect_value.exit
-  %180 = add nuw i64 %.0238285, 1
+  %180 = add nuw i64 %.0237285, 1
   %181 = load i64, ptr %120, align 8
   %182 = icmp ult i64 %180, %181
   br i1 %182, label %.lr.ph287, label %._crit_edge288, !llvm.loop !6
@@ -795,7 +795,7 @@ dissect_value.exit:                               ; preds = %171, %.thread.i
   br i1 %.not298, label %._crit_edge295, label %.lr.ph294
 
 .lr.ph294:                                        ; preds = %197, %288
-  %.0236292 = phi i32 [ %289, %288 ], [ 0, %197 ]
+  %.0239292 = phi i32 [ %289, %288 ], [ 0, %197 ]
   %200 = load ptr, ptr %10, align 8
   %201 = call ptr @wscbor_chunk_read(ptr noundef %200, ptr noundef %0, ptr noundef nonnull %6) #5
   %202 = call i32 @wscbor_require_array(ptr noundef %201) #5
@@ -809,7 +809,7 @@ dissect_value.exit:                               ; preds = %171, %.thread.i
 207:                                              ; preds = %.lr.ph294
   %208 = load i32, ptr @ett_result_tgt_list, align 4
   %209 = call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %208) #5
-  %210 = call ptr @wmem_array_index(ptr noundef %12, i32 noundef %.0236292) #5
+  %210 = call ptr @wmem_array_index(ptr noundef %12, i32 noundef %.0239292) #5
   %211 = load i32, ptr @hf_asb_result_tgt_ref, align 4
   %212 = load i64, ptr %210, align 8
   %213 = call ptr @proto_tree_add_uint64(ptr noundef %209, i32 noundef %211, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %212) #5
@@ -836,7 +836,7 @@ proto_item_set_generated.exit:                    ; preds = %207, %214, %217
   br i1 %.not299, label %._crit_edge291, label %.lr.ph290
 
 .lr.ph290:                                        ; preds = %proto_item_set_generated.exit, %280
-  %.0235289 = phi i64 [ %281, %280 ], [ 0, %proto_item_set_generated.exit ]
+  %.0240289 = phi i64 [ %281, %280 ], [ 0, %proto_item_set_generated.exit ]
   %223 = load ptr, ptr %10, align 8
   %224 = call ptr @wscbor_chunk_read(ptr noundef %223, ptr noundef %0, ptr noundef nonnull %6) #5
   %225 = call i32 @wscbor_require_array_size(ptr noundef %224, i64 noundef 2, i64 noundef 2) #5
@@ -938,7 +938,7 @@ dissect_value.exit274:                            ; preds = %272, %.thread.i273
   br label %280
 
 280:                                              ; preds = %.lr.ph290, %dissect_value.exit274
-  %281 = add nuw i64 %.0235289, 1
+  %281 = add nuw i64 %.0240289, 1
   %282 = load i64, ptr %221, align 8
   %283 = icmp ult i64 %281, %282
   br i1 %283, label %.lr.ph290, label %._crit_edge291, !llvm.loop !7
@@ -952,7 +952,7 @@ dissect_value.exit274:                            ; preds = %272, %.thread.i273
   br label %288
 
 288:                                              ; preds = %.lr.ph294, %._crit_edge291
-  %289 = add nuw i32 %.0236292, 1
+  %289 = add nuw i32 %.0239292, 1
   %exitcond.not = icmp eq i32 %289, %188
   br i1 %exitcond.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !8
 

@@ -6529,9 +6529,9 @@ entry:
   br i1 %cmp11, label %for.body, label %return
 
 for.body:                                         ; preds = %entry, %for.inc
-  %s2.013 = phi ptr [ %incdec.ptr3, %for.inc ], [ %vs2, %entry ]
-  %s1.012 = phi ptr [ %incdec.ptr, %for.inc ], [ %vs1, %entry ]
-  %0 = load i8, ptr %s1.012, align 1
+  %s1.013 = phi ptr [ %incdec.ptr, %for.inc ], [ %vs1, %entry ]
+  %s2.012 = phi ptr [ %incdec.ptr3, %for.inc ], [ %vs2, %entry ]
+  %0 = load i8, ptr %s1.013, align 1
   %idxprom.i = zext i8 %0 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -6539,7 +6539,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = and i8 %2, 32
   %spec.select.i9 = or i8 %3, %0
   %spec.select.i = zext i8 %spec.select.i9 to i32
-  %4 = load i8, ptr %s2.013, align 1
+  %4 = load i8, ptr %s2.012, align 1
   %idxprom.i6 = zext i8 %4 to i64
   %arrayidx.i7 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i6
   %5 = load i8, ptr %arrayidx.i7, align 1
@@ -6552,8 +6552,8 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %s1.012, i64 1
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %s2.013, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s1.013, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %s2.012, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %return, !llvm.loop !40
 
@@ -8699,7 +8699,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %wholine.0142 = phi ptr [ null, %for.body.lr.ph ], [ %wholine.2, %for.inc ]
+  %wholine.0141 = phi ptr [ null, %for.body.lr.ph ], [ %wholine.2, %for.inc ]
   %1 = load ptr, ptr @used_atom, align 8
   %arrayidx = getelementptr inbounds %struct.used_atom, ptr %1, i64 %indvars.iv
   %name2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -8983,7 +8983,7 @@ if.end99:                                         ; preds = %copy_name.exit, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true31, %if.end, %for.body, %if.end99
-  %wholine.2 = phi ptr [ %wholine.0142, %for.body ], [ %wholine.0142, %if.end ], [ %wholine.1, %if.end99 ], [ %wholine.0142, %land.lhs.true31 ]
+  %wholine.2 = phi ptr [ %wholine.0141, %for.body ], [ %wholine.0141, %if.end ], [ %wholine.1, %if.end99 ], [ %wholine.0141, %land.lhs.true31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr @used_atom_cnt, align 4
   %21 = sext i32 %20 to i64

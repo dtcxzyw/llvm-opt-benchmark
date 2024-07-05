@@ -1615,14 +1615,14 @@ if.end15.i:                                       ; preds = %if.else
   br i1 %cmp.i.not5.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseISt6vectorItSaItEESt4pairIKS3_tENS_10_Select1stEN3ue210ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i, label %for.body.i.i.i.i481
 
 for.body.i.i.i.i481:                              ; preds = %if.end15.i, %for.body.i.i.i.i481
-  %__begin0.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i482, %for.body.i.i.i.i481 ], [ %146, %if.end15.i ]
-  %v.06.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.i.i.i.i481 ], [ 0, %if.end15.i ]
-  %148 = load i16, ptr %__begin0.sroa.0.07.i.i.i.i, align 2
+  %v.07.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %for.body.i.i.i.i481 ], [ 0, %if.end15.i ]
+  %__begin0.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i482, %for.body.i.i.i.i481 ], [ %146, %if.end15.i ]
+  %148 = load i16, ptr %__begin0.sroa.0.06.i.i.i.i, align 2
   %conv.i.i.i.i.i.i = zext i16 %148 to i64
   %mul.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i, 814605021516865831
-  %xor.i.i.i.i.i = xor i64 %mul.i.i.i.i.i, %v.06.i.i.i.i
+  %xor.i.i.i.i.i = xor i64 %mul.i.i.i.i.i, %v.07.i.i.i.i
   %add.i.i.i.i.i = add i64 %xor.i.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i.i482 = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i.i, i64 2
+  %incdec.ptr.i.i.i.i.i482 = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i.i, i64 2
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i482, %147
   br i1 %cmp.i.not.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseISt6vectorItSaItEESt4pairIKS3_tENS_10_Select1stEN3ue210ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i, label %for.body.i.i.i.i481
 
@@ -6066,14 +6066,14 @@ if.end20:                                         ; preds = %for.inc, %for.inc.u
   br i1 %cmp.i.not5.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end20, %for.body.i.i.i
-  %__begin0.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
-  %v.06.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
-  %9 = load i16, ptr %__begin0.sroa.0.07.i.i.i, align 2
+  %v.07.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
+  %__begin0.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
+  %9 = load i16, ptr %__begin0.sroa.0.06.i.i.i, align 2
   %conv.i.i.i.i.i = zext i16 %9 to i64
   %mul.i.i.i.i = mul i64 %conv.i.i.i.i.i, 814605021516865831
-  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.06.i.i.i
+  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.07.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i, i64 2
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %8
   br i1 %cmp.i.not.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 
@@ -7628,14 +7628,14 @@ if.end20:                                         ; preds = %for.inc, %for.inc.u
   br i1 %cmp.i.not5.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end20, %for.body.i.i.i
-  %__begin0.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
-  %v.06.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
-  %9 = load i16, ptr %__begin0.sroa.0.07.i.i.i, align 2
+  %v.07.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
+  %__begin0.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
+  %9 = load i16, ptr %__begin0.sroa.0.06.i.i.i, align 2
   %conv.i.i.i.i.i = zext i16 %9 to i64
   %mul.i.i.i.i = mul i64 %conv.i.i.i.i.i, 814605021516865831
-  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.06.i.i.i
+  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.07.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i, i64 2
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %8
   br i1 %cmp.i.not.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 
@@ -8306,14 +8306,14 @@ if.end20:                                         ; preds = %for.inc, %for.inc.u
   br i1 %cmp.i.not5.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end20, %for.body.i.i.i
-  %__begin0.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
-  %v.06.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
-  %9 = load i16, ptr %__begin0.sroa.0.07.i.i.i, align 2
+  %v.07.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end20 ]
+  %__begin0.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %7, %if.end20 ]
+  %9 = load i16, ptr %__begin0.sroa.0.06.i.i.i, align 2
   %conv.i.i.i.i.i = zext i16 %9 to i64
   %mul.i.i.i.i = mul i64 %conv.i.i.i.i.i, 814605021516865831
-  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.06.i.i.i
+  %xor.i.i.i.i = xor i64 %mul.i.i.i.i, %v.07.i.i.i
   %add.i.i.i.i = add i64 %xor.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i, i64 2
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %8
   br i1 %cmp.i.not.i.i.i, label %invoke.cont23, label %for.body.i.i.i
 

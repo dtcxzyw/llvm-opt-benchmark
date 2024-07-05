@@ -277,7 +277,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.0 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %.036 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
   %104 = lshr i64 %1, 7
   %105 = and i64 %104, 31
   %.not.i = icmp eq i64 %105, 0
@@ -285,7 +285,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %0, i64 120
-  %108 = shl i64 %.0, 32
+  %108 = shl i64 %.036, 32
   %109 = ashr exact i64 %108, 32
   %110 = getelementptr inbounds [32 x i64], ptr %107, i64 0, i64 %105
   store i64 %109, ptr %110, align 8
@@ -535,7 +535,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.0 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %.036 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
   %104 = lshr i64 %1, 7
   %105 = and i64 %104, 31
   %.not.i = icmp eq i64 %105, 0
@@ -544,7 +544,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 106:                                              ; preds = %103
   %107 = getelementptr inbounds i8, ptr %0, i64 120
   %108 = getelementptr inbounds [32 x i64], ptr %107, i64 0, i64 %105
-  store i64 %.0, ptr %108, align 8
+  store i64 %.036, ptr %108, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %103, %106
@@ -1323,7 +1323,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.0 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %.039 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
   %104 = lshr i64 %1, 7
   %105 = and i64 %104, 31
   %106 = icmp ugt i64 %105, 15
@@ -1347,7 +1347,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 113:                                              ; preds = %112
   %114 = getelementptr inbounds i8, ptr %0, i64 120
-  %115 = shl i64 %.0, 32
+  %115 = shl i64 %.039, 32
   %116 = ashr exact i64 %115, 32
   %117 = getelementptr inbounds [32 x i64], ptr %114, i64 0, i64 %105
   store i64 %116, ptr %117, align 8
@@ -1565,7 +1565,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.0 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %.039 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
   %104 = lshr i64 %1, 7
   %105 = and i64 %104, 31
   %106 = icmp ugt i64 %105, 15
@@ -1590,7 +1590,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 113:                                              ; preds = %112
   %114 = getelementptr inbounds i8, ptr %0, i64 120
   %115 = getelementptr inbounds [32 x i64], ptr %114, i64 0, i64 %105
-  store i64 %.0, ptr %115, align 8
+  store i64 %.039, ptr %115, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %112, %113
@@ -1808,8 +1808,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.042 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
-  %104 = shl i64 %.042, 32
+  %.043 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %104 = shl i64 %.043, 32
   %105 = ashr exact i64 %104, 32
   %106 = lshr i64 %1, 7
   %107 = and i64 %106, 31
@@ -2109,7 +2109,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 103:                                              ; preds = %99, %95, %91, %87
-  %.042 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
+  %.043 = phi i64 [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %90, %87 ]
   %104 = lshr i64 %1, 7
   %105 = and i64 %104, 31
   %106 = shl nuw nsw i64 %105, 4
@@ -2163,7 +2163,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit56: ; preds = %117, %112, %.loopexit.i.i52
   %.0.i.pn.i.i54 = phi ptr [ %113, %112 ], [ %127, %.loopexit.i.i52 ], [ %119, %117 ]
   %.0.i.i55 = getelementptr inbounds i8, ptr %.0.i.pn.i.i54, i64 16
-  store i64 %.042, ptr %.0.i.i55, align 8
+  store i64 %.043, ptr %.0.i.i55, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i54, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %129 = icmp ugt i64 %105, 15
@@ -2188,7 +2188,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 136:                                              ; preds = %135
   %137 = getelementptr inbounds i8, ptr %0, i64 120
   %138 = getelementptr inbounds [32 x i64], ptr %137, i64 0, i64 %105
-  store i64 %.042, ptr %138, align 8
+  store i64 %.043, ptr %138, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %135, %136

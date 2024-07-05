@@ -152,19 +152,18 @@ if.end53.i.i:                                     ; preds = %if.end39.i.i
   %mul.i.i.i = shl i64 %add.ptr.val.i.i, 16
   %add.ptr55.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
   %cmp56.not.i.i = icmp ugt ptr %add.ptr55.i.i, %p
-  br i1 %cmp56.not.i.i, label %_mi_segment_of.exit.i, label %lor.rhs.i
+  br i1 %cmp56.not.i.i, label %mi_is_valid_pointer.exit, label %lor.rhs.i
 
-_mi_segment_of.exit.i:                            ; preds = %if.end53.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %1, %if.end.i.i ], [ %add.ptr.i.i, %if.end53.i.i ]
-  %cmp.not.i = icmp eq ptr %retval.0.i.i, null
+_mi_segment_of.exit.i:                            ; preds = %if.end.i.i
+  %cmp.not.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.not.i, label %lor.rhs.i, label %mi_is_valid_pointer.exit
 
 lor.rhs.i:                                        ; preds = %_mi_segment_of.exit.i, %if.end53.i.i, %if.end39.i.i, %if.end32.i.i, %do.end.i.i, %if.else.i.i, %if.end5.i.i, %entry
   %call1.i = tail call zeroext i1 @_mi_arena_contains(ptr noundef %p) #4
   br label %mi_is_valid_pointer.exit
 
-mi_is_valid_pointer.exit:                         ; preds = %_mi_segment_of.exit.i, %lor.rhs.i
-  %13 = phi i1 [ true, %_mi_segment_of.exit.i ], [ %call1.i, %lor.rhs.i ]
+mi_is_valid_pointer.exit:                         ; preds = %if.end53.i.i, %_mi_segment_of.exit.i, %lor.rhs.i
+  %13 = phi i1 [ true, %_mi_segment_of.exit.i ], [ %call1.i, %lor.rhs.i ], [ true, %if.end53.i.i ]
   ret i1 %13
 }
 

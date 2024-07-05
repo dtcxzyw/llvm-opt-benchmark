@@ -145,11 +145,11 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
 
 .preheader:                                       ; preds = %.preheader77, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader77 ]
-  %.182 = phi ptr [ %.2, %42 ], [ %.063, %.preheader77 ]
+  %.183 = phi ptr [ %.2, %42 ], [ %.063, %.preheader77 ]
   %25 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 16
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #11
-  %28 = call i32 @strncmp(ptr noundef %.182, ptr noundef %26, i64 noundef %27) #11
+  %28 = call i32 @strncmp(ptr noundef %.183, ptr noundef %26, i64 noundef %27) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %42
 
@@ -160,7 +160,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
   br i1 %.not71, label %42, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %.182, i64 %27
+  %34 = getelementptr i8, ptr %.183, i64 %27
   br label %35
 
 35:                                               ; preds = %39, %33
@@ -186,7 +186,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
   br label %101
 
 42:                                               ; preds = %.preheader, %30, %37
-  %.2 = phi ptr [ %34, %37 ], [ %.182, %30 ], [ %.182, %.preheader ]
+  %.2 = phi ptr [ %34, %37 ], [ %.183, %30 ], [ %.183, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.backedge79, label %.preheader, !llvm.loop !6
@@ -332,8 +332,8 @@ parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColu
   br label %101
 
 101:                                              ; preds = %parseColumnHeaderFields.exit.thread, %92, %41, %21, %20
-  %.064 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %92 ], [ -1, %41 ]
-  ret i32 %.064
+  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %92 ], [ -1, %41 ]
+  ret i32 %.062
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -999,9 +999,9 @@ checked_strcpy.exit19:                            ; preds = %15
   br label %29
 
 29:                                               ; preds = %49, %.lr.ph.i
-  %.024.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %49 ]
-  %.02123.i = phi i8 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
-  %30 = getelementptr i8, ptr %8, i64 %.024.i
+  %.024.i = phi i8 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
+  %.02123.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %49 ]
+  %30 = getelementptr i8, ptr %8, i64 %.02123.i
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, %28
   br i1 %32, label %49, label %33
@@ -1027,15 +1027,15 @@ checked_strcpy.exit19:                            ; preds = %15
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %42
-  %46 = add i8 %.02123.i, 1
-  %47 = zext i8 %.02123.i to i64
+  %46 = add i8 %.024.i, 1
+  %47 = zext i8 %.024.i to i64
   %48 = getelementptr i8, ptr %8, i64 %47
   store i8 %31, ptr %48, align 1
   br label %49
 
 49:                                               ; preds = %45, %42, %39, %36, %33, %29
-  %.1.i = phi i8 [ %.02123.i, %29 ], [ %.02123.i, %33 ], [ %.02123.i, %36 ], [ %.02123.i, %39 ], [ %.02123.i, %42 ], [ %46, %45 ]
-  %50 = add nuw i64 %.024.i, 1
+  %.1.i = phi i8 [ %.024.i, %29 ], [ %.024.i, %33 ], [ %.024.i, %36 ], [ %.024.i, %39 ], [ %.024.i, %42 ], [ %46, %45 ]
+  %50 = add nuw i64 %.02123.i, 1
   %exitcond.not.i = icmp eq i64 %50, %22
   br i1 %exitcond.not.i, label %stripTimeStamp.exit.loopexit, label %29, !llvm.loop !8
 
@@ -1044,8 +1044,8 @@ stripTimeStamp.exit.loopexit:                     ; preds = %49
   br label %stripTimeStamp.exit
 
 stripTimeStamp.exit:                              ; preds = %stripTimeStamp.exit.loopexit, %21
-  %.021.lcssa.i = phi i64 [ 0, %21 ], [ %51, %stripTimeStamp.exit.loopexit ]
-  %52 = getelementptr i8, ptr %8, i64 %.021.lcssa.i
+  %.0.lcssa.i = phi i64 [ 0, %21 ], [ %51, %stripTimeStamp.exit.loopexit ]
+  %52 = getelementptr i8, ptr %8, i64 %.0.lcssa.i
   store i8 0, ptr %52, align 1
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
   %.not.i20 = icmp eq i64 %53, 0
@@ -1061,9 +1061,9 @@ stripTimeStamp.exit:                              ; preds = %stripTimeStamp.exit
   br label %60
 
 60:                                               ; preds = %80, %.lr.ph.i21
-  %.024.i22 = phi i64 [ 0, %.lr.ph.i21 ], [ %81, %80 ]
-  %.02123.i23 = phi i8 [ 0, %.lr.ph.i21 ], [ %.1.i24, %80 ]
-  %61 = getelementptr i8, ptr %9, i64 %.024.i22
+  %.024.i22 = phi i8 [ 0, %.lr.ph.i21 ], [ %.1.i24, %80 ]
+  %.02123.i23 = phi i64 [ 0, %.lr.ph.i21 ], [ %81, %80 ]
+  %61 = getelementptr i8, ptr %9, i64 %.02123.i23
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, %59
   br i1 %63, label %80, label %64
@@ -1089,15 +1089,15 @@ stripTimeStamp.exit:                              ; preds = %stripTimeStamp.exit
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %73
-  %77 = add i8 %.02123.i23, 1
-  %78 = zext i8 %.02123.i23 to i64
+  %77 = add i8 %.024.i22, 1
+  %78 = zext i8 %.024.i22 to i64
   %79 = getelementptr i8, ptr %9, i64 %78
   store i8 %62, ptr %79, align 1
   br label %80
 
 80:                                               ; preds = %76, %73, %70, %67, %64, %60
-  %.1.i24 = phi i8 [ %.02123.i23, %60 ], [ %.02123.i23, %64 ], [ %.02123.i23, %67 ], [ %.02123.i23, %70 ], [ %.02123.i23, %73 ], [ %77, %76 ]
-  %81 = add nuw i64 %.024.i22, 1
+  %.1.i24 = phi i8 [ %.024.i22, %60 ], [ %.024.i22, %64 ], [ %.024.i22, %67 ], [ %.024.i22, %70 ], [ %.024.i22, %73 ], [ %77, %76 ]
+  %81 = add nuw i64 %.02123.i23, 1
   %exitcond.not.i25 = icmp eq i64 %81, %53
   br i1 %exitcond.not.i25, label %stripTimeStamp.exit27.loopexit, label %60, !llvm.loop !8
 
@@ -1106,14 +1106,14 @@ stripTimeStamp.exit27.loopexit:                   ; preds = %80
   br label %stripTimeStamp.exit27
 
 stripTimeStamp.exit27:                            ; preds = %stripTimeStamp.exit27.loopexit, %stripTimeStamp.exit
-  %.021.lcssa.i26 = phi i64 [ 0, %stripTimeStamp.exit ], [ %82, %stripTimeStamp.exit27.loopexit ]
-  %83 = getelementptr i8, ptr %9, i64 %.021.lcssa.i26
+  %.0.lcssa.i26 = phi i64 [ 0, %stripTimeStamp.exit ], [ %82, %stripTimeStamp.exit27.loopexit ]
+  %83 = getelementptr i8, ptr %9, i64 %.0.lcssa.i26
   store i8 0, ptr %83, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %10, ptr noundef nonnull align 16 dereferenceable(18) @__const.parseFieldTS.timeStampStringFull, i64 18, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %9, i64 %.021.lcssa.i26, i1 false)
-  %84 = sub nsw i64 17, %.021.lcssa.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %9, i64 %.0.lcssa.i26, i1 false)
+  %84 = sub nsw i64 17, %.0.lcssa.i
   %85 = getelementptr [18 x i8], ptr %10, i64 0, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 16 %8, i64 %.021.lcssa.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 16 %8, i64 %.0.lcssa.i, i1 false)
   %86 = getelementptr inbounds i8, ptr %10, i64 17
   store i8 0, ptr %86, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)

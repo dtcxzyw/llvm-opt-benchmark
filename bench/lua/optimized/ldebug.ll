@@ -639,8 +639,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %ci.0 = phi ptr [ null, %if.then ], [ %2, %if.else ]
   %func.0 = phi ptr [ %add.ptr, %if.then ], [ %3, %if.else ]
+  %ci.0 = phi ptr [ null, %if.then ], [ %2, %if.else ]
   %what.addr.0 = phi ptr [ %incdec.ptr, %if.then ], [ %what, %if.else ]
   %tt_ = getelementptr inbounds i8, ptr %func.0, i64 8
   %4 = load i8, ptr %tt_, align 8
@@ -2523,8 +2523,8 @@ for.body.preheader.i:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %jmptarget.09.i = phi i32 [ 0, %for.body.preheader.i ], [ %jmptarget.23.i, %for.inc.i ]
   %setreg.08.i = phi i32 [ -1, %for.body.preheader.i ], [ %setreg.1.i, %for.inc.i ]
+  %jmptarget.07.i = phi i32 [ 0, %for.body.preheader.i ], [ %jmptarget.23.i, %for.inc.i ]
   %arrayidx7.i = getelementptr inbounds i32, ptr %p.val, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx7.i, align 4
   %and9.i = and i32 %4, 127
@@ -2552,8 +2552,8 @@ sw.epilog.thread.i:                               ; preds = %for.body.i
   %6 = add i32 %5, -16777214
   %add30.i = add i32 %6, %shr10.i
   %cmp31.not.not.i = icmp sgt i32 %add30.i, %spec.select.i
-  %7 = tail call i32 @llvm.smax.i32(i32 %add30.i, i32 %jmptarget.09.i)
-  %jmptarget.1.i = select i1 %cmp31.not.not.i, i32 %jmptarget.09.i, i32 %7
+  %7 = tail call i32 @llvm.smax.i32(i32 %add30.i, i32 %jmptarget.07.i)
+  %jmptarget.1.i = select i1 %cmp31.not.not.i, i32 %jmptarget.07.i, i32 %7
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %for.body.i
@@ -2576,14 +2576,14 @@ sw.epilog.i:                                      ; preds = %for.body.i
   br i1 %11, label %if.then48.i, label %for.inc.i
 
 if.then48.i:                                      ; preds = %sw.epilog.i, %sw.default.i, %sw.bb22.i, %sw.bb18.i
-  %12 = sext i32 %jmptarget.09.i to i64
+  %12 = sext i32 %jmptarget.07.i to i64
   %cmp.i.i = icmp slt i64 %indvars.iv.i, %12
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pc.i.i = select i1 %cmp.i.i, i32 -1, i32 %13
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then48.i, %sw.epilog.i, %sw.default.i, %sw.epilog.thread.i, %sw.bb22.i, %sw.bb18.i
-  %jmptarget.23.i = phi i32 [ %jmptarget.09.i, %if.then48.i ], [ %jmptarget.09.i, %sw.epilog.i ], [ %jmptarget.1.i, %sw.epilog.thread.i ], [ %jmptarget.09.i, %sw.default.i ], [ %jmptarget.09.i, %sw.bb22.i ], [ %jmptarget.09.i, %sw.bb18.i ]
+  %jmptarget.23.i = phi i32 [ %jmptarget.07.i, %if.then48.i ], [ %jmptarget.07.i, %sw.epilog.i ], [ %jmptarget.1.i, %sw.epilog.thread.i ], [ %jmptarget.07.i, %sw.default.i ], [ %jmptarget.07.i, %sw.bb22.i ], [ %jmptarget.07.i, %sw.bb18.i ]
   %setreg.1.i = phi i32 [ %.pc.i.i, %if.then48.i ], [ %setreg.08.i, %sw.epilog.i ], [ %setreg.08.i, %sw.epilog.thread.i ], [ %setreg.08.i, %sw.default.i ], [ %setreg.08.i, %sw.bb22.i ], [ %setreg.08.i, %sw.bb18.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

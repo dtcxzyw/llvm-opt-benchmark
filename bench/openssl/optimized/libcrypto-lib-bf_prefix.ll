@@ -72,8 +72,8 @@ while.body.lr.ph:                                 ; preds = %if.end17
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end67
-  %outl.addr.046 = phi i64 [ %outl, %while.body.lr.ph ], [ %outl.addr.1.lcssa, %if.end67 ]
-  %out.addr.045 = phi ptr [ %out, %while.body.lr.ph ], [ %out.addr.1.lcssa, %if.end67 ]
+  %out.addr.046 = phi ptr [ %out, %while.body.lr.ph ], [ %out.addr.1.lcssa, %if.end67 ]
+  %outl.addr.045 = phi i64 [ %outl, %while.body.lr.ph ], [ %outl.addr.1.lcssa, %if.end67 ]
   %5 = load i32, ptr %linestart20, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end38, label %if.then21
@@ -99,12 +99,12 @@ if.end33:                                         ; preds = %land.lhs.true25, %i
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end33, %while.body
-  %9 = load i8, ptr %out.addr.045, align 1
+  %9 = load i8, ptr %out.addr.046, align 1
   %cmp43.not52 = icmp eq i8 %9, 10
   br i1 %cmp43.not52, label %for.end, label %for.inc
 
 land.rhs:                                         ; preds = %for.inc
-  %arrayidx41 = getelementptr inbounds i8, ptr %out.addr.045, i64 %inc
+  %arrayidx41 = getelementptr inbounds i8, ptr %out.addr.046, i64 %inc
   %10 = load i8, ptr %arrayidx41, align 1
   %cmp43.not = icmp eq i8 %10, 10
   br i1 %cmp43.not, label %for.end.loopexit, label %for.inc, !llvm.loop !4
@@ -112,12 +112,12 @@ land.rhs:                                         ; preds = %for.inc
 for.inc:                                          ; preds = %if.end38, %land.rhs
   %i.03753 = phi i64 [ %inc, %land.rhs ], [ 0, %if.end38 ]
   %inc = add nuw i64 %i.03753, 1
-  %exitcond.not = icmp eq i64 %inc, %outl.addr.046
+  %exitcond.not = icmp eq i64 %inc, %outl.addr.045
   br i1 %exitcond.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc, %land.rhs
-  %i.0.lcssa.ph = phi i64 [ %inc, %land.rhs ], [ %outl.addr.046, %for.inc ]
-  %cmp39.le = icmp ult i64 %inc, %outl.addr.046
+  %i.0.lcssa.ph = phi i64 [ %inc, %land.rhs ], [ %outl.addr.045, %for.inc ]
+  %cmp39.le = icmp ult i64 %inc, %outl.addr.045
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end38
@@ -130,18 +130,18 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 while.body54:                                     ; preds = %for.end, %if.end59
   %i.242 = phi i64 [ %sub61, %if.end59 ], [ %spec.select, %for.end ]
-  %outl.addr.141 = phi i64 [ %sub60, %if.end59 ], [ %outl.addr.046, %for.end ]
-  %out.addr.140 = phi ptr [ %add.ptr, %if.end59 ], [ %out.addr.045, %for.end ]
+  %out.addr.141 = phi ptr [ %add.ptr, %if.end59 ], [ %out.addr.046, %for.end ]
+  %outl.addr.140 = phi i64 [ %sub60, %if.end59 ], [ %outl.addr.045, %for.end ]
   store i64 0, ptr %num, align 8
   %call55 = call ptr @BIO_next(ptr noundef %b) #4
-  %call56 = call i32 @BIO_write_ex(ptr noundef %call55, ptr noundef %out.addr.140, i64 noundef %i.242, ptr noundef nonnull %num) #4
+  %call56 = call i32 @BIO_write_ex(ptr noundef %call55, ptr noundef %out.addr.141, i64 noundef %i.242, ptr noundef nonnull %num) #4
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end59
 
 if.end59:                                         ; preds = %while.body54
   %11 = load i64, ptr %num, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.140, i64 %11
-  %sub60 = sub i64 %outl.addr.141, %11
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.141, i64 %11
+  %sub60 = sub i64 %outl.addr.140, %11
   %12 = load i64, ptr %numwritten, align 8
   %add = add i64 %12, %11
   store i64 %add, ptr %numwritten, align 8
@@ -150,8 +150,8 @@ if.end59:                                         ; preds = %while.body54
   br i1 %cmp52.not, label %while.end, label %while.body54, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end59, %for.end
-  %out.addr.1.lcssa = phi ptr [ %out.addr.045, %for.end ], [ %add.ptr, %if.end59 ]
-  %outl.addr.1.lcssa = phi i64 [ %outl.addr.046, %for.end ], [ %sub60, %if.end59 ]
+  %outl.addr.1.lcssa = phi i64 [ %outl.addr.045, %for.end ], [ %sub60, %if.end59 ]
+  %out.addr.1.lcssa = phi ptr [ %out.addr.046, %for.end ], [ %add.ptr, %if.end59 ]
   br i1 %cmp39.lcssa, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %while.end

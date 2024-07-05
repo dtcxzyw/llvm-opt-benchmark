@@ -29929,9 +29929,9 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_to
 
 for.body2184:                                     ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit
   %iterations.010349 = phi i32 [ %inc2193, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit ], [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355 ]
-  %i2177.sroa.0.110348 = phi ptr [ %i2177.sroa.0.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit ], [ %2340, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355 ]
-  %i2177.sroa.7.110347 = phi ptr [ %i2177.sroa.7.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit ], [ %arrayidx.i8339, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355 ]
-  %2342 = load i32, ptr %i2177.sroa.0.110348, align 8
+  %i2177.sroa.7.110348 = phi ptr [ %i2177.sroa.7.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit ], [ %arrayidx.i8339, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355 ]
+  %i2177.sroa.0.110347 = phi ptr [ %i2177.sroa.0.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit ], [ %2340, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8355 ]
+  %2342 = load i32, ptr %i2177.sroa.0.110347, align 8
   %rem2189 = srem i32 %2342, 3
   %cmp2190 = icmp eq i32 %rem2189, 1
   %call2192 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2190, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1273, ptr noundef nonnull @.str.108)
@@ -29939,21 +29939,21 @@ for.body2184:                                     ; preds = %_ZN5eastl9hashtable
 
 invoke.cont2191:                                  ; preds = %for.body2184
   %inc2193 = add nuw nsw i32 %iterations.010349, 1
-  %mpNext.i.i8359 = getelementptr inbounds i8, ptr %i2177.sroa.0.110348, i64 8
+  %mpNext.i.i8359 = getelementptr inbounds i8, ptr %i2177.sroa.0.110347, i64 8
   %storemerge1.i.i8360 = load ptr, ptr %mpNext.i.i8359, align 8, !noalias !931
   %cmp2.i.i8361 = icmp eq ptr %storemerge1.i.i8360, null
   br i1 %cmp2.i.i8361, label %while.body.i.i8362, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit
 
 while.body.i.i8362:                               ; preds = %invoke.cont2191, %while.body.i.i8362
-  %2343 = phi ptr [ %incdec.ptr.i.i8363, %while.body.i.i8362 ], [ %i2177.sroa.7.110347, %invoke.cont2191 ]
+  %2343 = phi ptr [ %incdec.ptr.i.i8363, %while.body.i.i8362 ], [ %i2177.sroa.7.110348, %invoke.cont2191 ]
   %incdec.ptr.i.i8363 = getelementptr inbounds i8, ptr %2343, i64 8
   %storemerge.i.i8364 = load ptr, ptr %incdec.ptr.i.i8363, align 8, !noalias !931
   %cmp.i.i8365 = icmp eq ptr %storemerge.i.i8364, null
   br i1 %cmp.i.i8365, label %while.body.i.i8362, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit, !llvm.loop !85
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEi.exit: ; preds = %while.body.i.i8362, %invoke.cont2191
-  %i2177.sroa.7.2 = phi ptr [ %i2177.sroa.7.110347, %invoke.cont2191 ], [ %incdec.ptr.i.i8363, %while.body.i.i8362 ]
   %i2177.sroa.0.2 = phi ptr [ %storemerge1.i.i8360, %invoke.cont2191 ], [ %storemerge.i.i8364, %while.body.i.i8362 ]
+  %i2177.sroa.7.2 = phi ptr [ %i2177.sroa.7.110348, %invoke.cont2191 ], [ %incdec.ptr.i.i8363, %while.body.i.i8362 ]
   %cmp.i8356.not = icmp eq ptr %i2177.sroa.0.2, %2341
   br i1 %cmp.i8356.not, label %for.end2198, label %for.body2184
 
@@ -29987,9 +29987,9 @@ _ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_t
 
 for.body2210:                                     ; preds = %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit
   %iterations2202.010354 = phi i32 [ %inc2221, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit ], [ 0, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit ]
-  %i2203.sroa.0.110353 = phi ptr [ %i2203.sroa.0.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit ], [ %2348, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit ]
-  %i2203.sroa.7.110352 = phi ptr [ %i2203.sroa.7.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit ], [ %arrayidx.i8370, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit ]
-  %2350 = load i32, ptr %i2203.sroa.0.110353, align 8
+  %i2203.sroa.7.110353 = phi ptr [ %i2203.sroa.7.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit ], [ %arrayidx.i8370, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit ]
+  %i2203.sroa.0.110352 = phi ptr [ %i2203.sroa.0.2, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit ], [ %2348, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit ]
+  %2350 = load i32, ptr %i2203.sroa.0.110352, align 8
   %rem2217 = srem i32 %2350, 3
   %cmp2218 = icmp eq i32 %rem2217, 1
   %call2220 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2218, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 1285, ptr noundef nonnull @.str.108)
@@ -29997,21 +29997,21 @@ for.body2210:                                     ; preds = %_ZNK5eastl9hashtabl
 
 invoke.cont2219:                                  ; preds = %for.body2210
   %inc2221 = add nuw nsw i32 %iterations2202.010354, 1
-  %mpNext.i.i8382 = getelementptr inbounds i8, ptr %i2203.sroa.0.110353, i64 8
+  %mpNext.i.i8382 = getelementptr inbounds i8, ptr %i2203.sroa.0.110352, i64 8
   %storemerge1.i.i8383 = load ptr, ptr %mpNext.i.i8382, align 8
   %cmp2.i.i8384 = icmp eq ptr %storemerge1.i.i8383, null
   br i1 %cmp2.i.i8384, label %while.body.i.i8387, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit
 
 while.body.i.i8387:                               ; preds = %invoke.cont2219, %while.body.i.i8387
-  %2351 = phi ptr [ %incdec.ptr.i.i8388, %while.body.i.i8387 ], [ %i2203.sroa.7.110352, %invoke.cont2219 ]
+  %2351 = phi ptr [ %incdec.ptr.i.i8388, %while.body.i.i8387 ], [ %i2203.sroa.7.110353, %invoke.cont2219 ]
   %incdec.ptr.i.i8388 = getelementptr inbounds i8, ptr %2351, i64 8
   %storemerge.i.i8389 = load ptr, ptr %incdec.ptr.i.i8388, align 8
   %cmp.i.i8390 = icmp eq ptr %storemerge.i.i8389, null
   br i1 %cmp.i.i8390, label %while.body.i.i8387, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit, !llvm.loop !85
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEi.exit: ; preds = %while.body.i.i8387, %invoke.cont2219
-  %i2203.sroa.7.2 = phi ptr [ %i2203.sroa.7.110352, %invoke.cont2219 ], [ %incdec.ptr.i.i8388, %while.body.i.i8387 ]
   %i2203.sroa.0.2 = phi ptr [ %storemerge1.i.i8383, %invoke.cont2219 ], [ %storemerge.i.i8389, %while.body.i.i8387 ]
+  %i2203.sroa.7.2 = phi ptr [ %i2203.sroa.7.110353, %invoke.cont2219 ], [ %incdec.ptr.i.i8388, %while.body.i.i8387 ]
   %cmp.i8381.not = icmp eq ptr %i2203.sroa.0.2, %2349
   br i1 %cmp.i8381.not, label %for.end2228, label %for.body2210, !llvm.loop !937
 
@@ -51729,8 +51729,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
+  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000

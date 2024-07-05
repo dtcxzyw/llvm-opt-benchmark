@@ -37,9 +37,9 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
   br label %22
 
 22:                                               ; preds = %eval_cost2.exit.i.i, %.lr.ph96.i.i
-  %.094.i.i = phi double [ -1.000000e+00, %.lr.ph96.i.i ], [ %.016.lcssa.i..094.i.i, %eval_cost2.exit.i.i ]
-  %.06693.i.i = phi ptr [ null, %.lr.ph96.i.i ], [ %..06693.i.i, %eval_cost2.exit.i.i ]
-  %.06892.i.i = phi i32 [ 0, %.lr.ph96.i.i ], [ %84, %eval_cost2.exit.i.i ]
+  %.094.i.i = phi ptr [ null, %.lr.ph96.i.i ], [ %..094.i.i, %eval_cost2.exit.i.i ]
+  %.06693.i.i = phi double [ -1.000000e+00, %.lr.ph96.i.i ], [ %.016.lcssa.i..06693.i.i, %eval_cost2.exit.i.i ]
+  %.07092.i.i = phi i32 [ 0, %.lr.ph96.i.i ], [ %84, %eval_cost2.exit.i.i ]
   %23 = tail call noalias ptr @malloc(i64 noundef %12) #9
   br i1 %13, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -124,7 +124,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 49:                                               ; preds = %63, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %63 ]
   %.028.i.i.i = phi double [ -1.000000e+00, %.lr.ph.i.i.i ], [ %.1.i.i.i, %63 ]
-  %.02127.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.122.i.i.i, %63 ]
+  %.02226.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.123.i.i.i, %63 ]
   %50 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.i.i.i
   %51 = load i32, ptr %50, align 4
   %.not.i.i.i = icmp eq i32 %51, -1
@@ -148,16 +148,16 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
   br label %63
 
 63:                                               ; preds = %62, %57, %52, %49
-  %.122.i.i.i = phi i32 [ %51, %62 ], [ %.02127.i.i.i, %57 ], [ %.02127.i.i.i, %52 ], [ %.02127.i.i.i, %49 ]
+  %.123.i.i.i = phi i32 [ %51, %62 ], [ %.02226.i.i.i, %57 ], [ %.02226.i.i.i, %52 ], [ %.02226.i.i.i, %49 ]
   %.1.i.i.i = phi double [ %60, %62 ], [ %.028.i.i.i, %57 ], [ %.028.i.i.i, %52 ], [ %.028.i.i.i, %49 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %allocate_vertex2.exit.i.i, label %49, !llvm.loop !8
 
 allocate_vertex2.exit.i.i:                        ; preds = %63, %47
-  %.021.lcssa.i.i.i = phi i32 [ -1, %47 ], [ %.122.i.i.i, %63 ]
-  store i32 %.021.lcssa.i.i.i, ptr %44, align 4
-  %64 = sext i32 %.021.lcssa.i.i.i to i64
+  %.022.lcssa.i.i.i = phi i32 [ -1, %47 ], [ %.123.i.i.i, %63 ]
+  store i32 %.022.lcssa.i.i.i, ptr %44, align 4
+  %64 = sext i32 %.022.lcssa.i.i.i to i64
   %65 = getelementptr inbounds i32, ptr %24, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, 1
@@ -215,15 +215,15 @@ allocate_vertex2.exit.i.i:                        ; preds = %63, %47
 
 eval_cost2.exit.i.i:                              ; preds = %.loopexit.i.i.i, %._crit_edge91.i.i
   %.016.lcssa.i.i.i = phi double [ 0.000000e+00, %._crit_edge91.i.i ], [ %.1.lcssa.i.i.i, %.loopexit.i.i.i ]
-  %82 = fcmp olt double %.016.lcssa.i.i.i, %.094.i.i
-  %83 = fcmp oeq double %.094.i.i, -1.000000e+00
+  %82 = fcmp olt double %.016.lcssa.i.i.i, %.06693.i.i
+  %83 = fcmp oeq double %.06693.i.i, -1.000000e+00
   %or.cond.i.i = or i1 %83, %82
-  %.06693..i.i = select i1 %or.cond.i.i, ptr %.06693.i.i, ptr %23
-  %..06693.i.i = select i1 %or.cond.i.i, ptr %23, ptr %.06693.i.i
-  %.016.lcssa.i..094.i.i = select i1 %or.cond.i.i, double %.016.lcssa.i.i.i, double %.094.i.i
-  tail call void @free(ptr noundef %.06693..i.i) #11
+  %.094..i.i = select i1 %or.cond.i.i, ptr %.094.i.i, ptr %23
+  %.016.lcssa.i..06693.i.i = select i1 %or.cond.i.i, double %.016.lcssa.i.i.i, double %.06693.i.i
+  %..094.i.i = select i1 %or.cond.i.i, ptr %23, ptr %.094.i.i
+  tail call void @free(ptr noundef %.094..i.i) #11
   tail call void @free(ptr noundef %24) #11
-  %84 = add nuw nsw i32 %.06892.i.i, 1
+  %84 = add nuw nsw i32 %.07092.i.i, 1
   %exitcond111.not.i.i = icmp eq i32 %84, %5
   br i1 %exitcond111.not.i.i, label %build_p_vector.exit, label %22, !llvm.loop !12
 
@@ -300,7 +300,7 @@ eval_cost2.exit.i.i:                              ; preds = %.loopexit.i.i.i, %.
 build_p_vector.exit:                              ; preds = %eval_cost2.exit.i.i, %._crit_edge.i
   %.pre-phi93 = phi i64 [ %.pre, %._crit_edge.i ], [ %21, %eval_cost2.exit.i.i ]
   %.pre-phi = phi i64 [ %86, %._crit_edge.i ], [ %14, %eval_cost2.exit.i.i ]
-  %.0.i = phi ptr [ %91, %._crit_edge.i ], [ %..06693.i.i, %eval_cost2.exit.i.i ]
+  %.0.i = phi ptr [ %91, %._crit_edge.i ], [ %..094.i.i, %eval_cost2.exit.i.i ]
   %117 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 72) #10
   %118 = tail call noalias ptr @calloc(i64 noundef %.pre-phi93, i64 noundef 72) #10
   %119 = shl nsw i64 %.pre-phi93, 3

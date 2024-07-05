@@ -17340,7 +17340,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   ret ptr %common.ret.op
 
 if.end96:                                         ; preds = %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread135, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit, %if.end54, %if.then.i85
-  %ptr.addr.1 = phi ptr [ %add.ptr5.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread135 ], [ %call6.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit ], [ %ptr.addr.0, %if.end54 ], [ %ptr.addr.0, %if.then.i85 ]
+  %ptr.addr.1 = phi ptr [ %add.ptr5.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread135 ], [ %call6.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit ], [ %ptr.addr.0, %if.then.i85 ], [ %ptr.addr.0, %if.end54 ]
   %38 = load ptr, ptr %ctx, align 8
   %cmp.i114 = icmp ugt ptr %38, %ptr.addr.1
   br i1 %cmp.i114, label %if.end.i, label %if.then.i
@@ -19572,7 +19572,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   ret ptr %common.ret.op
 
 if.end96:                                         ; preds = %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread132, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit, %if.end54, %if.then.i88
-  %ptr.addr.1 = phi ptr [ %add.ptr5.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread132 ], [ %call6.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit ], [ %ptr.addr.0, %if.end54 ], [ %ptr.addr.0, %if.then.i88 ]
+  %ptr.addr.1 = phi ptr [ %add.ptr5.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit.thread132 ], [ %call6.i.i, %_ZN6google8protobuf8internal16InlineCordParserEPN4absl12lts_202308024CordEPKcPNS1_12ParseContextE.exit ], [ %ptr.addr.0, %if.then.i88 ], [ %ptr.addr.0, %if.end54 ]
   %48 = load ptr, ptr %ctx, align 8
   %cmp.i123 = icmp ugt ptr %48, %ptr.addr.1
   br i1 %cmp.i123, label %if.end.i, label %if.then.i

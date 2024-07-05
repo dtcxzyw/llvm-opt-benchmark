@@ -683,7 +683,7 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %108
 
 108:                                              ; preds = %.sink.split242, %91, %82
-  %.0175 = phi ptr [ null, %91 ], [ null, %82 ], [ %107, %.sink.split242 ]
+  %.0173 = phi ptr [ null, %91 ], [ null, %82 ], [ %107, %.sink.split242 ]
   %.not195 = icmp eq ptr %8, null
   br i1 %.not195, label %134, label %109
 
@@ -789,7 +789,7 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   br label %160
 
 160:                                              ; preds = %.sink.split246, %143, %134
-  %.0173 = phi ptr [ null, %143 ], [ null, %134 ], [ %159, %.sink.split246 ]
+  %.0175 = phi ptr [ null, %143 ], [ null, %134 ], [ %159, %.sink.split246 ]
   %factor = shl i32 %56, 1
   %161 = add i32 %50, %44
   %162 = add i32 %161, %factor
@@ -873,7 +873,7 @@ define noundef i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPKNS_9SymMatrixEdP
   %207 = load ptr, ptr %198, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 24
   %209 = load ptr, ptr %208, align 8
-  %210 = invoke noundef i32 %209(ptr noundef nonnull align 8 dereferenceable(49) %198, i1 noundef zeroext %39, i32 noundef %44, i32 noundef %50, i32 noundef %56, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %.0172, ptr noundef %.0175, ptr noundef %.0174, ptr noundef %.0173, double noundef %4, double noundef %6, double noundef %9, double noundef %12, i32 noundef %38, ptr noundef nonnull %168, i1 noundef zeroext %21, i32 noundef %22)
+  %210 = invoke noundef i32 %209(ptr noundef nonnull align 8 dereferenceable(49) %198, i1 noundef zeroext %39, i32 noundef %44, i32 noundef %50, i32 noundef %56, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %.0172, ptr noundef %.0173, ptr noundef %.0174, ptr noundef %.0175, double noundef %4, double noundef %6, double noundef %9, double noundef %12, i32 noundef %38, ptr noundef nonnull %168, i1 noundef zeroext %21, i32 noundef %22)
           to label %211 unwind label %242
 
 211:                                              ; preds = %202

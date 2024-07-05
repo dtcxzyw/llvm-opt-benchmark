@@ -520,8 +520,8 @@ if.then27:                                        ; preds = %land.lhs.true24
   %or.cond1.not25 = select i1 %cmp32, i1 true, i1 %cmp34
   %cmp.not = xor i1 %cmp, true
   %brmerge = select i1 %or.cond1.not25, i1 true, i1 %cmp.not
-  %cmp.mux = select i1 %or.cond1.not25, i1 %cmp, i1 false
   %not.or.cond1.not25 = xor i1 %or.cond1.not25, true
+  %cmp.mux = select i1 %or.cond1.not25, i1 %cmp, i1 false
   br i1 %brmerge, label %if.end43, label %land.rhs37
 
 land.rhs37:                                       ; preds = %if.then27
@@ -530,9 +530,9 @@ land.rhs37:                                       ; preds = %if.then27
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then27, %if.end22.thread20, %land.rhs37, %land.lhs.true24, %if.end22
-  %ok.1 = phi i1 [ false, %if.end22 ], [ %cmp.mux, %if.then27 ], [ %cmp, %land.lhs.true24 ], [ %cmp39, %land.rhs37 ], [ %cmp18, %if.end22.thread20 ]
   %tobool46 = phi i1 [ true, %if.end22 ], [ %not.or.cond1.not25, %if.then27 ], [ false, %land.lhs.true24 ], [ true, %land.rhs37 ], [ true, %if.end22.thread20 ]
-  %0 = and i1 %ok.1, %tobool46
+  %ok.1 = phi i1 [ false, %if.end22 ], [ %cmp.mux, %if.then27 ], [ %cmp, %land.lhs.true24 ], [ %cmp39, %land.rhs37 ], [ %cmp18, %if.end22.thread20 ]
+  %0 = and i1 %tobool46, %ok.1
   br label %return
 
 return:                                           ; preds = %land.rhs, %if.end43, %entry

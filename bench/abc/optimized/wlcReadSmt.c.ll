@@ -572,7 +572,7 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
 
 221:                                              ; preds = %.lr.ph212, %221
   %indvars.iv227 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next228, %221 ]
-  %.0116211 = phi i32 [ 0, %.lr.ph212 ], [ %231, %221 ]
+  %.0117210 = phi i32 [ 0, %.lr.ph212 ], [ %231, %221 ]
   %222 = getelementptr inbounds i32, ptr %.val131, i64 %indvars.iv227
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
@@ -583,7 +583,7 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
   %.val141 = load i32, ptr %227, align 4
   %228 = sub nsw i32 %.val140, %.val141
   %229 = call i32 @llvm.abs.i32(i32 %228, i1 true)
-  %230 = add nuw nsw i32 %.0116211, 1
+  %230 = add nuw nsw i32 %.0117210, 1
   %231 = add nuw nsw i32 %230, %229
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count
@@ -627,9 +627,9 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
   br label %.critedge7
 
 .critedge7:                                       ; preds = %221, %.preheader, %209, %216, %232, %245
-  %.1 = phi i32 [ %218, %216 ], [ %244, %232 ], [ %254, %245 ], [ 1, %209 ], [ 0, %.preheader ], [ %231, %221 ]
+  %.1118 = phi i32 [ %218, %216 ], [ %244, %232 ], [ %254, %245 ], [ 1, %209 ], [ 0, %.preheader ], [ %231, %221 ]
   %255 = load i32, ptr %7, align 4
-  %256 = call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %.0.i, i32 noundef %255, i32 noundef %.1, ptr noundef nonnull %137, ptr noundef %4)
+  %256 = call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %.0.i, i32 noundef %255, i32 noundef %.1118, ptr noundef nonnull %137, ptr noundef %4)
   %257 = load ptr, ptr %140, align 8
   %.not.i168 = icmp eq ptr %257, null
   br i1 %.not.i168, label %Vec_IntFree.exit169, label %258
@@ -787,7 +787,7 @@ Vec_IntPush.exit.i:                               ; preds = %51, %Vec_IntGrow.ex
   %61 = sext i32 %.061121.i to i64
   %62 = getelementptr inbounds i32, ptr %.val82.i, i64 %61
   %63 = load i32, ptr %62, align 4
-  %64 = or i32 %63, %.066119.i
+  %64 = or i32 %63, %.063120.i
   %or.cond.not.i = icmp eq i32 %64, 0
   br i1 %or.cond.not.i, label %65, label %96
 
@@ -797,7 +797,7 @@ Vec_IntPush.exit.i:                               ; preds = %51, %Vec_IntGrow.ex
   br i1 %.not.i, label %.backedge.i, label %67
 
 67:                                               ; preds = %65
-  %.not74.i = icmp eq i32 %.063120.i, 0
+  %.not74.i = icmp eq i32 %.066119.i, 0
   br i1 %.not74.i, label %._crit_edge124.i, label %68
 
 68:                                               ; preds = %67
@@ -867,14 +867,14 @@ Vec_IntGrow.exit.i92.i:                           ; preds = %78, %76
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %96, %.backedge.sink.split.i, %65
-  %.066.be.i = phi i32 [ 0, %65 ], [ %99, %96 ], [ 0, %.backedge.sink.split.i ]
-  %.063.be.i = phi i32 [ %.063120.i, %65 ], [ 1, %96 ], [ 0, %.backedge.sink.split.i ]
+  %.066.be.i = phi i32 [ %.066119.i, %65 ], [ 1, %96 ], [ 0, %.backedge.sink.split.i ]
+  %.063.be.i = phi i32 [ 0, %65 ], [ %99, %96 ], [ 0, %.backedge.sink.split.i ]
   %.061.be.i = phi i32 [ %66, %65 ], [ %101, %96 ], [ 0, %.backedge.sink.split.i ]
   %95 = icmp slt i32 %.061.be.i, %15
   br i1 %95, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !8
 
 96:                                               ; preds = %.lr.ph123.i
-  %97 = mul nsw i32 %.066119.i, 10
+  %97 = mul nsw i32 %.063120.i, 10
   %98 = add nsw i32 %63, %97
   %99 = srem i32 %98, 2
   %100 = sdiv i32 %98, 2
@@ -3232,7 +3232,7 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %66
   br label %79
 
 79:                                               ; preds = %Vec_IntGrow.exit.i, %53, %37
-  %.0226 = phi i32 [ %78, %Vec_IntGrow.exit.i ], [ %52, %53 ], [ %52, %37 ]
+  %.0222 = phi i32 [ %78, %Vec_IntGrow.exit.i ], [ %52, %53 ], [ %52, %37 ]
   %.not250 = icmp eq ptr %40, null
   br i1 %.not250, label %81, label %80
 
@@ -3538,7 +3538,7 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   br label %246
 
 246:                                              ; preds = %231, %229, %201, %218
-  %.0227 = phi i32 [ %217, %201 ], [ %228, %218 ], [ %245, %231 ], [ -1, %229 ]
+  %.0229 = phi i32 [ %217, %201 ], [ %228, %218 ], [ %245, %231 ], [ -1, %229 ]
   %247 = load i32, ptr %8, align 4
   %.not242 = icmp eq ptr %4, null
   br i1 %.not242, label %248, label %255
@@ -3555,7 +3555,7 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
 
 255:                                              ; preds = %246, %248
   %256 = phi ptr [ @Smt_PrsGenName.Buffer, %248 ], [ %4, %246 ]
-  %257 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef nonnull %0, i32 noundef %188, i32 noundef %247, i32 noundef %.0227, ptr noundef nonnull %191, ptr noundef nonnull %256)
+  %257 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef nonnull %0, i32 noundef %188, i32 noundef %247, i32 noundef %.0229, ptr noundef nonnull %191, ptr noundef nonnull %256)
   br label %.loopexit
 
 258:                                              ; preds = %153
@@ -3691,7 +3691,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 312:                                              ; preds = %.lr.ph333, %312
   %indvars.iv362 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next363, %312 ]
-  %.0222332 = phi i32 [ 0, %.lr.ph333 ], [ %322, %312 ]
+  %.0223332 = phi i32 [ 0, %.lr.ph333 ], [ %322, %312 ]
   %313 = getelementptr inbounds i32, ptr %.val256, i64 %indvars.iv362
   %314 = load i32, ptr %313, align 4
   %315 = sext i32 %314 to i64
@@ -3702,7 +3702,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val283 = load i32, ptr %318, align 4
   %319 = sub nsw i32 %.val282, %.val283
   %320 = tail call i32 @llvm.abs.i32(i32 %319, i1 true)
-  %321 = add nuw nsw i32 %.0222332, 1
+  %321 = add nuw nsw i32 %.0223332, 1
   %322 = add nuw nsw i32 %321, %320
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count
@@ -3741,7 +3741,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge13
 
 .critedge13:                                      ; preds = %312, %.critedge13.sink.split, %.preheader, %.critedge9
-  %.1223 = phi i32 [ 1, %.critedge9 ], [ 0, %.preheader ], [ %339, %.critedge13.sink.split ], [ %322, %312 ]
+  %.1224 = phi i32 [ 1, %.critedge9 ], [ 0, %.preheader ], [ %339, %.critedge13.sink.split ], [ %322, %312 ]
   %340 = load i32, ptr %9, align 4
   %.not241 = icmp eq ptr %4, null
   br i1 %.not241, label %341, label %348
@@ -3758,7 +3758,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 348:                                              ; preds = %.critedge13, %341
   %349 = phi ptr [ @Smt_PrsGenName.Buffer, %341 ], [ %4, %.critedge13 ]
-  %350 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %263, i32 noundef %340, i32 noundef %.1223, ptr noundef %266, ptr noundef nonnull %349)
+  %350 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %263, i32 noundef %340, i32 noundef %.1224, ptr noundef %266, ptr noundef nonnull %349)
   tail call fastcc void @Vec_IntFree(ptr noundef %266)
   br label %.loopexit
 
@@ -3780,7 +3780,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %tailrecurse.backedge
 
 .loopexit:                                        ; preds = %351, %354, %147, %126, %262, %258, %187, %82, %81, %348, %275, %255, %184, %34
-  %.0 = phi i32 [ %36, %34 ], [ %186, %184 ], [ %257, %255 ], [ 0, %275 ], [ %350, %348 ], [ %.0226, %81 ], [ %.0226, %82 ], [ 0, %187 ], [ %261, %258 ], [ 0, %262 ], [ 0, %126 ], [ 0, %147 ], [ 0, %354 ], [ 0, %351 ]
+  %.0 = phi i32 [ %36, %34 ], [ %186, %184 ], [ %257, %255 ], [ 0, %275 ], [ %350, %348 ], [ %.0222, %81 ], [ %.0222, %82 ], [ 0, %187 ], [ %261, %258 ], [ 0, %262 ], [ 0, %126 ], [ 0, %147 ], [ 0, %354 ], [ 0, %351 ]
   ret i32 %.0
 }
 

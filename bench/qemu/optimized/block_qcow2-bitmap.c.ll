@@ -162,9 +162,9 @@ if.then20:                                        ; preds = %if.end15
   br label %while.cond.preheader.i
 
 for.body29:                                       ; preds = %for.cond24.preheader, %for.inc
-  %i.044 = phi i32 [ %inc50, %for.inc ], [ 0, %for.cond24.preheader ]
-  %ret.143 = phi i32 [ %ret.2, %for.inc ], [ 0, %for.cond24.preheader ]
-  %idxprom = sext i32 %i.044 to i64
+  %ret.144 = phi i32 [ %ret.2, %for.inc ], [ 0, %for.cond24.preheader ]
+  %i.043 = phi i32 [ %inc50, %for.inc ], [ 0, %for.cond24.preheader ]
+  %idxprom = sext i32 %i.043 to i64
   %arrayidx = getelementptr i64, ptr %.pre, i64 %idxprom
   %11 = load i64, ptr %arrayidx, align 8
   %and = and i64 %11, 72057594037927424
@@ -204,8 +204,8 @@ if.then48:                                        ; preds = %if.end42
   br label %while.cond.preheader.i
 
 for.inc:                                          ; preds = %if.end.i, %if.end42, %if.then35
-  %ret.2 = phi i32 [ %ret.143, %if.then35 ], [ %call45, %if.end42 ], [ %ret.143, %if.end.i ]
-  %inc50 = add nuw i32 %i.044, 1
+  %ret.2 = phi i32 [ %ret.144, %if.then35 ], [ %call45, %if.end42 ], [ %ret.144, %if.end.i ]
+  %inc50 = add nuw i32 %i.043, 1
   %14 = load i32, ptr %size, align 8
   %cmp27 = icmp ult i32 %inc50, %14
   br i1 %cmp27, label %for.body29, label %for.end, !llvm.loop !5
@@ -2873,11 +2873,11 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %offset.035 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
-  %sub = sub i64 %call, %offset.035
+  %offset.036 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
+  %i.035 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %sub = sub i64 %call, %offset.036
   %cond = call i64 @llvm.umin.i64(i64 %sub, i64 %call9)
-  %arrayidx = getelementptr i64, ptr %bitmap_table, i64 %i.036
+  %arrayidx = getelementptr i64, ptr %bitmap_table, i64 %i.035
   %4 = load i64, ptr %arrayidx, align 8
   %and = and i64 %4, 72057594037927424
   %5 = load i32, ptr %1, align 4
@@ -2909,7 +2909,7 @@ if.then23:                                        ; preds = %if.end.i
   br i1 %tobool.not, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
-  call void @bdrv_dirty_bitmap_deserialize_ones(ptr noundef %bitmap, i64 noundef %offset.035, i64 noundef %cond, i1 noundef zeroext false) #13
+  call void @bdrv_dirty_bitmap_deserialize_ones(ptr noundef %bitmap, i64 noundef %offset.036, i64 noundef %cond, i1 noundef zeroext false) #13
   br label %for.inc
 
 if.else28:                                        ; preds = %if.end7.i
@@ -2927,12 +2927,12 @@ if.else28:                                        ; preds = %if.end7.i
   br i1 %cmp32, label %finish, label %if.end35
 
 if.end35:                                         ; preds = %if.else28
-  call void @bdrv_dirty_bitmap_deserialize_part(ptr noundef %bitmap, ptr noundef %call7, i64 noundef %offset.035, i64 noundef %cond, i1 noundef zeroext false) #13
+  call void @bdrv_dirty_bitmap_deserialize_part(ptr noundef %bitmap, ptr noundef %call7, i64 noundef %offset.036, i64 noundef %cond, i1 noundef zeroext false) #13
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end35, %if.then23, %if.then25
-  %inc = add nuw i64 %i.036, 1
-  %add = add i64 %offset.035, %call9
+  %inc = add nuw i64 %i.035, 1
+  %add = add i64 %offset.036, %call9
   %exitcond.not = icmp eq i64 %inc, %shr.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 

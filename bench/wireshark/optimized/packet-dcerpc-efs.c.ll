@@ -173,25 +173,25 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_efs_EFS_HASH_BLOB, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_efs_EFS_HASH_BLOB_cbData, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_efs_EFS_HASH_BLOB_pbData, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EFS_HASH_BLOB_pbData_, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EFS_HASH_BLOB_pbData_, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -260,29 +260,29 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_efs_ENCRYPTION_CERTIFICATE_HASH, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pUserSid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %34) #4
   %36 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pHash, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash_, i32 noundef 2, ptr noundef nonnull @.str.58, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash_, i32 noundef 2, ptr noundef nonnull @.str.58, i32 noundef %36) #4
   %38 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation_, i32 noundef 2, ptr noundef nonnull @.str.59, i32 noundef %38) #4
-  %40 = sub i32 %39, %.050
-  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation_, i32 noundef 2, ptr noundef nonnull @.str.59, i32 noundef %38) #4
+  %40 = sub i32 %39, %.0
+  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -345,24 +345,24 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_efs_ENCRYPTION_CERTIFICATE_HASH_LIST, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
-  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers_) #4
-  %35 = sub i32 %34, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %35) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers_) #4
+  %35 = sub i32 %34, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -425,27 +425,27 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_efs_EFS_CERTIFICATE_BLOB, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_efs_EFS_CERTIFICATE_BLOB_dwCertEncodingType, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_efs_EFS_CERTIFICATE_BLOB_cbData, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_efs_EFS_CERTIFICATE_BLOB_pbData, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData_, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %36) #4
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData_, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %36) #4
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -508,27 +508,27 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_efs_ENCRYPTION_CERTIFICATE, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_TotalLength, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_pUserSid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %34) #4
   %36 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_pCertBlob, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob_, i32 noundef 2, ptr noundef nonnull @.str.62, i32 noundef %36) #4
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob_, i32 noundef 2, ptr noundef nonnull @.str.62, i32 noundef %36) #4
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8

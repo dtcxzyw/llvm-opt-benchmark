@@ -124,8 +124,8 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %43
 
 43:                                               ; preds = %4, %2, %._crit_edge, %39, %12
-  %.036 = phi i32 [ -2, %39 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
-  ret i32 %.036
+  %.0 = phi i32 [ -2, %39 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

@@ -38,7 +38,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   br label %25
 
 25:                                               ; preds = %.lr.ph122, %284
-  %.099120 = phi i32 [ %23, %.lr.ph122 ], [ %spec.select, %284 ]
+  %.0101120 = phi i32 [ %23, %.lr.ph122 ], [ %spec.select, %284 ]
   %.0103119 = phi ptr [ %1, %.lr.ph122 ], [ %280, %284 ]
   %26 = load i8, ptr %.0103119, align 1
   %27 = zext i8 %26 to i32
@@ -149,15 +149,15 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   br label %113
 
 113:                                              ; preds = %25, %43, %87, %97, %56, %36
-  %.0101 = phi i32 [ %39, %36 ], [ %52, %43 ], [ %71, %56 ], [ %96, %87 ], [ %112, %97 ], [ %27, %25 ]
+  %.099 = phi i32 [ %39, %36 ], [ %52, %43 ], [ %71, %56 ], [ %96, %87 ], [ %112, %97 ], [ %27, %25 ]
   %.098 = phi i64 [ 2, %36 ], [ 3, %43 ], [ 4, %56 ], [ 5, %87 ], [ 6, %97 ], [ 1, %25 ]
-  %114 = lshr i32 %.0101, 7
+  %114 = lshr i32 %.099, 7
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %115
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = shl nuw nsw i32 %118, 7
-  %120 = and i32 %.0101, 127
+  %120 = and i32 %.099, 127
   %121 = or disjoint i32 %119, %120
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %122
@@ -166,7 +166,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   %126 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %125, i32 2
   %127 = load i8, ptr %126, align 2
   %128 = zext i8 %127 to i32
-  %129 = zext nneg i32 %.099120 to i64
+  %129 = zext nneg i32 %.0101120 to i64
   %130 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = shl nuw i32 1, %128
@@ -175,7 +175,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   br i1 %134, label %._crit_edge123, label %135
 
 135:                                              ; preds = %113
-  %136 = icmp eq i32 %.099120, 11
+  %136 = icmp eq i32 %.0101120, 11
   %137 = icmp eq i8 %127, 11
   %or.cond = and i1 %136, %137
   br i1 %or.cond, label %138, label %._crit_edge.thread
@@ -358,14 +358,14 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   br label %258
 
 258:                                              ; preds = %173, %188, %232, %242, %201, %181
-  %.1102 = phi i32 [ %184, %181 ], [ %197, %188 ], [ %216, %201 ], [ %241, %232 ], [ %257, %242 ], [ %170, %173 ]
-  %259 = lshr i32 %.1102, 7
+  %.1100 = phi i32 [ %184, %181 ], [ %197, %188 ], [ %216, %201 ], [ %241, %232 ], [ %257, %242 ], [ %170, %173 ]
+  %259 = lshr i32 %.1100, 7
   %260 = zext nneg i32 %259 to i64
   %261 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %260
   %262 = load i16, ptr %261, align 2
   %263 = zext i16 %262 to i32
   %264 = shl nuw nsw i32 %263, 7
-  %265 = and i32 %.1102, 127
+  %265 = and i32 %.1100, 127
   %266 = or disjoint i32 %264, %265
   %267 = zext nneg i32 %266 to i64
   %268 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %267
@@ -391,7 +391,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   %277 = icmp ne i8 %127, 3
   %278 = icmp ne i8 %127, 13
   %or.cond3 = and i1 %277, %278
-  %279 = icmp ne i32 %.099120, 14
+  %279 = icmp ne i32 %.0101120, 14
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %279
   %spec.select = select i1 %or.cond5, i32 %128, i32 14
   %280 = getelementptr inbounds i8, ptr %.0103119, i64 %.098

@@ -5686,9 +5686,9 @@ if.then64:                                        ; preds = %land.lhs.true56
   br label %if.end65
 
 if.end65:                                         ; preds = %land.lhs.true56, %if.then64, %if.end54
-  %n2.addr.0 = phi ptr [ %n2, %if.end54 ], [ %n1, %if.then64 ], [ %n2, %land.lhs.true56 ]
-  %r1.0 = phi ptr [ %2, %if.end54 ], [ %3, %if.then64 ], [ %2, %land.lhs.true56 ]
   %r2.0 = phi ptr [ %3, %if.end54 ], [ %2, %if.then64 ], [ %3, %land.lhs.true56 ]
+  %r1.0 = phi ptr [ %2, %if.end54 ], [ %3, %if.then64 ], [ %2, %land.lhs.true56 ]
+  %n2.addr.0 = phi ptr [ %n2, %if.end54 ], [ %n1, %if.then64 ], [ %n2, %land.lhs.true56 ]
   %n1.addr.0 = phi ptr [ %n1, %if.end54 ], [ %n2, %if.then64 ], [ %n1, %land.lhs.true56 ]
   %m_parents.i.i = getelementptr inbounds i8, ptr %r1.0, i64 48
   %47 = load ptr, ptr %m_parents.i.i, align 8

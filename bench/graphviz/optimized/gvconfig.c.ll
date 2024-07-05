@@ -1184,8 +1184,8 @@ token.exit26.i:                                   ; preds = %384
 401:                                              ; preds = %token.exit26.i, %token.exit.i
   %.171.i = phi ptr [ %.0.i.i21.i, %token.exit26.i ], [ %.0.i.i.i, %token.exit.i ]
   %.7.i = phi i32 [ %.5.i, %token.exit26.i ], [ %.3.i, %token.exit.i ]
-  %.017.i = phi ptr [ %.0.i.i.i, %token.exit26.i ], [ @.str.31, %token.exit.i ]
-  %402 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef nonnull %.07090.i, ptr noundef nonnull %.017.i)
+  %.016.i = phi ptr [ %.0.i.i.i, %token.exit26.i ], [ @.str.31, %token.exit.i ]
+  %402 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef nonnull %.07090.i, ptr noundef nonnull %.016.i)
   br label %.loopexit.i56
 
 .loopexit.i56:                                    ; preds = %475, %401
@@ -1426,8 +1426,8 @@ token.exit47.i:                                   ; preds = %453
 471:                                              ; preds = %token.exit47.i, %token.exit40.i
   %.474.i = phi ptr [ %.0.i.i42.i, %token.exit47.i ], [ %.0.i.i35.i, %token.exit40.i ]
   %.16.i = phi i32 [ %.14.i, %token.exit47.i ], [ %.12.i, %token.exit40.i ]
-  %.016.i = phi i32 [ %470, %token.exit47.i ], [ 0, %token.exit40.i ]
-  %472 = tail call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %424, ptr noundef %.373.i, i32 noundef %.016.i, ptr noundef %402, ptr noundef null) #20
+  %.017.i = phi i32 [ %470, %token.exit47.i ], [ 0, %token.exit40.i ]
+  %472 = tail call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %424, ptr noundef %.373.i, i32 noundef %.017.i, ptr noundef %402, ptr noundef null) #20
   br i1 %472, label %475, label %473
 
 473:                                              ; preds = %471

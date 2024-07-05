@@ -241,12 +241,12 @@ define internal fastcc ptr @_generate_spooldir(ptr nocapture noundef readonly %0
 24:                                               ; preds = %17
   %25 = load i8, ptr %18, align 1
   %26 = icmp eq i8 %25, 47
-  %.0.idx = zext i1 %26 to i64
-  %.0 = getelementptr inbounds i8, ptr %18, i64 %.0.idx
+  %.024.idx = zext i1 %26 to i64
+  %.024 = getelementptr inbounds i8, ptr %18, i64 %.024.idx
   br label %27
 
 27:                                               ; preds = %24, %.loopexit
-  %.137 = phi ptr [ %.0, %24 ], [ %.2, %.loopexit ]
+  %.137 = phi ptr [ %.024, %24 ], [ %.2, %.loopexit ]
   %28 = tail call ptr @xstrchr(ptr noundef nonnull %.137, i32 noundef 47) #9
   %.not33 = icmp eq ptr %28, null
   br i1 %.not33, label %29, label %32
@@ -261,10 +261,10 @@ define internal fastcc ptr @_generate_spooldir(ptr nocapture noundef readonly %0
   br label %34
 
 34:                                               ; preds = %32, %29
-  %.024 = phi ptr [ %28, %32 ], [ %31, %29 ]
+  %.025 = phi ptr [ %28, %32 ], [ %31, %29 ]
   %.2 = phi ptr [ %33, %32 ], [ null, %29 ]
-  %35 = load i8, ptr %.024, align 1
-  store i8 0, ptr %.024, align 1
+  %35 = load i8, ptr %.025, align 1
+  store i8 0, ptr %.025, align 1
   %36 = load i8, ptr %.137, align 1
   %.not13.i = icmp eq i8 %36, 0
   br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
@@ -298,25 +298,25 @@ define internal fastcc ptr @_generate_spooldir(ptr nocapture noundef readonly %0
 
 _pattern_has_taskid.exit:                         ; preds = %38
   store i8 0, ptr %.137, align 1
-  store i8 %35, ptr %.024, align 1
+  store i8 %35, ptr %.025, align 1
   br label %.loopexit35
 
 .loopexit:                                        ; preds = %.thread.i, %.lr.ph.i, %34
-  store i8 %35, ptr %.024, align 1
+  store i8 %35, ptr %.025, align 1
   %.not32 = icmp eq ptr %.2, null
   br i1 %.not32, label %.loopexit35, label %27, !llvm.loop !9
 
 .loopexit35:                                      ; preds = %.loopexit, %_pattern_has_taskid.exit, %19
-  %.026 = phi i32 [ %21, %19 ], [ -1, %_pattern_has_taskid.exit ], [ -1, %.loopexit ]
-  %.025 = phi ptr [ %23, %19 ], [ null, %_pattern_has_taskid.exit ], [ null, %.loopexit ]
+  %.026 = phi ptr [ %23, %19 ], [ null, %_pattern_has_taskid.exit ], [ null, %.loopexit ]
+  %.0 = phi i32 [ %21, %19 ], [ -1, %_pattern_has_taskid.exit ], [ -1, %.loopexit ]
   %45 = load ptr, ptr %3, align 8
-  %46 = tail call fastcc ptr @_generate_pattern(ptr noundef %45, ptr noundef %0, i32 noundef %.026, ptr noundef %.025)
+  %46 = tail call fastcc ptr @_generate_pattern(ptr noundef %45, ptr noundef %0, i32 noundef %.0, ptr noundef %.026)
   %47 = tail call i32 @get_log_level() #9
   %48 = icmp sgt i32 %47, 6
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %.loopexit35
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._generate_spooldir, i32 noundef %.026, ptr noundef %45, ptr noundef %46) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._generate_spooldir, i32 noundef %.0, ptr noundef %45, ptr noundef %46) #9
   br label %50
 
 50:                                               ; preds = %49, %.loopexit35
@@ -880,7 +880,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   br label %198
 
 198:                                              ; preds = %191, %188
-  %.088.i = phi i32 [ %190, %188 ], [ 0, %191 ]
+  %.089.i = phi i32 [ %190, %188 ], [ 0, %191 ]
   %199 = call i32 @get_log_level() #9
   %200 = icmp sgt i32 %199, 4
   br i1 %200, label %201, label %207
@@ -891,7 +891,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__._modify_config, ptr noundef %206, i32 noundef %.088.i) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__._modify_config, ptr noundef %206, i32 noundef %.089.i) #9
   br label %207
 
 207:                                              ; preds = %201, %198
@@ -939,7 +939,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
 
 .lr.ph109.i:                                      ; preds = %.loopexit.i, %244
   %235 = phi ptr [ %248, %244 ], [ %234, %.loopexit.i ]
-  %.087108.i = phi ptr [ %247, %244 ], [ %233, %.loopexit.i ]
+  %.088108.i = phi ptr [ %247, %244 ], [ %233, %.loopexit.i ]
   %236 = call ptr @xstrdup(ptr noundef nonnull %235) #9
   store ptr %236, ptr %8, align 8
   %237 = call ptr @xstrstr(ptr noundef %236, ptr noundef nonnull @.str.39) #9
@@ -961,11 +961,11 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef %1) local_unnam
   br label %244
 
 244:                                              ; preds = %242, %239
-  %.086.i = phi ptr [ %241, %239 ], [ %243, %242 ]
-  %245 = load ptr, ptr %.087108.i, align 8
-  %246 = call ptr @data_set_string(ptr noundef %.086.i, ptr noundef %245) #9
+  %.087.i = phi ptr [ %241, %239 ], [ %243, %242 ]
+  %245 = load ptr, ptr %.088108.i, align 8
+  %246 = call ptr @data_set_string(ptr noundef %.087.i, ptr noundef %245) #9
   call void @slurm_xfree(ptr noundef nonnull %8) #9
-  %247 = getelementptr inbounds i8, ptr %.087108.i, i64 8
+  %247 = getelementptr inbounds i8, ptr %.088108.i, i64 8
   %248 = load ptr, ptr %247, align 8
   %.not101.i = icmp eq ptr %248, null
   br i1 %.not101.i, label %._crit_edge.i, label %.lr.ph109.i, !llvm.loop !12

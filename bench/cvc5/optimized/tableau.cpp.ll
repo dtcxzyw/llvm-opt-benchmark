@@ -1240,12 +1240,12 @@ for.body.preheader.i:                             ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %varsIter.sroa.0.09.i = phi ptr [ %incdec.ptr.i3.i, %for.body.i ], [ %0, %for.body.preheader.i ]
-  %coeffIter.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %2, %for.body.preheader.i ]
-  %3 = load i32, ptr %varsIter.sroa.0.09.i, align 4
-  tail call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %call.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %coeffIter.sroa.0.08.i)
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.08.i, i64 32
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %varsIter.sroa.0.09.i, i64 4
+  %coeffIter.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %2, %for.body.preheader.i ]
+  %varsIter.sroa.0.08.i = phi ptr [ %incdec.ptr.i3.i, %for.body.i ], [ %0, %for.body.preheader.i ]
+  %3 = load i32, ptr %varsIter.sroa.0.08.i, align 4
+  tail call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %call.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %coeffIter.sroa.0.09.i)
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.09.i, i64 32
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %varsIter.sroa.0.08.i, i64 4
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i3.i, %1
   br i1 %cmp.i.not.i, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE6addRowERKSt6vectorIS5_SaIS5_EERKS7_IjSaIjEE.exit, label %for.body.i, !llvm.loop !14
 
@@ -1305,9 +1305,9 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %varsIter.sroa.0.078 = phi ptr [ %10, %for.body.lr.ph ], [ %incdec.ptr.i40, %for.inc ]
-  %coeffIter.sroa.0.077 = phi ptr [ %12, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %13 = load i32, ptr %varsIter.sroa.0.078, align 4
+  %coeffIter.sroa.0.078 = phi ptr [ %12, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %varsIter.sroa.0.077 = phi ptr [ %10, %for.body.lr.ph ], [ %incdec.ptr.i40, %for.inc ]
+  %13 = load i32, ptr %varsIter.sroa.0.077, align 4
   %conv.i.i17 = zext i32 %13 to i64
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %15 = load ptr, ptr %d_posVector.i.i.i, align 8
@@ -1325,8 +1325,8 @@ invoke.cont29:                                    ; preds = %for.body
   br i1 %cmp4.i.i.not, label %for.inc, label %if.then31
 
 if.then31:                                        ; preds = %invoke.cont29
-  call void @__gmpz_init_set(ptr noundef nonnull %coeff, ptr noundef nonnull %coeffIter.sroa.0.077)
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.077, i64 16
+  call void @__gmpz_init_set(ptr noundef nonnull %coeff, ptr noundef nonnull %coeffIter.sroa.0.078)
+  %_mp_den10.i.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.078, i64 16
   call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull %coeff)
           to label %invoke.cont35 unwind label %lpad.i18
@@ -1447,8 +1447,8 @@ terminate.lpad.i.i37:                             ; preds = %lpad34
   unreachable
 
 for.inc:                                          ; preds = %for.body, %invoke.cont39, %invoke.cont29
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.077, i64 32
-  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %varsIter.sroa.0.078, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %coeffIter.sroa.0.078, i64 32
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %varsIter.sroa.0.077, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i40, %11
   br i1 %cmp.i.not, label %if.end76, label %for.body, !llvm.loop !15
 

@@ -2490,8 +2490,8 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   %.not = icmp ne i8 %11, 0
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %.041.in = select i1 %.not, ptr %12, ptr %13
-  %.041 = load ptr, ptr %.041.in, align 8
+  %.039.in = select i1 %.not, ptr %12, ptr %13
+  %.039 = load ptr, ptr %.039.in, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %.not45 = icmp eq i64 %15, -1
@@ -2499,7 +2499,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   br i1 %brmerge.not, label %23, label %16
 
 16:                                               ; preds = %2
-  %17 = call i32 @H5HF_op(ptr noundef %.041, ptr noundef nonnull %0, ptr noundef nonnull @H5A__dense_copy_fh_cb, ptr noundef nonnull %3) #6
+  %17 = call i32 @H5HF_op(ptr noundef %.039, ptr noundef nonnull %0, ptr noundef nonnull @H5A__dense_copy_fh_cb, ptr noundef nonnull %3) #6
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %26
 
@@ -2582,7 +2582,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %97
 
 68:                                               ; preds = %62, %26
-  %.039 = phi ptr [ %56, %62 ], [ null, %26 ]
+  %.040 = phi ptr [ %56, %62 ], [ null, %26 ]
   %69 = load i8, ptr %9, align 8
   %70 = and i8 %69, 2
   %.not48 = icmp eq i8 %70, 0
@@ -2616,7 +2616,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %96
 
 89:                                               ; preds = %80
-  %90 = call i32 @H5HF_remove(ptr noundef %.041, ptr noundef nonnull %0) #6
+  %90 = call i32 @H5HF_remove(ptr noundef %.039, ptr noundef nonnull %0) #6
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %96
 
@@ -2628,13 +2628,13 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
 
 96:                                               ; preds = %71, %89, %92, %85, %76
   %.037 = phi i32 [ -1, %76 ], [ 0, %71 ], [ -1, %85 ], [ -1, %92 ], [ 0, %89 ]
-  %.not49 = icmp eq ptr %.039, null
+  %.not49 = icmp eq ptr %.040, null
   br i1 %.not49, label %.thread, label %97
 
 97:                                               ; preds = %.thread54, %96
   %.03759 = phi i32 [ -1, %.thread54 ], [ %.037, %96 ]
-  %.14058 = phi ptr [ %56, %.thread54 ], [ %.039, %96 ]
-  %98 = call i32 @H5B2_close(ptr noundef nonnull %.14058) #6
+  %.14158 = phi ptr [ %56, %.thread54 ], [ %.040, %96 ]
+  %98 = call i32 @H5B2_close(ptr noundef nonnull %.14158) #6
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %.thread
 

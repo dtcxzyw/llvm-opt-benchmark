@@ -1244,8 +1244,8 @@ if.then58.i.i:                                    ; preds = %cvt4hex.exit157.i.i
   br label %if.end63.i.i
 
 if.end63.i.i:                                     ; preds = %if.else35.i144.i.i, %for.body.i132.i.i, %if.then58.i.i, %cvt4hex.exit157.i.i, %land.lhs.true45.i.i, %land.lhs.true41.i.i, %cvt4hex.exit.i.i, %cvt4hex.exit.thread.i.i
-  %ptr.1.i.i = phi ptr [ %add.ptr60.i.i, %if.then58.i.i ], [ %add.ptr.i.i, %land.lhs.true45.i.i ], [ %add.ptr.i.i, %land.lhs.true41.i.i ], [ %add.ptr.i.i, %cvt4hex.exit.i.i ], [ %add.ptr.i.i, %cvt4hex.exit157.i.i ], [ %add.ptr159.i.i, %cvt4hex.exit.thread.i.i ], [ %add.ptr.i.i, %for.body.i132.i.i ], [ %add.ptr.i.i, %if.else35.i144.i.i ]
   %cp.0.i.i = phi i32 [ %or.i.i, %if.then58.i.i ], [ %cp.1.i.i.i, %land.lhs.true45.i.i ], [ %cp.1.i.i.i, %land.lhs.true41.i.i ], [ %cp.1.i.i.i, %cvt4hex.exit.i.i ], [ -1, %cvt4hex.exit157.i.i ], [ -1, %cvt4hex.exit.thread.i.i ], [ -1, %for.body.i132.i.i ], [ -1, %if.else35.i144.i.i ]
+  %ptr.1.i.i = phi ptr [ %add.ptr60.i.i, %if.then58.i.i ], [ %add.ptr.i.i, %land.lhs.true45.i.i ], [ %add.ptr.i.i, %land.lhs.true41.i.i ], [ %add.ptr.i.i, %cvt4hex.exit.i.i ], [ %add.ptr.i.i, %cvt4hex.exit157.i.i ], [ %add.ptr159.i.i, %cvt4hex.exit.thread.i.i ], [ %add.ptr.i.i, %for.body.i132.i.i ], [ %add.ptr.i.i, %if.else35.i144.i.i ]
   %call65.i.i = call i64 @mod_utf8_encode(ptr noundef nonnull %utf8_buf.i.i, i64 noundef 5, i32 noundef %cp.0.i.i) #13
   %cmp66.i.i = icmp slt i64 %call65.i.i, 0
   br i1 %cmp66.i.i, label %if.then68.i.i, label %if.end70.i.i

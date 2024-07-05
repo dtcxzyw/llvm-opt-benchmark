@@ -274,7 +274,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.critedge2
-  %.093147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
+  %.095147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
   %110 = load ptr, ptr %106, align 8
   %111 = load ptr, ptr %86, align 8
   %112 = load ptr, ptr %111, align 8
@@ -347,7 +347,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge2:                                       ; preds = %147, %140, %128, %131
   %.sroa.085.0.copyload = load i8, ptr %4, align 1
-  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.093147, i1 noundef zeroext true)
+  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.095147, i1 noundef zeroext true)
   store i8 %.sroa.085.0.copyload, ptr %149, align 1
   %150 = load ptr, ptr %86, align 8
   %151 = load ptr, ptr %150, align 8
@@ -356,7 +356,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %154 = call noundef i64 %153(ptr noundef nonnull align 8 dereferenceable(48) %150) #15
   %155 = add i64 %154, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %150, i64 noundef %155) #15
-  %156 = add nuw i64 %.093147, 1
+  %156 = add nuw i64 %.095147, 1
   %157 = icmp ult i64 %156, %84
   br i1 %157, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %158, !llvm.loop !6
 
@@ -365,8 +365,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %160
 
 160:                                              ; preds = %158, %93
-  %.094 = phi i64 [ %159, %158 ], [ %99, %93 ]
-  %.not143149 = icmp ugt i64 %.094, %70
+  %.096 = phi i64 [ %159, %158 ], [ %99, %93 ]
+  %.not143149 = icmp ugt i64 %.096, %70
   br i1 %.not143149, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %160
@@ -377,12 +377,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %213
-  %.1150 = phi i64 [ %.094, %.preheader.lr.ph ], [ %214, %213 ]
+  %.1150 = phi i64 [ %.096, %.preheader.lr.ph ], [ %214, %213 ]
   %164 = add i64 %.1150, %68
   br label %165
 
 165:                                              ; preds = %.preheader, %.critedge6
-  %.0148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
+  %.093148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
   %166 = load ptr, ptr %161, align 8
   %167 = load ptr, ptr %86, align 8
   %168 = load ptr, ptr %167, align 8
@@ -455,7 +455,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge6:                                       ; preds = %203, %196, %184, %187
   %.sroa.077.0.copyload = load i8, ptr %6, align 1
-  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.0148, i1 noundef zeroext true)
+  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.093148, i1 noundef zeroext true)
   store i8 %.sroa.077.0.copyload, ptr %205, align 1
   %206 = load ptr, ptr %86, align 8
   %207 = load ptr, ptr %206, align 8
@@ -464,7 +464,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %210 = call noundef i64 %209(ptr noundef nonnull align 8 dereferenceable(48) %206) #15
   %211 = add i64 %210, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %206, i64 noundef %211) #15
-  %212 = add nuw i64 %.0148, 1
+  %212 = add nuw i64 %.093148, 1
   %exitcond.not = icmp eq i64 %212, %umax
   br i1 %exitcond.not, label %213, label %165, !llvm.loop !7
 
@@ -691,7 +691,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.critedge2
-  %.093147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
+  %.095147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
   %110 = load ptr, ptr %106, align 8
   %111 = load ptr, ptr %86, align 8
   %112 = load ptr, ptr %111, align 8
@@ -764,7 +764,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge2:                                       ; preds = %147, %140, %128, %131
   %.sroa.085.0.copyload = load i8, ptr %4, align 1
-  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.093147, i1 noundef zeroext true)
+  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.095147, i1 noundef zeroext true)
   store i8 %.sroa.085.0.copyload, ptr %149, align 1
   %150 = load ptr, ptr %86, align 8
   %151 = load ptr, ptr %150, align 8
@@ -773,7 +773,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %154 = call noundef i64 %153(ptr noundef nonnull align 8 dereferenceable(48) %150) #15
   %155 = add i64 %154, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %150, i64 noundef %155) #15
-  %156 = add nuw i64 %.093147, 1
+  %156 = add nuw i64 %.095147, 1
   %157 = icmp ult i64 %156, %84
   br i1 %157, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %158, !llvm.loop !9
 
@@ -782,8 +782,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %160
 
 160:                                              ; preds = %158, %93
-  %.094 = phi i64 [ %159, %158 ], [ %99, %93 ]
-  %.not143149 = icmp ugt i64 %.094, %70
+  %.096 = phi i64 [ %159, %158 ], [ %99, %93 ]
+  %.not143149 = icmp ugt i64 %.096, %70
   br i1 %.not143149, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %160
@@ -794,12 +794,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %213
-  %.1150 = phi i64 [ %.094, %.preheader.lr.ph ], [ %214, %213 ]
+  %.1150 = phi i64 [ %.096, %.preheader.lr.ph ], [ %214, %213 ]
   %164 = add i64 %.1150, %68
   br label %165
 
 165:                                              ; preds = %.preheader, %.critedge6
-  %.0148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
+  %.093148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
   %166 = load ptr, ptr %161, align 8
   %167 = load ptr, ptr %86, align 8
   %168 = load ptr, ptr %167, align 8
@@ -872,7 +872,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge6:                                       ; preds = %203, %196, %184, %187
   %.sroa.077.0.copyload = load i8, ptr %6, align 1
-  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.0148, i1 noundef zeroext true)
+  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.093148, i1 noundef zeroext true)
   store i8 %.sroa.077.0.copyload, ptr %205, align 1
   %206 = load ptr, ptr %86, align 8
   %207 = load ptr, ptr %206, align 8
@@ -881,7 +881,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %210 = call noundef i64 %209(ptr noundef nonnull align 8 dereferenceable(48) %206) #15
   %211 = add i64 %210, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %206, i64 noundef %211) #15
-  %212 = add nuw i64 %.0148, 1
+  %212 = add nuw i64 %.093148, 1
   %exitcond.not = icmp eq i64 %212, %umax
   br i1 %exitcond.not, label %213, label %165, !llvm.loop !10
 
@@ -1083,7 +1083,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.critedge2
-  %.093147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
+  %.095147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
   %110 = load ptr, ptr %106, align 8
   %111 = load ptr, ptr %86, align 8
   %112 = load ptr, ptr %111, align 8
@@ -1156,7 +1156,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge2:                                       ; preds = %147, %140, %128, %131
   %.sroa.085.0.copyload = load i8, ptr %4, align 1
-  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.093147, i1 noundef zeroext true)
+  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.095147, i1 noundef zeroext true)
   store i8 %.sroa.085.0.copyload, ptr %149, align 1
   %150 = load ptr, ptr %86, align 8
   %151 = load ptr, ptr %150, align 8
@@ -1165,7 +1165,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %154 = call noundef i64 %153(ptr noundef nonnull align 8 dereferenceable(48) %150) #15
   %155 = add i64 %154, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %150, i64 noundef %155) #15
-  %156 = add nuw i64 %.093147, 1
+  %156 = add nuw i64 %.095147, 1
   %157 = icmp ult i64 %156, %84
   br i1 %157, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %158, !llvm.loop !12
 
@@ -1174,8 +1174,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %160
 
 160:                                              ; preds = %158, %93
-  %.094 = phi i64 [ %159, %158 ], [ %99, %93 ]
-  %.not143149 = icmp ugt i64 %.094, %70
+  %.096 = phi i64 [ %159, %158 ], [ %99, %93 ]
+  %.not143149 = icmp ugt i64 %.096, %70
   br i1 %.not143149, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %160
@@ -1186,12 +1186,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %213
-  %.1150 = phi i64 [ %.094, %.preheader.lr.ph ], [ %214, %213 ]
+  %.1150 = phi i64 [ %.096, %.preheader.lr.ph ], [ %214, %213 ]
   %164 = add i64 %.1150, %68
   br label %165
 
 165:                                              ; preds = %.preheader, %.critedge6
-  %.0148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
+  %.093148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
   %166 = load ptr, ptr %161, align 8
   %167 = load ptr, ptr %86, align 8
   %168 = load ptr, ptr %167, align 8
@@ -1264,7 +1264,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge6:                                       ; preds = %203, %196, %184, %187
   %.sroa.077.0.copyload = load i8, ptr %6, align 1
-  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.0148, i1 noundef zeroext true)
+  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.093148, i1 noundef zeroext true)
   store i8 %.sroa.077.0.copyload, ptr %205, align 1
   %206 = load ptr, ptr %86, align 8
   %207 = load ptr, ptr %206, align 8
@@ -1273,7 +1273,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %210 = call noundef i64 %209(ptr noundef nonnull align 8 dereferenceable(48) %206) #15
   %211 = add i64 %210, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %206, i64 noundef %211) #15
-  %212 = add nuw i64 %.0148, 1
+  %212 = add nuw i64 %.093148, 1
   %exitcond.not = icmp eq i64 %212, %umax
   br i1 %exitcond.not, label %213, label %165, !llvm.loop !13
 
@@ -1477,7 +1477,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.critedge2
-  %.093147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
+  %.095147 = phi i64 [ %105, %.preheader145 ], [ %156, %.critedge2 ]
   %110 = load ptr, ptr %106, align 8
   %111 = load ptr, ptr %86, align 8
   %112 = load ptr, ptr %111, align 8
@@ -1550,7 +1550,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge2:                                       ; preds = %147, %140, %128, %131
   %.sroa.085.0.copyload = load i8, ptr %4, align 1
-  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.093147, i1 noundef zeroext true)
+  %149 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %109, i64 noundef %.095147, i1 noundef zeroext true)
   store i8 %.sroa.085.0.copyload, ptr %149, align 1
   %150 = load ptr, ptr %86, align 8
   %151 = load ptr, ptr %150, align 8
@@ -1559,7 +1559,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %154 = call noundef i64 %153(ptr noundef nonnull align 8 dereferenceable(48) %150) #15
   %155 = add i64 %154, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %150, i64 noundef %155) #15
-  %156 = add nuw i64 %.093147, 1
+  %156 = add nuw i64 %.095147, 1
   %157 = icmp ult i64 %156, %84
   br i1 %157, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %158, !llvm.loop !15
 
@@ -1568,8 +1568,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %160
 
 160:                                              ; preds = %158, %93
-  %.094 = phi i64 [ %159, %158 ], [ %99, %93 ]
-  %.not143149 = icmp ugt i64 %.094, %70
+  %.096 = phi i64 [ %159, %158 ], [ %99, %93 ]
+  %.not143149 = icmp ugt i64 %.096, %70
   br i1 %.not143149, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %160
@@ -1580,12 +1580,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %213
-  %.1150 = phi i64 [ %.094, %.preheader.lr.ph ], [ %214, %213 ]
+  %.1150 = phi i64 [ %.096, %.preheader.lr.ph ], [ %214, %213 ]
   %164 = add i64 %.1150, %68
   br label %165
 
 165:                                              ; preds = %.preheader, %.critedge6
-  %.0148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
+  %.093148 = phi i64 [ 0, %.preheader ], [ %212, %.critedge6 ]
   %166 = load ptr, ptr %161, align 8
   %167 = load ptr, ptr %86, align 8
   %168 = load ptr, ptr %167, align 8
@@ -1658,7 +1658,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 
 .critedge6:                                       ; preds = %203, %196, %184, %187
   %.sroa.077.0.copyload = load i8, ptr %6, align 1
-  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.0148, i1 noundef zeroext true)
+  %205 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %164, i64 noundef %.093148, i1 noundef zeroext true)
   store i8 %.sroa.077.0.copyload, ptr %205, align 1
   %206 = load ptr, ptr %86, align 8
   %207 = load ptr, ptr %206, align 8
@@ -1667,7 +1667,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
   %210 = call noundef i64 %209(ptr noundef nonnull align 8 dereferenceable(48) %206) #15
   %211 = add i64 %210, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %206, i64 noundef %211) #15
-  %212 = add nuw i64 %.0148, 1
+  %212 = add nuw i64 %.093148, 1
   %exitcond.not = icmp eq i64 %212, %umax
   br i1 %exitcond.not, label %213, label %165, !llvm.loop !16
 
@@ -1885,7 +1885,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.critedge2
-  %.095151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
+  %.097151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
   %117 = load ptr, ptr %113, align 8
   %118 = load ptr, ptr %93, align 8
   %119 = load ptr, ptr %118, align 8
@@ -1958,7 +1958,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge2:                                       ; preds = %154, %147, %135, %138
   %.sroa.087.0.copyload = load i8, ptr %4, align 1
-  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.095151, i1 noundef zeroext true)
+  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.097151, i1 noundef zeroext true)
   store i8 %.sroa.087.0.copyload, ptr %156, align 1
   %157 = load ptr, ptr %93, align 8
   %158 = load ptr, ptr %157, align 8
@@ -1967,7 +1967,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %161 = call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(48) %157) #15
   %162 = add i64 %161, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef %162) #15
-  %163 = add nuw i64 %.095151, 1
+  %163 = add nuw i64 %.097151, 1
   %164 = icmp ult i64 %163, %91
   br i1 %164, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %165, !llvm.loop !18
 
@@ -1976,8 +1976,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %167
 
 167:                                              ; preds = %165, %100
-  %.096 = phi i64 [ %166, %165 ], [ %106, %100 ]
-  %.not147153 = icmp ugt i64 %.096, %77
+  %.098 = phi i64 [ %166, %165 ], [ %106, %100 ]
+  %.not147153 = icmp ugt i64 %.098, %77
   br i1 %.not147153, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %167
@@ -1988,12 +1988,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %220
-  %.1154 = phi i64 [ %.096, %.preheader.lr.ph ], [ %221, %220 ]
+  %.1154 = phi i64 [ %.098, %.preheader.lr.ph ], [ %221, %220 ]
   %171 = add i64 %.1154, %75
   br label %172
 
 172:                                              ; preds = %.preheader, %.critedge6
-  %.0152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
+  %.095152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
   %173 = load ptr, ptr %168, align 8
   %174 = load ptr, ptr %93, align 8
   %175 = load ptr, ptr %174, align 8
@@ -2066,7 +2066,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge6:                                       ; preds = %210, %203, %191, %194
   %.sroa.079.0.copyload = load i8, ptr %6, align 1
-  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.0152, i1 noundef zeroext true)
+  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.095152, i1 noundef zeroext true)
   store i8 %.sroa.079.0.copyload, ptr %212, align 1
   %213 = load ptr, ptr %93, align 8
   %214 = load ptr, ptr %213, align 8
@@ -2075,7 +2075,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %217 = call noundef i64 %216(ptr noundef nonnull align 8 dereferenceable(48) %213) #15
   %218 = add i64 %217, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %218) #15
-  %219 = add nuw i64 %.0152, 1
+  %219 = add nuw i64 %.095152, 1
   %exitcond.not = icmp eq i64 %219, %umax
   br i1 %exitcond.not, label %220, label %172, !llvm.loop !19
 
@@ -2295,7 +2295,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.critedge2
-  %.095151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
+  %.097151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
   %117 = load ptr, ptr %113, align 8
   %118 = load ptr, ptr %93, align 8
   %119 = load ptr, ptr %118, align 8
@@ -2368,7 +2368,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge2:                                       ; preds = %154, %147, %135, %138
   %.sroa.087.0.copyload = load i8, ptr %4, align 1
-  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.095151, i1 noundef zeroext true)
+  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.097151, i1 noundef zeroext true)
   store i8 %.sroa.087.0.copyload, ptr %156, align 1
   %157 = load ptr, ptr %93, align 8
   %158 = load ptr, ptr %157, align 8
@@ -2377,7 +2377,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %161 = call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(48) %157) #15
   %162 = add i64 %161, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef %162) #15
-  %163 = add nuw i64 %.095151, 1
+  %163 = add nuw i64 %.097151, 1
   %164 = icmp ult i64 %163, %91
   br i1 %164, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %165, !llvm.loop !21
 
@@ -2386,8 +2386,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %167
 
 167:                                              ; preds = %165, %100
-  %.096 = phi i64 [ %166, %165 ], [ %106, %100 ]
-  %.not147153 = icmp ugt i64 %.096, %77
+  %.098 = phi i64 [ %166, %165 ], [ %106, %100 ]
+  %.not147153 = icmp ugt i64 %.098, %77
   br i1 %.not147153, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %167
@@ -2398,12 +2398,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %220
-  %.1154 = phi i64 [ %.096, %.preheader.lr.ph ], [ %221, %220 ]
+  %.1154 = phi i64 [ %.098, %.preheader.lr.ph ], [ %221, %220 ]
   %171 = add i64 %.1154, %75
   br label %172
 
 172:                                              ; preds = %.preheader, %.critedge6
-  %.0152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
+  %.095152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
   %173 = load ptr, ptr %168, align 8
   %174 = load ptr, ptr %93, align 8
   %175 = load ptr, ptr %174, align 8
@@ -2476,7 +2476,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge6:                                       ; preds = %210, %203, %191, %194
   %.sroa.079.0.copyload = load i8, ptr %6, align 1
-  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.0152, i1 noundef zeroext true)
+  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.095152, i1 noundef zeroext true)
   store i8 %.sroa.079.0.copyload, ptr %212, align 1
   %213 = load ptr, ptr %93, align 8
   %214 = load ptr, ptr %213, align 8
@@ -2485,7 +2485,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %217 = call noundef i64 %216(ptr noundef nonnull align 8 dereferenceable(48) %213) #15
   %218 = add i64 %217, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %218) #15
-  %219 = add nuw i64 %.0152, 1
+  %219 = add nuw i64 %.095152, 1
   %exitcond.not = icmp eq i64 %219, %umax
   br i1 %exitcond.not, label %220, label %172, !llvm.loop !22
 
@@ -2703,7 +2703,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.critedge2
-  %.095151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
+  %.097151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
   %117 = load ptr, ptr %113, align 8
   %118 = load ptr, ptr %93, align 8
   %119 = load ptr, ptr %118, align 8
@@ -2776,7 +2776,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge2:                                       ; preds = %154, %147, %135, %138
   %.sroa.087.0.copyload = load i8, ptr %4, align 1
-  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.095151, i1 noundef zeroext true)
+  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.097151, i1 noundef zeroext true)
   store i8 %.sroa.087.0.copyload, ptr %156, align 1
   %157 = load ptr, ptr %93, align 8
   %158 = load ptr, ptr %157, align 8
@@ -2785,7 +2785,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %161 = call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(48) %157) #15
   %162 = add i64 %161, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef %162) #15
-  %163 = add nuw i64 %.095151, 1
+  %163 = add nuw i64 %.097151, 1
   %164 = icmp ult i64 %163, %91
   br i1 %164, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %165, !llvm.loop !24
 
@@ -2794,8 +2794,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %167
 
 167:                                              ; preds = %165, %100
-  %.096 = phi i64 [ %166, %165 ], [ %106, %100 ]
-  %.not147153 = icmp ugt i64 %.096, %77
+  %.098 = phi i64 [ %166, %165 ], [ %106, %100 ]
+  %.not147153 = icmp ugt i64 %.098, %77
   br i1 %.not147153, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %167
@@ -2806,12 +2806,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %220
-  %.1154 = phi i64 [ %.096, %.preheader.lr.ph ], [ %221, %220 ]
+  %.1154 = phi i64 [ %.098, %.preheader.lr.ph ], [ %221, %220 ]
   %171 = add i64 %.1154, %75
   br label %172
 
 172:                                              ; preds = %.preheader, %.critedge6
-  %.0152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
+  %.095152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
   %173 = load ptr, ptr %168, align 8
   %174 = load ptr, ptr %93, align 8
   %175 = load ptr, ptr %174, align 8
@@ -2884,7 +2884,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge6:                                       ; preds = %210, %203, %191, %194
   %.sroa.079.0.copyload = load i8, ptr %6, align 1
-  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.0152, i1 noundef zeroext true)
+  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.095152, i1 noundef zeroext true)
   store i8 %.sroa.079.0.copyload, ptr %212, align 1
   %213 = load ptr, ptr %93, align 8
   %214 = load ptr, ptr %213, align 8
@@ -2893,7 +2893,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %217 = call noundef i64 %216(ptr noundef nonnull align 8 dereferenceable(48) %213) #15
   %218 = add i64 %217, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %218) #15
-  %219 = add nuw i64 %.0152, 1
+  %219 = add nuw i64 %.095152, 1
   %exitcond.not = icmp eq i64 %219, %umax
   br i1 %exitcond.not, label %220, label %172, !llvm.loop !25
 
@@ -3113,7 +3113,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.critedge2
-  %.095151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
+  %.097151 = phi i64 [ %112, %.preheader149 ], [ %163, %.critedge2 ]
   %117 = load ptr, ptr %113, align 8
   %118 = load ptr, ptr %93, align 8
   %119 = load ptr, ptr %118, align 8
@@ -3186,7 +3186,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge2:                                       ; preds = %154, %147, %135, %138
   %.sroa.087.0.copyload = load i8, ptr %4, align 1
-  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.095151, i1 noundef zeroext true)
+  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %116, i64 noundef %.097151, i1 noundef zeroext true)
   store i8 %.sroa.087.0.copyload, ptr %156, align 1
   %157 = load ptr, ptr %93, align 8
   %158 = load ptr, ptr %157, align 8
@@ -3195,7 +3195,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %161 = call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(48) %157) #15
   %162 = add i64 %161, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %157, i64 noundef %162) #15
-  %163 = add nuw i64 %.095151, 1
+  %163 = add nuw i64 %.097151, 1
   %164 = icmp ult i64 %163, %91
   br i1 %164, label %_ZNK13xlate_flags_t17is_special_accessEv.exit, label %165, !llvm.loop !27
 
@@ -3204,8 +3204,8 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %167
 
 167:                                              ; preds = %165, %100
-  %.096 = phi i64 [ %166, %165 ], [ %106, %100 ]
-  %.not147153 = icmp ugt i64 %.096, %77
+  %.098 = phi i64 [ %166, %165 ], [ %106, %100 ]
+  %.not147153 = icmp ugt i64 %.098, %77
   br i1 %.not147153, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %167
@@ -3216,12 +3216,12 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %220
-  %.1154 = phi i64 [ %.096, %.preheader.lr.ph ], [ %221, %220 ]
+  %.1154 = phi i64 [ %.098, %.preheader.lr.ph ], [ %221, %220 ]
   %171 = add i64 %.1154, %75
   br label %172
 
 172:                                              ; preds = %.preheader, %.critedge6
-  %.0152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
+  %.095152 = phi i64 [ 0, %.preheader ], [ %219, %.critedge6 ]
   %173 = load ptr, ptr %168, align 8
   %174 = load ptr, ptr %93, align 8
   %175 = load ptr, ptr %174, align 8
@@ -3294,7 +3294,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 
 .critedge6:                                       ; preds = %210, %203, %191, %194
   %.sroa.079.0.copyload = load i8, ptr %6, align 1
-  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.0152, i1 noundef zeroext true)
+  %212 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %52, i64 noundef %171, i64 noundef %.095152, i1 noundef zeroext true)
   store i8 %.sroa.079.0.copyload, ptr %212, align 1
   %213 = load ptr, ptr %93, align 8
   %214 = load ptr, ptr %213, align 8
@@ -3303,7 +3303,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
   %217 = call noundef i64 %216(ptr noundef nonnull align 8 dereferenceable(48) %213) #15
   %218 = add i64 %217, 1
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %218) #15
-  %219 = add nuw i64 %.0152, 1
+  %219 = add nuw i64 %.095152, 1
   %exitcond.not = icmp eq i64 %219, %umax
   br i1 %exitcond.not, label %220, label %172, !llvm.loop !28
 

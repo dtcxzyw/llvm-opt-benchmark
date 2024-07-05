@@ -109,18 +109,18 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
   br label %9
 
 9:                                                ; preds = %4, %8
-  %.061 = phi i32 [ 4, %8 ], [ 0, %4 ]
-  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.061) #2
+  %.058 = phi i32 [ 4, %8 ], [ 0, %4 ]
+  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.058) #2
   %11 = icmp slt i32 %10, 2
   br i1 %11, label %test_tplink_smarthome.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.061) #2
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.058) #2
   %.not.i = icmp eq i8 %13, -48
   br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 
 test_tplink_smarthome.exit:                       ; preds = %12
-  %14 = or disjoint i32 %.061, 1
+  %14 = or disjoint i32 %.058, 1
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
   switch i8 %15, label %test_tplink_smarthome.exit.thread [
     i8 -14, label %16
@@ -147,11 +147,11 @@ test_tplink_smarthome.exit:                       ; preds = %12
   br label %29
 
 29:                                               ; preds = %26, %16
-  %30 = sub i32 %5, %.061
+  %30 = sub i32 %5, %.058
   %31 = getelementptr inbounds i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = add i32 %5, 1
-  %34 = sub i32 %33, %.061
+  %34 = sub i32 %33, %.058
   %35 = sext i32 %34 to i64
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef %35) #2
   %37 = icmp sgt i32 %30, 0
@@ -164,10 +164,10 @@ test_tplink_smarthome.exit:                       ; preds = %12
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.05967 = phi i32 [ %.061, %.lr.ph ], [ %48, %39 ]
-  %.06066 = phi i8 [ -85, %.lr.ph ], [ %40, %39 ]
-  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05967) #2
-  %41 = xor i8 %40, %.06066
+  %.05968 = phi i8 [ -85, %.lr.ph ], [ %40, %39 ]
+  %.06166 = phi i32 [ %.058, %.lr.ph ], [ %48, %39 ]
+  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06166) #2
+  %41 = xor i8 %40, %.05968
   %42 = zext i8 %41 to i64
   %43 = getelementptr i16, ptr %38, i64 %42
   %44 = load i16, ptr %43, align 2
@@ -176,7 +176,7 @@ test_tplink_smarthome.exit:                       ; preds = %12
   %46 = select i1 %.not63, i8 46, i8 %41
   %47 = getelementptr i8, ptr %36, i64 %indvars.iv
   store i8 %46, ptr %47, align 1
-  %48 = add nuw i32 %.05967, 1
+  %48 = add nuw i32 %.06166, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !4
@@ -186,8 +186,8 @@ test_tplink_smarthome.exit:                       ; preds = %12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit
-  %.058.lcssa = phi i64 [ %49, %._crit_edge.loopexit ], [ 0, %29 ]
-  %50 = getelementptr i8, ptr %36, i64 %.058.lcssa
+  %.060.lcssa = phi i64 [ %49, %._crit_edge.loopexit ], [ 0, %29 ]
+  %50 = getelementptr i8, ptr %36, i64 %.060.lcssa
   store i8 0, ptr %50, align 1
   %51 = getelementptr inbounds i8, ptr %1, i64 288
   %52 = load i32, ptr %51, align 8
@@ -204,7 +204,7 @@ test_tplink_smarthome.exit:                       ; preds = %12
 58:                                               ; preds = %54, %._crit_edge
   %.057 = phi ptr [ @.str.12, %._crit_edge ], [ %.str.13..str.3, %54 ]
   %59 = load i32, ptr @hf_tplink_smarthome_Msg, align 4
-  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef %.061, i32 noundef -1, ptr noundef nonnull %36, ptr noundef nonnull @.str.14, ptr noundef nonnull %.057, ptr noundef nonnull %36) #2
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef %.058, i32 noundef -1, ptr noundef nonnull %36, ptr noundef nonnull @.str.14, ptr noundef nonnull %.057, ptr noundef nonnull %36) #2
   %61 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %30, i32 noundef %30) #2
   tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %61, ptr noundef nonnull @.str.15) #2
   %62 = tail call ptr @find_dissector(ptr noundef nonnull @.str.16) #2

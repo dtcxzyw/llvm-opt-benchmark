@@ -64,7 +64,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %31
 
 31:                                               ; preds = %29, %26, %23
-  %.0 = phi i32 [ %30, %29 ], [ -25, %26 ], [ -25, %23 ]
+  %.047 = phi i32 [ %30, %29 ], [ -25, %26 ], [ -25, %23 ]
   switch i32 %1, label %93 [
     i32 778, label %32
     i32 779, label %44
@@ -75,7 +75,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   ]
 
 32:                                               ; preds = %31
-  switch i32 %.0, label %93 [
+  switch i32 %.047, label %93 [
     i32 -25, label %33
     i32 0, label %33
   ]
@@ -106,7 +106,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 44:                                               ; preds = %31
-  switch i32 %.0, label %93 [
+  switch i32 %.047, label %93 [
     i32 -25, label %45
     i32 0, label %45
   ]
@@ -118,7 +118,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 48:                                               ; preds = %31
-  switch i32 %.0, label %93 [
+  switch i32 %.047, label %93 [
     i32 -25, label %49
     i32 0, label %49
   ]
@@ -130,7 +130,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 52:                                               ; preds = %31
-  %53 = icmp eq i32 %.0, -25
+  %53 = icmp eq i32 %.047, -25
   br i1 %53, label %54, label %93
 
 54:                                               ; preds = %52
@@ -146,7 +146,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 62:                                               ; preds = %31
-  %63 = icmp eq i32 %.0, -25
+  %63 = icmp eq i32 %.047, -25
   br i1 %63, label %64, label %93
 
 64:                                               ; preds = %62
@@ -174,7 +174,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 77:                                               ; preds = %31
-  %78 = icmp eq i32 %.0, -25
+  %78 = icmp eq i32 %.047, -25
   br i1 %78, label %79, label %93
 
 79:                                               ; preds = %77
@@ -203,8 +203,8 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %93
 
 93:                                               ; preds = %31, %43, %45, %49, %59, %54, %52, %69, %73, %66, %64, %62, %84, %88, %81, %79, %77, %32, %44, %48, %18
-  %.047 = phi i32 [ -9, %18 ], [ %.0, %31 ], [ %86, %88 ], [ %86, %84 ], [ -25, %81 ], [ -25, %79 ], [ %.0, %77 ], [ %71, %73 ], [ %71, %69 ], [ -25, %66 ], [ -25, %64 ], [ %.0, %62 ], [ -25, %54 ], [ %61, %59 ], [ %.0, %52 ], [ 0, %49 ], [ %.0, %48 ], [ 0, %45 ], [ %.0, %44 ], [ 0, %43 ], [ %.0, %32 ]
-  ret i32 %.047
+  %.0 = phi i32 [ -9, %18 ], [ %.047, %31 ], [ %86, %88 ], [ %86, %84 ], [ -25, %81 ], [ -25, %79 ], [ %.047, %77 ], [ %71, %73 ], [ %71, %69 ], [ -25, %66 ], [ -25, %64 ], [ %.047, %62 ], [ -25, %54 ], [ %61, %59 ], [ %.047, %52 ], [ 0, %49 ], [ %.047, %48 ], [ 0, %45 ], [ %.047, %44 ], [ 0, %43 ], [ %.047, %32 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -156,12 +156,12 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %27
-  %.0108.lcssa = phi i32 [ 1, %27 ], [ %42, %.lr.ph ]
-  %.not119128 = icmp sgt i32 %.0108.lcssa, %34
+  %.0109.lcssa = phi i32 [ 1, %27 ], [ %42, %.lr.ph ]
+  %.not119128 = icmp sgt i32 %.0109.lcssa, %34
   br i1 %.not119128, label %._crit_edge, label %.lr.ph130.preheader
 
 .lr.ph130.preheader:                              ; preds = %.preheader
-  %43 = zext nneg i32 %.0108.lcssa to i64
+  %43 = zext nneg i32 %.0109.lcssa to i64
   %44 = add nuw nsw i32 %34, 1
   %wide.trip.count152 = zext i32 %44 to i64
   br label %.lr.ph130
@@ -261,7 +261,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 
 .loopexit125:                                     ; preds = %90, %83, %82
   %98 = phi i32 [ %80, %82 ], [ %87, %83 ], [ %95, %90 ]
-  %.0107 = phi ptr [ null, %82 ], [ %86, %83 ], [ %86, %90 ]
+  %.0111 = phi ptr [ null, %82 ], [ %86, %83 ], [ %86, %90 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %98 to i64
@@ -290,7 +290,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %10, label %121, label %117
 
 117:                                              ; preds = %.lr.ph136
-  %118 = getelementptr ptr, ptr %.0107, i64 %indvars.iv157
+  %118 = getelementptr ptr, ptr %.0111, i64 %indvars.iv157
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %107, i64 40
   store ptr %119, ptr %120, align 8
@@ -317,7 +317,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %10, label %130, label %129
 
 129:                                              ; preds = %._crit_edge137
-  tail call void @pfree(ptr noundef %.0107) #6
+  tail call void @pfree(ptr noundef %.0111) #6
   br label %130
 
 130:                                              ; preds = %._crit_edge137, %129, %78, %72
@@ -360,7 +360,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 
 .loopexit:                                        ; preds = %143, %136, %135
   %151 = phi i32 [ %133, %135 ], [ %140, %136 ], [ %148, %143 ]
-  %.0 = phi ptr [ null, %135 ], [ %139, %136 ], [ %139, %143 ]
+  %.0108 = phi ptr [ null, %135 ], [ %139, %136 ], [ %139, %143 ]
   %152 = getelementptr inbounds i8, ptr %0, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = sext i32 %151 to i64
@@ -421,7 +421,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %10, label %198, label %194
 
 194:                                              ; preds = %185
-  %195 = getelementptr ptr, ptr %.0, i64 %indvars.iv163
+  %195 = getelementptr ptr, ptr %.0108, i64 %indvars.iv163
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %164, i64 40
   store ptr %196, ptr %197, align 8
@@ -438,7 +438,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %10, label %203, label %202
 
 202:                                              ; preds = %._crit_edge145
-  tail call void @pfree(ptr noundef %.0) #6
+  tail call void @pfree(ptr noundef %.0108) #6
   br label %203
 
 203:                                              ; preds = %._crit_edge145, %202, %131, %130
@@ -532,8 +532,8 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %15, %41, %40, %.thread, %28
-  %.022 = phi i32 [ %29, %28 ], [ 0, %.thread ], [ 1, %40 ], [ -1, %41 ], [ 1, %19 ], [ -1, %15 ]
-  ret i32 %.022
+  %.0 = phi i32 [ %29, %28 ], [ 0, %.thread ], [ 1, %40 ], [ -1, %41 ], [ 1, %19 ], [ -1, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -2713,8 +2713,8 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder17emit_small_memse
 
 38:                                               ; preds = %.thread, %34
   %39 = phi i16 [ 121, %.thread ], [ %35, %34 ]
-  %.01740 = phi i64 [ 8, %.thread ], [ %21, %34 ]
-  %40 = udiv i64 %5, %.01740
+  %.01640 = phi i64 [ 8, %.thread ], [ %21, %34 ]
+  %40 = udiv i64 %5, %.01640
   %41 = icmp ugt i64 %40, 4
   br i1 %41, label %44, label %43
 
@@ -2723,7 +2723,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder17emit_small_memse
   unreachable
 
 43:                                               ; preds = %38
-  %.not23 = icmp ugt i64 %.01740, %22
+  %.not23 = icmp ugt i64 %.01640, %22
   br i1 %.not23, label %66, label %68
 
 44:                                               ; preds = %38
@@ -2800,7 +2800,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit29
   br label %71
 
 71:                                               ; preds = %66, %90, %88, %69
-  %.016 = phi i64 [ %70, %69 ], [ %89, %88 ], [ %91, %90 ], [ %67, %66 ]
+  %.017 = phi i64 [ %70, %69 ], [ %89, %88 ], [ %91, %90 ], [ %67, %66 ]
   %72 = getelementptr inbounds i8, ptr %0, i64 20
   %73 = load i32, ptr %72, align 4, !noundef !4
   %.not.i.i30 = icmp eq i32 %73, -1
@@ -2811,7 +2811,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit29
   unreachable
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit31: ; preds = %71
-  %75 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef %.016), !noalias !390
+  %75 = call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef %.017), !noalias !390
   %76 = call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type10is_invalid17h6ed2bdd8f6599ab7E(i16 noundef %39), !noalias !393
   br i1 %76, label %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit34, label %77
 
@@ -2831,7 +2831,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit34
   %80 = extractvalue { i32, ptr } %79, 0
   %81 = extractvalue { i32, ptr } %79, 1
   %82 = call noundef i32 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E(ptr noalias noundef readonly align 8 dereferenceable(416) %81, i32 noundef %80)
-  %.not45 = icmp ugt i64 %.01740, %5
+  %.not45 = icmp ugt i64 %.01640, %5
   br i1 %.not45, label %.thread41, label %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader: ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit34
@@ -2859,7 +2859,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36
 
 _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36: ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36
   %.sroa.02.044 = phi i64 [ %95, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36 ], [ 0, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit36.preheader ]
-  %93 = mul i64 %.sroa.02.044, %.01740
+  %93 = mul i64 %.sroa.02.044, %.01640
   %94 = trunc i64 %93 to i32
   %95 = add nuw nsw i64 %.sroa.02.044, 1
   %96 = load i16, ptr %16, align 2, !noundef !4

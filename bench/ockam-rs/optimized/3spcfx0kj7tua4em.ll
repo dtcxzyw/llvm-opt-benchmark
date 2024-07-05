@@ -1033,9 +1033,9 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
 109:                                              ; preds = %.preheader, %168
   %.sroa.053.4 = phi i1 [ %.sroa.053.6, %168 ], [ false, %.preheader ]
   %.sroa.454.4 = phi i8 [ %.sroa.454.6, %168 ], [ undef, %.preheader ]
+  %.0170 = phi i32 [ %169, %168 ], [ 0, %.preheader ]
   %.sroa.063.4 = phi i1 [ %.sroa.063.5, %168 ], [ false, %.preheader ]
   %.sroa.464.4 = phi i8 [ %.sroa.464.5, %168 ], [ undef, %.preheader ]
-  %.0170 = phi i32 [ %169, %168 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %110 unwind label %.loopexit
@@ -8721,7 +8721,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %292, %281, %261, %248, %197, %185, %128, %121, %101, %91
-  %.0156 = phi i8 [ 1, %121 ], [ 1, %128 ], [ 1, %91 ], [ 1, %101 ], [ 0, %185 ], [ 1, %197 ], [ 1, %281 ], [ 1, %292 ], [ 1, %248 ], [ 1, %261 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1157.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.0155 = phi i8 [ 1, %121 ], [ 1, %128 ], [ 1, %91 ], [ 1, %101 ], [ 0, %185 ], [ 1, %197 ], [ 1, %281 ], [ 1, %292 ], [ 1, %248 ], [ 1, %261 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1156.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn190 = phi { ptr, i32 } [ %.pn180, %121 ], [ %.pn180, %128 ], [ %.pn183, %91 ], [ %.pn183, %101 ], [ %.pn188, %185 ], [ %198, %197 ], [ %.pn, %281 ], [ %.pn, %292 ], [ %.pn177, %248 ], [ %.pn177, %261 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit253, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h6ca3a679ca900dddE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %38) #34
           to label %162 unwind label %99
@@ -8737,7 +8737,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %206, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h6ca3a679ca900dddE.exit211", %146, %3
-  %.1157.ph.ph = phi i8 [ 1, %146 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h6ca3a679ca900dddE.exit211" ], [ 1, %206 ]
+  %.1156.ph.ph = phi i8 [ 1, %146 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h6ca3a679ca900dddE.exit211" ], [ 1, %206 ]
   %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -9013,7 +9013,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
   br label %215
 
 137:                                              ; preds = %.preheader, %258
-  %.0155 = phi i32 [ %259, %258 ], [ 0, %.preheader ]
+  %.0165 = phi i32 [ %259, %258 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %138 unwind label %.loopexit
@@ -9053,7 +9053,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
           to label %147 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %142
-  switch i32 %.0155, label %227 [
+  switch i32 %.0165, label %227 [
     i32 0, label %228
     i32 1, label %229
   ]
@@ -9117,7 +9117,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
           to label %169 unwind label %167
 
 162:                                              ; preds = %164, %.loopexit.split-lp
-  %.10 = phi i8 [ %.13, %164 ], [ %.0156, %.loopexit.split-lp ]
+  %.10 = phi i8 [ %.13, %164 ], [ %.0155, %.loopexit.split-lp ]
   %.pn192 = phi { ptr, i32 } [ %165, %164 ], [ %.pn190, %.loopexit.split-lp ]
   %163 = load i8, ptr %41, align 8, !range !1885, !noundef !4
   %.not194 = icmp eq i8 %163, 2
@@ -9416,7 +9416,7 @@ define hidden void @"_ZN131_$LT$ockam_identity..models..credential_and_purpose_k
   br label %215
 
 258:                                              ; preds = %297, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$ockam_identity..models..purpose_key_attestation..PurposeKeyAttestation$GT$$GT$17h6ca3a679ca900dddE.exit228", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Credential$GT$$GT$17h866c05c06bfb91afE.exit224"
-  %259 = add i32 %.0155, 1
+  %259 = add i32 %.0165, 1
   br label %137
 
 260:                                              ; preds = %253
@@ -30075,8 +30075,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8939d28252fdf6c5E.exit"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8939d28252fdf6c5E.exit": ; preds = %3, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !4187
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4187
@@ -30383,8 +30383,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h8db8f9d7fb4aaf22E.llvm.9977487472220041507.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h8db8f9d7fb4aaf22E.llvm.9977487472220041507.exit": ; preds = %6, %8
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !4265
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !4265
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -57783,8 +57783,8 @@ _ZN4time7parsing10combinator10ascii_char17h1c97eaa369696ea5E.exit.thread.i.i.i: 
   %.sroa.6158.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %97, i64 16
   %.sroa.6158.0.copyload.i.i.i = load ptr, ptr %.sroa.6158.0..sroa_idx.i.i.i, align 8, !noalias !9460
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %97), !noalias !9460
-  %.sroa.12.sroa.0.0.in.in244.i.i.i = ptrtoint ptr %.sroa.6158.0.copyload.i.i.i to i64
-  %.sroa.11.0245.i.i.i = trunc i64 %.sroa.12.sroa.0.0.in.in244.i.i.i to i8
+  %.sroa.11.0.in242.i.i.i = ptrtoint ptr %.sroa.6158.0.copyload.i.i.i to i64
+  %.sroa.11.0245.i.i.i = trunc i64 %.sroa.11.0.in242.i.i.i to i8
   %217 = load i8, ptr %138, align 1, !range !1885, !noalias !9460, !noundef !4
   %218 = tail call noundef zeroext i1 @_ZN4time7parsing10combinator3rfc7iso860112ExtendedKind11is_extended17h94ebd67c3a36d77eE(i8 noundef %217), !noalias !9456
   br i1 %218, label %220, label %227
@@ -58093,11 +58093,11 @@ _ZN4time7parsing10combinator10ascii_char17hb042110c83cd3c15E.exit.thread.i434.i.
   br label %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$10parse_date28_$u7b$$u7b$closure$u7d$$u7d$17hc8cbeac8fa86a2e8E.exit.i"
 
 270:                                              ; preds = %232, %221, %220, %219
-  %.sroa.16.0.ph.ph.i.i = phi i64 [ 1, %219 ], [ 1, %232 ], [ 0, %221 ], [ 0, %220 ]
   %.sroa.225.0.ph.ph.i.i = phi i8 [ ptrtoint (ptr @anon.83730b5ea31bccde5040e79d43e60e34.160 to i8), %219 ], [ ptrtoint (ptr @anon.83730b5ea31bccde5040e79d43e60e34.161 to i8), %232 ], [ 0, %221 ], [ 0, %220 ]
   %.sroa.26.sroa.0.0.ph.ph.i.i = phi i8 [ %.sroa.26.sroa.0.0.extract.trunc6.i.i, %219 ], [ %.sroa.26.sroa.0.0.extract.trunc.i.i, %232 ], [ 0, %221 ], [ 0, %220 ]
   %.sroa.26.sroa.10.sroa.0.0.ph.ph.i.i = phi i48 [ %.sroa.26.sroa.10.0.extract.trunc8.i.i, %219 ], [ %.sroa.26.sroa.10.0.extract.trunc.i.i, %232 ], [ 0, %221 ], [ 0, %220 ]
   %.sroa.30.0.ph.ph.i.i = phi i64 [ 4, %219 ], [ 7, %232 ], [ undef, %221 ], [ undef, %220 ]
+  %.sroa.16.0.ph.ph.i.i = phi i64 [ 1, %219 ], [ 1, %232 ], [ 0, %221 ], [ 0, %220 ]
   store i64 %.sroa.16.0.ph.ph.i.i, ptr %118, align 8, !noalias !9432
   store i8 %.sroa.225.0.ph.ph.i.i, ptr %.sroa.14.8..sroa_idx.i.i, align 8, !noalias !9432
   %.sroa.26.16..sroa_idx.i.i = getelementptr inbounds i8, ptr %118, i64 9
@@ -59649,8 +59649,8 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i34.i: 
   br label %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i"
 
 "_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i": ; preds = %564, %521
-  %.sroa.13.2.ph.i = phi i64 [ %502, %521 ], [ %.sroa.6162.2.i.i, %564 ]
   %.sroa.0289.2.ph.i = phi ptr [ %503, %521 ], [ %.sroa.0159.2.i.i, %564 ]
+  %.sroa.13.2.ph.i = phi i64 [ %502, %521 ], [ %.sroa.6162.2.i.i, %564 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !9428
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !9428
   br label %.thread464.i
@@ -59673,9 +59673,9 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i34.i: 
   br i1 %573, label %578, label %581
 
 .thread464.i:                                     ; preds = %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i", %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i"
-  %.sroa.0289.2454.i = phi ptr [ %.sroa.0289.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %.sroa.0289.2.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
-  %.sroa.13.2453.i = phi i64 [ %.sroa.13.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %570, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
-  %574 = icmp ne ptr %.sroa.0289.2454.i, null
+  %.sroa.13.2454.i = phi i64 [ %.sroa.13.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %570, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
+  %.sroa.0289.2453.i = phi ptr [ %.sroa.0289.2.ph.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.thread.i" ], [ %.sroa.0289.2.i, %"_ZN4time7parsing7iso860181_$LT$impl$u20$time..format_description..well_known..iso8601..Iso8601$LT$_$GT$$GT$12parse_offset28_$u7b$$u7b$closure$u7d$$u7d$17hd61d1786d0ce01b5E.exit.i" ]
+  %574 = icmp ne ptr %.sroa.0289.2453.i, null
   call void @llvm.assume(i1 %574)
   br label %578
 
@@ -59689,8 +59689,8 @@ _ZN4time7parsing10combinator10ascii_char17h8199d1e9973cf0ecE.exit.thread.i34.i: 
   br label %571
 
 578:                                              ; preds = %.thread464.i, %571, %492
-  %.sroa.0.2463.i = phi ptr [ %.sroa.0.1448.i, %571 ], [ %.sroa.0289.2454.i, %.thread464.i ], [ %.sroa.0.0394424.i, %492 ]
-  %.sroa.8.2462.i = phi i64 [ %.sroa.8.1447.i, %571 ], [ %.sroa.13.2453.i, %.thread464.i ], [ %.sroa.8.0391425.i, %492 ]
+  %.sroa.0.2463.i = phi ptr [ %.sroa.0.1448.i, %571 ], [ %.sroa.0289.2453.i, %.thread464.i ], [ %.sroa.0.0394424.i, %492 ]
+  %.sroa.8.2462.i = phi i64 [ %.sroa.8.1447.i, %571 ], [ %.sroa.13.2454.i, %.thread464.i ], [ %.sroa.8.0391425.i, %492 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %138), !noalias !9428
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.16.sroa.10.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.19.i)

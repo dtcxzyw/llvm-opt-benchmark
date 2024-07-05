@@ -10803,8 +10803,8 @@ while.body.i.preheader:                           ; preds = %if.then13.i, %if.th
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
   %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
+  %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i

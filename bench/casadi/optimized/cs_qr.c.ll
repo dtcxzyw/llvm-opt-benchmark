@@ -119,17 +119,17 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 
 73:                                               ; preds = %.lr.ph257, %._crit_edge253
   %indvars.iv289 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next290, %._crit_edge253 ]
-  %.0256 = phi i32 [ 0, %.lr.ph257 ], [ %177, %._crit_edge253 ]
-  %.0195255 = phi i32 [ 0, %.lr.ph257 ], [ %.3.lcssa, %._crit_edge253 ]
+  %.0196255 = phi i32 [ 0, %.lr.ph257 ], [ %.3.lcssa, %._crit_edge253 ]
+  %.0203254 = phi i32 [ 0, %.lr.ph257 ], [ %177, %._crit_edge253 ]
   %74 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv289
-  store i32 %.0256, ptr %74, align 4
+  store i32 %.0203254, ptr %74, align 4
   %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv289
-  store i32 %.0195255, ptr %75, align 4
+  store i32 %.0196255, ptr %75, align 4
   %76 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv289
   %77 = trunc nuw nsw i64 %indvars.iv289 to i32
   store i32 %77, ptr %76, align 4
-  %78 = add nsw i32 %.0195255, 1
-  %79 = sext i32 %.0195255 to i64
+  %78 = add nsw i32 %.0196255, 1
+  %79 = sext i32 %.0196255 to i64
   %80 = getelementptr inbounds i32, ptr %67, i64 %79
   store i32 %77, ptr %80, align 4
   br i1 %.not218, label %84, label %81
@@ -154,24 +154,24 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br label %.lr.ph242
 
 .preheader221:                                    ; preds = %139
-  %93 = icmp slt i32 %.1194.lcssa, %10
+  %93 = icmp slt i32 %.1200.lcssa, %10
   br i1 %93, label %.lr.ph248.preheader, label %.preheader220
 
 .lr.ph248.preheader:                              ; preds = %.preheader221
-  %94 = sext i32 %.0256 to i64
-  %95 = sext i32 %.1194.lcssa to i64
+  %94 = sext i32 %.1200.lcssa to i64
+  %95 = sext i32 %.0203254 to i64
   br label %.lr.ph248
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %139
   %indvars.iv275 = phi i64 [ %92, %.lr.ph242.preheader ], [ %indvars.iv.next276, %139 ]
-  %.0193240 = phi i32 [ %10, %.lr.ph242.preheader ], [ %.1194.lcssa, %139 ]
-  %.1196239 = phi i32 [ %78, %.lr.ph242.preheader ], [ %.2, %139 ]
+  %.1197239 = phi i32 [ %78, %.lr.ph242.preheader ], [ %.2198, %139 ]
+  %.0199238 = phi i32 [ %10, %.lr.ph242.preheader ], [ %.1200.lcssa, %139 ]
   %96 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv275
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %31, i64 %98
-  %.1204227 = load i32, ptr %99, align 4
-  %100 = sext i32 %.1204227 to i64
+  %.1227 = load i32, ptr %99, align 4
+  %100 = sext i32 %.1227 to i64
   %101 = getelementptr inbounds i32, ptr %33, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
@@ -184,22 +184,22 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %105, label %.lr.ph235.preheader, label %._crit_edge236
 
 .lr.ph235.preheader:                              ; preds = %.preheader
-  %106 = and i64 %indvars.iv.next, 2147483647
-  %107 = sext i32 %.0193240 to i64
+  %106 = sext i32 %.0199238 to i64
+  %107 = and i64 %indvars.iv.next, 2147483647
   br label %.lr.ph235
 
 .lr.ph232:                                        ; preds = %.lr.ph242, %.lr.ph232
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph232 ], [ 0, %.lr.ph242 ]
   %108 = phi ptr [ %113, %.lr.ph232 ], [ %101, %.lr.ph242 ]
   %109 = phi i64 [ %112, %.lr.ph232 ], [ %100, %.lr.ph242 ]
-  %.1204230 = phi i32 [ %.1204, %.lr.ph232 ], [ %.1204227, %.lr.ph242 ]
+  %.1230 = phi i32 [ %.1, %.lr.ph232 ], [ %.1227, %.lr.ph242 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv
-  store i32 %.1204230, ptr %110, align 4
+  store i32 %.1230, ptr %110, align 4
   store i32 %77, ptr %108, align 4
   %111 = getelementptr inbounds i32, ptr %20, i64 %109
-  %.1204 = load i32, ptr %111, align 4
-  %112 = sext i32 %.1204 to i64
+  %.1 = load i32, ptr %111, align 4
+  %112 = sext i32 %.1 to i64
   %113 = getelementptr inbounds i32, ptr %33, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
@@ -209,21 +209,21 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 .lr.ph235:                                        ; preds = %.lr.ph235.preheader, %.lr.ph235
   %indvars.iv270 = phi i64 [ %107, %.lr.ph235.preheader ], [ %indvars.iv.next271, %.lr.ph235 ]
   %indvars.iv268 = phi i64 [ %106, %.lr.ph235.preheader ], [ %indvars.iv.next269, %.lr.ph235 ]
-  %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
-  %116 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next269
-  %117 = load i32, ptr %116, align 4
   %indvars.iv.next271 = add nsw i64 %indvars.iv270, -1
-  %118 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next271
+  %116 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next271
+  %117 = load i32, ptr %116, align 4
+  %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
+  %118 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next269
   store i32 %117, ptr %118, align 4
-  %119 = icmp ugt i64 %indvars.iv268, 1
+  %119 = icmp ugt i64 %indvars.iv270, 1
   br i1 %119, label %.lr.ph235, label %._crit_edge236.loopexit, !llvm.loop !6
 
 ._crit_edge236.loopexit:                          ; preds = %.lr.ph235
-  %120 = trunc nsw i64 %indvars.iv.next271 to i32
+  %120 = trunc nsw i64 %indvars.iv.next269 to i32
   br label %._crit_edge236
 
 ._crit_edge236:                                   ; preds = %.lr.ph242, %._crit_edge236.loopexit, %.preheader
-  %.1194.lcssa = phi i32 [ %.0193240, %.preheader ], [ %120, %._crit_edge236.loopexit ], [ %.0193240, %.lr.ph242 ]
+  %.1200.lcssa = phi i32 [ %.0199238, %.preheader ], [ %120, %._crit_edge236.loopexit ], [ %.0199238, %.lr.ph242 ]
   %121 = load i32, ptr %96, align 4
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds i32, ptr %21, i64 %122
@@ -244,15 +244,15 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %130
-  %136 = add nsw i32 %.1196239, 1
-  %137 = sext i32 %.1196239 to i64
+  %136 = add nsw i32 %.1197239, 1
+  %137 = sext i32 %.1197239 to i64
   %138 = getelementptr inbounds i32, ptr %67, i64 %137
   store i32 %124, ptr %138, align 4
   store i32 %77, ptr %131, align 4
   br label %139
 
 139:                                              ; preds = %._crit_edge236, %130, %135
-  %.2 = phi i32 [ %136, %135 ], [ %.1196239, %130 ], [ %.1196239, %._crit_edge236 ]
+  %.2198 = phi i32 [ %136, %135 ], [ %.1197239, %130 ], [ %.1197239, %._crit_edge236 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %140 = load i32, ptr %89, align 4
   %141 = sext i32 %140 to i64
@@ -260,13 +260,13 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %142, label %.lr.ph242, label %.preheader221, !llvm.loop !7
 
 .preheader220.loopexit:                           ; preds = %161
-  %143 = trunc nsw i64 %indvars.iv.next279 to i32
+  %143 = trunc nsw i64 %indvars.iv.next281 to i32
   br label %.preheader220
 
 .preheader220:                                    ; preds = %84, %.preheader220.loopexit, %.preheader221
-  %.3.lcssa = phi i32 [ %.2, %.preheader221 ], [ %.4, %.preheader220.loopexit ], [ %78, %84 ]
-  %.1.lcssa = phi i32 [ %.0256, %.preheader221 ], [ %143, %.preheader220.loopexit ], [ %.0256, %84 ]
-  %144 = icmp slt i32 %.0195255, %.3.lcssa
+  %.1204.lcssa = phi i32 [ %.0203254, %.preheader221 ], [ %143, %.preheader220.loopexit ], [ %.0203254, %84 ]
+  %.3.lcssa = phi i32 [ %.2198, %.preheader221 ], [ %.4, %.preheader220.loopexit ], [ %78, %84 ]
+  %144 = icmp slt i32 %.0196255, %.3.lcssa
   br i1 %144, label %.lr.ph252.preheader, label %._crit_edge253
 
 .lr.ph252.preheader:                              ; preds = %.preheader220
@@ -276,19 +276,19 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %161
   %indvars.iv280 = phi i64 [ %95, %.lr.ph248.preheader ], [ %indvars.iv.next281, %161 ]
   %indvars.iv278 = phi i64 [ %94, %.lr.ph248.preheader ], [ %indvars.iv.next279, %161 ]
-  %.3246 = phi i32 [ %.2, %.lr.ph248.preheader ], [ %.4, %161 ]
-  %145 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv280
+  %.3246 = phi i32 [ %.2198, %.lr.ph248.preheader ], [ %.4, %161 ]
+  %145 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv278
   %146 = load i32, ptr %145, align 4
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds double, ptr %50, i64 %147
   %149 = load double, ptr %148, align 8
   %150 = tail call i32 @cs_happly(ptr noundef nonnull %47, i32 noundef %146, double noundef %149, ptr noundef nonnull %34) #3
-  %151 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv278
+  %151 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv280
   store i32 %146, ptr %151, align 4
   %152 = getelementptr inbounds double, ptr %34, i64 %147
   %153 = load double, ptr %152, align 8
-  %indvars.iv.next279 = add nsw i64 %indvars.iv278, 1
-  %154 = getelementptr inbounds double, ptr %63, i64 %indvars.iv278
+  %indvars.iv.next281 = add nsw i64 %indvars.iv280, 1
+  %154 = getelementptr inbounds double, ptr %63, i64 %indvars.iv280
   store double %153, ptr %154, align 8
   store double 0.000000e+00, ptr %152, align 8
   %155 = getelementptr inbounds i32, ptr %20, i64 %147
@@ -303,8 +303,8 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 
 161:                                              ; preds = %.lr.ph248, %159
   %.4 = phi i32 [ %160, %159 ], [ %.3246, %.lr.ph248 ]
-  %indvars.iv.next281 = add nsw i64 %indvars.iv280, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next281 to i32
+  %indvars.iv.next279 = add nsw i64 %indvars.iv278, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next279 to i32
   %exitcond.not = icmp eq i32 %10, %lftr.wideiv
   br i1 %exitcond.not, label %.preheader220.loopexit, label %.lr.ph248, !llvm.loop !8
 
@@ -326,14 +326,14 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %exitcond288.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !9
 
 ._crit_edge253:                                   ; preds = %.lr.ph252, %.preheader220
-  %171 = sext i32 %.1.lcssa to i64
+  %171 = sext i32 %.1204.lcssa to i64
   %172 = getelementptr inbounds i32, ptr %61, i64 %171
   store i32 %77, ptr %172, align 4
   %173 = getelementptr inbounds double, ptr %69, i64 %79
   %174 = getelementptr inbounds double, ptr %50, i64 %indvars.iv289
-  %175 = sub nsw i32 %.3.lcssa, %.0195255
+  %175 = sub nsw i32 %.3.lcssa, %.0196255
   %176 = tail call double @cs_house(ptr noundef %173, ptr noundef nonnull %174, i32 noundef %175) #3
-  %177 = add nsw i32 %.1.lcssa, 1
+  %177 = add nsw i32 %.1204.lcssa, 1
   %178 = getelementptr inbounds double, ptr %63, i64 %171
   store double %176, ptr %178, align 8
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
@@ -341,19 +341,19 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %exitcond293.not, label %._crit_edge258, label %73, !llvm.loop !10
 
 ._crit_edge258:                                   ; preds = %._crit_edge253, %.preheader222
-  %.0195.lcssa = phi i32 [ 0, %.preheader222 ], [ %.3.lcssa, %._crit_edge253 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader222 ], [ %177, %._crit_edge253 ]
+  %.0203.lcssa = phi i32 [ 0, %.preheader222 ], [ %177, %._crit_edge253 ]
+  %.0196.lcssa = phi i32 [ 0, %.preheader222 ], [ %.3.lcssa, %._crit_edge253 ]
   %179 = sext i32 %10 to i64
   %180 = getelementptr inbounds i32, ptr %59, i64 %179
-  store i32 %.0.lcssa, ptr %180, align 4
+  store i32 %.0203.lcssa, ptr %180, align 4
   %181 = getelementptr inbounds i32, ptr %65, i64 %179
-  store i32 %.0195.lcssa, ptr %181, align 4
+  store i32 %.0196.lcssa, ptr %181, align 4
   %182 = tail call ptr @cs_ndone(ptr noundef nonnull %35, ptr noundef null, ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef 1) #3
   br label %183
 
 183:                                              ; preds = %2, %3, %._crit_edge258, %55, %39
-  %.0197 = phi ptr [ %182, %._crit_edge258 ], [ %56, %55 ], [ %40, %39 ], [ null, %3 ], [ null, %2 ]
-  ret ptr %.0197
+  %.0 = phi ptr [ %182, %._crit_edge258 ], [ %56, %55 ], [ %40, %39 ], [ null, %3 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

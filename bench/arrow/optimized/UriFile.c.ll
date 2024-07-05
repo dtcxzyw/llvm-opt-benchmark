@@ -171,8 +171,8 @@ if.end100.us.us.i:                                ; preds = %if.then95.us.us.i, 
   br label %for.cond.us.us.i
 
 for.cond.us71.i:                                  ; preds = %if.end100.us97.i, %if.then22.i
-  %firstSegment.0.us72.i = phi i32 [ %firstSegment.1.us86.i, %if.end100.us97.i ], [ 1, %if.then22.i ]
-  %output.1.us73.i = phi ptr [ %output.4.us98.i, %if.end100.us97.i ], [ %add.ptr30133.i, %if.then22.i ]
+  %output.1.us72.i = phi ptr [ %output.4.us98.i, %if.end100.us97.i ], [ %add.ptr30133.i, %if.then22.i ]
+  %firstSegment.0.us73.i = phi i32 [ %firstSegment.1.us87.i, %if.end100.us97.i ], [ 1, %if.then22.i ]
   %lastSep.0.us74.i = phi ptr [ %lastSep.1.us99.i, %if.end100.us97.i ], [ %add.ptr.i, %if.then22.i ]
   %input.0.us75.i = phi ptr [ %incdec.ptr101.us100.i, %if.end100.us97.i ], [ %filename, %if.then22.i ]
   %6 = load i8, ptr %input.0.us75.i, align 1
@@ -187,11 +187,11 @@ if.then50.us79.i:                                 ; preds = %for.cond.us71.i, %f
   br i1 %cmp52.us81.i, label %if.then54.us82.i, label %if.end72.us85thread-pre-split.i
 
 if.then54.us82.i:                                 ; preds = %if.then50.us79.i
-  %cmp59.us.i = icmp eq i32 %firstSegment.0.us72.i, 1
+  %cmp59.us.i = icmp eq i32 %firstSegment.0.us73.i, 1
   br i1 %cmp59.us.i, label %if.then61.us.i, label %if.else.us83.i
 
 if.else.us83.i:                                   ; preds = %if.then54.us82.i
-  %call69.us84.i = tail call ptr @uriEscapeExA(ptr noundef nonnull %add.ptr51.us80.i, ptr noundef nonnull %input.0.us75.i, ptr noundef %output.1.us73.i, i32 noundef 0, i32 noundef 0) #5
+  %call69.us84.i = tail call ptr @uriEscapeExA(ptr noundef nonnull %add.ptr51.us80.i, ptr noundef nonnull %input.0.us75.i, ptr noundef %output.1.us72.i, i32 noundef 0, i32 noundef 0) #5
   br label %if.end72.us85thread-pre-split.i
 
 if.then61.us.i:                                   ; preds = %if.then54.us82.i
@@ -200,37 +200,37 @@ if.then61.us.i:                                   ; preds = %if.then54.us82.i
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.us.i
   %sext.us.i = shl i64 %sub.ptr.sub.us.i, 32
   %conv65.us.i = ashr exact i64 %sext.us.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.1.us73.i, ptr nonnull align 1 %add.ptr51.us80.i, i64 %conv65.us.i, i1 false)
-  %add.ptr67.us.i = getelementptr inbounds i8, ptr %output.1.us73.i, i64 %conv65.us.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.1.us72.i, ptr nonnull align 1 %add.ptr51.us80.i, i64 %conv65.us.i, i1 false)
+  %add.ptr67.us.i = getelementptr inbounds i8, ptr %output.1.us72.i, i64 %conv65.us.i
   br label %if.end72.us85thread-pre-split.i
 
 if.end72.us85thread-pre-split.i:                  ; preds = %if.then61.us.i, %if.else.us83.i, %if.then50.us79.i
-  %output.3.us87.ph.i = phi ptr [ %output.1.us73.i, %if.then50.us79.i ], [ %call69.us84.i, %if.else.us83.i ], [ %add.ptr67.us.i, %if.then61.us.i ]
+  %output.3.us86.ph.i = phi ptr [ %output.1.us72.i, %if.then50.us79.i ], [ %call69.us84.i, %if.else.us83.i ], [ %add.ptr67.us.i, %if.then61.us.i ]
   %.pr.i = load i8, ptr %input.0.us75.i, align 1
   br label %if.end72.us85.i
 
 if.end72.us85.i:                                  ; preds = %if.end72.us85thread-pre-split.i, %for.cond.us71.i
   %7 = phi i8 [ %.pr.i, %if.end72.us85thread-pre-split.i ], [ %6, %for.cond.us71.i ]
-  %firstSegment.1.us86.i = phi i32 [ 0, %if.end72.us85thread-pre-split.i ], [ %firstSegment.0.us72.i, %for.cond.us71.i ]
-  %output.3.us87.i = phi ptr [ %output.3.us87.ph.i, %if.end72.us85thread-pre-split.i ], [ %output.1.us73.i, %for.cond.us71.i ]
+  %output.3.us86.i = phi ptr [ %output.3.us86.ph.i, %if.end72.us85thread-pre-split.i ], [ %output.1.us72.i, %for.cond.us71.i ]
+  %firstSegment.1.us87.i = phi i32 [ 0, %if.end72.us85thread-pre-split.i ], [ %firstSegment.0.us73.i, %for.cond.us71.i ]
   switch i8 %7, label %if.end100.us97.i [
     i8 0, label %if.then77.i
     i8 92, label %if.then95.us95.i
   ]
 
 if.then95.us95.i:                                 ; preds = %if.end72.us85.i
-  store i8 47, ptr %output.3.us87.i, align 1
-  %incdec.ptr97.us96.i = getelementptr inbounds i8, ptr %output.3.us87.i, i64 1
+  store i8 47, ptr %output.3.us86.i, align 1
+  %incdec.ptr97.us96.i = getelementptr inbounds i8, ptr %output.3.us86.i, i64 1
   br label %if.end100.us97.i
 
 if.end100.us97.i:                                 ; preds = %if.then95.us95.i, %if.end72.us85.i
-  %output.4.us98.i = phi ptr [ %incdec.ptr97.us96.i, %if.then95.us95.i ], [ %output.3.us87.i, %if.end72.us85.i ]
+  %output.4.us98.i = phi ptr [ %incdec.ptr97.us96.i, %if.then95.us95.i ], [ %output.3.us86.i, %if.end72.us85.i ]
   %lastSep.1.us99.i = phi ptr [ %input.0.us75.i, %if.then95.us95.i ], [ %lastSep.0.us74.i, %if.end72.us85.i ]
   %incdec.ptr101.us100.i = getelementptr inbounds i8, ptr %input.0.us75.i, i64 1
   br label %for.cond.us71.i
 
 if.then77.i:                                      ; preds = %if.end72.us.us.i, %if.end72.us85.i
-  %.us-phi.i = phi ptr [ %output.3.us87.i, %if.end72.us85.i ], [ %output.3.us.us.i, %if.end72.us.us.i ]
+  %.us-phi.i = phi ptr [ %output.3.us86.i, %if.end72.us85.i ], [ %output.3.us.us.i, %if.end72.us.us.i ]
   store i8 0, ptr %.us-phi.i, align 1
   br label %uriFilenameToUriStringA.exit
 
@@ -507,8 +507,8 @@ if.end87.us.us.i:                                 ; preds = %if.then82.us.us.i, 
   br label %for.cond.us.us.i
 
 for.cond.us72.i:                                  ; preds = %if.then15.i, %if.end87.us98.i
-  %firstSegment.0.us73.i = phi i32 [ %firstSegment.1.us87.i, %if.end87.us98.i ], [ 1, %if.then15.i ]
-  %output.1.us74.i = phi ptr [ %output.4.us99.i, %if.end87.us98.i ], [ %add.ptr23.i, %if.then15.i ]
+  %output.1.us73.i = phi ptr [ %output.4.us99.i, %if.end87.us98.i ], [ %add.ptr23.i, %if.then15.i ]
+  %firstSegment.0.us74.i = phi i32 [ %firstSegment.1.us88.i, %if.end87.us98.i ], [ 1, %if.then15.i ]
   %lastSep.0.us75.i = phi ptr [ %lastSep.1.us100.i, %if.end87.us98.i ], [ %add.ptr.i, %if.then15.i ]
   %input.0.us76.i = phi ptr [ %incdec.ptr88.us101.i, %if.end87.us98.i ], [ %filename, %if.then15.i ]
   %6 = load i32, ptr %input.0.us76.i, align 4
@@ -523,11 +523,11 @@ if.then40.us80.i:                                 ; preds = %for.cond.us72.i, %f
   br i1 %cmp42.us82.i, label %if.then44.us83.i, label %if.end62.us86thread-pre-split.i
 
 if.then44.us83.i:                                 ; preds = %if.then40.us80.i
-  %cmp49.us.i = icmp eq i32 %firstSegment.0.us73.i, 1
+  %cmp49.us.i = icmp eq i32 %firstSegment.0.us74.i, 1
   br i1 %cmp49.us.i, label %if.then51.us.i, label %if.else.us84.i
 
 if.else.us84.i:                                   ; preds = %if.then44.us83.i
-  %call59.us85.i = tail call ptr @uriEscapeExW(ptr noundef nonnull %add.ptr41.us81.i, ptr noundef nonnull %input.0.us76.i, ptr noundef %output.1.us74.i, i32 noundef 0, i32 noundef 0) #5
+  %call59.us85.i = tail call ptr @uriEscapeExW(ptr noundef nonnull %add.ptr41.us81.i, ptr noundef nonnull %input.0.us76.i, ptr noundef %output.1.us73.i, i32 noundef 0, i32 noundef 0) #5
   br label %if.end62.us86thread-pre-split.i
 
 if.then51.us.i:                                   ; preds = %if.then44.us83.i
@@ -537,37 +537,37 @@ if.then51.us.i:                                   ; preds = %if.then44.us83.i
   %sext.us.i = shl i64 %sub.ptr.sub.us.i, 30
   %conv55.us.i = ashr i64 %sext.us.i, 32
   %mul56.us.i = shl nsw i64 %conv55.us.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %output.1.us74.i, ptr nonnull align 4 %add.ptr41.us81.i, i64 %mul56.us.i, i1 false)
-  %add.ptr57.us.i = getelementptr inbounds i32, ptr %output.1.us74.i, i64 %conv55.us.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %output.1.us73.i, ptr nonnull align 4 %add.ptr41.us81.i, i64 %mul56.us.i, i1 false)
+  %add.ptr57.us.i = getelementptr inbounds i32, ptr %output.1.us73.i, i64 %conv55.us.i
   br label %if.end62.us86thread-pre-split.i
 
 if.end62.us86thread-pre-split.i:                  ; preds = %if.then51.us.i, %if.else.us84.i, %if.then40.us80.i
-  %output.3.us88.ph.i = phi ptr [ %output.1.us74.i, %if.then40.us80.i ], [ %call59.us85.i, %if.else.us84.i ], [ %add.ptr57.us.i, %if.then51.us.i ]
+  %output.3.us87.ph.i = phi ptr [ %output.1.us73.i, %if.then40.us80.i ], [ %call59.us85.i, %if.else.us84.i ], [ %add.ptr57.us.i, %if.then51.us.i ]
   %.pr.i = load i32, ptr %input.0.us76.i, align 4
   br label %if.end62.us86.i
 
 if.end62.us86.i:                                  ; preds = %if.end62.us86thread-pre-split.i, %for.cond.us72.i
   %7 = phi i32 [ %.pr.i, %if.end62.us86thread-pre-split.i ], [ %6, %for.cond.us72.i ]
-  %firstSegment.1.us87.i = phi i32 [ 0, %if.end62.us86thread-pre-split.i ], [ %firstSegment.0.us73.i, %for.cond.us72.i ]
-  %output.3.us88.i = phi ptr [ %output.3.us88.ph.i, %if.end62.us86thread-pre-split.i ], [ %output.1.us74.i, %for.cond.us72.i ]
+  %output.3.us87.i = phi ptr [ %output.3.us87.ph.i, %if.end62.us86thread-pre-split.i ], [ %output.1.us73.i, %for.cond.us72.i ]
+  %firstSegment.1.us88.i = phi i32 [ 0, %if.end62.us86thread-pre-split.i ], [ %firstSegment.0.us74.i, %for.cond.us72.i ]
   switch i32 %7, label %if.end87.us98.i [
     i32 0, label %if.then66.i
     i32 92, label %if.then82.us96.i
   ]
 
 if.then82.us96.i:                                 ; preds = %if.end62.us86.i
-  store i32 47, ptr %output.3.us88.i, align 4
-  %incdec.ptr84.us97.i = getelementptr inbounds i8, ptr %output.3.us88.i, i64 4
+  store i32 47, ptr %output.3.us87.i, align 4
+  %incdec.ptr84.us97.i = getelementptr inbounds i8, ptr %output.3.us87.i, i64 4
   br label %if.end87.us98.i
 
 if.end87.us98.i:                                  ; preds = %if.then82.us96.i, %if.end62.us86.i
-  %output.4.us99.i = phi ptr [ %incdec.ptr84.us97.i, %if.then82.us96.i ], [ %output.3.us88.i, %if.end62.us86.i ]
+  %output.4.us99.i = phi ptr [ %incdec.ptr84.us97.i, %if.then82.us96.i ], [ %output.3.us87.i, %if.end62.us86.i ]
   %lastSep.1.us100.i = phi ptr [ %input.0.us76.i, %if.then82.us96.i ], [ %lastSep.0.us75.i, %if.end62.us86.i ]
   %incdec.ptr88.us101.i = getelementptr inbounds i8, ptr %input.0.us76.i, i64 4
   br label %for.cond.us72.i
 
 if.then66.i:                                      ; preds = %if.end62.us.us.i, %if.end62.us86.i
-  %.us-phi.i = phi ptr [ %output.3.us88.i, %if.end62.us86.i ], [ %output.3.us.us.i, %if.end62.us.us.i ]
+  %.us-phi.i = phi ptr [ %output.3.us87.i, %if.end62.us86.i ], [ %output.3.us.us.i, %if.end62.us.us.i ]
   store i32 0, ptr %.us-phi.i, align 4
   br label %uriFilenameToUriStringW.exit
 

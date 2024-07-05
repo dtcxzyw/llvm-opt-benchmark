@@ -138,21 +138,21 @@ define internal i32 @memiofread(ptr nocapture noundef %0, ptr nocapture noundef 
   br label %14
 
 14:                                               ; preds = %17, %10
-  %.pn = phi ptr [ %12, %10 ], [ %.020, %17 ]
-  %.019 = phi ptr [ %1, %10 ], [ %18, %17 ]
-  %.018 = phi i8 [ %13, %10 ], [ %19, %17 ]
-  %.0 = phi i32 [ 0, %10 ], [ %15, %17 ]
-  store i8 %.018, ptr %.019, align 1
-  %15 = add nuw nsw i32 %.0, 1
-  %.not25 = icmp ne i8 %.018, 10
+  %.pn = phi ptr [ %12, %10 ], [ %.021, %17 ]
+  %.020 = phi ptr [ %1, %10 ], [ %18, %17 ]
+  %.019 = phi i8 [ %13, %10 ], [ %19, %17 ]
+  %.018 = phi i32 [ 0, %10 ], [ %15, %17 ]
+  store i8 %.019, ptr %.020, align 1
+  %15 = add nuw nsw i32 %.018, 1
+  %.not25 = icmp ne i8 %.019, 10
   %16 = icmp slt i32 %15, %2
   %or.cond = select i1 %.not25, i1 %16, i1 false
   br i1 %or.cond, label %17, label %.critedge
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.019, i64 1
-  %.020 = getelementptr inbounds i8, ptr %.pn, i64 1
-  %19 = load i8, ptr %.020, align 1
+  %18 = getelementptr inbounds i8, ptr %.020, i64 1
+  %.021 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %19 = load i8, ptr %.021, align 1
   %.not26 = icmp eq i8 %19, 0
   br i1 %.not26, label %.critedge, label %14
 
@@ -164,8 +164,8 @@ define internal i32 @memiofread(ptr nocapture noundef %0, ptr nocapture noundef 
   br label %23
 
 23:                                               ; preds = %5, %3, %.critedge
-  %.021 = phi i32 [ %15, %.critedge ], [ 0, %3 ], [ 0, %5 ]
-  ret i32 %.021
+  %.0 = phi i32 [ %15, %.critedge ], [ 0, %3 ], [ 0, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

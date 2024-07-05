@@ -588,8 +588,8 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr no
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.02231 = phi ptr [ %8, %.lr.ph ], [ %21, %10 ]
-  %11 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.02231) #10
+  %.02331 = phi ptr [ %8, %.lr.ph ], [ %21, %10 ]
+  %11 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.02331) #10
   %.val28 = load ptr, ptr %1, align 8
   %.val29 = load ptr, ptr %9, align 8
   %12 = getelementptr i8, ptr %.val28, i64 32
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr no
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #10
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %11, ptr noundef %19) #10
-  %21 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.02231) #10
+  %21 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.02331) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !11
@@ -662,8 +662,8 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr no
   br label %52
 
 52:                                               ; preds = %36, %37, %._crit_edge, %40
-  %.023 = phi i32 [ 1, %40 ], [ 0, %._crit_edge ], [ 0, %37 ], [ 0, %36 ]
-  ret i32 %.023
+  %.022 = phi i32 [ 1, %40 ], [ 0, %._crit_edge ], [ 0, %37 ], [ 0, %36 ]
+  ret i32 %.022
 }
 
 declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1

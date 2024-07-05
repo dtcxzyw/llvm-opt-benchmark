@@ -806,15 +806,15 @@ Vec_IntPush.exit149:                              ; preds = %356, %Vec_IntGrow.e
   br label %392
 
 392:                                              ; preds = %390, %387, %378
-  %.068.in.i = phi i32 [ %364, %378 ], [ %367, %387 ], [ %371, %390 ]
-  %.066.in.i = phi i32 [ %367, %378 ], [ %371, %387 ], [ %383, %390 ]
-  %.063.in.i = phi i32 [ %..i, %378 ], [ %.7.i, %387 ], [ %.9.i, %390 ]
-  %.062.in.i = phi i32 [ %.6.i, %378 ], [ %.8.i, %387 ], [ %.10.i, %390 ]
-  %.062.i = ashr i32 %.062.in.i, 1
+  %.069.in.i = phi i32 [ %364, %378 ], [ %367, %387 ], [ %371, %390 ]
+  %.067.in.i = phi i32 [ %367, %378 ], [ %371, %387 ], [ %383, %390 ]
+  %.064.in.i = phi i32 [ %..i, %378 ], [ %.7.i, %387 ], [ %.9.i, %390 ]
+  %.063.in.i = phi i32 [ %.6.i, %378 ], [ %.8.i, %387 ], [ %.10.i, %390 ]
   %.063.i = ashr i32 %.063.in.i, 1
-  %.066.i = ashr i32 %.066.in.i, 1
-  %.068.i = ashr i32 %.068.in.i, 1
-  %393 = and i32 %.068.in.i, 2
+  %.064.i = ashr i32 %.064.in.i, 1
+  %.067.i = ashr i32 %.067.in.i, 1
+  %.069.i = ashr i32 %.069.in.i, 1
+  %393 = and i32 %.069.in.i, 2
   %.not75.i = icmp eq i32 %393, 0
   br i1 %.not75.i, label %Fxch_DivNormalize.exit, label %394
 
@@ -822,19 +822,19 @@ Vec_IntPush.exit149:                              ; preds = %356, %Vec_IntGrow.e
   br label %Fxch_DivNormalize.exit
 
 Fxch_DivNormalize.exit:                           ; preds = %392, %394
-  %.169.i = phi i32 [ %.066.i, %394 ], [ %.068.i, %392 ]
-  %.167.i = phi i32 [ %.068.i, %394 ], [ %.066.i, %392 ]
-  %.164.i = phi i32 [ %.062.i, %394 ], [ %.063.i, %392 ]
-  %.1.i = phi i32 [ %.063.i, %394 ], [ %.062.i, %392 ]
-  %395 = and i32 %.164.i, 1
+  %.170.i = phi i32 [ %.067.i, %394 ], [ %.069.i, %392 ]
+  %.168.i = phi i32 [ %.069.i, %394 ], [ %.067.i, %392 ]
+  %.165.i = phi i32 [ %.063.i, %394 ], [ %.064.i, %392 ]
+  %.1.i = phi i32 [ %.064.i, %394 ], [ %.063.i, %392 ]
+  %395 = and i32 %.165.i, 1
   %.2.i = xor i32 %.1.i, %395
-  %396 = shl nsw i32 %.169.i, 1
+  %396 = shl nsw i32 %.170.i, 1
   store i32 %396, ptr %.val99, align 4
-  %397 = shl nsw i32 %.167.i, 1
+  %397 = shl nsw i32 %.168.i, 1
   %398 = or disjoint i32 %397, 1
   store i32 %398, ptr %366, align 4
-  %.265.i = shl nsw i32 %.164.i, 1
-  %399 = and i32 %.265.i, -4
+  %.266.i = shl nsw i32 %.165.i, 1
+  %399 = and i32 %.266.i, -4
   store i32 %399, ptr %370, align 4
   %400 = shl nsw i32 %.2.i, 1
   %401 = or disjoint i32 %400, 1
@@ -2913,8 +2913,8 @@ define i32 @Fxch_DivRemoveLits(ptr nocapture noundef %0, ptr nocapture noundef %
 
 16:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.080237 = phi i32 [ 0, %.lr.ph ], [ %.181, %59 ]
-  %.082236 = phi i32 [ 0, %.lr.ph ], [ %.183, %59 ]
+  %.079236 = phi i32 [ 0, %.lr.ph ], [ %.180, %59 ]
+  %.081235 = phi i32 [ 0, %.lr.ph ], [ %.182, %59 ]
   %.val95 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds i32, ptr %.val95, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
@@ -2976,7 +2976,7 @@ define i32 @Fxch_DivRemoveLits(ptr nocapture noundef %0, ptr nocapture noundef %
 
 Vec_IntRemove1.exit:                              ; preds = %31, %23, %._crit_edge.i
   %.017.i = phi i32 [ 1, %._crit_edge.i ], [ 0, %23 ], [ 0, %31 ]
-  %40 = add nsw i32 %.017.i, %.080237
+  %40 = add nsw i32 %.017.i, %.081235
   br label %59
 
 41:                                               ; preds = %16
@@ -3030,12 +3030,12 @@ Vec_IntRemove1.exit:                              ; preds = %31, %23, %._crit_ed
 
 Vec_IntRemove1.exit120:                           ; preds = %49, %41, %._crit_edge.i113
   %.017.i103 = phi i32 [ 1, %._crit_edge.i113 ], [ 0, %41 ], [ 0, %49 ]
-  %58 = add nsw i32 %.017.i103, %.082236
+  %58 = add nsw i32 %.017.i103, %.079236
   br label %59
 
 59:                                               ; preds = %Vec_IntRemove1.exit, %Vec_IntRemove1.exit120
-  %.183 = phi i32 [ %.082236, %Vec_IntRemove1.exit ], [ %58, %Vec_IntRemove1.exit120 ]
-  %.181 = phi i32 [ %40, %Vec_IntRemove1.exit ], [ %.080237, %Vec_IntRemove1.exit120 ]
+  %.182 = phi i32 [ %40, %Vec_IntRemove1.exit ], [ %.081235, %Vec_IntRemove1.exit120 ]
+  %.180 = phi i32 [ %.079236, %Vec_IntRemove1.exit ], [ %58, %Vec_IntRemove1.exit120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val102 = load i32, ptr %5, align 4
   %60 = sext i32 %.val102 to i64
@@ -3046,7 +3046,7 @@ Vec_IntRemove1.exit120:                           ; preds = %49, %41, %._crit_ed
   %.val101.pr302 = phi i32 [ %.val101.pr, %Vec_IntRemove1.exit138 ], [ %.val102, %.lr.ph242 ]
   %62 = phi i32 [ %83, %Vec_IntRemove1.exit138 ], [ %14, %.lr.ph242 ]
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %Vec_IntRemove1.exit138 ], [ 0, %.lr.ph242 ]
-  %.079241 = phi i32 [ %84, %Vec_IntRemove1.exit138 ], [ 0, %.lr.ph242 ]
+  %.086240 = phi i32 [ %84, %Vec_IntRemove1.exit138 ], [ 0, %.lr.ph242 ]
   %.val94 = load ptr, ptr %11, align 8
   %63 = getelementptr inbounds i32, ptr %.val94, i64 %indvars.iv290
   %64 = load i32, ptr %63, align 4
@@ -3105,21 +3105,21 @@ Vec_IntRemove1.exit138:                           ; preds = %74, %.lr.ph242.spli
   %.val101.pr = phi i32 [ %.val101.pr.pre, %._crit_edge.i131 ], [ %.val101.pr302, %.lr.ph242.split ], [ %.val101.pr302, %74 ]
   %83 = phi i32 [ %82, %._crit_edge.i131 ], [ %62, %.lr.ph242.split ], [ %62, %74 ]
   %.017.i121 = phi i32 [ 1, %._crit_edge.i131 ], [ 0, %.lr.ph242.split ], [ 0, %74 ]
-  %84 = add nuw nsw i32 %.017.i121, %.079241
+  %84 = add nuw nsw i32 %.017.i121, %.086240
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %85 = sext i32 %.val101.pr to i64
   %86 = icmp slt i64 %indvars.iv.next291, %85
   br i1 %86, label %.lr.ph242.split, label %.critedge2, !llvm.loop !18
 
 .critedge4.thread:                                ; preds = %4, %.critedge.preheader
-  %.080.lcssa313.ph = phi i32 [ %.181, %.critedge.preheader ], [ 0, %4 ]
-  %.082.lcssa312.ph = phi i32 [ %.183, %.critedge.preheader ], [ 0, %4 ]
-  %87 = add i32 %.080.lcssa313.ph, %.082.lcssa312.ph
+  %.079.lcssa313.ph = phi i32 [ %.180, %.critedge.preheader ], [ 0, %4 ]
+  %.081.lcssa312.ph = phi i32 [ %.182, %.critedge.preheader ], [ 0, %4 ]
+  %87 = add i32 %.079.lcssa313.ph, %.081.lcssa312.ph
   br label %.critedge11
 
 .critedge2:                                       ; preds = %Vec_IntRemove1.exit138, %.lr.ph242
   %.val99246 = phi i32 [ %.val102, %.lr.ph242 ], [ %.val101.pr, %Vec_IntRemove1.exit138 ]
-  %.079.lcssa = phi i32 [ 0, %.lr.ph242 ], [ %84, %Vec_IntRemove1.exit138 ]
+  %.086.lcssa = phi i32 [ 0, %.lr.ph242 ], [ %84, %Vec_IntRemove1.exit138 ]
   %88 = icmp eq i32 %.val99246, 2
   br i1 %88, label %.lr.ph248, label %.critedge4
 
@@ -3248,8 +3248,8 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
 
 .critedge4:                                       ; preds = %Vec_IntRemove1.exit174, %.critedge2
   %.val98 = phi i32 [ %.val99246, %.critedge2 ], [ %.val99, %Vec_IntRemove1.exit174 ]
-  %137 = add i32 %.181, %.183
-  %138 = add i32 %137, %.079.lcssa
+  %137 = add i32 %.180, %.182
+  %138 = add i32 %137, %.086.lcssa
   %139 = icmp eq i32 %.val98, 4
   br i1 %139, label %140, label %.critedge11
 
@@ -3272,7 +3272,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   %152 = xor i32 %151, %149
   %.mask212 = and i32 %152, -2
   %153 = icmp eq i32 %.mask212, 2
-  %154 = icmp eq i32 %.181, 1
+  %154 = icmp eq i32 %.182, 1
   %or.cond = select i1 %153, i1 %154, i1 false
   br i1 %or.cond, label %155, label %156
 
@@ -3302,7 +3302,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   br i1 %164, label %.lr.ph259, label %.critedge11
 
 .lr.ph259:                                        ; preds = %.lr.ph253, %.critedge9.preheader
-  %.0.lcssa332 = phi i32 [ %194, %.critedge9.preheader ], [ 2, %.lr.ph253 ]
+  %.083.lcssa332 = phi i32 [ %194, %.critedge9.preheader ], [ 2, %.lr.ph253 ]
   %.val96256331 = phi i32 [ %.val97, %.critedge9.preheader ], [ %.val97250, %.lr.ph253 ]
   %165 = getelementptr inbounds i8, ptr %1, i64 4
   %166 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3314,7 +3314,7 @@ Vec_IntRemove1.exit174:                           ; preds = %126, %Vec_IntRemove
   %.val97304 = phi i32 [ %.val97, %Vec_IntRemove1.exit192 ], [ %.val97250, %.lr.ph253 ]
   %169 = phi i32 [ %193, %Vec_IntRemove1.exit192 ], [ %162, %.lr.ph253 ]
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %Vec_IntRemove1.exit192 ], [ 0, %.lr.ph253 ]
-  %.0252 = phi i32 [ %194, %Vec_IntRemove1.exit192 ], [ 2, %.lr.ph253 ]
+  %.083251 = phi i32 [ %194, %Vec_IntRemove1.exit192 ], [ 2, %.lr.ph253 ]
   %.val88 = load ptr, ptr %141, align 8
   %170 = getelementptr inbounds i32, ptr %.val88, i64 %indvars.iv296
   %171 = load i32, ptr %170, align 4
@@ -3376,7 +3376,7 @@ Vec_IntRemove1.exit192:                           ; preds = %184, %.lr.ph253.spl
   %.val97 = phi i32 [ %.val97.pre, %._crit_edge.i185 ], [ %.val97304, %.lr.ph253.split ], [ %.val97304, %184 ]
   %193 = phi i32 [ %192, %._crit_edge.i185 ], [ %169, %.lr.ph253.split ], [ %169, %184 ]
   %.017.i175 = phi i32 [ 1, %._crit_edge.i185 ], [ 0, %.lr.ph253.split ], [ 0, %184 ]
-  %194 = add nuw nsw i32 %.017.i175, %.0252
+  %194 = add nuw nsw i32 %.017.i175, %.083251
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %195 = sext i32 %.val97 to i64
   %196 = icmp slt i64 %indvars.iv.next297, %195
@@ -3386,7 +3386,7 @@ Vec_IntRemove1.exit192:                           ; preds = %184, %.lr.ph253.spl
   %.val96307 = phi i32 [ %.val96, %Vec_IntRemove1.exit210 ], [ %.val96256331, %.lr.ph259 ]
   %197 = phi i32 [ %221, %Vec_IntRemove1.exit210 ], [ %167, %.lr.ph259 ]
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %Vec_IntRemove1.exit210 ], [ 0, %.lr.ph259 ]
-  %.1258 = phi i32 [ %222, %Vec_IntRemove1.exit210 ], [ %.0.lcssa332, %.lr.ph259 ]
+  %.184257 = phi i32 [ %222, %Vec_IntRemove1.exit210 ], [ %.083.lcssa332, %.lr.ph259 ]
   %.val = load ptr, ptr %141, align 8
   %198 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv299
   %199 = load i32, ptr %198, align 4
@@ -3448,15 +3448,15 @@ Vec_IntRemove1.exit210:                           ; preds = %212, %.lr.ph259.spl
   %.val96 = phi i32 [ %.val96.pre, %._crit_edge.i203 ], [ %.val96307, %.lr.ph259.split ], [ %.val96307, %212 ]
   %221 = phi i32 [ %220, %._crit_edge.i203 ], [ %197, %.lr.ph259.split ], [ %197, %212 ]
   %.017.i193 = phi i32 [ 1, %._crit_edge.i203 ], [ 0, %.lr.ph259.split ], [ 0, %212 ]
-  %222 = add nuw nsw i32 %.017.i193, %.1258
+  %222 = add nuw nsw i32 %.017.i193, %.184257
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %223 = sext i32 %.val96 to i64
   %224 = icmp slt i64 %indvars.iv.next300, %223
   br i1 %224, label %.lr.ph259.split, label %.critedge11, !llvm.loop !22
 
 .critedge11:                                      ; preds = %Vec_IntRemove1.exit210, %158, %.lr.ph259, %.critedge4.thread, %.critedge9.preheader, %140, %156, %.critedge4
-  %.2 = phi i32 [ %138, %156 ], [ %138, %.critedge4 ], [ %138, %140 ], [ %194, %.critedge9.preheader ], [ %87, %.critedge4.thread ], [ %.0.lcssa332, %.lr.ph259 ], [ 2, %158 ], [ %222, %Vec_IntRemove1.exit210 ]
-  ret i32 %.2
+  %.285 = phi i32 [ %138, %156 ], [ %138, %.critedge4 ], [ %138, %140 ], [ %194, %.critedge9.preheader ], [ %87, %.critedge4.thread ], [ %.083.lcssa332, %.lr.ph259 ], [ 2, %158 ], [ %222, %Vec_IntRemove1.exit210 ]
+  ret i32 %.285
 }
 
 ; Function Attrs: nofree nounwind uwtable

@@ -159,16 +159,16 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
   br label %37
 
 37:                                               ; preds = %35, %33
-  %.0 = phi ptr [ %34, %33 ], [ %36, %35 ]
-  %38 = icmp eq ptr %.0, null
+  %.037 = phi ptr [ %34, %33 ], [ %36, %35 ]
+  %38 = icmp eq ptr %.037, null
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %37
-  store i64 66, ptr %.0, align 8
+  store i64 66, ptr %.037, align 8
   br label %40
 
 40:                                               ; preds = %26, %28, %39
-  %.1 = phi ptr [ %24, %28 ], [ %24, %26 ], [ %.0, %39 ]
+  %.1 = phi ptr [ %24, %28 ], [ %24, %26 ], [ %.037, %39 ]
   %41 = getelementptr inbounds i8, ptr %.1, i64 8
   store i64 %17, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -184,8 +184,8 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
   unreachable
 
 45:                                               ; preds = %43, %8, %40
-  %.037 = phi ptr [ %42, %40 ], [ null, %8 ], [ null, %43 ]
-  ret ptr %.037
+  %.0 = phi ptr [ %42, %40 ], [ null, %8 ], [ null, %43 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

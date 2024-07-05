@@ -900,13 +900,13 @@ Cbs0_QueStore.exit:                               ; preds = %Cbs0_QuePush.exit.i
   br label %Cbs0_ManDecideHighest.exit
 
 Cbs0_ManDecideHighest.exit:                       ; preds = %53, %50, %67, %64, %58, %44, %70, %73
-  %.031 = phi ptr [ %74, %73 ], [ null, %70 ], [ null, %44 ], [ null, %58 ], [ %.01012.i52, %64 ], [ %.1.i54, %67 ], [ %.01012.i, %50 ], [ %.1.i, %53 ]
+  %.032 = phi ptr [ %74, %73 ], [ null, %70 ], [ null, %44 ], [ null, %58 ], [ %.01012.i52, %64 ], [ %.1.i54, %67 ], [ %.01012.i, %50 ], [ %.1.i, %53 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 40
   %76 = load ptr, ptr %75, align 8
-  %77 = load i64, ptr %.031, align 4
+  %77 = load i64, ptr %.032, align 4
   %78 = and i64 %77, 536870911
   %79 = sub nsw i64 0, %78
-  %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.031, i64 %79
+  %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.032, i64 %79
   %81 = getelementptr i8, ptr %76, i64 32
   %.val41 = load ptr, ptr %81, align 8
   %82 = getelementptr i8, ptr %76, i64 144
@@ -922,7 +922,7 @@ Cbs0_ManDecideHighest.exit:                       ; preds = %53, %50, %67, %64, 
   %90 = lshr i64 %77, 32
   %91 = and i64 %90, 536870911
   %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.031, i64 %92
+  %93 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.032, i64 %92
   %94 = ptrtoint ptr %93 to i64
   %95 = sub i64 %94, %84
   %96 = sdiv exact i64 %95, 12
@@ -938,8 +938,8 @@ Cbs0_ManDecideHighest.exit:                       ; preds = %53, %50, %67, %64, 
   %103 = and i64 %.86, -2
   %104 = inttoptr i64 %103 to ptr
   %105 = load i64, ptr %104, align 4
-  %.0.in = shl i64 %102, 62
-  %106 = and i64 %.0.in, 4611686018427387904
+  %.031.in = shl i64 %102, 62
+  %106 = and i64 %.031.in, 4611686018427387904
   %107 = and i64 %105, -4611686019501129729
   %108 = or disjoint i64 %107, %106
   %109 = or disjoint i64 %108, 1073741824
@@ -1083,8 +1083,8 @@ Cbs0_ManAssign.exit71:                            ; preds = %._crit_edge.i.i64, 
   br label %Cbs0_ManCheckLimits.exit.thread
 
 Cbs0_ManCheckLimits.exit.thread:                  ; preds = %6, %Cbs0_ManAssign.exit71, %Cbs0_ManAssign.exit, %Cbs0_ManCheckLimits.exit, %3, %1, %171
-  %.032 = phi i32 [ 1, %171 ], [ 1, %1 ], [ 0, %3 ], [ 0, %Cbs0_ManCheckLimits.exit ], [ 0, %Cbs0_ManAssign.exit ], [ 0, %Cbs0_ManAssign.exit71 ], [ 0, %6 ]
-  ret i32 %.032
+  %.0 = phi i32 [ 1, %171 ], [ 1, %1 ], [ 0, %3 ], [ 0, %Cbs0_ManCheckLimits.exit ], [ 0, %Cbs0_ManAssign.exit ], [ 0, %Cbs0_ManAssign.exit71 ], [ 0, %6 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1106,8 +1106,8 @@ define internal fastcc ptr @Cbs0_ManDecideMaxFF(ptr nocapture noundef readonly %
 
 11:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %spec.select17, %14 ]
-  %.01319 = phi ptr [ null, %.lr.ph ], [ %spec.select, %14 ]
+  %.021 = phi ptr [ null, %.lr.ph ], [ %spec.select17, %14 ]
+  %.01220 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
   %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -1143,16 +1143,16 @@ define internal fastcc ptr @Cbs0_ManDecideMaxFF(ptr nocapture noundef readonly %
   %36 = getelementptr inbounds i8, ptr %.val.val18, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %27, i32 %37)
-  %39 = icmp slt i32 %.021, %38
-  %spec.select = select i1 %39, ptr %13, ptr %.01319
-  %spec.select17 = tail call i32 @llvm.smax.i32(i32 %.021, i32 %38)
+  %39 = icmp slt i32 %.01220, %38
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.01220, i32 %38)
+  %spec.select17 = select i1 %39, ptr %13, ptr %.021
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !11
 
 .critedge:                                        ; preds = %11, %14, %1
-  %.013.lcssa = phi ptr [ null, %1 ], [ %spec.select, %14 ], [ %.01319, %11 ]
-  ret ptr %.013.lcssa
+  %.0.lcssa = phi ptr [ null, %1 ], [ %spec.select17, %14 ], [ %.021, %11 ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

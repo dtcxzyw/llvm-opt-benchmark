@@ -78,11 +78,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.045 = phi ptr [ null, %2 ], [ %.045.be, %.backedge ]
   %.043 = phi ptr [ null, %2 ], [ %.043.be, %.backedge ]
   %.041 = phi ptr [ null, %2 ], [ %.041.be, %.backedge ]
-  %.039 = phi ptr [ null, %2 ], [ %.039.be, %.backedge ]
-  %.037 = phi i32 [ 0, %2 ], [ %.037.be, %.backedge ]
+  %.039 = phi i32 [ 0, %2 ], [ %.039.be, %.backedge ]
+  %.037 = phi i1 [ false, %2 ], [ %.037.be, %.backedge ]
   %.035 = phi i1 [ false, %2 ], [ %.035.be, %.backedge ]
   %.033 = phi i1 [ false, %2 ], [ %.033.be, %.backedge ]
-  %.0 = phi i1 [ false, %2 ], [ %.0.be, %.backedge ]
+  %.0 = phi ptr [ null, %2 ], [ %.0.be, %.backedge ]
   %11 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #6
   switch i32 %11, label %29 [
     i32 -1, label %30
@@ -99,14 +99,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %10, %26, %25, %24, %21, %18, %17, %14, %13, %12
-  %.045.be = phi ptr [ %28, %26 ], [ %.045, %25 ], [ %.045, %24 ], [ %.045, %21 ], [ %.045, %18 ], [ %.045, %17 ], [ %.045, %14 ], [ %.045, %13 ], [ %.045, %12 ], [ %.045, %10 ]
-  %.043.be = phi ptr [ %.043, %26 ], [ %.043, %25 ], [ %.043, %24 ], [ %.043, %21 ], [ %.043, %18 ], [ %.043, %17 ], [ %16, %14 ], [ %.043, %13 ], [ %.043, %12 ], [ %.043, %10 ]
-  %.041.be = phi ptr [ %.041, %26 ], [ %.041, %25 ], [ %.041, %24 ], [ %.041, %21 ], [ %20, %18 ], [ %.041, %17 ], [ %.041, %14 ], [ %.041, %13 ], [ %.041, %12 ], [ %.041, %10 ]
-  %.039.be = phi ptr [ %.039, %26 ], [ %.039, %25 ], [ %.039, %24 ], [ %23, %21 ], [ %.039, %18 ], [ %.039, %17 ], [ %.039, %14 ], [ %.039, %13 ], [ %.039, %12 ], [ %.039, %10 ]
-  %.037.be = phi i32 [ %.037, %26 ], [ 2, %25 ], [ 1, %24 ], [ %.037, %21 ], [ %.037, %18 ], [ %.037, %17 ], [ %.037, %14 ], [ %.037, %13 ], [ %.037, %12 ], [ %.037, %10 ]
-  %.035.be = phi i1 [ %.035, %26 ], [ %.035, %25 ], [ %.035, %24 ], [ %.035, %21 ], [ %.035, %18 ], [ %.035, %17 ], [ %.035, %14 ], [ %.035, %13 ], [ true, %12 ], [ %.035, %10 ]
-  %.033.be = phi i1 [ %.033, %26 ], [ %.033, %25 ], [ %.033, %24 ], [ %.033, %21 ], [ %.033, %18 ], [ true, %17 ], [ %.033, %14 ], [ %.033, %13 ], [ %.033, %12 ], [ %.033, %10 ]
-  %.0.be = phi i1 [ %.0, %26 ], [ %.0, %25 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %18 ], [ %.0, %17 ], [ %.0, %14 ], [ true, %13 ], [ %.0, %12 ], [ %.0, %10 ]
+  %.045.be = phi ptr [ %.045, %26 ], [ %.045, %25 ], [ %.045, %24 ], [ %.045, %21 ], [ %.045, %18 ], [ %.045, %17 ], [ %16, %14 ], [ %.045, %13 ], [ %.045, %12 ], [ %.045, %10 ]
+  %.043.be = phi ptr [ %.043, %26 ], [ %.043, %25 ], [ %.043, %24 ], [ %.043, %21 ], [ %20, %18 ], [ %.043, %17 ], [ %.043, %14 ], [ %.043, %13 ], [ %.043, %12 ], [ %.043, %10 ]
+  %.041.be = phi ptr [ %.041, %26 ], [ %.041, %25 ], [ %.041, %24 ], [ %23, %21 ], [ %.041, %18 ], [ %.041, %17 ], [ %.041, %14 ], [ %.041, %13 ], [ %.041, %12 ], [ %.041, %10 ]
+  %.039.be = phi i32 [ %.039, %26 ], [ 2, %25 ], [ 1, %24 ], [ %.039, %21 ], [ %.039, %18 ], [ %.039, %17 ], [ %.039, %14 ], [ %.039, %13 ], [ %.039, %12 ], [ %.039, %10 ]
+  %.037.be = phi i1 [ %.037, %26 ], [ %.037, %25 ], [ %.037, %24 ], [ %.037, %21 ], [ %.037, %18 ], [ %.037, %17 ], [ %.037, %14 ], [ %.037, %13 ], [ true, %12 ], [ %.037, %10 ]
+  %.035.be = phi i1 [ %.035, %26 ], [ %.035, %25 ], [ %.035, %24 ], [ %.035, %21 ], [ %.035, %18 ], [ true, %17 ], [ %.035, %14 ], [ %.035, %13 ], [ %.035, %12 ], [ %.035, %10 ]
+  %.033.be = phi i1 [ %.033, %26 ], [ %.033, %25 ], [ %.033, %24 ], [ %.033, %21 ], [ %.033, %18 ], [ %.033, %17 ], [ %.033, %14 ], [ true, %13 ], [ %.033, %12 ], [ %.033, %10 ]
+  %.0.be = phi ptr [ %28, %26 ], [ %.0, %25 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %18 ], [ %.0, %17 ], [ %.0, %14 ], [ %.0, %13 ], [ %.0, %12 ], [ %.0, %10 ]
   br label %10, !llvm.loop !5
 
 12:                                               ; preds = %10
@@ -167,7 +167,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %35 = sext i32 %31 to i64
   %36 = getelementptr ptr, ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8
-  br i1 %.033, label %43, label %47
+  br i1 %.035, label %43, label %47
 
 38:                                               ; preds = %30
   %39 = add i32 %31, 1
@@ -194,9 +194,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.not48 = icmp eq i32 %48, 0
   %49 = select i1 %.not48, ptr @.str.20, ptr @.str.19
   %50 = call ptr @fmtId(ptr noundef %37) #6
-  %51 = select i1 %.0, ptr @.str.21, ptr @.str.20
+  %51 = select i1 %.033, ptr @.str.21, ptr @.str.20
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, ptr noundef nonnull %49, ptr noundef %50, ptr noundef nonnull %51) #6
-  %52 = icmp eq ptr %.045, null
+  %52 = icmp eq ptr %.0, null
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %47
@@ -206,20 +206,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %56
 
 56:                                               ; preds = %53, %47
-  %.2 = phi ptr [ %.045, %47 ], [ %spec.select, %53 ]
+  %.2 = phi ptr [ %.0, %47 ], [ %spec.select, %53 ]
   store ptr %.2, ptr %4, align 8
   %57 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.043, ptr %57, align 8
+  store ptr %.045, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.041, ptr %58, align 8
+  store ptr %.043, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.039, ptr %59, align 8
+  store ptr %.041, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %.037, ptr %60, align 8
+  store i32 %.039, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %61, align 8
-  %62 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.035) #6
-  br i1 %.035, label %63, label %66
+  %62 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.037) #6
+  br i1 %.037, label %63, label %66
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr %5, align 8

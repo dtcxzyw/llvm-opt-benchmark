@@ -338,25 +338,25 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, -2147483648) i32 @Mio_LibraryReadGateNameMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %.079 = load ptr, ptr %2, align 8
-  %.not10 = icmp eq ptr %.079, null
+  %.09 = load ptr, ptr %2, align 8
+  %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.0712 = phi ptr [ %.07, %.lr.ph ], [ %.079, %1 ]
-  %.011 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
-  %3 = load ptr, ptr %.0712, align 8
+  %.012 = phi ptr [ %.0, %.lr.ph ], [ %.09, %1 ]
+  %.0711 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
+  %3 = load ptr, ptr %.012, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %5 = trunc i64 %4 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.011, i32 %5)
-  %6 = getelementptr inbounds i8, ptr %.0712, i64 48
-  %.07 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %.07, null
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0711, i32 %5)
+  %6 = getelementptr inbounds i8, ptr %.012, i64 48
+  %.0 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.07.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
+  ret i32 %.07.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

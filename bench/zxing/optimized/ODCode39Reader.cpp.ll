@@ -1026,14 +1026,14 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi9EZNS_13FindLeftGuardILi9EL
 
 .preheader:                                       ; preds = %10, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %10 ]
-  %.02328.i.i = phi double [ %24, %.preheader ], [ 0.000000e+00, %10 ]
+  %.02528.i.i = phi double [ %24, %.preheader ], [ 0.000000e+00, %10 ]
   %18 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds i16, ptr %11, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = uitofp i16 %22 to double
-  %24 = fadd double %.02328.i.i, %23
+  %24 = fadd double %.02528.i.i, %23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %25, label %.preheader, !llvm.loop !14
@@ -1103,14 +1103,14 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 54:                                               ; preds = %54, %.lr.ph.split.us
   %indvars.iv.i.i5.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.i7.us, %54 ]
-  %.02328.i.i6.us = phi double [ 0.000000e+00, %.lr.ph.split.us ], [ %61, %54 ]
+  %.02528.i.i6.us = phi double [ 0.000000e+00, %.lr.ph.split.us ], [ %61, %54 ]
   %55 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i5.us
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds i16, ptr %.sroa.0.038.us, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = uitofp i16 %59 to double
-  %61 = fadd double %.02328.i.i6.us, %60
+  %61 = fadd double %.02528.i.i6.us, %60
   %indvars.iv.next.i.i7.us = add nuw nsw i64 %indvars.iv.i.i5.us, 1
   %exitcond.not.i.i8.us = icmp eq i64 %indvars.iv.next.i.i7.us, 6
   br i1 %exitcond.not.i.i8.us, label %62, label %54, !llvm.loop !14
@@ -1159,14 +1159,14 @@ _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %69, %62, %_ZZN5ZXin
 
 83:                                               ; preds = %83, %.lr.ph.split
   %indvars.iv.i.i5 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i.i7, %83 ]
-  %.02328.i.i6 = phi double [ 0.000000e+00, %.lr.ph.split ], [ %90, %83 ]
+  %.02528.i.i6 = phi double [ 0.000000e+00, %.lr.ph.split ], [ %90, %83 ]
   %84 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i5
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
   %87 = getelementptr inbounds i16, ptr %.sroa.0.038, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = uitofp i16 %88 to double
-  %90 = fadd double %.02328.i.i6, %89
+  %90 = fadd double %.02528.i.i6, %89
   %indvars.iv.next.i.i7 = add nuw nsw i64 %indvars.iv.i.i5, 1
   %exitcond.not.i.i8 = icmp eq i64 %indvars.iv.next.i.i7, 6
   br i1 %exitcond.not.i.i8, label %91, label %83, !llvm.loop !14

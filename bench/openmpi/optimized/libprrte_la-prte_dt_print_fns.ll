@@ -773,7 +773,7 @@ hwloc_get_nbobjs_by_type.exit:                    ; preds = %22, %32, %33
   br label %86
 
 86:                                               ; preds = %84, %73
-  %.078 = phi ptr [ %85, %84 ], [ %82, %73 ]
+  %.077 = phi ptr [ %85, %84 ], [ %82, %73 ]
   tail call void @hwloc_bitmap_free(ptr noundef %74) #8
   %87 = getelementptr inbounds i8, ptr %2, i64 144
   %88 = tail call ptr @prte_util_print_jobids(ptr noundef nonnull %87) #8
@@ -783,8 +783,8 @@ hwloc_get_nbobjs_by_type.exit:                    ; preds = %22, %32, %33
   %92 = getelementptr inbounds i8, ptr %2, i64 400
   %93 = load i32, ptr %92, align 8
   %94 = tail call ptr @prte_util_print_vpids(i32 noundef %93) #8
-  %95 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25, ptr noundef %88, i64 noundef %91, ptr noundef %94, ptr noundef %.078) #8
-  call void @free(ptr noundef %.078) #8
+  %95 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25, ptr noundef %88, i64 noundef %91, ptr noundef %94, ptr noundef %.077) #8
+  call void @free(ptr noundef %.077) #8
   br label %150
 
 96:                                               ; preds = %70, %65, %62

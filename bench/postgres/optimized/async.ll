@@ -1627,8 +1627,8 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   %127 = tail call zeroext i1 @LWLockAcquire(ptr noundef %126, i32 noundef 0) #16
   %128 = load ptr, ptr @asyncQueueControl, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 36
-  %.02427.i = load i32, ptr %129, align 4
-  %.not28.i = icmp eq i32 %.02427.i, -1
+  %.02527.i = load i32, ptr %129, align 4
+  %.not28.i = icmp eq i32 %.02527.i, -1
   br i1 %.not28.i, label %._crit_edge.thread.i, label %.lr.ph.i21
 
 ._crit_edge.thread.i:                             ; preds = %116
@@ -1645,9 +1645,9 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
 
 134:                                              ; preds = %157, %.lr.ph.i21
   %135 = phi i32 [ %.pre36.i, %.lr.ph.i21 ], [ %158, %157 ]
-  %.02430.i = phi i32 [ %.02427.i, %.lr.ph.i21 ], [ %.024.i, %157 ]
-  %.02529.i = phi i32 [ 0, %.lr.ph.i21 ], [ %.1.i, %157 ]
-  %136 = sext i32 %.02430.i to i64
+  %.02530.i = phi i32 [ %.02527.i, %.lr.ph.i21 ], [ %.025.i, %157 ]
+  %.029.i = phi i32 [ 0, %.lr.ph.i21 ], [ %.1.i, %157 ]
+  %136 = sext i32 %.02530.i to i64
   %137 = getelementptr [0 x %struct.QueueBackendStatus], ptr %132, i64 0, i64 %136
   %138 = load i32, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %137, i64 16
@@ -1675,21 +1675,21 @@ asyncQueueUnregister.exit:                        ; preds = %.thread, %.loopexit
   br i1 %151, label %157, label %152
 
 152:                                              ; preds = %149, %146, %144
-  %153 = sext i32 %.02529.i to i64
+  %153 = sext i32 %.029.i to i64
   %154 = getelementptr i32, ptr %120, i64 %153
   store i32 %138, ptr %154, align 4
   %155 = getelementptr i32, ptr %124, i64 %153
-  store i32 %.02430.i, ptr %155, align 4
-  %156 = add i32 %.02529.i, 1
+  store i32 %.02530.i, ptr %155, align 4
+  %156 = add i32 %.029.i, 1
   %.pre.i22 = load i32, ptr @MyDatabaseId, align 4
   br label %157
 
 157:                                              ; preds = %152, %149, %146
   %158 = phi i32 [ %135, %146 ], [ %.pre.i22, %152 ], [ %135, %149 ]
-  %.1.i = phi i32 [ %.02529.i, %146 ], [ %156, %152 ], [ %.02529.i, %149 ]
+  %.1.i = phi i32 [ %.029.i, %146 ], [ %156, %152 ], [ %.029.i, %149 ]
   %159 = getelementptr [0 x %struct.QueueBackendStatus], ptr %132, i64 0, i64 %136, i32 2
-  %.024.i = load i32, ptr %159, align 4
-  %.not.i23 = icmp eq i32 %.024.i, -1
+  %.025.i = load i32, ptr %159, align 4
+  %.not.i23 = icmp eq i32 %.025.i, -1
   br i1 %.not.i23, label %._crit_edge.i, label %134, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %157

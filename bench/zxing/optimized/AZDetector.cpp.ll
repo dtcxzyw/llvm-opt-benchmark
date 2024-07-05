@@ -652,12 +652,12 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   br label %235
 
 235:                                              ; preds = %272, %234
-  %.041.idx114.i.i.i = phi i64 [ 0, %234 ], [ %.041.add.i.i.i, %272 ]
-  %.042113.i.i.i = phi i32 [ %232, %234 ], [ %270, %272 ]
+  %.041114.i.i.i = phi i32 [ %232, %234 ], [ %270, %272 ]
+  %.042.idx113.i.i.i = phi i64 [ 0, %234 ], [ %.042.add.i.i.i, %272 ]
   %.091112.i.i.i = phi i32 [ 0, %234 ], [ %.2.i.i.i, %272 ]
   %.093111.i.i.i = phi i32 [ 0, %234 ], [ %.295.i.i.i, %272 ]
-  %.041.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 %.041.idx114.i.i.i
-  %236 = load ptr, ptr %.041.ptr.i.i.i, align 8, !noalias !22
+  %.042.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 %.042.idx113.i.i.i
+  %236 = load ptr, ptr %.042.ptr.i.i.i, align 8, !noalias !22
   %237 = getelementptr inbounds i8, ptr %236, i64 12
   %238 = getelementptr inbounds i8, ptr %236, i64 8
   %.promoted.i.i.i = load i32, ptr %237, align 4, !noalias !22
@@ -669,7 +669,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
 240:                                              ; preds = %269, %235
   %.039110.i.i.i = phi i32 [ 0, %235 ], [ %271, %269 ]
   %.040109.i.i.i = phi i32 [ %232, %235 ], [ %256, %269 ]
-  %.1108.i.i.i = phi i32 [ %.042113.i.i.i, %235 ], [ %270, %269 ]
+  %.1108.i.i.i = phi i32 [ %.041114.i.i.i, %235 ], [ %270, %269 ]
   %.192107.i.i.i = phi i32 [ %.091112.i.i.i, %235 ], [ %.2.i.i.i, %269 ]
   %.194106.i.i.i = phi i32 [ %.093111.i.i.i, %235 ], [ %.295.i.i.i, %269 ]
   %241 = phi i32 [ %.promoted.i.i.i, %235 ], [ %260, %269 ]
@@ -712,21 +712,21 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   %260 = sub nsw i32 %241, %256
   store i32 %260, ptr %237, align 4, !noalias !22
   %261 = add nsw i32 %256, %.040109.i.i.i
-  %262 = icmp eq i32 %.194106.i.i.i, 0
+  %262 = icmp eq i32 %.192107.i.i.i, 0
   br i1 %262, label %264, label %263
 
 263:                                              ; preds = %255
-  %.sroa.speculated8.i.i.i41.i = call i32 @llvm.smin.i32(i32 %.194106.i.i.i, i32 %261)
-  %.sroa.speculated.i75.i.i.i = call i32 @llvm.smax.i32(i32 %.192107.i.i.i, i32 %261)
+  %.sroa.speculated8.i.i.i41.i = call i32 @llvm.smin.i32(i32 %.192107.i.i.i, i32 %261)
+  %.sroa.speculated.i75.i.i.i = call i32 @llvm.smax.i32(i32 %.194106.i.i.i, i32 %261)
   br label %264
 
 264:                                              ; preds = %263, %255
-  %.295.i.i.i = phi i32 [ %.sroa.speculated8.i.i.i41.i, %263 ], [ %261, %255 ]
-  %.2.i.i.i = phi i32 [ %.sroa.speculated.i75.i.i.i, %263 ], [ %261, %255 ]
-  %265 = shl nsw i32 %.295.i.i.i, 2
+  %.295.i.i.i = phi i32 [ %.sroa.speculated.i75.i.i.i, %263 ], [ %261, %255 ]
+  %.2.i.i.i = phi i32 [ %.sroa.speculated8.i.i.i41.i, %263 ], [ %261, %255 ]
+  %265 = shl nsw i32 %.2.i.i.i, 2
   %266 = sdiv i32 %265, 3
   %267 = add nsw i32 %266, 1
-  %268 = icmp sgt i32 %.2.i.i.i, %267
+  %268 = icmp sgt i32 %.295.i.i.i, %267
   br i1 %268, label %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.thread.i.i, label %269
 
 269:                                              ; preds = %264
@@ -736,8 +736,8 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit5
   br i1 %exitcond.not.i.i42.i, label %272, label %240, !llvm.loop !26
 
 272:                                              ; preds = %269
-  %.041.add.i.i.i = add nuw nsw i64 %.041.idx114.i.i.i, 8
-  %.not49.i.i.i = icmp eq i64 %.041.add.i.i.i, 16
+  %.042.add.i.i.i = add nuw nsw i64 %.042.idx113.i.i.i, 8
+  %.not49.i.i.i = icmp eq i64 %.042.add.i.i.i, 16
   br i1 %.not49.i.i.i, label %_ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i, label %235
 
 _ZN5ZXing5AztecL32CheckSymmetricAztecCenterPatternERNS_15BitMatrixCursorINS_6PointTIiEEEEib.exit.i.i: ; preds = %272

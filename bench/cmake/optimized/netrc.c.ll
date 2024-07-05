@@ -44,8 +44,8 @@ define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocap
   br i1 %or.cond35, label %.thread, label %.thread30
 
 .thread30:                                        ; preds = %10, %8
-  %.033 = phi ptr [ %9, %8 ], [ %17, %10 ]
-  %18 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.1, ptr noundef nonnull %.033, ptr noundef nonnull @.str.2) #4
+  %.02033 = phi ptr [ %9, %8 ], [ %17, %10 ]
+  %18 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.1, ptr noundef nonnull %.02033, ptr noundef nonnull @.str.2) #4
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %19, label %21
 
@@ -67,8 +67,8 @@ define dso_local range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %0, ptr nocap
   br label %.thread
 
 .thread:                                          ; preds = %10, %21, %25, %19
-  %.021 = phi i32 [ -1, %19 ], [ %26, %25 ], [ %22, %21 ], [ 1, %10 ]
-  ret i32 %.021
+  %.0 = phi i32 [ -1, %19 ], [ %26, %25 ], [ %22, %21 ], [ 1, %10 ]
+  ret i32 %.0
 }
 
 declare ptr @curl_getenv(ptr noundef) local_unnamed_addr #1

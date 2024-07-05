@@ -3916,19 +3916,19 @@ _ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i:
 
 732:                                              ; preds = %.thread700, %719
   %.sroa.21296.sroa.14.sroa.0.0720 = phi i64 [ %.sroa.23.sroa.15.sroa.0.0.copyload598, %.thread700 ], [ %.sroa.21296.sroa.14.sroa.0.0.copyload, %719 ]
-  %.sroa.13287.0719 = phi i64 [ %.sroa.0.0.copyload, %.thread700 ], [ %.sroa.13287.0.copyload289, %719 ]
-  %.sroa.23.0718 = phi i64 [ %.sroa.23.0.ph, %.thread700 ], [ %.sroa.075.0.i, %719 ]
-  %.sroa.21296.sroa.0.sroa.13.0717 = phi ptr [ %.sroa.14.0.copyload, %.thread700 ], [ %.sroa.21296.sroa.0.sroa.13.0.copyload, %719 ]
-  %.sroa.22.sroa.13.0716 = phi ptr [ %.sroa.24.sroa.14.0.copyload253, %.thread700 ], [ %.sroa.22.sroa.13.0.copyload349, %719 ]
-  %.sroa.21296.sroa.0.sroa.0.0715 = phi i64 [ %.sroa.8.0.copyload, %.thread700 ], [ %.sroa.21296.sroa.0.sroa.0.0.copyload, %719 ]
-  %.sroa.21296.sroa.13.0714 = phi i64 [ %.sroa.23.sroa.14.2.ph, %.thread700 ], [ %.sroa.21296.sroa.13.0.copyload357, %719 ]
-  %.sroa.22.sroa.14.sroa.13.0713 = phi ptr [ %.sroa.24.sroa.15.sroa.14.0.copyload427, %.thread700 ], [ %.sroa.22.sroa.14.sroa.13.0.copyload, %719 ]
-  %.sroa.22.sroa.14.sroa.0.0712 = phi ptr [ %442, %.thread700 ], [ %.sroa.22.sroa.14.sroa.0.0.copyload, %719 ]
+  %.sroa.21296.sroa.0.sroa.13.0719 = phi ptr [ %.sroa.14.0.copyload, %.thread700 ], [ %.sroa.21296.sroa.0.sroa.13.0.copyload, %719 ]
+  %.sroa.21296.sroa.0.sroa.0.0718 = phi i64 [ %.sroa.8.0.copyload, %.thread700 ], [ %.sroa.21296.sroa.0.sroa.0.0.copyload, %719 ]
+  %.sroa.13287.0717 = phi i64 [ %.sroa.0.0.copyload, %.thread700 ], [ %.sroa.13287.0.copyload289, %719 ]
+  %.sroa.23.0716 = phi i64 [ %.sroa.23.0.ph, %.thread700 ], [ %.sroa.075.0.i, %719 ]
+  %.sroa.22.sroa.14.sroa.13.0715 = phi ptr [ %.sroa.24.sroa.15.sroa.14.0.copyload427, %.thread700 ], [ %.sroa.22.sroa.14.sroa.13.0.copyload, %719 ]
+  %.sroa.22.sroa.14.sroa.0.0714 = phi ptr [ %442, %.thread700 ], [ %.sroa.22.sroa.14.sroa.0.0.copyload, %719 ]
+  %.sroa.21296.sroa.13.0713 = phi i64 [ %.sroa.23.sroa.14.2.ph, %.thread700 ], [ %.sroa.21296.sroa.13.0.copyload357, %719 ]
+  %.sroa.22.sroa.13.0712 = phi ptr [ %.sroa.24.sroa.14.0.copyload253, %.thread700 ], [ %.sroa.22.sroa.13.0.copyload349, %719 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.sroa.0.sroa.12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.21296.sroa.0.sroa.14, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.11.sroa.12.sroa.11, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.21296.sroa.14.sroa.13, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1720) %.sroa.12.sroa.0, ptr noundef nonnull align 8 dereferenceable(1720) %.sroa.22.sroa.0, i64 1720, i1 false)
-  %.sroa.347.sroa.4.1744.extract.trunc = trunc i64 %.sroa.23.0718 to i8
-  %.sroa.347.sroa.4.1745.extract.shift = lshr i64 %.sroa.23.0718, 8
+  %.sroa.347.sroa.4.1744.extract.trunc = trunc i64 %.sroa.23.0716 to i8
+  %.sroa.347.sroa.4.1745.extract.shift = lshr i64 %.sroa.23.0716, 8
   %.sroa.347.sroa.4.1745.extract.trunc = trunc nuw i64 %.sroa.347.sroa.4.1745.extract.shift to i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.21296.sroa.0.sroa.14)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.21296.sroa.14.sroa.13)
@@ -3945,21 +3945,21 @@ _ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i:
   %733 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %733, align 8, !noalias !808
   %734 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.13287.0719, ptr %734, align 8
+  store i64 %.sroa.13287.0717, ptr %734, align 8
   %.sroa.4379.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.21296.sroa.0.sroa.0.0715, ptr %.sroa.4379.0..sroa_idx, align 8
+  store i64 %.sroa.21296.sroa.0.sroa.0.0718, ptr %.sroa.4379.0..sroa_idx, align 8
   %.sroa.4379.sroa.4.0..sroa.4379.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %.sroa.21296.sroa.0.sroa.13.0717, ptr %.sroa.4379.sroa.4.0..sroa.4379.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.21296.sroa.0.sroa.13.0719, ptr %.sroa.4379.sroa.4.0..sroa.4379.0..sroa_idx.sroa_idx, align 8
   %.sroa.5380.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
-  store i64 %.sroa.21296.sroa.13.0714, ptr %.sroa.5380.0..sroa_idx, align 8
+  store i64 %.sroa.21296.sroa.13.0713, ptr %.sroa.5380.0..sroa_idx, align 8
   %.sroa.6381.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 72
   store i64 %.sroa.21296.sroa.14.sroa.0.0720, ptr %.sroa.6381.0..sroa_idx, align 8
   %.sroa.8383.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1880
-  store ptr %.sroa.22.sroa.13.0716, ptr %.sroa.8383.0..sroa_idx, align 8
+  store ptr %.sroa.22.sroa.13.0712, ptr %.sroa.8383.0..sroa_idx, align 8
   %.sroa.9384.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1888
-  store ptr %.sroa.22.sroa.14.sroa.0.0712, ptr %.sroa.9384.0..sroa_idx, align 8
+  store ptr %.sroa.22.sroa.14.sroa.0.0714, ptr %.sroa.9384.0..sroa_idx, align 8
   %.sroa.9384.sroa.4.0..sroa.9384.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 1896
-  store ptr %.sroa.22.sroa.14.sroa.13.0713, ptr %.sroa.9384.sroa.4.0..sroa.9384.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.22.sroa.14.sroa.13.0715, ptr %.sroa.9384.sroa.4.0..sroa.9384.0..sroa_idx.sroa_idx, align 8
   %.sroa.10385.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1904
   store i8 %.sroa.347.sroa.4.1744.extract.trunc, ptr %.sroa.10385.0..sroa_idx, align 8
   %.sroa.11386.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1905
@@ -4215,17 +4215,17 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   br i1 %.not.i.not.i.not.i.i, label %96, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 96:                                               ; preds = %92, %86
-  %.065.i.i = phi i64 [ 0, %86 ], [ %94, %92 ]
+  %.061.i.i = phi i64 [ 0, %86 ], [ %94, %92 ]
   %.0.i.i = phi i64 [ 1, %86 ], [ %95, %92 ]
   %97 = getelementptr inbounds i8, ptr %2, i64 1064
   %98 = getelementptr inbounds i8, ptr %2, i64 1072
   %99 = load i64, ptr %98, align 8, !alias.scope !874, !noalias !875, !noundef !4
-  %100 = icmp ult i64 %.065.i.i, %99
+  %100 = icmp ult i64 %.061.i.i, %99
   %101 = load ptr, ptr %97, align 8, !alias.scope !874, !noalias !875, !nonnull !4
   br i1 %100, label %102, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i64, ptr %101, i64 %.065.i.i
+  %103 = getelementptr inbounds i64, ptr %101, i64 %.061.i.i
   %104 = load i64, ptr %103, align 8, !noalias !877, !noundef !4
   %105 = icmp ne i64 %104, 0
   %106 = icmp ult i64 %.0.i.i, %99

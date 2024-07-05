@@ -2414,41 +2414,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2479,7 +2479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
@@ -5055,13 +5055,13 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit85:        ; preds = %.noexc83
   br i1 %140, label %.preheader.us, label %.loopexit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us102
-  %.068101.us = phi i32 [ %153, %._crit_edge.us102 ], [ 0, %.preheader.lr.ph ]
-  %143 = add nsw i32 %142, %.068101.us
+  %.069101.us = phi i32 [ %153, %._crit_edge.us102 ], [ 0, %.preheader.lr.ph ]
+  %143 = add nsw i32 %142, %.069101.us
   br label %144
 
 144:                                              ; preds = %.preheader.us, %144
-  %.067100.us = phi i32 [ 0, %.preheader.us ], [ %152, %144 ]
-  %145 = add nsw i32 %141, %.067100.us
+  %.068100.us = phi i32 [ 0, %.preheader.us ], [ %152, %144 ]
+  %145 = add nsw i32 %141, %.068100.us
   %146 = load ptr, ptr %24, align 8
   %147 = load i32, ptr %100, align 8
   %148 = mul nsw i32 %147, %143
@@ -5069,12 +5069,12 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit85:        ; preds = %.noexc83
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds ptr, ptr %146, i64 %150
   store ptr %4, ptr %151, align 8
-  %152 = add nuw nsw i32 %.067100.us, 1
+  %152 = add nuw nsw i32 %.068100.us, 1
   %exitcond107.not = icmp eq i32 %152, %119
   br i1 %exitcond107.not, label %._crit_edge.us102, label %144, !llvm.loop !28
 
 ._crit_edge.us102:                                ; preds = %144
-  %153 = add nuw nsw i32 %.068101.us, 1
+  %153 = add nuw nsw i32 %.069101.us, 1
   %exitcond108.not = icmp eq i32 %153, %122
   br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !29
 
@@ -6249,35 +6249,35 @@ _ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %_ZN4pkpy7i
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge205
   %44 = phi i32 [ %195, %._crit_edge205 ], [ %40, %.preheader.lr.ph ]
   %45 = phi i32 [ %196, %._crit_edge205 ], [ %42, %.preheader.lr.ph ]
-  %.0129206 = phi i32 [ %.pre-phi, %._crit_edge205 ], [ 0, %.preheader.lr.ph ]
+  %.0206 = phi i32 [ %.pre-phi, %._crit_edge205 ], [ 0, %.preheader.lr.ph ]
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph204, label %.preheader.._crit_edge205_crit_edge
 
 .preheader.._crit_edge205_crit_edge:              ; preds = %.preheader
-  %.pre215 = add nuw nsw i32 %.0129206, 1
+  %.pre215 = add nuw nsw i32 %.0206, 1
   br label %._crit_edge205
 
 .lr.ph204:                                        ; preds = %.preheader
-  %47 = add nsw i32 %.0129206, -1
-  %48 = icmp ne i32 %.0129206, 0
-  %49 = add nuw nsw i32 %.0129206, 1
+  %47 = add nsw i32 %.0206, -1
+  %48 = icmp ne i32 %.0206, 0
+  %49 = add nuw nsw i32 %.0206, 1
   br label %50
 
 50:                                               ; preds = %.lr.ph204, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
-  %.0128203 = phi i32 [ 0, %.lr.ph204 ], [ %179, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread ]
-  %51 = add nsw i32 %.0128203, -1
-  %52 = icmp sgt i32 %.0128203, 0
+  %.0127203 = phi i32 [ 0, %.lr.ph204 ], [ %179, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread ]
+  %51 = add nsw i32 %.0127203, -1
+  %52 = icmp sgt i32 %.0127203, 0
   br i1 %52, label %53, label %66
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %12, align 8
-  %55 = icmp sge i32 %54, %.0128203
+  %55 = icmp sge i32 %54, %.0127203
   %or.cond.i = and i1 %48, %55
   br i1 %or.cond.i, label %_ZNK4pkpy7Array2d8is_validEii.exit, label %.thread218
 
 _ZNK4pkpy7Array2d8is_validEii.exit:               ; preds = %53
   %56 = load i32, ptr %14, align 4
-  %.not192 = icmp slt i32 %56, %.0129206
+  %.not192 = icmp slt i32 %56, %.0206
   br i1 %.not192, label %.thread, label %57
 
 57:                                               ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit
@@ -6296,29 +6296,29 @@ _ZNK4pkpy7Array2d8is_validEii.exit:               ; preds = %53
   br label %.thread218
 
 66:                                               ; preds = %50
-  %67 = icmp sgt i32 %.0128203, -1
+  %67 = icmp sgt i32 %.0127203, -1
   br i1 %67, label %.thread218, label %84
 
 .thread218:                                       ; preds = %53, %.thread, %66
   %68 = phi i32 [ %65, %.thread ], [ 0, %66 ], [ 0, %53 ]
   %69 = load i32, ptr %12, align 8
-  %70 = icmp sgt i32 %69, %.0128203
+  %70 = icmp sgt i32 %69, %.0127203
   %or.cond.i130 = and i1 %48, %70
   br i1 %or.cond.i130, label %_ZNK4pkpy7Array2d8is_validEii.exit131, label %.thread219
 
 .thread219:                                       ; preds = %.thread218
-  %71 = add nuw nsw i32 %.0128203, 1
+  %71 = add nuw nsw i32 %.0127203, 1
   br label %87
 
 _ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread218
   %72 = load i32, ptr %14, align 4
-  %.not193 = icmp slt i32 %72, %.0129206
+  %.not193 = icmp slt i32 %72, %.0206
   br i1 %.not193, label %.thread185, label %73
 
 73:                                               ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit131
   %74 = load ptr, ptr %7, align 8
   %75 = mul nsw i32 %69, %47
-  %76 = add nsw i32 %75, %.0128203
+  %76 = add nsw i32 %75, %.0127203
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds ptr, ptr %74, i64 %77
   %79 = load ptr, ptr %78, align 8
@@ -6329,12 +6329,12 @@ _ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread218
   %.ph184 = phi i1 [ %80, %73 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit131 ]
   %81 = zext i1 %.ph184 to i32
   %82 = add nuw nsw i32 %68, %81
-  %83 = add nuw nsw i32 %.0128203, 1
+  %83 = add nuw nsw i32 %.0127203, 1
   br label %87
 
 84:                                               ; preds = %66
-  %85 = add nuw nsw i32 %.0128203, 1
-  %86 = icmp eq i32 %.0128203, -1
+  %85 = add nuw nsw i32 %.0127203, 1
+  %86 = icmp eq i32 %.0127203, -1
   br i1 %86, label %87, label %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
 
 87:                                               ; preds = %.thread219, %.thread185, %84
@@ -6348,7 +6348,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread218
 
 _ZNK4pkpy7Array2d8is_validEii.exit133:            ; preds = %87
   %93 = load i32, ptr %14, align 4
-  %.not194 = icmp slt i32 %93, %.0129206
+  %.not194 = icmp slt i32 %93, %.0206
   br i1 %.not194, label %_ZNK4pkpy7Array2d8is_validEii.exit133.thread, label %94
 
 94:                                               ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit133
@@ -6369,17 +6369,17 @@ _ZNK4pkpy7Array2d8is_validEii.exit133.thread:     ; preds = %87, %94, %_ZNK4pkpy
 
 105:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit133.thread
   %106 = load i32, ptr %12, align 8
-  %.not195 = icmp slt i32 %106, %.0128203
+  %.not195 = icmp slt i32 %106, %.0127203
   br i1 %.not195, label %117, label %_ZNK4pkpy7Array2d8is_validEii.exit135
 
 _ZNK4pkpy7Array2d8is_validEii.exit135:            ; preds = %105
   %107 = load i32, ptr %14, align 4
-  %108 = icmp sgt i32 %107, %.0129206
+  %108 = icmp sgt i32 %107, %.0206
   br i1 %108, label %109, label %117
 
 109:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit135
   %110 = load ptr, ptr %7, align 8
-  %111 = mul nsw i32 %106, %.0129206
+  %111 = mul nsw i32 %106, %.0206
   %112 = add nsw i32 %111, %51
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds ptr, ptr %110, i64 %113
@@ -6397,12 +6397,12 @@ _ZNK4pkpy7Array2d8is_validEii.exit135:            ; preds = %105
 
 _ZNK4pkpy7Array2d8is_validEii.exit137:            ; preds = %117
   %122 = load i32, ptr %14, align 4
-  %123 = icmp sgt i32 %122, %.0129206
+  %123 = icmp sgt i32 %122, %.0206
   br i1 %123, label %124, label %_ZNK4pkpy7Array2d8is_validEii.exit137.thread
 
 124:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit137
   %125 = load ptr, ptr %7, align 8
-  %126 = mul nsw i32 %120, %.0129206
+  %126 = mul nsw i32 %120, %.0206
   %127 = add nsw i32 %126, %88
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds ptr, ptr %125, i64 %128
@@ -6418,7 +6418,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit137.thread:     ; preds = %117, %124, %_ZNK4pk
 
 135:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit137.thread
   %136 = load i32, ptr %12, align 8
-  %.not196 = icmp slt i32 %136, %.0128203
+  %.not196 = icmp slt i32 %136, %.0127203
   br i1 %.not196, label %_ZNK4pkpy7Array2d8is_validEii.exit139.thread, label %_ZNK4pkpy7Array2d8is_validEii.exit139
 
 _ZNK4pkpy7Array2d8is_validEii.exit139:            ; preds = %135
@@ -6444,7 +6444,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit139.thread:     ; preds = %_ZNK4pkpy7Array2d8i
 149:                                              ; preds = %139, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread
   %150 = phi i32 [ %148, %139 ], [ %134, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ]
   %151 = load i32, ptr %12, align 8
-  %152 = icmp sgt i32 %151, %.0128203
+  %152 = icmp sgt i32 %151, %.0127203
   br i1 %152, label %_ZNK4pkpy7Array2d8is_validEii.exit141, label %163
 
 _ZNK4pkpy7Array2d8is_validEii.exit141:            ; preds = %149
@@ -6455,7 +6455,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit141:            ; preds = %149
 155:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit141
   %156 = load ptr, ptr %7, align 8
   %157 = mul nsw i32 %151, %49
-  %158 = add nsw i32 %157, %.0128203
+  %158 = add nsw i32 %157, %.0127203
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds ptr, ptr %156, i64 %159
   %161 = load ptr, ptr %160, align 8
@@ -6498,8 +6498,8 @@ _ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_Z
   %186 = inttoptr i64 %185 to ptr
   %187 = load ptr, ptr %11, align 8
   %188 = load i32, ptr %16, align 8
-  %189 = mul nsw i32 %188, %.0129206
-  %190 = add nsw i32 %189, %.0128203
+  %189 = mul nsw i32 %188, %.0206
+  %190 = add nsw i32 %189, %.0127203
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds ptr, ptr %187, i64 %191
   store ptr %186, ptr %192, align 8
@@ -6535,36 +6535,36 @@ _ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_Z
 .preheader198:                                    ; preds = %.preheader198.lr.ph, %._crit_edge
   %204 = phi i32 [ %280, %._crit_edge ], [ %200, %.preheader198.lr.ph ]
   %205 = phi i32 [ %281, %._crit_edge ], [ %202, %.preheader198.lr.ph ]
-  %.0127202 = phi i32 [ %.pre-phi217, %._crit_edge ], [ 0, %.preheader198.lr.ph ]
+  %.0129202 = phi i32 [ %.pre-phi217, %._crit_edge ], [ 0, %.preheader198.lr.ph ]
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %.lr.ph, label %.preheader198.._crit_edge_crit_edge
 
 .preheader198.._crit_edge_crit_edge:              ; preds = %.preheader198
-  %.pre216 = add nuw nsw i32 %.0127202, 1
+  %.pre216 = add nuw nsw i32 %.0129202, 1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader198
-  %207 = add nsw i32 %.0127202, -1
-  %208 = icmp ne i32 %.0127202, 0
-  %209 = add nuw nsw i32 %.0127202, 1
+  %207 = add nsw i32 %.0129202, -1
+  %208 = icmp ne i32 %.0129202, 0
+  %209 = add nuw nsw i32 %.0129202, 1
   br label %210
 
 210:                                              ; preds = %.lr.ph, %_ZNK4pkpy7Array2d8is_validEii.exit151.thread
-  %.0201 = phi i32 [ 0, %.lr.ph ], [ %239, %_ZNK4pkpy7Array2d8is_validEii.exit151.thread ]
+  %.0128201 = phi i32 [ 0, %.lr.ph ], [ %239, %_ZNK4pkpy7Array2d8is_validEii.exit151.thread ]
   %211 = load i32, ptr %12, align 8
-  %212 = icmp sgt i32 %211, %.0201
+  %212 = icmp sgt i32 %211, %.0128201
   %or.cond.i144 = and i1 %208, %212
   br i1 %or.cond.i144, label %_ZNK4pkpy7Array2d8is_validEii.exit145, label %_ZNK4pkpy7Array2d8is_validEii.exit145.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit145:            ; preds = %210
   %213 = load i32, ptr %14, align 4
-  %.not = icmp slt i32 %213, %.0127202
+  %.not = icmp slt i32 %213, %.0129202
   br i1 %.not, label %_ZNK4pkpy7Array2d8is_validEii.exit145.thread, label %214
 
 214:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit145
   %215 = load ptr, ptr %7, align 8
   %216 = mul nsw i32 %211, %207
-  %217 = add nsw i32 %216, %.0201
+  %217 = add nsw i32 %216, %.0128201
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds ptr, ptr %215, i64 %218
   %220 = load ptr, ptr %219, align 8
@@ -6576,20 +6576,20 @@ _ZNK4pkpy7Array2d8is_validEii.exit145.thread:     ; preds = %210, %214, %_ZNK4pk
   %.pre210 = phi i32 [ %211, %_ZNK4pkpy7Array2d8is_validEii.exit145 ], [ %.pre210.pre, %214 ], [ %211, %210 ]
   %222 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit145 ], [ %221, %214 ], [ false, %210 ]
   %223 = zext i1 %222 to i64
-  %224 = add nsw i32 %.0201, -1
-  %.not190 = icmp eq i32 %.0201, 0
-  %.not191 = icmp slt i32 %.pre210, %.0201
+  %224 = add nsw i32 %.0128201, -1
+  %.not190 = icmp eq i32 %.0128201, 0
+  %.not191 = icmp slt i32 %.pre210, %.0128201
   %or.cond = select i1 %.not190, i1 true, i1 %.not191
   br i1 %or.cond, label %_ZNK4pkpy7Array2d8is_validEii.exit147.thread, label %_ZNK4pkpy7Array2d8is_validEii.exit147
 
 _ZNK4pkpy7Array2d8is_validEii.exit147:            ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit145.thread
   %225 = load i32, ptr %14, align 4
-  %226 = icmp sgt i32 %225, %.0127202
+  %226 = icmp sgt i32 %225, %.0129202
   br i1 %226, label %227, label %_ZNK4pkpy7Array2d8is_validEii.exit147.thread
 
 227:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit147
   %228 = load ptr, ptr %7, align 8
-  %229 = mul nsw i32 %.pre210, %.0127202
+  %229 = mul nsw i32 %.pre210, %.0129202
   %230 = add nsw i32 %224, %229
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds ptr, ptr %228, i64 %231
@@ -6603,18 +6603,18 @@ _ZNK4pkpy7Array2d8is_validEii.exit147.thread:     ; preds = %_ZNK4pkpy7Array2d8i
   %236 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit147 ], [ %234, %227 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit145.thread ]
   %237 = zext i1 %236 to i64
   %238 = add nuw nsw i64 %237, %223
-  %239 = add nuw nsw i32 %.0201, 1
+  %239 = add nuw nsw i32 %.0128201, 1
   %240 = icmp sgt i32 %235, %239
   br i1 %240, label %_ZNK4pkpy7Array2d8is_validEii.exit149, label %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit149:            ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit147.thread
   %241 = load i32, ptr %14, align 4
-  %242 = icmp sgt i32 %241, %.0127202
+  %242 = icmp sgt i32 %241, %.0129202
   br i1 %242, label %243, label %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
 
 243:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit149
   %244 = load ptr, ptr %7, align 8
-  %245 = mul nsw i32 %235, %.0127202
+  %245 = mul nsw i32 %235, %.0129202
   %246 = add nsw i32 %245, %239
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds ptr, ptr %244, i64 %247
@@ -6628,7 +6628,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit149.thread:     ; preds = %_ZNK4pkpy7Array2d8i
   %252 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit149 ], [ %250, %243 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit147.thread ]
   %253 = zext i1 %252 to i64
   %254 = add nuw nsw i64 %238, %253
-  %255 = icmp sgt i32 %251, %.0201
+  %255 = icmp sgt i32 %251, %.0128201
   br i1 %255, label %_ZNK4pkpy7Array2d8is_validEii.exit151, label %_ZNK4pkpy7Array2d8is_validEii.exit151.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit151:            ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
@@ -6639,7 +6639,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit151:            ; preds = %_ZNK4pkpy7Array2d8i
 258:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit151
   %259 = load ptr, ptr %7, align 8
   %260 = mul nsw i32 %251, %209
-  %261 = add nsw i32 %260, %.0201
+  %261 = add nsw i32 %260, %.0128201
   %262 = sext i32 %261 to i64
   %263 = getelementptr inbounds ptr, ptr %259, i64 %262
   %264 = load ptr, ptr %263, align 8
@@ -6655,8 +6655,8 @@ _ZNK4pkpy7Array2d8is_validEii.exit151.thread:     ; preds = %_ZNK4pkpy7Array2d8i
   %271 = inttoptr i64 %270 to ptr
   %272 = load ptr, ptr %11, align 8
   %273 = load i32, ptr %16, align 8
-  %274 = mul nsw i32 %273, %.0127202
-  %275 = add nsw i32 %274, %.0201
+  %274 = mul nsw i32 %273, %.0129202
+  %275 = add nsw i32 %274, %.0128201
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds ptr, ptr %272, i64 %276
   store ptr %271, ptr %277, align 8
@@ -6793,13 +6793,13 @@ define linkonce_odr noundef ptr @_ZZN4pkpy7Array2d9_registerEPNS_2VMEPNS_8PyObje
 29:                                               ; preds = %.lr.ph
   %.sroa.speculated32 = tail call i32 @llvm.smin.i32(i32 %storemerge1781, i32 %.180)
   %.sroa.speculated45 = tail call i32 @llvm.smin.i32(i32 %storemerge89, i32 %.16979)
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.17577, i32 %storemerge1781)
-  %.sroa.speculated42 = tail call i32 @llvm.smax.i32(i32 %.17278, i32 %storemerge89)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.17278, i32 %storemerge1781)
+  %.sroa.speculated42 = tail call i32 @llvm.smax.i32(i32 %.17577, i32 %storemerge89)
   br label %30
 
 30:                                               ; preds = %.lr.ph, %29
-  %.276 = phi i32 [ %.sroa.speculated, %29 ], [ %.17577, %.lr.ph ]
-  %.273 = phi i32 [ %.sroa.speculated42, %29 ], [ %.17278, %.lr.ph ]
+  %.276 = phi i32 [ %.sroa.speculated42, %29 ], [ %.17577, %.lr.ph ]
+  %.273 = phi i32 [ %.sroa.speculated, %29 ], [ %.17278, %.lr.ph ]
   %.270 = phi i32 [ %.sroa.speculated45, %29 ], [ %.16979, %.lr.ph ]
   %.2 = phi i32 [ %.sroa.speculated32, %29 ], [ %.180, %.lr.ph ]
   %31 = add nuw nsw i32 %storemerge1781, 1
@@ -6827,9 +6827,9 @@ define linkonce_odr noundef ptr @_ZZN4pkpy7Array2d9_registerEPNS_2VMEPNS_8PyObje
   %.071.lcssa = phi i32 [ 0, %4 ], [ %.172.lcssa, %._crit_edge ]
   %.068.lcssa = phi i32 [ %15, %4 ], [ %.169.lcssa, %._crit_edge ]
   %.067.lcssa = phi i32 [ %13, %4 ], [ %.1.lcssa, %._crit_edge ]
-  %38 = sub nsw i32 %.074.lcssa, %.067.lcssa
+  %38 = sub nsw i32 %.071.lcssa, %.067.lcssa
   %39 = add nsw i32 %38, 1
-  %40 = sub nsw i32 %.071.lcssa, %.068.lcssa
+  %40 = sub nsw i32 %.074.lcssa, %.068.lcssa
   %41 = add nsw i32 %40, 1
   %42 = icmp slt i32 %38, 0
   %43 = icmp slt i32 %40, 0

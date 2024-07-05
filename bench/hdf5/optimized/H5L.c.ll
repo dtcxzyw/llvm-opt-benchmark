@@ -1111,8 +1111,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   br label %51
 
 51:                                               ; preds = %42, %49
-  %.059 = phi i64 [ %50, %49 ], [ %4, %42 ]
-  tail call void @H5CX_set_lcpl(i64 noundef %.059) #5
+  %.057 = phi i64 [ %50, %49 ], [ %4, %42 ]
+  tail call void @H5CX_set_lcpl(i64 noundef %.057) #5
   %52 = call i32 @H5CX_set_apl(ptr noundef nonnull %9, ptr noundef nonnull @H5P_CLS_LACC, i64 noundef %0, i1 noundef zeroext true) #5
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %58
@@ -1206,24 +1206,24 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   br i1 %.not, label %.thread143, label %.thread147
 
 .thread147:                                       ; preds = %.thread
-  %.else.val92133 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds i8, ptr %.else.val92133, i64 8
+  %.else.val133 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds i8, ptr %.else.val133, i64 8
   store ptr %101, ptr %102, align 8
   %103 = load ptr, ptr %73, align 8
-  %.else.val88149 = load ptr, ptr %7, align 8
-  store ptr %103, ptr %.else.val88149, align 8
+  %.else.val84149 = load ptr, ptr %7, align 8
+  store ptr %103, ptr %.else.val84149, align 8
   store i32 0, ptr %11, align 8
   br label %125
 
 .thread.thread:                                   ; preds = %71
   %104 = getelementptr inbounds i8, ptr %65, i64 8
   %105 = load ptr, ptr %104, align 8
-  br i1 %.not, label %.thread128, label %.else79
+  br i1 %.not, label %.thread128, label %.else87
 
 .thread128:                                       ; preds = %.thread.thread
   %106 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %105, ptr %106, align 8
-  br label %.cont77
+  br label %.cont85
 
 107:                                              ; preds = %.thread102
   %108 = load i64, ptr @H5E_LINK_g, align 8
@@ -1251,26 +1251,26 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   store i32 0, ptr %11, align 8
   br label %125
 
-.else79:                                          ; preds = %.thread.thread
-  %.else.val92 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds i8, ptr %.else.val92, i64 8
+.else87:                                          ; preds = %.thread.thread
+  %.else.val = load ptr, ptr %7, align 8
+  %117 = getelementptr inbounds i8, ptr %.else.val, i64 8
   store ptr %105, ptr %117, align 8
-  %.else.val80 = load ptr, ptr %7, align 8
-  br label %.cont77
+  %.else.val88 = load ptr, ptr %7, align 8
+  br label %.cont85
 
-.cont77:                                          ; preds = %.thread128, %.else79
-  %118 = phi ptr [ %.else.val80, %.else79 ], [ %10, %.thread128 ]
+.cont85:                                          ; preds = %.thread128, %.else87
+  %118 = phi ptr [ %.else.val88, %.else87 ], [ %10, %.thread128 ]
   store ptr null, ptr %118, align 8
   store i32 0, ptr %11, align 8
   br label %125
 
 119:                                              ; preds = %.critedge
-  %.else.val = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds i8, ptr %.else.val, i64 8
+  %.else.val80 = load ptr, ptr %7, align 8
+  %120 = getelementptr inbounds i8, ptr %.else.val80, i64 8
   store ptr %112, ptr %120, align 8
   %121 = load ptr, ptr %75, align 8
-  %.else.val88 = load ptr, ptr %7, align 8
-  store ptr %121, ptr %.else.val88, align 8
+  %.else.val84 = load ptr, ptr %7, align 8
+  store ptr %121, ptr %.else.val84, align 8
   br label %.thread150
 
 .thread150:                                       ; preds = %119, %.thread145
@@ -1282,7 +1282,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   store i32 1, ptr %124, align 4
   br label %131
 
-125:                                              ; preds = %.thread147, %.thread143, %.cont77
+125:                                              ; preds = %.thread147, %.thread143, %.cont85
   %126 = load ptr, ptr %65, align 8
   %127 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %126, ptr %127, align 8
@@ -1301,27 +1301,27 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   %135 = load i64, ptr %9, align 8
   %136 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %135, ptr %136, align 8
-  br i1 %.not, label %.cont81, label %.else83
+  br i1 %.not, label %.cont89, label %.else91
 
-.else83:                                          ; preds = %131
-  %.else.val84 = load ptr, ptr %7, align 8
-  br label %.cont81
+.else91:                                          ; preds = %131
+  %.else.val92 = load ptr, ptr %7, align 8
+  br label %.cont89
 
-.cont81:                                          ; preds = %131, %.else83
-  %137 = phi ptr [ %10, %131 ], [ %.else.val84, %.else83 ]
+.cont89:                                          ; preds = %131, %.else91
+  %137 = phi ptr [ %10, %131 ], [ %.else.val92, %.else91 ]
   %138 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %139 = call i32 @H5VL_link_create(ptr noundef nonnull %11, ptr noundef %137, ptr noundef nonnull %12, i64 noundef %.059, i64 noundef %135, i64 noundef %138, ptr noundef %6) #5
+  %139 = call i32 @H5VL_link_create(ptr noundef nonnull %11, ptr noundef %137, ptr noundef nonnull %12, i64 noundef %.057, i64 noundef %135, i64 noundef %138, ptr noundef %6) #5
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %145
 
-141:                                              ; preds = %.cont81
+141:                                              ; preds = %.cont89
   %142 = load i64, ptr @H5E_LINK_g, align 8
   %143 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %144 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__create_hard_api_common, i32 noundef 517, i64 noundef %142, i64 noundef %143, ptr noundef nonnull @.str.104) #5
   br label %145
 
-145:                                              ; preds = %.cont81, %141, %107, %96, %90, %77, %67, %54, %45, %37, %31, %26, %20, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %45 ], [ -1, %54 ], [ -1, %67 ], [ -1, %77 ], [ -1, %90 ], [ -1, %96 ], [ -1, %141 ], [ 0, %.cont81 ], [ -1, %107 ], [ -1, %37 ], [ -1, %31 ], [ -1, %26 ], [ -1, %20 ]
+145:                                              ; preds = %.cont89, %141, %107, %96, %90, %77, %67, %54, %45, %37, %31, %26, %20, %15
+  %.0 = phi i32 [ -1, %15 ], [ -1, %45 ], [ -1, %54 ], [ -1, %67 ], [ -1, %77 ], [ -1, %90 ], [ -1, %96 ], [ -1, %141 ], [ 0, %.cont89 ], [ -1, %107 ], [ -1, %37 ], [ -1, %31 ], [ -1, %26 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -1581,13 +1581,13 @@ define range(i32 -1, 1) i32 @H5Lcreate_external(ptr noundef readonly %0, ptr nou
   br label %109
 
 109:                                              ; preds = %97, %105, %93, %75, %63, %56, %47, %40, %33, %25, %18
-  %.051 = phi ptr [ null, %18 ], [ null, %25 ], [ null, %56 ], [ null, %63 ], [ %61, %75 ], [ %61, %93 ], [ %61, %105 ], [ %61, %97 ], [ null, %47 ], [ null, %40 ], [ null, %33 ]
-  %.050 = phi ptr [ null, %18 ], [ null, %25 ], [ null, %56 ], [ null, %63 ], [ null, %75 ], [ %73, %93 ], [ %73, %105 ], [ %73, %97 ], [ null, %47 ], [ null, %40 ], [ null, %33 ]
+  %.051 = phi ptr [ null, %18 ], [ null, %25 ], [ null, %56 ], [ null, %63 ], [ null, %75 ], [ %73, %93 ], [ %73, %105 ], [ %73, %97 ], [ null, %47 ], [ null, %40 ], [ null, %33 ]
+  %.050 = phi ptr [ null, %18 ], [ null, %25 ], [ null, %56 ], [ null, %63 ], [ %61, %75 ], [ %61, %93 ], [ %61, %105 ], [ %61, %97 ], [ null, %47 ], [ null, %40 ], [ null, %33 ]
   %.048 = phi i32 [ -1, %18 ], [ -1, %25 ], [ -1, %56 ], [ -1, %63 ], [ -1, %75 ], [ -1, %93 ], [ -1, %105 ], [ 0, %97 ], [ -1, %47 ], [ -1, %40 ], [ -1, %33 ]
   %.047 = phi i1 [ false, %18 ], [ false, %25 ], [ true, %56 ], [ true, %63 ], [ true, %75 ], [ true, %93 ], [ true, %105 ], [ true, %97 ], [ true, %47 ], [ true, %40 ], [ true, %33 ]
   %.0 = phi i1 [ true, %18 ], [ true, %25 ], [ true, %56 ], [ true, %63 ], [ true, %75 ], [ true, %93 ], [ true, %105 ], [ false, %97 ], [ true, %47 ], [ true, %40 ], [ true, %33 ]
-  %110 = call ptr @H5MM_xfree(ptr noundef %.050) #5
-  %111 = call ptr @H5MM_xfree(ptr noundef %.051) #5
+  %110 = call ptr @H5MM_xfree(ptr noundef %.051) #5
+  %111 = call ptr @H5MM_xfree(ptr noundef %.050) #5
   br i1 %.047, label %112, label %114
 
 112:                                              ; preds = %109

@@ -441,14 +441,14 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
-  %.03031 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
+  %.02932 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
   %68 = load ptr, ptr %2, align 8
   %69 = getelementptr i64, ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = call ptr @text_to_cstring(ptr noundef %71) #5
   %73 = call i32 @get_extension_oid(ptr noundef %72, i1 noundef zeroext false) #5
-  %74 = call ptr @lappend_oid(ptr noundef %.03031, i32 noundef %73) #5
+  %74 = call ptr @lappend_oid(ptr noundef %.02932, i32 noundef %73) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %3, align 4
   %76 = sext i32 %75 to i64

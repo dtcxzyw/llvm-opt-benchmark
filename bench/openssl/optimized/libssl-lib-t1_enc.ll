@@ -79,12 +79,12 @@ if.else:                                          ; preds = %if.end
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then18
-  %mac_secret.0 = phi ptr [ %4, %if.then18 ], [ %arrayidx25, %if.else ]
-  %add.pn = phi i64 [ %add, %if.then18 ], [ %add27, %if.else ]
-  %add21.pn = phi i64 [ %add21, %if.then18 ], [ %add30, %if.else ]
   %n.0 = phi i64 [ %add24, %if.then18 ], [ %add32, %if.else ]
-  %iv.0 = getelementptr inbounds i8, ptr %4, i64 %add21.pn
+  %add21.pn = phi i64 [ %add21, %if.then18 ], [ %add30, %if.else ]
+  %add.pn = phi i64 [ %add, %if.then18 ], [ %add27, %if.else ]
+  %mac_secret.0 = phi ptr [ %4, %if.then18 ], [ %arrayidx25, %if.else ]
   %key.0 = getelementptr inbounds i8, ptr %4, i64 %add.pn
+  %iv.0 = getelementptr inbounds i8, ptr %4, i64 %add21.pn
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
   %6 = load i64, ptr %key_block_length, align 8
   %cmp36 = icmp ugt i64 %n.0, %6

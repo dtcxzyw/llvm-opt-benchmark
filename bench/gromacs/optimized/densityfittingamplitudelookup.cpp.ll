@@ -515,15 +515,15 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   br i1 %.not8.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEZNS0_12_GLOBAL__N_118MassesAsAmplitudesclENS0_8ArrayRefIKfEESF_NSD_IS2_EEE3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %.lr.ph.i
-  %.sroa.04.010.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %.sroa.06.09.i = phi ptr [ %35, %.lr.ph.i ], [ %.sroa.0.0.copyload.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %31 = load i32, ptr %.sroa.06.09.i, align 4
+  %.sroa.06.010.i = phi ptr [ %35, %.lr.ph.i ], [ %.sroa.0.0.copyload.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
+  %.sroa.04.09.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
+  %31 = load i32, ptr %.sroa.06.010.i, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds float, ptr %3, i64 %32
   %34 = load float, ptr %33, align 4
-  store float %34, ptr %.sroa.04.010.i, align 4
-  %35 = getelementptr inbounds i8, ptr %.sroa.06.09.i, i64 4
-  %36 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 4
+  store float %34, ptr %.sroa.04.09.i, align 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.06.010.i, i64 4
+  %36 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 4
   %.not.i = icmp eq ptr %35, %16
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEZNS0_12_GLOBAL__N_118MassesAsAmplitudesclENS0_8ArrayRefIKfEESF_NSD_IS2_EEE3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i, !llvm.loop !20
 
@@ -773,15 +773,15 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   br i1 %.not8.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEZNS0_12_GLOBAL__N_119ChargesAsAmplitudesclENS0_8ArrayRefIKfEESF_NSD_IS2_EEE3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %.lr.ph.i
-  %.sroa.04.010.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %.sroa.06.09.i = phi ptr [ %35, %.lr.ph.i ], [ %.sroa.0.0.copyload.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
-  %31 = load i32, ptr %.sroa.06.09.i, align 4
+  %.sroa.06.010.i = phi ptr [ %35, %.lr.ph.i ], [ %.sroa.0.0.copyload.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
+  %.sroa.04.09.i = phi ptr [ %36, %.lr.ph.i ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
+  %31 = load i32, ptr %.sroa.06.010.i, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds float, ptr %1, i64 %32
   %34 = load float, ptr %33, align 4
-  store float %34, ptr %.sroa.04.010.i, align 4
-  %35 = getelementptr inbounds i8, ptr %.sroa.06.09.i, i64 4
-  %36 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 4
+  store float %34, ptr %.sroa.04.09.i, align 4
+  %35 = getelementptr inbounds i8, ptr %.sroa.06.010.i, i64 4
+  %36 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 4
   %.not.i = icmp eq ptr %35, %16
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEZNS0_12_GLOBAL__N_119ChargesAsAmplitudesclENS0_8ArrayRefIKfEESF_NSD_IS2_EEE3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i, !llvm.loop !24
 

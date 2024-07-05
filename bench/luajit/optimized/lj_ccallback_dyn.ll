@@ -169,10 +169,10 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 if.end.i:                                         ; preds = %cond.end.i, %land.lhs.true.i, %if.end7
   %.pre-phi = phi i64 [ %and15.i, %cond.end.i ], [ %8, %land.lhs.true.i ], [ %8, %if.end7 ]
-  %rid.0.i = phi i64 [ %23, %cond.end.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end7 ]
   %ct.0.i = phi ptr [ %arrayidx.i104.i, %cond.end.i ], [ null, %land.lhs.true.i ], [ null, %if.end7 ]
   %fn.0.i = phi ptr [ %22, %cond.end.i ], [ %0, %land.lhs.true.i ], [ %0, %if.end7 ]
   %fntp.0.i = phi i64 [ -1266637395197952, %cond.end.i ], [ -985162418487296, %land.lhs.true.i ], [ -985162418487296, %if.end7 ]
+  %rid.0.i = phi i64 [ %23, %cond.end.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end7 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 1, ptr %9, align 8
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %9, i64 16
@@ -244,11 +244,11 @@ while.body.lr.ph.i:                               ; preds = %lj_state_checkstack
 
 while.body.i:                                     ; preds = %if.end79.i, %while.body.lr.ph.i
   %fid.0.in73.i = phi i16 [ %fid.0.in66.i, %while.body.lr.ph.i ], [ %fid.0.in.i, %if.end79.i ]
-  %nfpr.072.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nfpr.2.i, %if.end79.i ]
-  %nsp.071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nsp.2.i, %if.end79.i ]
-  %ngpr.070.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %ngpr.2.i, %if.end79.i ]
-  %gcsteps.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %gcsteps.1.i, %if.end79.i ]
-  %o.068.i = phi ptr [ %31, %while.body.lr.ph.i ], [ %o.1.i, %if.end79.i ]
+  %o.072.i = phi ptr [ %31, %while.body.lr.ph.i ], [ %o.1.i, %if.end79.i ]
+  %nfpr.071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nfpr.2.i, %if.end79.i ]
+  %gcsteps.070.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %gcsteps.1.i, %if.end79.i ]
+  %nsp.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nsp.2.i, %if.end79.i ]
+  %ngpr.068.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %ngpr.2.i, %if.end79.i ]
   %32 = load ptr, ptr %cts, align 8
   %idxprom.i.i = zext i16 %fid.0.in73.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i
@@ -277,47 +277,47 @@ ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
   br i1 %cmp47.i, label %if.then52.i, label %if.else62.i
 
 if.then52.i:                                      ; preds = %ctype_rawchild.exit.i
-  %add53.i = add nuw nsw i32 %div64.i, %nfpr.072.i
+  %add53.i = add nuw nsw i32 %div64.i, %nfpr.071.i
   %cmp54.i = icmp ult i32 %add53.i, 9
   br i1 %cmp54.i, label %if.then56.i, label %if.end72.i
 
 if.then56.i:                                      ; preds = %if.then52.i
-  %idxprom58.i = zext nneg i32 %nfpr.072.i to i64
+  %idxprom58.i = zext nneg i32 %nfpr.071.i to i64
   %arrayidx59.i = getelementptr inbounds [8 x %union.FPRCBArg], ptr %cb.i, i64 0, i64 %idxprom58.i
   br label %done.i
 
 if.else62.i:                                      ; preds = %ctype_rawchild.exit.i
-  %add63.i = add nuw nsw i32 %div64.i, %ngpr.070.i
+  %add63.i = add nuw nsw i32 %div64.i, %ngpr.068.i
   %cmp64.i = icmp ult i32 %add63.i, 7
   br i1 %cmp64.i, label %if.then66.i, label %if.end72.i
 
 if.then66.i:                                      ; preds = %if.else62.i
-  %idxprom68.i = zext nneg i32 %ngpr.070.i to i64
+  %idxprom68.i = zext nneg i32 %ngpr.068.i to i64
   %arrayidx69.i = getelementptr inbounds [8 x i64], ptr %gpr.i, i64 0, i64 %idxprom68.i
   br label %done.i
 
 if.end72.i:                                       ; preds = %if.else62.i, %if.then52.i
-  %idxprom73.i = zext i32 %nsp.071.i to i64
+  %idxprom73.i = zext i32 %nsp.069.i to i64
   %arrayidx74.i = getelementptr inbounds i64, ptr %10, i64 %idxprom73.i
-  %add75.i = add i32 %div64.i, %nsp.071.i
+  %add75.i = add i32 %div64.i, %nsp.069.i
   br label %done.i
 
 done.i:                                           ; preds = %if.end72.i, %if.then66.i, %if.then56.i
-  %ngpr.1.i = phi i32 [ %ngpr.070.i, %if.then56.i ], [ %ngpr.070.i, %if.end72.i ], [ %add63.i, %if.then66.i ]
-  %nsp.1.i = phi i32 [ %nsp.071.i, %if.then56.i ], [ %add75.i, %if.end72.i ], [ %nsp.071.i, %if.then66.i ]
-  %nfpr.1.i = phi i32 [ %add53.i, %if.then56.i ], [ %nfpr.072.i, %if.end72.i ], [ %nfpr.072.i, %if.then66.i ]
+  %ngpr.1.i = phi i32 [ %ngpr.068.i, %if.then56.i ], [ %ngpr.068.i, %if.end72.i ], [ %add63.i, %if.then66.i ]
+  %nsp.1.i = phi i32 [ %nsp.069.i, %if.then56.i ], [ %add75.i, %if.end72.i ], [ %nsp.069.i, %if.then66.i ]
+  %nfpr.1.i = phi i32 [ %add53.i, %if.then56.i ], [ %nfpr.071.i, %if.end72.i ], [ %nfpr.071.i, %if.then66.i ]
   %sp.0.i = phi ptr [ %arrayidx59.i, %if.then56.i ], [ %arrayidx74.i, %if.end72.i ], [ %arrayidx69.i, %if.then66.i ]
-  %incdec.ptr76.i = getelementptr inbounds i8, ptr %o.068.i, i64 8
-  %call77.i = tail call i32 @lj_cconv_tv_ct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 0, ptr noundef %o.068.i, ptr noundef %sp.0.i) #7
-  %add78.i = add nsw i32 %call77.i, %gcsteps.069.i
+  %incdec.ptr76.i = getelementptr inbounds i8, ptr %o.072.i, i64 8
+  %call77.i = tail call i32 @lj_cconv_tv_ct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 0, ptr noundef %o.072.i, ptr noundef %sp.0.i) #7
+  %add78.i = add nsw i32 %call77.i, %gcsteps.070.i
   br label %if.end79.i
 
 if.end79.i:                                       ; preds = %done.i, %while.body.i
-  %o.1.i = phi ptr [ %o.068.i, %while.body.i ], [ %incdec.ptr76.i, %done.i ]
-  %gcsteps.1.i = phi i32 [ %gcsteps.069.i, %while.body.i ], [ %add78.i, %done.i ]
-  %ngpr.2.i = phi i32 [ %ngpr.070.i, %while.body.i ], [ %ngpr.1.i, %done.i ]
-  %nsp.2.i = phi i32 [ %nsp.071.i, %while.body.i ], [ %nsp.1.i, %done.i ]
-  %nfpr.2.i = phi i32 [ %nfpr.072.i, %while.body.i ], [ %nfpr.1.i, %done.i ]
+  %ngpr.2.i = phi i32 [ %ngpr.068.i, %while.body.i ], [ %ngpr.1.i, %done.i ]
+  %nsp.2.i = phi i32 [ %nsp.069.i, %while.body.i ], [ %nsp.1.i, %done.i ]
+  %gcsteps.1.i = phi i32 [ %gcsteps.070.i, %while.body.i ], [ %add78.i, %done.i ]
+  %nfpr.2.i = phi i32 [ %nfpr.071.i, %while.body.i ], [ %nfpr.1.i, %done.i ]
+  %o.1.i = phi ptr [ %o.072.i, %while.body.i ], [ %incdec.ptr76.i, %done.i ]
   %fid.0.in.in.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %fid.0.in.i = load i16, ptr %fid.0.in.in.i, align 8
   %tobool38.not.i = icmp eq i16 %fid.0.in.i, 0

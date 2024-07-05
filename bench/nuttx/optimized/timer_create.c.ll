@@ -52,23 +52,23 @@ up_irq_restore.exit.i:                            ; preds = %14, %10
   br i1 %.not15.i, label %timer_allocate.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %15, %up_irq_restore.exit.i
-  %.024.i = phi i8 [ 0, %15 ], [ 1, %up_irq_restore.exit.i ]
-  %.01322.i = phi ptr [ %16, %15 ], [ %12, %up_irq_restore.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.01322.i, i8 0, i64 136, i1 false)
-  %17 = getelementptr inbounds i8, ptr %.01322.i, i64 12
-  store i8 %.024.i, ptr %17, align 4
+  %.023.i = phi ptr [ %16, %15 ], [ %12, %up_irq_restore.exit.i ]
+  %.01322.i = phi i8 [ 0, %15 ], [ 1, %up_irq_restore.exit.i ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.023.i, i8 0, i64 136, i1 false)
+  %17 = getelementptr inbounds i8, ptr %.023.i, i64 12
+  store i8 %.01322.i, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #6, !srcloc !6
   %18 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  store ptr null, ptr %.01322.i, align 8
+  store ptr null, ptr %.023.i, align 8
   %19 = load ptr, ptr @g_alloctimers, align 8
   %.not16.i = icmp eq ptr %19, null
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
   %g_alloctimers.sink.i = select i1 %.not16.i, ptr @g_alloctimers, ptr %20
-  store ptr %.01322.i, ptr %g_alloctimers.sink.i, align 8
-  store ptr %.01322.i, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
+  store ptr %.023.i, ptr %g_alloctimers.sink.i, align 8
+  store ptr %.023.i, ptr getelementptr inbounds (i8, ptr @g_alloctimers, i64 8), align 8
   %21 = and i64 %18, 512
   %.not.i17.i = icmp eq i64 %21, 0
   br i1 %.not.i17.i, label %24, label %22
@@ -83,17 +83,17 @@ timer_allocate.exit:                              ; preds = %15
   br label %36
 
 24:                                               ; preds = %.thread.i, %22
-  %25 = getelementptr inbounds i8, ptr %.01322.i, i64 8
+  %25 = getelementptr inbounds i8, ptr %.023.i, i64 8
   store i32 %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.01322.i, i64 13
+  %26 = getelementptr inbounds i8, ptr %.023.i, i64 13
   store i8 1, ptr %26, align 1
   %27 = call i32 @nxsched_getpid() #6
-  %28 = getelementptr inbounds i8, ptr %.01322.i, i64 16
+  %28 = getelementptr inbounds i8, ptr %.023.i, i64 16
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.01322.i, i64 20
+  %29 = getelementptr inbounds i8, ptr %.023.i, i64 20
   store i32 0, ptr %29, align 4
   %.not25 = icmp eq ptr %1, null
-  %30 = getelementptr inbounds i8, ptr %.01322.i, i64 56
+  %30 = getelementptr inbounds i8, ptr %.023.i, i64 56
   br i1 %.not25, label %32, label %31
 
 31:                                               ; preds = %24
@@ -102,14 +102,14 @@ timer_allocate.exit:                              ; preds = %15
 
 32:                                               ; preds = %24
   store i8 1, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %.01322.i, i64 57
+  %33 = getelementptr inbounds i8, ptr %.023.i, i64 57
   store i8 14, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %.01322.i, i64 64
-  store ptr %.01322.i, ptr %34, align 8
+  %34 = getelementptr inbounds i8, ptr %.023.i, i64 64
+  store ptr %.023.i, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %32, %31
-  store ptr %.01322.i, ptr %2, align 8
+  store ptr %.023.i, ptr %2, align 8
   br label %36
 
 36:                                               ; preds = %35, %timer_allocate.exit, %8

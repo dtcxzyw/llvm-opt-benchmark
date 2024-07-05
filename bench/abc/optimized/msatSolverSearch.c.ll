@@ -277,7 +277,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.061 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %61 ]
+  %.04661 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %61 ]
   %23 = load i64, ptr %10, align 8
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %10, align 8
@@ -298,8 +298,8 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %25, align 8
-  %35 = add nsw i32 %.061, 1
-  %36 = sext i32 %.061 to i64
+  %35 = add nsw i32 %.04661, 1
+  %36 = sext i32 %.04661 to i64
   %37 = getelementptr inbounds ptr, ptr %21, i64 %36
   store ptr %34, ptr %37, align 8
   br label %61
@@ -311,7 +311,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %.lr.ph67.preheader, label %._crit_edge68
 
 .lr.ph67.preheader:                               ; preds = %38
-  %42 = sext i32 %.061 to i64
+  %42 = sext i32 %.04661 to i64
   br label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
@@ -331,7 +331,7 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %38
-  %.1.lcssa = phi i32 [ %.061, %38 ], [ %46, %._crit_edge68.loopexit ]
+  %.1.lcssa = phi i32 [ %.04661, %38 ], [ %46, %._crit_edge68.loopexit ]
   %47 = load ptr, ptr %17, align 8
   call void @Msat_ClauseVecShrink(ptr noundef %47, i32 noundef %.1.lcssa) #6
   %48 = load ptr, ptr %5, align 8
@@ -352,30 +352,30 @@ define ptr @Msat_SolverPropagate(ptr noundef %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %49
   %57 = load ptr, ptr %25, align 8
-  %58 = add nsw i32 %.061, 1
-  %59 = sext i32 %.061 to i64
+  %58 = add nsw i32 %.04661, 1
+  %59 = sext i32 %.04661 to i64
   %60 = getelementptr inbounds ptr, ptr %21, i64 %59
   store ptr %57, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %51, %56, %33
-  %.2 = phi i32 [ %.061, %51 ], [ %58, %56 ], [ %35, %33 ]
+  %.2 = phi i32 [ %.04661, %51 ], [ %58, %56 ], [ %35, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %61, %12
-  %.0.lcssa = phi i32 [ 0, %12 ], [ %.2, %61 ]
+  %.046.lcssa = phi i32 [ 0, %12 ], [ %.2, %61 ]
   %62 = load ptr, ptr %17, align 8
-  call void @Msat_ClauseVecShrink(ptr noundef %62, i32 noundef %.0.lcssa) #6
+  call void @Msat_ClauseVecShrink(ptr noundef %62, i32 noundef %.046.lcssa) #6
   %63 = load ptr, ptr %5, align 8
   %64 = call i32 @Msat_QueueExtract(ptr noundef %63) #6
   %65 = icmp sgt i32 %64, -1
   br i1 %65, label %12, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %._crit_edge68
-  %.048 = phi ptr [ %40, %._crit_edge68 ], [ null, %1 ], [ null, %._crit_edge ]
-  ret ptr %.048
+  %.0 = phi ptr [ %40, %._crit_edge68 ], [ null, %1 ], [ null, %._crit_edge ]
+  ret ptr %.0
 }
 
 declare i32 @Msat_QueueExtract(ptr noundef) local_unnamed_addr #2
@@ -420,7 +420,7 @@ define range(i32 0, 2) i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %.138 = phi i32 [ %.041, %.lr.ph.preheader ], [ %.2, %20 ]
-  %.02937 = phi i32 [ 0, %.lr.ph.preheader ], [ %.130, %20 ]
+  %.03037 = phi i32 [ 0, %.lr.ph.preheader ], [ %.131, %20 ]
   %10 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @Msat_ClauseSimplify(ptr noundef %11, ptr noundef %4) #6
@@ -433,8 +433,8 @@ define range(i32 0, 2) i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_
   br label %20
 
 15:                                               ; preds = %.lr.ph
-  %16 = add nsw i32 %.02937, 1
-  %17 = sext i32 %.02937 to i64
+  %16 = add nsw i32 %.03037, 1
+  %17 = sext i32 %.03037 to i64
   %18 = getelementptr inbounds ptr, ptr %8, i64 %17
   store ptr %13, ptr %18, align 8
   %19 = add nsw i32 %.138, 1
@@ -442,16 +442,16 @@ define range(i32 0, 2) i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_
   br label %20
 
 20:                                               ; preds = %14, %15
-  %.130 = phi i32 [ %.02937, %14 ], [ %16, %15 ]
+  %.131 = phi i32 [ %.03037, %14 ], [ %16, %15 ]
   %.2 = phi i32 [ %.138, %14 ], [ %19, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %5
-  %.029.lcssa = phi i32 [ 0, %5 ], [ %.130, %20 ]
+  %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %20 ]
   %.1.lcssa = phi i32 [ %.041, %5 ], [ %.2, %20 ]
-  tail call void @Msat_ClauseVecShrink(ptr noundef %6, i32 noundef %.029.lcssa) #6
+  tail call void @Msat_ClauseVecShrink(ptr noundef %6, i32 noundef %.030.lcssa) #6
   br i1 %.not34, label %5, label %21, !llvm.loop !11
 
 21:                                               ; preds = %._crit_edge
@@ -459,8 +459,8 @@ define range(i32 0, 2) i32 @Msat_SolverSimplifyDB(ptr noundef %0) local_unnamed_
   br label %22
 
 22:                                               ; preds = %1, %21
-  %.033 = phi i32 [ 1, %21 ], [ 0, %1 ]
-  ret i32 %.033
+  %.029 = phi i32 [ 1, %21 ], [ 0, %1 ]
+  ret i32 %.029
 }
 
 declare ptr @Msat_SolverReadAssignsArray(ptr noundef) local_unnamed_addr #2
@@ -696,13 +696,13 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
   br label %77
 
 77:                                               ; preds = %117, %68
-  %.089 = phi i32 [ 0, %68 ], [ %.190, %117 ]
+  %.088 = phi i32 [ 0, %68 ], [ %.189, %117 ]
   %.069.i = phi i32 [ -2, %68 ], [ %110, %117 ]
-  %.068.i = phi ptr [ %52, %68 ], [ %120, %117 ]
-  %.064.i = phi i32 [ 0, %68 ], [ %121, %117 ]
+  %.065.i = phi i32 [ 0, %68 ], [ %121, %117 ]
+  %.064.i = phi ptr [ %52, %68 ], [ %120, %117 ]
   %.0.i = phi i32 [ %74, %68 ], [ %109, %117 ]
   %78 = load ptr, ptr %30, align 8
-  call void @Msat_ClauseCalcReason(ptr noundef nonnull %0, ptr noundef %.068.i, i32 noundef %.069.i, ptr noundef %78) #6
+  call void @Msat_ClauseCalcReason(ptr noundef nonnull %0, ptr noundef %.064.i, i32 noundef %.069.i, ptr noundef %78) #6
   %79 = load ptr, ptr %30, align 8
   %80 = call i32 @Msat_IntVecReadSize(ptr noundef %79) #6
   %81 = load ptr, ptr %30, align 8
@@ -715,14 +715,14 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %106, %77
-  %.190 = phi i32 [ %.089, %77 ], [ %.3, %106 ]
-  %.165.lcssa.i = phi i32 [ %.064.i, %77 ], [ %.2.i, %106 ]
+  %.189 = phi i32 [ %.088, %77 ], [ %.3, %106 ]
+  %.166.lcssa.i = phi i32 [ %.065.i, %77 ], [ %.2.i, %106 ]
   br label %107
 
 .lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
-  %.2 = phi i32 [ %.089, %.lr.ph.preheader.i ], [ %.3, %106 ]
+  %.2 = phi i32 [ %.088, %.lr.ph.preheader.i ], [ %.3, %106 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %106 ]
-  %.16580.i = phi i32 [ %.064.i, %.lr.ph.preheader.i ], [ %.2.i, %106 ]
+  %.16680.i = phi i32 [ %.065.i, %.lr.ph.preheader.i ], [ %.2.i, %106 ]
   %84 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv.i
   %85 = load i32, ptr %84, align 4
   %86 = ashr i32 %85, 1
@@ -744,7 +744,7 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %92
-  %98 = add nsw i32 %.16580.i, 1
+  %98 = add nsw i32 %.16680.i, 1
   br label %106
 
 99:                                               ; preds = %92
@@ -762,7 +762,7 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
 
 106:                                              ; preds = %101, %99, %97, %.lr.ph.i
   %.3 = phi i32 [ %.2, %.lr.ph.i ], [ %.2, %97 ], [ %.2, %99 ], [ %spec.select, %101 ]
-  %.2.i = phi i32 [ %.16580.i, %.lr.ph.i ], [ %98, %97 ], [ %.16580.i, %99 ], [ %.16580.i, %101 ]
+  %.2.i = phi i32 [ %.16680.i, %.lr.ph.i ], [ %98, %97 ], [ %.16680.i, %99 ], [ %.16680.i, %101 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !17
@@ -785,8 +785,8 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
   %118 = load ptr, ptr %29, align 8
   %119 = getelementptr inbounds ptr, ptr %118, i64 %112
   %120 = load ptr, ptr %119, align 8
-  %121 = add nsw i32 %.165.lcssa.i, -1
-  %122 = icmp sgt i32 %.165.lcssa.i, 1
+  %121 = add nsw i32 %.166.lcssa.i, -1
+  %122 = icmp sgt i32 %.166.lcssa.i, 1
   br i1 %122, label %77, label %123, !llvm.loop !19
 
 123:                                              ; preds = %117
@@ -826,12 +826,12 @@ define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i
   br i1 %exitcond90.not.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph82.i, %126
-  %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.190)
+  %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.189)
   br label %Msat_SolverAnalyze.exit
 
 Msat_SolverAnalyze.exit:                          ; preds = %123, %._crit_edge.i
   %143 = load i32, ptr %24, align 8
-  %. = call i32 @llvm.smax.i32(i32 %143, i32 %.190)
+  %. = call i32 @llvm.smax.i32(i32 %143, i32 %.189)
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef %.)
   %144 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -894,19 +894,19 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   br label %.lr.ph.i82
 
 .preheader.i77:                                   ; preds = %185, %162
-  %.035.lcssa.i = phi i32 [ 0, %162 ], [ %172, %185 ]
-  %.0.lcssa.i = phi i32 [ 0, %162 ], [ %.1.i84, %185 ]
-  %174 = icmp slt i32 %.035.lcssa.i, %169
+  %.035.lcssa.i = phi i32 [ 0, %162 ], [ %.136.i, %185 ]
+  %.0.lcssa.i = phi i32 [ 0, %162 ], [ %172, %185 ]
+  %174 = icmp slt i32 %.0.lcssa.i, %169
   br i1 %174, label %.lr.ph43.preheader.i, label %Msat_SolverReduceDB.exit
 
 .lr.ph43.preheader.i:                             ; preds = %.preheader.i77
-  %175 = zext nneg i32 %.035.lcssa.i to i64
+  %175 = zext nneg i32 %.0.lcssa.i to i64
   %wide.trip.count49.i = zext i32 %169 to i64
   br label %.lr.ph43.i
 
 .lr.ph.i82:                                       ; preds = %185, %.lr.ph.preheader.i80
-  %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i85, %185 ]
-  %.039.i = phi i32 [ 0, %.lr.ph.preheader.i80 ], [ %.1.i84, %185 ]
+  %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i84, %185 ]
+  %.03538.i = phi i32 [ 0, %.lr.ph.preheader.i80 ], [ %.136.i, %185 ]
   %176 = getelementptr inbounds ptr, ptr %171, i64 %indvars.iv.i83
   %177 = load ptr, ptr %176, align 8
   %178 = call i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef %177) #6
@@ -919,21 +919,21 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   br label %185
 
 181:                                              ; preds = %.lr.ph.i82
-  %182 = add nsw i32 %.039.i, 1
-  %183 = sext i32 %.039.i to i64
+  %182 = add nsw i32 %.03538.i, 1
+  %183 = sext i32 %.03538.i to i64
   %184 = getelementptr inbounds ptr, ptr %171, i64 %183
   store ptr %179, ptr %184, align 8
   br label %185
 
 185:                                              ; preds = %181, %180
-  %.1.i84 = phi i32 [ %182, %181 ], [ %.039.i, %180 ]
-  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i81
-  br i1 %exitcond.not.i86, label %.preheader.i77, label %.lr.ph.i82, !llvm.loop !21
+  %.136.i = phi i32 [ %182, %181 ], [ %.03538.i, %180 ]
+  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
+  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i81
+  br i1 %exitcond.not.i85, label %.preheader.i77, label %.lr.ph.i82, !llvm.loop !21
 
 .lr.ph43.i:                                       ; preds = %201, %.lr.ph43.preheader.i
   %indvars.iv46.i = phi i64 [ %175, %.lr.ph43.preheader.i ], [ %indvars.iv.next47.i, %201 ]
-  %.242.i = phi i32 [ %.0.lcssa.i, %.lr.ph43.preheader.i ], [ %.3.i, %201 ]
+  %.241.i = phi i32 [ %.035.lcssa.i, %.lr.ph43.preheader.i ], [ %.3.i, %201 ]
   %186 = getelementptr inbounds ptr, ptr %171, i64 %indvars.iv46.i
   %187 = load ptr, ptr %186, align 8
   %188 = call i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef %187) #6
@@ -954,20 +954,20 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
 
 196:                                              ; preds = %189, %.lr.ph43.i
   %197 = load ptr, ptr %186, align 8
-  %198 = add nsw i32 %.242.i, 1
-  %199 = sext i32 %.242.i to i64
+  %198 = add nsw i32 %.241.i, 1
+  %199 = sext i32 %.241.i to i64
   %200 = getelementptr inbounds ptr, ptr %171, i64 %199
   store ptr %197, ptr %200, align 8
   br label %201
 
 201:                                              ; preds = %196, %194
-  %.3.i = phi i32 [ %198, %196 ], [ %.242.i, %194 ]
+  %.3.i = phi i32 [ %198, %196 ], [ %.241.i, %194 ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %Msat_SolverReduceDB.exit, label %.lr.ph43.i, !llvm.loop !22
 
 Msat_SolverReduceDB.exit:                         ; preds = %201, %.preheader.i77
-  %.2.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i77 ], [ %.3.i, %201 ]
+  %.2.lcssa.i = phi i32 [ %.035.lcssa.i, %.preheader.i77 ], [ %.3.i, %201 ]
   %202 = load ptr, ptr %33, align 8
   call void @Msat_ClauseVecShrink(ptr noundef %202, i32 noundef %.2.lcssa.i) #6
   br label %203

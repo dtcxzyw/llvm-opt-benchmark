@@ -3738,7 +3738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit120: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #17
   %166 = load i32, ptr %9, align 4
-  %.045 = select i1 %164, i32 %166, i32 %107
+  %.044 = select i1 %164, i32 %166, i32 %107
   %167 = load ptr, ptr %67, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #17
   %168 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
@@ -3893,7 +3893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit130: ;
   %196 = load ptr, ptr %0, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 96
   %198 = load ptr, ptr %197, align 8
-  %199 = invoke noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef nonnull %31, i32 noundef %.045, i1 noundef zeroext %195)
+  %199 = invoke noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef nonnull %31, i32 noundef %.044, i1 noundef zeroext %195)
           to label %200 unwind label %213
 
 200:                                              ; preds = %193

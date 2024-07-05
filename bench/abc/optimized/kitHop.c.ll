@@ -497,8 +497,8 @@ Gia_ManAppendAnd2.exit.us:                        ; preds = %256, %254, %Gia_Man
   br label %295
 
 295:                                              ; preds = %.critedge, %262, %4
-  %.029 = phi i32 [ %7, %4 ], [ %268, %262 ], [ %294, %.critedge ]
-  ret i32 %.029
+  %.0 = phi i32 [ %7, %4 ], [ %268, %262 ], [ %294, %.critedge ]
+  ret i32 %.0
 }
 
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -11614,8 +11614,8 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 80:                                               ; preds = %73, %76
   %.sink = phi i64 [ 2560, %76 ], [ 2832, %73 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %.0 = load ptr, ptr %81, align 8
-  %.not40 = icmp eq ptr %.0, null
+  %.032 = load ptr, ptr %81, align 8
+  %.not40 = icmp eq ptr %.032, null
   br i1 %.not40, label %.thread49, label %82
 
 82:                                               ; preds = %80
@@ -11636,7 +11636,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 89:                                               ; preds = %85, %87
   %90 = phi ptr [ %88, %87 ], [ null, %85 ]
-  invoke void @_ZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %.0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %90)
+  invoke void @_ZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %.032, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %90)
           to label %91 unwind label %92
 
 91:                                               ; preds = %89
@@ -11650,7 +11650,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %96
 
 94:                                               ; preds = %82
-  invoke void @_ZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %.0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null)
+  invoke void @_ZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %.032, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null)
           to label %.thread49 unwind label %65
 
 .thread49:                                        ; preds = %73, %76, %91, %94, %80

@@ -6561,14 +6561,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEE
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %.090 = phi i64 [ %42, %.lr.ph92 ], [ 0, %.lr.ph92.preheader ]
-  %.sroa.032.089 = phi ptr [ %41, %.lr.ph92 ], [ %37, %.lr.ph92.preheader ]
-  %.sroa.035.188 = phi ptr [ %40, %.lr.ph92 ], [ %.sroa.035.0, %.lr.ph92.preheader ]
-  %38 = load ptr, ptr %.sroa.035.188, align 8
-  %39 = load ptr, ptr %.sroa.032.089, align 8
-  store ptr %39, ptr %.sroa.035.188, align 8
-  store ptr %38, ptr %.sroa.032.089, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.035.188, i64 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.032.089, i64 8
+  %.sroa.035.189 = phi ptr [ %40, %.lr.ph92 ], [ %.sroa.035.0, %.lr.ph92.preheader ]
+  %.sroa.032.088 = phi ptr [ %41, %.lr.ph92 ], [ %37, %.lr.ph92.preheader ]
+  %38 = load ptr, ptr %.sroa.035.189, align 8
+  %39 = load ptr, ptr %.sroa.032.088, align 8
+  store ptr %39, ptr %.sroa.035.189, align 8
+  store ptr %38, ptr %.sroa.032.088, align 8
+  %40 = getelementptr inbounds i8, ptr %.sroa.035.189, i64 8
+  %41 = getelementptr inbounds i8, ptr %.sroa.032.088, i64 8
   %42 = add nuw nsw i64 %.090, 1
   %exitcond101.not = icmp eq i64 %42, %25
   br i1 %exitcond101.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !51
@@ -6798,20 +6798,20 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6
 
 .lr.ph.i.i22:                                     ; preds = %.lr.ph.i.i22, %.lr.ph.i.preheader.i21
   %.021.i.i = phi ptr [ %73, %.lr.ph.i.i22 ], [ %.056.i, %.lr.ph.i.preheader.i21 ]
-  %.sroa.011.020.i.i = phi ptr [ %.sroa.011.1.i.i, %.lr.ph.i.i22 ], [ %64, %.lr.ph.i.preheader.i21 ]
-  %.sroa.015.019.i.i = phi ptr [ %.sroa.015.1.i.i, %.lr.ph.i.i22 ], [ %.sroa.042.055.i, %.lr.ph.i.preheader.i21 ]
-  %66 = load ptr, ptr %.sroa.011.020.i.i, align 8
-  %67 = load ptr, ptr %.sroa.015.019.i.i, align 8
+  %.sroa.015.020.i.i = phi ptr [ %.sroa.015.1.i.i, %.lr.ph.i.i22 ], [ %.sroa.042.055.i, %.lr.ph.i.preheader.i21 ]
+  %.sroa.011.019.i.i = phi ptr [ %.sroa.011.1.i.i, %.lr.ph.i.i22 ], [ %64, %.lr.ph.i.preheader.i21 ]
+  %66 = load ptr, ptr %.sroa.011.019.i.i, align 8
+  %67 = load ptr, ptr %.sroa.015.020.i.i, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 248
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %67, i64 248
   %71 = load i32, ptr %70, align 8
   %72 = icmp slt i32 %69, %71
   %.sink.i.i23 = select i1 %72, ptr %66, ptr %67
-  %.sroa.015.1.idx.i.i = select i1 %72, i64 0, i64 8
-  %.sroa.015.1.i.i = getelementptr inbounds i8, ptr %.sroa.015.019.i.i, i64 %.sroa.015.1.idx.i.i
   %.sroa.011.1.idx.i.i = select i1 %72, i64 8, i64 0
-  %.sroa.011.1.i.i = getelementptr inbounds i8, ptr %.sroa.011.020.i.i, i64 %.sroa.011.1.idx.i.i
+  %.sroa.011.1.i.i = getelementptr inbounds i8, ptr %.sroa.011.019.i.i, i64 %.sroa.011.1.idx.i.i
+  %.sroa.015.1.idx.i.i = select i1 %72, i64 0, i64 8
+  %.sroa.015.1.i.i = getelementptr inbounds i8, ptr %.sroa.015.020.i.i, i64 %.sroa.015.1.idx.i.i
   store ptr %.sink.i.i23, ptr %.021.i.i, align 8
   %73 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
   %74 = icmp ne ptr %.sroa.015.1.i.i, %64
@@ -6862,50 +6862,50 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_
 
 .lr.ph.i24.i:                                     ; preds = %._crit_edge.i25, %.lr.ph.i24.i
   %.021.i25.i = phi ptr [ %98, %.lr.ph.i24.i ], [ %.0.lcssa.i, %._crit_edge.i25 ]
-  %.sroa.011.020.i26.i = phi ptr [ %.sroa.011.1.i32.i, %.lr.ph.i24.i ], [ %88, %._crit_edge.i25 ]
-  %.sroa.015.019.i27.i = phi ptr [ %.sroa.015.1.i30.i, %.lr.ph.i24.i ], [ %.sroa.042.0.lcssa.i, %._crit_edge.i25 ]
-  %91 = load ptr, ptr %.sroa.011.020.i26.i, align 8
-  %92 = load ptr, ptr %.sroa.015.019.i27.i, align 8
+  %.sroa.015.020.i26.i = phi ptr [ %.sroa.015.1.i32.i, %.lr.ph.i24.i ], [ %.sroa.042.0.lcssa.i, %._crit_edge.i25 ]
+  %.sroa.011.019.i27.i = phi ptr [ %.sroa.011.1.i30.i, %.lr.ph.i24.i ], [ %88, %._crit_edge.i25 ]
+  %91 = load ptr, ptr %.sroa.011.019.i27.i, align 8
+  %92 = load ptr, ptr %.sroa.015.020.i26.i, align 8
   %93 = getelementptr inbounds i8, ptr %91, i64 248
   %94 = load i32, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %92, i64 248
   %96 = load i32, ptr %95, align 8
   %97 = icmp slt i32 %94, %96
   %.sink.i28.i = select i1 %97, ptr %91, ptr %92
-  %.sroa.015.1.idx.i29.i = select i1 %97, i64 0, i64 8
-  %.sroa.015.1.i30.i = getelementptr inbounds i8, ptr %.sroa.015.019.i27.i, i64 %.sroa.015.1.idx.i29.i
-  %.sroa.011.1.idx.i31.i = select i1 %97, i64 8, i64 0
-  %.sroa.011.1.i32.i = getelementptr inbounds i8, ptr %.sroa.011.020.i26.i, i64 %.sroa.011.1.idx.i31.i
+  %.sroa.011.1.idx.i29.i = select i1 %97, i64 8, i64 0
+  %.sroa.011.1.i30.i = getelementptr inbounds i8, ptr %.sroa.011.019.i27.i, i64 %.sroa.011.1.idx.i29.i
+  %.sroa.015.1.idx.i31.i = select i1 %97, i64 0, i64 8
+  %.sroa.015.1.i32.i = getelementptr inbounds i8, ptr %.sroa.015.020.i26.i, i64 %.sroa.015.1.idx.i31.i
   store ptr %.sink.i28.i, ptr %.021.i25.i, align 8
   %98 = getelementptr inbounds i8, ptr %.021.i25.i, i64 8
-  %99 = icmp ne ptr %.sroa.015.1.i30.i, %88
-  %100 = icmp ne ptr %.sroa.011.1.i32.i, %1
+  %99 = icmp ne ptr %.sroa.015.1.i32.i, %88
+  %100 = icmp ne ptr %.sroa.011.1.i30.i, %1
   %or.cond.i33.i = select i1 %99, i1 %100, i1 false
   br i1 %or.cond.i33.i, label %.lr.ph.i24.i, label %.critedge.i17.i, !llvm.loop !55
 
 .critedge.i17.i:                                  ; preds = %.lr.ph.i24.i, %._crit_edge.i25
-  %.sroa.015.0.lcssa.i18.i = phi ptr [ %.sroa.042.0.lcssa.i, %._crit_edge.i25 ], [ %.sroa.015.1.i30.i, %.lr.ph.i24.i ]
-  %.sroa.011.0.lcssa.i19.i = phi ptr [ %88, %._crit_edge.i25 ], [ %.sroa.011.1.i32.i, %.lr.ph.i24.i ]
+  %.sroa.011.0.lcssa.i18.i = phi ptr [ %88, %._crit_edge.i25 ], [ %.sroa.011.1.i30.i, %.lr.ph.i24.i ]
+  %.sroa.015.0.lcssa.i19.i = phi ptr [ %.sroa.042.0.lcssa.i, %._crit_edge.i25 ], [ %.sroa.015.1.i32.i, %.lr.ph.i24.i ]
   %.0.lcssa.i20.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i25 ], [ %98, %.lr.ph.i24.i ]
   %101 = ptrtoint ptr %88 to i64
-  %102 = ptrtoint ptr %.sroa.015.0.lcssa.i18.i to i64
+  %102 = ptrtoint ptr %.sroa.015.0.lcssa.i19.i to i64
   %103 = sub i64 %101, %102
-  %.not.i.i.i.i.i.i21.i = icmp eq ptr %.sroa.015.0.lcssa.i18.i, %88
+  %.not.i.i.i.i.i.i21.i = icmp eq ptr %.sroa.015.0.lcssa.i19.i, %88
   br i1 %.not.i.i.i.i.i.i21.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22.i, label %104
 
 104:                                              ; preds = %.critedge.i17.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i20.i, ptr align 8 %.sroa.015.0.lcssa.i18.i, i64 %103, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i20.i, ptr align 8 %.sroa.015.0.lcssa.i19.i, i64 %103, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22.i: ; preds = %104, %.critedge.i17.i
-  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %.sroa.011.0.lcssa.i19.i, %1
+  %.not.i.i.i.i.i9.i23.i = icmp eq ptr %.sroa.011.0.lcssa.i18.i, %1
   br i1 %.not.i.i.i.i.i9.i23.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterI8CmpLevelEEEvT_SD_T0_T1_T2_.exit, label %105
 
 105:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22.i
-  %106 = ptrtoint ptr %.sroa.011.0.lcssa.i19.i to i64
+  %106 = ptrtoint ptr %.sroa.011.0.lcssa.i18.i to i64
   %107 = sub i64 %4, %106
   %108 = getelementptr inbounds i8, ptr %.0.lcssa.i20.i, i64 %103
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %108, ptr align 8 %.sroa.011.0.lcssa.i19.i, i64 %107, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %108, ptr align 8 %.sroa.011.0.lcssa.i18.i, i64 %107, i1 false)
   br label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterI8CmpLevelEEEvT_SD_T0_T1_T2_.exit
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterI8CmpLevelEEEvT_SD_T0_T1_T2_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22.i, %105

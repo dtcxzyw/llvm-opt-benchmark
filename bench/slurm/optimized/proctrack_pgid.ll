@@ -132,7 +132,7 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %proctrack_p_signal.exit
-  %.017 = phi i32 [ %spec.select, %proctrack_p_signal.exit ], [ 1, %.preheader ]
+  %.01517 = phi i32 [ %spec.select, %proctrack_p_signal.exit ], [ 1, %.preheader ]
   %7 = tail call i64 @time(ptr noundef null) #8
   %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1488), align 8
   %9 = zext i16 %8 to i64
@@ -165,17 +165,17 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
   br label %proctrack_p_signal.exit
 
 proctrack_p_signal.exit:                          ; preds = %21, %23
-  %25 = tail call i32 @sleep(i32 noundef %.017) #8
-  %26 = icmp slt i32 %.017, 32
+  %25 = tail call i32 @sleep(i32 noundef %.01517) #8
+  %26 = icmp slt i32 %.01517, 32
   %27 = zext i1 %26 to i32
-  %spec.select = shl nsw i32 %.017, %27
+  %spec.select = shl nsw i32 %.01517, %27
   %28 = tail call i32 @killpg(i32 noundef %2, i32 noundef 0) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %proctrack_p_signal.exit, %.preheader, %12, %6
-  %.015 = phi i32 [ -1, %6 ], [ 0, %12 ], [ 0, %.preheader ], [ 0, %proctrack_p_signal.exit ]
-  ret i32 %.015
+  %.0 = phi i32 [ -1, %6 ], [ 0, %12 ], [ 0, %.preheader ], [ 0, %proctrack_p_signal.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

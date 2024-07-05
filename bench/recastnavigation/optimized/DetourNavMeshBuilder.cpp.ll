@@ -80,15 +80,15 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0439537 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader ], [ %36, %.lr.ph ]
-  %.0447536 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+  %.0429537 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.0435536 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   %gep.idx = mul i64 %indvars.iv, 12
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %34 = load float, ptr %gep, align 4
-  %35 = fcmp olt float %.0439537, %34
-  %36 = select i1 %35, float %.0439537, float %34
-  %37 = fcmp ogt float %.0447536, %34
-  %38 = select i1 %37, float %.0447536, float %34
+  %35 = fcmp olt float %.0429537, %34
+  %36 = select i1 %35, float %.0429537, float %34
+  %37 = fcmp ogt float %.0435536, %34
+  %38 = select i1 %37, float %.0435536, float %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit532, label %.lr.ph, !llvm.loop !4
@@ -110,28 +110,28 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
 
 47:                                               ; preds = %.lr.ph542, %47
   %indvars.iv642 = phi i64 [ 0, %.lr.ph542 ], [ %indvars.iv.next643, %47 ]
-  %.1440541 = phi float [ 0x47EFFFFFE0000000, %.lr.ph542 ], [ %52, %47 ]
-  %.1448540 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph542 ], [ %54, %47 ]
+  %.1430541 = phi float [ 0x47EFFFFFE0000000, %.lr.ph542 ], [ %52, %47 ]
+  %.1436540 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph542 ], [ %54, %47 ]
   %gep546.idx = mul i64 %indvars.iv642, 6
   %gep546 = getelementptr inbounds i8, ptr %invariant.gep545, i64 %gep546.idx
   %48 = load i16, ptr %gep546, align 2
   %49 = uitofp i16 %48 to float
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %46, float %44)
-  %51 = fcmp olt float %.1440541, %50
-  %52 = select i1 %51, float %.1440541, float %50
-  %53 = fcmp ogt float %.1448540, %50
-  %54 = select i1 %53, float %.1448540, float %50
+  %51 = fcmp olt float %.1430541, %50
+  %52 = select i1 %51, float %.1430541, float %50
+  %53 = fcmp ogt float %.1436540, %50
+  %54 = select i1 %53, float %.1436540, float %50
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
   br i1 %exitcond646.not, label %.loopexit532, label %47, !llvm.loop !6
 
 .loopexit532:                                     ; preds = %.lr.ph, %47, %.preheader533, %39
-  %.2449 = phi float [ 0xC7EFFFFFE0000000, %39 ], [ 0xC7EFFFFFE0000000, %.preheader533 ], [ %54, %47 ], [ %38, %.lr.ph ]
-  %.2441 = phi float [ 0x47EFFFFFE0000000, %39 ], [ 0x47EFFFFFE0000000, %.preheader533 ], [ %52, %47 ], [ %36, %.lr.ph ]
+  %.2437 = phi float [ 0xC7EFFFFFE0000000, %39 ], [ 0xC7EFFFFFE0000000, %.preheader533 ], [ %54, %47 ], [ %38, %.lr.ph ]
+  %.2431 = phi float [ 0x47EFFFFFE0000000, %39 ], [ 0x47EFFFFFE0000000, %.preheader533 ], [ %52, %47 ], [ %36, %.lr.ph ]
   %55 = getelementptr inbounds i8, ptr %0, i64 188
   %56 = load float, ptr %55, align 4
-  %57 = fsub float %.2441, %56
-  %58 = fadd float %.2449, %56
+  %57 = fsub float %.2431, %56
+  %58 = fadd float %.2437, %56
   %59 = getelementptr inbounds i8, ptr %0, i64 156
   %60 = load float, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 164
@@ -150,8 +150,8 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
 
 70:                                               ; preds = %.lr.ph550, %122
   %indvars.iv647 = phi i64 [ 0, %.lr.ph550 ], [ %indvars.iv.next648, %122 ]
-  %.0430549 = phi i32 [ 0, %.lr.ph550 ], [ %.1431, %122 ]
-  %.0436548 = phi i32 [ 0, %.lr.ph550 ], [ %.2438, %122 ]
+  %.0424549 = phi i32 [ 0, %.lr.ph550 ], [ %.1, %122 ]
+  %.0426548 = phi i32 [ 0, %.lr.ph550 ], [ %.2428, %122 ]
   %71 = load ptr, ptr %69, align 8
   %72 = shl nuw nsw i64 %indvars.iv647, 1
   %.idx = mul i64 %indvars.iv647, 24
@@ -263,9 +263,9 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %123 = phi i8 [ %.0.i, %116 ], [ 0, %121 ], [ %.0.i, %_ZL20classifyOffMeshPointPKfS0_S0_.exit512 ]
   %124 = icmp eq i8 %123, -1
   %125 = zext i1 %124 to i32
-  %spec.select = add nsw i32 %.0436548, %125
-  %.2438 = add nsw i32 %spec.select, %113
-  %.1431 = add nuw nsw i32 %.0430549, %125
+  %spec.select = add nsw i32 %.0426548, %125
+  %.2428 = add nsw i32 %spec.select, %113
+  %.1 = add nuw nsw i32 %.0424549, %125
   %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
   %126 = load i32, ptr %20, align 8
   %127 = sext i32 %126 to i64
@@ -273,9 +273,9 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %128, label %70, label %.loopexit531, !llvm.loop !7
 
 .loopexit531:                                     ; preds = %122, %.loopexit532, %19
-  %.3 = phi i32 [ 0, %19 ], [ 0, %.loopexit532 ], [ %.2438, %122 ]
-  %.2 = phi i32 [ 0, %19 ], [ 0, %.loopexit532 ], [ %.1431, %122 ]
-  %.0426 = phi ptr [ null, %19 ], [ %26, %.loopexit532 ], [ %26, %122 ]
+  %.3 = phi i32 [ 0, %19 ], [ 0, %.loopexit532 ], [ %.2428, %122 ]
+  %.2 = phi i32 [ 0, %19 ], [ 0, %.loopexit532 ], [ %.1, %122 ]
+  %.0422 = phi ptr [ null, %19 ], [ %26, %.loopexit532 ], [ %26, %122 ]
   %129 = load i32, ptr %14, align 8
   %130 = add nsw i32 %129, %.2
   %131 = load i32, ptr %8, align 8
@@ -297,27 +297,27 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 .lr.ph556.us:                                     ; preds = %.lr.ph556.us.preheader, %._crit_edge.us
   %indvars.iv655 = phi i64 [ 0, %.lr.ph556.us.preheader ], [ %indvars.iv.next656, %._crit_edge.us ]
-  %.0454564.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1455.lcssa.us, %._crit_edge.us ]
-  %.0456563.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1457.lcssa.us, %._crit_edge.us ]
+  %.0444564.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1445.lcssa.us, %._crit_edge.us ]
+  %.0447563.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1448.lcssa.us, %._crit_edge.us ]
   %139 = trunc nuw nsw i64 %indvars.iv655 to i32
   %140 = mul i32 %136, %139
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i16, ptr %135, i64 %141
-  %143 = add i32 %5, %.0454564.us
+  %143 = add i32 %5, %.0444564.us
   %invariant.gep736 = getelementptr inbounds i16, ptr %142, i64 %138
   br label %144
 
 144:                                              ; preds = %.lr.ph556.us, %148
   %indvars.iv650 = phi i64 [ 0, %.lr.ph556.us ], [ %indvars.iv.next651, %148 ]
-  %.1455555.us = phi i32 [ %.0454564.us, %.lr.ph556.us ], [ %149, %148 ]
-  %.1457554.us = phi i32 [ %.0456563.us, %.lr.ph556.us ], [ %.2458.us, %148 ]
+  %.1445555.us = phi i32 [ %.0444564.us, %.lr.ph556.us ], [ %149, %148 ]
+  %.1448554.us = phi i32 [ %.0447563.us, %.lr.ph556.us ], [ %.2449.us, %148 ]
   %145 = getelementptr inbounds i16, ptr %142, i64 %indvars.iv650
   %146 = load i16, ptr %145, align 2
   %147 = icmp eq i16 %146, -1
   br i1 %147, label %._crit_edge.us, label %148
 
 148:                                              ; preds = %144
-  %149 = add nsw i32 %.1455555.us, 1
+  %149 = add nsw i32 %.1445555.us, 1
   %gep737 = getelementptr inbounds i16, ptr %invariant.gep736, i64 %indvars.iv650
   %150 = load i16, ptr %gep737, align 2
   %.not494.us = icmp slt i16 %150, 0
@@ -325,22 +325,22 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %.not495.us = icmp ne i16 %151, 15
   %or.cond497.not.us = and i1 %.not494.us, %.not495.us
   %152 = zext i1 %or.cond497.not.us to i32
-  %.2458.us = add nsw i32 %.1457554.us, %152
+  %.2449.us = add nsw i32 %.1448554.us, %152
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
   %exitcond654.not = icmp eq i64 %indvars.iv.next651, %138
   br i1 %exitcond654.not, label %._crit_edge.us, label %144, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %144, %148
-  %.1457.lcssa.us = phi i32 [ %.2458.us, %148 ], [ %.1457554.us, %144 ]
-  %.1455.lcssa.us = phi i32 [ %143, %148 ], [ %.1455555.us, %144 ]
+  %.1448.lcssa.us = phi i32 [ %.2449.us, %148 ], [ %.1448554.us, %144 ]
+  %.1445.lcssa.us = phi i32 [ %143, %148 ], [ %.1445555.us, %144 ]
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
   br i1 %exitcond659.not, label %._crit_edge567, label %.lr.ph556.us, !llvm.loop !9
 
 ._crit_edge567:                                   ; preds = %._crit_edge.us
-  %153 = add i32 %.1457.lcssa.us, %.3
+  %153 = add i32 %.1448.lcssa.us, %.3
   %154 = shl i32 %153, 1
-  %155 = add i32 %154, %.1455.lcssa.us
+  %155 = add i32 %154, %.1445.lcssa.us
   %156 = getelementptr inbounds i8, ptr %0, i64 48
   %157 = load ptr, ptr %156, align 8
   %.not487 = icmp eq ptr %157, null
@@ -402,7 +402,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 183:                                              ; preds = %.lr.ph580, %._crit_edge
   %indvars.iv667 = phi i64 [ 0, %.lr.ph580 ], [ %indvars.iv.next668, %._crit_edge ]
-  %.0461578 = phi i32 [ 0, %.lr.ph580 ], [ %197, %._crit_edge ]
+  %.0455578 = phi i32 [ 0, %.lr.ph580 ], [ %197, %._crit_edge ]
   %184 = trunc nuw nsw i64 %indvars.iv667 to i32
   %185 = mul i32 %181, %184
   %186 = sext i32 %185 to i64
@@ -431,7 +431,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 ._crit_edge:                                      ; preds = %195, %._crit_edge.loopexit.split.loop.exit, %183
   %.0466.lcssa = phi i32 [ 0, %183 ], [ %indvars662.le, %._crit_edge.loopexit.split.loop.exit ], [ %5, %195 ]
-  %196 = add i32 %191, %.0461578
+  %196 = add i32 %191, %.0455578
   %197 = sub i32 %196, %.0466.lcssa
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond671.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count670
@@ -439,7 +439,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 198:                                              ; preds = %.lr.ph592, %._crit_edge586
   %indvars.iv679 = phi i64 [ 0, %.lr.ph592 ], [ %indvars.iv.next680, %._crit_edge586 ]
-  %.0463591 = phi i32 [ 0, %.lr.ph592 ], [ %208, %._crit_edge586 ]
+  %.0462591 = phi i32 [ 0, %.lr.ph592 ], [ %208, %._crit_edge586 ]
   %199 = trunc nuw nsw i64 %indvars.iv679 to i32
   %200 = mul i32 %171, %199
   %201 = sext i32 %200 to i64
@@ -459,12 +459,12 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %exitcond678.not, label %._crit_edge586, label %.lr.ph585, !llvm.loop !12
 
 ._crit_edge586.loopexit.split.loop.exit:          ; preds = %.lr.ph585
-  %indvars676.le = trunc i64 %indvars.iv672 to i32
+  %indvars674.le = trunc i64 %indvars.iv672 to i32
   br label %._crit_edge586
 
 ._crit_edge586:                                   ; preds = %206, %._crit_edge586.loopexit.split.loop.exit, %198
-  %.0469.lcssa = phi i32 [ 0, %198 ], [ %indvars676.le, %._crit_edge586.loopexit.split.loop.exit ], [ %5, %206 ]
-  %207 = add i32 %.0463591, -2
+  %.0469.lcssa = phi i32 [ 0, %198 ], [ %indvars674.le, %._crit_edge586.loopexit.split.loop.exit ], [ %5, %206 ]
+  %207 = add i32 %.0462591, -2
   %208 = add i32 %207, %.0469.lcssa
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
   %exitcond683.not = icmp eq i64 %indvars.iv.next680, %wide.trip.count682
@@ -473,14 +473,14 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 .loopexit529:                                     ; preds = %._crit_edge, %._crit_edge586, %._crit_edge567.thread, %.thread727, %173, %.preheader528
   %209 = phi ptr [ %156, %.preheader528 ], [ %156, %173 ], [ %164, %.thread727 ], [ %164, %._crit_edge567.thread ], [ %169, %._crit_edge586 ], [ %178, %._crit_edge ]
   %210 = phi i32 [ %155, %.preheader528 ], [ %155, %173 ], [ %163, %.thread727 ], [ %163, %._crit_edge567.thread ], [ %168, %._crit_edge586 ], [ %177, %._crit_edge ]
-  %.1464 = phi i32 [ 0, %.preheader528 ], [ %175, %173 ], [ %167, %.thread727 ], [ 0, %._crit_edge567.thread ], [ %208, %._crit_edge586 ], [ %176, %._crit_edge ]
-  %.1462 = phi i32 [ 0, %.preheader528 ], [ 0, %173 ], [ 0, %.thread727 ], [ 0, %._crit_edge567.thread ], [ 0, %._crit_edge586 ], [ %197, %._crit_edge ]
+  %.1463 = phi i32 [ 0, %.preheader528 ], [ %175, %173 ], [ %167, %.thread727 ], [ 0, %._crit_edge567.thread ], [ %208, %._crit_edge586 ], [ %176, %._crit_edge ]
+  %.1456 = phi i32 [ 0, %.preheader528 ], [ 0, %173 ], [ 0, %.thread727 ], [ 0, %._crit_edge567.thread ], [ 0, %._crit_edge586 ], [ %197, %._crit_edge ]
   %211 = mul i32 %133, 12
   %212 = shl i32 %130, 5
   %213 = mul i32 %210, 12
   %214 = mul i32 %129, 12
-  %215 = mul i32 %.1462, 12
-  %216 = shl i32 %.1464, 2
+  %215 = mul i32 %.1456, 12
+  %216 = shl i32 %.1463, 2
   %217 = getelementptr inbounds i8, ptr %0, i64 200
   %218 = load i8, ptr %217, align 8
   %219 = trunc i8 %218 to i1
@@ -501,7 +501,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %.not488, label %233, label %234
 
 233:                                              ; preds = %.loopexit529
-  tail call void @_Z6dtFreePv(ptr noundef %.0426)
+  tail call void @_Z6dtFreePv(ptr noundef %.0422)
   br label %611
 
 234:                                              ; preds = %.loopexit529
@@ -574,9 +574,9 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %285 = getelementptr inbounds i8, ptr %232, i64 36
   store i32 %284, ptr %285, align 4
   %286 = getelementptr inbounds i8, ptr %232, i64 40
-  store i32 %.1462, ptr %286, align 4
+  store i32 %.1456, ptr %286, align 4
   %287 = getelementptr inbounds i8, ptr %232, i64 44
-  store i32 %.1464, ptr %287, align 4
+  store i32 %.1463, ptr %287, align 4
   %288 = getelementptr inbounds i8, ptr %0, i64 192
   %289 = load float, ptr %288, align 8
   %290 = fdiv float 1.000000e+00, %289
@@ -667,9 +667,9 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 346:                                              ; preds = %.lr.ph599, %377
   %347 = phi i32 [ %316, %.lr.ph599 ], [ %378, %377 ]
   %indvars.iv687 = phi i64 [ 0, %.lr.ph599 ], [ %indvars.iv.next688, %377 ]
-  %.0443597 = phi i32 [ 0, %.lr.ph599 ], [ %.1444, %377 ]
+  %.0458597 = phi i32 [ 0, %.lr.ph599 ], [ %.1459, %377 ]
   %348 = shl nuw nsw i64 %indvars.iv687, 1
-  %349 = getelementptr inbounds i8, ptr %.0426, i64 %348
+  %349 = getelementptr inbounds i8, ptr %.0422, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = icmp eq i8 %350, -1
   br i1 %351, label %352, label %377
@@ -678,7 +678,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %353 = load ptr, ptr %318, align 8
   %.idx717 = mul i64 %indvars.iv687, 24
   %354 = getelementptr inbounds i8, ptr %353, i64 %.idx717
-  %355 = shl nsw i32 %.0443597, 1
+  %355 = shl nsw i32 %.0458597, 1
   %356 = add nsw i32 %355, %312
   %357 = mul nsw i32 %356, 3
   %358 = sext i32 %357 to i64
@@ -705,13 +705,13 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %374 = load float, ptr %373, align 4
   %375 = getelementptr inbounds i8, ptr %359, i64 20
   store float %374, ptr %375, align 4
-  %376 = add nsw i32 %.0443597, 1
+  %376 = add nsw i32 %.0458597, 1
   %.pre = load i32, ptr %20, align 8
   br label %377
 
 377:                                              ; preds = %346, %352
   %378 = phi i32 [ %.pre, %352 ], [ %347, %346 ]
-  %.1444 = phi i32 [ %376, %352 ], [ %.0443597, %346 ]
+  %.1459 = phi i32 [ %376, %352 ], [ %.0458597, %346 ]
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %379 = sext i32 %378 to i64
   %380 = icmp slt i64 %indvars.iv.next688, %379
@@ -749,7 +749,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 395:                                              ; preds = %.lr.ph609, %._crit_edge604
   %indvars.iv695 = phi i64 [ 0, %.lr.ph609 ], [ %indvars.iv.next696, %._crit_edge604 ]
-  %.0435606 = phi ptr [ %384, %.lr.ph609 ], [ %430, %._crit_edge604 ]
+  %.0453606 = phi ptr [ %384, %.lr.ph609 ], [ %430, %._crit_edge604 ]
   %396 = getelementptr inbounds %struct.dtPoly, ptr %237, i64 %indvars.iv695
   %397 = getelementptr inbounds i8, ptr %396, i64 30
   store i8 0, ptr %397, align 2
@@ -773,7 +773,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 409:                                              ; preds = %.lr.ph603, %427
   %indvars.iv690 = phi i64 [ 0, %.lr.ph603 ], [ %indvars.iv.next691, %427 ]
-  %410 = getelementptr inbounds i16, ptr %.0435606, i64 %indvars.iv690
+  %410 = getelementptr inbounds i16, ptr %.0453606, i64 %indvars.iv690
   %411 = load i16, ptr %410, align 2
   %412 = icmp eq i16 %411, -1
   br i1 %412, label %._crit_edge604, label %413
@@ -782,7 +782,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %414 = getelementptr inbounds [6 x i16], ptr %407, i64 0, i64 %indvars.iv690
   store i16 %411, ptr %414, align 2
   %415 = add nuw nsw i64 %indvars.iv690, %390
-  %416 = getelementptr inbounds i16, ptr %.0435606, i64 %415
+  %416 = getelementptr inbounds i16, ptr %.0453606, i64 %415
   %417 = load i16, ptr %416, align 2
   %.not493 = icmp sgt i16 %417, -1
   br i1 %.not493, label %424, label %418
@@ -828,7 +828,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %exitcond694.not, label %._crit_edge604, label %409, !llvm.loop !16
 
 ._crit_edge604:                                   ; preds = %427, %409, %395
-  %430 = getelementptr inbounds i16, ptr %.0435606, i64 %389
+  %430 = getelementptr inbounds i16, ptr %.0453606, i64 %389
   %indvars.iv.next696 = add nuw nsw i64 %indvars.iv695, 1
   %431 = load i32, ptr %14, align 8
   %432 = sext i32 %431 to i64
@@ -838,20 +838,20 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 434:                                              ; preds = %.lr.ph612, %462
   %435 = phi i32 [ %391, %.lr.ph612 ], [ %463, %462 ]
   %indvars.iv698 = phi i64 [ 0, %.lr.ph612 ], [ %indvars.iv.next699, %462 ]
-  %.2445610 = phi i32 [ 0, %.lr.ph612 ], [ %.3446, %462 ]
+  %.2460610 = phi i32 [ 0, %.lr.ph612 ], [ %.3461, %462 ]
   %436 = shl nuw nsw i64 %indvars.iv698, 1
-  %437 = getelementptr inbounds i8, ptr %.0426, i64 %436
+  %437 = getelementptr inbounds i8, ptr %.0422, i64 %436
   %438 = load i8, ptr %437, align 1
   %439 = icmp eq i8 %438, -1
   br i1 %439, label %440, label %462
 
 440:                                              ; preds = %434
-  %441 = add nsw i32 %.2445610, %313
+  %441 = add nsw i32 %.2460610, %313
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds %struct.dtPoly, ptr %237, i64 %442
   %444 = getelementptr inbounds i8, ptr %443, i64 30
   store i8 2, ptr %444, align 2
-  %445 = shl nsw i32 %.2445610, 1
+  %445 = shl nsw i32 %.2460610, 1
   %446 = add nsw i32 %445, %312
   %447 = trunc i32 %446 to i16
   %448 = getelementptr inbounds i8, ptr %443, i64 4
@@ -871,13 +871,13 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %459 = and i8 %457, 63
   %460 = or disjoint i8 %459, 64
   store i8 %460, ptr %458, align 1
-  %461 = add nsw i32 %.2445610, 1
+  %461 = add nsw i32 %.2460610, 1
   %.pre714 = load i32, ptr %20, align 8
   br label %462
 
 462:                                              ; preds = %434, %440
   %463 = phi i32 [ %.pre714, %440 ], [ %435, %434 ]
-  %.3446 = phi i32 [ %461, %440 ], [ %.2445610, %434 ]
+  %.3461 = phi i32 [ %461, %440 ], [ %.2460610, %434 ]
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %464 = sext i32 %463 to i64
   %465 = icmp slt i64 %indvars.iv.next699, %464
@@ -902,7 +902,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 470:                                              ; preds = %.lr.ph616, %510
   %indvars.iv701 = phi i64 [ 0, %.lr.ph616 ], [ %indvars.iv.next702, %510 ]
-  %.0428614 = phi i16 [ 0, %.lr.ph616 ], [ %.1429, %510 ]
+  %.0442614 = phi i16 [ 0, %.lr.ph616 ], [ %.1443, %510 ]
   %471 = getelementptr inbounds %struct.dtPolyDetail, ptr %241, i64 %indvars.iv701
   %472 = load ptr, ptr %209, align 8
   %473 = shl nsw i64 %indvars.iv701, 2
@@ -914,7 +914,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %479 = getelementptr inbounds %struct.dtPoly, ptr %237, i64 %indvars.iv701, i32 4
   %480 = load i8, ptr %479, align 2
   %481 = zext i8 %480 to i32
-  %482 = zext i16 %.0428614 to i32
+  %482 = zext i16 %.0442614 to i32
   store i32 %482, ptr %471, align 4
   %483 = sub nsw i32 %478, %481
   %484 = trunc i32 %483 to i8
@@ -949,11 +949,11 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %507 = mul nsw i64 %506, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %500, ptr align 4 %505, i64 %507, i1 false)
   %508 = trunc i32 %483 to i16
-  %509 = add i16 %.0428614, %508
+  %509 = add i16 %.0442614, %508
   br label %510
 
 510:                                              ; preds = %470, %497
-  %.1429 = phi i16 [ %509, %497 ], [ %.0428614, %470 ]
+  %.1443 = phi i16 [ %509, %497 ], [ %.0442614, %470 ]
   %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 1
   %511 = load i32, ptr %14, align 8
   %512 = sext i32 %511 to i64
@@ -972,7 +972,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 .lr.ph626:                                        ; preds = %.preheader, %._crit_edge622
   %indvars.iv707 = phi i64 [ %indvars.iv.next708, %._crit_edge622 ], [ 0, %.preheader ]
-  %.0425624 = phi i32 [ %.1.lcssa, %._crit_edge622 ], [ 0, %.preheader ]
+  %.0433624 = phi i32 [ %.1434.lcssa, %._crit_edge622 ], [ 0, %.preheader ]
   %520 = getelementptr inbounds %struct.dtPolyDetail, ptr %241, i64 %indvars.iv707
   %521 = getelementptr inbounds %struct.dtPoly, ptr %237, i64 %indvars.iv707, i32 4
   %522 = load i8, ptr %521, align 2
@@ -981,7 +981,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %524 = getelementptr inbounds i8, ptr %520, i64 8
   store i8 0, ptr %524, align 4
   %525 = getelementptr inbounds i8, ptr %520, i64 4
-  store i32 %.0425624, ptr %525, align 4
+  store i32 %.0433624, ptr %525, align 4
   %526 = add i8 %522, -2
   %527 = getelementptr inbounds i8, ptr %520, i64 9
   store i8 %526, ptr %527, align 1
@@ -990,30 +990,30 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 .lr.ph621:                                        ; preds = %.lr.ph626
   %529 = add nsw i32 %523, -1
-  %530 = sext i32 %.0425624 to i64
+  %530 = sext i32 %.0433624 to i64
   br label %531
 
 531:                                              ; preds = %.lr.ph621, %531
   %indvars.iv703 = phi i64 [ %530, %.lr.ph621 ], [ %indvars.iv.next704, %531 ]
-  %.0423619 = phi i32 [ 2, %.lr.ph621 ], [ %542, %531 ]
+  %.0425619 = phi i32 [ 2, %.lr.ph621 ], [ %542, %531 ]
   %532 = shl nsw i64 %indvars.iv703, 2
   %533 = getelementptr inbounds i8, ptr %245, i64 %532
   store i8 0, ptr %533, align 1
-  %534 = trunc i32 %.0423619 to i8
+  %534 = trunc i32 %.0425619 to i8
   %535 = add i8 %534, -1
   %536 = getelementptr inbounds i8, ptr %533, i64 1
   store i8 %535, ptr %536, align 1
   %537 = getelementptr inbounds i8, ptr %533, i64 2
   store i8 %534, ptr %537, align 1
   %538 = getelementptr inbounds i8, ptr %533, i64 3
-  %539 = icmp eq i32 %.0423619, 2
+  %539 = icmp eq i32 %.0425619, 2
   %spec.select498 = select i1 %539, i8 5, i8 4
-  %540 = icmp eq i32 %.0423619, %529
+  %540 = icmp eq i32 %.0425619, %529
   %541 = or disjoint i8 %spec.select498, 16
   %spec.select524 = select i1 %540, i8 %541, i8 %spec.select498
   store i8 %spec.select524, ptr %538, align 1
   %indvars.iv.next704 = add nsw i64 %indvars.iv703, 1
-  %542 = add nuw nsw i32 %.0423619, 1
+  %542 = add nuw nsw i32 %.0425619, 1
   %exitcond706.not = icmp eq i32 %542, %523
   br i1 %exitcond706.not, label %._crit_edge622.loopexit, label %531, !llvm.loop !20
 
@@ -1022,7 +1022,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br label %._crit_edge622
 
 ._crit_edge622:                                   ; preds = %._crit_edge622.loopexit, %.lr.ph626
-  %.1.lcssa = phi i32 [ %.0425624, %.lr.ph626 ], [ %543, %._crit_edge622.loopexit ]
+  %.1434.lcssa = phi i32 [ %.0433624, %.lr.ph626 ], [ %543, %._crit_edge622.loopexit ]
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
   %544 = load i32, ptr %14, align 8
   %545 = sext i32 %544 to i64
@@ -1055,7 +1055,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv710 = phi i64 [ 0, %.lr.ph630 ], [ %indvars.iv.next711, %607 ]
   %.4627 = phi i32 [ 0, %.lr.ph630 ], [ %.5, %607 ]
   %559 = shl nuw nsw i64 %indvars.iv710, 1
-  %560 = getelementptr inbounds i8, ptr %.0426, i64 %559
+  %560 = getelementptr inbounds i8, ptr %.0422, i64 %559
   %561 = load i8, ptr %560, align 1
   %562 = icmp eq i8 %561, -1
   br i1 %562, label %563, label %607
@@ -1105,7 +1105,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %595 = getelementptr inbounds i8, ptr %565, i64 30
   store i8 %594, ptr %595, align 2
   %596 = or disjoint i64 %559, 1
-  %597 = getelementptr inbounds i8, ptr %.0426, i64 %596
+  %597 = getelementptr inbounds i8, ptr %.0422, i64 %596
   %598 = load i8, ptr %597, align 1
   %599 = getelementptr inbounds i8, ptr %565, i64 31
   store i8 %598, ptr %599, align 1
@@ -1134,7 +1134,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %610, label %557, label %._crit_edge631, !llvm.loop !22
 
 ._crit_edge631:                                   ; preds = %607, %550
-  tail call void @_Z6dtFreePv(ptr noundef %.0426)
+  tail call void @_Z6dtFreePv(ptr noundef %.0422)
   store ptr %232, ptr %1, align 8
   store i32 %230, ptr %2, align 4
   br label %611
@@ -1796,8 +1796,8 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   br i1 %135, label %.lr.ph107, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %125, %.preheader, %4, %2
-  %.077 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %.preheader ], [ true, %125 ]
-  ret i1 %.077
+  %.073 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %.preheader ], [ true, %125 ]
+  ret i1 %.073
 }
 
 ; Function Attrs: mustprogress nofree uwtable

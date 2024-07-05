@@ -1152,8 +1152,8 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb, %if.then3, %sw.bb6
-  %items16.0 = phi ptr [ %incdec.ptr10, %sw.bb6 ], [ null, %if.then3 ], [ null, %sw.bb ]
   %items32.0 = phi ptr [ null, %sw.bb6 ], [ %incdec.ptr, %if.then3 ], [ null, %sw.bb ]
+  %items16.0 = phi ptr [ %incdec.ptr10, %sw.bb6 ], [ null, %if.then3 ], [ null, %sw.bb ]
   %length.0 = phi i32 [ %conv, %sw.bb6 ], [ %4, %if.then3 ], [ 0, %sw.bb ]
   store ptr %items16.0, ptr %agg.result, align 8
   %items32.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1247,10 +1247,10 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb19, %if.then21, %sw.bb, %if.then3, %sw.bb11
-  %keys16.0 = phi ptr [ null, %if.then21 ], [ null, %sw.bb19 ], [ %incdec.ptr15, %sw.bb11 ], [ %incdec.ptr, %if.then3 ], [ null, %sw.bb ]
   %keys32.0 = phi ptr [ %incdec.ptr26, %if.then21 ], [ null, %sw.bb19 ], [ null, %sw.bb11 ], [ null, %if.then3 ], [ null, %sw.bb ]
   %items16.0 = phi ptr [ null, %if.then21 ], [ null, %sw.bb19 ], [ %add.ptr18, %sw.bb11 ], [ null, %if.then3 ], [ null, %sw.bb ]
   %items32.0 = phi ptr [ %add.ptr28, %if.then21 ], [ null, %sw.bb19 ], [ null, %sw.bb11 ], [ %add.ptr9, %if.then3 ], [ null, %sw.bb ]
+  %keys16.0 = phi ptr [ null, %if.then21 ], [ null, %sw.bb19 ], [ %incdec.ptr15, %sw.bb11 ], [ %incdec.ptr, %if.then3 ], [ null, %sw.bb ]
   %length.0 = phi i32 [ %10, %if.then21 ], [ 0, %sw.bb19 ], [ %conv16, %sw.bb11 ], [ %conv, %if.then3 ], [ 0, %sw.bb ]
   store ptr %keys16.0, ptr %agg.result, align 8
   %keys32.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3819,11 +3819,11 @@ if.else49:                                        ; preds = %if.else
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else49, %if.then41
-  %count.0 = phi i32 [ %conv43, %if.then41 ], [ %call50, %if.else49 ]
   %pKey16.0 = phi ptr [ %incdec.ptr, %if.then41 ], [ null, %if.else49 ]
   %qKey16.0 = phi ptr [ %incdec.ptr45, %if.then41 ], [ null, %if.else49 ]
   %pKey32.0 = phi ptr [ null, %if.then41 ], [ %incdec.ptr52, %if.else49 ]
   %qKey32.0 = phi ptr [ null, %if.then41 ], [ %incdec.ptr53, %if.else49 ]
+  %count.0 = phi i32 [ %conv43, %if.then41 ], [ %call50, %if.else49 ]
   %div238.pn = phi i32 [ %div238, %if.then41 ], [ %add55, %if.else49 ]
   %cmp58 = icmp eq i32 %count.0, 0
   br i1 %cmp58, label %sw.epilog276, label %if.end60

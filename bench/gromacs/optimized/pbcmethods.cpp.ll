@@ -88,36 +88,36 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   br label %34
 
 34:                                               ; preds = %.lr.ph.us, %42
-  %.0147210.us = phi i32 [ %28, %.lr.ph.us ], [ %..0147.us, %42 ]
-  %.0149209.us = phi i32 [ 0, %.lr.ph.us ], [ %.0149..us, %42 ]
-  %35 = sext i32 %.0149209.us to i64
+  %.0154210.us = phi i32 [ 0, %.lr.ph.us ], [ %.0154..us, %42 ]
+  %.0156209.us = phi i32 [ %28, %.lr.ph.us ], [ %..0156.us, %42 ]
+  %35 = sext i32 %.0154210.us to i64
   %gep.us = getelementptr i32, ptr %invariant.gep, i64 %35
   %36 = load i32, ptr %gep.us, align 4
   %37 = icmp slt i32 %31, %36
   br i1 %37, label %._crit_edge.us, label %38
 
 38:                                               ; preds = %34
-  %39 = zext nneg i32 %.0147210.us to i64
+  %39 = zext nneg i32 %.0156209.us to i64
   %40 = getelementptr inbounds i32, ptr %16, i64 %39
   %41 = load i32, ptr %40, align 4
   %.not.us = icmp slt i32 %31, %41
   br i1 %.not.us, label %42, label %._crit_edge.us
 
 42:                                               ; preds = %38
-  %43 = add nuw nsw i32 %.0147210.us, %.0149209.us
+  %43 = add nuw nsw i32 %.0154210.us, %.0156209.us
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %44 to i64
   %gep208.us = getelementptr inbounds i32, ptr %invariant.gep, i64 %45
   %46 = load i32, ptr %gep208.us, align 4
   %47 = icmp slt i32 %31, %46
-  %.0149..us = select i1 %47, i32 %.0149209.us, i32 %44
-  %..0147.us = select i1 %47, i32 %44, i32 %.0147210.us
-  %48 = icmp slt i32 %.0149..us, %..0147.us
+  %..0156.us = select i1 %47, i32 %44, i32 %.0156209.us
+  %.0154..us = select i1 %47, i32 %.0154210.us, i32 %44
+  %48 = icmp slt i32 %.0154..us, %..0156.us
   br i1 %48, label %34, label %._crit_edge.us, !llvm.loop !5
 
 ._crit_edge.us:                                   ; preds = %38, %34, %42
-  %.1150.us319 = phi i32 [ %.0149..us, %42 ], [ %.0147210.us, %38 ], [ %.0149209.us, %34 ]
-  %49 = zext nneg i32 %.1150.us319 to i64
+  %.1155.us319 = phi i32 [ %.0154..us, %42 ], [ %.0156209.us, %38 ], [ %.0154210.us, %34 ]
+  %49 = zext nneg i32 %.1155.us319 to i64
   %50 = getelementptr inbounds i8, ptr %18, i64 %49
   store i8 1, ptr %50, align 1
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
@@ -162,8 +162,8 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 67:                                               ; preds = %.lr.ph227, %158
   %indvars.iv286 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next287, %158 ]
   %.0135225 = phi i32 [ 0, %.lr.ph227 ], [ %.1, %158 ]
-  %.0136224 = phi i32 [ -1, %.lr.ph227 ], [ %.2, %158 ]
-  %.0138223 = phi float [ %64, %.lr.ph227 ], [ %.2140, %158 ]
+  %.0137224 = phi i32 [ -1, %.lr.ph227 ], [ %.2, %158 ]
+  %.0142222 = phi float [ %64, %.lr.ph227 ], [ %.2144, %158 ]
   %68 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv286
   %69 = load i32, ptr %68, align 4
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
@@ -327,10 +327,10 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   %150 = call float @llvm.fmuladd.f32(float %147, float %147, float %149)
   %151 = load float, ptr %66, align 8
   %152 = call noundef float @llvm.fmuladd.f32(float %151, float %151, float %150)
-  %153 = fcmp olt float %152, %.0138223
-  %.1139 = select i1 %153, float %152, float %.0138223
+  %153 = fcmp olt float %152, %.0142222
+  %.1143 = select i1 %153, float %152, float %.0142222
   %154 = trunc nuw nsw i64 %indvars.iv286 to i32
-  %.1137 = select i1 %153, i32 %154, i32 %.0136224
+  %.1138 = select i1 %153, i32 %154, i32 %.0137224
   %155 = add nsw i32 %.0135225, 1
   %156 = sext i32 %.0135225 to i64
   %157 = getelementptr inbounds i32, ptr %21, i64 %156
@@ -338,8 +338,8 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   br label %158
 
 158:                                              ; preds = %._crit_edge, %145
-  %.2140 = phi float [ %.1139, %145 ], [ %.0138223, %._crit_edge ]
-  %.2 = phi i32 [ %.1137, %145 ], [ %.0136224, %._crit_edge ]
+  %.2144 = phi float [ %.1143, %145 ], [ %.0142222, %._crit_edge ]
+  %.2 = phi i32 [ %.1138, %145 ], [ %.0137224, %._crit_edge ]
   %.1 = phi i32 [ %155, %145 ], [ %.0135225, %._crit_edge ]
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
   br i1 %exitcond290.not, label %._crit_edge228, label %67, !llvm.loop !12
@@ -390,9 +390,9 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 
 .lr.ph235.us:                                     ; preds = %.lr.ph235.us.preheader, %._crit_edge236.us
   %indvars.iv296 = phi i64 [ 0, %.lr.ph235.us.preheader ], [ %indvars.iv.next297, %._crit_edge236.us ]
-  %.3243.us = phi float [ %179, %.lr.ph235.us.preheader ], [ %.5.us, %._crit_edge236.us ]
-  %.0141242.us = phi i32 [ -1, %.lr.ph235.us.preheader ], [ %.2143.us, %._crit_edge236.us ]
-  %.0144241.us = phi i32 [ -1, %.lr.ph235.us.preheader ], [ %.2146.us, %._crit_edge236.us ]
+  %.3242.us = phi float [ %179, %.lr.ph235.us.preheader ], [ %.5.us, %._crit_edge236.us ]
+  %.0148241.us = phi i32 [ -1, %.lr.ph235.us.preheader ], [ %.2150.us, %._crit_edge236.us ]
+  %.0151240.us = phi i32 [ -1, %.lr.ph235.us.preheader ], [ %.2153.us, %._crit_edge236.us ]
   %180 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv296
   %181 = load i32, ptr %180, align 4
   %182 = sext i32 %181 to i64
@@ -401,9 +401,9 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 
 184:                                              ; preds = %.lr.ph235.us, %201
   %indvars.iv291 = phi i64 [ 0, %.lr.ph235.us ], [ %indvars.iv.next292, %201 ]
-  %.4233.us = phi float [ %.3243.us, %.lr.ph235.us ], [ %.5.us, %201 ]
-  %.1142232.us = phi i32 [ %.0141242.us, %.lr.ph235.us ], [ %.2143.us, %201 ]
-  %.1145231.us = phi i32 [ %.0144241.us, %.lr.ph235.us ], [ %.2146.us, %201 ]
+  %.4233.us = phi float [ %.3242.us, %.lr.ph235.us ], [ %.5.us, %201 ]
+  %.1149231.us = phi i32 [ %.0148241.us, %.lr.ph235.us ], [ %.2150.us, %201 ]
+  %.1152230.us = phi i32 [ %.0151240.us, %.lr.ph235.us ], [ %.2153.us, %201 ]
   %185 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv291
   %186 = load i32, ptr %185, align 4
   %187 = sext i32 %186 to i64
@@ -428,8 +428,8 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   br label %201
 
 201:                                              ; preds = %200, %191, %184
-  %.2146.us = phi i32 [ %181, %200 ], [ %.1145231.us, %191 ], [ %.1145231.us, %184 ]
-  %.2143.us = phi i32 [ %186, %200 ], [ %.1142232.us, %191 ], [ %.1142232.us, %184 ]
+  %.2153.us = phi i32 [ %181, %200 ], [ %.1152230.us, %191 ], [ %.1152230.us, %184 ]
+  %.2150.us = phi i32 [ %186, %200 ], [ %.1149231.us, %191 ], [ %.1149231.us, %184 ]
   %.5.us = phi float [ %198, %200 ], [ %.4233.us, %191 ], [ %.4233.us, %184 ]
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count307
@@ -443,12 +443,12 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 .split246.us:                                     ; preds = %._crit_edge236.us
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %202 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv304
-  store i32 %.2143.us, ptr %202, align 4
-  %203 = sext i32 %.2143.us to i64
+  store i32 %.2150.us, ptr %202, align 4
+  %203 = sext i32 %.2150.us to i64
   %204 = getelementptr inbounds i8, ptr %18, i64 %203
   store i8 0, ptr %204, align 1
   %205 = getelementptr inbounds [3 x float], ptr %19, i64 %203
-  %206 = sext i32 %.2146.us to i64
+  %206 = sext i32 %.2153.us to i64
   %207 = getelementptr inbounds [3 x float], ptr %19, i64 %206
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %10, ptr noundef %205, ptr noundef %207, ptr noundef nonnull %8)
   %208 = getelementptr inbounds i8, ptr %207, i64 8
@@ -887,16 +887,16 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
 17:                                               ; preds = %.lr.ph82, %84
   %indvars.iv88 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next89, %84 ]
   %.081 = phi double [ 0.000000e+00, %.lr.ph82 ], [ %.2, %84 ]
-  %.04779 = phi i32 [ -12347, %.lr.ph82 ], [ %.148, %84 ]
-  %.05078 = phi i32 [ 0, %.lr.ph82 ], [ %.151, %84 ]
+  %.04877 = phi i32 [ -12347, %.lr.ph82 ], [ %.149, %84 ]
+  %.05276 = phi i32 [ 0, %.lr.ph82 ], [ %.153, %84 ]
   %18 = icmp eq i64 %indvars.iv88, %14
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds %struct.t_atom, ptr %3, i64 %indvars.iv88, i32 7
   %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %.04779, %21
-  %23 = icmp ne i32 %.04779, -12347
+  %22 = icmp ne i32 %.04877, %21
+  %23 = icmp ne i32 %.04877, -12347
   %or.cond = and i1 %23, %22
   br i1 %or.cond, label %24, label %68
 
@@ -945,14 +945,14 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
 47:                                               ; preds = %36
   %48 = load ptr, ptr @debug, align 8
   %.not55 = icmp eq ptr %48, null
-  %.pre = sext i32 %.05078 to i64
+  %.pre = sext i32 %.05276 to i64
   br i1 %.not55, label %._crit_edge93, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds %struct.t_atom, ptr %3, i64 %.pre, i32 7
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
-  %53 = add nsw i32 %.05078, 1
+  %53 = add nsw i32 %.05276, 1
   %54 = fpext float %43 to double
   %55 = fpext float %41 to double
   %56 = fpext float %40 to double
@@ -986,7 +986,7 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
   br label %68
 
 68:                                               ; preds = %.loopexit, %19
-  %.151 = phi i32 [ %67, %.loopexit ], [ %.05078, %19 ]
+  %.153 = phi i32 [ %67, %.loopexit ], [ %.05276, %19 ]
   %.1 = phi double [ 0.000000e+00, %.loopexit ], [ %.081, %19 ]
   %69 = icmp ult i64 %indvars.iv88, %15
   br i1 %69, label %70, label %84
@@ -1016,7 +1016,7 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
   br label %84
 
 84:                                               ; preds = %68, %79
-  %.148 = phi i32 [ %83, %79 ], [ %.04779, %68 ]
+  %.149 = phi i32 [ %83, %79 ], [ %.04877, %68 ]
   %.2 = phi double [ %81, %79 ], [ %.1, %68 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91

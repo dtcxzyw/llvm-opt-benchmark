@@ -330,11 +330,11 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %27
 
 .thread280:                                       ; preds = %25, %15, %8
-  %.0233293 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %25 ]
-  %.0234292 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 4, %25 ]
-  %.0235291 = phi ptr [ %10, %15 ], [ null, %8 ], [ %20, %25 ]
-  %.0236290 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0233293, i32 noundef %.0236290, ptr noundef null, i32 noundef %.0234292, ptr noundef %.0235291) #8
+  %.0235293 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %25 ]
+  %.0236292 = phi ptr [ %10, %15 ], [ null, %8 ], [ %20, %25 ]
+  %.0237291 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 4, %25 ]
+  %.0238290 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0238290, i32 noundef %.0235293, ptr noundef null, i32 noundef %.0237291, ptr noundef %.0236292) #8
   br label %58
 
 27:                                               ; preds = %._crit_edge302, %.thread276

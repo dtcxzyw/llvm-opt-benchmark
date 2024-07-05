@@ -2335,10 +2335,10 @@ for.body.lr.ph:                                   ; preds = %invoke.cont13
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %start_iter_same_handle.sroa.6.2139 = phi i64 [ %start_iter_same_handle.sroa.6.1, %for.body.lr.ph ], [ %start_iter_same_handle.sroa.6.3, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %iter.sroa.4.0138 = phi i64 [ %start_iter_same_handle.sroa.6.1, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %prev_filter_handle.sroa.8.0138 = phi i64 [ %prev_filter_handle.sroa.8.0.copyload, %for.body.lr.ph ], [ %prev_filter_handle.sroa.8.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %prev_filter_handle.sroa.0.0137 = phi i64 [ %prev_filter_handle.sroa.0.0.copyload, %for.body.lr.ph ], [ %prev_filter_handle.sroa.0.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %prev_filter_handle.sroa.8.0136 = phi i64 [ %prev_filter_handle.sroa.8.0.copyload, %for.body.lr.ph ], [ %prev_filter_handle.sroa.8.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %arrayidx.i.i.i62 = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i60, i64 0, i64 %iter.sroa.4.0138
+  %iter.sroa.4.0136 = phi i64 [ %start_iter_same_handle.sroa.6.1, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %arrayidx.i.i.i62 = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i60, i64 0, i64 %iter.sroa.4.0136
   %21 = load ptr, ptr %arrayidx.i.i.i62, align 8
   %ikey = getelementptr inbounds i8, ptr %21, i64 48
   %call22 = invoke { i64, i64 } @_ZNK7rocksdb28PartitionedFilterBlockReader24GetFilterPartitionHandleERKNS_13CachableEntryINS_27Block_kFilterPartitionIndexEEERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(25) %filter_block, ptr noundef nonnull align 8 dereferenceable(16) %ikey)
@@ -2348,20 +2348,20 @@ invoke.cont21:                                    ; preds = %for.body
   %22 = extractvalue { i64, i64 } %call22, 0
   %23 = extractvalue { i64, i64 } %call22, 1
   %cmp.i63 = icmp eq i64 %prev_filter_handle.sroa.0.0137, 0
-  %cmp2.i = icmp eq i64 %prev_filter_handle.sroa.8.0136, 0
+  %cmp2.i = icmp eq i64 %prev_filter_handle.sroa.8.0138, 0
   %24 = select i1 %cmp.i63, i1 %cmp2.i, i1 false
   br i1 %24, label %if.end33, label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %cmp.i.i = icmp ne i64 %22, %prev_filter_handle.sroa.0.0137
-  %cmp4.i.i = icmp ne i64 %23, %prev_filter_handle.sroa.8.0136
+  %cmp4.i.i = icmp ne i64 %23, %prev_filter_handle.sroa.8.0138
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %.not.i, label %if.then27, label %if.end33
 
 if.then27:                                        ; preds = %invoke.cont25
   %25 = load ptr, ptr %range, align 8
   store ptr %25, ptr %subrange, align 8
-  %cmp.i.i66 = icmp eq i64 %start_iter_same_handle.sroa.6.2139, %iter.sroa.4.0138
+  %cmp.i.i66 = icmp eq i64 %start_iter_same_handle.sroa.6.2139, %iter.sroa.4.0136
   br i1 %cmp.i.i66, label %if.then.i, label %invoke.cont28
 
 if.then.i:                                        ; preds = %if.then27
@@ -2370,14 +2370,14 @@ if.then.i:                                        ; preds = %if.then27
 
 invoke.cont28:                                    ; preds = %if.then27, %if.then.i
   %storemerge = phi i64 [ %26, %if.then.i ], [ %start_iter_same_handle.sroa.6.2139, %if.then27 ]
-  %.sink.i = phi i64 [ %26, %if.then.i ], [ %iter.sroa.4.0138, %if.then27 ]
+  %.sink.i = phi i64 [ %26, %if.then.i ], [ %iter.sroa.4.0136, %if.then27 ]
   store i64 %storemerge, ptr %start_5.i, align 8
   store i64 %.sink.i, ptr %20, align 8
   %27 = load <2 x i64>, ptr %skip_mask_.i, align 8
   store <2 x i64> %27, ptr %skip_mask_8.i, align 8
   store i64 %filter_function.unpack, ptr %indirect-arg-temp, align 8
   store i64 %filter_function.unpack31, ptr %.fca.1.gep4, align 8
-  invoke void @_ZNK7rocksdb28PartitionedFilterBlockReader17MayMatchPartitionEPNS_15MultiGetContext5RangeEPKNS_14SliceTransformENS_11BlockHandleEbPNS_23BlockCacheLookupContextERKNS_11ReadOptionsEMNS_21FullFilterBlockReaderEFvS3_S6_bS9_SC_E(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %subrange, ptr noundef %prefix_extractor, i64 %prev_filter_handle.sroa.0.0137, i64 %prev_filter_handle.sroa.8.0136, i1 noundef zeroext %no_io, ptr noundef %lookup_context, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
+  invoke void @_ZNK7rocksdb28PartitionedFilterBlockReader17MayMatchPartitionEPNS_15MultiGetContext5RangeEPKNS_14SliceTransformENS_11BlockHandleEbPNS_23BlockCacheLookupContextERKNS_11ReadOptionsEMNS_21FullFilterBlockReaderEFvS3_S6_bS9_SC_E(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %subrange, ptr noundef %prefix_extractor, i64 %prev_filter_handle.sroa.0.0137, i64 %prev_filter_handle.sroa.8.0138, i1 noundef zeroext %no_io, ptr noundef %lookup_context, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
           to label %invoke.cont31 unwind label %lpad4.loopexit
 
 invoke.cont31:                                    ; preds = %invoke.cont28
@@ -2388,12 +2388,12 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   br label %if.end33
 
 if.end33:                                         ; preds = %invoke.cont31, %invoke.cont25, %invoke.cont21
-  %start_iter_same_handle.sroa.6.3 = phi i64 [ %start_iter_same_handle.sroa.6.2139, %invoke.cont21 ], [ %iter.sroa.4.0138, %invoke.cont31 ], [ %start_iter_same_handle.sroa.6.2139, %invoke.cont25 ]
+  %start_iter_same_handle.sroa.6.3 = phi i64 [ %start_iter_same_handle.sroa.6.2139, %invoke.cont21 ], [ %iter.sroa.4.0136, %invoke.cont31 ], [ %start_iter_same_handle.sroa.6.2139, %invoke.cont25 ]
   %cmp36 = icmp eq i64 %23, 0
   br i1 %cmp36, label %invoke.cont38, label %for.inc
 
 invoke.cont38:                                    ; preds = %if.end33
-  %shl.i.i71 = shl nuw i64 1, %iter.sroa.4.0138
+  %shl.i.i71 = shl nuw i64 1, %iter.sroa.4.0136
   %30 = load i64, ptr %skip_mask_.i, align 8
   %or.i.i73 = or i64 %30, %shl.i.i71
   store i64 %or.i.i73, ptr %skip_mask_.i, align 8
@@ -2402,16 +2402,16 @@ invoke.cont38:                                    ; preds = %if.end33
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33, %invoke.cont38
-  %prev_filter_handle.sroa.8.1 = phi i64 [ %prev_filter_handle.sroa.8.0.copyload124, %invoke.cont38 ], [ %23, %if.end33 ]
   %prev_filter_handle.sroa.0.1 = phi i64 [ %prev_filter_handle.sroa.0.0.copyload123, %invoke.cont38 ], [ %22, %if.end33 ]
+  %prev_filter_handle.sroa.8.1 = phi i64 [ %prev_filter_handle.sroa.8.0.copyload124, %invoke.cont38 ], [ %23, %if.end33 ]
   %31 = load i64, ptr %end_.i.i, align 8
-  %32 = add i64 %iter.sroa.4.0138, 1
+  %32 = add i64 %iter.sroa.4.0136, 1
   %umax = call i64 @llvm.umax.i64(i64 %31, i64 %32)
   %33 = add i64 %umax, -1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %for.inc
-  %34 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.4.0138, %for.inc ]
+  %34 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.4.0136, %for.inc ]
   %exitcond.not = icmp eq i64 %34, %33
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %land.rhs.i
 
@@ -2435,8 +2435,8 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit: ; preds = %while.cond.i, %
   br i1 %cmp.i58.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %invoke.cont13.thread, %invoke.cont13
-  %prev_filter_handle.sroa.8.0.lcssa = phi i64 [ %prev_filter_handle.sroa.8.0.copyload, %invoke.cont13 ], [ %prev_filter_handle.sroa.8.0.copyload146, %invoke.cont13.thread ], [ %prev_filter_handle.sroa.8.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %prev_filter_handle.sroa.0.0.lcssa = phi i64 [ %prev_filter_handle.sroa.0.0.copyload, %invoke.cont13 ], [ %prev_filter_handle.sroa.0.0.copyload145, %invoke.cont13.thread ], [ %prev_filter_handle.sroa.0.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %prev_filter_handle.sroa.8.0.lcssa = phi i64 [ %prev_filter_handle.sroa.8.0.copyload, %invoke.cont13 ], [ %prev_filter_handle.sroa.8.0.copyload146, %invoke.cont13.thread ], [ %prev_filter_handle.sroa.8.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %start_iter_same_handle.sroa.6.2.lcssa = phi i64 [ %16, %invoke.cont13 ], [ %16, %invoke.cont13.thread ], [ %start_iter_same_handle.sroa.6.3, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %.lcssa = phi i64 [ %16, %invoke.cont13 ], [ %16, %invoke.cont13.thread ], [ %31, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %cmp.i80 = icmp eq i64 %prev_filter_handle.sroa.0.0.lcssa, 0
@@ -5987,35 +5987,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !64
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -6127,35 +6127,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !64
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -7202,7 +7202,7 @@ if.end19:                                         ; preds = %if.then.i.i.i52, %i
 invoke.cont24:                                    ; preds = %if.end19, %for.inc134
   %cmp22 = phi i1 [ true, %if.end19 ], [ false, %for.inc134 ]
   %indvars.iv116 = phi i64 [ 0, %if.end19 ], [ 1, %for.inc134 ]
-  %bytes_discarded.0112 = phi i64 [ 0, %if.end19 ], [ %bytes_discarded.1, %for.inc134 ]
+  %bytes_discarded.0113 = phi i64 [ 0, %if.end19 ], [ %bytes_discarded.1, %for.inc134 ]
   %cursize_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %26, i64 %indvars.iv116, i32 0, i32 3
   %29 = load i64, ptr %cursize_.i.i, align 8
   %cmp.i53.not = icmp eq i64 %29, 0
@@ -7220,7 +7220,7 @@ land.lhs.true31:                                  ; preds = %if.then26
   br i1 %cmp43, label %if.then44, label %for.inc134
 
 if.then44:                                        ; preds = %land.lhs.true31
-  %sub.neg = add i64 %30, %bytes_discarded.0112
+  %sub.neg = add i64 %30, %bytes_discarded.0113
   %sub58 = sub i64 %sub.neg, %add
   %add59 = add i64 %sub58, %29
   br label %for.inc134
@@ -7237,7 +7237,7 @@ if.then69:                                        ; preds = %invoke.cont67
   br i1 %cmp77.not, label %land.lhs.true95, label %if.then78
 
 if.then78:                                        ; preds = %if.then69
-  %add85 = add i64 %29, %bytes_discarded.0112
+  %add85 = add i64 %29, %bytes_discarded.0113
   br label %for.inc134
 
 land.lhs.true95:                                  ; preds = %if.then69
@@ -7248,13 +7248,13 @@ land.lhs.true95:                                  ; preds = %if.then69
   br i1 %cmp111, label %if.then112, label %for.inc134
 
 if.then112:                                       ; preds = %land.lhs.true95
-  %33 = add i64 %bytes_discarded.0112, %30
+  %33 = add i64 %bytes_discarded.0113, %30
   %sub127 = sub i64 %33, %add
   %add128 = add i64 %sub127, %29
   br label %for.inc134
 
 for.inc134:                                       ; preds = %land.lhs.true31, %invoke.cont24, %invoke.cont67, %land.lhs.true95, %if.then112, %if.then78, %if.then44
-  %bytes_discarded.1 = phi i64 [ %add59, %if.then44 ], [ %bytes_discarded.0112, %invoke.cont67 ], [ %add85, %if.then78 ], [ %add128, %if.then112 ], [ %bytes_discarded.0112, %land.lhs.true95 ], [ %bytes_discarded.0112, %invoke.cont24 ], [ %bytes_discarded.0112, %land.lhs.true31 ]
+  %bytes_discarded.1 = phi i64 [ %add59, %if.then44 ], [ %bytes_discarded.0113, %invoke.cont67 ], [ %add85, %if.then78 ], [ %add128, %if.then112 ], [ %bytes_discarded.0113, %land.lhs.true95 ], [ %bytes_discarded.0113, %invoke.cont24 ], [ %bytes_discarded.0113, %land.lhs.true31 ]
   br i1 %cmp22, label %invoke.cont24, label %for.body140, !llvm.loop !79
 
 for.body140:                                      ; preds = %for.inc134, %for.inc142

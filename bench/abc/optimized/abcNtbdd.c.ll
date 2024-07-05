@@ -565,10 +565,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge
 
 .critedge:                                        ; preds = %112, %118, %Vec_PtrPush.exit
-  %.057 = phi ptr [ %83, %Vec_PtrPush.exit ], [ %119, %118 ], [ %116, %112 ]
+  %.056 = phi ptr [ %83, %Vec_PtrPush.exit ], [ %119, %118 ], [ %116, %112 ]
   %120 = getelementptr inbounds i8, ptr %37, i64 64
   %121 = load ptr, ptr %120, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %121, ptr noundef %.057) #14
+  tail call void @Abc_ObjAddFanin(ptr noundef %121, ptr noundef %.056) #14
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %.val65 = load ptr, ptr %21, align 8
   %122 = getelementptr i8, ptr %.val65, i64 4
@@ -1976,8 +1976,8 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   br label %16
 
 16:                                               ; preds = %Abc_Clock.exit, %16
-  %.033 = phi i32 [ 0, %Abc_Clock.exit ], [ %31, %16 ]
-  %.02732 = phi ptr [ %14, %Abc_Clock.exit ], [ %30, %16 ]
+  %.033 = phi ptr [ %14, %Abc_Clock.exit ], [ %30, %16 ]
+  %.02732 = phi i32 [ 0, %Abc_Clock.exit ], [ %31, %16 ]
   %putchar = call i32 @putchar(i32 46)
   %17 = load ptr, ptr %15, align 8
   %18 = call i32 @rand() #14
@@ -1993,11 +1993,11 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @Cudd_bddAnd(ptr noundef nonnull %9, ptr noundef %22, ptr noundef %28) #14
   call void @Cudd_Ref(ptr noundef %29) #14
-  %30 = call ptr @Cudd_bddOr(ptr noundef nonnull %9, ptr noundef %.02732, ptr noundef %29) #14
+  %30 = call ptr @Cudd_bddOr(ptr noundef nonnull %9, ptr noundef %.033, ptr noundef %29) #14
   call void @Cudd_Ref(ptr noundef %30) #14
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %9, ptr noundef %.02732) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %9, ptr noundef %.033) #14
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %9, ptr noundef %29) #14
-  %31 = add nuw nsw i32 %.033, 1
+  %31 = add nuw nsw i32 %.02732, 1
   %exitcond.not = icmp eq i32 %31, 200
   br i1 %exitcond.not, label %32, label %16, !llvm.loop !22
 

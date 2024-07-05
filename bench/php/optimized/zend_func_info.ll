@@ -734,8 +734,8 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   br label %58
 
 58:                                               ; preds = %zend_get_internal_func_info.exit.thread, %.thread, %56, %43, %zend_get_internal_func_info.exit
-  %.031 = phi i32 [ %.015.i, %zend_get_internal_func_info.exit ], [ %32, %zend_get_internal_func_info.exit.thread ], [ %45, %43 ], [ %57, %56 ], [ %52, %.thread ]
-  ret i32 %.031
+  %.0 = phi i32 [ %.015.i, %zend_get_internal_func_info.exit ], [ %32, %zend_get_internal_func_info.exit.thread ], [ %45, %43 ], [ %57, %56 ], [ %52, %.thread ]
+  ret i32 %.0
 }
 
 declare i32 @zend_get_return_info_from_signature_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -798,9 +798,9 @@ zend_func_info_add.exit:                          ; preds = %25, %20, %16
   br label %27
 
 27:                                               ; preds = %49, %zend_func_info_add.exit
-  %.030.i1 = phi i64 [ 0, %zend_func_info_add.exit ], [ %50, %49 ]
+  %.02730.i1 = phi i64 [ 0, %zend_func_info_add.exit ], [ %50, %49 ]
   %28 = load ptr, ptr @zend_string_init_interned, align 8
-  %29 = getelementptr inbounds %struct._func_info_t, ptr @func_infos, i64 %.030.i1
+  %29 = getelementptr inbounds %struct._func_info_t, ptr @func_infos, i64 %.02730.i1
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8
@@ -838,7 +838,7 @@ zend_func_info_add.exit:                          ; preds = %25, %20, %16
   br label %49
 
 49:                                               ; preds = %48, %43, %39
-  %50 = add nuw nsw i64 %.030.i1, 1
+  %50 = add nuw nsw i64 %.02730.i1, 1
   %exitcond.not.i4 = icmp eq i64 %50, 549
   br i1 %exitcond.not.i4, label %zend_func_info_add.exit5, label %27
 
@@ -1008,7 +1008,7 @@ define internal i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noun
 .thread:                                          ; preds = %60, %67, %65, %73, %70, %58, %54
   %.pre-phi = phi i64 [ %31, %67 ], [ %31, %65 ], [ %31, %73 ], [ %31, %70 ], [ %.pre189, %58 ], [ %31, %54 ], [ %31, %60 ]
   %77 = phi ptr [ %27, %67 ], [ %27, %65 ], [ %27, %73 ], [ %27, %70 ], [ %.pre, %58 ], [ %27, %54 ], [ %27, %60 ]
-  %.0142 = phi i32 [ -486539265, %67 ], [ %spec.select, %65 ], [ %76, %73 ], [ -486539265, %70 ], [ %59, %58 ], [ -521143298, %54 ], [ %62, %60 ]
+  %.0148 = phi i32 [ -486539265, %67 ], [ %spec.select, %65 ], [ %76, %73 ], [ -486539265, %70 ], [ %59, %58 ], [ -521143298, %54 ], [ %62, %60 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 72
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
@@ -1087,7 +1087,7 @@ define internal i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noun
   br label %.thread183
 
 .thread183:                                       ; preds = %109, %116, %114, %122, %119, %107, %103
-  %.0141 = phi i32 [ %108, %107 ], [ -521143298, %103 ], [ %spec.select177, %114 ], [ %125, %122 ], [ -486539265, %119 ], [ -486539265, %116 ], [ %111, %109 ]
+  %.0149 = phi i32 [ %108, %107 ], [ -521143298, %103 ], [ %spec.select177, %114 ], [ %125, %122 ], [ -486539265, %119 ], [ -486539265, %116 ], [ %111, %109 ]
   %126 = load i32, ptr %11, align 8
   %127 = icmp eq i32 %126, 3
   br i1 %127, label %128, label %182
@@ -1174,30 +1174,30 @@ define internal i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noun
   br label %.thread185
 
 .thread185:                                       ; preds = %163, %170, %168, %176, %173, %161, %157
-  %.0139 = phi i32 [ %162, %161 ], [ -521143298, %157 ], [ %spec.select178, %168 ], [ %179, %176 ], [ -486539265, %173 ], [ -486539265, %170 ], [ %165, %163 ]
-  %180 = and i32 %.0139, 96
+  %.0147 = phi i32 [ %162, %161 ], [ -521143298, %157 ], [ %spec.select178, %168 ], [ %179, %176 ], [ -486539265, %173 ], [ -486539265, %170 ], [ %165, %163 ]
+  %180 = and i32 %.0147, 96
   %181 = icmp ne i32 %180, 0
   br label %182
 
 182:                                              ; preds = %.thread185, %.thread183
   %.0136 = phi i1 [ %181, %.thread185 ], [ false, %.thread183 ]
-  %183 = and i32 %.0142, 64
+  %183 = and i32 %.0148, 64
   %.not169 = icmp eq i32 %183, 0
-  %184 = and i32 %.0141, 64
+  %184 = and i32 %.0149, 64
   %.not170 = icmp eq i32 %184, 0
   %or.cond179 = select i1 %.not169, i1 true, i1 %.not170
   %.0 = select i1 %or.cond179, i32 1073741952, i32 1073856640
-  %185 = and i32 %.0142, 96
+  %185 = and i32 %.0148, 96
   %.not171 = icmp ne i32 %185, 0
-  %186 = and i32 %.0141, 96
+  %186 = and i32 %.0149, 96
   %.not172 = icmp ne i32 %186, 0
   %or.cond180.not187 = select i1 %.not171, i1 true, i1 %.not172
   %brmerge = select i1 %or.cond180.not187, i1 true, i1 %.0136
   %187 = or i32 %.0, 32768
   %.1 = select i1 %brmerge, i32 %187, i32 %.0
-  %188 = and i32 %.0142, 991
+  %188 = and i32 %.0148, 991
   %.not174 = icmp eq i32 %188, 0
-  %189 = and i32 %.0141, 991
+  %189 = and i32 %.0149, 991
   %.not175 = icmp eq i32 %189, 0
   %or.cond181 = select i1 %.not174, i1 true, i1 %.not175
   %190 = or i32 %.1, 16384
@@ -1209,8 +1209,8 @@ define internal i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noun
   br label %193
 
 193:                                              ; preds = %2, %14, %17, %18, %182
-  %.0138 = phi i32 [ %.3, %182 ], [ 1612824704, %18 ], [ 1612824704, %17 ], [ 1612824704, %14 ], [ 1612824704, %2 ]
-  ret i32 %.0138
+  %.0142 = phi i32 [ %.3, %182 ], [ 1612824704, %18 ], [ 1612824704, %17 ], [ 1612824704, %14 ], [ 1612824704, %2 ]
+  ret i32 %.0142
 }
 
 declare i32 @zend_array_type_info(ptr noundef) local_unnamed_addr #1

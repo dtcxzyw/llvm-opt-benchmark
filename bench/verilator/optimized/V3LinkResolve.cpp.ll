@@ -4699,18 +4699,18 @@ _ZN7VString12quotePercentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 98:                                               ; preds = %.preheader, %.backedge
   %.3147 = phi ptr [ %.0.lcssa, %.preheader ], [ %.3.be, %.backedge ]
-  %.086146 = phi i32 [ 0, %.preheader ], [ %.086.be, %.backedge ]
-  %.not98 = icmp eq i32 %.086146, 0
+  %.087146 = phi i32 [ 0, %.preheader ], [ %.087.be, %.backedge ]
+  %.not98 = icmp eq i32 %.087146, 0
   br i1 %.not98, label %103, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %.3147, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = add nsw i32 %.086146, -1
+  %102 = add nsw i32 %.087146, -1
   br label %.backedge
 
 .backedge:                                        ; preds = %150, %148, %99
-  %.086.be = phi i32 [ %102, %99 ], [ 0, %150 ], [ %.389, %148 ]
+  %.087.be = phi i32 [ %102, %99 ], [ 0, %150 ], [ %.390, %148 ]
   %.3.be = phi ptr [ %101, %99 ], [ %152, %150 ], [ %146, %148 ]
   %.not97 = icmp eq ptr %.3.be, null
   br i1 %.not97, label %.loopexit125, label %98, !llvm.loop !25
@@ -4775,7 +4775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %141
   %indvars.iv = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next, %141 ]
   %.080141 = phi i1 [ false, %.lr.ph143.preheader ], [ %.181, %141 ]
-  %.187140 = phi i32 [ 0, %.lr.ph143.preheader ], [ %.288, %141 ]
+  %.188140 = phi i32 [ 0, %.lr.ph143.preheader ], [ %.289, %141 ]
   %124 = trunc nuw nsw i64 %indvars.iv to i32
   %125 = xor i32 %124, -1
   %126 = add nsw i32 %115, %125
@@ -4842,18 +4842,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 139:                                              ; preds = %137
   %140 = zext i1 %138 to i32
-  %spec.select = add nsw i32 %.187140, %140
+  %spec.select = add nsw i32 %.188140, %140
   br label %141
 
 141:                                              ; preds = %139, %130, %136, %135
-  %.288 = phi i32 [ %.187140, %135 ], [ %.187140, %136 ], [ %.187140, %130 ], [ %spec.select, %139 ]
+  %.289 = phi i32 [ %.188140, %135 ], [ %.188140, %136 ], [ %.188140, %130 ], [ %spec.select, %139 ]
   %.181 = phi i1 [ false, %135 ], [ true, %136 ], [ %.mux, %130 ], [ false, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !26
 
 ._crit_edge144:                                   ; preds = %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %.187.lcssa = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %.288, %141 ]
+  %.188.lcssa = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %.289, %141 ]
   %142 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %143 unwind label %.loopexit.split-lp
 
@@ -4862,7 +4862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %144
 
 144:                                              ; preds = %143, %116
-  %.389 = phi i32 [ %.187.lcssa, %143 ], [ 0, %116 ]
+  %.390 = phi i32 [ %.188.lcssa, %143 ], [ 0, %116 ]
   %145 = getelementptr inbounds i8, ptr %.3147, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %.3147, ptr noundef null)

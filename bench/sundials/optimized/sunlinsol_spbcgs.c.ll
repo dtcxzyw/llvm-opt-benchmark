@@ -380,8 +380,8 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 
 99:                                               ; preds = %.lr.ph, %204
   %100 = phi i1 [ true, %.lr.ph ], [ %215, %204 ]
-  %.0341 = phi i32 [ 0, %.lr.ph ], [ %214, %204 ]
-  %.0264340 = phi double [ %76, %.lr.ph ], [ %205, %204 ]
+  %.0263341 = phi double [ %76, %.lr.ph ], [ %205, %204 ]
+  %.0266340 = phi i32 [ 0, %.lr.ph ], [ %214, %204 ]
   %101 = load i32, ptr %37, align 4
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %37, align 4
@@ -473,7 +473,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 
 141:                                              ; preds = %140, %139
   %142 = call double @N_VDotProd(ptr noundef %21, ptr noundef %11) #10
-  %143 = fdiv double %.0264340, %142
+  %143 = fdiv double %.0263341, %142
   %144 = fneg double %143
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef %144, ptr noundef %21, ptr noundef %17) #10
   br i1 %.not, label %146, label %145
@@ -565,10 +565,10 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 183:                                              ; preds = %182, %181
   %184 = call double @N_VDotProd(ptr noundef %19, ptr noundef %19) #10
   %185 = fcmp oeq double %184, 0.000000e+00
-  %.0266 = select i1 %185, double 1.000000e+00, double %184
+  %.0262 = select i1 %185, double 1.000000e+00, double %184
   %186 = call double @N_VDotProd(ptr noundef %19, ptr noundef %17) #10
-  %187 = fdiv double %186, %.0266
-  %188 = icmp eq i32 %.0341, 0
+  %187 = fdiv double %186, %.0262
+  %188 = icmp eq i32 %.0266340, 0
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %183
@@ -610,7 +610,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
 
 204:                                              ; preds = %201
   %205 = call double @N_VDotProd(ptr noundef %13, ptr noundef %11) #10
-  %206 = fdiv double %205, %.0264340
+  %206 = fdiv double %205, %.0263341
   %207 = fdiv double %143, %187
   store ptr %15, ptr %7, align 16
   %208 = insertelement <2 x double> poison, double %206, i64 0
@@ -623,7 +623,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   store double 1.000000e+00, ptr %97, align 16
   store ptr %13, ptr %98, align 16
   %213 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %15) #10
-  %214 = add nuw nsw i32 %.0341, 1
+  %214 = add nuw nsw i32 %.0266340, 1
   %215 = icmp slt i32 %214, %9
   %exitcond.not = icmp eq i32 %214, %9
   br i1 %exitcond.not, label %._crit_edge, label %99
@@ -689,8 +689,8 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %242
 
 242:                                              ; preds = %._crit_edge.thread, %231, %222, %171, %160, %150, %129, %118, %108, %83, %63, %51, %45
-  %.0265 = phi i32 [ %70, %63 ], [ %88, %83 ], [ %115, %108 ], [ %125, %118 ], [ %136, %129 ], [ %157, %150 ], [ %167, %160 ], [ %178, %171 ], [ %229, %222 ], [ %236, %231 ], [ %241, %._crit_edge.thread ], [ %58, %51 ], [ -9998, %45 ]
-  ret i32 %.0265
+  %.0 = phi i32 [ %70, %63 ], [ %88, %83 ], [ %115, %108 ], [ %125, %118 ], [ %136, %129 ], [ %157, %150 ], [ %167, %160 ], [ %178, %171 ], [ %229, %222 ], [ %236, %231 ], [ %241, %._crit_edge.thread ], [ %58, %51 ], [ -9998, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

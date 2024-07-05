@@ -225,8 +225,8 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   resume { ptr, i32 } %.pn.pn
 
 .loopexit160:                                     ; preds = %107, %75
-  %.0130 = phi float [ %73, %75 ], [ %89, %107 ]
-  %121 = fcmp une float %.0130, 0.000000e+00
+  %.0131 = phi float [ %73, %75 ], [ %89, %107 ]
+  %121 = fcmp une float %.0131, 0.000000e+00
   %.not = xor i1 %121, true
   %brmerge = or i1 %.not, %13
   br i1 %brmerge, label %152, label %.preheader158
@@ -363,7 +363,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
 
 .thread150:                                       ; preds = %151, %196, %.preheader158, %.preheader156, %66, %152
   %197 = phi i1 [ false, %152 ], [ false, %66 ], [ true, %.preheader156 ], [ %121, %.preheader158 ], [ true, %196 ], [ %121, %151 ]
-  %.0130148 = phi float [ %.0130, %152 ], [ 0.000000e+00, %66 ], [ %.0130, %.preheader156 ], [ %.0130, %.preheader158 ], [ %.0130, %196 ], [ %.0130, %151 ]
+  %.0131148 = phi float [ %.0131, %152 ], [ 0.000000e+00, %66 ], [ %.0131, %.preheader156 ], [ %.0131, %.preheader158 ], [ %.0131, %196 ], [ %.0131, %151 ]
   %198 = getelementptr inbounds i8, ptr %1, i64 52
   %199 = load i32, ptr %198, align 4
   %200 = icmp eq i32 %199, 0
@@ -388,7 +388,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %209 = icmp sgt i32 %0, 0
   %210 = load i64, ptr %14, align 8
   %211 = inttoptr i64 %210 to ptr
-  %212 = fpext float %.0130148 to double
+  %212 = fpext float %.0131148 to double
   br i1 %197, label %.split.us, label %.loopexit
 
 .split.us:                                        ; preds = %207
@@ -417,7 +417,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %219 = getelementptr inbounds i8, ptr %213, i64 8
   %220 = load float, ptr %219, align 4
   %221 = tail call noundef float @llvm.fmuladd.f32(float %220, float %220, float %218)
-  %222 = fmul float %.0130148, %221
+  %222 = fmul float %.0131148, %221
   %223 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv214
   store float %222, ptr %223, align 4
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
@@ -428,7 +428,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %indvars.iv209 = phi i64 [ 0, %.split.us.split.us172.preheader ], [ %indvars.iv.next210, %255 ]
   %224 = getelementptr inbounds [2 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv209, i64 2
   %225 = load float, ptr %224, align 4
-  %226 = fmul float %.0130148, %225
+  %226 = fmul float %.0131148, %225
   %227 = fmul float %225, %226
   %228 = getelementptr inbounds [2 x float], ptr %25, i64 0, i64 %indvars.iv209
   store float %227, ptr %228, align 4

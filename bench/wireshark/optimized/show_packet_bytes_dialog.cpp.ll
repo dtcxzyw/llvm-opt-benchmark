@@ -5693,15 +5693,15 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i194:    ; preds = %_ZN7QStringD2Ev.exi
 
 177:                                              ; preds = %173, %216
   %indvars.iv485 = phi i64 [ 0, %173 ], [ %indvars.iv.next486, %216 ]
-  %.0130469 = phi ptr [ %168, %173 ], [ %.1131, %216 ]
+  %.0129469 = phi ptr [ %168, %173 ], [ %.1130, %216 ]
   %178 = add nsw i64 %indvars.iv485, %174
   %exitcond489.not = icmp eq i64 %indvars.iv485, %176
   br i1 %exitcond489.not, label %.critedge, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr i8, ptr %.0130469, i64 1
-  store i8 32, ptr %.0130469, align 1
-  %181 = getelementptr i8, ptr %.0130469, i64 2
+  %180 = getelementptr i8, ptr %.0129469, i64 1
+  store i8 32, ptr %.0129469, align 1
+  %181 = getelementptr i8, ptr %.0129469, i64 2
   store i8 48, ptr %180, align 1
   store i8 120, ptr %181, align 1
   %182 = load ptr, ptr %160, align 8
@@ -5721,7 +5721,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i: ; preds = %_ZNK17QA
 186:                                              ; preds = %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i
   %187 = load ptr, ptr %169, align 8
   %188 = getelementptr i8, ptr %187, i64 %178
-  %189 = getelementptr i8, ptr %.0130469, i64 3
+  %189 = getelementptr i8, ptr %.0129469, i64 3
   %190 = load i8, ptr %188, align 1
   %191 = lshr i8 %190, 4
   %192 = zext nneg i8 %191 to i64
@@ -5745,19 +5745,19 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201: ; preds = %_ZNK1
 199:                                              ; preds = %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i200, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i201
   %200 = load ptr, ptr %169, align 8
   %201 = getelementptr i8, ptr %200, i64 %178
-  %202 = getelementptr i8, ptr %.0130469, i64 4
+  %202 = getelementptr i8, ptr %.0129469, i64 4
   %203 = load i8, ptr %201, align 1
   %204 = and i8 %203, 15
   %205 = zext nneg i8 %204 to i64
   %206 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %205
   %207 = load i8, ptr %206, align 1
-  %208 = getelementptr i8, ptr %.0130469, i64 5
+  %208 = getelementptr i8, ptr %.0129469, i64 5
   store i8 %207, ptr %202, align 1
   %209 = icmp slt i64 %178, %invariant.op496
   br i1 %209, label %210, label %216
 
 210:                                              ; preds = %199
-  %211 = getelementptr i8, ptr %.0130469, i64 6
+  %211 = getelementptr i8, ptr %.0129469, i64 6
   store i8 44, ptr %208, align 1
   br label %216
 
@@ -5793,17 +5793,17 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205:   ; preds = %.loopexit.split-lp
   br label %_ZN10QByteArrayD2Ev.exit174
 
 216:                                              ; preds = %199, %210
-  %.1131 = phi ptr [ %211, %210 ], [ %208, %199 ]
+  %.1130 = phi ptr [ %211, %210 ], [ %208, %199 ]
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next486, 8
   br i1 %exitcond490.not, label %.critedge, label %177, !llvm.loop !22
 
 .critedge:                                        ; preds = %216, %177
-  %.0135.lcssa = phi i32 [ 8, %216 ], [ %175, %177 ]
-  %.0130.lcssa = phi ptr [ %.1131, %216 ], [ %.0130469, %177 ]
-  %217 = add i32 %.0135.lcssa, %.0128
-  %218 = getelementptr i8, ptr %.0130.lcssa, i64 1
-  store i8 10, ptr %.0130.lcssa, align 1
+  %.0132.lcssa = phi i32 [ 8, %216 ], [ %175, %177 ]
+  %.0129.lcssa = phi ptr [ %.1130, %216 ], [ %.0129469, %177 ]
+  %217 = add i32 %.0132.lcssa, %.0128
+  %218 = getelementptr i8, ptr %.0129.lcssa, i64 1
+  store i8 10, ptr %.0129.lcssa, align 1
   store i8 0, ptr %218, align 1
   %219 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendEPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %18)
           to label %171 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !24
@@ -5876,15 +5876,15 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i209:   ; preds = %230
 
 253:                                              ; preds = %249, %292
   %indvars.iv479 = phi i64 [ 0, %249 ], [ %indvars.iv.next480, %292 ]
-  %.0133466 = phi ptr [ %244, %249 ], [ %.1134, %292 ]
+  %.0134466 = phi ptr [ %244, %249 ], [ %.1135, %292 ]
   %254 = add nsw i64 %indvars.iv479, %250
   %exitcond483.not = icmp eq i64 %indvars.iv479, %252
   br i1 %exitcond483.not, label %.critedge2, label %255
 
 255:                                              ; preds = %253
-  %256 = getelementptr i8, ptr %.0133466, i64 1
-  store i8 32, ptr %.0133466, align 1
-  %257 = getelementptr i8, ptr %.0133466, i64 2
+  %256 = getelementptr i8, ptr %.0134466, i64 1
+  store i8 32, ptr %.0134466, align 1
+  %257 = getelementptr i8, ptr %.0134466, i64 2
   store i8 48, ptr %256, align 1
   store i8 120, ptr %257, align 1
   %258 = load ptr, ptr %236, align 8
@@ -5904,7 +5904,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i215: ; preds = %_ZNK1
 262:                                              ; preds = %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i214, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i215
   %263 = load ptr, ptr %245, align 8
   %264 = getelementptr i8, ptr %263, i64 %254
-  %265 = getelementptr i8, ptr %.0133466, i64 3
+  %265 = getelementptr i8, ptr %.0134466, i64 3
   %266 = load i8, ptr %264, align 1
   %267 = lshr i8 %266, 4
   %268 = zext nneg i8 %267 to i64
@@ -5928,19 +5928,19 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i220: ; preds = %_ZNK1
 275:                                              ; preds = %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.i.i.i219, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i220
   %276 = load ptr, ptr %245, align 8
   %277 = getelementptr i8, ptr %276, i64 %254
-  %278 = getelementptr i8, ptr %.0133466, i64 4
+  %278 = getelementptr i8, ptr %.0134466, i64 4
   %279 = load i8, ptr %277, align 1
   %280 = and i8 %279, 15
   %281 = zext nneg i8 %280 to i64
   %282 = getelementptr [16 x i8], ptr @_ZZN21ShowPacketBytesDialog17updatePacketBytesEvE8hexchars, i64 0, i64 %281
   %283 = load i8, ptr %282, align 1
-  %284 = getelementptr i8, ptr %.0133466, i64 5
+  %284 = getelementptr i8, ptr %.0134466, i64 5
   store i8 %283, ptr %278, align 1
   %285 = icmp slt i64 %254, %invariant.op
   br i1 %285, label %286, label %292
 
 286:                                              ; preds = %275
-  %287 = getelementptr i8, ptr %.0133466, i64 6
+  %287 = getelementptr i8, ptr %.0134466, i64 6
   store i8 44, ptr %284, align 1
   br label %292
 
@@ -5976,17 +5976,17 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i224:   ; preds = %.loopexit.split-lp4
   br label %_ZN10QByteArrayD2Ev.exit174
 
 292:                                              ; preds = %275, %286
-  %.1134 = phi ptr [ %287, %286 ], [ %284, %275 ]
+  %.1135 = phi ptr [ %287, %286 ], [ %284, %275 ]
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %exitcond484.not = icmp eq i64 %indvars.iv.next480, 8
   br i1 %exitcond484.not, label %.critedge2, label %253, !llvm.loop !25
 
 .critedge2:                                       ; preds = %292, %253
-  %.0133.lcssa = phi ptr [ %.1134, %292 ], [ %.0133466, %253 ]
-  %.0132.lcssa = phi i32 [ 8, %292 ], [ %251, %253 ]
-  %293 = add i32 %.0132.lcssa, %.0136
-  %294 = getelementptr i8, ptr %.0133.lcssa, i64 1
-  store i8 10, ptr %.0133.lcssa, align 1
+  %.0134.lcssa = phi ptr [ %.1135, %292 ], [ %.0134466, %253 ]
+  %.0133.lcssa = phi i32 [ 8, %292 ], [ %251, %253 ]
+  %293 = add i32 %.0133.lcssa, %.0136
+  %294 = getelementptr i8, ptr %.0134.lcssa, i64 1
+  store i8 10, ptr %.0134.lcssa, align 1
   store i8 0, ptr %294, align 1
   %295 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendEPKc(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull %20)
           to label %247 unwind label %.loopexit.split-lp432.loopexit, !llvm.loop !26
@@ -6408,16 +6408,16 @@ _ZN7QString7reserveEx.exit:                       ; preds = %.noexc292, %_ZNK17Q
   br label %458
 
 458:                                              ; preds = %_ZN7QString7reserveEx.exit, %.critedge6
-  %.0129 = phi i32 [ 0, %_ZN7QString7reserveEx.exit ], [ %539, %.critedge6 ]
-  %459 = icmp slt i32 %.0129, %439
+  %.0131 = phi i32 [ 0, %_ZN7QString7reserveEx.exit ], [ %539, %.critedge6 ]
+  %459 = icmp slt i32 %.0131, %439
   br i1 %459, label %460, label %542
 
 460:                                              ; preds = %458
-  %461 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 20, ptr noundef nonnull @.str.50, i32 noundef %442, i32 noundef %.0129) #21
+  %461 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 20, ptr noundef nonnull @.str.50, i32 noundef %442, i32 noundef %.0131) #21
   %462 = sext i32 %461 to i64
   %463 = getelementptr i8, ptr %28, i64 %462
-  %464 = sext i32 %.0129 to i64
-  %465 = sub i32 %439, %.0129
+  %464 = sext i32 %.0131 to i64
+  %465 = sub i32 %439, %.0131
   %wide.trip.count = zext i32 %465 to i64
   br label %466
 
@@ -6545,8 +6545,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i304:   ; preds = %.loopexit.split-lp4
 
 .preheader:                                       ; preds = %.lr.ph463.preheader, %.critedge4
   %.2124.lcssa = phi ptr [ %.0122.lcssa, %.critedge4 ], [ %scevgep473, %.lr.ph463.preheader ]
-  %smax476 = call i32 @llvm.smax.i32(i32 %.0129, i32 %439)
-  %507 = sub i32 %smax476, %.0129
+  %smax476 = call i32 @llvm.smax.i32(i32 %.0131, i32 %439)
+  %507 = sub i32 %smax476, %.0131
   br label %508
 
 508:                                              ; preds = %.preheader, %538
@@ -6633,7 +6633,7 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i314._crit_edge: ; pre
 .critedge6:                                       ; preds = %538, %508
   %.3125.lcssa = phi ptr [ %.5127, %538 ], [ %.3125464, %508 ]
   %.1121.lcssa = phi i32 [ 16, %538 ], [ %507, %508 ]
-  %539 = add i32 %.1121.lcssa, %.0129
+  %539 = add i32 %.1121.lcssa, %.0131
   %540 = getelementptr i8, ptr %.3125.lcssa, i64 1
   store i8 10, ptr %.3125.lcssa, align 1
   store i8 0, ptr %540, align 1

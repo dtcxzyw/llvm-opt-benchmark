@@ -12,14 +12,14 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br label %6
 
 6:                                                ; preds = %3, %6
-  %.05065 = phi i64 [ 0, %3 ], [ %11, %6 ]
+  %.05165 = phi i64 [ 0, %3 ], [ %11, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.lzma_filter, ptr %7, i64 %.05065
+  %8 = getelementptr inbounds %struct.lzma_filter, ptr %7, i64 %.05165
   store i64 -1, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.lzma_filter, ptr %9, i64 %.05065, i32 1
+  %10 = getelementptr inbounds %struct.lzma_filter, ptr %9, i64 %.05165, i32 1
   store ptr null, ptr %10, align 8
-  %11 = add nuw nsw i64 %.05065, 1
+  %11 = add nuw nsw i64 %.05165, 1
   %exitcond.not = icmp eq i64 %11, 5
   br i1 %exitcond.not, label %12, label %6, !llvm.loop !5
 
@@ -109,7 +109,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br label %57
 
 55:                                               ; preds = %57
-  %56 = add nuw nsw i64 %.066, 1
+  %56 = add nuw nsw i64 %.05066, 1
   %exitcond68.not = icmp eq i64 %56, %54
   br i1 %exitcond68.not, label %.preheader, label %57, !llvm.loop !7
 
@@ -118,9 +118,9 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br label %61
 
 57:                                               ; preds = %51, %55
-  %.066 = phi i64 [ 0, %51 ], [ %56, %55 ]
+  %.05066 = phi i64 [ 0, %51 ], [ %56, %55 ]
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.lzma_filter, ptr %58, i64 %.066
+  %59 = getelementptr inbounds %struct.lzma_filter, ptr %58, i64 %.05066
   %60 = call i32 @lzma_filter_flags_decode(ptr noundef %59, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %29) #5
   %.not64 = icmp eq i32 %60, 0
   br i1 %.not64, label %55, label %.loopexit.sink.split
@@ -139,13 +139,13 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br i1 %.not63, label %61, label %.loopexit.sink.split, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %57, %64
-  %.051.ph = phi i32 [ 8, %64 ], [ %60, %57 ]
+  %.0.ph = phi i32 [ 8, %64 ], [ %60, %57 ]
   call fastcc void @free_properties(ptr noundef nonnull %0, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %.loopexit.sink.split, %48, %41, %39, %32, %28, %16, %24
-  %.051 = phi i32 [ 11, %24 ], [ 11, %16 ], [ 9, %28 ], [ 8, %32 ], [ %40, %39 ], [ 9, %41 ], [ %49, %48 ], [ %.051.ph, %.loopexit.sink.split ], [ 0, %61 ]
-  ret i32 %.051
+  %.0 = phi i32 [ 11, %24 ], [ 11, %16 ], [ 9, %28 ], [ 8, %32 ], [ %40, %39 ], [ 9, %41 ], [ %49, %48 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %61 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

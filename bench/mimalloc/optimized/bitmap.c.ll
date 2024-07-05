@@ -1134,8 +1134,8 @@ if.else.i:                                        ; preds = %entry
   %cmp2.not12 = icmp ult i64 %sub4.i, 64
   br i1 %cmp2.not12, label %while.end, label %while.body.lr.ph
 
-while.end.thread:                                 ; preds = %if.end.i.i, %if.then.i, %if.end3.i.i
-  %pre_mask.0.ph = phi i64 [ 0, %if.end.i.i ], [ -1, %if.then.i ], [ %shl4.i.i, %if.end3.i.i ]
+while.end.thread:                                 ; preds = %if.then.i, %if.end.i.i, %if.end3.i.i
+  %pre_mask.0.ph = phi i64 [ -1, %if.then.i ], [ 0, %if.end.i.i ], [ %shl4.i.i, %if.end3.i.i ]
   %arrayidx22 = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i
   %not23 = xor i64 %pre_mask.0.ph, -1
   %1 = atomicrmw and ptr %arrayidx22, i64 %not23 acq_rel, align 8
@@ -1225,8 +1225,8 @@ while.body.preheader:                             ; preds = %if.else.i
   %div14.i = lshr i64 %sub4.i, 6
   br label %while.body
 
-while.end.thread:                                 ; preds = %if.end.i.i, %if.then.i, %if.end3.i.i
-  %pre_mask.0.ph = phi i64 [ 0, %if.end.i.i ], [ -1, %if.then.i ], [ %shl4.i.i, %if.end3.i.i ]
+while.end.thread:                                 ; preds = %if.then.i, %if.end.i.i, %if.end3.i.i
+  %pre_mask.0.ph = phi i64 [ -1, %if.then.i ], [ 0, %if.end.i.i ], [ %shl4.i.i, %if.end3.i.i ]
   %arrayidx32 = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i
   %1 = atomicrmw or ptr %arrayidx32, i64 %pre_mask.0.ph acq_rel, align 8
   %and33 = and i64 %1, %pre_mask.0.ph
@@ -1327,7 +1327,7 @@ while.body.i.preheader:                           ; preds = %if.else.i.i
   br label %while.body.i
 
 while.end.thread.i:                               ; preds = %if.end3.i.i.i, %if.end.i.i.i, %if.then.i.i
-  %pre_mask.0.ph.i = phi i64 [ 0, %if.end.i.i.i ], [ -1, %if.then.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
+  %pre_mask.0.ph.i = phi i64 [ -1, %if.then.i.i ], [ 0, %if.end.i.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
   %arrayidx30.i = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i.i
   %1 = load atomic i64, ptr %arrayidx30.i monotonic, align 8
   %and31.i = and i64 %1, %pre_mask.0.ph.i
@@ -1411,7 +1411,7 @@ while.body.i.preheader:                           ; preds = %if.else.i.i
   br label %while.body.i
 
 while.end.thread.i:                               ; preds = %if.end3.i.i.i, %if.end.i.i.i, %if.then.i.i
-  %pre_mask.0.ph.i = phi i64 [ 0, %if.end.i.i.i ], [ -1, %if.then.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
+  %pre_mask.0.ph.i = phi i64 [ -1, %if.then.i.i ], [ 0, %if.end.i.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
   %arrayidx30.i = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i.i
   %1 = load atomic i64, ptr %arrayidx30.i monotonic, align 8
   %and31.i = and i64 %1, %pre_mask.0.ph.i

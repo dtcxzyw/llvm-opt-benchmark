@@ -1129,8 +1129,8 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
   br label %110
 
 110:                                              ; preds = %Vec_IntPush.exit113, %99, %Vec_IntPush.exit
-  %.065 = phi i32 [ 2, %Vec_IntPush.exit ], [ 2, %Vec_IntPush.exit113 ], [ %109, %99 ]
-  %.0 = phi i32 [ %.val84, %Vec_IntPush.exit ], [ %.val85, %Vec_IntPush.exit113 ], [ -1, %99 ]
+  %.066 = phi i32 [ 2, %Vec_IntPush.exit ], [ 2, %Vec_IntPush.exit113 ], [ %109, %99 ]
+  %.065 = phi i32 [ %.val84, %Vec_IntPush.exit ], [ %.val85, %Vec_IntPush.exit113 ], [ -1, %99 ]
   %111 = getelementptr inbounds i8, ptr %0, i64 128
   %112 = getelementptr inbounds i8, ptr %0, i64 144
   %113 = getelementptr i8, ptr %0, i64 148
@@ -1266,17 +1266,17 @@ Vec_IntPush.exit127:                              ; preds = %.Vec_IntGrow.exit10
   %173 = sext i32 %171 to i64
   %174 = getelementptr inbounds i32, ptr %170, i64 %173
   store i32 0, ptr %174, align 4
-  %175 = icmp sgt i32 %.065, 0
+  %175 = icmp sgt i32 %.066, 0
   br i1 %175, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit127
-  %176 = tail call i32 @llvm.smax.i32(i32 %.0, i32 -1)
+  %176 = tail call i32 @llvm.smax.i32(i32 %.065, i32 -1)
   %.phi.trans.insert.i129 = getelementptr inbounds i8, ptr %0, i64 152
   br label %177
 
 177:                                              ; preds = %.lr.ph, %Vec_IntPush.exit134
-  %.066219 = phi i32 [ 0, %.lr.ph ], [ %208, %Vec_IntPush.exit134 ]
-  %178 = icmp eq i32 %.066219, 1
+  %.0219 = phi i32 [ 0, %.lr.ph ], [ %208, %Vec_IntPush.exit134 ]
+  %178 = icmp eq i32 %.0219, 1
   %179 = select i1 %178, i32 %176, i32 -1
   %180 = load i32, ptr %113, align 4
   %181 = load i32, ptr %112, align 8
@@ -1340,8 +1340,8 @@ Vec_IntPush.exit134:                              ; preds = %.Vec_IntGrow.exit10
   %206 = sext i32 %204 to i64
   %207 = getelementptr inbounds i32, ptr %203, i64 %206
   store i32 %179, ptr %207, align 4
-  %208 = add nuw nsw i32 %.066219, 1
-  %exitcond.not = icmp eq i32 %208, %.065
+  %208 = add nuw nsw i32 %.0219, 1
+  %exitcond.not = icmp eq i32 %208, %.066
   br i1 %exitcond.not, label %._crit_edge, label %177, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit134, %Vec_IntPush.exit127

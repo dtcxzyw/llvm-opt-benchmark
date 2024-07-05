@@ -5597,15 +5597,15 @@ define void @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder27conve
   unreachable
 
 common.resume.sink.split:                         ; preds = %124, %.body36.thread, %109
-  %.sink100 = phi i64 [ %69, %109 ], [ %69, %.body36.thread ], [ %46, %124 ]
+  %.sink106 = phi i64 [ %69, %109 ], [ %69, %.body36.thread ], [ %46, %124 ]
   %.sink = phi ptr [ %68, %109 ], [ %68, %.body36.thread ], [ %45, %124 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %110, %109 ], [ %eh.lpad-body3782, %.body36.thread ], [ %65, %124 ]
-  %54 = shl nsw i64 %.sink100, 3
+  %common.resume.op.ph = phi { ptr, i32 } [ %110, %109 ], [ %eh.lpad-body3787, %.body36.thread ], [ %65, %124 ]
+  %54 = shl nsw i64 %.sink106, 3
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef %54, i64 noundef 4) #26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %124, %109, %.body36.thread, %41, %55
-  %common.resume.op = phi { ptr, i32 } [ %42, %55 ], [ %42, %41 ], [ %65, %124 ], [ %110, %109 ], [ %eh.lpad-body3782, %.body36.thread ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %55 ], [ %42, %41 ], [ %65, %124 ], [ %110, %109 ], [ %eh.lpad-body3787, %.body36.thread ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %41
@@ -5809,7 +5809,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ret void
 
 .body36.thread:                                   ; preds = %89, %92, %.body36
-  %eh.lpad-body3782 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body36 ], [ %90, %92 ], [ %90, %89 ]
+  %eh.lpad-body3787 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body36 ], [ %90, %92 ], [ %90, %89 ]
   %123 = icmp eq i64 %69, 0
   br i1 %123, label %common.resume, label %common.resume.sink.split
 
@@ -8635,13 +8635,13 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   br label %358
 
 369:                                              ; preds = %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.i, %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.thread.i
-  %.sroa.6.0127.ph = phi ptr [ %130, %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.i ], [ %125, %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.thread.i ]
+  %.sroa.6.0128.ph = phi ptr [ %130, %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.i ], [ %125, %_ZN4core4iter8adapters11try_process17h73574193ff291fa2E.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83)
   br label %370
 
 370:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit, %422, %418, %407, %392, %378, %369
-  %.sink = phi ptr [ %427, %422 ], [ %.sroa.8.0128, %418 ], [ %.pre194, %407 ], [ %198, %392 ], [ %.sroa.51.06.i, %378 ], [ %.sroa.6.0127.ph, %369 ], [ %.pre199, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
+  %.sink = phi ptr [ %427, %422 ], [ %.sroa.8.0127, %418 ], [ %.pre194, %407 ], [ %198, %392 ], [ %.sroa.51.06.i, %378 ], [ %.sroa.6.0128.ph, %369 ], [ %.pre199, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit ]
   %371 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %371, align 8
   store i32 1, ptr %0, align 8
@@ -8778,7 +8778,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   br label %358
 
 418:                                              ; preds = %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178, %321
-  %.sroa.8.0128 = phi ptr [ %.pre189, %321 ], [ %.pre184, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178 ]
+  %.sroa.8.0127 = phi ptr [ %.pre189, %321 ], [ %.pre184, %_ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f179dc3debE.exit178 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25), !noalias !982
   br label %370
 
@@ -12252,8 +12252,8 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8: ; pred
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
 _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8, %61, %66
-  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ undef, %61 ], [ %67, %66 ]
   %.sroa.03.0.i = phi i1 [ false, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ false, %61 ], [ %68, %66 ]
+  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit8 ], [ undef, %61 ], [ %67, %66 ]
   %69 = zext i1 %.sroa.03.0.i to i8
   store i8 %69, ptr %7, align 4
   store i8 %.sroa.5.0.i, ptr %8, align 1
@@ -12492,8 +12492,8 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32: ; pre
   br label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit
 
 _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32, %17, %20
-  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ undef, %17 ], [ %21, %20 ]
   %.sroa.03.0.i = phi i8 [ 0, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ 0, %17 ], [ %23, %20 ]
+  %.sroa.5.0.i = phi i8 [ undef, %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit32 ], [ undef, %17 ], [ %21, %20 ]
   %24 = add i32 %9, -1
   %25 = add i32 %.026.lcssa, %24
   %26 = sub i32 0, %.026.lcssa
@@ -12660,8 +12660,8 @@ define { i1, i8 } @_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a
   br label %11
 
 11:                                               ; preds = %5, %8, %4
-  %.sroa.5.0 = phi i8 [ undef, %4 ], [ undef, %5 ], [ %9, %8 ]
   %.sroa.03.0 = phi i1 [ false, %4 ], [ false, %5 ], [ %10, %8 ]
+  %.sroa.5.0 = phi i8 [ undef, %4 ], [ undef, %5 ], [ %9, %8 ]
   %12 = insertvalue { i1, i8 } poison, i1 %.sroa.03.0, 0
   %13 = insertvalue { i1, i8 } %12, i8 %.sroa.5.0, 1
   ret { i1, i8 } %13
@@ -12965,9 +12965,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.e
   br label %75
 
 75:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.exit12, %77, %63
-  %.sroa.6.0 = phi i64 [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.exit12 ], [ 0, %77 ], [ %.sroa.6.0.copyload, %63 ]
   %.sroa.422.0 = phi ptr [ %66, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.exit12 ], [ inttoptr (i64 4 to ptr), %77 ], [ %.sroa.422.0.copyload, %63 ]
   %.sroa.020.0 = phi i64 [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.exit12 ], [ 0, %77 ], [ %60, %63 ]
+  %.sroa.6.0 = phi i64 [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.13863633964030799667.exit12 ], [ 0, %77 ], [ %.sroa.6.0.copyload, %63 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %0, i64 24

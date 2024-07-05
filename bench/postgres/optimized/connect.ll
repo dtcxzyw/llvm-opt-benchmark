@@ -300,8 +300,8 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %21
 
 21:                                               ; preds = %17, %19, %15
-  %.0299 = phi ptr [ %20, %19 ], [ %12, %17 ], [ %12, %15 ]
-  %22 = icmp eq ptr %.0299, null
+  %.0301 = phi ptr [ %20, %19 ], [ %12, %17 ], [ %12, %15 ]
+  %22 = icmp eq ptr %.0301, null
   %23 = icmp eq ptr %5, null
   %or.cond3 = and i1 %23, %22
   %spec.store.select = select i1 %or.cond3, ptr @.str.8, ptr %5
@@ -311,7 +311,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %.not335, label %27, label %26
 
 26:                                               ; preds = %21
-  tail call void @ecpg_free(ptr noundef %.0299) #8
+  tail call void @ecpg_free(ptr noundef %.0301) #8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.9, ptr noundef %spec.store.select) #8
   br label %261
 
@@ -321,32 +321,32 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  tail call void @ecpg_free(ptr noundef %.0299) #8
+  tail call void @ecpg_free(ptr noundef %.0301) #8
   br label %261
 
 31:                                               ; preds = %27
   br i1 %22, label %.thread386, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0299, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #9
+  %33 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0299, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #9
+  %36 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #9
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.thread, label %82
 
 .thread:                                          ; preds = %35, %32
   %.0288 = phi i64 [ 4, %32 ], [ 5, %35 ]
-  %38 = getelementptr i8, ptr %.0299, i64 %.0288
+  %38 = getelementptr i8, ptr %.0301, i64 %.0288
   %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(14) @.str.12, i64 noundef 13) #9
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.thread386
 
 41:                                               ; preds = %.thread
   %42 = add nuw nsw i64 %.0288, 13
-  %43 = getelementptr i8, ptr %.0299, i64 %42
+  %43 = getelementptr i8, ptr %.0301, i64 %42
   %44 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 63) #9
   %.not340 = icmp eq ptr %44, null
   br i1 %.not340, label %48, label %45
@@ -358,7 +358,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %48
 
 48:                                               ; preds = %45, %41
-  %.0289 = phi ptr [ %47, %45 ], [ null, %41 ]
+  %.0302 = phi ptr [ %47, %45 ], [ null, %41 ]
   %49 = tail call ptr @last_dir_separator(ptr noundef %43) #8
   %.not341 = icmp eq ptr %49, null
   br i1 %.not341, label %56, label %50
@@ -374,14 +374,14 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %55
 
 55:                                               ; preds = %53, %50
-  %.0300 = phi i32 [ 1, %53 ], [ 0, %50 ]
-  %.0291 = phi ptr [ %54, %53 ], [ null, %50 ]
+  %.0304 = phi ptr [ %54, %53 ], [ null, %50 ]
+  %.0292 = phi i32 [ 1, %53 ], [ 0, %50 ]
   store i8 0, ptr %49, align 1
   br label %56
 
 56:                                               ; preds = %55, %48
-  %.1301 = phi i32 [ %.0300, %55 ], [ 0, %48 ]
-  %.1292 = phi ptr [ %.0291, %55 ], [ null, %48 ]
+  %.1305 = phi ptr [ %.0304, %55 ], [ null, %48 ]
+  %.1293 = phi i32 [ %.0292, %55 ], [ 0, %48 ]
   %57 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 58) #9
   %.not343 = icmp eq ptr %57, null
   br i1 %.not343, label %62, label %58
@@ -390,13 +390,13 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   store i8 0, ptr %57, align 1
   %59 = getelementptr i8, ptr %57, i64 1
   %60 = tail call ptr @ecpg_strdup(ptr noundef %59, i32 noundef %0) #8
-  %61 = add nuw nsw i32 %.1301, 1
+  %61 = add nuw nsw i32 %.1293, 1
   br label %62
 
 62:                                               ; preds = %58, %56
-  %.2302 = phi i32 [ %61, %58 ], [ %.1301, %56 ]
-  %.0294 = phi ptr [ %60, %58 ], [ null, %56 ]
-  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0299, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #9
+  %.0307 = phi ptr [ %60, %58 ], [ null, %56 ]
+  %.2294 = phi i32 [ %61, %58 ], [ %.1293, %56 ]
+  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #9
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %77
 
@@ -412,33 +412,33 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 69:                                               ; preds = %67
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.15, i32 noundef %0) #8
-  %.not381 = icmp eq ptr %.1292, null
-  %70 = select i1 %.not381, ptr @.str.17, ptr %.1292
+  %.not381 = icmp eq ptr %.1305, null
+  %70 = select i1 %.not381, ptr @.str.17, ptr %.1305
   tail call void @ecpg_raise(i32 noundef %0, i32 noundef -402, ptr noundef nonnull @.str.16, ptr noundef nonnull %70) #8
-  %.not382 = icmp eq ptr %.0294, null
+  %.not382 = icmp eq ptr %.0307, null
   br i1 %.not382, label %72, label %71
 
 71:                                               ; preds = %69
-  tail call void @ecpg_free(ptr noundef nonnull %.0294) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0307) #8
   br label %72
 
 72:                                               ; preds = %71, %69
-  %.not383 = icmp eq ptr %.0289, null
+  %.not383 = icmp eq ptr %.0302, null
   br i1 %.not383, label %74, label %73
 
 73:                                               ; preds = %72
-  tail call void @ecpg_free(ptr noundef nonnull %.0289) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0302) #8
   br label %74
 
 74:                                               ; preds = %73, %72
   br i1 %.not381, label %76, label %75
 
 75:                                               ; preds = %74
-  tail call void @ecpg_free(ptr noundef nonnull %.1292) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1305) #8
   br label %76
 
 76:                                               ; preds = %74, %75
-  tail call void @ecpg_free(ptr noundef nonnull %.0299) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0301) #8
   tail call void @free(ptr noundef nonnull %28) #8
   br label %261
 
@@ -449,11 +449,11 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 79:                                               ; preds = %77
   %80 = tail call ptr @ecpg_strdup(ptr noundef nonnull %43, i32 noundef %0) #8
-  %81 = add nuw nsw i32 %.2302, 1
+  %81 = add nuw nsw i32 %.2294, 1
   br label %97
 
 82:                                               ; preds = %35
-  %83 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0299, i32 noundef 58) #9
+  %83 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0301, i32 noundef 58) #9
   %.not337 = icmp eq ptr %83, null
   br i1 %.not337, label %87, label %84
 
@@ -464,42 +464,42 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %87
 
 87:                                               ; preds = %84, %82
-  %.3 = phi i32 [ 1, %84 ], [ 0, %82 ]
-  %.1295 = phi ptr [ %86, %84 ], [ null, %82 ]
-  %88 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0299, i32 noundef 64) #9
+  %.1308 = phi ptr [ %86, %84 ], [ null, %82 ]
+  %.3295 = phi i32 [ 1, %84 ], [ 0, %82 ]
+  %88 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0301, i32 noundef 64) #9
   %.not338 = icmp eq ptr %88, null
   br i1 %.not338, label %93, label %89
 
 89:                                               ; preds = %87
   %90 = getelementptr i8, ptr %88, i64 1
   %91 = tail call ptr @ecpg_strdup(ptr noundef %90, i32 noundef %0) #8
-  %92 = add nuw nsw i32 %.3, 1
+  %92 = add nuw nsw i32 %.3295, 1
   store i8 0, ptr %88, align 1
   br label %93
 
 93:                                               ; preds = %89, %87
-  %.4 = phi i32 [ %92, %89 ], [ %.3, %87 ]
-  %.0297 = phi ptr [ %91, %89 ], [ null, %87 ]
-  %char0 = load i8, ptr %.0299, align 1
+  %.0310 = phi ptr [ %91, %89 ], [ null, %87 ]
+  %.4296 = phi i32 [ %92, %89 ], [ %.3295, %87 ]
+  %char0 = load i8, ptr %.0301, align 1
   %.not339 = icmp eq i8 %char0, 0
   br i1 %.not339, label %.thread386, label %94
 
 94:                                               ; preds = %93
-  %95 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.0299, i32 noundef %0) #8
-  %96 = add nuw nsw i32 %.4, 1
+  %95 = tail call ptr @ecpg_strdup(ptr noundef nonnull %.0301, i32 noundef %0) #8
+  %96 = add nuw nsw i32 %.4296, 1
   br label %.thread386
 
 97:                                               ; preds = %67, %65, %79, %77
-  %.5 = phi i32 [ %.2302, %67 ], [ %.2302, %65 ], [ %81, %79 ], [ %.2302, %77 ]
-  %.1298 = phi ptr [ null, %67 ], [ null, %65 ], [ %80, %79 ], [ null, %77 ]
-  %.not347 = icmp eq ptr %.0289, null
+  %.1311 = phi ptr [ null, %67 ], [ null, %65 ], [ %80, %79 ], [ null, %77 ]
+  %.5297 = phi i32 [ %.2294, %67 ], [ %.2294, %65 ], [ %81, %79 ], [ %.2294, %77 ]
+  %.not347 = icmp eq ptr %.0302, null
   br i1 %.not347, label %.thread386, label %.preheader407
 
 .preheader407:                                    ; preds = %97, %103
-  %.0303 = phi i32 [ %104, %103 ], [ 0, %97 ]
-  %.6 = phi i32 [ %.7, %103 ], [ %.5, %97 ]
-  %98 = sext i32 %.0303 to i64
-  %99 = getelementptr i8, ptr %.0289, i64 %98
+  %.6298 = phi i32 [ %.7299, %103 ], [ %.5297, %97 ]
+  %.0289 = phi i32 [ %104, %103 ], [ 0, %97 ]
+  %98 = sext i32 %.0289 to i64
+  %99 = getelementptr i8, ptr %.0302, i64 %98
   %100 = load i8, ptr %99, align 1
   switch i8 %100, label %103 [
     i8 0, label %.thread386
@@ -507,21 +507,21 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   ]
 
 101:                                              ; preds = %.preheader407
-  %102 = add i32 %.6, 1
+  %102 = add i32 %.6298, 1
   br label %103
 
 103:                                              ; preds = %.preheader407, %101
-  %.7 = phi i32 [ %102, %101 ], [ %.6, %.preheader407 ]
-  %104 = add i32 %.0303, 1
+  %.7299 = phi i32 [ %102, %101 ], [ %.6298, %.preheader407 ]
+  %104 = add i32 %.0289, 1
   br label %.preheader407, !llvm.loop !6
 
 .thread386:                                       ; preds = %.preheader407, %31, %93, %94, %.thread, %97
   %.not347397 = phi i1 [ true, %97 ], [ true, %.thread ], [ true, %94 ], [ true, %93 ], [ true, %31 ], [ false, %.preheader407 ]
-  %.1290396 = phi ptr [ null, %97 ], [ null, %.thread ], [ null, %94 ], [ null, %93 ], [ null, %31 ], [ %.0289, %.preheader407 ]
-  %.2293395 = phi ptr [ %.1292, %97 ], [ null, %.thread ], [ %95, %94 ], [ null, %93 ], [ null, %31 ], [ %.1292, %.preheader407 ]
-  %.2296394 = phi ptr [ %.0294, %97 ], [ null, %.thread ], [ %.1295, %94 ], [ %.1295, %93 ], [ null, %31 ], [ %.0294, %.preheader407 ]
-  %.1298393 = phi ptr [ %.1298, %97 ], [ null, %.thread ], [ %.0297, %94 ], [ %.0297, %93 ], [ null, %31 ], [ %.1298, %.preheader407 ]
-  %.8 = phi i32 [ %.5, %97 ], [ 0, %.thread ], [ %96, %94 ], [ %.4, %93 ], [ 0, %31 ], [ %.6, %.preheader407 ]
+  %.1303396 = phi ptr [ null, %97 ], [ null, %.thread ], [ null, %94 ], [ null, %93 ], [ null, %31 ], [ %.0302, %.preheader407 ]
+  %.2306395 = phi ptr [ %.1305, %97 ], [ null, %.thread ], [ %95, %94 ], [ null, %93 ], [ null, %31 ], [ %.1305, %.preheader407 ]
+  %.2309394 = phi ptr [ %.0307, %97 ], [ null, %.thread ], [ %.1308, %94 ], [ %.1308, %93 ], [ null, %31 ], [ %.0307, %.preheader407 ]
+  %.1311393 = phi ptr [ %.1311, %97 ], [ null, %.thread ], [ %.0310, %94 ], [ %.0310, %93 ], [ null, %31 ], [ %.1311, %.preheader407 ]
+  %.8300 = phi i32 [ %.5297, %97 ], [ 0, %.thread ], [ %96, %94 ], [ %.4296, %93 ], [ 0, %31 ], [ %.6298, %.preheader407 ]
   %.not349 = icmp eq ptr %3, null
   br i1 %.not349, label %107, label %105
 
@@ -529,11 +529,11 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %char0350 = load i8, ptr %3, align 1
   %.not351 = icmp ne i8 %char0350, 0
   %106 = zext i1 %.not351 to i32
-  %spec.select384 = add i32 %.8, %106
+  %spec.select384 = add i32 %.8300, %106
   br label %107
 
 107:                                              ; preds = %105, %.thread386
-  %.9 = phi i32 [ %.8, %.thread386 ], [ %spec.select384, %105 ]
+  %.9 = phi i32 [ %.8300, %.thread386 ], [ %spec.select384, %105 ]
   %.not352 = icmp eq ptr %4, null
   br i1 %.not352, label %110, label %108
 
@@ -559,41 +559,41 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond5, label %120, label %135
 
 120:                                              ; preds = %110
-  %.not376 = icmp eq ptr %.1298393, null
+  %.not376 = icmp eq ptr %.1311393, null
   br i1 %.not376, label %122, label %121
 
 121:                                              ; preds = %120
-  tail call void @ecpg_free(ptr noundef nonnull %.1298393) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1311393) #8
   br label %122
 
 122:                                              ; preds = %121, %120
-  %.not377 = icmp eq ptr %.2296394, null
+  %.not377 = icmp eq ptr %.2309394, null
   br i1 %.not377, label %124, label %123
 
 123:                                              ; preds = %122
-  tail call void @ecpg_free(ptr noundef nonnull %.2296394) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2309394) #8
   br label %124
 
 124:                                              ; preds = %123, %122
   br i1 %.not347397, label %126, label %125
 
 125:                                              ; preds = %124
-  tail call void @ecpg_free(ptr noundef nonnull %.1290396) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1303396) #8
   br label %126
 
 126:                                              ; preds = %125, %124
-  %.not378 = icmp eq ptr %.2293395, null
+  %.not378 = icmp eq ptr %.2306395, null
   br i1 %.not378, label %128, label %127
 
 127:                                              ; preds = %126
-  tail call void @ecpg_free(ptr noundef nonnull %.2293395) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2306395) #8
   br label %128
 
 128:                                              ; preds = %127, %126
   br i1 %22, label %130, label %129
 
 129:                                              ; preds = %128
-  tail call void @ecpg_free(ptr noundef nonnull %.0299) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0301) #8
   br label %130
 
 130:                                              ; preds = %129, %128
@@ -629,41 +629,41 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 140:                                              ; preds = %138
   %141 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @connections_mutex) #8
   tail call void @ecpg_raise(i32 noundef %0, i32 noundef -12, ptr noundef nonnull @.str.6, ptr noundef null) #8
-  %.not357 = icmp eq ptr %.1298393, null
+  %.not357 = icmp eq ptr %.1311393, null
   br i1 %.not357, label %143, label %142
 
 142:                                              ; preds = %140
-  tail call void @ecpg_free(ptr noundef nonnull %.1298393) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1311393) #8
   br label %143
 
 143:                                              ; preds = %142, %140
-  %.not358 = icmp eq ptr %.2296394, null
+  %.not358 = icmp eq ptr %.2309394, null
   br i1 %.not358, label %145, label %144
 
 144:                                              ; preds = %143
-  tail call void @ecpg_free(ptr noundef nonnull %.2296394) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2309394) #8
   br label %145
 
 145:                                              ; preds = %144, %143
   br i1 %.not347397, label %147, label %146
 
 146:                                              ; preds = %145
-  tail call void @ecpg_free(ptr noundef nonnull %.1290396) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1303396) #8
   br label %147
 
 147:                                              ; preds = %146, %145
-  %.not359 = icmp eq ptr %.2293395, null
+  %.not359 = icmp eq ptr %.2306395, null
   br i1 %.not359, label %149, label %148
 
 148:                                              ; preds = %147
-  tail call void @ecpg_free(ptr noundef nonnull %.2293395) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2306395) #8
   br label %149
 
 149:                                              ; preds = %148, %147
   br i1 %22, label %151, label %150
 
 150:                                              ; preds = %149
-  tail call void @ecpg_free(ptr noundef nonnull %.0299) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0301) #8
   br label %151
 
 151:                                              ; preds = %149, %150
@@ -681,7 +681,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %157
 
 155:                                              ; preds = %152
-  %156 = tail call ptr @ecpg_strdup(ptr noundef %.2293395, i32 noundef %0) #8
+  %156 = tail call ptr @ecpg_strdup(ptr noundef %.2306395, i32 noundef %0) #8
   br label %157
 
 157:                                              ; preds = %155, %153
@@ -697,17 +697,17 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %162 = tail call i32 @pthread_setspecific(i32 noundef %161, ptr noundef nonnull %28) #8
   %163 = load ptr, ptr @all_connections, align 8
   store ptr %163, ptr @actual_connection, align 8
-  %.not361 = icmp eq ptr %.2293395, null
-  %164 = select i1 %.not361, ptr @.str.17, ptr %.2293395
-  %.not362 = icmp eq ptr %.1298393, null
-  %165 = select i1 %.not362, ptr @.str.17, ptr %.1298393
-  %.not363 = icmp eq ptr %.2296394, null
+  %.not361 = icmp eq ptr %.2306395, null
+  %164 = select i1 %.not361, ptr @.str.17, ptr %.2306395
+  %.not362 = icmp eq ptr %.1311393, null
+  %165 = select i1 %.not362, ptr @.str.17, ptr %.1311393
+  %.not363 = icmp eq ptr %.2309394, null
   %166 = load i8, ptr @ecpg_internal_regression_mode, align 1
   %167 = trunc i8 %166 to i1
-  %168 = select i1 %167, ptr @.str.20, ptr %.2296394
+  %168 = select i1 %167, ptr @.str.20, ptr %.2309394
   %169 = select i1 %.not363, ptr @.str.17, ptr %168
   %170 = select i1 %.not347397, ptr @.str.22, ptr @.str.21
-  %171 = select i1 %.not347397, ptr @.str.22, ptr %.1290396
+  %171 = select i1 %.not347397, ptr @.str.22, ptr %.1303396
   br i1 %.not349, label %.thread398, label %172
 
 172:                                              ; preds = %157
@@ -725,37 +725,37 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 175:                                              ; preds = %.thread398
   store ptr @.str.24, ptr %114, align 8
-  store ptr %.2293395, ptr %117, align 8
+  store ptr %.2306395, ptr %117, align 8
   br label %176
 
 176:                                              ; preds = %175, %.thread398
-  %.1304 = phi i32 [ 1, %175 ], [ 0, %.thread398 ]
+  %.1290 = phi i32 [ 1, %175 ], [ 0, %.thread398 ]
   br i1 %.not362, label %182, label %177
 
 177:                                              ; preds = %176
-  %178 = zext nneg i32 %.1304 to i64
+  %178 = zext nneg i32 %.1290 to i64
   %179 = getelementptr ptr, ptr %114, i64 %178
   store ptr @.str.25, ptr %179, align 8
   %180 = getelementptr ptr, ptr %117, i64 %178
-  store ptr %.1298393, ptr %180, align 8
-  %181 = add nuw nsw i32 %.1304, 1
+  store ptr %.1311393, ptr %180, align 8
+  %181 = add nuw nsw i32 %.1290, 1
   br label %182
 
 182:                                              ; preds = %177, %176
-  %.2305 = phi i32 [ %181, %177 ], [ %.1304, %176 ]
+  %.2291 = phi i32 [ %181, %177 ], [ %.1290, %176 ]
   br i1 %.not363, label %188, label %183
 
 183:                                              ; preds = %182
-  %184 = zext nneg i32 %.2305 to i64
+  %184 = zext nneg i32 %.2291 to i64
   %185 = getelementptr ptr, ptr %114, i64 %184
   store ptr @.str.26, ptr %185, align 8
   %186 = getelementptr ptr, ptr %117, i64 %184
-  store ptr %.2296394, ptr %186, align 8
-  %187 = add nuw nsw i32 %.2305, 1
+  store ptr %.2309394, ptr %186, align 8
+  %187 = add nuw nsw i32 %.2291, 1
   br label %188
 
 188:                                              ; preds = %183, %182
-  %.3306 = phi i32 [ %187, %183 ], [ %.2305, %182 ]
+  %.3 = phi i32 [ %187, %183 ], [ %.2291, %182 ]
   br i1 %.not349, label %195, label %189
 
 189:                                              ; preds = %188
@@ -764,16 +764,16 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %.not366, label %195, label %190
 
 190:                                              ; preds = %189
-  %191 = zext nneg i32 %.3306 to i64
+  %191 = zext nneg i32 %.3 to i64
   %192 = getelementptr ptr, ptr %114, i64 %191
   store ptr @.str.27, ptr %192, align 8
   %193 = getelementptr ptr, ptr %117, i64 %191
   store ptr %3, ptr %193, align 8
-  %194 = add nuw nsw i32 %.3306, 1
+  %194 = add nuw nsw i32 %.3, 1
   br label %195
 
 195:                                              ; preds = %190, %189, %188
-  %.4307 = phi i32 [ %194, %190 ], [ %.3306, %189 ], [ %.3306, %188 ]
+  %.4 = phi i32 [ %194, %190 ], [ %.3, %189 ], [ %.3, %188 ]
   br i1 %.not352, label %202, label %196
 
 196:                                              ; preds = %195
@@ -782,27 +782,27 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %.not368, label %202, label %197
 
 197:                                              ; preds = %196
-  %198 = zext nneg i32 %.4307 to i64
+  %198 = zext nneg i32 %.4 to i64
   %199 = getelementptr ptr, ptr %114, i64 %198
   store ptr @.str.28, ptr %199, align 8
   %200 = getelementptr ptr, ptr %117, i64 %198
   store ptr %4, ptr %200, align 8
-  %201 = add nuw nsw i32 %.4307, 1
+  %201 = add nuw nsw i32 %.4, 1
   br label %202
 
 202:                                              ; preds = %197, %196, %195
-  %.5308 = phi i32 [ %201, %197 ], [ %.4307, %196 ], [ %.4307, %195 ]
+  %.5 = phi i32 [ %201, %197 ], [ %.4, %196 ], [ %.4, %195 ]
   br i1 %.not347397, label %.loopexit406, label %.preheader405
 
 .preheader405:                                    ; preds = %202
-  %203 = load i8, ptr %.1290396, align 1
+  %203 = load i8, ptr %.1303396, align 1
   %.not369415 = icmp eq i8 %203, 0
   br i1 %.not369415, label %.loopexit406, label %.preheader404
 
 .preheader404:                                    ; preds = %.preheader405, %.loopexit403
   %204 = phi i8 [ %.pre427, %.loopexit403 ], [ %203, %.preheader405 ]
-  %.0287417 = phi ptr [ %.1, %.loopexit403 ], [ %.1290396, %.preheader405 ]
-  %.6309416 = phi i32 [ %231, %.loopexit403 ], [ %.5308, %.preheader405 ]
+  %.0287417 = phi ptr [ %.1, %.loopexit403 ], [ %.1303396, %.preheader405 ]
+  %.6416 = phi i32 [ %231, %.loopexit403 ], [ %.5, %.preheader405 ]
   %205 = icmp eq i8 %204, 32
   br i1 %205, label %.lr.ph, label %.preheader402
 
@@ -875,19 +875,19 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
 
 .loopexit403:                                     ; preds = %.loopexit403.loopexit, %222
   %.1 = phi ptr [ %225, %222 ], [ %227, %.loopexit403.loopexit ]
-  %228 = sext i32 %.6309416 to i64
+  %228 = sext i32 %.6416 to i64
   %229 = getelementptr ptr, ptr %114, i64 %228
   store ptr %.0284.lcssa, ptr %229, align 8
   %230 = getelementptr ptr, ptr %117, i64 %228
   store ptr %.0283, ptr %230, align 8
-  %231 = add i32 %.6309416, 1
+  %231 = add i32 %.6416, 1
   %.pre427 = load i8, ptr %.1, align 1
   %.not369 = icmp eq i8 %.pre427, 0
   br i1 %.not369, label %.loopexit406, label %.preheader404, !llvm.loop !11
 
 .loopexit406:                                     ; preds = %.loopexit403, %209, %.preheader405, %202
-  %.8311 = phi i32 [ %.5308, %202 ], [ %.5308, %.preheader405 ], [ %.6309416, %209 ], [ %231, %.loopexit403 ]
-  %232 = sext i32 %.8311 to i64
+  %.8 = phi i32 [ %.5, %202 ], [ %.5, %.preheader405 ], [ %.6416, %209 ], [ %231, %.loopexit403 ]
+  %232 = sext i32 %.8 to i64
   %233 = getelementptr ptr, ptr %114, i64 %232
   store ptr null, ptr %233, align 8
   %234 = tail call ptr @PQconnectdbParams(ptr noundef %114, ptr noundef %117, i32 noundef 0) #8
@@ -896,28 +896,28 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %.not362, label %237, label %236
 
 236:                                              ; preds = %.loopexit406
-  tail call void @ecpg_free(ptr noundef nonnull %.1298393) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1311393) #8
   br label %237
 
 237:                                              ; preds = %236, %.loopexit406
   br i1 %.not363, label %239, label %238
 
 238:                                              ; preds = %237
-  tail call void @ecpg_free(ptr noundef nonnull %.2296394) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2309394) #8
   br label %239
 
 239:                                              ; preds = %238, %237
   br i1 %.not347397, label %241, label %240
 
 240:                                              ; preds = %239
-  tail call void @ecpg_free(ptr noundef nonnull %.1290396) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.1303396) #8
   br label %241
 
 241:                                              ; preds = %240, %239
   br i1 %22, label %243, label %242
 
 242:                                              ; preds = %241
-  tail call void @ecpg_free(ptr noundef nonnull %.0299) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.0301) #8
   br label %243
 
 243:                                              ; preds = %242, %241
@@ -938,14 +938,14 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %.not361, label %261, label %251
 
 251:                                              ; preds = %247
-  tail call void @ecpg_free(ptr noundef nonnull %.2293395) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2306395) #8
   br label %261
 
 252:                                              ; preds = %243
   br i1 %.not361, label %254, label %253
 
 253:                                              ; preds = %252
-  tail call void @ecpg_free(ptr noundef nonnull %.2293395) #8
+  tail call void @ecpg_free(ptr noundef nonnull %.2306395) #8
   br label %254
 
 254:                                              ; preds = %253, %252

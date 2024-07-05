@@ -1056,27 +1056,27 @@ define void @_ZN5faiss27compute_PQ_dis_tables_dsub2EmmPKfmS1_bPf(i64 noundef %0,
 
 .preheader106.lr.ph.us:                           ; preds = %.lr.ph121, %..loopexit_crit_edge.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %..loopexit_crit_edge.us ], [ 4, %.lr.ph121 ]
-  %.066120.us = phi i64 [ %105, %..loopexit_crit_edge.us ], [ 0, %.lr.ph121 ]
+  %.067120.us = phi i64 [ %105, %..loopexit_crit_edge.us ], [ 0, %.lr.ph121 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv133, i64 %24)
   %104 = trunc i64 %umin to i32
-  %105 = add nuw i64 %.066120.us, 4
+  %105 = add nuw i64 %.067120.us, 4
   %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %105, i64 %24)
   %106 = trunc i64 %.sroa.speculated.us to i32
-  %107 = mul i64 %.066120.us, %1
-  %108 = trunc i64 %.066120.us to i32
+  %107 = mul i64 %.067120.us, %1
+  %108 = trunc i64 %.067120.us to i32
   %109 = icmp slt i32 %108, %106
   %sext.us = shl i64 %.sroa.speculated.us, 32
   %110 = ashr exact i64 %sext.us, 32
   %111 = icmp eq i64 %110, %105
-  %112 = sub i64 %.sroa.speculated.us, %.066120.us
+  %112 = sub i64 %.sroa.speculated.us, %.067120.us
   %.tr.us = trunc i64 %112 to i32
   %113 = shl i32 %.tr.us, 1
   %114 = icmp sgt i32 %113, 0
-  %.idx74.us = shl i64 %.066120.us, 3
+  %.idx74.us = shl i64 %.067120.us, 3
   %invariant.gep115.us = getelementptr i8, ptr %4, i64 %.idx74.us
   %115 = zext nneg i32 %113 to i64
   %116 = shl nuw nsw i64 %115, 2
-  %117 = sub i64 %110, %.066120.us
+  %117 = sub i64 %110, %.067120.us
   br label %.preheader106.us
 
 ._crit_edge.us127:                                ; preds = %308, %.preheader.us
@@ -1112,7 +1112,7 @@ _ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us: ; preds = %.lr.
 
 123:                                              ; preds = %121, %_ZN5faiss12_GLOBAL__N_125load_simd8float32_partialEPKfi.exit.us
   %124 = mul i64 %.0114.us, %24
-  %125 = add i64 %124, %.066120.us
+  %125 = add i64 %124, %.067120.us
   %126 = mul i64 %125, %1
   br i1 %5, label %229, label %127
 

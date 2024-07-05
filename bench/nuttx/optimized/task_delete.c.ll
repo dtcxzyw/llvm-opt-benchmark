@@ -19,8 +19,8 @@ define i32 @nxtask_delete(i32 noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0 = phi i32 [ %6, %4 ], [ %0, %1 ]
-  %8 = tail call ptr @nxsched_get_tcb(i32 noundef %.0) #3
+  %.010 = phi i32 [ %6, %4 ], [ %0, %1 ]
+  %8 = tail call ptr @nxsched_get_tcb(i32 noundef %.010) #3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %28, label %10
 
@@ -41,7 +41,7 @@ define i32 @nxtask_delete(i32 noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %14, %10
   %20 = getelementptr inbounds i8, ptr %2, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %.0, %21
+  %22 = icmp eq i32 %.010, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
@@ -53,12 +53,12 @@ define i32 @nxtask_delete(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @nxtask_terminate(i32 noundef %.0) #3
+  %27 = tail call i32 @nxtask_terminate(i32 noundef %.010) #3
   br label %28
 
 28:                                               ; preds = %24, %14, %7, %26
-  %.010 = phi i32 [ %27, %26 ], [ -3, %7 ], [ -13, %14 ], [ 0, %24 ]
-  ret i32 %.010
+  %.0 = phi i32 [ %27, %26 ], [ -3, %7 ], [ -13, %14 ], [ 0, %24 ]
+  ret i32 %.0
 }
 
 declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #1
@@ -82,8 +82,8 @@ define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed
   br label %7
 
 7:                                                ; preds = %4, %1
-  %.0.i = phi i32 [ %6, %4 ], [ %0, %1 ]
-  %8 = tail call ptr @nxsched_get_tcb(i32 noundef %.0.i) #3
+  %.010.i = phi i32 [ %6, %4 ], [ %0, %1 ]
+  %8 = tail call ptr @nxsched_get_tcb(i32 noundef %.010.i) #3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %nxtask_delete.exit.thread, label %10
 
@@ -104,7 +104,7 @@ define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed
 19:                                               ; preds = %14, %10
   %20 = getelementptr inbounds i8, ptr %2, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %.0.i, %21
+  %22 = icmp eq i32 %.010.i, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
@@ -116,13 +116,13 @@ define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed
   br i1 %25, label %nxtask_delete.exit.thread7, label %nxtask_delete.exit
 
 nxtask_delete.exit:                               ; preds = %24
-  %26 = tail call i32 @nxtask_terminate(i32 noundef %.0.i) #3
+  %26 = tail call i32 @nxtask_terminate(i32 noundef %.010.i) #3
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %nxtask_delete.exit.thread, label %nxtask_delete.exit.thread7
 
 nxtask_delete.exit.thread:                        ; preds = %14, %7, %nxtask_delete.exit
-  %.010.i6 = phi i32 [ %26, %nxtask_delete.exit ], [ -13, %14 ], [ -3, %7 ]
-  %28 = sub nsw i32 0, %.010.i6
+  %.0.i6 = phi i32 [ %26, %nxtask_delete.exit ], [ -13, %14 ], [ -3, %7 ]
+  %28 = sub nsw i32 0, %.0.i6
   %29 = tail call ptr @__errno() #3
   store i32 %28, ptr %29, align 4
   br label %nxtask_delete.exit.thread7

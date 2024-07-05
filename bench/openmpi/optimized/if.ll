@@ -967,13 +967,13 @@ define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   br label %20
 
 18:                                               ; preds = %20
-  %19 = add nuw i64 %.02650, 1
+  %19 = add nuw i64 %.02750, 1
   %exitcond.not = icmp eq i64 %19, %15
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !29
 
 20:                                               ; preds = %.lr.ph, %18
-  %.02650 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
-  %21 = getelementptr inbounds i8, ptr %14, i64 %.02650
+  %.02750 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
+  %21 = getelementptr inbounds i8, ptr %14, i64 %.02750
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
   %24 = getelementptr inbounds i16, ptr %17, i64 %23

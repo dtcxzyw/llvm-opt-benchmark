@@ -55,7 +55,7 @@ for.body.preheader.i:                             ; preds = %while.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %2, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %need_to_scan_destructors.111.i = phi i1 [ false, %for.body.preheader.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
+  %need_to_scan_destructors.112.i = phi i1 [ false, %for.body.preheader.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [256 x ptr], ptr %stack_allocated_tls_data.i, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp3.i = icmp eq ptr %3, null
@@ -73,7 +73,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end8.i, %if.end.i, %for.body.i
-  %need_to_scan_destructors.2.i = phi i1 [ %need_to_scan_destructors.111.i, %for.body.i ], [ %need_to_scan_destructors.111.i, %if.end.i ], [ true, %if.end8.i ]
+  %need_to_scan_destructors.2.i = phi i1 [ %need_to_scan_destructors.112.i, %for.body.i ], [ %need_to_scan_destructors.112.i, %if.end.i ], [ true, %if.end8.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.i = icmp sgt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5

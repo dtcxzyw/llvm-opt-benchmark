@@ -463,19 +463,19 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
   br i1 %.not, label %9, label %43
 
 9:                                                ; preds = %2, %6
-  %.035 = phi ptr [ %0, %6 ], [ %1, %2 ]
-  %.034 = phi ptr [ %1, %6 ], [ %0, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.035, i64 8
+  %.035 = phi ptr [ %1, %6 ], [ %0, %2 ]
+  %.034 = phi ptr [ %0, %6 ], [ %1, %2 ]
+  %10 = getelementptr inbounds i8, ptr %.034, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.034, i64 8
+  %12 = getelementptr inbounds i8, ptr %.035, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.035, i64 16
+  %14 = getelementptr inbounds i8, ptr %.034, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %43, label %17
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %.034, i64 16
+  %18 = getelementptr inbounds i8, ptr %.035, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not40 = icmp eq ptr %19, %15
   br i1 %.not40, label %20, label %43
@@ -483,46 +483,46 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %15, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %.035
+  %23 = icmp eq ptr %22, %.034
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.035, i64 32
+  %25 = getelementptr inbounds i8, ptr %.034, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 40
   br label %28
 
 28:                                               ; preds = %20, %24
   %.sink = phi ptr [ %27, %24 ], [ %21, %20 ]
-  store ptr %.034, ptr %.sink, align 8
-  %29 = getelementptr inbounds i8, ptr %.034, i64 40
+  store ptr %.035, ptr %.sink, align 8
+  %29 = getelementptr inbounds i8, ptr %.035, i64 40
   %30 = load ptr, ptr %29, align 8
   %.not41 = icmp eq ptr %30, null
   br i1 %.not41, label %33, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr %.035, ptr %32, align 8
+  store ptr %.034, ptr %32, align 8
   %.pre = load ptr, ptr %29, align 8
   br label %33
 
 33:                                               ; preds = %31, %28
   %34 = phi ptr [ %.pre, %31 ], [ null, %28 ]
-  %35 = getelementptr inbounds i8, ptr %.035, i64 40
+  %35 = getelementptr inbounds i8, ptr %.034, i64 40
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.035, i64 32
+  %36 = getelementptr inbounds i8, ptr %.034, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.034, i64 32
+  %38 = getelementptr inbounds i8, ptr %.035, i64 32
   store ptr %37, ptr %38, align 8
-  store ptr %.034, ptr %36, align 8
-  store ptr %.035, ptr %29, align 8
-  %39 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.035, i32 noundef %13)
+  store ptr %.035, ptr %36, align 8
+  store ptr %.034, ptr %29, align 8
+  %39 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.034, i32 noundef %13)
   %.not42 = icmp eq i32 %39, 0
   br i1 %.not42, label %43, label %40
 
 40:                                               ; preds = %33
   %41 = sub nsw i32 0, %11
-  %42 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.034, i32 noundef %41)
+  %42 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.035, i32 noundef %41)
   br label %43
 
 43:                                               ; preds = %40, %33, %9, %17, %6

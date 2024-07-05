@@ -535,12 +535,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %213, %216
 233:                                              ; preds = %229, %329
   %.082 = phi i32 [ 0, %229 ], [ %267, %329 ]
   %.04381 = phi float [ 0.000000e+00, %229 ], [ %242, %329 ]
-  %.04580 = phi i32 [ 0, %229 ], [ %330, %329 ]
+  %.05180 = phi i32 [ 0, %229 ], [ %330, %329 ]
   %234 = load float, ptr @_ZZ10gmx_sigepsiPPcE6sigfac, align 4
   %235 = load float, ptr @_ZZ10gmx_sigepsiPPcE3sig, align 4
   %236 = fmul float %234, %235
   %237 = fpext float %236 to double
-  %238 = uitofp nneg i32 %.04580 to float
+  %238 = uitofp nneg i32 %.05180 to float
   %239 = fmul float %235, %238
   %240 = fpext float %239 to double
   %241 = call double @llvm.fmuladd.f64(double %240, double 2.000000e-02, double %237)
@@ -599,7 +599,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %213, %216
   %293 = fpext float %283 to double
   %294 = fpext float %292 to double
   %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.38, double noundef %250, double noundef %293, double noundef %294) #13
-  %296 = icmp ne i32 %.04580, 0
+  %296 = icmp ne i32 %.05180, 0
   %or.cond3 = and i1 %232, %296
   br i1 %or.cond3, label %297, label %329
 
@@ -640,7 +640,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %213, %216
   br label %329
 
 329:                                              ; preds = %297, %303, %233
-  %330 = add nuw nsw i32 %.04580, 1
+  %330 = add nuw nsw i32 %.05180, 1
   %exitcond.not = icmp eq i32 %330, 100
   br i1 %exitcond.not, label %331, label %233, !llvm.loop !5
 

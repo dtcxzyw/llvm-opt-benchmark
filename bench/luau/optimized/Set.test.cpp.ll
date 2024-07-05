@@ -644,13 +644,13 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
   %119 = load i64, ptr %118, align 8
   %120 = add i64 %119, -1
   %121 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i = and i64 %120, 1
+  %.01622.i.i.i.i = and i64 %120, 1
   br label %122
 
 122:                                              ; preds = %128, %117
-  %.01524.i.i.i.i = phi i64 [ %.01522.i.i.i.i, %117 ], [ %.015.i.i.i.i, %128 ]
-  %.023.i.i.i.i = phi i64 [ 0, %117 ], [ %129, %128 ]
-  %123 = getelementptr inbounds %"struct.std::pair", ptr %121, i64 %.01524.i.i.i.i
+  %.01624.i.i.i.i = phi i64 [ %.01622.i.i.i.i, %117 ], [ %.016.i.i.i.i, %128 ]
+  %.01523.i.i.i.i = phi i64 [ 0, %117 ], [ %129, %128 ]
+  %123 = getelementptr inbounds %"struct.std::pair", ptr %121, i64 %.01624.i.i.i.i
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 1
   br i1 %125, label %131, label %126
@@ -660,14 +660,14 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
   br i1 %127, label %.loopexit60, label %128
 
 128:                                              ; preds = %126
-  %129 = add i64 %.023.i.i.i.i, 1
-  %130 = add i64 %129, %.01524.i.i.i.i
-  %.015.i.i.i.i = and i64 %130, %120
+  %129 = add i64 %.01523.i.i.i.i, 1
+  %130 = add i64 %129, %.01624.i.i.i.i
+  %.016.i.i.i.i = and i64 %130, %120
   %.not.i.i.i.i = icmp ugt i64 %129, %120
   br i1 %.not.i.i.i.i, label %.loopexit60, label %122, !llvm.loop !9
 
 131:                                              ; preds = %122
-  %132 = getelementptr inbounds %"struct.std::pair", ptr %121, i64 %.01524.i.i.i.i, i32 1
+  %132 = getelementptr inbounds %"struct.std::pair", ptr %121, i64 %.01624.i.i.i.i, i32 1
   %133 = load i8, ptr %132, align 1
   %134 = and i8 %133, 1
   %135 = icmp ne i8 %134, 0
@@ -891,13 +891,13 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
   %211 = load i64, ptr %210, align 8
   %212 = add i64 %211, -1
   %213 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i38 = and i64 %212, 2
+  %.01622.i.i.i.i38 = and i64 %212, 2
   br label %214
 
 214:                                              ; preds = %220, %209
-  %.01524.i.i.i.i39 = phi i64 [ %.01522.i.i.i.i38, %209 ], [ %.015.i.i.i.i41, %220 ]
-  %.023.i.i.i.i40 = phi i64 [ 0, %209 ], [ %221, %220 ]
-  %215 = getelementptr inbounds %"struct.std::pair", ptr %213, i64 %.01524.i.i.i.i39
+  %.01624.i.i.i.i39 = phi i64 [ %.01622.i.i.i.i38, %209 ], [ %.016.i.i.i.i41, %220 ]
+  %.01523.i.i.i.i40 = phi i64 [ 0, %209 ], [ %221, %220 ]
+  %215 = getelementptr inbounds %"struct.std::pair", ptr %213, i64 %.01624.i.i.i.i39
   %216 = load i32, ptr %215, align 4
   %217 = icmp eq i32 %216, 2
   br i1 %217, label %223, label %218
@@ -907,14 +907,14 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_5v() #2 personality ptr @__gxx_pers
   br i1 %219, label %.loopexit, label %220
 
 220:                                              ; preds = %218
-  %221 = add i64 %.023.i.i.i.i40, 1
-  %222 = add i64 %221, %.01524.i.i.i.i39
-  %.015.i.i.i.i41 = and i64 %222, %212
+  %221 = add i64 %.01523.i.i.i.i40, 1
+  %222 = add i64 %221, %.01624.i.i.i.i39
+  %.016.i.i.i.i41 = and i64 %222, %212
   %.not.i.i.i.i42 = icmp ugt i64 %221, %212
   br i1 %.not.i.i.i.i42, label %.loopexit, label %214, !llvm.loop !9
 
 223:                                              ; preds = %214
-  %224 = getelementptr inbounds %"struct.std::pair", ptr %213, i64 %.01524.i.i.i.i39, i32 1
+  %224 = getelementptr inbounds %"struct.std::pair", ptr %213, i64 %.01624.i.i.i.i39, i32 1
   %225 = load i8, ptr %224, align 1
   %226 = and i8 %225, 1
   %227 = icmp ne i8 %226, 0
@@ -1747,13 +1747,13 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, -1
   %110 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i = and i64 %109, 1
+  %.01622.i.i.i.i = and i64 %109, 1
   br label %111
 
 111:                                              ; preds = %117, %106
-  %.01524.i.i.i.i = phi i64 [ %.01522.i.i.i.i, %106 ], [ %.015.i.i.i.i, %117 ]
-  %.023.i.i.i.i = phi i64 [ 0, %106 ], [ %118, %117 ]
-  %112 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01524.i.i.i.i
+  %.01624.i.i.i.i = phi i64 [ %.01622.i.i.i.i, %106 ], [ %.016.i.i.i.i, %117 ]
+  %.01523.i.i.i.i = phi i64 [ 0, %106 ], [ %118, %117 ]
+  %112 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01624.i.i.i.i
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 1
   br i1 %114, label %120, label %115
@@ -1763,14 +1763,14 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
   br i1 %116, label %.loopexit190, label %117
 
 117:                                              ; preds = %115
-  %118 = add i64 %.023.i.i.i.i, 1
-  %119 = add i64 %118, %.01524.i.i.i.i
-  %.015.i.i.i.i = and i64 %119, %109
+  %118 = add i64 %.01523.i.i.i.i, 1
+  %119 = add i64 %118, %.01624.i.i.i.i
+  %.016.i.i.i.i = and i64 %119, %109
   %.not.i.i.i.i = icmp ugt i64 %118, %109
   br i1 %.not.i.i.i.i, label %.loopexit190, label %111, !llvm.loop !9
 
 120:                                              ; preds = %111
-  %121 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01524.i.i.i.i, i32 1
+  %121 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01624.i.i.i.i, i32 1
   %122 = load i8, ptr %121, align 1
   %123 = and i8 %122, 1
   %124 = icmp ne i8 %123, 0
@@ -1891,13 +1891,13 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
   %165 = load i64, ptr %164, align 8
   %166 = add i64 %165, -1
   %167 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i52 = and i64 %166, 2
+  %.01622.i.i.i.i52 = and i64 %166, 2
   br label %168
 
 168:                                              ; preds = %174, %163
-  %.01524.i.i.i.i53 = phi i64 [ %.01522.i.i.i.i52, %163 ], [ %.015.i.i.i.i55, %174 ]
-  %.023.i.i.i.i54 = phi i64 [ 0, %163 ], [ %175, %174 ]
-  %169 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %.01524.i.i.i.i53
+  %.01624.i.i.i.i53 = phi i64 [ %.01622.i.i.i.i52, %163 ], [ %.016.i.i.i.i55, %174 ]
+  %.01523.i.i.i.i54 = phi i64 [ 0, %163 ], [ %175, %174 ]
+  %169 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %.01624.i.i.i.i53
   %170 = load i32, ptr %169, align 4
   %171 = icmp eq i32 %170, 2
   br i1 %171, label %177, label %172
@@ -1907,14 +1907,14 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
   br i1 %173, label %.loopexit189, label %174
 
 174:                                              ; preds = %172
-  %175 = add i64 %.023.i.i.i.i54, 1
-  %176 = add i64 %175, %.01524.i.i.i.i53
-  %.015.i.i.i.i55 = and i64 %176, %166
+  %175 = add i64 %.01523.i.i.i.i54, 1
+  %176 = add i64 %175, %.01624.i.i.i.i53
+  %.016.i.i.i.i55 = and i64 %176, %166
   %.not.i.i.i.i56 = icmp ugt i64 %175, %166
   br i1 %.not.i.i.i.i56, label %.loopexit189, label %168, !llvm.loop !9
 
 177:                                              ; preds = %168
-  %178 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %.01524.i.i.i.i53, i32 1
+  %178 = getelementptr inbounds %"struct.std::pair", ptr %167, i64 %.01624.i.i.i.i53, i32 1
   %179 = load i8, ptr %178, align 1
   %180 = and i8 %179, 1
   %181 = icmp ne i8 %180, 0
@@ -2026,13 +2026,13 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
 220:                                              ; preds = %217
   %221 = add i64 %214, -1
   %222 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i62 = and i64 %221, 1
+  %.01622.i.i.i.i62 = and i64 %221, 1
   br label %223
 
 223:                                              ; preds = %229, %220
-  %.01524.i.i.i.i63 = phi i64 [ %.01522.i.i.i.i62, %220 ], [ %.015.i.i.i.i65, %229 ]
-  %.023.i.i.i.i64 = phi i64 [ 0, %220 ], [ %230, %229 ]
-  %224 = getelementptr inbounds %"struct.std::pair", ptr %222, i64 %.01524.i.i.i.i63
+  %.01624.i.i.i.i63 = phi i64 [ %.01622.i.i.i.i62, %220 ], [ %.016.i.i.i.i65, %229 ]
+  %.01523.i.i.i.i64 = phi i64 [ 0, %220 ], [ %230, %229 ]
+  %224 = getelementptr inbounds %"struct.std::pair", ptr %222, i64 %.01624.i.i.i.i63
   %225 = load i32, ptr %224, align 4
   %226 = icmp eq i32 %225, 1
   br i1 %226, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i, label %227
@@ -2042,9 +2042,9 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
   br i1 %228, label %.loopexit.i.i.i, label %229
 
 229:                                              ; preds = %227
-  %230 = add i64 %.023.i.i.i.i64, 1
-  %231 = add i64 %230, %.01524.i.i.i.i63
-  %.015.i.i.i.i65 = and i64 %231, %221
+  %230 = add i64 %.01523.i.i.i.i64, 1
+  %231 = add i64 %230, %.01624.i.i.i.i63
+  %.016.i.i.i.i65 = and i64 %231, %221
   %.not.i.i.i.i66 = icmp ugt i64 %230, %221
   br i1 %.not.i.i.i.i66, label %.loopexit.i.i.i, label %223, !llvm.loop !9
 
@@ -2100,38 +2100,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 250:                                              ; preds = %243
   %251 = sext i32 %247 to i64
-  %.01725.i.i = and i64 %242, %251
-  %252 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01725.i.i
+  %.01825.i.i = and i64 %242, %251
+  %252 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01825.i.i
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %253, %.pre213
   br i1 %254, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %258, %250
-  %.01727.i.lcssa25.i = phi i64 [ %.01725.i.i, %250 ], [ %.017.i.i, %258 ]
-  %255 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01727.i.lcssa25.i
+  %.01827.i.lcssa25.i = phi i64 [ %.01825.i.i, %250 ], [ %.018.i.i, %258 ]
+  %255 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01827.i.lcssa25.i
   store i32 %247, ptr %255, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i
 
 .lr.ph.i:                                         ; preds = %250, %258
   %256 = phi i32 [ %262, %258 ], [ %253, %250 ]
-  %.026.i27.i = phi i64 [ %259, %258 ], [ 0, %250 ]
-  %.01727.i26.i = phi i64 [ %.017.i.i, %258 ], [ %.01725.i.i, %250 ]
+  %.01726.i27.i = phi i64 [ %259, %258 ], [ 0, %250 ]
+  %.01827.i26.i = phi i64 [ %.018.i.i, %258 ], [ %.01825.i.i, %250 ]
   %257 = icmp eq i32 %256, %247
   br i1 %257, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i, label %258
 
 258:                                              ; preds = %.lr.ph.i
-  %259 = add i64 %.026.i27.i, 1
-  %260 = add i64 %259, %.01727.i26.i
-  %.017.i.i = and i64 %260, %242
+  %259 = add i64 %.01726.i27.i, 1
+  %260 = add i64 %259, %.01827.i26.i
+  %.018.i.i = and i64 %260, %242
   %.not.i11.i = icmp ule i64 %259, %242
   call void @llvm.assume(i1 %.not.i11.i)
-  %261 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.017.i.i
+  %261 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.018.i.i
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, %.pre213
   br i1 %263, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i: ; preds = %.lr.ph.i
-  %264 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01727.i26.i
+  %264 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01827.i26.i
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i, %._crit_edge.i
@@ -2173,15 +2173,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %277 = phi i64 [ %214, %207 ], [ %.pre.i.i, %.noexc ], [ %214, %223 ]
   %278 = add i64 %277, -1
   %279 = load ptr, ptr %1, align 8
-  %.01725.i.i.i = and i64 %278, 1
-  %280 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.01725.i.i.i
+  %.01825.i.i.i = and i64 %278, 1
+  %280 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.01825.i.i.i
   %281 = load i32, ptr %280, align 4
   %282 = icmp eq i32 %281, %276
   br i1 %282, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %288, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i
-  %.01727.i.lcssa6.i.i = phi i64 [ %.01725.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ], [ %.017.i.i.i, %288 ]
-  %283 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.01727.i.lcssa6.i.i
+  %.01827.i.lcssa6.i.i = phi i64 [ %.01825.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ], [ %.018.i.i.i, %288 ]
+  %283 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.01827.i.lcssa6.i.i
   store i32 1, ptr %283, align 4
   %284 = load i64, ptr %211, align 8
   %285 = add i64 %284, 1
@@ -2190,24 +2190,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i.i:                                       ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i, %288
   %286 = phi i32 [ %292, %288 ], [ %281, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
-  %.026.i8.i.i = phi i64 [ %289, %288 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
-  %.01727.i7.i.i = phi i64 [ %.017.i.i.i, %288 ], [ %.01725.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
+  %.01726.i8.i.i = phi i64 [ %289, %288 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
+  %.01827.i7.i.i = phi i64 [ %.018.i.i.i, %288 ], [ %.01825.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
   %287 = icmp eq i32 %286, 1
   br i1 %287, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i, label %288
 
 288:                                              ; preds = %.lr.ph.i.i
-  %289 = add i64 %.026.i8.i.i, 1
-  %290 = add i64 %289, %.01727.i7.i.i
-  %.017.i.i.i = and i64 %290, %278
+  %289 = add i64 %.01726.i8.i.i, 1
+  %290 = add i64 %289, %.01827.i7.i.i
+  %.018.i.i.i = and i64 %290, %278
   %.not.i3.i.i = icmp ule i64 %289, %278
   call void @llvm.assume(i1 %.not.i3.i.i)
-  %291 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.017.i.i.i
+  %291 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %.018.i.i.i
   %292 = load i32, ptr %291, align 4
   %293 = icmp eq i32 %292, %276
   br i1 %293, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i
-  %294 = phi i64 [ %.01727.i.lcssa6.i.i, %._crit_edge.i.i ], [ %.01727.i7.i.i, %.lr.ph.i.i ]
+  %294 = phi i64 [ %.01827.i.lcssa6.i.i, %._crit_edge.i.i ], [ %.01827.i7.i.i, %.lr.ph.i.i ]
   %295 = getelementptr inbounds %"struct.std::pair", ptr %279, i64 %294, i32 1
   %296 = load i8, ptr %295, align 1
   %297 = trunc i8 %296 to i1
@@ -2345,13 +2345,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
   %343 = load i64, ptr %213, align 8
   %344 = add i64 %343, -1
   %345 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i69 = and i64 %344, 1
+  %.01622.i.i.i.i69 = and i64 %344, 1
   br label %346
 
 346:                                              ; preds = %352, %342
-  %.01524.i.i.i.i70 = phi i64 [ %.01522.i.i.i.i69, %342 ], [ %.015.i.i.i.i72, %352 ]
-  %.023.i.i.i.i71 = phi i64 [ 0, %342 ], [ %353, %352 ]
-  %347 = getelementptr inbounds %"struct.std::pair", ptr %345, i64 %.01524.i.i.i.i70
+  %.01624.i.i.i.i70 = phi i64 [ %.01622.i.i.i.i69, %342 ], [ %.016.i.i.i.i72, %352 ]
+  %.01523.i.i.i.i71 = phi i64 [ 0, %342 ], [ %353, %352 ]
+  %347 = getelementptr inbounds %"struct.std::pair", ptr %345, i64 %.01624.i.i.i.i70
   %348 = load i32, ptr %347, align 4
   %349 = icmp eq i32 %348, 1
   br i1 %349, label %355, label %350
@@ -2361,14 +2361,14 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
   br i1 %351, label %.loopexit188, label %352
 
 352:                                              ; preds = %350
-  %353 = add i64 %.023.i.i.i.i71, 1
-  %354 = add i64 %353, %.01524.i.i.i.i70
-  %.015.i.i.i.i72 = and i64 %354, %344
+  %353 = add i64 %.01523.i.i.i.i71, 1
+  %354 = add i64 %353, %.01624.i.i.i.i70
+  %.016.i.i.i.i72 = and i64 %354, %344
   %.not.i.i.i.i73 = icmp ugt i64 %353, %344
   br i1 %.not.i.i.i.i73, label %.loopexit188, label %346, !llvm.loop !9
 
 355:                                              ; preds = %346
-  %356 = getelementptr inbounds %"struct.std::pair", ptr %345, i64 %.01524.i.i.i.i70, i32 1
+  %356 = getelementptr inbounds %"struct.std::pair", ptr %345, i64 %.01624.i.i.i.i70, i32 1
   %357 = load i8, ptr %356, align 1
   %358 = and i8 %357, 1
   %359 = icmp ne i8 %358, 0
@@ -2488,13 +2488,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
   %399 = load i64, ptr %213, align 8
   %400 = add i64 %399, -1
   %401 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i79 = and i64 %400, 2
+  %.01622.i.i.i.i79 = and i64 %400, 2
   br label %402
 
 402:                                              ; preds = %408, %398
-  %.01524.i.i.i.i80 = phi i64 [ %.01522.i.i.i.i79, %398 ], [ %.015.i.i.i.i82, %408 ]
-  %.023.i.i.i.i81 = phi i64 [ 0, %398 ], [ %409, %408 ]
-  %403 = getelementptr inbounds %"struct.std::pair", ptr %401, i64 %.01524.i.i.i.i80
+  %.01624.i.i.i.i80 = phi i64 [ %.01622.i.i.i.i79, %398 ], [ %.016.i.i.i.i82, %408 ]
+  %.01523.i.i.i.i81 = phi i64 [ 0, %398 ], [ %409, %408 ]
+  %403 = getelementptr inbounds %"struct.std::pair", ptr %401, i64 %.01624.i.i.i.i80
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 2
   br i1 %405, label %411, label %406
@@ -2504,14 +2504,14 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
   br i1 %407, label %.loopexit187, label %408
 
 408:                                              ; preds = %406
-  %409 = add i64 %.023.i.i.i.i81, 1
-  %410 = add i64 %409, %.01524.i.i.i.i80
-  %.015.i.i.i.i82 = and i64 %410, %400
+  %409 = add i64 %.01523.i.i.i.i81, 1
+  %410 = add i64 %409, %.01624.i.i.i.i80
+  %.016.i.i.i.i82 = and i64 %410, %400
   %.not.i.i.i.i83 = icmp ugt i64 %409, %400
   br i1 %.not.i.i.i.i83, label %.loopexit187, label %402, !llvm.loop !9
 
 411:                                              ; preds = %402
-  %412 = getelementptr inbounds %"struct.std::pair", ptr %401, i64 %.01524.i.i.i.i80, i32 1
+  %412 = getelementptr inbounds %"struct.std::pair", ptr %401, i64 %.01624.i.i.i.i80, i32 1
   %413 = load i8, ptr %412, align 1
   %414 = and i8 %413, 1
   %415 = icmp ne i8 %414, 0
@@ -2621,13 +2621,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
 452:                                              ; preds = %449
   %453 = add i64 %446, -1
   %454 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i90 = and i64 %453, 2
+  %.01622.i.i.i.i90 = and i64 %453, 2
   br label %455
 
 455:                                              ; preds = %461, %452
-  %.01524.i.i.i.i91 = phi i64 [ %.01522.i.i.i.i90, %452 ], [ %.015.i.i.i.i93, %461 ]
-  %.023.i.i.i.i92 = phi i64 [ 0, %452 ], [ %462, %461 ]
-  %456 = getelementptr inbounds %"struct.std::pair", ptr %454, i64 %.01524.i.i.i.i91
+  %.01624.i.i.i.i91 = phi i64 [ %.01622.i.i.i.i90, %452 ], [ %.016.i.i.i.i93, %461 ]
+  %.01523.i.i.i.i92 = phi i64 [ 0, %452 ], [ %462, %461 ]
+  %456 = getelementptr inbounds %"struct.std::pair", ptr %454, i64 %.01624.i.i.i.i91
   %457 = load i32, ptr %456, align 4
   %458 = icmp eq i32 %457, 2
   br i1 %458, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97, label %459
@@ -2637,9 +2637,9 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %298, %_ZN4Luau12Den
   br i1 %460, label %.loopexit.i.i.i95, label %461
 
 461:                                              ; preds = %459
-  %462 = add i64 %.023.i.i.i.i92, 1
-  %463 = add i64 %462, %.01524.i.i.i.i91
-  %.015.i.i.i.i93 = and i64 %463, %453
+  %462 = add i64 %.01523.i.i.i.i92, 1
+  %463 = add i64 %462, %.01624.i.i.i.i91
+  %.016.i.i.i.i93 = and i64 %463, %453
   %.not.i.i.i.i94 = icmp ugt i64 %462, %453
   br i1 %.not.i.i.i.i94, label %.loopexit.i.i.i95, label %455, !llvm.loop !9
 
@@ -2695,38 +2695,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 482:                                              ; preds = %475
   %483 = sext i32 %479 to i64
-  %.01725.i.i151 = and i64 %474, %483
-  %484 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01725.i.i151
+  %.01825.i.i151 = and i64 %474, %483
+  %484 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01825.i.i151
   %485 = load i32, ptr %484, align 4
   %486 = icmp eq i32 %485, %.pre216
   br i1 %486, label %._crit_edge.i157, label %.lr.ph.i152
 
 ._crit_edge.i157:                                 ; preds = %490, %482
-  %.01727.i.lcssa25.i158 = phi i64 [ %.01725.i.i151, %482 ], [ %.017.i.i155, %490 ]
-  %487 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01727.i.lcssa25.i158
+  %.01827.i.lcssa25.i158 = phi i64 [ %.01825.i.i151, %482 ], [ %.018.i.i155, %490 ]
+  %487 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01827.i.lcssa25.i158
   store i32 %479, ptr %487, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i159
 
 .lr.ph.i152:                                      ; preds = %482, %490
   %488 = phi i32 [ %494, %490 ], [ %485, %482 ]
-  %.026.i27.i153 = phi i64 [ %491, %490 ], [ 0, %482 ]
-  %.01727.i26.i154 = phi i64 [ %.017.i.i155, %490 ], [ %.01725.i.i151, %482 ]
+  %.01726.i27.i153 = phi i64 [ %491, %490 ], [ 0, %482 ]
+  %.01827.i26.i154 = phi i64 [ %.018.i.i155, %490 ], [ %.01825.i.i151, %482 ]
   %489 = icmp eq i32 %488, %479
   br i1 %489, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i163, label %490
 
 490:                                              ; preds = %.lr.ph.i152
-  %491 = add i64 %.026.i27.i153, 1
-  %492 = add i64 %491, %.01727.i26.i154
-  %.017.i.i155 = and i64 %492, %474
+  %491 = add i64 %.01726.i27.i153, 1
+  %492 = add i64 %491, %.01827.i26.i154
+  %.018.i.i155 = and i64 %492, %474
   %.not.i11.i156 = icmp ule i64 %491, %474
   call void @llvm.assume(i1 %.not.i11.i156)
-  %493 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.017.i.i155
+  %493 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.018.i.i155
   %494 = load i32, ptr %493, align 4
   %495 = icmp eq i32 %494, %.pre216
   br i1 %495, label %._crit_edge.i157, label %.lr.ph.i152
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i163: ; preds = %.lr.ph.i152
-  %496 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01727.i26.i154
+  %496 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i147, i64 %.01827.i26.i154
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i159
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i159: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i163, %._crit_edge.i157
@@ -2768,15 +2768,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %509 = phi i64 [ %446, %441 ], [ %.pre.i.i96, %.noexc107 ], [ %446, %455 ]
   %510 = add i64 %509, -1
   %511 = load ptr, ptr %1, align 8
-  %.01725.i.i.i98 = and i64 %510, 2
-  %512 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.01725.i.i.i98
+  %.01825.i.i.i98 = and i64 %510, 2
+  %512 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.01825.i.i.i98
   %513 = load i32, ptr %512, align 4
   %514 = icmp eq i32 %513, %508
   br i1 %514, label %._crit_edge.i.i104, label %.lr.ph.i.i99
 
 ._crit_edge.i.i104:                               ; preds = %520, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97
-  %.01727.i.lcssa6.i.i105 = phi i64 [ %.01725.i.i.i98, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ], [ %.017.i.i.i102, %520 ]
-  %515 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.01727.i.lcssa6.i.i105
+  %.01827.i.lcssa6.i.i105 = phi i64 [ %.01825.i.i.i98, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ], [ %.018.i.i.i102, %520 ]
+  %515 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.01827.i.lcssa6.i.i105
   store i32 2, ptr %515, align 4
   %516 = load i64, ptr %211, align 8
   %517 = add i64 %516, 1
@@ -2785,24 +2785,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i.i99:                                     ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97, %520
   %518 = phi i32 [ %524, %520 ], [ %513, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ]
-  %.026.i8.i.i100 = phi i64 [ %521, %520 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ]
-  %.01727.i7.i.i101 = phi i64 [ %.017.i.i.i102, %520 ], [ %.01725.i.i.i98, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ]
+  %.01726.i8.i.i100 = phi i64 [ %521, %520 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ]
+  %.01827.i7.i.i101 = phi i64 [ %.018.i.i.i102, %520 ], [ %.01825.i.i.i98, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i97 ]
   %519 = icmp eq i32 %518, 2
   br i1 %519, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i106, label %520
 
 520:                                              ; preds = %.lr.ph.i.i99
-  %521 = add i64 %.026.i8.i.i100, 1
-  %522 = add i64 %521, %.01727.i7.i.i101
-  %.017.i.i.i102 = and i64 %522, %510
+  %521 = add i64 %.01726.i8.i.i100, 1
+  %522 = add i64 %521, %.01827.i7.i.i101
+  %.018.i.i.i102 = and i64 %522, %510
   %.not.i3.i.i103 = icmp ule i64 %521, %510
   call void @llvm.assume(i1 %.not.i3.i.i103)
-  %523 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.017.i.i.i102
+  %523 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %.018.i.i.i102
   %524 = load i32, ptr %523, align 4
   %525 = icmp eq i32 %524, %508
   br i1 %525, label %._crit_edge.i.i104, label %.lr.ph.i.i99
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i106: ; preds = %.lr.ph.i.i99, %._crit_edge.i.i104
-  %526 = phi i64 [ %.01727.i.lcssa6.i.i105, %._crit_edge.i.i104 ], [ %.01727.i7.i.i101, %.lr.ph.i.i99 ]
+  %526 = phi i64 [ %.01827.i.lcssa6.i.i105, %._crit_edge.i.i104 ], [ %.01827.i7.i.i101, %.lr.ph.i.i99 ]
   %527 = getelementptr inbounds %"struct.std::pair", ptr %511, i64 %526, i32 1
   %528 = load i8, ptr %527, align 1
   %529 = trunc i8 %528 to i1
@@ -3040,13 +3040,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit108:       ; preds = %530, %_ZN4Luau12Den
   %608 = load i64, ptr %213, align 8
   %609 = add i64 %608, -1
   %610 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i115 = and i64 %609, 1
+  %.01622.i.i.i.i115 = and i64 %609, 1
   br label %611
 
 611:                                              ; preds = %617, %607
-  %.01524.i.i.i.i116 = phi i64 [ %.01522.i.i.i.i115, %607 ], [ %.015.i.i.i.i118, %617 ]
-  %.023.i.i.i.i117 = phi i64 [ 0, %607 ], [ %618, %617 ]
-  %612 = getelementptr inbounds %"struct.std::pair", ptr %610, i64 %.01524.i.i.i.i116
+  %.01624.i.i.i.i116 = phi i64 [ %.01622.i.i.i.i115, %607 ], [ %.016.i.i.i.i118, %617 ]
+  %.01523.i.i.i.i117 = phi i64 [ 0, %607 ], [ %618, %617 ]
+  %612 = getelementptr inbounds %"struct.std::pair", ptr %610, i64 %.01624.i.i.i.i116
   %613 = load i32, ptr %612, align 4
   %614 = icmp eq i32 %613, 1
   br i1 %614, label %620, label %615
@@ -3056,14 +3056,14 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit108:       ; preds = %530, %_ZN4Luau12Den
   br i1 %616, label %.loopexit186, label %617
 
 617:                                              ; preds = %615
-  %618 = add i64 %.023.i.i.i.i117, 1
-  %619 = add i64 %618, %.01524.i.i.i.i116
-  %.015.i.i.i.i118 = and i64 %619, %609
+  %618 = add i64 %.01523.i.i.i.i117, 1
+  %619 = add i64 %618, %.01624.i.i.i.i116
+  %.016.i.i.i.i118 = and i64 %619, %609
   %.not.i.i.i.i119 = icmp ugt i64 %618, %609
   br i1 %.not.i.i.i.i119, label %.loopexit186, label %611, !llvm.loop !9
 
 620:                                              ; preds = %611
-  %621 = getelementptr inbounds %"struct.std::pair", ptr %610, i64 %.01524.i.i.i.i116, i32 1
+  %621 = getelementptr inbounds %"struct.std::pair", ptr %610, i64 %.01624.i.i.i.i116, i32 1
   %622 = load i8, ptr %621, align 1
   %623 = and i8 %622, 1
   %624 = icmp ne i8 %623, 0
@@ -3183,13 +3183,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit108:       ; preds = %530, %_ZN4Luau12Den
   %664 = load i64, ptr %213, align 8
   %665 = add i64 %664, -1
   %666 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i125 = and i64 %665, 2
+  %.01622.i.i.i.i125 = and i64 %665, 2
   br label %667
 
 667:                                              ; preds = %673, %663
-  %.01524.i.i.i.i126 = phi i64 [ %.01522.i.i.i.i125, %663 ], [ %.015.i.i.i.i128, %673 ]
-  %.023.i.i.i.i127 = phi i64 [ 0, %663 ], [ %674, %673 ]
-  %668 = getelementptr inbounds %"struct.std::pair", ptr %666, i64 %.01524.i.i.i.i126
+  %.01624.i.i.i.i126 = phi i64 [ %.01622.i.i.i.i125, %663 ], [ %.016.i.i.i.i128, %673 ]
+  %.01523.i.i.i.i127 = phi i64 [ 0, %663 ], [ %674, %673 ]
+  %668 = getelementptr inbounds %"struct.std::pair", ptr %666, i64 %.01624.i.i.i.i126
   %669 = load i32, ptr %668, align 4
   %670 = icmp eq i32 %669, 2
   br i1 %670, label %676, label %671
@@ -3199,14 +3199,14 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit108:       ; preds = %530, %_ZN4Luau12Den
   br i1 %672, label %.loopexit, label %673
 
 673:                                              ; preds = %671
-  %674 = add i64 %.023.i.i.i.i127, 1
-  %675 = add i64 %674, %.01524.i.i.i.i126
-  %.015.i.i.i.i128 = and i64 %675, %665
+  %674 = add i64 %.01523.i.i.i.i127, 1
+  %675 = add i64 %674, %.01624.i.i.i.i126
+  %.016.i.i.i.i128 = and i64 %675, %665
   %.not.i.i.i.i129 = icmp ugt i64 %674, %665
   br i1 %.not.i.i.i.i129, label %.loopexit, label %667, !llvm.loop !9
 
 676:                                              ; preds = %667
-  %677 = getelementptr inbounds %"struct.std::pair", ptr %666, i64 %.01524.i.i.i.i126, i32 1
+  %677 = getelementptr inbounds %"struct.std::pair", ptr %666, i64 %.01624.i.i.i.i126, i32 1
   %678 = load i8, ptr %677, align 1
   %679 = and i8 %678, 1
   %680 = xor i8 %679, 1
@@ -3901,13 +3901,13 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_13v() #2 personality ptr @__gxx_per
 78:                                               ; preds = %75
   %79 = add i64 %72, -1
   %80 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i = and i64 %79, 2
+  %.01622.i.i.i.i = and i64 %79, 2
   br label %81
 
 81:                                               ; preds = %87, %78
-  %.01524.i.i.i.i = phi i64 [ %.01522.i.i.i.i, %78 ], [ %.015.i.i.i.i, %87 ]
-  %.023.i.i.i.i = phi i64 [ 0, %78 ], [ %88, %87 ]
-  %82 = getelementptr inbounds %"struct.std::pair", ptr %80, i64 %.01524.i.i.i.i
+  %.01624.i.i.i.i = phi i64 [ %.01622.i.i.i.i, %78 ], [ %.016.i.i.i.i, %87 ]
+  %.01523.i.i.i.i = phi i64 [ 0, %78 ], [ %88, %87 ]
+  %82 = getelementptr inbounds %"struct.std::pair", ptr %80, i64 %.01624.i.i.i.i
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 2
   br i1 %84, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i, label %85
@@ -3917,9 +3917,9 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_13v() #2 personality ptr @__gxx_per
   br i1 %86, label %.loopexit.i.i.i, label %87
 
 87:                                               ; preds = %85
-  %88 = add i64 %.023.i.i.i.i, 1
-  %89 = add i64 %88, %.01524.i.i.i.i
-  %.015.i.i.i.i = and i64 %89, %79
+  %88 = add i64 %.01523.i.i.i.i, 1
+  %89 = add i64 %88, %.01624.i.i.i.i
+  %.016.i.i.i.i = and i64 %89, %79
   %.not.i.i.i.i = icmp ugt i64 %88, %79
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %81, !llvm.loop !9
 
@@ -3975,38 +3975,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 108:                                              ; preds = %101
   %109 = sext i32 %105 to i64
-  %.01725.i.i = and i64 %100, %109
-  %110 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01725.i.i
+  %.01825.i.i = and i64 %100, %109
+  %110 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01825.i.i
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, %.pre160
   br i1 %112, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %116, %108
-  %.01727.i.lcssa25.i = phi i64 [ %.01725.i.i, %108 ], [ %.017.i.i, %116 ]
-  %113 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01727.i.lcssa25.i
+  %.01827.i.lcssa25.i = phi i64 [ %.01825.i.i, %108 ], [ %.018.i.i, %116 ]
+  %113 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01827.i.lcssa25.i
   store i32 %105, ptr %113, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i
 
 .lr.ph.i:                                         ; preds = %108, %116
   %114 = phi i32 [ %120, %116 ], [ %111, %108 ]
-  %.026.i27.i = phi i64 [ %117, %116 ], [ 0, %108 ]
-  %.01727.i26.i = phi i64 [ %.017.i.i, %116 ], [ %.01725.i.i, %108 ]
+  %.01726.i27.i = phi i64 [ %117, %116 ], [ 0, %108 ]
+  %.01827.i26.i = phi i64 [ %.018.i.i, %116 ], [ %.01825.i.i, %108 ]
   %115 = icmp eq i32 %114, %105
   br i1 %115, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i, label %116
 
 116:                                              ; preds = %.lr.ph.i
-  %117 = add i64 %.026.i27.i, 1
-  %118 = add i64 %117, %.01727.i26.i
-  %.017.i.i = and i64 %118, %100
+  %117 = add i64 %.01726.i27.i, 1
+  %118 = add i64 %117, %.01827.i26.i
+  %.018.i.i = and i64 %118, %100
   %.not.i11.i = icmp ule i64 %117, %100
   call void @llvm.assume(i1 %.not.i11.i)
-  %119 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.017.i.i
+  %119 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.018.i.i
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, %.pre160
   br i1 %121, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i: ; preds = %.lr.ph.i
-  %122 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01727.i26.i
+  %122 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i, i64 %.01827.i26.i
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i, %._crit_edge.i
@@ -4048,15 +4048,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %135 = phi i64 [ %72, %65 ], [ %.pre.i.i, %.noexc ], [ %72, %81 ]
   %136 = add i64 %135, -1
   %137 = load ptr, ptr %1, align 8
-  %.01725.i.i.i = and i64 %136, 2
-  %138 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.01725.i.i.i
+  %.01825.i.i.i = and i64 %136, 2
+  %138 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.01825.i.i.i
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, %134
   br i1 %140, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %146, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i
-  %.01727.i.lcssa6.i.i = phi i64 [ %.01725.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ], [ %.017.i.i.i, %146 ]
-  %141 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.01727.i.lcssa6.i.i
+  %.01827.i.lcssa6.i.i = phi i64 [ %.01825.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ], [ %.018.i.i.i, %146 ]
+  %141 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.01827.i.lcssa6.i.i
   store i32 2, ptr %141, align 4
   %142 = load i64, ptr %69, align 8
   %143 = add i64 %142, 1
@@ -4065,24 +4065,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i.i:                                       ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i, %146
   %144 = phi i32 [ %150, %146 ], [ %139, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
-  %.026.i8.i.i = phi i64 [ %147, %146 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
-  %.01727.i7.i.i = phi i64 [ %.017.i.i.i, %146 ], [ %.01725.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
+  %.01726.i8.i.i = phi i64 [ %147, %146 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
+  %.01827.i7.i.i = phi i64 [ %.018.i.i.i, %146 ], [ %.01825.i.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i ]
   %145 = icmp eq i32 %144, 2
   br i1 %145, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i, label %146
 
 146:                                              ; preds = %.lr.ph.i.i
-  %147 = add i64 %.026.i8.i.i, 1
-  %148 = add i64 %147, %.01727.i7.i.i
-  %.017.i.i.i = and i64 %148, %136
+  %147 = add i64 %.01726.i8.i.i, 1
+  %148 = add i64 %147, %.01827.i7.i.i
+  %.018.i.i.i = and i64 %148, %136
   %.not.i3.i.i = icmp ule i64 %147, %136
   call void @llvm.assume(i1 %.not.i3.i.i)
-  %149 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.017.i.i.i
+  %149 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %.018.i.i.i
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, %134
   br i1 %151, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i
-  %152 = phi i64 [ %.01727.i.lcssa6.i.i, %._crit_edge.i.i ], [ %.01727.i7.i.i, %.lr.ph.i.i ]
+  %152 = phi i64 [ %.01827.i.lcssa6.i.i, %._crit_edge.i.i ], [ %.01827.i7.i.i, %.lr.ph.i.i ]
   %153 = getelementptr inbounds %"struct.std::pair", ptr %137, i64 %152, i32 1
   %154 = load i8, ptr %153, align 1
   %155 = trunc i8 %154 to i1
@@ -4113,13 +4113,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %156, %_ZN4Luau12Den
 166:                                              ; preds = %163
   %167 = add i64 %160, -1
   %168 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i17 = and i64 %167, 4
+  %.01622.i.i.i.i17 = and i64 %167, 4
   br label %169
 
 169:                                              ; preds = %175, %166
-  %.01524.i.i.i.i18 = phi i64 [ %.01522.i.i.i.i17, %166 ], [ %.015.i.i.i.i20, %175 ]
-  %.023.i.i.i.i19 = phi i64 [ 0, %166 ], [ %176, %175 ]
-  %170 = getelementptr inbounds %"struct.std::pair", ptr %168, i64 %.01524.i.i.i.i18
+  %.01624.i.i.i.i18 = phi i64 [ %.01622.i.i.i.i17, %166 ], [ %.016.i.i.i.i20, %175 ]
+  %.01523.i.i.i.i19 = phi i64 [ 0, %166 ], [ %176, %175 ]
+  %170 = getelementptr inbounds %"struct.std::pair", ptr %168, i64 %.01624.i.i.i.i18
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, 4
   br i1 %172, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24, label %173
@@ -4129,9 +4129,9 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit:          ; preds = %156, %_ZN4Luau12Den
   br i1 %174, label %.loopexit.i.i.i22, label %175
 
 175:                                              ; preds = %173
-  %176 = add i64 %.023.i.i.i.i19, 1
-  %177 = add i64 %176, %.01524.i.i.i.i18
-  %.015.i.i.i.i20 = and i64 %177, %167
+  %176 = add i64 %.01523.i.i.i.i19, 1
+  %177 = add i64 %176, %.01624.i.i.i.i18
+  %.016.i.i.i.i20 = and i64 %177, %167
   %.not.i.i.i.i21 = icmp ugt i64 %176, %167
   br i1 %.not.i.i.i.i21, label %.loopexit.i.i.i22, label %169, !llvm.loop !9
 
@@ -4187,38 +4187,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 196:                                              ; preds = %189
   %197 = sext i32 %193 to i64
-  %.01725.i.i86 = and i64 %188, %197
-  %198 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01725.i.i86
+  %.01825.i.i86 = and i64 %188, %197
+  %198 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01825.i.i86
   %199 = load i32, ptr %198, align 4
   %200 = icmp eq i32 %199, %.pre163
   br i1 %200, label %._crit_edge.i92, label %.lr.ph.i87
 
 ._crit_edge.i92:                                  ; preds = %204, %196
-  %.01727.i.lcssa25.i93 = phi i64 [ %.01725.i.i86, %196 ], [ %.017.i.i90, %204 ]
-  %201 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01727.i.lcssa25.i93
+  %.01827.i.lcssa25.i93 = phi i64 [ %.01825.i.i86, %196 ], [ %.018.i.i90, %204 ]
+  %201 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01827.i.lcssa25.i93
   store i32 %193, ptr %201, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i94
 
 .lr.ph.i87:                                       ; preds = %196, %204
   %202 = phi i32 [ %208, %204 ], [ %199, %196 ]
-  %.026.i27.i88 = phi i64 [ %205, %204 ], [ 0, %196 ]
-  %.01727.i26.i89 = phi i64 [ %.017.i.i90, %204 ], [ %.01725.i.i86, %196 ]
+  %.01726.i27.i88 = phi i64 [ %205, %204 ], [ 0, %196 ]
+  %.01827.i26.i89 = phi i64 [ %.018.i.i90, %204 ], [ %.01825.i.i86, %196 ]
   %203 = icmp eq i32 %202, %193
   br i1 %203, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i98, label %204
 
 204:                                              ; preds = %.lr.ph.i87
-  %205 = add i64 %.026.i27.i88, 1
-  %206 = add i64 %205, %.01727.i26.i89
-  %.017.i.i90 = and i64 %206, %188
+  %205 = add i64 %.01726.i27.i88, 1
+  %206 = add i64 %205, %.01827.i26.i89
+  %.018.i.i90 = and i64 %206, %188
   %.not.i11.i91 = icmp ule i64 %205, %188
   call void @llvm.assume(i1 %.not.i11.i91)
-  %207 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.017.i.i90
+  %207 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.018.i.i90
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %208, %.pre163
   br i1 %209, label %._crit_edge.i92, label %.lr.ph.i87
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i98: ; preds = %.lr.ph.i87
-  %210 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01727.i26.i89
+  %210 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i82, i64 %.01827.i26.i89
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i94
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i94: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i98, %._crit_edge.i92
@@ -4260,15 +4260,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %223 = phi i64 [ %160, %_ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit ], [ %.pre.i.i23, %.noexc34 ], [ %160, %169 ]
   %224 = add i64 %223, -1
   %225 = load ptr, ptr %1, align 8
-  %.01725.i.i.i25 = and i64 %224, 4
-  %226 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.01725.i.i.i25
+  %.01825.i.i.i25 = and i64 %224, 4
+  %226 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.01825.i.i.i25
   %227 = load i32, ptr %226, align 4
   %228 = icmp eq i32 %227, %222
   br i1 %228, label %._crit_edge.i.i31, label %.lr.ph.i.i26
 
 ._crit_edge.i.i31:                                ; preds = %234, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24
-  %.01727.i.lcssa6.i.i32 = phi i64 [ %.01725.i.i.i25, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ], [ %.017.i.i.i29, %234 ]
-  %229 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.01727.i.lcssa6.i.i32
+  %.01827.i.lcssa6.i.i32 = phi i64 [ %.01825.i.i.i25, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ], [ %.018.i.i.i29, %234 ]
+  %229 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.01827.i.lcssa6.i.i32
   store i32 4, ptr %229, align 4
   %230 = load i64, ptr %69, align 8
   %231 = add i64 %230, 1
@@ -4277,24 +4277,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i.i26:                                     ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24, %234
   %232 = phi i32 [ %238, %234 ], [ %227, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ]
-  %.026.i8.i.i27 = phi i64 [ %235, %234 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ]
-  %.01727.i7.i.i28 = phi i64 [ %.017.i.i.i29, %234 ], [ %.01725.i.i.i25, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ]
+  %.01726.i8.i.i27 = phi i64 [ %235, %234 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ]
+  %.01827.i7.i.i28 = phi i64 [ %.018.i.i.i29, %234 ], [ %.01825.i.i.i25, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i24 ]
   %233 = icmp eq i32 %232, 4
   br i1 %233, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i33, label %234
 
 234:                                              ; preds = %.lr.ph.i.i26
-  %235 = add i64 %.026.i8.i.i27, 1
-  %236 = add i64 %235, %.01727.i7.i.i28
-  %.017.i.i.i29 = and i64 %236, %224
+  %235 = add i64 %.01726.i8.i.i27, 1
+  %236 = add i64 %235, %.01827.i7.i.i28
+  %.018.i.i.i29 = and i64 %236, %224
   %.not.i3.i.i30 = icmp ule i64 %235, %224
   call void @llvm.assume(i1 %.not.i3.i.i30)
-  %237 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.017.i.i.i29
+  %237 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %.018.i.i.i29
   %238 = load i32, ptr %237, align 4
   %239 = icmp eq i32 %238, %222
   br i1 %239, label %._crit_edge.i.i31, label %.lr.ph.i.i26
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i33: ; preds = %.lr.ph.i.i26, %._crit_edge.i.i31
-  %240 = phi i64 [ %.01727.i.lcssa6.i.i32, %._crit_edge.i.i31 ], [ %.01727.i7.i.i28, %.lr.ph.i.i26 ]
+  %240 = phi i64 [ %.01827.i.lcssa6.i.i32, %._crit_edge.i.i31 ], [ %.01827.i7.i.i28, %.lr.ph.i.i26 ]
   %241 = getelementptr inbounds %"struct.std::pair", ptr %225, i64 %240, i32 1
   %242 = load i8, ptr %241, align 1
   %243 = trunc i8 %242 to i1
@@ -4325,13 +4325,13 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit35:        ; preds = %244, %_ZN4Luau12Den
 254:                                              ; preds = %251
   %255 = add i64 %248, -1
   %256 = load ptr, ptr %1, align 8
-  %.01522.i.i.i.i37 = and i64 %255, 6
+  %.01622.i.i.i.i37 = and i64 %255, 6
   br label %257
 
 257:                                              ; preds = %263, %254
-  %.01524.i.i.i.i38 = phi i64 [ %.01522.i.i.i.i37, %254 ], [ %.015.i.i.i.i40, %263 ]
-  %.023.i.i.i.i39 = phi i64 [ 0, %254 ], [ %264, %263 ]
-  %258 = getelementptr inbounds %"struct.std::pair", ptr %256, i64 %.01524.i.i.i.i38
+  %.01624.i.i.i.i38 = phi i64 [ %.01622.i.i.i.i37, %254 ], [ %.016.i.i.i.i40, %263 ]
+  %.01523.i.i.i.i39 = phi i64 [ 0, %254 ], [ %264, %263 ]
+  %258 = getelementptr inbounds %"struct.std::pair", ptr %256, i64 %.01624.i.i.i.i38
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, 6
   br i1 %260, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44, label %261
@@ -4341,9 +4341,9 @@ _ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit35:        ; preds = %244, %_ZN4Luau12Den
   br i1 %262, label %.loopexit.i.i.i42, label %263
 
 263:                                              ; preds = %261
-  %264 = add i64 %.023.i.i.i.i39, 1
-  %265 = add i64 %264, %.01524.i.i.i.i38
-  %.015.i.i.i.i40 = and i64 %265, %255
+  %264 = add i64 %.01523.i.i.i.i39, 1
+  %265 = add i64 %264, %.01624.i.i.i.i38
+  %.016.i.i.i.i40 = and i64 %265, %255
   %.not.i.i.i.i41 = icmp ugt i64 %264, %255
   br i1 %.not.i.i.i.i41, label %.loopexit.i.i.i42, label %257, !llvm.loop !9
 
@@ -4399,38 +4399,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 284:                                              ; preds = %277
   %285 = sext i32 %281 to i64
-  %.01725.i.i113 = and i64 %276, %285
-  %286 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01725.i.i113
+  %.01825.i.i113 = and i64 %276, %285
+  %286 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01825.i.i113
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %287, %.pre166
   br i1 %288, label %._crit_edge.i119, label %.lr.ph.i114
 
 ._crit_edge.i119:                                 ; preds = %292, %284
-  %.01727.i.lcssa25.i120 = phi i64 [ %.01725.i.i113, %284 ], [ %.017.i.i117, %292 ]
-  %289 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01727.i.lcssa25.i120
+  %.01827.i.lcssa25.i120 = phi i64 [ %.01825.i.i113, %284 ], [ %.018.i.i117, %292 ]
+  %289 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01827.i.lcssa25.i120
   store i32 %281, ptr %289, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i121
 
 .lr.ph.i114:                                      ; preds = %284, %292
   %290 = phi i32 [ %296, %292 ], [ %287, %284 ]
-  %.026.i27.i115 = phi i64 [ %293, %292 ], [ 0, %284 ]
-  %.01727.i26.i116 = phi i64 [ %.017.i.i117, %292 ], [ %.01725.i.i113, %284 ]
+  %.01726.i27.i115 = phi i64 [ %293, %292 ], [ 0, %284 ]
+  %.01827.i26.i116 = phi i64 [ %.018.i.i117, %292 ], [ %.01825.i.i113, %284 ]
   %291 = icmp eq i32 %290, %281
   br i1 %291, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i125, label %292
 
 292:                                              ; preds = %.lr.ph.i114
-  %293 = add i64 %.026.i27.i115, 1
-  %294 = add i64 %293, %.01727.i26.i116
-  %.017.i.i117 = and i64 %294, %276
+  %293 = add i64 %.01726.i27.i115, 1
+  %294 = add i64 %293, %.01827.i26.i116
+  %.018.i.i117 = and i64 %294, %276
   %.not.i11.i118 = icmp ule i64 %293, %276
   call void @llvm.assume(i1 %.not.i11.i118)
-  %295 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.017.i.i117
+  %295 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.018.i.i117
   %296 = load i32, ptr %295, align 4
   %297 = icmp eq i32 %296, %.pre166
   br i1 %297, label %._crit_edge.i119, label %.lr.ph.i114
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i125: ; preds = %.lr.ph.i114
-  %298 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01727.i26.i116
+  %298 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0.i109, i64 %.01827.i26.i116
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i121
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i121: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit.i125, %._crit_edge.i119
@@ -4472,15 +4472,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %311 = phi i64 [ %248, %_ZN4Luau3SetIiSt4hashIiEE5eraseEOi.exit35 ], [ %.pre.i.i43, %.noexc54 ], [ %248, %257 ]
   %312 = add i64 %311, -1
   %313 = load ptr, ptr %1, align 8
-  %.01725.i.i.i45 = and i64 %312, 6
-  %314 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.01725.i.i.i45
+  %.01825.i.i.i45 = and i64 %312, 6
+  %314 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.01825.i.i.i45
   %315 = load i32, ptr %314, align 4
   %316 = icmp eq i32 %315, %310
   br i1 %316, label %._crit_edge.i.i51, label %.lr.ph.i.i46
 
 ._crit_edge.i.i51:                                ; preds = %322, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44
-  %.01727.i.lcssa6.i.i52 = phi i64 [ %.01725.i.i.i45, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ], [ %.017.i.i.i49, %322 ]
-  %317 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.01727.i.lcssa6.i.i52
+  %.01827.i.lcssa6.i.i52 = phi i64 [ %.01825.i.i.i45, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ], [ %.018.i.i.i49, %322 ]
+  %317 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.01827.i.lcssa6.i.i52
   store i32 6, ptr %317, align 4
   %318 = load i64, ptr %69, align 8
   %319 = add i64 %318, 1
@@ -4489,24 +4489,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i.i46:                                     ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44, %322
   %320 = phi i32 [ %326, %322 ], [ %315, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ]
-  %.026.i8.i.i47 = phi i64 [ %323, %322 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ]
-  %.01727.i7.i.i48 = phi i64 [ %.017.i.i.i49, %322 ], [ %.01725.i.i.i45, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ]
+  %.01726.i8.i.i47 = phi i64 [ %323, %322 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ]
+  %.01827.i7.i.i48 = phi i64 [ %.018.i.i.i49, %322 ], [ %.01825.i.i.i45, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i.i44 ]
   %321 = icmp eq i32 %320, 6
   br i1 %321, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i53, label %322
 
 322:                                              ; preds = %.lr.ph.i.i46
-  %323 = add i64 %.026.i8.i.i47, 1
-  %324 = add i64 %323, %.01727.i7.i.i48
-  %.017.i.i.i49 = and i64 %324, %312
+  %323 = add i64 %.01726.i8.i.i47, 1
+  %324 = add i64 %323, %.01827.i7.i.i48
+  %.018.i.i.i49 = and i64 %324, %312
   %.not.i3.i.i50 = icmp ule i64 %323, %312
   call void @llvm.assume(i1 %.not.i3.i.i50)
-  %325 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.017.i.i.i49
+  %325 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %.018.i.i.i49
   %326 = load i32, ptr %325, align 4
   %327 = icmp eq i32 %326, %310
   br i1 %327, label %._crit_edge.i.i51, label %.lr.ph.i.i46
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit.i53: ; preds = %.lr.ph.i.i46, %._crit_edge.i.i51
-  %328 = phi i64 [ %.01727.i.lcssa6.i.i52, %._crit_edge.i.i51 ], [ %.01727.i7.i.i48, %.lr.ph.i.i46 ]
+  %328 = phi i64 [ %.01827.i.lcssa6.i.i52, %._crit_edge.i.i51 ], [ %.01827.i7.i.i48, %.lr.ph.i.i46 ]
   %329 = getelementptr inbounds %"struct.std::pair", ptr %313, i64 %328, i32 1
   %330 = load i8, ptr %329, align 1
   %331 = trunc i8 %330 to i1
@@ -6328,13 +6328,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau3SetIiSt4hashIiEE6inse
   %17 = add i64 %6, -1
   %18 = sext i32 %13 to i64
   %19 = load ptr, ptr %0, align 8
-  %.01522.i.i.i = and i64 %17, %18
+  %.01622.i.i.i = and i64 %17, %18
   br label %20
 
 20:                                               ; preds = %26, %16
-  %.01524.i.i.i = phi i64 [ %.01522.i.i.i, %16 ], [ %.015.i.i.i, %26 ]
-  %.023.i.i.i = phi i64 [ 0, %16 ], [ %27, %26 ]
-  %21 = getelementptr inbounds %"struct.std::pair", ptr %19, i64 %.01524.i.i.i
+  %.01624.i.i.i = phi i64 [ %.01622.i.i.i, %16 ], [ %.016.i.i.i, %26 ]
+  %.01523.i.i.i = phi i64 [ 0, %16 ], [ %27, %26 ]
+  %21 = getelementptr inbounds %"struct.std::pair", ptr %19, i64 %.01624.i.i.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %13
   br i1 %23, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i, label %24
@@ -6344,9 +6344,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau3SetIiSt4hashIiEE6inse
   br i1 %25, label %.loopexit.i.i, label %26
 
 26:                                               ; preds = %24
-  %27 = add i64 %.023.i.i.i, 1
-  %28 = add i64 %27, %.01524.i.i.i
-  %.015.i.i.i = and i64 %28, %17
+  %27 = add i64 %.01523.i.i.i, 1
+  %28 = add i64 %27, %.01624.i.i.i
+  %.016.i.i.i = and i64 %28, %17
   %.not.i.i.i = icmp ugt i64 %27, %17
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %20, !llvm.loop !9
 
@@ -6363,15 +6363,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
-  %.01725.i.i = and i64 %30, %32
-  %36 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.01725.i.i
+  %.01825.i.i = and i64 %30, %32
+  %36 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.01825.i.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %35
   br i1 %38, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %44, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i
-  %.01727.i.lcssa6.i = phi i64 [ %.01725.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ], [ %.017.i.i, %44 ]
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.01727.i.lcssa6.i
+  %.01827.i.lcssa6.i = phi i64 [ %.01825.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ], [ %.018.i.i, %44 ]
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.01827.i.lcssa6.i
   store i32 %31, ptr %39, align 4
   %40 = load i64, ptr %3, align 8
   %41 = add i64 %40, 1
@@ -6380,24 +6380,24 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 .lr.ph.i:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i, %44
   %42 = phi i32 [ %48, %44 ], [ %37, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ]
-  %.026.i8.i = phi i64 [ %45, %44 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ]
-  %.01727.i7.i = phi i64 [ %.017.i.i, %44 ], [ %.01725.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ]
+  %.01726.i8.i = phi i64 [ %45, %44 ], [ 0, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ]
+  %.01827.i7.i = phi i64 [ %.018.i.i, %44 ], [ %.01825.i.i, %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i ]
   %43 = icmp eq i32 %42, %31
   br i1 %43, label %_ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit, label %44
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = add i64 %.026.i8.i, 1
-  %46 = add i64 %45, %.01727.i7.i
-  %.017.i.i = and i64 %46, %30
+  %45 = add i64 %.01726.i8.i, 1
+  %46 = add i64 %45, %.01827.i7.i
+  %.018.i.i = and i64 %46, %30
   %.not.i3.i = icmp ule i64 %45, %30
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %47 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.017.i.i
+  %47 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.018.i.i
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, %35
   br i1 %49, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashMapIibSt4hashIiESt8equal_toIiEEixERKi.exit: ; preds = %.lr.ph.i, %._crit_edge.i
-  %50 = phi i64 [ %.01727.i.lcssa6.i, %._crit_edge.i ], [ %.01727.i7.i, %.lr.ph.i ]
+  %50 = phi i64 [ %.01827.i.lcssa6.i, %._crit_edge.i ], [ %.01827.i7.i, %.lr.ph.i ]
   %51 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %50, i32 1
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
@@ -6470,38 +6470,38 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEES
 
 24:                                               ; preds = %17
   %25 = sext i32 %21 to i64
-  %.01725.i = and i64 %16, %25
-  %26 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01725.i
+  %.01825.i = and i64 %16, %25
+  %26 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01825.i
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %7
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %24
-  %.01727.i.lcssa25 = phi i64 [ %.01725.i, %24 ], [ %.017.i, %32 ]
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01727.i.lcssa25
+  %.01827.i.lcssa25 = phi i64 [ %.01825.i, %24 ], [ %.018.i, %32 ]
+  %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01827.i.lcssa25
   store i32 %21, ptr %29, align 4
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit
 
 .lr.ph:                                           ; preds = %24, %32
   %30 = phi i32 [ %36, %32 ], [ %27, %24 ]
-  %.026.i27 = phi i64 [ %33, %32 ], [ 0, %24 ]
-  %.01727.i26 = phi i64 [ %.017.i, %32 ], [ %.01725.i, %24 ]
+  %.01726.i27 = phi i64 [ %33, %32 ], [ 0, %24 ]
+  %.01827.i26 = phi i64 [ %.018.i, %32 ], [ %.01825.i, %24 ]
   %31 = icmp eq i32 %30, %21
   br i1 %31, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = add i64 %.026.i27, 1
-  %34 = add i64 %33, %.01727.i26
-  %.017.i = and i64 %34, %16
+  %33 = add i64 %.01726.i27, 1
+  %34 = add i64 %33, %.01827.i26
+  %.018.i = and i64 %34, %16
   %.not.i11 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i11)
-  %35 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.017.i
+  %35 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.018.i
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %7
   br i1 %37, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit: ; preds = %.lr.ph
-  %38 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01727.i26
+  %38 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01827.i26
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIibES2_IKibENS0_16ItemInterfaceMapIibEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.loopexit, %._crit_edge
@@ -6859,10 +6859,10 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.p
 
 13:                                               ; preds = %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23
   %.pn = phi i64 [ %8, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %39, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23 ]
-  %.025 = phi i64 [ 0, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %38, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23 ]
-  %.01726 = and i64 %.pn, %5
+  %.01725 = phi i64 [ 0, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %38, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23 ]
+  %.01826 = and i64 %.pn, %5
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds %"struct.std::pair.16", ptr %14, i64 %.01726
+  %15 = getelementptr inbounds %"struct.std::pair.16", ptr %14, i64 %.01826
   %16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %18 = icmp eq i64 %16, %17
@@ -6907,14 +6907,14 @@ _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_
   br i1 %37, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23
 
 _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23: ; preds = %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread22, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21
-  %38 = add i64 %.025, 1
-  %39 = add i64 %38, %.01726
+  %38 = add i64 %.01725, 1
+  %39 = add i64 %38, %.01826
   %.not = icmp ugt i64 %38, %5
   br i1 %.not, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread, label %13, !llvm.loop !59
 
 _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread: ; preds = %32, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread
-  %.018 = phi ptr [ %15, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ], [ %15, %32 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23 ], [ %15, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %15, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ], [ %15, %32 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread23 ], [ %15, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6961,10 +6961,10 @@ _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_
 
 _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader: ; preds = %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread22, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24
   %.pn = phi i64 [ %47, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24 ], [ %22, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread22 ]
-  %.026 = phi i64 [ %46, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24 ], [ 0, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread22 ]
-  %.01527 = and i64 %.pn, %19
+  %.01526 = phi i64 [ %46, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24 ], [ 0, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread22 ]
+  %.01627 = and i64 %.pn, %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds %"struct.std::pair.16", ptr %26, i64 %.01527
+  %27 = getelementptr inbounds %"struct.std::pair.16", ptr %26, i64 %.01627
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #14
   %29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %30 = icmp eq i64 %28, %29
@@ -7001,14 +7001,14 @@ _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_
   br i1 %45, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24
 
 _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24: ; preds = %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit19.thread23, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21
-  %46 = add i64 %.026, 1
-  %47 = add i64 %46, %.01527
+  %46 = add i64 %.01526, 1
+  %47 = add i64 %46, %.01627
   %.not = icmp ugt i64 %46, %19
   br i1 %.not, label %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread, label %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader, !llvm.loop !60
 
 _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread: ; preds = %40, %31, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit19, %11, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ null, %11 ], [ null, %40 ], [ %27, %31 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ], [ %27, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit19 ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ null, %11 ], [ null, %40 ], [ %27, %31 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21.thread24 ], [ null, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ], [ %27, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit19 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable

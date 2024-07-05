@@ -147,29 +147,29 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %57, label %.lr.ph.us, label %.critedge.us
 
 .lr.ph.us:                                        ; preds = %52, %.critedge20.us
-  %.0180272.us = phi ptr [ %59, %.critedge20.us ], [ %53, %52 ]
-  %58 = load i8, ptr %.0180272.us, align 1
+  %.0181272.us = phi ptr [ %59, %.critedge20.us ], [ %53, %52 ]
+  %58 = load i8, ptr %.0181272.us, align 1
   switch i8 %58, label %.critedge.us [
     i8 32, label %.critedge20.us
     i8 9, label %.critedge20.us
   ]
 
 .critedge20.us:                                   ; preds = %.lr.ph.us, %.lr.ph.us
-  %59 = getelementptr i8, ptr %.0180272.us, i64 1
+  %59 = getelementptr i8, ptr %.0181272.us, i64 1
   %exitcond.not = icmp eq ptr %59, %56
   br i1 %exitcond.not, label %.critedge.us.thread, label %.lr.ph.us, !llvm.loop !4
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %52
-  %.0180.lcssa.us = phi ptr [ %53, %52 ], [ %.0180272.us, %.lr.ph.us ]
-  %.not214.us = icmp ugt ptr %.0180.lcssa.us, %56
+  %.0181.lcssa.us = phi ptr [ %53, %52 ], [ %.0181272.us, %.lr.ph.us ]
+  %.not214.us = icmp ugt ptr %.0181.lcssa.us, %56
   br i1 %.not214.us, label %.outer.us.backedge, label %.critedge.us.thread
 
 .outer.us.backedge:                               ; preds = %.critedge.us, %49
   br label %.outer.us
 
 .critedge.us.thread:                              ; preds = %.critedge.us, %.critedge20.us
-  %.0180.lcssa.us315 = phi ptr [ %56, %.critedge20.us ], [ %.0180.lcssa.us, %.critedge.us ]
-  %60 = call i32 @g_ascii_strncasecmp(ptr noundef %.0180.lcssa.us315, ptr noundef nonnull @.str.7, i64 noundef 7) #6
+  %.0181.lcssa.us315 = phi ptr [ %56, %.critedge20.us ], [ %.0181.lcssa.us, %.critedge.us ]
+  %60 = call i32 @g_ascii_strncasecmp(ptr noundef %.0181.lcssa.us315, ptr noundef nonnull @.str.7, i64 noundef 7) #6
   %61 = icmp eq i32 %60, 0
   %spec.select230.us = select i1 %61, i32 1, i32 %.0189.ph.us.ph413
   br label %.outer.us.outer412
@@ -535,8 +535,8 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %173, %151, %153, %126, %.thread316, %118, %196, %213, %212, %216, %200, %187, %193, %184, %166, %222, %206, %172, %170, %161, %142, %135, %.split263.us, %.split.us
-  %.0181 = phi i32 [ 0, %.split.us ], [ 0, %.split263.us ], [ 0, %135 ], [ 0, %142 ], [ 0, %161 ], [ 0, %170 ], [ 0, %172 ], [ 0, %206 ], [ 0, %222 ], [ 1, %166 ], [ 1, %184 ], [ 1, %193 ], [ 1, %187 ], [ 1, %200 ], [ 1, %216 ], [ 1, %212 ], [ 1, %213 ], [ 1, %196 ], [ 1, %118 ], [ 1, %.thread316 ], [ 1, %126 ], [ 1, %153 ], [ 1, %151 ], [ 1, %173 ]
-  ret i32 %.0181
+  %.0 = phi i32 [ 0, %.split.us ], [ 0, %.split263.us ], [ 0, %135 ], [ 0, %142 ], [ 0, %161 ], [ 0, %170 ], [ 0, %172 ], [ 0, %206 ], [ 0, %222 ], [ 1, %166 ], [ 1, %184 ], [ 1, %193 ], [ 1, %187 ], [ 1, %200 ], [ 1, %216 ], [ 1, %212 ], [ 1, %213 ], [ 1, %196 ], [ 1, %118 ], [ 1, %.thread316 ], [ 1, %126 ], [ 1, %153 ], [ 1, %151 ], [ 1, %173 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: noreturn

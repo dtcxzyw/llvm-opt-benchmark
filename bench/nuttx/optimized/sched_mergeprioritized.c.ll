@@ -19,10 +19,10 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   br i1 %9, label %.loopexit, label %.preheader61
 
 .preheader61:                                     ; preds = %3, %.preheader61
-  %.05062 = phi ptr [ %11, %.preheader61 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.05062, i64 48
+  %.05262 = phi ptr [ %11, %.preheader61 ], [ %5, %3 ]
+  %10 = getelementptr inbounds i8, ptr %.05262, i64 48
   store i8 %2, ptr %10, align 16
-  %11 = load ptr, ptr %.05062, align 8
+  %11 = load ptr, ptr %.05262, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %.preheader61, !llvm.loop !6
 
@@ -42,9 +42,9 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   br label %.loopexit
 
 18:                                               ; preds = %.preheader, %54
-  %.051 = phi ptr [ %.152, %54 ], [ %13, %.preheader ]
+  %.050 = phi ptr [ %.151, %54 ], [ %13, %.preheader ]
   %19 = phi ptr [ %.1, %54 ], [ %5, %.preheader ]
-  %20 = icmp eq ptr %.051, null
+  %20 = icmp eq ptr %.050, null
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %18
@@ -72,7 +72,7 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
 32:                                               ; preds = %18
   %33 = getelementptr inbounds i8, ptr %19, i64 28
   %34 = load i8, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %.051, i64 28
+  %35 = getelementptr inbounds i8, ptr %.050, i64 28
   %36 = load i8, ptr %35, align 4
   %37 = icmp ugt i8 %34, %36
   br i1 %37, label %38, label %52
@@ -81,7 +81,7 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   %39 = call ptr @dq_remfirst(ptr noundef nonnull %4) #3
   %40 = load ptr, ptr %1, align 8
   %.not58 = icmp eq ptr %40, null
-  %41 = icmp eq ptr %.051, %40
+  %41 = icmp eq ptr %.050, %40
   %or.cond = or i1 %.not58, %41
   br i1 %or.cond, label %42, label %46
 
@@ -97,9 +97,9 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   br label %50
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.051, i64 8
+  %47 = getelementptr inbounds i8, ptr %.050, i64 8
   %48 = load ptr, ptr %47, align 8
-  store ptr %.051, ptr %39, align 8
+  store ptr %.050, ptr %39, align 8
   %49 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %48, ptr %49, align 8
   br label %50
@@ -113,11 +113,11 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   br label %54
 
 52:                                               ; preds = %32
-  %53 = load ptr, ptr %.051, align 8
+  %53 = load ptr, ptr %.050, align 8
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.152 = phi ptr [ %.051, %50 ], [ %53, %52 ]
+  %.151 = phi ptr [ %.050, %50 ], [ %53, %52 ]
   %.1 = phi ptr [ %51, %50 ], [ %19, %52 ]
   %.not60 = icmp eq ptr %.1, null
   br i1 %.not60, label %.loopexit, label %18, !llvm.loop !8

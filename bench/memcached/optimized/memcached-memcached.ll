@@ -1255,8 +1255,8 @@ while.body.outer.i.preheader:                     ; preds = %if.end.i220, %if.en
   br label %while.body.outer.i
 
 while.body.outer.i:                               ; preds = %while.body.outer.i.preheader, %land.lhs.true58.i
-  %switch = phi i1 [ false, %land.lhs.true58.i ], [ true, %while.body.outer.i.preheader ]
   %num_allocs.0.ph.i = phi i32 [ %num_allocs.1.i, %land.lhs.true58.i ], [ 0, %while.body.outer.i.preheader ]
+  %switch = phi i1 [ false, %land.lhs.true58.i ], [ true, %while.body.outer.i.preheader ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end63.i, %while.body.outer.i
@@ -4761,13 +4761,13 @@ if.end8:                                          ; preds = %if.then5, %if.end3
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #40
   %12 = add i64 %call9, -1023
   %cmp10 = icmp ult i64 %12, -1025
-  %spec.select = select i1 %cmp10, ptr @.str.18, ptr %str
-  %spec.select18 = select i1 %cmp10, i64 33, i64 %call9
+  %spec.select = select i1 %cmp10, i64 33, i64 %call9
+  %spec.select18 = select i1 %cmp10, ptr @.str.18, ptr %str
   %wbuf = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %wbuf, ptr align 1 %spec.select, i64 %spec.select18, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %wbuf, i64 %spec.select18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %wbuf, ptr align 1 %spec.select18, i64 %spec.select, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %wbuf, i64 %spec.select
   store i16 2573, ptr %add.ptr, align 1
-  %13 = trunc i64 %spec.select18 to i32
+  %13 = trunc i64 %spec.select to i32
   %conv = add i32 %13, 2
   %iovcnt.i = getelementptr inbounds i8, ptr %0, i64 116
   %14 = load i8, ptr %iovcnt.i, align 4
@@ -5431,8 +5431,8 @@ if.end178.thread109:                              ; preds = %lor.lhs.false5.i, %
   br label %if.then181
 
 if.end178:                                        ; preds = %if.then170, %if.else167, %if.then37, %if.end62, %if.end33, %if.end33
-  %it.addr.0 = phi ptr [ %call158, %if.then170 ], [ %call158, %if.else167 ], [ %it, %if.then37 ], [ %it, %if.end62 ], [ %it, %if.end33 ], [ %it, %if.end33 ]
   %new_it.0 = phi ptr [ %call158, %if.then170 ], [ %call158, %if.else167 ], [ null, %if.then37 ], [ null, %if.end62 ], [ null, %if.end33 ], [ null, %if.end33 ]
+  %it.addr.0 = phi ptr [ %call158, %if.then170 ], [ %call158, %if.else167 ], [ %it, %if.then37 ], [ %it, %if.end62 ], [ %it, %if.end33 ], [ %it, %if.end33 ]
   %storage = getelementptr inbounds i8, ptr %t, i64 6904
   %64 = load ptr, ptr %storage, align 8
   tail call void @storage_delete(ptr noundef %64, ptr noundef nonnull %call) #33
@@ -5443,9 +5443,9 @@ if.end178:                                        ; preds = %if.then170, %if.els
 
 if.then181:                                       ; preds = %if.end178.thread109, %if.end178
   %stored.1116 = phi i32 [ 0, %if.end178.thread109 ], [ 1, %if.end178 ]
-  %it.addr.093115 = phi ptr [ %it, %if.end178.thread109 ], [ %it.addr.0, %if.end178 ]
-  %new_it.094114 = phi ptr [ %call158, %if.end178.thread109 ], [ %new_it.0, %if.end178 ]
-  tail call void @do_item_remove(ptr noundef nonnull %new_it.094114) #33
+  %new_it.093115 = phi ptr [ %call158, %if.end178.thread109 ], [ %new_it.0, %if.end178 ]
+  %it.addr.094114 = phi ptr [ %it, %if.end178.thread109 ], [ %it.addr.0, %if.end178 ]
+  tail call void @do_item_remove(ptr noundef nonnull %new_it.093115) #33
   br label %if.end214
 
 if.else183:                                       ; preds = %entry
@@ -5472,8 +5472,8 @@ if.then211:                                       ; preds = %if.else183, %if.els
   br label %if.end214
 
 if.end214:                                        ; preds = %if.then211, %if.end178, %if.then181
-  %it.addr.1 = phi ptr [ %it.addr.093115, %if.then181 ], [ %it.addr.0, %if.end178 ], [ %it, %if.then211 ]
   %stored.3 = phi i32 [ %stored.1116, %if.then181 ], [ 1, %if.end178 ], [ 1, %if.then211 ]
+  %it.addr.1 = phi ptr [ %it.addr.094114, %if.then181 ], [ %it.addr.0, %if.end178 ], [ %it, %if.then211 ]
   %cmp215 = icmp eq i32 %stored.3, 1
   %cmp218 = icmp ne ptr %cas, null
   %or.cond1 = and i1 %cmp218, %cmp215
@@ -5497,8 +5497,8 @@ cond.end229:                                      ; preds = %if.then220, %cond.t
   br label %do.body232
 
 do.body232:                                       ; preds = %if.end214.thread117, %if.else183, %sw.bb199, %if.end214, %cond.end229
-  %stored.3103 = phi i32 [ %stored.3, %if.end214 ], [ 1, %cond.end229 ], [ 3, %sw.bb199 ], [ 0, %if.else183 ], [ %stored.1.ph, %if.end214.thread117 ]
-  %it.addr.1102 = phi ptr [ %it.addr.1, %if.end214 ], [ %it.addr.1, %cond.end229 ], [ %it, %sw.bb199 ], [ %it, %if.else183 ], [ %it, %if.end214.thread117 ]
+  %it.addr.1103 = phi ptr [ %it.addr.1, %if.end214 ], [ %it.addr.1, %cond.end229 ], [ %it, %sw.bb199 ], [ %it, %if.else183 ], [ %it, %if.end214.thread117 ]
+  %stored.3102 = phi i32 [ %stored.3, %if.end214 ], [ 1, %cond.end229 ], [ 3, %sw.bb199 ], [ 0, %if.else183 ], [ %stored.1.ph, %if.end214.thread117 ]
   %l = getelementptr inbounds i8, ptr %t, i64 6912
   %69 = load ptr, ptr %l, align 8
   %cmp234 = icmp eq ptr %69, null
@@ -5518,31 +5518,31 @@ if.end238:                                        ; preds = %if.then236, %do.bod
   br i1 %tobool241.not, label %do.end259, label %if.then242
 
 if.then242:                                       ; preds = %if.end238
-  %data243 = getelementptr inbounds i8, ptr %it.addr.1102, i64 48
-  %it_flags244 = getelementptr inbounds i8, ptr %it.addr.1102, i64 38
+  %data243 = getelementptr inbounds i8, ptr %it.addr.1103, i64 48
+  %it_flags244 = getelementptr inbounds i8, ptr %it.addr.1103, i64 38
   %73 = load i16, ptr %it_flags244, align 2
   %74 = shl i16 %73, 2
   %75 = and i16 %74, 8
   %cond248 = zext nneg i16 %75 to i64
   %add.ptr249 = getelementptr inbounds i8, ptr %data243, i64 %cond248
-  %nkey250 = getelementptr inbounds i8, ptr %it.addr.1102, i64 41
+  %nkey250 = getelementptr inbounds i8, ptr %it.addr.1103, i64 41
   %76 = load i8, ptr %nkey250, align 1
   %conv251 = zext i8 %76 to i32
-  %nbytes252 = getelementptr inbounds i8, ptr %it.addr.1102, i64 32
+  %nbytes252 = getelementptr inbounds i8, ptr %it.addr.1103, i64 32
   %77 = load i32, ptr %nbytes252, align 8
-  %exptime253 = getelementptr inbounds i8, ptr %it.addr.1102, i64 28
+  %exptime253 = getelementptr inbounds i8, ptr %it.addr.1103, i64 28
   %78 = load i32, ptr %exptime253, align 4
-  %slabs_clsid254 = getelementptr inbounds i8, ptr %it.addr.1102, i64 40
+  %slabs_clsid254 = getelementptr inbounds i8, ptr %it.addr.1103, i64 40
   %79 = load i8, ptr %slabs_clsid254, align 8
   %80 = and i8 %79, 63
   %and256 = zext nneg i8 %80 to i32
   %cur_sfd = getelementptr inbounds i8, ptr %t, i64 344
   %81 = load i32, ptr %cur_sfd, align 8
-  %call257 = tail call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %myl.0, i32 noundef 3, ptr noundef null, i32 noundef %stored.3103, i32 noundef %comm, ptr noundef nonnull %add.ptr249, i32 noundef %conv251, i32 noundef %77, i32 noundef %78, i32 noundef %and256, i32 noundef %81) #33
+  %call257 = tail call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %myl.0, i32 noundef 3, ptr noundef null, i32 noundef %stored.3102, i32 noundef %comm, ptr noundef nonnull %add.ptr249, i32 noundef %conv251, i32 noundef %77, i32 noundef %78, i32 noundef %and256, i32 noundef %81) #33
   br label %do.end259
 
 do.end259:                                        ; preds = %if.end238, %if.then242
-  ret i32 %stored.3103
+  ret i32 %stored.3102
 }
 
 declare ptr @do_item_get(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -7137,15 +7137,15 @@ if.end11:                                         ; preds = %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end11
-  %protocol_specified.0 = phi i8 [ 0, %if.end11 ], [ %protocol_specified.0.be, %while.cond.backedge ]
-  %tcp_specified.0 = phi i1 [ false, %if.end11 ], [ %tcp_specified.0.be, %while.cond.backedge ]
-  %udp_specified.0 = phi i1 [ false, %if.end11 ], [ %udp_specified.0.be, %while.cond.backedge ]
   %start_lru_maintainer.0 = phi i8 [ 1, %if.end11 ], [ %start_lru_maintainer.0.be, %while.cond.backedge ]
   %start_lru_crawler.0 = phi i1 [ true, %if.end11 ], [ %start_lru_crawler.0.be, %while.cond.backedge ]
   %start_assoc_maint.0 = phi i1 [ true, %if.end11 ], [ %start_assoc_maint.0.be, %while.cond.backedge ]
   %hash_type.0 = phi i32 [ 1, %if.end11 ], [ %hash_type.0.be, %while.cond.backedge ]
   %slab_sizes_unparsed.0 = phi ptr [ null, %if.end11 ], [ %slab_sizes_unparsed.0.be, %while.cond.backedge ]
   %slab_chunk_size_changed.0 = phi i8 [ 0, %if.end11 ], [ %slab_chunk_size_changed.0.be, %while.cond.backedge ]
+  %udp_specified.0 = phi i1 [ false, %if.end11 ], [ %udp_specified.0.be, %while.cond.backedge ]
+  %tcp_specified.0 = phi i1 [ false, %if.end11 ], [ %tcp_specified.0.be, %while.cond.backedge ]
+  %protocol_specified.0 = phi i8 [ 0, %if.end11 ], [ %protocol_specified.0.be, %while.cond.backedge ]
   %pid_file.0 = phi ptr [ null, %if.end11 ], [ %pid_file.0.be, %while.cond.backedge ]
   %username.0 = phi ptr [ null, %if.end11 ], [ %username.0.be, %while.cond.backedge ]
   %maxcore.0 = phi i32 [ 0, %if.end11 ], [ %maxcore.0.be, %while.cond.backedge ]
@@ -7462,15 +7462,15 @@ enable_large_pages.exit:                          ; preds = %if.end12.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %enable_large_pages.exit, %while.cond, %sw.bb193, %if.then123, %if.then133, %if.then128, %if.end96, %if.then99, %sw.bb83, %sw.bb64, %if.end58, %if.else, %if.then44, %sw.bb28, %while.end, %sw.bb191, %sw.bb190, %sw.bb189, %sw.bb188, %if.end185, %sw.bb117, %sw.bb116, %if.end106, %if.end80, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb63, %sw.bb62, %sw.bb40, %sw.bb27, %sw.bb23, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb
-  %protocol_specified.0.be = phi i8 [ %protocol_specified.0, %while.end ], [ %protocol_specified.0, %sw.bb193 ], [ %protocol_specified.0, %sw.bb191 ], [ %protocol_specified.0, %sw.bb190 ], [ %protocol_specified.0, %sw.bb189 ], [ %protocol_specified.0, %sw.bb188 ], [ %protocol_specified.0, %if.end185 ], [ 1, %if.then123 ], [ 1, %if.then128 ], [ 1, %if.then133 ], [ %protocol_specified.0, %sw.bb117 ], [ %protocol_specified.0, %sw.bb116 ], [ %protocol_specified.0, %if.end106 ], [ %protocol_specified.0, %if.then99 ], [ %protocol_specified.0, %if.end96 ], [ %protocol_specified.0, %sw.bb83 ], [ %protocol_specified.0, %if.end80 ], [ %protocol_specified.0, %sw.bb73 ], [ %protocol_specified.0, %sw.bb72 ], [ %protocol_specified.0, %sw.bb71 ], [ %protocol_specified.0, %sw.bb64 ], [ %protocol_specified.0, %sw.bb63 ], [ %protocol_specified.0, %sw.bb62 ], [ %protocol_specified.0, %if.then44 ], [ %protocol_specified.0, %if.end58 ], [ %protocol_specified.0, %if.else ], [ %protocol_specified.0, %sw.bb40 ], [ %protocol_specified.0, %sw.bb28 ], [ %protocol_specified.0, %sw.bb27 ], [ %protocol_specified.0, %sw.bb23 ], [ %protocol_specified.0, %sw.bb22 ], [ %protocol_specified.0, %sw.bb20 ], [ %protocol_specified.0, %sw.bb18 ], [ %protocol_specified.0, %sw.bb16 ], [ %protocol_specified.0, %sw.bb ], [ %protocol_specified.0, %while.cond ], [ %protocol_specified.0, %enable_large_pages.exit ]
-  %tcp_specified.0.be = phi i1 [ %tcp_specified.0, %while.end ], [ %tcp_specified.0, %sw.bb193 ], [ %tcp_specified.0, %sw.bb191 ], [ %tcp_specified.0, %sw.bb190 ], [ %tcp_specified.0, %sw.bb189 ], [ %tcp_specified.0, %sw.bb188 ], [ %tcp_specified.0, %if.end185 ], [ %tcp_specified.0, %if.then123 ], [ %tcp_specified.0, %if.then128 ], [ %tcp_specified.0, %if.then133 ], [ %tcp_specified.0, %sw.bb117 ], [ %tcp_specified.0, %sw.bb116 ], [ %tcp_specified.0, %if.end106 ], [ %tcp_specified.0, %if.then99 ], [ %tcp_specified.0, %if.end96 ], [ %tcp_specified.0, %sw.bb83 ], [ %tcp_specified.0, %if.end80 ], [ %tcp_specified.0, %sw.bb73 ], [ %tcp_specified.0, %sw.bb72 ], [ %tcp_specified.0, %sw.bb71 ], [ %tcp_specified.0, %sw.bb64 ], [ %tcp_specified.0, %sw.bb63 ], [ %tcp_specified.0, %sw.bb62 ], [ %tcp_specified.0, %if.then44 ], [ %tcp_specified.0, %if.end58 ], [ %tcp_specified.0, %if.else ], [ %tcp_specified.0, %sw.bb40 ], [ %tcp_specified.0, %sw.bb28 ], [ %tcp_specified.0, %sw.bb27 ], [ %tcp_specified.0, %sw.bb23 ], [ %tcp_specified.0, %sw.bb22 ], [ true, %sw.bb20 ], [ %tcp_specified.0, %sw.bb18 ], [ %tcp_specified.0, %sw.bb16 ], [ %tcp_specified.0, %sw.bb ], [ %tcp_specified.0, %while.cond ], [ %tcp_specified.0, %enable_large_pages.exit ]
-  %udp_specified.0.be = phi i1 [ %udp_specified.0, %while.end ], [ %udp_specified.0, %sw.bb193 ], [ %udp_specified.0, %sw.bb191 ], [ %udp_specified.0, %sw.bb190 ], [ %udp_specified.0, %sw.bb189 ], [ %udp_specified.0, %sw.bb188 ], [ %udp_specified.0, %if.end185 ], [ %udp_specified.0, %if.then123 ], [ %udp_specified.0, %if.then128 ], [ %udp_specified.0, %if.then133 ], [ %udp_specified.0, %sw.bb117 ], [ %udp_specified.0, %sw.bb116 ], [ %udp_specified.0, %if.end106 ], [ %udp_specified.0, %if.then99 ], [ %udp_specified.0, %if.end96 ], [ %udp_specified.0, %sw.bb83 ], [ %udp_specified.0, %if.end80 ], [ %udp_specified.0, %sw.bb73 ], [ %udp_specified.0, %sw.bb72 ], [ %udp_specified.0, %sw.bb71 ], [ %udp_specified.0, %sw.bb64 ], [ %udp_specified.0, %sw.bb63 ], [ %udp_specified.0, %sw.bb62 ], [ %udp_specified.0, %if.then44 ], [ %udp_specified.0, %if.end58 ], [ %udp_specified.0, %if.else ], [ %udp_specified.0, %sw.bb40 ], [ %udp_specified.0, %sw.bb28 ], [ %udp_specified.0, %sw.bb27 ], [ %udp_specified.0, %sw.bb23 ], [ %udp_specified.0, %sw.bb22 ], [ %udp_specified.0, %sw.bb20 ], [ true, %sw.bb18 ], [ %udp_specified.0, %sw.bb16 ], [ %udp_specified.0, %sw.bb ], [ %udp_specified.0, %while.cond ], [ %udp_specified.0, %enable_large_pages.exit ]
   %start_lru_maintainer.0.be = phi i8 [ %start_lru_maintainer.1.lcssa, %while.end ], [ %start_lru_maintainer.0, %sw.bb193 ], [ %start_lru_maintainer.0, %sw.bb191 ], [ %start_lru_maintainer.0, %sw.bb190 ], [ %start_lru_maintainer.0, %sw.bb189 ], [ %start_lru_maintainer.0, %sw.bb188 ], [ %start_lru_maintainer.0, %if.end185 ], [ %start_lru_maintainer.0, %if.then123 ], [ %start_lru_maintainer.0, %if.then128 ], [ %start_lru_maintainer.0, %if.then133 ], [ %start_lru_maintainer.0, %sw.bb117 ], [ %start_lru_maintainer.0, %sw.bb116 ], [ %start_lru_maintainer.0, %if.end106 ], [ %start_lru_maintainer.0, %if.then99 ], [ %start_lru_maintainer.0, %if.end96 ], [ %start_lru_maintainer.0, %sw.bb83 ], [ %start_lru_maintainer.0, %if.end80 ], [ %start_lru_maintainer.0, %sw.bb73 ], [ %start_lru_maintainer.0, %sw.bb72 ], [ %start_lru_maintainer.0, %sw.bb71 ], [ %start_lru_maintainer.0, %sw.bb64 ], [ %start_lru_maintainer.0, %sw.bb63 ], [ %start_lru_maintainer.0, %sw.bb62 ], [ %start_lru_maintainer.0, %if.then44 ], [ %start_lru_maintainer.0, %if.end58 ], [ %start_lru_maintainer.0, %if.else ], [ %start_lru_maintainer.0, %sw.bb40 ], [ %start_lru_maintainer.0, %sw.bb28 ], [ %start_lru_maintainer.0, %sw.bb27 ], [ %start_lru_maintainer.0, %sw.bb23 ], [ %start_lru_maintainer.0, %sw.bb22 ], [ %start_lru_maintainer.0, %sw.bb20 ], [ %start_lru_maintainer.0, %sw.bb18 ], [ %start_lru_maintainer.0, %sw.bb16 ], [ %start_lru_maintainer.0, %sw.bb ], [ %start_lru_maintainer.0, %while.cond ], [ %start_lru_maintainer.0, %enable_large_pages.exit ]
   %start_lru_crawler.0.be = phi i1 [ %start_lru_crawler.1.lcssa, %while.end ], [ %start_lru_crawler.0, %sw.bb193 ], [ %start_lru_crawler.0, %sw.bb191 ], [ %start_lru_crawler.0, %sw.bb190 ], [ %start_lru_crawler.0, %sw.bb189 ], [ %start_lru_crawler.0, %sw.bb188 ], [ %start_lru_crawler.0, %if.end185 ], [ %start_lru_crawler.0, %if.then123 ], [ %start_lru_crawler.0, %if.then128 ], [ %start_lru_crawler.0, %if.then133 ], [ %start_lru_crawler.0, %sw.bb117 ], [ %start_lru_crawler.0, %sw.bb116 ], [ %start_lru_crawler.0, %if.end106 ], [ %start_lru_crawler.0, %if.then99 ], [ %start_lru_crawler.0, %if.end96 ], [ %start_lru_crawler.0, %sw.bb83 ], [ %start_lru_crawler.0, %if.end80 ], [ %start_lru_crawler.0, %sw.bb73 ], [ %start_lru_crawler.0, %sw.bb72 ], [ %start_lru_crawler.0, %sw.bb71 ], [ %start_lru_crawler.0, %sw.bb64 ], [ %start_lru_crawler.0, %sw.bb63 ], [ %start_lru_crawler.0, %sw.bb62 ], [ %start_lru_crawler.0, %if.then44 ], [ %start_lru_crawler.0, %if.end58 ], [ %start_lru_crawler.0, %if.else ], [ %start_lru_crawler.0, %sw.bb40 ], [ %start_lru_crawler.0, %sw.bb28 ], [ %start_lru_crawler.0, %sw.bb27 ], [ %start_lru_crawler.0, %sw.bb23 ], [ %start_lru_crawler.0, %sw.bb22 ], [ %start_lru_crawler.0, %sw.bb20 ], [ %start_lru_crawler.0, %sw.bb18 ], [ %start_lru_crawler.0, %sw.bb16 ], [ %start_lru_crawler.0, %sw.bb ], [ %start_lru_crawler.0, %while.cond ], [ %start_lru_crawler.0, %enable_large_pages.exit ]
   %start_assoc_maint.0.be = phi i1 [ %start_assoc_maint.1.lcssa, %while.end ], [ %start_assoc_maint.0, %sw.bb193 ], [ %start_assoc_maint.0, %sw.bb191 ], [ %start_assoc_maint.0, %sw.bb190 ], [ %start_assoc_maint.0, %sw.bb189 ], [ %start_assoc_maint.0, %sw.bb188 ], [ %start_assoc_maint.0, %if.end185 ], [ %start_assoc_maint.0, %if.then123 ], [ %start_assoc_maint.0, %if.then128 ], [ %start_assoc_maint.0, %if.then133 ], [ %start_assoc_maint.0, %sw.bb117 ], [ %start_assoc_maint.0, %sw.bb116 ], [ %start_assoc_maint.0, %if.end106 ], [ %start_assoc_maint.0, %if.then99 ], [ %start_assoc_maint.0, %if.end96 ], [ %start_assoc_maint.0, %sw.bb83 ], [ %start_assoc_maint.0, %if.end80 ], [ %start_assoc_maint.0, %sw.bb73 ], [ %start_assoc_maint.0, %sw.bb72 ], [ %start_assoc_maint.0, %sw.bb71 ], [ %start_assoc_maint.0, %sw.bb64 ], [ %start_assoc_maint.0, %sw.bb63 ], [ %start_assoc_maint.0, %sw.bb62 ], [ %start_assoc_maint.0, %if.then44 ], [ %start_assoc_maint.0, %if.end58 ], [ %start_assoc_maint.0, %if.else ], [ %start_assoc_maint.0, %sw.bb40 ], [ %start_assoc_maint.0, %sw.bb28 ], [ %start_assoc_maint.0, %sw.bb27 ], [ %start_assoc_maint.0, %sw.bb23 ], [ %start_assoc_maint.0, %sw.bb22 ], [ %start_assoc_maint.0, %sw.bb20 ], [ %start_assoc_maint.0, %sw.bb18 ], [ %start_assoc_maint.0, %sw.bb16 ], [ %start_assoc_maint.0, %sw.bb ], [ %start_assoc_maint.0, %while.cond ], [ %start_assoc_maint.0, %enable_large_pages.exit ]
   %hash_type.0.be = phi i32 [ %hash_type.1.lcssa, %while.end ], [ %hash_type.0, %sw.bb193 ], [ %hash_type.0, %sw.bb191 ], [ %hash_type.0, %sw.bb190 ], [ %hash_type.0, %sw.bb189 ], [ %hash_type.0, %sw.bb188 ], [ %hash_type.0, %if.end185 ], [ %hash_type.0, %if.then123 ], [ %hash_type.0, %if.then128 ], [ %hash_type.0, %if.then133 ], [ %hash_type.0, %sw.bb117 ], [ %hash_type.0, %sw.bb116 ], [ %hash_type.0, %if.end106 ], [ %hash_type.0, %if.then99 ], [ %hash_type.0, %if.end96 ], [ %hash_type.0, %sw.bb83 ], [ %hash_type.0, %if.end80 ], [ %hash_type.0, %sw.bb73 ], [ %hash_type.0, %sw.bb72 ], [ %hash_type.0, %sw.bb71 ], [ %hash_type.0, %sw.bb64 ], [ %hash_type.0, %sw.bb63 ], [ %hash_type.0, %sw.bb62 ], [ %hash_type.0, %if.then44 ], [ %hash_type.0, %if.end58 ], [ %hash_type.0, %if.else ], [ %hash_type.0, %sw.bb40 ], [ %hash_type.0, %sw.bb28 ], [ %hash_type.0, %sw.bb27 ], [ %hash_type.0, %sw.bb23 ], [ %hash_type.0, %sw.bb22 ], [ %hash_type.0, %sw.bb20 ], [ %hash_type.0, %sw.bb18 ], [ %hash_type.0, %sw.bb16 ], [ %hash_type.0, %sw.bb ], [ %hash_type.0, %while.cond ], [ %hash_type.0, %enable_large_pages.exit ]
   %slab_sizes_unparsed.0.be = phi ptr [ %slab_sizes_unparsed.1.lcssa, %while.end ], [ %slab_sizes_unparsed.0, %sw.bb193 ], [ %slab_sizes_unparsed.0, %sw.bb191 ], [ %slab_sizes_unparsed.0, %sw.bb190 ], [ %slab_sizes_unparsed.0, %sw.bb189 ], [ %slab_sizes_unparsed.0, %sw.bb188 ], [ %slab_sizes_unparsed.0, %if.end185 ], [ %slab_sizes_unparsed.0, %if.then123 ], [ %slab_sizes_unparsed.0, %if.then128 ], [ %slab_sizes_unparsed.0, %if.then133 ], [ %slab_sizes_unparsed.0, %sw.bb117 ], [ %slab_sizes_unparsed.0, %sw.bb116 ], [ %slab_sizes_unparsed.0, %if.end106 ], [ %slab_sizes_unparsed.0, %if.then99 ], [ %slab_sizes_unparsed.0, %if.end96 ], [ %slab_sizes_unparsed.0, %sw.bb83 ], [ %slab_sizes_unparsed.0, %if.end80 ], [ %slab_sizes_unparsed.0, %sw.bb73 ], [ %slab_sizes_unparsed.0, %sw.bb72 ], [ %slab_sizes_unparsed.0, %sw.bb71 ], [ %slab_sizes_unparsed.0, %sw.bb64 ], [ %slab_sizes_unparsed.0, %sw.bb63 ], [ %slab_sizes_unparsed.0, %sw.bb62 ], [ %slab_sizes_unparsed.0, %if.then44 ], [ %slab_sizes_unparsed.0, %if.end58 ], [ %slab_sizes_unparsed.0, %if.else ], [ %slab_sizes_unparsed.0, %sw.bb40 ], [ %slab_sizes_unparsed.0, %sw.bb28 ], [ %slab_sizes_unparsed.0, %sw.bb27 ], [ %slab_sizes_unparsed.0, %sw.bb23 ], [ %slab_sizes_unparsed.0, %sw.bb22 ], [ %slab_sizes_unparsed.0, %sw.bb20 ], [ %slab_sizes_unparsed.0, %sw.bb18 ], [ %slab_sizes_unparsed.0, %sw.bb16 ], [ %slab_sizes_unparsed.0, %sw.bb ], [ %slab_sizes_unparsed.0, %while.cond ], [ %slab_sizes_unparsed.0, %enable_large_pages.exit ]
   %slab_chunk_size_changed.0.be = phi i8 [ %slab_chunk_size_changed.1.lcssa, %while.end ], [ %slab_chunk_size_changed.0, %sw.bb193 ], [ %slab_chunk_size_changed.0, %sw.bb191 ], [ %slab_chunk_size_changed.0, %sw.bb190 ], [ %slab_chunk_size_changed.0, %sw.bb189 ], [ %slab_chunk_size_changed.0, %sw.bb188 ], [ %slab_chunk_size_changed.0, %if.end185 ], [ %slab_chunk_size_changed.0, %if.then123 ], [ %slab_chunk_size_changed.0, %if.then128 ], [ %slab_chunk_size_changed.0, %if.then133 ], [ %slab_chunk_size_changed.0, %sw.bb117 ], [ %slab_chunk_size_changed.0, %sw.bb116 ], [ %slab_chunk_size_changed.0, %if.end106 ], [ %slab_chunk_size_changed.0, %if.then99 ], [ %slab_chunk_size_changed.0, %if.end96 ], [ %slab_chunk_size_changed.0, %sw.bb83 ], [ %slab_chunk_size_changed.0, %if.end80 ], [ %slab_chunk_size_changed.0, %sw.bb73 ], [ %slab_chunk_size_changed.0, %sw.bb72 ], [ %slab_chunk_size_changed.0, %sw.bb71 ], [ %slab_chunk_size_changed.0, %sw.bb64 ], [ %slab_chunk_size_changed.0, %sw.bb63 ], [ %slab_chunk_size_changed.0, %sw.bb62 ], [ %slab_chunk_size_changed.0, %if.then44 ], [ %slab_chunk_size_changed.0, %if.end58 ], [ %slab_chunk_size_changed.0, %if.else ], [ %slab_chunk_size_changed.0, %sw.bb40 ], [ %slab_chunk_size_changed.0, %sw.bb28 ], [ %slab_chunk_size_changed.0, %sw.bb27 ], [ %slab_chunk_size_changed.0, %sw.bb23 ], [ %slab_chunk_size_changed.0, %sw.bb22 ], [ %slab_chunk_size_changed.0, %sw.bb20 ], [ %slab_chunk_size_changed.0, %sw.bb18 ], [ %slab_chunk_size_changed.0, %sw.bb16 ], [ %slab_chunk_size_changed.0, %sw.bb ], [ %slab_chunk_size_changed.0, %while.cond ], [ %slab_chunk_size_changed.0, %enable_large_pages.exit ]
+  %udp_specified.0.be = phi i1 [ %udp_specified.0, %while.end ], [ %udp_specified.0, %sw.bb193 ], [ %udp_specified.0, %sw.bb191 ], [ %udp_specified.0, %sw.bb190 ], [ %udp_specified.0, %sw.bb189 ], [ %udp_specified.0, %sw.bb188 ], [ %udp_specified.0, %if.end185 ], [ %udp_specified.0, %if.then123 ], [ %udp_specified.0, %if.then128 ], [ %udp_specified.0, %if.then133 ], [ %udp_specified.0, %sw.bb117 ], [ %udp_specified.0, %sw.bb116 ], [ %udp_specified.0, %if.end106 ], [ %udp_specified.0, %if.then99 ], [ %udp_specified.0, %if.end96 ], [ %udp_specified.0, %sw.bb83 ], [ %udp_specified.0, %if.end80 ], [ %udp_specified.0, %sw.bb73 ], [ %udp_specified.0, %sw.bb72 ], [ %udp_specified.0, %sw.bb71 ], [ %udp_specified.0, %sw.bb64 ], [ %udp_specified.0, %sw.bb63 ], [ %udp_specified.0, %sw.bb62 ], [ %udp_specified.0, %if.then44 ], [ %udp_specified.0, %if.end58 ], [ %udp_specified.0, %if.else ], [ %udp_specified.0, %sw.bb40 ], [ %udp_specified.0, %sw.bb28 ], [ %udp_specified.0, %sw.bb27 ], [ %udp_specified.0, %sw.bb23 ], [ %udp_specified.0, %sw.bb22 ], [ %udp_specified.0, %sw.bb20 ], [ true, %sw.bb18 ], [ %udp_specified.0, %sw.bb16 ], [ %udp_specified.0, %sw.bb ], [ %udp_specified.0, %while.cond ], [ %udp_specified.0, %enable_large_pages.exit ]
+  %tcp_specified.0.be = phi i1 [ %tcp_specified.0, %while.end ], [ %tcp_specified.0, %sw.bb193 ], [ %tcp_specified.0, %sw.bb191 ], [ %tcp_specified.0, %sw.bb190 ], [ %tcp_specified.0, %sw.bb189 ], [ %tcp_specified.0, %sw.bb188 ], [ %tcp_specified.0, %if.end185 ], [ %tcp_specified.0, %if.then123 ], [ %tcp_specified.0, %if.then128 ], [ %tcp_specified.0, %if.then133 ], [ %tcp_specified.0, %sw.bb117 ], [ %tcp_specified.0, %sw.bb116 ], [ %tcp_specified.0, %if.end106 ], [ %tcp_specified.0, %if.then99 ], [ %tcp_specified.0, %if.end96 ], [ %tcp_specified.0, %sw.bb83 ], [ %tcp_specified.0, %if.end80 ], [ %tcp_specified.0, %sw.bb73 ], [ %tcp_specified.0, %sw.bb72 ], [ %tcp_specified.0, %sw.bb71 ], [ %tcp_specified.0, %sw.bb64 ], [ %tcp_specified.0, %sw.bb63 ], [ %tcp_specified.0, %sw.bb62 ], [ %tcp_specified.0, %if.then44 ], [ %tcp_specified.0, %if.end58 ], [ %tcp_specified.0, %if.else ], [ %tcp_specified.0, %sw.bb40 ], [ %tcp_specified.0, %sw.bb28 ], [ %tcp_specified.0, %sw.bb27 ], [ %tcp_specified.0, %sw.bb23 ], [ %tcp_specified.0, %sw.bb22 ], [ true, %sw.bb20 ], [ %tcp_specified.0, %sw.bb18 ], [ %tcp_specified.0, %sw.bb16 ], [ %tcp_specified.0, %sw.bb ], [ %tcp_specified.0, %while.cond ], [ %tcp_specified.0, %enable_large_pages.exit ]
+  %protocol_specified.0.be = phi i8 [ %protocol_specified.0, %while.end ], [ %protocol_specified.0, %sw.bb193 ], [ %protocol_specified.0, %sw.bb191 ], [ %protocol_specified.0, %sw.bb190 ], [ %protocol_specified.0, %sw.bb189 ], [ %protocol_specified.0, %sw.bb188 ], [ %protocol_specified.0, %if.end185 ], [ 1, %if.then123 ], [ 1, %if.then128 ], [ 1, %if.then133 ], [ %protocol_specified.0, %sw.bb117 ], [ %protocol_specified.0, %sw.bb116 ], [ %protocol_specified.0, %if.end106 ], [ %protocol_specified.0, %if.then99 ], [ %protocol_specified.0, %if.end96 ], [ %protocol_specified.0, %sw.bb83 ], [ %protocol_specified.0, %if.end80 ], [ %protocol_specified.0, %sw.bb73 ], [ %protocol_specified.0, %sw.bb72 ], [ %protocol_specified.0, %sw.bb71 ], [ %protocol_specified.0, %sw.bb64 ], [ %protocol_specified.0, %sw.bb63 ], [ %protocol_specified.0, %sw.bb62 ], [ %protocol_specified.0, %if.then44 ], [ %protocol_specified.0, %if.end58 ], [ %protocol_specified.0, %if.else ], [ %protocol_specified.0, %sw.bb40 ], [ %protocol_specified.0, %sw.bb28 ], [ %protocol_specified.0, %sw.bb27 ], [ %protocol_specified.0, %sw.bb23 ], [ %protocol_specified.0, %sw.bb22 ], [ %protocol_specified.0, %sw.bb20 ], [ %protocol_specified.0, %sw.bb18 ], [ %protocol_specified.0, %sw.bb16 ], [ %protocol_specified.0, %sw.bb ], [ %protocol_specified.0, %while.cond ], [ %protocol_specified.0, %enable_large_pages.exit ]
   %pid_file.0.be = phi ptr [ %pid_file.0, %while.end ], [ %pid_file.0, %sw.bb193 ], [ %pid_file.0, %sw.bb191 ], [ %pid_file.0, %sw.bb190 ], [ %pid_file.0, %sw.bb189 ], [ %pid_file.0, %sw.bb188 ], [ %pid_file.0, %if.end185 ], [ %pid_file.0, %if.then123 ], [ %pid_file.0, %if.then128 ], [ %pid_file.0, %if.then133 ], [ %pid_file.0, %sw.bb117 ], [ %pid_file.0, %sw.bb116 ], [ %pid_file.0, %if.end106 ], [ %pid_file.0, %if.then99 ], [ %pid_file.0, %if.end96 ], [ %pid_file.0, %sw.bb83 ], [ %pid_file.0, %if.end80 ], [ %pid_file.0, %sw.bb73 ], [ %27, %sw.bb72 ], [ %pid_file.0, %sw.bb71 ], [ %pid_file.0, %sw.bb64 ], [ %pid_file.0, %sw.bb63 ], [ %pid_file.0, %sw.bb62 ], [ %pid_file.0, %if.then44 ], [ %pid_file.0, %if.end58 ], [ %pid_file.0, %if.else ], [ %pid_file.0, %sw.bb40 ], [ %pid_file.0, %sw.bb28 ], [ %pid_file.0, %sw.bb27 ], [ %pid_file.0, %sw.bb23 ], [ %pid_file.0, %sw.bb22 ], [ %pid_file.0, %sw.bb20 ], [ %pid_file.0, %sw.bb18 ], [ %pid_file.0, %sw.bb16 ], [ %pid_file.0, %sw.bb ], [ %pid_file.0, %while.cond ], [ %pid_file.0, %enable_large_pages.exit ]
   %username.0.be = phi ptr [ %username.0, %while.end ], [ %username.0, %sw.bb193 ], [ %username.0, %sw.bb191 ], [ %username.0, %sw.bb190 ], [ %username.0, %sw.bb189 ], [ %username.0, %sw.bb188 ], [ %username.0, %if.end185 ], [ %username.0, %if.then123 ], [ %username.0, %if.then128 ], [ %username.0, %if.then133 ], [ %username.0, %sw.bb117 ], [ %username.0, %sw.bb116 ], [ %username.0, %if.end106 ], [ %username.0, %if.then99 ], [ %username.0, %if.end96 ], [ %username.0, %sw.bb83 ], [ %username.0, %if.end80 ], [ %username.0, %sw.bb73 ], [ %username.0, %sw.bb72 ], [ %26, %sw.bb71 ], [ %username.0, %sw.bb64 ], [ %username.0, %sw.bb63 ], [ %username.0, %sw.bb62 ], [ %username.0, %if.then44 ], [ %username.0, %if.end58 ], [ %username.0, %if.else ], [ %username.0, %sw.bb40 ], [ %username.0, %sw.bb28 ], [ %username.0, %sw.bb27 ], [ %username.0, %sw.bb23 ], [ %username.0, %sw.bb22 ], [ %username.0, %sw.bb20 ], [ %username.0, %sw.bb18 ], [ %username.0, %sw.bb16 ], [ %username.0, %sw.bb ], [ %username.0, %while.cond ], [ %username.0, %enable_large_pages.exit ]
   %maxcore.0.be = phi i32 [ %maxcore.0, %while.end ], [ %maxcore.0, %sw.bb193 ], [ %maxcore.0, %sw.bb191 ], [ %maxcore.0, %sw.bb190 ], [ %maxcore.0, %sw.bb189 ], [ %maxcore.0, %sw.bb188 ], [ %maxcore.0, %if.end185 ], [ %maxcore.0, %if.then123 ], [ %maxcore.0, %if.then128 ], [ %maxcore.0, %if.then133 ], [ %maxcore.0, %sw.bb117 ], [ %maxcore.0, %sw.bb116 ], [ %maxcore.0, %if.end106 ], [ %maxcore.0, %if.then99 ], [ %maxcore.0, %if.end96 ], [ %maxcore.0, %sw.bb83 ], [ %maxcore.0, %if.end80 ], [ %maxcore.0, %sw.bb73 ], [ %maxcore.0, %sw.bb72 ], [ %maxcore.0, %sw.bb71 ], [ %maxcore.0, %sw.bb64 ], [ 1, %sw.bb63 ], [ %maxcore.0, %sw.bb62 ], [ %maxcore.0, %if.then44 ], [ %maxcore.0, %if.end58 ], [ %maxcore.0, %if.else ], [ %maxcore.0, %sw.bb40 ], [ %maxcore.0, %sw.bb28 ], [ %maxcore.0, %sw.bb27 ], [ %maxcore.0, %sw.bb23 ], [ %maxcore.0, %sw.bb22 ], [ %maxcore.0, %sw.bb20 ], [ %maxcore.0, %sw.bb18 ], [ %maxcore.0, %sw.bb16 ], [ %maxcore.0, %sw.bb ], [ %maxcore.0, %while.cond ], [ %maxcore.0, %enable_large_pages.exit ]
@@ -10257,17 +10257,17 @@ if.end:                                           ; preds = %if.else
 
 for.body:                                         ; preds = %if.end, %for.inc
   %ret.092 = phi i32 [ %or, %for.inc ], [ 0, %if.end ]
-  %p.091 = phi ptr [ %call135, %for.inc ], [ %call5, %if.end ]
-  %errno_save.090 = phi i32 [ %errno_save.1, %for.inc ], [ 0, %if.end ]
+  %errno_save.091 = phi i32 [ %errno_save.1, %for.inc ], [ 0, %if.end ]
+  %p.090 = phi ptr [ %call135, %for.inc ], [ %call5, %if.end ]
   store i64 0, ptr %conntag, align 8
   store i32 %port, ptr %the_port, align 4
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 116), align 4
-  %call8 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.091, ptr noundef nonnull dereferenceable(6) @.str.489, i64 noundef 5) #40
+  %call8 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p.090, ptr noundef nonnull dereferenceable(6) @.str.489, i64 noundef 5) #40
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %sub_0
 
 if.then10:                                        ; preds = %for.body
-  %add.ptr = getelementptr inbounds i8, ptr %p.091, i64 5
+  %add.ptr = getelementptr inbounds i8, ptr %p.090, i64 5
   %5 = load i8, ptr %add.ptr, align 1
   %cmp12 = icmp eq i8 %5, 91
   br i1 %cmp12, label %if.then14, label %sub_0
@@ -10284,7 +10284,7 @@ if.then18:                                        ; preds = %if.then14
   br label %return
 
 if.end20:                                         ; preds = %if.then14
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.091, i64 6
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.090, i64 6
   store i8 0, ptr %call15, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %call15 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr to i64
@@ -10316,8 +10316,8 @@ if.then41:                                        ; preds = %if.else37
   br label %return
 
 sub_0:                                            ; preds = %for.body, %if.else37, %if.then10, %if.end20, %if.else27, %if.else32
-  %p.1 = phi ptr [ %incdec.ptr22, %if.else37 ], [ %add.ptr, %if.then10 ], [ %p.091, %for.body ], [ %incdec.ptr22, %if.end20 ], [ %incdec.ptr22, %if.else27 ], [ %incdec.ptr22, %if.else32 ]
   %bproto.0 = phi i32 [ %4, %if.else37 ], [ %4, %if.then10 ], [ %4, %for.body ], [ 3, %if.end20 ], [ 4, %if.else27 ], [ 5, %if.else32 ]
+  %p.1 = phi ptr [ %incdec.ptr22, %if.else37 ], [ %add.ptr, %if.then10 ], [ %p.090, %for.body ], [ %incdec.ptr22, %if.end20 ], [ %incdec.ptr22, %if.else27 ], [ %incdec.ptr22, %if.else32 ]
   %8 = load i8, ptr %p.1, align 1
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %9, -116
@@ -10457,7 +10457,7 @@ if.end116.tail:                                   ; preds = %if.end116, %sub_173
   %call127 = call fastcc i32 @server_socket(ptr noundef %spec.store.select, i32 noundef %32, i32 noundef %transport, ptr noundef %portnumber_file, i64 noundef %conntag.0.conntag.0.conntag.0.conntag.0., i32 noundef %bproto.0)
   %or = or i32 %call127, %ret.092
   %cmp128 = icmp ne i32 %or, 0
-  %cmp130 = icmp eq i32 %errno_save.090, 0
+  %cmp130 = icmp eq i32 %errno_save.091, 0
   %or.cond2 = select i1 %cmp128, i1 %cmp130, i1 false
   br i1 %or.cond2, label %if.then132, label %for.inc
 
@@ -10467,7 +10467,7 @@ if.then132:                                       ; preds = %if.end116.tail
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end116.tail, %if.then132
-  %errno_save.1 = phi i32 [ %33, %if.then132 ], [ %errno_save.090, %if.end116.tail ]
+  %errno_save.1 = phi i32 [ %33, %if.then132 ], [ %errno_save.091, %if.end116.tail ]
   %call135 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.488, ptr noundef nonnull %b) #33
   %cmp6.not = icmp eq ptr %call135, null
   br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !29
@@ -10601,55 +10601,55 @@ while.body40.preheader:                           ; preds = %if.then17
   br label %while.body40
 
 while.body40:                                     ; preds = %while.body40.preheader, %if.end85
-  %copied.074 = phi i32 [ %copied.1, %if.end85 ], [ 0, %while.body40.preheader ]
-  %sch.073 = phi ptr [ %sch.1, %if.end85 ], [ %add.ptr35, %while.body40.preheader ]
-  %remain.072 = phi i32 [ %sub68, %if.end85 ], [ %len, %while.body40.preheader ]
-  %dch.171 = phi ptr [ %dch.2, %if.end85 ], [ %dch.0, %while.body40.preheader ]
-  %size41 = getelementptr inbounds i8, ptr %dch.171, i64 24
+  %dch.174 = phi ptr [ %dch.2, %if.end85 ], [ %dch.0, %while.body40.preheader ]
+  %remain.073 = phi i32 [ %sub68, %if.end85 ], [ %len, %while.body40.preheader ]
+  %copied.072 = phi i32 [ %copied.1, %if.end85 ], [ 0, %while.body40.preheader ]
+  %sch.071 = phi ptr [ %sch.1, %if.end85 ], [ %add.ptr35, %while.body40.preheader ]
+  %size41 = getelementptr inbounds i8, ptr %dch.174, i64 24
   %11 = load i32, ptr %size41, align 8
-  %used42 = getelementptr inbounds i8, ptr %dch.171, i64 28
+  %used42 = getelementptr inbounds i8, ptr %dch.174, i64 28
   %12 = load i32, ptr %used42, align 4
   %sub = sub nsw i32 %11, %12
-  %used43 = getelementptr inbounds i8, ptr %sch.073, i64 28
+  %used43 = getelementptr inbounds i8, ptr %sch.071, i64 28
   %13 = load i32, ptr %used43, align 4
-  %sub44 = sub nsw i32 %13, %copied.074
+  %sub44 = sub nsw i32 %13, %copied.072
   %sub.sub44 = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub44)
-  %todo.0 = tail call i32 @llvm.smin.i32(i32 %remain.072, i32 %sub.sub44)
-  %data57 = getelementptr inbounds i8, ptr %dch.171, i64 42
+  %todo.0 = tail call i32 @llvm.smin.i32(i32 %remain.073, i32 %sub.sub44)
+  %data57 = getelementptr inbounds i8, ptr %dch.174, i64 42
   %idx.ext59 = sext i32 %12 to i64
   %add.ptr60 = getelementptr inbounds i8, ptr %data57, i64 %idx.ext59
-  %data61 = getelementptr inbounds i8, ptr %sch.073, i64 42
-  %idx.ext63 = sext i32 %copied.074 to i64
+  %data61 = getelementptr inbounds i8, ptr %sch.071, i64 42
+  %idx.ext63 = sext i32 %copied.072 to i64
   %add.ptr64 = getelementptr inbounds i8, ptr %data61, i64 %idx.ext63
   %conv65 = sext i32 %todo.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr60, ptr nonnull align 1 %add.ptr64, i64 %conv65, i1 false)
   %14 = load i32, ptr %used42, align 4
   %add = add nsw i32 %todo.0, %14
   store i32 %add, ptr %used42, align 4
-  %add67 = add nsw i32 %todo.0, %copied.074
-  %sub68 = sub nsw i32 %remain.072, %todo.0
+  %add67 = add nsw i32 %todo.0, %copied.072
+  %sub68 = sub nsw i32 %remain.073, %todo.0
   %15 = load i32, ptr %size41, align 8
   %cmp71 = icmp eq i32 %15, %add
   br i1 %cmp71, label %if.then73, label %if.end79
 
 if.then73:                                        ; preds = %while.body40
   %conv74 = sext i32 %sub68 to i64
-  %call = tail call ptr @do_item_alloc_chunk(ptr noundef nonnull %dch.171, i64 noundef %conv74) #33
+  %call = tail call ptr @do_item_alloc_chunk(ptr noundef nonnull %dch.174, i64 noundef %conv74) #33
   %tobool75.not = icmp eq ptr %call, null
   br i1 %tobool75.not, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.then73, %while.body40
-  %dch.2 = phi ptr [ %dch.171, %while.body40 ], [ %call, %if.then73 ]
+  %dch.2 = phi ptr [ %dch.174, %while.body40 ], [ %call, %if.then73 ]
   %16 = load i32, ptr %used43, align 4
   %cmp81 = icmp eq i32 %add67, %16
   br i1 %cmp81, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %if.end79
-  %17 = load ptr, ptr %sch.073, align 8
+  %17 = load ptr, ptr %sch.071, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %if.end79
-  %sch.1 = phi ptr [ %17, %if.then83 ], [ %sch.073, %if.end79 ]
+  %sch.1 = phi ptr [ %17, %if.then83 ], [ %sch.071, %if.end79 ]
   %copied.1 = phi i32 [ 0, %if.then83 ], [ %add67, %if.end79 ]
   %tobool37 = icmp ne ptr %sch.1, null
   %tobool39 = icmp ne i32 %sub68, 0
@@ -10657,16 +10657,16 @@ if.end85:                                         ; preds = %if.then83, %if.end7
   br i1 %or.cond1, label %while.body40, label %return, !llvm.loop !31
 
 while.body94:                                     ; preds = %while.body94.lr.ph, %if.end152
-  %done.078 = phi i32 [ 0, %while.body94.lr.ph ], [ %add136, %if.end152 ]
-  %dch.377 = phi ptr [ %dch.0, %while.body94.lr.ph ], [ %dch.4, %if.end152 ]
-  %size96 = getelementptr inbounds i8, ptr %dch.377, i64 24
+  %dch.378 = phi ptr [ %dch.0, %while.body94.lr.ph ], [ %dch.4, %if.end152 ]
+  %done.077 = phi i32 [ 0, %while.body94.lr.ph ], [ %add136, %if.end152 ]
+  %size96 = getelementptr inbounds i8, ptr %dch.378, i64 24
   %18 = load i32, ptr %size96, align 8
-  %used97 = getelementptr inbounds i8, ptr %dch.377, i64 28
+  %used97 = getelementptr inbounds i8, ptr %dch.378, i64 28
   %19 = load i32, ptr %used97, align 4
   %sub98 = sub nsw i32 %18, %19
-  %sub99 = sub nsw i32 %len, %done.078
+  %sub99 = sub nsw i32 %len, %done.077
   %sub98.sub99 = tail call i32 @llvm.smin.i32(i32 %sub98, i32 %sub99)
-  %data110 = getelementptr inbounds i8, ptr %dch.377, i64 42
+  %data110 = getelementptr inbounds i8, ptr %dch.378, i64 42
   %idx.ext113 = sext i32 %19 to i64
   %add.ptr114 = getelementptr inbounds i8, ptr %data110, i64 %idx.ext113
   %20 = load i8, ptr %nkey116, align 1
@@ -10682,11 +10682,11 @@ while.body94:                                     ; preds = %while.body94.lr.ph,
   %23 = and i32 %and129, 8
   %cond131 = zext nneg i32 %23 to i64
   %add.ptr132 = getelementptr inbounds i8, ptr %add.ptr126, i64 %cond131
-  %idx.ext133 = sext i32 %done.078 to i64
+  %idx.ext133 = sext i32 %done.077 to i64
   %add.ptr134 = getelementptr inbounds i8, ptr %add.ptr132, i64 %idx.ext133
   %conv135 = sext i32 %sub98.sub99 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr114, ptr nonnull align 1 %add.ptr134, i64 %conv135, i1 false)
-  %add136 = add nsw i32 %sub98.sub99, %done.078
+  %add136 = add nsw i32 %sub98.sub99, %done.077
   %24 = load i32, ptr %used97, align 4
   %add138 = add nsw i32 %24, %sub98.sub99
   store i32 %add138, ptr %used97, align 4
@@ -10697,12 +10697,12 @@ while.body94:                                     ; preds = %while.body94.lr.ph,
 if.then143:                                       ; preds = %while.body94
   %sub145 = sub nsw i32 %len, %add136
   %conv146 = sext i32 %sub145 to i64
-  %call147 = tail call ptr @do_item_alloc_chunk(ptr noundef nonnull %dch.377, i64 noundef %conv146) #33
+  %call147 = tail call ptr @do_item_alloc_chunk(ptr noundef nonnull %dch.378, i64 noundef %conv146) #33
   %tobool148.not = icmp eq ptr %call147, null
   br i1 %tobool148.not, label %return, label %if.end152
 
 if.end152:                                        ; preds = %if.then143, %while.body94
-  %dch.4 = phi ptr [ %dch.377, %while.body94 ], [ %call147, %if.then143 ]
+  %dch.4 = phi ptr [ %dch.378, %while.body94 ], [ %call147, %if.then143 ]
   %cmp89 = icmp slt i32 %add136, %len
   br i1 %cmp89, label %while.body94, label %return, !llvm.loop !32
 
@@ -11062,12 +11062,12 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %while.cond.outer.backedge
-  %resp.0.ph95 = phi ptr [ %0, %while.body.lr.ph.lr.ph ], [ %resp.0.ph.be, %while.cond.outer.backedge ]
-  %res.addr.0.ph94 = phi i64 [ %res, %while.body.lr.ph.lr.ph ], [ %res.addr.0.ph.be, %while.cond.outer.backedge ]
+  %res.addr.0.ph95 = phi i64 [ %res, %while.body.lr.ph.lr.ph ], [ %res.addr.0.ph.be, %while.cond.outer.backedge ]
+  %resp.0.ph94 = phi ptr [ %0, %while.body.lr.ph.lr.ph ], [ %resp.0.ph.be, %while.cond.outer.backedge ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %resp_finish.exit
-  %resp.088 = phi ptr [ %resp.0.ph95, %while.body.lr.ph ], [ %2, %resp_finish.exit ]
+  %resp.088 = phi ptr [ %resp.0.ph94, %while.body.lr.ph ], [ %2, %resp_finish.exit ]
   %skip = getelementptr inbounds i8, ptr %resp.088, i64 118
   %1 = load i8, ptr %skip, align 2
   %tobool1 = trunc i8 %1 to i1
@@ -11141,7 +11141,7 @@ if.end:                                           ; preds = %while.body
   %tosend = getelementptr inbounds i8, ptr %resp.088, i64 20
   %12 = load i32, ptr %tosend, align 4
   %conv = sext i32 %12 to i64
-  %cmp.not = icmp slt i64 %res.addr.0.ph94, %conv
+  %cmp.not = icmp slt i64 %res.addr.0.ph95, %conv
   br i1 %cmp.not, label %for.cond.preheader, label %if.then3
 
 for.cond.preheader:                               ; preds = %if.end
@@ -11156,7 +11156,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then3:                                         ; preds = %if.end
-  %sub = sub nsw i64 %res.addr.0.ph94, %conv
+  %sub = sub nsw i64 %res.addr.0.ph95, %conv
   %next1.i33 = getelementptr inbounds i8, ptr %resp.088, i64 8
   %15 = load ptr, ptr %next1.i33, align 8
   %item.i34 = getelementptr inbounds i8, ptr %resp.088, i64 40
@@ -11211,14 +11211,14 @@ if.end15.i51:                                     ; preds = %if.then13.i56, %if.
   br i1 %cmp17.i53, label %while.cond.outer.backedge.sink.split, label %while.cond.outer.backedge
 
 while.cond.outer.backedge.sink.split:             ; preds = %if.end15.i51, %if.end15.i76
-  %res.addr.0.ph.be.ph = phi i64 [ %res.addr.2, %if.end15.i76 ], [ %sub, %if.end15.i51 ]
   %resp.0.ph.be.ph = phi ptr [ %33, %if.end15.i76 ], [ %15, %if.end15.i51 ]
+  %res.addr.0.ph.be.ph = phi i64 [ %res.addr.2, %if.end15.i76 ], [ %sub, %if.end15.i51 ]
   store ptr null, ptr %resp16.i, align 8
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %while.cond.outer.backedge.sink.split, %if.end15.i51, %if.end15.i76
-  %res.addr.0.ph.be = phi i64 [ %res.addr.2, %if.end15.i76 ], [ %sub, %if.end15.i51 ], [ %res.addr.0.ph.be.ph, %while.cond.outer.backedge.sink.split ]
   %resp.0.ph.be = phi ptr [ %33, %if.end15.i76 ], [ %15, %if.end15.i51 ], [ %resp.0.ph.be.ph, %while.cond.outer.backedge.sink.split ]
+  %res.addr.0.ph.be = phi i64 [ %res.addr.2, %if.end15.i76 ], [ %sub, %if.end15.i51 ], [ %res.addr.0.ph.be.ph, %while.cond.outer.backedge.sink.split ]
   %24 = load ptr, ptr %thread.i, align 8
   tail call void @resp_free(ptr noundef %24, ptr noundef nonnull %resp.088)
   %tobool.not87 = icmp eq ptr %resp.0.ph.be, null
@@ -11227,18 +11227,18 @@ while.cond.outer.backedge:                        ; preds = %while.cond.outer.ba
 for.body:                                         ; preds = %for.body.lr.ph, %if.then14
   %25 = phi i32 [ %12, %for.body.lr.ph ], [ %conv19, %if.then14 ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.then14 ]
-  %res.addr.191 = phi i64 [ %res.addr.0.ph94, %for.body.lr.ph ], [ %sub21, %if.then14 ]
+  %res.addr.192 = phi i64 [ %res.addr.0.ph95, %for.body.lr.ph ], [ %sub21, %if.then14 ]
   %arrayidx = getelementptr inbounds [4 x %struct.iovec], ptr %iov11, i64 0, i64 %indvars.iv
   %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %26 = load i64, ptr %iov_len, align 8
-  %cmp12.not = icmp ult i64 %res.addr.191, %26
+  %cmp12.not = icmp ult i64 %res.addr.192, %26
   br i1 %cmp12.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %for.body
   %27 = trunc i64 %26 to i32
   %conv19 = sub i32 %25, %27
   store i32 %conv19, ptr %tosend, align 4
-  %sub21 = sub i64 %res.addr.191, %26
+  %sub21 = sub i64 %res.addr.192, %26
   store i64 0, ptr %iov_len, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp9 = icmp ult i64 %indvars.iv.next, %14
@@ -11255,21 +11255,21 @@ if.else:                                          ; preds = %for.body
 
 if.then28:                                        ; preds = %if.else
   %30 = load ptr, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %30, i64 %res.addr.191
+  %add.ptr = getelementptr inbounds i8, ptr %30, i64 %res.addr.192
   store ptr %add.ptr, ptr %arrayidx, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then28
-  %sub32 = sub i64 %26, %res.addr.191
+  %sub32 = sub i64 %26, %res.addr.192
   store i64 %sub32, ptr %iov_len, align 8
-  %31 = trunc i64 %res.addr.191 to i32
+  %31 = trunc i64 %res.addr.192 to i32
   %conv36 = sub i32 %25, %31
   store i32 %conv36, ptr %tosend, align 4
   br label %for.end
 
 for.end:                                          ; preds = %if.then14, %for.cond.preheader, %if.end30
   %32 = phi i32 [ %conv36, %if.end30 ], [ %12, %for.cond.preheader ], [ %conv19, %if.then14 ]
-  %res.addr.2 = phi i64 [ 0, %if.end30 ], [ %res.addr.0.ph94, %for.cond.preheader ], [ %sub21, %if.then14 ]
+  %res.addr.2 = phi i64 [ 0, %if.end30 ], [ %res.addr.0.ph95, %for.cond.preheader ], [ %sub21, %if.then14 ]
   %cmp39 = icmp eq i32 %32, 0
   br i1 %cmp39, label %if.then41, label %while.end
 

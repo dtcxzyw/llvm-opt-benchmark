@@ -121,30 +121,30 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.outer532
 
 .outer532:                                        ; preds = %361, %48
-  %.0453.ph = phi i32 [ %80, %361 ], [ 1, %48 ]
-  %.0450.ph = phi i32 [ %.3, %361 ], [ 0, %48 ]
+  %.0469.ph = phi i32 [ %80, %361 ], [ 1, %48 ]
+  %.0451.ph = phi i32 [ %.3, %361 ], [ 0, %48 ]
   %52 = load i32, ptr %1, align 4
-  %53 = icmp sgt i32 %.0453.ph, %52
+  %53 = icmp sgt i32 %.0469.ph, %52
   br i1 %53, label %.outer532._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.outer532, %.backedge
-  %.0453572 = phi i32 [ %80, %.backedge ], [ %.0453.ph, %.outer532 ]
-  %54 = icmp sgt i32 %.0453572, 1
+  %.0469572 = phi i32 [ %80, %.backedge ], [ %.0469.ph, %.outer532 ]
+  %54 = icmp sgt i32 %.0469572, 1
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.lr.ph
-  %56 = zext nneg i32 %.0453572 to i64
+  %56 = zext nneg i32 %.0469572 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %56
   store double 0.000000e+00, ptr %gep, align 8
   br label %57
 
 57:                                               ; preds = %55, %.lr.ph
-  %.not488.not = icmp slt i32 %.0453572, %49
+  %.not488.not = icmp slt i32 %.0469572, %49
   br i1 %.not488.not, label %58, label %.loopexit530
 
 58:                                               ; preds = %57
   store i32 %51, ptr %14, align 4
-  %59 = sext i32 %.0453572 to i64
+  %59 = sext i32 %.0469572 to i64
   br label %60
 
 60:                                               ; preds = %66, %58
@@ -187,21 +187,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit531
 
 .loopexit531:                                     ; preds = %.loopexit531.loopexit, %.loopexit530, %75
-  %.1459 = phi i32 [ %77, %75 ], [ %78, %.loopexit530 ], [ %79, %.loopexit531.loopexit ]
-  %80 = add nsw i32 %.1459, 1
-  %81 = icmp eq i32 %.1459, %.0453572
+  %.1462 = phi i32 [ %77, %75 ], [ %78, %.loopexit530 ], [ %79, %.loopexit531.loopexit ]
+  %80 = add nsw i32 %.1462, 1
+  %81 = icmp eq i32 %.1462, %.0469572
   br i1 %81, label %.backedge, label %83
 
 .backedge:                                        ; preds = %.loopexit531, %83
   %82 = load i32, ptr %1, align 4
-  %.not619 = icmp slt i32 %.1459, %82
+  %.not619 = icmp slt i32 %.1462, %82
   br i1 %.not619, label %.lr.ph, label %.outer532._crit_edge
 
 83:                                               ; preds = %.loopexit531
-  %84 = sub nsw i32 %.1459, %.0453572
+  %84 = sub nsw i32 %.1462, %.0469572
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %14, align 4
-  %86 = sext i32 %.0453572 to i64
+  %86 = sext i32 %.0469572 to i64
   %87 = getelementptr inbounds double, ptr %26, i64 %86
   %88 = getelementptr inbounds double, ptr %27, i64 %86
   %89 = call double @dlanst_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %87, ptr noundef nonnull %88)
@@ -230,48 +230,48 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 98:                                               ; preds = %.sink.split, %95
   %99 = phi i1 [ false, %95 ], [ %94, %.sink.split ]
-  %100 = sext i32 %.1459 to i64
+  %100 = sext i32 %.1462 to i64
   %101 = getelementptr inbounds double, ptr %26, i64 %100
   %102 = load double, ptr %101, align 8
   %103 = call noundef double @llvm.fabs.f64(double %102)
   %104 = load double, ptr %87, align 8
   %105 = call noundef double @llvm.fabs.f64(double %104)
   %106 = fcmp olt double %103, %105
-  %.0462 = select i1 %106, i32 %.1459, i32 %.0453572
-  %.0451 = select i1 %106, i32 %.0453572, i32 %.1459
-  %107 = icmp sgt i32 %.0451, %.0462
+  %.0458 = select i1 %106, i32 %.1462, i32 %.0469572
+  %.0454 = select i1 %106, i32 %.0469572, i32 %.1462
+  %107 = icmp sgt i32 %.0454, %.0458
   br i1 %107, label %.preheader, label %.preheader526
 
 .preheader526:                                    ; preds = %98
-  %108 = add nsw i32 %.0451, 1
-  %109 = sext i32 %.0451 to i64
+  %108 = add nsw i32 %.0454, 1
+  %109 = sext i32 %.0454 to i64
   br label %.outer528
 
 .preheader:                                       ; preds = %98
-  %110 = add nsw i32 %.0451, -1
+  %110 = add nsw i32 %.0454, -1
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
-  %.1463.ph = phi i32 [ %.0462, %.preheader ], [ %.1463.ph.be, %.outer.backedge ]
-  %.1.ph = phi i32 [ %.0450.ph, %.preheader ], [ %.1, %.outer.backedge ]
-  %.not496 = icmp eq i32 %.1463.ph, %.0451
-  %111 = sext i32 %.1463.ph to i64
+  %.1459.ph = phi i32 [ %.0458, %.preheader ], [ %.1459.ph.be, %.outer.backedge ]
+  %.1452.ph = phi i32 [ %.0451.ph, %.preheader ], [ %.1452, %.outer.backedge ]
+  %.not496 = icmp eq i32 %.1459.ph, %.0454
+  %111 = sext i32 %.1459.ph to i64
   %112 = getelementptr inbounds double, ptr %26, i64 %111
-  %113 = add nsw i32 %.1463.ph, 1
+  %113 = add nsw i32 %.1459.ph, 1
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds double, ptr %26, i64 %114
   %116 = getelementptr inbounds double, ptr %27, i64 %111
   %117 = getelementptr inbounds double, ptr %31, i64 %111
-  %118 = add i32 %.1463.ph, -1
-  %119 = mul nsw i32 %.1463.ph, %28
+  %118 = add i32 %.1459.ph, -1
+  %119 = mul nsw i32 %.1459.ph, %28
   %120 = sext i32 %119 to i64
   %gep595 = getelementptr double, ptr %invariant.gep583, i64 %120
-  %smax666 = call i32 @llvm.smax.i32(i32 %.0451, i32 %.1463.ph)
+  %smax666 = call i32 @llvm.smax.i32(i32 %.0454, i32 %.1459.ph)
   %wide.trip.count667 = sext i32 %smax666 to i64
   br label %121
 
 121:                                              ; preds = %.outer, %230
-  %.1 = phi i32 [ %165, %230 ], [ %.1.ph, %.outer ]
+  %.1452 = phi i32 [ %165, %230 ], [ %.1452.ph, %.outer ]
   br i1 %.not496, label %.thread516, label %122
 
 122:                                              ; preds = %121
@@ -308,13 +308,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread516
 
 .thread516:                                       ; preds = %123, %121, %137
-  %.3461518 = phi i32 [ %138, %137 ], [ %.0451, %121 ], [ %.0451, %123 ]
+  %.3464518 = phi i32 [ %138, %137 ], [ %.0454, %121 ], [ %.0454, %123 ]
   %141 = load double, ptr %112, align 8
-  %142 = icmp eq i32 %.3461518, %.1463.ph
+  %142 = icmp eq i32 %.3464518, %.1459.ph
   br i1 %142, label %234, label %143
 
 143:                                              ; preds = %.thread516
-  %144 = icmp eq i32 %.3461518, %113
+  %144 = icmp eq i32 %.3464518, %113
   br i1 %144, label %145, label %162
 
 145:                                              ; preds = %143
@@ -347,16 +347,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %160 = load double, ptr %22, align 8
   store double %160, ptr %115, align 8
   store double 0.000000e+00, ptr %116, align 8
-  %161 = add nsw i32 %.1463.ph, 2
-  %.not500 = icmp sgt i32 %161, %.0451
+  %161 = add nsw i32 %.1459.ph, 2
+  %.not500 = icmp sgt i32 %161, %.0454
   br i1 %.not500, label %.loopexit, label %.outer.backedge
 
 162:                                              ; preds = %143
-  %163 = icmp eq i32 %.1, %50
+  %163 = icmp eq i32 %.1452, %50
   br i1 %163, label %.loopexit, label %164
 
 164:                                              ; preds = %162
-  %165 = add nsw i32 %.1, 1
+  %165 = add nsw i32 %.1452, 1
   %166 = load double, ptr %115, align 8
   %167 = fsub double %166, %141
   %168 = load double, ptr %116, align 8
@@ -365,7 +365,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store double %170, ptr %17, align 8
   %171 = call double @dlapy2_(ptr noundef nonnull %17, ptr noundef nonnull %10)
   store double %171, ptr %18, align 8
-  %172 = sext i32 %.3461518 to i64
+  %172 = sext i32 %.3464518 to i64
   %173 = getelementptr inbounds double, ptr %26, i64 %172
   %174 = load double, ptr %173, align 8
   %175 = fsub double %174, %141
@@ -380,12 +380,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store double %183, ptr %17, align 8
   store double 1.000000e+00, ptr %19, align 8
   store double 1.000000e+00, ptr %15, align 8
-  store i32 %.1463.ph, ptr %14, align 4
-  %.not498587.not = icmp sgt i32 %.3461518, %.1463.ph
+  store i32 %.1459.ph, ptr %14, align 4
+  %.not498587.not = icmp sgt i32 %.3464518, %.1459.ph
   br i1 %.not498587.not, label %.lr.ph591.preheader, label %._crit_edge592
 
 .lr.ph591.preheader:                              ; preds = %164
-  %184 = add nsw i32 %.3461518, -1
+  %184 = add nsw i32 %.3464518, -1
   %sext671 = sext i32 %184 to i64
   br label %.lr.ph591
 
@@ -393,7 +393,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %185 = phi double [ 1.000000e+00, %.lr.ph591.preheader ], [ %203, %220 ]
   %186 = phi double [ 1.000000e+00, %.lr.ph591.preheader ], [ %202, %220 ]
   %indvars.iv669.in = phi i64 [ %172, %.lr.ph591.preheader ], [ %indvars.iv669, %220 ]
-  %.0454589 = phi double [ 0.000000e+00, %.lr.ph591.preheader ], [ %207, %220 ]
+  %.0465588 = phi double [ 0.000000e+00, %.lr.ph591.preheader ], [ %207, %220 ]
   %indvars.iv669 = add nsw i64 %indvars.iv669.in, -1
   %187 = getelementptr inbounds double, ptr %27, i64 %indvars.iv669
   %188 = load double, ptr %187, align 8
@@ -414,7 +414,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %196 = getelementptr double, ptr %26, i64 %indvars.iv669
   %197 = getelementptr i8, ptr %196, i64 8
   %198 = load double, ptr %197, align 8
-  %199 = fsub double %198, %.0454589
+  %199 = fsub double %198, %.0465588
   %200 = load double, ptr %196, align 8
   %201 = fsub double %200, %199
   %202 = load double, ptr %19, align 8
@@ -452,11 +452,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge592:                                   ; preds = %220, %164
   %223 = phi double [ %183, %164 ], [ %210, %220 ]
-  %.0454.lcssa = phi double [ 0.000000e+00, %164 ], [ %207, %220 ]
+  %.0465.lcssa = phi double [ 0.000000e+00, %164 ], [ %207, %220 ]
   br i1 %switch.masked, label %224, label %230
 
 224:                                              ; preds = %._crit_edge592
-  %reass.sub = sub i32 %.3461518, %.1463.ph
+  %reass.sub = sub i32 %.3464518, %.1459.ph
   %225 = add i32 %reass.sub, 1
   store i32 %225, ptr %20, align 4
   %226 = load i32, ptr %1, align 4
@@ -470,21 +470,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
 230:                                              ; preds = %224, %._crit_edge592
   %231 = phi double [ %.pre687, %224 ], [ %223, %._crit_edge592 ]
   %232 = load double, ptr %112, align 8
-  %233 = fsub double %232, %.0454.lcssa
+  %233 = fsub double %232, %.0465.lcssa
   store double %233, ptr %112, align 8
   store double %231, ptr %116, align 8
   br label %121
 
 234:                                              ; preds = %.thread516
-  %.not501.not = icmp slt i32 %.1463.ph, %.0451
+  %.not501.not = icmp slt i32 %.1459.ph, %.0454
   br i1 %.not501.not, label %.outer.backedge, label %.loopexit
 
 .outer.backedge:                                  ; preds = %234, %158
-  %.1463.ph.be = phi i32 [ %161, %158 ], [ %113, %234 ]
+  %.1459.ph.be = phi i32 [ %161, %158 ], [ %113, %234 ]
   br label %.outer
 
 235:                                              ; preds = %.outer528, %356
-  %.2 = phi i32 [ %289, %356 ], [ %.2.ph, %.outer528 ]
+  %.2453 = phi i32 [ %289, %356 ], [ %.2453.ph, %.outer528 ]
   br i1 %.not490, label %.thread520, label %236
 
 236:                                              ; preds = %235
@@ -521,9 +521,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread520
 
 .thread520:                                       ; preds = %237, %235, %251
-  %.5522 = phi i32 [ %252, %251 ], [ %.0451, %235 ], [ %.0451, %237 ]
+  %.5522 = phi i32 [ %252, %251 ], [ %.0454, %235 ], [ %.0454, %237 ]
   %254 = load double, ptr %280, align 8
-  %255 = icmp eq i32 %.5522, %.2464.ph
+  %255 = icmp eq i32 %.5522, %.2460.ph
   br i1 %255, label %360, label %256
 
 256:                                              ; preds = %.thread520
@@ -540,7 +540,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store double %260, ptr %261, align 8
   %262 = load double, ptr %19, align 8
   %263 = load i32, ptr %1, align 4
-  %264 = add i32 %.2464.ph, -2
+  %264 = add i32 %.2460.ph, -2
   %265 = add i32 %264, %263
   %266 = sext i32 %265 to i64
   %267 = getelementptr inbounds double, ptr %31, i64 %266
@@ -565,29 +565,29 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %277 = load double, ptr %22, align 8
   store double %277, ptr %280, align 8
   store double 0.000000e+00, ptr %284, align 8
-  %278 = add nsw i32 %.2464.ph, -2
-  %.not494 = icmp slt i32 %278, %.0451
+  %278 = add nsw i32 %.2460.ph, -2
+  %.not494 = icmp slt i32 %278, %.0454
   br i1 %.not494, label %.loopexit, label %.outer528.backedge
 
 .outer528:                                        ; preds = %.outer528.backedge, %.preheader526
-  %.2464.ph = phi i32 [ %.0462, %.preheader526 ], [ %.2464.ph.be, %.outer528.backedge ]
-  %.2.ph = phi i32 [ %.0450.ph, %.preheader526 ], [ %.2, %.outer528.backedge ]
-  %.not490 = icmp eq i32 %.2464.ph, %.0451
-  %279 = sext i32 %.2464.ph to i64
+  %.2460.ph = phi i32 [ %.0458, %.preheader526 ], [ %.2460.ph.be, %.outer528.backedge ]
+  %.2453.ph = phi i32 [ %.0451.ph, %.preheader526 ], [ %.2453, %.outer528.backedge ]
+  %.not490 = icmp eq i32 %.2460.ph, %.0454
+  %279 = sext i32 %.2460.ph to i64
   %280 = getelementptr inbounds double, ptr %26, i64 %279
-  %281 = add nsw i32 %.2464.ph, -1
+  %281 = add nsw i32 %.2460.ph, -1
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds double, ptr %26, i64 %282
   %284 = getelementptr inbounds double, ptr %27, i64 %282
-  %285 = add i32 %.2464.ph, 1
+  %285 = add i32 %.2460.ph, 1
   br label %235
 
 286:                                              ; preds = %256
-  %287 = icmp eq i32 %.2, %50
+  %287 = icmp eq i32 %.2453, %50
   br i1 %287, label %.loopexit, label %288
 
 288:                                              ; preds = %286
-  %289 = add nsw i32 %.2, 1
+  %289 = add nsw i32 %.2453, 1
   %290 = load double, ptr %283, align 8
   %291 = fsub double %290, %254
   %292 = load double, ptr %284, align 8
@@ -612,14 +612,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store double 1.000000e+00, ptr %19, align 8
   store double 1.000000e+00, ptr %15, align 8
   store i32 %281, ptr %14, align 4
-  %.not492574.not = icmp slt i32 %.5522, %.2464.ph
+  %.not492574.not = icmp slt i32 %.5522, %.2460.ph
   br i1 %.not492574.not, label %.lr.ph578, label %._crit_edge579
 
 .lr.ph578:                                        ; preds = %288, %342
   %308 = phi double [ %326, %342 ], [ 1.000000e+00, %288 ]
   %309 = phi double [ %325, %342 ], [ 1.000000e+00, %288 ]
   %indvars.iv660 = phi i64 [ %indvars.iv.next661, %342 ], [ %296, %288 ]
-  %.1455576 = phi double [ %330, %342 ], [ 0.000000e+00, %288 ]
+  %.1466575 = phi double [ %330, %342 ], [ 0.000000e+00, %288 ]
   %310 = getelementptr inbounds double, ptr %27, i64 %indvars.iv660
   %311 = load double, ptr %310, align 8
   %312 = fmul double %309, %311
@@ -638,7 +638,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 318:                                              ; preds = %315, %.lr.ph578
   %319 = getelementptr inbounds double, ptr %26, i64 %indvars.iv660
   %320 = load double, ptr %319, align 8
-  %321 = fsub double %320, %.1455576
+  %321 = fsub double %320, %.1466575
   %indvars.iv.next661 = add nsw i64 %indvars.iv660, 1
   %322 = getelementptr double, ptr %2, i64 %indvars.iv660
   %323 = load double, ptr %322, align 8
@@ -677,7 +677,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge579:                                   ; preds = %342, %288
   %345 = phi double [ %307, %288 ], [ %333, %342 ]
-  %.1455.lcssa = phi double [ 0.000000e+00, %288 ], [ %330, %342 ]
+  %.1466.lcssa = phi double [ 0.000000e+00, %288 ], [ %330, %342 ]
   br i1 %switch.masked, label %346, label %356
 
 346:                                              ; preds = %._crit_edge579
@@ -699,21 +699,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
 356:                                              ; preds = %346, %._crit_edge579
   %357 = phi double [ %.pre686, %346 ], [ %345, %._crit_edge579 ]
   %358 = load double, ptr %280, align 8
-  %359 = fsub double %358, %.1455.lcssa
+  %359 = fsub double %358, %.1466.lcssa
   store double %359, ptr %280, align 8
   store double %357, ptr %284, align 8
   br label %235
 
 360:                                              ; preds = %.thread520
-  %.not495.not = icmp sgt i32 %.2464.ph, %.0451
+  %.not495.not = icmp sgt i32 %.2460.ph, %.0454
   br i1 %.not495.not, label %.outer528.backedge, label %.loopexit
 
 .outer528.backedge:                               ; preds = %360, %275
-  %.2464.ph.be = phi i32 [ %278, %275 ], [ %281, %360 ]
+  %.2460.ph.be = phi i32 [ %278, %275 ], [ %281, %360 ]
   br label %.outer528
 
 .loopexit:                                        ; preds = %360, %275, %234, %158, %286, %162
-  %.3 = phi i32 [ %50, %162 ], [ %50, %286 ], [ %.1, %158 ], [ %.1, %234 ], [ %.2, %275 ], [ %.2, %360 ]
+  %.3 = phi i32 [ %50, %162 ], [ %50, %286 ], [ %.1452, %158 ], [ %.1452, %234 ], [ %.2453, %275 ], [ %.2453, %360 ]
   %.not = xor i1 %94, true
   %brmerge = or i1 %.not, %99
   %.mux = select i1 %.not, ptr %25, ptr %24
@@ -794,33 +794,33 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph607:                                        ; preds = %.lr.ph607.preheader, %.lr.ph607
   %indvars.iv680 = phi i64 [ %indvars.iv678, %.lr.ph607.preheader ], [ %indvars.iv.next681, %.lr.ph607 ]
-  %.2456605 = phi double [ %379, %.lr.ph607.preheader ], [ %.3457, %.lr.ph607 ]
-  %.0465604 = phi i32 [ %382, %.lr.ph607.preheader ], [ %.1466, %.lr.ph607 ]
+  %.0456604 = phi i32 [ %382, %.lr.ph607.preheader ], [ %.1457, %.lr.ph607 ]
+  %.2467603 = phi double [ %379, %.lr.ph607.preheader ], [ %.3468, %.lr.ph607 ]
   %384 = getelementptr inbounds double, ptr %26, i64 %indvars.iv680
   %385 = load double, ptr %384, align 8
-  %386 = fcmp olt double %385, %.2456605
+  %386 = fcmp olt double %385, %.2467603
+  %.3468 = select i1 %386, double %385, double %.2467603
   %387 = trunc nuw nsw i64 %indvars.iv680 to i32
-  %.1466 = select i1 %386, i32 %387, i32 %.0465604
-  %.3457 = select i1 %386, double %385, double %.2456605
+  %.1457 = select i1 %386, i32 %387, i32 %.0456604
   %indvars.iv.next681 = add nuw nsw i64 %indvars.iv680, 1
   %exitcond684.not = icmp eq i64 %indvars.iv.next681, %wide.trip.count683
   br i1 %exitcond684.not, label %._crit_edge608, label %.lr.ph607, !llvm.loop !11
 
 ._crit_edge608:                                   ; preds = %.lr.ph607, %.lr.ph618
-  %.0465.lcssa = phi i32 [ %382, %.lr.ph618 ], [ %.1466, %.lr.ph607 ]
-  %.2456.lcssa = phi double [ %379, %.lr.ph618 ], [ %.3457, %.lr.ph607 ]
-  %388 = zext i32 %.0465.lcssa to i64
+  %.2467.lcssa = phi double [ %379, %.lr.ph618 ], [ %.3468, %.lr.ph607 ]
+  %.0456.lcssa = phi i32 [ %382, %.lr.ph618 ], [ %.1457, %.lr.ph607 ]
+  %388 = zext i32 %.0456.lcssa to i64
   %.not505 = icmp eq i64 %377, %388
   br i1 %.not505, label %395, label %389
 
 389:                                              ; preds = %._crit_edge608
-  %390 = sext i32 %.0465.lcssa to i64
+  %390 = sext i32 %.0456.lcssa to i64
   %391 = getelementptr inbounds double, ptr %26, i64 %390
   store double %379, ptr %391, align 8
-  store double %.2456.lcssa, ptr %378, align 8
+  store double %.2467.lcssa, ptr %378, align 8
   %392 = mul nsw i64 %377, %375
   %gep612 = getelementptr double, ptr %invariant.gep583, i64 %392
-  %393 = mul nsw i32 %.0465.lcssa, %28
+  %393 = mul nsw i32 %.0456.lcssa, %28
   %394 = sext i32 %393 to i64
   %gep614 = getelementptr double, ptr %invariant.gep583, i64 %394
   call void @dswap_(ptr noundef nonnull %1, ptr noundef %gep612, ptr noundef nonnull %12, ptr noundef %gep614, ptr noundef nonnull %12)

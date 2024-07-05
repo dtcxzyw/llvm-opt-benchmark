@@ -147,12 +147,12 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   br label %32
 
 32:                                               ; preds = %135, %28
-  %.078 = phi ptr [ %1, %28 ], [ %136, %135 ]
+  %.073 = phi ptr [ %1, %28 ], [ %136, %135 ]
   br label %33
 
 33:                                               ; preds = %35, %32
-  %.077 = phi ptr [ %.078, %32 ], [ %36, %35 ]
-  %34 = load i8, ptr %.077, align 1
+  %.076 = phi ptr [ %.073, %32 ], [ %36, %35 ]
+  %34 = load i8, ptr %.076, align 1
   switch i8 %34, label %35 [
     i8 0, label %.critedge
     i8 44, label %.critedge
@@ -160,43 +160,43 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   ]
 
 35:                                               ; preds = %33
-  %36 = getelementptr i8, ptr %.077, i64 1
+  %36 = getelementptr i8, ptr %.076, i64 1
   br label %33, !llvm.loop !5
 
 .critedge:                                        ; preds = %33, %33, %33
-  %37 = ptrtoint ptr %.077 to i64
-  %38 = ptrtoint ptr %.078 to i64
+  %37 = ptrtoint ptr %.076 to i64
+  %38 = ptrtoint ptr %.073 to i64
   %39 = sub i64 %37, %38
   %.not87 = icmp eq i8 %34, 61
   br i1 %.not87, label %40, label %50
 
 40:                                               ; preds = %.critedge
-  %41 = getelementptr i8, ptr %.077, i64 1
+  %41 = getelementptr i8, ptr %.076, i64 1
   br label %42
 
 42:                                               ; preds = %44, %40
-  %.075 = phi ptr [ %41, %40 ], [ %45, %44 ]
-  %43 = load i8, ptr %.075, align 1
+  %.077 = phi ptr [ %41, %40 ], [ %45, %44 ]
+  %43 = load i8, ptr %.077, align 1
   switch i8 %43, label %44 [
     i8 0, label %.critedge2
     i8 44, label %.critedge2
   ]
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %.075, i64 1
+  %45 = getelementptr i8, ptr %.077, i64 1
   br label %42, !llvm.loop !7
 
 .critedge2:                                       ; preds = %42, %42
-  %46 = ptrtoint ptr %.075 to i64
+  %46 = ptrtoint ptr %.077 to i64
   %47 = ptrtoint ptr %41 to i64
   %48 = sub i64 %46, %47
   %49 = trunc i64 %48 to i32
   br label %50
 
 50:                                               ; preds = %.critedge, %.critedge2
-  %.076 = phi ptr [ %41, %.critedge2 ], [ null, %.critedge ]
-  %.1 = phi ptr [ %.075, %.critedge2 ], [ null, %.critedge ]
-  %.074 = phi i32 [ %49, %.critedge2 ], [ 0, %.critedge ]
+  %.078 = phi ptr [ %41, %.critedge2 ], [ null, %.critedge ]
+  %.1 = phi ptr [ %.077, %.critedge2 ], [ null, %.critedge ]
+  %.075 = phi i32 [ %49, %.critedge2 ], [ 0, %.critedge ]
   %51 = and i64 %39, 4294967295
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %55
@@ -212,17 +212,17 @@ define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef 
   %57 = ashr exact i64 %sext, 32
   %58 = tail call ptr @palloc(i64 noundef %57) #9
   %59 = ashr exact i64 %56, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %.078, i64 %59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %.073, i64 %59, i1 false)
   %60 = getelementptr i8, ptr %58, i64 %59
   store i8 0, ptr %60, align 1
   br i1 %.not87, label %61, label %.thread
 
 61:                                               ; preds = %55
-  %62 = add i32 %.074, 1
+  %62 = add i32 %.075, 1
   %63 = sext i32 %62 to i64
   %64 = tail call ptr @palloc(i64 noundef %63) #9
-  %65 = sext i32 %.074 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.076, i64 %65, i1 false)
+  %65 = sext i32 %.075 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %.078, i64 %65, i1 false)
   %66 = getelementptr i8, ptr %64, i64 %65
   store i8 0, ptr %66, align 1
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(6) @.str.9) #8
@@ -389,7 +389,7 @@ expect_boolean_value.exit:                        ; preds = %.thread115, %99, %1
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %127
-  %130 = load i8, ptr %.077, align 1
+  %130 = load i8, ptr %.076, align 1
   %131 = icmp eq i8 %130, 0
   br i1 %131, label %.loopexit, label %135
 
@@ -399,7 +399,7 @@ expect_boolean_value.exit:                        ; preds = %.thread115, %99, %1
   br i1 %134, label %.loopexit, label %135
 
 135:                                              ; preds = %132, %129
-  %.v = phi ptr [ %.1, %132 ], [ %.077, %129 ]
+  %.v = phi ptr [ %.1, %132 ], [ %.076, %129 ]
   %136 = getelementptr i8, ptr %.v, i64 1
   br label %32
 

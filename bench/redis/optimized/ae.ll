@@ -834,11 +834,11 @@ if.end102:                                        ; preds = %lor.lhs.false73, %i
   br i1 %cmp4564, label %for.body, label %if.end105.loopexit, !llvm.loop !13
 
 if.end105.loopexit:                               ; preds = %if.end102
-  %indvars134 = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc i64 %indvars.iv.next to i32
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end105.loopexit, %if.end44, %if.end
-  %processed.1 = phi i32 [ 0, %if.end ], [ 0, %if.end44 ], [ %indvars134, %if.end105.loopexit ]
+  %processed.1 = phi i32 [ 0, %if.end ], [ 0, %if.end44 ], [ %indvars, %if.end105.loopexit ]
   br i1 %tobool.not.not, label %return, label %if.then108
 
 if.then108:                                       ; preds = %if.end105
@@ -853,17 +853,17 @@ if.then108:                                       ; preds = %if.end105
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %if.then108, %if.end47.i
   %processed.0.ph.ph53.i = phi i32 [ %processed.1.i, %if.end47.i ], [ 0, %if.then108 ]
-  %now.0.ph.ph52.i = phi i64 [ %now.2.i, %if.end47.i ], [ %call.i72, %if.then108 ]
-  %te.0.ph.ph51.i = phi ptr [ %71, %if.end47.i ], [ %52, %if.then108 ]
+  %te.0.ph.ph52.i = phi ptr [ %71, %if.end47.i ], [ %52, %if.then108 ]
+  %now.0.ph.ph51.i = phi i64 [ %now.2.i, %if.end47.i ], [ %call.i72, %if.then108 ]
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end24.i, %while.body.lr.ph.lr.ph.i
-  %now.0.ph47.i = phi i64 [ %now.0.ph.ph52.i, %while.body.lr.ph.lr.ph.i ], [ %now.1.i, %if.end24.i ]
-  %te.0.ph46.i = phi ptr [ %te.0.ph.ph51.i, %while.body.lr.ph.lr.ph.i ], [ %56, %if.end24.i ]
+  %te.0.ph47.i = phi ptr [ %te.0.ph.ph52.i, %while.body.lr.ph.lr.ph.i ], [ %56, %if.end24.i ]
+  %now.0.ph46.i = phi i64 [ %now.0.ph.ph51.i, %while.body.lr.ph.lr.ph.i ], [ %now.1.i, %if.end24.i ]
   br label %while.body.i73
 
 while.body.i73:                                   ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
-  %te.043.i = phi ptr [ %te.0.ph46.i, %while.body.lr.ph.i ], [ %te.0.be.i, %while.cond.backedge.i ]
+  %te.043.i = phi ptr [ %te.0.ph47.i, %while.body.lr.ph.i ], [ %te.0.be.i, %while.cond.backedge.i ]
   %55 = load i64, ptr %te.043.i, align 8
   %cmp.i74 = icmp eq i64 %55, -1
   br i1 %cmp.i74, label %if.then.i, label %if.end25.i
@@ -909,7 +909,7 @@ if.then21.i:                                      ; preds = %if.end19.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %now.1.i = phi i64 [ %call23.i, %if.then21.i ], [ %now.0.ph47.i, %if.end19.i ]
+  %now.1.i = phi i64 [ %call23.i, %if.then21.i ], [ %now.0.ph46.i, %if.end19.i ]
   tail call void @zfree(ptr noundef nonnull %te.043.i) #16
   %tobool.not42.i = icmp eq ptr %56, null
   br i1 %tobool.not42.i, label %processTimeEvents.exit, label %while.body.lr.ph.i, !llvm.loop !14
@@ -931,7 +931,7 @@ while.cond.backedge.i:                            ; preds = %if.then28.i, %if.th
 if.end30.i:                                       ; preds = %if.end25.i
   %when.i77 = getelementptr inbounds i8, ptr %te.043.i, i64 8
   %65 = load i64, ptr %when.i77, align 8
-  %cmp31.not.i = icmp ugt i64 %65, %now.0.ph47.i
+  %cmp31.not.i = icmp ugt i64 %65, %now.0.ph46.i
   br i1 %cmp31.not.i, label %if.end47.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end30.i
@@ -965,7 +965,7 @@ if.else44.i:                                      ; preds = %if.then32.i
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.else44.i, %if.then42.i, %if.end30.i
-  %now.2.i = phi i64 [ %call40.i, %if.then42.i ], [ %call40.i, %if.else44.i ], [ %now.0.ph47.i, %if.end30.i ]
+  %now.2.i = phi i64 [ %call40.i, %if.then42.i ], [ %call40.i, %if.else44.i ], [ %now.0.ph46.i, %if.end30.i ]
   %processed.1.i = phi i32 [ %inc39.i, %if.then42.i ], [ %inc39.i, %if.else44.i ], [ %processed.0.ph.ph53.i, %if.end30.i ]
   %next48.i = getelementptr inbounds i8, ptr %te.043.i, i64 48
   %71 = load ptr, ptr %next48.i, align 8

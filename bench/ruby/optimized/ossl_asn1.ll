@@ -900,8 +900,8 @@ obj_to_asn1derstr.exit:                           ; preds = %RSTRING_PTR.exit.i4
   unreachable
 
 obj_to_asn1null.exit:                             ; preds = %64, %obj_to_asn1derstr.exit, %obj_to_asn1gtime.exit, %obj_to_asn1utime.exit, %obj_to_asn1obj.exit, %obj_to_asn1str.exit, %obj_to_asn1bstr.exit, %obj_to_asn1int.exit
-  %.021 = phi ptr [ %121, %obj_to_asn1derstr.exit ], [ %116, %obj_to_asn1gtime.exit ], [ %110, %obj_to_asn1utime.exit ], [ %.011.i, %obj_to_asn1obj.exit ], [ %70, %obj_to_asn1str.exit ], [ %39, %obj_to_asn1bstr.exit ], [ %23, %obj_to_asn1int.exit ], [ %65, %64 ]
-  %.0 = phi ptr [ @ASN1_STRING_free, %obj_to_asn1derstr.exit ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit ], [ @ASN1_STRING_free, %obj_to_asn1str.exit ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit ], [ @ASN1_INTEGER_free, %obj_to_asn1int.exit ], [ @ASN1_NULL_free, %64 ]
+  %.021 = phi ptr [ @ASN1_STRING_free, %obj_to_asn1derstr.exit ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit ], [ @ASN1_STRING_free, %obj_to_asn1str.exit ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit ], [ @ASN1_INTEGER_free, %obj_to_asn1int.exit ], [ @ASN1_NULL_free, %64 ]
+  %.0 = phi ptr [ %121, %obj_to_asn1derstr.exit ], [ %116, %obj_to_asn1gtime.exit ], [ %110, %obj_to_asn1utime.exit ], [ %.011.i, %obj_to_asn1obj.exit ], [ %70, %obj_to_asn1str.exit ], [ %39, %obj_to_asn1bstr.exit ], [ %23, %obj_to_asn1int.exit ], [ %65, %64 ]
   %138 = call ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.12, i32 noundef 572) #9
   %.not = icmp eq ptr %138, null
   br i1 %.not, label %143, label %145
@@ -916,7 +916,7 @@ obj_to_asn1null.exit.thread:                      ; preds = %13
   br i1 %.not47, label %.thread, label %145
 
 143:                                              ; preds = %obj_to_asn1null.exit
-  call void %.0(ptr noundef nonnull %.021) #9
+  call void %.021(ptr noundef nonnull %.0) #9
   br label %.thread
 
 .thread:                                          ; preds = %obj_to_asn1null.exit.thread, %143
@@ -926,9 +926,9 @@ obj_to_asn1null.exit.thread:                      ; preds = %13
 
 145:                                              ; preds = %obj_to_asn1null.exit.thread, %obj_to_asn1null.exit
   %146 = phi ptr [ %142, %obj_to_asn1null.exit.thread ], [ %138, %obj_to_asn1null.exit ]
-  %.02148 = phi ptr [ %141, %obj_to_asn1null.exit.thread ], [ %.021, %obj_to_asn1null.exit ]
+  %.050 = phi ptr [ %141, %obj_to_asn1null.exit.thread ], [ %.0, %obj_to_asn1null.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
-  call void @ASN1_TYPE_set(ptr noundef nonnull %146, i32 noundef %10, ptr noundef %.02148) #9
+  call void @ASN1_TYPE_set(ptr noundef nonnull %146, i32 noundef %10, ptr noundef %.050) #9
   ret ptr %146
 }
 
@@ -976,9 +976,9 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
   br i1 %17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rb_class_of.exit, %27
-  %.011 = phi i64 [ %28, %27 ], [ %.0.i, %rb_class_of.exit ]
+  %.0711 = phi i64 [ %28, %27 ], [ %.0.i, %rb_class_of.exit ]
   %18 = load i64, ptr @class_tag_map, align 8
-  %19 = tail call i64 @rb_hash_lookup(i64 noundef %18, i64 noundef %.011) #9
+  %19 = tail call i64 @rb_hash_lookup(i64 noundef %18, i64 noundef %.0711) #9
   %.not = icmp eq i64 %19, 4
   br i1 %.not, label %27, label %20
 
@@ -1001,13 +1001,13 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph
-  %28 = tail call i64 @rb_class_superclass(i64 noundef %.011) #12
+  %28 = tail call i64 @rb_class_superclass(i64 noundef %.0711) #12
   %29 = icmp eq i64 %28, 4
   br i1 %29, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %27, %rb_class_of.exit, %rb_num2int_inline.exit
-  %.07 = phi i32 [ %26, %rb_num2int_inline.exit ], [ -1, %rb_class_of.exit ], [ -1, %27 ]
-  ret i32 %.07
+  %.0 = phi i32 [ %26, %rb_num2int_inline.exit ], [ -1, %rb_class_of.exit ], [ -1, %27 ]
+  ret i32 %.0
 }
 
 declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -1544,14 +1544,14 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RSTRING_PTR.exit, %.lr.ph
-  %.012 = phi i64 [ %24, %.lr.ph ], [ 0, %RSTRING_PTR.exit ]
-  %.01011 = phi i64 [ %25, %.lr.ph ], [ %18, %RSTRING_PTR.exit ]
+  %.012 = phi i64 [ %25, %.lr.ph ], [ %18, %RSTRING_PTR.exit ]
+  %.01011 = phi i64 [ %24, %.lr.ph ], [ 0, %RSTRING_PTR.exit ]
   store i64 0, ptr %7, align 8
-  %21 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %4, i64 noundef %.01011, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7)
+  %21 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %4, i64 noundef %.012, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7)
   %22 = call i64 @rb_ary_push(i64 noundef %19, i64 noundef %21) #9
   %23 = load i64, ptr %7, align 8
-  %24 = add nsw i64 %23, %.012
-  %25 = sub nsw i64 %.01011, %23
+  %24 = add nsw i64 %23, %.01011
+  %25 = sub nsw i64 %.012, %23
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !36
 
@@ -1561,7 +1561,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %RSTRING_PTR.exit
   %27 = phi i64 [ 0, %RSTRING_PTR.exit ], [ %.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %RSTRING_PTR.exit ], [ %24, %._crit_edge.loopexit ]
+  %.010.lcssa = phi i64 [ 0, %RSTRING_PTR.exit ], [ %24, %._crit_edge.loopexit ]
   store ptr %6, ptr %8, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #9, !srcloc !37
   %28 = load ptr, ptr %8, align 8
@@ -1570,14 +1570,14 @@ RSTRING_PTR.exit:                                 ; preds = %2, %16
   br i1 %.not.i, label %int_ossl_decode_sanity_check.exit, label %30
 
 30:                                               ; preds = %._crit_edge
-  %.not8.i = icmp eq i64 %.0.lcssa, %18
+  %.not8.i = icmp eq i64 %.010.lcssa, %18
   %.not9.i = icmp eq i64 %27, %18
   %or.cond.i = and i1 %.not8.i, %.not9.i
   br i1 %or.cond.i, label %int_ossl_decode_sanity_check.exit, label %31
 
 31:                                               ; preds = %30
   %32 = load i64, ptr @eASN1Error, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.88, i64 noundef %.0.lcssa, i64 noundef %18, i64 noundef %27) #10
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.88, i64 noundef %.010.lcssa, i64 noundef %18, i64 noundef %27) #10
   unreachable
 
 int_ossl_decode_sanity_check.exit:                ; preds = %._crit_edge, %30

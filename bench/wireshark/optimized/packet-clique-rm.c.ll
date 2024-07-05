@@ -364,17 +364,17 @@ define internal fastcc range(i32 1, 2042) i32 @dissect_depends(ptr noundef %0, p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.026 = phi i32 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02425 = phi i32 [ %21, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %.026 = phi i32 [ %21, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %.02425 = phi i32 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %13 = load i32, ptr @ett_clique_rm_depends_item, align 4
-  %14 = add nuw nsw i32 %.026, 1
-  %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %1, i32 noundef %.02425, i32 noundef 8, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef %14) #2
+  %14 = add nuw nsw i32 %.02425, 1
+  %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %1, i32 noundef %.026, i32 noundef 8, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef %14) #2
   %16 = load i32, ptr @hf_clique_rm_depend_sender, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %1, i32 noundef %.02425, i32 noundef 4, i32 noundef 0) #2
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %1, i32 noundef %.026, i32 noundef 4, i32 noundef 0) #2
   %18 = load i32, ptr @hf_clique_rm_depend_packet_id, align 4
-  %19 = add i32 %.02425, 4
+  %19 = add i32 %.026, 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef 4, i32 noundef 0) #2
-  %21 = add i32 %.02425, 8
+  %21 = add i32 %.026, 8
   %exitcond.not = icmp eq i32 %14, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

@@ -604,9 +604,9 @@ define dso_local ptr @Curl_conncache_extract_oldest(ptr noundef %0) local_unname
 
 .lr.ph59:                                         ; preds = %12, %._crit_edge
   %.02757 = phi ptr [ %35, %._crit_edge ], [ %13, %12 ]
-  %.02856 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %12 ]
+  %.02856 = phi i64 [ %.1.lcssa, %._crit_edge ], [ -1, %12 ]
   %.02955 = phi ptr [ %.130.lcssa, %._crit_edge ], [ null, %12 ]
-  %.03254 = phi i64 [ %.133.lcssa, %._crit_edge ], [ -1, %12 ]
+  %.03254 = phi ptr [ %.133.lcssa, %._crit_edge ], [ null, %12 ]
   %14 = getelementptr inbounds i8, ptr %.02757, i64 24
   %15 = load ptr, ptr %14, align 8
   %.0.in44 = getelementptr inbounds i8, ptr %15, i64 16
@@ -616,9 +616,9 @@ define dso_local ptr @Curl_conncache_extract_oldest(ptr noundef %0) local_unname
 
 .lr.ph:                                           ; preds = %.lr.ph59, %34
   %.050 = phi ptr [ %.0, %34 ], [ %.045, %.lr.ph59 ]
-  %.149 = phi ptr [ %.2, %34 ], [ %.02856, %.lr.ph59 ]
+  %.149 = phi i64 [ %.2, %34 ], [ %.02856, %.lr.ph59 ]
   %.13048 = phi ptr [ %.231, %34 ], [ %.02955, %.lr.ph59 ]
-  %.13347 = phi i64 [ %.234, %34 ], [ %.03254, %.lr.ph59 ]
+  %.13347 = phi ptr [ %.234, %34 ], [ %.03254, %.lr.ph59 ]
   %16 = load ptr, ptr %.050, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 744
   %18 = load i64, ptr %17, align 8
@@ -644,25 +644,25 @@ define dso_local ptr @Curl_conncache_extract_oldest(ptr noundef %0) local_unname
   %29 = getelementptr inbounds i8, ptr %16, i64 384
   %30 = load i32, ptr %29, align 8
   %31 = call i64 @Curl_timediff(i64 %6, i32 %7, i64 %28, i32 %30) #7
-  %32 = icmp sgt i64 %31, %.13347
+  %32 = icmp sgt i64 %31, %.149
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %26
   br label %34
 
 34:                                               ; preds = %26, %33, %23, %19, %.lr.ph
-  %.234 = phi i64 [ %.13347, %.lr.ph ], [ %.13347, %19 ], [ %.13347, %23 ], [ %31, %33 ], [ %.13347, %26 ]
+  %.234 = phi ptr [ %.13347, %.lr.ph ], [ %.13347, %19 ], [ %.13347, %23 ], [ %15, %33 ], [ %.13347, %26 ]
   %.231 = phi ptr [ %.13048, %.lr.ph ], [ %.13048, %19 ], [ %.13048, %23 ], [ %16, %33 ], [ %.13048, %26 ]
-  %.2 = phi ptr [ %.149, %.lr.ph ], [ %.149, %19 ], [ %.149, %23 ], [ %15, %33 ], [ %.149, %26 ]
+  %.2 = phi i64 [ %.149, %.lr.ph ], [ %.149, %19 ], [ %.149, %23 ], [ %31, %33 ], [ %.149, %26 ]
   %.0.in = getelementptr inbounds i8, ptr %.050, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not39 = icmp eq ptr %.0, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph59
-  %.133.lcssa = phi i64 [ %.03254, %.lr.ph59 ], [ %.234, %34 ]
+  %.133.lcssa = phi ptr [ %.03254, %.lr.ph59 ], [ %.234, %34 ]
   %.130.lcssa = phi ptr [ %.02955, %.lr.ph59 ], [ %.231, %34 ]
-  %.1.lcssa = phi ptr [ %.02856, %.lr.ph59 ], [ %.2, %34 ]
+  %.1.lcssa = phi i64 [ %.02856, %.lr.ph59 ], [ %.2, %34 ]
   %35 = call ptr @Curl_hash_next_element(ptr noundef nonnull %2) #7
   %.not36 = icmp eq ptr %35, null
   br i1 %.not36, label %._crit_edge60, label %.lr.ph59, !llvm.loop !11
@@ -672,7 +672,7 @@ define dso_local ptr @Curl_conncache_extract_oldest(ptr noundef %0) local_unname
   br i1 %.not37, label %._crit_edge60.thread, label %36
 
 36:                                               ; preds = %._crit_edge60
-  %37 = getelementptr inbounds i8, ptr %.1.lcssa, i64 16
+  %37 = getelementptr inbounds i8, ptr %.133.lcssa, i64 16
   %.012.i = load ptr, ptr %37, align 8
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %bundle_remove_conn.exit, label %.lr.ph.i
@@ -685,7 +685,7 @@ define dso_local ptr @Curl_conncache_extract_oldest(ptr noundef %0) local_unname
 
 40:                                               ; preds = %.lr.ph.i
   call void @Curl_llist_remove(ptr noundef nonnull %37, ptr noundef nonnull %.014.i, ptr noundef null) #7
-  %41 = getelementptr inbounds i8, ptr %.1.lcssa, i64 8
+  %41 = getelementptr inbounds i8, ptr %.133.lcssa, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, -1
   store i64 %43, ptr %41, align 8

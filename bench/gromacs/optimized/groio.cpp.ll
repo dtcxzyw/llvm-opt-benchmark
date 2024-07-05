@@ -1601,7 +1601,7 @@ define void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(pt
   br label %51
 
 51:                                               ; preds = %49, %41
-  %.057 = phi i32 [ %44, %41 ], [ %50, %49 ]
+  %.058 = phi i32 [ %44, %41 ], [ %50, %49 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   %52 = load ptr, ptr %21, align 8
   %.not63 = icmp eq ptr %52, null
@@ -1626,7 +1626,7 @@ define void @_Z21write_hconf_indexed_pP8_IO_FILEPKcPK7t_atomsiPKiPA3_KfSA_SA_(pt
           to label %63 unwind label %59
 
 63:                                               ; preds = %61, %53
-  %64 = srem i32 %.057, 100000
+  %64 = srem i32 %.058, 100000
   %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   %67 = add nsw i32 %27, 1

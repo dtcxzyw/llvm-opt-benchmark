@@ -354,7 +354,7 @@ define i32 @cli_hex2num(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.01215 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %13 ]
+  %.01315 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %13 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
@@ -364,15 +364,15 @@ define i32 @cli_hex2num(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = shl i32 %.01215, 4
+  %14 = shl i32 %.01315, 4
   %15 = or i32 %11, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.preheader, %6
-  %.013 = phi i32 [ -1, %6 ], [ 0, %.preheader ], [ %.01215, %.lr.ph ], [ %15, %13 ]
-  ret i32 %.013
+  %.012 = phi i32 [ -1, %6 ], [ 0, %.preheader ], [ %.01315, %.lr.ph ], [ %15, %13 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -393,7 +393,7 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %.01215.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %13 ]
+  %.01315.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %13 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
@@ -403,7 +403,7 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br i1 %12, label %cli_hex2num.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = shl i32 %.01215.i, 4
+  %14 = shl i32 %.01315.i, 4
   %15 = or i32 %11, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -460,7 +460,7 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 .lr.ph.i22:                                       ; preds = %37, %.lr.ph.preheader.i20
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %indvars.iv.next.i25, %37 ]
-  %.01215.i24 = phi i32 [ 0, %.lr.ph.preheader.i20 ], [ %39, %37 ]
+  %.01315.i24 = phi i32 [ 0, %.lr.ph.preheader.i20 ], [ %39, %37 ]
   %31 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i23
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
@@ -470,20 +470,20 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br i1 %36, label %cli_hex2num.exit27, label %37
 
 37:                                               ; preds = %.lr.ph.i22
-  %38 = shl i32 %.01215.i24, 4
+  %38 = shl i32 %.01315.i24, 4
   %39 = or i32 %35, %38
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i21
   br i1 %exitcond.not.i26, label %cli_hex2num.exit27, label %.lr.ph.i22
 
 cli_hex2num.exit27:                               ; preds = %.lr.ph.i22, %37, %.preheader.i19, %30
-  %.013.i18 = phi i32 [ -1, %30 ], [ 0, %.preheader.i19 ], [ %39, %37 ], [ %.01215.i24, %.lr.ph.i22 ]
+  %.012.i18 = phi i32 [ -1, %30 ], [ 0, %.preheader.i19 ], [ %39, %37 ], [ %.01315.i24, %.lr.ph.i22 ]
   tail call void @free(ptr noundef %19) #27
   br label %cli_hex2num.exit
 
 cli_hex2num.exit:                                 ; preds = %13, %.lr.ph.i, %.preheader.i, %cli_hex2num.exit27, %22
-  %.015 = phi i32 [ -1, %22 ], [ %.013.i18, %cli_hex2num.exit27 ], [ 0, %.preheader.i ], [ %15, %13 ], [ %.01215.i, %.lr.ph.i ]
-  ret i32 %.015
+  %.0 = phi i32 [ -1, %22 ], [ %.012.i18, %cli_hex2num.exit27 ], [ 0, %.preheader.i ], [ %15, %13 ], [ %.01315.i, %.lr.ph.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -940,8 +940,8 @@ define noundef ptr @__cli_strcasestr(ptr noundef readonly %0, ptr nocapture noun
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %18
-  %.018 = phi i64 [ %22, %18 ], [ %14, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.018
+  %.01618 = phi i64 [ %22, %18 ], [ %14, %2 ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 %.01618
   %16 = tail call i32 @strncasecmp(ptr noundef %15, ptr noundef nonnull %1, i64 noundef %5) #26
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge, label %18
@@ -949,14 +949,14 @@ define noundef ptr @__cli_strcasestr(ptr noundef readonly %0, ptr nocapture noun
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds i8, ptr %15, i64 1
   %20 = call i64 @strcspn(ptr noundef nonnull %19, ptr noundef nonnull %3) #26
-  %21 = add i64 %.018, 1
+  %21 = add i64 %.01618, 1
   %22 = add i64 %21, %20
   %.not = icmp eq i64 %22, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %18 ], [ %15, %.lr.ph ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ %15, %.lr.ph ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -1127,8 +1127,8 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %9
 
 9:                                                ; preds = %.preheader, %15
-  %.082 = phi ptr [ %16, %15 ], [ %0, %.preheader ]
-  %10 = load i8, ptr %.082, align 1
+  %.084 = phi ptr [ %16, %15 ], [ %0, %.preheader ]
+  %10 = load i8, ptr %.084, align 1
   %11 = sext i8 %10 to i64
   %12 = getelementptr inbounds i16, ptr %7, i64 %11
   %13 = load i16, ptr %12, align 2
@@ -1137,13 +1137,13 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %.082, i64 1
+  %16 = getelementptr inbounds i8, ptr %.084, i64 1
   %17 = icmp ult ptr %16, %8
   br i1 %17, label %9, label %.critedge
 
 .critedge:                                        ; preds = %9, %15
-  %.183 = phi ptr [ %16, %15 ], [ %.082, %9 ]
-  %.not100 = icmp ult ptr %.183, %8
+  %.185 = phi ptr [ %16, %15 ], [ %.084, %9 ]
+  %.not100 = icmp ult ptr %.185, %8
   br i1 %.not100, label %18, label %.thread152
 
 18:                                               ; preds = %.critedge
@@ -1151,8 +1151,8 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not105, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.183, i64 1
-  %21 = load i8, ptr %.183, align 1
+  %20 = getelementptr inbounds i8, ptr %.185, i64 1
+  %21 = load i8, ptr %.185, align 1
   %.not102 = icmp ult ptr %20, %8
   br i1 %.not102, label %27, label %.thread152
 
@@ -1161,23 +1161,23 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.183, i64 1
-  %26 = load i8, ptr %.183, align 1
+  %25 = getelementptr inbounds i8, ptr %.185, i64 1
+  %26 = load i8, ptr %.185, align 1
   %.not101 = icmp ult ptr %25, %8
   br i1 %.not101, label %27, label %.thread152
 
 27:                                               ; preds = %22, %24, %19
-  %.284 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %.183, %22 ]
-  %.076.in = phi i8 [ %21, %19 ], [ %26, %24 ], [ %10, %22 ]
-  %.076.in.fr = freeze i8 %.076.in
+  %.286 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %.185, %22 ]
+  %.078.in = phi i8 [ %21, %19 ], [ %26, %24 ], [ %10, %22 ]
+  %.078.in.fr = freeze i8 %.078.in
   %28 = and i32 %3, -17
   %or.cond = icmp eq i32 %28, 0
-  %29 = icmp eq i8 %.076.in.fr, 48
+  %29 = icmp eq i8 %.078.in.fr, 48
   %or.cond3 = and i1 %or.cond, %29
   br i1 %or.cond3, label %30, label %38
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.284, i64 1
+  %31 = getelementptr inbounds i8, ptr %.286, i64 1
   %32 = icmp ult ptr %31, %8
   br i1 %32, label %33, label %.thread
 
@@ -1189,7 +1189,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   ]
 
 35:                                               ; preds = %33, %33
-  %36 = getelementptr inbounds i8, ptr %.284, i64 2
+  %36 = getelementptr inbounds i8, ptr %.286, i64 2
   %.not103 = icmp ult ptr %36, %8
   br i1 %.not103, label %.thread127, label %.thread152
 
@@ -1207,20 +1207,20 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %.thread127
 
 .thread127:                                       ; preds = %38, %35, %.thread, %40
-  %.3120130 = phi ptr [ %.284, %40 ], [ %.284, %.thread ], [ %36, %35 ], [ %.284, %38 ]
+  %.3118130 = phi ptr [ %.286, %40 ], [ %.286, %.thread ], [ %36, %35 ], [ %.286, %38 ]
   %42 = phi i32 [ %41, %40 ], [ %3, %.thread ], [ 16, %35 ], [ %3, %38 ]
   %43 = select i1 %.not105, i64 -9223372036854775808, i64 9223372036854775807
   %44 = sext i32 %42 to i64
   %45 = urem i64 %43, %44
   %46 = trunc i64 %45 to i32
   %47 = udiv i64 %43, %44
-  %48 = icmp ult ptr %.3120130, %8
+  %48 = icmp ult ptr %.3118130, %8
   br i1 %48, label %.lr.ph, label %.thread152
 
 .lr.ph:                                           ; preds = %.thread127, %74
-  %.0135 = phi i32 [ %.1, %74 ], [ 0, %.thread127 ]
-  %.079134 = phi i64 [ %.180, %74 ], [ 0, %.thread127 ]
-  %.4133 = phi ptr [ %75, %74 ], [ %.3120130, %.thread127 ]
+  %.075135 = phi i32 [ %.176, %74 ], [ 0, %.thread127 ]
+  %.081134 = phi i64 [ %.182, %74 ], [ 0, %.thread127 ]
+  %.4133 = phi ptr [ %75, %74 ], [ %.3118130, %.thread127 ]
   %49 = load i8, ptr %.4133, align 1
   %50 = sext i8 %49 to i32
   %51 = sext i8 %49 to i64
@@ -1248,40 +1248,40 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %63
 
 63:                                               ; preds = %60, %56
-  %.278 = phi i32 [ %57, %56 ], [ %62, %60 ]
-  %.not109 = icmp slt i32 %.278, %42
+  %.280 = phi i32 [ %57, %56 ], [ %62, %60 ]
+  %.not109 = icmp slt i32 %.280, %42
   br i1 %.not109, label %64, label %._crit_edge
 
 64:                                               ; preds = %63
-  %65 = icmp slt i32 %.0135, 0
-  %66 = icmp ugt i64 %.079134, %47
+  %65 = icmp slt i32 %.075135, 0
+  %66 = icmp ugt i64 %.081134, %47
   %or.cond112 = select i1 %65, i1 true, i1 %66
   br i1 %or.cond112, label %74, label %67
 
 67:                                               ; preds = %64
-  %68 = icmp eq i64 %.079134, %47
-  %69 = icmp sgt i32 %.278, %46
+  %68 = icmp eq i64 %.081134, %47
+  %69 = icmp sgt i32 %.280, %46
   %or.cond113 = and i1 %68, %69
   br i1 %or.cond113, label %74, label %70
 
 70:                                               ; preds = %67
-  %71 = mul i64 %.079134, %44
-  %72 = sext i32 %.278 to i64
+  %71 = mul i64 %.081134, %44
+  %72 = sext i32 %.280 to i64
   %73 = add i64 %71, %72
   br label %74
 
 74:                                               ; preds = %64, %67, %70
-  %.180 = phi i64 [ %73, %70 ], [ %47, %67 ], [ %.079134, %64 ]
-  %.1 = phi i32 [ 1, %70 ], [ -1, %67 ], [ -1, %64 ]
+  %.182 = phi i64 [ %73, %70 ], [ %47, %67 ], [ %.081134, %64 ]
+  %.176 = phi i32 [ 1, %70 ], [ -1, %67 ], [ -1, %64 ]
   %75 = getelementptr inbounds i8, ptr %.4133, i64 1
   %76 = icmp ult ptr %75, %8
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %74, %58, %63
   %.4.lcssa = phi ptr [ %75, %74 ], [ %.4133, %58 ], [ %.4133, %63 ]
-  %.079.lcssa = phi i64 [ %.180, %74 ], [ %.079134, %58 ], [ %.079134, %63 ]
-  %.0.lcssa = phi i32 [ %.1, %74 ], [ %.0135, %58 ], [ %.0135, %63 ]
-  %77 = icmp slt i32 %.0.lcssa, 0
+  %.081.lcssa = phi i64 [ %.182, %74 ], [ %.081134, %58 ], [ %.081134, %63 ]
+  %.075.lcssa = phi i32 [ %.176, %74 ], [ %.075135, %58 ], [ %.075135, %63 ]
+  %77 = icmp slt i32 %.075.lcssa, 0
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %._crit_edge
@@ -1290,14 +1290,14 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %.thread152
 
 80:                                               ; preds = %._crit_edge
-  %81 = sub i64 0, %.079.lcssa
-  %spec.select = select i1 %.not105, i64 %81, i64 %.079.lcssa
-  %82 = icmp eq i32 %.0.lcssa, 0
+  %81 = sub i64 0, %.081.lcssa
+  %spec.select = select i1 %.not105, i64 %81, i64 %.081.lcssa
+  %82 = icmp eq i32 %.075.lcssa, 0
   %spec.select159 = select i1 %82, ptr %0, ptr %.4.lcssa
   br label %.thread152
 
 .thread152:                                       ; preds = %80, %.thread127, %78, %35, %24, %19, %.critedge, %4
-  %.281 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
+  %.283 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
   %.2 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.4.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select159, %80 ]
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %84, label %83
@@ -1307,7 +1307,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %84
 
 84:                                               ; preds = %83, %.thread152
-  ret i64 %.281
+  ret i64 %.283
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -1963,14 +1963,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   br label %6
 
 6:                                                ; preds = %.lr.ph, %128
-  %.04760 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.04760
+  %.04860 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.04860
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 92
   br i1 %9, label %10, label %115
 
 10:                                               ; preds = %6
-  %11 = add nuw i64 %.04760, 1
+  %11 = add nuw i64 %.04860, 1
   %12 = icmp ult i64 %11, %2
   br i1 %12, label %13, label %115
 
@@ -2008,7 +2008,7 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   br label %115
 
 22:                                               ; preds = %13
-  %23 = add i64 %.04760, 3
+  %23 = add i64 %.04860, 3
   %24 = icmp ult i64 %23, %2
   br i1 %24, label %25, label %115
 
@@ -2030,7 +2030,7 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   br label %115
 
 39:                                               ; preds = %13
-  %40 = add i64 %.04760, 5
+  %40 = add i64 %.04860, 5
   %41 = icmp ult i64 %40, %2
   br i1 %41, label %42, label %115
 
@@ -2150,7 +2150,7 @@ output_utf8.exit:                                 ; preds = %85, %88, %93, %100
   br label %115
 
 115:                                              ; preds = %22, %25, %13, %16, %17, %18, %19, %20, %21, %114, %39, %10, %6
-  %.148 = phi i64 [ %11, %114 ], [ %11, %39 ], [ %11, %21 ], [ %11, %20 ], [ %11, %19 ], [ %11, %18 ], [ %11, %17 ], [ %11, %16 ], [ %.04760, %10 ], [ %.04760, %6 ], [ %11, %13 ], [ %23, %25 ], [ %23, %22 ]
+  %.149 = phi i64 [ %11, %114 ], [ %11, %39 ], [ %11, %21 ], [ %11, %20 ], [ %11, %19 ], [ %11, %18 ], [ %11, %17 ], [ %11, %16 ], [ %.04860, %10 ], [ %.04860, %6 ], [ %11, %13 ], [ %23, %25 ], [ %23, %22 ]
   %.1 = phi i8 [ %15, %114 ], [ 92, %39 ], [ 13, %21 ], [ 12, %20 ], [ 11, %19 ], [ 10, %18 ], [ 9, %17 ], [ 8, %16 ], [ 92, %10 ], [ %8, %6 ], [ 0, %13 ], [ %38, %25 ], [ 92, %22 ]
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.1, i8 1)
   %116 = load i64, ptr %4, align 8
@@ -2185,14 +2185,14 @@ textbuffer_putc.exit:                             ; preds = %115, %124
   br label %128
 
 128:                                              ; preds = %textbuffer_putc.exit, %output_utf8.exit
-  %.2 = phi i64 [ %.148, %textbuffer_putc.exit ], [ %40, %output_utf8.exit ]
+  %.2 = phi i64 [ %.149, %textbuffer_putc.exit ], [ %40, %output_utf8.exit ]
   %129 = add i64 %.2, 1
   %130 = icmp ult i64 %129, %2
   br i1 %130, label %6, label %textbuffer_ensure_capacity.exit
 
 textbuffer_ensure_capacity.exit:                  ; preds = %128, %72, %120, %3
-  %.049 = phi i32 [ 0, %3 ], [ -1, %120 ], [ -1, %72 ], [ 0, %128 ]
-  ret i32 %.049
+  %.0 = phi i32 [ 0, %3 ], [ -1, %120 ], [ -1, %72 ], [ 0, %128 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2222,8 +2222,8 @@ define range(i32 0, 2) i32 @cli_hexnibbles(ptr nocapture noundef %0, i32 noundef
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10, %2
-  %.09 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %.lr.ph ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

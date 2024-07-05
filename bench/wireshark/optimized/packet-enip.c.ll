@@ -2266,10 +2266,10 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %42
-  %.047 = phi i32 [ %48, %42 ], [ 0, %13 ]
-  %.04246 = phi i32 [ %47, %42 ], [ %18, %13 ]
+  %.04147 = phi i32 [ %47, %42 ], [ %18, %13 ]
+  %.04246 = phi i32 [ %48, %42 ], [ 0, %13 ]
   %20 = load i32, ptr @hf_eip_security_psk_identity_size, align 4
-  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %20, ptr noundef %3, i32 noundef %.04246, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #11
+  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %20, ptr noundef %3, i32 noundef %.04147, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #11
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, 2
   %24 = icmp sgt i32 %23, %5
@@ -2280,7 +2280,7 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   br label %52
 
 27:                                               ; preds = %.lr.ph
-  %28 = add i32 %.04246, 1
+  %28 = add i32 %.04147, 1
   %29 = load i32, ptr @hf_eip_security_psk_identity, align 4
   %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %3, i32 noundef %28, i32 noundef %22, i32 noundef 0) #11
   %31 = load i32, ptr %8, align 4
@@ -2304,20 +2304,20 @@ define internal noundef i32 @dissect_eip_security_preshared_keys(ptr noundef %0,
   %45 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %44, ptr noundef %3, i32 noundef %43, i32 noundef %36, i32 noundef 0) #11
   %46 = load i32, ptr %9, align 4
   %47 = add i32 %46, %43
-  %48 = add nuw i32 %.047, 1
+  %48 = add nuw i32 %.04246, 1
   %49 = load i32, ptr %7, align 4
   %50 = icmp ult i32 %48, %49
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %42, %13
-  %.042.lcssa = phi i32 [ %18, %13 ], [ %47, %42 ]
-  %51 = sub i32 %.042.lcssa, %4
+  %.041.lcssa = phi i32 [ %18, %13 ], [ %47, %42 ]
+  %51 = sub i32 %.041.lcssa, %4
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %51) #11
   br label %52
 
 52:                                               ; preds = %._crit_edge, %40, %25, %11
-  %.041 = phi i32 [ %5, %11 ], [ %5, %25 ], [ %5, %40 ], [ %51, %._crit_edge ]
-  ret i32 %.041
+  %.0 = phi i32 [ %5, %11 ], [ %5, %25 ], [ %5, %40 ], [ %51, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2341,18 +2341,18 @@ define internal noundef i32 @dissect_eip_security_active_certs(ptr noundef %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.02529 = phi i32 [ %20, %.lr.ph ], [ 0, %11 ]
-  %.02628 = phi i32 [ %19, %.lr.ph ], [ %16, %11 ]
-  %18 = call i32 @dissect_padded_epath_len_usint(ptr noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %3, i32 noundef %.02628, i32 noundef %5) #11
-  %19 = add i32 %18, %.02628
-  %20 = add nuw i32 %.02529, 1
+  %.02529 = phi i32 [ %19, %.lr.ph ], [ %16, %11 ]
+  %.02628 = phi i32 [ %20, %.lr.ph ], [ 0, %11 ]
+  %18 = call i32 @dissect_padded_epath_len_usint(ptr noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %3, i32 noundef %.02529, i32 noundef %5) #11
+  %19 = add i32 %18, %.02529
+  %20 = add nuw i32 %.02628, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.026.lcssa = phi i32 [ %16, %11 ], [ %19, %.lr.ph ]
-  %23 = sub i32 %.026.lcssa, %4
+  %.025.lcssa = phi i32 [ %16, %11 ], [ %19, %.lr.ph ]
+  %23 = sub i32 %.025.lcssa, %4
   call void @proto_item_set_len(ptr noundef %13, i32 noundef %23) #11
   br label %24
 
@@ -2382,18 +2382,18 @@ define internal noundef i32 @dissect_eip_security_trusted_auths(ptr noundef %0, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.02529 = phi i32 [ %20, %.lr.ph ], [ 0, %11 ]
-  %.02628 = phi i32 [ %19, %.lr.ph ], [ %16, %11 ]
-  %18 = call i32 @dissect_padded_epath_len_usint(ptr noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %3, i32 noundef %.02628, i32 noundef %5) #11
-  %19 = add i32 %18, %.02628
-  %20 = add nuw i32 %.02529, 1
+  %.02529 = phi i32 [ %19, %.lr.ph ], [ %16, %11 ]
+  %.02628 = phi i32 [ %20, %.lr.ph ], [ 0, %11 ]
+  %18 = call i32 @dissect_padded_epath_len_usint(ptr noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %3, i32 noundef %.02529, i32 noundef %5) #11
+  %19 = add i32 %18, %.02529
+  %20 = add nuw i32 %.02628, 1
   %21 = load i32, ptr %7, align 4
   %22 = icmp ult i32 %20, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.026.lcssa = phi i32 [ %16, %11 ], [ %19, %.lr.ph ]
-  %23 = sub i32 %.026.lcssa, %4
+  %.025.lcssa = phi i32 [ %16, %11 ], [ %19, %.lr.ph ]
+  %23 = sub i32 %.025.lcssa, %4
   call void @proto_item_set_len(ptr noundef %13, i32 noundef %23) #11
   br label %24
 
@@ -3188,8 +3188,8 @@ enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 14
-  %narrow.i10.not = icmp eq i8 %43, 2
-  br i1 %narrow.i10.not, label %44, label %enip_io_conv_filter.exit
+  %narrow.i11.not = icmp eq i8 %43, 2
+  br i1 %narrow.i11.not, label %44, label %enip_io_conv_filter.exit
 
 44:                                               ; preds = %enip_exp_conv_valid.exit
   %45 = tail call ptr @wmem_file_scope() #11
@@ -3201,7 +3201,7 @@ enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %47, i64 108
   %51 = load i32, ptr %50, align 4
-  %.not.i12 = icmp eq i32 %51, 0
+  %.not.i13 = icmp eq i32 %51, 0
   %52 = getelementptr inbounds i8, ptr %47, i64 100
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds i8, ptr %47, i64 104
@@ -3217,7 +3217,7 @@ enip_exp_conv_valid.exit:                         ; preds = %enip_io_conv_valid.
   %64 = zext i16 %63 to i32
   %65 = getelementptr inbounds i8, ptr %47, i64 4
   %66 = load i32, ptr %65, align 4
-  br i1 %.not.i12, label %69, label %67
+  br i1 %.not.i13, label %69, label %67
 
 67:                                               ; preds = %49
   %68 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.896, i32 noundef %53, i32 noundef %55, i32 noundef %51, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %64, i32 noundef %66) #11
@@ -3732,7 +3732,7 @@ define internal fastcc void @dissect_cpf(ptr noundef %0, i32 noundef %1, ptr nou
   %.0231 = phi i32 [ %28, %.lr.ph ], [ %529, %dissect_item_sockaddr_info.exit ]
   %.0121230 = phi i32 [ %9, %.lr.ph ], [ %.2123, %dissect_item_sockaddr_info.exit ]
   %.0125229 = phi i32 [ 0, %.lr.ph ], [ %.1126, %dissect_item_sockaddr_info.exit ]
-  %.0127228 = phi i32 [ 0, %.lr.ph ], [ %.1128, %dissect_item_sockaddr_info.exit ]
+  %.0128228 = phi i32 [ 0, %.lr.ph ], [ %.1129, %dissect_item_sockaddr_info.exit ]
   %.0176227 = phi i32 [ 0, %.lr.ph ], [ %.2178, %dissect_item_sockaddr_info.exit ]
   %.0179226 = phi ptr [ null, %.lr.ph ], [ %.3182, %dissect_item_sockaddr_info.exit ]
   %.0183225 = phi ptr [ %0, %.lr.ph ], [ %.3186, %dissect_item_sockaddr_info.exit ]
@@ -3982,11 +3982,11 @@ dissect_item_connected_address.exit:              ; preds = %120, %123
   %.1200 = phi i32 [ %.1199, %157 ], [ %57, %156 ]
   %.1122197 = phi i32 [ %.1122196, %157 ], [ %.0121230, %156 ]
   %.2185195 = phi ptr [ %.2185194, %157 ], [ null, %156 ]
-  %.0124 = phi ptr [ %159, %157 ], [ null, %156 ]
+  %.0127 = phi ptr [ %159, %157 ], [ null, %156 ]
   %162 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %.1200, i32 noundef %161) #11
   %163 = call ptr @wmem_file_scope() #11
   %164 = load i32, ptr @proto_enip, align 4
-  call void @p_add_proto_data(ptr noundef %163, ptr noundef %3, i32 noundef %164, i32 noundef 0, ptr noundef %.0124) #11
+  call void @p_add_proto_data(ptr noundef %163, ptr noundef %3, i32 noundef %164, i32 noundef 0, ptr noundef %.0127) #11
   %165 = call i32 @tvb_reported_length_remaining(ptr noundef %162, i32 noundef 0) #11
   %166 = icmp slt i32 %165, 1
   br i1 %166, label %170, label %167
@@ -4007,11 +4007,11 @@ dissect_item_connected_address.exit:              ; preds = %120, %123
   br label %175
 
 175:                                              ; preds = %170, %173, %167
-  %.not142 = icmp eq ptr %.0124, null
+  %.not142 = icmp eq ptr %.0127, null
   br i1 %.not142, label %199, label %176
 
 176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %.0124, i64 24
+  %177 = getelementptr inbounds i8, ptr %.0127, i64 24
   %178 = load ptr, ptr %177, align 8
   %.not143 = icmp eq ptr %178, null
   br i1 %.not143, label %199, label %179
@@ -4045,8 +4045,8 @@ dissect_item_connected_address.exit:              ; preds = %120, %123
   %196 = getelementptr inbounds i8, ptr %.2185195, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = icmp eq i32 %197, 0
-  %..0127 = select i1 %198, i32 1, i32 %.0127228
-  %.0125. = select i1 %198, i32 %.0125229, i32 1
+  %.0128. = select i1 %198, i32 %.0128228, i32 1
+  %..0125 = select i1 %198, i32 1, i32 %.0125229
   br label %dissect_item_sockaddr_info.exit
 
 199:                                              ; preds = %190, %184, %179, %176, %175
@@ -4448,8 +4448,8 @@ display_connection_information.exit:              ; preds = %proto_item_set_gene
   br label %dissect_item_sockaddr_info.exit
 
 423:                                              ; preds = %68, %68
-  %424 = icmp ne i32 %.0127228, 1
-  %425 = icmp ne i32 %.0125229, 1
+  %424 = icmp ne i32 %.0125229, 1
+  %425 = icmp ne i32 %.0128228, 1
   %.not217 = select i1 %424, i1 %425, i1 false
   %426 = load i32, ptr @hf_enip_sinfamily, align 4
   %427 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %426, ptr noundef %2, i32 noundef %57, i32 noundef 2, i32 noundef 0) #11
@@ -4636,8 +4636,8 @@ dissect_item_sockaddr_info.exit:                  ; preds = %.sink.split.i151, %
   %.3186 = phi ptr [ %.0183225, %66 ], [ %.0183225, %525 ], [ %.0183225, %512 ], [ %.0183225, %dissect_item_sequenced_address.exit ], [ %.0183225, %408 ], [ %.0183225, %358 ], [ %.0183225, %287 ], [ %.0183225, %display_connection_information.exit ], [ %.2185195, %199 ], [ %.2185195, %195 ], [ %.0183225, %dissect_item_connected_address.exit ], [ %.0183225, %423 ], [ %.0183225, %437 ], [ %.0183225, %.sink.split.i151 ]
   %.3182 = phi ptr [ %.0179226, %66 ], [ %.0179226, %525 ], [ %.0179226, %512 ], [ %.022.i.i208, %dissect_item_sequenced_address.exit ], [ %.0179226, %408 ], [ %.0179226, %358 ], [ null, %287 ], [ %.0179226, %display_connection_information.exit ], [ %.0179226, %199 ], [ %.0179226, %195 ], [ %.2181, %dissect_item_connected_address.exit ], [ %.0179226, %423 ], [ %.0179226, %437 ], [ %.0179226, %.sink.split.i151 ]
   %.2178 = phi i32 [ %.0176227, %66 ], [ %.0176227, %525 ], [ %.0176227, %512 ], [ %.1177207, %dissect_item_sequenced_address.exit ], [ %.0176227, %408 ], [ %.0176227, %358 ], [ %.0176227, %287 ], [ %.0176227, %display_connection_information.exit ], [ %.0176227, %199 ], [ %.0176227, %195 ], [ %.0176227, %dissect_item_connected_address.exit ], [ %.0176227, %423 ], [ %.0176227, %437 ], [ %.0176227, %.sink.split.i151 ]
-  %.1128 = phi i32 [ %.0127228, %66 ], [ %.0127228, %525 ], [ %.0127228, %512 ], [ %.0127228, %dissect_item_sequenced_address.exit ], [ %.0127228, %408 ], [ %.0127228, %358 ], [ %.0127228, %287 ], [ %.0127228, %display_connection_information.exit ], [ %.0127228, %199 ], [ %..0127, %195 ], [ %.0127228, %dissect_item_connected_address.exit ], [ %.0127228, %423 ], [ %.0127228, %437 ], [ %.0127228, %.sink.split.i151 ]
-  %.1126 = phi i32 [ %.0125229, %66 ], [ %.0125229, %525 ], [ %.0125229, %512 ], [ %.0125229, %dissect_item_sequenced_address.exit ], [ %.0125229, %408 ], [ %.0125229, %358 ], [ %.0125229, %287 ], [ %.0125229, %display_connection_information.exit ], [ %.0125229, %199 ], [ %.0125., %195 ], [ %.0125229, %dissect_item_connected_address.exit ], [ %.0125229, %423 ], [ %.0125229, %437 ], [ %.0125229, %.sink.split.i151 ]
+  %.1129 = phi i32 [ %.0128228, %66 ], [ %.0128228, %525 ], [ %.0128228, %512 ], [ %.0128228, %dissect_item_sequenced_address.exit ], [ %.0128228, %408 ], [ %.0128228, %358 ], [ %.0128228, %287 ], [ %.0128228, %display_connection_information.exit ], [ %.0128228, %199 ], [ %.0128., %195 ], [ %.0128228, %dissect_item_connected_address.exit ], [ %.0128228, %423 ], [ %.0128228, %437 ], [ %.0128228, %.sink.split.i151 ]
+  %.1126 = phi i32 [ %.0125229, %66 ], [ %.0125229, %525 ], [ %.0125229, %512 ], [ %.0125229, %dissect_item_sequenced_address.exit ], [ %.0125229, %408 ], [ %.0125229, %358 ], [ %.0125229, %287 ], [ %.0125229, %display_connection_information.exit ], [ %.0125229, %199 ], [ %..0125, %195 ], [ %.0125229, %dissect_item_connected_address.exit ], [ %.0125229, %423 ], [ %.0125229, %437 ], [ %.0125229, %.sink.split.i151 ]
   %.2123 = phi i32 [ %.0121230, %66 ], [ %.0121230, %525 ], [ %.0121230, %512 ], [ %.0121230, %dissect_item_sequenced_address.exit ], [ %.0121230, %408 ], [ %.0121230, %358 ], [ %.0121230, %287 ], [ %.0121230, %display_connection_information.exit ], [ %.1122197, %199 ], [ %.1122197, %195 ], [ %.0121230, %dissect_item_connected_address.exit ], [ %.0121230, %423 ], [ %.0121230, %437 ], [ %.0121230, %.sink.split.i151 ]
   %.3 = phi i32 [ %57, %66 ], [ %57, %525 ], [ %57, %512 ], [ %57, %dissect_item_sequenced_address.exit ], [ %57, %408 ], [ %57, %358 ], [ %.2204, %287 ], [ %.2204, %display_connection_information.exit ], [ %.1200, %199 ], [ %.1200, %195 ], [ %57, %dissect_item_connected_address.exit ], [ %57, %423 ], [ %57, %437 ], [ %57, %.sink.split.i151 ]
   %528 = load i32, ptr %21, align 4
@@ -4646,9 +4646,9 @@ dissect_item_sockaddr_info.exit:                  ; preds = %.sink.split.i151, %
   br i1 %.not, label %.loopexit, label %41, !llvm.loop !15
 
 .loopexit:                                        ; preds = %dissect_item_sockaddr_info.exit, %45
-  %.0127223 = phi i32 [ %.0127228, %45 ], [ %.1128, %dissect_item_sockaddr_info.exit ]
+  %.0128223 = phi i32 [ %.0128228, %45 ], [ %.1129, %dissect_item_sockaddr_info.exit ]
   %.0125221 = phi i32 [ %.0125229, %45 ], [ %.1126, %dissect_item_sockaddr_info.exit ]
-  %530 = icmp eq i32 %.0125221, 1
+  %530 = icmp eq i32 %.0128223, 1
   br i1 %530, label %531, label %603
 
 531:                                              ; preds = %.loopexit
@@ -4767,7 +4767,7 @@ dissect_item_sockaddr_info.exit:                  ; preds = %.sink.split.i151, %
   br label %.thread239.sink.split
 
 603:                                              ; preds = %.loopexit
-  %604 = icmp eq i32 %.0127223, 1
+  %604 = icmp eq i32 %.0125221, 1
   br i1 %604, label %.thread239.sink.split, label %.thread239
 
 .thread239.sink.split:                            ; preds = %603, %531, %535, %548, %600

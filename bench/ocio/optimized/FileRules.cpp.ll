@@ -7523,20 +7523,20 @@ ehcleanup74:                                      ; preds = %ehcleanup, %cleanup
 
 ehcleanup75:                                      ; preds = %ehcleanup74, %lpad45
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup74 ], [ %55, %lpad45 ]
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup77 unwind label %terminate.lpad
 
 ehcleanup77:                                      ; preds = %ehcleanup75, %lpad42.body
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup75 ], [ %49, %lpad42.body ]
   %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup75 ], [ %50, %lpad42.body ]
+  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup75 ], [ %49, %lpad42.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %ehcleanup77, %lpad32, %lpad20, %lpad11, %lpad1, %lpad
-  %exn.slot.4 = phi ptr [ %exn.slot.3, %ehcleanup77 ], [ %1, %lpad ], [ %20, %lpad32 ], [ %14, %lpad20 ], [ %10, %lpad11 ], [ %4, %lpad1 ]
   %ehselector.slot.4 = phi i32 [ %ehselector.slot.3, %ehcleanup77 ], [ %2, %lpad ], [ %21, %lpad32 ], [ %15, %lpad20 ], [ %11, %lpad11 ], [ %5, %lpad1 ]
+  %exn.slot.4 = phi ptr [ %exn.slot.3, %ehcleanup77 ], [ %1, %lpad ], [ %20, %lpad32 ], [ %14, %lpad20 ], [ %10, %lpad11 ], [ %4, %lpad1 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #24
   %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.4, 0
   %lpad.val81 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.4, 1

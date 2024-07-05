@@ -342,8 +342,8 @@ Gia_Iso3Init.exit:                                ; preds = %.lr.ph.i, %Gia_Iso3
   br label %35
 
 35:                                               ; preds = %Gia_Iso3Init.exit, %Vec_IntFreeP.exit
-  %.047 = phi i32 [ -1, %Gia_Iso3Init.exit ], [ %.0.lcssa.i, %Vec_IntFreeP.exit ]
-  %.01146 = phi i32 [ 0, %Gia_Iso3Init.exit ], [ %146, %Vec_IntFreeP.exit ]
+  %.047 = phi i32 [ 0, %Gia_Iso3Init.exit ], [ %146, %Vec_IntFreeP.exit ]
+  %.01146 = phi i32 [ -1, %Gia_Iso3Init.exit ], [ %.0.lcssa.i, %Vec_IntFreeP.exit ]
   %.val9.i = load i32, ptr %11, align 8
   %36 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %37 = add i32 %.val9.i, -1
@@ -530,15 +530,15 @@ Vec_IntUniqueHashKey.exit.i:                      ; preds = %91
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i32, ptr %.val47.i, i64 %117
   %bcmp.i6.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %90, ptr noundef nonnull readonly dereferenceable(4) %118, i64 4)
-  %.not15.i7.i = icmp eq i32 %bcmp.i6.i, 0
-  br i1 %.not15.i7.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22
+  %.not14.i7.i = icmp eq i32 %bcmp.i6.i, 0
+  br i1 %.not14.i7.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i22
   %119 = sext i32 %123 to i64
   %120 = getelementptr inbounds i32, ptr %.val47.i, i64 %119
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %90, ptr noundef nonnull readonly dereferenceable(4) %120, i64 4)
-  %.not15.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not15.i.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22, !llvm.loop !11
+  %.not14.i.i = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not14.i.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i22, !llvm.loop !11
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i49.preheader.i, %.lr.ph.i49.i
   %121 = phi i64 [ %119, %.lr.ph.i49.i ], [ %117, %.lr.ph.i49.preheader.i ]
@@ -552,9 +552,9 @@ Vec_IntUniqueLookup.exit.thread.i.loopexit:       ; preds = %.lr.ph.i22
   br label %Vec_IntUniqueLookup.exit.thread.i
 
 Vec_IntUniqueLookup.exit.thread.i:                ; preds = %Vec_IntUniqueLookup.exit.thread.i.loopexit, %Vec_IntUniqueHashKey.exit.i
-  %.0.lcssa.i2.i = phi ptr [ %115, %Vec_IntUniqueHashKey.exit.i ], [ %124, %Vec_IntUniqueLookup.exit.thread.i.loopexit ]
+  %.013.lcssa.i2.i = phi ptr [ %115, %Vec_IntUniqueHashKey.exit.i ], [ %124, %Vec_IntUniqueLookup.exit.thread.i.loopexit ]
   %125 = trunc nuw nsw i64 %indvars.iv.i21 to i32
-  store i32 %125, ptr %.0.lcssa.i2.i, align 4
+  store i32 %125, ptr %.013.lcssa.i2.i, align 4
   %126 = add nsw i32 %.09.i, 1
   br label %Vec_IntUniqueLookup.exit.i
 
@@ -582,7 +582,7 @@ Vec_IntUniqueLookup.exit.i:                       ; preds = %.lr.ph.i49.i, %Vec_
   br label %Vec_IntUniqueCount.exit
 
 Vec_IntUniqueCount.exit:                          ; preds = %128, %129
-  %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.01146, i32 noundef %.0.lcssa.i, i32 noundef %.val.i1857)
+  %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.047, i32 noundef %.0.lcssa.i, i32 noundef %.val.i1857)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %131 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
   %132 = icmp slt i32 %131, 0
@@ -604,7 +604,7 @@ Abc_Clock.exit25:                                 ; preds = %Vec_IntUniqueCount.
   %140 = sitofp i64 %139 to double
   %141 = fdiv double %140, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %141)
-  %142 = icmp eq i32 %.0.lcssa.i, %.047
+  %142 = icmp eq i32 %.0.lcssa.i, %.01146
   br i1 %142, label %147, label %143
 
 143:                                              ; preds = %Abc_Clock.exit25
@@ -619,7 +619,7 @@ Abc_Clock.exit25:                                 ; preds = %Vec_IntUniqueCount.
 
 Vec_IntFreeP.exit:                                ; preds = %143, %145
   call void @free(ptr noundef nonnull %36) #18
-  %146 = add nuw nsw i32 %.01146, 1
+  %146 = add nuw nsw i32 %.047, 1
   %exitcond.not = icmp eq i32 %146, 500
   br i1 %exitcond.not, label %Vec_IntFreeP.exit31, label %35, !llvm.loop !13
 
@@ -1060,16 +1060,16 @@ define void @Gia_IsoCompareVecs(ptr noundef %0, ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %12, %41
   %.07.i = phi i32 [ %.1.i, %41 ], [ 0, %12 ]
-  %.0196.i = phi ptr [ %.120.i, %41 ], [ %.val29, %12 ]
-  %.0215.i = phi ptr [ %.122.i, %41 ], [ %.val27, %12 ]
-  %28 = load i32, ptr %.0215.i, align 4
-  %29 = load i32, ptr %.0196.i, align 4
+  %.0196.i = phi ptr [ %.120.i, %41 ], [ %.val27, %12 ]
+  %.0215.i = phi ptr [ %.122.i, %41 ], [ %.val29, %12 ]
+  %28 = load i32, ptr %.0196.i, align 4
+  %29 = load i32, ptr %.0215.i, align 4
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %.0215.i, i64 4
-  %33 = getelementptr inbounds i8, ptr %.0196.i, i64 4
+  %32 = getelementptr inbounds i8, ptr %.0196.i, i64 4
+  %33 = getelementptr inbounds i8, ptr %.0215.i, i64 4
   %34 = add nsw i32 %.07.i, 1
   br label %41
 
@@ -1078,19 +1078,19 @@ define void @Gia_IsoCompareVecs(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.0215.i, i64 4
+  %38 = getelementptr inbounds i8, ptr %.0196.i, i64 4
   br label %41
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0196.i, i64 4
+  %40 = getelementptr inbounds i8, ptr %.0215.i, i64 4
   br label %41
 
 41:                                               ; preds = %39, %37, %31
-  %.122.i = phi ptr [ %32, %31 ], [ %38, %37 ], [ %.0215.i, %39 ]
-  %.120.i = phi ptr [ %33, %31 ], [ %.0196.i, %37 ], [ %40, %39 ]
+  %.122.i = phi ptr [ %33, %31 ], [ %.0215.i, %37 ], [ %40, %39 ]
+  %.120.i = phi ptr [ %32, %31 ], [ %38, %37 ], [ %.0196.i, %39 ]
   %.1.i = phi i32 [ %34, %31 ], [ %.07.i, %37 ], [ %.07.i, %39 ]
-  %42 = icmp ult ptr %.122.i, %23
-  %43 = icmp ult ptr %.120.i, %24
+  %42 = icmp ult ptr %.120.i, %23
+  %43 = icmp ult ptr %.122.i, %24
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph.i, label %Vec_IntTwoCountCommon.exit, !llvm.loop !21
 

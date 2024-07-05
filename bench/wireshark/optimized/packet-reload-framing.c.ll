@@ -202,7 +202,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br label %15
 
 15:                                               ; preds = %12, %10
-  %.0226 = phi ptr [ %14, %12 ], [ null, %10 ]
+  %.0224 = phi ptr [ %14, %12 ], [ null, %10 ]
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %17 = zext i8 %16 to i32
   switch i8 %16, label %317 [
@@ -225,7 +225,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br i1 %24, label %317, label %26
 
 25:                                               ; preds = %15
-  %.not239 = icmp eq ptr %.0226, null
+  %.not239 = icmp eq ptr %.0224, null
   br i1 %.not239, label %317, label %26
 
 26:                                               ; preds = %25, %22
@@ -311,8 +311,8 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br label %76
 
 76:                                               ; preds = %63, %37
-  %.0228 = phi ptr [ %11, %37 ], [ %75, %63 ]
-  %.not243 = icmp eq ptr %.0226, null
+  %.0223 = phi ptr [ %11, %37 ], [ %75, %63 ]
+  %.not243 = icmp eq ptr %.0224, null
   br i1 %.not243, label %77, label %83
 
 77:                                               ; preds = %76
@@ -322,18 +322,18 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %81 = call noalias ptr @wmem_tree_new(ptr noundef %80) #4
   store ptr %81, ptr %79, align 8
   %82 = load i32, ptr @proto_reload_framing, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %.0228, i32 noundef %82, ptr noundef nonnull %79) #4
+  call void @conversation_add_proto_data(ptr noundef nonnull %.0223, i32 noundef %82, ptr noundef nonnull %79) #4
   br label %83
 
 83:                                               ; preds = %77, %76
-  %.1227 = phi ptr [ %.0226, %76 ], [ %79, %77 ]
+  %.1225 = phi ptr [ %.0224, %76 ], [ %79, %77 ]
   %84 = getelementptr inbounds i8, ptr %1, i64 80
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 50
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, 8
   %.not244 = icmp eq i16 %88, 0
-  %89 = load ptr, ptr %.1227, align 8
+  %89 = load ptr, ptr %.1225, align 8
   %90 = call ptr @wmem_tree_lookup32_array(ptr noundef %89, ptr noundef nonnull %5) #4
   br i1 %.not244, label %91, label %115
 
@@ -352,29 +352,29 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %97 = getelementptr inbounds i8, ptr %95, i64 8
   %98 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false)
-  %99 = load ptr, ptr %.1227, align 8
+  %99 = load ptr, ptr %.1225, align 8
   call void @wmem_tree_insert32_array(ptr noundef %99, ptr noundef nonnull %5, ptr noundef nonnull %95) #4
   br label %100
 
 100:                                              ; preds = %93, %91
-  %.0223 = phi ptr [ %95, %93 ], [ %90, %91 ]
+  %.0226 = phi ptr [ %95, %93 ], [ %90, %91 ]
   store ptr %53, ptr %61, align 8
   store i32 %62, ptr %60, align 16
   br i1 %43, label %101, label %107
 
 101:                                              ; preds = %100
-  %102 = load i32, ptr %.0223, align 8
+  %102 = load i32, ptr %.0226, align 8
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4
-  store i32 %106, ptr %.0223, align 8
+  store i32 %106, ptr %.0226, align 8
   br label %.thread
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %.0223, i64 4
+  %108 = getelementptr inbounds i8, ptr %.0226, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %.thread
@@ -414,7 +414,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br label %125
 
 125:                                              ; preds = %.thread, %116, %115
-  %.2225 = phi ptr [ %90, %115 ], [ %119, %116 ], [ %.0223, %.thread ]
+  %.2228 = phi ptr [ %90, %115 ], [ %119, %116 ], [ %.0226, %.thread ]
   %126 = load i32, ptr @proto_reload_framing, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %128 = load i32, ptr @ett_reload_framing, align 4
@@ -427,7 +427,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br i1 %43, label %133, label %159
 
 133:                                              ; preds = %125
-  %134 = load i32, ptr %.2225, align 8
+  %134 = load i32, ptr %.2228, align 8
   %135 = getelementptr inbounds i8, ptr %1, i64 20
   %136 = load i32, ptr %135, align 4
   %.not249 = icmp eq i32 %134, %136
@@ -453,7 +453,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %143, %140, %137, %133
-  %147 = getelementptr inbounds i8, ptr %.2225, i64 4
+  %147 = getelementptr inbounds i8, ptr %.2228, i64 4
   %148 = load i32, ptr %147, align 4
   %.not250 = icmp eq i32 %148, 0
   br i1 %.not250, label %196, label %149
@@ -478,7 +478,7 @@ proto_item_set_generated.exit:                    ; preds = %143, %140, %137, %1
   br label %196
 
 159:                                              ; preds = %125
-  %160 = getelementptr inbounds i8, ptr %.2225, i64 4
+  %160 = getelementptr inbounds i8, ptr %.2228, i64 4
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds i8, ptr %1, i64 20
   %163 = load i32, ptr %162, align 4
@@ -505,7 +505,7 @@ proto_item_set_generated.exit:                    ; preds = %143, %140, %137, %1
   br label %proto_item_set_generated.exit267
 
 proto_item_set_generated.exit267:                 ; preds = %170, %167, %164, %159
-  %174 = load i32, ptr %.2225, align 8
+  %174 = load i32, ptr %.2228, align 8
   %.not248 = icmp eq i32 %174, 0
   br i1 %.not248, label %218, label %175
 
@@ -530,7 +530,7 @@ proto_item_set_generated.exit267:                 ; preds = %170, %167, %164, %1
 
 proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
   %185 = getelementptr inbounds i8, ptr %1, i64 24
-  %186 = getelementptr inbounds i8, ptr %.2225, i64 8
+  %186 = getelementptr inbounds i8, ptr %.2228, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %185, ptr noundef nonnull %186) #4
   %187 = load i32, ptr @hf_reload_framing_time, align 4
   %188 = call ptr @proto_tree_add_time(ptr noundef %129, i32 noundef %187, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #4

@@ -338,21 +338,21 @@ iov_copy.exit:                                    ; preds = %land.rhs.i, %for.en
 
 for.cond.preheader:                               ; preds = %iov_copy.exit, %if.end103
   %iov.0116 = phi ptr [ %call, %iov_copy.exit ], [ %add.ptr, %if.end103 ]
-  %total.0115 = phi i64 [ 0, %iov_copy.exit ], [ %add105, %if.end103 ]
-  %iov_cnt.addr.0114 = phi i32 [ %iov_cnt, %iov_copy.exit ], [ %sub15, %if.end103 ]
-  %bytes.addr.0111 = phi i64 [ %bytes, %iov_copy.exit ], [ %sub106, %if.end103 ]
-  %offset.addr.0110 = phi i64 [ 0, %iov_copy.exit ], [ %add104, %if.end103 ]
-  %cmp4103.not = icmp eq i32 %iov_cnt.addr.0114, 0
+  %iov_cnt.addr.0115 = phi i32 [ %iov_cnt, %iov_copy.exit ], [ %sub15, %if.end103 ]
+  %total.0114 = phi i64 [ 0, %iov_copy.exit ], [ %add105, %if.end103 ]
+  %offset.addr.0113 = phi i64 [ 0, %iov_copy.exit ], [ %add104, %if.end103 ]
+  %bytes.addr.0110 = phi i64 [ %bytes, %iov_copy.exit ], [ %sub106, %if.end103 ]
+  %cmp4103.not = icmp eq i32 %iov_cnt.addr.0115, 0
   br i1 %cmp4103.not, label %if.else, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = zext i32 %iov_cnt.addr.0114 to i64
+  %wide.trip.count = zext i32 %iov_cnt.addr.0115 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body
-  %indvars.iv134 = phi i32 [ %iov_cnt.addr.0114, %land.rhs.preheader ], [ %indvars.iv.next135, %for.body ]
+  %indvars.iv134 = phi i32 [ %iov_cnt.addr.0115, %land.rhs.preheader ], [ %indvars.iv.next135, %for.body ]
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.body ]
-  %offset.addr.1104 = phi i64 [ %offset.addr.0110, %land.rhs.preheader ], [ %sub, %for.body ]
+  %offset.addr.1104 = phi i64 [ %offset.addr.0113, %land.rhs.preheader ], [ %sub, %for.body ]
   %iov_len = getelementptr %struct.iovec, ptr %iov.0116, i64 %indvars.iv, i32 1
   %3 = load i64, ptr %iov_len, align 8
   %cmp6.not = icmp ult i64 %offset.addr.1104, %3
@@ -372,7 +372,7 @@ if.else:                                          ; preds = %for.cond.preheader,
 if.end14:                                         ; preds = %land.rhs
   %4 = trunc nuw i64 %indvars.iv to i32
   %add.ptr = getelementptr %struct.iovec, ptr %iov.0116, i64 %indvars.iv
-  %sub15 = sub i32 %iov_cnt.addr.0114, %4
+  %sub15 = sub i32 %iov_cnt.addr.0115, %4
   %tobool.not = icmp eq i64 %offset.addr.1104, 0
   br i1 %tobool.not, label %if.end22, label %if.then16
 
@@ -395,7 +395,7 @@ land.rhs26.preheader:                             ; preds = %if.end22
 
 land.rhs26:                                       ; preds = %land.rhs26.preheader, %for.body33
   %indvars.iv131 = phi i64 [ 0, %land.rhs26.preheader ], [ %indvars.iv.next132, %for.body33 ]
-  %tail.0107 = phi i64 [ %bytes.addr.0111, %land.rhs26.preheader ], [ %sub37, %for.body33 ]
+  %tail.0107 = phi i64 [ %bytes.addr.0110, %land.rhs26.preheader ], [ %sub37, %for.body33 ]
   %iov_len29 = getelementptr %struct.iovec, ptr %add.ptr, i64 %indvars.iv131, i32 1
   %6 = load i64, ptr %iov_len29, align 8
   %cmp30.not = icmp ugt i64 %6, %tail.0107
@@ -538,9 +538,9 @@ if.end89:                                         ; preds = %if.then83
   call void @g_free(ptr noundef %call) #19
   %16 = load i32, ptr %call84, align 4
   %cmp91 = icmp eq i32 %16, 11
-  %cmp93 = icmp sgt i64 %total.0115, 0
+  %cmp93 = icmp sgt i64 %total.0114, 0
   %or.cond = select i1 %cmp91, i1 %cmp93, i1 false
-  %total.0. = select i1 %or.cond, i64 %total.0115, i64 -1
+  %total.0. = select i1 %or.cond, i64 %total.0114, i64 -1
   br label %return
 
 if.end97:                                         ; preds = %if.end80
@@ -550,13 +550,13 @@ if.end97:                                         ; preds = %if.end80
 
 if.end103:                                        ; preds = %if.end97
   %add104 = add i64 %ret.0, %offset.addr.1104
-  %add105 = add i64 %ret.0, %total.0115
-  %sub106 = sub i64 %bytes.addr.0111, %ret.0
+  %add105 = add i64 %ret.0, %total.0114
+  %sub106 = sub i64 %bytes.addr.0110, %ret.0
   %cmp2.not = icmp eq i64 %sub106, 0
   br i1 %cmp2.not, label %while.end, label %for.cond.preheader, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end97, %if.end103
-  %total.0.lcssa = phi i64 [ %total.0115, %if.end97 ], [ %add105, %if.end103 ]
+  %total.0.lcssa = phi i64 [ %total.0114, %if.end97 ], [ %add105, %if.end103 ]
   call void @g_free(ptr noundef %call) #19
   br label %return
 

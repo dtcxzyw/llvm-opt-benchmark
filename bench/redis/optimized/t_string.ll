@@ -2807,9 +2807,9 @@ cond.end18:                                       ; preds = %cond.false16, %cond
 for.body:                                         ; preds = %cond.end18, %for.inc
   %9 = phi i32 [ %16, %for.inc ], [ %8, %cond.end18 ]
   %j.0289 = phi i32 [ %inc58, %for.inc ], [ 3, %cond.end18 ]
-  %withmatchlen.0288 = phi i32 [ %withmatchlen.1, %for.inc ], [ 0, %cond.end18 ]
+  %getlen.0288 = phi i32 [ %getlen.1, %for.inc ], [ 0, %cond.end18 ]
   %getidx.0287 = phi i32 [ %getidx.1, %for.inc ], [ 0, %cond.end18 ]
-  %getlen.0286 = phi i32 [ %getlen.1, %for.inc ], [ 0, %cond.end18 ]
+  %withmatchlen.0286 = phi i32 [ %withmatchlen.1, %for.inc ], [ 0, %cond.end18 ]
   %10 = load ptr, ptr %argv, align 8
   %idxprom = zext i32 %j.0289 to i64
   %arrayidx23 = getelementptr inbounds ptr, ptr %10, i64 %idxprom
@@ -2861,9 +2861,9 @@ if.else53:                                        ; preds = %if.else37
   br label %cleanup
 
 for.inc:                                          ; preds = %if.end49, %if.then51, %if.else33, %if.else, %for.body
-  %getlen.1 = phi i32 [ %getlen.0286, %for.body ], [ 1, %if.else ], [ %getlen.0286, %if.else33 ], [ %getlen.0286, %if.then51 ], [ %getlen.0286, %if.end49 ]
+  %withmatchlen.1 = phi i32 [ %withmatchlen.0286, %for.body ], [ %withmatchlen.0286, %if.else ], [ 1, %if.else33 ], [ %withmatchlen.0286, %if.then51 ], [ %withmatchlen.0286, %if.end49 ]
   %getidx.1 = phi i32 [ 1, %for.body ], [ %getidx.0287, %if.else ], [ %getidx.0287, %if.else33 ], [ %getidx.0287, %if.then51 ], [ %getidx.0287, %if.end49 ]
-  %withmatchlen.1 = phi i32 [ %withmatchlen.0288, %for.body ], [ %withmatchlen.0288, %if.else ], [ 1, %if.else33 ], [ %withmatchlen.0288, %if.then51 ], [ %withmatchlen.0288, %if.end49 ]
+  %getlen.1 = phi i32 [ %getlen.0288, %for.body ], [ 1, %if.else ], [ %getlen.0288, %if.else33 ], [ %getlen.0288, %if.then51 ], [ %getlen.0288, %if.end49 ]
   %j.1 = phi i32 [ %j.0289, %for.body ], [ %j.0289, %if.else ], [ %j.0289, %if.else33 ], [ %.neg, %if.then51 ], [ %.neg, %if.end49 ]
   %inc58 = add i32 %j.1, 1
   %16 = load i32, ptr %argc, align 8

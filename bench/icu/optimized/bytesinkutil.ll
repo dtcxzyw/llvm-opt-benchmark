@@ -501,9 +501,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp70, label %for.body, label %for.end84
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end80
-  %i.072 = phi i32 [ %i.1.lcssa78, %if.end80 ], [ 0, %for.cond.preheader ]
-  %s8Length.071 = phi i32 [ %add83, %if.end80 ], [ 0, %for.cond.preheader ]
-  %sub = sub nsw i32 %s16Length, %i.072
+  %s8Length.072 = phi i32 [ %add83, %if.end80 ], [ 0, %for.cond.preheader ]
+  %i.071 = phi i32 [ %i.1.lcssa78, %if.end80 ], [ 0, %for.cond.preheader ]
+  %sub = sub nsw i32 %s16Length, %i.071
   %cmp1 = icmp slt i32 %sub, 715827882
   %mul = mul nsw i32 %sub, 3
   %cmp3 = icmp slt i32 %sub, 1073741823
@@ -523,7 +523,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 do.body:                                          ; preds = %for.body, %do.end76
   %j.068 = phi i32 [ %j.3, %do.end76 ], [ 0, %for.body ]
-  %i.167 = phi i32 [ %i.248, %do.end76 ], [ %i.072, %for.body ]
+  %i.167 = phi i32 [ %i.248, %do.end76 ], [ %i.071, %for.body ]
   %inc = add nsw i32 %i.167, 1
   %idxprom = sext i32 %i.167 to i64
   %arrayidx = getelementptr inbounds i16, ptr %s16, i64 %idxprom
@@ -631,7 +631,7 @@ do.end76:                                         ; preds = %if.then25, %if.end6
   br i1 %15, label %do.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %do.end76
-  %sub77 = sub nsw i32 2147483647, %s8Length.071
+  %sub77 = sub nsw i32 2147483647, %s8Length.072
   %cmp78 = icmp sgt i32 %j.3, %sub77
   br i1 %cmp78, label %if.then79, label %if.end80
 
@@ -641,12 +641,12 @@ if.then79:                                        ; preds = %for.end
 
 if.end80:                                         ; preds = %for.body, %for.end
   %j.0.lcssa79 = phi i32 [ %j.3, %for.end ], [ 0, %for.body ]
-  %i.1.lcssa78 = phi i32 [ %i.248, %for.end ], [ %i.072, %for.body ]
+  %i.1.lcssa78 = phi i32 [ %i.248, %for.end ], [ %i.071, %for.body ]
   %vtable81 = load ptr, ptr %sink, align 8
   %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 16
   %16 = load ptr, ptr %vfn82, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %call9, i32 noundef %j.0.lcssa79)
-  %add83 = add nsw i32 %j.0.lcssa79, %s8Length.071
+  %add83 = add nsw i32 %j.0.lcssa79, %s8Length.072
   %cmp = icmp slt i32 %i.1.lcssa78, %s16Length
   br i1 %cmp, label %for.body, label %for.end84, !llvm.loop !6
 

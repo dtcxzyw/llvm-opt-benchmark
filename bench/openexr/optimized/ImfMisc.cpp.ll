@@ -509,13 +509,13 @@ for.cond22.preheader:                             ; preds = %for.cond22.preheade
 
 for.body24:                                       ; preds = %for.cond22.preheader, %for.body24
   %indvars.iv = phi i64 [ %22, %for.cond22.preheader ], [ %indvars.iv.next, %for.body24 ]
-  %nBytes.046 = phi i64 [ 0, %for.cond22.preheader ], [ %add, %for.body24 ]
+  %nBytes.047 = phi i64 [ 0, %for.cond22.preheader ], [ %add, %for.body24 ]
   %mul4.i = mul nsw i64 %indvars.iv, %conv3.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul4.i
   %28 = load i32, ptr %add.ptr5.i, align 4
   %conv26 = sext i32 %28 to i64
   %mul = mul nsw i64 %switch.load, %conv26
-  %add = add i64 %mul, %nBytes.046
+  %add = add i64 %mul, %nBytes.047
   %indvars.iv.next = add nsw i64 %indvars.iv, %smax58
   %cmp23.not = icmp sgt i64 %indvars.iv.next, %24
   br i1 %cmp23.not, label %for.cond22.for.end_crit_edge, label %for.body24, !llvm.loop !8
@@ -1881,11 +1881,11 @@ if.then72:                                        ; preds = %for.body61
   br i1 %cmp811184, label %for.body82, label %for.inc88
 
 for.body82:                                       ; preds = %if.then72, %for.body82
-  %i79.01186 = phi i32 [ %inc85, %for.body82 ], [ 0, %if.then72 ]
-  %writePtr62.01185 = phi ptr [ %add.ptr83, %for.body82 ], [ %27, %if.then72 ]
-  store float %conv57, ptr %writePtr62.01185, align 4
-  %add.ptr83 = getelementptr inbounds i8, ptr %writePtr62.01185, i64 %sampleStride
-  %inc85 = add nuw nsw i32 %i79.01186, 1
+  %writePtr62.01186 = phi ptr [ %add.ptr83, %for.body82 ], [ %27, %if.then72 ]
+  %i79.01185 = phi i32 [ %inc85, %for.body82 ], [ 0, %if.then72 ]
+  store float %conv57, ptr %writePtr62.01186, align 4
+  %add.ptr83 = getelementptr inbounds i8, ptr %writePtr62.01186, i64 %sampleStride
+  %inc85 = add nuw nsw i32 %i79.01185, 1
   %exitcond1361.not = icmp eq i32 %inc85, %29
   br i1 %exitcond1361.not, label %for.inc88, label %for.body82, !llvm.loop !41
 
@@ -2014,8 +2014,8 @@ for.cond117.preheader:                            ; preds = %for.body98
   br i1 %cmp1181179, label %for.body119, label %for.inc128
 
 for.body119:                                      ; preds = %for.cond117.preheader, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit
-  %i116.01181 = phi i32 [ %inc122, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit ], [ 0, %for.cond117.preheader ]
-  %writePtr99.01180 = phi ptr [ %add.ptr120, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit ], [ %44, %for.cond117.preheader ]
+  %writePtr99.01181 = phi ptr [ %add.ptr120, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit ], [ %44, %for.cond117.preheader ]
+  %i116.01180 = phi i32 [ %inc122, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit ], [ 0, %for.cond117.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %in.promoted.i = load ptr, ptr %readPtr, align 8
   br label %while.body.i.i.i
@@ -2035,10 +2035,10 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rj.exit: ; preds = %while.body.i.i.i
   %48 = load i32, ptr %b.i, align 4
-  store i32 %48, ptr %writePtr99.01180, align 4
+  store i32 %48, ptr %writePtr99.01181, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
-  %add.ptr120 = getelementptr inbounds i8, ptr %writePtr99.01180, i64 %sampleStride
-  %inc122 = add nuw nsw i32 %i116.01181, 1
+  %add.ptr120 = getelementptr inbounds i8, ptr %writePtr99.01181, i64 %sampleStride
+  %inc122 = add nuw nsw i32 %i116.01180, 1
   %exitcond1353.not = icmp eq i32 %inc122, %46
   br i1 %exitcond1353.not, label %for.inc128, label %for.body119, !llvm.loop !43
 
@@ -2119,8 +2119,8 @@ for.cond154.preheader:                            ; preds = %for.body135
   br i1 %cmp1551174, label %for.body156, label %for.inc166
 
 for.body156:                                      ; preds = %for.cond154.preheader, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit
-  %i153.01176 = phi i32 [ %inc160, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit ], [ 0, %for.cond154.preheader ]
-  %writePtr136.01175 = phi ptr [ %add.ptr158, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit ], [ %52, %for.cond154.preheader ]
+  %writePtr136.01176 = phi ptr [ %add.ptr158, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit ], [ %52, %for.cond154.preheader ]
+  %i153.01175 = phi i32 [ %inc160, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit ], [ 0, %for.cond154.preheader ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %b.i571)
   %in.promoted.i572 = load ptr, ptr %readPtr, align 8
   br label %while.body.i.i.i573
@@ -2142,9 +2142,9 @@ _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_RN9Imath_3_24halfE.exit: ; preds = 
   %56 = load i16, ptr %b.i571, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i571)
   %call157 = tail call noundef i32 @_ZN7Imf_3_210halfToUintEN9Imath_3_24halfE(i16 %56)
-  store i32 %call157, ptr %writePtr136.01175, align 4
-  %add.ptr158 = getelementptr inbounds i8, ptr %writePtr136.01175, i64 %sampleStride
-  %inc160 = add nuw nsw i32 %i153.01176, 1
+  store i32 %call157, ptr %writePtr136.01176, align 4
+  %add.ptr158 = getelementptr inbounds i8, ptr %writePtr136.01176, i64 %sampleStride
+  %inc160 = add nuw nsw i32 %i153.01175, 1
   %exitcond1345.not = icmp eq i32 %inc160, %54
   br i1 %exitcond1345.not, label %for.inc166, label %for.body156, !llvm.loop !46
 
@@ -2225,8 +2225,8 @@ for.cond192.preheader:                            ; preds = %for.body173
   br i1 %cmp1931169, label %for.body194, label %for.inc204
 
 for.body194:                                      ; preds = %for.cond192.preheader, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit
-  %i191.01171 = phi i32 [ %inc198, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit ], [ 0, %for.cond192.preheader ]
-  %writePtr174.01170 = phi ptr [ %add.ptr196, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit ], [ %60, %for.cond192.preheader ]
+  %writePtr174.01171 = phi ptr [ %add.ptr196, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit ], [ %60, %for.cond192.preheader ]
+  %i191.01170 = phi i32 [ %inc198, %_ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit ], [ 0, %for.cond192.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i619)
   %in.promoted.i620 = load ptr, ptr %readPtr, align 8
   br label %while.body.i.i.i621
@@ -2248,9 +2248,9 @@ _ZN7Imf_3_23Xdr4readINS_9CharPtrIOEPKcEEvRT0_Rf.exit: ; preds = %while.body.i.i.
   %64 = load float, ptr %b.i619, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i619)
   %call195 = tail call noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %64)
-  store i32 %call195, ptr %writePtr174.01170, align 4
-  %add.ptr196 = getelementptr inbounds i8, ptr %writePtr174.01170, i64 %sampleStride
-  %inc198 = add nuw nsw i32 %i191.01171, 1
+  store i32 %call195, ptr %writePtr174.01171, align 4
+  %add.ptr196 = getelementptr inbounds i8, ptr %writePtr174.01171, i64 %sampleStride
+  %inc198 = add nuw nsw i32 %i191.01170, 1
   %exitcond1337.not = icmp eq i32 %inc198, %62
   br i1 %exitcond1337.not, label %for.inc204, label %for.body194, !llvm.loop !48
 
@@ -4722,9 +4722,9 @@ for.body42.preheader:                             ; preds = %for.body21
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.preheader, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit
-  %i39.0229 = phi i32 [ %inc45, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ 0, %for.body42.preheader ]
-  %readPtr37.0228 = phi ptr [ %add.ptr43, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %22, %for.body42.preheader ]
-  %agg.tmp.sroa.0.0.copyload = load i16, ptr %readPtr37.0228, align 2
+  %readPtr37.0229 = phi ptr [ %add.ptr43, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %22, %for.body42.preheader ]
+  %i39.0228 = phi i32 [ %inc45, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ 0, %for.body42.preheader ]
+  %agg.tmp.sroa.0.0.copyload = load i16, ptr %readPtr37.0229, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %b.i129)
   %conv.i130 = trunc i16 %agg.tmp.sroa.0.0.copyload to i8
   store i8 %conv.i130, ptr %b.i129, align 1
@@ -4748,8 +4748,8 @@ while.body.i.i.i132:                              ; preds = %while.body.i.i.i132
 
 _ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit: ; preds = %while.body.i.i.i132
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %b.i129)
-  %add.ptr43 = getelementptr inbounds i8, ptr %readPtr37.0228, i64 %sampleStride
-  %inc45 = add nuw i32 %i39.0229, 1
+  %add.ptr43 = getelementptr inbounds i8, ptr %readPtr37.0229, i64 %sampleStride
+  %inc45 = add nuw i32 %i39.0228, 1
   %exitcond272.not = icmp eq i32 %inc45, %20
   br i1 %exitcond272.not, label %for.inc47, label %for.body42, !llvm.loop !96
 

@@ -113,21 +113,21 @@ while.body:                                       ; preds = %entry, %if.end77
   %check_mode_args_given.0218 = phi i1 [ %check_mode_args_given.3, %if.end77 ], [ false, %entry ]
   %check_args.sroa.9.0217 = phi i1 [ %check_args.sroa.9.1, %if.end77 ], [ false, %entry ]
   %check_args.sroa.6.0216 = phi i1 [ %check_args.sroa.6.3, %if.end77 ], [ false, %entry ]
-  %it.sroa.0.0215 = phi ptr [ %incdec.ptr.i, %if.end77 ], [ %0, %entry ]
+  %check_args.sroa.3.0215 = phi i8 [ %check_args.sroa.3.1, %if.end77 ], [ 0, %entry ]
   %check_args.sroa.0.0214 = phi i1 [ %check_args.sroa.0.1, %if.end77 ], [ false, %entry ]
-  %check_args.sroa.3.0213 = phi i8 [ %check_args.sroa.3.1, %if.end77 ], [ 0, %entry ]
-  %call5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215) #18
+  %it.sroa.0.0213 = phi ptr [ %incdec.ptr.i, %if.end77 ], [ %0, %entry ]
+  %call5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213) #18
   br i1 %call5, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %call6 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, i64 noundef 0) #18
+  %call6 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, i64 noundef 0) #18
   %2 = load i8, ptr %call6, align 1
   %cmp.not = icmp eq i8 %2, 45
   br i1 %cmp.not, label %if.end, label %while.end
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0215, i64 32
-  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str) #18
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0213, i64 32
+  %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str) #18
   %cmp.i32 = icmp eq i32 %call.i, 0
   br i1 %cmp.i32, label %while.end, label %if.end11
 
@@ -137,7 +137,7 @@ lpad:                                             ; preds = %for.body89
   br label %ehcleanup
 
 if.end11:                                         ; preds = %if.end
-  %call.i33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.1) #18
+  %call.i33 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.1) #18
   %cmp.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.i34, label %if.then14, label %if.end19
 
@@ -178,24 +178,24 @@ lpad17:                                           ; preds = %if.else.i.i
   br label %ehcleanup
 
 if.end19:                                         ; preds = %if.end11
-  %call20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215) #18
+  %call20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213) #18
   %cmp21 = icmp ugt i64 %call20, 1
   br i1 %cmp21, label %land.lhs.true22, label %if.else
 
 land.lhs.true22:                                  ; preds = %if.end19
-  %call23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, i64 noundef 0) #18
+  %call23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, i64 noundef 0) #18
   %9 = load i8, ptr %call23, align 1
   %cmp25 = icmp eq i8 %9, 45
   br i1 %cmp25, label %land.lhs.true26, label %if.else
 
 land.lhs.true26:                                  ; preds = %land.lhs.true22
-  %call27 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, i64 noundef 1) #18
+  %call27 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, i64 noundef 1) #18
   %10 = load i8, ptr %call27, align 1
   %cmp29.not = icmp eq i8 %10, 45
   br i1 %cmp29.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true26
-  %call31203 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215) #18
+  %call31203 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213) #18
   %cmp32204 = icmp ugt i64 %call31203, 1
   br i1 %cmp32204, label %for.body, label %if.end77
 
@@ -204,7 +204,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %check_mode_args_given.1207 = phi i1 [ %check_mode_args_given.2, %for.inc ], [ %check_mode_args_given.0218, %for.cond.preheader ]
   %i.0206 = phi i64 [ %inc, %for.inc ], [ 1, %for.cond.preheader ]
   %check_args.sroa.6.1205 = phi i1 [ %check_args.sroa.6.2, %for.inc ], [ %check_args.sroa.6.0216, %for.cond.preheader ]
-  %call33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, i64 noundef %i.0206) #18
+  %call33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, i64 noundef %i.0206) #18
   %11 = load i8, ptr %call33, align 1
   switch i8 %11, label %sw.default [
     i8 98, label %for.inc
@@ -221,7 +221,7 @@ sw.bb36:                                          ; preds = %for.body
 
 sw.default:                                       ; preds = %for.body
   %12 = load ptr, ptr @stderr, align 8
-  %call37 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, i64 noundef %i.0206) #18
+  %call37 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, i64 noundef %i.0206) #18
   %13 = load i8, ptr %call37, align 1
   %conv38 = sext i8 %13 to i32
   %call40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i32 noundef %conv38) #19
@@ -232,54 +232,54 @@ for.inc:                                          ; preds = %sw.bb35, %sw.bb36, 
   %check_mode_args_given.2 = phi i1 [ true, %sw.bb36 ], [ %check_mode_args_given.1207, %sw.bb35 ], [ %check_mode_args_given.1207, %for.body ], [ %check_mode_args_given.1207, %for.body ]
   %check_mode.2 = phi i8 [ %check_mode.1208, %sw.bb36 ], [ 1, %sw.bb35 ], [ %check_mode.1208, %for.body ], [ %check_mode.1208, %for.body ]
   %inc = add nuw i64 %i.0206, 1
-  %call31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215) #18
+  %call31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213) #18
   %cmp32 = icmp ult i64 %inc, %call31
   br i1 %cmp32, label %for.body, label %if.end77, !llvm.loop !7
 
 if.else:                                          ; preds = %land.lhs.true26, %land.lhs.true22, %if.end19
-  %call.i37 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.3) #18
+  %call.i37 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.3) #18
   %cmp.i38 = icmp eq i32 %call.i37, 0
   br i1 %cmp.i38, label %if.end77, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %call.i39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.4) #18
+  %call.i39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.4) #18
   %cmp.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.i40, label %if.end77, label %if.else46
 
 if.else46:                                        ; preds = %lor.lhs.false
-  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.5) #18
+  %call.i41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.5) #18
   %cmp.i42 = icmp eq i32 %call.i41, 0
   br i1 %cmp.i42, label %if.end77, label %if.else50
 
 if.else50:                                        ; preds = %if.else46
-  %call.i43 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.6) #18
+  %call.i43 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.6) #18
   %cmp.i44 = icmp eq i32 %call.i43, 0
   br i1 %cmp.i44, label %if.end77, label %if.else54
 
 if.else54:                                        ; preds = %if.else50
-  %call.i45 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.7) #18
+  %call.i45 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.7) #18
   %cmp.i46 = icmp eq i32 %call.i45, 0
   br i1 %cmp.i46, label %if.end77, label %if.else58
 
 if.else58:                                        ; preds = %if.else54
-  %call.i47 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.8) #18
+  %call.i47 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.8) #18
   %cmp.i48 = icmp eq i32 %call.i47, 0
   br i1 %cmp.i48, label %if.end77, label %if.else63
 
 if.else63:                                        ; preds = %if.else58
-  %call.i49 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215, ptr noundef nonnull @.str.9) #18
+  %call.i49 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213, ptr noundef nonnull @.str.9) #18
   %cmp.i50 = icmp eq i32 %call.i49, 0
   br i1 %cmp.i50, label %if.end77, label %if.else67
 
 if.else67:                                        ; preds = %if.else63
   %14 = load ptr, ptr @stderr, align 8
-  %call68 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0215) #18
+  %call68 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0213) #18
   %call70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.10, ptr noundef %call68) #19
   br label %cleanup
 
 if.end77:                                         ; preds = %for.inc, %for.cond.preheader, %if.else63, %if.else58, %if.else54, %if.else50, %if.else46, %lor.lhs.false, %if.else
-  %check_args.sroa.3.1 = phi i8 [ %check_args.sroa.3.0213, %if.else ], [ %check_args.sroa.3.0213, %lor.lhs.false ], [ %check_args.sroa.3.0213, %if.else46 ], [ %check_args.sroa.3.0213, %if.else50 ], [ 1, %if.else54 ], [ %check_args.sroa.3.0213, %if.else58 ], [ %check_args.sroa.3.0213, %if.else63 ], [ %check_args.sroa.3.0213, %for.cond.preheader ], [ %check_args.sroa.3.0213, %for.inc ]
   %check_args.sroa.0.1 = phi i1 [ %check_args.sroa.0.0214, %if.else ], [ %check_args.sroa.0.0214, %lor.lhs.false ], [ %check_args.sroa.0.0214, %if.else46 ], [ true, %if.else50 ], [ %check_args.sroa.0.0214, %if.else54 ], [ %check_args.sroa.0.0214, %if.else58 ], [ %check_args.sroa.0.0214, %if.else63 ], [ %check_args.sroa.0.0214, %for.cond.preheader ], [ %check_args.sroa.0.0214, %for.inc ]
+  %check_args.sroa.3.1 = phi i8 [ %check_args.sroa.3.0215, %if.else ], [ %check_args.sroa.3.0215, %lor.lhs.false ], [ %check_args.sroa.3.0215, %if.else46 ], [ %check_args.sroa.3.0215, %if.else50 ], [ 1, %if.else54 ], [ %check_args.sroa.3.0215, %if.else58 ], [ %check_args.sroa.3.0215, %if.else63 ], [ %check_args.sroa.3.0215, %for.cond.preheader ], [ %check_args.sroa.3.0215, %for.inc ]
   %check_args.sroa.6.3 = phi i1 [ %check_args.sroa.6.0216, %if.else ], [ %check_args.sroa.6.0216, %lor.lhs.false ], [ %check_args.sroa.6.0216, %if.else46 ], [ %check_args.sroa.6.0216, %if.else50 ], [ %check_args.sroa.6.0216, %if.else54 ], [ true, %if.else58 ], [ %check_args.sroa.6.0216, %if.else63 ], [ %check_args.sroa.6.0216, %for.cond.preheader ], [ %check_args.sroa.6.2, %for.inc ]
   %check_args.sroa.9.1 = phi i1 [ %check_args.sroa.9.0217, %if.else ], [ %check_args.sroa.9.0217, %lor.lhs.false ], [ %check_args.sroa.9.0217, %if.else46 ], [ %check_args.sroa.9.0217, %if.else50 ], [ %check_args.sroa.9.0217, %if.else54 ], [ %check_args.sroa.9.0217, %if.else58 ], [ true, %if.else63 ], [ %check_args.sroa.9.0217, %for.cond.preheader ], [ %check_args.sroa.9.0217, %for.inc ]
   %check_mode_args_given.3 = phi i1 [ %check_mode_args_given.0218, %if.else ], [ %check_mode_args_given.0218, %lor.lhs.false ], [ %check_mode_args_given.0218, %if.else46 ], [ true, %if.else50 ], [ true, %if.else54 ], [ true, %if.else58 ], [ true, %if.else63 ], [ %check_mode_args_given.0218, %for.cond.preheader ], [ %check_mode_args_given.2, %for.inc ]
@@ -289,13 +289,13 @@ if.end77:                                         ; preds = %for.inc, %for.cond.
   br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end77, %land.lhs.true, %if.end
-  %check_args.sroa.3.0200 = phi i8 [ %check_args.sroa.3.0213, %if.end ], [ %check_args.sroa.3.0213, %land.lhs.true ], [ %check_args.sroa.3.1, %if.end77 ]
-  %check_args.sroa.0.0196 = phi i1 [ %check_args.sroa.0.0214, %if.end ], [ %check_args.sroa.0.0214, %land.lhs.true ], [ %check_args.sroa.0.1, %if.end77 ]
+  %check_args.sroa.0.0197 = phi i1 [ %check_args.sroa.0.0214, %if.end ], [ %check_args.sroa.0.0214, %land.lhs.true ], [ %check_args.sroa.0.1, %if.end77 ]
+  %check_args.sroa.3.0193 = phi i8 [ %check_args.sroa.3.0215, %if.end ], [ %check_args.sroa.3.0215, %land.lhs.true ], [ %check_args.sroa.3.1, %if.end77 ]
   %check_args.sroa.6.0189 = phi i1 [ %check_args.sroa.6.0216, %if.end ], [ %check_args.sroa.6.0216, %land.lhs.true ], [ %check_args.sroa.6.3, %if.end77 ]
   %check_args.sroa.9.0185 = phi i1 [ %check_args.sroa.9.0217, %if.end ], [ %check_args.sroa.9.0217, %land.lhs.true ], [ %check_args.sroa.9.1, %if.end77 ]
   %check_mode_args_given.0181 = phi i1 [ %check_mode_args_given.0218, %if.end ], [ %check_mode_args_given.0218, %land.lhs.true ], [ %check_mode_args_given.3, %if.end77 ]
   %check_mode.0177 = phi i8 [ %check_mode.0219, %if.end ], [ %check_mode.0219, %land.lhs.true ], [ %check_mode.3, %if.end77 ]
-  %it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %it.sroa.0.0215, %land.lhs.true ], [ %incdec.ptr.i, %if.end77 ]
+  %it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %it.sroa.0.0213, %land.lhs.true ], [ %incdec.ptr.i, %if.end77 ]
   br i1 %check_mode_args_given.0181, label %land.lhs.true78, label %if.end83
 
 land.lhs.true78:                                  ; preds = %invoke.cont18, %while.end
@@ -303,8 +303,8 @@ land.lhs.true78:                                  ; preds = %invoke.cont18, %whi
   %check_mode.0177332 = phi i8 [ %check_mode.0219, %invoke.cont18 ], [ %check_mode.0177, %while.end ]
   %check_args.sroa.9.0185331 = phi i1 [ %check_args.sroa.9.0217, %invoke.cont18 ], [ %check_args.sroa.9.0185, %while.end ]
   %check_args.sroa.6.0189330 = phi i1 [ %check_args.sroa.6.0216, %invoke.cont18 ], [ %check_args.sroa.6.0189, %while.end ]
-  %check_args.sroa.0.0196329 = phi i1 [ %check_args.sroa.0.0214, %invoke.cont18 ], [ %check_args.sroa.0.0196, %while.end ]
-  %check_args.sroa.3.0200328 = phi i8 [ %check_args.sroa.3.0213, %invoke.cont18 ], [ %check_args.sroa.3.0200, %while.end ]
+  %check_args.sroa.3.0193329 = phi i8 [ %check_args.sroa.3.0215, %invoke.cont18 ], [ %check_args.sroa.3.0193, %while.end ]
+  %check_args.sroa.0.0197328 = phi i1 [ %check_args.sroa.0.0214, %invoke.cont18 ], [ %check_args.sroa.0.0197, %while.end ]
   %tobool79 = trunc nuw i8 %check_mode.0177332 to i1
   br i1 %tobool79, label %if.end83, label %if.then80
 
@@ -318,8 +318,8 @@ if.end83:                                         ; preds = %entry, %invoke.cont
   %check_mode.0177326 = phi i8 [ %check_mode.0177332, %land.lhs.true78 ], [ %check_mode.0177, %while.end ], [ %check_mode.0219, %invoke.cont18 ], [ 0, %entry ]
   %check_args.sroa.9.0185325 = phi i1 [ %check_args.sroa.9.0185331, %land.lhs.true78 ], [ %check_args.sroa.9.0185, %while.end ], [ %check_args.sroa.9.0217, %invoke.cont18 ], [ false, %entry ]
   %check_args.sroa.6.0189324 = phi i1 [ %check_args.sroa.6.0189330, %land.lhs.true78 ], [ %check_args.sroa.6.0189, %while.end ], [ %check_args.sroa.6.0216, %invoke.cont18 ], [ false, %entry ]
-  %check_args.sroa.0.0196323 = phi i1 [ %check_args.sroa.0.0196329, %land.lhs.true78 ], [ %check_args.sroa.0.0196, %while.end ], [ %check_args.sroa.0.0214, %invoke.cont18 ], [ false, %entry ]
-  %check_args.sroa.3.0200322 = phi i8 [ %check_args.sroa.3.0200328, %land.lhs.true78 ], [ %check_args.sroa.3.0200, %while.end ], [ %check_args.sroa.3.0213, %invoke.cont18 ], [ 0, %entry ]
+  %check_args.sroa.3.0193323 = phi i8 [ %check_args.sroa.3.0193329, %land.lhs.true78 ], [ %check_args.sroa.3.0193, %while.end ], [ %check_args.sroa.3.0215, %invoke.cont18 ], [ 0, %entry ]
+  %check_args.sroa.0.0197322 = phi i1 [ %check_args.sroa.0.0197328, %land.lhs.true78 ], [ %check_args.sroa.0.0197, %while.end ], [ %check_args.sroa.0.0214, %invoke.cont18 ], [ false, %entry ]
   %18 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i52.not241 = icmp eq ptr %it.sroa.0.1327, %18
   br i1 %cmp.i52.not241, label %for.end99, label %for.body89.lr.ph
@@ -426,7 +426,7 @@ for.body115.lr.ph:                                ; preds = %if.then108
   %filename_.i39.i = getelementptr inbounds i8, ptr %target_source.i, i64 8
   %filename_.i44.i = getelementptr inbounds i8, ptr %ref.tmp94.i, i64 8
   %filename_.i40.i = getelementptr inbounds i8, ptr %ref.tmp89.i, i64 8
-  %tobool111.i = trunc nuw i8 %check_args.sroa.3.0200322 to i1
+  %tobool111.i = trunc nuw i8 %check_args.sroa.3.0193323 to i1
   %not.tobool64.i = xor i1 %check_args.sroa.9.0185325, true
   br label %for.body115
 
@@ -710,7 +710,7 @@ if.end117.critedge.i:                             ; preds = %land.rhs.i.i.i
   br label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.end117.critedge.i, %if.end.i.i.i.i
-  br i1 %check_args.sroa.0.0196323, label %cleanup.i, label %if.then119.i
+  br i1 %check_args.sroa.0.0197322, label %cleanup.i, label %if.then119.i
 
 if.then119.i:                                     ; preds = %if.end117.i
   %call120.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %target_filename.i) #18

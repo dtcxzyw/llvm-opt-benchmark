@@ -231,12 +231,12 @@ pmix_obj_new_tma.exit.thread62:                   ; preds = %.lr.ph.i.i, %10
 49:                                               ; preds = %45, %29
   %50 = getelementptr inbounds i8, ptr %1, i64 472
   %51 = getelementptr inbounds i8, ptr %1, i64 592
-  %.067 = load ptr, ptr %51, align 8
-  %.not4968 = icmp eq ptr %.067, %50
+  %.04267 = load ptr, ptr %51, align 8
+  %.not4968 = icmp eq ptr %.04267, %50
   br i1 %.not4968, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %100
-  %.069 = phi ptr [ %.0, %100 ], [ %.067, %49 ]
+  %.04269 = phi ptr [ %.042, %100 ], [ %.04267, %49 ]
   %52 = load i64, ptr getelementptr inbounds (i8, ptr @prte_value_t_class, i64 56), align 8
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #14
   %54 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -278,7 +278,7 @@ pmix_obj_new_tma.exit.thread62:                   ; preds = %.lr.ph.i.i, %10
 
 pmix_obj_new_tma.exit59:                          ; preds = %.lr.ph.i.i56, %57, %58
   %69 = getelementptr inbounds i8, ptr %53, i64 144
-  %70 = getelementptr inbounds i8, ptr %.069, i64 144
+  %70 = getelementptr inbounds i8, ptr %.04269, i64 144
   %71 = tail call i32 @PMIx_Value_xfer(ptr noundef nonnull %69, ptr noundef nonnull %70) #10
   switch i32 %71, label %72 [
     i32 0, label %100
@@ -364,14 +364,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %84
   %109 = load volatile i64, ptr %108, align 8
   %110 = add i64 %109, 1
   store volatile i64 %110, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %.069, i64 120
-  %.0 = load ptr, ptr %111, align 8
-  %.not49 = icmp eq ptr %.0, %50
+  %111 = getelementptr inbounds i8, ptr %.04269, i64 120
+  %.042 = load ptr, ptr %111, align 8
+  %.not49 = icmp eq ptr %.042, %50
   br i1 %.not49, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %100, %49, %98, %pmix_obj_new_tma.exit.thread
-  %.042 = phi i32 [ -2, %pmix_obj_new_tma.exit.thread ], [ %99, %98 ], [ 0, %49 ], [ 0, %100 ]
-  ret i32 %.042
+  %.0 = phi i32 [ -2, %pmix_obj_new_tma.exit.thread ], [ %99, %98 ], [ 0, %49 ], [ 0, %100 ]
+  ret i32 %.0
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -531,8 +531,8 @@ pmix_obj_new_tma.exit.thread38:                   ; preds = %.lr.ph.i.i, %13
   br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %pmix_obj_new_tma.exit.thread38, %pmix_obj_new_tma.exit.thread, %4
-  %.035 = phi i32 [ 0, %4 ], [ -2, %pmix_obj_new_tma.exit.thread ], [ 0, %pmix_obj_new_tma.exit.thread38 ], [ 0, %.lr.ph ]
-  ret i32 %.035
+  %.0 = phi i32 [ 0, %4 ], [ -2, %pmix_obj_new_tma.exit.thread ], [ 0, %pmix_obj_new_tma.exit.thread38 ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

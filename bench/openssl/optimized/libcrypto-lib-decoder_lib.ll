@@ -91,8 +91,8 @@ if.end14:                                         ; preds = %if.then8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end14, %if.end3
-  %in.addr.0 = phi ptr [ %call15, %if.end14 ], [ %in, %if.end3 ]
   %new_bio.0 = phi ptr [ %call10, %if.end14 ], [ null, %if.end3 ]
+  %in.addr.0 = phi ptr [ %call15, %if.end14 ], [ %in, %if.end3 ]
   %2 = getelementptr inbounds i8, ptr %data, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false)
   store ptr %ctx, ptr %data, align 8
@@ -382,15 +382,15 @@ if.end97:                                         ; preds = %if.end92
 
 for.cond.outer:                                   ; preds = %if.end235, %if.end97
   %ok.2.ph = phi i32 [ %call209, %if.end235 ], [ 0, %if.end97 ]
-  %i.0.ph = phi i64 [ %dec100, %if.end235 ], [ %17, %if.end97 ]
-  %cmp99.not99 = icmp eq i64 %i.0.ph, 0
-  br i1 %cmp99.not99, label %end, label %for.body
+  %i.0.ph = phi i64 [ %dec101, %if.end235 ], [ %17, %if.end97 ]
+  %cmp99.not100 = icmp eq i64 %i.0.ph, 0
+  br i1 %cmp99.not100, label %end, label %for.body
 
 for.body:                                         ; preds = %for.cond.outer, %for.cond.backedge
-  %dec100.in = phi i64 [ %dec100, %for.cond.backedge ], [ %i.0.ph, %for.cond.outer ]
-  %dec100 = add i64 %dec100.in, -1
+  %dec101.in = phi i64 [ %dec101, %for.cond.backedge ], [ %i.0.ph, %for.cond.outer ]
+  %dec101 = add i64 %dec101.in, -1
   %18 = load ptr, ptr %decoder_insts101, align 8
-  %conv102 = trunc i64 %dec100 to i32
+  %conv102 = trunc i64 %dec101 to i32
   %call.i68 = call ptr @OPENSSL_sk_value(ptr noundef %18, i32 noundef %conv102) #6
   %cmp.i69 = icmp eq ptr %call.i68, null
   br i1 %cmp.i69, label %OSSL_DECODER_INSTANCE_get_input_structure.exit, label %if.end.i80
@@ -453,7 +453,7 @@ lor.lhs.false151:                                 ; preds = %land.lhs.true148
   br i1 %cmp153.not, label %if.end159, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %lor.lhs.false151, %land.lhs.true148, %land.lhs.true116, %land.lhs.true128, %land.lhs.true138, %if.then169
-  %cmp99.not = icmp eq i64 %dec100, 0
+  %cmp99.not = icmp eq i64 %dec101, 0
   br i1 %cmp99.not, label %end, label %for.body, !llvm.loop !4
 
 if.end159:                                        ; preds = %lor.lhs.false151, %if.end145
@@ -486,7 +486,7 @@ if.end183:                                        ; preds = %if.then169, %land.l
 
 do.body193:                                       ; preds = %if.end183
   %call196 = call i32 @ERR_set_mark() #6
-  store i64 %dec100, ptr %current_decoder_inst_index197, align 8
+  store i64 %dec101, ptr %current_decoder_inst_index197, align 8
   %bf.load199 = load i8, ptr %flag_next_level_called, align 8
   %bf.clear201 = and i8 %bf.load199, 4
   %bf.load204 = load i8, ptr %flag_input_structure_checked203, align 8

@@ -18,17 +18,17 @@ define dso_local noundef ptr @replace_outer_var(ptr nocapture noundef %0, ptr no
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.048.i = phi i32 [ %7, %.lr.ph.i ], [ %4, %2 ]
-  %.03947.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.03947.i, i64 32
+  %.03848.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
+  %.03947.i = phi i32 [ %7, %.lr.ph.i ], [ %4, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.03848.i, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = add i32 %.048.i, -1
+  %7 = add i32 %.03947.i, -1
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
-  %.039.lcssa.i = phi ptr [ %0, %2 ], [ %6, %.lr.ph.i ]
-  %8 = getelementptr inbounds i8, ptr %.039.lcssa.i, i64 40
+  %.038.lcssa.i = phi ptr [ %0, %2 ], [ %6, %.lr.ph.i ]
+  %8 = getelementptr inbounds i8, ptr %.038.lcssa.i, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not42.i = icmp eq ptr %9, null
   br i1 %.not42.i, label %._crit_edge52.i, label %.lr.ph51.i
@@ -123,7 +123,7 @@ define dso_local noundef ptr @replace_outer_var(ptr nocapture noundef %0, ptr no
   store i32 310, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr %63, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %.039.lcssa.i, i64 16
+  %67 = getelementptr inbounds i8, ptr %.038.lcssa.i, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 96
   %70 = load ptr, ptr %69, align 8
@@ -154,14 +154,14 @@ list_length.exit.i:                               ; preds = %71, %._crit_edge52.
   br label %assign_param_for_var.exit
 
 assign_param_for_var.exit:                        ; preds = %.split.i, %list_length.exit.i
-  %.040.in.i = phi ptr [ %58, %.split.i ], [ %75, %list_length.exit.i ]
-  %.040.i = load i32, ptr %.040.in.i, align 8
+  %.0.in.i = phi ptr [ %58, %.split.i ], [ %75, %list_length.exit.i ]
+  %.0.i = load i32, ptr %.0.in.i, align 8
   %86 = tail call noundef ptr @palloc0(i64 noundef 28) #4
   store i32 8, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %86, i64 4
   store i32 1, ptr %87, align 4
   %88 = getelementptr inbounds i8, ptr %86, i64 8
-  store i32 %.040.i, ptr %88, align 4
+  store i32 %.0.i, ptr %88, align 4
   %89 = getelementptr inbounds i8, ptr %1, i64 12
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds i8, ptr %86, i64 12
@@ -189,17 +189,17 @@ define dso_local noundef ptr @replace_outer_placeholdervar(ptr nocapture noundef
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.02939.i = phi i32 [ %7, %.lr.ph.i ], [ %4, %2 ]
-  %.03138.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.03138.i, i64 32
+  %.02939.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
+  %.03038.i = phi i32 [ %7, %.lr.ph.i ], [ %4, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.02939.i, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = add i32 %.02939.i, -1
+  %7 = add i32 %.03038.i, -1
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
-  %.031.lcssa.i = phi ptr [ %0, %2 ], [ %6, %.lr.ph.i ]
-  %8 = getelementptr inbounds i8, ptr %.031.lcssa.i, i64 40
+  %.029.lcssa.i = phi ptr [ %0, %2 ], [ %6, %.lr.ph.i ]
+  %8 = getelementptr inbounds i8, ptr %.029.lcssa.i, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not33.i = icmp eq ptr %9, null
   br i1 %.not33.i, label %._crit_edge43.i, label %.lr.ph42.i
@@ -253,7 +253,7 @@ define dso_local noundef ptr @replace_outer_placeholdervar(ptr nocapture noundef
   store i32 310, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %30, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.031.lcssa.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.029.lcssa.i, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
@@ -413,16 +413,16 @@ define dso_local noundef ptr @replace_outer_grouping(ptr nocapture noundef %0, p
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.030 = phi i32 [ %8, %.lr.ph ], [ %5, %2 ]
-  %.02729 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.02729, i64 32
+  %.030 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
+  %.02729 = phi i32 [ %8, %.lr.ph ], [ %5, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.030, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = add i32 %.030, -1
+  %8 = add i32 %.02729, -1
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.027.lcssa = phi ptr [ %0, %2 ], [ %7, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %0, %2 ], [ %7, %.lr.ph ]
   %9 = tail call ptr @copyObjectImpl(ptr noundef %1) #4
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8
@@ -432,7 +432,7 @@ define dso_local noundef ptr @replace_outer_grouping(ptr nocapture noundef %0, p
   store i32 310, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.027.lcssa, i64 16
+  %15 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
   %18 = load ptr, ptr %17, align 8
@@ -455,7 +455,7 @@ list_length.exit:                                 ; preds = %._crit_edge, %19
   %28 = load ptr, ptr %15, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 96
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.027.lcssa, i64 40
+  %30 = getelementptr inbounds i8, ptr %.0.lcssa, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @lappend(ptr noundef %31, ptr noundef nonnull %13) #4
   store ptr %32, ptr %30, align 8
@@ -593,8 +593,8 @@ generate_new_exec_param.exit:                     ; preds = %._crit_edge, %46
   br label %70
 
 70:                                               ; preds = %generate_new_exec_param.exit, %.split
-  %.035 = phi ptr [ %19, %.split ], [ %40, %generate_new_exec_param.exit ]
-  ret ptr %.035
+  %.0 = phi ptr [ %19, %.split ], [ %40, %generate_new_exec_param.exit ]
+  ret ptr %.0
 }
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -753,8 +753,8 @@ generate_new_exec_param.exit:                     ; preds = %._crit_edge, %48
   br label %70
 
 70:                                               ; preds = %generate_new_exec_param.exit, %.split
-  %.032 = phi ptr [ %19, %.split ], [ %42, %generate_new_exec_param.exit ]
-  ret ptr %.032
+  %.0 = phi ptr [ %19, %.split ], [ %42, %generate_new_exec_param.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -934,17 +934,17 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %2, %40
   %.039 = phi ptr [ %.1, %40 ], [ null, %2 ]
-  %.sroa.0.038 = phi ptr [ %.sroa.0.1, %40 ], [ %4, %2 ]
-  %.sroa.6.037 = phi i32 [ %41, %40 ], [ 0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.038, i64 4
+  %.sroa.6.038 = phi i32 [ %41, %40 ], [ 0, %2 ]
+  %.sroa.0.037 = phi ptr [ %.sroa.0.1, %40 ], [ %4, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %.sroa.6.037, %6
+  %7 = icmp slt i32 %.sroa.6.038, %6
   br i1 %7, label %8, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.0.038, i64 16
+  %9 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = sext i32 %.sroa.6.037 to i64
+  %11 = sext i32 %.sroa.6.038 to i64
   %12 = getelementptr %union.ListCell, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
@@ -984,8 +984,8 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
 .sink.split:                                      ; preds = %18, %31
   %.pre.sink = phi ptr [ %32, %31 ], [ %.pre, %18 ]
   %33 = load ptr, ptr %3, align 8
-  %34 = add i32 %.sroa.6.037, -1
-  %35 = tail call ptr @list_delete_nth_cell(ptr noundef %33, i32 noundef %.sroa.6.037) #4
+  %34 = add i32 %.sroa.6.038, -1
+  %35 = tail call ptr @list_delete_nth_cell(ptr noundef %33, i32 noundef %.sroa.6.038) #4
   store ptr %35, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %.pre.sink, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -995,8 +995,8 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   br label %40
 
 40:                                               ; preds = %.sink.split, %26, %22
-  %.sroa.6.1 = phi i32 [ %.sroa.6.037, %26 ], [ %.sroa.6.037, %22 ], [ %34, %.sink.split ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.038, %26 ], [ %.sroa.0.038, %22 ], [ %35, %.sink.split ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.037, %26 ], [ %.sroa.0.037, %22 ], [ %35, %.sink.split ]
+  %.sroa.6.1 = phi i32 [ %.sroa.6.038, %26 ], [ %.sroa.6.038, %22 ], [ %34, %.sink.split ]
   %.1 = phi ptr [ %.039, %26 ], [ %.039, %22 ], [ %39, %.sink.split ]
   %41 = add i32 %.sroa.6.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null

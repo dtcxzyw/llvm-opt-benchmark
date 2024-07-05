@@ -320,14 +320,14 @@ for.body.lr.ph:                                   ; preds = %if.end7
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %hash_algo.0531 = phi i32 [ 0, %for.body.lr.ph ], [ %hash_algo.1, %for.inc ]
   %report_end_of_input.0530 = phi i32 [ 0, %for.body.lr.ph ], [ %report_end_of_input.1, %for.inc ]
-  %pack_name.0529 = phi ptr [ null, %for.body.lr.ph ], [ %pack_name.1, %for.inc ]
-  %index_name.0528 = phi ptr [ null, %for.body.lr.ph ], [ %index_name.1, %for.inc ]
-  %rev_index.1527 = phi i32 [ %rev_index.0, %for.body.lr.ph ], [ %rev_index.2, %for.inc ]
-  %stat_only.0526 = phi i32 [ 0, %for.body.lr.ph ], [ %stat_only.1, %for.inc ]
-  %verify.0525 = phi i32 [ 0, %for.body.lr.ph ], [ %verify.1, %for.inc ]
-  %fix_thin_pack.0524 = phi i32 [ 0, %for.body.lr.ph ], [ %fix_thin_pack.1, %for.inc ]
-  %i.0523 = phi i32 [ 1, %for.body.lr.ph ], [ %inc214, %for.inc ]
-  %idxprom = sext i32 %i.0523 to i64
+  %i.0529 = phi i32 [ 1, %for.body.lr.ph ], [ %inc214, %for.inc ]
+  %pack_name.0528 = phi ptr [ null, %for.body.lr.ph ], [ %pack_name.1, %for.inc ]
+  %index_name.0527 = phi ptr [ null, %for.body.lr.ph ], [ %index_name.1, %for.inc ]
+  %fix_thin_pack.0526 = phi i32 [ 0, %for.body.lr.ph ], [ %fix_thin_pack.1, %for.inc ]
+  %rev_index.1525 = phi i32 [ %rev_index.0, %for.body.lr.ph ], [ %rev_index.2, %for.inc ]
+  %stat_only.0524 = phi i32 [ 0, %for.body.lr.ph ], [ %stat_only.1, %for.inc ]
+  %verify.0523 = phi i32 [ 0, %for.body.lr.ph ], [ %verify.1, %for.inc ]
+  %idxprom = sext i32 %i.0529 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %14 = load ptr, ptr %arrayidx16, align 8
   store ptr %14, ptr %arg, align 8
@@ -532,7 +532,7 @@ if.then104:                                       ; preds = %if.else101
   br i1 %tobool105.not, label %lor.lhs.false106, label %if.then109
 
 lor.lhs.false106:                                 ; preds = %if.then104
-  %add = add nsw i32 %i.0523, 1
+  %add = add nsw i32 %i.0529, 1
   %cmp107.not = icmp slt i32 %add, %argc
   br i1 %cmp107.not, label %if.end110, label %if.then109
 
@@ -584,11 +584,11 @@ if.else121.tail:                                  ; preds = %sub_0313, %sub_1314
   br i1 %tobool123.not, label %if.then124, label %if.else135
 
 if.then124:                                       ; preds = %if.else121.tail
-  %tobool125.not = icmp eq ptr %index_name.0528, null
+  %tobool125.not = icmp eq ptr %index_name.0527, null
   br i1 %tobool125.not, label %lor.lhs.false126, label %if.then130
 
 lor.lhs.false126:                                 ; preds = %if.then124
-  %add127 = add nsw i32 %i.0523, 1
+  %add127 = add nsw i32 %i.0529, 1
   %cmp128.not = icmp slt i32 %add127, %argc
   br i1 %cmp128.not, label %if.end131, label %if.then130
 
@@ -731,7 +731,7 @@ if.else187:                                       ; preds = %if.else183
   unreachable
 
 if.end210:                                        ; preds = %for.body
-  %tobool211.not = icmp eq ptr %pack_name.0529, null
+  %tobool211.not = icmp eq ptr %pack_name.0528, null
   br i1 %tobool211.not, label %for.inc, label %if.then212
 
 if.then212:                                       ; preds = %if.end210
@@ -739,13 +739,13 @@ if.then212:                                       ; preds = %if.end210
   unreachable
 
 for.inc:                                          ; preds = %if.end210, %if.else183, %if.else179, %if.end156, %if.else117, %if.else39, %if.else23, %if.then22, %if.then30, %if.then38, %if.then46, %if.else51, %lor.lhs.false, %if.then100, %if.then116, %if.end131, %if.then168, %if.end178, %if.end110, %if.end96, %if.else55, %if.then50, %if.then34
-  %i.1 = phi i32 [ %i.0523, %if.then30 ], [ %i.0523, %if.else51 ], [ %i.0523, %if.else55 ], [ %i.0523, %lor.lhs.false ], [ %i.0523, %if.end96 ], [ %i.0523, %if.then168 ], [ %i.0523, %if.end178 ], [ %add127, %if.end131 ], [ %i.0523, %if.then116 ], [ %add, %if.end110 ], [ %i.0523, %if.then100 ], [ %i.0523, %if.then50 ], [ %i.0523, %if.then46 ], [ %i.0523, %if.then38 ], [ %i.0523, %if.then34 ], [ %i.0523, %if.then22 ], [ %i.0523, %if.else23 ], [ %i.0523, %if.else39 ], [ %i.0523, %if.else117 ], [ %i.0523, %if.end156 ], [ %i.0523, %if.else179 ], [ %i.0523, %if.else183 ], [ %i.0523, %if.end210 ]
-  %fix_thin_pack.1 = phi i32 [ %fix_thin_pack.0524, %if.then30 ], [ %fix_thin_pack.0524, %if.else51 ], [ %fix_thin_pack.0524, %if.else55 ], [ %fix_thin_pack.0524, %lor.lhs.false ], [ %fix_thin_pack.0524, %if.end96 ], [ %fix_thin_pack.0524, %if.then168 ], [ %fix_thin_pack.0524, %if.end178 ], [ %fix_thin_pack.0524, %if.end131 ], [ %fix_thin_pack.0524, %if.then116 ], [ %fix_thin_pack.0524, %if.end110 ], [ %fix_thin_pack.0524, %if.then100 ], [ %fix_thin_pack.0524, %if.then50 ], [ %fix_thin_pack.0524, %if.then46 ], [ %fix_thin_pack.0524, %if.then38 ], [ %fix_thin_pack.0524, %if.then34 ], [ %fix_thin_pack.0524, %if.then22 ], [ 1, %if.else23 ], [ %fix_thin_pack.0524, %if.else39 ], [ %fix_thin_pack.0524, %if.else117 ], [ %fix_thin_pack.0524, %if.end156 ], [ %fix_thin_pack.0524, %if.else179 ], [ %fix_thin_pack.0524, %if.else183 ], [ %fix_thin_pack.0524, %if.end210 ]
-  %verify.1 = phi i32 [ %verify.0525, %if.then30 ], [ %verify.0525, %if.else51 ], [ %verify.0525, %if.else55 ], [ %verify.0525, %lor.lhs.false ], [ %verify.0525, %if.end96 ], [ %verify.0525, %if.then168 ], [ %verify.0525, %if.end178 ], [ %verify.0525, %if.end131 ], [ %verify.0525, %if.then116 ], [ %verify.0525, %if.end110 ], [ %verify.0525, %if.then100 ], [ 1, %if.then50 ], [ 1, %if.then46 ], [ %verify.0525, %if.then38 ], [ %verify.0525, %if.then34 ], [ %verify.0525, %if.then22 ], [ %verify.0525, %if.else23 ], [ 1, %if.else39 ], [ %verify.0525, %if.else117 ], [ %verify.0525, %if.end156 ], [ %verify.0525, %if.else179 ], [ %verify.0525, %if.else183 ], [ %verify.0525, %if.end210 ]
-  %stat_only.1 = phi i32 [ %stat_only.0526, %if.then30 ], [ %stat_only.0526, %if.else51 ], [ %stat_only.0526, %if.else55 ], [ %stat_only.0526, %lor.lhs.false ], [ %stat_only.0526, %if.end96 ], [ %stat_only.0526, %if.then168 ], [ %stat_only.0526, %if.end178 ], [ %stat_only.0526, %if.end131 ], [ %stat_only.0526, %if.then116 ], [ %stat_only.0526, %if.end110 ], [ %stat_only.0526, %if.then100 ], [ 1, %if.then50 ], [ %stat_only.0526, %if.then46 ], [ %stat_only.0526, %if.then38 ], [ %stat_only.0526, %if.then34 ], [ %stat_only.0526, %if.then22 ], [ %stat_only.0526, %if.else23 ], [ %stat_only.0526, %if.else39 ], [ %stat_only.0526, %if.else117 ], [ %stat_only.0526, %if.end156 ], [ %stat_only.0526, %if.else179 ], [ %stat_only.0526, %if.else183 ], [ %stat_only.0526, %if.end210 ]
-  %rev_index.2 = phi i32 [ %rev_index.1527, %if.then30 ], [ %rev_index.1527, %if.else51 ], [ %rev_index.1527, %if.else55 ], [ %rev_index.1527, %lor.lhs.false ], [ %rev_index.1527, %if.end96 ], [ %rev_index.1527, %if.then168 ], [ %rev_index.1527, %if.end178 ], [ %rev_index.1527, %if.end131 ], [ %rev_index.1527, %if.then116 ], [ %rev_index.1527, %if.end110 ], [ %rev_index.1527, %if.then100 ], [ %rev_index.1527, %if.then50 ], [ %rev_index.1527, %if.then46 ], [ %rev_index.1527, %if.then38 ], [ %rev_index.1527, %if.then34 ], [ %rev_index.1527, %if.then22 ], [ %rev_index.1527, %if.else23 ], [ %rev_index.1527, %if.else39 ], [ %rev_index.1527, %if.else117 ], [ %rev_index.1527, %if.end156 ], [ 1, %if.else179 ], [ 0, %if.else183 ], [ %rev_index.1527, %if.end210 ]
-  %index_name.1 = phi ptr [ %index_name.0528, %if.then30 ], [ %index_name.0528, %if.else51 ], [ %index_name.0528, %if.else55 ], [ %index_name.0528, %lor.lhs.false ], [ %index_name.0528, %if.end96 ], [ %index_name.0528, %if.then168 ], [ %index_name.0528, %if.end178 ], [ %56, %if.end131 ], [ %index_name.0528, %if.then116 ], [ %index_name.0528, %if.end110 ], [ %index_name.0528, %if.then100 ], [ %index_name.0528, %if.then50 ], [ %index_name.0528, %if.then46 ], [ %index_name.0528, %if.then38 ], [ %index_name.0528, %if.then34 ], [ %index_name.0528, %if.then22 ], [ %index_name.0528, %if.else23 ], [ %index_name.0528, %if.else39 ], [ %index_name.0528, %if.else117 ], [ %index_name.0528, %if.end156 ], [ %index_name.0528, %if.else179 ], [ %index_name.0528, %if.else183 ], [ %index_name.0528, %if.end210 ]
-  %pack_name.1 = phi ptr [ %pack_name.0529, %if.then30 ], [ %pack_name.0529, %if.else51 ], [ %pack_name.0529, %if.else55 ], [ %pack_name.0529, %lor.lhs.false ], [ %pack_name.0529, %if.end96 ], [ %pack_name.0529, %if.then168 ], [ %pack_name.0529, %if.end178 ], [ %pack_name.0529, %if.end131 ], [ %pack_name.0529, %if.then116 ], [ %pack_name.0529, %if.end110 ], [ %pack_name.0529, %if.then100 ], [ %pack_name.0529, %if.then50 ], [ %pack_name.0529, %if.then46 ], [ %pack_name.0529, %if.then38 ], [ %pack_name.0529, %if.then34 ], [ %pack_name.0529, %if.then22 ], [ %pack_name.0529, %if.else23 ], [ %pack_name.0529, %if.else39 ], [ %pack_name.0529, %if.else117 ], [ %pack_name.0529, %if.end156 ], [ %pack_name.0529, %if.else179 ], [ %pack_name.0529, %if.else183 ], [ %14, %if.end210 ]
+  %verify.1 = phi i32 [ %verify.0523, %if.then30 ], [ %verify.0523, %if.else51 ], [ %verify.0523, %if.else55 ], [ %verify.0523, %lor.lhs.false ], [ %verify.0523, %if.end96 ], [ %verify.0523, %if.then168 ], [ %verify.0523, %if.end178 ], [ %verify.0523, %if.end131 ], [ %verify.0523, %if.then116 ], [ %verify.0523, %if.end110 ], [ %verify.0523, %if.then100 ], [ 1, %if.then50 ], [ 1, %if.then46 ], [ %verify.0523, %if.then38 ], [ %verify.0523, %if.then34 ], [ %verify.0523, %if.then22 ], [ %verify.0523, %if.else23 ], [ 1, %if.else39 ], [ %verify.0523, %if.else117 ], [ %verify.0523, %if.end156 ], [ %verify.0523, %if.else179 ], [ %verify.0523, %if.else183 ], [ %verify.0523, %if.end210 ]
+  %stat_only.1 = phi i32 [ %stat_only.0524, %if.then30 ], [ %stat_only.0524, %if.else51 ], [ %stat_only.0524, %if.else55 ], [ %stat_only.0524, %lor.lhs.false ], [ %stat_only.0524, %if.end96 ], [ %stat_only.0524, %if.then168 ], [ %stat_only.0524, %if.end178 ], [ %stat_only.0524, %if.end131 ], [ %stat_only.0524, %if.then116 ], [ %stat_only.0524, %if.end110 ], [ %stat_only.0524, %if.then100 ], [ 1, %if.then50 ], [ %stat_only.0524, %if.then46 ], [ %stat_only.0524, %if.then38 ], [ %stat_only.0524, %if.then34 ], [ %stat_only.0524, %if.then22 ], [ %stat_only.0524, %if.else23 ], [ %stat_only.0524, %if.else39 ], [ %stat_only.0524, %if.else117 ], [ %stat_only.0524, %if.end156 ], [ %stat_only.0524, %if.else179 ], [ %stat_only.0524, %if.else183 ], [ %stat_only.0524, %if.end210 ]
+  %rev_index.2 = phi i32 [ %rev_index.1525, %if.then30 ], [ %rev_index.1525, %if.else51 ], [ %rev_index.1525, %if.else55 ], [ %rev_index.1525, %lor.lhs.false ], [ %rev_index.1525, %if.end96 ], [ %rev_index.1525, %if.then168 ], [ %rev_index.1525, %if.end178 ], [ %rev_index.1525, %if.end131 ], [ %rev_index.1525, %if.then116 ], [ %rev_index.1525, %if.end110 ], [ %rev_index.1525, %if.then100 ], [ %rev_index.1525, %if.then50 ], [ %rev_index.1525, %if.then46 ], [ %rev_index.1525, %if.then38 ], [ %rev_index.1525, %if.then34 ], [ %rev_index.1525, %if.then22 ], [ %rev_index.1525, %if.else23 ], [ %rev_index.1525, %if.else39 ], [ %rev_index.1525, %if.else117 ], [ %rev_index.1525, %if.end156 ], [ 1, %if.else179 ], [ 0, %if.else183 ], [ %rev_index.1525, %if.end210 ]
+  %fix_thin_pack.1 = phi i32 [ %fix_thin_pack.0526, %if.then30 ], [ %fix_thin_pack.0526, %if.else51 ], [ %fix_thin_pack.0526, %if.else55 ], [ %fix_thin_pack.0526, %lor.lhs.false ], [ %fix_thin_pack.0526, %if.end96 ], [ %fix_thin_pack.0526, %if.then168 ], [ %fix_thin_pack.0526, %if.end178 ], [ %fix_thin_pack.0526, %if.end131 ], [ %fix_thin_pack.0526, %if.then116 ], [ %fix_thin_pack.0526, %if.end110 ], [ %fix_thin_pack.0526, %if.then100 ], [ %fix_thin_pack.0526, %if.then50 ], [ %fix_thin_pack.0526, %if.then46 ], [ %fix_thin_pack.0526, %if.then38 ], [ %fix_thin_pack.0526, %if.then34 ], [ %fix_thin_pack.0526, %if.then22 ], [ 1, %if.else23 ], [ %fix_thin_pack.0526, %if.else39 ], [ %fix_thin_pack.0526, %if.else117 ], [ %fix_thin_pack.0526, %if.end156 ], [ %fix_thin_pack.0526, %if.else179 ], [ %fix_thin_pack.0526, %if.else183 ], [ %fix_thin_pack.0526, %if.end210 ]
+  %index_name.1 = phi ptr [ %index_name.0527, %if.then30 ], [ %index_name.0527, %if.else51 ], [ %index_name.0527, %if.else55 ], [ %index_name.0527, %lor.lhs.false ], [ %index_name.0527, %if.end96 ], [ %index_name.0527, %if.then168 ], [ %index_name.0527, %if.end178 ], [ %56, %if.end131 ], [ %index_name.0527, %if.then116 ], [ %index_name.0527, %if.end110 ], [ %index_name.0527, %if.then100 ], [ %index_name.0527, %if.then50 ], [ %index_name.0527, %if.then46 ], [ %index_name.0527, %if.then38 ], [ %index_name.0527, %if.then34 ], [ %index_name.0527, %if.then22 ], [ %index_name.0527, %if.else23 ], [ %index_name.0527, %if.else39 ], [ %index_name.0527, %if.else117 ], [ %index_name.0527, %if.end156 ], [ %index_name.0527, %if.else179 ], [ %index_name.0527, %if.else183 ], [ %index_name.0527, %if.end210 ]
+  %pack_name.1 = phi ptr [ %pack_name.0528, %if.then30 ], [ %pack_name.0528, %if.else51 ], [ %pack_name.0528, %if.else55 ], [ %pack_name.0528, %lor.lhs.false ], [ %pack_name.0528, %if.end96 ], [ %pack_name.0528, %if.then168 ], [ %pack_name.0528, %if.end178 ], [ %pack_name.0528, %if.end131 ], [ %pack_name.0528, %if.then116 ], [ %pack_name.0528, %if.end110 ], [ %pack_name.0528, %if.then100 ], [ %pack_name.0528, %if.then50 ], [ %pack_name.0528, %if.then46 ], [ %pack_name.0528, %if.then38 ], [ %pack_name.0528, %if.then34 ], [ %pack_name.0528, %if.then22 ], [ %pack_name.0528, %if.else23 ], [ %pack_name.0528, %if.else39 ], [ %pack_name.0528, %if.else117 ], [ %pack_name.0528, %if.end156 ], [ %pack_name.0528, %if.else179 ], [ %pack_name.0528, %if.else183 ], [ %14, %if.end210 ]
+  %i.1 = phi i32 [ %i.0529, %if.then30 ], [ %i.0529, %if.else51 ], [ %i.0529, %if.else55 ], [ %i.0529, %lor.lhs.false ], [ %i.0529, %if.end96 ], [ %i.0529, %if.then168 ], [ %i.0529, %if.end178 ], [ %add127, %if.end131 ], [ %i.0529, %if.then116 ], [ %add, %if.end110 ], [ %i.0529, %if.then100 ], [ %i.0529, %if.then50 ], [ %i.0529, %if.then46 ], [ %i.0529, %if.then38 ], [ %i.0529, %if.then34 ], [ %i.0529, %if.then22 ], [ %i.0529, %if.else23 ], [ %i.0529, %if.else39 ], [ %i.0529, %if.else117 ], [ %i.0529, %if.end156 ], [ %i.0529, %if.else179 ], [ %i.0529, %if.else183 ], [ %i.0529, %if.end210 ]
   %report_end_of_input.1 = phi i32 [ %report_end_of_input.0530, %if.then30 ], [ %report_end_of_input.0530, %if.else51 ], [ %report_end_of_input.0530, %if.else55 ], [ %report_end_of_input.0530, %lor.lhs.false ], [ %report_end_of_input.0530, %if.end96 ], [ %report_end_of_input.0530, %if.then168 ], [ %report_end_of_input.0530, %if.end178 ], [ %report_end_of_input.0530, %if.end131 ], [ %report_end_of_input.0530, %if.then116 ], [ %report_end_of_input.0530, %if.end110 ], [ %report_end_of_input.0530, %if.then100 ], [ %report_end_of_input.0530, %if.then50 ], [ %report_end_of_input.0530, %if.then46 ], [ %report_end_of_input.0530, %if.then38 ], [ %report_end_of_input.0530, %if.then34 ], [ %report_end_of_input.0530, %if.then22 ], [ %report_end_of_input.0530, %if.else23 ], [ %report_end_of_input.0530, %if.else39 ], [ 1, %if.else117 ], [ %report_end_of_input.0530, %if.end156 ], [ %report_end_of_input.0530, %if.else179 ], [ %report_end_of_input.0530, %if.else183 ], [ %report_end_of_input.0530, %if.end210 ]
   %hash_algo.1 = phi i32 [ %hash_algo.0531, %if.then30 ], [ %hash_algo.0531, %if.else51 ], [ %hash_algo.0531, %if.else55 ], [ %hash_algo.0531, %lor.lhs.false ], [ %hash_algo.0531, %if.end96 ], [ %hash_algo.0531, %if.then168 ], [ %call173, %if.end178 ], [ %hash_algo.0531, %if.end131 ], [ %hash_algo.0531, %if.then116 ], [ %hash_algo.0531, %if.end110 ], [ %hash_algo.0531, %if.then100 ], [ %hash_algo.0531, %if.then50 ], [ %hash_algo.0531, %if.then46 ], [ %hash_algo.0531, %if.then38 ], [ %hash_algo.0531, %if.then34 ], [ %hash_algo.0531, %if.then22 ], [ %hash_algo.0531, %if.else23 ], [ %hash_algo.0531, %if.else39 ], [ %hash_algo.0531, %if.else117 ], [ %hash_algo.0531, %if.end156 ], [ %hash_algo.0531, %if.else179 ], [ %hash_algo.0531, %if.else183 ], [ %hash_algo.0531, %if.end210 ]
   %inc214 = add nsw i32 %i.1, 1
@@ -753,10 +753,10 @@ for.inc:                                          ; preds = %if.end210, %if.else
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end7
-  %fix_thin_pack.0.lcssa = phi i32 [ 0, %if.end7 ], [ %fix_thin_pack.1, %for.inc ]
   %verify.0.lcssa = phi i32 [ 0, %if.end7 ], [ %verify.1, %for.inc ]
   %stat_only.0.lcssa = phi i32 [ 0, %if.end7 ], [ %stat_only.1, %for.inc ]
   %rev_index.1.lcssa = phi i32 [ %rev_index.0, %if.end7 ], [ %rev_index.2, %for.inc ]
+  %fix_thin_pack.0.lcssa = phi i32 [ 0, %if.end7 ], [ %fix_thin_pack.1, %for.inc ]
   %index_name.0.lcssa = phi ptr [ null, %if.end7 ], [ %index_name.1, %for.inc ]
   %pack_name.0.lcssa = phi ptr [ null, %if.end7 ], [ %pack_name.1, %for.inc ]
   %report_end_of_input.0.lcssa = phi i32 [ 0, %if.end7 ], [ %report_end_of_input.1, %for.inc ]
@@ -1185,8 +1185,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i101
 
 for.body.i:                                       ; preds = %if.end58.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end58.i ]
-  %ofs_delta.0588.i = phi ptr [ %call300, %for.body.lr.ph.i ], [ %ofs_delta.1.i, %if.end58.i ]
   %nr_delays.0587.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nr_delays.1.i, %if.end58.i ]
+  %ofs_delta.0586.i = phi ptr [ %call300, %for.body.lr.ph.i ], [ %ofs_delta.1.i, %if.end58.i ]
   %112 = load ptr, ptr @objects, align 8
   %arrayidx.i = getelementptr inbounds %struct.object_entry, ptr %112, i64 %indvars.iv.i
   %113 = load i64, ptr @consumed_bytes, align 8
@@ -1586,7 +1586,7 @@ while.end38.i.i:                                  ; preds = %use.exit310.i, %sw.
   %base_offset.0.lcssa.i.i = phi i64 [ %and21.i.i, %sw.bb18.i.i ], [ %add37.i.i, %use.exit310.i ]
   %174 = load i64, ptr %offset.i.i, align 8
   %sub.i.i = sub nsw i64 %174, %base_offset.0.lcssa.i.i
-  store i64 %sub.i.i, ptr %ofs_delta.0588.i, align 8
+  store i64 %sub.i.i, ptr %ofs_delta.0586.i, align 8
   %cmp.i.i118 = icmp sgt i64 %sub.i.i, 0
   %.pre48.i.i = load i64, ptr %offset.i.i, align 8
   %cmp45.not.i.i = icmp slt i64 %sub.i.i, %.pre48.i.i
@@ -2393,10 +2393,10 @@ if.then15.i:                                      ; preds = %unpack_raw_entry.ex
   %313 = load i32, ptr @nr_ofs_deltas, align 4
   %inc.i = add nsw i32 %313, 1
   store i32 %inc.i, ptr @nr_ofs_deltas, align 4
-  %obj_no.i = getelementptr inbounds i8, ptr %ofs_delta.0588.i, i64 8
+  %obj_no.i = getelementptr inbounds i8, ptr %ofs_delta.0586.i, i64 8
   %314 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %314, ptr %obj_no.i, align 8
-  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %ofs_delta.0588.i, i64 16
+  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %ofs_delta.0586.i, i64 16
   br label %if.end58.i
 
 do.body.i111:                                     ; preds = %unpack_raw_entry.exit.i
@@ -2464,8 +2464,8 @@ if.else51.i:                                      ; preds = %if.else46.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.else51.i, %if.then48.i, %do.end.i, %if.then15.i
+  %ofs_delta.1.i = phi ptr [ %incdec.ptr.i114, %if.then15.i ], [ %ofs_delta.0586.i, %do.end.i ], [ %ofs_delta.0586.i, %if.else51.i ], [ %ofs_delta.0586.i, %if.then48.i ]
   %nr_delays.1.i = phi i32 [ %nr_delays.0587.i, %if.then15.i ], [ %nr_delays.0587.i, %do.end.i ], [ %nr_delays.0587.i, %if.else51.i ], [ %inc50.i, %if.then48.i ]
-  %ofs_delta.1.i = phi ptr [ %incdec.ptr.i114, %if.then15.i ], [ %ofs_delta.0588.i, %do.end.i ], [ %ofs_delta.0588.i, %if.else51.i ], [ %ofs_delta.0588.i, %if.then48.i ]
   call void @free(ptr noundef %cond50.i.i.i) #23
   %323 = load ptr, ptr @progress, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2480,8 +2480,8 @@ for.end.loopexit.i:                               ; preds = %if.end58.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i101
-  %i.0.lcssa.i = phi i64 [ 0, %if.end.i101 ], [ %326, %for.end.loopexit.i ]
   %nr_delays.0.lcssa.i = phi i32 [ 0, %if.end.i101 ], [ %nr_delays.1.i, %for.end.loopexit.i ]
+  %i.0.lcssa.i = phi i64 [ 0, %if.end.i101 ], [ %326, %for.end.loopexit.i ]
   %327 = load i64, ptr @consumed_bytes, align 8
   %328 = load ptr, ptr @objects, align 8
   %offset65.i = getelementptr inbounds %struct.object_entry, ptr %328, i64 %i.0.lcssa.i, i32 0, i32 2
@@ -2631,7 +2631,7 @@ for.body96.i:                                     ; preds = %for.inc113.i, %for.
   %359 = phi i32 [ %358, %for.body96.preheader.i ], [ %364, %for.inc113.i ]
   %360 = phi ptr [ %.pre714.i, %for.body96.preheader.i ], [ %365, %for.inc113.i ]
   %indvars.iv706.i = phi i64 [ 0, %for.body96.preheader.i ], [ %indvars.iv.next707.i, %for.inc113.i ]
-  %nr_delays.2592.i = phi i32 [ %nr_delays.0.lcssa.i, %for.body96.preheader.i ], [ %nr_delays.3.i, %for.inc113.i ]
+  %nr_delays.2591.i = phi i32 [ %nr_delays.0.lcssa.i, %for.body96.preheader.i ], [ %nr_delays.3.i, %for.inc113.i ]
   %arrayidx99.i = getelementptr inbounds %struct.object_entry, ptr %360, i64 %indvars.iv706.i
   %real_type100.i = getelementptr inbounds i8, ptr %arrayidx99.i, i64 58
   %361 = load i8, ptr %real_type100.i, align 2
@@ -2646,7 +2646,7 @@ if.end105.i:                                      ; preds = %for.body96.i
   %363 = load i64, ptr %size108.i, align 8
   %conv110.i = sext i8 %362 to i32
   call fastcc void @sha1_object(ptr noundef null, ptr noundef nonnull %arrayidx99.i, i64 noundef %363, i32 noundef %conv110.i, ptr noundef nonnull %arrayidx99.i)
-  %dec.i = add nsw i32 %nr_delays.2592.i, -1
+  %dec.i = add nsw i32 %nr_delays.2591.i, -1
   %.pre713.i = load ptr, ptr @objects, align 8
   %.pre715.i = load i32, ptr @nr_objects, align 4
   br label %for.inc113.i
@@ -2654,7 +2654,7 @@ if.end105.i:                                      ; preds = %for.body96.i
 for.inc113.i:                                     ; preds = %if.end105.i, %for.body96.i
   %364 = phi i32 [ %359, %for.body96.i ], [ %.pre715.i, %if.end105.i ]
   %365 = phi ptr [ %360, %for.body96.i ], [ %.pre713.i, %if.end105.i ]
-  %nr_delays.3.i = phi i32 [ %nr_delays.2592.i, %for.body96.i ], [ %dec.i, %if.end105.i ]
+  %nr_delays.3.i = phi i32 [ %nr_delays.2591.i, %for.body96.i ], [ %dec.i, %if.end105.i ]
   %indvars.iv.next707.i = add nuw nsw i64 %indvars.iv706.i, 1
   %366 = sext i32 %364 to i64
   %cmp94.i = icmp slt i64 %indvars.iv.next707.i, %366
@@ -5883,11 +5883,11 @@ while.body.lr.ph.i.i:                             ; preds = %entry
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %last.014.i.i = phi i32 [ %0, %while.body.lr.ph.i.i ], [ %spec.select10.i.i, %if.end.i.i ]
-  %first.013.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
-  %sub.i.i = sub nsw i32 %last.014.i.i, %first.013.i.i
+  %first.014.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %spec.select10.i.i, %if.end.i.i ]
+  %last.013.i.i = phi i32 [ %0, %while.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
+  %sub.i.i = sub nsw i32 %last.013.i.i, %first.014.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %first.013.i.i
+  %add.i.i = add nsw i32 %div.i.i, %first.014.i.i
   %idxprom.i.i = sext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.ref_delta_entry, ptr %1, i64 %idxprom.i.i
   %obj_no.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 36
@@ -5940,13 +5940,13 @@ compare_ref_delta_bases.exit.i.i:                 ; preds = %if.end.i.i.i.i.i, %
 if.end.i.i:                                       ; preds = %compare_ref_delta_bases.exit.i.i
   %cmp5.i.i = icmp slt i32 %retval.0.i.i.i, 0
   %add9.i.i = add nsw i32 %add.i.i, 1
-  %spec.select.i.i = select i1 %cmp5.i.i, i32 %first.013.i.i, i32 %add9.i.i
-  %spec.select10.i.i = select i1 %cmp5.i.i, i32 %add.i.i, i32 %last.014.i.i
-  %cmp.i.i = icmp slt i32 %spec.select.i.i, %spec.select10.i.i
+  %spec.select.i.i = select i1 %cmp5.i.i, i32 %add.i.i, i32 %last.013.i.i
+  %spec.select10.i.i = select i1 %cmp5.i.i, i32 %first.014.i.i, i32 %add9.i.i
+  %cmp.i.i = icmp slt i32 %spec.select10.i.i, %spec.select.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !37
 
 while.end.loopexit.i.i:                           ; preds = %if.end.i.i
-  %9 = xor i32 %spec.select.i.i, -1
+  %9 = xor i32 %spec.select10.i.i, -1
   br label %find_ref_delta.exit.i
 
 find_ref_delta.exit.i:                            ; preds = %compare_ref_delta_bases.exit.i.i, %while.end.loopexit.i.i
@@ -6076,11 +6076,11 @@ while.body.lr.ph.i.i16:                           ; preds = %find_ref_delta_chil
   br label %while.body.i.i17
 
 while.body.i.i17:                                 ; preds = %if.end.i.i32, %while.body.lr.ph.i.i16
-  %last.017.i.i = phi i32 [ %21, %while.body.lr.ph.i.i16 ], [ %spec.select10.i.i36, %if.end.i.i32 ]
-  %first.016.i.i = phi i32 [ 0, %while.body.lr.ph.i.i16 ], [ %spec.select.i.i35, %if.end.i.i32 ]
-  %sub.i.i18 = sub nsw i32 %last.017.i.i, %first.016.i.i
+  %first.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i16 ], [ %spec.select10.i.i36, %if.end.i.i32 ]
+  %last.016.i.i = phi i32 [ %21, %while.body.lr.ph.i.i16 ], [ %spec.select.i.i35, %if.end.i.i32 ]
+  %sub.i.i18 = sub nsw i32 %last.016.i.i, %first.017.i.i
   %div.i.i19 = sdiv i32 %sub.i.i18, 2
-  %add.i.i20 = add nsw i32 %div.i.i19, %first.016.i.i
+  %add.i.i20 = add nsw i32 %div.i.i19, %first.017.i.i
   %idxprom.i.i21 = sext i32 %add.i.i20 to i64
   %arrayidx.i.i22 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %idxprom.i.i21
   %obj_no.i.i23 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 8
@@ -6112,13 +6112,13 @@ if.end.i.i32:                                     ; preds = %compare_ofs_delta_b
   %retval.0.i13.i.i = phi i32 [ %retval.0.i.i.i30, %compare_ofs_delta_bases.exit.i.i ], [ -1, %if.end.i.i.i56 ]
   %cmp5.i.i33 = icmp slt i32 %retval.0.i13.i.i, 0
   %add9.i.i34 = add nsw i32 %add.i.i20, 1
-  %spec.select.i.i35 = select i1 %cmp5.i.i33, i32 %first.016.i.i, i32 %add9.i.i34
-  %spec.select10.i.i36 = select i1 %cmp5.i.i33, i32 %add.i.i20, i32 %last.017.i.i
-  %cmp.i.i37 = icmp slt i32 %spec.select.i.i35, %spec.select10.i.i36
+  %spec.select.i.i35 = select i1 %cmp5.i.i33, i32 %add.i.i20, i32 %last.016.i.i
+  %spec.select10.i.i36 = select i1 %cmp5.i.i33, i32 %first.017.i.i, i32 %add9.i.i34
+  %cmp.i.i37 = icmp slt i32 %spec.select10.i.i36, %spec.select.i.i35
   br i1 %cmp.i.i37, label %while.body.i.i17, label %while.end.loopexit.i.i38, !llvm.loop !40
 
 while.end.loopexit.i.i38:                         ; preds = %if.end.i.i32
-  %27 = xor i32 %spec.select.i.i35, -1
+  %27 = xor i32 %spec.select10.i.i36, -1
   br label %find_ofs_delta.exit.i
 
 find_ofs_delta.exit.i:                            ; preds = %compare_ofs_delta_bases.exit.i.i, %while.end.loopexit.i.i38

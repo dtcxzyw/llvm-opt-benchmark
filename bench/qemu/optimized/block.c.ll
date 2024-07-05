@@ -4591,7 +4591,7 @@ do.end:                                           ; preds = %do.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.11.0..sroa_idx, i8 0, i64 16, i1 false)
   %get_parent_aio_context.i = getelementptr inbounds i8, ptr %child_class, i64 120
   %2 = load ptr, ptr %get_parent_aio_context.i, align 8
-  %call.i34 = tail call ptr %2(ptr noundef %call5) #29
+  %call.i34 = tail call ptr %2(ptr noundef nonnull %call5) #29
   %cmp.not = icmp eq ptr %cond.i, %call.i34
   br i1 %cmp.not, label %if.end35, label %if.then11
 
@@ -16834,8 +16834,8 @@ if.then17.i:                                      ; preds = %if.then15.i
   br label %bdrv_node_refresh_perm.exit.thread
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.end9.i, %bdrv_get_cumulative_perm.exit.i, %do.end.i.i11
-  %cumulative_perms.0.lcssa.i4962.i = phi i64 [ %or.i.i, %if.then15.i ], [ %or.i.i, %if.end9.i ], [ %or.i.i, %bdrv_get_cumulative_perm.exit.i ], [ 0, %do.end.i.i11 ]
-  %cumulative_shared_perms.0.lcssa.i5161.i = phi i64 [ %and.i.i12, %if.then15.i ], [ %and.i.i12, %if.end9.i ], [ %and.i.i12, %bdrv_get_cumulative_perm.exit.i ], [ 15, %do.end.i.i11 ]
+  %cumulative_perms.0.lcssa.i4960.i = phi i64 [ %or.i.i, %if.then15.i ], [ %or.i.i, %if.end9.i ], [ %or.i.i, %bdrv_get_cumulative_perm.exit.i ], [ 0, %do.end.i.i11 ]
+  %cumulative_shared_perms.0.lcssa.i5059.i = phi i64 [ %and.i.i12, %if.then15.i ], [ %and.i.i12, %if.end9.i ], [ %and.i.i12, %bdrv_get_cumulative_perm.exit.i ], [ 15, %do.end.i.i11 ]
   %tobool20.not.i = icmp eq ptr %18, null
   br i1 %tobool20.not.i, label %for.inc, label %if.end22.i
 
@@ -16859,7 +16859,7 @@ if.end2.i.i:                                      ; preds = %do.end.i30.i
   br i1 %tobool4.not.i.i, label %if.end11.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end2.i.i
-  %call8.i.i = call i32 %25(ptr noundef nonnull %0, i64 noundef %cumulative_perms.0.lcssa.i4962.i, i64 noundef %cumulative_shared_perms.0.lcssa.i5161.i, ptr noundef %errp) #29
+  %call8.i.i = call i32 %25(ptr noundef nonnull %0, i64 noundef %cumulative_perms.0.lcssa.i4960.i, i64 noundef %cumulative_shared_perms.0.lcssa.i5059.i, ptr noundef %errp) #29
   %cmp.i32.i = icmp slt i32 %call8.i.i, 0
   br i1 %cmp.i32.i, label %bdrv_node_refresh_perm.exit.thread, label %if.end11.i.i
 
@@ -16890,9 +16890,9 @@ if.end34.i:                                       ; preds = %if.end26.i
   br i1 %cmp29.i, label %for.inc, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end34.i, %bdrv_child_set_perm.exit.i
-  %c.072.i = phi ptr [ %c.0.i, %bdrv_child_set_perm.exit.i ], [ %27, %if.end34.i ]
-  %28 = load ptr, ptr %c.072.i, align 8
-  %role.i = getelementptr inbounds i8, ptr %c.072.i, i64 24
+  %c.066.i = phi ptr [ %c.0.i, %bdrv_child_set_perm.exit.i ], [ %27, %if.end34.i ]
+  %28 = load ptr, ptr %c.066.i, align 8
+  %role.i = getelementptr inbounds i8, ptr %c.066.i, i64 24
   %29 = load i32, ptr %role.i, align 8
   %30 = load ptr, ptr %drv1.i, align 8
   %tobool.not.i34.i = icmp eq ptr %30, null
@@ -16920,7 +16920,7 @@ do.end.i36.i:                                     ; preds = %do.body.i.i19
   %32 = load ptr, ptr %drv1.i, align 8
   %bdrv_child_perm7.i.i = getelementptr inbounds i8, ptr %32, i64 424
   %33 = load ptr, ptr %bdrv_child_perm7.i.i, align 8
-  call void %33(ptr noundef nonnull %0, ptr noundef nonnull %c.072.i, i32 noundef %29, ptr noundef %q, i64 noundef %cumulative_perms.0.lcssa.i4962.i, i64 noundef %cumulative_shared_perms.0.lcssa.i5161.i, ptr noundef nonnull %cur_perm.i, ptr noundef nonnull %cur_shared.i) #29
+  call void %33(ptr noundef nonnull %0, ptr noundef nonnull %c.066.i, i32 noundef %29, ptr noundef %q, i64 noundef %cumulative_perms.0.lcssa.i4960.i, i64 noundef %cumulative_shared_perms.0.lcssa.i5059.i, ptr noundef nonnull %cur_perm.i, ptr noundef nonnull %cur_shared.i) #29
   %tobool8.not.i.i = icmp eq ptr %28, null
   br i1 %tobool8.not.i.i, label %bdrv_child_perm.exit.i, label %land.lhs.true9.i.i
 
@@ -16946,16 +16946,16 @@ if.else.i39.i:                                    ; preds = %bdrv_child_perm.exi
   unreachable
 
 bdrv_child_set_perm.exit.i:                       ; preds = %bdrv_child_perm.exit.i
-  %perm2.i.i = getelementptr inbounds i8, ptr %c.072.i, i64 40
-  %shared_perm.i.i21 = getelementptr inbounds i8, ptr %c.072.i, i64 48
+  %perm2.i.i = getelementptr inbounds i8, ptr %c.066.i, i64 40
+  %shared_perm.i.i21 = getelementptr inbounds i8, ptr %c.066.i, i64 48
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i38.i, i64 8
   %37 = load <2 x i64>, ptr %perm2.i.i, align 8
-  store ptr %c.072.i, ptr %call.i38.i, align 8
+  store ptr %c.066.i, ptr %call.i38.i, align 8
   store <2 x i64> %37, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 8
   store i64 %35, ptr %perm2.i.i, align 8
   store i64 %36, ptr %shared_perm.i.i21, align 8
   call void @tran_add(ptr noundef %tran, ptr noundef nonnull @bdrv_child_set_pem_drv, ptr noundef nonnull %call.i38.i) #29
-  %next.i = getelementptr inbounds i8, ptr %c.072.i, i64 64
+  %next.i = getelementptr inbounds i8, ptr %c.066.i, i64 64
   %c.0.i = load ptr, ptr %next.i, align 8
   %tobool37.not.i = icmp eq ptr %c.0.i, null
   br i1 %tobool37.not.i, label %for.inc, label %for.body.i, !llvm.loop !98

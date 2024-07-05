@@ -1397,8 +1397,8 @@ if.then81:                                        ; preds = %if.then72
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then72, %if.then81
-  %rc.3 = phi i32 [ %or84, %if.then81 ], [ %or75, %if.then72 ]
   %real_bind_addr.0 = phi ptr [ %any, %if.then81 ], [ %call76, %if.then72 ]
+  %rc.3 = phi i32 [ %or84, %if.then81 ], [ %or75, %if.then72 ]
   %cmp88.not = icmp eq i32 %rc.3, 0
   br i1 %cmp88.not, label %if.end90, label %if.then89
 

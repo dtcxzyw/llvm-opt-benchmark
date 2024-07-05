@@ -98,8 +98,8 @@ lor.lhs.false30:                                  ; preds = %if.then24, %if.then
   br i1 %cmp, label %land.lhs.true, label %if.end37
 
 land.lhs.true:                                    ; preds = %lor.lhs.false30, %if.then10
-  %strategy.076 = phi ptr [ %strategy.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
-  %database.073 = phi ptr [ %database.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
+  %strategy.075 = phi ptr [ %strategy.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
+  %database.072 = phi ptr [ %database.0.ph, %lor.lhs.false30 ], [ null, %if.then10 ]
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %8 = and i64 %bf.load, 536870912
@@ -111,14 +111,14 @@ if.then35:                                        ; preds = %land.lhs.true
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %land.lhs.true, %lor.lhs.false30
-  %strategy.074 = phi ptr [ %strategy.0.ph, %lor.lhs.false30 ], [ %strategy.076, %land.lhs.true ], [ %strategy.076, %if.then35 ]
-  %database.071 = phi ptr [ %database.0.ph, %lor.lhs.false30 ], [ %database.073, %land.lhs.true ], [ %database.073, %if.then35 ]
+  %strategy.073 = phi ptr [ %strategy.0.ph, %lor.lhs.false30 ], [ %strategy.075, %land.lhs.true ], [ %strategy.075, %if.then35 ]
+  %database.070 = phi ptr [ %database.0.ph, %lor.lhs.false30 ], [ %database.072, %land.lhs.true ], [ %database.072, %if.then35 ]
   %word.1 = phi ptr [ %incdec.ptr, %lor.lhs.false30 ], [ @.str.5, %land.lhs.true ], [ @.str.5, %if.then35 ]
-  %tobool38.not = icmp eq ptr %database.071, null
+  %tobool38.not = icmp eq ptr %database.070, null
   br i1 %tobool38.not, label %if.then43, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %if.end37
-  %9 = load i8, ptr %database.071, align 1
+  %9 = load i8, ptr %database.070, align 1
   %cmp41 = icmp eq i8 %9, 0
   br i1 %cmp41, label %if.then43, label %if.end44
 
@@ -126,12 +126,12 @@ if.then43:                                        ; preds = %lor.lhs.false39, %i
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %lor.lhs.false39
-  %database.1 = phi ptr [ @.str.6, %if.then43 ], [ %database.071, %lor.lhs.false39 ]
-  %tobool45.not = icmp eq ptr %strategy.074, null
+  %database.1 = phi ptr [ @.str.6, %if.then43 ], [ %database.070, %lor.lhs.false39 ]
+  %tobool45.not = icmp eq ptr %strategy.073, null
   br i1 %tobool45.not, label %if.then50, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.end44
-  %10 = load i8, ptr %strategy.074, align 1
+  %10 = load i8, ptr %strategy.073, align 1
   %cmp48 = icmp eq i8 %10, 0
   br i1 %cmp48, label %if.then50, label %if.end51
 
@@ -139,7 +139,7 @@ if.then50:                                        ; preds = %lor.lhs.false46, %i
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %lor.lhs.false46
-  %strategy.1 = phi ptr [ @.str.7, %if.then50 ], [ %strategy.074, %lor.lhs.false46 ]
+  %strategy.1 = phi ptr [ @.str.7, %if.then50 ], [ %strategy.073, %lor.lhs.false46 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %out.i)
   call void @Curl_dyn_init(ptr noundef nonnull %out.i, i64 noundef 10000) #5
   %11 = load i8, ptr %word.1, align 1
@@ -249,7 +249,7 @@ lor.lhs.false84:                                  ; preds = %if.then79, %if.then
   br i1 %cmp86, label %land.lhs.true91, label %if.end102
 
 land.lhs.true91:                                  ; preds = %lor.lhs.false84, %if.then68
-  %database.285 = phi ptr [ %database.2.ph, %lor.lhs.false84 ], [ null, %if.then68 ]
+  %database.284 = phi ptr [ %database.2.ph, %lor.lhs.false84 ], [ null, %if.then68 ]
   %verbose93 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load94 = load i64, ptr %verbose93, align 2
   %19 = and i64 %bf.load94, 536870912
@@ -261,13 +261,13 @@ if.then99:                                        ; preds = %land.lhs.true91
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then99, %land.lhs.true91, %lor.lhs.false84
-  %database.283 = phi ptr [ %database.2.ph, %lor.lhs.false84 ], [ %database.285, %land.lhs.true91 ], [ %database.285, %if.then99 ]
+  %database.282 = phi ptr [ %database.2.ph, %lor.lhs.false84 ], [ %database.284, %land.lhs.true91 ], [ %database.284, %if.then99 ]
   %word.3 = phi ptr [ %incdec.ptr72, %lor.lhs.false84 ], [ @.str.5, %land.lhs.true91 ], [ @.str.5, %if.then99 ]
-  %tobool103.not = icmp eq ptr %database.283, null
+  %tobool103.not = icmp eq ptr %database.282, null
   br i1 %tobool103.not, label %if.then108, label %lor.lhs.false104
 
 lor.lhs.false104:                                 ; preds = %if.end102
-  %20 = load i8, ptr %database.283, align 1
+  %20 = load i8, ptr %database.282, align 1
   %cmp106 = icmp eq i8 %20, 0
   br i1 %cmp106, label %if.then108, label %if.end109
 
@@ -275,7 +275,7 @@ if.then108:                                       ; preds = %lor.lhs.false104, %
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %lor.lhs.false104
-  %database.3 = phi ptr [ @.str.6, %if.then108 ], [ %database.283, %lor.lhs.false104 ]
+  %database.3 = phi ptr [ @.str.6, %if.then108 ], [ %database.282, %lor.lhs.false104 ]
   %call110 = call fastcc ptr @unescape_word(ptr noundef nonnull %word.3)
   %tobool111.not = icmp eq ptr %call110, null
   br i1 %tobool111.not, label %error, label %if.end113

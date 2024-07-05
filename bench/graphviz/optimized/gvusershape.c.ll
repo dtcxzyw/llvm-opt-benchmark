@@ -1193,10 +1193,10 @@ define internal fastcc void @svg_size(ptr nocapture noundef %0) unnamed_addr #0 
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %find_attribute.exit.thread
-  %.024281 = phi i32 [ 0, %1 ], [ %.4, %find_attribute.exit.thread ]
-  %.025280 = phi i8 [ 0, %1 ], [ %.429, %find_attribute.exit.thread ]
-  %.030279 = phi i8 [ 0, %1 ], [ %.434, %find_attribute.exit.thread ]
-  %.037277 = phi i32 [ 0, %1 ], [ %.441, %find_attribute.exit.thread ]
+  %.0281 = phi i32 [ 0, %1 ], [ %.4, %find_attribute.exit.thread ]
+  %.024280 = phi i32 [ 0, %1 ], [ %.428, %find_attribute.exit.thread ]
+  %.032278 = phi i8 [ 0, %1 ], [ %.436, %find_attribute.exit.thread ]
+  %.037277 = phi i8 [ 0, %1 ], [ %.441, %find_attribute.exit.thread ]
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %agxbputc.exit.backedge, %.preheader
@@ -1315,7 +1315,7 @@ agxbputc.exit.backedge:                           ; preds = %.thread35.i, %50
   br label %.fold.split
 
 .fold.split:                                      ; preds = %agxbputc.exit, %.fold.split.loopexit418
-  %.136 = phi i1 [ true, %.fold.split.loopexit418 ], [ false, %agxbputc.exit ]
+  %.130 = phi i1 [ true, %.fold.split.loopexit418 ], [ false, %agxbputc.exit ]
   %.val.i.i103 = load i8, ptr %12, align 1
   %.not.i.i104 = icmp eq i8 %.val.i.i103, -1
   br i1 %.not.i.i104, label %agxbsizeof.exit.i115, label %agxbsizeof.exit.thread.i105
@@ -1438,17 +1438,17 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
 
 .lr.ph.i.preheader:                               ; preds = %agxbuse.exit, %293
   %95 = phi i8 [ %294, %293 ], [ %94, %agxbuse.exit ]
-  %.0248 = phi ptr [ %122, %293 ], [ %93, %agxbuse.exit ]
-  %.1247 = phi i32 [ %.3, %293 ], [ %.024281, %agxbuse.exit ]
-  %.126246 = phi i8 [ %.328, %293 ], [ %.025280, %agxbuse.exit ]
-  %.131245 = phi i8 [ %.333, %293 ], [ %.030279, %agxbuse.exit ]
-  %.138244 = phi i32 [ %.340, %293 ], [ %.037277, %agxbuse.exit ]
-  %invariant.gep.i249 = getelementptr i8, ptr %.0248, i64 2
+  %.1248 = phi i32 [ %.3, %293 ], [ %.0281, %agxbuse.exit ]
+  %.125247 = phi i32 [ %.327, %293 ], [ %.024280, %agxbuse.exit ]
+  %.031246 = phi ptr [ %122, %293 ], [ %93, %agxbuse.exit ]
+  %.133245 = phi i8 [ %.335, %293 ], [ %.032278, %agxbuse.exit ]
+  %.138244 = phi i8 [ %.340, %293 ], [ %.037277, %agxbuse.exit ]
+  %invariant.gep.i249 = getelementptr i8, ptr %.031246, i64 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.loopexit54.i
   %96 = phi i8 [ %119, %.loopexit54.i ], [ %95, %.lr.ph.i.preheader ]
-  %97 = phi ptr [ %120, %.loopexit54.i ], [ %.0248, %.lr.ph.i.preheader ]
+  %97 = phi ptr [ %120, %.loopexit54.i ], [ %.031246, %.lr.ph.i.preheader ]
   %.058.i = phi i64 [ %.3.i, %.loopexit54.i ], [ 0, %.lr.ph.i.preheader ]
   %98 = add i8 %96, -97
   %or.cond.i = icmp ult i8 %98, 26
@@ -1458,7 +1458,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   %storemerge50.i = phi i64 [ %103, %.critedge.i ], [ 1, %.lr.ph.i ]
   %.1.in.i = phi i64 [ %.1.i, %.critedge.i ], [ %.058.i, %.lr.ph.i ]
   %.1.i = add i64 %.1.in.i, 1
-  %99 = getelementptr inbounds i8, ptr %.0248, i64 %.1.i
+  %99 = getelementptr inbounds i8, ptr %.031246, i64 %.1.i
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, -33
   %102 = add i8 %101, -65
@@ -1478,13 +1478,13 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
 
 108:                                              ; preds = %105
   %109 = add i64 %.1.in.i, 3
-  %110 = getelementptr inbounds i8, ptr %.0248, i64 %109
+  %110 = getelementptr inbounds i8, ptr %.031246, i64 %109
   br label %111
 
 111:                                              ; preds = %114, %108
   %storemerge.i = phi i64 [ 0, %108 ], [ %116, %114 ]
   %.2.i = phi i64 [ %109, %108 ], [ %115, %114 ]
-  %112 = getelementptr inbounds i8, ptr %.0248, i64 %.2.i
+  %112 = getelementptr inbounds i8, ptr %.031246, i64 %.2.i
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %114 [
     i8 34, label %find_attribute.exit
@@ -1498,14 +1498,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
 
 117:                                              ; preds = %.lr.ph.i
   %118 = add i64 %.058.i, 1
-  %.phi.trans.insert.i48 = getelementptr inbounds i8, ptr %.0248, i64 %118
+  %.phi.trans.insert.i48 = getelementptr inbounds i8, ptr %.031246, i64 %118
   %.pre.i49 = load i8, ptr %.phi.trans.insert.i48, align 1
   br label %.loopexit54.i
 
 .loopexit54.i:                                    ; preds = %117, %105, %.critedge2.i
   %119 = phi i8 [ 61, %105 ], [ %100, %.critedge2.i ], [ %.pre.i49, %117 ]
   %.3.i = phi i64 [ %.1.i, %105 ], [ %.1.i, %.critedge2.i ], [ %118, %117 ]
-  %120 = getelementptr inbounds i8, ptr %.0248, i64 %.3.i
+  %120 = getelementptr inbounds i8, ptr %.031246, i64 %.3.i
   %.not.i50 = icmp eq i8 %119, 0
   br i1 %.not.i50, label %find_attribute.exit.thread, label %.lr.ph.i
 
@@ -1665,10 +1665,10 @@ sub_161.i:                                        ; preds = %135
   br label %svg_units_convert.exit
 
 svg_units_convert.exit:                           ; preds = %sub_137.i, %.tail35.i, %.tail40.i, %181, %sub_161.i, %172, %sub_156.i, %166, %.tail50.i, %.tail45.i, %157, %150, %141, %sub_1.i, %135, %187, %190
-  %.232 = phi i8 [ 1, %190 ], [ %.131245, %187 ], [ 1, %135 ], [ 1, %sub_1.i ], [ 1, %141 ], [ 1, %150 ], [ 1, %157 ], [ 1, %.tail45.i ], [ 1, %.tail50.i ], [ 1, %166 ], [ 1, %sub_156.i ], [ 1, %172 ], [ 1, %sub_161.i ], [ 1, %181 ], [ 1, %.tail40.i ], [ 1, %.tail35.i ], [ 1, %sub_137.i ]
-  %.2 = phi i32 [ %193, %190 ], [ %.1247, %187 ], [ 0, %135 ], [ 0, %sub_1.i ], [ %146, %141 ], [ %154, %150 ], [ %161, %157 ], [ 0, %.tail45.i ], [ 0, %.tail50.i ], [ %168, %166 ], [ 0, %sub_156.i ], [ %177, %172 ], [ 0, %sub_161.i ], [ %186, %181 ], [ 0, %.tail40.i ], [ 0, %.tail35.i ], [ 0, %sub_137.i ]
+  %.234 = phi i8 [ 1, %190 ], [ %.133245, %187 ], [ 1, %135 ], [ 1, %sub_1.i ], [ 1, %141 ], [ 1, %150 ], [ 1, %157 ], [ 1, %.tail45.i ], [ 1, %.tail50.i ], [ 1, %166 ], [ 1, %sub_156.i ], [ 1, %172 ], [ 1, %sub_161.i ], [ 1, %181 ], [ 1, %.tail40.i ], [ 1, %.tail35.i ], [ 1, %sub_137.i ]
+  %.2 = phi i32 [ %193, %190 ], [ %.1248, %187 ], [ 0, %135 ], [ 0, %sub_1.i ], [ %146, %141 ], [ %154, %150 ], [ %161, %157 ], [ 0, %.tail45.i ], [ 0, %.tail50.i ], [ %168, %166 ], [ 0, %sub_156.i ], [ %177, %172 ], [ 0, %sub_161.i ], [ %186, %181 ], [ 0, %.tail40.i ], [ 0, %.tail35.i ], [ 0, %sub_137.i ]
   call void @free(ptr noundef nonnull %127) #21
-  %194 = trunc nuw i8 %.126246 to i1
+  %194 = trunc nuw i8 %.138244 to i1
   br i1 %194, label %find_attribute.exit.thread, label %293
 
 195:                                              ; preds = %find_attribute.exit
@@ -1825,10 +1825,10 @@ sub_161.i62:                                      ; preds = %208
   br label %svg_units_convert.exit91
 
 svg_units_convert.exit91:                         ; preds = %sub_137.i74, %.tail35.i84, %.tail40.i81, %254, %sub_161.i62, %245, %sub_156.i67, %239, %.tail50.i71, %.tail45.i80, %230, %223, %214, %sub_1.i87, %208, %260, %263
-  %.239 = phi i32 [ %266, %263 ], [ %.138244, %260 ], [ %219, %214 ], [ %227, %223 ], [ %234, %230 ], [ %241, %239 ], [ %250, %245 ], [ %259, %254 ], [ 0, %sub_161.i62 ], [ 0, %sub_156.i67 ], [ 0, %.tail50.i71 ], [ 0, %sub_1.i87 ], [ 0, %.tail45.i80 ], [ 0, %208 ], [ 0, %.tail40.i81 ], [ 0, %.tail35.i84 ], [ 0, %sub_137.i74 ]
-  %.227 = phi i8 [ 1, %263 ], [ %.126246, %260 ], [ 1, %214 ], [ 1, %223 ], [ 1, %230 ], [ 1, %239 ], [ 1, %245 ], [ 1, %254 ], [ 1, %sub_161.i62 ], [ 1, %sub_156.i67 ], [ 1, %.tail50.i71 ], [ 1, %sub_1.i87 ], [ 1, %.tail45.i80 ], [ 1, %208 ], [ 1, %.tail40.i81 ], [ 1, %.tail35.i84 ], [ 1, %sub_137.i74 ]
+  %.239 = phi i8 [ 1, %263 ], [ %.138244, %260 ], [ 1, %208 ], [ 1, %sub_1.i87 ], [ 1, %214 ], [ 1, %223 ], [ 1, %230 ], [ 1, %.tail45.i80 ], [ 1, %.tail50.i71 ], [ 1, %239 ], [ 1, %sub_156.i67 ], [ 1, %245 ], [ 1, %sub_161.i62 ], [ 1, %254 ], [ 1, %.tail40.i81 ], [ 1, %.tail35.i84 ], [ 1, %sub_137.i74 ]
+  %.226 = phi i32 [ %266, %263 ], [ %.125247, %260 ], [ 0, %208 ], [ 0, %sub_1.i87 ], [ %219, %214 ], [ %227, %223 ], [ %234, %230 ], [ 0, %.tail45.i80 ], [ 0, %.tail50.i71 ], [ %241, %239 ], [ 0, %sub_156.i67 ], [ %250, %245 ], [ 0, %sub_161.i62 ], [ %259, %254 ], [ 0, %.tail40.i81 ], [ 0, %.tail35.i84 ], [ 0, %sub_137.i74 ]
   call void @free(ptr noundef nonnull %200) #21
-  %267 = trunc nuw i8 %.131245 to i1
+  %267 = trunc nuw i8 %.133245 to i1
   br i1 %267, label %find_attribute.exit.thread, label %293
 
 268:                                              ; preds = %195
@@ -1875,23 +1875,23 @@ strview_str.exit102:                              ; preds = %272
   br label %293
 
 293:                                              ; preds = %svg_units_convert.exit91, %292, %268, %svg_units_convert.exit
-  %.340 = phi i32 [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.138244, %292 ], [ %.138244, %268 ]
-  %.333 = phi i8 [ %.232, %svg_units_convert.exit ], [ %.131245, %svg_units_convert.exit91 ], [ %.131245, %292 ], [ %.131245, %268 ]
-  %.328 = phi i8 [ %.126246, %svg_units_convert.exit ], [ %.227, %svg_units_convert.exit91 ], [ %.126246, %292 ], [ %.126246, %268 ]
-  %.3 = phi i32 [ %.2, %svg_units_convert.exit ], [ %.1247, %svg_units_convert.exit91 ], [ %.1247, %292 ], [ %.1247, %268 ]
+  %.340 = phi i8 [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.138244, %292 ], [ %.138244, %268 ]
+  %.335 = phi i8 [ %.234, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.133245, %292 ], [ %.133245, %268 ]
+  %.327 = phi i32 [ %.125247, %svg_units_convert.exit ], [ %.226, %svg_units_convert.exit91 ], [ %.125247, %292 ], [ %.125247, %268 ]
+  %.3 = phi i32 [ %.2, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.1248, %292 ], [ %.1248, %268 ]
   %294 = load i8, ptr %122, align 1
   %.not57.i = icmp eq i8 %294, 0
   br i1 %.not57.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit91, %293, %.loopexit54.i, %111, %agxbuse.exit, %281
-  %.441 = phi i32 [ %291, %281 ], [ %.037277, %agxbuse.exit ], [ %.138244, %111 ], [ %.138244, %.loopexit54.i ], [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.340, %293 ]
-  %.434 = phi i8 [ 1, %281 ], [ %.030279, %agxbuse.exit ], [ %.131245, %111 ], [ %.131245, %.loopexit54.i ], [ %.232, %svg_units_convert.exit ], [ %.131245, %svg_units_convert.exit91 ], [ %.333, %293 ]
-  %.429 = phi i8 [ 1, %281 ], [ %.025280, %agxbuse.exit ], [ %.126246, %111 ], [ %.126246, %.loopexit54.i ], [ %.126246, %svg_units_convert.exit ], [ %.227, %svg_units_convert.exit91 ], [ %.328, %293 ]
-  %.4 = phi i32 [ %286, %281 ], [ %.024281, %agxbuse.exit ], [ %.1247, %111 ], [ %.1247, %.loopexit54.i ], [ %.2, %svg_units_convert.exit ], [ %.1247, %svg_units_convert.exit91 ], [ %.3, %293 ]
-  %295 = trunc nuw i8 %.434 to i1
-  %296 = trunc nuw i8 %.429 to i1
+  %.441 = phi i8 [ 1, %281 ], [ %.037277, %agxbuse.exit ], [ %.138244, %111 ], [ %.138244, %.loopexit54.i ], [ %.138244, %svg_units_convert.exit ], [ %.239, %svg_units_convert.exit91 ], [ %.340, %293 ]
+  %.436 = phi i8 [ 1, %281 ], [ %.032278, %agxbuse.exit ], [ %.133245, %111 ], [ %.133245, %.loopexit54.i ], [ %.234, %svg_units_convert.exit ], [ %.133245, %svg_units_convert.exit91 ], [ %.335, %293 ]
+  %.428 = phi i32 [ %291, %281 ], [ %.024280, %agxbuse.exit ], [ %.125247, %111 ], [ %.125247, %.loopexit54.i ], [ %.125247, %svg_units_convert.exit ], [ %.226, %svg_units_convert.exit91 ], [ %.327, %293 ]
+  %.4 = phi i32 [ %286, %281 ], [ %.0281, %agxbuse.exit ], [ %.1248, %111 ], [ %.1248, %.loopexit54.i ], [ %.2, %svg_units_convert.exit ], [ %.1248, %svg_units_convert.exit91 ], [ %.3, %293 ]
+  %295 = trunc nuw i8 %.436 to i1
+  %296 = trunc nuw i8 %.441 to i1
   %297 = select i1 %295, i1 %296, i1 false
-  %or.cond = select i1 %.136, i1 true, i1 %297
+  %or.cond = select i1 %.130, i1 true, i1 %297
   br i1 %or.cond, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %find_attribute.exit.thread
@@ -1900,7 +1900,7 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   %299 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %.4, ptr %299, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %.441, ptr %300, align 4
+  store i32 %.428, ptr %300, align 4
   %.val45 = load i8, ptr %12, align 1
   %301 = icmp eq i8 %.val45, -1
   br i1 %301, label %302, label %agxbfree.exit

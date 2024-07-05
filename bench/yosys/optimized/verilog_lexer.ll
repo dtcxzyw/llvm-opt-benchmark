@@ -492,7 +492,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %200
 
 200:                                              ; preds = %4365, %198
-  %.01374 = phi i32 [ 0, %198 ], [ %.11375, %4365 ]
+  %.01383 = phi i32 [ 0, %198 ], [ %.11384, %4365 ]
   store i32 0, ptr @_ZL11yy_more_len, align 4
   %.b1589 = load i1, ptr @_ZL12yy_more_flag, align 4
   %.pre4384 = load ptr, ptr @_ZL10yy_c_buf_p, align 8
@@ -520,20 +520,20 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 212:                                              ; preds = %.backedge2187, %207
   %_ZL12yy_state_ptr.promoted = phi ptr [ %211, %207 ], [ %_ZL12yy_state_ptr.promoted.pre, %.backedge2187 ]
-  %.01381 = phi ptr [ %.pre4384, %207 ], [ %.01381.be, %.backedge2187 ]
-  %.01376 = phi ptr [ %.pre4384, %207 ], [ %.01376.be, %.backedge2187 ]
-  %.01176 = phi i32 [ %209, %207 ], [ %.01176.be, %.backedge2187 ]
+  %.01184 = phi ptr [ %.pre4384, %207 ], [ %.01184.be, %.backedge2187 ]
+  %.01179 = phi ptr [ %.pre4384, %207 ], [ %.01179.be, %.backedge2187 ]
+  %.01103 = phi i32 [ %209, %207 ], [ %.01103.be, %.backedge2187 ]
   br label %213
 
 213:                                              ; preds = %._crit_edge, %212
   %214 = phi ptr [ %_ZL12yy_state_ptr.promoted, %212 ], [ %248, %._crit_edge ]
-  %.11377 = phi ptr [ %.01376, %212 ], [ %249, %._crit_edge ]
-  %.11177 = phi i32 [ %.01176, %212 ], [ %247, %._crit_edge ]
-  %215 = load i8, ptr %.11377, align 1
+  %.11180 = phi ptr [ %.01179, %212 ], [ %249, %._crit_edge ]
+  %.11104 = phi i32 [ %.01103, %212 ], [ %247, %._crit_edge ]
+  %215 = load i8, ptr %.11180, align 1
   %216 = zext i8 %215 to i64
   %217 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %216
   %218 = load i8, ptr %217, align 1
-  %219 = sext i32 %.11177 to i64
+  %219 = sext i32 %.11104 to i64
   %220 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %219
   %221 = load i16, ptr %220, align 2
   %222 = sext i16 %221 to i64
@@ -542,13 +542,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %225 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %224
   %226 = load i16, ptr %225, align 2
   %227 = sext i16 %226 to i32
-  %.not15992636 = icmp eq i32 %.11177, %227
+  %.not15992636 = icmp eq i32 %.11104, %227
   br i1 %.not15992636, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %213, %236
   %228 = phi i64 [ %241, %236 ], [ %223, %213 ]
   %229 = phi i64 [ %237, %236 ], [ %219, %213 ]
-  %.013722637 = phi i8 [ %.11373, %236 ], [ %218, %213 ]
+  %.013812637 = phi i8 [ %.11382, %236 ], [ %218, %213 ]
   %230 = getelementptr inbounds [980 x i16], ptr @_ZL6yy_def, i64 0, i64 %229
   %231 = load i16, ptr %230, align 2
   %232 = icmp sgt i16 %231, 947
@@ -560,12 +560,12 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %236
 
 236:                                              ; preds = %233, %.lr.ph
-  %.11373 = phi i8 [ %235, %233 ], [ %.013722637, %.lr.ph ]
+  %.11382 = phi i8 [ %235, %233 ], [ %.013812637, %.lr.ph ]
   %237 = sext i16 %231 to i64
   %238 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %237
   %239 = load i16, ptr %238, align 2
   %240 = sext i16 %239 to i64
-  %241 = zext i8 %.11373 to i64
+  %241 = zext i8 %.11382 to i64
   %242 = add nsw i64 %240, %241
   %243 = getelementptr inbounds [4604 x i16], ptr @_ZL6yy_chk, i64 0, i64 %242
   %244 = load i16, ptr %243, align 2
@@ -580,7 +580,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %248 = getelementptr inbounds i8, ptr %214, i64 4
   store ptr %248, ptr @_ZL12yy_state_ptr, align 8
   store i32 %247, ptr %214, align 4
-  %249 = getelementptr inbounds i8, ptr %.11377, i64 1
+  %249 = getelementptr inbounds i8, ptr %.11180, i64 1
   %250 = sext i16 %246 to i64
   %251 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %250
   %252 = load i16, ptr %251, align 2
@@ -589,8 +589,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 .preheader:                                       ; preds = %._crit_edge, %.backedge2186
   %253 = phi ptr [ %.pre4386, %.backedge2186 ], [ %248, %._crit_edge ]
-  %.11382 = phi ptr [ %.11382.be, %.backedge2186 ], [ %.01381, %._crit_edge ]
-  %.21378 = phi ptr [ %.21378.be, %.backedge2186 ], [ %249, %._crit_edge ]
+  %.11185 = phi ptr [ %.11185.be, %.backedge2186 ], [ %.01184, %._crit_edge ]
+  %.21181 = phi ptr [ %.21181.be, %.backedge2186 ], [ %249, %._crit_edge ]
   %254 = getelementptr inbounds i8, ptr %253, i64 -4
   store ptr %254, ptr @_ZL12yy_state_ptr, align 8
   %255 = load i32, ptr %254, align 4
@@ -604,7 +604,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %261 = phi ptr [ %254, %.preheader ], [ %.be, %.backedge5593 ]
   %_ZL12yy_state_ptr.promoted26384391 = phi ptr [ %254, %.preheader ], [ %_ZL12yy_state_ptr.promoted26384391.be, %.backedge5593 ]
   %262 = phi i32 [ %259, %.preheader ], [ %.be5594, %.backedge5593 ]
-  %.41380 = phi ptr [ %.21378, %.preheader ], [ %.41380.be, %.backedge5593 ]
+  %.41183 = phi ptr [ %.21181, %.preheader ], [ %.41183.be, %.backedge5593 ]
   %.4 = phi i32 [ %255, %.preheader ], [ %.4.be, %.backedge5593 ]
   %.not1601 = icmp eq i32 %262, 0
   br i1 %.not1601, label %291, label %263
@@ -648,13 +648,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %286 = and i32 %274, -24577
   %287 = or disjoint i32 %286, 16384
   store i32 %287, ptr @_ZL26yy_looking_for_trail_begin, align 4
-  store ptr %.41380, ptr @_ZL13yy_full_match, align 8
+  store ptr %.41183, ptr @_ZL13yy_full_match, align 8
   store ptr %261, ptr @_ZL13yy_full_state, align 8
   store i32 %262, ptr @_ZL10yy_full_lp, align 4
   br label %.backedge
 
 288:                                              ; preds = %283
-  store ptr %.41380, ptr @_ZL13yy_full_match, align 8
+  store ptr %.41183, ptr @_ZL13yy_full_match, align 8
   store ptr %261, ptr @_ZL13yy_full_state, align 8
   store i32 %262, ptr @_ZL10yy_full_lp, align 4
   br label %299
@@ -663,13 +663,13 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %.lcssa4597.sink = phi i32 [ %2799, %2796 ], [ %4054, %4051 ], [ %262, %279 ], [ %262, %285 ]
   %289 = phi ptr [ %2800, %2796 ], [ %4055, %4051 ], [ %261, %279 ], [ %261, %285 ]
   %_ZL12yy_state_ptr.promoted26384389 = phi ptr [ %2800, %2796 ], [ %4055, %4051 ], [ %_ZL12yy_state_ptr.promoted26384391, %279 ], [ %261, %285 ]
-  %.31379.be = phi ptr [ %2798, %2796 ], [ %4053, %4051 ], [ %.41380, %279 ], [ %.41380, %285 ]
+  %.31182.be = phi ptr [ %2798, %2796 ], [ %4053, %4051 ], [ %.41183, %279 ], [ %.41183, %285 ]
   %.3.be = phi i32 [ %2801, %2796 ], [ %4056, %4051 ], [ %.4, %279 ], [ %.4, %285 ]
   %290 = add nsw i32 %.lcssa4597.sink, 1
   br label %.backedge5593
 
 291:                                              ; preds = %263, %260
-  %292 = getelementptr inbounds i8, ptr %.41380, i64 -1
+  %292 = getelementptr inbounds i8, ptr %.41183, i64 -1
   %293 = getelementptr inbounds i8, ptr %_ZL12yy_state_ptr.promoted26384391, i64 -4
   store ptr %293, ptr @_ZL12yy_state_ptr, align 8
   %294 = load i32, ptr %293, align 4
@@ -683,31 +683,31 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %.be = phi ptr [ %293, %291 ], [ %289, %.backedge ]
   %_ZL12yy_state_ptr.promoted26384391.be = phi ptr [ %293, %291 ], [ %_ZL12yy_state_ptr.promoted26384389, %.backedge ]
   %.be5594 = phi i32 [ %298, %291 ], [ %290, %.backedge ]
-  %.41380.be = phi ptr [ %292, %291 ], [ %.31379.be, %.backedge ]
+  %.41183.be = phi ptr [ %292, %291 ], [ %.31182.be, %.backedge ]
   %.4.be = phi i32 [ %294, %291 ], [ %.3.be, %.backedge ]
   br label %260, !llvm.loop !10
 
 299:                                              ; preds = %288, %281
-  %.01383 = phi i32 [ %282, %281 ], [ %274, %288 ]
+  %.01200 = phi i32 [ %282, %281 ], [ %274, %288 ]
   %300 = load i32, ptr @_ZL11yy_more_len, align 4
   %301 = sext i32 %300 to i64
   %302 = sub nsw i64 0, %301
-  %303 = getelementptr inbounds i8, ptr %.11382, i64 %302
+  %303 = getelementptr inbounds i8, ptr %.11185, i64 %302
   store ptr %303, ptr @frontend_verilog_yytext, align 8
-  %304 = ptrtoint ptr %.41380 to i64
+  %304 = ptrtoint ptr %.41183 to i64
   %305 = ptrtoint ptr %303 to i64
   %306 = sub i64 %304, %305
   %307 = trunc i64 %306 to i32
   store i32 %307, ptr @frontend_verilog_yyleng, align 4
-  %308 = load i8, ptr %.41380, align 1
+  %308 = load i8, ptr %.41183, align 1
   store i8 %308, ptr @_ZL12yy_hold_char, align 1
-  store i8 0, ptr %.41380, align 1
-  store ptr %.41380, ptr @_ZL10yy_c_buf_p, align 8
-  %.not1603 = icmp eq i32 %.01383, 189
+  store i8 0, ptr %.41183, align 1
+  store ptr %.41183, ptr @_ZL10yy_c_buf_p, align 8
+  %.not1603 = icmp eq i32 %.01200, 189
   br i1 %.not1603, label %.loopexit2185.preheader, label %309
 
 309:                                              ; preds = %299
-  %310 = sext i32 %.01383 to i64
+  %310 = sext i32 %.01200 to i64
   %311 = getelementptr inbounds [189 x i32], ptr @_ZL21yy_rule_can_match_eol, i64 0, i64 %310
   %312 = load i32, ptr %311, align 4
   %.not1604 = icmp eq i32 %312, 0
@@ -749,8 +749,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.loopexit2185
 
 .loopexit2185:                                    ; preds = %.loopexit2185.preheader, %4328
-  %.11384 = phi i32 [ %4336, %4328 ], [ %.01383, %.loopexit2185.preheader ]
-  switch i32 %.11384, label %4364 [
+  %.11201 = phi i32 [ %4336, %4328 ], [ %.01200, %.loopexit2185.preheader ]
+  switch i32 %.11201, label %4364 [
     i32 1, label %328
     i32 2, label %365
     i32 3, label %391
@@ -1136,31 +1136,31 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %407
 
 407:                                              ; preds = %.critedge, %405
-  %.01365 = phi ptr [ %406, %405 ], [ %409, %.critedge ]
-  %408 = load i8, ptr %.01365, align 1
+  %.01374 = phi ptr [ %406, %405 ], [ %409, %.critedge ]
+  %408 = load i8, ptr %.01374, align 1
   switch i8 %408, label %410 [
     i8 32, label %.critedge
     i8 9, label %.critedge
   ]
 
 .critedge:                                        ; preds = %407, %407
-  %409 = getelementptr inbounds i8, ptr %.01365, i64 1
+  %409 = getelementptr inbounds i8, ptr %.01374, i64 1
   br label %407, !llvm.loop !15
 
 410:                                              ; preds = %407
-  %411 = call i32 @atoi(ptr nocapture noundef nonnull %.01365) #38
+  %411 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
   store i32 %411, ptr @frontend_verilog_yylineno, align 4
-  %412 = call i32 @atoi(ptr nocapture noundef nonnull %.01365) #38
+  %412 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
   store i32 %412, ptr %199, align 4
   store i32 %412, ptr %1, align 4
-  %413 = call i32 @atoi(ptr nocapture noundef nonnull %.01365) #38
+  %413 = call i32 @atoi(ptr nocapture noundef nonnull %.01374) #38
   store i32 %413, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 8), align 4
   store i32 %413, ptr @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, align 4
   br label %414
 
 414:                                              ; preds = %416, %410
-  %.11366 = phi ptr [ %.01365, %410 ], [ %417, %416 ]
-  %415 = load i8, ptr %.11366, align 1
+  %.11375 = phi ptr [ %.01374, %410 ], [ %417, %416 ]
+  %415 = load i8, ptr %.11375, align 1
   switch i8 %415, label %416 [
     i8 0, label %.critedge3.preheader
     i8 32, label %.critedge3.preheader
@@ -1171,48 +1171,48 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.critedge3
 
 416:                                              ; preds = %414
-  %417 = getelementptr inbounds i8, ptr %.11366, i64 1
+  %417 = getelementptr inbounds i8, ptr %.11375, i64 1
   br label %414, !llvm.loop !16
 
 .critedge3:                                       ; preds = %.critedge3.preheader, %.critedge5
   %418 = phi i8 [ %.pre4397, %.critedge5 ], [ %415, %.critedge3.preheader ]
-  %.21367 = phi ptr [ %419, %.critedge5 ], [ %.11366, %.critedge3.preheader ]
+  %.21376 = phi ptr [ %419, %.critedge5 ], [ %.11375, %.critedge3.preheader ]
   switch i8 %418, label %420 [
     i8 32, label %.critedge5
     i8 9, label %.critedge5
   ]
 
 .critedge5:                                       ; preds = %.critedge3, %.critedge3
-  %419 = getelementptr inbounds i8, ptr %.21367, i64 1
+  %419 = getelementptr inbounds i8, ptr %.21376, i64 1
   %.pre4397 = load i8, ptr %419, align 1
   br label %.critedge3, !llvm.loop !17
 
 420:                                              ; preds = %.critedge3
   %.not2108 = icmp ne i8 %418, 0
   %.idx = zext i1 %.not2108 to i64
-  %421 = getelementptr inbounds i8, ptr %.21367, i64 %.idx
+  %421 = getelementptr inbounds i8, ptr %.21376, i64 %.idx
   br label %422
 
 422:                                              ; preds = %424, %420
-  %.01364 = phi ptr [ %421, %420 ], [ %425, %424 ]
-  %423 = load i8, ptr %.01364, align 1
+  %.01373 = phi ptr [ %421, %420 ], [ %425, %424 ]
+  %423 = load i8, ptr %.01373, align 1
   switch i8 %423, label %424 [
     i8 0, label %.critedge7
     i8 34, label %.critedge7
   ]
 
 424:                                              ; preds = %422
-  %425 = getelementptr inbounds i8, ptr %.01364, i64 1
+  %425 = getelementptr inbounds i8, ptr %.01373, i64 1
   br label %422, !llvm.loop !18
 
 .critedge7:                                       ; preds = %422, %422
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #33
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %.21367, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %.21376, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %426 unwind label %433
 
 426:                                              ; preds = %.critedge7
-  %427 = ptrtoint ptr %.01364 to i64
-  %428 = ptrtoint ptr %.21367 to i64
+  %427 = ptrtoint ptr %.01373 to i64
+  %428 = ptrtoint ptr %.21376 to i64
   %429 = xor i64 %428, -1
   %430 = add i64 %427, %429
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i64 noundef %430)
@@ -1444,8 +1444,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %514
 
 514:                                              ; preds = %516, %513
-  %.01291 = phi ptr [ %502, %513 ], [ %517, %516 ]
-  %515 = load i8, ptr %.01291, align 1
+  %.01300 = phi ptr [ %502, %513 ], [ %517, %516 ]
+  %515 = load i8, ptr %.01300, align 1
   switch i8 %515, label %516 [
     i8 0, label %.critedge9.preheader
     i8 32, label %.critedge9.preheader
@@ -1456,24 +1456,24 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.critedge9
 
 516:                                              ; preds = %514
-  %517 = getelementptr inbounds i8, ptr %.01291, i64 1
+  %517 = getelementptr inbounds i8, ptr %.01300, i64 1
   br label %514, !llvm.loop !24
 
 .critedge9:                                       ; preds = %.critedge9.preheader, %.critedge11
   %518 = phi i8 [ %.pre4396, %.critedge11 ], [ %515, %.critedge9.preheader ]
-  %.11292 = phi ptr [ %519, %.critedge11 ], [ %.01291, %.critedge9.preheader ]
+  %.11301 = phi ptr [ %519, %.critedge11 ], [ %.01300, %.critedge9.preheader ]
   switch i8 %518, label %520 [
     i8 32, label %.critedge11
     i8 9, label %.critedge11
   ]
 
 .critedge11:                                      ; preds = %.critedge9, %.critedge9
-  %519 = getelementptr inbounds i8, ptr %.11292, i64 1
+  %519 = getelementptr inbounds i8, ptr %.11301, i64 1
   %.pre4396 = load i8, ptr %519, align 1
   br label %.critedge9, !llvm.loop !25
 
 520:                                              ; preds = %.critedge9
-  %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11292, ptr noundef nonnull dereferenceable(5) @.str.4) #38
+  %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.4) #38
   %.not2093 = icmp eq i32 %521, 0
   br i1 %.not2093, label %522, label %523
 
@@ -1482,7 +1482,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %4365
 
 523:                                              ; preds = %520
-  %524 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11292, ptr noundef nonnull dereferenceable(5) @.str.5) #38
+  %524 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.11301, ptr noundef nonnull dereferenceable(5) @.str.5) #38
   %.not2094 = icmp eq i32 %524, 0
   br i1 %.not2094, label %525, label %526
 
@@ -1491,7 +1491,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %4365
 
 526:                                              ; preds = %523
-  call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull %.11292)
+  call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull %.11301)
   br label %4365
 
 527:                                              ; preds = %.loopexit2185
@@ -7138,8 +7138,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2646:                                             ; preds = %2684, %2641
   %indvars.iv4102 = phi i64 [ %indvars.iv.next4103, %2684 ], [ 0, %2641 ]
-  %.01190 = phi i32 [ %2685, %2684 ], [ 0, %2641 ]
-  %2647 = sext i32 %.01190 to i64
+  %.01197 = phi i32 [ %2685, %2684 ], [ 0, %2641 ]
+  %2647 = sext i32 %.01197 to i64
   %2648 = getelementptr inbounds i8, ptr %2642, i64 %2647
   %2649 = load i8, ptr %2648, align 1
   switch i8 %2649, label %2684 [
@@ -7148,7 +7148,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   ]
 
 2650:                                             ; preds = %2646
-  %2651 = add nsw i32 %.01190, 1
+  %2651 = add nsw i32 %.01197, 1
   %2652 = sext i32 %2651 to i64
   %2653 = getelementptr inbounds i8, ptr %2642, i64 %2652
   %2654 = load i8, ptr %2653, align 1
@@ -7194,7 +7194,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 2663:                                             ; preds = %2661
   %narrow = add nsw i8 %2654, -48
   store i8 %narrow, ptr %2653, align 1
-  %2664 = add nsw i32 %.01190, 2
+  %2664 = add nsw i32 %.01197, 2
   %2665 = sext i32 %2664 to i64
   %2666 = getelementptr inbounds i8, ptr %2642, i64 %2665
   %2667 = load i8, ptr %2666, align 1
@@ -7211,8 +7211,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2673:                                             ; preds = %2669, %2663
   %2674 = phi i8 [ %2672, %2669 ], [ %narrow, %2663 ]
-  %.11191 = phi i32 [ %2664, %2669 ], [ %2651, %2663 ]
-  %2675 = add nsw i32 %.11191, 1
+  %.11198 = phi i32 [ %2664, %2669 ], [ %2651, %2663 ]
+  %2675 = add nsw i32 %.11198, 1
   %2676 = sext i32 %2675 to i64
   %2677 = getelementptr inbounds i8, ptr %2642, i64 %2676
   %2678 = load i8, ptr %2677, align 1
@@ -7221,7 +7221,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br i1 %or.cond2122, label %2680, label %._crit_edge4398
 
 ._crit_edge4398:                                  ; preds = %2673
-  %.pre4399 = sext i32 %.11191 to i64
+  %.pre4399 = sext i32 %.11198 to i64
   br label %2684
 
 2680:                                             ; preds = %2673
@@ -7233,8 +7233,8 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2684:                                             ; preds = %._crit_edge4398, %2650, %2646, %2655, %2657, %2659, %2661, %2680, %2660, %2658, %2656
   %.pre-phi = phi i64 [ %.pre4399, %._crit_edge4398 ], [ %2647, %2650 ], [ %2647, %2646 ], [ %2652, %2655 ], [ %2652, %2657 ], [ %2652, %2659 ], [ %2652, %2661 ], [ %2676, %2680 ], [ %2652, %2660 ], [ %2652, %2658 ], [ %2652, %2656 ]
-  %.21192 = phi i32 [ %.11191, %._crit_edge4398 ], [ %.01190, %2650 ], [ %.01190, %2646 ], [ %2651, %2655 ], [ %2651, %2657 ], [ %2651, %2659 ], [ %2651, %2661 ], [ %2675, %2680 ], [ %2651, %2660 ], [ %2651, %2658 ], [ %2651, %2656 ]
-  %2685 = add nsw i32 %.21192, 1
+  %.21199 = phi i32 [ %.11198, %._crit_edge4398 ], [ %.01197, %2650 ], [ %.01197, %2646 ], [ %2651, %2655 ], [ %2651, %2657 ], [ %2651, %2659 ], [ %2651, %2661 ], [ %2675, %2680 ], [ %2651, %2660 ], [ %2651, %2658 ], [ %2651, %2656 ]
+  %2685 = add nsw i32 %.21199, 1
   %2686 = getelementptr inbounds i8, ptr %2642, i64 %.pre-phi
   %2687 = load i8, ptr %2686, align 1
   %indvars.iv.next4103 = add nuw nsw i64 %indvars.iv4102, 1
@@ -7540,7 +7540,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 2796:                                             ; preds = %2793
   %2797 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %2797, ptr %.41380, align 1
+  store i8 %2797, ptr %.41183, align 1
   %2798 = load ptr, ptr @_ZL13yy_full_match, align 8
   %2799 = load i32, ptr @_ZL10yy_full_lp, align 4
   %2800 = load ptr, ptr @_ZL13yy_full_state, align 8
@@ -7837,16 +7837,16 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 ._crit_edge2916:                                  ; preds = %2907, %2891
   %2909 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %2909, ptr %.41380, align 1
+  store i8 %2909, ptr %.41183, align 1
   %sext = shl i64 %2896, 32
   %2910 = ashr exact i64 %sext, 32
-  %2911 = getelementptr inbounds i8, ptr %.11382, i64 %2910
+  %2911 = getelementptr inbounds i8, ptr %.11185, i64 %2910
   %2912 = load i32, ptr @_ZL11yy_more_len, align 4
   %2913 = sext i32 %2912 to i64
   %2914 = sub nsw i64 0, %2913
   %2915 = getelementptr inbounds i8, ptr %2911, i64 %2914
   store ptr %2915, ptr @_ZL10yy_c_buf_p, align 8
-  %2916 = getelementptr inbounds i8, ptr %.11382, i64 %2914
+  %2916 = getelementptr inbounds i8, ptr %.11185, i64 %2914
   store ptr %2916, ptr @frontend_verilog_yytext, align 8
   %2917 = ptrtoint ptr %2915 to i64
   %2918 = ptrtoint ptr %2916 to i64
@@ -10919,7 +10919,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 4051:                                             ; preds = %4048
   %4052 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %4052, ptr %.41380, align 1
+  store i8 %4052, ptr %.41183, align 1
   %4053 = load ptr, ptr @_ZL13yy_full_match, align 8
   %4054 = load i32, ptr @_ZL10yy_full_lp, align 4
   %4055 = load ptr, ptr @_ZL13yy_full_state, align 8
@@ -11270,7 +11270,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 
 4186:                                             ; preds = %4176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND13real_locationE, i64 16, i1 false)
-  %4187 = shl nuw nsw i32 %.01374, 1
+  %4187 = shl nuw nsw i32 %.01383, 1
   %4188 = or disjoint i32 %4187, 1
   store i32 %4188, ptr @_ZL8yy_start, align 4
   br label %4365
@@ -11527,7 +11527,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
 4287:                                             ; preds = %.loopexit2185
   %4288 = load ptr, ptr @frontend_verilog_yytext, align 8
   %4289 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %4289, ptr %.41380, align 1
+  store i8 %4289, ptr %.41183, align 1
   %4290 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
   %4291 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
   %4292 = getelementptr inbounds ptr, ptr %4290, i64 %4291
@@ -11588,15 +11588,15 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.backedge2187
 
 .backedge2187:                                    ; preds = %4324, %4337
-  %.01381.be = phi ptr [ %4323, %4324 ], [ %4348, %4337 ]
-  %.01376.be = phi ptr [ %4325, %4324 ], [ %4343, %4337 ]
-  %.01176.be = phi i32 [ %4319, %4324 ], [ %4344, %4337 ]
+  %.01184.be = phi ptr [ %4323, %4324 ], [ %4348, %4337 ]
+  %.01179.be = phi ptr [ %4325, %4324 ], [ %4343, %4337 ]
+  %.01103.be = phi i32 [ %4319, %4324 ], [ %4344, %4337 ]
   %_ZL12yy_state_ptr.promoted.pre = load ptr, ptr @_ZL12yy_state_ptr, align 8
   br label %212
 
 .backedge2186:                                    ; preds = %4311, %4349
-  %.11382.be = phi ptr [ %4363, %4349 ], [ %4323, %4311 ]
-  %.21378.be = phi ptr [ %4358, %4349 ], [ %4317, %4311 ]
+  %.11185.be = phi ptr [ %4363, %4349 ], [ %4323, %4311 ]
+  %.21181.be = phi ptr [ %4358, %4349 ], [ %4317, %4311 ]
   %.pre4386 = load ptr, ptr @_ZL12yy_state_ptr, align 8
   br label %.preheader
 
@@ -11662,7 +11662,7 @@ default.unreachable4400:                          ; preds = %4326
   unreachable
 
 4365:                                             ; preds = %522, %526, %525, %4282, %4233, %4218, %4203, %4186, %4171, %4156, %4138, %3200, %3145, %3130, %3083, %3068, %3053, %3038, %3023, %2710, %2626, %2611, %571, %556, %541, %498, %483, %468, %431, %379, %364
-  %.11375 = phi i32 [ %.01374, %4282 ], [ %.01374, %4233 ], [ %.01374, %4218 ], [ %.01374, %4203 ], [ %.01374, %4186 ], [ %.01374, %4171 ], [ %.01374, %4156 ], [ %4141, %4138 ], [ %.01374, %3200 ], [ %.01374, %3145 ], [ %.01374, %3130 ], [ %.01374, %3083 ], [ %.01374, %3068 ], [ %.01374, %3053 ], [ %.01374, %3038 ], [ %.01374, %3023 ], [ %.01374, %2710 ], [ %.01374, %2626 ], [ %.01374, %2611 ], [ %.01374, %571 ], [ %.01374, %556 ], [ %.01374, %541 ], [ %.01374, %498 ], [ %.01374, %483 ], [ %.01374, %468 ], [ %.01374, %431 ], [ %.01374, %379 ], [ %.01374, %364 ], [ %.01374, %525 ], [ %.01374, %526 ], [ %.01374, %522 ]
+  %.11384 = phi i32 [ %.01383, %4282 ], [ %.01383, %4233 ], [ %.01383, %4218 ], [ %.01383, %4203 ], [ %.01383, %4186 ], [ %.01383, %4171 ], [ %.01383, %4156 ], [ %4141, %4138 ], [ %.01383, %3200 ], [ %.01383, %3145 ], [ %.01383, %3130 ], [ %.01383, %3083 ], [ %.01383, %3068 ], [ %.01383, %3053 ], [ %.01383, %3038 ], [ %.01383, %3023 ], [ %.01383, %2710 ], [ %.01383, %2626 ], [ %.01383, %2611 ], [ %.01383, %571 ], [ %.01383, %556 ], [ %.01383, %541 ], [ %.01383, %498 ], [ %.01383, %483 ], [ %.01383, %468 ], [ %.01383, %431 ], [ %.01383, %379 ], [ %.01383, %364 ], [ %.01383, %525 ], [ %.01383, %526 ], [ %.01383, %522 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @_ZN5Yosys16VERILOG_FRONTEND12old_locationE, i64 16, i1 false)
   br label %200, !llvm.loop !208
 
@@ -12213,14 +12213,14 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.01729 = phi i32 [ %35, %.lr.ph ], [ 0, %27 ]
-  %.01828 = phi ptr [ %32, %.lr.ph ], [ %7, %27 ]
-  %.01927 = phi ptr [ %34, %.lr.ph ], [ %6, %27 ]
-  %32 = getelementptr inbounds i8, ptr %.01828, i64 1
-  %33 = load i8, ptr %.01828, align 1
-  %34 = getelementptr inbounds i8, ptr %.01927, i64 1
-  store i8 %33, ptr %.01927, align 1
-  %35 = add nuw nsw i32 %.01729, 1
+  %.01829 = phi i32 [ %35, %.lr.ph ], [ 0, %27 ]
+  %.01928 = phi ptr [ %34, %.lr.ph ], [ %6, %27 ]
+  %.02027 = phi ptr [ %32, %.lr.ph ], [ %7, %27 ]
+  %32 = getelementptr inbounds i8, ptr %.02027, i64 1
+  %33 = load i8, ptr %.02027, align 1
+  %34 = getelementptr inbounds i8, ptr %.01928, i64 1
+  store i8 %33, ptr %.01928, align 1
+  %35 = add nuw nsw i32 %.01829, 1
   %exitcond.not = icmp eq i32 %35, %30
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !220
 
@@ -12298,7 +12298,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %74 = phi i64 [ %.pre32, %67 ], [ %63, %69 ], [ %57, %48 ]
   %75 = phi ptr [ %.pre31, %67 ], [ %64, %69 ], [ %56, %48 ]
   %76 = phi i32 [ %.pre30, %67 ], [ 0, %69 ], [ %55, %48 ]
-  %.0 = phi i32 [ 1, %67 ], [ 2, %69 ], [ 0, %48 ]
+  %.017 = phi i32 [ 1, %67 ], [ 2, %69 ], [ 0, %48 ]
   %77 = add nsw i32 %76, %30
   %78 = getelementptr inbounds ptr, ptr %75, i64 %74
   %79 = load ptr, ptr %78, align 8
@@ -12355,8 +12355,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br label %113
 
 113:                                              ; preds = %21, %99
-  %.020 = phi i32 [ %.0, %99 ], [ %., %21 ]
-  ret i32 %.020
+  %.0 = phi i32 [ %.017, %99 ], [ %., %21 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

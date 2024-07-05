@@ -365,9 +365,9 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
 
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.023 = phi ptr [ %1, %.lr.ph ], [ %16, %15 ]
+  %.01823 = phi ptr [ %1, %.lr.ph ], [ %16, %15 ]
   %12 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
-  %13 = tail call i32 @ompi_fortran_argv_blank_f2c(ptr noundef %.023, i32 noundef %2, i32 noundef %9, ptr noundef %12)
+  %13 = tail call i32 @ompi_fortran_argv_blank_f2c(ptr noundef %.01823, i32 noundef %2, i32 noundef %9, ptr noundef %12)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
@@ -376,7 +376,7 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
   br label %17
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.023, i64 %10
+  %16 = getelementptr inbounds i8, ptr %.01823, i64 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !8
@@ -386,8 +386,8 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
   br label %17
 
 17:                                               ; preds = %._crit_edge, %14
-  %.019 = phi i32 [ %13, %14 ], [ 0, %._crit_edge ]
-  ret i32 %.019
+  %.0 = phi i32 [ %13, %14 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

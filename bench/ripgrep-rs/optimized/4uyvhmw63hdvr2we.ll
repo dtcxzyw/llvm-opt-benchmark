@@ -2707,10 +2707,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %12 unwind label %.thread.i
 
 "_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i": ; preds = %87
-  br i1 %.221.ph.i, label %91, label %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i"
+  br i1 %.2.ph.i, label %91, label %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i"
 
 .thread.i:                                        ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc078d26dd17d6e53E.exit.i.i.i.i", %25, %16, %14, %1
-  %.124.i = phi i1 [ false, %16 ], [ true, %14 ], [ true, %1 ], [ false, %25 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc078d26dd17d6e53E.exit.i.i.i.i" ]
+  %.1.i = phi i1 [ false, %16 ], [ true, %14 ], [ true, %1 ], [ false, %25 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc078d26dd17d6e53E.exit.i.i.i.i" ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -2911,7 +2911,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h9b55417efa5e7535E.exit"
 
 87:                                               ; preds = %39, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h071ad7630825b842E.exit.i"
-  %.221.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h071ad7630825b842E.exit.i" ], [ false, %39 ]
+  %.2.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h071ad7630825b842E.exit.i" ], [ false, %39 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$ignore..walk..Worker$GT$17hc1231999b158dbb4E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %8)
@@ -2924,17 +2924,17 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   unreachable
 
 90:                                               ; preds = %91
-  br i1 %.02340.i, label %93, label %92
+  br i1 %.042.i, label %93, label %92
 
 91:                                               ; preds = %.thread.i, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i"
-  %.02242.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
-  %.02340.i = phi i1 [ %.124.i, %.thread.i ], [ false, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
-  %.pn.pn38.i = phi { ptr, i32 } [ %11, %.thread.i ], [ %lpad.thr_comm.i, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
+  %.pn.pn44.i = phi { ptr, i32 } [ %11, %.thread.i ], [ %lpad.thr_comm.i, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
+  %.042.i = phi i1 [ %.1.i, %.thread.i ], [ false, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
+  %.01740.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8012192ea27e3a84E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #20
           to label %90 unwind label %88
 
 92:                                               ; preds = %93, %90
-  br i1 %.02242.i, label %95, label %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i"
+  br i1 %.01740.i, label %95, label %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i"
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2947,10 +2947,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i" unwind label %88
 
 97:                                               ; preds = %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i"
-  resume { ptr, i32 } %.pn.pn37657082.i
+  resume { ptr, i32 } %.pn.pn43637182.i
 
 "_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.i": ; preds = %95, %92, %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.thread.i", %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i"
-  %.pn.pn37657082.i = phi { ptr, i32 } [ %64, %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.thread.i" ], [ %.pn.pn38.i, %92 ], [ %.pn.pn38.i, %95 ], [ %lpad.thr_comm.i, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
+  %.pn.pn43637182.i = phi { ptr, i32 } [ %64, %"_ZN4core3ptr202drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha87c42000a0f8093E.exit.thread.i" ], [ %.pn.pn44.i, %92 ], [ %.pn.pn44.i, %95 ], [ %lpad.thr_comm.i, %"_ZN4core3ptr141drop_in_place$LT$ignore..walk..WalkParallel..visit..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f6805645477b62fE.exit.i" ]
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h0923e89642c56df3E.llvm.10610586572795991558"(ptr noalias noundef nonnull align 8 dereferenceable(8) %98) #20
           to label %97 unwind label %88

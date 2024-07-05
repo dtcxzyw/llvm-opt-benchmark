@@ -58,13 +58,13 @@ if.end18:                                         ; preds = %if.end
 
 for.body:                                         ; preds = %if.end18, %if.end26
   %indvars.iv = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next, %if.end26 ]
-  %buf.addr.043 = phi ptr [ %buf, %if.end18 ], [ %incdec.ptr, %if.end26 ]
-  %4 = load i8, ptr %buf.addr.043, align 1
+  %buf.addr.044 = phi ptr [ %buf, %if.end18 ], [ %incdec.ptr, %if.end26 ]
+  %4 = load i8, ptr %buf.addr.044, align 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %for.end, label %if.end26
 
 if.end26:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.043, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.044, i64 1
   %shl28 = shl i8 %4, 1
   %arrayidx31 = getelementptr inbounds [8 x i8], ptr %key, i64 0, i64 %indvars.iv
   store i8 %shl28, ptr %arrayidx31, align 1
@@ -124,13 +124,13 @@ for.end40:                                        ; preds = %if.end26, %for.body
 for.cond77.preheader:                             ; preds = %for.end40, %for.end103
   %indvars.iv59 = phi i64 [ 2, %for.end40 ], [ %indvars.iv.next60, %for.end103 ]
   %u.053 = phi i8 [ -128, %for.end40 ], [ %u.2, %for.end103 ]
-  %y.052 = phi i32 [ 0, %for.end40 ], [ %y.2, %for.end103 ]
+  %y.051 = phi i32 [ 0, %for.end40 ], [ %y.2, %for.end103 ]
   br label %for.body80
 
 for.body80:                                       ; preds = %for.cond77.preheader, %for.body80
   %u.150 = phi i8 [ %u.053, %for.cond77.preheader ], [ %u.2, %for.body80 ]
   %c.049 = phi i8 [ 0, %for.cond77.preheader ], [ %spec.select, %for.body80 ]
-  %y.148 = phi i32 [ %y.052, %for.cond77.preheader ], [ %y.2, %for.body80 ]
+  %y.148 = phi i32 [ %y.051, %for.cond77.preheader ], [ %y.2, %for.body80 ]
   %j.047 = phi i32 [ 0, %for.cond77.preheader ], [ %inc102, %for.body80 ]
   %shl82 = shl i8 %c.049, 1
   %idxprom84 = zext i32 %y.148 to i64

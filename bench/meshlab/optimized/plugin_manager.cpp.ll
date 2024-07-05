@@ -1572,7 +1572,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %41, %_ZN9QtPrivate8
   br label %67
 
 65:                                               ; preds = %54, %53
-  %.025 = phi i1 [ false, %54 ], [ true, %53 ]
+  %.028 = phi i1 [ false, %54 ], [ true, %53 ]
   %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #26
@@ -1580,16 +1580,16 @@ _ZN7QStringD2Ev.exit:                             ; preds = %41, %_ZN9QtPrivate8
 
 67:                                               ; preds = %65, %63
   %.pn55 = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
-  %.126 = phi i1 [ %.025, %65 ], [ true, %63 ]
+  %.129 = phi i1 [ %.028, %65 ], [ true, %63 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
   br label %68
 
 68:                                               ; preds = %61, %67
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %67 ], [ %62, %61 ]
-  %.227 = phi i1 [ %.126, %67 ], [ true, %61 ]
+  %.230 = phi i1 [ %.129, %67 ], [ true, %61 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
-  br i1 %.227, label %69, label %159
+  br i1 %.230, label %69, label %159
 
 69:                                               ; preds = %.thread89, %.thread85, %68
   %.pn55.pn.pn.pn88 = phi { ptr, i32 } [ %59, %.thread85 ], [ %.pn55.pn, %68 ], [ %60, %.thread89 ]

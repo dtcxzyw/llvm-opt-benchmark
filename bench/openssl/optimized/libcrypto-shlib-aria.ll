@@ -945,10 +945,10 @@ if.then224:                                       ; preds = %if.then191
   br label %if.end263
 
 if.end263:                                        ; preds = %if.end7, %if.then191, %if.then224
-  %w1.sroa.61.0 = phi i32 [ %xor253, %if.then224 ], [ 0, %if.then191 ], [ 0, %if.end7 ]
-  %w1.sroa.40.0 = phi i32 [ %xor238, %if.then224 ], [ 0, %if.then191 ], [ 0, %if.end7 ]
-  %w1.sroa.20.0 = phi i32 [ %xor220, %if.then224 ], [ %xor220, %if.then191 ], [ 0, %if.end7 ]
   %w1.sroa.0.0 = phi i32 [ %xor205, %if.then224 ], [ %xor205, %if.then191 ], [ 0, %if.end7 ]
+  %w1.sroa.20.0 = phi i32 [ %xor220, %if.then224 ], [ %xor220, %if.then191 ], [ 0, %if.end7 ]
+  %w1.sroa.40.0 = phi i32 [ %xor238, %if.then224 ], [ 0, %if.then191 ], [ 0, %if.end7 ]
+  %w1.sroa.61.0 = phi i32 [ %xor253, %if.then224 ], [ 0, %if.then191 ], [ 0, %if.end7 ]
   %xor265 = xor i32 %w1.sroa.0.0, %xor183
   %68 = xor i32 %xor158, %w1.sroa.20.0
   %xor267 = xor i32 %68, %xor182
@@ -958,7 +958,7 @@ if.end263:                                        ; preds = %if.end7, %if.then19
   %xor271 = xor i32 %70, %xor181
   %arrayidx276 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %71 = load i32, ptr %arrayidx276, align 16
-  %xor277 = xor i32 %xor265, %71
+  %xor277 = xor i32 %71, %xor265
   %arrayidx278 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %72 = load i32, ptr %arrayidx278, align 4
   %xor279 = xor i32 %72, %xor267

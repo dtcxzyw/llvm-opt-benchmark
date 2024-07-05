@@ -928,18 +928,18 @@ define internal range(i32 0, 2) i32 @heur_dissect_npm(ptr noundef %0, ptr nounde
   br i1 %10, label %.loopexit24, label %.preheader
 
 11:                                               ; preds = %.preheader
-  %12 = add nuw nsw i32 %.025, 1
+  %12 = add nuw nsw i32 %.01925, 1
   %exitcond.not = icmp eq i32 %12, 8
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %9, %11
-  %.025 = phi i32 [ %12, %11 ], [ 0, %9 ]
-  %13 = or disjoint i32 %.025, 48
+  %.01925 = phi i32 [ %12, %11 ], [ 0, %9 ]
+  %13 = or disjoint i32 %.01925, 48
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #4
   %15 = zext i8 %14 to i32
-  %16 = add nuw nsw i32 %.025, 30
+  %16 = add nuw nsw i32 %.01925, 30
   %.not22 = icmp eq i32 %16, %15
-  %17 = xor i32 %.025, %15
+  %17 = xor i32 %.01925, %15
   %.not23 = icmp eq i32 %17, 127
   %or.cond = or i1 %.not22, %.not23
   br i1 %or.cond, label %11, label %.loopexit24
@@ -958,8 +958,8 @@ define internal range(i32 0, 2) i32 @heur_dissect_npm(ptr noundef %0, ptr nounde
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %.preheader, %7, %20, %18, %9, %4, %.loopexit
-  %.019 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %20 ], [ 0, %7 ], [ 0, %.preheader ]
-  ret i32 %.019
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %20 ], [ 0, %7 ], [ 0, %.preheader ]
+  ret i32 %.0
 }
 
 declare ptr @stat_tap_find_table(ptr noundef, ptr noundef) local_unnamed_addr #1

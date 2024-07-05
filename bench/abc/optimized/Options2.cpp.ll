@@ -269,8 +269,8 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %9, %12, %14
 
 18:                                               ; preds = %_ZN6Gluco26Option13getOptionListEv.exit33, %_ZN6Gluco26Option13getOptionListEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Gluco26Option13getOptionListEv.exit33 ], [ 0, %_ZN6Gluco26Option13getOptionListEv.exit ]
-  %.016 = phi ptr [ %80, %_ZN6Gluco26Option13getOptionListEv.exit33 ], [ null, %_ZN6Gluco26Option13getOptionListEv.exit ]
   %.015 = phi ptr [ %91, %_ZN6Gluco26Option13getOptionListEv.exit33 ], [ null, %_ZN6Gluco26Option13getOptionListEv.exit ]
+  %.0 = phi ptr [ %80, %_ZN6Gluco26Option13getOptionListEv.exit33 ], [ null, %_ZN6Gluco26Option13getOptionListEv.exit ]
   %19 = load atomic i8, ptr @_ZGVZN6Gluco26Option13getOptionListEvE7options acquire, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %_ZN6Gluco26Option13getOptionListEv.exit23, !prof !6
@@ -330,7 +330,7 @@ _ZN6Gluco26Option13getOptionListEv.exit25:        ; preds = %28, %31, %33
   br label %_ZN6Gluco26Option13getOptionListEv.exit27
 
 _ZN6Gluco26Option13getOptionListEv.exit27:        ; preds = %_ZN6Gluco26Option13getOptionListEv.exit25, %42, %44
-  %.not19 = icmp eq ptr %39, %.016
+  %.not19 = icmp eq ptr %39, %.0
   br i1 %.not19, label %49, label %46
 
 46:                                               ; preds = %_ZN6Gluco26Option13getOptionListEv.exit27

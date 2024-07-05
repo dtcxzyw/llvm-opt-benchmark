@@ -100,12 +100,12 @@ define dso_local void @pushValue(ptr nocapture noundef %0, ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.049 = phi i32 [ %26, %.lr.ph ], [ -1, %.preheader ]
-  %.04148 = phi i32 [ %16, %.lr.ph ], [ %2, %.preheader ]
-  %.04247 = phi ptr [ %18, %.lr.ph ], [ %1, %.preheader ]
-  %16 = add i32 %.04148, -1
+  %.04148 = phi ptr [ %18, %.lr.ph ], [ %1, %.preheader ]
+  %.04247 = phi i32 [ %16, %.lr.ph ], [ %2, %.preheader ]
+  %16 = add i32 %.04247, -1
   %17 = lshr i32 %.049, 24
-  %18 = getelementptr i8, ptr %.04247, i64 1
-  %19 = load i8, ptr %.04247, align 1
+  %18 = getelementptr i8, ptr %.04148, i64 1
+  %19 = load i8, ptr %.04148, align 1
   %20 = zext i8 %19 to i32
   %21 = xor i32 %17, %20
   %22 = zext nneg i32 %21 to i64
@@ -281,7 +281,7 @@ define dso_local ptr @parse_tsquery(ptr noundef %0, ptr nocapture noundef readon
   br label %15
 
 15:                                               ; preds = %13, %14, %10
-  %.0 = phi i32 [ 3, %10 ], [ 7, %13 ], [ 3, %14 ]
+  %.052 = phi i32 [ 3, %10 ], [ 7, %13 ], [ 3, %14 ]
   %.not58 = icmp eq ptr %4, null
   br i1 %.not58, label %19, label %16
 
@@ -304,7 +304,7 @@ define dso_local ptr @parse_tsquery(ptr noundef %0, ptr nocapture noundef readon
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 72
   store ptr %4, ptr %26, align 8
-  %27 = tail call ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %.0, ptr noundef %4) #12
+  %27 = tail call ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %.052, ptr noundef %4) #12
   %28 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 60
@@ -498,8 +498,8 @@ findoprnd.exit:                                   ; preds = %._crit_edge
   br label %121
 
 121:                                              ; preds = %findoprnd.exit, %119, %64, %62, %38, %51
-  %.051 = phi ptr [ %52, %51 ], [ null, %38 ], [ null, %62 ], [ null, %64 ], [ %120, %119 ], [ %71, %findoprnd.exit ]
-  ret ptr %.051
+  %.0 = phi ptr [ %52, %51 ], [ null, %38 ], [ null, %62 ], [ null, %64 ], [ %120, %119 ], [ %71, %findoprnd.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -791,7 +791,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   switch i8 %15, label %23 [
     i8 33, label %16
     i8 40, label %18
-    i8 58, label %.loopexit68
+    i8 58, label %.loopexit69
   ]
 
 16:                                               ; preds = %13
@@ -799,7 +799,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   store ptr %17, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 1, ptr %1, align 1
-  br label %.loopexit68
+  br label %.loopexit69
 
 18:                                               ; preds = %13
   %19 = getelementptr i8, ptr %14, i64 1
@@ -809,7 +809,7 @@ define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  br label %.loopexit68
+  br label %.loopexit69
 
 23:                                               ; preds = %13
   %24 = tail call i32 @t_isspace(ptr noundef nonnull %14) #12
@@ -897,7 +897,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   %.0.i = phi ptr [ %32, %31 ], [ %.01718.i, %.preheader.i ], [ %.01720.i, %.lr.ph.i ], [ %.017.i, %53 ], [ %.01720.i, %38 ]
   store ptr %.0.i, ptr %9, align 8
   store i32 2, ptr %8, align 4
-  br label %.loopexit68
+  br label %.loopexit69
 
 55:                                               ; preds = %25
   %56 = load ptr, ptr %10, align 8
@@ -913,16 +913,16 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   %61 = getelementptr inbounds i8, ptr %56, i64 4
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
-  br i1 %63, label %.loopexit68, label %64
+  br i1 %63, label %.loopexit69, label %64
 
 64:                                               ; preds = %60, %57, %55
   %65 = load i32, ptr %8, align 4
   %66 = icmp eq i32 %65, 3
-  br i1 %66, label %.loopexit68, label %67
+  br i1 %66, label %.loopexit69, label %67
 
 67:                                               ; preds = %64
   %68 = tail call zeroext i1 @errsave_start(ptr noundef %56, ptr noundef null) #12
-  br i1 %68, label %69, label %.loopexit68
+  br i1 %68, label %69, label %.loopexit69
 
 69:                                               ; preds = %67
   %70 = tail call i32 @errcode(i32 noundef 16801924) #12
@@ -930,7 +930,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %72) #12
   tail call void @errsave_finish(ptr noundef %56, ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.gettoken_query_standard) #12
-  br label %.loopexit68
+  br label %.loopexit69
 
 74:                                               ; preds = %11
   %75 = load ptr, ptr %9, align 8
@@ -945,14 +945,14 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   store ptr %78, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 2, ptr %1, align 1
-  br label %.loopexit68
+  br label %.loopexit69
 
 79:                                               ; preds = %74
   %80 = getelementptr i8, ptr %75, i64 1
   store ptr %80, ptr %9, align 8
   store i32 1, ptr %8, align 4
   store i8 3, ptr %1, align 1
-  br label %.loopexit68
+  br label %.loopexit69
 
 81:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -961,16 +961,16 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
 
 .lr.ph.i64:                                       ; preds = %81, %.outer.i
   %82 = phi i8 [ %115, %.outer.i ], [ %76, %81 ]
-  %.0.ph54.i = phi i64 [ %.1.i, %.outer.i ], [ 1, %81 ]
-  %.024.ph53.i = phi ptr [ %.125.i, %.outer.i ], [ %75, %81 ]
-  %.026.ph52.i = phi i32 [ %.127.i, %.outer.i ], [ 0, %81 ]
+  %.024.ph54.i = phi i64 [ %.1.i, %.outer.i ], [ 1, %81 ]
+  %.025.ph53.i = phi ptr [ %.126.i, %.outer.i ], [ %75, %81 ]
+  %.027.ph52.i = phi i32 [ %.128.i, %.outer.i ], [ 0, %81 ]
   br label %83
 
 83:                                               ; preds = %91, %.lr.ph.i64
   %84 = phi i8 [ %82, %.lr.ph.i64 ], [ %93, %91 ]
-  %.02450.i = phi ptr [ %.024.ph53.i, %.lr.ph.i64 ], [ %92, %91 ]
-  %.02649.i = phi i32 [ %.026.ph52.i, %.lr.ph.i64 ], [ 2, %91 ]
-  switch i32 %.02649.i, label %default.unreachable.i [
+  %.02550.i = phi ptr [ %.025.ph53.i, %.lr.ph.i64 ], [ %92, %91 ]
+  %.02749.i = phi i32 [ %.027.ph52.i, %.lr.ph.i64 ], [ 2, %91 ]
+  switch i32 %.02749.i, label %default.unreachable.i [
     i32 0, label %85
     i32 1, label %89
     i32 2, label %111
@@ -982,7 +982,7 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   br i1 %86, label %87, label %.loopexit
 
 87:                                               ; preds = %85
-  %88 = getelementptr i8, ptr %.02450.i, i64 1
+  %88 = getelementptr i8, ptr %.02550.i, i64 1
   br label %.outer.i
 
 89:                                               ; preds = %83
@@ -990,22 +990,22 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
-  %92 = getelementptr i8, ptr %.02450.i, i64 1
+  %92 = getelementptr i8, ptr %.02550.i, i64 1
   %93 = load i8, ptr %92, align 1
-  %.not.i65 = icmp eq i8 %93, 0
-  br i1 %.not.i65, label %.loopexit, label %83, !llvm.loop !10
+  %.not.i66 = icmp eq i8 %93, 0
+  br i1 %.not.i66, label %.loopexit, label %83, !llvm.loop !10
 
 94:                                               ; preds = %89
-  %95 = tail call i32 @t_isdigit(ptr noundef nonnull %.02450.i) #12
+  %95 = tail call i32 @t_isdigit(ptr noundef nonnull %.02550.i) #12
   %.not32.i = icmp eq i32 %95, 0
   br i1 %.not32.i, label %.loopexit, label %96
 
 96:                                               ; preds = %94
   %97 = tail call ptr @__errno_location() #15
   store i32 0, ptr %97, align 4
-  %98 = call i64 @strtol(ptr noundef nonnull %.02450.i, ptr noundef nonnull %7, i32 noundef 10) #12
+  %98 = call i64 @strtol(ptr noundef nonnull %.02550.i, ptr noundef nonnull %7, i32 noundef 10) #12
   %99 = load ptr, ptr %7, align 8
-  %100 = icmp eq ptr %.02450.i, %99
+  %100 = icmp eq ptr %.02550.i, %99
   br i1 %100, label %.loopexit, label %101
 
 101:                                              ; preds = %96
@@ -1031,28 +1031,28 @@ get_modifiers.exit:                               ; preds = %.lr.ph.i, %38, %53,
   br i1 %112, label %113, label %.loopexit
 
 113:                                              ; preds = %111
-  %114 = getelementptr i8, ptr %.02450.i, i64 1
+  %114 = getelementptr i8, ptr %.02550.i, i64 1
   br label %.outer.i
 
 default.unreachable.i:                            ; preds = %83
   unreachable
 
 .outer.i:                                         ; preds = %113, %101, %87
-  %.127.i = phi i32 [ 3, %113 ], [ 1, %87 ], [ 2, %101 ]
-  %.125.i = phi ptr [ %114, %113 ], [ %88, %87 ], [ %99, %101 ]
-  %.1.i = phi i64 [ %.0.ph54.i, %113 ], [ %.0.ph54.i, %87 ], [ %98, %101 ]
-  %115 = load i8, ptr %.125.i, align 1
+  %.128.i = phi i32 [ 3, %113 ], [ 1, %87 ], [ 2, %101 ]
+  %.126.i = phi ptr [ %114, %113 ], [ %88, %87 ], [ %99, %101 ]
+  %.1.i = phi i64 [ %.024.ph54.i, %113 ], [ %.024.ph54.i, %87 ], [ %98, %101 ]
+  %115 = load i8, ptr %.126.i, align 1
   %.not48.i = icmp eq i8 %115, 0
   br i1 %.not48.i, label %.loopexit, label %.lr.ph.i64, !llvm.loop !10
 
 116:                                              ; preds = %83
-  %117 = trunc nuw nsw i64 %.0.ph54.i to i16
+  %117 = trunc nuw nsw i64 %.024.ph54.i to i16
   store i16 %117, ptr %4, align 2
-  store ptr %.02450.i, ptr %9, align 8
+  store ptr %.02550.i, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store i32 1, ptr %8, align 4
   store i8 4, ptr %1, align 1
-  br label %.loopexit68
+  br label %.loopexit69
 
 .loopexit:                                        ; preds = %85, %94, %96, %111, %.outer.i, %91, %105, %108, %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1069,7 +1069,7 @@ default.unreachable.i:                            ; preds = %83
   %123 = getelementptr inbounds i8, ptr %118, i64 4
   %124 = load i8, ptr %123, align 4
   %125 = trunc i8 %124 to i1
-  br i1 %125, label %.loopexit68, label %126
+  br i1 %125, label %.loopexit69, label %126
 
 126:                                              ; preds = %122, %119, %.loopexit
   %127 = load ptr, ptr %9, align 8
@@ -1088,19 +1088,19 @@ default.unreachable.i:                            ; preds = %83
   store i32 %133, ptr %131, align 8
   %134 = icmp slt i32 %133, 0
   %135 = select i1 %134, i32 1, i32 5
-  br label %.loopexit68
+  br label %.loopexit69
 
 136:                                              ; preds = %126
   %137 = getelementptr inbounds i8, ptr %0, i64 24
   %138 = load i32, ptr %137, align 8
   %.not61 = icmp ne i32 %138, 0
   %139 = zext i1 %.not61 to i32
-  br label %.loopexit68
+  br label %.loopexit69
 
 140:                                              ; preds = %126
   %141 = tail call i32 @t_isspace(ptr noundef nonnull %127) #12
   %.not60 = icmp eq i32 %141, 0
-  br i1 %.not60, label %.loopexit68, label %142
+  br i1 %.not60, label %.loopexit69, label %142
 
 142:                                              ; preds = %140, %23, %11
   %143 = load ptr, ptr %9, align 8
@@ -1111,7 +1111,7 @@ default.unreachable.i:                            ; preds = %83
   store ptr %147, ptr %9, align 8
   br label %11
 
-.loopexit68:                                      ; preds = %140, %122, %13, %69, %67, %64, %60, %136, %129, %116, %79, %77, %get_modifiers.exit, %18, %16
+.loopexit69:                                      ; preds = %140, %122, %13, %69, %67, %64, %60, %136, %129, %116, %79, %77, %get_modifiers.exit, %18, %16
   %.0 = phi i32 [ 3, %77 ], [ 3, %79 ], [ 3, %116 ], [ %135, %129 ], [ %139, %136 ], [ 3, %16 ], [ 4, %18 ], [ 2, %get_modifiers.exit ], [ 1, %60 ], [ 0, %64 ], [ 1, %67 ], [ 1, %69 ], [ 1, %13 ], [ 1, %122 ], [ 1, %140 ]
   ret i32 %.0
 }
@@ -2172,12 +2172,12 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   br label %23
 
 23:                                               ; preds = %.lr.ph130, %98
-  %.095128 = phi i32 [ 0, %.lr.ph130 ], [ %.196, %98 ]
-  %.097127 = phi ptr [ %21, %.lr.ph130 ], [ %99, %98 ]
-  %.099126 = phi i32 [ 0, %.lr.ph130 ], [ %100, %98 ]
+  %.0128 = phi i32 [ 0, %.lr.ph130 ], [ %100, %98 ]
+  %.095127 = phi ptr [ %21, %.lr.ph130 ], [ %99, %98 ]
+  %.097126 = phi i32 [ 0, %.lr.ph130 ], [ %.198, %98 ]
   %24 = tail call i32 @pq_getmsgint(ptr noundef %6, i32 noundef 1) #12
   %25 = trunc i32 %24 to i8
-  store i8 %25, ptr %.097127, align 4
+  store i8 %25, ptr %.095127, align 4
   switch i8 %25, label %93 [
     i8 1, label %26
     i8 2, label %73
@@ -2212,7 +2212,7 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   unreachable
 
 41:                                               ; preds = %36
-  %42 = icmp sgt i32 %.095128, 1048575
+  %42 = icmp sgt i32 %.097126, 1048575
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
@@ -2228,43 +2228,43 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not108122, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
-  %.0125 = phi i32 [ %48, %.lr.ph ], [ %47, %46 ]
-  %.092124 = phi ptr [ %50, %.lr.ph ], [ %30, %46 ]
-  %.093123 = phi i32 [ %58, %.lr.ph ], [ -1, %46 ]
-  %48 = add i32 %.0125, -1
-  %49 = lshr i32 %.093123, 24
-  %50 = getelementptr i8, ptr %.092124, i64 1
-  %51 = load i8, ptr %.092124, align 1
+  %.092125 = phi i32 [ %48, %.lr.ph ], [ %47, %46 ]
+  %.093124 = phi ptr [ %50, %.lr.ph ], [ %30, %46 ]
+  %.094123 = phi i32 [ %58, %.lr.ph ], [ -1, %46 ]
+  %48 = add i32 %.092125, -1
+  %49 = lshr i32 %.094123, 24
+  %50 = getelementptr i8, ptr %.093124, i64 1
+  %51 = load i8, ptr %.093124, align 1
   %52 = zext i8 %51 to i32
   %53 = xor i32 %49, %52
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr [256 x i32], ptr @pg_crc32_table, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = shl i32 %.093123, 8
+  %57 = shl i32 %.094123, 8
   %58 = xor i32 %56, %57
   %.not108 = icmp eq i32 %48, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
-  %.093.lcssa = phi i32 [ -1, %46 ], [ %58, %.lr.ph ]
-  %59 = xor i32 %.093.lcssa, -1
-  %60 = getelementptr inbounds i8, ptr %.097127, i64 1
+  %.094.lcssa = phi i32 [ -1, %46 ], [ %58, %.lr.ph ]
+  %59 = xor i32 %.094.lcssa, -1
+  %60 = getelementptr inbounds i8, ptr %.095127, i64 1
   store i8 %28, ptr %60, align 1
   %61 = and i32 %29, 255
   %62 = icmp ne i32 %61, 0
-  %63 = getelementptr inbounds i8, ptr %.097127, i64 2
+  %63 = getelementptr inbounds i8, ptr %.095127, i64 2
   %64 = zext i1 %62 to i8
   store i8 %64, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.097127, i64 4
+  %65 = getelementptr inbounds i8, ptr %.095127, i64 4
   store i32 %59, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %.097127, i64 8
-  %67 = shl i32 %.095128, 12
+  %66 = getelementptr inbounds i8, ptr %.095127, i64 8
+  %67 = shl i32 %.097126, 12
   %68 = or disjoint i32 %67, %47
   store i32 %68, ptr %66, align 4
-  %69 = sext i32 %.099126 to i64
+  %69 = sext i32 %.0128 to i64
   %70 = getelementptr ptr, ptr %15, i64 %69
   store ptr %30, ptr %70, align 8
-  %71 = add i32 %.095128, 1
+  %71 = add i32 %.097126, 1
   %72 = add i32 %71, %47
   br label %98
 
@@ -2292,7 +2292,7 @@ switch.early.test:                                ; preds = %73
   unreachable
 
 81:                                               ; preds = %switch.early.test, %switch.early.test, %73
-  %82 = icmp eq i32 %.099126, %22
+  %82 = icmp eq i32 %.0128, %22
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
@@ -2303,7 +2303,7 @@ switch.early.test:                                ; preds = %73
   unreachable
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %.097127, i64 1
+  %87 = getelementptr inbounds i8, ptr %.095127, i64 1
   store i8 %75, ptr %87, align 1
   %88 = icmp eq i32 %sext107, 67108864
   br i1 %88, label %89, label %98
@@ -2311,29 +2311,29 @@ switch.early.test:                                ; preds = %73
 89:                                               ; preds = %86
   %90 = tail call i32 @pq_getmsgint(ptr noundef %6, i32 noundef 2) #12
   %91 = trunc i32 %90 to i16
-  %92 = getelementptr inbounds i8, ptr %.097127, i64 2
+  %92 = getelementptr inbounds i8, ptr %.095127, i64 2
   store i16 %91, ptr %92, align 2
   br label %98
 
 93:                                               ; preds = %23
   %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %94)
-  %95 = load i8, ptr %.097127, align 4
+  %95 = load i8, ptr %.095127, align 4
   %96 = sext i8 %95 to i32
   %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %96) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1322, ptr noundef nonnull @__func__.tsqueryrecv) #12
   unreachable
 
 98:                                               ; preds = %89, %86, %._crit_edge
-  %.196 = phi i32 [ %72, %._crit_edge ], [ %.095128, %89 ], [ %.095128, %86 ]
-  %99 = getelementptr i8, ptr %.097127, i64 12
-  %100 = add nuw i32 %.099126, 1
+  %.198 = phi i32 [ %72, %._crit_edge ], [ %.097126, %89 ], [ %.097126, %86 ]
+  %99 = getelementptr i8, ptr %.095127, i64 12
+  %100 = add nuw i32 %.0128, 1
   %exitcond.not = icmp eq i32 %100, %7
   br i1 %exitcond.not, label %._crit_edge131, label %23, !llvm.loop !41
 
 ._crit_edge131:                                   ; preds = %98, %12
-  %.095.lcssa = phi i32 [ 0, %12 ], [ %.196, %98 ]
-  %101 = add i32 %.095.lcssa, %17
+  %.097.lcssa = phi i32 [ 0, %12 ], [ %.198, %98 ]
+  %101 = add i32 %.097.lcssa, %17
   %102 = sext i32 %101 to i64
   %103 = tail call ptr @repalloc(ptr noundef %19, i64 noundef %102) #12
   %104 = getelementptr i8, ptr %103, i64 8
@@ -2364,34 +2364,34 @@ findoprnd.exit:                                   ; preds = %._crit_edge131
   br label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %130
-  %.094135 = phi ptr [ %.1, %130 ], [ %113, %.lr.ph136.preheader ]
-  %.198134 = phi ptr [ %131, %130 ], [ %104, %.lr.ph136.preheader ]
-  %.1100133 = phi i32 [ %132, %130 ], [ 0, %.lr.ph136.preheader ]
-  %114 = load i8, ptr %.198134, align 4
+  %.1135 = phi i32 [ %132, %130 ], [ 0, %.lr.ph136.preheader ]
+  %.196134 = phi ptr [ %131, %130 ], [ %104, %.lr.ph136.preheader ]
+  %.099133 = phi ptr [ %.1100, %130 ], [ %113, %.lr.ph136.preheader ]
+  %114 = load i8, ptr %.196134, align 4
   %115 = icmp eq i8 %114, 1
   br i1 %115, label %116, label %130
 
 116:                                              ; preds = %.lr.ph136
-  %117 = sext i32 %.1100133 to i64
+  %117 = sext i32 %.1135 to i64
   %118 = getelementptr ptr, ptr %15, i64 %117
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %.198134, i64 8
+  %120 = getelementptr inbounds i8, ptr %.196134, i64 8
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 4095
   %123 = add nuw nsw i32 %122, 1
   %124 = zext nneg i32 %123 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.094135, ptr noundef nonnull align 1 dereferenceable(1) %119, i64 %124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.099133, ptr noundef nonnull align 1 dereferenceable(1) %119, i64 %124, i1 false)
   %125 = load i32, ptr %120, align 4
   %126 = and i32 %125, 4095
   %127 = add nuw nsw i32 %126, 1
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr i8, ptr %.094135, i64 %128
+  %129 = getelementptr i8, ptr %.099133, i64 %128
   br label %130
 
 130:                                              ; preds = %116, %.lr.ph136
-  %.1 = phi ptr [ %129, %116 ], [ %.094135, %.lr.ph136 ]
-  %131 = getelementptr i8, ptr %.198134, i64 12
-  %132 = add nuw i32 %.1100133, 1
+  %.1100 = phi ptr [ %129, %116 ], [ %.099133, %.lr.ph136 ]
+  %131 = getelementptr i8, ptr %.196134, i64 12
+  %132 = add nuw i32 %.1135, 1
   %exitcond148.not = icmp eq i32 %132, %7
   br i1 %exitcond148.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !42
 
@@ -2465,7 +2465,7 @@ define dso_local i64 @tsquerytree(ptr nocapture noundef readonly %0) local_unnam
   br label %34
 
 34:                                               ; preds = %15, %17
-  %.0 = phi ptr [ %33, %17 ], [ %16, %15 ]
+  %.014 = phi ptr [ %33, %17 ], [ %16, %15 ]
   %35 = load i64, ptr %4, align 8
   %36 = inttoptr i64 %35 to ptr
   %.not17 = icmp eq ptr %6, %36
@@ -2476,9 +2476,9 @@ define dso_local i64 @tsquerytree(ptr nocapture noundef readonly %0) local_unnam
   br label %38
 
 38:                                               ; preds = %37, %34, %10
-  %.014.in = phi ptr [ %11, %10 ], [ %.0, %34 ], [ %.0, %37 ]
-  %.014 = ptrtoint ptr %.014.in to i64
-  ret i64 %.014
+  %.0.in = phi ptr [ %11, %10 ], [ %.014, %34 ], [ %.014, %37 ]
+  %.0 = ptrtoint ptr %.0.in to i64
+  ret i64 %.0
 }
 
 declare ptr @clean_NOT(ptr noundef, ptr noundef) local_unnamed_addr #1

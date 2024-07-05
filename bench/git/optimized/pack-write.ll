@@ -93,12 +93,12 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %last_obj_offset.0155 = phi i64 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
+  %last_obj_offset.0156 = phi i64 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %objects, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %offset = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %offset, align 8
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %1, i64 %last_obj_offset.0155)
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %1, i64 %last_obj_offset.0156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -113,8 +113,8 @@ if.then.i:                                        ; preds = %if.then, %for.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i, %for.end, %entry
-  %last.0 = phi ptr [ null, %entry ], [ %add.ptr, %for.end ], [ %add.ptr, %if.then.i ]
   %last_obj_offset.2 = phi i64 [ 0, %entry ], [ %spec.select, %for.end ], [ %last_obj_offset.0.lcssa187, %if.then.i ]
+  %last.0 = phi ptr [ null, %entry ], [ %add.ptr, %for.end ], [ %add.ptr, %if.then.i ]
   %sorted_by_sha.0 = phi ptr [ null, %entry ], [ %objects, %for.end ], [ %objects, %if.then.i ]
   %2 = load i32, ptr %opts, align 8
   %and = and i32 %2, 1
@@ -365,11 +365,11 @@ while.body111.lr.ph:                              ; preds = %while.cond109.prehe
   br label %while.body111
 
 for.body91:                                       ; preds = %for.body91.lr.ph, %cond.end103
-  %nr_large_offset.0172 = phi i32 [ 0, %for.body91.lr.ph ], [ %nr_large_offset.1, %cond.end103 ]
-  %list.4171 = phi ptr [ %sorted_by_sha.0, %for.body91.lr.ph ], [ %incdec.ptr93, %cond.end103 ]
+  %list.4173 = phi ptr [ %sorted_by_sha.0, %for.body91.lr.ph ], [ %incdec.ptr93, %cond.end103 ]
+  %nr_large_offset.0171 = phi i32 [ 0, %for.body91.lr.ph ], [ %nr_large_offset.1, %cond.end103 ]
   %i.4170 = phi i32 [ 0, %for.body91.lr.ph ], [ %inc107, %cond.end103 ]
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %list.4171, i64 8
-  %26 = load ptr, ptr %list.4171, align 8
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %list.4173, i64 8
+  %26 = load ptr, ptr %list.4173, align 8
   %offset95 = getelementptr inbounds i8, ptr %26, i64 40
   %27 = load i64, ptr %offset95, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ofsval.i90)
@@ -410,13 +410,13 @@ need_large_offset.exit107.cond.false101_crit_edge: ; preds = %need_large_offset.
   br label %cond.end103
 
 cond.true98:                                      ; preds = %need_large_offset.exit107.thread, %need_large_offset.exit107
-  %inc99 = add i32 %nr_large_offset.0172, 1
-  %or = or i32 %nr_large_offset.0172, -2147483648
+  %inc99 = add i32 %nr_large_offset.0171, 1
+  %or = or i32 %nr_large_offset.0171, -2147483648
   %conv100 = zext i32 %or to i64
   br label %cond.end103
 
 cond.end103:                                      ; preds = %need_large_offset.exit107.thread149, %need_large_offset.exit107.cond.false101_crit_edge, %cond.true98
-  %nr_large_offset.1 = phi i32 [ %inc99, %cond.true98 ], [ %nr_large_offset.0172, %need_large_offset.exit107.cond.false101_crit_edge ], [ %nr_large_offset.0172, %need_large_offset.exit107.thread149 ]
+  %nr_large_offset.1 = phi i32 [ %inc99, %cond.true98 ], [ %nr_large_offset.0171, %need_large_offset.exit107.cond.false101_crit_edge ], [ %nr_large_offset.0171, %need_large_offset.exit107.thread149 ]
   %cond104 = phi i64 [ %conv100, %cond.true98 ], [ %.pre, %need_large_offset.exit107.cond.false101_crit_edge ], [ %27, %need_large_offset.exit107.thread149 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i108)
   %conv105 = trunc i64 %cond104 to i32
@@ -429,10 +429,10 @@ cond.end103:                                      ; preds = %need_large_offset.e
   br i1 %exitcond184.not, label %while.cond109.preheader, label %for.body91, !llvm.loop !12
 
 while.body111:                                    ; preds = %while.body111.lr.ph, %while.cond109.backedge
-  %nr_large_offset.2177 = phi i32 [ %nr_large_offset.1, %while.body111.lr.ph ], [ %nr_large_offset.2.be, %while.cond109.backedge ]
-  %list.5176 = phi ptr [ %sorted_by_sha.0, %while.body111.lr.ph ], [ %incdec.ptr113, %while.cond109.backedge ]
-  %incdec.ptr113 = getelementptr inbounds i8, ptr %list.5176, i64 8
-  %32 = load ptr, ptr %list.5176, align 8
+  %list.5178 = phi ptr [ %sorted_by_sha.0, %while.body111.lr.ph ], [ %incdec.ptr113, %while.cond109.backedge ]
+  %nr_large_offset.2176 = phi i32 [ %nr_large_offset.1, %while.body111.lr.ph ], [ %nr_large_offset.2.be, %while.cond109.backedge ]
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %list.5178, i64 8
+  %32 = load ptr, ptr %list.5178, align 8
   %offset115 = getelementptr inbounds i8, ptr %32, i64 40
   %33 = load i64, ptr %offset115, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ofsval.i114)
@@ -474,11 +474,11 @@ if.end119:                                        ; preds = %need_large_offset.e
   store i64 %37, ptr %data.addr.i132, align 8
   call void @hashwrite(ptr noundef %f.0, ptr noundef nonnull %data.addr.i132, i32 noundef 8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i132)
-  %dec = add i32 %nr_large_offset.2177, -1
+  %dec = add i32 %nr_large_offset.2176, -1
   br label %while.cond109.backedge
 
 while.cond109.backedge:                           ; preds = %need_large_offset.exit131.thread190, %if.end119, %need_large_offset.exit131
-  %nr_large_offset.2.be = phi i32 [ %dec, %if.end119 ], [ %nr_large_offset.2177, %need_large_offset.exit131 ], [ %nr_large_offset.2177, %need_large_offset.exit131.thread190 ]
+  %nr_large_offset.2.be = phi i32 [ %dec, %if.end119 ], [ %nr_large_offset.2176, %need_large_offset.exit131 ], [ %nr_large_offset.2176, %need_large_offset.exit131.thread190 ]
   %tobool110.not = icmp eq i32 %nr_large_offset.2.be, 0
   br i1 %tobool110.not, label %if.end122, label %while.body111, !llvm.loop !14
 

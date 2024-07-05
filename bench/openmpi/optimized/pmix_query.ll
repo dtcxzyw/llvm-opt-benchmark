@@ -1336,8 +1336,8 @@ pmix_query_strip_local_keys.exit:                 ; preds = %._crit_edge.i36, %9
   br label %126
 
 126:                                              ; preds = %30, %pmix_query_get_num_local_resolve.exit.thread, %124, %123, %23
-  %.024 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %123 ], [ %125, %124 ], [ -25, %30 ]
-  ret i32 %.024
+  %.0 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %123 ], [ %125, %124 ], [ -25, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2585,13 +2585,13 @@ pmix_obj_new_tma.exit191:                         ; preds = %.lr.ph.i.i188, %31,
   ]
 
 .thread:                                          ; preds = %68, %70
-  %.0231 = phi i32 [ %75, %70 ], [ -22, %68 ]
-  %76 = call ptr @PMIx_Error_string(i32 noundef %.0231) #12
+  %.0155231 = phi i32 [ %75, %70 ], [ -22, %68 ]
+  %76 = call ptr @PMIx_Error_string(i32 noundef %.0155231) #12
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %76, ptr noundef nonnull @.str.10, i32 noundef 224) #12
   br label %77
 
 77:                                               ; preds = %70, %.thread
-  %.0232 = phi i32 [ %75, %70 ], [ %.0231, %.thread ]
+  %.0155232 = phi i32 [ %75, %70 ], [ %.0155231, %.thread ]
   %78 = call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #12
   %79 = icmp eq i32 %78, 35
   br i1 %79, label %80, label %82
@@ -3151,8 +3151,8 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %334
   br label %348
 
 348:                                              ; preds = %311, %328, %347, %345, %272, %291, %289, %191, %210, %208, %107, %126, %124
-  %.0155 = phi i32 [ %.0232, %124 ], [ %.0232, %126 ], [ %.0232, %107 ], [ %.1236, %208 ], [ %.1236, %210 ], [ %.1236, %191 ], [ %.2240, %289 ], [ %.2240, %291 ], [ %.2240, %272 ], [ -25, %345 ], [ -25, %347 ], [ -25, %328 ], [ 0, %311 ]
-  ret i32 %.0155
+  %.0 = phi i32 [ %.0155232, %124 ], [ %.0155232, %126 ], [ %.0155232, %107 ], [ %.1236, %208 ], [ %.1236, %210 ], [ %.1236, %191 ], [ %.2240, %289 ], [ %.2240, %291 ], [ %.2240, %272 ], [ -25, %345 ], [ -25, %347 ], [ -25, %328 ], [ 0, %311 ]
+  ret i32 %.0
 }
 
 declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2

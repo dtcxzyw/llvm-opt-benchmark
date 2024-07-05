@@ -65,30 +65,30 @@ define void @md5_append(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br label %33
 
 33:                                               ; preds = %30, %18
-  %.037 = phi ptr [ %31, %30 ], [ %1, %18 ]
-  %.0 = phi i32 [ %32, %30 ], [ %2, %18 ]
-  %34 = icmp sgt i32 %.0, 63
+  %.037 = phi i32 [ %32, %30 ], [ %2, %18 ]
+  %.0 = phi ptr [ %31, %30 ], [ %1, %18 ]
+  %34 = icmp sgt i32 %.037, 63
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.143 = phi i32 [ %36, %.lr.ph ], [ %.0, %33 ]
-  %.13842 = phi ptr [ %35, %.lr.ph ], [ %.037, %33 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.13842)
-  %35 = getelementptr inbounds i8, ptr %.13842, i64 64
-  %36 = add nsw i32 %.143, -64
-  %37 = icmp ugt i32 %.143, 127
+  %.143 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
+  %.13842 = phi i32 [ %36, %.lr.ph ], [ %.037, %33 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143)
+  %35 = getelementptr inbounds i8, ptr %.143, i64 64
+  %36 = add nsw i32 %.13842, -64
+  %37 = icmp ugt i32 %.13842, 127
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.138.lcssa = phi ptr [ %.037, %33 ], [ %35, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.0, %33 ], [ %36, %.lr.ph ]
-  %.not41 = icmp eq i32 %.1.lcssa, 0
+  %.138.lcssa = phi i32 [ %.037, %33 ], [ %36, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.0, %33 ], [ %35, %.lr.ph ]
+  %.not41 = icmp eq i32 %.138.lcssa, 0
   br i1 %.not41, label %41, label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = sext i32 %.1.lcssa to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.138.lcssa, i64 %40, i1 false)
+  %40 = sext i32 %.138.lcssa to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.1.lcssa, i64 %40, i1 false)
   br label %41
 
 41:                                               ; preds = %19, %3, %38, %._crit_edge
@@ -745,11 +745,11 @@ define void @md5_finish(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
   br i1 %.not41.i, label %md5_append.exit, label %._crit_edge.i.thread
 
 ._crit_edge.i.thread:                             ; preds = %40, %._crit_edge.i
-  %.1.lcssa.i32 = phi i32 [ %43, %._crit_edge.i ], [ %19, %40 ]
-  %.138.lcssa.i31 = phi ptr [ %42, %._crit_edge.i ], [ @md5_finish.pad, %40 ]
+  %.1.lcssa.i32 = phi ptr [ %42, %._crit_edge.i ], [ @md5_finish.pad, %40 ]
+  %.138.lcssa.i31 = phi i32 [ %43, %._crit_edge.i ], [ %19, %40 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = sext i32 %.1.lcssa.i32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.138.lcssa.i31, i64 %45, i1 false)
+  %45 = sext i32 %.138.lcssa.i31 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i32, i64 %45, i1 false)
   br label %md5_append.exit
 
 md5_append.exit:                                  ; preds = %._crit_edge.i.thread47, %29, %._crit_edge.i, %._crit_edge.i.thread
@@ -792,11 +792,11 @@ md5_append.exit:                                  ; preds = %._crit_edge.i.threa
   br i1 %.not41.i21, label %md5_append.exit25, label %._crit_edge.i18.thread
 
 ._crit_edge.i18.thread:                           ; preds = %54, %._crit_edge.i18
-  %.1.lcssa.i2037 = phi i32 [ %66, %._crit_edge.i18 ], [ 8, %54 ]
-  %.138.lcssa.i1936 = phi ptr [ %65, %._crit_edge.i18 ], [ %3, %54 ]
+  %.1.lcssa.i2037 = phi ptr [ %65, %._crit_edge.i18 ], [ %3, %54 ]
+  %.138.lcssa.i1936 = phi i32 [ %66, %._crit_edge.i18 ], [ 8, %54 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 24
-  %68 = sext i32 %.1.lcssa.i2037 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr nonnull align 1 %.138.lcssa.i1936, i64 %68, i1 false)
+  %68 = sext i32 %.138.lcssa.i1936 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr nonnull align 1 %.1.lcssa.i2037, i64 %68, i1 false)
   br label %md5_append.exit25
 
 md5_append.exit25:                                ; preds = %55, %._crit_edge.i18, %._crit_edge.i18.thread

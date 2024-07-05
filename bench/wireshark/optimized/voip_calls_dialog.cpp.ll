@@ -2525,16 +2525,16 @@ define void @_ZN15VoipCallsDialog7tapDrawEPv(ptr noundef readonly %0) #0 align 2
   br label %12
 
 12:                                               ; preds = %.lr.ph34, %._crit_edge
-  %.02232 = phi ptr [ %10, %.lr.ph34 ], [ %31, %._crit_edge ]
+  %.032 = phi ptr [ %10, %.lr.ph34 ], [ %31, %._crit_edge ]
   %13 = load ptr, ptr %11, align 8
   %14 = tail call ptr @g_list_first(ptr noundef %13)
   %.not2829 = icmp eq ptr %14, null
   br i1 %.not2829, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %27
-  %.030 = phi ptr [ %29, %27 ], [ %14, %12 ]
-  %15 = load ptr, ptr %.02232, align 8
-  %16 = load ptr, ptr %.030, align 8
+  %.02230 = phi ptr [ %29, %27 ], [ %14, %12 ]
+  %15 = load ptr, ptr %.032, align 8
+  %16 = load ptr, ptr %.02230, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 2160
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
@@ -2551,13 +2551,13 @@ define void @_ZN15VoipCallsDialog7tapDrawEPv(ptr noundef readonly %0) #0 align 2
   br label %27
 
 27:                                               ; preds = %.lr.ph, %22
-  %28 = getelementptr inbounds i8, ptr %.030, i64 8
+  %28 = getelementptr inbounds i8, ptr %.02230, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not28 = icmp eq ptr %29, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %27, %12
-  %30 = getelementptr inbounds i8, ptr %.02232, i64 8
+  %30 = getelementptr inbounds i8, ptr %.032, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not26 = icmp eq ptr %31, null
   br i1 %.not26, label %._crit_edge35, label %12, !llvm.loop !18
@@ -5053,8 +5053,8 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit42: ; preds = %8
   br label %89
 
 89:                                               ; preds = %.lr.ph143, %_ZN7QStringD2Ev.exit51
-  %.0142 = phi ptr [ %86, %.lr.ph143 ], [ %172, %_ZN7QStringD2Ev.exit51 ]
-  %90 = load ptr, ptr %.0142, align 8
+  %.015142 = phi ptr [ %86, %.lr.ph143 ], [ %172, %_ZN7QStringD2Ev.exit51 ]
+  %90 = load ptr, ptr %.015142, align 8
   %.not23 = icmp eq ptr %90, null
   br i1 %.not23, label %.critedge2, label %91
 
@@ -5228,7 +5228,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit
 
 _ZN7QStringD2Ev.exit51:                           ; preds = %131, %97, %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit.i.i.i, %94, %91, %157, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %_ZN7QStringD2Ev.exit, %_ZNK4QSetItE8containsERKt.exit
-  %171 = getelementptr inbounds i8, ptr %.0142, i64 8
+  %171 = getelementptr inbounds i8, ptr %.015142, i64 8
   %172 = load ptr, ptr %171, align 8
   %.not22 = icmp eq ptr %172, null
   br i1 %.not22, label %.critedge2, label %89, !llvm.loop !31
@@ -9115,14 +9115,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE8freeDataEv.exit
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02333
+  %.02233 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02233
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %121
-  %.02232 = phi i64 [ 0, %40 ], [ %122, %121 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02232
+  %.02332 = phi i64 [ 0, %40 ], [ %122, %121 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02332
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %121, label %46
@@ -9259,7 +9259,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %121
 
 121:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE6insertEm.exit
-  %122 = add nuw nsw i64 %.02232, 1
+  %122 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %122, 128
   br i1 %exitcond.not, label %123, label %43, !llvm.loop !65
 
@@ -9274,7 +9274,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE8freeDataEv.exit: ; preds = %123, %125
-  %126 = add nuw nsw i64 %.02333, 1
+  %126 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %126, %38
   br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !66
 
@@ -9559,16 +9559,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %140
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02333, 7
+  %53 = shl nuw i64 %.033, 7
   br label %54
 
 54:                                               ; preds = %49, %138
-  %.031 = phi i64 [ 0, %49 ], [ %139, %138 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
+  %.02331 = phi i64 [ 0, %49 ], [ %139, %138 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %138, label %57
@@ -9629,7 +9629,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit, label %.lr.ph.i, !llvm.loop !30
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.031, %53
+  %102 = add nuw nsw i64 %.02331, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit
 
@@ -9710,12 +9710,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %138
 
 138:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIt15QHashDummyValueEEE6insertEm.exit
-  %139 = add nuw nsw i64 %.031, 1
+  %139 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %139, 128
   br i1 %exitcond.not, label %140, label %54, !llvm.loop !67
 
 140:                                              ; preds = %138
-  %141 = add nuw nsw i64 %.02333, 1
+  %141 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %141, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !68
 

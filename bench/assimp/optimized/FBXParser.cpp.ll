@@ -2539,11 +2539,11 @@ for.body.lr.ph:                                   ; preds = %if.then59
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %25 = phi ptr [ %.pre, %for.body.lr.ph ], [ %33, %for.inc ]
-  %i.0175 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %d.0174 = phi ptr [ %24, %for.body.lr.ph ], [ %add.ptr, %for.inc ]
-  %26 = load <2 x double>, ptr %d.0174, align 8
+  %d.0175 = phi ptr [ %24, %for.body.lr.ph ], [ %add.ptr, %for.inc ]
+  %i.0174 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %26 = load <2 x double>, ptr %d.0175, align 8
   %27 = fptrunc <2 x double> %26 to <2 x float>
-  %arrayidx68 = getelementptr inbounds i8, ptr %d.0174, i64 16
+  %arrayidx68 = getelementptr inbounds i8, ptr %d.0175, i64 16
   %28 = load double, ptr %arrayidx68, align 8
   %conv69 = fptrunc double %28 to float
   %29 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -2626,8 +2626,8 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__n
 
 for.inc:                                          ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i56
   %33 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJfffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i56 ]
-  %inc = add nuw nsw i32 %i.0175, 1
-  %add.ptr = getelementptr inbounds i8, ptr %d.0174, i64 24
+  %inc = add nuw nsw i32 %i.0174, 1
+  %add.ptr = getelementptr inbounds i8, ptr %d.0175, i64 24
   %exitcond177.not = icmp eq i32 %inc, %div
   br i1 %exitcond177.not, label %if.end90, label %for.body, !llvm.loop !18
 
@@ -3886,9 +3886,9 @@ if.then59:                                        ; preds = %invoke.cont56
 
 for.body:                                         ; preds = %if.then59, %for.inc
   %25 = phi ptr [ %.pre, %if.then59 ], [ %32, %for.inc ]
-  %i.0192 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
-  %d.0191 = phi ptr [ %24, %if.then59 ], [ %add.ptr, %for.inc ]
-  %26 = load <4 x double>, ptr %d.0191, align 8
+  %d.0192 = phi ptr [ %24, %if.then59 ], [ %add.ptr, %for.inc ]
+  %i.0191 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
+  %26 = load <4 x double>, ptr %d.0192, align 8
   %27 = fptrunc <4 x double> %26 to <4 x float>
   %28 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %25, %28
@@ -3966,8 +3966,8 @@ if.then.i27.i:                                    ; preds = %_ZNSt6vectorI9aiCol
 
 for.inc:                                          ; preds = %.noexc, %if.then.i59
   %32 = phi ptr [ %incdec.ptr.i158, %.noexc ], [ %incdec.ptr.i, %if.then.i59 ]
-  %inc = add nuw nsw i32 %i.0192, 1
-  %add.ptr = getelementptr inbounds i8, ptr %d.0191, i64 32
+  %inc = add nuw nsw i32 %i.0191, 1
+  %add.ptr = getelementptr inbounds i8, ptr %d.0192, i64 32
   %exitcond195.not = icmp eq i32 %inc, %umax194
   br i1 %exitcond195.not, label %if.end94, label %for.body, !llvm.loop !47
 
@@ -4726,9 +4726,9 @@ if.then59:                                        ; preds = %invoke.cont56
 
 for.body:                                         ; preds = %if.then59, %for.inc
   %26 = phi ptr [ %.pre, %if.then59 ], [ %34, %for.inc ]
-  %i.0170 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
-  %d.0169 = phi ptr [ %25, %if.then59 ], [ %add.ptr, %for.inc ]
-  %27 = load <2 x double>, ptr %d.0169, align 8
+  %d.0170 = phi ptr [ %25, %if.then59 ], [ %add.ptr, %for.inc ]
+  %i.0169 = phi i32 [ 0, %if.then59 ], [ %inc, %for.inc ]
+  %27 = load <2 x double>, ptr %d.0170, align 8
   %28 = fptrunc <2 x double> %27 to <2 x float>
   %29 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %26, %29
@@ -4809,8 +4809,8 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__no
 
 for.inc:                                          ; preds = %_ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i55
   %34 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i55 ]
-  %inc = add nuw nsw i32 %i.0170, 1
-  %add.ptr = getelementptr inbounds i8, ptr %d.0169, i64 16
+  %inc = add nuw nsw i32 %i.0169, 1
+  %add.ptr = getelementptr inbounds i8, ptr %d.0170, i64 16
   %exitcond173.not = icmp eq i32 %inc, %umax172
   br i1 %exitcond173.not, label %if.end86, label %for.body, !llvm.loop !73
 
@@ -9845,16 +9845,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
+  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #26
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !108
 

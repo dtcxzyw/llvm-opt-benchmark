@@ -955,7 +955,7 @@ _msg_thr_create.exit:                             ; preds = %177
   br label %484
 
 484:                                              ; preds = %422, %438
-  %.0113 = phi i32 [ %483, %438 ], [ -1, %422 ]
+  %.0114 = phi i32 [ %483, %438 ], [ -1, %422 ]
   call void @slurm_xfree(ptr noundef nonnull %381) #14
   call void @slurm_xfree(ptr noundef nonnull %255) #14
   %485 = load ptr, ptr %8, align 8
@@ -969,8 +969,8 @@ _msg_thr_create.exit:                             ; preds = %177
   br label %488
 
 488:                                              ; preds = %484, %487, %_msg_thr_create.exit.thread135, %95, %37, %19
-  %.0114 = phi i32 [ -1, %19 ], [ -1, %95 ], [ -1, %37 ], [ -1, %_msg_thr_create.exit.thread135 ], [ %.0113, %487 ], [ %.0113, %484 ]
-  ret i32 %.0114
+  %.0 = phi i32 [ -1, %19 ], [ -1, %95 ], [ -1, %37 ], [ -1, %_msg_thr_create.exit.thread135 ], [ %.0114, %487 ], [ %.0114, %484 ]
+  ret i32 %.0
 }
 
 declare i32 @get_log_level() local_unnamed_addr #4
@@ -1170,7 +1170,7 @@ _print_launch_msg.exit:                           ; preds = %._crit_edge.i, %45
 
 83:                                               ; preds = %.lr.ph72, %183
   %84 = phi ptr [ %73, %.lr.ph72 ], [ %184, %183 ]
-  %.03970 = phi i32 [ 0, %.lr.ph72 ], [ %.2, %183 ]
+  %.04070 = phi i32 [ 0, %.lr.ph72 ], [ %.2, %183 ]
   %85 = load i16, ptr %84, align 8
   %86 = zext i16 %85 to i32
   %87 = getelementptr inbounds i8, ptr %84, i64 16
@@ -1345,7 +1345,7 @@ _fail_step_tasks.exit:                            ; preds = %169, %175
   br label %183
 
 183:                                              ; preds = %97, %_fail_step_tasks.exit
-  %.2 = phi i32 [ -1, %_fail_step_tasks.exit ], [ %.03970, %97 ]
+  %.2 = phi i32 [ -1, %_fail_step_tasks.exit ], [ %.04070, %97 ]
   %184 = call ptr @list_next(ptr noundef %72) #14
   %.not52 = icmp eq ptr %184, null
   br i1 %.not52, label %._crit_edge73.loopexit, label %83, !llvm.loop !11
@@ -1356,14 +1356,14 @@ _fail_step_tasks.exit:                            ; preds = %169, %175
   br label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %._crit_edge73.loopexit, %71
-  %.039.lcssa = phi i32 [ 0, %71 ], [ %186, %._crit_edge73.loopexit ]
+  %.040.lcssa = phi i32 [ 0, %71 ], [ %186, %._crit_edge73.loopexit ]
   call void @list_iterator_destroy(ptr noundef %72) #14
   call void @list_destroy(ptr noundef nonnull %67) #14
   br label %187
 
 187:                                              ; preds = %._crit_edge73, %69
-  %.041 = phi i32 [ -1, %69 ], [ %.039.lcssa, %._crit_edge73 ]
-  ret i32 %.041
+  %.039 = phi i32 [ -1, %69 ], [ %.040.lcssa, %._crit_edge73 ]
+  ret i32 %.039
 }
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
@@ -1503,13 +1503,13 @@ define i32 @slurm_step_launch_add(ptr noundef readonly %0, ptr nocapture noundef
   br label %83
 
 83:                                               ; preds = %81, %76
-  %.095 = phi i16 [ %82, %81 ], [ 0, %76 ]
+  %.096 = phi i16 [ %82, %81 ], [ 0, %76 ]
   %84 = load i32, ptr %52, align 8
   %.not109 = icmp ne i32 %84, -2
   %85 = trunc i8 %9 to i1
   %86 = load ptr, ptr %17, align 8
   %87 = select i1 %.not109, i1 true, i1 %85
-  call void @env_array_for_step(ptr noundef nonnull %7, ptr noundef %86, ptr noundef nonnull %6, i16 noundef zeroext %.095, i1 noundef zeroext %87) #14
+  call void @env_array_for_step(ptr noundef nonnull %7, ptr noundef %86, ptr noundef nonnull %6, i16 noundef zeroext %.096, i1 noundef zeroext %87) #14
   call void @env_array_merge(ptr noundef nonnull %7, ptr noundef null) #14
   call void @env_array_free(ptr noundef null) #14
   %88 = load ptr, ptr %7, align 8
@@ -1822,7 +1822,7 @@ _lookup_cwd.exit:                                 ; preds = %97, %99
   br label %300
 
 300:                                              ; preds = %233, %294
-  %.096 = phi i32 [ %299, %294 ], [ -1, %233 ]
+  %.097 = phi i32 [ %299, %294 ], [ -1, %233 ]
   %301 = getelementptr inbounds i8, ptr %6, i64 288
   call void @slurm_xfree(ptr noundef nonnull %301) #14
   %302 = getelementptr inbounds i8, ptr %6, i64 504
@@ -1840,8 +1840,8 @@ _lookup_cwd.exit:                                 ; preds = %97, %99
   br label %307
 
 307:                                              ; preds = %300, %306, %24, %19
-  %.097 = phi i32 [ -1, %19 ], [ -1, %24 ], [ %.096, %306 ], [ %.096, %300 ]
-  ret i32 %.097
+  %.0 = phi i32 [ -1, %19 ], [ -1, %24 ], [ %.097, %306 ], [ %.097, %300 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2165,7 +2165,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   unreachable
 
 22:                                               ; preds = %.lr.ph, %64
-  %.082127 = phi i8 [ 0, %.lr.ph ], [ %.2, %64 ]
+  %.0127 = phi i8 [ 0, %.lr.ph ], [ %.2, %64 ]
   %23 = load i8, ptr %15, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %30, label %25
@@ -2196,7 +2196,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %39
 
 39:                                               ; preds = %33, %30
-  %40 = trunc nuw i8 %.082127 to i1
+  %40 = trunc nuw i8 %.0127 to i1
   br i1 %40, label %53, label %41
 
 41:                                               ; preds = %39
@@ -2218,7 +2218,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %53
 
 53:                                               ; preds = %41, %49, %39
-  %.1 = phi i8 [ %.082127, %39 ], [ 1, %49 ], [ 1, %41 ]
+  %.1 = phi i8 [ %.0127, %39 ], [ 1, %49 ], [ 1, %41 ]
   %54 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %2) #14
   switch i32 %54, label %62 [
     i32 110, label %55
@@ -2239,7 +2239,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %.loopexit.sink.split
 
 64:                                               ; preds = %53, %27, %25
-  %.2 = phi i8 [ %.082127, %27 ], [ %.082127, %25 ], [ %.1, %53 ]
+  %.2 = phi i8 [ %.0127, %27 ], [ %.0127, %25 ], [ %.1, %53 ]
   %65 = load ptr, ptr %9, align 8
   %66 = call i32 @bit_set_count(ptr noundef %65) #14
   %67 = load i32, ptr %12, align 8
@@ -2700,7 +2700,7 @@ define void @slurm_step_launch_fwd_signal(ptr nocapture noundef readonly %0, i32
   br label %83
 
 83:                                               ; preds = %120, %78
-  %.070 = phi i32 [ 0, %78 ], [ %121, %120 ]
+  %.072 = phi i32 [ 0, %78 ], [ %121, %120 ]
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #14
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %3, i32 noundef -1) #14
   store i16 6004, ptr %80, align 4
@@ -2783,12 +2783,12 @@ define void @slurm_step_launch_fwd_signal(ptr nocapture noundef readonly %0, i32
   %.1.lcssa = phi i1 [ false, %100 ], [ %.2, %117 ]
   call void @list_iterator_destroy(ptr noundef %101) #14
   call void @list_destroy(ptr noundef nonnull %97) #14
-  %119 = icmp ult i32 %.070, 4
+  %119 = icmp ult i32 %.072, 4
   %or.cond = and i1 %119, %.1.lcssa
   br i1 %or.cond, label %120, label %123
 
 120:                                              ; preds = %._crit_edge
-  %121 = add nuw nsw i32 %.070, 1
+  %121 = add nuw nsw i32 %.072, 1
   %122 = call i32 @sleep(i32 noundef %121) #14
   br label %83
 
@@ -4184,7 +4184,7 @@ _node_fail_handler.exit:                          ; preds = %290, %293, %372
   br label %446
 
 446:                                              ; preds = %.critedge.i, %.lr.ph4.i59
-  %.0853.i = phi i32 [ 0, %.lr.ph4.i59 ], [ %524, %.critedge.i ]
+  %.03.i = phi i32 [ 0, %.lr.ph4.i59 ], [ %524, %.critedge.i ]
   %447 = call ptr @hostlist_next(ptr noundef %431) #14
   %448 = call i32 @hostlist_find(ptr noundef %437, ptr noundef %447) #14
   %449 = icmp slt i32 %448, 0
@@ -4327,7 +4327,7 @@ _node_fail_handler.exit:                          ; preds = %290, %293, %372
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %480, %521, %518, %516, %495, %492, %452, %450
-  %524 = add nuw nsw i32 %.0853.i, 1
+  %524 = add nuw nsw i32 %.03.i, 1
   %exitcond9.not.i = icmp eq i32 %524, %432
   br i1 %exitcond9.not.i, label %.loopexit.i58, label %446, !llvm.loop !26
 
@@ -4534,7 +4534,7 @@ define internal noalias noundef ptr @_check_io_timeout(ptr noundef %0) #3 {
 
 22:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.057 = phi i64 [ 4294967294, %.lr.ph ], [ %.1, %38 ]
+  %.04156 = phi i64 [ 4294967294, %.lr.ph ], [ %.1, %38 ]
   %23 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 4294967294
@@ -4562,19 +4562,19 @@ define internal noalias noundef ptr @_check_io_timeout(ptr noundef %0) #3 {
   br label %.loopexit
 
 35:                                               ; preds = %26
-  %36 = icmp eq i64 %.057, 4294967294
-  %37 = call i64 @llvm.smin.i64(i64 %24, i64 %.057)
+  %36 = icmp eq i64 %.04156, 4294967294
+  %37 = call i64 @llvm.smin.i64(i64 %24, i64 %.04156)
   %spec.select = select i1 %36, i64 %24, i64 %37
   br label %38
 
 38:                                               ; preds = %35, %22
-  %.1 = phi i64 [ %.057, %22 ], [ %spec.select, %35 ]
+  %.1 = phi i64 [ %.04156, %22 ], [ %spec.select, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !27
 
 .loopexit:                                        ; preds = %38, %33
-  %.054 = phi i64 [ %.057, %33 ], [ %.1, %38 ]
+  %.04155 = phi i64 [ %.04156, %33 ], [ %.1, %38 ]
   %39 = load i8, ptr %7, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %._crit_edge, label %43
@@ -4585,7 +4585,7 @@ define internal noalias noundef ptr @_check_io_timeout(ptr noundef %0) #3 {
   br i1 %42, label %._crit_edge, label %.thread
 
 43:                                               ; preds = %.loopexit
-  %44 = icmp eq i64 %.054, 4294967294
+  %44 = icmp eq i64 %.04155, 4294967294
   br i1 %44, label %.thread, label %53
 
 .thread:                                          ; preds = %.loopexit.thread, %43
@@ -4615,12 +4615,12 @@ define internal noalias noundef ptr @_check_io_timeout(ptr noundef %0) #3 {
 
 56:                                               ; preds = %53
   %57 = call i64 @time(ptr noundef null) #14
-  %58 = sub nsw i64 %.054, %57
+  %58 = sub nsw i64 %.04155, %57
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.78, i64 noundef %58) #14
   br label %59
 
 59:                                               ; preds = %56, %53
-  store i64 %.054, ptr %2, align 8
+  store i64 %.04155, ptr %2, align 8
   %60 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %2) #14
   switch i32 %60, label %61 [
     i32 110, label %64

@@ -234,14 +234,14 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not135, label %.loopexit101, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %10, %3, %14
-  %.074127 = phi i32 [ %12, %14 ], [ 20, %3 ], [ 20, %10 ]
+  %.072127 = phi i32 [ %12, %14 ], [ 20, %3 ], [ 20, %10 ]
   %15 = getelementptr inbounds i8, ptr %5, i64 10
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   br label %17
 
 17:                                               ; preds = %.lr.ph117, %85
-  %.071115 = phi i32 [ 0, %.lr.ph117 ], [ %86, %85 ]
-  %.072114 = phi i64 [ 0, %.lr.ph117 ], [ %.173, %85 ]
+  %.070115 = phi i32 [ 0, %.lr.ph117 ], [ %86, %85 ]
+  %.073114 = phi i64 [ 0, %.lr.ph117 ], [ %.174, %85 ]
   %.075113 = phi i32 [ 0, %.lr.ph117 ], [ %.176, %85 ]
   %18 = load ptr, ptr %0, align 8
   %19 = call i32 @wtap_read_bytes_or_eof(ptr noundef %18, ptr noundef nonnull %5, i32 noundef 16, ptr noundef %1, ptr noundef %2) #15
@@ -256,7 +256,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   ]
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %.071115, 3
+  %23 = icmp ult i32 %.070115, 3
   br i1 %23, label %.loopexit, label %.loopexit101
 
 24:                                               ; preds = %17
@@ -287,21 +287,21 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not94, label %37, label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = icmp ult i32 %.071115, 3
+  %38 = icmp ult i32 %.070115, 3
   br i1 %38, label %.loopexit, label %85
 
 39:                                               ; preds = %27
   %40 = load i64, ptr %5, align 8
-  %41 = icmp ult i64 %40, %.072114
-  %42 = sub i64 %.072114, %40
+  %41 = icmp ult i64 %40, %.073114
+  %42 = sub i64 %.073114, %40
   %43 = icmp ugt i64 %42, 8589934591
   %or.cond = and i1 %41, %43
   br i1 %or.cond, label %.loopexit, label %44
 
 44:                                               ; preds = %39
   %.not86 = icmp ne i32 %.075113, 0
-  %45 = icmp ugt i64 %40, %.072114
-  %46 = sub i64 %40, %.072114
+  %45 = icmp ugt i64 %40, %.073114
+  %46 = sub i64 %40, %.073114
   %47 = icmp ugt i64 %46, 135446092941623295
   %48 = and i1 %45, %47
   %or.cond98 = select i1 %.not86, i1 %48, i1 false
@@ -312,7 +312,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not87111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %56
-  %.070112 = phi i32 [ %57, %56 ], [ %29, %.preheader ]
+  %.071112 = phi i32 [ %57, %56 ], [ %29, %.preheader ]
   %49 = load ptr, ptr %0, align 8
   %50 = call i32 @wtap_read_bytes(ptr noundef %49, ptr noundef nonnull %8, i32 noundef 8, ptr noundef %1, ptr noundef %2) #15
   %.not92 = icmp eq i32 %50, 0
@@ -325,11 +325,11 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br label %.loopexit
 
 54:                                               ; preds = %.lr.ph
-  %55 = icmp ult i32 %.070112, 8
+  %55 = icmp ult i32 %.071112, 8
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %54
-  %57 = add nsw i32 %.070112, -8
+  %57 = add nsw i32 %.071112, -8
   %.0.copyload = load i8, ptr %8, align 8
   %.not87 = icmp sgt i8 %.0.copyload, -1
   br i1 %.not87, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
@@ -341,7 +341,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.pre-phi = phi i8 [ %.pre125, %._crit_edge.loopexit ], [ %31, %.preheader ]
-  %.070.lcssa = phi i32 [ %57, %._crit_edge.loopexit ], [ %29, %.preheader ]
+  %.071.lcssa = phi i32 [ %57, %._crit_edge.loopexit ], [ %29, %.preheader ]
   switch i8 %.pre-phi, label %78 [
     i8 5, label %58
     i8 6, label %58
@@ -370,11 +370,11 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br label %.loopexit
 
 64:                                               ; preds = %58
-  %65 = icmp ult i32 %.070.lcssa, 4
+  %65 = icmp ult i32 %.071.lcssa, 4
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %64
-  %67 = add nsw i32 %.070.lcssa, -4
+  %67 = add nsw i32 %.071.lcssa, -4
   br label %78
 
 68:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
@@ -390,15 +390,15 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br label %.loopexit
 
 74:                                               ; preds = %68
-  %75 = icmp ult i32 %.070.lcssa, 2
+  %75 = icmp ult i32 %.071.lcssa, 2
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %74
-  %77 = add nsw i32 %.070.lcssa, -2
+  %77 = add nsw i32 %.071.lcssa, -2
   br label %78
 
 78:                                               ; preds = %._crit_edge, %76, %66
-  %.1 = phi i32 [ %.070.lcssa, %._crit_edge ], [ %77, %76 ], [ %67, %66 ]
+  %.1 = phi i32 [ %.071.lcssa, %._crit_edge ], [ %77, %76 ], [ %67, %66 ]
   %79 = load ptr, ptr %0, align 8
   %80 = call i32 @wtap_read_bytes(ptr noundef %79, ptr noundef null, i32 noundef %.1, ptr noundef %1, ptr noundef %2) #15
   %.not90 = icmp eq i32 %80, 0
@@ -410,14 +410,14 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr nocapture noundef %0, ptr nound
   br i1 %.not91, label %83, label %.loopexit
 
 83:                                               ; preds = %81
-  %84 = icmp ult i32 %.071115, 3
+  %84 = icmp ult i32 %.070115, 3
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %78, %83, %32, %37
   %.176 = phi i32 [ %.075113, %32 ], [ %.075113, %37 ], [ 1, %83 ], [ 1, %78 ]
-  %.173 = phi i64 [ %.072114, %32 ], [ %.072114, %37 ], [ %40, %83 ], [ %40, %78 ]
-  %86 = add nuw nsw i32 %.071115, 1
-  %exitcond.not = icmp eq i32 %86, %.074127
+  %.174 = phi i64 [ %.073114, %32 ], [ %.073114, %37 ], [ %40, %83 ], [ %40, %78 ]
+  %86 = add nuw nsw i32 %.070115, 1
+  %exitcond.not = icmp eq i32 %86, %.072127
   br i1 %exitcond.not, label %.loopexit101, label %17, !llvm.loop !7
 
 .loopexit101:                                     ; preds = %85, %14, %20, %22
@@ -871,7 +871,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
 .lr.ph.i123.i:                                    ; preds = %.preheader7.i.i, %245
   %220 = phi i32 [ %250, %245 ], [ %179, %.preheader7.i.i ]
   %221 = phi ptr [ %249, %245 ], [ %178, %.preheader7.i.i ]
-  %.0489.i.i = phi ptr [ %.1.i.i, %245 ], [ null, %.preheader7.i.i ]
+  %.0479.i.i = phi ptr [ %.1.i.i, %245 ], [ null, %.preheader7.i.i ]
   %222 = getelementptr i8, ptr %221, i64 2
   %.val23.i.i.i = load i8, ptr %222, align 1
   %223 = getelementptr i8, ptr %221, i64 3
@@ -901,7 +901,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   %239 = zext i8 %.val22.i.i.i to i16
   %240 = or disjoint i16 %237, %239
   %cond.i.i = icmp ne i16 %240, 1
-  %241 = icmp ne ptr %.0489.i.i, null
+  %241 = icmp ne ptr %.0479.i.i, null
   %or.cond.i.i = select i1 %cond.i.i, i1 true, i1 %241
   br i1 %or.cond.i.i, label %245, label %242
 
@@ -915,7 +915,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
 245:                                              ; preds = %242, %235
   %246 = phi i32 [ %220, %235 ], [ %.pre18.i.i, %242 ]
   %247 = phi ptr [ %221, %235 ], [ %.pre.i124.i, %242 ]
-  %.1.i.i = phi ptr [ %.0489.i.i, %235 ], [ %244, %242 ]
+  %.1.i.i = phi ptr [ %.0479.i.i, %235 ], [ %244, %242 ]
   %248 = zext nneg i32 %231 to i64
   %249 = getelementptr i8, ptr %247, i64 %248
   store ptr %249, ptr %20, align 8
@@ -927,8 +927,8 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   br i1 %or.cond3.i.i.i, label %.critedge.i.i, label %.lr.ph.i123.i, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %245, %233, %.lr.ph.i123.i
-  %.048.lcssa.i.i = phi ptr [ %.0489.i.i, %233 ], [ %.1.i.i, %245 ], [ %.0489.i.i, %.lr.ph.i123.i ]
-  %.not57.i.i = icmp eq ptr %.048.lcssa.i.i, null
+  %.047.lcssa.i.i = phi ptr [ %.0479.i.i, %233 ], [ %.1.i.i, %245 ], [ %.0479.i.i, %.lr.ph.i123.i ]
+  %.not57.i.i = icmp eq ptr %.047.lcssa.i.i, null
   br i1 %.not57.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i
@@ -958,7 +958,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   %265 = getelementptr inbounds i8, ptr %258, i64 24
   %266 = load ptr, ptr %265, align 8
   call void @g_free(ptr noundef %266) #15
-  %267 = call noalias ptr @g_strdup(ptr noundef nonnull %.048.lcssa.i.i) #15
+  %267 = call noalias ptr @g_strdup(ptr noundef nonnull %.047.lcssa.i.i) #15
   store ptr %267, ptr %265, align 8
   br label %280
 
@@ -973,7 +973,7 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   %274 = load i64, ptr %35, align 8
   %275 = getelementptr inbounds i8, ptr %269, i64 16
   store i64 %274, ptr %275, align 8
-  %276 = call noalias ptr @g_strdup(ptr noundef nonnull %.048.lcssa.i.i) #15
+  %276 = call noalias ptr @g_strdup(ptr noundef nonnull %.047.lcssa.i.i) #15
   %277 = getelementptr inbounds i8, ptr %269, i64 24
   store ptr %276, ptr %277, align 8
   %278 = load ptr, ptr %105, align 8
@@ -988,8 +988,8 @@ erf_meta_read_tag.exit121.thread.i:               ; preds = %194, %182, %175
   br i1 %283, label %.lr.ph15.i.i, label %.loopexit.i.i, !llvm.loop !12
 
 .loopexit.i.i:                                    ; preds = %280, %.preheader.i.i, %.critedge.i.i, %.preheader7.i.i
-  %.048.lcssa21.i.i = phi ptr [ %.048.lcssa.i.i, %.preheader.i.i ], [ null, %.critedge.i.i ], [ null, %.preheader7.i.i ], [ %.048.lcssa.i.i, %280 ]
-  call void @g_free(ptr noundef %.048.lcssa21.i.i) #15
+  %.047.lcssa21.i.i = phi ptr [ %.047.lcssa.i.i, %.preheader.i.i ], [ null, %.critedge.i.i ], [ null, %.preheader7.i.i ], [ %.047.lcssa.i.i, %280 ]
+  call void @g_free(ptr noundef %.047.lcssa21.i.i) #15
   %.pre286.i = load ptr, ptr %20, align 8
   %.pre287.i = load i32, ptr %30, align 8
   br label %.backedge.i
@@ -3356,8 +3356,8 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %.0129181 = phi i32 [ 0, %.lr.ph ], [ %.2, %133 ]
   %.0130180 = phi i8 [ 0, %.lr.ph ], [ %.1131, %133 ]
   %.0132179 = phi i64 [ -1, %.lr.ph ], [ %.3, %133 ]
-  %.0135178 = phi i32 [ 0, %.lr.ph ], [ %134, %133 ]
-  %.0136177 = phi i32 [ 0, %.lr.ph ], [ %93, %133 ]
+  %.0136178 = phi i32 [ 0, %.lr.ph ], [ %93, %133 ]
+  %.0138177 = phi i32 [ 0, %.lr.ph ], [ %134, %133 ]
   %85 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 8, ptr noundef %4, ptr noundef %5) #15
   %.not166 = icmp eq i32 %85, 0
   br i1 %.not166, label %.loopexit, label %86
@@ -3375,7 +3375,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %91 = load i32, ptr %7, align 4
   %92 = add i32 %91, -8
   store i32 %92, ptr %7, align 4
-  %93 = add i32 %.0136177, 8
+  %93 = add i32 %.0136178, 8
   %94 = load i8, ptr %11, align 1
   %95 = zext i8 %94 to i64
   %96 = shl nuw i64 %95, 56
@@ -3406,11 +3406,11 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %121 = or disjoint i64 %120, %111
   %122 = or i64 %121, %116
   %123 = or i64 %122, %114
-  %124 = icmp slt i32 %.0135178, 16
+  %124 = icmp slt i32 %.0138177, 16
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %90
-  %126 = sext i32 %.0135178 to i64
+  %126 = sext i32 %.0138177 to i64
   %127 = getelementptr [16 x %struct.erf_ehdr], ptr %83, i64 0, i64 %126
   store i64 %123, ptr %127, align 8
   br label %128
@@ -3439,7 +3439,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %.3 = phi i64 [ %.0132179, %128 ], [ %.2134, %132 ]
   %.1131 = phi i8 [ %.0130180, %128 ], [ %spec.select170, %132 ]
   %.2 = phi i32 [ %.0129181, %128 ], [ %.1, %132 ]
-  %134 = add i32 %.0135178, 1
+  %134 = add i32 %.0138177, 1
   %.not153 = icmp sgt i8 %94, -1
   br i1 %.not153, label %._crit_edge, label %84, !llvm.loop !29
 
@@ -3483,7 +3483,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %erf_find_anchor_mapping.exit.thread.us.i
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %erf_find_anchor_mapping.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %.04261.us.i = phi i64 [ %.143.us.i, %erf_find_anchor_mapping.exit.thread.us.i ], [ %145, %.lr.ph.split.us.i ]
+  %.04361.us.i = phi i64 [ %.144.us.i, %erf_find_anchor_mapping.exit.thread.us.i ], [ %145, %.lr.ph.split.us.i ]
   %152 = getelementptr [16 x %struct.erf_ehdr], ptr %148, i64 0, i64 %indvars.iv82.i
   %153 = load i64, ptr %152, align 8
   %154 = lshr i64 %153, 56
@@ -3508,7 +3508,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
 
 164:                                              ; preds = %160
   %165 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #14
-  store i64 %.04261.us.i, ptr %165, align 8
+  store i64 %.04361.us.i, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 8
   store i64 %158, ptr %166, align 8
   call void @g_ptr_array_add(ptr noundef nonnull %8, ptr noundef nonnull %165) #15
@@ -3519,7 +3519,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   br label %erf_find_anchor_mapping.exit.thread.us.i
 
 erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %157, %167, %164, %160, %.lr.ph.split.us.split.i
-  %.143.us.i = phi i64 [ %.04261.us.i, %.lr.ph.split.us.split.i ], [ %.04261.us.i, %164 ], [ %.04261.us.i, %160 ], [ %168, %167 ], [ %.04261.us.i, %157 ]
+  %.144.us.i = phi i64 [ %.04361.us.i, %.lr.ph.split.us.split.i ], [ %.04361.us.i, %164 ], [ %.04361.us.i, %160 ], [ %168, %167 ], [ %.04361.us.i, %157 ]
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %169 = icmp slt i64 %153, 0
   %170 = icmp ult i64 %indvars.iv82.i, 15
@@ -3531,9 +3531,9 @@ erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %157, %167, %164, %1
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %193
   %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %193 ], [ 0, %.lr.ph.split.i ]
-  %.04063.us64.i = phi ptr [ %.2.us71.i, %193 ], [ null, %.lr.ph.split.i ]
-  %.04261.us66.i = phi i64 [ %.143.us70.i, %193 ], [ %145, %.lr.ph.split.i ]
-  %.04460.us67.i = phi i64 [ %.145.us69.i, %193 ], [ 0, %.lr.ph.split.i ]
+  %.04163.us64.i = phi ptr [ %.2.us71.i, %193 ], [ null, %.lr.ph.split.i ]
+  %.04361.us66.i = phi i64 [ %.144.us70.i, %193 ], [ %145, %.lr.ph.split.i ]
+  %.04560.us67.i = phi i64 [ %.146.us69.i, %193 ], [ 0, %.lr.ph.split.i ]
   %172 = getelementptr [16 x %struct.erf_ehdr], ptr %148, i64 0, i64 %indvars.iv79.i
   %173 = load i64, ptr %172, align 8
   %174 = lshr i64 %173, 56
@@ -3552,7 +3552,7 @@ erf_find_anchor_mapping.exit.thread.us.i:         ; preds = %157, %167, %164, %1
 erf_find_anchor_mapping.exit.us.i:                ; preds = %177
   %179 = and i64 %173, 281474976710655
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  store i64 %.04261.us66.i, ptr %10, align 8
+  store i64 %.04361.us66.i, ptr %10, align 8
   store i64 %179, ptr %149, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   %180 = load ptr, ptr %151, align 8
@@ -3564,7 +3564,7 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
 182:                                              ; preds = %erf_find_anchor_mapping.exit.us.i
   %183 = getelementptr inbounds i8, ptr %181, i64 16
   %184 = load i64, ptr %183, align 8
-  %185 = icmp ugt i64 %184, %.04460.us67.i
+  %185 = icmp ugt i64 %184, %.04560.us67.i
   br i1 %185, label %186, label %193
 
 186:                                              ; preds = %182
@@ -3576,7 +3576,7 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
 189:                                              ; preds = %186
   %190 = load i8, ptr %188, align 1
   %.not56.us.i = icmp eq i8 %190, 0
-  %spec.select.us.i = select i1 %.not56.us.i, ptr %.04063.us64.i, ptr %188
+  %spec.select.us.i = select i1 %.not56.us.i, ptr %.04163.us64.i, ptr %188
   br label %193
 
 191:                                              ; preds = %.lr.ph.split.split.us.i
@@ -3584,9 +3584,9 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
   br label %193
 
 193:                                              ; preds = %191, %189, %186, %182, %erf_find_anchor_mapping.exit.us.i, %177, %.lr.ph.split.split.us.i
-  %.145.us69.i = phi i64 [ %.04460.us67.i, %.lr.ph.split.split.us.i ], [ %.04460.us67.i, %182 ], [ %.04460.us67.i, %erf_find_anchor_mapping.exit.us.i ], [ %.04460.us67.i, %191 ], [ %184, %189 ], [ %184, %186 ], [ %.04460.us67.i, %177 ]
-  %.143.us70.i = phi i64 [ %.04261.us66.i, %.lr.ph.split.split.us.i ], [ %.04261.us66.i, %182 ], [ %.04261.us66.i, %erf_find_anchor_mapping.exit.us.i ], [ %192, %191 ], [ %.04261.us66.i, %189 ], [ %.04261.us66.i, %186 ], [ %.04261.us66.i, %177 ]
-  %.2.us71.i = phi ptr [ %.04063.us64.i, %.lr.ph.split.split.us.i ], [ %.04063.us64.i, %182 ], [ %.04063.us64.i, %erf_find_anchor_mapping.exit.us.i ], [ %.04063.us64.i, %191 ], [ %spec.select.us.i, %189 ], [ %.04063.us64.i, %186 ], [ %.04063.us64.i, %177 ]
+  %.146.us69.i = phi i64 [ %.04560.us67.i, %.lr.ph.split.split.us.i ], [ %.04560.us67.i, %182 ], [ %.04560.us67.i, %erf_find_anchor_mapping.exit.us.i ], [ %.04560.us67.i, %191 ], [ %184, %189 ], [ %184, %186 ], [ %.04560.us67.i, %177 ]
+  %.144.us70.i = phi i64 [ %.04361.us66.i, %.lr.ph.split.split.us.i ], [ %.04361.us66.i, %182 ], [ %.04361.us66.i, %erf_find_anchor_mapping.exit.us.i ], [ %192, %191 ], [ %.04361.us66.i, %189 ], [ %.04361.us66.i, %186 ], [ %.04361.us66.i, %177 ]
+  %.2.us71.i = phi ptr [ %.04163.us64.i, %.lr.ph.split.split.us.i ], [ %.04163.us64.i, %182 ], [ %.04163.us64.i, %erf_find_anchor_mapping.exit.us.i ], [ %.04163.us64.i, %191 ], [ %spec.select.us.i, %189 ], [ %.04163.us64.i, %186 ], [ %.04163.us64.i, %177 ]
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %194 = icmp slt i64 %173, 0
   %195 = icmp ult i64 %indvars.iv79.i, 15
@@ -3595,9 +3595,9 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %225
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %225 ], [ 0, %.lr.ph.split.i ]
-  %.04063.i = phi ptr [ %.2.i, %225 ], [ null, %.lr.ph.split.i ]
-  %.04261.i = phi i64 [ %.143.i, %225 ], [ %145, %.lr.ph.split.i ]
-  %.04460.i = phi i64 [ %.145.i, %225 ], [ 0, %.lr.ph.split.i ]
+  %.04163.i = phi ptr [ %.2.i, %225 ], [ null, %.lr.ph.split.i ]
+  %.04361.i = phi i64 [ %.144.i, %225 ], [ %145, %.lr.ph.split.i ]
+  %.04560.i = phi i64 [ %.146.i, %225 ], [ 0, %.lr.ph.split.i ]
   %197 = getelementptr [16 x %struct.erf_ehdr], ptr %148, i64 0, i64 %indvars.iv.i
   %198 = load i64, ptr %197, align 8
   %199 = lshr i64 %198, 56
@@ -3620,7 +3620,7 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %177
 
 erf_find_anchor_mapping.exit.i:                   ; preds = %204
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  store i64 %.04261.i, ptr %10, align 8
+  store i64 %.04361.i, ptr %10, align 8
   store i64 %205, ptr %149, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   %207 = load ptr, ptr %151, align 8
@@ -3632,7 +3632,7 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %204
 209:                                              ; preds = %erf_find_anchor_mapping.exit.i
   %210 = getelementptr inbounds i8, ptr %208, i64 16
   %211 = load i64, ptr %210, align 8
-  %212 = icmp ugt i64 %211, %.04460.i
+  %212 = icmp ugt i64 %211, %.04560.i
   br i1 %212, label %213, label %225
 
 213:                                              ; preds = %209
@@ -3644,7 +3644,7 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %204
 216:                                              ; preds = %213
   %217 = load i8, ptr %215, align 1
   %.not56.i = icmp eq i8 %217, 0
-  %spec.select.i = select i1 %.not56.i, ptr %.04063.i, ptr %215
+  %spec.select.i = select i1 %.not56.i, ptr %.04163.i, ptr %215
   br label %225
 
 218:                                              ; preds = %204
@@ -3655,16 +3655,16 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %204
 
 222:                                              ; preds = %218
   %223 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #14
-  store i64 %.04261.i, ptr %223, align 8
+  store i64 %.04361.i, ptr %223, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 8
   store i64 %205, ptr %224, align 8
   call void @g_ptr_array_add(ptr noundef nonnull %8, ptr noundef nonnull %223) #15
   br label %225
 
 225:                                              ; preds = %222, %218, %216, %213, %209, %erf_find_anchor_mapping.exit.i, %202, %.lr.ph.split.split.i
-  %.145.i = phi i64 [ %.04460.i, %.lr.ph.split.split.i ], [ %.04460.i, %222 ], [ %.04460.i, %218 ], [ %.04460.i, %209 ], [ %.04460.i, %erf_find_anchor_mapping.exit.i ], [ %.04460.i, %202 ], [ %211, %216 ], [ %211, %213 ]
-  %.143.i = phi i64 [ %.04261.i, %.lr.ph.split.split.i ], [ %.04261.i, %222 ], [ %.04261.i, %218 ], [ %.04261.i, %209 ], [ %.04261.i, %erf_find_anchor_mapping.exit.i ], [ %203, %202 ], [ %.04261.i, %216 ], [ %.04261.i, %213 ]
-  %.2.i = phi ptr [ %.04063.i, %.lr.ph.split.split.i ], [ %.04063.i, %222 ], [ %.04063.i, %218 ], [ %.04063.i, %209 ], [ %.04063.i, %erf_find_anchor_mapping.exit.i ], [ %.04063.i, %202 ], [ %spec.select.i, %216 ], [ %.04063.i, %213 ]
+  %.146.i = phi i64 [ %.04560.i, %.lr.ph.split.split.i ], [ %.04560.i, %222 ], [ %.04560.i, %218 ], [ %.04560.i, %209 ], [ %.04560.i, %erf_find_anchor_mapping.exit.i ], [ %.04560.i, %202 ], [ %211, %216 ], [ %211, %213 ]
+  %.144.i = phi i64 [ %.04361.i, %.lr.ph.split.split.i ], [ %.04361.i, %222 ], [ %.04361.i, %218 ], [ %.04361.i, %209 ], [ %.04361.i, %erf_find_anchor_mapping.exit.i ], [ %203, %202 ], [ %.04361.i, %216 ], [ %.04361.i, %213 ]
+  %.2.i = phi ptr [ %.04163.i, %.lr.ph.split.split.i ], [ %.04163.i, %222 ], [ %.04163.i, %218 ], [ %.04163.i, %209 ], [ %.04163.i, %erf_find_anchor_mapping.exit.i ], [ %.04163.i, %202 ], [ %spec.select.i, %216 ], [ %.04163.i, %213 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %226 = icmp slt i64 %198, 0
   %227 = icmp ult i64 %indvars.iv.i, 15
@@ -3672,14 +3672,14 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %204
   br i1 %228, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %225, %193
-  %.040.lcssa.i = phi ptr [ %.2.us71.i, %193 ], [ %.2.i, %225 ]
-  %.not.i = icmp eq ptr %.040.lcssa.i, null
+  %.041.lcssa.i = phi ptr [ %.2.us71.i, %193 ], [ %.2.i, %225 ]
+  %.not.i = icmp eq ptr %.041.lcssa.i, null
   br i1 %.not.i, label %erf_update_anchors_from_header.exit, label %229
 
 229:                                              ; preds = %._crit_edge.i
   %230 = load ptr, ptr %42, align 8
-  %231 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040.lcssa.i) #16
-  %232 = call i32 @wtap_block_add_string_option(ptr noundef %230, i32 noundef 1, ptr noundef nonnull %.040.lcssa.i, i64 noundef %231) #15
+  %231 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.041.lcssa.i) #16
+  %232 = call i32 @wtap_block_add_string_option(ptr noundef %230, i32 noundef 1, ptr noundef nonnull %.041.lcssa.i, i64 noundef %231) #15
   br label %erf_update_anchors_from_header.exit
 
 erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_mapping.exit.thread.us.i, %.lr.ph.split.us.i, %144, %._crit_edge.i, %229
@@ -4153,7 +4153,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %83
 
 83:                                               ; preds = %48, %77, %79, %69, %73
-  %.0149 = phi i32 [ 0, %48 ], [ 0, %77 ], [ 1, %79 ], [ 1, %73 ], [ 0, %69 ]
+  %.0151 = phi i32 [ 0, %48 ], [ 0, %77 ], [ 1, %79 ], [ 1, %73 ], [ 0, %69 ]
   %.0148 = phi i32 [ %36, %48 ], [ %36, %77 ], [ %81, %79 ], [ %75, %73 ], [ %70, %69 ]
   %.0147 = phi i32 [ %38, %48 ], [ %38, %77 ], [ %82, %79 ], [ %76, %73 ], [ %38, %69 ]
   %84 = or i8 %59, -128
@@ -4178,7 +4178,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %97
 
 97:                                               ; preds = %93, %90
-  %.0151 = phi i32 [ %91, %90 ], [ 0, %93 ]
+  %.0153 = phi i32 [ %91, %90 ], [ 0, %93 ]
   %.1 = phi i32 [ %92, %90 ], [ %96, %93 ]
   %98 = icmp ugt i32 %.1, 65535
   %99 = icmp ugt i32 %.0147, 65535
@@ -4247,10 +4247,10 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %134
 
 134:                                              ; preds = %106, %127, %122, %101
-  %.0153 = phi ptr [ %8, %101 ], [ %8, %127 ], [ %11, %122 ], [ %11, %106 ]
+  %.1154 = phi i32 [ %.0153, %101 ], [ 0, %127 ], [ 0, %122 ], [ 0, %106 ]
   %.1152 = phi i32 [ %.0151, %101 ], [ 0, %127 ], [ 0, %122 ], [ 0, %106 ]
-  %.1150 = phi i32 [ %.0149, %101 ], [ 0, %127 ], [ 0, %122 ], [ 0, %106 ]
-  %135 = getelementptr inbounds i8, ptr %.0153, i64 8
+  %.0149 = phi ptr [ %8, %101 ], [ %8, %127 ], [ %11, %122 ], [ %11, %106 ]
+  %135 = getelementptr inbounds i8, ptr %.0149, i64 8
   %136 = load i8, ptr %135, align 8
   %137 = and i8 %136, 127
   %138 = getelementptr inbounds i8, ptr %13, i64 80
@@ -4263,7 +4263,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br i1 %.not75.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %140
-  %141 = getelementptr inbounds i8, ptr %.0153, i64 16
+  %141 = getelementptr inbounds i8, ptr %.0149, i64 16
   %142 = getelementptr inbounds i8, ptr %13, i64 8
   %143 = getelementptr inbounds i8, ptr %139, i64 8
   %144 = icmp ne i8 %137, 27
@@ -4272,8 +4272,8 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
 
 146:                                              ; preds = %.thread.i, %.lr.ph.i
   %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i188, %.thread.i ]
-  %.073.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.thread.i ]
-  %.04372.i = phi i8 [ 0, %.lr.ph.i ], [ %.144.i, %.thread.i ]
+  %.04373.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.thread.i ]
+  %.04472.i = phi i8 [ 0, %.lr.ph.i ], [ %.145.i, %.thread.i ]
   %147 = getelementptr [16 x %struct.erf_ehdr], ptr %141, i64 0, i64 %indvars.iv.i187
   %148 = load i64, ptr %147, align 8
   %149 = lshr i64 %148, 56
@@ -4341,7 +4341,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
 
 .loopexit.i:                                      ; preds = %168, %._crit_edge.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %177 = icmp ne i32 %.073.i, 0
+  %177 = icmp ne i32 %.04373.i, 0
   %or.cond8.not70.i = or i1 %144, %177
   %.not51.i = icmp eq i64 %158, 0
   %or.cond52.i = or i1 %or.cond8.not70.i, %.not51.i
@@ -4357,7 +4357,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %.thread.i
 
 182:                                              ; preds = %146
-  %183 = icmp eq i8 %.04372.i, 0
+  %183 = icmp eq i8 %.04472.i, 0
   br i1 %183, label %184, label %.thread.i
 
 184:                                              ; preds = %182
@@ -4366,8 +4366,8 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br label %.thread.i
 
 .thread.i:                                        ; preds = %184, %182, %181, %178, %.loopexit.i, %152, %146
-  %.144.i = phi i8 [ %.04372.i, %146 ], [ %186, %184 ], [ %.04372.i, %182 ], [ %155, %181 ], [ %155, %178 ], [ %155, %.loopexit.i ], [ %155, %152 ]
-  %.1.i = phi i32 [ %.073.i, %146 ], [ %.073.i, %184 ], [ %.073.i, %182 ], [ 1, %181 ], [ 1, %178 ], [ 1, %.loopexit.i ], [ 1, %152 ]
+  %.145.i = phi i8 [ %.04472.i, %146 ], [ %186, %184 ], [ %.04472.i, %182 ], [ %155, %181 ], [ %155, %178 ], [ %155, %.loopexit.i ], [ %155, %152 ]
+  %.1.i = phi i32 [ %.04373.i, %146 ], [ %.04373.i, %184 ], [ %.04373.i, %182 ], [ 1, %181 ], [ 1, %178 ], [ 1, %.loopexit.i ], [ 1, %152 ]
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
   %187 = icmp slt i64 %148, 0
   %188 = icmp ult i64 %indvars.iv.i187, 15
@@ -4379,7 +4379,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   br i1 %190, label %._crit_edge.thread.i, label %erf_update_host_id_ext_hdrs_list.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %140
-  %.043.lcssa78.i = phi i8 [ %.144.i, %._crit_edge.i ], [ 0, %140 ]
+  %.044.lcssa78.i = phi i8 [ %.145.i, %._crit_edge.i ], [ 0, %140 ]
   %191 = getelementptr inbounds i8, ptr %13, i64 16
   %192 = load i64, ptr %191, align 8
   %193 = icmp eq i64 %192, -1
@@ -4387,13 +4387,13 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %194 = getelementptr inbounds i8, ptr %13, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = icmp ne i64 %spec.select.i, %195
-  %197 = icmp ne i8 %.043.lcssa78.i, 0
+  %197 = icmp ne i8 %.044.lcssa78.i, 0
   %or.cond5.i = select i1 %196, i1 true, i1 %197
   br i1 %or.cond5.i, label %198, label %erf_update_host_id_ext_hdrs_list.exit
 
 198:                                              ; preds = %._crit_edge.thread.i
   %199 = and i64 %spec.select.i, 281474976710655
-  %200 = zext i8 %.043.lcssa78.i to i64
+  %200 = zext i8 %.044.lcssa78.i to i64
   %201 = shl nuw nsw i64 %200, 48
   %202 = or disjoint i64 %199, %201
   %203 = or disjoint i64 %202, 1224979098644774912
@@ -4449,15 +4449,15 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %134, %._crit_edge.i
   br i1 %220, label %221, label %285
 
 221:                                              ; preds = %erf_update_host_id_ext_hdrs_list.exit
-  %222 = getelementptr i8, ptr %.0153, i64 14
-  %.0153.val = load i16, ptr %222, align 2
+  %222 = getelementptr i8, ptr %.0149, i64 14
+  %.0149.val = load i16, ptr %222, align 2
   %223 = icmp eq ptr %2, null
-  %224 = icmp ult i16 %.0153.val, 4
+  %224 = icmp ult i16 %.0149.val, 4
   %or.cond3.i35.i = or i1 %223, %224
   br i1 %or.cond3.i35.i, label %erf_dump_priv_compare_capture_comment.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %221
-  %225 = zext i16 %.0153.val to i32
+  %225 = zext i16 %.0149.val to i32
   br label %.lr.ph.i189
 
 .lr.ph.i189:                                      ; preds = %259, %.lr.ph.preheader.i
@@ -4719,7 +4719,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %221, %265, %.thread
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %342
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %.0153, i64 152, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %.0149, i64 152, i1 false)
   %346 = call fastcc i32 @erf_write_anchor_meta_update_phdr(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef %3)
   %.not180 = icmp eq i32 %346, 0
   br i1 %.not180, label %.loopexit, label %349
@@ -4730,27 +4730,27 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %221, %265, %.thread
   br i1 %.not179, label %.loopexit, label %349
 
 349:                                              ; preds = %345, %347, %339
-  %.1154 = phi ptr [ %.0153, %347 ], [ %.0153, %339 ], [ %8, %345 ]
+  %.1150 = phi ptr [ %.0149, %347 ], [ %.0149, %339 ], [ %8, %345 ]
   %350 = getelementptr inbounds i8, ptr %0, i64 32
   %351 = load i64, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %.1154, i64 10
+  %352 = getelementptr inbounds i8, ptr %.1150, i64 10
   %353 = load i16, ptr %352, align 2
   %354 = zext i16 %353 to i64
   %355 = add i64 %351, %354
-  %356 = call fastcc i32 @erf_write_phdr(ptr noundef %0, ptr noundef %.1154, ptr noundef %3)
+  %356 = call fastcc i32 @erf_write_phdr(ptr noundef %0, ptr noundef %.1150, ptr noundef %3)
   %.not181 = icmp eq i32 %356, 0
   br i1 %.not181, label %.loopexit, label %357
 
 357:                                              ; preds = %349
   %358 = load i32, ptr %10, align 8
-  %359 = sub i32 %358, %.1152
+  %359 = sub i32 %358, %.1154
   %360 = zext i32 %359 to i64
   %361 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %360, ptr noundef %3) #15
   %.not182 = icmp eq i32 %361, 0
   br i1 %.not182, label %.loopexit, label %362
 
 362:                                              ; preds = %357
-  %.not183 = icmp eq i32 %.1150, 0
+  %.not183 = icmp eq i32 %.1152, 0
   br i1 %.not183, label %.preheader224, label %363
 
 363:                                              ; preds = %362
@@ -4772,12 +4772,12 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %221, %265, %.thread
   br i1 %.not185, label %.loopexit, label %365, !llvm.loop !35
 
 370:                                              ; preds = %365
-  %371 = getelementptr inbounds i8, ptr %.1154, i64 8
+  %371 = getelementptr inbounds i8, ptr %.1150, i64 8
   %372 = load i8, ptr %371, align 8
   %373 = and i8 %372, 127
   %374 = getelementptr inbounds i8, ptr %13, i64 32
   store i8 %373, ptr %374, align 8
-  %375 = load i64, ptr %.1154, align 8
+  %375 = load i64, ptr %.1150, align 8
   %376 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %375, ptr %376, align 8
   br label %.loopexit
@@ -5422,13 +5422,13 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
 
 20:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.0143 = phi i8 [ 0, %.lr.ph ], [ %.2, %36 ]
-  %.087142 = phi i8 [ 0, %.lr.ph ], [ %.289.fr, %36 ]
-  %.090141 = phi i32 [ 0, %.lr.ph ], [ %.191, %36 ]
-  %.092140 = phi i32 [ 0, %.lr.ph ], [ %.294, %36 ]
-  %.096139 = phi i32 [ 0, %.lr.ph ], [ %.197, %36 ]
-  %.099138 = phi i64 [ 0, %.lr.ph ], [ %.2101, %36 ]
-  %.0102137 = phi i64 [ -1, %.lr.ph ], [ %.2104, %36 ]
+  %.088143 = phi i8 [ 0, %.lr.ph ], [ %.2, %36 ]
+  %.089142 = phi i8 [ 0, %.lr.ph ], [ %.291.fr, %36 ]
+  %.092141 = phi i32 [ 0, %.lr.ph ], [ %.193, %36 ]
+  %.094140 = phi i32 [ 0, %.lr.ph ], [ %.296, %36 ]
+  %.098139 = phi i32 [ 0, %.lr.ph ], [ %.199, %36 ]
+  %.0101138 = phi i64 [ 0, %.lr.ph ], [ %.2103, %36 ]
+  %.0105136 = phi i64 [ -1, %.lr.ph ], [ %.2107, %36 ]
   %21 = getelementptr [16 x %struct.erf_ehdr], ptr %19, i64 0, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 56
@@ -5440,36 +5440,36 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   ]
 
 26:                                               ; preds = %20
-  %27 = icmp eq i32 %.092140, 0
-  %28 = icmp ne i8 %.087142, 0
+  %27 = icmp eq i32 %.094140, 0
+  %28 = icmp ne i8 %.089142, 0
   %or.cond = or i1 %27, %28
   %29 = trunc nuw nsw i64 %indvars.iv to i8
-  %spec.select123 = select i1 %or.cond, i8 %.087142, i8 %29
+  %spec.select123 = select i1 %or.cond, i8 %.089142, i8 %29
   %30 = and i64 %22, 281474976710655
   %31 = icmp eq i64 %30, %11
-  %.193 = select i1 %31, i32 1, i32 %.092140
-  %.not122 = icmp eq i32 %.096139, 0
-  %.1103 = select i1 %.not122, i64 %22, i64 %.0102137
+  %.195 = select i1 %31, i32 1, i32 %.094140
+  %.not122 = icmp eq i32 %.098139, 0
+  %.1106 = select i1 %.not122, i64 %22, i64 %.0105136
   br label %36
 
 32:                                               ; preds = %20
-  %33 = icmp eq i8 %.0143, 0
+  %33 = icmp eq i8 %.088143, 0
   %34 = lshr i64 %22, 48
   %35 = trunc i64 %34 to i8
-  %.1 = select i1 %33, i8 %35, i8 %.0143
-  %.not121 = icmp eq i32 %.090141, 0
-  %.1100 = select i1 %.not121, i64 %22, i64 %.099138
+  %.1 = select i1 %33, i8 %35, i8 %.088143
+  %.not121 = icmp eq i32 %.092141, 0
+  %.1102 = select i1 %.not121, i64 %22, i64 %.0101138
   br label %36
 
 36:                                               ; preds = %32, %26, %20
-  %.2104 = phi i64 [ %.0102137, %20 ], [ %.0102137, %32 ], [ %.1103, %26 ]
-  %.2101 = phi i64 [ %.099138, %20 ], [ %.1100, %32 ], [ %.099138, %26 ]
-  %.197 = phi i32 [ %.096139, %20 ], [ %.096139, %32 ], [ 1, %26 ]
-  %.294 = phi i32 [ %.092140, %20 ], [ %.092140, %32 ], [ %.193, %26 ]
-  %.191 = phi i32 [ %.090141, %20 ], [ 1, %32 ], [ %.090141, %26 ]
-  %.289 = phi i8 [ %.087142, %20 ], [ %.087142, %32 ], [ %spec.select123, %26 ]
-  %.2 = phi i8 [ %.0143, %20 ], [ %.1, %32 ], [ %.0143, %26 ]
-  %.289.fr = freeze i8 %.289
+  %.2107 = phi i64 [ %.0105136, %20 ], [ %.0105136, %32 ], [ %.1106, %26 ]
+  %.2103 = phi i64 [ %.0101138, %20 ], [ %.1102, %32 ], [ %.0101138, %26 ]
+  %.199 = phi i32 [ %.098139, %20 ], [ %.098139, %32 ], [ 1, %26 ]
+  %.296 = phi i32 [ %.094140, %20 ], [ %.094140, %32 ], [ %.195, %26 ]
+  %.193 = phi i32 [ %.092141, %20 ], [ 1, %32 ], [ %.092141, %26 ]
+  %.291 = phi i8 [ %.089142, %20 ], [ %.089142, %32 ], [ %spec.select123, %26 ]
+  %.2 = phi i8 [ %.088143, %20 ], [ %.1, %32 ], [ %.088143, %26 ]
+  %.291.fr = freeze i8 %.291
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = icmp slt i64 %22, 0
   %38 = icmp ult i64 %indvars.iv, 15
@@ -5478,34 +5478,34 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
 
 ._crit_edge:                                      ; preds = %36
   %40 = trunc nuw nsw i64 %indvars.iv.next to i8
-  %41 = icmp eq i32 %.197, 0
-  %42 = icmp eq i32 %.294, 0
+  %41 = icmp eq i32 %.199, 0
+  %42 = icmp eq i32 %.296, 0
   %43 = zext i8 %.2 to i64
   %44 = shl nuw nsw i64 %43, 48
-  %45 = icmp eq i32 %.191, 0
-  %46 = and i64 %.2101, 9151594822576898047
+  %45 = icmp eq i32 %.193, 0
+  %46 = and i64 %.2103, 9151594822576898047
   %47 = trunc i64 %indvars.iv.next to i32
   %48 = and i32 %47, 255
-  %.not = icmp eq i8 %.289.fr, 0
-  %spec.select181 = select i1 %.not, i8 %40, i8 %.289.fr
+  %.not = icmp eq i8 %.291.fr, 0
+  %spec.select181 = select i1 %.not, i8 %40, i8 %.291.fr
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %5
   %49 = phi i32 [ 0, %5 ], [ %48, %._crit_edge ]
-  %.0.lcssa179 = phi i64 [ 0, %5 ], [ %44, %._crit_edge ]
-  %.090.lcssa177 = phi i1 [ true, %5 ], [ %45, %._crit_edge ]
-  %.092.lcssa175 = phi i1 [ true, %5 ], [ %42, %._crit_edge ]
-  %.096.lcssa173 = phi i1 [ true, %5 ], [ %41, %._crit_edge ]
-  %.099.lcssa171 = phi i64 [ 0, %5 ], [ %46, %._crit_edge ]
-  %.0102.lcssa169 = phi i64 [ -1, %5 ], [ %.2104, %._crit_edge ]
-  %.0107.lcssa167 = phi i8 [ 0, %5 ], [ %40, %._crit_edge ]
+  %.088.lcssa179 = phi i64 [ 0, %5 ], [ %44, %._crit_edge ]
+  %.092.lcssa177 = phi i1 [ true, %5 ], [ %45, %._crit_edge ]
+  %.094.lcssa175 = phi i1 [ true, %5 ], [ %42, %._crit_edge ]
+  %.098.lcssa173 = phi i1 [ true, %5 ], [ %41, %._crit_edge ]
+  %.0101.lcssa171 = phi i64 [ 0, %5 ], [ %46, %._crit_edge ]
+  %.0104.lcssa169 = phi i8 [ 0, %5 ], [ %40, %._crit_edge ]
+  %.0105.lcssa167 = phi i64 [ -1, %5 ], [ %.2107, %._crit_edge ]
   %50 = phi i8 [ 0, %5 ], [ %spec.select181, %._crit_edge ]
   %51 = icmp ne i64 %spec.select, %11
-  %not..not116 = xor i1 %.096.lcssa173, true
+  %not..not116 = xor i1 %.098.lcssa173, true
   %52 = select i1 %not..not116, i1 true, i1 %51
-  %.not117 = select i1 %52, i1 %.092.lcssa175, i1 false
+  %.not117 = select i1 %52, i1 %.094.lcssa175, i1 false
   %53 = select i1 %.not117, i32 2, i32 1
-  %54 = zext i1 %.096.lcssa173 to i32
+  %54 = zext i1 %.098.lcssa173 to i32
   %55 = add nuw nsw i32 %53, %54
   %56 = add nuw nsw i32 %55, %49
   %57 = icmp ugt i32 %56, 16
@@ -5555,12 +5555,12 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %86 = or disjoint i64 %82, %85
   %87 = lshr i64 %86, 16
   %88 = or disjoint i64 %87, 1297036692682702848
-  %89 = icmp ult i8 %50, %.0107.lcssa167
+  %89 = icmp ult i8 %50, %.0104.lcssa169
   br i1 %89, label %.preheader, label %101
 
 .preheader:                                       ; preds = %77
   %90 = getelementptr inbounds i8, ptr %3, i64 16
-  %91 = zext nneg i8 %.0107.lcssa167 to i64
+  %91 = zext nneg i8 %.0104.lcssa169 to i64
   br label %92
 
 92:                                               ; preds = %.preheader, %92
@@ -5581,12 +5581,12 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   br label %101
 
 101:                                              ; preds = %99, %77
-  %.098 = phi i64 [ %100, %99 ], [ %88, %77 ]
-  br i1 %.096.lcssa173, label %102, label %111
+  %.0100 = phi i64 [ %100, %99 ], [ %88, %77 ]
+  br i1 %.098.lcssa173, label %102, label %111
 
 102:                                              ; preds = %101
   %103 = and i64 %spec.select, 281474976710655
-  %104 = or disjoint i64 %.0.lcssa179, %103
+  %104 = or disjoint i64 %.088.lcssa179, %103
   %105 = or disjoint i64 %104, 1224979098644774912
   %106 = or disjoint i64 %104, -7998392938210000896
   %107 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5597,7 +5597,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   br label %111
 
 111:                                              ; preds = %102, %101
-  %.3105 = phi i64 [ %.0102.lcssa169, %101 ], [ %105, %102 ]
+  %.3108 = phi i64 [ %.0105.lcssa167, %101 ], [ %105, %102 ]
   %.4 = phi i8 [ %50, %101 ], [ %108, %102 ]
   br i1 %.not117, label %112, label %118
 
@@ -5615,14 +5615,14 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %119 = getelementptr inbounds i8, ptr %3, i64 16
   %120 = zext i8 %.5 to i64
   %121 = getelementptr [16 x %struct.erf_ehdr], ptr %119, i64 0, i64 %120
-  store i64 %.098, ptr %121, align 8
+  store i64 %.0100, ptr %121, align 8
   %122 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %.not.i = icmp eq ptr %122, null
   br i1 %.not.i, label %erf_append_ext_hdr_to_list.exit129, label %123
 
 123:                                              ; preds = %118
-  %124 = and i64 %.098, 9187343239835811839
+  %124 = and i64 %.0100, 9187343239835811839
   %125 = or disjoint i64 %124, 36028797018963968
   store i64 %125, ptr %8, align 8
   %126 = getelementptr inbounds i8, ptr %122, i64 8
@@ -5644,7 +5644,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
   %136 = call ptr @g_array_append_vals(ptr noundef nonnull %122, ptr noundef nonnull %8, i32 noundef 1) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %137 = and i64 %.3105, 9223372036854775807
+  %137 = and i64 %.3108, 9223372036854775807
   store i64 %137, ptr %7, align 8
   %138 = load i32, ptr %126, align 8
   %.not8.i127 = icmp eq i32 %138, 0
@@ -5662,12 +5662,12 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_anchor_meta_update_phdr(pt
 
 erf_append_ext_hdr_to_list.exit129:               ; preds = %118
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br i1 %.090.lcssa177, label %159, label %147
+  br i1 %.092.lcssa177, label %159, label %147
 
 erf_append_ext_hdr_to_list.exit129.thread:        ; preds = %135, %139
   %146 = call ptr @g_array_append_vals(ptr noundef nonnull %122, ptr noundef nonnull %7, i32 noundef 1) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %.090.lcssa177, label %159, label %148
+  br i1 %.092.lcssa177, label %159, label %148
 
 147:                                              ; preds = %erf_append_ext_hdr_to_list.exit129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5675,7 +5675,7 @@ erf_append_ext_hdr_to_list.exit129.thread:        ; preds = %135, %139
 
 148:                                              ; preds = %erf_append_ext_hdr_to_list.exit129.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store i64 %.099.lcssa171, ptr %6, align 8
+  store i64 %.0101.lcssa171, ptr %6, align 8
   %149 = load i32, ptr %126, align 8
   %.not8.i131 = icmp eq i32 %149, 0
   br i1 %.not8.i131, label %157, label %150
@@ -5724,8 +5724,8 @@ erf_append_ext_hdr_to_list.exit133:               ; preds = %147, %157
   br label %171
 
 171:                                              ; preds = %165, %65
-  %.0109 = phi i32 [ 0, %65 ], [ %168, %165 ]
-  ret i32 %.0109
+  %.0 = phi i32 [ 0, %65 ], [ %168, %165 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -403,29 +403,29 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
   br label %182
 
 .sink.split:                                      ; preds = %68, %63
-  %.0.ph.in = phi ptr [ %67, %63 ], [ %70, %68 ]
-  %.0.ph = load ptr, ptr %.0.ph.in, align 8, !nonnull !4, !noundef !4
+  %.0161.ph.in = phi ptr [ %67, %63 ], [ %70, %68 ]
+  %.0161.ph = load ptr, ptr %.0161.ph.in, align 8, !nonnull !4, !noundef !4
   %.sink = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %.sink) #10
   br label %130
 
 130:                                              ; preds = %.sink.split, %98
-  %.0 = phi ptr [ %99, %98 ], [ %.0.ph, %.sink.split ]
+  %.0161 = phi ptr [ %99, %98 ], [ %.0161.ph, %.sink.split ]
   %131 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %131) #10
-  %132 = getelementptr inbounds i8, ptr %.0, i64 154
+  %132 = getelementptr inbounds i8, ptr %.0161, i64 154
   %133 = load i16, ptr %132, align 2
   %134 = and i16 %133, 8
   %.not186 = icmp eq i16 %134, 0
-  %135 = getelementptr inbounds i8, ptr %.0, i64 136
+  %135 = getelementptr inbounds i8, ptr %.0161, i64 136
   br i1 %.not186, label %136, label %146
 
 136:                                              ; preds = %130
-  %137 = load i32, ptr %.0, align 8
+  %137 = load i32, ptr %.0161, align 8
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.0, i64 16
+  %140 = getelementptr inbounds i8, ptr %.0161, i64 16
   %141 = load i32, ptr %140, align 8
   %142 = and i32 %141, 511
   %143 = getelementptr inbounds i8, ptr %11, i64 24
@@ -434,13 +434,13 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
   %storemerge.v = select i1 %.not187, i32 32768, i32 40960
   %storemerge = or disjoint i32 %storemerge.v, %142
   store i32 %storemerge, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.0, i64 4
+  %145 = getelementptr inbounds i8, ptr %.0161, i64 4
   br label %159
 
 146:                                              ; preds = %130
   %147 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 0, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %.0, i64 16
+  %148 = getelementptr inbounds i8, ptr %.0161, i64 16
   %149 = load i32, ptr %148, align 8
   %150 = and i32 %149, 511
   %151 = getelementptr inbounds i8, ptr %11, i64 24
@@ -457,13 +457,13 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 
 156:                                              ; preds = %154, %146
   %157 = phi i32 [ %155, %154 ], [ %152, %146 ]
-  %158 = getelementptr inbounds i8, ptr %.0, i64 4
+  %158 = getelementptr inbounds i8, ptr %.0161, i64 4
   br label %159
 
 159:                                              ; preds = %136, %156, %117, %82
   %.sink209.in = phi ptr [ %145, %136 ], [ %158, %156 ], [ %121, %117 ], [ %86, %82 ]
   %160 = phi i32 [ %storemerge, %136 ], [ %157, %156 ], [ 16895, %117 ], [ 16895, %82 ]
-  %.1 = phi ptr [ %.0, %136 ], [ %.0, %156 ], [ null, %117 ], [ null, %82 ]
+  %.1 = phi ptr [ %.0161, %136 ], [ %.0161, %156 ], [ null, %117 ], [ null, %82 ]
   %.sink209 = load i32, ptr %.sink209.in, align 4
   %161 = zext i32 %.sink209 to i64
   %162 = getelementptr inbounds i8, ptr %11, i64 88

@@ -1069,26 +1069,26 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   br label %.thread76
 
 .thread76:                                        ; preds = %72, %80, %76
-  %.062.in78 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
-  %.061 = phi ptr [ %83, %80 ], [ %60, %76 ], [ %60, %72 ]
+  %.061.in78 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
+  %.062 = phi ptr [ %83, %80 ], [ %60, %76 ], [ %60, %72 ]
   br i1 %1, label %84, label %create_physical_replication_slot.exit
 
 84:                                               ; preds = %.thread76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %85 = select i1 %.062.in78, i32 2, i32 1
+  %85 = select i1 %.061.in78, i32 2, i32 1
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   store ptr @read_local_xlog_page, ptr %3, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @wal_segment_open, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr @wal_segment_close, ptr %87, align 8
-  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.061, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.062, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #11
   call void @FreeDecodingContext(ptr noundef %88) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %92
 
 create_physical_replication_slot.exit:            ; preds = %.thread76
-  %89 = select i1 %.062.in78, i32 2, i32 0
+  %89 = select i1 %.061.in78, i32 2, i32 0
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %90 = load ptr, ptr @MyReplicationSlot, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 104
@@ -1185,7 +1185,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   call void @ReplicationSlotsComputeRequiredLSN() #11
   call void @ReplicationSlotSave() #11
   %.not74 = xor i1 %1, true
-  %brmerge = select i1 %.not74, i1 true, i1 %.062.in78
+  %brmerge = select i1 %.not74, i1 true, i1 %.061.in78
   br i1 %brmerge, label %138, label %137
 
 137:                                              ; preds = %130

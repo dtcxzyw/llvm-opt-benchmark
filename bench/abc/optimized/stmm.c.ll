@@ -534,7 +534,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
   br label %85
 
 85:                                               ; preds = %67, %82, %76, %.critedge71
-  %.062 = phi i32 [ %29, %.critedge71 ], [ %73, %67 ], [ %81, %76 ], [ %84, %82 ]
+  %.063 = phi i32 [ %29, %.critedge71 ], [ %73, %67 ], [ %81, %76 ], [ %84, %82 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %87) #13
@@ -546,7 +546,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
   %91 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %2, ptr %91, align 8
   %92 = load ptr, ptr %30, align 8
-  %93 = sext i32 %.062 to i64
+  %93 = sext i32 %.063 to i64
   %94 = getelementptr inbounds ptr, ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %88, i64 16
@@ -565,8 +565,8 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr nocapture noundef %0, ptr nound
   br label %103
 
 103:                                              ; preds = %85, %61, %101, %90
-  %.063 = phi i32 [ 0, %90 ], [ 1, %101 ], [ -10000, %61 ], [ -10000, %85 ]
-  ret i32 %.063
+  %.062 = phi i32 [ 0, %90 ], [ 1, %101 ], [ -10000, %61 ], [ -10000, %85 ]
+  ret i32 %.062
 }
 
 ; Function Attrs: nounwind uwtable
@@ -629,15 +629,15 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   br i1 %.not5356, label %._crit_edge, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %26, %53
-  %.05057 = phi ptr [ %30, %53 ], [ %28, %26 ]
-  %29 = getelementptr inbounds i8, ptr %.05057, i64 16
+  %.04957 = phi ptr [ %30, %53 ], [ %28, %26 ]
+  %29 = getelementptr inbounds i8, ptr %.04957, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %20, align 8
   %32 = icmp eq ptr %31, @stmm_ptrhash
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %.lr.ph58
-  %34 = load ptr, ptr %.05057, align 8
+  %34 = load ptr, ptr %.04957, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = lshr i64 %35, 2
   %37 = load i32, ptr %4, align 8
@@ -648,7 +648,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
 
 41:                                               ; preds = %.lr.ph58
   %42 = icmp eq ptr %31, @stmm_numhash
-  %43 = load ptr, ptr %.05057, align 8
+  %43 = load ptr, ptr %.04957, align 8
   br i1 %42, label %44, label %50
 
 44:                                               ; preds = %41
@@ -673,7 +673,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   store ptr %58, ptr %29, align 8
   %59 = load ptr, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %56
-  store ptr %.05057, ptr %60, align 8
+  store ptr %.04957, ptr %60, align 8
   %61 = load i32, ptr %5, align 4
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %5, align 4
@@ -932,7 +932,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
   br label %85
 
 85:                                               ; preds = %67, %82, %76, %.critedge77
-  %.065 = phi i32 [ %29, %.critedge77 ], [ %73, %67 ], [ %81, %76 ], [ %84, %82 ]
+  %.066 = phi i32 [ %29, %.critedge77 ], [ %73, %67 ], [ %81, %76 ], [ %84, %82 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %87) #13
@@ -944,7 +944,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
   %91 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %30, align 8
-  %93 = sext i32 %.065 to i64
+  %93 = sext i32 %.066 to i64
   %94 = getelementptr inbounds ptr, ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %88, i64 16
@@ -968,13 +968,13 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr nocapture noundef %0, ptr 
 
 .sink.split:                                      ; preds = %90, %102
   %.sink = phi ptr [ %103, %102 ], [ %91, %90 ]
-  %.066.ph = phi i32 [ 1, %102 ], [ 0, %90 ]
+  %.065.ph = phi i32 [ 1, %102 ], [ 0, %90 ]
   store ptr %.sink, ptr %2, align 8
   br label %104
 
 104:                                              ; preds = %.sink.split, %101, %90, %85, %61
-  %.066 = phi i32 [ -10000, %61 ], [ -10000, %85 ], [ 0, %90 ], [ 1, %101 ], [ %.066.ph, %.sink.split ]
-  ret i32 %.066
+  %.065 = phi i32 [ -10000, %61 ], [ -10000, %85 ], [ 0, %90 ], [ 1, %101 ], [ %.065.ph, %.sink.split ]
+  ret i32 %.065
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1121,12 +1121,12 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
   store ptr null, ptr %19, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
-  %.03642 = load ptr, ptr %21, align 8
-  %.not43 = icmp eq ptr %.03642, null
+  %.03742 = load ptr, ptr %21, align 8
+  %.not43 = icmp eq ptr %.03742, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %25
-  %.03644 = phi ptr [ %.036, %25 ], [ %.03642, %18 ]
+  %.03744 = phi ptr [ %.037, %25 ], [ %.03742, %18 ]
   %22 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %14) #13
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -1138,14 +1138,14 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
   br label %.loopexit
 
 25:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.03644, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.03744, i64 24, i1 false)
   %26 = load ptr, ptr %19, align 8
   %27 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %26, ptr %27, align 8
   store ptr %22, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %.03644, i64 16
-  %.036 = load ptr, ptr %28, align 8
-  %.not = icmp eq ptr %.036, null
+  %28 = getelementptr inbounds i8, ptr %.03744, i64 16
+  %.037 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %25, %18
@@ -1154,8 +1154,8 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %13, %1, %24, %12
-  %.037 = phi ptr [ null, %12 ], [ null, %24 ], [ null, %1 ], [ %4, %13 ], [ %4, %._crit_edge ]
-  ret ptr %.037
+  %.0 = phi ptr [ null, %12 ], [ null, %24 ], [ null, %1 ], [ %4, %13 ], [ %4, %._crit_edge ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

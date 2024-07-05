@@ -577,7 +577,7 @@ for.body.lr.ph.i.i:                               ; preds = %do.end.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %len.077.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %len.2.i.i, %for.inc.i.i ]
+  %len.076.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %len.2.i.i, %for.inc.i.i ]
   %55 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx.i.i113 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv.i.i
   %56 = load ptr, ptr %arrayidx.i.i113, align 8
@@ -670,7 +670,7 @@ if.then11.i.i:                                    ; preds = %do.body8.i.i
   br label %for.inc.i.i
 
 if.end19.i.i:                                     ; preds = %verify_notes_filepair.exit.i.i
-  %call20.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.077.i.i, ptr noundef nonnull %obj.i.i, i32 noundef 1, ptr noundef nonnull %occupied.i.i)
+  %call20.i.i = call fastcc ptr @find_notes_merge_pair_pos(ptr noundef %call3.i.i, i32 noundef %len.076.i.i, ptr noundef nonnull %obj.i.i, i32 noundef 1, ptr noundef nonnull %occupied.i.i)
   %69 = load i32, ptr %occupied.i.i, align 4
   %tobool21.not.i.i = icmp eq i32 %69, 0
   br i1 %tobool21.not.i.i, label %if.else42.i.i, label %if.then22.i.i
@@ -800,11 +800,11 @@ if.else42.i.i:                                    ; preds = %if.end19.i.i
   %89 = load i32, ptr %algo.i61.i.i, align 4
   %algo3.i62.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 140
   store i32 %89, ptr %algo3.i62.i.i, align 4
-  %inc.i.i = add nsw i32 %len.077.i.i, 1
+  %inc.i.i = add nsw i32 %len.076.i.i, 1
   br label %do.body51.i.i
 
 do.body51.i.i:                                    ; preds = %if.else42.i.i, %if.then35.i.i, %is_null_oid.exit53.i.i, %if.then27.i.i
-  %len.1.i.i = phi i32 [ %len.077.i.i, %if.then27.i.i ], [ %len.077.i.i, %if.then35.i.i ], [ %len.077.i.i, %is_null_oid.exit53.i.i ], [ %inc.i.i, %if.else42.i.i ]
+  %len.1.i.i = phi i32 [ %len.076.i.i, %if.then27.i.i ], [ %len.076.i.i, %if.then35.i.i ], [ %len.076.i.i, %is_null_oid.exit53.i.i ], [ %inc.i.i, %if.else42.i.i ]
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i63.i.i = icmp eq i32 %90, 0
   %bf.load.i64.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
@@ -823,7 +823,7 @@ if.then54.i.i:                                    ; preds = %do.body51.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then54.i.i, %do.body51.i.i, %if.then11.i.i, %do.body8.i.i
-  %len.2.i.i = phi i32 [ %len.077.i.i, %if.then11.i.i ], [ %len.077.i.i, %do.body8.i.i ], [ %len.1.i.i, %if.then54.i.i ], [ %len.1.i.i, %do.body51.i.i ]
+  %len.2.i.i = phi i32 [ %len.076.i.i, %if.then11.i.i ], [ %len.076.i.i, %do.body8.i.i ], [ %len.1.i.i, %if.then54.i.i ], [ %len.1.i.i, %do.body51.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
   %92 = sext i32 %91 to i64
@@ -1142,7 +1142,7 @@ for.body.lr.ph.i96.i:                             ; preds = %do.end.i95.i
 
 for.body.i97.i:                                   ; preds = %for.inc.i114.i, %for.body.lr.ph.i96.i
   %indvars.iv.i98.i = phi i64 [ 0, %for.body.lr.ph.i96.i ], [ %indvars.iv.next.i115.i, %for.inc.i114.i ]
-  %conflicts.0125.i.i = phi i32 [ 0, %for.body.lr.ph.i96.i ], [ %conflicts.1.i.i, %for.inc.i114.i ]
+  %conflicts.0124.i.i = phi i32 [ 0, %for.body.lr.ph.i96.i ], [ %conflicts.1.i.i, %for.inc.i114.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.notes_merge_pair, ptr %call3.i.i, i64 %indvars.iv.i98.i
   %132 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i19.i.i = icmp eq i32 %132, 0
@@ -1780,11 +1780,11 @@ sw.epilog.i.i122.i:                               ; preds = %do.end60.i.i
 
 merge_one_change.exit.i.i:                        ; preds = %if.end37.i.i.i, %if.end23.i.i.i, %if.end11.i.i.i, %if.then.i98.i.i, %sw.bb1.i.i.i, %merge_one_change_manual.exit.i.i.i
   %retval.0.i.i.i109 = phi i32 [ 1, %merge_one_change_manual.exit.i.i.i ], [ 0, %if.then.i98.i.i ], [ 0, %sw.bb1.i.i.i ], [ 0, %if.end11.i.i.i ], [ 0, %if.end23.i.i.i ], [ 0, %if.end37.i.i.i ]
-  %add.i.i = add nsw i32 %retval.0.i.i.i109, %conflicts.0125.i.i
+  %add.i.i = add nsw i32 %retval.0.i.i.i109, %conflicts.0124.i.i
   br label %for.inc.i114.i
 
 for.inc.i114.i:                                   ; preds = %merge_one_change.exit.i.i, %do.end47.i.i, %if.then30.i.i, %do.body27.i.i, %if.then19.i.i, %do.body16.i.i
-  %conflicts.1.i.i = phi i32 [ %conflicts.0125.i.i, %if.then19.i.i ], [ %conflicts.0125.i.i, %do.body16.i.i ], [ %conflicts.0125.i.i, %if.then30.i.i ], [ %conflicts.0125.i.i, %do.body27.i.i ], [ %conflicts.0125.i.i, %do.end47.i.i ], [ %add.i.i, %merge_one_change.exit.i.i ]
+  %conflicts.1.i.i = phi i32 [ %conflicts.0124.i.i, %if.then19.i.i ], [ %conflicts.0124.i.i, %do.body16.i.i ], [ %conflicts.0124.i.i, %if.then30.i.i ], [ %conflicts.0124.i.i, %do.body27.i.i ], [ %conflicts.0124.i.i, %do.end47.i.i ], [ %add.i.i, %merge_one_change.exit.i.i ]
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i98.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i115.i, %131
   br i1 %exitcond.not.i, label %merge_changes.exit.i, label %for.body.i97.i, !llvm.loop !9
@@ -2461,9 +2461,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not10, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end11
-  %size.addr.012 = phi i64 [ %sub, %if.end11 ], [ %size, %if.end ]
-  %buf.addr.011 = phi ptr [ %add.ptr, %if.end11 ], [ %buf, %if.end ]
-  %call4 = tail call i64 @write_in_full(i32 noundef %call3, ptr noundef %buf.addr.011, i64 noundef %size.addr.012) #14
+  %buf.addr.012 = phi ptr [ %add.ptr, %if.end11 ], [ %buf, %if.end ]
+  %size.addr.011 = phi i64 [ %sub, %if.end11 ], [ %size, %if.end ]
+  %call4 = tail call i64 @write_in_full(i32 noundef %call3, ptr noundef %buf.addr.012, i64 noundef %size.addr.011) #14
   %cmp5 = icmp slt i64 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end11
 
@@ -2478,8 +2478,8 @@ if.end10:                                         ; preds = %if.then6
   unreachable
 
 if.end11:                                         ; preds = %while.body
-  %sub = sub i64 %size.addr.012, %call4
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.011, i64 %call4
+  %sub = sub i64 %size.addr.011, %call4
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.012, i64 %call4
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 

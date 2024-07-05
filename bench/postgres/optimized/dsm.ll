@@ -627,7 +627,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %55
-  %.066.lcssa = phi i64 [ 0, %55 ], [ %92, %._crit_edge.loopexit ]
+  %.067.lcssa = phi i64 [ 0, %55 ], [ %92, %._crit_edge.loopexit ]
   %93 = getelementptr inbounds i8, ptr %56, i64 8
   %94 = load i32, ptr %93, align 8
   %.not74 = icmp ult i32 %58, %94
@@ -703,9 +703,9 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   store i32 %132, ptr %133, align 8
   %134 = load i64, ptr %3, align 8
   %135 = getelementptr inbounds i8, ptr %125, i64 16
-  %136 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.066.lcssa, i32 2
+  %136 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.067.lcssa, i32 2
   store i64 %134, ptr %136, align 8
-  %137 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.066.lcssa, i32 3
+  %137 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.067.lcssa, i32 3
   store i64 %.180, ptr %137, align 8
   br label %138
 
@@ -737,8 +737,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   br label %153
 
 153:                                              ; preds = %.sink.split, %111
-  %.067 = phi ptr [ null, %111 ], [ %11, %.sink.split ]
-  ret ptr %.067
+  %.065 = phi ptr [ null, %111 ], [ %11, %.sink.split ]
+  ret ptr %.065
 }
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2

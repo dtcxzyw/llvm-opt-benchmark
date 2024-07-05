@@ -1470,8 +1470,8 @@ if.then33:                                        ; preds = %land.lhs.true28
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end24, %land.lhs.true28, %if.then33, %if.end8
-  %dict_str.1 = phi ptr [ %dict_str.0, %if.then33 ], [ %dict_str.0, %land.lhs.true28 ], [ %dict_str.0, %if.end24 ], [ null, %if.end8 ]
   %dict_mt.0 = phi i64 [ %and35, %if.then33 ], [ 0, %land.lhs.true28 ], [ 0, %if.end24 ], [ 0, %if.end8 ]
+  %dict_str.1 = phi ptr [ %dict_str.0, %if.then33 ], [ %dict_str.0, %land.lhs.true28 ], [ %dict_str.0, %if.end24 ], [ null, %if.end8 ]
   %9 = load ptr, ptr %base, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %9, i64 -16
   %10 = load i64, ptr %add.ptr39, align 8

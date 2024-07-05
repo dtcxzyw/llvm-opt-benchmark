@@ -248,12 +248,12 @@ _ZN7QStringD2Ev.exit54:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %84
 
 84:                                               ; preds = %.preheader, %_ZN7QStringD2Ev.exit68
-  %.0 = phi ptr [ %177, %_ZN7QStringD2Ev.exit68 ], [ %75, %.preheader ]
-  %.not31 = icmp eq ptr %.0, null
+  %.027 = phi ptr [ %177, %_ZN7QStringD2Ev.exit68 ], [ %75, %.preheader ]
+  %.not31 = icmp eq ptr %.027, null
   br i1 %.not31, label %208, label %85
 
 85:                                               ; preds = %84
-  %86 = invoke ptr @wmem_list_frame_data(ptr noundef nonnull %.0)
+  %86 = invoke ptr @wmem_list_frame_data(ptr noundef nonnull %.027)
           to label %87 unwind label %.loopexit
 
 87:                                               ; preds = %85
@@ -588,7 +588,7 @@ _ZN7QStringD2Ev.exit68.sink.split:                ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit68
 
 _ZN7QStringD2Ev.exit68:                           ; preds = %_ZN7QStringD2Ev.exit68.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i117, %174, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66, %_ZN7QStringD2Ev.exit64
-  %177 = invoke ptr @wmem_list_frame_next(ptr noundef nonnull %.0)
+  %177 = invoke ptr @wmem_list_frame_next(ptr noundef nonnull %.027)
           to label %84 unwind label %.loopexit, !llvm.loop !4
 
 178:                                              ; preds = %_ZN7QStringD2Ev.exit.i95

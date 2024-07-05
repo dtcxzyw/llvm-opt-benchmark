@@ -1101,7 +1101,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit176:       ; preds = %272, %269, %250, %2
 
 .lr.ph:                                           ; preds = %314, %570
   %indvars.iv = phi i64 [ %indvars.iv.next, %570 ], [ 0, %314 ]
-  %.095287 = phi float [ %.196, %570 ], [ 0.000000e+00, %314 ]
+  %.092287 = phi float [ %.193, %570 ], [ 0.000000e+00, %314 ]
   %.sroa.0239.0284 = phi float [ %572, %570 ], [ 0.000000e+00, %314 ]
   %.sroa.0230.0283 = phi float [ %574, %570 ], [ 0.000000e+00, %314 ]
   %317 = phi <2 x float> [ %578, %570 ], [ zeroinitializer, %314 ]
@@ -1254,7 +1254,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit176:       ; preds = %272, %269, %250, %2
 396:                                              ; preds = %393, %.noexc201
   %.0.i = phi float [ %395, %393 ], [ %sqrt.i.i, %.noexc201 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %397 = fadd float %.095287, %.0.i
+  %397 = fadd float %.092287, %.0.i
   br label %570
 
 398:                                              ; preds = %330
@@ -1559,7 +1559,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
   br label %570
 
 570:                                              ; preds = %_ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit, %396
-  %.196 = phi float [ %397, %396 ], [ %.095287, %_ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit ]
+  %.193 = phi float [ %397, %396 ], [ %.092287, %_ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit ]
   %571 = load float, ptr %12, align 8
   %572 = fadd float %.sroa.0239.0284, %571
   %573 = load float, ptr %15, align 8
@@ -1580,7 +1580,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
 
 583:                                              ; preds = %._crit_edge
   %584 = uitofp nneg i32 %579 to float
-  %585 = fdiv float %.196, %584
+  %585 = fdiv float %.193, %584
   %586 = uitofp nneg i32 %579 to double
   %587 = fdiv double 1.000000e+00, %586
   %588 = fptrunc double %587 to float
@@ -1595,7 +1595,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
 ._crit_edge.thread:                               ; preds = %314, %583, %._crit_edge
   %.sroa.0230.1 = phi float [ %593, %583 ], [ %574, %._crit_edge ], [ 0.000000e+00, %314 ]
   %.sroa.0239.1 = phi float [ %589, %583 ], [ %572, %._crit_edge ], [ 0.000000e+00, %314 ]
-  %.297 = phi float [ %585, %583 ], [ %.196, %._crit_edge ], [ 0.000000e+00, %314 ]
+  %.294 = phi float [ %585, %583 ], [ %.193, %._crit_edge ], [ 0.000000e+00, %314 ]
   %595 = phi <2 x float> [ %594, %583 ], [ %578, %._crit_edge ], [ zeroinitializer, %314 ]
   %596 = phi <2 x float> [ %592, %583 ], [ %576, %._crit_edge ], [ zeroinitializer, %314 ]
   %597 = load i32, ptr @_ZZ10gmx_gyrateiPPcE2nz, align 4
@@ -1662,7 +1662,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
   %625 = phi <2 x float> [ %596, %599 ], [ %595, %613 ]
   %.sink345 = load float, ptr %16, align 4
   %626 = fpext float %.sink345 to double
-  %627 = fpext float %.297 to double
+  %627 = fpext float %.294 to double
   %628 = fpext float %.sroa.0230.1.sink to double
   %629 = extractelement <2 x float> %625, i64 0
   %630 = fpext float %629 to double

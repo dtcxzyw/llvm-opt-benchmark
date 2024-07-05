@@ -105,13 +105,13 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %.not, label %.preheader, label %29
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.0 = phi ptr [ %8, %.preheader ], [ %1, %4 ]
-  %5 = load i8, ptr %.0, align 1
+  %.026 = phi ptr [ %8, %.preheader ], [ %1, %4 ]
+  %5 = load i8, ptr %.026, align 1
   %6 = add i8 %5, 95
   %or.cond = icmp ult i8 %6, 94
-  %7 = icmp ugt ptr %.0, %0
+  %7 = icmp ugt ptr %.026, %0
   %or.cond32 = and i1 %7, %or.cond
-  %8 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %8 = getelementptr inbounds i8, ptr %.026, i64 -1
   br i1 %or.cond32, label %.preheader, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader
@@ -123,18 +123,18 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.critedge
-  %15 = icmp ult ptr %.0, %2
+  %15 = icmp ult ptr %.026, %2
   %spec.select = select i1 %15, i32 %10, i32 0
   br label %18
 
 16:                                               ; preds = %.critedge
-  %17 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.0, ptr noundef %2, ptr noundef nonnull %3) #3
+  %17 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.026, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %18
 
 18:                                               ; preds = %14, %16
   %19 = phi i32 [ %17, %16 ], [ %spec.select, %14 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %.0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.026, i64 %20
   %22 = icmp ugt ptr %21, %1
   br i1 %22, label %29, label %23
 
@@ -147,8 +147,8 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br label %29
 
 29:                                               ; preds = %18, %4, %23
-  %.026 = phi ptr [ %28, %23 ], [ %1, %4 ], [ %.0, %18 ]
-  ret ptr %.026
+  %.0 = phi ptr [ %28, %23 ], [ %1, %4 ], [ %.026, %18 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

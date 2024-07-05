@@ -352,12 +352,12 @@ while.cond8.preheader.lr.ph:                      ; preds = %entry
 
 while.cond8.preheader:                            ; preds = %while.cond8.preheader.lr.ph, %if.end37
   %category.0.in45 = phi i32 [ %call3, %while.cond8.preheader.lr.ph ], [ %call42, %if.end37 ]
-  %c.044 = phi i32 [ %call, %while.cond8.preheader.lr.ph ], [ %call38, %if.end37 ]
-  %foundBreakCount.043 = phi i32 [ 0, %while.cond8.preheader.lr.ph ], [ %foundBreakCount.1, %if.end37 ]
+  %foundBreakCount.044 = phi i32 [ 0, %while.cond8.preheader.lr.ph ], [ %foundBreakCount.1, %if.end37 ]
+  %c.043 = phi i32 [ %call, %while.cond8.preheader.lr.ph ], [ %call38, %if.end37 ]
   br label %while.cond8
 
 while.cond8:                                      ; preds = %while.cond8.preheader, %while.body17
-  %c.1 = phi i32 [ %call19, %while.body17 ], [ %c.044, %while.cond8.preheader ]
+  %c.1 = phi i32 [ %call19, %while.body17 ], [ %c.043, %while.cond8.preheader ]
   %category.1.in = phi i32 [ %call23, %while.body17 ], [ %category.0.in45, %while.cond8.preheader ]
   %8 = load i32, ptr %chunkOffset, align 8
   %9 = load i32, ptr %nativeIndexingLimit, align 4
@@ -415,11 +415,11 @@ if.then33:                                        ; preds = %if.end27
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %20 = load ptr, ptr %vfn, align 8
   %call35 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull %fText, i32 noundef %conv13, i32 noundef %endPos, ptr noundef nonnull align 8 dereferenceable(32) %fBreaks.i, i8 noundef signext %19, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %add36 = add nsw i32 %call35, %foundBreakCount.043
+  %add36 = add nsw i32 %call35, %foundBreakCount.044
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %if.end27
-  %foundBreakCount.1 = phi i32 [ %add36, %if.then33 ], [ %foundBreakCount.043, %if.end27 ]
+  %foundBreakCount.1 = phi i32 [ %add36, %if.then33 ], [ %foundBreakCount.044, %if.end27 ]
   %call38 = call i32 @utext_current32_75(ptr noundef nonnull %fText)
   %21 = load ptr, ptr %this, align 8
   %fData40 = getelementptr inbounds i8, ptr %21, i64 624
@@ -432,7 +432,7 @@ if.end37:                                         ; preds = %if.then33, %if.end2
   br i1 %cmp.i, label %while.end44, label %while.cond8.preheader, !llvm.loop !8
 
 while.end44:                                      ; preds = %if.end37, %while.end
-  %foundBreakCount.0.lcssa.ph = phi i32 [ %foundBreakCount.1, %if.end37 ], [ %foundBreakCount.043, %while.end ]
+  %foundBreakCount.0.lcssa.ph = phi i32 [ %foundBreakCount.1, %if.end37 ], [ %foundBreakCount.044, %while.end ]
   %cmp45 = icmp sgt i32 %foundBreakCount.0.lcssa.ph, 0
   br i1 %cmp45, label %if.then46, label %if.end64
 

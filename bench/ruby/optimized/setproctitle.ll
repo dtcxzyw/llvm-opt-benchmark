@@ -45,15 +45,15 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
   br label %.lr.ph
 
 .preheader:                                       ; preds = %27, %12
-  %.043.lcssa = phi ptr [ null, %12 ], [ %.144, %27 ]
+  %.041.lcssa = phi ptr [ null, %12 ], [ %.142, %27 ]
   %16 = load ptr, ptr %3, align 8
   %.not4853 = icmp eq ptr %16, null
   br i1 %.not4853, label %._crit_edge, label %.lr.ph56
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %.04351 = phi ptr [ null, %.lr.ph.preheader ], [ %.144, %27 ]
-  %17 = icmp eq ptr %.04351, null
+  %.04151 = phi ptr [ null, %.lr.ph.preheader ], [ %.142, %27 ]
+  %17 = icmp eq ptr %.04151, null
   br i1 %17, label %.lr.ph._crit_edge, label %18
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
@@ -62,7 +62,7 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
   br label %23
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %.04351, i64 1
+  %19 = getelementptr i8, ptr %.04151, i64 1
   %20 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %19, %21
@@ -75,7 +75,7 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
   br label %27
 
 27:                                               ; preds = %18, %23
-  %.144 = phi ptr [ %26, %23 ], [ %.04351, %18 ]
+  %.142 = phi ptr [ %26, %23 ], [ %.04151, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !9
@@ -83,8 +83,8 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
 .lr.ph56:                                         ; preds = %.preheader, %34
   %28 = phi ptr [ %38, %34 ], [ %16, %.preheader ]
   %.255 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
-  %.04154 = phi ptr [ %.142, %34 ], [ %.043.lcssa, %.preheader ]
-  %29 = getelementptr i8, ptr %.04154, i64 1
+  %.04354 = phi ptr [ %.144, %34 ], [ %.041.lcssa, %.preheader ]
+  %29 = getelementptr i8, ptr %.04354, i64 1
   %30 = icmp eq ptr %29, %28
   br i1 %30, label %31, label %34
 
@@ -94,7 +94,7 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
   br label %34
 
 34:                                               ; preds = %.lr.ph56, %31
-  %.142 = phi ptr [ %33, %31 ], [ %.04154, %.lr.ph56 ]
+  %.144 = phi ptr [ %33, %31 ], [ %.04354, %.lr.ph56 ]
   %35 = add i32 %.255, 1
   %36 = sext i32 %35 to i64
   %37 = getelementptr ptr, ptr %3, i64 %36
@@ -103,16 +103,16 @@ define dso_local void @ruby_init_setproctitle(i32 noundef %0, ptr noundef %1) lo
   br i1 %.not48, label %._crit_edge, label %.lr.ph56, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34, %.preheader
-  %.041.lcssa = phi ptr [ %.043.lcssa, %.preheader ], [ %.142, %34 ]
+  %.043.lcssa = phi ptr [ %.041.lcssa, %.preheader ], [ %.144, %34 ]
   %39 = getelementptr i8, ptr %1, i64 8
   store ptr %39, ptr @argv1_addr, align 8
   %40 = load ptr, ptr %1, align 8
   store ptr %40, ptr @argv_start, align 8
-  %41 = ptrtoint ptr %.043.lcssa to i64
+  %41 = ptrtoint ptr %.041.lcssa to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   store i64 %43, ptr @argv_len, align 8
-  %44 = ptrtoint ptr %.041.lcssa to i64
+  %44 = ptrtoint ptr %.043.lcssa to i64
   %45 = sub i64 %44, %42
   store i64 %45, ptr @argv_env_len, align 8
   br i1 %.not4853, label %._crit_edge62, label %.lr.ph61

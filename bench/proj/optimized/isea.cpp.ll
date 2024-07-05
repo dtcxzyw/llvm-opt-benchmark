@@ -446,35 +446,35 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %102 = fsub double %83, %101
   %103 = fcmp olt double %102, 0.000000e+00
   %104 = fadd double %102, 0x401921FB54442D18
-  %.068.i.i.i = select i1 %103, double %104, double %102
-  %105 = fcmp olt double %.068.i.i.i, 0.000000e+00
+  %.067.i.i.i = select i1 %103, double %104, double %102
+  %105 = fcmp olt double %.067.i.i.i, 0.000000e+00
   br i1 %105, label %.lr.ph.i12.i.i, label %.preheader.i11.i.i
 
 .preheader.i11.i.i:                               ; preds = %.lr.ph.i12.i.i, %70
-  %.169.lcssa.i.i.i = phi double [ %.068.i.i.i, %70 ], [ %107, %.lr.ph.i12.i.i ]
-  %.067.lcssa.i.i.i = phi i32 [ 0, %70 ], [ %108, %.lr.ph.i12.i.i ]
-  %106 = fcmp ogt double %.169.lcssa.i.i.i, 0x4000C152382D7366
+  %.068.lcssa.i.i.i = phi i32 [ 0, %70 ], [ %108, %.lr.ph.i12.i.i ]
+  %.1.lcssa.i.i.i = phi double [ %.067.i.i.i, %70 ], [ %107, %.lr.ph.i12.i.i ]
+  %106 = fcmp ogt double %.1.lcssa.i.i.i, 0x4000C152382D7366
   br i1 %106, label %.lr.ph80.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i12.i.i:                                   ; preds = %70, %.lr.ph.i12.i.i
-  %.06776.i.i.i = phi i32 [ %108, %.lr.ph.i12.i.i ], [ 0, %70 ]
-  %.16975.i.i.i = phi double [ %107, %.lr.ph.i12.i.i ], [ %.068.i.i.i, %70 ]
-  %107 = fadd double %.16975.i.i.i, 0x4000C152382D7366
-  %108 = add nsw i32 %.06776.i.i.i, -1
+  %.176.i.i.i = phi double [ %107, %.lr.ph.i12.i.i ], [ %.067.i.i.i, %70 ]
+  %.06875.i.i.i = phi i32 [ %108, %.lr.ph.i12.i.i ], [ 0, %70 ]
+  %107 = fadd double %.176.i.i.i, 0x4000C152382D7366
+  %108 = add nsw i32 %.06875.i.i.i, -1
   %109 = fcmp olt double %107, 0.000000e+00
   br i1 %109, label %.lr.ph.i12.i.i, label %.preheader.i11.i.i, !llvm.loop !9
 
 .lr.ph80.i.i.i:                                   ; preds = %.preheader.i11.i.i, %.lr.ph80.i.i.i
-  %.179.i.i.i = phi i32 [ %111, %.lr.ph80.i.i.i ], [ %.067.lcssa.i.i.i, %.preheader.i11.i.i ]
-  %.278.i.i.i = phi double [ %110, %.lr.ph80.i.i.i ], [ %.169.lcssa.i.i.i, %.preheader.i11.i.i ]
-  %110 = fadd double %.278.i.i.i, 0xC000C152382D7366
-  %111 = add nsw i32 %.179.i.i.i, 1
+  %.279.i.i.i = phi double [ %110, %.lr.ph80.i.i.i ], [ %.1.lcssa.i.i.i, %.preheader.i11.i.i ]
+  %.16978.i.i.i = phi i32 [ %111, %.lr.ph80.i.i.i ], [ %.068.lcssa.i.i.i, %.preheader.i11.i.i ]
+  %110 = fadd double %.279.i.i.i, 0xC000C152382D7366
+  %111 = add nsw i32 %.16978.i.i.i, 1
   %112 = fcmp ogt double %110, 0x4000C152382D7366
   br i1 %112, label %.lr.ph80.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !10
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph80.i.i.i, %.preheader.i11.i.i
-  %.2.lcssa.i.i.i = phi double [ %.169.lcssa.i.i.i, %.preheader.i11.i.i ], [ %110, %.lr.ph80.i.i.i ]
-  %.1.lcssa.i.i.i = phi i32 [ %.067.lcssa.i.i.i, %.preheader.i11.i.i ], [ %111, %.lr.ph80.i.i.i ]
+  %.169.lcssa.i.i.i = phi i32 [ %.068.lcssa.i.i.i, %.preheader.i11.i.i ], [ %111, %.lr.ph80.i.i.i ]
+  %.2.lcssa.i.i.i = phi double [ %.1.lcssa.i.i.i, %.preheader.i11.i.i ], [ %110, %.lr.ph80.i.i.i ]
   %113 = tail call double @cos(double noundef %.2.lcssa.i.i.i) #16
   %114 = tail call double @sin(double noundef %.2.lcssa.i.i.i) #16
   %115 = tail call double @llvm.fmuladd.f64(double %114, double 0x3FFBB67AE8584CAB, double %113)
@@ -525,7 +525,7 @@ _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i:
   %150 = fmul double %68, 5.000000e-01
   %151 = tail call double @sin(double noundef %150) #16
   %152 = fmul double %151, %149
-  %153 = sitofp i32 %.1.lcssa.i.i.i to double
+  %153 = sitofp i32 %.169.lcssa.i.i.i to double
   %154 = tail call double @llvm.fmuladd.f64(double %153, double 0x4000C152382D7366, double %140)
   %155 = tail call double @sin(double noundef %154) #16
   %156 = tail call double @cos(double noundef %154) #16
@@ -985,8 +985,8 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %50, %45
 63:                                               ; preds = %58
   %64 = icmp eq i64 %52, %39
   %65 = add nsw i32 %26, 5
-  %spec.select.i.i = select i1 %64, i32 %65, i32 %26
-  %spec.select46.i.i = select i1 %64, i64 0, i64 %52
+  %spec.select.i.i = select i1 %64, i64 0, i64 %52
+  %spec.select46.i.i = select i1 %64, i32 %65, i32 %26
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
 
 66:                                               ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i
@@ -1015,16 +1015,16 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %50, %45
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
 
 _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %76, %74, %70, %66, %63, %59, %55
-  %.038.i.i = phi i32 [ %spec.store.select.i.i, %59 ], [ %spec.store.select1.i.i, %70 ], [ %78, %76 ], [ %26, %74 ], [ 0, %55 ], [ %spec.select.i.i, %63 ], [ 11, %66 ]
-  %.037.i.i = phi i64 [ 0, %59 ], [ %73, %70 ], [ %52, %76 ], [ %52, %74 ], [ 0, %55 ], [ %spec.select46.i.i, %63 ], [ 0, %66 ]
-  %.0.i.i = phi i64 [ %62, %59 ], [ 0, %70 ], [ 0, %76 ], [ %53, %74 ], [ 0, %55 ], [ %53, %63 ], [ 0, %66 ]
-  %79 = sitofp i64 %.037.i.i to double
+  %.038.i.i = phi i64 [ 0, %59 ], [ %73, %70 ], [ %52, %76 ], [ %52, %74 ], [ 0, %55 ], [ %spec.select.i.i, %63 ], [ 0, %66 ]
+  %.037.i.i = phi i64 [ %62, %59 ], [ 0, %70 ], [ 0, %76 ], [ %53, %74 ], [ 0, %55 ], [ %53, %63 ], [ 0, %66 ]
+  %.0.i.i = phi i32 [ %spec.store.select.i.i, %59 ], [ %spec.store.select1.i.i, %70 ], [ %78, %76 ], [ %26, %74 ], [ 0, %55 ], [ %spec.select46.i.i, %63 ], [ 11, %66 ]
+  %79 = sitofp i64 %.038.i.i to double
   store double %79, ptr %3, align 8
-  %80 = sitofp i64 %.0.i.i to double
+  %80 = sitofp i64 %.037.i.i to double
   %81 = getelementptr inbounds i8, ptr %3, i64 8
   store double %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.038.i.i, ptr %82, align 8
+  store i32 %.0.i.i, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit
 
@@ -1165,7 +1165,7 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %120, %115
   br label %_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit
 
 _ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit: ; preds = %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i, %146
-  %.0.i = phi i32 [ %.038.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %146 ]
+  %.0.i = phi i32 [ %.0.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %146 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i32 %.0.i
 }

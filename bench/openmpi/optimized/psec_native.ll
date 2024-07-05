@@ -286,8 +286,8 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   br label %63
 
 63:                                               ; preds = %19, %60, %48
+  %.052 = phi i32 [ %52, %48 ], [ %.0.copyload, %60 ], [ -1, %19 ]
   %.051 = phi i32 [ %50, %48 ], [ %.0.copyload18, %60 ], [ -1, %19 ]
-  %.050 = phi i32 [ %52, %48 ], [ %.0.copyload, %60 ], [ -1, %19 ]
   %64 = icmp ne ptr %1, null
   %65 = icmp ne i64 %2, 0
   %or.cond = and i1 %64, %65
@@ -362,7 +362,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
 96:                                               ; preds = %.loopexit
   %97 = getelementptr inbounds i8, ptr %85, i64 172
   %98 = load i32, ptr %97, align 4
-  %.not67 = icmp eq i32 %.050, %98
+  %.not67 = icmp eq i32 %.052, %98
   br i1 %.not67, label %107, label %99
 
 99:                                               ; preds = %96
@@ -378,7 +378,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   br i1 %105, label %106, label %120
 
 106:                                              ; preds = %101
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %100, ptr noundef nonnull @.str.12, i32 noundef %.050) #6
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %100, ptr noundef nonnull @.str.12, i32 noundef %.052) #6
   br label %120
 
 107:                                              ; preds = %96
@@ -399,15 +399,15 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture noundef reado
   %114 = getelementptr inbounds i8, ptr %3, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = call i32 @PMIx_Info_load(ptr noundef %115, ptr noundef nonnull @.str.13, ptr noundef nonnull %9, i16 noundef zeroext 14) #6
-  store i32 %.050, ptr %9, align 4
+  store i32 %.052, ptr %9, align 4
   %117 = getelementptr inbounds i8, ptr %3, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = call i32 @PMIx_Info_load(ptr noundef %118, ptr noundef nonnull @.str.14, ptr noundef nonnull %9, i16 noundef zeroext 14) #6
   br label %120
 
 120:                                              ; preds = %107, %111, %108, %99, %101, %106, %88, %90, %95, %.critedge, %19, %55, %53, %37, %39, %44
-  %.052 = phi i32 [ -12, %44 ], [ -12, %39 ], [ -12, %37 ], [ -12, %53 ], [ -12, %55 ], [ -47, %19 ], [ -47, %.critedge ], [ -12, %95 ], [ -12, %90 ], [ -12, %88 ], [ -12, %106 ], [ -12, %101 ], [ -12, %99 ], [ -32, %108 ], [ 0, %111 ], [ 0, %107 ]
-  ret i32 %.052
+  %.049 = phi i32 [ -12, %44 ], [ -12, %39 ], [ -12, %37 ], [ -12, %53 ], [ -12, %55 ], [ -47, %19 ], [ -47, %.critedge ], [ -12, %95 ], [ -12, %90 ], [ -12, %88 ], [ -12, %106 ], [ -12, %101 ], [ -12, %99 ], [ -32, %108 ], [ 0, %111 ], [ 0, %107 ]
+  ret i32 %.049
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

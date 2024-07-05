@@ -138,13 +138,13 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br label %4
 
 4:                                                ; preds = %5, %1
-  %.062.in = phi ptr [ @file_list, %1 ], [ %.062, %5 ]
-  %.062 = load ptr, ptr %.062.in, align 8
-  %cond = icmp eq ptr %.062, null
+  %.0.in = phi ptr [ @file_list, %1 ], [ %.0, %5 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  %cond = icmp eq ptr %.0, null
   br i1 %cond, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.062, i64 32
+  %6 = getelementptr inbounds i8, ptr %.0, i64 32
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #19
   %.not67 = icmp eq i32 %7, 0
   br i1 %.not67, label %.critedge2.thread, label %4, !llvm.loop !5
@@ -311,7 +311,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %5, %22, %80
-  %.3 = phi ptr [ %28, %80 ], [ %.181, %22 ], [ %.062, %5 ]
+  %.3 = phi ptr [ %28, %80 ], [ %.181, %22 ], [ %.0, %5 ]
   %84 = getelementptr inbounds i8, ptr %.3, i64 24
   %85 = load ptr, ptr %84, align 8
   ret ptr %85
@@ -731,8 +731,8 @@ define internal fastcc noundef ptr @find_in_dynamic_libpath(ptr noundef %0) unna
   br label %21
 
 21:                                               ; preds = %17, %15
-  %.0 = phi i64 [ %16, %15 ], [ %20, %17 ]
-  %22 = add i64 %.0, 1
+  %.032 = phi i64 [ %16, %15 ], [ %20, %17 ]
+  %22 = add i64 %.032, 1
   %23 = tail call ptr @palloc(i64 noundef %22) #17
   %24 = tail call i64 @strlcpy(ptr noundef %23, ptr noundef nonnull dereferenceable(1) %.03134, i64 noundef %22) #17
   %25 = tail call fastcc ptr @substitute_libpath_macro(ptr noundef %23)
@@ -770,7 +770,7 @@ define internal fastcc noundef ptr @find_in_dynamic_libpath(ptr noundef %0) unna
 
 42:                                               ; preds = %40
   tail call void @pfree(ptr noundef %35) #17
-  %43 = getelementptr i8, ptr %.03134, i64 %.0
+  %43 = getelementptr i8, ptr %.03134, i64 %.032
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %.loopexit, label %46
@@ -782,8 +782,8 @@ define internal fastcc noundef ptr @find_in_dynamic_libpath(ptr noundef %0) unna
   br i1 %49, label %._crit_edge, label %12
 
 .loopexit:                                        ; preds = %42, %40, %1
-  %.032 = phi ptr [ null, %1 ], [ null, %42 ], [ %35, %40 ]
-  ret ptr %.032
+  %.0 = phi ptr [ null, %1 ], [ null, %42 ], [ %35, %40 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

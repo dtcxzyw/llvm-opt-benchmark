@@ -3300,37 +3300,37 @@ for.body49.lr.ph:                                 ; preds = %for.cond47.preheade
   br label %for.body49
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end45
-  %i.065 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end45 ]
-  %current.064 = phi ptr [ %.pr73, %for.body.lr.ph ], [ %15, %if.end45 ]
-  %wr_next = getelementptr inbounds i8, ptr %current.064, i64 48
+  %current.065 = phi ptr [ %.pr73, %for.body.lr.ph ], [ %15, %if.end45 ]
+  %i.064 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end45 ]
+  %wr_next = getelementptr inbounds i8, ptr %current.065, i64 48
   %15 = load ptr, ptr %wr_next, align 8
-  %current.0.val = load i64, ptr %current.064, align 8
+  %current.0.val = load i64, ptr %current.065, align 8
   %cmp37 = icmp sgt i64 %current.0.val, 0
   br i1 %cmp37, label %if.then38, label %if.else43
 
 if.then38:                                        ; preds = %for.body
   %16 = trunc i64 %current.0.val to i32
-  %mul39 = shl nuw i64 %i.065, 1
+  %mul39 = shl nuw i64 %i.064, 1
   %add.i.i = add i32 %16, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then38
-  store i32 %add.i.i, ptr %current.064, align 8
+  store i32 %add.i.i, ptr %current.065, align 8
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then38, %if.end.i.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %mul39
-  store ptr %current.064, ptr %arrayidx.i, align 8
+  store ptr %current.065, ptr %arrayidx.i, align 8
   %add = or disjoint i64 %mul39, 1
-  %wr_callback42 = getelementptr inbounds i8, ptr %current.064, i64 24
+  %wr_callback42 = getelementptr inbounds i8, ptr %current.065, i64 24
   %17 = load ptr, ptr %wr_callback42, align 8
   %arrayidx.i56 = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %add
   store ptr %17, ptr %arrayidx.i56, align 8
   br label %if.end45
 
 if.else43:                                        ; preds = %for.body
-  %wr_callback44 = getelementptr inbounds i8, ptr %current.064, i64 24
+  %wr_callback44 = getelementptr inbounds i8, ptr %current.065, i64 24
   %18 = load ptr, ptr %wr_callback44, align 8
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 2147483648
@@ -3348,10 +3348,10 @@ if.then1.i70:                                     ; preds = %if.end.i67
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end.i67, %if.then1.i70, %if.else43, %_Py_NewRef.exit
-  %wr_callback46 = getelementptr inbounds i8, ptr %current.064, i64 24
+  %wr_callback46 = getelementptr inbounds i8, ptr %current.065, i64 24
   store ptr null, ptr %wr_callback46, align 8
-  tail call fastcc void @clear_weakref(ptr noundef nonnull %current.064)
-  %inc = add nuw nsw i64 %i.065, 1
+  tail call fastcc void @clear_weakref(ptr noundef nonnull %current.065)
+  %inc = add nuw nsw i64 %i.064, 1
   %exitcond.not = icmp eq i64 %inc, %indvars.iv
   br i1 %exitcond.not, label %for.cond47.preheader, label %for.body, !llvm.loop !7
 

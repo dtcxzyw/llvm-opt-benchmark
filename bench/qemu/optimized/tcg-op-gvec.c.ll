@@ -1121,8 +1121,8 @@ if.end11:                                         ; preds = %sw.bb
   br label %sw.bb14
 
 sw.bb14:                                          ; preds = %if.end11, %if.end
-  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end11 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub13, %if.end11 ]
+  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end11 ]
   %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add12, %if.end11 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end11 ]
   %7 = load i8, ptr %vece, align 4
@@ -1284,8 +1284,8 @@ do.body:                                          ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %expand_2_i64.exit, %expand_2_i32.exit, %sw.bb, %sw.bb20, %sw.bb14
-  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_2_i64.exit ], [ %oprsz, %expand_2_i32.exit ], [ %oprsz, %sw.bb20 ], [ %oprsz.addr.0, %sw.bb14 ], [ %oprsz, %sw.bb ]
   %maxsz.addr.1 = phi i32 [ %maxsz, %expand_2_i64.exit ], [ %maxsz, %expand_2_i32.exit ], [ %maxsz, %sw.bb20 ], [ %maxsz.addr.0, %sw.bb14 ], [ %maxsz, %sw.bb ]
+  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_2_i64.exit ], [ %oprsz, %expand_2_i32.exit ], [ %oprsz, %sw.bb20 ], [ %oprsz.addr.0, %sw.bb14 ], [ %oprsz, %sw.bb ]
   %dofs.addr.1 = phi i32 [ %dofs, %expand_2_i64.exit ], [ %dofs, %expand_2_i32.exit ], [ %dofs, %sw.bb20 ], [ %dofs.addr.0, %sw.bb14 ], [ %dofs, %sw.bb ]
   %cmp52 = icmp ult i32 %oprsz.addr.1, %maxsz.addr.1
   br i1 %cmp52, label %if.then54, label %if.end57
@@ -2293,9 +2293,9 @@ if.end12:                                         ; preds = %sw.bb
   br label %sw.bb16
 
 sw.bb16:                                          ; preds = %if.end12, %if.end
-  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add14, %if.end12 ]
-  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub15, %if.end12 ]
+  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
+  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add14, %if.end12 ]
   %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add13, %if.end12 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end12 ]
   %7 = load i8, ptr %vece, align 4
@@ -2477,8 +2477,8 @@ do.body:                                          ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %expand_3_i64.exit, %expand_3_i32.exit, %sw.bb, %sw.bb22, %sw.bb16
-  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_3_i64.exit ], [ %oprsz, %expand_3_i32.exit ], [ %oprsz, %sw.bb22 ], [ %oprsz.addr.0, %sw.bb16 ], [ %oprsz, %sw.bb ]
   %maxsz.addr.1 = phi i32 [ %maxsz, %expand_3_i64.exit ], [ %maxsz, %expand_3_i32.exit ], [ %maxsz, %sw.bb22 ], [ %maxsz.addr.0, %sw.bb16 ], [ %maxsz, %sw.bb ]
+  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_3_i64.exit ], [ %oprsz, %expand_3_i32.exit ], [ %oprsz, %sw.bb22 ], [ %oprsz.addr.0, %sw.bb16 ], [ %oprsz, %sw.bb ]
   %dofs.addr.1 = phi i32 [ %dofs, %expand_3_i64.exit ], [ %dofs, %expand_3_i32.exit ], [ %dofs, %sw.bb22 ], [ %dofs.addr.0, %sw.bb16 ], [ %dofs, %sw.bb ]
   %cmp54 = icmp ult i32 %oprsz.addr.1, %maxsz.addr.1
   br i1 %cmp54, label %if.then56, label %if.end59
@@ -2665,8 +2665,8 @@ if.end12:                                         ; preds = %sw.bb
   br label %sw.bb16
 
 sw.bb16:                                          ; preds = %if.end12, %if.end
-  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub15, %if.end12 ]
+  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
   %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add14, %if.end12 ]
   %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add13, %if.end12 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end12 ]
@@ -2849,8 +2849,8 @@ do.body:                                          ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %expand_3i_i64.exit, %expand_3i_i32.exit, %sw.bb, %sw.bb22, %sw.bb16
-  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_3i_i64.exit ], [ %oprsz, %expand_3i_i32.exit ], [ %oprsz, %sw.bb22 ], [ %oprsz.addr.0, %sw.bb16 ], [ %oprsz, %sw.bb ]
   %maxsz.addr.1 = phi i32 [ %maxsz, %expand_3i_i64.exit ], [ %maxsz, %expand_3i_i32.exit ], [ %maxsz, %sw.bb22 ], [ %maxsz.addr.0, %sw.bb16 ], [ %maxsz, %sw.bb ]
+  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_3i_i64.exit ], [ %oprsz, %expand_3i_i32.exit ], [ %oprsz, %sw.bb22 ], [ %oprsz.addr.0, %sw.bb16 ], [ %oprsz, %sw.bb ]
   %dofs.addr.1 = phi i32 [ %dofs, %expand_3i_i64.exit ], [ %dofs, %expand_3i_i32.exit ], [ %dofs, %sw.bb22 ], [ %dofs.addr.0, %sw.bb16 ], [ %dofs, %sw.bb ]
   %cmp56 = icmp ult i32 %oprsz.addr.1, %maxsz.addr.1
   br i1 %cmp56, label %if.then58, label %if.end61
@@ -3076,10 +3076,10 @@ if.end13:                                         ; preds = %sw.bb
   br label %sw.bb18
 
 sw.bb18:                                          ; preds = %if.end13, %if.end
-  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add15, %if.end13 ]
-  %cofs.addr.0 = phi i32 [ %cofs, %if.end ], [ %add16, %if.end13 ]
   %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end13 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub17, %if.end13 ]
+  %cofs.addr.0 = phi i32 [ %cofs, %if.end ], [ %add16, %if.end13 ]
+  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add15, %if.end13 ]
   %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add14, %if.end13 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end13 ]
   %7 = load i8, ptr %vece, align 4
@@ -3515,9 +3515,9 @@ if.end12:                                         ; preds = %sw.bb
   br label %sw.bb17
 
 sw.bb17:                                          ; preds = %if.end12, %if.end
-  %cofs.addr.0 = phi i32 [ %cofs, %if.end ], [ %add15, %if.end12 ]
-  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub16, %if.end12 ]
+  %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub, %if.end12 ]
+  %cofs.addr.0 = phi i32 [ %cofs, %if.end ], [ %add15, %if.end12 ]
   %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add14, %if.end12 ]
   %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add13, %if.end12 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end12 ]
@@ -3658,8 +3658,8 @@ do.body:                                          ; preds = %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %expand_4i_i64.exit, %expand_4i_i32.exit, %sw.bb, %sw.bb21, %sw.bb17
-  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_4i_i64.exit ], [ %oprsz, %expand_4i_i32.exit ], [ %oprsz, %sw.bb21 ], [ %oprsz.addr.0, %sw.bb17 ], [ %oprsz, %sw.bb ]
   %maxsz.addr.1 = phi i32 [ %maxsz, %expand_4i_i64.exit ], [ %maxsz, %expand_4i_i32.exit ], [ %maxsz, %sw.bb21 ], [ %maxsz.addr.0, %sw.bb17 ], [ %maxsz, %sw.bb ]
+  %oprsz.addr.1 = phi i32 [ %oprsz, %expand_4i_i64.exit ], [ %oprsz, %expand_4i_i32.exit ], [ %oprsz, %sw.bb21 ], [ %oprsz.addr.0, %sw.bb17 ], [ %oprsz, %sw.bb ]
   %dofs.addr.1 = phi i32 [ %dofs, %expand_4i_i64.exit ], [ %dofs, %expand_4i_i32.exit ], [ %dofs, %sw.bb21 ], [ %dofs.addr.0, %sw.bb17 ], [ %dofs, %sw.bb ]
   %cmp49 = icmp ult i32 %oprsz.addr.1, %maxsz.addr.1
   br i1 %cmp49, label %if.then51, label %if.end54
@@ -3896,19 +3896,19 @@ if.end52:                                         ; preds = %if.end5
   br i1 %tobool.not246356, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %cond.end38, %if.else43, %if.end52
-  %in_c.addr.0173 = phi i64 [ %in_c.tr245357, %if.end52 ], [ %cond39, %if.else43 ], [ 0, %cond.end38 ]
-  %vece.addr.0170 = phi i32 [ %vece.tr239363, %if.end52 ], [ %spec.select, %if.else43 ], [ 0, %cond.end38 ]
-  %oprsz.addr.0168 = phi i32 [ %oprsz.tr241361, %if.end52 ], [ %oprsz.tr241361, %if.else43 ], [ %maxsz.tr242360, %cond.end38 ]
-  %cmp57 = icmp eq i32 %vece.addr.0170, 3
+  %vece.addr.0172 = phi i32 [ %vece.tr239363, %if.end52 ], [ %spec.select, %if.else43 ], [ 0, %cond.end38 ]
+  %oprsz.addr.0170 = phi i32 [ %oprsz.tr241361, %if.end52 ], [ %oprsz.tr241361, %if.else43 ], [ %maxsz.tr242360, %cond.end38 ]
+  %in_c.addr.0168 = phi i64 [ %in_c.tr245357, %if.end52 ], [ %cond39, %if.else43 ], [ 0, %cond.end38 ]
+  %cmp57 = icmp eq i32 %vece.addr.0172, 3
   %0 = or i1 %cmp2364, %cmp57
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end52
-  %in_c.addr.0172 = phi i64 [ %in_c.tr245357, %if.end52 ], [ %in_c.addr.0173, %land.rhs ]
-  %vece.addr.0169 = phi i32 [ %vece.tr239363, %if.end52 ], [ %vece.addr.0170, %land.rhs ]
-  %oprsz.addr.0167 = phi i32 [ %oprsz.tr241361, %if.end52 ], [ %oprsz.addr.0168, %land.rhs ]
+  %vece.addr.0171 = phi i32 [ %vece.tr239363, %if.end52 ], [ %vece.addr.0172, %land.rhs ]
+  %oprsz.addr.0169 = phi i32 [ %oprsz.tr241361, %if.end52 ], [ %oprsz.addr.0170, %land.rhs ]
+  %in_c.addr.0167 = phi i64 [ %in_c.tr245357, %if.end52 ], [ %in_c.addr.0168, %land.rhs ]
   %1 = phi i1 [ false, %if.end52 ], [ %0, %land.rhs ]
-  %call59 = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece.addr.0169, i32 noundef %oprsz.addr.0167, i1 noundef zeroext %1)
+  %call59 = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %vece.addr.0171, i32 noundef %oprsz.addr.0169, i1 noundef zeroext %1)
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %if.end72, label %if.then62
 
@@ -3917,50 +3917,50 @@ if.then62:                                        ; preds = %land.end
   br i1 %tobool.not246356, label %if.else66, label %if.then65
 
 if.then65:                                        ; preds = %if.then62
-  tail call void @tcg_gen_dup_i32_vec(i32 noundef %vece.addr.0169, ptr noundef %call63, ptr noundef nonnull %in_32.tr243359) #7
+  tail call void @tcg_gen_dup_i32_vec(i32 noundef %vece.addr.0171, ptr noundef %call63, ptr noundef nonnull %in_32.tr243359) #7
   br label %if.end71
 
 if.else66:                                        ; preds = %if.then62
   br i1 %cmp2364, label %if.else69, label %if.then68
 
 if.then68:                                        ; preds = %if.else66
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef %vece.addr.0169, ptr noundef %call63, ptr noundef nonnull %in_64.tr244358) #7
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef %vece.addr.0171, ptr noundef %call63, ptr noundef nonnull %in_64.tr244358) #7
   br label %if.end71
 
 if.else69:                                        ; preds = %if.else66
-  tail call void @tcg_gen_dupi_vec(i32 noundef %vece.addr.0169, ptr noundef %call63, i64 noundef %in_c.addr.0172) #7
+  tail call void @tcg_gen_dupi_vec(i32 noundef %vece.addr.0171, ptr noundef %call63, i64 noundef %in_c.addr.0167) #7
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then68, %if.else69, %if.then65
-  tail call fastcc void @do_dup_store(i32 noundef %call59, i32 noundef %dofs.tr240362, i32 noundef %oprsz.addr.0167, i32 noundef %maxsz.tr242360, ptr noundef %call63)
+  tail call fastcc void @do_dup_store(i32 noundef %call59, i32 noundef %dofs.tr240362, i32 noundef %oprsz.addr.0169, i32 noundef %maxsz.tr242360, ptr noundef %call63)
   br label %if.end195
 
 if.end72:                                         ; preds = %land.end
-  %cmp.i = icmp ult i32 %oprsz.addr.0167, 8
+  %cmp.i = icmp ult i32 %oprsz.addr.0169, 8
   br i1 %cmp.i, label %if.end128, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end72
-  %rem.i = and i32 %oprsz.addr.0167, 7
+  %rem.i = and i32 %oprsz.addr.0169, 7
   %cmp1.i = icmp eq i32 %rem.i, 0
   tail call void @llvm.assume(i1 %cmp1.i)
-  %cmp10.i = icmp ult i32 %oprsz.addr.0167, 40
+  %cmp10.i = icmp ult i32 %oprsz.addr.0169, 40
   br i1 %cmp10.i, label %if.then74, label %if.end128
 
 if.then74:                                        ; preds = %if.end.i
   br i1 %tobool.not246356, label %if.else86, label %if.then76
 
 if.then76:                                        ; preds = %if.then74
-  %cmp77.not = icmp eq i32 %vece.addr.0169, 2
+  %cmp77.not = icmp eq i32 %vece.addr.0171, 2
   br i1 %cmp77.not, label %if.end.i135, label %if.then76.split
 
 if.then76.split:                                  ; preds = %if.then76
   %call82130 = tail call ptr @tcg_temp_ebb_new_i64() #7
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call82130, ptr noundef nonnull %in_32.tr243359) #7
-  tail call void @tcg_gen_dup_i64(i32 noundef %vece.addr.0169, ptr noundef %call82130, ptr noundef %call82130)
+  tail call void @tcg_gen_dup_i64(i32 noundef %vece.addr.0171, ptr noundef %call82130, ptr noundef %call82130)
   br label %if.end115
 
 if.end.i135:                                      ; preds = %if.then76
-  %cmp10.i143 = icmp ult i32 %oprsz.addr.0167, 20
+  %cmp10.i143 = icmp ult i32 %oprsz.addr.0169, 20
   br i1 %cmp10.i143, label %if.else83, label %lor.lhs.false79.split
 
 lor.lhs.false79.split:                            ; preds = %if.end.i135
@@ -3979,24 +3979,24 @@ if.else86:                                        ; preds = %if.then74
 
 if.then88:                                        ; preds = %if.else86
   %call89 = tail call ptr @tcg_temp_ebb_new_i64() #7
-  tail call void @tcg_gen_dup_i64(i32 noundef %vece.addr.0169, ptr noundef %call89, ptr noundef nonnull %in_64.tr244358)
+  tail call void @tcg_gen_dup_i64(i32 noundef %vece.addr.0171, ptr noundef %call89, ptr noundef nonnull %in_64.tr244358)
   br label %if.end115
 
 if.else90:                                        ; preds = %if.else86
-  %cmp91 = icmp ne i32 %vece.addr.0169, 3
-  %2 = add i64 %in_c.addr.0172, -1
+  %cmp91 = icmp ne i32 %vece.addr.0171, 3
+  %2 = add i64 %in_c.addr.0167, -1
   %3 = icmp ult i64 %2, -2
   %or.cond3.not247 = and i1 %cmp91, %3
-  %cmp10.i156 = icmp ult i32 %oprsz.addr.0167, 20
-  %or.cond196 = and i1 %or.cond3.not247, %cmp10.i156
+  %cmp10.i156 = icmp ult i32 %oprsz.addr.0169, 20
+  %or.cond196 = and i1 %cmp10.i156, %or.cond3.not247
   br i1 %or.cond196, label %if.else103, label %if.then101
 
 if.then101:                                       ; preds = %if.else90
-  %call102 = tail call ptr @tcg_constant_i64(i64 noundef %in_c.addr.0172) #7
+  %call102 = tail call ptr @tcg_constant_i64(i64 noundef %in_c.addr.0167) #7
   br label %if.end115
 
 if.else103:                                       ; preds = %if.else90
-  %conv104 = trunc i64 %in_c.addr.0172 to i32
+  %conv104 = trunc i64 %in_c.addr.0167 to i32
   %call105 = tail call ptr @tcg_constant_i32(i32 noundef %conv104) #7
   br label %if.end108
 
@@ -4012,7 +4012,7 @@ for.body:                                         ; preds = %if.end108, %for.bod
   %conv113 = zext i32 %add to i64
   tail call void @tcg_gen_st_i32(ptr noundef nonnull %t_32.0, ptr noundef %4, i64 noundef %conv113) #7
   %add114 = add i32 %i.0235, 4
-  %cmp111 = icmp ult i32 %add114, %oprsz.addr.0167
+  %cmp111 = icmp ult i32 %add114, %oprsz.addr.0169
   br i1 %cmp111, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body
@@ -4031,7 +4031,7 @@ for.body121:                                      ; preds = %if.end115, %for.bod
   %conv123 = zext i32 %add122 to i64
   tail call void @tcg_gen_st_i64(ptr noundef nonnull %t_64.0.ph, ptr noundef %5, i64 noundef %conv123) #7
   %add125 = add i32 %i.1234, 8
-  %cmp119 = icmp ult i32 %add125, %oprsz.addr.0167
+  %cmp119 = icmp ult i32 %add125, %oprsz.addr.0169
   br i1 %cmp119, label %for.body121, label %for.end126, !llvm.loop !28
 
 for.end126:                                       ; preds = %for.body121
@@ -4043,8 +4043,8 @@ if.end128:                                        ; preds = %if.end108, %if.end7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv130 = zext i32 %dofs.tr240362 to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %call129, ptr noundef %6, i64 noundef %conv130) #7
-  %cmp131 = icmp eq i32 %oprsz.addr.0167, %maxsz.tr242360
-  %cmp134 = icmp eq i32 %vece.addr.0169, 0
+  %cmp131 = icmp eq i32 %oprsz.addr.0169, %maxsz.tr242360
+  %cmp134 = icmp eq i32 %vece.addr.0171, 0
   %or.cond4 = and i1 %cmp134, %cmp131
   br i1 %or.cond4, label %if.then136, label %if.end153
 
@@ -4071,7 +4071,7 @@ if.end149.thread187:                              ; preds = %if.else141
   br label %if.then151
 
 if.end149.thread:                                 ; preds = %if.else141
-  %conv146 = trunc i64 %in_c.addr.0172 to i32
+  %conv146 = trunc i64 %in_c.addr.0167 to i32
   %call147 = tail call ptr @tcg_constant_i32(i32 noundef %conv146) #7
   %12 = load ptr, ptr %7, align 8
   %add.ptr.i.i.i184 = getelementptr i8, ptr %12, i64 %8
@@ -4102,14 +4102,14 @@ if.end152:                                        ; preds = %if.end149.thread, %
   br label %if.end195
 
 if.end153:                                        ; preds = %if.end128
-  switch i32 %oprsz.addr.0167, label %simd_desc.exit [
+  switch i32 %oprsz.addr.0169, label %simd_desc.exit [
     i32 8, label %do.body.i.i
     i32 16, label %do.body.i.i
     i32 32, label %do.body.i.i
   ]
 
 do.body.i.i:                                      ; preds = %if.end153, %if.end153, %if.end153
-  %cmp.i.i = icmp ule i32 %oprsz.addr.0167, %maxsz.tr242360
+  %cmp.i.i = icmp ule i32 %oprsz.addr.0169, %maxsz.tr242360
   br label %simd_desc.exit
 
 simd_desc.exit:                                   ; preds = %if.end153, %do.body.i.i
@@ -4122,7 +4122,7 @@ simd_desc.exit:                                   ; preds = %if.end153, %do.body
   %and.i.i = and i32 %cond.i.i, %maxsz.tr242360
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
-  %div12.i = lshr i32 %oprsz.addr.0167, 3
+  %div12.i = lshr i32 %oprsz.addr.0169, 3
   %div113.i = lshr i32 %maxsz.tr242360, 3
   %sub2.i = add nuw nsw i32 %div113.i, 255
   %cmp3.i = icmp eq i32 %div12.i, %div113.i
@@ -4133,7 +4133,7 @@ simd_desc.exit:                                   ; preds = %if.end153, %do.body
   %shl57.i15.i = and i32 %sub2.i, 255
   %or.i.i = or disjoint i32 %and6.i.i, %shl57.i15.i
   %call155 = tail call ptr @tcg_constant_i32(i32 noundef %or.i.i) #7
-  %cmp156 = icmp eq i32 %vece.addr.0169, 3
+  %cmp156 = icmp eq i32 %vece.addr.0171, 3
   br i1 %cmp156, label %if.then158, label %if.else164
 
 if.then158:                                       ; preds = %simd_desc.exit
@@ -4152,7 +4152,7 @@ if.then160:                                       ; preds = %if.then158
   br label %if.end190
 
 if.else161:                                       ; preds = %if.then158
-  %call162 = tail call ptr @tcg_constant_i64(i64 noundef %in_c.addr.0172) #7
+  %call162 = tail call ptr @tcg_constant_i64(i64 noundef %in_c.addr.0167) #7
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %call129 to i64
@@ -4168,7 +4168,7 @@ if.else164:                                       ; preds = %simd_desc.exit
   br i1 %tobool.not246356, label %if.else167, label %if.then166
 
 if.then166:                                       ; preds = %if.else164
-  %idxprom = zext nneg i32 %vece.addr.0169 to i64
+  %idxprom = zext nneg i32 %vece.addr.0171 to i64
   %arrayidx = getelementptr [3 x ptr], ptr @do_dup.fns, i64 0, i64 %idxprom
   %30 = load ptr, ptr %arrayidx, align 8
   tail call void %30(ptr noundef %call129, ptr noundef %call155, ptr noundef nonnull %in_32.tr243359) #7
@@ -4180,7 +4180,7 @@ if.else167:                                       ; preds = %if.else164
 if.then169:                                       ; preds = %if.else167
   %call170 = tail call ptr @tcg_temp_ebb_new_i32() #7
   tail call void @tcg_gen_extrl_i64_i32(ptr noundef %call170, ptr noundef nonnull %in_64.tr244358) #7
-  %idxprom171 = zext nneg i32 %vece.addr.0169 to i64
+  %idxprom171 = zext nneg i32 %vece.addr.0171 to i64
   %arrayidx172 = getelementptr [3 x ptr], ptr @do_dup.fns, i64 0, i64 %idxprom171
   %31 = load ptr, ptr %arrayidx172, align 8
   tail call void %31(ptr noundef %call129, ptr noundef %call155, ptr noundef %call170) #7
@@ -4188,14 +4188,14 @@ if.then169:                                       ; preds = %if.else167
   br label %if.end190
 
 if.else173:                                       ; preds = %if.else167
-  %and = and i64 %in_c.addr.0172, 255
-  %cmp178 = icmp eq i32 %vece.addr.0169, 1
-  %and181 = and i64 %in_c.addr.0172, 65535
-  %spec.select132 = select i1 %cmp178, i64 %and181, i64 %in_c.addr.0172
+  %and = and i64 %in_c.addr.0167, 255
+  %cmp178 = icmp eq i32 %vece.addr.0171, 1
+  %and181 = and i64 %in_c.addr.0167, 65535
+  %spec.select132 = select i1 %cmp178, i64 %and181, i64 %in_c.addr.0167
   %in_c.addr.1 = select i1 %cmp134, i64 %and, i64 %spec.select132
   %conv184 = trunc i64 %in_c.addr.1 to i32
   %call185 = tail call ptr @tcg_constant_i32(i32 noundef %conv184) #7
-  %idxprom186 = zext nneg i32 %vece.addr.0169 to i64
+  %idxprom186 = zext nneg i32 %vece.addr.0171 to i64
   %arrayidx187 = getelementptr [3 x ptr], ptr @do_dup.fns, i64 0, i64 %idxprom186
   %32 = load ptr, ptr %arrayidx187, align 8
   tail call void %32(ptr noundef %call129, ptr noundef %call155, ptr noundef %call185) #7
@@ -4206,12 +4206,12 @@ if.end190:                                        ; preds = %if.then166, %if.els
   br label %if.end195
 
 done:                                             ; preds = %for.end126, %for.end
-  %cmp191 = icmp ult i32 %oprsz.addr.0167, %maxsz.tr242360
+  %cmp191 = icmp ult i32 %oprsz.addr.0169, %maxsz.tr242360
   br i1 %cmp191, label %if.then193, label %if.end195
 
 if.then193:                                       ; preds = %done
-  %add194 = add i32 %oprsz.addr.0167, %dofs.tr240362
-  %sub = sub i32 %maxsz.tr242360, %oprsz.addr.0167
+  %add194 = add i32 %oprsz.addr.0169, %dofs.tr240362
+  %sub = sub i32 %maxsz.tr242360, %oprsz.addr.0169
   br label %if.end5
 
 if.end195:                                        ; preds = %done, %if.end190, %if.end152, %if.end71
@@ -9015,10 +9015,10 @@ if.end11:                                         ; preds = %sw.bb
   br label %sw.bb16
 
 sw.bb16:                                          ; preds = %if.end11, %if.end
-  %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add12, %if.end11 ]
-  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add13, %if.end11 ]
   %oprsz.addr.0 = phi i32 [ %oprsz, %if.end ], [ %sub14, %if.end11 ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.end ], [ %sub15, %if.end11 ]
+  %bofs.addr.0 = phi i32 [ %bofs, %if.end ], [ %add13, %if.end11 ]
+  %aofs.addr.0 = phi i32 [ %aofs, %if.end ], [ %add12, %if.end11 ]
   %dofs.addr.0 = phi i32 [ %dofs, %if.end ], [ %add, %if.end11 ]
   tail call fastcc void @expand_cmp_vec(i32 noundef %vece, i32 noundef %dofs.addr.0, i32 noundef %aofs.addr.0, i32 noundef %bofs.addr.0, i32 noundef %oprsz.addr.0, i32 noundef 16, i32 noundef 4, i32 noundef %cond)
   br label %sw.epilog
@@ -9135,8 +9135,8 @@ if.else40:                                        ; preds = %if.then33
   unreachable
 
 sw.epilog.thread:                                 ; preds = %if.else30, %if.then33
-  %aofs.addr.1 = phi i32 [ %bofs, %if.then33 ], [ %aofs, %if.else30 ]
   %bofs.addr.1 = phi i32 [ %aofs, %if.then33 ], [ %bofs, %if.else30 ]
+  %aofs.addr.1 = phi i32 [ %bofs, %if.then33 ], [ %aofs, %if.else30 ]
   %idxprom35.pn = phi i64 [ %idxprom35, %if.then33 ], [ %idxprom, %if.else30 ]
   %fn.0.in = getelementptr [16 x ptr], ptr @tcg_gen_gvec_cmp.fns, i64 0, i64 %idxprom35.pn
   %fn.0 = load ptr, ptr %fn.0.in, align 8
@@ -9710,10 +9710,10 @@ expand_cmps_vec.exit:                             ; preds = %for.body.i, %sw.bb
   br label %sw.bb14
 
 sw.bb14:                                          ; preds = %expand_cmps_vec.exit, %if.then8
-  %dofs.addr.0 = phi i32 [ %dofs, %if.then8 ], [ %add11, %expand_cmps_vec.exit ]
-  %aofs.addr.0 = phi i32 [ %aofs, %if.then8 ], [ %add, %expand_cmps_vec.exit ]
-  %oprsz.addr.0 = phi i32 [ %oprsz, %if.then8 ], [ %sub12, %expand_cmps_vec.exit ]
   %maxsz.addr.0 = phi i32 [ %maxsz, %if.then8 ], [ %sub13, %expand_cmps_vec.exit ]
+  %oprsz.addr.0 = phi i32 [ %oprsz, %if.then8 ], [ %sub12, %expand_cmps_vec.exit ]
+  %aofs.addr.0 = phi i32 [ %aofs, %if.then8 ], [ %add, %expand_cmps_vec.exit ]
+  %dofs.addr.0 = phi i32 [ %dofs, %if.then8 ], [ %add11, %expand_cmps_vec.exit ]
   %div1593 = and i32 %oprsz.addr.0, -16
   %call.i97 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #7
   %call1.i98 = tail call ptr @tcg_temp_new_vec(i32 noundef 4) #7
@@ -9772,9 +9772,9 @@ do.body:                                          ; preds = %if.then8
   unreachable
 
 sw.epilog:                                        ; preds = %for.body.i112, %for.body.i100, %sw.bb17, %sw.bb14
-  %dofs.addr.1 = phi i32 [ %dofs.addr.0, %sw.bb14 ], [ %dofs, %sw.bb17 ], [ %dofs.addr.0, %for.body.i100 ], [ %dofs, %for.body.i112 ]
-  %oprsz.addr.1 = phi i32 [ %oprsz.addr.0, %sw.bb14 ], [ %oprsz, %sw.bb17 ], [ %oprsz.addr.0, %for.body.i100 ], [ %oprsz, %for.body.i112 ]
   %maxsz.addr.1 = phi i32 [ %maxsz.addr.0, %sw.bb14 ], [ %maxsz, %sw.bb17 ], [ %maxsz.addr.0, %for.body.i100 ], [ %maxsz, %for.body.i112 ]
+  %oprsz.addr.1 = phi i32 [ %oprsz.addr.0, %sw.bb14 ], [ %oprsz, %sw.bb17 ], [ %oprsz.addr.0, %for.body.i100 ], [ %oprsz, %for.body.i112 ]
+  %dofs.addr.1 = phi i32 [ %dofs.addr.0, %sw.bb14 ], [ %dofs, %sw.bb17 ], [ %dofs.addr.0, %for.body.i100 ], [ %dofs, %for.body.i112 ]
   tail call void @tcg_temp_free_vec(ptr noundef %call10) #7
   br label %if.end74
 
@@ -9885,14 +9885,14 @@ if.end68:                                         ; preds = %if.then59, %if.else
   br label %if.end80
 
 if.end74:                                         ; preds = %for.end, %for.end55, %sw.epilog
-  %dofs.addr.2 = phi i32 [ %dofs.addr.1, %sw.epilog ], [ %dofs, %for.end ], [ %dofs, %for.end55 ]
-  %oprsz.addr.2 = phi i32 [ %oprsz.addr.1, %sw.epilog ], [ %oprsz, %for.end ], [ %oprsz, %for.end55 ]
   %maxsz.addr.2 = phi i32 [ %maxsz.addr.1, %sw.epilog ], [ %maxsz, %for.end ], [ %maxsz, %for.end55 ]
+  %oprsz.addr.2 = phi i32 [ %oprsz.addr.1, %sw.epilog ], [ %oprsz, %for.end ], [ %oprsz, %for.end55 ]
+  %dofs.addr.2 = phi i32 [ %dofs.addr.1, %sw.epilog ], [ %dofs, %for.end ], [ %dofs, %for.end55 ]
   %cmp75 = icmp ult i32 %oprsz.addr.2, %maxsz.addr.2
   br i1 %cmp75, label %if.then77, label %if.end80
 
 if.then77:                                        ; preds = %if.end74
-  %add78 = add i32 %oprsz.addr.2, %dofs.addr.2
+  %add78 = add i32 %dofs.addr.2, %oprsz.addr.2
   %sub79 = sub i32 %maxsz.addr.2, %oprsz.addr.2
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %add78, i32 noundef %sub79, i32 noundef %sub79, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %if.end80

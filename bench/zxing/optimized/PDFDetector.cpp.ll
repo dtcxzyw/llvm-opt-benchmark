@@ -1975,13 +1975,13 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br i1 %31, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %43, %.loopexit80
-  %.062.lcssa = phi i32 [ %3, %.loopexit80 ], [ %44, %43 ]
-  %32 = add nsw i32 %.062.lcssa, 1
+  %.061.lcssa = phi i32 [ %3, %.loopexit80 ], [ %44, %43 ]
+  %32 = add nsw i32 %.061.lcssa, 1
   br label %89
 
 .lr.ph:                                           ; preds = %.loopexit80, %43
-  %.06288 = phi i32 [ %44, %43 ], [ %3, %.loopexit80 ]
-  %33 = invoke fastcc noundef zeroext i1 @_ZN5ZXing6Pdf417L16FindGuardPatternERKNS_9BitMatrixEiiibRKSt6vectorIiSaIiEERS6_RiSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, i32 noundef %.06288, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %.06188 = phi i32 [ %44, %43 ], [ %3, %.loopexit80 ]
+  %33 = invoke fastcc noundef zeroext i1 @_ZN5ZXing6Pdf417L16FindGuardPatternERKNS_9BitMatrixEiiibRKSt6vectorIiSaIiEERS6_RiSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, i32 noundef %.06188, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %34 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 34:                                               ; preds = %.lr.ph
@@ -1992,12 +1992,12 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %36
 
 36:                                               ; preds = %.preheader, %41
-  %.163 = phi i32 [ %39, %41 ], [ %.06288, %.preheader ]
-  %37 = icmp sgt i32 %.163, %35
+  %.162 = phi i32 [ %39, %41 ], [ %.06188, %.preheader ]
+  %37 = icmp sgt i32 %.162, %35
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %36
-  %39 = add nsw i32 %.163, -1
+  %39 = add nsw i32 %.162, -1
   %40 = invoke fastcc noundef zeroext i1 @_ZN5ZXing6Pdf417L16FindGuardPatternERKNS_9BitMatrixEiiibRKSt6vectorIiSaIiEERS6_RiSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, i32 noundef %39, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %41 unwind label %.loopexit.split-lp.loopexit
 
@@ -2029,14 +2029,14 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 43:                                               ; preds = %34
-  %44 = add nsw i32 %.06288, 8
+  %44 = add nsw i32 %.06188, 8
   %45 = icmp slt i32 %44, %1
   br i1 %45, label %.lr.ph, label %.thread, !llvm.loop !28
 
 46:                                               ; preds = %36, %41
   %47 = load i32, ptr %8, align 4
   %48 = sitofp i32 %47 to double
-  %49 = sitofp i32 %.163 to double
+  %49 = sitofp i32 %.162 to double
   store i8 1, ptr %6, align 8
   %50 = getelementptr inbounds i8, ptr %6, i64 8
   store double %48, ptr %50, align 8
@@ -2050,7 +2050,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store double %52, ptr %54, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
   store double %49, ptr %.sroa.272.0..sroa_idx, align 8
-  %55 = add nsw i32 %.163, 1
+  %55 = add nsw i32 %.162, 1
   %56 = sitofp i32 %47 to float
   %57 = fptosi float %56 to i32
   %58 = sitofp i32 %51 to float
@@ -2131,7 +2131,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %89
 
 89:                                               ; preds = %.thread, %._crit_edge
-  %.376 = phi i32 [ %.163, %._crit_edge ], [ %.062.lcssa, %.thread ]
+  %.376 = phi i32 [ %.162, %._crit_edge ], [ %.061.lcssa, %.thread ]
   %.158 = phi i32 [ %81, %._crit_edge ], [ %32, %.thread ]
   %90 = sub nsw i32 %.158, %.376
   %91 = icmp slt i32 %90, 10
@@ -2307,16 +2307,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit76:               ; preds = %55
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0366.i = phi i64 [ %89, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0375.i = phi i32 [ %88, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0384.i = phi i32 [ %85, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %83 = getelementptr inbounds i32, ptr %.val, i64 %.0366.i
+  %.0356.i = phi i32 [ %85, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0385.i = phi i32 [ %88, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0394.i = phi i64 [ %89, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %83 = getelementptr inbounds i32, ptr %.val, i64 %.0394.i
   %84 = load i32, ptr %83, align 4
-  %85 = add nsw i32 %84, %.0384.i
-  %86 = getelementptr inbounds i32, ptr %.val70, i64 %.0366.i
+  %85 = add nsw i32 %84, %.0356.i
+  %86 = getelementptr inbounds i32, ptr %.val70, i64 %.0394.i
   %87 = load i32, ptr %86, align 4
-  %88 = add nsw i32 %87, %.0375.i
-  %89 = add nuw i64 %.0366.i, 1
+  %88 = add nsw i32 %87, %.0385.i
+  %89 = add nuw i64 %.0394.i, 1
   %exitcond.not.i = icmp eq i64 %89, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
 
@@ -2332,11 +2332,11 @@ _ZNK5ZXing9BitMatrix3getEii.exit76:               ; preds = %55
   br label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %107, %.lr.ph12.preheader.i
-  %.010.i = phi i64 [ %109, %107 ], [ 0, %.lr.ph12.preheader.i ]
-  %.0359.i = phi float [ %108, %107 ], [ 0.000000e+00, %.lr.ph12.preheader.i ]
-  %95 = getelementptr inbounds i32, ptr %.val, i64 %.010.i
+  %.03610.i = phi i64 [ %109, %107 ], [ 0, %.lr.ph12.preheader.i ]
+  %.0379.i = phi float [ %108, %107 ], [ 0.000000e+00, %.lr.ph12.preheader.i ]
+  %95 = getelementptr inbounds i32, ptr %.val, i64 %.03610.i
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i32, ptr %.val70, i64 %.010.i
+  %97 = getelementptr inbounds i32, ptr %.val70, i64 %.03610.i
   %98 = load i32, ptr %97, align 4
   %99 = sitofp i32 %98 to float
   %100 = fmul float %93, %99
@@ -2349,8 +2349,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit76:               ; preds = %55
   br i1 %106, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit.thread, label %107
 
 107:                                              ; preds = %.lr.ph12.i
-  %108 = fadd float %.0359.i, %105
-  %109 = add nuw i64 %.010.i, 1
+  %108 = fadd float %.0379.i, %105
+  %109 = add nuw i64 %.03610.i, 1
   %exitcond19.not.i = icmp eq i64 %109, %umax.i
   br i1 %exitcond19.not.i, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit, label %.lr.ph12.i, !llvm.loop !33
 
@@ -2434,16 +2434,16 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
-  %.0366.i81 = phi i64 [ %147, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %.0375.i82 = phi i32 [ %146, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %.0384.i83 = phi i32 [ %143, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
-  %141 = getelementptr inbounds i32, ptr %.val71, i64 %.0366.i81
+  %.0356.i81 = phi i32 [ %143, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %.0385.i82 = phi i32 [ %146, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %.0394.i83 = phi i64 [ %147, %.lr.ph.i80 ], [ 0, %.lr.ph.preheader.i78 ]
+  %141 = getelementptr inbounds i32, ptr %.val71, i64 %.0394.i83
   %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %142, %.0384.i83
-  %144 = getelementptr inbounds i32, ptr %.val73, i64 %.0366.i81
+  %143 = add nsw i32 %142, %.0356.i81
+  %144 = getelementptr inbounds i32, ptr %.val73, i64 %.0394.i83
   %145 = load i32, ptr %144, align 4
-  %146 = add nsw i32 %145, %.0375.i82
-  %147 = add nuw i64 %.0366.i81, 1
+  %146 = add nsw i32 %145, %.0385.i82
+  %147 = add nuw i64 %.0394.i83, 1
   %exitcond.not.i84 = icmp eq i64 %147, %umax.i79
   br i1 %exitcond.not.i84, label %._crit_edge.i85, label %.lr.ph.i80, !llvm.loop !32
 
@@ -2459,11 +2459,11 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br label %.lr.ph12.i88
 
 .lr.ph12.i88:                                     ; preds = %165, %.lr.ph12.preheader.i86
-  %.010.i89 = phi i64 [ %167, %165 ], [ 0, %.lr.ph12.preheader.i86 ]
-  %.0359.i90 = phi float [ %166, %165 ], [ 0.000000e+00, %.lr.ph12.preheader.i86 ]
-  %153 = getelementptr inbounds i32, ptr %.val71, i64 %.010.i89
+  %.03610.i89 = phi i64 [ %167, %165 ], [ 0, %.lr.ph12.preheader.i86 ]
+  %.0379.i90 = phi float [ %166, %165 ], [ 0.000000e+00, %.lr.ph12.preheader.i86 ]
+  %153 = getelementptr inbounds i32, ptr %.val71, i64 %.03610.i89
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i32, ptr %.val73, i64 %.010.i89
+  %155 = getelementptr inbounds i32, ptr %.val73, i64 %.03610.i89
   %156 = load i32, ptr %155, align 4
   %157 = sitofp i32 %156 to float
   %158 = fmul float %151, %157
@@ -2476,8 +2476,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %164, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95.thread, label %165
 
 165:                                              ; preds = %.lr.ph12.i88
-  %166 = fadd float %.0359.i90, %163
-  %167 = add nuw i64 %.010.i89, 1
+  %166 = fadd float %.0379.i90, %163
+  %167 = add nuw i64 %.03610.i89, 1
   %exitcond19.not.i91 = icmp eq i64 %167, %umax.i79
   br i1 %exitcond19.not.i91, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit95, label %.lr.ph12.i88, !llvm.loop !33
 

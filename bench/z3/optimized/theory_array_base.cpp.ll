@@ -2701,9 +2701,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp4.not6.i, label %if.end18.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %curr.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %6, %if.end.i ]
-  %overhead.07.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
-  %m_ptr.i.i = getelementptr inbounds i8, ptr %curr.08.i, i64 8
+  %overhead.08.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
+  %curr.07.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %6, %if.end.i ]
+  %m_ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i, i64 8
   %8 = load ptr, ptr %m_ptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %if.else.i, label %if.then5.i
@@ -2713,12 +2713,12 @@ if.then5.i:                                       ; preds = %for.body.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %inc.i = add i32 %overhead.07.i, 1
+  %inc.i = add i32 %overhead.08.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then5.i
-  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.07.i, %if.then5.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.08.i, i64 16
+  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.08.i, %if.then5.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.07.i, i64 16
   %cmp4.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
@@ -2953,11 +2953,11 @@ entry:
   %2 = load ptr, ptr %n2, align 8
   %3 = load i32, ptr %2, align 4
   %cmp = icmp ugt i32 %1, %3
-  %spec.select = select i1 %cmp, ptr %n2, ptr %n1
-  %spec.select8 = select i1 %cmp, ptr %n1, ptr %n2
-  store ptr %spec.select, ptr %nodes, align 16
+  %spec.select = select i1 %cmp, ptr %n1, ptr %n2
+  %spec.select8 = select i1 %cmp, ptr %n2, ptr %n1
+  store ptr %spec.select8, ptr %nodes, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %nodes, i64 8
-  store ptr %spec.select8, ptr %arrayinit.element, align 8
+  store ptr %spec.select, ptr %arrayinit.element, align 8
   %ctx = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %ctx, align 8
   %m_fingerprints.i = getelementptr inbounds i8, ptr %4, i64 8992
@@ -2966,7 +2966,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %call6 = call noundef zeroext i1 @_ZN3smt17theory_array_base13already_diseqEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select8)
+  %call6 = call noundef zeroext i1 @_ZN3smt17theory_array_base13already_diseqEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef nonnull %spec.select8, ptr noundef nonnull %spec.select)
   br i1 %call6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
@@ -2995,9 +2995,9 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backEOS4_.exit: ; preds = %lor.l
   %9 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 %idx.ext.i
-  store ptr %spec.select, ptr %add.ptr.i, align 8
+  store ptr %spec.select8, ptr %add.ptr.i, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  store ptr %spec.select8, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
+  store ptr %spec.select, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
   %10 = load ptr, ptr %m_extensionality_todo, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx10.i, align 4
@@ -3019,11 +3019,11 @@ entry:
   %2 = load ptr, ptr %a2, align 8
   %3 = load i32, ptr %2, align 4
   %cmp = icmp ugt i32 %1, %3
-  %spec.select = select i1 %cmp, ptr %a2, ptr %a1
-  %spec.select6 = select i1 %cmp, ptr %a1, ptr %a2
-  store ptr %spec.select, ptr %nodes, align 16
+  %spec.select = select i1 %cmp, ptr %a1, ptr %a2
+  %spec.select6 = select i1 %cmp, ptr %a2, ptr %a1
+  store ptr %spec.select6, ptr %nodes, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %nodes, i64 8
-  store ptr %spec.select6, ptr %arrayinit.element, align 8
+  store ptr %spec.select, ptr %arrayinit.element, align 8
   %ctx = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %ctx, align 8
   %m_fingerprints.i = getelementptr inbounds i8, ptr %4, i64 8992
@@ -3057,9 +3057,9 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backEOS4_.exit: ; preds = %lor.l
   %9 = phi ptr [ %.pre.i, %if.then.i ], [ %5, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 %idx.ext.i
-  store ptr %spec.select, ptr %add.ptr.i, align 8
+  store ptr %spec.select6, ptr %add.ptr.i, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  store ptr %spec.select6, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
+  store ptr %spec.select, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
   %10 = load ptr, ptr %m_congruent_todo, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx10.i, align 4
@@ -5209,11 +5209,11 @@ for.body.lr.ph:                                   ; preds = %_ZN3smt5enode11end_
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc89
   %is_array.0116 = phi i8 [ 0, %for.body.lr.ph ], [ %is_array.3, %for.inc89 ]
-  %it.0115 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc89 ]
-  %num_roles.0114 = phi i32 [ 0, %for.body.lr.ph ], [ %num_roles.9, %for.inc89 ]
-  %is_value.0113 = phi i8 [ 0, %for.body.lr.ph ], [ %is_value.3, %for.inc89 ]
-  %is_index.0112 = phi i8 [ 0, %for.body.lr.ph ], [ %is_index.5, %for.inc89 ]
-  %7 = load ptr, ptr %it.0115, align 8
+  %is_index.0115 = phi i8 [ 0, %for.body.lr.ph ], [ %is_index.5, %for.inc89 ]
+  %it.0114 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc89 ]
+  %num_roles.0113 = phi i32 [ 0, %for.body.lr.ph ], [ %num_roles.9, %for.inc89 ]
+  %is_value.0112 = phi i8 [ 0, %for.body.lr.ph ], [ %is_value.3, %for.inc89 ]
+  %7 = load ptr, ptr %it.0114, align 8
   %m_suppress_args.i = getelementptr inbounds i8, ptr %7, i64 44
   %bf.load.i = load i16, ptr %m_suppress_args.i, align 4
   %8 = and i16 %bf.load.i, 8
@@ -5255,7 +5255,7 @@ if.then:                                          ; preds = %_ZNK3smt17theory_ar
   %spec.select39 = select i1 %tobool, i8 %is_array.0116, i8 1
   %narrow86 = select i1 %cmp9, i1 %not.tobool, i1 false
   %spec.select = zext i1 %narrow86 to i32
-  %num_roles.1 = add nsw i32 %num_roles.0114, %spec.select
+  %num_roles.1 = add nsw i32 %num_roles.0113, %spec.select
   %is_array.1 = select i1 %cmp9, i8 %spec.select39, i8 %is_array.0116
   %cmp11 = icmp sgt i32 %num_roles.1, 1
   br i1 %cmp11, label %return, label %for.cond14.preheader
@@ -5268,40 +5268,40 @@ for.cond14.preheader:                             ; preds = %if.then
 
 for.body16:                                       ; preds = %for.cond14.preheader, %for.inc
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %for.inc ], [ 1, %for.cond14.preheader ]
-  %num_roles.2106 = phi i32 [ %num_roles.3, %for.inc ], [ %num_roles.1, %for.cond14.preheader ]
-  %is_index.1105 = phi i8 [ %is_index.2, %for.inc ], [ %is_index.0112, %for.cond14.preheader ]
+  %is_index.1106 = phi i8 [ %is_index.2, %for.inc ], [ %is_index.0115, %for.cond14.preheader ]
+  %num_roles.2105 = phi i32 [ %num_roles.3, %for.inc ], [ %num_roles.1, %for.cond14.preheader ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv129
   %17 = load ptr, ptr %arrayidx.i, align 8
   %m_root.i53 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %m_root.i53, align 8
   %cmp19 = icmp eq ptr %18, %2
-  %tobool21 = trunc nuw i8 %is_index.1105 to i1
+  %tobool21 = trunc nuw i8 %is_index.1106 to i1
   %not.tobool21 = xor i1 %tobool21, true
   %narrow88 = select i1 %cmp19, i1 %not.tobool21, i1 false
-  %spec.select41 = zext i1 %narrow88 to i32
-  %num_roles.3 = add nsw i32 %num_roles.2106, %spec.select41
+  %spec.select40 = zext i1 %narrow88 to i32
+  %num_roles.3 = add nsw i32 %num_roles.2105, %spec.select40
   %cmp25 = icmp sgt i32 %num_roles.3, 1
   br i1 %cmp25, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body16
-  %spec.select40 = select i1 %tobool21, i8 %is_index.1105, i8 1
-  %is_index.2 = select i1 %cmp19, i8 %spec.select40, i8 %is_index.1105
+  %spec.select41 = select i1 %tobool21, i8 %is_index.1106, i8 1
+  %is_index.2 = select i1 %cmp19, i8 %spec.select41, i8 %is_index.1106
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count131
   br i1 %exitcond132.not, label %for.end, label %for.body16, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %for.cond14.preheader
-  %is_index.1.lcssa = phi i8 [ %is_index.0112, %for.cond14.preheader ], [ %is_index.2, %for.inc ]
   %num_roles.2.lcssa = phi i32 [ %num_roles.1, %for.cond14.preheader ], [ %num_roles.3, %for.inc ]
+  %is_index.1.lcssa = phi i8 [ %is_index.0115, %for.cond14.preheader ], [ %is_index.2, %for.inc ]
   %arrayidx.i56 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %wide.trip.count131
   %19 = load ptr, ptr %arrayidx.i56, align 8
   %m_root.i57 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %m_root.i57, align 8
   %cmp32 = icmp eq ptr %20, %2
-  %tobool34 = trunc nuw i8 %is_value.0113 to i1
-  %spec.select42 = select i1 %tobool34, i8 %is_value.0113, i8 1
+  %tobool34 = trunc nuw i8 %is_value.0112 to i1
+  %spec.select42 = select i1 %tobool34, i8 %is_value.0112, i8 1
   %not.tobool34 = xor i1 %tobool34, true
-  %is_value.1 = select i1 %cmp32, i8 %spec.select42, i8 %is_value.0113
+  %is_value.1 = select i1 %cmp32, i8 %spec.select42, i8 %is_value.0112
   %narrow87 = select i1 %cmp32, i1 %not.tobool34, i1 false
   %spec.select43 = zext i1 %narrow87 to i32
   %num_roles.4 = add nsw i32 %num_roles.2.lcssa, %spec.select43
@@ -5324,7 +5324,7 @@ if.then42:                                        ; preds = %_ZNK3smt17theory_ar
   %spec.select45 = select i1 %tobool47, i8 %is_array.0116, i8 1
   %narrow84 = select i1 %cmp45, i1 %not.tobool47, i1 false
   %spec.select44 = zext i1 %narrow84 to i32
-  %num_roles.5 = add nsw i32 %num_roles.0114, %spec.select44
+  %num_roles.5 = add nsw i32 %num_roles.0113, %spec.select44
   %is_array.2 = select i1 %cmp45, i8 %spec.select45, i8 %is_array.0116
   %cmp51 = icmp sgt i32 %num_roles.5, 1
   br i1 %cmp51, label %return, label %for.cond55.preheader
@@ -5339,24 +5339,24 @@ for.body57.preheader:                             ; preds = %for.cond55.preheade
 
 for.body57:                                       ; preds = %for.body57.preheader, %for.inc69
   %indvars.iv = phi i64 [ 1, %for.body57.preheader ], [ %indvars.iv.next, %for.inc69 ]
-  %num_roles.6101 = phi i32 [ %num_roles.5, %for.body57.preheader ], [ %num_roles.7, %for.inc69 ]
-  %is_index.3100 = phi i8 [ %is_index.0112, %for.body57.preheader ], [ %is_index.4, %for.inc69 ]
+  %is_index.3101 = phi i8 [ %is_index.0115, %for.body57.preheader ], [ %is_index.4, %for.inc69 ]
+  %num_roles.6100 = phi i32 [ %num_roles.5, %for.body57.preheader ], [ %num_roles.7, %for.inc69 ]
   %arrayidx.i71 = getelementptr inbounds [0 x ptr], ptr %m_args.i66, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %arrayidx.i71, align 8
   %m_root.i72 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %m_root.i72, align 8
   %cmp60 = icmp eq ptr %25, %2
-  %tobool62 = trunc nuw i8 %is_index.3100 to i1
+  %tobool62 = trunc nuw i8 %is_index.3101 to i1
   %not.tobool62 = xor i1 %tobool62, true
   %narrow85 = select i1 %cmp60, i1 %not.tobool62, i1 false
-  %spec.select47 = zext i1 %narrow85 to i32
-  %num_roles.7 = add nsw i32 %num_roles.6101, %spec.select47
+  %spec.select46 = zext i1 %narrow85 to i32
+  %num_roles.7 = add nsw i32 %num_roles.6100, %spec.select46
   %cmp66 = icmp sgt i32 %num_roles.7, 1
   br i1 %cmp66, label %return, label %for.inc69
 
 for.inc69:                                        ; preds = %for.body57
-  %spec.select46 = select i1 %tobool62, i8 %is_index.3100, i8 1
-  %is_index.4 = select i1 %cmp60, i8 %spec.select46, i8 %is_index.3100
+  %spec.select47 = select i1 %tobool62, i8 %is_index.3101, i8 1
+  %is_index.4 = select i1 %cmp60, i8 %spec.select47, i8 %is_index.3101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc89, label %for.body57, !llvm.loop !28
@@ -5372,22 +5372,22 @@ if.then74:                                        ; preds = %_ZNK3smt17theory_ar
   %m_root.i83 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %m_root.i83, align 8
   %cmp77 = icmp eq ptr %28, %2
-  %tobool79 = trunc nuw i8 %is_value.0113 to i1
-  %spec.select48 = select i1 %tobool79, i8 %is_value.0113, i8 1
+  %tobool79 = trunc nuw i8 %is_value.0112 to i1
+  %spec.select48 = select i1 %tobool79, i8 %is_value.0112, i8 1
   %not.tobool79 = xor i1 %tobool79, true
-  %is_value.2 = select i1 %cmp77, i8 %spec.select48, i8 %is_value.0113
+  %is_value.2 = select i1 %cmp77, i8 %spec.select48, i8 %is_value.0112
   %narrow = select i1 %cmp77, i1 %not.tobool79, i1 false
   %spec.select49 = zext i1 %narrow to i32
-  %num_roles.8 = add nsw i32 %num_roles.0114, %spec.select49
+  %num_roles.8 = add nsw i32 %num_roles.0113, %spec.select49
   %cmp83 = icmp sgt i32 %num_roles.8, 1
   br i1 %cmp83, label %return, label %for.inc89
 
 for.inc89:                                        ; preds = %for.inc69, %for.cond55.preheader, %_ZNK3smt5enode12get_num_argsEv.exit, %for.end, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit, %if.then74
-  %is_index.5 = phi i8 [ %is_index.1.lcssa, %for.end ], [ %is_index.0112, %if.then74 ], [ %is_index.0112, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %is_index.0112, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %is_index.0112, %for.cond55.preheader ], [ %is_index.4, %for.inc69 ]
-  %is_value.3 = phi i8 [ %is_value.1, %for.end ], [ %is_value.2, %if.then74 ], [ %is_value.0113, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %is_value.0113, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %is_value.0113, %for.cond55.preheader ], [ %is_value.0113, %for.inc69 ]
-  %num_roles.9 = phi i32 [ %num_roles.4, %for.end ], [ %num_roles.8, %if.then74 ], [ %num_roles.0114, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %num_roles.0114, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %num_roles.5, %for.cond55.preheader ], [ %num_roles.7, %for.inc69 ]
+  %is_value.3 = phi i8 [ %is_value.1, %for.end ], [ %is_value.2, %if.then74 ], [ %is_value.0112, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %is_value.0112, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %is_value.0112, %for.cond55.preheader ], [ %is_value.0112, %for.inc69 ]
+  %num_roles.9 = phi i32 [ %num_roles.4, %for.end ], [ %num_roles.8, %if.then74 ], [ %num_roles.0113, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %num_roles.0113, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %num_roles.5, %for.cond55.preheader ], [ %num_roles.7, %for.inc69 ]
+  %is_index.5 = phi i8 [ %is_index.1.lcssa, %for.end ], [ %is_index.0115, %if.then74 ], [ %is_index.0115, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %is_index.0115, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %is_index.0115, %for.cond55.preheader ], [ %is_index.4, %for.inc69 ]
   %is_array.3 = phi i8 [ %is_array.1, %for.end ], [ %is_array.0116, %if.then74 ], [ %is_array.0116, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %is_array.0116, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %is_array.2, %for.cond55.preheader ], [ %is_array.2, %for.inc69 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.0115, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0114, i64 8
   %cmp.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !29
 
@@ -7700,23 +7700,23 @@ if.end.i.i11:                                     ; preds = %_ZNK3smt6theory12ge
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i11, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %4, %if.end.i.i11 ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i11 ]
-  %6 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i11 ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %4, %if.end.i.i11 ]
+  %6 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !45
 

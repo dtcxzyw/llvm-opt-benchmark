@@ -478,7 +478,7 @@ Abc_StringGetNumber.exit168:                      ; preds = %.lr.ph.i164, %.lr.p
 .lr.ph308:                                        ; preds = %101, %227
   %.val152377 = phi i32 [ %.val152, %227 ], [ %.val152303, %101 ]
   %indvars.iv354 = phi i64 [ %indvars.iv.next355, %227 ], [ 0, %101 ]
-  %.0132305 = phi ptr [ %.1133, %227 ], [ %102, %101 ]
+  %.0129305 = phi ptr [ %.1130, %227 ], [ %102, %101 ]
   %.7304 = phi ptr [ %storemerge, %227 ], [ %.6314, %101 ]
   %.val153 = load ptr, ptr %1, align 8
   %.val154 = load ptr, ptr %99, align 8
@@ -589,7 +589,7 @@ Abc_ObjMvVarNum.exit182:                          ; preds = %132, %137, %139
 
 .lr.ph298:                                        ; preds = %144, %Abc_StringGetNumber.exit190
   %151 = phi i8 [ %168, %Abc_StringGetNumber.exit190 ], [ %150, %144 ]
-  %.0129296 = phi ptr [ %165, %Abc_StringGetNumber.exit190 ], [ %149, %144 ]
+  %.0133296 = phi ptr [ %165, %Abc_StringGetNumber.exit190 ], [ %149, %144 ]
   %.8295 = phi ptr [ %spec.select264, %Abc_StringGetNumber.exit190 ], [ %145, %144 ]
   %152 = add i8 %151, -48
   %or.cond10.i183 = icmp ult i8 %152, 10
@@ -616,7 +616,7 @@ Abc_StringGetNumber.exit190:                      ; preds = %.lr.ph.i186, %.lr.p
   %162 = sext i32 %.0.lcssa.i185 to i64
   %163 = getelementptr inbounds ptr, ptr %142, i64 %162
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call ptr @Abc_AigOr(ptr noundef %161, ptr noundef %.0129296, ptr noundef %164) #14
+  %165 = tail call ptr @Abc_AigOr(ptr noundef %161, ptr noundef %.0133296, ptr noundef %164) #14
   %166 = load i8, ptr %.08.lcssa.i184, align 1
   %167 = icmp eq i8 %166, 44
   %spec.select264.idx = zext i1 %167 to i64
@@ -627,7 +627,7 @@ Abc_StringGetNumber.exit190:                      ; preds = %.lr.ph.i186, %.lr.p
 
 ._crit_edge299:                                   ; preds = %Abc_StringGetNumber.exit190, %144
   %.8.lcssa = phi ptr [ %145, %144 ], [ %spec.select264, %Abc_StringGetNumber.exit190 ]
-  %.0129.lcssa = phi ptr [ %149, %144 ], [ %165, %Abc_StringGetNumber.exit190 ]
+  %.0133.lcssa = phi ptr [ %149, %144 ], [ %165, %Abc_StringGetNumber.exit190 ]
   %169 = getelementptr inbounds i8, ptr %.8.lcssa, i64 1
   br label %.loopexit265
 
@@ -697,14 +697,14 @@ Abc_ObjMvVarNum.exit204:                          ; preds = %Abc_StringGetNumber
 
 .lr.ph293:                                        ; preds = %Abc_ObjMvVarNum.exit204, %.lr.ph293
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.lr.ph293 ], [ 0, %Abc_ObjMvVarNum.exit204 ]
-  %.1130291 = phi ptr [ %210, %.lr.ph293 ], [ %203, %Abc_ObjMvVarNum.exit204 ]
+  %.1134291 = phi ptr [ %210, %.lr.ph293 ], [ %203, %Abc_ObjMvVarNum.exit204 ]
   %204 = load ptr, ptr %100, align 8
   %205 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv349
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds ptr, ptr %199, i64 %indvars.iv349
   %208 = load ptr, ptr %207, align 8
   %209 = tail call ptr @Abc_AigAnd(ptr noundef %204, ptr noundef %206, ptr noundef %208) #14
-  %210 = tail call ptr @Abc_AigOr(ptr noundef %204, ptr noundef %.1130291, ptr noundef %209) #14
+  %210 = tail call ptr @Abc_AigOr(ptr noundef %204, ptr noundef %.1134291, ptr noundef %209) #14
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count352
   br i1 %exitcond353.not, label %.loopexit265, label %.lr.ph293, !llvm.loop !9
@@ -738,9 +738,9 @@ Abc_StringGetNumber.exit212:                      ; preds = %.lr.ph.i208, %211
 
 .loopexit265:                                     ; preds = %.lr.ph293, %Abc_ObjMvVarNum.exit204, %Abc_StringGetNumber.exit212, %._crit_edge299
   %.10 = phi ptr [ %.08.lcssa.i206, %Abc_StringGetNumber.exit212 ], [ %169, %._crit_edge299 ], [ %.08.lcssa.i192, %Abc_ObjMvVarNum.exit204 ], [ %.08.lcssa.i192, %.lr.ph293 ]
-  %.2131 = phi ptr [ %223, %Abc_StringGetNumber.exit212 ], [ %.0129.lcssa, %._crit_edge299 ], [ %203, %Abc_ObjMvVarNum.exit204 ], [ %210, %.lr.ph293 ]
+  %.2135 = phi ptr [ %223, %Abc_StringGetNumber.exit212 ], [ %.0133.lcssa, %._crit_edge299 ], [ %203, %Abc_ObjMvVarNum.exit204 ], [ %210, %.lr.ph293 ]
   %224 = load ptr, ptr %100, align 8
-  %225 = tail call ptr @Abc_AigAnd(ptr noundef %224, ptr noundef %.0132305, ptr noundef %.2131) #14
+  %225 = tail call ptr @Abc_AigAnd(ptr noundef %224, ptr noundef %.0129305, ptr noundef %.2135) #14
   %226 = getelementptr inbounds i8, ptr %.10, i64 1
   %.val152.pre = load i32, ptr %30, align 4
   br label %227
@@ -748,7 +748,7 @@ Abc_StringGetNumber.exit212:                      ; preds = %.lr.ph.i208, %211
 227:                                              ; preds = %.loopexit265, %112
   %.val152 = phi i32 [ %.val152.pre, %.loopexit265 ], [ %.val152377, %112 ]
   %storemerge = phi ptr [ %226, %.loopexit265 ], [ %113, %112 ]
-  %.1133 = phi ptr [ %225, %.loopexit265 ], [ %.0132305, %112 ]
+  %.1130 = phi ptr [ %225, %.loopexit265 ], [ %.0129305, %112 ]
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %228 = sext i32 %.val152 to i64
   %229 = icmp slt i64 %indvars.iv.next355, %228
@@ -756,7 +756,7 @@ Abc_StringGetNumber.exit212:                      ; preds = %.lr.ph.i208, %211
 
 .critedge:                                        ; preds = %227, %101
   %.7.lcssa = phi ptr [ %.6314, %101 ], [ %storemerge, %227 ]
-  %.0132.lcssa = phi ptr [ %102, %101 ], [ %.1133, %227 ]
+  %.0129.lcssa = phi ptr [ %102, %101 ], [ %.1130, %227 ]
   %230 = load i8, ptr %.7.lcssa, align 1
   %231 = icmp eq i8 %230, 61
   br i1 %231, label %232, label %270
@@ -832,7 +832,7 @@ Abc_ObjMvVarNum.exit226:                          ; preds = %256
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds ptr, ptr %262, i64 %indvars.iv357
   %267 = load ptr, ptr %266, align 8
-  %268 = tail call ptr @Abc_AigAnd(ptr noundef %263, ptr noundef %.0132.lcssa, ptr noundef %267) #14
+  %268 = tail call ptr @Abc_AigAnd(ptr noundef %263, ptr noundef %.0129.lcssa, ptr noundef %267) #14
   %269 = tail call ptr @Abc_AigOr(ptr noundef %263, ptr noundef %265, ptr noundef %268) #14
   store ptr %269, ptr %264, align 8
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
@@ -865,7 +865,7 @@ Abc_StringGetNumber.exit234:                      ; preds = %.lr.ph.i230, %270
   %281 = sext i32 %.0.lcssa.i229 to i64
   %282 = getelementptr inbounds ptr, ptr %21, i64 %281
   %283 = load ptr, ptr %282, align 8
-  %284 = tail call ptr @Abc_AigOr(ptr noundef %280, ptr noundef %283, ptr noundef %.0132.lcssa) #14
+  %284 = tail call ptr @Abc_AigOr(ptr noundef %280, ptr noundef %283, ptr noundef %.0129.lcssa) #14
   store ptr %284, ptr %282, align 8
   br label %.loopexit266
 
@@ -894,7 +894,7 @@ Abc_StringGetNumber.exit234:                      ; preds = %.lr.ph.i230, %270
 
 293:                                              ; preds = %.lr.ph321, %303
   %indvars.iv362 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next363, %303 ]
-  %.2134318 = phi ptr [ %290, %.lr.ph321 ], [ %.3135, %303 ]
+  %.2131318 = phi ptr [ %290, %.lr.ph321 ], [ %.3132, %303 ]
   %294 = icmp eq i64 %indvars.iv362, %292
   br i1 %294, label %303, label %295
 
@@ -905,23 +905,23 @@ Abc_StringGetNumber.exit234:                      ; preds = %.lr.ph.i230, %270
   %299 = ptrtoint ptr %298 to i64
   %300 = xor i64 %299, 1
   %301 = inttoptr i64 %300 to ptr
-  %302 = tail call ptr @Abc_AigAnd(ptr noundef %296, ptr noundef %.2134318, ptr noundef %301) #14
+  %302 = tail call ptr @Abc_AigAnd(ptr noundef %296, ptr noundef %.2131318, ptr noundef %301) #14
   br label %303
 
 303:                                              ; preds = %293, %295
-  %.3135 = phi ptr [ %.2134318, %293 ], [ %302, %295 ]
+  %.3132 = phi ptr [ %.2131318, %293 ], [ %302, %295 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
   br i1 %exitcond366.not, label %._crit_edge322, label %293, !llvm.loop !13
 
 ._crit_edge322:                                   ; preds = %303, %289
-  %.2134.lcssa = phi ptr [ %290, %289 ], [ %.3135, %303 ]
+  %.2131.lcssa = phi ptr [ %290, %289 ], [ %.3132, %303 ]
   br i1 %287, label %304, label %307
 
 304:                                              ; preds = %._crit_edge322
   %305 = zext nneg i32 %.1125 to i64
   %306 = getelementptr inbounds ptr, ptr %21, i64 %305
-  store ptr %.2134.lcssa, ptr %306, align 8
+  store ptr %.2131.lcssa, ptr %306, align 8
   br label %.loopexit
 
 307:                                              ; preds = %._crit_edge322
@@ -956,7 +956,7 @@ Abc_StringGetNumber.exit234:                      ; preds = %.lr.ph.i230, %270
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds ptr, ptr %319, i64 %indvars.iv367
   %327 = load ptr, ptr %326, align 8
-  %328 = tail call ptr @Abc_AigAnd(ptr noundef %323, ptr noundef %.2134.lcssa, ptr noundef %327) #14
+  %328 = tail call ptr @Abc_AigAnd(ptr noundef %323, ptr noundef %.2131.lcssa, ptr noundef %327) #14
   %329 = tail call ptr @Abc_AigOr(ptr noundef %323, ptr noundef %325, ptr noundef %328) #14
   store ptr %329, ptr %324, align 8
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
@@ -3248,44 +3248,44 @@ define range(i32 0, 2) i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed
 
 .preheader78:                                     ; preds = %26, %.critedge2
   %40 = phi i8 [ %51, %.critedge2 ], [ %39, %26 ]
-  %.05881 = phi ptr [ %47, %.critedge2 ], [ %37, %26 ]
-  %.06080 = phi ptr [ %50, %.critedge2 ], [ %38, %26 ]
+  %.05881 = phi ptr [ %50, %.critedge2 ], [ %38, %26 ]
+  %.06080 = phi ptr [ %47, %.critedge2 ], [ %37, %26 ]
   br label %41
 
 41:                                               ; preds = %.preheader78, %43
   %42 = phi i8 [ %40, %.preheader78 ], [ %.pre, %43 ]
   %indvars.iv = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next, %43 ]
-  %.159 = phi ptr [ %.05881, %.preheader78 ], [ %45, %43 ]
+  %.161 = phi ptr [ %.06080, %.preheader78 ], [ %45, %43 ]
   switch i8 %42, label %43 [
     i8 32, label %.critedge2
     i8 0, label %.critedge2
   ]
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.159, i64 1
-  store i8 %42, ptr %.159, align 1
-  %45 = getelementptr inbounds i8, ptr %.159, i64 2
+  %44 = getelementptr inbounds i8, ptr %.161, i64 1
+  store i8 %42, ptr %.161, align 1
+  %45 = getelementptr inbounds i8, ptr %.161, i64 2
   store i8 32, ptr %44, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.06080, i64 %indvars.iv.next
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.05881, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %41, !llvm.loop !47
 
 .critedge2:                                       ; preds = %41, %41
-  %46 = getelementptr inbounds i8, ptr %.159, i64 1
-  store i8 48, ptr %.159, align 1
-  %47 = getelementptr inbounds i8, ptr %.159, i64 2
+  %46 = getelementptr inbounds i8, ptr %.161, i64 1
+  store i8 48, ptr %.161, align 1
+  %47 = getelementptr inbounds i8, ptr %.161, i64 2
   store i8 10, ptr %46, align 1
   %.val73 = load i32, ptr %32, align 4
   %48 = add nsw i32 %.val73, 3
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.06080, i64 %49
+  %50 = getelementptr inbounds i8, ptr %.05881, i64 %49
   %51 = load i8, ptr %50, align 1
   %.not66 = icmp eq i8 %51, 0
   br i1 %.not66, label %._crit_edge, label %.preheader78, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.critedge2, %26
-  %.058.lcssa = phi ptr [ %37, %26 ], [ %47, %.critedge2 ]
+  %.060.lcssa = phi ptr [ %37, %26 ], [ %47, %.critedge2 ]
   %52 = load ptr, ptr %3, align 8
   %53 = load i8, ptr %52, align 1
   %.not6782 = icmp eq i8 %53, 0
@@ -3293,14 +3293,14 @@ define range(i32 0, 2) i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed
 
 .preheader:                                       ; preds = %._crit_edge, %.critedge4
   %54 = phi i8 [ %65, %.critedge4 ], [ %53, %._crit_edge ]
-  %.284 = phi ptr [ %61, %.critedge4 ], [ %.058.lcssa, %._crit_edge ]
-  %.16183 = phi ptr [ %64, %.critedge4 ], [ %52, %._crit_edge ]
+  %.15984 = phi ptr [ %64, %.critedge4 ], [ %52, %._crit_edge ]
+  %.283 = phi ptr [ %61, %.critedge4 ], [ %.060.lcssa, %._crit_edge ]
   br label %55
 
 55:                                               ; preds = %.preheader, %57
   %56 = phi i8 [ %54, %.preheader ], [ %.pre99, %57 ]
   %indvars.iv92 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next93, %57 ]
-  %.3 = phi ptr [ %.284, %.preheader ], [ %59, %57 ]
+  %.3 = phi ptr [ %.283, %.preheader ], [ %59, %57 ]
   switch i8 %56, label %57 [
     i8 32, label %.critedge4
     i8 0, label %.critedge4
@@ -3312,7 +3312,7 @@ define range(i32 0, 2) i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed
   %59 = getelementptr inbounds i8, ptr %.3, i64 2
   store i8 32, ptr %58, align 1
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %.16183, i64 %indvars.iv.next93
+  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %.15984, i64 %indvars.iv.next93
   %.pre99 = load i8, ptr %.phi.trans.insert98, align 1
   br label %55, !llvm.loop !49
 
@@ -3324,13 +3324,13 @@ define range(i32 0, 2) i32 @Abc_NtkConvertToBlifMv(ptr noundef %0) local_unnamed
   %.val72 = load i32, ptr %32, align 4
   %62 = add nsw i32 %.val72, 3
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %.16183, i64 %63
+  %64 = getelementptr inbounds i8, ptr %.15984, i64 %63
   %65 = load i8, ptr %64, align 1
   %.not67 = icmp eq i8 %65, 0
   br i1 %.not67, label %._crit_edge85, label %.preheader, !llvm.loop !50
 
 ._crit_edge85:                                    ; preds = %.critedge4, %._crit_edge
-  %.2.lcssa = phi ptr [ %.058.lcssa, %._crit_edge ], [ %61, %.critedge4 ]
+  %.2.lcssa = phi ptr [ %.060.lcssa, %._crit_edge ], [ %61, %.critedge4 ]
   store i8 0, ptr %.2.lcssa, align 1
   %66 = load ptr, ptr %16, align 8
   %67 = getelementptr inbounds i8, ptr %21, i64 56

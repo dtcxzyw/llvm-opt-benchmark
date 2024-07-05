@@ -161,8 +161,8 @@ define dso_local noundef ptr @_Z16find_block_by_idi(i32 noundef %0) local_unname
   br label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.loopexit
-  %.01419 = phi i64 [ %30, %.loopexit ], [ 0, %.lr.ph20.preheader ]
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %.01419
+  %.01519 = phi i64 [ %30, %.loopexit ], [ 0, %.lr.ph20.preheader ]
+  %10 = getelementptr inbounds ptr, ptr %5, i64 %.01519
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 267
   %13 = load i8, ptr %12, align 1
@@ -186,13 +186,13 @@ define dso_local noundef ptr @_Z16find_block_by_idi(i32 noundef %0) local_unname
   br label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
-  %24 = add nuw i64 %.018, 1
+  %24 = add nuw i64 %.01418, 1
   %exitcond.not = icmp eq i64 %24, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %.018 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds ptr, ptr %18, i64 %.018
+  %.01418 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
+  %25 = getelementptr inbounds ptr, ptr %18, i64 %.01418
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
@@ -200,13 +200,13 @@ define dso_local noundef ptr @_Z16find_block_by_idi(i32 noundef %0) local_unname
   br i1 %29, label %.loopexit16, label %23
 
 .loopexit:                                        ; preds = %23, %.preheader, %.lr.ph20
-  %30 = add nuw i64 %.01419, 1
+  %30 = add nuw i64 %.01519, 1
   %exitcond25.not = icmp eq i64 %30, %umax24
   br i1 %exitcond25.not, label %.loopexit16, label %.lr.ph20, !llvm.loop !7
 
 .loopexit16:                                      ; preds = %.loopexit, %.lr.ph, %1
-  %.015 = phi ptr [ null, %1 ], [ %26, %.lr.ph ], [ null, %.loopexit ]
-  ret ptr %.015
+  %.0 = phi ptr [ null, %1 ], [ %26, %.lr.ph ], [ null, %.loopexit ]
+  ret ptr %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_Z17get_all_functionsv() local_unnamed_addr #0
@@ -4543,8 +4543,8 @@ define dso_local noundef zeroext i1 @_ZNK5Block18contains_back_edgeEv(ptr nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %.010 = phi i64 [ %26, %25 ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %.010
+  %.0810 = phi i64 [ %26, %25 ], [ 0, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %.0810
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 25
   %17 = load i8, ptr %16, align 1
@@ -4560,13 +4560,13 @@ define dso_local noundef zeroext i1 @_ZNK5Block18contains_back_edgeEv(ptr nounde
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %.lr.ph, %19
-  %26 = add nuw i64 %.010, 1
+  %26 = add nuw i64 %.0810, 1
   %exitcond.not = icmp eq i64 %26, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 .loopexit:                                        ; preds = %19, %25, %4, %1
-  %.08 = phi i1 [ false, %1 ], [ false, %4 ], [ true, %19 ], [ false, %25 ]
-  ret i1 %.08
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ true, %19 ], [ false, %25 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_Z11merge_factsRSt6vectorIPK4FactSaIS2_EERKS4_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0

@@ -840,8 +840,8 @@ if.else:                                          ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.else
-  %pathbuf.0 = phi ptr [ %call9, %if.else ], [ null, %if.end ]
   %path.0 = phi ptr [ %call9, %if.else ], [ %2, %if.end ]
+  %pathbuf.0 = phi ptr [ %call9, %if.else ], [ null, %if.end ]
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.0) #15
   %cmp12 = icmp ugt i64 %call11, 108
   %cmp17 = icmp eq i64 %call11, 108

@@ -447,8 +447,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %40
 
 40:                                               ; preds = %19, %22, %25, %28, %31, %34, %37
-  %.0 = phi i32 [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
-  %41 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.0) #4
+  %.040 = phi i32 [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
+  %41 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.040) #4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread
 
@@ -457,8 +457,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread
 
 .thread:                                          ; preds = %15, %40, %43, %17
-  %.041 = phi i32 [ -137, %17 ], [ 0, %43 ], [ %41, %40 ], [ -138, %15 ]
-  ret i32 %.041
+  %.0 = phi i32 [ -137, %17 ], [ 0, %43 ], [ %41, %40 ], [ -138, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

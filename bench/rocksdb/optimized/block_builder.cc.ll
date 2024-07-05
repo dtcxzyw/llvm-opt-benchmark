@@ -503,8 +503,8 @@ if.else.i22:                                      ; preds = %if.then.i19
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont, %cond.false, %if.then2.i29, %.noexc31
-  %last_key_persisted.sroa.3.0 = phi i64 [ %2, %cond.false ], [ %sub.i.i30, %if.then2.i29 ], [ %call2.i.i24, %.noexc31 ], [ 0, %invoke.cont ]
   %last_key_persisted.sroa.0.0 = phi ptr [ %last_key_persisted.sroa.0.0.copyload, %cond.false ], [ %last_key_persisted.sroa.0.0.copyload, %if.then2.i29 ], [ %call.i.i23, %.noexc31 ], [ %last_key_persisted.sroa.0.0.copyload, %invoke.cont ]
+  %last_key_persisted.sroa.3.0 = phi i64 [ %2, %cond.false ], [ %sub.i.i30, %if.then2.i29 ], [ %call2.i.i24, %.noexc31 ], [ 0, %invoke.cont ]
   %counter_ = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i32, ptr %counter_, align 8
   %6 = load i32, ptr %this, align 8

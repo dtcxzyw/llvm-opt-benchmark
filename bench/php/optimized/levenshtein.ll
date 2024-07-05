@@ -104,11 +104,11 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
 
 46:                                               ; preds = %._crit_edge.i, %.lr.ph70.i
   %.05469.i = phi i64 [ 0, %.lr.ph70.i ], [ %69, %._crit_edge.i ]
-  %.05868.i = phi ptr [ %37, %.lr.ph70.i ], [ %.05967.i, %._crit_edge.i ]
-  %.05967.i = phi ptr [ %34, %.lr.ph70.i ], [ %.05868.i, %._crit_edge.i ]
-  %47 = load i64, ptr %.05967.i, align 8
+  %.05668.i = phi ptr [ %34, %.lr.ph70.i ], [ %.05967.i, %._crit_edge.i ]
+  %.05967.i = phi ptr [ %37, %.lr.ph70.i ], [ %.05668.i, %._crit_edge.i ]
+  %47 = load i64, ptr %.05668.i, align 8
   %48 = add nsw i64 %47, %20
-  store i64 %48, ptr %.05868.i, align 8
+  store i64 %48, ptr %.05967.i, align 8
   %49 = load i64, ptr %24, align 8
   %.not74.i = icmp eq i64 %49, 0
   br i1 %.not74.i, label %._crit_edge.i, label %.lr.ph.i
@@ -118,7 +118,7 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
   br label %51
 
 51:                                               ; preds = %51, %.lr.ph.i
-  %52 = phi i64 [ %48, %.lr.ph.i ], [ %.156.i, %51 ]
+  %52 = phi i64 [ %48, %.lr.ph.i ], [ %.158.i, %51 ]
   %53 = phi i64 [ %47, %.lr.ph.i ], [ %62, %51 ]
   %.166.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %51 ]
   %54 = load i8, ptr %50, align 1
@@ -128,14 +128,14 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
   %58 = select i1 %57, i64 0, i64 %19
   %59 = add nsw i64 %58, %53
   %60 = add nuw i64 %.166.i, 1
-  %61 = getelementptr inbounds i64, ptr %.05967.i, i64 %60
+  %61 = getelementptr inbounds i64, ptr %.05668.i, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %62, %20
   %spec.select.i = call i64 @llvm.smin.i64(i64 %63, i64 %59)
   %64 = add nsw i64 %52, %18
-  %.156.i = call i64 @llvm.smin.i64(i64 %64, i64 %spec.select.i)
-  %65 = getelementptr inbounds i64, ptr %.05868.i, i64 %60
-  store i64 %.156.i, ptr %65, align 8
+  %.158.i = call i64 @llvm.smin.i64(i64 %64, i64 %spec.select.i)
+  %65 = getelementptr inbounds i64, ptr %.05967.i, i64 %60
+  store i64 %.158.i, ptr %65, align 8
   %66 = load i64, ptr %24, align 8
   %67 = icmp ult i64 %60, %66
   br i1 %67, label %51, label %._crit_edge.i
@@ -149,17 +149,17 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
 
 ._crit_edge71.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   %72 = phi i64 [ %38, %.preheader.i ], [ %68, %._crit_edge.i ]
-  %.059.lcssa.i = phi ptr [ %34, %.preheader.i ], [ %.05868.i, %._crit_edge.i ]
-  %.058.lcssa.i = phi ptr [ %37, %.preheader.i ], [ %.05967.i, %._crit_edge.i ]
-  %73 = getelementptr inbounds i64, ptr %.059.lcssa.i, i64 %72
+  %.059.lcssa.i = phi ptr [ %37, %.preheader.i ], [ %.05668.i, %._crit_edge.i ]
+  %.056.lcssa.i = phi ptr [ %34, %.preheader.i ], [ %.05967.i, %._crit_edge.i ]
+  %73 = getelementptr inbounds i64, ptr %.056.lcssa.i, i64 %72
   %74 = load i64, ptr %73, align 8
-  call void @_efree(ptr noundef nonnull %.059.lcssa.i) #4
-  call void @_efree(ptr noundef %.058.lcssa.i) #4
+  call void @_efree(ptr noundef nonnull %.056.lcssa.i) #4
+  call void @_efree(ptr noundef %.059.lcssa.i) #4
   br label %reference_levdist.exit
 
 reference_levdist.exit:                           ; preds = %26, %30, %._crit_edge71.i
-  %.057.i = phi i64 [ %27, %26 ], [ %31, %30 ], [ %74, %._crit_edge71.i ]
-  store i64 %.057.i, ptr %1, align 8
+  %.055.i = phi i64 [ %27, %26 ], [ %31, %30 ], [ %74, %._crit_edge71.i ]
+  store i64 %.055.i, ptr %1, align 8
   %75 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %75, align 8
   br label %76

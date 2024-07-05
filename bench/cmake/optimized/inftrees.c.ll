@@ -42,21 +42,21 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %._crit_edge, %19
-  %.0197246 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
-  %16 = zext i32 %.0197246 to i64
+  %.0198246 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
+  %16 = zext i32 %.0198246 to i64
   %17 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not213 = icmp eq i16 %18, 0
   br i1 %.not213, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = add nsw i32 %.0197246, -1
+  %20 = add nsw i32 %.0198246, -1
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %23, label %15, !llvm.loop !7
 
 21:                                               ; preds = %15
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0197246)
-  %22 = icmp ugt i32 %.0197246, 1
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0198246)
+  %22 = icmp ugt i32 %.0198246, 1
   br i1 %22, label %.lr.ph249, label %._crit_edge250
 
 23:                                               ; preds = %19
@@ -95,8 +95,8 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %._crit_edge250
 
 ._crit_edge250:                                   ; preds = %30, %._crit_edge250.loopexit.split.loop.exit, %21
-  %.0198.lcssa = phi i32 [ 1, %21 ], [ %31, %._crit_edge250.loopexit.split.loop.exit ], [ %.0197246, %30 ]
-  %spec.select222 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0198.lcssa)
+  %.0199.lcssa = phi i32 [ 1, %21 ], [ %31, %._crit_edge250.loopexit.split.loop.exit ], [ %.0198246, %30 ]
+  %spec.select222 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0199.lcssa)
   br label %33
 
 32:                                               ; preds = %33
@@ -106,8 +106,8 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 33:                                               ; preds = %._crit_edge250, %32
   %indvars.iv287 = phi i64 [ 1, %._crit_edge250 ], [ %indvars.iv.next288, %32 ]
-  %.0188254 = phi i32 [ 1, %._crit_edge250 ], [ %38, %32 ]
-  %34 = shl i32 %.0188254, 1
+  %.0189254 = phi i32 [ 1, %._crit_edge250 ], [ %38, %32 ]
+  %34 = shl i32 %.0189254, 1
   %35 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv287
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
@@ -121,7 +121,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 41:                                               ; preds = %40
   %42 = icmp eq i32 %0, 0
-  %43 = icmp ne i32 %.0197246, 1
+  %43 = icmp ne i32 %.0198246, 1
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %.loopexit, label %44
 
@@ -202,24 +202,24 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %.outer
 
 .outer:                                           ; preds = %153, %.preheader
-  %.3.ph = phi i32 [ %.4, %153 ], [ %.0198.lcssa, %.preheader ]
-  %.2201.ph = phi i32 [ %110, %153 ], [ 0, %.preheader ]
-  %.0192.ph = phi i32 [ %.1193.lcssa, %153 ], [ %spec.select222, %.preheader ]
-  %.0190.ph = phi i32 [ %spec.select223, %153 ], [ 0, %.preheader ]
-  %.0186.ph = phi i32 [ %150, %153 ], [ %70, %.preheader ]
-  %.0184.ph = phi i32 [ %.1185, %153 ], [ 0, %.preheader ]
-  %.0180.ph = phi i32 [ %129, %153 ], [ -1, %.preheader ]
+  %.3.ph = phi i32 [ %.4, %153 ], [ %.0199.lcssa, %.preheader ]
+  %.2202.ph = phi i32 [ %110, %153 ], [ 0, %.preheader ]
+  %.0193.ph = phi i32 [ %.1194.lcssa, %153 ], [ %spec.select222, %.preheader ]
+  %.0191.ph = phi i32 [ %spec.select223, %153 ], [ 0, %.preheader ]
+  %.0187.ph = phi i32 [ %150, %153 ], [ %70, %.preheader ]
+  %.0185.ph = phi i32 [ %.1186, %153 ], [ 0, %.preheader ]
+  %.0181.ph = phi i32 [ %129, %153 ], [ -1, %.preheader ]
   %.0179.ph = phi ptr [ %133, %153 ], [ %72, %.preheader ]
-  %74 = shl nuw i32 1, %.0192.ph
+  %74 = shl nuw i32 1, %.0193.ph
   br label %75
 
 75:                                               ; preds = %.backedge, %.outer
   %.3 = phi i32 [ %.3.ph, %.outer ], [ %.4, %.backedge ]
-  %.2201 = phi i32 [ %.2201.ph, %.outer ], [ %110, %.backedge ]
-  %.0184 = phi i32 [ %.0184.ph, %.outer ], [ %.1185, %.backedge ]
-  %76 = sub i32 %.3, %.0190.ph
+  %.2202 = phi i32 [ %.2202.ph, %.outer ], [ %110, %.backedge ]
+  %.0185 = phi i32 [ %.0185.ph, %.outer ], [ %.1186, %.backedge ]
+  %76 = sub i32 %.3, %.0191.ph
   %77 = trunc i32 %76 to i8
-  %78 = zext i32 %.2201 to i64
+  %78 = zext i32 %.2202 to i64
   %79 = getelementptr inbounds i16, ptr %5, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
@@ -245,12 +245,12 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   %.sroa.12.0 = phi i16 [ %92, %85 ], [ %80, %75 ], [ 0, %84 ]
   %.sroa.0.0 = phi i8 [ %90, %85 ], [ 0, %75 ], [ 96, %84 ]
   %.neg = shl nsw i32 -1, %76
-  %94 = lshr i32 %.0184, %.0190.ph
+  %94 = lshr i32 %.0185, %.0191.ph
   br label %95
 
 95:                                               ; preds = %95, %93
-  %.0182 = phi i32 [ %74, %93 ], [ %96, %95 ]
-  %96 = add i32 %.0182, %.neg
+  %.0183 = phi i32 [ %74, %93 ], [ %96, %95 ]
+  %96 = add i32 %.0183, %.neg
   %97 = add i32 %96, %94
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %98
@@ -268,19 +268,19 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %103
 
 103:                                              ; preds = %103, %100
-  %.0183 = phi i32 [ %102, %100 ], [ %105, %103 ]
-  %104 = and i32 %.0183, %.0184
+  %.0184 = phi i32 [ %102, %100 ], [ %105, %103 ]
+  %104 = and i32 %.0184, %.0185
   %.not217 = icmp eq i32 %104, 0
-  %105 = lshr i32 %.0183, 1
+  %105 = lshr i32 %.0184, 1
   br i1 %.not217, label %106, label %103, !llvm.loop !13
 
 106:                                              ; preds = %103
-  %.not218 = icmp eq i32 %.0183, 0
-  %107 = add i32 %.0183, -1
-  %108 = and i32 %107, %.0184
-  %109 = add i32 %108, %.0183
-  %.1185 = select i1 %.not218, i32 0, i32 %109
-  %110 = add i32 %.2201, 1
+  %.not218 = icmp eq i32 %.0184, 0
+  %107 = add i32 %.0184, -1
+  %108 = and i32 %107, %.0185
+  %109 = add i32 %108, %.0184
+  %.1186 = select i1 %.not218, i32 0, i32 %109
+  %110 = add i32 %.2202, 1
   %111 = zext i32 %.3 to i64
   %112 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %111
   %113 = load i16, ptr %112, align 2
@@ -290,7 +290,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %115, label %116, label %126
 
 116:                                              ; preds = %106
-  %117 = icmp eq i32 %.3, %.0197246
+  %117 = icmp eq i32 %.3, %.0198246
   br i1 %117, label %167, label %118
 
 118:                                              ; preds = %116
@@ -309,55 +309,55 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %127, label %128, label %.backedge
 
 128:                                              ; preds = %126
-  %129 = and i32 %.1185, %71
-  %.not219 = icmp eq i32 %129, %.0180.ph
+  %129 = and i32 %.1186, %71
+  %.not219 = icmp eq i32 %129, %.0181.ph
   br i1 %.not219, label %.backedge, label %130
 
 .backedge:                                        ; preds = %128, %126
   br label %75
 
 130:                                              ; preds = %128
-  %131 = icmp eq i32 %.0190.ph, 0
-  %spec.select223 = select i1 %131, i32 %spec.select222, i32 %.0190.ph
+  %131 = icmp eq i32 %.0191.ph, 0
+  %spec.select223 = select i1 %131, i32 %spec.select222, i32 %.0191.ph
   %132 = zext i32 %74 to i64
   %133 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %132
   %134 = sub i32 %.4, %spec.select223
   %135 = shl nuw i32 1, %134
-  %136 = icmp ult i32 %.4, %.0197246
+  %136 = icmp ult i32 %.4, %.0198246
   br i1 %136, label %.lr.ph262.preheader, label %._crit_edge263
 
 .lr.ph262.preheader:                              ; preds = %130
-  %137 = sub i32 %.0197246, %spec.select223
+  %137 = sub i32 %.0198246, %spec.select223
   br label %.lr.ph262
 
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %145
   %138 = phi i32 [ %148, %145 ], [ %.4, %.lr.ph262.preheader ]
-  %.1189260 = phi i32 [ %147, %145 ], [ %135, %.lr.ph262.preheader ]
-  %.1193259 = phi i32 [ %146, %145 ], [ %134, %.lr.ph262.preheader ]
+  %.1190260 = phi i32 [ %147, %145 ], [ %135, %.lr.ph262.preheader ]
+  %.1194259 = phi i32 [ %146, %145 ], [ %134, %.lr.ph262.preheader ]
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %139
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %141 to i32
-  %143 = sub nsw i32 %.1189260, %142
+  %143 = sub nsw i32 %.1190260, %142
   %144 = icmp slt i32 %143, 1
   br i1 %144, label %._crit_edge263.loopexit, label %145
 
 145:                                              ; preds = %.lr.ph262
-  %146 = add i32 %.1193259, 1
+  %146 = add i32 %.1194259, 1
   %147 = shl nuw i32 %143, 1
   %148 = add i32 %146, %spec.select223
-  %149 = icmp ult i32 %148, %.0197246
+  %149 = icmp ult i32 %148, %.0198246
   br i1 %149, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !14
 
 ._crit_edge263.loopexit:                          ; preds = %.lr.ph262, %145
-  %.1193.lcssa.ph = phi i32 [ %137, %145 ], [ %.1193259, %.lr.ph262 ]
-  %.pre = shl nuw i32 1, %.1193.lcssa.ph
+  %.1194.lcssa.ph = phi i32 [ %137, %145 ], [ %.1194259, %.lr.ph262 ]
+  %.pre = shl nuw i32 1, %.1194.lcssa.ph
   br label %._crit_edge263
 
 ._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %130
   %.pre-phi = phi i32 [ %.pre, %._crit_edge263.loopexit ], [ %135, %130 ]
-  %.1193.lcssa = phi i32 [ %.1193.lcssa.ph, %._crit_edge263.loopexit ], [ %134, %130 ]
-  %150 = add i32 %.pre-phi, %.0186.ph
+  %.1194.lcssa = phi i32 [ %.1194.lcssa.ph, %._crit_edge263.loopexit ], [ %134, %130 ]
+  %150 = add i32 %.pre-phi, %.0187.ph
   %151 = icmp ugt i32 %150, 852
   %or.cond7 = select i1 %69, i1 %151, i1 false
   %152 = icmp ugt i32 %150, 592
@@ -366,7 +366,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %or.cond224, label %.loopexit, label %153
 
 153:                                              ; preds = %._crit_edge263
-  %154 = trunc i32 %.1193.lcssa to i8
+  %154 = trunc i32 %.1194.lcssa to i8
   %155 = load ptr, ptr %3, align 8
   %156 = zext i32 %129 to i64
   %157 = getelementptr inbounds %struct.code, ptr %155, i64 %156
@@ -385,11 +385,11 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %.outer
 
 167:                                              ; preds = %116
-  %.not220 = icmp eq i32 %.1185, 0
+  %.not220 = icmp eq i32 %.1186, 0
   br i1 %.not220, label %171, label %168
 
 168:                                              ; preds = %167
-  %169 = zext i32 %.1185 to i64
+  %169 = zext i32 %.1186 to i64
   %170 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %169
   store i8 64, ptr %170, align 2
   %.sroa.9.0..sroa_idx25 = getelementptr inbounds i8, ptr %170, i64 1
@@ -400,7 +400,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 
 171:                                              ; preds = %168, %167
   %172 = load ptr, ptr %3, align 8
-  %173 = zext i32 %.0186.ph to i64
+  %173 = zext i32 %.0187.ph to i64
   %174 = getelementptr inbounds %struct.code, ptr %172, i64 %173
   store ptr %174, ptr %3, align 8
   br label %.loopexit.sink.split
@@ -411,8 +411,8 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge263, %.loopexit.sink.split, %63, %65, %41
-  %.0205 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge263 ], [ -1, %33 ]
-  ret i32 %.0205
+  %.0180 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge263 ], [ -1, %33 ]
+  ret i32 %.0180
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

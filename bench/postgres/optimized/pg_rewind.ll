@@ -268,8 +268,8 @@ sub_288:                                          ; preds = %sub_187
   ]
 
 .backedge:                                        ; preds = %57, %77, %74, %73, %70, %67, %64, %63, %62, %61, %60, %59
-  %.055.be = phi i1 [ %.055, %77 ], [ %.055, %74 ], [ true, %73 ], [ %.055, %70 ], [ %.055, %67 ], [ %.055, %64 ], [ %.055, %63 ], [ %.055, %62 ], [ %.055, %61 ], [ %.055, %60 ], [ %.055, %59 ], [ %.055, %57 ]
-  %.052.be = phi i1 [ %.052, %77 ], [ %.052, %74 ], [ %.052, %73 ], [ %.052, %70 ], [ %.052, %67 ], [ %.052, %64 ], [ %.052, %63 ], [ %.052, %62 ], [ %.052, %61 ], [ %.052, %60 ], [ %.052, %59 ], [ true, %57 ]
+  %.055.be = phi i1 [ %.055, %77 ], [ %.055, %74 ], [ %.055, %73 ], [ %.055, %70 ], [ %.055, %67 ], [ %.055, %64 ], [ %.055, %63 ], [ %.055, %62 ], [ %.055, %61 ], [ %.055, %60 ], [ %.055, %59 ], [ true, %57 ]
+  %.052.be = phi i1 [ %.052, %77 ], [ %.052, %74 ], [ true, %73 ], [ %.052, %70 ], [ %.052, %67 ], [ %.052, %64 ], [ %.052, %63 ], [ %.052, %62 ], [ %.052, %61 ], [ %.052, %60 ], [ %.052, %59 ], [ %.052, %57 ]
   br label %57, !llvm.loop !5
 
 59:                                               ; preds = %57
@@ -376,7 +376,7 @@ sub_288:                                          ; preds = %sub_187
   unreachable
 
 100:                                              ; preds = %95
-  %or.cond5 = select i1 %.052, i1 %87, i1 false
+  %or.cond5 = select i1 %.055, i1 %87, i1 false
   br i1 %or.cond5, label %101, label %103
 
 101:                                              ; preds = %100
@@ -571,7 +571,7 @@ getRestoreCommand.exit:                           ; preds = %121, %161
   %185 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_target, i64 16), align 8
   %186 = add i32 %185, -1
   %187 = icmp ult i32 %186, 2
-  %or.cond11.not = select i1 %.055, i1 true, i1 %187
+  %or.cond11.not = select i1 %.052, i1 true, i1 %187
   br i1 %or.cond11.not, label %222, label %188
 
 188:                                              ; preds = %181
@@ -840,7 +840,7 @@ sanityChecks.exit:                                ; preds = %248
 
 309:                                              ; preds = %.thread, %295
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.35) #12
-  br i1 %.052, label %310, label %317
+  br i1 %.055, label %310, label %317
 
 310:                                              ; preds = %309
   %311 = load i8, ptr @dry_run, align 1
@@ -1094,8 +1094,8 @@ sanityChecks.exit:                                ; preds = %248
   %436 = icmp ult i64 %435, %364
   %437 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 48), align 8
   %438 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile_source, i64 32), align 8
-  %.046.i = call i64 @llvm.umin.i64(i64 %435, i64 %364)
-  %.043.i = select i1 %436, i32 %437, i32 %363
+  %.043.i = call i64 @llvm.umin.i64(i64 %435, i64 %364)
+  %.042.i = select i1 %436, i32 %437, i32 %363
   %.0.i = select i1 %436, i64 %438, i64 %362
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
@@ -1103,20 +1103,20 @@ sanityChecks.exit:                                ; preds = %248
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6)
   %439 = load i32, ptr @WalSegSz, align 4
   %440 = sext i32 %439 to i64
-  %441 = udiv i64 %.046.i, %440
+  %441 = udiv i64 %.043.i, %440
   %442 = udiv i64 4294967296, %440
   %443 = udiv i64 %441, %442
   %444 = trunc i64 %443 to i32
   %445 = urem i64 %441, %442
   %446 = trunc nuw i64 %445 to i32
-  %447 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.75, i32 noundef %.043.i, i32 noundef %444, i32 noundef %446) #12
+  %447 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.75, i32 noundef %.042.i, i32 noundef %444, i32 noundef %446) #12
   %448 = call i64 @time(ptr noundef null) #12
   store i64 %448, ptr %3, align 8
   %449 = call ptr @localtime(ptr noundef nonnull %3) #12
   %450 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull @.str.71, ptr noundef %449) #12
-  %451 = lshr i64 %.046.i, 32
+  %451 = lshr i64 %.043.i, 32
   %452 = trunc nuw i64 %451 to i32
-  %453 = trunc i64 %.046.i to i32
+  %453 = trunc i64 %.043.i to i32
   %454 = lshr i64 %.0.i, 32
   %455 = trunc nuw i64 %454 to i32
   %456 = trunc i64 %.0.i to i32
@@ -1174,13 +1174,13 @@ createBackupLabel.exit.i:                         ; preds = %434
   br label %478
 
 478:                                              ; preds = %475, %468, %464
+  %.046.i = phi i32 [ %466, %464 ], [ %474, %468 ], [ %477, %475 ]
   %.045.i = phi i64 [ %465, %464 ], [ %471, %468 ], [ %476, %475 ]
-  %.044.i = phi i32 [ %466, %464 ], [ %474, %468 ], [ %477, %475 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %7, ptr noundef nonnull align 8 dereferenceable(296) @ControlFile_source_after, i64 296, i1 false)
   %479 = getelementptr inbounds i8, ptr %7, i64 136
   store i64 %.045.i, ptr %479, align 8
   %480 = getelementptr inbounds i8, ptr %7, i64 144
-  store i32 %.044.i, ptr %480, align 8
+  store i32 %.046.i, ptr %480, align 8
   %481 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 5, ptr %481, align 8
   %482 = load i8, ptr @dry_run, align 1
@@ -1208,7 +1208,7 @@ perform_rewind.exit:                              ; preds = %478, %484
 
 491:                                              ; preds = %490, %perform_rewind.exit
   call void @sync_target_dir() #12
-  br i1 %.052, label %492, label %499
+  br i1 %.055, label %492, label %499
 
 492:                                              ; preds = %491
   %493 = load i8, ptr @dry_run, align 1

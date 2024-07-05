@@ -1045,11 +1045,11 @@ fin:                                              ; preds = %for.inc74, %for.inc
   br i1 %tobool77.not, label %ossl_property_unlock.exit58, label %land.lhs.true78
 
 land.lhs.true78:                                  ; preds = %if.then65.us98, %land.lhs.true60.us.us, %land.lhs.true44, %for.body.us, %fin
-  %p2.269 = phi ptr [ %p2.163, %fin ], [ null, %for.body.us ], [ null, %land.lhs.true44 ], [ %p2.163, %land.lhs.true60.us.us ], [ %p2.163, %if.then65.us98 ]
-  %best_impl.268 = phi ptr [ %best_impl.0.lcssa, %fin ], [ %call.i49.us, %for.body.us ], [ %call.i49, %land.lhs.true44 ], [ %call.i51.us.us, %land.lhs.true60.us.us ], [ %call.i51.us95, %if.then65.us98 ]
-  %method79 = getelementptr inbounds i8, ptr %best_impl.268, i64 16
+  %best_impl.270 = phi ptr [ %best_impl.0.lcssa, %fin ], [ %call.i49.us, %for.body.us ], [ %call.i49, %land.lhs.true44 ], [ %call.i51.us.us, %land.lhs.true60.us.us ], [ %call.i51.us95, %if.then65.us98 ]
+  %p2.268 = phi ptr [ %p2.163, %fin ], [ null, %for.body.us ], [ null, %land.lhs.true44 ], [ %p2.163, %land.lhs.true60.us.us ], [ %p2.163, %if.then65.us98 ]
+  %method79 = getelementptr inbounds i8, ptr %best_impl.270, i64 16
   %method79.val = load ptr, ptr %method79, align 8
-  %30 = getelementptr i8, ptr %best_impl.268, i64 24
+  %30 = getelementptr i8, ptr %best_impl.270, i64 24
   %method79.val45 = load ptr, ptr %30, align 8
   %call.i52 = tail call i32 %method79.val45(ptr noundef %method79.val) #6
   %tobool81.not = icmp eq i32 %call.i52, 0
@@ -1061,16 +1061,16 @@ if.then82:                                        ; preds = %land.lhs.true78
   br i1 %cmp.not, label %ossl_property_unlock.exit58, label %if.then86
 
 if.then86:                                        ; preds = %if.then82
-  %32 = load ptr, ptr %best_impl.268, align 8
+  %32 = load ptr, ptr %best_impl.270, align 8
   store ptr %32, ptr %prov_rw, align 8
   br label %ossl_property_unlock.exit58
 
 ossl_property_unlock.exit58:                      ; preds = %for.inc74.us103, %for.inc74.us.us, %for.inc, %for.inc.us, %if.end50, %for.cond.preheader, %if.else, %fin, %land.lhs.true78, %if.then82, %if.then86
-  %p2.270 = phi ptr [ %p2.269, %if.then86 ], [ %p2.269, %if.then82 ], [ %p2.269, %land.lhs.true78 ], [ %p2.163, %fin ], [ null, %if.else ], [ null, %for.cond.preheader ], [ %p2.163, %if.end50 ], [ null, %for.inc.us ], [ null, %for.inc ], [ %p2.163, %for.inc74.us.us ], [ %p2.163, %for.inc74.us103 ]
+  %p2.269 = phi ptr [ %p2.268, %if.then86 ], [ %p2.268, %if.then82 ], [ %p2.268, %land.lhs.true78 ], [ %p2.163, %fin ], [ null, %if.else ], [ null, %for.cond.preheader ], [ %p2.163, %if.end50 ], [ null, %for.inc.us ], [ null, %for.inc ], [ %p2.163, %for.inc74.us.us ], [ %p2.163, %for.inc74.us103 ]
   %ret.3 = phi i32 [ 1, %if.then86 ], [ 1, %if.then82 ], [ 0, %land.lhs.true78 ], [ 0, %fin ], [ 0, %if.else ], [ 0, %for.cond.preheader ], [ 0, %if.end50 ], [ 0, %for.inc.us ], [ 0, %for.inc ], [ 0, %for.inc74.us.us ], [ 0, %for.inc74.us103 ]
   %33 = load ptr, ptr %3, align 8
   %call.i56 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %33) #6
-  tail call void @ossl_property_free(ptr noundef %p2.270) #6
+  tail call void @ossl_property_free(ptr noundef %p2.269) #6
   br label %return
 
 return:                                           ; preds = %if.end8, %land.lhs.true, %cond.end, %ossl_property_unlock.exit58, %ossl_property_unlock.exit

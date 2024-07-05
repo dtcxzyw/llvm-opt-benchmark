@@ -4153,9 +4153,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %lo_inf.0213 = phi ptr [ null, %for.body.lr.ph ], [ %lo_inf.1, %for.inc ]
   %lo_sup.0212 = phi ptr [ null, %for.body.lr.ph ], [ %lo_sup.1, %for.inc ]
   %hi_inf.0211 = phi ptr [ null, %for.body.lr.ph ], [ %hi_inf.1, %for.inc ]
-  %__begin1.0210 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %hi_sup.0209 = phi ptr [ null, %for.body.lr.ph ], [ %hi_sup.1, %for.inc ]
-  %6 = load ptr, ptr %__begin1.0210, align 8
+  %hi_sup.0210 = phi ptr [ null, %for.body.lr.ph ], [ %hi_sup.1, %for.inc ]
+  %__begin1.0209 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %6 = load ptr, ptr %__begin1.0209, align 8
   %cmp7 = icmp eq ptr %6, %b
   br i1 %cmp7, label %for.inc, label %if.end
 
@@ -4493,11 +4493,11 @@ if.then44:                                        ; preds = %if.then.i.i.i.i.i17
   br label %for.inc
 
 if.else46:                                        ; preds = %if.then.i.i.i.i137, %if.else.i.i114, %_ZltRK8rationalS1_.exit139
-  %cmp47 = icmp eq ptr %hi_sup.0209, null
+  %cmp47 = icmp eq ptr %hi_sup.0210, null
   br i1 %cmp47, label %if.then51, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %if.else46
-  %m_value.i173 = getelementptr inbounds i8, ptr %hi_sup.0209, i64 24
+  %m_value.i173 = getelementptr inbounds i8, ptr %hi_sup.0210, i64 24
   %46 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i176 = load i8, ptr %m_kind.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i177 = and i8 %bf.load.i.i.i.i.i.i176, 1
@@ -4508,8 +4508,8 @@ lor.lhs.false48:                                  ; preds = %if.else46
   br i1 %48, label %land.lhs.true.i.i183, label %if.else.i.i180
 
 land.lhs.true.i.i183:                             ; preds = %lor.lhs.false48
-  %m_den.i5.i.i184 = getelementptr inbounds i8, ptr %hi_sup.0209, i64 40
-  %m_kind.i.i.i.i6.i.i185 = getelementptr inbounds i8, ptr %hi_sup.0209, i64 44
+  %m_den.i5.i.i184 = getelementptr inbounds i8, ptr %hi_sup.0210, i64 40
+  %m_kind.i.i.i.i6.i.i185 = getelementptr inbounds i8, ptr %hi_sup.0210, i64 44
   %bf.load.i.i.i.i7.i.i186 = load i8, ptr %m_kind.i.i.i.i6.i.i185, align 4
   %bf.clear.i.i.i.i8.i.i187 = and i8 %bf.load.i.i.i.i7.i.i186, 1
   %cmp.i.i.i.i9.i.i188 = icmp eq i8 %bf.clear.i.i.i.i8.i.i187, 0
@@ -4526,7 +4526,7 @@ if.then.i.i190:                                   ; preds = %land.lhs.true.i.i18
   br i1 %cmp.i.i.i11.i.i194, label %land.lhs.true.i.i.i.i198, label %_ZltRK8rationalS1_.exit205
 
 land.lhs.true.i.i.i.i198:                         ; preds = %if.then.i.i190
-  %m_kind.i5.i.i.i.i199 = getelementptr inbounds i8, ptr %hi_sup.0209, i64 28
+  %m_kind.i5.i.i.i.i199 = getelementptr inbounds i8, ptr %hi_sup.0210, i64 28
   %bf.load.i6.i.i.i.i200 = load i8, ptr %m_kind.i5.i.i.i.i199, align 4
   %bf.clear.i7.i.i.i.i201 = and i8 %bf.load.i6.i.i.i.i200, 1
   %cmp.i8.i.i.i.i202 = icmp eq i8 %bf.clear.i7.i.i.i.i201, 0
@@ -4551,11 +4551,11 @@ if.then51:                                        ; preds = %if.then.i.i.i.i203,
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i.i.i203, %if.else.i.i180, %if.then.i.i.i.i.i170, %if.else.i.i.i147, %if.then.i.i.i.i105, %if.else.i.i82, %if.then.i.i.i.i.i, %if.else.i.i.i, %_ZeqRK8rationalS1_.exit, %_ZltRK8rationalS1_.exit107, %if.then34, %_ZgtRK8rationalS1_.exit, %if.then28, %_ZltRK8rationalS1_.exit205, %if.then51, %_ZgtRK8rationalS1_.exit172, %if.then44, %if.end, %for.body
-  %hi_sup.1 = phi ptr [ %hi_sup.0209, %for.body ], [ %hi_sup.0209, %if.end ], [ %hi_sup.0209, %if.then28 ], [ %hi_sup.0209, %_ZgtRK8rationalS1_.exit ], [ %hi_sup.0209, %if.then34 ], [ %hi_sup.0209, %_ZltRK8rationalS1_.exit107 ], [ %hi_sup.0209, %if.then44 ], [ %hi_sup.0209, %_ZgtRK8rationalS1_.exit172 ], [ %6, %if.then51 ], [ %hi_sup.0209, %_ZltRK8rationalS1_.exit205 ], [ %hi_sup.0209, %_ZeqRK8rationalS1_.exit ], [ %hi_sup.0209, %if.else.i.i.i ], [ %hi_sup.0209, %if.then.i.i.i.i.i ], [ %hi_sup.0209, %if.else.i.i82 ], [ %hi_sup.0209, %if.then.i.i.i.i105 ], [ %hi_sup.0209, %if.else.i.i.i147 ], [ %hi_sup.0209, %if.then.i.i.i.i.i170 ], [ %hi_sup.0209, %if.else.i.i180 ], [ %hi_sup.0209, %if.then.i.i.i.i203 ]
+  %hi_sup.1 = phi ptr [ %hi_sup.0210, %for.body ], [ %hi_sup.0210, %if.end ], [ %hi_sup.0210, %if.then28 ], [ %hi_sup.0210, %_ZgtRK8rationalS1_.exit ], [ %hi_sup.0210, %if.then34 ], [ %hi_sup.0210, %_ZltRK8rationalS1_.exit107 ], [ %hi_sup.0210, %if.then44 ], [ %hi_sup.0210, %_ZgtRK8rationalS1_.exit172 ], [ %6, %if.then51 ], [ %hi_sup.0210, %_ZltRK8rationalS1_.exit205 ], [ %hi_sup.0210, %_ZeqRK8rationalS1_.exit ], [ %hi_sup.0210, %if.else.i.i.i ], [ %hi_sup.0210, %if.then.i.i.i.i.i ], [ %hi_sup.0210, %if.else.i.i82 ], [ %hi_sup.0210, %if.then.i.i.i.i105 ], [ %hi_sup.0210, %if.else.i.i.i147 ], [ %hi_sup.0210, %if.then.i.i.i.i.i170 ], [ %hi_sup.0210, %if.else.i.i180 ], [ %hi_sup.0210, %if.then.i.i.i.i203 ]
   %hi_inf.1 = phi ptr [ %hi_inf.0211, %for.body ], [ %hi_inf.0211, %if.end ], [ %hi_inf.0211, %if.then28 ], [ %hi_inf.0211, %_ZgtRK8rationalS1_.exit ], [ %hi_inf.0211, %if.then34 ], [ %hi_inf.0211, %_ZltRK8rationalS1_.exit107 ], [ %6, %if.then44 ], [ %hi_inf.0211, %_ZgtRK8rationalS1_.exit172 ], [ %hi_inf.0211, %if.then51 ], [ %hi_inf.0211, %_ZltRK8rationalS1_.exit205 ], [ %hi_inf.0211, %_ZeqRK8rationalS1_.exit ], [ %hi_inf.0211, %if.else.i.i.i ], [ %hi_inf.0211, %if.then.i.i.i.i.i ], [ %hi_inf.0211, %if.else.i.i82 ], [ %hi_inf.0211, %if.then.i.i.i.i105 ], [ %hi_inf.0211, %if.else.i.i.i147 ], [ %hi_inf.0211, %if.then.i.i.i.i.i170 ], [ %hi_inf.0211, %if.else.i.i180 ], [ %hi_inf.0211, %if.then.i.i.i.i203 ]
   %lo_sup.1 = phi ptr [ %lo_sup.0212, %for.body ], [ %lo_sup.0212, %if.end ], [ %lo_sup.0212, %if.then28 ], [ %lo_sup.0212, %_ZgtRK8rationalS1_.exit ], [ %6, %if.then34 ], [ %lo_sup.0212, %_ZltRK8rationalS1_.exit107 ], [ %lo_sup.0212, %if.then44 ], [ %lo_sup.0212, %_ZgtRK8rationalS1_.exit172 ], [ %lo_sup.0212, %if.then51 ], [ %lo_sup.0212, %_ZltRK8rationalS1_.exit205 ], [ %lo_sup.0212, %_ZeqRK8rationalS1_.exit ], [ %lo_sup.0212, %if.else.i.i.i ], [ %lo_sup.0212, %if.then.i.i.i.i.i ], [ %lo_sup.0212, %if.else.i.i82 ], [ %lo_sup.0212, %if.then.i.i.i.i105 ], [ %lo_sup.0212, %if.else.i.i.i147 ], [ %lo_sup.0212, %if.then.i.i.i.i.i170 ], [ %lo_sup.0212, %if.else.i.i180 ], [ %lo_sup.0212, %if.then.i.i.i.i203 ]
   %lo_inf.1 = phi ptr [ %lo_inf.0213, %for.body ], [ %lo_inf.0213, %if.end ], [ %6, %if.then28 ], [ %lo_inf.0213, %_ZgtRK8rationalS1_.exit ], [ %lo_inf.0213, %if.then34 ], [ %lo_inf.0213, %_ZltRK8rationalS1_.exit107 ], [ %lo_inf.0213, %if.then44 ], [ %lo_inf.0213, %_ZgtRK8rationalS1_.exit172 ], [ %lo_inf.0213, %if.then51 ], [ %lo_inf.0213, %_ZltRK8rationalS1_.exit205 ], [ %lo_inf.0213, %_ZeqRK8rationalS1_.exit ], [ %lo_inf.0213, %if.else.i.i.i ], [ %lo_inf.0213, %if.then.i.i.i.i.i ], [ %lo_inf.0213, %if.else.i.i82 ], [ %lo_inf.0213, %if.then.i.i.i.i105 ], [ %lo_inf.0213, %if.else.i.i.i147 ], [ %lo_inf.0213, %if.then.i.i.i.i.i170 ], [ %lo_inf.0213, %if.else.i.i180 ], [ %lo_inf.0213, %if.then.i.i.i.i203 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0210, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0209, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -9011,9 +9011,9 @@ if.end.i:                                         ; preds = %_ZN6vectorISt4pairI
   br i1 %cmp4.not6.i, label %if.end18.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %curr.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %8, %if.end.i ]
-  %overhead.07.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
-  %m_state.i.i = getelementptr inbounds i8, ptr %curr.08.i, i64 4
+  %overhead.08.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
+  %curr.07.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %8, %if.end.i ]
+  %m_state.i.i = getelementptr inbounds i8, ptr %curr.07.i, i64 4
   %10 = load i32, ptr %m_state.i.i, align 4
   %cmp.i.i = icmp eq i32 %10, 0
   br i1 %cmp.i.i, label %if.else.i, label %if.then5.i
@@ -9023,12 +9023,12 @@ if.then5.i:                                       ; preds = %for.body.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %inc.i = add i32 %overhead.07.i, 1
+  %inc.i = add i32 %overhead.08.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then5.i
-  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.07.i, %if.then5.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.08.i, i64 12
+  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.08.i, %if.then5.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.07.i, i64 12
   %cmp4.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
 

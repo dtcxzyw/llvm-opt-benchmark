@@ -15585,8 +15585,8 @@ ehcleanup107:                                     ; preds = %lpad31, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %ehcleanup107, %lpad25
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup107 ], [ %170, %lpad25 ]
-  %ehselector.slot.13 = extractvalue { ptr, i32 } %.pn16.pn, 1
   %exn.slot.13 = extractvalue { ptr, i32 } %.pn16.pn, 0
+  %ehselector.slot.13 = extractvalue { ptr, i32 } %.pn16.pn, 1
   %189 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %ehselector.slot.13, %189
   %190 = call ptr @__cxa_begin_catch(ptr %exn.slot.13) #26

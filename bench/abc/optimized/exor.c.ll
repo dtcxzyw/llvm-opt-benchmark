@@ -281,35 +281,35 @@ define i32 @ComputeQCostBits(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %9
-  %.017 = phi i32 [ %.1, %9 ], [ 0, %1 ]
-  %.01116 = phi i32 [ %.112, %9 ], [ 0, %1 ]
-  %.01315 = phi i32 [ %10, %9 ], [ 0, %1 ]
-  %4 = tail call i32 @GetVar(ptr noundef %0, i32 noundef %.01315) #16
+  %.017 = phi i32 [ %10, %9 ], [ 0, %1 ]
+  %.01116 = phi i32 [ %.1, %9 ], [ 0, %1 ]
+  %.01215 = phi i32 [ %.113, %9 ], [ 0, %1 ]
+  %4 = tail call i32 @GetVar(ptr noundef %0, i32 noundef %.017) #16
   switch i32 %4, label %9 [
     i32 1, label %5
     i32 2, label %7
   ]
 
 5:                                                ; preds = %.lr.ph
-  %6 = add nsw i32 %.017, 1
+  %6 = add nsw i32 %.01116, 1
   br label %9
 
 7:                                                ; preds = %.lr.ph
-  %8 = add nsw i32 %.01116, 1
+  %8 = add nsw i32 %.01215, 1
   br label %9
 
 9:                                                ; preds = %.lr.ph, %5, %7
-  %.112 = phi i32 [ %.01116, %5 ], [ %8, %7 ], [ %.01116, %.lr.ph ]
-  %.1 = phi i32 [ %6, %5 ], [ %.017, %7 ], [ %.017, %.lr.ph ]
-  %10 = add nuw nsw i32 %.01315, 1
+  %.113 = phi i32 [ %.01215, %5 ], [ %8, %7 ], [ %.01215, %.lr.ph ]
+  %.1 = phi i32 [ %6, %5 ], [ %.01116, %7 ], [ %.01116, %.lr.ph ]
+  %10 = add nuw nsw i32 %.017, 1
   %11 = load i32, ptr @g_CoverInfo, align 8
   %12 = icmp slt i32 %10, %11
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %9, %1
-  %.011.lcssa = phi i32 [ 0, %1 ], [ %.112, %9 ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %9 ]
-  %13 = add nsw i32 %.0.lcssa, %.011.lcssa
+  %.012.lcssa = phi i32 [ 0, %1 ], [ %.113, %9 ]
+  %.011.lcssa = phi i32 [ 0, %1 ], [ %.1, %9 ]
+  %13 = add nsw i32 %.011.lcssa, %.012.lcssa
   switch i32 %13, label %24 [
     i32 0, label %GetQCost.exit
     i32 1, label %14
@@ -318,7 +318,7 @@ define i32 @ComputeQCostBits(ptr noundef %0) local_unnamed_addr #4 {
   ]
 
 14:                                               ; preds = %._crit_edge
-  switch i32 %.0.lcssa, label %24 [
+  switch i32 %.011.lcssa, label %24 [
     i32 0, label %GetQCost.exit
     i32 1, label %15
   ]
@@ -327,19 +327,19 @@ define i32 @ComputeQCostBits(ptr noundef %0) local_unnamed_addr #4 {
   br label %GetQCost.exit
 
 16:                                               ; preds = %._crit_edge
-  %17 = icmp slt i32 %.0.lcssa, 2
+  %17 = icmp slt i32 %.011.lcssa, 2
   br i1 %17, label %GetQCost.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp eq i32 %.0.lcssa, 2
+  %19 = icmp eq i32 %.011.lcssa, 2
   br i1 %19, label %GetQCost.exit, label %24
 
 20:                                               ; preds = %._crit_edge
-  %21 = icmp slt i32 %.0.lcssa, 2
+  %21 = icmp slt i32 %.011.lcssa, 2
   br i1 %21, label %GetQCost.exit, label %22
 
 22:                                               ; preds = %20
-  switch i32 %.0.lcssa, label %24 [
+  switch i32 %.011.lcssa, label %24 [
     i32 2, label %GetQCost.exit
     i32 3, label %23
   ]
@@ -349,7 +349,7 @@ define i32 @ComputeQCostBits(ptr noundef %0) local_unnamed_addr #4 {
 
 24:                                               ; preds = %22, %18, %14, %._crit_edge
   %.neg.i = sdiv i32 %13, -2
-  %25 = add i32 %.neg.i, %.0.lcssa
+  %25 = add i32 %.neg.i, %.011.lcssa
   %26 = mul i32 %13, 12
   %27 = add i32 %26, -28
   %28 = icmp sgt i32 %25, 0

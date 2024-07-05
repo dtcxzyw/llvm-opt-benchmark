@@ -208,8 +208,8 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
   br label %13
 
 13:                                               ; preds = %18, %12
-  %.03815.i.i = phi i64 [ 0, %12 ], [ %19, %18 ]
-  %14 = getelementptr inbounds [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.03815.i.i
+  %.03715.i.i = phi i64 [ 0, %12 ], [ %19, %18 ]
+  %14 = getelementptr inbounds [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.03715.i.i
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.96, ptr noundef %15) #24
   %17 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -218,14 +218,14 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 18:                                               ; preds = %13
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
-  %19 = add nuw nsw i64 %.03815.i.i, 1
+  %19 = add nuw nsw i64 %.03715.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, 4
   br i1 %exitcond.not.i.i, label %20, label %13
 
 20:                                               ; preds = %18
   %21 = call ptr @getenv(ptr noundef nonnull @.str.114) #24
-  %.not47.i.i = icmp eq ptr %21, null
-  br i1 %.not47.i.i, label %.thread5.i.i, label %22
+  %.not46.i.i = icmp eq ptr %21, null
+  br i1 %.not46.i.i, label %.thread5.i.i, label %22
 
 22:                                               ; preds = %20
   %23 = call noalias ptr @strdup(ptr noundef nonnull %21) #24
@@ -238,30 +238,30 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
   br label %.thread5.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %35
-  %.017.i.i = phi i64 [ %36, %35 ], [ 0, %22 ]
-  %25 = getelementptr inbounds [10 x ptr], ptr %3, i64 0, i64 %.017.i.i
+  %.03817.i.i = phi i64 [ %36, %35 ], [ 0, %22 ]
+  %25 = getelementptr inbounds [10 x ptr], ptr %3, i64 0, i64 %.03817.i.i
   %26 = load ptr, ptr %25, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.97, ptr noundef %26) #24
   br label %27
 
 27:                                               ; preds = %33, %.lr.ph.i.i
-  %.13916.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %33 ]
+  %.116.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %33 ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.13916.i.i
+  %29 = getelementptr inbounds [4 x ptr], ptr @load_module.suffixes, i64 0, i64 %.116.i.i
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.112, ptr noundef %28, ptr noundef nonnull @.str.96, ptr noundef %30) #24
   %32 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
-  %.not48.i.i = icmp eq ptr %32, null
-  br i1 %.not48.i.i, label %33, label %37
+  %.not47.i.i = icmp eq ptr %32, null
+  br i1 %.not47.i.i, label %33, label %37
 
 33:                                               ; preds = %27
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
-  %34 = add nuw nsw i64 %.13916.i.i, 1
+  %34 = add nuw nsw i64 %.116.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %34, 4
   br i1 %exitcond22.not.i.i, label %35, label %27
 
 35:                                               ; preds = %33
-  %36 = add nuw i64 %.017.i.i, 1
+  %36 = add nuw i64 %.03817.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %36, %24
   br i1 %exitcond23.not.i.i, label %.thread12.i.i, label %.lr.ph.i.i
 
@@ -2340,9 +2340,9 @@ define noalias noundef ptr @cli_hashstream(ptr nocapture noundef %0, ptr noundef
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.021 = phi ptr [ @.str.73, %7 ], [ @.str.72, %6 ], [ @.str.71, %3 ]
-  %.0 = phi i32 [ 32, %7 ], [ 20, %6 ], [ 16, %3 ]
-  %9 = tail call ptr @cl_hash_init(ptr noundef nonnull %.021) #24
+  %.022 = phi ptr [ @.str.73, %7 ], [ @.str.72, %6 ], [ @.str.71, %3 ]
+  %.019 = phi i32 [ 32, %7 ], [ 20, %6 ], [ 16, %3 ]
+  %9 = tail call ptr @cl_hash_init(ptr noundef nonnull %.022) #24
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %29, label %.preheader29
 
@@ -2364,7 +2364,7 @@ define noalias noundef ptr @cli_hashstream(ptr nocapture noundef %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader29
   %17 = call i32 @cl_finish_hash(ptr noundef nonnull %9, ptr noundef nonnull %4) #24
-  %18 = shl nuw nsw i32 %.0, 1
+  %18 = shl nuw nsw i32 %.019, 1
   %19 = or disjoint i32 %18, 1
   %20 = zext nneg i32 %19 to i64
   %21 = call noalias ptr @calloc(i64 noundef %20, i64 noundef 1) #25
@@ -2372,17 +2372,17 @@ define noalias noundef ptr @cli_hashstream(ptr nocapture noundef %0, ptr noundef
   br i1 %.not27, label %29, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %wide.trip.count = zext nneg i32 %.0 to i64
+  %wide.trip.count = zext nneg i32 %.019 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %.02231 = phi ptr [ %21, %.preheader.preheader ], [ %26, %.preheader ]
+  %.02032 = phi ptr [ %21, %.preheader.preheader ], [ %26, %.preheader ]
   %22 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
-  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.02231, ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %24) #24
-  %26 = getelementptr inbounds i8, ptr %.02231, i64 2
+  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.02032, ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %24) #24
+  %26 = getelementptr inbounds i8, ptr %.02032, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %27, label %.preheader
@@ -2396,8 +2396,8 @@ define noalias noundef ptr @cli_hashstream(ptr nocapture noundef %0, ptr noundef
   br label %29
 
 29:                                               ; preds = %27, %28, %._crit_edge, %8
-  %.019 = phi ptr [ null, %8 ], [ null, %._crit_edge ], [ %21, %28 ], [ %21, %27 ]
-  ret ptr %.019
+  %.0 = phi ptr [ null, %8 ], [ null, %._crit_edge ], [ %21, %28 ], [ %21, %27 ]
+  ret ptr %.0
 }
 
 declare ptr @cl_hash_init(ptr noundef) local_unnamed_addr #4
@@ -3305,8 +3305,8 @@ bitset_realloc.exit:                              ; preds = %nearest_power.exit.
   br label %bitset_realloc.exit.thread
 
 bitset_realloc.exit.thread:                       ; preds = %nearest_power.exit.i, %12
-  %.010 = phi i32 [ 1, %12 ], [ 0, %nearest_power.exit.i ]
-  ret i32 %.010
+  %.0 = phi i32 [ 1, %12 ], [ 0, %nearest_power.exit.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

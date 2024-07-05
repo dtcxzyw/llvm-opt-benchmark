@@ -40,8 +40,8 @@ define dso_local i32 @filtered_base_yylex() local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %5, %2
-  %.0 = phi i32 [ %3, %2 ], [ %6, %5 ]
-  switch i32 %.0, label %44 [
+  %.020 = phi i32 [ %3, %2 ], [ %6, %5 ]
+  switch i32 %.020, label %44 [
     i32 496, label %8
     i32 607, label %8
     i32 614, label %8
@@ -65,7 +65,7 @@ define dso_local i32 @filtered_base_yylex() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @base_yylloc, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   store ptr %9, ptr @base_yytext, align 8
   store i1 true, ptr @have_lookahead, align 1
-  switch i32 %.0, label %44 [
+  switch i32 %.020, label %44 [
     i32 496, label %12
     i32 607, label %13
     i32 614, label %15
@@ -170,17 +170,17 @@ check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i
   br label %40
 
 40:                                               ; preds = %37, %20
-  %41 = icmp eq i32 %.0, 329
+  %41 = icmp eq i32 %.020, 329
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp eq i32 %.0, 332
-  %spec.store.select = select i1 %43, i32 331, i32 %.0
+  %43 = icmp eq i32 %.020, 332
+  %spec.store.select = select i1 %43, i32 331, i32 %.020
   br label %44
 
 44:                                               ; preds = %19, %12, %8, %14, %13, %42, %15, %17, %40, %7
-  %.020 = phi i32 [ %.0, %7 ], [ %.0, %8 ], [ %spec.store.select, %42 ], [ 607, %13 ], [ 819, %14 ], [ %spec.select, %12 ], [ %16, %15 ], [ %18, %17 ], [ %spec.select26, %19 ], [ 328, %40 ]
-  ret i32 %.020
+  %.0 = phi i32 [ %.020, %7 ], [ %.020, %8 ], [ %spec.store.select, %42 ], [ 607, %13 ], [ 819, %14 ], [ %spec.select, %12 ], [ %16, %15 ], [ %18, %17 ], [ %spec.select26, %19 ], [ 328, %40 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

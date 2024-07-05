@@ -146,8 +146,8 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
   br label %77
 
 77:                                               ; preds = %75, %.thread.i, %62, %BufferGetPage.exit.i
-  %.049.i = phi ptr [ %63, %62 ], [ %67, %75 ], [ %67, %.thread.i ], [ %30, %BufferGetPage.exit.i ]
-  %78 = ptrtoint ptr %.049.i to i64
+  %.0.i = phi ptr [ %63, %62 ], [ %67, %75 ], [ %67, %.thread.i ], [ %30, %BufferGetPage.exit.i ]
+  %78 = ptrtoint ptr %.0.i to i64
   %79 = ptrtoint ptr %30 to i64
   %80 = sub i64 %78, %79
   %81 = load i64, ptr %12, align 8
@@ -167,13 +167,13 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %100, %.lr.ph.preheader.i
-  %.057.i = phi i16 [ %102, %100 ], [ %89, %.lr.ph.preheader.i ]
-  %.156.i = phi ptr [ %101, %100 ], [ %.049.i, %.lr.ph.preheader.i ]
-  %90 = getelementptr inbounds i8, ptr %.156.i, i64 6
+  %.157.i = phi ptr [ %101, %100 ], [ %.0.i, %.lr.ph.preheader.i ]
+  %.05156.i = phi i16 [ %102, %100 ], [ %89, %.lr.ph.preheader.i ]
+  %90 = getelementptr inbounds i8, ptr %.157.i, i64 6
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 8191
   %93 = zext nneg i16 %92 to i64
-  %94 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i, ptr noundef %.156.i, i64 noundef %93, i16 noundef zeroext %.057.i, i32 noundef 0) #6
+  %94 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i, ptr noundef %.157.i, i64 noundef %93, i16 noundef zeroext %.05156.i, i32 noundef 0) #6
   %95 = icmp eq i16 %94, 0
   br i1 %95, label %96, label %100
 
@@ -186,8 +186,8 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
   unreachable
 
 100:                                              ; preds = %.lr.ph.i
-  %101 = getelementptr i8, ptr %.156.i, i64 %93
-  %102 = add i16 %.057.i, 1
+  %101 = getelementptr i8, ptr %.157.i, i64 %93
+  %102 = add i16 %.05156.i, 1
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %103, %79
   %105 = load i64, ptr %12, align 8
@@ -440,15 +440,15 @@ gistRedoDeleteRecord.exit:                        ; preds = %217, %219
   br label %244
 
 244:                                              ; preds = %357, %.lr.ph.i14
-  %.05160.i = phi i1 [ false, %.lr.ph.i14 ], [ %spec.select.i, %357 ]
-  %.05258.i = phi i32 [ 0, %.lr.ph.i14 ], [ %245, %357 ]
-  %.05357.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.154.i, %357 ]
-  %245 = add nuw nsw i32 %.05258.i, 1
+  %.060.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.1.i, %357 ]
+  %.05158.i = phi i32 [ 0, %.lr.ph.i14 ], [ %245, %357 ]
+  %.05357.i = phi i1 [ false, %.lr.ph.i14 ], [ %spec.select.i, %357 ]
+  %245 = add nuw nsw i32 %.05158.i, 1
   %246 = trunc i32 %245 to i8
   call void @XLogRecGetBlockTag(ptr noundef %0, i8 noundef zeroext %246, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #6
   %247 = load i32, ptr %6, align 4
   %248 = icmp eq i32 %247, 0
-  %spec.select.i = select i1 %248, i1 true, i1 %.05160.i
+  %spec.select.i = select i1 %248, i1 true, i1 %.05357.i
   %249 = call i32 @XLogInitBufferForRedo(ptr noundef %0, i8 noundef zeroext %246) #6
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %251, label %257
@@ -485,14 +485,14 @@ BufferGetPage.exit.i15:                           ; preds = %257, %251
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.01213.i.i = phi ptr [ %269, %.lr.ph.preheader.i.i ], [ %275, %.lr.ph.i.i ]
+  %.014.i.i = phi ptr [ %269, %.lr.ph.preheader.i.i ], [ %275, %.lr.ph.i.i ]
   %270 = getelementptr ptr, ptr %267, i64 %indvars.iv.i.i
-  store ptr %.01213.i.i, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %.01213.i.i, i64 6
+  store ptr %.014.i.i, ptr %270, align 8
+  %271 = getelementptr inbounds i8, ptr %.014.i.i, i64 6
   %272 = load i16, ptr %271, align 2
   %273 = and i16 %272, 8191
   %274 = zext nneg i16 %273 to i64
-  %275 = getelementptr i8, ptr %.01213.i.i, i64 %274
+  %275 = getelementptr i8, ptr %.014.i.i, i64 %274
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %265
   br i1 %exitcond.not.i, label %decodePageSplitRecord.exit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -503,8 +503,8 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %278 = load i32, ptr %6, align 4
   %279 = icmp ne i32 %278, 0
   %or.cond.i = select i1 %277, i1 %279, i1 false
-  %.0.i = zext i1 %or.cond.i to i32
-  call void @GISTInitBuffer(i32 noundef %249, i32 noundef %.0.i) #6
+  %.052.i = zext i1 %or.cond.i to i32
+  call void @GISTInitBuffer(i32 noundef %249, i32 noundef %.052.i) #6
   call void @gistfillbuffer(ptr noundef %.0.i.i.i16, ptr noundef %267, i32 noundef %264, i16 noundef zeroext 1) #6
   %280 = load i32, ptr %6, align 4
   %281 = icmp eq i32 %280, 0
@@ -544,11 +544,11 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %307 = load i16, ptr %235, align 2
   %308 = zext i16 %307 to i32
   %309 = add nsw i32 %308, -1
-  %310 = icmp slt i32 %.05258.i, %309
+  %310 = icmp slt i32 %.05158.i, %309
   br i1 %310, label %311, label %314
 
 311:                                              ; preds = %306
-  %312 = trunc i32 %.05258.i to i8
+  %312 = trunc i32 %.05158.i to i8
   %313 = add i8 %312, 2
   call void @XLogRecGetBlockTag(ptr noundef %0, i8 noundef zeroext %313, ptr noundef null, ptr noundef null, ptr noundef nonnull %7) #6
   br label %314
@@ -579,7 +579,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %332 = load i16, ptr %235, align 2
   %333 = zext i16 %332 to i32
   %334 = add nsw i32 %333, -1
-  %335 = icmp sge i32 %.05258.i, %334
+  %335 = icmp sge i32 %.05158.i, %334
   %brmerge.i = select i1 %335, i1 true, i1 %spec.select.i
   br i1 %brmerge.i, label %346, label %336
 
@@ -613,7 +613,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %354 = getelementptr inbounds i8, ptr %.0.i.i.i16, i64 4
   store i32 %243, ptr %354, align 4
   call void @MarkBufferDirty(i32 noundef %249) #6
-  %355 = icmp eq i32 %.05258.i, 0
+  %355 = icmp eq i32 %.05158.i, 0
   br i1 %355, label %357, label %356
 
 356:                                              ; preds = %353
@@ -621,7 +621,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   br label %357
 
 357:                                              ; preds = %356, %353
-  %.154.i = phi i32 [ %.05357.i, %356 ], [ %249, %353 ]
+  %.1.i = phi i32 [ %.060.i, %356 ], [ %249, %353 ]
   %358 = load i16, ptr %235, align 2
   %359 = zext i16 %358 to i32
   %360 = icmp ult i32 %245, %359
@@ -633,7 +633,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %231
   %361 = phi ptr [ %14, %231 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.053.lcssa.i = phi i32 [ 0, %231 ], [ %.154.i, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %231 ], [ %.1.i, %._crit_edge.loopexit.i ]
   %362 = getelementptr inbounds i8, ptr %361, i64 84
   %363 = load i32, ptr %362, align 4
   %364 = icmp sgt i32 %363, -1
@@ -717,7 +717,7 @@ gistRedoClearFollowRight.exit.i19:                ; preds = %409, %407
   br label %gistRedoPageSplitRecord.exit
 
 gistRedoPageSplitRecord.exit:                     ; preds = %._crit_edge.i, %365, %gistRedoClearFollowRight.exit.i19
-  call void @UnlockReleaseBuffer(i32 noundef %.053.lcssa.i) #6
+  call void @UnlockReleaseBuffer(i32 noundef %.0.lcssa.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

@@ -1398,7 +1398,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %133
-  %.084197.us = phi i64 [ %100, %133 ], [ %.cast, %.lr.ph ]
+  %.085197.us = phi i64 [ %100, %133 ], [ %.cast, %.lr.ph ]
   %.sroa.0.0196.us = phi i64 [ %spec.select158.us, %133 ], [ 1, %.lr.ph ]
   %88 = icmp ult i64 %.sroa.0.0196.us, %.0
   %89 = zext i1 %88 to i64
@@ -1408,7 +1408,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   store i64 0, ptr %23, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %75, align 8
   store i64 0, ptr %76, align 8
-  %.not.us = icmp eq i64 %.084197.us, 0
+  %.not.us = icmp eq i64 %.085197.us, 0
   br i1 %.not.us, label %.loopexit, label %91
 
 91:                                               ; preds = %.lr.ph.split.us
@@ -1416,7 +1416,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %93 = zext i1 %92 to i64
   %94 = add i64 %66, %93
   %95 = icmp eq i64 %.sroa.0.0196.us, %.0
-  %spec.select.us = select i1 %95, i64 %.084197.us, i64 %94
+  %spec.select.us = select i1 %95, i64 %.085197.us, i64 %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   store ptr %28, ptr %21, align 8
@@ -1432,7 +1432,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
 
 98:                                               ; preds = %96
   %99 = load i64, ptr %78, align 8, !noundef !5
-  %100 = sub i64 %.084197.us, %99
+  %100 = sub i64 %.085197.us, %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %101 = load i64, ptr %65, align 8, !alias.scope !219, !noalias !222, !noundef !5
   %102 = icmp ugt i64 %101, %90
@@ -1595,7 +1595,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   br label %.loopexit161
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %217
-  %.084197 = phi i64 [ %192, %217 ], [ %.cast, %.lr.ph.split.preheader ]
+  %.085197 = phi i64 [ %192, %217 ], [ %.cast, %.lr.ph.split.preheader ]
   %.sroa.0.0196 = phi i64 [ %spec.select158, %217 ], [ 1, %.lr.ph.split.preheader ]
   %158 = icmp ult i64 %.sroa.0.0196, %.0
   %159 = zext i1 %158 to i64
@@ -1604,7 +1604,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   store i64 0, ptr %23, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %87, align 8
   store i64 0, ptr %86, align 8
-  %.not = icmp eq i64 %.084197, 0
+  %.not = icmp eq i64 %.085197, 0
   br i1 %.not, label %.loopexit, label %174
 
 .thread:                                          ; preds = %133, %217, %223
@@ -1654,7 +1654,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %177 = zext i1 %176 to i64
   %178 = add i64 %66, %177
   %179 = icmp eq i64 %.sroa.0.0196, %.0
-  %spec.select = select i1 %179, i64 %.084197, i64 %178
+  %spec.select = select i1 %179, i64 %.085197, i64 %178
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   store ptr %28, ptr %21, align 8
@@ -1707,7 +1707,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
 
 190:                                              ; preds = %188
   %191 = load i64, ptr %84, align 8, !noundef !5
-  %192 = sub i64 %.084197, %191
+  %192 = sub i64 %.085197, %191
   %193 = icmp eq i64 %.sroa.0.0196, %4
   br i1 %193, label %213, label %195
 
@@ -2363,9 +2363,9 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %76
 
 112:                                              ; preds = %240, %76
-  %.0106 = phi i64 [ 0, %76 ], [ %171, %240 ]
-  %.0104 = phi i64 [ %81, %76 ], [ %.1105.lcssa, %240 ]
-  %.0103 = phi i64 [ 1, %76 ], [ %.2, %240 ]
+  %.0107 = phi i64 [ 0, %76 ], [ %171, %240 ]
+  %.0105 = phi i64 [ %81, %76 ], [ %.1106.lcssa, %240 ]
+  %.0104 = phi i64 [ 1, %76 ], [ %.2, %240 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   invoke void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3d422c6ee83659bE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
           to label %113 unwind label %.loopexit
@@ -2429,7 +2429,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   store i64 %114, ptr %16, align 8
   store ptr %.sroa.351.0.copyload, ptr %.sroa.459.0..sroa_idx, align 8
   store i64 %.sroa.454.0.copyload, ptr %.sroa.560.0..sroa_idx, align 8
-  %133 = add i64 %.sroa.454.0.copyload, %.0106
+  %133 = add i64 %.sroa.454.0.copyload, %.0107
   %134 = icmp ult i64 %133, %36
   br i1 %134, label %137, label %145
 
@@ -2482,7 +2482,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
           to label %70 unwind label %245
 
 149:                                              ; preds = %145
-  %150 = add i64 %.0103, -1
+  %150 = add i64 %.0104, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !374)
   %151 = load i64, ptr %64, align 8, !alias.scope !374, !noalias !377, !noundef !5
@@ -2512,7 +2512,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %163
 
 159:                                              ; preds = %145
-  %160 = icmp eq i64 %.0103, %4
+  %160 = icmp eq i64 %.0104, %4
   br i1 %160, label %183, label %170
 
 "_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit": ; preds = %158
@@ -2540,8 +2540,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
           to label %172 unwind label %.loopexit.split-lp165
 
 170:                                              ; preds = %165, %185, %159
-  %171 = add i64 %146, %.0106
-  %.not115184 = icmp ugt i64 %.0104, %171
+  %171 = add i64 %146, %.0107
+  %.not115184 = icmp ugt i64 %.0105, %171
   br i1 %.not115184, label %._crit_edge, label %.lr.ph
 
 172:                                              ; preds = %168
@@ -2590,8 +2590,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
           to label %241 unwind label %.loopexit.split-lp165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %170
-  %.1105.lcssa = phi i64 [ %.0104, %170 ], [ %196, %.lr.ph ]
-  %.1.lcssa = phi i64 [ %.0103, %170 ], [ %197, %.lr.ph ]
+  %.1106.lcssa = phi i64 [ %.0105, %170 ], [ %196, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.0104, %170 ], [ %197, %.lr.ph ]
   %.0.lcssa = phi i32 [ -1, %170 ], [ %198, %.lr.ph ]
   %189 = icmp slt i32 %.0.lcssa, 1
   %or.cond = select i1 %not., i1 true, i1 %189
@@ -2605,11 +2605,11 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
 
 .lr.ph:                                           ; preds = %170, %.lr.ph
   %.0187 = phi i32 [ %198, %.lr.ph ], [ -1, %170 ]
-  %.1186 = phi i64 [ %197, %.lr.ph ], [ %.0103, %170 ]
-  %.1105185 = phi i64 [ %196, %.lr.ph ], [ %.0104, %170 ]
+  %.1186 = phi i64 [ %197, %.lr.ph ], [ %.0104, %170 ]
+  %.1106185 = phi i64 [ %196, %.lr.ph ], [ %.0105, %170 ]
   %193 = icmp ugt i64 %68, %.1186
   %194 = zext i1 %193 to i64
-  %195 = add i64 %.1105185, %67
+  %195 = add i64 %.1106185, %67
   %196 = add i64 %195, %194
   %197 = add i64 %.1186, 1
   %198 = add i32 %.0187, 1
@@ -3037,8 +3037,8 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us.us: ; preds = %.split
   br label %.loopexit
 
 .split.us.split:                                  ; preds = %.split.us, %111
-  %.054.us = phi i64 [ %102, %111 ], [ 0, %.split.us ]
-  %.0.us = phi i64 [ %spec.select.us, %111 ], [ 0, %.split.us ]
+  %.055.us = phi i64 [ %102, %111 ], [ 0, %.split.us ]
+  %.054.us = phi i64 [ %spec.select.us, %111 ], [ 0, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store i64 0, ptr %15, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %62, align 8
@@ -3062,7 +3062,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
   %82 = load ptr, ptr %62, align 8, !nonnull !5, !noundef !5
   %83 = load i64, ptr %63, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %84 = urem i64 %.054.us, %2
+  %84 = urem i64 %.055.us, %2
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
   %85 = load i64, ptr %23, align 8, !alias.scope !451, !noalias !454, !noundef !5
   %86 = icmp ugt i64 %85, %84
@@ -3107,8 +3107,8 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
 100:                                              ; preds = %96
   %101 = xor i8 %99, 1
   %not..us = zext nneg i8 %101 to i64
-  %spec.select.us = add i64 %.0.us, %not..us
-  %102 = add i64 %.054.us, 1
+  %spec.select.us = add i64 %.054.us, %not..us
+  %102 = add i64 %.055.us, 1
   %103 = icmp eq i64 %spec.select.us, %2
   br i1 %103, label %.split123.us, label %104
 
@@ -3199,7 +3199,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us137: ; preds = %.split
           to label %.loopexit97 unwind label %222
 
 .split.split:                                     ; preds = %.split, %168
-  %.054 = phi i64 [ %142, %168 ], [ 0, %.split ]
+  %.055 = phi i64 [ %142, %168 ], [ 0, %.split ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store i64 0, ptr %15, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %116, align 8
@@ -3225,7 +3225,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
           to label %203 unwind label %.loopexit.split-lp
 
 129:                                              ; preds = %126
-  %130 = urem i64 %.054, %2
+  %130 = urem i64 %.055, %2
   %131 = icmp eq i64 %130, %118
   br i1 %131, label %154, label %141
 
@@ -3263,7 +3263,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
           to label %143 unwind label %.loopexit.split-lp
 
 141:                                              ; preds = %158, %129
-  %142 = add i64 %.054, 1
+  %142 = add i64 %.055, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !458
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %.noexc81 unwind label %.loopexit97.split

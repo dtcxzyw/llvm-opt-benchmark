@@ -166,7 +166,7 @@ define internal i32 @dissect_v5dl(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %22
 
 22:                                               ; preds = %4, %20, %18
-  %.065 = phi i32 [ %19, %18 ], [ %21, %20 ], [ 0, %4 ]
+  %.066 = phi i32 [ %19, %18 ], [ %21, %20 ], [ 0, %4 ]
   %.064 = phi ptr [ @.str.54, %18 ], [ @.str.55, %20 ], [ @.str.53, %4 ]
   %.063 = phi ptr [ @.str.55, %18 ], [ @.str.54, %20 ], [ @.str.53, %4 ]
   %23 = load ptr, ptr %5, align 8
@@ -223,11 +223,11 @@ proto_item_set_generated.exit:                    ; preds = %37, %34, %30, %25
   br label %56
 
 56:                                               ; preds = %22, %proto_item_set_generated.exit
-  %.066 = phi ptr [ %27, %proto_item_set_generated.exit ], [ null, %22 ]
+  %.065 = phi ptr [ %27, %proto_item_set_generated.exit ], [ null, %22 ]
   %.0 = phi ptr [ %29, %proto_item_set_generated.exit ], [ null, %22 ]
   %57 = load i32, ptr @hf_v5dl_control, align 4
   %58 = load i32, ptr @ett_v5dl_control, align 4
-  %59 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef %57, i32 noundef %58, ptr noundef nonnull @v5dl_cf_items, ptr noundef nonnull @v5dl_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.065, i32 noundef 1, i32 noundef 0) #2
+  %59 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef %57, i32 noundef %58, ptr noundef nonnull @v5dl_cf_items, ptr noundef nonnull @v5dl_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.066, i32 noundef 1, i32 noundef 0) #2
   %60 = and i32 %59, 65535
   %61 = and i32 %59, 3
   %62 = icmp eq i32 %61, 3
@@ -235,7 +235,7 @@ proto_item_set_generated.exit:                    ; preds = %37, %34, %30, %25
   br i1 %.not69, label %65, label %64
 
 64:                                               ; preds = %56
-  tail call void @proto_item_set_len(ptr noundef %.066, i32 noundef %63) #2
+  tail call void @proto_item_set_len(ptr noundef %.065, i32 noundef %63) #2
   br label %65
 
 65:                                               ; preds = %64, %56

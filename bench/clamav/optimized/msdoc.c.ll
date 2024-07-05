@@ -633,8 +633,8 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 nounde
   br label %35
 
 35:                                               ; preds = %26, %31
-  %.066 = phi i32 [ 25, %31 ], [ %.0.copyload24, %26 ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %.066, i32 noundef %.0.copyload24, i32 noundef 25) #10
+  %.067 = phi i32 [ 25, %31 ], [ %.0.copyload24, %26 ]
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %.067, i32 noundef %.0.copyload24, i32 noundef 25) #10
   %36 = load i32, ptr %27, align 4
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, %1
@@ -658,7 +658,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 nounde
   br i1 %.not72, label %54, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %.not94 = icmp eq i32 %.066, 0
+  %.not94 = icmp eq i32 %.067, 0
   br i1 %.not94, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -677,8 +677,8 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 nounde
 
 58:                                               ; preds = %.lr.ph, %414
   %.092 = phi i32 [ 0, %.lr.ph ], [ %415, %414 ]
-  %.06591 = phi i64 [ 8, %.lr.ph ], [ %59, %414 ]
-  %59 = add nuw nsw i64 %.06591, 8
+  %.06691 = phi i64 [ 8, %.lr.ph ], [ %59, %414 ]
+  %59 = add nuw nsw i64 %.06691, 8
   %60 = load i32, ptr %27, align 4
   %61 = zext i32 %60 to i64
   %62 = icmp ugt i64 %59, %61
@@ -691,8 +691,8 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef %0, i64 nounde
   br label %.loopexit
 
 66:                                               ; preds = %58
-  %67 = or disjoint i64 %.06591, 4
-  %68 = getelementptr inbounds i8, ptr %49, i64 %.06591
+  %67 = or disjoint i64 %.06691, 4
+  %68 = getelementptr inbounds i8, ptr %49, i64 %.06691
   %.0.copyload3 = load i32, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %49, i64 %67
   %.0.copyload = load i32, ptr %69, align 1
@@ -1282,8 +1282,8 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %319
 
 319:                                              ; preds = %315, %313
-  %.0258.i = phi i32 [ 256, %315 ], [ %.0.copyload43.i, %313 ]
-  %320 = add nuw nsw i32 %.0258.i, 1
+  %.0259.i = phi i32 [ 256, %315 ], [ %.0.copyload43.i, %313 ]
+  %320 = add nuw nsw i32 %.0259.i, 1
   %321 = zext nneg i32 %320 to i64
   %322 = call ptr @cli_max_calloc(i64 noundef %321, i64 noundef 1) #10
   %.not278.i = icmp eq ptr %322, null
@@ -1291,7 +1291,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 
 323:                                              ; preds = %319
   %324 = getelementptr inbounds i8, ptr %49, i64 %300
-  %325 = zext nneg i32 %.0258.i to i64
+  %325 = zext nneg i32 %.0259.i to i64
   %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
   %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef nonnull %322, i64 noundef %325, ptr noundef null)
   %.not279.i = icmp eq ptr %327, null
@@ -1485,12 +1485,12 @@ ole2_process_property.exit:                       ; preds = %141, %155, %160, %1
 
 414:                                              ; preds = %ole2_process_property.exit.thread79, %ole2_process_property.exit, %ole2_translate_docsummary_propid.exit
   %415 = add nuw nsw i32 %.092, 1
-  %exitcond.not = icmp eq i32 %415, %.066
+  %exitcond.not = icmp eq i32 %415, %.067
   br i1 %exitcond.not, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %ole2_process_property.exit, %414, %.preheader, %ole2_process_property.exit.thread, %63, %54, %41, %22, %12
-  %.067 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 26, %63 ], [ 12, %54 ], [ 12, %22 ], [ %.0.i.ph, %ole2_process_property.exit.thread ], [ 0, %.preheader ], [ %.0.i, %ole2_process_property.exit ], [ 0, %414 ]
-  ret i32 %.067
+  %.065 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 26, %63 ], [ 12, %54 ], [ 12, %22 ], [ %.0.i.ph, %ole2_process_property.exit.thread ], [ 0, %.preheader ], [ %.0.i, %ole2_process_property.exit ], [ 0, %414 ]
+  ret i32 %.065
 }
 
 declare i32 @cli_jsonbool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1625,9 +1625,9 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %46
 
 46:                                               ; preds = %.preheader125, %55
-  %.090149 = phi i64 [ 0, %.preheader125 ], [ %56, %55 ]
-  %.098148 = phi ptr [ null, %.preheader125 ], [ %.199, %55 ]
-  %47 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.090149
+  %.091149 = phi i64 [ 0, %.preheader125 ], [ %56, %55 ]
+  %.097148 = phi ptr [ null, %.preheader125 ], [ %.198, %55 ]
+  %47 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.091149
   %48 = load i16, ptr %47, align 16
   %49 = icmp eq i16 %45, %48
   br i1 %49, label %50, label %53
@@ -1642,14 +1642,14 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %50, %53
-  %.199 = phi ptr [ %52, %50 ], [ %.098148, %53 ]
-  %56 = add nuw nsw i64 %.090149, 1
+  %.198 = phi ptr [ %52, %50 ], [ %.097148, %53 ]
+  %56 = add nuw nsw i64 %.091149, 1
   %exitcond163.not = icmp eq i64 %56, 152
   br i1 %exitcond163.not, label %57, label %46
 
 57:                                               ; preds = %53, %55
-  %.098.lcssa = phi ptr [ %.098148, %53 ], [ %.199, %55 ]
-  %.not116 = icmp eq ptr %.098.lcssa, null
+  %.097.lcssa = phi ptr [ %.097148, %53 ], [ %.198, %55 ]
+  %.not116 = icmp eq ptr %.097.lcssa, null
   br i1 %.not116, label %58, label %63
 
 58:                                               ; preds = %57
@@ -1663,8 +1663,8 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %.loopexit126
 
 63:                                               ; preds = %57, %44
-  %.2100 = phi ptr [ %3, %44 ], [ %.098.lcssa, %57 ]
-  %64 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.2100) #10
+  %.2 = phi ptr [ %3, %44 ], [ %.097.lcssa, %57 ]
+  %64 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.2) #10
   %65 = icmp eq ptr %64, inttoptr (i64 -1 to ptr)
   br i1 %65, label %69, label %.preheader.preheader
 
@@ -1679,7 +1679,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   %70 = tail call ptr @__errno_location() #12
   %71 = load i32, ptr %70, align 4
   %72 = call ptr @cli_strerror(i32 noundef %71, ptr noundef nonnull %9, i64 noundef 128) #10
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.2100, ptr noundef nonnull %9) #10
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.2, ptr noundef nonnull %9) #10
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = or i32 %74, 2048
@@ -1695,11 +1695,11 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   %77 = phi ptr [ %99, %.preheader ], [ %68, %.preheader.preheader ]
   %78 = phi i64 [ %97, %.preheader ], [ %66, %.preheader.preheader ]
   %79 = phi i64 [ %96, %.preheader ], [ 2, %.preheader.preheader ]
-  %.095151197 = phi i64 [ %93, %.preheader ], [ 0, %.preheader.preheader ]
+  %.096151197 = phi i64 [ %93, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %.preheader.preheader ]
-  %80 = sub i64 %78, %.095151197
+  %80 = sub i64 %78, %.096151197
   store i64 %80, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 %.095151197
+  %81 = getelementptr inbounds i8, ptr %77, i64 %.096151197
   store ptr %81, ptr %6, align 8
   %82 = call i64 @iconv(ptr noundef %64, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   %83 = tail call ptr @__errno_location() #12
@@ -1737,7 +1737,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
 .loopexit.sink.split:                             ; preds = %86, %.lr.ph198
   %.str.98.sink = phi ptr [ @.str.97, %.lr.ph198 ], [ @.str.98, %86 ]
   %.sink185 = phi i32 [ 4096, %.lr.ph198 ], [ 8192, %86 ]
-  %.194.ph = phi i64 [ %82, %.lr.ph198 ], [ -1, %86 ]
+  %.195.ph = phi i64 [ %82, %.lr.ph198 ], [ -1, %86 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.98.sink) #10
   %100 = getelementptr inbounds i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
@@ -1746,10 +1746,10 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %.loopexit.sink.split
-  %.194 = phi i64 [ %.194.ph, %.loopexit.sink.split ], [ %82, %89 ]
+  %.195 = phi i64 [ %.195.ph, %.loopexit.sink.split ], [ %82, %89 ]
   %103 = load i32, ptr %83, align 4
   %104 = icmp eq i32 %103, 7
-  %105 = icmp eq i64 %.194, -1
+  %105 = icmp eq i64 %.195, -1
   %or.cond3 = select i1 %104, i1 %105, i1 false
   br i1 %or.cond3, label %106, label %110
 
@@ -1769,14 +1769,14 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %114
 
 114:                                              ; preds = %110, %69
-  %.2 = phi ptr [ null, %69 ], [ %77, %110 ]
+  %.2101 = phi ptr [ null, %69 ], [ %77, %110 ]
   %115 = call i32 @iconv_close(ptr noundef %64) #10
   call void @free(ptr noundef %43) #10
   br label %.loopexit126
 
 .loopexit126:                                     ; preds = %.lr.ph147.preheader, %41, %42, %19, %22, %40, %16, %114, %.preheader._crit_edge, %58, %11
-  %.0101 = phi ptr [ %12, %11 ], [ %.2, %114 ], [ null, %.preheader._crit_edge ], [ null, %58 ], [ null, %16 ], [ %18, %40 ], [ %18, %22 ], [ %18, %19 ], [ null, %42 ], [ %18, %41 ], [ %18, %.lr.ph147.preheader ]
-  ret ptr %.0101
+  %.089 = phi ptr [ %12, %11 ], [ %.2101, %114 ], [ null, %.preheader._crit_edge ], [ null, %58 ], [ null, %16 ], [ %18, %40 ], [ %18, %22 ], [ %18, %19 ], [ null, %42 ], [ %18, %41 ], [ %18, %.lr.ph147.preheader ]
+  ret ptr %.089
 }
 
 declare ptr @cl_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #1

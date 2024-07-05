@@ -292,9 +292,9 @@ inflateStateCheck.exit:                           ; preds = %16
   br label %select.unfold
 
 select.unfold:                                    ; preds = %27, %25
-  %.024 = phi i32 [ %26, %25 ], [ %spec.select, %27 ]
-  %.0 = phi i32 [ 0, %25 ], [ %29, %27 ]
-  switch i32 %.024, label %inflateStateCheck.exit.thread [
+  %.025 = phi i32 [ %26, %25 ], [ %spec.select, %27 ]
+  %.024 = phi i32 [ 0, %25 ], [ %29, %27 ]
+  switch i32 %.025, label %inflateStateCheck.exit.thread [
     i32 15, label %32
     i32 14, label %32
     i32 13, label %32
@@ -315,7 +315,7 @@ select.unfold:                                    ; preds = %27, %25
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %14, i64 56
   %37 = load i32, ptr %36, align 8
-  %.not30 = icmp eq i32 %37, %.024
+  %.not30 = icmp eq i32 %37, %.025
   br i1 %.not30, label %41, label %38
 
 38:                                               ; preds = %35
@@ -327,15 +327,15 @@ select.unfold:                                    ; preds = %27, %25
 
 41:                                               ; preds = %38, %35, %32
   %42 = getelementptr inbounds i8, ptr %14, i64 16
-  store i32 %.0, ptr %42, align 8
+  store i32 %.024, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %14, i64 56
-  store i32 %.024, ptr %43, align 8
+  store i32 %.025, ptr %43, align 8
   %44 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   br label %inflateStateCheck.exit.thread
 
 inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %select.unfold, %23, %inflateStateCheck.exit, %41
-  %.025 = phi i32 [ %44, %41 ], [ -2, %inflateStateCheck.exit ], [ -2, %23 ], [ -2, %select.unfold ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
-  ret i32 %.025
+  %.0 = phi i32 [ %44, %41 ], [ -2, %inflateStateCheck.exit ], [ -2, %23 ], [ -2, %select.unfold ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -439,9 +439,9 @@ inflateStateCheck.exit.i:                         ; preds = %40
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %51, %49
-  %.024.i = phi i32 [ %50, %49 ], [ %spec.select, %51 ]
-  %.0.i = phi i32 [ 0, %49 ], [ %53, %51 ]
-  switch i32 %.024.i, label %cm_zlib_inflateReset2.exit.thread [
+  %.025.i = phi i32 [ %50, %49 ], [ %spec.select, %51 ]
+  %.024.i = phi i32 [ 0, %49 ], [ %53, %51 ]
+  switch i32 %.025.i, label %cm_zlib_inflateReset2.exit.thread [
     i32 15, label %56
     i32 14, label %56
     i32 13, label %56
@@ -462,7 +462,7 @@ select.unfold.i:                                  ; preds = %51, %49
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %38, i64 56
   %61 = load i32, ptr %60, align 8
-  %.not30.i = icmp eq i32 %61, %.024.i
+  %.not30.i = icmp eq i32 %61, %.025.i
   br i1 %.not30.i, label %cm_zlib_inflateReset2.exit, label %62
 
 62:                                               ; preds = %59
@@ -473,9 +473,9 @@ select.unfold.i:                                  ; preds = %51, %49
 
 cm_zlib_inflateReset2.exit:                       ; preds = %56, %59, %62
   %64 = getelementptr inbounds i8, ptr %38, i64 16
-  store i32 %.0.i, ptr %64, align 8
+  store i32 %.024.i, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %38, i64 56
-  store i32 %.024.i, ptr %65, align 8
+  store i32 %.025.i, ptr %65, align 8
   %66 = tail call i32 @cm_zlib_inflateReset(ptr noundef nonnull %0)
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %69, label %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge
@@ -486,14 +486,14 @@ cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge: ; preds 
 
 cm_zlib_inflateReset2.exit.thread:                ; preds = %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge, %36, %40, %30, %select.unfold.i, %47, %inflateStateCheck.exit.i
   %67 = phi ptr [ %.pre, %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge ], [ %.pre34, %inflateStateCheck.exit.i ], [ %.pre34, %47 ], [ %.pre34, %select.unfold.i ], [ %.pre34, %30 ], [ %.pre34, %40 ], [ %.pre34, %36 ]
-  %.025.i33 = phi i32 [ %66, %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge ], [ -2, %inflateStateCheck.exit.i ], [ -2, %47 ], [ -2, %select.unfold.i ], [ -2, %30 ], [ -2, %40 ], [ -2, %36 ]
+  %.0.i33 = phi i32 [ %66, %cm_zlib_inflateReset2.exit.cm_zlib_inflateReset2.exit.thread_crit_edge ], [ -2, %inflateStateCheck.exit.i ], [ -2, %47 ], [ -2, %select.unfold.i ], [ -2, %30 ], [ -2, %40 ], [ -2, %36 ]
   %68 = load ptr, ptr %26, align 8
   tail call void %67(ptr noundef %68, ptr noundef nonnull %28) #9
   store ptr null, ptr %31, align 8
   br label %69
 
 69:                                               ; preds = %cm_zlib_inflateReset2.exit, %cm_zlib_inflateReset2.exit.thread, %25, %10, %4, %6
-  %.0 = phi i32 [ -6, %6 ], [ -6, %4 ], [ -2, %10 ], [ -4, %25 ], [ %.025.i33, %cm_zlib_inflateReset2.exit.thread ], [ 0, %cm_zlib_inflateReset2.exit ]
+  %.0 = phi i32 [ -6, %6 ], [ -6, %4 ], [ -2, %10 ], [ -4, %25 ], [ %.0.i33, %cm_zlib_inflateReset2.exit.thread ], [ 0, %cm_zlib_inflateReset2.exit ]
   ret i32 %.0
 }
 

@@ -194,12 +194,12 @@ if.end.i:                                         ; preds = %entry
   br label %do.body.i.preheader
 
 do.body.i.preheader:                              ; preds = %entry, %if.end.i
-  %s1.addr.0.i.ph = phi ptr [ @.str.10, %entry ], [ %cond.i, %if.end.i ]
+  %s1.addr.0.i.ph = phi ptr [ %cond.i, %if.end.i ], [ @.str.10, %entry ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.body.i
-  %s1.addr.0.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %s1.addr.0.i.ph, %do.body.i.preheader ]
   %s2.addr.0.i = phi ptr [ %incdec.ptr2.i, %do.body.i ], [ @.str, %do.body.i.preheader ]
+  %s1.addr.0.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %s1.addr.0.i.ph, %do.body.i.preheader ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %2 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %2 to i32

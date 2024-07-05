@@ -1793,8 +1793,8 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit: ; preds = %if.th
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit
-  %depth.0 = phi i32 [ 1, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit ], [ %depth.1, %do.cond ]
   %treshold.0 = phi i32 [ 124, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit ], [ %treshold.1, %do.cond ]
+  %depth.0 = phi i32 [ 1, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE6resizeEiRKS1_.exit ], [ %depth.1, %do.cond ]
   %dec = add nsw i32 %depth.0, -1
   %6 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %dec to i64
@@ -2337,10 +2337,10 @@ for.body.lr.ph:                                   ; preds = %if.then75
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.049 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %ni.048 = phi i32 [ %.sroa.speculated, %for.body.lr.ph ], [ %ni.1, %for.inc ]
+  %ni.049 = phi i32 [ %.sroa.speculated, %for.body.lr.ph ], [ %ni.1, %for.inc ]
+  %i.048 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %27 = load i32, ptr %m_cid, align 4
-  %add85 = add nsw i32 %27, %i.049
+  %add85 = add nsw i32 %27, %i.048
   %28 = load i32, ptr %m_size.i, align 4
   %rem87 = srem i32 %add85, %28
   %29 = load ptr, ptr %m_data.i, align 8
@@ -2404,13 +2404,13 @@ if.then93:                                        ; preds = %for.body, %land.lhs
   %vfn96 = getelementptr inbounds i8, ptr %vtable95, i64 24
   %47 = load ptr, ptr %vfn96, align 8
   %call97 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %dispatcher)
-  %dec = add nsw i32 %ni.048, -1
-  %dec98 = add nsw i32 %i.049, -1
+  %dec = add nsw i32 %ni.049, -1
+  %dec98 = add nsw i32 %i.048, -1
   br label %for.inc
 
 for.inc:                                          ; preds = %_Z9IntersectRK12btDbvtAabbMmS1_.exit, %if.then93
-  %ni.1 = phi i32 [ %ni.048, %_Z9IntersectRK12btDbvtAabbMmS1_.exit ], [ %dec, %if.then93 ]
-  %i.1 = phi i32 [ %i.049, %_Z9IntersectRK12btDbvtAabbMmS1_.exit ], [ %dec98, %if.then93 ]
+  %i.1 = phi i32 [ %i.048, %_Z9IntersectRK12btDbvtAabbMmS1_.exit ], [ %dec98, %if.then93 ]
+  %ni.1 = phi i32 [ %ni.049, %_Z9IntersectRK12btDbvtAabbMmS1_.exit ], [ %dec, %if.then93 ]
   %inc = add nsw i32 %i.1, 1
   %cmp84 = icmp slt i32 %inc, %ni.1
   br i1 %cmp84, label %for.body, label %for.end, !llvm.loop !16

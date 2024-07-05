@@ -1012,7 +1012,7 @@ define hidden noundef zeroext i16 @de_bssgp_list_of_setup_pfcs(ptr noundef %0, p
   br i1 %14, label %25, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %.03236 = add i32 %3, 1
+  %.03336 = add i32 %3, 1
   br label %17
 
 15:                                               ; preds = %7
@@ -1021,23 +1021,23 @@ define hidden noundef zeroext i16 @de_bssgp_list_of_setup_pfcs(ptr noundef %0, p
 
 17:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i32 [ 0, %.preheader ], [ %19, %17 ]
-  %.03238 = phi i32 [ %.03236, %.preheader ], [ %.032, %17 ]
+  %.03338 = phi i32 [ %.03336, %.preheader ], [ %.033, %17 ]
   %18 = load i32, ptr @ett_bssgp_list_of_setup_pfcs, align 4
   %19 = add nuw nsw i32 %indvars.iv, 1
-  %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03238, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %19) #4
-  %21 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %20, ptr noundef %2, i32 noundef %.03238, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
-  %.032 = add i32 %.03238, 1
+  %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03338, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %19) #4
+  %21 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %20, ptr noundef %2, i32 noundef %.03338, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
+  %.033 = add i32 %.03338, 1
   %exitcond.not = icmp eq i32 %19, %9
   br i1 %exitcond.not, label %22, label %17, !llvm.loop !4
 
 22:                                               ; preds = %17
-  %23 = sub i32 %.032, %3
+  %23 = sub i32 %.033, %3
   %24 = trunc i32 %23 to i16
   br label %25
 
 25:                                               ; preds = %12, %22, %15
-  %.033 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
-  ret i16 %.033
+  %.032 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
+  ret i16 %.032
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -2118,11 +2118,11 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br i1 %.not155, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0141150 = phi i32 [ %27, %.lr.ph ], [ 0, %.preheader ]
-  %.0142149 = phi i32 [ %29, %.lr.ph ], [ %25, %.preheader ]
-  %27 = add nuw nsw i32 %.0141150, 1
-  %28 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_bssgp_not_dissected_yet, ptr noundef %0, i32 noundef %.0142149, i32 noundef 22, ptr noundef nonnull @.str.453, i32 noundef %27) #4
-  %29 = add i32 %.0142149, 22
+  %.0141150 = phi i32 [ %29, %.lr.ph ], [ %25, %.preheader ]
+  %.0142149 = phi i32 [ %27, %.lr.ph ], [ 0, %.preheader ]
+  %27 = add nuw nsw i32 %.0142149, 1
+  %28 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_bssgp_not_dissected_yet, ptr noundef %0, i32 noundef %.0141150, i32 noundef 22, ptr noundef nonnull @.str.453, i32 noundef %27) #4
+  %29 = add i32 %.0141150, 22
   %exitcond.not = icmp eq i32 %27, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -2134,15 +2134,15 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br i1 %.not156, label %.loopexit, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %30, %46
-  %.1152 = phi i32 [ %34, %46 ], [ 0, %30 ]
-  %.1143151 = phi i32 [ %47, %46 ], [ %25, %30 ]
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1143151) #4
+  %.1152 = phi i32 [ %47, %46 ], [ %25, %30 ]
+  %.1143151 = phi i32 [ %34, %46 ], [ 0, %30 ]
+  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1152) #4
   call void @get_rr_msg_params(i8 noundef zeroext %32, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8) #4
   %33 = load i32, ptr @hf_bssgp_si_item, align 4
-  %34 = add nuw nsw i32 %.1152, 1
-  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %.1143151, i32 noundef 21, ptr noundef null, ptr noundef nonnull @.str.454, i32 noundef %34) #4
+  %34 = add nuw nsw i32 %.1143151, 1
+  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %.1152, i32 noundef 21, ptr noundef null, ptr noundef nonnull @.str.454, i32 noundef %34) #4
   %36 = load i32, ptr %10, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef %.1143151, i32 noundef 1, i32 noundef 0) #4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef %.1152, i32 noundef 1, i32 noundef 0) #4
   %38 = load i32, ptr %9, align 4
   %39 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #4
   %40 = load ptr, ptr %8, align 8
@@ -2154,12 +2154,12 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br label %46
 
 44:                                               ; preds = %.lr.ph153
-  %45 = add i32 %.1143151, 1
+  %45 = add i32 %.1152, 1
   call void %40(ptr noundef %0, ptr noundef %39, ptr noundef %2, i32 noundef %45, i32 noundef 20) #4
   br label %46
 
 46:                                               ; preds = %44, %42
-  %47 = add i32 %.1143151, 21
+  %47 = add i32 %.1152, 21
   %exitcond159.not = icmp eq i32 %34, %31
   br i1 %exitcond159.not, label %.loopexit, label %.lr.ph153, !llvm.loop !7
 
@@ -2377,38 +2377,38 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
 
 .split.us:                                        ; preds = %17, %.split.us
   %indvars.iv62 = phi i32 [ %24, %.split.us ], [ 0, %17 ]
-  %.04953.us = phi i32 [ %36, %.split.us ], [ %18, %17 ]
+  %.04954.us = phi i32 [ %36, %.split.us ], [ %18, %17 ]
   %23 = load i32, ptr @ett_bssgp_pfc_flow_control_parameters_pfc, align 4
   %24 = add nuw nsw i32 %indvars.iv62, 1
-  %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04953.us, i32 noundef 6, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %24) #4
-  %26 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %.04953.us, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
-  %27 = add i32 %.04953.us, 1
+  %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04954.us, i32 noundef 6, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %24) #4
+  %26 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %.04954.us, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
+  %27 = add i32 %.04954.us, 1
   %28 = load i32, ptr @hf_bssgp_bmax_pfc, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0) #4
-  %30 = add i32 %.04953.us, 3
+  %30 = add i32 %.04954.us, 3
   %31 = load i32, ptr @hf_bssgp_r_pfc, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef 0) #4
-  %33 = add i32 %.04953.us, 5
+  %33 = add i32 %.04954.us, 5
   %34 = load i32, ptr @hf_bssgp_b_pfc, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #4
-  %36 = add i32 %.04953.us, 6
+  %36 = add i32 %.04954.us, 6
   %exitcond66.not = icmp eq i32 %24, %9
   br i1 %exitcond66.not, label %.split56.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %17, %.split
   %indvars.iv = phi i32 [ %38, %.split ], [ 0, %17 ]
-  %.04953 = phi i32 [ %47, %.split ], [ %18, %17 ]
+  %.04954 = phi i32 [ %47, %.split ], [ %18, %17 ]
   %37 = load i32, ptr @ett_bssgp_pfc_flow_control_parameters_pfc, align 4
   %38 = add nuw nsw i32 %indvars.iv, 1
-  %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04953, i32 noundef %21, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %38) #4
-  %40 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %39, ptr noundef %2, i32 noundef %.04953, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
-  %41 = add i32 %.04953, 1
+  %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04954, i32 noundef %21, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %38) #4
+  %40 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %39, ptr noundef %2, i32 noundef %.04954, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
+  %41 = add i32 %.04954, 1
   %42 = load i32, ptr @hf_bssgp_bmax_pfc, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #4
-  %44 = add i32 %.04953, 3
+  %44 = add i32 %.04954, 3
   %45 = load i32, ptr @hf_bssgp_r_pfc, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #4
-  %47 = add i32 %.04953, 5
+  %47 = add i32 %.04954, 5
   %exitcond.not = icmp eq i32 %38, %9
   br i1 %exitcond.not, label %.split56.us, label %.split, !llvm.loop !8
 
@@ -2419,8 +2419,8 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %12, %.split56.us, %15
-  %.050 = phi i16 [ %49, %.split56.us ], [ 0, %15 ], [ 1, %12 ]
-  ret i16 %.050
+  %.0 = phi i16 [ %49, %.split56.us ], [ 0, %15 ], [ 1, %12 ]
+  ret i16 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2749,20 +2749,20 @@ define internal zeroext i16 @de_bssgp_pfcs_to_be_set_up_list(ptr noundef %0, ptr
 
 24:                                               ; preds = %18, %.thread
   %indvars.iv = phi i32 [ 0, %18 ], [ %26, %.thread ]
-  %.07278 = phi i32 [ %19, %18 ], [ %.2, %.thread ]
+  %.07378 = phi i32 [ %19, %18 ], [ %.2, %.thread ]
   %25 = load i32, ptr @ett_bssgp_pfcs_to_be_set_up_list, align 4
   %26 = add nuw nsw i32 %indvars.iv, 1
-  %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.07278, i32 noundef %22, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %26) #4
-  %28 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %27, ptr noundef %2, i32 noundef %.07278, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
-  %29 = add i32 %.07278, 1
+  %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.07378, i32 noundef %22, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %26) #4
+  %28 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %27, ptr noundef %2, i32 noundef %.07378, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
+  %29 = add i32 %.07378, 1
   %30 = load i32, ptr @ett_bssgp_pfcs_to_be_set_up_list_pft, align 4
   %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %29, i32 noundef 3, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.458) #4
   %32 = load i32, ptr @hf_bssgp_unit_val, align 4
-  %33 = add i32 %.07278, 3
+  %33 = add i32 %.07378, 3
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #4
   %35 = load i32, ptr @hf_bssgp_gprs_timer, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0) #4
-  %37 = add i32 %.07278, 4
+  %37 = add i32 %.07378, 4
   %38 = load i32, ptr @ett_bssgp_pfcs_to_be_set_up_list_abqp, align 4
   %39 = tail call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %37, i32 noundef 3, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.459) #4
   %40 = tail call zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %39, ptr noundef %2, i32 noundef %37, i32 noundef 16, ptr noundef null, i32 noundef 0) #4
@@ -2800,8 +2800,8 @@ define internal zeroext i16 @de_bssgp_pfcs_to_be_set_up_list(ptr noundef %0, ptr
   br label %61
 
 61:                                               ; preds = %12, %58, %15
-  %.073 = phi i16 [ %60, %58 ], [ %17, %15 ], [ 1, %12 ]
-  ret i16 %.073
+  %.0 = phi i16 [ %60, %58 ], [ %17, %15 ], [ 1, %12 ]
+  ret i16 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2971,7 +2971,7 @@ define internal noundef zeroext i16 @de_bssgp_active_pfcs_list(ptr noundef %0, p
   br i1 %14, label %25, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %.03236 = add i32 %3, 1
+  %.03336 = add i32 %3, 1
   br label %17
 
 15:                                               ; preds = %7
@@ -2980,23 +2980,23 @@ define internal noundef zeroext i16 @de_bssgp_active_pfcs_list(ptr noundef %0, p
 
 17:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i32 [ 0, %.preheader ], [ %19, %17 ]
-  %.03238 = phi i32 [ %.03236, %.preheader ], [ %.032, %17 ]
+  %.03338 = phi i32 [ %.03336, %.preheader ], [ %.033, %17 ]
   %18 = load i32, ptr @ett_bssgp_pfc_flow_control_parameters_pfc, align 4
   %19 = add nuw nsw i32 %indvars.iv, 1
-  %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03238, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %19) #4
-  %21 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %20, ptr noundef %2, i32 noundef %.03238, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
-  %.032 = add i32 %.03238, 1
+  %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03338, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %19) #4
+  %21 = tail call zeroext i16 @de_sm_pflow_id(ptr noundef %0, ptr noundef %20, ptr noundef %2, i32 noundef %.03338, i32 noundef 1, ptr noundef null, i32 noundef 0) #4
+  %.033 = add i32 %.03338, 1
   %exitcond.not = icmp eq i32 %19, %9
   br i1 %exitcond.not, label %22, label %17, !llvm.loop !13
 
 22:                                               ; preds = %17
-  %23 = sub i32 %.032, %3
+  %23 = sub i32 %.033, %3
   %24 = trunc i32 %23 to i16
   br label %25
 
 25:                                               ; preds = %12, %22, %15
-  %.033 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
-  ret i16 %.033
+  %.032 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
+  ret i16 %.032
 }
 
 ; Function Attrs: nounwind uwtable

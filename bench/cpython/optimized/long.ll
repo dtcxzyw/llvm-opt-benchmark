@@ -639,15 +639,15 @@ entry:
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.inc41.i.i, %entry
-  %i.03.i.i = phi i32 [ 0, %entry ], [ %inc42.i.i, %for.inc41.i.i ]
-  %base.02.i.i = phi i64 [ 1, %entry ], [ %shl.i.i, %for.inc41.i.i ]
-  %sub.i.i = sub i64 0, %base.02.i.i
+  %base.03.i.i = phi i64 [ 1, %entry ], [ %shl.i.i, %for.inc41.i.i ]
+  %i.02.i.i = phi i32 [ 0, %entry ], [ %inc42.i.i, %for.inc41.i.i ]
+  %sub.i.i = sub i64 0, %base.03.i.i
   br label %for.body3.i.i
 
 for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i.i, %for.cond1.preheader.i.i
   %j.01.i.i = phi i32 [ 0, %for.cond1.preheader.i.i ], [ %inc.i.i, %Py_DECREF.exit245.i.i ]
   %cmp4.i.i = icmp ult i32 %j.01.i.i, 3
-  %cond.i.i = select i1 %cmp4.i.i, i64 %base.02.i.i, i64 %sub.i.i
+  %cond.i.i = select i1 %cmp4.i.i, i64 %base.03.i.i, i64 %sub.i.i
   %rem.urem.i.i = add nsw i32 %j.01.i.i, -3
   %rem.i.i = select i1 %cmp4.i.i, i32 %j.01.i.i, i32 %rem.urem.i.i
   %sub5.i.i = add nsw i32 %rem.i.i, -1
@@ -758,8 +758,8 @@ Py_DECREF.exit245.i.i:                            ; preds = %if.then1.i243.i.i, 
   br i1 %exitcond.not.i.i, label %for.inc41.i.i, label %for.body3.i.i, !llvm.loop !4
 
 for.inc41.i.i:                                    ; preds = %Py_DECREF.exit245.i.i
-  %inc42.i.i = add nuw nsw i32 %i.03.i.i, 1
-  %shl.i.i = shl i64 %base.02.i.i, 1
+  %inc42.i.i = add nuw nsw i32 %i.02.i.i, 1
+  %shl.i.i = shl i64 %base.03.i.i, 1
   %exitcond4.not.i.i = icmp eq i32 %inc42.i.i, 65
   br i1 %exitcond4.not.i.i, label %for.end43.i.i, label %for.cond1.preheader.i.i, !llvm.loop !6
 
@@ -1825,15 +1825,15 @@ entry:
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.inc41.i.i, %entry
-  %i.03.i.i = phi i32 [ 0, %entry ], [ %inc42.i.i, %for.inc41.i.i ]
-  %base.02.i.i = phi i64 [ 1, %entry ], [ %shl.i.i, %for.inc41.i.i ]
-  %sub.i.i = sub i64 0, %base.02.i.i
+  %base.03.i.i = phi i64 [ 1, %entry ], [ %shl.i.i, %for.inc41.i.i ]
+  %i.02.i.i = phi i32 [ 0, %entry ], [ %inc42.i.i, %for.inc41.i.i ]
+  %sub.i.i = sub i64 0, %base.03.i.i
   br label %for.body3.i.i
 
 for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i.i, %for.cond1.preheader.i.i
   %j.01.i.i = phi i32 [ 0, %for.cond1.preheader.i.i ], [ %inc.i.i, %Py_DECREF.exit245.i.i ]
   %cmp4.i.i = icmp ult i32 %j.01.i.i, 3
-  %cond.i.i = select i1 %cmp4.i.i, i64 %base.02.i.i, i64 %sub.i.i
+  %cond.i.i = select i1 %cmp4.i.i, i64 %base.03.i.i, i64 %sub.i.i
   %rem.urem.i.i = add nsw i32 %j.01.i.i, -3
   %rem.i.i = select i1 %cmp4.i.i, i32 %j.01.i.i, i32 %rem.urem.i.i
   %sub5.i.i = add nsw i32 %rem.i.i, -1
@@ -1944,8 +1944,8 @@ Py_DECREF.exit245.i.i:                            ; preds = %if.then1.i243.i.i, 
   br i1 %exitcond.not.i.i, label %for.inc41.i.i, label %for.body3.i.i, !llvm.loop !7
 
 for.inc41.i.i:                                    ; preds = %Py_DECREF.exit245.i.i
-  %inc42.i.i = add nuw nsw i32 %i.03.i.i, 1
-  %shl.i.i = shl i64 %base.02.i.i, 1
+  %inc42.i.i = add nuw nsw i32 %i.02.i.i, 1
+  %shl.i.i = shl i64 %base.03.i.i, 1
   %exitcond4.not.i.i = icmp eq i32 %inc42.i.i, 65
   br i1 %exitcond4.not.i.i, label %for.end43.i.i, label %for.cond1.preheader.i.i, !llvm.loop !8
 

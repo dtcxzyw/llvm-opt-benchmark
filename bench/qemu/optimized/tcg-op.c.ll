@@ -2550,13 +2550,13 @@ if.end24.thread:                                  ; preds = %if.end18
   br i1 %cmp2694, label %tcg_gen_shli_i32.exit, label %tcg_gen_shli_i32.exit87
 
 tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %if.end24
-  %call95 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
+  %call97 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
   %or.cond.i = icmp ult i32 %len, 32
   tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i32(i32 noundef %len) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %16 = ptrtoint ptr %call95 to i64
+  %16 = ptrtoint ptr %call97 to i64
   %add.ptr.i.i.i.i6.i = getelementptr i8, ptr %15, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i.i.i6.i to i64
   %18 = ptrtoint ptr %arg1 to i64
@@ -2572,7 +2572,7 @@ tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %i
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
   %arrayidx4.i.i.i.i = getelementptr i8, ptr %call.i.i.i8.i, i64 48
   store i64 %21, ptr %arrayidx4.i.i.i.i, align 8
-  tail call void @tcg_gen_extract2_i32(ptr noundef %ret, ptr noundef %call95, ptr noundef %arg2, i32 noundef %len)
+  tail call void @tcg_gen_extract2_i32(ptr noundef %ret, ptr noundef %call97, ptr noundef %arg2, i32 noundef %len)
   br label %done
 
 tcg_gen_rotli_i32.exit:                           ; preds = %if.end24
@@ -2636,8 +2636,8 @@ tcg_gen_shli_i32.exit87:                          ; preds = %if.end24.thread
   br label %done
 
 done:                                             ; preds = %tcg_gen_shli_i32.exit87, %tcg_gen_rotli_i32.exit, %tcg_gen_shli_i32.exit
-  %call96 = phi ptr [ %call93, %tcg_gen_shli_i32.exit87 ], [ %call, %tcg_gen_rotli_i32.exit ], [ %call95, %tcg_gen_shli_i32.exit ]
-  tail call void @tcg_temp_free_i32(ptr noundef %call96) #5
+  %call95 = phi ptr [ %call93, %tcg_gen_shli_i32.exit87 ], [ %call, %tcg_gen_rotli_i32.exit ], [ %call97, %tcg_gen_shli_i32.exit ]
+  tail call void @tcg_temp_free_i32(ptr noundef %call95) #5
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then17, %done, %if.then22
@@ -7211,14 +7211,14 @@ if.end24.thread:                                  ; preds = %if.end18
   br i1 %cmp2694, label %tcg_gen_shli_i64.exit, label %tcg_gen_shli_i64.exit87
 
 tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %if.end24
-  %call95 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
+  %call97 = phi ptr [ %call93, %if.end24.thread ], [ %call, %if.end24 ]
   %conv29 = zext nneg i32 %len to i64
   %or.cond.i = icmp ult i32 %len, 64
   tail call void @llvm.assume(i1 %or.cond.i)
   %call.i = tail call ptr @tcg_constant_i64(i64 noundef %conv29) #5
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %16 = ptrtoint ptr %call95 to i64
+  %16 = ptrtoint ptr %call97 to i64
   %add.ptr.i.i.i.i.i6.i = getelementptr i8, ptr %15, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i.i.i.i6.i to i64
   %18 = ptrtoint ptr %arg1 to i64
@@ -7234,7 +7234,7 @@ tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %i
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
   %arrayidx4.i.i.i.i = getelementptr i8, ptr %call.i.i.i8.i, i64 48
   store i64 %21, ptr %arrayidx4.i.i.i.i, align 8
-  tail call void @tcg_gen_extract2_i64(ptr noundef %ret, ptr noundef %call95, ptr noundef %arg2, i32 noundef %len)
+  tail call void @tcg_gen_extract2_i64(ptr noundef %ret, ptr noundef %call97, ptr noundef %arg2, i32 noundef %len)
   br label %done
 
 tcg_gen_rotli_i64.exit:                           ; preds = %if.end24
@@ -7301,8 +7301,8 @@ tcg_gen_shli_i64.exit87:                          ; preds = %if.end24.thread
   br label %done
 
 done:                                             ; preds = %tcg_gen_shli_i64.exit87, %tcg_gen_rotli_i64.exit, %tcg_gen_shli_i64.exit
-  %call96 = phi ptr [ %call93, %tcg_gen_shli_i64.exit87 ], [ %call, %tcg_gen_rotli_i64.exit ], [ %call95, %tcg_gen_shli_i64.exit ]
-  tail call void @tcg_temp_free_i64(ptr noundef %call96) #5
+  %call95 = phi ptr [ %call93, %tcg_gen_shli_i64.exit87 ], [ %call, %tcg_gen_rotli_i64.exit ], [ %call97, %tcg_gen_shli_i64.exit ]
+  tail call void @tcg_temp_free_i64(ptr noundef %call95) #5
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then17, %done, %if.then22

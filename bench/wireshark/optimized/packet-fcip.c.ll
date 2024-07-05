@@ -232,19 +232,19 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br label %20
 
 20:                                               ; preds = %.lr.ph, %dissect_fcip_sf.exit
-  %.0151 = phi ptr [ null, %.lr.ph ], [ %.1184, %dissect_fcip_sf.exit ]
-  %.099150 = phi i8 [ 0, %.lr.ph ], [ %.2183, %dissect_fcip_sf.exit ]
-  %.0101149 = phi i8 [ 0, %.lr.ph ], [ %.2103181, %dissect_fcip_sf.exit ]
-  %.0104148 = phi i32 [ %6, %.lr.ph ], [ %215, %dissect_fcip_sf.exit ]
-  %.0105147 = phi i32 [ 0, %.lr.ph ], [ %.1106178, %dissect_fcip_sf.exit ]
-  %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105147) #2
+  %.098151 = phi ptr [ null, %.lr.ph ], [ %.1184, %dissect_fcip_sf.exit ]
+  %.0100150 = phi i8 [ 0, %.lr.ph ], [ %.2183, %dissect_fcip_sf.exit ]
+  %.0102149 = phi i8 [ 0, %.lr.ph ], [ %.2104181, %dissect_fcip_sf.exit ]
+  %.0105148 = phi i32 [ 0, %.lr.ph ], [ %.1106178, %dissect_fcip_sf.exit ]
+  %.0107147 = phi i32 [ %6, %.lr.ph ], [ %215, %dissect_fcip_sf.exit ]
+  %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105148) #2
   %.not118.i = icmp eq i32 %21, 0
   br i1 %.not118.i, label %get_next_fcip_header_offset.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %.backedge.i
-  %.0100120.i = phi i32 [ %.0100.be.i, %.backedge.i ], [ %21, %20 ]
-  %.0101119.i = phi i32 [ %.0101.be.i, %.backedge.i ], [ %.0105147, %20 ]
-  %22 = icmp slt i32 %.0100120.i, 28
+  %.0100120.i = phi i32 [ %.0100.be.i, %.backedge.i ], [ %.0105148, %20 ]
+  %.0101119.i = phi i32 [ %.0101.be.i, %.backedge.i ], [ %21, %20 ]
+  %22 = icmp slt i32 %.0101119.i, 28
   %23 = load i32, ptr @fcip_desegment, align 4
   %24 = icmp ne i32 %23, 0
   %or.cond18.i = select i1 %22, i1 %24, i1 false
@@ -257,22 +257,22 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.0101119.i, ptr %28, align 4
+  store i32 %.0100120.i, ptr %28, align 4
   br label %get_next_fcip_header_offset.exit.thread129
 
 29:                                               ; preds = %25, %.lr.ph.i
-  %30 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.0101119.i, ptr noundef nonnull @fcip_header_8_bytes, i64 noundef 8) #2
+  %30 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.0100120.i, ptr noundef nonnull @fcip_header_8_bytes, i64 noundef 8) #2
   %.not105.i = icmp eq i32 %30, 0
   br i1 %.not105.i, label %31, label %.backedge.i
 
 .backedge.i:                                      ; preds = %64, %57, %54, %50, %40, %31, %29
-  %.0100.be.i = add i32 %.0100120.i, -1
-  %.0101.be.i = add i32 %.0101119.i, 1
-  %.not.i = icmp eq i32 %.0100.be.i, 0
+  %.0100.be.i = add i32 %.0100120.i, 1
+  %.0101.be.i = add i32 %.0101119.i, -1
+  %.not.i = icmp eq i32 %.0101.be.i, 0
   br i1 %.not.i, label %get_next_fcip_header_offset.exit.thread, label %.lr.ph.i
 
 31:                                               ; preds = %29
-  %32 = add i32 %.0101119.i, 12
+  %32 = add i32 %.0100120.i, 12
   %33 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %32) #2
   %34 = and i16 %33, 1023
   %35 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %32) #2
@@ -284,7 +284,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br i1 %or.cond.i, label %.backedge.i, label %40
 
 40:                                               ; preds = %31
-  %41 = add i32 %.0101119.i, 14
+  %41 = add i32 %.0100120.i, 14
   %42 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %41) #2
   %43 = xor i16 %42, %33
   %44 = and i16 %43, 1023
@@ -293,7 +293,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
 
 45:                                               ; preds = %40
   %46 = shl nuw nsw i32 %38, 2
-  %47 = add i32 %.0101119.i, -4
+  %47 = add i32 %.0100120.i, -4
   %48 = add i32 %47, %46
   %49 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %48, i32 noundef 4) #2
   %.not107.i = icmp eq i32 %49, 0
@@ -306,23 +306,23 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br label %.backedge.i
 
 54:                                               ; preds = %45
-  %55 = add i32 %.0101119.i, 9
+  %55 = add i32 %.0100120.i, 9
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #2
   %.not108.i = icmp eq i8 %56, 0
   br i1 %.not108.i, label %57, label %.backedge.i
 
 57:                                               ; preds = %54
-  %58 = add i32 %.0101119.i, 11
+  %58 = add i32 %.0100120.i, 11
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %58) #2
   %.not109.i = icmp eq i8 %59, -1
   br i1 %.not109.i, label %60, label %.backedge.i
 
 60:                                               ; preds = %57
-  %.not110.i = icmp slt i32 %.0100120.i, %38
+  %.not110.i = icmp slt i32 %.0101119.i, %38
   br i1 %.not110.i, label %67, label %61
 
 61:                                               ; preds = %60
-  %62 = add i32 %.0101119.i, %38
+  %62 = add i32 %.0100120.i, %38
   %63 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %62, i32 noundef 8) #2
   %.not113.i = icmp eq i32 %63, 0
   br i1 %.not113.i, label %get_next_fcip_header_offset.exit, label %64
@@ -344,8 +344,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.0101119.i, ptr %72, align 4
-  %73 = sub i32 %38, %.0100120.i
+  store i32 %.0100120.i, ptr %72, align 4
+  %73 = sub i32 %38, %.0101119.i
   br label %get_next_fcip_header_offset.exit.thread129
 
 get_next_fcip_header_offset.exit.thread129:       ; preds = %27, %71
@@ -355,7 +355,7 @@ get_next_fcip_header_offset.exit.thread129:       ; preds = %27, %71
   br label %get_next_fcip_header_offset.exit.thread
 
 get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
-  switch i32 %.0101119.i, label %75 [
+  switch i32 %.0100120.i, label %75 [
     i32 -1, label %get_next_fcip_header_offset.exit.thread.loopexit242
     i32 -2, label %get_next_fcip_header_offset.exit.thread
   ]
@@ -367,7 +367,7 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
   %78 = shl i16 %77, 2
   %79 = and i16 %78, 4092
   %80 = zext nneg i16 %79 to i32
-  %81 = icmp slt i32 %.0104148, %80
+  %81 = icmp slt i32 %.0107147, %80
   %82 = load i32, ptr @fcip_desegment, align 4
   %83 = icmp ne i32 %82, 0
   %or.cond7 = select i1 %81, i1 %83, i1 false
@@ -380,14 +380,14 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.0101119.i, ptr %87, align 4
-  %88 = sub nsw i32 %80, %.0104148
+  store i32 %.0100120.i, ptr %87, align 4
+  %88 = sub nsw i32 %80, %.0107147
   %89 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %88, ptr %89, align 8
   br label %get_next_fcip_header_offset.exit.thread
 
 90:                                               ; preds = %84, %75
-  %91 = add i32 %.0101119.i, 8
+  %91 = add i32 %.0100120.i, 8
   %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %91) #2
   %.pre = and i8 %92, 1
   %.not121 = icmp eq i8 %.pre, 0
@@ -403,9 +403,9 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
 
 97:                                               ; preds = %93
   %98 = add i32 %47, %80
-  %99 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0101119.i, i32 noundef %98) #2
+  %99 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0100120.i, i32 noundef %98) #2
   %.not119 = icmp eq i32 %99, 0
-  %100 = add i32 %.0101119.i, 28
+  %100 = add i32 %.0100120.i, 28
   %101 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %100) #2
   br i1 %.not119, label %110, label %102
 
@@ -427,41 +427,41 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
   br label %115
 
 115:                                              ; preds = %102, %110, %94
-  %.1102 = phi i8 [ %.0101149, %94 ], [ %101, %102 ], [ %101, %110 ]
-  %.1100 = phi i8 [ %.099150, %94 ], [ %103, %102 ], [ %.099150, %110 ]
-  %.098 = phi ptr [ %96, %94 ], [ %109, %102 ], [ %114, %110 ]
+  %.1103 = phi i8 [ %.0102149, %94 ], [ %101, %102 ], [ %101, %110 ]
+  %.1101 = phi i8 [ %.0100150, %94 ], [ %103, %102 ], [ %.0100150, %110 ]
+  %.099 = phi ptr [ %96, %94 ], [ %109, %102 ], [ %114, %110 ]
   %116 = load i32, ptr @ett_fcip, align 4
-  %117 = call ptr @proto_item_add_subtree(ptr noundef %.098, i32 noundef %116) #2
-  %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0101119.i) #2
+  %117 = call ptr @proto_item_add_subtree(ptr noundef %.099, i32 noundef %116) #2
+  %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0100120.i) #2
   %.not.i126 = icmp eq ptr %117, null
   br i1 %.not.i126, label %dissect_fcencap_header.exit, label %119
 
 119:                                              ; preds = %115
   %120 = load i32, ptr @hf_fcip_protocol, align 4
   %121 = zext i8 %118 to i32
-  %122 = call ptr @proto_tree_add_uint(ptr noundef nonnull %117, i32 noundef %120, ptr noundef %0, i32 noundef %.0101119.i, i32 noundef 1, i32 noundef %121) #2
+  %122 = call ptr @proto_tree_add_uint(ptr noundef nonnull %117, i32 noundef %120, ptr noundef %0, i32 noundef %.0100120.i, i32 noundef 1, i32 noundef %121) #2
   %123 = load i32, ptr @hf_fcip_version, align 4
-  %124 = add nuw i32 %.0101119.i, 1
+  %124 = add nuw i32 %.0100120.i, 1
   %125 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef 0) #2
   %126 = load i32, ptr @hf_fcip_protocol_c, align 4
-  %127 = add nuw i32 %.0101119.i, 2
+  %127 = add nuw i32 %.0100120.i, 2
   %128 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %126, ptr noundef %0, i32 noundef %127, i32 noundef 1, i32 noundef 0) #2
   %129 = load i32, ptr @hf_fcip_version_c, align 4
-  %130 = add i32 %.0101119.i, 3
+  %130 = add i32 %.0100120.i, 3
   %131 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef 1, i32 noundef 0) #2
   %132 = icmp eq i8 %118, 1
   br i1 %132, label %133, label %144
 
 133:                                              ; preds = %119
   %134 = load i32, ptr @hf_fcip_encap_word1, align 4
-  %135 = add i32 %.0101119.i, 4
+  %135 = add i32 %.0100120.i, 4
   %136 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 4, i32 noundef 0) #2
   %137 = load i32, ptr @hf_fcip_pflags_changed, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %137, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #2
   %139 = load i32, ptr @hf_fcip_pflags_special, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %139, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #2
   %141 = load i32, ptr @hf_fcip_pflags_c, align 4
-  %142 = add i32 %.0101119.i, 10
+  %142 = add i32 %.0100120.i, 10
   %143 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef 1, i32 noundef 0) #2
   br label %144
 
@@ -475,25 +475,25 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
   %151 = load i32, ptr @hf_fcip_framelen_c, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %151, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #2
   %153 = load i32, ptr @hf_fcip_tsec, align 4
-  %154 = add i32 %.0101119.i, 16
+  %154 = add i32 %.0100120.i, 16
   %155 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %153, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef 0) #2
   %156 = load i32, ptr @hf_fcip_tusec, align 4
-  %157 = add i32 %.0101119.i, 20
+  %157 = add i32 %.0100120.i, 20
   %158 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %156, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0) #2
   %159 = load i32, ptr @hf_fcip_encap_crc, align 4
-  %160 = add i32 %.0101119.i, 24
+  %160 = add i32 %.0100120.i, 24
   %161 = call ptr @proto_tree_add_item(ptr noundef nonnull %117, i32 noundef %159, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_fcencap_header.exit
 
 dissect_fcencap_header.exit:                      ; preds = %115, %144
-  %162 = add i32 %.0101119.i, 28
+  %162 = add i32 %.0100120.i, 28
   br i1 %.not121, label %163, label %.thread186
 
 163:                                              ; preds = %dissect_fcencap_header.exit
   %164 = load i32, ptr @hf_fcip_sof, align 4
   %165 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %164, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0) #2
   %166 = load i32, ptr @hf_fcip_sof_c, align 4
-  %167 = add i32 %.0101119.i, 30
+  %167 = add i32 %.0100120.i, 30
   %168 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0) #2
   %169 = add i32 %47, %80
   %170 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %169, i32 noundef 4) #2
@@ -512,12 +512,12 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
   br i1 %.not121, label %.thread, label %.thread186
 
 .thread:                                          ; preds = %163, %171, %177
-  %.1185 = phi ptr [ %.0151, %177 ], [ %117, %171 ], [ %117, %163 ]
-  %.2182 = phi i8 [ %.099150, %177 ], [ %.1100, %171 ], [ %.1100, %163 ]
-  %.2103180 = phi i8 [ %.0101149, %177 ], [ %.1102, %171 ], [ %.1102, %163 ]
-  %.1106179 = phi i32 [ %.0101119.i, %177 ], [ %169, %171 ], [ %169, %163 ]
+  %.1185 = phi ptr [ %.098151, %177 ], [ %117, %171 ], [ %117, %163 ]
+  %.2182 = phi i8 [ %.0100150, %177 ], [ %.1101, %171 ], [ %.1101, %163 ]
+  %.2104180 = phi i8 [ %.0102149, %177 ], [ %.1103, %171 ], [ %.1103, %163 ]
+  %.1106179 = phi i32 [ %.0100120.i, %177 ], [ %169, %171 ], [ %169, %163 ]
   store i8 0, ptr %19, align 4
-  switch i8 %.2103180, label %.sink.split [
+  switch i8 %.2104180, label %.sink.split [
     i8 0, label %182
     i8 46, label %178
     i8 45, label %178
@@ -555,10 +555,10 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
   br label %dissect_fcip_sf.exit
 
 .thread186:                                       ; preds = %dissect_fcencap_header.exit, %177
-  %.1196 = phi ptr [ %.0151, %177 ], [ %117, %dissect_fcencap_header.exit ]
-  %.2195 = phi i8 [ %.099150, %177 ], [ %.1100, %dissect_fcencap_header.exit ]
-  %.2103194 = phi i8 [ %.0101149, %177 ], [ %.1102, %dissect_fcencap_header.exit ]
-  %.1106193 = phi i32 [ %.0101119.i, %177 ], [ %162, %dissect_fcencap_header.exit ]
+  %.1196 = phi ptr [ %.098151, %177 ], [ %117, %dissect_fcencap_header.exit ]
+  %.2195 = phi i8 [ %.0100150, %177 ], [ %.1101, %dissect_fcencap_header.exit ]
+  %.2104194 = phi i8 [ %.0102149, %177 ], [ %.1103, %dissect_fcencap_header.exit ]
+  %.1106193 = phi i32 [ %.0100120.i, %177 ], [ %162, %dissect_fcencap_header.exit ]
   %189 = load ptr, ptr %18, align 8
   call void @col_set_str(ptr noundef %189, i32 noundef 25, ptr noundef nonnull @.str.86) #2
   %.not125 = icmp sgt i8 %92, -1
@@ -600,9 +600,9 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
 dissect_fcip_sf.exit:                             ; preds = %193, %192, %185, %187
   %.1184 = phi ptr [ %.1196, %193 ], [ null, %192 ], [ %.1185, %185 ], [ %.1185, %187 ]
   %.2183 = phi i8 [ %.2195, %193 ], [ %.2195, %192 ], [ %.2182, %185 ], [ %.2182, %187 ]
-  %.2103181 = phi i8 [ %.2103194, %193 ], [ %.2103194, %192 ], [ %.2103180, %185 ], [ %.2103180, %187 ]
+  %.2104181 = phi i8 [ %.2104194, %193 ], [ %.2104194, %192 ], [ %.2104180, %185 ], [ %.2104180, %187 ]
   %.1106178 = phi i32 [ %.1106193, %193 ], [ %.1106193, %192 ], [ %.1106179, %185 ], [ %.1106179, %187 ]
-  %215 = sub nsw i32 %.0104148, %80
+  %215 = sub nsw i32 %.0107147, %80
   %216 = icmp sgt i32 %215, 28
   br i1 %216, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !4
 
@@ -610,8 +610,8 @@ get_next_fcip_header_offset.exit.thread.loopexit242: ; preds = %get_next_fcip_he
   br label %get_next_fcip_header_offset.exit.thread
 
 get_next_fcip_header_offset.exit.thread:          ; preds = %dissect_fcip_sf.exit, %20, %.backedge.i, %get_next_fcip_header_offset.exit, %get_next_fcip_header_offset.exit.thread.loopexit242, %16, %get_next_fcip_header_offset.exit.thread129, %13, %4, %86
-  %.0107 = phi i32 [ 1, %86 ], [ 0, %4 ], [ 0, %13 ], [ 1, %get_next_fcip_header_offset.exit.thread129 ], [ 1, %16 ], [ 1, %get_next_fcip_header_offset.exit ], [ 0, %.backedge.i ], [ 1, %dissect_fcip_sf.exit ], [ 0, %20 ], [ 0, %get_next_fcip_header_offset.exit.thread.loopexit242 ]
-  ret i32 %.0107
+  %.0 = phi i32 [ 1, %86 ], [ 0, %4 ], [ 0, %13 ], [ 1, %get_next_fcip_header_offset.exit.thread129 ], [ 1, %16 ], [ 1, %get_next_fcip_header_offset.exit ], [ 0, %.backedge.i ], [ 1, %dissect_fcip_sf.exit ], [ 0, %20 ], [ 0, %get_next_fcip_header_offset.exit.thread.loopexit242 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

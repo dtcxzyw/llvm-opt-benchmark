@@ -114319,8 +114319,8 @@ entry:
   br i1 %cmp.i.not17, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.sroa.0.020 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.020, i64 48
+  %i.sroa.0.018 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 48
   %1 = load ptr, ptr %second.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.inc, label %if.end
@@ -114391,7 +114391,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Value
   tail call void @_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EED2Ev(ptr noundef nonnull align 8 dereferenceable(270352) %2) #15
   tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   store ptr null, ptr %second.i, align 8
-  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.020, i64 56
+  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 56
   %ref.tmp.sroa.2.0.insert.shift = select i1 %cmp.i4.i, i16 256, i16 0
   %ref.tmp.sroa.0.0.insert.ext = zext nneg i8 %frombool.i to i16
   %ref.tmp.sroa.0.0.insert.insert = or disjoint i16 %ref.tmp.sroa.2.0.insert.shift, %ref.tmp.sroa.0.0.insert.ext
@@ -114399,7 +114399,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Value
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE7setTileERKSt17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENS9_10NodeStructEEERKNS9_4TileE.exit, %for.body
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.020) #25
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.018) #25
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1141
 

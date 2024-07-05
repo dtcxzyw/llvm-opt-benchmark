@@ -552,22 +552,22 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   br label %92
 
 92:                                               ; preds = %dissect_componentstatusprotocol_cspreport_association.exit.i.i, %.lr.ph.i.i
-  %.038.i.i = phi i32 [ 288, %.lr.ph.i.i ], [ %128, %dissect_componentstatusprotocol_cspreport_association.exit.i.i ]
-  %.03537.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %94, %dissect_componentstatusprotocol_cspreport_association.exit.i.i ]
+  %.038.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %94, %dissect_componentstatusprotocol_cspreport_association.exit.i.i ]
+  %.03537.i.i = phi i32 [ 288, %.lr.ph.i.i ], [ %128, %dissect_componentstatusprotocol_cspreport_association.exit.i.i ]
   %93 = load i32, ptr @ett_association, align 4
-  %94 = add i32 %.03537.i.i, 1
-  %95 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef %.038.i.i, i32 noundef 24, i32 noundef %93, ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef %.03537.i.i) #4
-  %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.038.i.i) #4
+  %94 = add i32 %.038.i.i, 1
+  %95 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef %.03537.i.i, i32 noundef 24, i32 noundef %93, ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef %.038.i.i) #4
+  %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03537.i.i) #4
   %97 = icmp sgt i32 %96, 24
   br i1 %97, label %100, label %98
 
 98:                                               ; preds = %92
-  %99 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.038.i.i) #4
+  %99 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03537.i.i) #4
   br label %100
 
 100:                                              ; preds = %98, %92
   %101 = phi i32 [ %99, %98 ], [ 24, %92 ]
-  %102 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.038.i.i, i32 noundef %101, i32 noundef 24) #4
+  %102 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.03537.i.i, i32 noundef %101, i32 noundef 24) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %103 = load i32, ptr @hf_cspreport_association_receiver_id, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %103, ptr noundef %102, i32 noundef 0, i32 noundef 8, i32 noundef 0) #4
@@ -605,7 +605,7 @@ dissect_componentstatusprotocol_cspreport_association.exit.i.i: ; preds = %120, 
   %126 = load i32, ptr @hf_cspreport_association_ppid, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %126, ptr noundef %102, i32 noundef 20, i32 noundef 4, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %128 = add i32 %.038.i.i, 24
+  %128 = add i32 %.03537.i.i, 24
   %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %128) #4
   %130 = icmp sgt i32 %129, 23
   br i1 %130, label %92, label %dissect_componentstatusprotocol_cspreport_message.exit.i, !llvm.loop !6

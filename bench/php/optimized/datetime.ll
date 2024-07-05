@@ -136,11 +136,11 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %26, label %29, label %28
 
 28:                                               ; preds = %8, %15, %25
-  %.0157.ph = phi i32 [ 2, %25 ], [ 1, %15 ], [ 0, %8 ]
-  %.0156.ph = phi ptr [ %20, %25 ], [ %10, %15 ], [ null, %8 ]
-  %.0155.ph = phi i32 [ 4, %25 ], [ 4, %15 ], [ 0, %8 ]
-  %.0154.ph = phi i32 [ 9, %25 ], [ 9, %15 ], [ 1, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0154.ph, i32 noundef %.0157.ph, ptr noundef null, i32 noundef %.0155.ph, ptr noundef %.0156.ph) #4
+  %.0160.ph = phi ptr [ %20, %25 ], [ %10, %15 ], [ null, %8 ]
+  %.0159.ph = phi i32 [ 4, %25 ], [ 4, %15 ], [ 0, %8 ]
+  %.0158.ph = phi i32 [ 2, %25 ], [ 1, %15 ], [ 0, %8 ]
+  %.0155.ph = phi i32 [ 9, %25 ], [ 9, %15 ], [ 1, %8 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0155.ph, i32 noundef %.0158.ph, ptr noundef null, i32 noundef %.0159.ph, ptr noundef %.0160.ph) #4
   br label %60
 
 29:                                               ; preds = %25, %.thread180

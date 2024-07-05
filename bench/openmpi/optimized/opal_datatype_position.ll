@@ -43,13 +43,13 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   br label %29
 
 29:                                               ; preds = %23, %29
-  %.0129207 = phi i32 [ 0, %23 ], [ %34, %29 ]
-  %30 = zext i32 %.0129207 to i64
+  %.0125207 = phi i32 [ 0, %23 ], [ %34, %29 ]
+  %30 = zext i32 %.0125207 to i64
   %31 = getelementptr inbounds %struct.dt_stack_t, ptr %25, i64 %30, i32 4
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %28
   store i64 %33, ptr %31, align 8
-  %34 = add i32 %.0129207, 1
+  %34 = add i32 %.0125207, 1
   %35 = load i32, ptr %27, align 8
   %.not = icmp ugt i32 %34, %35
   br i1 %.not, label %36, label %29, !llvm.loop !4
@@ -133,18 +133,18 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.1188.ph281 = phi i64 [ %.1188.ph, %.backedge.preheader ], [ %.1188.ph281.be, %.backedge.outer.backedge ]
   %.2182.ph282 = phi i64 [ %.2182.ph, %.backedge.preheader ], [ %.2182.ph282.be, %.backedge.outer.backedge ]
   %.0175.ph = phi ptr [ %58, %.backedge.preheader ], [ %.0175.ph.be, %.backedge.outer.backedge ]
-  %.1130.ph = phi i32 [ %55, %.backedge.preheader ], [ %.1130.ph.be, %.backedge.outer.backedge ]
-  %.0125.ph = phi ptr [ %64, %.backedge.preheader ], [ %.0125.ph.be, %.backedge.outer.backedge ]
+  %.0130.ph = phi ptr [ %64, %.backedge.preheader ], [ %.0130.ph.be, %.backedge.outer.backedge ]
+  %.1126.ph = phi i32 [ %55, %.backedge.preheader ], [ %.1126.ph.be, %.backedge.outer.backedge ]
   %.0124.ph = phi ptr [ %61, %.backedge.preheader ], [ %.0124.ph.be, %.backedge.outer.backedge ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.outer, %.preheader
   %.1188 = phi i64 [ %.2189251, %.preheader ], [ %.1188.ph281, %.backedge.outer ]
   %.0175 = phi ptr [ %.1176252, %.preheader ], [ %.0175.ph, %.backedge.outer ]
-  %.1130 = phi i32 [ %.3132253, %.preheader ], [ %.1130.ph, %.backedge.outer ]
-  %.0125 = phi ptr [ %.1126254, %.preheader ], [ %.0125.ph, %.backedge.outer ]
+  %.0130 = phi ptr [ %.1131253, %.preheader ], [ %.0130.ph, %.backedge.outer ]
+  %.1126 = phi i32 [ %.3128254, %.preheader ], [ %.1126.ph, %.backedge.outer ]
   %.0124 = phi ptr [ %.2255, %.preheader ], [ %.0124.ph, %.backedge.outer ]
-  %86 = getelementptr inbounds i8, ptr %.0125, i64 2
+  %86 = getelementptr inbounds i8, ptr %.0130, i64 2
   %87 = load i16, ptr %86, align 2
   switch i16 %87, label %.preheader [
     i16 1, label %88
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %101 = add i32 %94, -1
   store i32 %101, ptr %51, align 8
   %102 = getelementptr inbounds i8, ptr %.0124, i64 -24
-  %103 = add i32 %.1130, 1
+  %103 = add i32 %.1126, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0124, i64 -8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %118
@@ -206,11 +206,11 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
 
 118:                                              ; preds = %107, %111, %100
   %119 = phi i64 [ %.pre, %100 ], [ %110, %107 ], [ %117, %111 ]
-  %.2131 = phi i32 [ %103, %100 ], [ 0, %107 ], [ %105, %111 ]
+  %.2127 = phi i32 [ %103, %100 ], [ 0, %107 ], [ %105, %111 ]
   %.1 = phi ptr [ %102, %100 ], [ %.0124, %107 ], [ %.0124, %111 ]
   %120 = load ptr, ptr %7, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 %119
-  %122 = zext i32 %.2131 to i64
+  %122 = zext i32 %.2127 to i64
   %123 = getelementptr inbounds %union.dt_elem_desc, ptr %6, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 2
   %125 = load i16, ptr %124, align 2
@@ -234,12 +234,12 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
 
 .preheader:                                       ; preds = %.backedge, %.thread245
   %.2255 = phi ptr [ %.1, %.thread245 ], [ %.0124, %.backedge ]
-  %.1126254 = phi ptr [ %123, %.thread245 ], [ %.0125, %.backedge ]
-  %.3132253 = phi i32 [ %.2131, %.thread245 ], [ %.1130, %.backedge ]
+  %.3128254 = phi i32 [ %.2127, %.thread245 ], [ %.1126, %.backedge ]
+  %.1131253 = phi ptr [ %123, %.thread245 ], [ %.0130, %.backedge ]
   %.1176252 = phi ptr [ %121, %.thread245 ], [ %.0175, %.backedge ]
   %.2189251 = phi i64 [ %135, %.thread245 ], [ %.1188, %.backedge ]
   %136 = phi i16 [ %125, %.thread245 ], [ %87, %.backedge ]
-  %137 = load i16, ptr %.1126254, align 8
+  %137 = load i16, ptr %.1131253, align 8
   %138 = and i16 %137, 256
   %.not144208 = icmp eq i16 %138, 0
   br i1 %.not144208, label %.backedge, label %.lr.ph
@@ -250,15 +250,15 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
 
 .loopexit:                                        ; preds = %.backedge, %.thread
   %.2244 = phi ptr [ %.1, %.thread ], [ %.0124, %.backedge ]
-  %.1126243 = phi ptr [ %123, %.thread ], [ %.0125, %.backedge ]
-  %.3132242 = phi i32 [ %.2131, %.thread ], [ %.1130, %.backedge ]
+  %.3128243 = phi i32 [ %.2127, %.thread ], [ %.1126, %.backedge ]
+  %.1131242 = phi ptr [ %123, %.thread ], [ %.0130, %.backedge ]
   %.1176241 = phi ptr [ %121, %.thread ], [ %.0175, %.backedge ]
   %.2189240 = phi i64 [ %129, %.thread ], [ %.1188, %.backedge ]
   %140 = ptrtoint ptr %.1176241 to i64
-  %141 = getelementptr inbounds i8, ptr %.1126243, i64 4
+  %141 = getelementptr inbounds i8, ptr %.1131242, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %union.dt_elem_desc, ptr %.1126243, i64 %143, i32 0, i32 3
+  %144 = getelementptr inbounds %union.dt_elem_desc, ptr %.1131242, i64 %143, i32 0, i32 3
   %145 = load i64, ptr %144, align 8
   %146 = udiv i64 %.2182.ph282, %145
   %147 = tail call i64 @llvm.umin.i64(i64 %.2189240, i64 %146)
@@ -273,7 +273,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
 
 ._crit_edge:                                      ; preds = %148
   %151 = sub i64 %.2189240, %147
-  %152 = getelementptr inbounds i8, ptr %.1126243, i64 24
+  %152 = getelementptr inbounds i8, ptr %.1131242, i64 24
   %153 = load i64, ptr %152, align 8
   %154 = mul i64 %153, %147
   %155 = getelementptr inbounds i8, ptr %.1176241, i64 %154
@@ -290,7 +290,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.3183 = phi i64 [ %150, %._crit_edge ], [ %.2182.ph282, %.loopexit ]
   %159 = sub i64 %.pre-phi, %140
   %160 = getelementptr inbounds i8, ptr %.2244, i64 24
-  store i32 %.3132242, ptr %160, align 8
+  store i32 %.3128243, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %.2244, i64 28
   store i16 0, ptr %161, align 4
   %162 = getelementptr inbounds i8, ptr %.2244, i64 32
@@ -309,12 +309,12 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.4184 = phi i64 [ %.3183, %158 ], [ %150, %156 ]
   %.pn = phi i32 [ 1, %158 ], [ %157, %156 ]
   %.3 = phi ptr [ %160, %158 ], [ %.2244, %156 ]
-  %.4133 = add i32 %.pn, %.3132242
+  %.4129 = add i32 %.pn, %.3128243
   %170 = load ptr, ptr %7, align 8
   %171 = getelementptr inbounds i8, ptr %.3, i64 16
   %172 = load i64, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %170, i64 %172
-  %174 = zext i32 %.4133 to i64
+  %174 = zext i32 %.4129 to i64
   %175 = getelementptr inbounds %union.dt_elem_desc, ptr %6, i64 %174
   %176 = getelementptr inbounds i8, ptr %175, i64 2
   %177 = load i16, ptr %176, align 2
@@ -340,22 +340,22 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %.1188.ph281.be = phi i64 [ %182, %179 ], [ %189, %183 ], [ %storemerge, %273 ]
   %.2182.ph282.be = phi i64 [ %.4184, %179 ], [ %.4184, %183 ], [ %.8, %273 ]
   %.0175.ph.be = phi ptr [ %173, %179 ], [ %173, %183 ], [ %255, %273 ]
-  %.1130.ph.be = phi i32 [ %.4133, %179 ], [ %.4133, %183 ], [ %256, %273 ]
-  %.0125.ph.be = phi ptr [ %175, %179 ], [ %175, %183 ], [ %258, %273 ]
+  %.0130.ph.be = phi ptr [ %175, %179 ], [ %175, %183 ], [ %258, %273 ]
+  %.1126.ph.be = phi i32 [ %.4129, %179 ], [ %.4129, %183 ], [ %256, %273 ]
   %.0124.ph.be = phi ptr [ %.3, %179 ], [ %.3, %183 ], [ %.2255, %273 ]
   br label %.backedge.outer
 
 190:                                              ; preds = %.lr.ph, %273
   %191 = phi i16 [ %136, %.lr.ph ], [ %260, %273 ]
-  %.2127213 = phi ptr [ %.1126254, %.lr.ph ], [ %258, %273 ]
-  %.5212 = phi i32 [ %.3132253, %.lr.ph ], [ %256, %273 ]
+  %.5213 = phi i32 [ %.3128254, %.lr.ph ], [ %256, %273 ]
+  %.2132212 = phi ptr [ %.1131253, %.lr.ph ], [ %258, %273 ]
   %.3178211 = phi ptr [ %.1176252, %.lr.ph ], [ %255, %273 ]
   %.5185210 = phi i64 [ %.2182.ph282, %.lr.ph ], [ %.8, %273 ]
   %.4191209 = phi i64 [ %.2189251, %.lr.ph ], [ %storemerge, %273 ]
-  %192 = getelementptr inbounds i8, ptr %.2127213, i64 4
+  %192 = getelementptr inbounds i8, ptr %.2132212, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds i8, ptr %.2127213, i64 8
+  %195 = getelementptr inbounds i8, ptr %.2132212, i64 8
   %196 = load i64, ptr %195, align 8
   %197 = mul i64 %196, %194
   %198 = zext i16 %191 to i64
@@ -364,7 +364,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load i64, ptr %201, align 8
   %203 = udiv i64 %.5185210, %202
-  %204 = getelementptr inbounds i8, ptr %.2127213, i64 24
+  %204 = getelementptr inbounds i8, ptr %.2132212, i64 24
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %.3178211, i64 %205
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %203, i64 %.4191209)
@@ -372,7 +372,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   br i1 %207, label %208, label %215
 
 208:                                              ; preds = %190
-  %209 = getelementptr inbounds i8, ptr %.2127213, i64 16
+  %209 = getelementptr inbounds i8, ptr %.2132212, i64 16
   %210 = load i64, ptr %209, align 8
   %211 = mul i64 %210, %spec.select.i
   %212 = getelementptr inbounds i8, ptr %206, i64 %211
@@ -401,7 +401,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
   br i1 %.not80.i, label %232, label %226
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %.2127213, i64 16
+  %227 = getelementptr inbounds i8, ptr %.2132212, i64 16
   %228 = load i64, ptr %227, align 8
   %229 = mul i64 %202, %196
   %230 = sub i64 %228, %229
@@ -423,7 +423,7 @@ define range(i32 0, 2) i32 @opal_convertor_generic_simple_position(ptr nocapture
 
 235:                                              ; preds = %234
   %236 = udiv i64 %.1.i, %196
-  %237 = getelementptr inbounds i8, ptr %.2127213, i64 16
+  %237 = getelementptr inbounds i8, ptr %.2132212, i64 16
   %238 = load i64, ptr %237, align 8
   %239 = mul i64 %238, %236
   %240 = getelementptr inbounds i8, ptr %.16.i, i64 %239
@@ -468,7 +468,7 @@ position_predefined_data.exit:                    ; preds = %246, %.sink.split.i
   %253 = load ptr, ptr %7, align 8
   %254 = load i64, ptr %139, align 8
   %255 = getelementptr inbounds i8, ptr %253, i64 %254
-  %256 = add i32 %.5212, 1
+  %256 = add i32 %.5213, 1
   %257 = zext i32 %256 to i64
   %258 = getelementptr inbounds %union.dt_elem_desc, ptr %6, i64 %257
   %259 = getelementptr inbounds i8, ptr %258, i64 2
@@ -512,8 +512,8 @@ position_predefined_data.exit:                    ; preds = %246, %.sink.split.i
   %281 = sub i64 0, %205
   %282 = getelementptr inbounds i8, ptr %.3.i, i64 %281
   %283 = getelementptr inbounds i8, ptr %.2255, i64 24
-  store i32 %.5212, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %.2127213, i64 2
+  store i32 %.5213, ptr %283, align 8
+  %284 = getelementptr inbounds i8, ptr %.2132212, i64 2
   %285 = load i16, ptr %284, align 2
   %286 = getelementptr inbounds i8, ptr %.2255, i64 28
   store i16 %285, ptr %286, align 4

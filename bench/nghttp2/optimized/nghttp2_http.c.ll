@@ -1194,8 +1194,8 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3
   %.sink = phi i64 [ 32, %sw.bb3 ], [ 48, %entry ]
   %nva4 = getelementptr inbounds i8, ptr %frame, i64 %.sink26
   %nvlen5 = getelementptr inbounds i8, ptr %frame, i64 %.sink
-  %nvlen.0 = load i64, ptr %nvlen5, align 8
   %nva.0 = load ptr, ptr %nva4, align 8
+  %nvlen.0 = load i64, ptr %nvlen5, align 8
   %cmp22.not = icmp eq i64 %nvlen.0, 0
   br i1 %cmp22.not, label %for.end, label %for.body
 

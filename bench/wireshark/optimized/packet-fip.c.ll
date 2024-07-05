@@ -358,14 +358,14 @@ switch.lookup:                                    ; preds = %33
   br label %64
 
 64:                                               ; preds = %.lr.ph, %fip_desc_fc4f.exit
-  %.0178189 = phi i32 [ 10, %.lr.ph ], [ %79, %fip_desc_fc4f.exit ]
-  %.0179188 = phi i32 [ %38, %.lr.ph ], [ %80, %fip_desc_fc4f.exit ]
-  %65 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0178189, i32 noundef 2) #2
+  %.0178189 = phi i32 [ %38, %.lr.ph ], [ %80, %fip_desc_fc4f.exit ]
+  %.0179188 = phi i32 [ 10, %.lr.ph ], [ %79, %fip_desc_fc4f.exit ]
+  %65 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0179188, i32 noundef 2) #2
   %.not182 = icmp eq i32 %65, 0
   br i1 %.not182, label %.critedge, label %66
 
 66:                                               ; preds = %64
-  %67 = or disjoint i32 %.0178189, 1
+  %67 = or disjoint i32 %.0179188, 1
   %68 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #2
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 2
@@ -373,21 +373,21 @@ switch.lookup:                                    ; preds = %33
   br i1 %.not183, label %71, label %73
 
 71:                                               ; preds = %66
-  %72 = call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_fip_descriptors, ptr noundef %0, i32 noundef %.0178189, i32 noundef -1) #2
+  %72 = call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef %1, ptr noundef nonnull @ei_fip_descriptors, ptr noundef %0, i32 noundef %.0179188, i32 noundef -1) #2
   br label %.critedge
 
 73:                                               ; preds = %66
-  %74 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0178189, i32 noundef %70) #2
+  %74 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0179188, i32 noundef %70) #2
   %.not184 = icmp eq i32 %74, 0
-  %75 = icmp ugt i32 %70, %.0179188
+  %75 = icmp ugt i32 %70, %.0178189
   %or.cond = select i1 %.not184, i1 true, i1 %75
   br i1 %or.cond, label %.critedge, label %76
 
 76:                                               ; preds = %73
-  %77 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0178189, i32 noundef %70, i32 noundef -1) #2
+  %77 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0179188, i32 noundef %70, i32 noundef -1) #2
   %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef 0) #2
-  %79 = add i32 %70, %.0178189
-  %80 = sub i32 %.0179188, %70
+  %79 = add i32 %70, %.0179188
+  %80 = sub i32 %.0178189, %70
   switch i8 %78, label %258 [
     i8 1, label %81
     i8 2, label %94

@@ -860,10 +860,10 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   br i1 %235, label %242, label %238
 
 .thread196:                                       ; preds = %231, %238
-  %.047.ph = phi i64 [ %.0.sroa.speculated.i, %238 ], [ 75, %231 ]
+  %.046.ph = phi i64 [ %.0.sroa.speculated.i, %238 ], [ 75, %231 ]
   %.0.ph = phi i64 [ %234, %238 ], [ 70, %231 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  store i64 %.047.ph, ptr %44, align 8
+  store i64 %.046.ph, ptr %44, align 8
   br label %292
 
 236:                                              ; preds = %271, %275
@@ -1028,7 +1028,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   unreachable
 
 292:                                              ; preds = %.thread196, %236
-  %293 = phi i64 [ %.047.ph, %.thread196 ], [ %.sroa.6.0.i, %236 ]
+  %293 = phi i64 [ %.046.ph, %.thread196 ], [ %.sroa.6.0.i, %236 ]
   %.0199 = phi i64 [ %.0.ph, %.thread196 ], [ %.0, %236 ]
   %294 = invoke noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17ha74e160c857441dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.1d86752e3500b213ea3aae889ff55469.37, i64 noundef 9)
           to label %.noexc125 unwind label %199
@@ -1137,8 +1137,8 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
           to label %335 unwind label %199
 
 .thread205:                                       ; preds = %.noexc127, %.noexc125, %337
-  %.048 = phi i64 [ %339, %337 ], [ 8, %.noexc125 ], [ 8, %.noexc127 ]
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.048, i64 1)
+  %.047 = phi i64 [ %339, %337 ], [ 8, %.noexc125 ], [ 8, %.noexc127 ]
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.047, i64 1)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.016)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
   %.sroa.016.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.016, i64 24

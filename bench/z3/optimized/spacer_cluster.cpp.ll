@@ -5452,9 +5452,9 @@ _ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endE
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i, %for.inc.i
   %sz.021.i = phi i32 [ %sz.1.i, %for.inc.i ], [ -1, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i ]
-  %__begin2.020.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i ]
-  %res.019.i = phi ptr [ %res.1.i, %for.inc.i ], [ null, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i ]
-  %3 = load ptr, ptr %__begin2.020.i, align 8
+  %res.020.i = phi ptr [ %res.1.i, %for.inc.i ], [ null, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i ]
+  %__begin2.019.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i ]
+  %3 = load ptr, ptr %__begin2.019.i, align 8
   %m_lemma_vec.i.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %m_lemma_vec.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, null
@@ -5497,9 +5497,9 @@ if.end.i.i11.i:                                   ; preds = %if.then.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.cond.i.i, %if.end.i.i11.i, %if.then.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i, %for.body.i
-  %res.1.i = phi ptr [ %res.019.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %3, %if.then.i ], [ %3, %if.end.i.i11.i ], [ %res.019.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %res.019.i, %for.body.i ], [ %res.019.i, %for.cond.i.i ]
+  %res.1.i = phi ptr [ %res.020.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ %3, %if.then.i ], [ %3, %if.end.i.i11.i ], [ %res.020.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %res.020.i, %for.body.i ], [ %res.020.i, %for.cond.i.i ]
   %sz.1.i = phi i32 [ %sz.021.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.thread.i ], [ 0, %if.then.i ], [ %10, %if.end.i.i11.i ], [ %sz.021.i, %_ZNK6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE3endEv.exit.i.i ], [ %sz.021.i, %for.body.i ], [ %sz.021.i, %for.cond.i.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.020.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.019.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZN6spacer16pred_transformer10cluster_db11get_clusterERK3refINS_5lemmaEE.exit, label %for.body.i
 
@@ -5523,9 +5523,9 @@ _ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endE
 
 for.body.i7:                                      ; preds = %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4, %for.inc.i11
   %sz.017.i = phi i32 [ %sz.1.i13, %for.inc.i11 ], [ -1, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4 ]
-  %__begin2.016.i = phi ptr [ %incdec.ptr.i14, %for.inc.i11 ], [ %.pr24, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4 ]
-  %res.015.i = phi ptr [ %res.1.i12, %for.inc.i11 ], [ null, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4 ]
-  %13 = load ptr, ptr %__begin2.016.i, align 8
+  %res.016.i = phi ptr [ %res.1.i12, %for.inc.i11 ], [ null, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4 ]
+  %__begin2.015.i = phi ptr [ %incdec.ptr.i14, %for.inc.i11 ], [ %.pr24, %_ZNK15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE3endEv.exit.i4 ]
+  %13 = load ptr, ptr %__begin2.015.i, align 8
   %m_gas.i.i = getelementptr inbounds i8, ptr %13, i64 144
   %14 = load i32, ptr %m_gas.i.i, align 8
   %cmp4.not.i = icmp eq i32 %14, 0
@@ -5562,9 +5562,9 @@ if.end.i.i10.i:                                   ; preds = %if.then.i17
   br label %for.inc.i11
 
 for.inc.i11:                                      ; preds = %if.end.i.i10.i, %if.then.i17, %land.lhs.true7.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.i, %for.body.i7
-  %res.1.i12 = phi ptr [ %res.015.i, %land.lhs.true7.i ], [ %res.015.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.i ], [ %res.015.i, %for.body.i7 ], [ %13, %if.then.i17 ], [ %13, %if.end.i.i10.i ]
+  %res.1.i12 = phi ptr [ %res.016.i, %land.lhs.true7.i ], [ %res.016.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.i ], [ %res.016.i, %for.body.i7 ], [ %13, %if.then.i17 ], [ %13, %if.end.i.i10.i ]
   %sz.1.i13 = phi i32 [ %sz.017.i, %land.lhs.true7.i ], [ %sz.017.i, %_ZNK6spacer13lemma_cluster8get_sizeEv.exit.i ], [ %sz.017.i, %for.body.i7 ], [ 0, %if.then.i17 ], [ %18, %if.end.i.i10.i ]
-  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %__begin2.016.i, i64 8
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %__begin2.015.i, i64 8
   %cmp.not.i15 = icmp eq ptr %incdec.ptr.i14, %add.ptr.i.i6
   br i1 %cmp.not.i15, label %if.end, label %for.body.i7
 

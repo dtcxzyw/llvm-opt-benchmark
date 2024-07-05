@@ -44,23 +44,28 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef ptr @Ioa_FileNameGeneric(ptr noundef readonly %0) local_unnamed_addr #2 {
-Abc_UtilStrsav.exit:
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
-  %1 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
-  %2 = add i64 %1, 1
-  %3 = tail call noalias ptr @malloc(i64 noundef %2) #12
-  %4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #13
-  %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #11
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %7, label %6
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
-6:                                                ; preds = %Abc_UtilStrsav.exit
-  store i8 0, ptr %5, align 1
-  br label %7
+2:                                                ; preds = %1
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
+  %4 = add i64 %3, 1
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  br label %Abc_UtilStrsav.exit
 
-7:                                                ; preds = %6, %Abc_UtilStrsav.exit
-  ret ptr %3
+Abc_UtilStrsav.exit:                              ; preds = %1, %2
+  %7 = phi ptr [ %5, %2 ], [ null, %1 ]
+  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 46) #10
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %Abc_UtilStrsav.exit
+  store i8 0, ptr %8, align 1
+  br label %10
+
+10:                                               ; preds = %9, %Abc_UtilStrsav.exit
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -72,12 +77,12 @@ define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly %0, ptr nocap
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #13
+  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #12
   br label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %0) #13
-  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, i32 noundef 46) #11
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, i32 noundef 46) #10
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -86,8 +91,8 @@ define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly %0, ptr nocap
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #13
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer) #11
+  %11 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #12
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer) #10
   %13 = getelementptr inbounds i8, ptr @Ioa_FileNameGenericAppend.Buffer, i64 %12
   %.029 = getelementptr inbounds i8, ptr %13, i64 -1
   %.not2430 = icmp ult ptr %.029, @Ioa_FileNameGenericAppend.Buffer
@@ -133,14 +138,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @Ioa_TimeStamp() local_unnamed_addr #6 {
   %1 = alloca i64, align 8
-  %2 = call i64 @time(ptr noundef nonnull %1) #13
-  %3 = call ptr @localtime(ptr noundef nonnull %1) #13
-  %4 = call ptr @asctime(ptr noundef %3) #13
-  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %2 = call i64 @time(ptr noundef nonnull %1) #12
+  %3 = call ptr @localtime(ptr noundef nonnull %1) #12
+  %4 = call ptr @asctime(ptr noundef %3) #12
+  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
   %6 = getelementptr i8, ptr %4, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -1
   store i8 0, ptr %7, align 1
-  %8 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_TimeStamp.Buffer, ptr noundef nonnull dereferenceable(1) %4) #13
+  %8 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Ioa_TimeStamp.Buffer, ptr noundef nonnull dereferenceable(1) %4) #12
   ret ptr @Ioa_TimeStamp.Buffer
 }
 
@@ -159,9 +164,6 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -172,10 +174,9 @@ attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

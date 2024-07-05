@@ -276,9 +276,9 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit87:    ; preds = %if.then65, %if.then
   br label %if.end72
 
 if.end72:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit87, %invoke.cont, %if.end51, %invoke.cont62
-  %length1.addr.2 = phi i32 [ %length1.addr.0, %if.end51 ], [ %length1.addr.1, %invoke.cont62 ], [ %length1, %invoke.cont ], [ %length1.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit87 ]
   %s2.addr.1 = phi ptr [ %s2.addr.0, %if.end51 ], [ %s2, %invoke.cont62 ], [ %s2, %invoke.cont ], [ %retval.0.i79, %_ZNK6icu_7513UnicodeString9getBufferEv.exit87 ]
   %length2.addr.1 = phi i32 [ %length2.addr.0, %if.end51 ], [ %length2, %invoke.cont62 ], [ %length2, %invoke.cont ], [ %cond.i92, %_ZNK6icu_7513UnicodeString9getBufferEv.exit87 ]
+  %length1.addr.2 = phi i32 [ %length1.addr.0, %if.end51 ], [ %length1.addr.1, %invoke.cont62 ], [ %length1, %invoke.cont ], [ %length1.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit87 ]
   %s1.addr.2 = phi ptr [ %s1.addr.0, %if.end51 ], [ %s1.addr.1, %invoke.cont62 ], [ %s1, %invoke.cont ], [ %s1.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit87 ]
   %21 = load i32, ptr %pErrorCode, align 4
   %cmp.i93 = icmp sgt i32 %21, 0

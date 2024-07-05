@@ -37,8 +37,8 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %2, %opal_thread_swap_ptr.exit
-  %.037 = phi i64 [ %48, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
-  %3 = getelementptr inbounds ptr, ptr %1, i64 %.037
+  %.03437 = phi i64 [ %48, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
+  %3 = getelementptr inbounds ptr, ptr %1, i64 %.03437
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 592
   %6 = load i32, ptr %5, align 8
@@ -82,18 +82,18 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.136 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
+  %.13536 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.136
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.13536
   store i32 -1, ptr %31, align 4
-  %32 = add nuw i64 %.136, 1
+  %32 = add nuw i64 %.13536, 1
   %33 = load i64, ptr %26, align 8
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %29, label %.loopexit, !llvm.loop !4
 
 .loopexit.sink.split:                             ; preds = %15, %13
   %.sink43 = phi ptr [ %14, %13 ], [ %21, %15 ]
-  %.135.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
+  %.1.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
   %.sink.in = getelementptr inbounds i8, ptr %4, i64 608
   %.sink = load ptr, ptr %.sink.in, align 8
   %35 = load i64, ptr %.sink43, align 8
@@ -102,8 +102,8 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
-  %.135 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.135.ph, %.loopexit.sink.split ], [ 0, %29 ]
-  %.2 = phi i64 [ 0, %25 ], [ %.037, %24 ], [ %.037, %.loopexit.sink.split ], [ %32, %29 ]
+  %.2 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
+  %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 96
   store volatile i32 2, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 68
@@ -131,13 +131,13 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
 opal_thread_swap_ptr.exit:                        ; preds = %45, %47
   %48 = add i64 %.2, 1
   %49 = icmp ult i64 %48, %0
-  %50 = icmp eq i32 %.135, 0
+  %50 = icmp eq i32 %.1, 0
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph38, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %opal_thread_swap_ptr.exit, %2
-  %.034.lcssa = phi i32 [ 0, %2 ], [ %.135, %opal_thread_swap_ptr.exit ]
-  ret i32 %.034.lcssa
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %opal_thread_swap_ptr.exit ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nounwind uwtable

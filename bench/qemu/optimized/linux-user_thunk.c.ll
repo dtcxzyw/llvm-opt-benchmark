@@ -528,13 +528,13 @@ for.body.lr.ph:                                   ; preds = %thunk_type_size.exi
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %d.0186 = phi ptr [ %dst, %for.body.lr.ph ], [ %add.ptr31, %for.body ]
+  %i.0186 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %s.0185 = phi ptr [ %src, %for.body.lr.ph ], [ %add.ptr33, %for.body ]
-  %i.0184 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %call30 = tail call ptr @thunk_convert(ptr noundef %d.0186, ptr noundef %s.0185, ptr noundef %incdec.ptr26, i32 noundef %to_host)
-  %add.ptr31 = getelementptr i8, ptr %d.0186, i64 %idx.ext
+  %d.0184 = phi ptr [ %dst, %for.body.lr.ph ], [ %add.ptr31, %for.body ]
+  %call30 = tail call ptr @thunk_convert(ptr noundef %d.0184, ptr noundef %s.0185, ptr noundef %incdec.ptr26, i32 noundef %to_host)
+  %add.ptr31 = getelementptr i8, ptr %d.0184, i64 %idx.ext
   %add.ptr33 = getelementptr i8, ptr %s.0185, i64 %idx.ext32
-  %inc = add nuw nsw i32 %i.0184, 1
+  %inc = add nuw nsw i32 %i.0186, 1
   %exitcond.not = icmp eq i32 %inc, %8
   br i1 %exitcond.not, label %tailrecurse.i119.preheader, label %for.body, !llvm.loop !9
 
@@ -797,18 +797,18 @@ for.body.us.preheader:                            ; preds = %if.end
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %a.0124.us = phi ptr [ %add.ptr45.us, %for.body.us ], [ %arg, %for.body.us.preheader ]
-  %i.0123.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.us.preheader ]
-  %call44.us = tail call ptr @thunk_print(ptr noundef %a.0124.us, ptr noundef nonnull %incdec.ptr35)
-  %add.ptr45.us = getelementptr i8, ptr %a.0124.us, i64 %idx.ext
-  %inc.us = add nuw nsw i32 %i.0123.us, 1
+  %i.0124.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.us.preheader ]
+  %a.0123.us = phi ptr [ %add.ptr45.us, %for.body.us ], [ %arg, %for.body.us.preheader ]
+  %call44.us = tail call ptr @thunk_print(ptr noundef %a.0123.us, ptr noundef nonnull %incdec.ptr35)
+  %add.ptr45.us = getelementptr i8, ptr %a.0123.us, i64 %idx.ext
+  %inc.us = add nuw nsw i32 %i.0124.us, 1
   %exitcond168.not = icmp eq i32 %inc.us, %10
   br i1 %exitcond168.not, label %for.end, label %for.body.us, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.preheader, %if.end43
-  %a.0124 = phi ptr [ %add.ptr45, %if.end43 ], [ %arg, %for.body.preheader ]
-  %i.0123 = phi i32 [ %inc, %if.end43 ], [ 0, %for.body.preheader ]
-  %cmp40 = icmp eq i32 %i.0123, 0
+  %i.0124 = phi i32 [ %inc, %if.end43 ], [ 0, %for.body.preheader ]
+  %a.0123 = phi ptr [ %add.ptr45, %if.end43 ], [ %arg, %for.body.preheader ]
+  %cmp40 = icmp eq i32 %i.0124, 0
   br i1 %cmp40, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %for.body
@@ -816,9 +816,9 @@ if.then42:                                        ; preds = %for.body
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %for.body
-  %call44 = tail call ptr @thunk_print(ptr noundef %a.0124, ptr noundef nonnull %incdec.ptr35)
-  %add.ptr45 = getelementptr i8, ptr %a.0124, i64 %idx.ext170
-  %inc = add nuw nsw i32 %i.0123, 1
+  %call44 = tail call ptr @thunk_print(ptr noundef %a.0123, ptr noundef nonnull %incdec.ptr35)
+  %add.ptr45 = getelementptr i8, ptr %a.0123, i64 %idx.ext170
+  %inc = add nuw nsw i32 %i.0124, 1
   %exitcond.not = icmp eq i32 %inc, %10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 

@@ -177,8 +177,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 
 98:                                               ; preds = %.lr.ph3074, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit
   %.sroa.02141.03073 = phi ptr [ %84, %.lr.ph3074 ], [ %2022, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
-  %.sroa.5.03068 = phi <8 x float> [ undef, %.lr.ph3074 ], [ %.sroa.5.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
-  %.sroa.02088.03067 = phi <8 x float> [ undef, %.lr.ph3074 ], [ %.sroa.02088.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
+  %.sroa.5.03072 = phi <8 x float> [ undef, %.lr.ph3074 ], [ %.sroa.5.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
+  %.sroa.02088.03071 = phi <8 x float> [ undef, %.lr.ph3074 ], [ %.sroa.02088.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
   %99 = getelementptr inbounds i8, ptr %.sroa.02141.03073, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 127
@@ -357,8 +357,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %.loopexit2783._crit_edge
 
 .loopexit2783._crit_edge:                         ; preds = %.loopexit2783, %209
-  %.sroa.02088.1 = phi <8 x float> [ %215, %209 ], [ %.sroa.02088.03067, %.loopexit2783 ]
-  %.sroa.5.1 = phi <8 x float> [ %221, %209 ], [ %.sroa.5.03068, %.loopexit2783 ]
+  %.sroa.02088.1 = phi <8 x float> [ %215, %209 ], [ %.sroa.02088.03071, %.loopexit2783 ]
+  %.sroa.5.1 = phi <8 x float> [ %221, %209 ], [ %.sroa.5.03072, %.loopexit2783 ]
   %222 = load i32, ptr %1, align 8
   %223 = shl i32 %222, 1
   br label %237
@@ -1221,8 +1221,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %862 = icmp eq i32 %828, %109
   %863 = select <8 x i1> %858, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i276931793447, <8 x i32> zeroinitializer
   %864 = select <8 x i1> %860, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i277031803448, <8 x i32> zeroinitializer
-  %.sroa.62610.0 = select i1 %862, <8 x i32> %864, <8 x i32> %861
   %.sroa.02606.0 = select i1 %862, <8 x i32> %863, <8 x i32> %859
+  %.sroa.62610.0 = select i1 %862, <8 x i32> %864, <8 x i32> %861
   %865 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %852, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %866 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %857, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %867 = bitcast <8 x float> %865 to <8 x i32>
@@ -2100,8 +2100,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1542 = icmp eq i32 %1508, %109
   %1543 = select <8 x i1> %1538, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i276931793447, <8 x i32> zeroinitializer
   %1544 = select <8 x i1> %1540, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i277031803448, <8 x i32> zeroinitializer
-  %.sroa.5.02761 = select i1 %1542, <8 x i32> %1544, <8 x i32> %1541
   %.sroa.02716.0 = select i1 %1542, <8 x i32> %1543, <8 x i32> %1539
+  %.sroa.5.02761 = select i1 %1542, <8 x i32> %1544, <8 x i32> %1541
   %1545 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1532, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %1546 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1537, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %1547 = bitcast <8 x float> %1545 to <8 x i32>

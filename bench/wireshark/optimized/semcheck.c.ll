@@ -459,14 +459,14 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %.0129154 = phi i64 [ %.1130, %57 ], [ 0, %45 ]
   %.0131153 = phi i64 [ %.1132, %57 ], [ 0, %45 ]
   %.0133152 = phi i64 [ %.1134, %57 ], [ 0, %45 ]
-  %.0141151 = phi ptr [ %58, %57 ], [ %46, %45 ]
+  %.0139151 = phi ptr [ %58, %57 ], [ %46, %45 ]
   %50 = tail call i32 @g_ascii_strcasecmp(ptr noundef %2, ptr noundef nonnull %49) #6
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %.lr.ph
-  %53 = load i64, ptr %.0141151, align 8
-  %54 = getelementptr inbounds i8, ptr %.0141151, i64 8
+  %53 = load i64, ptr %.0139151, align 8
+  %54 = getelementptr inbounds i8, ptr %.0139151, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = add nuw nsw i64 %.0133152, 1
   br label %57
@@ -475,8 +475,8 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %.1134 = phi i64 [ %56, %52 ], [ %.0133152, %.lr.ph ]
   %.1132 = phi i64 [ %55, %52 ], [ %.0131153, %.lr.ph ]
   %.1130 = phi i64 [ %53, %52 ], [ %.0129154, %.lr.ph ]
-  %58 = getelementptr i8, ptr %.0141151, i64 24
-  %59 = getelementptr i8, ptr %.0141151, i64 40
+  %58 = getelementptr i8, ptr %.0139151, i64 24
+  %59 = getelementptr i8, ptr %.0139151, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, null
   %62 = icmp ult i64 %.1134, 2
@@ -539,8 +539,8 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   br label %88
 
 88:                                               ; preds = %85, %82
-  %.0139 = phi ptr [ %87, %85 ], [ %83, %82 ]
-  %89 = getelementptr inbounds i8, ptr %.0139, i64 8
+  %.0140 = phi ptr [ %87, %85 ], [ %83, %82 ]
+  %89 = getelementptr inbounds i8, ptr %.0140, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not174 = icmp eq ptr %90, null
   br i1 %.not174, label %.thread189, label %.lr.ph161
@@ -549,21 +549,21 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %91 = phi ptr [ %100, %97 ], [ %90, %88 ]
   %.2159 = phi i64 [ %.3, %97 ], [ 0, %88 ]
   %.2135158 = phi i64 [ %.3136, %97 ], [ 0, %88 ]
-  %.1140157 = phi ptr [ %98, %97 ], [ %.0139, %88 ]
+  %.1141157 = phi ptr [ %98, %97 ], [ %.0140, %88 ]
   %92 = tail call i32 @g_ascii_strcasecmp(ptr noundef %2, ptr noundef nonnull %91) #6
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %.lr.ph161
-  %95 = load i64, ptr %.1140157, align 8
+  %95 = load i64, ptr %.1141157, align 8
   %96 = add nuw nsw i64 %.2135158, 1
   br label %97
 
 97:                                               ; preds = %94, %.lr.ph161
   %.3136 = phi i64 [ %96, %94 ], [ %.2135158, %.lr.ph161 ]
   %.3 = phi i64 [ %95, %94 ], [ %.2159, %.lr.ph161 ]
-  %98 = getelementptr i8, ptr %.1140157, i64 16
-  %99 = getelementptr i8, ptr %.1140157, i64 24
+  %98 = getelementptr i8, ptr %.1141157, i64 16
+  %99 = getelementptr i8, ptr %.1141157, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ne ptr %100, null
   %102 = icmp ult i64 %.3136, 2
@@ -1003,8 +1003,8 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   br label %19
 
 19:                                               ; preds = %.lr.ph, %30
-  %.0.i24 = phi ptr [ %12, %.lr.ph ], [ %32, %30 ]
-  %20 = load ptr, ptr %.0.i24, align 8
+  %.015.i24 = phi ptr [ %12, %.lr.ph ], [ %32, %30 ]
+  %20 = load ptr, ptr %.015.i24, align 8
   %21 = tail call i32 @stnode_type_id(ptr noundef %20) #6
   %.not.i22 = icmp eq i32 %21, 2
   br i1 %.not.i22, label %22, label %resolve_unparsed.exit
@@ -1025,13 +1025,13 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   br label %resolve_unparsed.exit
 
 resolve_unparsed.exit:                            ; preds = %19, %26, %27
-  %28 = load ptr, ptr %.0.i24, align 8
+  %28 = load ptr, ptr %.015.i24, align 8
   %29 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %28)
   %.not19.i = icmp eq i32 %29, 0
   br i1 %.not19.i, label %30, label %get_function_ftype.exit
 
 30:                                               ; preds = %resolve_unparsed.exit
-  %31 = getelementptr inbounds i8, ptr %.0.i24, i64 8
+  %31 = getelementptr inbounds i8, ptr %.015.i24, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not18.i = icmp eq ptr %32, null
   br i1 %.not18.i, label %get_function_ftype.exit, label %19, !llvm.loop !8

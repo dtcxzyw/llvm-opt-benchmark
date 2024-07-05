@@ -6939,13 +6939,13 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader94, %146
-  %.086110 = phi i32 [ %147, %146 ], [ %3, %.preheader94 ]
-  %20 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.086110, i32 noundef 0) #14
+  %.085110 = phi i32 [ %147, %146 ], [ %3, %.preheader94 ]
+  %20 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.085110, i32 noundef 0) #14
   %21 = lshr i16 %20, 12
   %22 = and i16 %21, 7
   %23 = and i16 %20, 4095
   %24 = zext nneg i16 %23 to i32
-  %25 = add i32 %.086110, 2
+  %25 = add i32 %.085110, 2
   %26 = icmp ult i32 %24, %5
   %or.cond3 = and i1 %14, %26
   %27 = zext nneg i16 %23 to i64
@@ -6973,10 +6973,10 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
 
 .preheader.i:                                     ; preds = %32
   %.030.in47.i = getelementptr inbounds i8, ptr %.087, i64 20
-  %.031.in48.i = getelementptr inbounds i8, ptr %.087, i64 16
-  %.03049.i = load i32, ptr %.030.in47.i, align 4
-  %.03150.i = load i32, ptr %.031.in48.i, align 8
-  %34 = icmp eq i32 %.03150.i, 6
+  %.029.in48.i = getelementptr inbounds i8, ptr %.087, i64 16
+  %.02949.i = load i32, ptr %.029.in48.i, align 8
+  %.03050.i = load i32, ptr %.030.in47.i, align 4
+  %34 = icmp eq i32 %.02949.i, 6
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -6985,34 +6985,34 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
   br i1 %36, label %get_typedef_config.exit.us.i.preheader, label %.lr.ph.split.i
 
 get_typedef_config.exit.us.i.preheader:           ; preds = %.lr.ph.i
-  %.031.us.i = load i32, ptr inttoptr (i64 16 to ptr), align 16
-  %.031.us.i.fr = freeze i32 %.031.us.i
+  %.029.us.i = load i32, ptr inttoptr (i64 16 to ptr), align 16
+  %.029.us.i.fr = freeze i32 %.029.us.i
   %.030.us.le.i = load i32, ptr inttoptr (i64 20 to ptr), align 4
   br label %._crit_edge.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.03052.i = phi i32 [ %.030.i, %.lr.ph.split.i ], [ %.03049.i, %.lr.ph.i ]
-  %.02951.i = phi i32 [ %40, %.lr.ph.split.i ], [ 255, %.lr.ph.i ]
+  %.03052.i = phi i32 [ %.030.i, %.lr.ph.split.i ], [ %.03050.i, %.lr.ph.i ]
+  %.03151.i = phi i32 [ %40, %.lr.ph.split.i ], [ 255, %.lr.ph.i ]
   %37 = load ptr, ptr @data_someip_parameter_typedefs, align 8, !nonnull !18, !noundef !18
   %38 = zext i32 %.03052.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %38, ptr %13, align 8
   %39 = call ptr @g_hash_table_lookup(ptr noundef nonnull %37, ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %40 = add nsw i32 %.02951.i, -1
+  %40 = add nsw i32 %.03151.i, -1
   %.030.in.i = getelementptr inbounds i8, ptr %39, i64 20
-  %.031.in.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.029.in.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.029.i = load i32, ptr %.029.in.i, align 8
   %.030.i = load i32, ptr %.030.in.i, align 4
-  %.031.i = load i32, ptr %.031.in.i, align 8
-  %41 = icmp eq i32 %.031.i, 6
-  %42 = icmp ugt i32 %.02951.i, 1
+  %41 = icmp eq i32 %.029.i, 6
+  %42 = icmp ugt i32 %.03151.i, 1
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %get_typedef_config.exit.us.i.preheader, %.preheader.i
-  %.030.lcssa.i = phi i32 [ %.03049.i, %.preheader.i ], [ %.030.us.le.i, %get_typedef_config.exit.us.i.preheader ], [ %.030.i, %.lr.ph.split.i ]
-  %.031.lcssa.i = phi i32 [ %.03150.i, %.preheader.i ], [ %.031.us.i.fr, %get_typedef_config.exit.us.i.preheader ], [ %.031.i, %.lr.ph.split.i ]
-  switch i32 %.031.lcssa.i, label %dissect_someip_payload_peek_length_of_length.exit.thread [
+  %.029.lcssa.i = phi i32 [ %.02949.i, %.preheader.i ], [ %.029.us.i.fr, %get_typedef_config.exit.us.i.preheader ], [ %.029.i, %.lr.ph.split.i ]
+  %.030.lcssa.i = phi i32 [ %.03050.i, %.preheader.i ], [ %.030.us.le.i, %get_typedef_config.exit.us.i.preheader ], [ %.030.i, %.lr.ph.split.i ]
+  switch i32 %.029.lcssa.i, label %dissect_someip_payload_peek_length_of_length.exit.thread [
     i32 2, label %44
     i32 3, label %52
     i32 4, label %72
@@ -7072,7 +7072,7 @@ get_array_config.exit.i:                          ; preds = %52
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62, %58
-  %67 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %0, i32 noundef %.086110, i32 noundef 0, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.346) #14
+  %67 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %0, i32 noundef %.085110, i32 noundef 0, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.346) #14
   %68 = getelementptr inbounds i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.348) #14
@@ -7153,7 +7153,7 @@ dissect_someip_payload_peek_length_of_length.exit: ; preds = %50, %70, %78, %86
   br label %115
 
 dissect_someip_payload_peek_length_of_length.exit.thread: ; preds = %._crit_edge.i, %get_union_config.exit.i, %get_struct_config.exit.i, %get_array_config.exit.i, %get_string_config.exit.i, %32, %dissect_someip_payload_peek_length_of_length.exit, %get_union_config.exit.thread.i, %get_struct_config.exit.thread.i, %get_array_config.exit.thread.i, %get_string_config.exit.thread.i, %66
-  %99 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %0, i32 noundef %.086110, i32 noundef 2, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.345) #14
+  %99 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_someip_payload_config_error, ptr noundef %0, i32 noundef %.085110, i32 noundef 2, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.345) #14
   %100 = getelementptr inbounds i8, ptr %1, i64 8
   %101 = load ptr, ptr %100, align 8
   call void @col_append_str(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.348) #14
@@ -7182,9 +7182,9 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 115:                                              ; preds = %88, %92, %96, %112, %108, %104, %29
-  %.085 = phi i32 [ %114, %112 ], [ %111, %108 ], [ %107, %104 ], [ %98, %96 ], [ %95, %92 ], [ %91, %88 ], [ %31, %29 ]
-  %116 = add i32 %.085, 2
-  %117 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.086110, i32 noundef %116) #14
+  %.086 = phi i32 [ %114, %112 ], [ %111, %108 ], [ %107, %104 ], [ %98, %96 ], [ %95, %92 ], [ %91, %88 ], [ %31, %29 ]
+  %116 = add i32 %.086, 2
+  %117 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.085110, i32 noundef %116) #14
   %.not91 = icmp eq ptr %.087, null
   br i1 %.not91, label %129, label %118
 
@@ -7203,9 +7203,9 @@ default.unreachable:                              ; preds = %.lr.ph
 
 129:                                              ; preds = %115
   %130 = load i32, ptr @hf_payload_unparsed, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %130, ptr noundef %117, i32 noundef 2, i32 noundef %.085, i32 noundef 0) #14
+  %131 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %130, ptr noundef %117, i32 noundef 2, i32 noundef %.086, i32 noundef 0) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %132 = icmp slt i32 %.086110, 0
+  %132 = icmp slt i32 %.085110, 0
   br i1 %132, label %dissect_someip_payload_add_wtlv_if_needed.exit, label %133
 
 133:                                              ; preds = %129
@@ -7214,7 +7214,7 @@ default.unreachable:                              ; preds = %.lr.ph
   store i64 0, ptr %8, align 8
   %136 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %137 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %138 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %135, ptr noundef %0, i32 noundef %.086110, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %8) #14
+  %138 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %135, ptr noundef %0, i32 noundef %.085110, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %8) #14
   %.not.i.i = icmp eq ptr %138, null
   br i1 %.not.i.i, label %dissect_someip_payload_add_wtlv_if_needed.exit, label %139
 
@@ -7236,7 +7236,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit:   ; preds = %133, %139, %142, %1
   br label %146
 
 146:                                              ; preds = %dissect_someip_payload_add_wtlv_if_needed.exit, %118
-  %147 = add i32 %.085, %25
+  %147 = add i32 %.086, %25
   %148 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %147) #14
   %149 = icmp sgt i32 %148, 1
   br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !21
@@ -7630,7 +7630,7 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
 
 dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hidden.exit.i.i, %.thread.i
   %163 = phi ptr [ %140, %.thread.i ], [ %144, %proto_item_set_hidden.exit.i.i ]
-  %.086103.i = phi ptr [ %138, %.thread.i ], [ %142, %proto_item_set_hidden.exit.i.i ]
+  %.087103.i = phi ptr [ %138, %.thread.i ], [ %142, %proto_item_set_hidden.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %164 = getelementptr inbounds i8, ptr %132, i64 32
   %165 = load i32, ptr %164, align 8
@@ -7644,7 +7644,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
 
 170:                                              ; preds = %dissect_someip_payload_add_wtlv_if_needed.exit.i57, %switch.lookup
   %171 = phi ptr [ %144, %switch.lookup ], [ %163, %dissect_someip_payload_add_wtlv_if_needed.exit.i57 ]
-  %.086103108113.i = phi ptr [ %142, %switch.lookup ], [ %.086103.i, %dissect_someip_payload_add_wtlv_if_needed.exit.i57 ]
+  %.087103108113.i = phi ptr [ %142, %switch.lookup ], [ %.087103.i, %dissect_someip_payload_add_wtlv_if_needed.exit.i57 ]
   %172 = phi i32 [ %switch.load, %switch.lookup ], [ %165, %dissect_someip_payload_add_wtlv_if_needed.exit.i57 ]
   %173 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #14
   %174 = lshr i32 %172, 3
@@ -7669,12 +7669,12 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
   br label %186
 
 186:                                              ; preds = %183, %167
-  %.086103107.i = phi ptr [ %.086103.i, %167 ], [ %.086103108113.i, %183 ]
+  %.087103107.i = phi ptr [ %.087103.i, %167 ], [ %.087103108113.i, %183 ]
   %187 = phi ptr [ %163, %167 ], [ %171, %183 ]
   %.089.i = phi i32 [ %3, %167 ], [ %185, %183 ]
-  %.085.i = phi i32 [ %169, %167 ], [ %184, %183 ]
+  %.086.i = phi i32 [ %169, %167 ], [ %184, %183 ]
   %188 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.089.i) #14
-  %189 = icmp ult i32 %188, %.085.i
+  %189 = icmp ult i32 %188, %.086.i
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %186
@@ -7707,15 +7707,15 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
   %.084.i = phi i32 [ %205, %202 ], [ 2, %194 ], [ 0, %199 ]
   %207 = getelementptr inbounds i8, ptr %1, i64 408
   %208 = load ptr, ptr %207, align 8
-  %209 = call ptr @tvb_get_string_enc(ptr noundef %208, ptr noundef %0, i32 noundef %.089.i, i32 noundef %.085.i, i32 noundef %.084.i) #14
+  %209 = call ptr @tvb_get_string_enc(ptr noundef %208, ptr noundef %0, i32 noundef %.089.i, i32 noundef %.086.i, i32 noundef %.084.i) #14
   %210 = and i32 %.084.i, 2
   %.not97.i = icmp ne i32 %210, 0
-  %211 = icmp ne i32 %.085.i, 0
+  %211 = icmp ne i32 %.086.i, 0
   %or.cond.i58 = select i1 %.not97.i, i1 %211, i1 false
   br i1 %or.cond.i58, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %206
-  %wide.trip.count.i59 = zext i32 %.085.i to i64
+  %wide.trip.count.i59 = zext i32 %.086.i to i64
   br label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %216, %.lr.ph.preheader.i
@@ -7736,9 +7736,9 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i57: ; preds = %proto_item_set_hi
   br i1 %exitcond.not.i63, label %.loopexit.i, label %.lr.ph.i60, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %216, %206
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.086103107.i, ptr noundef nonnull @.str.357, ptr noundef %209) #14
-  %217 = add i32 %.085.i, %.089.i
-  call void @proto_item_set_end(ptr noundef %.086103107.i, ptr noundef %0, i32 noundef %217) #14
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.087103107.i, ptr noundef nonnull @.str.357, ptr noundef %209) #14
+  %217 = add i32 %.086.i, %.089.i
+  call void @proto_item_set_end(ptr noundef %.087103107.i, ptr noundef %0, i32 noundef %217) #14
   %218 = sub i32 %217, %3
   br label %dissect_someip_payload_typedef.exit
 
@@ -9236,9 +9236,9 @@ define internal fastcc noundef ptr @update_dynamic_hf_entry(ptr noundef writeonl
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %25
   %15 = phi ptr [ %26, %25 ], [ %13, %.lr.ph.i ]
-  %.064.i = phi i32 [ %27, %25 ], [ 10, %.lr.ph.i ]
-  %.03763.i = phi i32 [ %.1.i, %25 ], [ %3, %.lr.ph.i ]
-  %16 = zext i32 %.03763.i to i64
+  %.03764.i = phi i32 [ %27, %25 ], [ 10, %.lr.ph.i ]
+  %.03863.i = phi i32 [ %.139.i, %25 ], [ %3, %.lr.ph.i ]
+  %16 = zext i32 %.03863.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %16, ptr %10, align 8
   %17 = icmp eq ptr %15, null
@@ -9265,23 +9265,23 @@ get_typedef_config.exit.i:                        ; preds = %.lr.ph.split.i
 
 25:                                               ; preds = %19, %get_typedef_config.exit.i, %get_typedef_config.exit.thread.i
   %26 = phi ptr [ %.pre.i, %19 ], [ %.pre.i, %get_typedef_config.exit.i ], [ null, %get_typedef_config.exit.thread.i ]
-  %.139.i = phi i8 [ %22, %19 ], [ 6, %get_typedef_config.exit.i ], [ 6, %get_typedef_config.exit.thread.i ]
-  %.1.i = phi i32 [ %24, %19 ], [ %.03763.i, %get_typedef_config.exit.i ], [ %.03763.i, %get_typedef_config.exit.thread.i ]
-  %27 = add nsw i32 %.064.i, -1
-  %28 = icmp eq i8 %.139.i, 6
-  %29 = icmp ugt i32 %.064.i, 1
+  %.139.i = phi i32 [ %24, %19 ], [ %.03863.i, %get_typedef_config.exit.i ], [ %.03863.i, %get_typedef_config.exit.thread.i ]
+  %.1.i = phi i8 [ %22, %19 ], [ 6, %get_typedef_config.exit.i ], [ 6, %get_typedef_config.exit.thread.i ]
+  %27 = add nsw i32 %.03764.i, -1
+  %28 = icmp eq i8 %.1.i, 6
+  %29 = icmp ugt i32 %.03764.i, 1
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %25, %6
-  %.038.lcssa.i = phi i8 [ %11, %6 ], [ %.139.i, %25 ]
-  %.037.lcssa.i = phi i32 [ %3, %6 ], [ %.1.i, %25 ]
-  %31 = icmp eq i8 %.038.lcssa.i, 7
+  %.038.lcssa.i = phi i32 [ %3, %6 ], [ %.139.i, %25 ]
+  %.0.lcssa.i = phi i8 [ %11, %6 ], [ %.1.i, %25 ]
+  %31 = icmp eq i8 %.0.lcssa.i, 7
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %._crit_edge.i
   %33 = load ptr, ptr @data_someip_parameter_enums, align 8
-  %34 = zext i32 %.037.lcssa.i to i64
+  %34 = zext i32 %.038.lcssa.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %34, ptr %9, align 8
   %35 = icmp eq ptr %33, null
@@ -9306,16 +9306,16 @@ get_enum_config.exit.i:                           ; preds = %32
   br label %43
 
 43:                                               ; preds = %37, %._crit_edge.i
-  %.240.i = phi i8 [ %40, %37 ], [ %.038.lcssa.i, %._crit_edge.i ]
-  %.2.i = phi i32 [ %42, %37 ], [ %.037.lcssa.i, %._crit_edge.i ]
-  switch i8 %.240.i, label %get_param_attributes.exit.thread [
+  %.240.i = phi i32 [ %42, %37 ], [ %.038.lcssa.i, %._crit_edge.i ]
+  %.2.i = phi i8 [ %40, %37 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  switch i8 %.2.i, label %get_param_attributes.exit.thread [
     i8 2, label %44
     i8 1, label %52
   ]
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr @data_someip_parameter_strings, align 8
-  %46 = zext i32 %.2.i to i64
+  %46 = zext i32 %.240.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %46, ptr %8, align 8
   %47 = icmp eq ptr %45, null
@@ -9338,7 +9338,7 @@ get_string_config.exit.i:                         ; preds = %44
 
 52:                                               ; preds = %43
   %53 = load ptr, ptr @data_someip_parameter_base_type_list, align 8
-  %54 = zext i32 %.2.i to i64
+  %54 = zext i32 %.240.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %54, ptr %7, align 8
   %55 = icmp eq ptr %53, null
@@ -9468,9 +9468,9 @@ get_base_type_config.exit.i:                      ; preds = %52
   br label %get_param_attributes.exit
 
 get_param_attributes.exit:                        ; preds = %get_string_config.exit.thread.i, %get_string_config.exit.i, %49, %57, %64, %68, %72, %76, %80, %84, %88, %92, %96, %100, %104, %108, %112, %116, %120, %124, %128
-  %.sroa.28.0.i = phi ptr [ %51, %49 ], [ null, %get_string_config.exit.i ], [ %59, %57 ], [ %59, %64 ], [ %59, %68 ], [ %59, %72 ], [ %59, %76 ], [ %59, %80 ], [ %59, %84 ], [ %59, %88 ], [ %59, %92 ], [ %59, %96 ], [ %59, %100 ], [ %59, %104 ], [ %59, %108 ], [ %59, %112 ], [ %59, %116 ], [ %59, %120 ], [ %59, %124 ], [ %59, %128 ], [ null, %get_string_config.exit.thread.i ]
-  %.sroa.23.0.i = phi i32 [ 0, %49 ], [ 0, %get_string_config.exit.i ], [ 1, %57 ], [ 1, %64 ], [ 1, %68 ], [ 1, %72 ], [ 1, %76 ], [ 1, %80 ], [ 1, %84 ], [ 1, %88 ], [ 1, %92 ], [ 1, %96 ], [ 1, %100 ], [ 1, %104 ], [ 1, %108 ], [ 1, %112 ], [ 1, %116 ], [ 1, %120 ], [ 0, %124 ], [ %133, %128 ], [ 0, %get_string_config.exit.thread.i ]
   %.sroa.0.0.i = phi i32 [ 26, %49 ], [ 26, %get_string_config.exit.i ], [ 4, %57 ], [ 5, %64 ], [ 6, %68 ], [ 7, %72 ], [ 8, %76 ], [ 9, %80 ], [ 10, %84 ], [ 11, %88 ], [ 12, %92 ], [ 13, %96 ], [ 14, %100 ], [ 15, %104 ], [ 16, %108 ], [ 17, %112 ], [ 18, %116 ], [ 19, %120 ], [ 22, %124 ], [ %132, %128 ], [ 26, %get_string_config.exit.thread.i ]
+  %.sroa.23.0.i = phi i32 [ 0, %49 ], [ 0, %get_string_config.exit.i ], [ 1, %57 ], [ 1, %64 ], [ 1, %68 ], [ 1, %72 ], [ 1, %76 ], [ 1, %80 ], [ 1, %84 ], [ 1, %88 ], [ 1, %92 ], [ 1, %96 ], [ 1, %100 ], [ 1, %104 ], [ 1, %108 ], [ 1, %112 ], [ 1, %116 ], [ 1, %120 ], [ 0, %124 ], [ %133, %128 ], [ 0, %get_string_config.exit.thread.i ]
+  %.sroa.28.0.i = phi ptr [ %51, %49 ], [ null, %get_string_config.exit.i ], [ %59, %57 ], [ %59, %64 ], [ %59, %68 ], [ %59, %72 ], [ %59, %76 ], [ %59, %80 ], [ %59, %84 ], [ %59, %88 ], [ %59, %92 ], [ %59, %96 ], [ %59, %100 ], [ %59, %104 ], [ %59, %108 ], [ %59, %112 ], [ %59, %116 ], [ %59, %120 ], [ %59, %124 ], [ %59, %128 ], [ null, %get_string_config.exit.thread.i ]
   %134 = icmp eq ptr %0, null
   %135 = icmp eq i32 %.sroa.0.0.i, 0
   %or.cond = select i1 %134, i1 true, i1 %135

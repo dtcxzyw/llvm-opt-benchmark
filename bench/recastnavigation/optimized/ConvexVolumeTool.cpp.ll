@@ -239,8 +239,8 @@ define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture 
 
 29:                                               ; preds = %53, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %.026.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
   %.02125.i = phi i32 [ %27, %.lr.ph.i ], [ %54, %53 ]
+  %.02224.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 12
   %30 = getelementptr inbounds i8, ptr %23, i64 %.idx.i
   %31 = mul nsw i32 %.02125.i, 3
@@ -269,12 +269,12 @@ define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture 
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %40
-  %.not23.i = icmp eq i32 %.026.i, 0
+  %.not23.i = icmp eq i32 %.02224.i, 0
   %52 = zext i1 %.not23.i to i32
   br label %53
 
 53:                                               ; preds = %51, %40, %29
-  %.1.i = phi i32 [ %52, %51 ], [ %.026.i, %40 ], [ %.026.i, %29 ]
+  %.1.i = phi i32 [ %52, %51 ], [ %.02224.i, %40 ], [ %.02224.i, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

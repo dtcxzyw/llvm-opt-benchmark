@@ -1382,7 +1382,7 @@ for.body.preheader:                               ; preds = %if.end21
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %12, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %i.023 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
+  %i.024 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
   %13 = load ptr, ptr %ctx, align 8
   %objs24 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %objs24, align 8
@@ -1403,7 +1403,7 @@ if.then29:                                        ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.023, 1
+  %inc = add nuw nsw i32 %i.024, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %cnt, align 4
   %cmp22 = icmp slt i32 %inc, %17
@@ -1486,7 +1486,7 @@ if.then8:                                         ; preds = %X509_OBJECT_free_co
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %7, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %i.019 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
+  %i.020 = phi i32 [ 0, %for.body.preheader ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %ctx, align 8
   %objs14 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %objs14, align 8
@@ -1507,7 +1507,7 @@ if.then18:                                        ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.019, 1
+  %inc = add nuw nsw i32 %i.020, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %cnt, align 4
   %cmp12 = icmp slt i32 %inc, %13

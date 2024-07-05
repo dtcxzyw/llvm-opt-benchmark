@@ -49,7 +49,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %.critedge.i, %.lr.ph56.i
-  %.04855.i = phi ptr [ %0, %.lr.ph56.i ], [ %67, %.critedge.i ]
+  %.04755.i = phi ptr [ %0, %.lr.ph56.i ], [ %67, %.critedge.i ]
   %21 = tail call ptr @Mvc_CubeAlloc(ptr noundef %13) #6
   %22 = load ptr, ptr %15, align 8
   %23 = icmp eq ptr %22, null
@@ -113,7 +113,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
 
 53:                                               ; preds = %66, %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %66 ], [ 0, %.loopexit.i ]
-  %54 = getelementptr inbounds i8, ptr %.04855.i, i64 %indvars.iv.i
+  %54 = getelementptr inbounds i8, ptr %.04755.i, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %66 [
     i8 32, label %.critedge.i
@@ -145,7 +145,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br label %53, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %53, %53
-  %67 = getelementptr inbounds i8, ptr %.04855.i, i64 %19
+  %67 = getelementptr inbounds i8, ptr %.04755.i, i64 %19
   %68 = load i8, ptr %67, align 1
   %.not.i = icmp eq i8 %68, 0
   br i1 %.not.i, label %Dec_ConvertSopToMvc.exit, label %20, !llvm.loop !6

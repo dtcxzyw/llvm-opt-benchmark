@@ -1281,7 +1281,7 @@ define dso_local noundef zeroext i1 @_ZN9CGContext12read_indicesEPK8VariableRKSt
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %.critedge, %3
-  %.tr35.lcssa = phi ptr [ %1, %3 ], [ %.024.lcssa, %.critedge ]
+  %.tr35.lcssa = phi ptr [ %1, %3 ], [ %.021.lcssa, %.critedge ]
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
@@ -1332,7 +1332,7 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %.noexc28.thread, %_
   br i1 %.not43, label %._crit_edge, label %.lr.ph42
 
 30:                                               ; preds = %46
-  %31 = add nuw i64 %.02341, 1
+  %31 = add nuw i64 %.02441, 1
   %32 = load ptr, ptr %27, align 8
   %33 = load ptr, ptr %26, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -1344,8 +1344,8 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %.noexc28.thread, %_
 
 .lr.ph42:                                         ; preds = %_ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit, %30
   %39 = phi ptr [ %33, %30 ], [ %29, %_ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit ]
-  %.02341 = phi i64 [ %31, %30 ], [ 0, %_ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit ]
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %.02341
+  %.02441 = phi i64 [ %31, %30 ], [ 0, %_ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit ]
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %.02441
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 64
@@ -1397,19 +1397,19 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %.noexc28.thread, %_
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 .lr.ph:                                           ; preds = %3, %.critedge
-  %.tr3540 = phi ptr [ %.024.lcssa, %.critedge ], [ %1, %3 ]
+  %.tr3540 = phi ptr [ %.021.lcssa, %.critedge ], [ %1, %3 ]
   %56 = tail call noundef zeroext i1 @_ZNK8Variable14is_array_fieldEv(ptr noundef nonnull align 8 dereferenceable(200) %.tr3540)
   br i1 %56, label %.preheader, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 .preheader:                                       ; preds = %.lr.ph, %60
-  %.02439 = phi ptr [ %62, %60 ], [ %.tr3540, %.lr.ph ]
-  %57 = getelementptr inbounds i8, ptr %.02439, i64 96
+  %.02139 = phi ptr [ %62, %60 ], [ %.tr3540, %.lr.ph ]
+  %57 = getelementptr inbounds i8, ptr %.02139, i64 96
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %.preheader
-  %61 = getelementptr inbounds i8, ptr %.02439, i64 88
+  %61 = getelementptr inbounds i8, ptr %.02139, i64 88
   %62 = load ptr, ptr %61, align 8
   %.not = icmp eq ptr %62, null
   br i1 %.not, label %..critedge_crit_edge, label %.preheader, !llvm.loop !13
@@ -1420,7 +1420,7 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %.noexc28.thread, %_
 
 .critedge:                                        ; preds = %.preheader, %..critedge_crit_edge
   %63 = phi i8 [ %.pre, %..critedge_crit_edge ], [ %58, %.preheader ]
-  %.024.lcssa = phi ptr [ null, %..critedge_crit_edge ], [ %.02439, %.preheader ]
+  %.021.lcssa = phi ptr [ null, %..critedge_crit_edge ], [ %.02139, %.preheader ]
   %64 = trunc i8 %63 to i1
   br i1 %64, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -3059,8 +3059,8 @@ define dso_local void @_ZNK9CGContext25find_reachable_frame_varsERSt6vectorIPK4F
 11:                                               ; preds = %.lr.ph20, %.loopexit17
   %12 = phi ptr [ %6, %.lr.ph20 ], [ %93, %.loopexit17 ]
   %13 = phi ptr [ %5, %.lr.ph20 ], [ %94, %.loopexit17 ]
-  %.01319 = phi i64 [ 0, %.lr.ph20 ], [ %95, %.loopexit17 ]
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %.01319
+  %.019 = phi i64 [ 0, %.lr.ph20 ], [ %95, %.loopexit17 ]
+  %14 = getelementptr inbounds ptr, ptr %12, i64 %.019
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
@@ -3077,8 +3077,8 @@ define dso_local void @_ZNK9CGContext25find_reachable_frame_varsERSt6vectorIPK4F
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNK9CGContext12is_frame_varEPK8Variable.exit
   %23 = phi ptr [ %87, %_ZNK9CGContext12is_frame_varEPK8Variable.exit ], [ %22, %.preheader ]
-  %.018 = phi i64 [ %85, %_ZNK9CGContext12is_frame_varEPK8Variable.exit ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %.018
+  %.01318 = phi i64 [ %85, %_ZNK9CGContext12is_frame_varEPK8Variable.exit ], [ 0, %.preheader ]
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %.01318
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %26, null
@@ -3202,7 +3202,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__nor
   br label %_ZNK9CGContext12is_frame_varEPK8Variable.exit
 
 _ZNK9CGContext12is_frame_varEPK8Variable.exit:    ; preds = %41, %_ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %59, %.preheader.i
-  %85 = add nuw i64 %.018, 1
+  %85 = add nuw i64 %.01318, 1
   %86 = load ptr, ptr %20, align 8
   %87 = load ptr, ptr %19, align 8
   %88 = ptrtoint ptr %86 to i64
@@ -3220,7 +3220,7 @@ _ZNK9CGContext12is_frame_varEPK8Variable.exit:    ; preds = %41, %_ZNSt6vectorIP
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %.preheader, %11
   %93 = phi ptr [ %.pre22, %.loopexit17.loopexit ], [ %12, %.preheader ], [ %12, %11 ]
   %94 = phi ptr [ %.pre, %.loopexit17.loopexit ], [ %13, %.preheader ], [ %13, %11 ]
-  %95 = add nuw i64 %.01319, 1
+  %95 = add nuw i64 %.019, 1
   %96 = ptrtoint ptr %94 to i64
   %97 = ptrtoint ptr %93 to i64
   %98 = sub i64 %96, %97

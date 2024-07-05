@@ -165,7 +165,7 @@ define internal void @fig_textspan(ptr noundef %0, double %1, double %2, ptr noc
   br label %25
 
 25:                                               ; preds = %22, %4
-  %.0 = phi i32 [ %24, %22 ], [ -1, %4 ]
+  %.030 = phi i32 [ %24, %22 ], [ -1, %4 ]
   %26 = getelementptr inbounds i8, ptr %3, i64 64
   %27 = load i8, ptr %26, align 8
   %switch.selectcmp = icmp eq i8 %27, 114
@@ -189,7 +189,7 @@ define internal void @fig_textspan(ptr noundef %0, double %1, double %2, ptr noc
   %38 = fmul double %37, 5.000000e-01
   %.not = icmp eq i32 %17, 0
   %39 = select i1 %.not, double 0.000000e+00, double 0x3FF921FB54442D18
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 4, i32 noundef %switch.select38, i32 noundef %8, i32 noundef %9, i32 noundef 0, i32 noundef %.0, double noundef %33, double noundef %39, i32 noundef 6, double noundef %33, double noundef %38, i32 noundef %32, i32 noundef %31) #16
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 4, i32 noundef %switch.select38, i32 noundef %8, i32 noundef %9, i32 noundef 0, i32 noundef %.030, double noundef %33, double noundef %39, i32 noundef 6, double noundef %33, double noundef %38, i32 noundef %32, i32 noundef %31) #16
   %40 = load ptr, ptr %3, align 8
   tail call void @gvputs_nonascii(ptr noundef nonnull %0, ptr noundef %40) #16
   %41 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #16
@@ -480,7 +480,7 @@ fig_line_style.exit:
 
 18:                                               ; preds = %fig_line_style.exit, %15
   %.068 = phi i32 [ 20, %15 ], [ -1, %fig_line_style.exit ]
-  %.067 = phi i32 [ %17, %15 ], [ 0, %fig_line_style.exit ]
+  %.063 = phi i32 [ %17, %15 ], [ 0, %fig_line_style.exit ]
   %.062 = phi i32 [ 5, %15 ], [ 4, %fig_line_style.exit ]
   %19 = getelementptr inbounds i8, ptr %4, i64 48
   %20 = load <2 x double>, ptr %1, align 8
@@ -500,32 +500,32 @@ fig_line_style.exit:
   br i1 %27, label %.lr.ph, label %agxbsizeof.exit.i.i
 
 .loopexit:                                        ; preds = %.preheader
-  %28 = add i32 %.06587, 6
+  %28 = add i32 %.06687, 6
   %29 = add i64 %31, 3
   %30 = icmp ult i64 %29, %2
   br i1 %30, label %.lr.ph, label %agxbsizeof.exit.i.i
 
 .lr.ph:                                           ; preds = %18, %.loopexit
   %31 = phi i64 [ %29, %.loopexit ], [ 3, %18 ]
-  %.06488 = phi i64 [ %31, %.loopexit ], [ 0, %18 ]
-  %.06587 = phi i32 [ %28, %.loopexit ], [ 1, %18 ]
+  %.06588 = phi i64 [ %31, %.loopexit ], [ 0, %18 ]
+  %.06687 = phi i32 [ %28, %.loopexit ], [ 1, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false)
-  %32 = getelementptr %struct.pointf_s, ptr %1, i64 %.06488
+  %32 = getelementptr %struct.pointf_s, ptr %1, i64 %.06588
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
-  %.06384 = phi i64 [ 1, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr %struct.pointf_s, ptr %32, i64 %.06384
-  %35 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06384
+  %.06484 = phi i64 [ 1, %.lr.ph ], [ %37, %33 ]
+  %34 = getelementptr %struct.pointf_s, ptr %32, i64 %.06484
+  %35 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
   %36 = load <2 x double>, ptr %34, align 8
   store <2 x double> %36, ptr %35, align 16
-  %37 = add nuw nsw i64 %.06384, 1
+  %37 = add nuw nsw i64 %.06484, 1
   %exitcond.not = icmp eq i64 %37, 4
   br i1 %exitcond.not, label %.preheader, label %33
 
 .preheader:                                       ; preds = %33, %.preheader
-  %.06685 = phi i32 [ %47, %.preheader ], [ 1, %33 ]
-  %38 = uitofp nneg i32 %.06685 to double
+  %.06785 = phi i32 [ %47, %.preheader ], [ 1, %33 ]
+  %38 = uitofp nneg i32 %.06785 to double
   %39 = fdiv double %38, 6.000000e+00
   %40 = call { double, double } @Bezier(ptr noundef nonnull %4, double noundef %39, ptr noundef null, ptr noundef null) #16
   %41 = extractvalue { double, double } %40, 0
@@ -539,13 +539,13 @@ fig_line_style.exit:
   %.in81 = fadd double %42, %.in81.v
   %46 = fptosi double %.in81 to i32
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %44, i32 noundef %46)
-  %47 = add nuw nsw i32 %.06685, 1
+  %47 = add nuw nsw i32 %.06785, 1
   %exitcond91.not = icmp eq i32 %47, 7
   br i1 %exitcond91.not, label %.loopexit, label %.preheader
 
 agxbsizeof.exit.i.i:                              ; preds = %.loopexit, %18
-  %.065.lcssa = phi i32 [ 1, %18 ], [ %28, %.loopexit ]
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %10, i32 noundef %12, i32 noundef %.067, i32 noundef %13, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.065.lcssa) #16
+  %.066.lcssa = phi i32 [ 1, %18 ], [ %28, %.loopexit ]
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %10, i32 noundef %12, i32 noundef %.063, i32 noundef %13, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.066.lcssa) #16
   %48 = getelementptr inbounds i8, ptr %5, i64 31
   %.val.i.i.i = load i8, ptr %48, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -608,11 +608,11 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbuse.exit, %68
-  %69 = icmp sgt i32 %.065.lcssa, 0
+  %69 = icmp sgt i32 %.066.lcssa, 0
   br i1 %69, label %.lr.ph90, label %._crit_edge
 
 .lr.ph90:                                         ; preds = %agxbfree.exit
-  %70 = add nsw i32 %.065.lcssa, -1
+  %70 = add nsw i32 %.066.lcssa, -1
   br label %71
 
 71:                                               ; preds = %.lr.ph90, %71
@@ -622,7 +622,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %68
   %73 = zext i1 %.not79 to i32
   call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %73) #16
   %74 = add nuw nsw i32 %.089, 1
-  %exitcond92.not = icmp eq i32 %74, %.065.lcssa
+  %exitcond92.not = icmp eq i32 %74, %.066.lcssa
   br i1 %exitcond92.not, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %71, %agxbfree.exit

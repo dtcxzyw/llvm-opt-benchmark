@@ -174,10 +174,10 @@ define dso_local void @ascii_safe_strlcpy(ptr nocapture noundef writeonly %0, pt
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %6 = phi i64 [ %16, %14 ], [ %5, %.preheader ]
-  %.02330 = phi ptr [ %7, %14 ], [ %1, %.preheader ]
-  %.02429 = phi ptr [ %15, %14 ], [ %0, %.preheader ]
-  %7 = getelementptr i8, ptr %.02330, i64 1
-  %8 = load i8, ptr %.02330, align 1
+  %.030 = phi ptr [ %15, %14 ], [ %0, %.preheader ]
+  %.02429 = phi ptr [ %7, %14 ], [ %1, %.preheader ]
+  %7 = getelementptr i8, ptr %.02429, i64 1
+  %8 = load i8, ptr %.02429, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %._crit_edge, label %10
 
@@ -199,15 +199,15 @@ switch.lookup:                                    ; preds = %11
 
 14:                                               ; preds = %11, %switch.lookup, %10
   %.sink = phi i8 [ %8, %10 ], [ %switch.masked, %switch.lookup ], [ 63, %11 ]
-  store i8 %.sink, ptr %.02429, align 1
-  %15 = getelementptr i8, ptr %.02429, i64 1
+  store i8 %.sink, ptr %.030, align 1
+  %15 = getelementptr i8, ptr %.030, i64 1
   %16 = add i64 %6, -1
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph, %.preheader
-  %.024.lcssa = phi ptr [ %0, %.preheader ], [ %.02429, %.lr.ph ], [ %15, %14 ]
-  store i8 0, ptr %.024.lcssa, align 1
+  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.030, %.lr.ph ], [ %15, %14 ]
+  store i8 0, ptr %.0.lcssa, align 1
   br label %17
 
 17:                                               ; preds = %3, %._crit_edge

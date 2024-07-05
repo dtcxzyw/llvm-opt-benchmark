@@ -2037,8 +2037,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %next.011 = phi ptr [ null, %for.body.preheader ], [ %next.1, %for.inc ]
-  %ret.010 = phi i32 [ 1, %for.body.preheader ], [ %ret.1, %for.inc ]
+  %ret.012 = phi i32 [ 1, %for.body.preheader ], [ %ret.1, %for.inc ]
+  %next.010 = phi ptr [ null, %for.body.preheader ], [ %next.1, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %string, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %cmp3 = icmp eq i8 %0, 91
@@ -2050,18 +2050,18 @@ if.then:                                          ; preds = %for.body
 
 if.else:                                          ; preds = %for.body
   %cmp7 = icmp eq i8 %0, 93
-  %tobool = icmp ne ptr %next.011, null
+  %tobool = icmp ne ptr %next.010, null
   %or.cond = select i1 %cmp7, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %if.else
-  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %next.011) #21
-  %mul = mul nsw i32 %call10, %ret.010
+  %call10 = tail call i32 @atoi(ptr nocapture noundef nonnull %next.010) #21
+  %mul = mul nsw i32 %call10, %ret.012
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.then9, %if.else
-  %ret.1 = phi i32 [ %ret.010, %if.then ], [ %mul, %if.then9 ], [ %ret.010, %if.else ]
-  %next.1 = phi ptr [ %arrayidx5, %if.then ], [ %next.011, %if.then9 ], [ %next.011, %if.else ]
+  %next.1 = phi ptr [ %arrayidx5, %if.then ], [ %next.010, %if.then9 ], [ %next.010, %if.else ]
+  %ret.1 = phi i32 [ %ret.012, %if.then ], [ %mul, %if.then9 ], [ %ret.012, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25

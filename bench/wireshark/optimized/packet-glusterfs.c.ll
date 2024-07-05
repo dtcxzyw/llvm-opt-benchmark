@@ -836,9 +836,9 @@ define hidden i32 @gluster_rpc_dissect_dict(ptr noundef %0, ptr noundef %1, i32 
   br label %13
 
 13:                                               ; preds = %4, %10
-  %.089 = phi ptr [ %12, %10 ], [ @.str, %4 ]
+  %.087 = phi ptr [ %12, %10 ], [ @.str, %4 ]
   %14 = load i32, ptr @ett_gluster_dict, align 4
-  %15 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %7, ptr noundef %.089) #3
+  %15 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %7, ptr noundef %.087) #3
   %16 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3) #3
   store i32 %16, ptr %6, align 4
   %17 = call i32 @rpc_roundup(i32 noundef %16) #3
@@ -877,19 +877,19 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   br label %.thread
 
 .thread:                                          ; preds = %proto_item_set_generated.exit, %33
-  %.087100 = phi i32 [ %34, %33 ], [ 0, %proto_item_set_generated.exit ]
+  %.089100 = phi i32 [ %34, %33 ], [ 0, %proto_item_set_generated.exit ]
   %36 = phi ptr [ %spec.select101, %33 ], [ @.str.4, %proto_item_set_generated.exit ]
   %37 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2, i32 noundef %.087100, ptr noundef nonnull %36) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2, i32 noundef %.089100, ptr noundef nonnull %36) #3
   %38 = load i32, ptr %6, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %95, label %40
 
 40:                                               ; preds = %.thread
   %41 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %42 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %41, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef %.087100) #3
+  %42 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %41, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef %.089100) #3
   %43 = add i32 %3, 8
-  %.not104 = icmp eq i32 %.087100, 0
+  %.not104 = icmp eq i32 %.089100, 0
   br i1 %.not104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %77
@@ -958,7 +958,7 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   %79 = sub i32 %78, %46
   call void @proto_item_set_len(ptr noundef %.086, i32 noundef %79) #3
   %80 = add nuw i32 %.088102, 1
-  %exitcond.not = icmp eq i32 %80, %.087100
+  %exitcond.not = icmp eq i32 %80, %.089100
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %77, %40
@@ -1608,9 +1608,9 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %4, %8
-  %.0141 = phi ptr [ %10, %8 ], [ @.str, %4 ]
+  %.0138 = phi ptr [ %10, %8 ], [ @.str, %4 ]
   %12 = load i32, ptr @ett_gluster_dict, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %6, ptr noundef %.0141) #3
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %6, ptr noundef %.0138) #3
   %14 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3) #3
   %15 = load i32, ptr @hf_gluster_dict_xdr_size, align 4
   %16 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %15, i32 noundef %3) #3
@@ -1633,7 +1633,7 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %21, %90
   %.0135152 = phi ptr [ %.1, %90 ], [ null, %21 ]
   %.0136151 = phi i32 [ %91, %90 ], [ %24, %21 ]
-  %.0140150 = phi i32 [ %93, %90 ], [ 0, %21 ]
+  %.0139150 = phi i32 [ %93, %90 ], [ 0, %21 ]
   %25 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0136151) #3
   %26 = call i32 @rpc_roundup(i32 noundef %25) #3
   %27 = add i32 %.0136151, 4
@@ -1747,13 +1747,13 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   br label %90
 
 90:                                               ; preds = %.lr.ph, %37, %45, %56, %70, %85, %77, %53, %41, %33
-  %.0138 = phi i32 [ 8, %33 ], [ 8, %37 ], [ 8, %41 ], [ %47, %45 ], [ 0, %53 ], [ 16, %56 ], [ %62, %85 ], [ 12, %77 ], [ 16, %70 ], [ 0, %.lr.ph ]
+  %.0140 = phi i32 [ 8, %33 ], [ 8, %37 ], [ 8, %41 ], [ %47, %45 ], [ 0, %53 ], [ 16, %56 ], [ %62, %85 ], [ 12, %77 ], [ 16, %70 ], [ 0, %.lr.ph ]
   %.1137 = phi i32 [ %32, %33 ], [ %32, %37 ], [ %32, %41 ], [ %48, %45 ], [ %55, %53 ], [ %32, %56 ], [ %63, %85 ], [ %63, %77 ], [ %63, %70 ], [ %32, %.lr.ph ]
   %.1 = phi ptr [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %52, %45 ], [ %.0135152, %53 ], [ %60, %56 ], [ %89, %85 ], [ %84, %77 ], [ %74, %70 ], [ %.0135152, %.lr.ph ]
-  %91 = add i32 %.1137, %.0138
+  %91 = add i32 %.1137, %.0140
   %92 = sub i32 %91, %27
   call void @proto_item_set_len(ptr noundef %.1, i32 noundef %92) #3
-  %93 = add nuw i32 %.0140150, 1
+  %93 = add nuw i32 %.0139150, 1
   %exitcond.not = icmp eq i32 %93, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

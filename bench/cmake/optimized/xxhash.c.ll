@@ -643,8 +643,8 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 48
-  %.val72 = load i64, ptr %34, align 1
-  %35 = mul i64 %.val72, -4417276706812531889
+  %.val71 = load i64, ptr %34, align 1
+  %35 = mul i64 %.val71, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
   %38 = mul i64 %37, -7046029288634856825
@@ -652,8 +652,8 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 56
-  %.val73 = load i64, ptr %41, align 1
-  %42 = mul i64 %.val73, -4417276706812531889
+  %.val72 = load i64, ptr %41, align 1
+  %42 = mul i64 %.val72, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
   %45 = mul i64 %44, -7046029288634856825
@@ -661,8 +661,8 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %46 = getelementptr inbounds i8, ptr %0, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 64
-  %.val74 = load i64, ptr %48, align 1
-  %49 = mul i64 %.val74, -4417276706812531889
+  %.val73 = load i64, ptr %48, align 1
+  %49 = mul i64 %.val73, -4417276706812531889
   %50 = add i64 %49, %47
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 31)
   %52 = mul i64 %51, -7046029288634856825
@@ -675,10 +675,10 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %21, %20
-  %.0 = phi ptr [ %56, %21 ], [ %1, %20 ]
-  %58 = getelementptr inbounds i8, ptr %.0, i64 32
-  %.not70 = icmp ugt ptr %58, %6
-  br i1 %.not70, label %.loopexit, label %59
+  %.064 = phi ptr [ %56, %21 ], [ %1, %20 ]
+  %58 = getelementptr inbounds i8, ptr %.064, i64 32
+  %.not69 = icmp ugt ptr %58, %6
+  br i1 %.not69, label %.loopexit, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %6, i64 -32
@@ -687,17 +687,17 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %63 = getelementptr inbounds i8, ptr %0, i64 24
   %64 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load i64, ptr %61, align 8
-  %.promoted78 = load i64, ptr %62, align 8
-  %.promoted79 = load i64, ptr %63, align 8
-  %.promoted80 = load i64, ptr %64, align 8
+  %.promoted77 = load i64, ptr %62, align 8
+  %.promoted78 = load i64, ptr %63, align 8
+  %.promoted79 = load i64, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %65, %59
-  %66 = phi i64 [ %.promoted80, %59 ], [ %88, %65 ]
-  %67 = phi i64 [ %.promoted79, %59 ], [ %83, %65 ]
-  %68 = phi i64 [ %.promoted78, %59 ], [ %78, %65 ]
+  %66 = phi i64 [ %.promoted79, %59 ], [ %88, %65 ]
+  %67 = phi i64 [ %.promoted78, %59 ], [ %83, %65 ]
+  %68 = phi i64 [ %.promoted77, %59 ], [ %78, %65 ]
   %69 = phi i64 [ %.promoted, %59 ], [ %73, %65 ]
-  %.1 = phi ptr [ %.0, %59 ], [ %89, %65 ]
+  %.1 = phi ptr [ %.064, %59 ], [ %89, %65 ]
   %.1.val = load i64, ptr %.1, align 1
   %70 = mul i64 %.1.val, -4417276706812531889
   %71 = add i64 %70, %69
@@ -705,32 +705,32 @@ define dso_local noundef i32 @ZSTD_XXH64_update(ptr nocapture noundef %0, ptr no
   %73 = mul i64 %72, -7046029288634856825
   store i64 %73, ptr %61, align 8
   %74 = getelementptr inbounds i8, ptr %.1, i64 8
-  %.val75 = load i64, ptr %74, align 1
-  %75 = mul i64 %.val75, -4417276706812531889
+  %.val74 = load i64, ptr %74, align 1
+  %75 = mul i64 %.val74, -4417276706812531889
   %76 = add i64 %75, %68
   %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 31)
   %78 = mul i64 %77, -7046029288634856825
   store i64 %78, ptr %62, align 8
   %79 = getelementptr inbounds i8, ptr %.1, i64 16
-  %.val76 = load i64, ptr %79, align 1
-  %80 = mul i64 %.val76, -4417276706812531889
+  %.val75 = load i64, ptr %79, align 1
+  %80 = mul i64 %.val75, -4417276706812531889
   %81 = add i64 %80, %67
   %82 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 31)
   %83 = mul i64 %82, -7046029288634856825
   store i64 %83, ptr %63, align 8
   %84 = getelementptr inbounds i8, ptr %.1, i64 24
-  %.val77 = load i64, ptr %84, align 1
-  %85 = mul i64 %.val77, -4417276706812531889
+  %.val76 = load i64, ptr %84, align 1
+  %85 = mul i64 %.val76, -4417276706812531889
   %86 = add i64 %85, %66
   %87 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 31)
   %88 = mul i64 %87, -7046029288634856825
   store i64 %88, ptr %64, align 8
   %89 = getelementptr inbounds i8, ptr %.1, i64 32
-  %.not71 = icmp ugt ptr %89, %60
-  br i1 %.not71, label %.loopexit, label %65, !llvm.loop !13
+  %.not70 = icmp ugt ptr %89, %60
+  br i1 %.not70, label %.loopexit, label %65, !llvm.loop !13
 
 .loopexit:                                        ; preds = %65, %57
-  %.2 = phi ptr [ %.0, %57 ], [ %89, %65 ]
+  %.2 = phi ptr [ %.064, %57 ], [ %89, %65 ]
   %90 = icmp ult ptr %.2, %6
   br i1 %90, label %91, label %97
 

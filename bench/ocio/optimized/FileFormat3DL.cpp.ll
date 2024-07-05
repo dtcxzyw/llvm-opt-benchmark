@@ -412,11 +412,11 @@ entry:
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end170, %entry
-  %rawshaper.sroa.25.0.ph = phi ptr [ %rawshaper.sroa.25.3, %if.end170 ], [ null, %entry ]
-  %raw3d.sroa.0.0.ph = phi ptr [ %raw3d.sroa.0.5, %if.end170 ], [ null, %entry ]
   %raw3d.sroa.14.0.ph = phi ptr [ %raw3d.sroa.14.4, %if.end170 ], [ null, %entry ]
   %raw3d.sroa.30.0.ph = phi ptr [ %raw3d.sroa.30.4, %if.end170 ], [ null, %entry ]
   %lut3dmax.0.ph = phi i32 [ %lut3dmax.1, %if.end170 ], [ 0, %entry ]
+  %raw3d.sroa.0.0.ph = phi ptr [ %raw3d.sroa.0.5, %if.end170 ], [ null, %entry ]
+  %rawshaper.sroa.25.0.ph = phi ptr [ %rawshaper.sroa.25.3, %if.end170 ], [ null, %entry ]
   %rawshaper.sroa.14.0.ph = phi ptr [ %rawshaper.sroa.14.3, %if.end170 ], [ null, %entry ]
   %rawshaper.sroa.0.0.ph = phi ptr [ %rawshaper.sroa.0.4, %if.end170 ], [ null, %entry ]
   %lineNumber.0.ph = phi i32 [ %inc, %if.end170 ], [ 0, %entry ]
@@ -986,9 +986,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont122
 
 invoke.cont122:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132, %if.then.i107
-  %raw3d.sroa.0.2 = phi ptr [ %cond.i10.i.i124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132 ], [ %raw3d.sroa.0.0.ph, %if.then.i107 ]
   %add.ptr.i.i.i.i.i.i128.pn = phi ptr [ %add.ptr.i.i.i.i.i.i128, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132 ], [ %raw3d.sroa.14.0.ph, %if.then.i107 ]
   %raw3d.sroa.30.1 = phi ptr [ %add.ptr19.i.i133, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132 ], [ %raw3d.sroa.30.0.ph, %if.then.i107 ]
+  %raw3d.sroa.0.2 = phi ptr [ %cond.i10.i.i124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i132 ], [ %raw3d.sroa.0.0.ph, %if.then.i107 ]
   %raw3d.sroa.14.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i128.pn, i64 4
   %37 = load ptr, ptr %tmpData, align 8
   %add.ptr.i140 = getelementptr inbounds i8, ptr %37, i64 4
@@ -1057,9 +1057,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169, %if.then.i144
-  %raw3d.sroa.0.3 = phi ptr [ %cond.i10.i.i161, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169 ], [ %raw3d.sroa.0.2, %if.then.i144 ]
   %raw3d.sroa.14.2 = phi ptr [ %incdec.ptr.i.i166, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169 ], [ %incdec.ptr.i145, %if.then.i144 ]
   %raw3d.sroa.30.2 = phi ptr [ %add.ptr19.i.i170, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169 ], [ %raw3d.sroa.30.1, %if.then.i144 ]
+  %raw3d.sroa.0.3 = phi ptr [ %cond.i10.i.i161, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169 ], [ %raw3d.sroa.0.2, %if.then.i144 ]
   %41 = load ptr, ptr %tmpData, align 8
   %add.ptr.i177 = getelementptr inbounds i8, ptr %41, i64 8
   %cmp.not.i180 = icmp eq ptr %raw3d.sroa.14.2, %raw3d.sroa.30.2
@@ -1131,9 +1131,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 invoke.cont126:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206, %if.then.i181
   %45 = phi i32 [ %.pre849, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %42, %if.then.i181 ]
   %46 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %41, %if.then.i181 ]
-  %raw3d.sroa.0.4 = phi ptr [ %cond.i10.i.i198, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %raw3d.sroa.0.3, %if.then.i181 ]
   %add.ptr.i.i.i.i.i.i202.pn = phi ptr [ %add.ptr.i.i.i.i.i.i202, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %raw3d.sroa.14.2, %if.then.i181 ]
   %raw3d.sroa.30.3 = phi ptr [ %add.ptr19.i.i207, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %raw3d.sroa.30.2, %if.then.i181 ]
+  %raw3d.sroa.0.4 = phi ptr [ %cond.i10.i.i198, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i206 ], [ %raw3d.sroa.0.3, %if.then.i181 ]
   %raw3d.sroa.14.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i202.pn, i64 4
   %47 = load i32, ptr %46, align 4
   %.sroa.speculated466 = call i32 @llvm.smax.i32(i32 %lut3dmax.0.ph, i32 %47)
@@ -1222,11 +1222,11 @@ ehcleanup168:                                     ; preds = %ehcleanup164, %clea
   br label %ehcleanup171
 
 if.end170:                                        ; preds = %for.inc, %for.cond.preheader, %invoke.cont126
-  %rawshaper.sroa.25.3 = phi ptr [ %rawshaper.sroa.25.0.ph, %invoke.cont126 ], [ %rawshaper.sroa.25.0.ph, %for.cond.preheader ], [ %rawshaper.sroa.25.2, %for.inc ]
-  %raw3d.sroa.0.5 = phi ptr [ %raw3d.sroa.0.4, %invoke.cont126 ], [ %raw3d.sroa.0.0.ph, %for.cond.preheader ], [ %raw3d.sroa.0.0.ph, %for.inc ]
   %raw3d.sroa.14.4 = phi ptr [ %raw3d.sroa.14.3, %invoke.cont126 ], [ %raw3d.sroa.14.0.ph, %for.cond.preheader ], [ %raw3d.sroa.14.0.ph, %for.inc ]
   %raw3d.sroa.30.4 = phi ptr [ %raw3d.sroa.30.3, %invoke.cont126 ], [ %raw3d.sroa.30.0.ph, %for.cond.preheader ], [ %raw3d.sroa.30.0.ph, %for.inc ]
   %lut3dmax.1 = phi i32 [ %.sroa.speculated460, %invoke.cont126 ], [ %lut3dmax.0.ph, %for.cond.preheader ], [ %lut3dmax.0.ph, %for.inc ]
+  %raw3d.sroa.0.5 = phi ptr [ %raw3d.sroa.0.4, %invoke.cont126 ], [ %raw3d.sroa.0.0.ph, %for.cond.preheader ], [ %raw3d.sroa.0.0.ph, %for.inc ]
+  %rawshaper.sroa.25.3 = phi ptr [ %rawshaper.sroa.25.0.ph, %invoke.cont126 ], [ %rawshaper.sroa.25.0.ph, %for.cond.preheader ], [ %rawshaper.sroa.25.2, %for.inc ]
   %rawshaper.sroa.14.3 = phi ptr [ %rawshaper.sroa.14.0.ph, %invoke.cont126 ], [ %rawshaper.sroa.14.0.ph, %for.cond.preheader ], [ %rawshaper.sroa.14.2, %for.inc ]
   %rawshaper.sroa.0.4 = phi ptr [ %rawshaper.sroa.0.0.ph, %invoke.cont126 ], [ %rawshaper.sroa.0.0.ph, %for.cond.preheader ], [ %rawshaper.sroa.0.3, %for.inc ]
   br label %while.cond.outer, !llvm.loop !6

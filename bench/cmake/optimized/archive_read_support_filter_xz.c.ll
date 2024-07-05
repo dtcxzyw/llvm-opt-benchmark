@@ -330,16 +330,16 @@ define internal i64 @xz_filter_read(ptr nocapture noundef readonly %0, ptr nocap
   %51 = lshr i32 %44, 5
   %52 = mul nuw nsw i32 %50, %51
   %53 = select i1 %49, i32 %52, i32 0
-  %.0.i = sub nsw i32 %48, %53
-  %54 = trunc i32 %.0.i to i8
+  %.024.i = sub nsw i32 %48, %53
+  %54 = trunc i32 %.024.i to i8
   store i8 %54, ptr %20, align 1
-  %55 = lshr i32 %.0.i, 8
+  %55 = lshr i32 %.024.i, 8
   %56 = trunc i32 %55 to i8
   store i8 %56, ptr %21, align 1
-  %57 = lshr i32 %.0.i, 16
+  %57 = lshr i32 %.024.i, 16
   %58 = trunc i32 %57 to i8
   store i8 %58, ptr %22, align 1
-  %59 = lshr i32 %.0.i, 24
+  %59 = lshr i32 %.024.i, 24
   %60 = trunc nuw i32 %59 to i8
   store i8 %60, ptr %23, align 1
   %61 = load ptr, ptr %19, align 8

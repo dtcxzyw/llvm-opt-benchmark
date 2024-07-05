@@ -784,8 +784,8 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
 
 .lr.ph119.i:                                      ; preds = %304, %.loopexit.i
   %319 = phi i32 [ %375, %.loopexit.i ], [ 2, %304 ]
-  %.0106118.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %304 ]
-  %320 = add i32 %.0106118.i, %318
+  %.0105118.i = phi i32 [ %.1.i63, %.loopexit.i ], [ 0, %304 ]
+  %320 = add i32 %.0105118.i, %318
   %321 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %320) #8
   %322 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %320) #8
   %323 = and i16 %322, 511
@@ -828,7 +828,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
 
 342:                                              ; preds = %342, %.lr.ph.i67
   %343 = phi i32 [ 0, %.lr.ph.i67 ], [ %364, %342 ]
-  %.0105116.i = phi i32 [ 0, %.lr.ph.i67 ], [ %363, %342 ]
+  %.0106116.i = phi i32 [ 0, %.lr.ph.i67 ], [ %363, %342 ]
   %344 = add i32 %343, %341
   %345 = add i32 %344, 2
   %346 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %345, i32 noundef 0) #8
@@ -843,7 +843,7 @@ mka_add_ckn_info.exit.i55:                        ; preds = %275, %272, %269, %c
   %355 = call ptr @proto_item_add_subtree(ptr noundef %353, i32 noundef %354) #8
   %356 = load i32, ptr @hf_mka_tlv_cipher_suite_impl_cap, align 4
   %357 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %356, ptr noundef %0, i32 noundef %344, i32 noundef 2, i32 noundef 0) #8
-  %358 = add nsw i32 %.0105116.i, 2
+  %358 = add nsw i32 %.0106116.i, 2
   %359 = load i32, ptr @hf_mka_macsec_cipher_suite, align 4
   %360 = and i32 %358, 65535
   %361 = add i32 %360, %341
@@ -1252,23 +1252,23 @@ define internal i32 @ckn_key_hash_func(ptr nocapture noundef readonly %0) #4 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.011 = phi i32 [ %12, %.lr.ph ], [ 0, %1 ]
-  %.0910 = phi i64 [ %13, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr i8, ptr %2, i64 %.0910
+  %.011 = phi i64 [ %13, %.lr.ph ], [ 0, %1 ]
+  %.0910 = phi i32 [ %12, %.lr.ph ], [ 0, %1 ]
+  %6 = getelementptr i8, ptr %2, i64 %.011
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %.09.tr = trunc i64 %.0910 to i32
-  %9 = shl i32 %.09.tr, 3
+  %.0.tr = trunc i64 %.011 to i32
+  %9 = shl i32 %.0.tr, 3
   %10 = and i32 %9, 24
   %11 = shl nuw i32 %8, %10
-  %12 = xor i32 %11, %.011
-  %13 = add nuw nsw i64 %.0910, 1
+  %12 = xor i32 %11, %.0910
+  %13 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %13, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %12, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.09.lcssa = phi i32 [ 0, %1 ], [ %12, %.lr.ph ]
+  ret i32 %.09.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable

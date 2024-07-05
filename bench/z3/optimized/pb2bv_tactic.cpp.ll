@@ -3291,23 +3291,23 @@ if.end.i.i:                                       ; preds = %for.end
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i12, %for.inc.i.i ], [ %8, %if.end.i.i ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %10 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i12, %for.inc.i.i ], [ %8, %if.end.i.i ]
+  %10 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i12 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i12 = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i12, %add.ptr.i.i11
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
 
@@ -3496,23 +3496,23 @@ if.end.i.i:                                       ; preds = %for.end
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i19, %for.inc.i.i ], [ %10, %if.end.i.i ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %12 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i19, %for.inc.i.i ], [ %10, %if.end.i.i ]
+  %12 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i19, %add.ptr.i.i18
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
 
@@ -15414,10 +15414,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i, %while.body.lr.ph.i
-  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
-  %__first.addr.012.i = phi ptr [ %__middle.tr114, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
-  %shr.i = lshr i64 %__len.013.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.012.i, i64 %shr.i
+  %__first.addr.013.i = phi ptr [ %__middle.tr114, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
+  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
+  %shr.i = lshr i64 %__len.012.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.013.i, i64 %shr.i
   %7 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i.i.i, 1
@@ -15470,9 +15470,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8m
   %retval.0.i.i.i.i.i.i = phi i1 [ %call5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   %14 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.013.i, %14
-  %__first.addr.1.i = select i1 %retval.0.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
+  %sub2.i = add nsw i64 %__len.012.i, %14
   %__len.1.i = select i1 %retval.0.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
+  %__first.addr.1.i = select i1 %retval.0.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !81
 
@@ -15503,10 +15503,10 @@ while.body.lr.ph.i49:                             ; preds = %if.else
   br label %while.body.i54
 
 while.body.i54:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i, %while.body.lr.ph.i49
-  %__len.013.i55 = phi i64 [ %sub.ptr.div.i.i.i50, %while.body.lr.ph.i49 ], [ %__len.1.i75, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
-  %__first.addr.012.i56 = phi ptr [ %__first.tr113, %while.body.lr.ph.i49 ], [ %__first.addr.1.i74, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
-  %shr.i57 = lshr i64 %__len.013.i55, 1
-  %add.ptr.i.i.i60 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.012.i56, i64 %shr.i57
+  %__first.addr.013.i55 = phi ptr [ %__first.tr113, %while.body.lr.ph.i49 ], [ %__first.addr.1.i75, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
+  %__len.012.i56 = phi i64 [ %sub.ptr.div.i.i.i50, %while.body.lr.ph.i49 ], [ %__len.1.i74, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
+  %shr.i57 = lshr i64 %__len.012.i56, 1
+  %add.ptr.i.i.i60 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.013.i55, i64 %shr.i57
   %15 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i.i60, i64 16
   %m_kind.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i60, i64 20
@@ -15559,19 +15559,19 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8m
   %retval.0.i.i.i.i.i.i71 = phi i1 [ %call5.i.i.i.i.i.i70, %if.else.i.i.i.i.i.i69 ], [ %cmp.i.i.i.i.i.i.i.i95, %if.then.i.i.i.i.i.i.i.i94 ], [ %cmp5.i.i.i.i.i.i.i.i89, %if.else.i.i.i.i.i.i.i.i87 ]
   %incdec.ptr.i72 = getelementptr inbounds i8, ptr %add.ptr.i.i.i60, i64 40
   %22 = xor i64 %shr.i57, -1
-  %sub2.i73 = add nsw i64 %__len.013.i55, %22
-  %__first.addr.1.i74 = select i1 %retval.0.i.i.i.i.i.i71, ptr %__first.addr.012.i56, ptr %incdec.ptr.i72
-  %__len.1.i75 = select i1 %retval.0.i.i.i.i.i.i71, i64 %shr.i57, i64 %sub2.i73
-  %cmp.i76 = icmp sgt i64 %__len.1.i75, 0
+  %sub2.i73 = add nsw i64 %__len.012.i56, %22
+  %__len.1.i74 = select i1 %retval.0.i.i.i.i.i.i71, i64 %shr.i57, i64 %sub2.i73
+  %__first.addr.1.i75 = select i1 %retval.0.i.i.i.i.i.i71, ptr %__first.addr.013.i55, ptr %incdec.ptr.i72
+  %cmp.i76 = icmp sgt i64 %__len.1.i74, 0
   br i1 %cmp.i76, label %while.body.i54, label %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !82
 
 _ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i
-  %.pre120 = ptrtoint ptr %__first.addr.1.i74 to i64
+  %.pre120 = ptrtoint ptr %__first.addr.1.i75 to i64
   br label %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i96.pre-phi = phi i64 [ %.pre120, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i45, %if.else ]
-  %__first.addr.0.lcssa.i48 = phi ptr [ %__first.addr.1.i74, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr113, %if.else ]
+  %__first.addr.0.lcssa.i48 = phi ptr [ %__first.addr.1.i75, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr113, %if.else ]
   %sub.ptr.sub.i.i98 = sub i64 %sub.ptr.lhs.cast.i.i96.pre-phi, %sub.ptr.rhs.cast.i.i.i45
   %sub.ptr.div.i.i99 = sdiv exact i64 %sub.ptr.sub.i.i98, 40
   br label %if.end18
@@ -16294,10 +16294,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i, %while.body.lr.ph.i
-  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
-  %__first.addr.012.i = phi ptr [ %__middle.tr134, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
-  %shr.i = lshr i64 %__len.013.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.012.i, i64 %shr.i
+  %__first.addr.013.i = phi ptr [ %__middle.tr134, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
+  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8monomialEKS7_EEbT_RT0_.exit.i ]
+  %shr.i = lshr i64 %__len.012.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.013.i, i64 %shr.i
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i.i.i, 1
@@ -16350,9 +16350,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12pb2bv_tactic3imp11monomial_ltEEclIPNS3_8m
   %retval.0.i.i.i.i.i.i = phi i1 [ %call5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   %7 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.013.i, %7
-  %__first.addr.1.i = select i1 %retval.0.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
+  %sub2.i = add nsw i64 %__len.012.i, %7
   %__len.1.i = select i1 %retval.0.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
+  %__first.addr.1.i = select i1 %retval.0.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !81
 
@@ -16383,10 +16383,10 @@ while.body.lr.ph.i69:                             ; preds = %if.else14
   br label %while.body.i74
 
 while.body.i74:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i, %while.body.lr.ph.i69
-  %__len.013.i75 = phi i64 [ %sub.ptr.div.i.i.i70, %while.body.lr.ph.i69 ], [ %__len.1.i95, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
-  %__first.addr.012.i76 = phi ptr [ %__first.tr133, %while.body.lr.ph.i69 ], [ %__first.addr.1.i94, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
-  %shr.i77 = lshr i64 %__len.013.i75, 1
-  %add.ptr.i.i.i80 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.012.i76, i64 %shr.i77
+  %__first.addr.013.i75 = phi ptr [ %__first.tr133, %while.body.lr.ph.i69 ], [ %__first.addr.1.i95, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
+  %__len.012.i76 = phi i64 [ %sub.ptr.div.i.i.i70, %while.body.lr.ph.i69 ], [ %__len.1.i94, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i ]
+  %shr.i77 = lshr i64 %__len.012.i76, 1
+  %add.ptr.i.i.i80 = getelementptr inbounds %"struct.pb2bv_tactic::imp::monomial", ptr %__first.addr.013.i75, i64 %shr.i77
   %8 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i.i.i80, i64 16
   %m_kind.i.i.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i.i.i80, i64 20
@@ -16439,19 +16439,19 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8m
   %retval.0.i.i.i.i.i.i91 = phi i1 [ %call5.i.i.i.i.i.i90, %if.else.i.i.i.i.i.i89 ], [ %cmp.i.i.i.i.i.i.i.i115, %if.then.i.i.i.i.i.i.i.i114 ], [ %cmp5.i.i.i.i.i.i.i.i109, %if.else.i.i.i.i.i.i.i.i107 ]
   %incdec.ptr.i92 = getelementptr inbounds i8, ptr %add.ptr.i.i.i80, i64 40
   %15 = xor i64 %shr.i77, -1
-  %sub2.i93 = add nsw i64 %__len.013.i75, %15
-  %__first.addr.1.i94 = select i1 %retval.0.i.i.i.i.i.i91, ptr %__first.addr.012.i76, ptr %incdec.ptr.i92
-  %__len.1.i95 = select i1 %retval.0.i.i.i.i.i.i91, i64 %shr.i77, i64 %sub2.i93
-  %cmp.i96 = icmp sgt i64 %__len.1.i95, 0
+  %sub2.i93 = add nsw i64 %__len.012.i76, %15
+  %__len.1.i94 = select i1 %retval.0.i.i.i.i.i.i91, i64 %shr.i77, i64 %sub2.i93
+  %__first.addr.1.i95 = select i1 %retval.0.i.i.i.i.i.i91, ptr %__first.addr.013.i75, ptr %incdec.ptr.i92
+  %cmp.i96 = icmp sgt i64 %__len.1.i94, 0
   br i1 %cmp.i96, label %while.body.i74, label %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !82
 
 _ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12pb2bv_tactic3imp11monomial_ltEEclIKNS3_8monomialEPS7_EEbRT_T0_.exit.i
-  %.pre141 = ptrtoint ptr %__first.addr.1.i94 to i64
+  %.pre141 = ptrtoint ptr %__first.addr.1.i95 to i64
   br label %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i116.pre-phi = phi i64 [ %.pre141, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i65, %if.else14 ]
-  %__first.addr.0.lcssa.i68 = phi ptr [ %__first.addr.1.i94, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr133, %if.else14 ]
+  %__first.addr.0.lcssa.i68 = phi ptr [ %__first.addr.1.i95, %_ZSt13__upper_boundIPN12pb2bv_tactic3imp8monomialES2_N9__gnu_cxx5__ops14_Val_comp_iterINS1_11monomial_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr133, %if.else14 ]
   %sub.ptr.sub.i.i118 = sub i64 %sub.ptr.lhs.cast.i.i116.pre-phi, %sub.ptr.rhs.cast.i.i.i65
   %sub.ptr.div.i.i119 = sdiv exact i64 %sub.ptr.sub.i.i118, 40
   br label %if.end

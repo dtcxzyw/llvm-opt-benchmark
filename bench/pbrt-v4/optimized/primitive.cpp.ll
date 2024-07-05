@@ -3551,8 +3551,8 @@ if.then121:                                       ; preds = %if.then118
   br label %return
 
 if.end123:                                        ; preds = %if.then118, %if.end115
-  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end115 ], [ %t1.sroa.0.4.vec.extract922, %if.then118 ]
   %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract926, %if.end115 ], [ %t1.sroa.0.0.vec.extract914, %if.then118 ]
+  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end115 ], [ %t1.sroa.0.4.vec.extract922, %if.then118 ]
   %222 = load <4 x float>, ptr %oi, align 16
   %223 = shufflevector <4 x float> %222, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp126.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i12.i, align 4
@@ -3560,7 +3560,7 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %agg.tmp126.sroa.0.sroa.6.0.copyload = load float, ptr %high2.i41.i, align 4
   %add.i.i5.i = fadd float %agg.tmp126.sroa.0.sroa.5.0.copyload, %agg.tmp126.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i782 = fadd float %tShapeHit.sroa.8.0, %tShapeHit.sroa.0.0
+  %add.i.i782 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
   %div.i.i783 = fmul float %add.i.i782, 5.000000e-01
   %224 = load <4 x float>, ptr %di, align 16
   %225 = shufflevector <4 x float> %224, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -7997,8 +7997,8 @@ if.then117:                                       ; preds = %if.then114
   br label %return
 
 if.end119:                                        ; preds = %if.then114, %if.end111
-  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end111 ], [ %t1.sroa.0.4.vec.extract900, %if.then114 ]
   %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract904, %if.end111 ], [ %t1.sroa.0.0.vec.extract892, %if.then114 ]
+  %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end111 ], [ %t1.sroa.0.4.vec.extract900, %if.then114 ]
   %204 = load <4 x float>, ptr %oi, align 16
   %205 = shufflevector <4 x float> %204, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp122.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i399, align 4
@@ -8008,7 +8008,7 @@ if.end119:                                        ; preds = %if.then114, %if.end
   %agg.tmp122.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.6.0.oi.sroa_idx, align 4
   %add.i.i5.i = fadd float %agg.tmp122.sroa.0.sroa.5.0.copyload, %agg.tmp122.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i785 = fadd float %tShapeHit.sroa.8.0, %tShapeHit.sroa.0.0
+  %add.i.i785 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
   %div.i.i786 = fmul float %add.i.i785, 5.000000e-01
   %206 = load <4 x float>, ptr %di, align 16
   %207 = shufflevector <4 x float> %206, <4 x float> poison, <2 x i32> <i32 0, i32 poison>

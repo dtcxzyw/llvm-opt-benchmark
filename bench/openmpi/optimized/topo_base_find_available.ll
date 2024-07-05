@@ -23,14 +23,14 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %42
-  %.021 = phi ptr [ %7, %42 ], [ %3, %2 ]
-  %.not18 = icmp eq ptr %.021, null
+  %.01621 = phi ptr [ %7, %42 ], [ %3, %2 ]
+  %.not18 = icmp eq ptr %.01621, null
   br i1 %.not18, label %.split17, label %.split
 
 .split:                                           ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.021, i64 16
+  %4 = getelementptr inbounds i8, ptr %.01621, i64 16
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.021, i64 40
+  %6 = getelementptr inbounds i8, ptr %.01621, i64 40
   br label %.split17
 
 .split17:                                         ; preds = %.lr.ph, %.split
@@ -44,9 +44,9 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
 10:                                               ; preds = %.split17
   %11 = load ptr, ptr %.sink22, align 8
   tail call void @mca_base_component_repository_release(ptr noundef %11) #3
-  %12 = getelementptr inbounds i8, ptr %.021, i64 16
+  %12 = getelementptr inbounds i8, ptr %.01621, i64 16
   %13 = load volatile ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.021, i64 24
+  %14 = getelementptr inbounds i8, ptr %.01621, i64 24
   %15 = load volatile ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   store volatile ptr %13, ptr %16, align 8
@@ -58,7 +58,7 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
   %21 = add i64 %20, -1
   store volatile i64 %21, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 136), align 8
   %22 = load volatile ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %.021, i64 8
+  %23 = getelementptr inbounds i8, ptr %.01621, i64 8
   %24 = load i8, ptr @opal_uses_threads, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %29
@@ -81,7 +81,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %35 = load ptr, ptr %.021, align 8
+  %35 = load ptr, ptr %.01621, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
@@ -91,14 +91,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %39 = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
   %.07.i = phi ptr [ %40, %.lr.ph.i ], [ %37, %34 ]
-  tail call void %39(ptr noundef nonnull %.021) #3
+  tail call void %39(ptr noundef nonnull %.01621) #3
   %40 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
-  tail call void @free(ptr noundef %.021) #3
+  tail call void @free(ptr noundef %.01621) #3
   br label %42
 
 42:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %.split17
@@ -121,8 +121,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
   br label %50
 
 50:                                               ; preds = %._crit_edge, %48, %45
-  %.016 = phi i32 [ -1, %45 ], [ -1, %48 ], [ 0, %._crit_edge ]
-  ret i32 %.016
+  %.0 = phi i32 [ -1, %45 ], [ -1, %48 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

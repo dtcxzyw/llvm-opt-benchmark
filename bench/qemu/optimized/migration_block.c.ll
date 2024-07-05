@@ -322,13 +322,13 @@ for.body47.preheader.i:                           ; preds = %for.cond44.preheade
   br label %for.body47.i
 
 for.body8.i:                                      ; preds = %for.inc40.i, %for.body8.lr.ph.i
-  %i.06.i = phi i32 [ 0, %for.body8.lr.ph.i ], [ %inc42.i, %for.inc40.i ]
-  %bs.15.i = phi ptr [ %call5.i, %for.body8.lr.ph.i ], [ %call41.i, %for.inc40.i ]
-  %call9.i = call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs.15.i) #13
+  %bs.16.i = phi ptr [ %call5.i, %for.body8.lr.ph.i ], [ %call41.i, %for.inc40.i ]
+  %i.05.i = phi i32 [ 0, %for.body8.lr.ph.i ], [ %inc42.i, %for.inc40.i ]
+  %call9.i = call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs.16.i) #13
   br i1 %call9.i, label %for.inc40.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body8.i
-  %call10.i = call i64 @bdrv_nb_sectors(ptr noundef nonnull %bs.15.i) #13
+  %call10.i = call i64 @bdrv_nb_sectors(ptr noundef nonnull %bs.16.i) #13
   %cmp.i = icmp slt i64 %call10.i, 1
   br i1 %cmp.i, label %if.then12.i, label %if.end14.i
 
@@ -342,7 +342,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %call16.i = call ptr @qemu_get_aio_context() #13
   %call17.i = call ptr @blk_new(ptr noundef %call16.i, i64 noundef 1, i64 noundef 15) #13
   store ptr %call17.i, ptr %call15.i, align 8
-  %call18.i = call ptr @bdrv_get_device_name(ptr noundef nonnull %bs.15.i) #13
+  %call18.i = call ptr @bdrv_get_device_name(ptr noundef nonnull %bs.16.i) #13
   %call19.i = call noalias ptr @g_strdup(ptr noundef %call18.i) #13
   %blk_name.i = getelementptr inbounds i8, ptr %call15.i, i64 8
   store ptr %call19.i, ptr %blk_name.i, align 8
@@ -356,7 +356,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %conv21.i = zext i1 %call20.i to i32
   %shared_base.i = getelementptr inbounds i8, ptr %call15.i, i64 16
   store i32 %conv21.i, ptr %shared_base.i, align 8
-  %cmp22.i = icmp slt i32 %i.06.i, %num_bs.0.lcssa.i
+  %cmp22.i = icmp slt i32 %i.05.i, %num_bs.0.lcssa.i
   br i1 %cmp22.i, label %if.end25.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end14.i
@@ -364,15 +364,15 @@ if.else.i:                                        ; preds = %if.end14.i
   unreachable
 
 if.end25.i:                                       ; preds = %if.end14.i
-  %idxprom.i = sext i32 %i.06.i to i64
+  %idxprom.i = sext i32 %i.05.i to i64
   %arrayidx.i = getelementptr %struct.anon.2, ptr %call4.i, i64 %idxprom.i
   store ptr %call15.i, ptr %arrayidx.i, align 8
   %bs29.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  store ptr %bs.15.i, ptr %bs29.i, align 8
+  store ptr %bs.16.i, ptr %bs29.i, align 8
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
   %add.i = add i64 %8, %call10.i
   store i64 %add.i, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
-  %call33.i = call ptr @bdrv_get_device_name(ptr noundef nonnull %bs.15.i) #13
+  %call33.i = call ptr @bdrv_get_device_name(ptr noundef nonnull %bs.16.i) #13
   br i1 %call20.i, label %if.then32.i, label %if.else34.i
 
 if.then32.i:                                      ; preds = %if.end25.i
@@ -457,7 +457,7 @@ do.body.i:                                        ; preds = %trace_migration_blo
 
 for.inc40.i:                                      ; preds = %do.body.i, %for.body8.i
   %call41.i = call ptr @bdrv_next(ptr noundef nonnull %it.i) #13
-  %inc42.i = add i32 %i.06.i, 1
+  %inc42.i = add i32 %i.05.i, 1
   %tobool7.not.i = icmp eq ptr %call41.i, null
   br i1 %tobool7.not.i, label %for.cond44.preheader.i, label %for.body8.i, !llvm.loop !9
 

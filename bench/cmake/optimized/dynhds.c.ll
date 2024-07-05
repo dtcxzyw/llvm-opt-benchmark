@@ -291,9 +291,9 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0,
   %44 = load i64, ptr %6, align 8
   %.not53.not = icmp eq i64 %44, 0
   %45 = tail call i64 @llvm.umin.i64(i64 %43, i64 %44)
-  %.0 = select i1 %.not53.not, i64 %43, i64 %45
+  %.041 = select i1 %.not53.not, i64 %43, i64 %45
   %46 = load ptr, ptr @Curl_ccalloc, align 8
-  %47 = tail call ptr %46(i64 noundef %.0, i64 noundef 8) #9
+  %47 = tail call ptr %46(i64 noundef %.041, i64 noundef 8) #9
   %.not54 = icmp eq ptr %47, null
   br i1 %.not54, label %entry_new.exit, label %48
 
@@ -313,7 +313,7 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %0,
 
 55:                                               ; preds = %50, %48
   store ptr %47, ptr %0, align 8
-  store i64 %.0, ptr %40, align 8
+  store i64 %.041, ptr %40, align 8
   %.pre62 = load i64, ptr %37, align 8
   %.pre63 = add i64 %.pre62, 1
   br label %56
@@ -336,8 +336,8 @@ entry_new.exit:                                   ; preds = %42
   br label %entry_new.exit.thread58
 
 entry_new.exit.thread58:                          ; preds = %19, %56, %entry_new.exit, %11, %8
-  %.043 = phi i32 [ 27, %8 ], [ 27, %11 ], [ 27, %entry_new.exit ], [ 27, %19 ], [ 0, %56 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 27, %8 ], [ 27, %11 ], [ 27, %entry_new.exit ], [ 27, %19 ], [ 0, %56 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -372,17 +372,17 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   br i1 %.not69, label %.critedge72, label %.preheader
 
 .preheader:                                       ; preds = %8, %.critedge3
-  %.05676 = phi i64 [ %13, %.critedge3 ], [ %2, %8 ]
-  %.05775 = phi ptr [ %12, %.critedge3 ], [ %1, %8 ]
-  %11 = load i8, ptr %.05775, align 1
+  %.05476 = phi ptr [ %12, %.critedge3 ], [ %1, %8 ]
+  %.05775 = phi i64 [ %13, %.critedge3 ], [ %2, %8 ]
+  %11 = load i8, ptr %.05476, align 1
   switch i8 %11, label %.critedge [
     i8 32, label %.critedge3
     i8 9, label %.critedge3
   ]
 
 .critedge3:                                       ; preds = %.preheader, %.preheader
-  %12 = getelementptr inbounds i8, ptr %.05775, i64 1
-  %13 = add i64 %.05676, -1
+  %12 = getelementptr inbounds i8, ptr %.05476, i64 1
+  %13 = add i64 %.05775, -1
   %.not70 = icmp eq i64 %13, 0
   br i1 %.not70, label %.critedge72, label %.preheader, !llvm.loop !9
 
@@ -393,7 +393,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.05676, 1
+  %20 = add i64 %.05775, 1
   %21 = add i64 %20, %19
   %22 = load ptr, ptr @Curl_ccalloc, align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 16
@@ -425,7 +425,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 32, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %41, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.05775, i64 %.05676, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.05476, i64 %.05775, i1 false)
   %43 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 %21, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
@@ -446,51 +446,51 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture nou
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %52, %53
-  %.05577 = getelementptr inbounds i8, ptr %50, i64 1
-  %.078 = add i64 %54, 1
-  %55 = icmp ult i64 %.078, %2
+  %.05877 = getelementptr inbounds i8, ptr %50, i64 1
+  %.05578 = add i64 %54, 1
+  %55 = icmp ult i64 %.05578, %2
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %57
-  %.080 = phi i64 [ %.0, %57 ], [ %.078, %51 ]
-  %.05579 = phi ptr [ %.055, %57 ], [ %.05577, %51 ]
-  %56 = load i8, ptr %.05579, align 1
+  %.05580 = phi i64 [ %.055, %57 ], [ %.05578, %51 ]
+  %.05879 = phi ptr [ %.058, %57 ], [ %.05877, %51 ]
+  %56 = load i8, ptr %.05879, align 1
   switch i8 %56, label %._crit_edge [
     i8 32, label %57
     i8 9, label %57
   ]
 
 57:                                               ; preds = %.lr.ph, %.lr.ph
-  %.055 = getelementptr inbounds i8, ptr %.05579, i64 1
-  %.0 = add nuw i64 %.080, 1
-  %58 = icmp ult i64 %.0, %2
+  %.058 = getelementptr inbounds i8, ptr %.05879, i64 1
+  %.055 = add nuw i64 %.05580, 1
+  %58 = icmp ult i64 %.055, %2
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph, %51
-  %.055.lcssa = phi ptr [ %.05577, %51 ], [ %.05579, %.lr.ph ], [ %.055, %57 ]
-  %.0.lcssa = phi i64 [ %.078, %51 ], [ %.080, %.lr.ph ], [ %2, %57 ]
-  %59 = sub i64 %2, %.0.lcssa
-  %60 = tail call ptr @memchr(ptr noundef nonnull %.055.lcssa, i32 noundef 13, i64 noundef %59) #10
+  %.058.lcssa = phi ptr [ %.05877, %51 ], [ %.05879, %.lr.ph ], [ %.058, %57 ]
+  %.055.lcssa = phi i64 [ %.05578, %51 ], [ %.05580, %.lr.ph ], [ %2, %57 ]
+  %59 = sub i64 %2, %.055.lcssa
+  %60 = tail call ptr @memchr(ptr noundef nonnull %.058.lcssa, i32 noundef 13, i64 noundef %59) #10
   %.not67 = icmp eq ptr %60, null
   br i1 %.not67, label %61, label %63
 
 61:                                               ; preds = %._crit_edge
-  %62 = tail call ptr @memchr(ptr noundef nonnull %.055.lcssa, i32 noundef 10, i64 noundef %59) #10
+  %62 = tail call ptr @memchr(ptr noundef nonnull %.058.lcssa, i32 noundef 10, i64 noundef %59) #10
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge
   %.1 = phi ptr [ %60, %._crit_edge ], [ %62, %61 ]
   %.not68 = icmp eq ptr %.1, null
   %64 = ptrtoint ptr %.1 to i64
-  %65 = ptrtoint ptr %.055.lcssa to i64
+  %65 = ptrtoint ptr %.058.lcssa to i64
   %66 = sub i64 %64, %65
-  %.054 = select i1 %.not68, i64 %59, i64 %66
-  %67 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %54, ptr noundef nonnull %.055.lcssa, i64 noundef %.054)
+  %.056 = select i1 %.not68, i64 %59, i64 %66
+  %67 = tail call i32 @Curl_dynhds_add(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %54, ptr noundef nonnull %.058.lcssa, i64 noundef %.056)
   br label %.critedge72
 
 .critedge72:                                      ; preds = %.critedge3, %.critedge, %49, %8, %3, %63, %28
-  %.058 = phi i32 [ 0, %28 ], [ %67, %63 ], [ 0, %3 ], [ 43, %8 ], [ 43, %49 ], [ 27, %.critedge ], [ 43, %.critedge3 ]
-  ret i32 %.058
+  %.0 = phi i32 [ 0, %28 ], [ %67, %63 ], [ 0, %3 ], [ 43, %8 ], [ 43, %49 ], [ 27, %.critedge ], [ 43, %.critedge3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

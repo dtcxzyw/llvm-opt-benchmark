@@ -597,8 +597,8 @@ pmix_obj_new_tma.exit44:                          ; preds = %.lr.ph.i.i41, %66, 
   br label %114
 
 114:                                              ; preds = %._crit_edge, %47, %45, %pmix_obj_run_constructors.exit37, %32, %pmix_obj_new_tma.exit, %112, %86
-  %.020 = phi i32 [ -1, %86 ], [ %113, %112 ], [ %31, %pmix_obj_new_tma.exit ], [ %31, %32 ], [ -1, %pmix_obj_run_constructors.exit37 ], [ -1, %45 ], [ -8, %47 ], [ -1, %._crit_edge ]
-  ret i32 %.020
+  %.019 = phi i32 [ -1, %86 ], [ %113, %112 ], [ %31, %pmix_obj_new_tma.exit ], [ %31, %32 ], [ -1, %pmix_obj_run_constructors.exit37 ], [ -1, %45 ], [ -8, %47 ], [ -1, %._crit_edge ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable

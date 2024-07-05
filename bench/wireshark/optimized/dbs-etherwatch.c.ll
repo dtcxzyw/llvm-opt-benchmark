@@ -133,8 +133,8 @@ define internal range(i32 0, 2) i32 @dbs_etherwatch_read(ptr nocapture noundef r
 
 .lr.ph.i:                                         ; preds = %6, %25
   %9 = phi i32 [ %27, %25 ], [ %8, %6 ]
-  %.018.i = phi i32 [ %.1.i, %25 ], [ 0, %6 ]
-  %10 = zext nneg i32 %.018.i to i64
+  %.01418.i = phi i32 [ %.1.i, %25 ], [ 0, %6 ]
+  %10 = zext nneg i32 %.01418.i to i64
   %11 = getelementptr [5 x i8], ptr @dbs_etherwatch_rec_magic, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
@@ -142,8 +142,8 @@ define internal range(i32 0, 2) i32 @dbs_etherwatch_read(ptr nocapture noundef r
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = add nuw nsw i32 %.018.i, 1
-  %17 = icmp ugt i32 %.018.i, 3
+  %16 = add nuw nsw i32 %.01418.i, 1
+  %17 = icmp ugt i32 %.01418.i, 3
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15

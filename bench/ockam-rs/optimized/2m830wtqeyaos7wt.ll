@@ -3303,23 +3303,23 @@ common.ret:                                       ; preds = %1810, %214, %179
   br i1 %653, label %.lr.ph.i37.i.i.i, label %._crit_edge.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %642, %658
-  %.165142.i.i.i.i = phi i8 [ %.2.i.i.i.i, %658 ], [ %.064143.i.i.i.i, %642 ]
-  %.sroa.025.0141.i.i.i.i = phi i64 [ %654, %658 ], [ 0, %642 ]
-  %654 = add nuw nsw i64 %.sroa.025.0141.i.i.i.i, 1
-  %655 = getelementptr inbounds [4 x i16], ptr %32, i64 0, i64 %.sroa.025.0141.i.i.i.i
+  %.sroa.025.0142.i.i.i.i = phi i64 [ %654, %658 ], [ 0, %642 ]
+  %.165141.i.i.i.i = phi i8 [ %.2.i.i.i.i, %658 ], [ %.064143.i.i.i.i, %642 ]
+  %654 = add nuw nsw i64 %.sroa.025.0142.i.i.i.i, 1
+  %655 = getelementptr inbounds [4 x i16], ptr %32, i64 0, i64 %.sroa.025.0142.i.i.i.i
   %656 = load i16, ptr %655, align 2, !noalias !538, !noundef !5
   %657 = icmp eq i16 %656, 0
   br i1 %657, label %658, label %659
 
 658:                                              ; preds = %659, %.preheader.i.i.i.i
-  %.2.i.i.i.i = phi i8 [ %.165142.i.i.i.i, %.preheader.i.i.i.i ], [ %665, %659 ]
+  %.2.i.i.i.i = phi i8 [ %.165141.i.i.i.i, %.preheader.i.i.i.i ], [ %665, %659 ]
   %exitcond159.not.i.i.i.i = icmp eq i64 %654, 4
   br i1 %exitcond159.not.i.i.i.i, label %650, label %.preheader.i.i.i.i
 
 659:                                              ; preds = %.preheader.i.i.i.i
-  %660 = shl nuw nsw i64 %.sroa.025.0141.i.i.i.i, 4
+  %660 = shl nuw nsw i64 %.sroa.025.0142.i.i.i.i, 4
   %661 = add nuw nsw i64 %660, %.062144.i.i.i.i
-  %662 = trunc nuw i8 %.165142.i.i.i.i to i1
+  %662 = trunc nuw i8 %.165141.i.i.i.i to i1
   %663 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h5906e3533c851832E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, i64 noundef %661, i16 noundef %656, i1 noundef zeroext %662), !noalias !427
   %664 = or i1 %663, %662
   %665 = zext i1 %664 to i8
@@ -3430,8 +3430,8 @@ _ZN4core3str7pattern13simd_contains17h12d10d0ea3d3f11eE.exit.i.i.i: ; preds = %6
   br label %712
 
 .loopexit.i.i.i.i:                                ; preds = %772, %770, %768
-  %.015.i.i.i.i.i = phi i64 [ 1, %768 ], [ %..i.i.i.i.i, %772 ], [ 2, %770 ]
-  %711 = add i64 %.015.i.i.i.i.i, %713
+  %.016.i.i.i.i.i = phi i64 [ 1, %768 ], [ %..i.i.i.i.i, %772 ], [ 2, %770 ]
+  %711 = add i64 %.016.i.i.i.i.i, %713
   br label %712
 
 712:                                              ; preds = %.loopexit.i.i.i.i, %.lr.ph125.i.i.i.i

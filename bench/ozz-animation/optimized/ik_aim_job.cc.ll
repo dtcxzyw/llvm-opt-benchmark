@@ -68,8 +68,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
   %11 = fmul <4 x float> %10, %10
   %shift = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %12 = fadd <4 x float> %11, %shift
-  %shift1329 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %13 = fadd <4 x float> %shift1329, %12
+  %shift1328 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %13 = fadd <4 x float> %shift1328, %12
   %14 = shufflevector <4 x float> %13, <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %15 = tail call noundef <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %14, <4 x float> <float 0x3FF0083120000000, float poison, float poison, float poison>, i8 1)
   %16 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> <float 0x3FEFEF9DC0000000, float poison, float poison, float poison>, <4 x float> %14, i8 1)
@@ -171,8 +171,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %111 = fadd <4 x float> %109, %110
   %112 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 3, i32 2>
-  %shift1330 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %113 = fadd <4 x float> %shift1330, %111
+  %shift1329 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %113 = fadd <4 x float> %shift1329, %111
   %114 = shufflevector <4 x float> %113, <4 x float> %112, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %115 = fcmp une <4 x float> %114, zeroinitializer
   %116 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %114)
@@ -201,24 +201,24 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
   %139 = fadd <4 x float> %138, %133
   %140 = fadd <4 x float> %139, %136
   %141 = fmul <4 x float> %140, %140
-  %shift1331 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %142 = fadd <4 x float> %141, %shift1331
-  %shift1332 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %143 = fadd <4 x float> %shift1332, %142
+  %shift1330 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %142 = fadd <4 x float> %141, %shift1330
+  %shift1331 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %143 = fadd <4 x float> %shift1331, %142
   %144 = shufflevector <4 x float> %143, <4 x float> %141, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %145 = getelementptr inbounds i8, ptr %0, i64 32
   %146 = load <4 x float>, ptr %145, align 16
   %147 = fmul <4 x float> %10, %146
-  %shift1333 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %148 = fadd <4 x float> %147, %shift1333
-  %shift1334 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %149 = fadd <4 x float> %shift1334, %148
+  %shift1332 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %148 = fadd <4 x float> %147, %shift1332
+  %shift1333 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %149 = fadd <4 x float> %shift1333, %148
   %150 = shufflevector <4 x float> %149, <4 x float> %147, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %151 = fmul <4 x float> %146, %146
-  %shift1335 = shufflevector <4 x float> %151, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %152 = fadd <4 x float> %151, %shift1335
-  %shift1336 = shufflevector <4 x float> %151, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %153 = fadd <4 x float> %shift1336, %152
+  %shift1334 = shufflevector <4 x float> %151, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %152 = fadd <4 x float> %151, %shift1334
+  %shift1335 = shufflevector <4 x float> %151, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %153 = fadd <4 x float> %shift1335, %152
   %154 = shufflevector <4 x float> %153, <4 x float> %151, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %155 = fneg <4 x float> %150
   %156 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %155, <4 x float> %150, <4 x float> %154)
@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
   br label %_ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit
 
 _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ; preds = %26, %160
-  %.01316 = phi <4 x float> [ %167, %160 ], [ undef, %26 ]
+  %.0 = phi <4 x float> [ %167, %160 ], [ undef, %26 ]
   %168 = getelementptr inbounds i8, ptr %0, i64 104
   %169 = load ptr, ptr %168, align 8
   %.not = icmp eq ptr %169, null
@@ -267,11 +267,11 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   br label %401
 
 180:                                              ; preds = %174
-  %181 = fmul <4 x float> %.01316, %.01316
-  %shift1337 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %182 = fadd <4 x float> %181, %shift1337
-  %shift1338 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %183 = fadd <4 x float> %shift1338, %182
+  %181 = fmul <4 x float> %.0, %.0
+  %shift1336 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %182 = fadd <4 x float> %181, %shift1336
+  %shift1337 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %183 = fadd <4 x float> %shift1337, %182
   %184 = fmul <4 x float> %143, %183
   %185 = extractelement <4 x float> %184, i64 0
   %186 = tail call float @llvm.sqrt.f32(float %185)
@@ -279,11 +279,11 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   br i1 %187, label %227, label %188
 
 188:                                              ; preds = %180
-  %189 = fmul <4 x float> %140, %.01316
-  %shift1339 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %190 = fadd <4 x float> %189, %shift1339
-  %shift1340 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %191 = fadd <4 x float> %shift1340, %190
+  %189 = fmul <4 x float> %140, %.0
+  %shift1338 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %190 = fadd <4 x float> %189, %shift1338
+  %shift1339 = shufflevector <4 x float> %189, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %191 = fadd <4 x float> %shift1339, %190
   %192 = extractelement <4 x float> %191, i64 0
   %.scalar = fadd float %192, %186
   %193 = fmul float %186, 0x3EB0C6F7A0000000
@@ -291,30 +291,30 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   br i1 %194, label %195, label %207
 
 195:                                              ; preds = %188
-  %.sroa.01273.0.vec.extract = extractelement <4 x float> %.01316, i64 0
+  %.sroa.01273.0.vec.extract = extractelement <4 x float> %.0, i64 0
   %196 = tail call noundef float @llvm.fabs.f32(float %.sroa.01273.0.vec.extract)
-  %.sroa.01273.8.vec.extract = extractelement <4 x float> %.01316, i64 2
+  %.sroa.01273.8.vec.extract = extractelement <4 x float> %.0, i64 2
   %197 = tail call noundef float @llvm.fabs.f32(float %.sroa.01273.8.vec.extract)
   %198 = fcmp ogt float %196, %197
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %195
-  %.sroa.01273.4.vec.extract = extractelement <4 x float> %.01316, i64 1
+  %.sroa.01273.4.vec.extract = extractelement <4 x float> %.0, i64 1
   %200 = fneg float %.sroa.01273.4.vec.extract
   %201 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %200, i64 0
-  %202 = shufflevector <4 x float> %201, <4 x float> %.01316, <4 x i32> <i32 0, i32 4, i32 2, i32 3>
+  %202 = shufflevector <4 x float> %201, <4 x float> %.0, <4 x i32> <i32 0, i32 4, i32 2, i32 3>
   br label %216
 
 203:                                              ; preds = %195
   %204 = fneg float %.sroa.01273.8.vec.extract
   %205 = insertelement <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, float %204, i64 1
-  %206 = shufflevector <4 x float> %205, <4 x float> %.01316, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
+  %206 = shufflevector <4 x float> %205, <4 x float> %.0, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   br label %216
 
 207:                                              ; preds = %188
-  %208 = shufflevector <4 x float> %.01316, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %208 = shufflevector <4 x float> %.0, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %209 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %210 = fmul <4 x float> %209, %.01316
+  %210 = fmul <4 x float> %209, %.0
   %211 = fmul <4 x float> %140, %208
   %212 = fsub <4 x float> %210, %211
   %213 = shufflevector <4 x float> %212, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
@@ -327,8 +327,8 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %217 = fmul <4 x float> %.sroa.0.0, %.sroa.0.0
   %218 = shufflevector <4 x float> %217, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %219 = fadd <4 x float> %217, %218
-  %shift1341 = shufflevector <4 x float> %219, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %220 = fadd <4 x float> %219, %shift1341
+  %shift1340 = shufflevector <4 x float> %219, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %220 = fadd <4 x float> %219, %shift1340
   %221 = extractelement <4 x float> %220, i64 0
   %222 = tail call float @llvm.sqrt.f32(float %221)
   %223 = fdiv float 1.000000e+00, %222
@@ -377,15 +377,15 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %263 = fmul <4 x float> %140, %261
   %264 = fsub <4 x float> %262, %263
   %265 = fmul <4 x float> %260, %260
-  %shift1342 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %266 = fadd <4 x float> %shift1342, %265
-  %shift1343 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %267 = fadd <4 x float> %shift1343, %266
+  %shift1341 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %266 = fadd <4 x float> %shift1341, %265
+  %shift1342 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %267 = fadd <4 x float> %shift1342, %266
   %268 = fmul <4 x float> %264, %264
-  %shift1344 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %269 = fadd <4 x float> %shift1344, %268
-  %shift1345 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %270 = fadd <4 x float> %shift1345, %269
+  %shift1343 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %269 = fadd <4 x float> %shift1343, %268
+  %shift1344 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %270 = fadd <4 x float> %shift1344, %269
   %271 = shufflevector <4 x float> %144, <4 x float> %270, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %272 = shufflevector <4 x float> %271, <4 x float> %141, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %273 = shufflevector <4 x float> %267, <4 x float> %272, <4 x i32> <i32 0, i32 poison, i32 7, i32 poison>
@@ -412,16 +412,16 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %292 = shufflevector <4 x float> %287, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %293 = fmul <4 x float> %281, %292
   %294 = fmul <4 x float> %291, %293
-  %shift1346 = shufflevector <4 x float> %294, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %295 = fadd <4 x float> %294, %shift1346
-  %shift1347 = shufflevector <4 x float> %294, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %296 = fadd <4 x float> %shift1347, %295
+  %shift1345 = shufflevector <4 x float> %294, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %295 = fadd <4 x float> %294, %shift1345
+  %shift1346 = shufflevector <4 x float> %294, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %296 = fadd <4 x float> %shift1346, %295
   %297 = shufflevector <4 x float> %296, <4 x float> %294, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %298 = fmul <4 x float> %281, %245
-  %shift1348 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %299 = fadd <4 x float> %298, %shift1348
-  %shift1349 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %300 = fadd <4 x float> %shift1349, %299
+  %shift1347 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %299 = fadd <4 x float> %298, %shift1347
+  %shift1348 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %300 = fadd <4 x float> %shift1348, %299
   %301 = bitcast <4 x float> %300 to <4 x i32>
   %302 = and <4 x i32> %301, <i32 -2147483648, i32 poison, i32 poison, i32 poison>
   %303 = shufflevector <4 x i32> %302, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -458,7 +458,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
 
 331:                                              ; preds = %319, %279
   %.sroa.01288.0 = phi <4 x float> [ %318, %279 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %319 ]
-  %.0 = phi <4 x float> [ %289, %279 ], [ %330, %319 ]
+  %.01272 = phi <4 x float> [ %289, %279 ], [ %330, %319 ]
   %332 = getelementptr inbounds i8, ptr %0, i64 80
   %333 = load float, ptr %332, align 16
   %334 = fcmp une float %333, 0.000000e+00
@@ -470,7 +470,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %338 = insertelement <4 x float> poison, float %337, i64 0
   %339 = tail call noundef float @cosf(float noundef %336) #7
   %340 = shufflevector <4 x float> %338, <4 x float> poison, <4 x i32> zeroinitializer
-  %341 = fmul <4 x float> %.0, %340
+  %341 = fmul <4 x float> %.01272, %340
   %342 = insertelement <4 x float> %341, float %339, i64 0
   %343 = shufflevector <4 x float> %341, <4 x float> %342, <4 x i32> <i32 0, i32 1, i32 6, i32 4>
   %344 = shufflevector <4 x float> %343, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 2>
@@ -494,18 +494,18 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   br label %362
 
 362:                                              ; preds = %331, %335
-  %.sroa.01288.0.sink1328 = phi <4 x float> [ %361, %335 ], [ %.sroa.01288.0, %331 ]
-  %363 = shufflevector <4 x float> %.sroa.01288.0.sink1328, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 2>
+  %.sroa.01288.0.sink1327 = phi <4 x float> [ %361, %335 ], [ %.sroa.01288.0, %331 ]
+  %363 = shufflevector <4 x float> %.sroa.01288.0.sink1327, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 2>
   %364 = shufflevector <4 x float> %.sroa.0261.0, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %365 = fmul <4 x float> %364, %363
-  %366 = shufflevector <4 x float> %.sroa.01288.0.sink1328, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %366 = shufflevector <4 x float> %.sroa.01288.0.sink1327, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
   %367 = shufflevector <4 x float> %.sroa.0261.0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 0>
   %368 = fmul <4 x float> %367, %366
-  %369 = shufflevector <4 x float> %.sroa.01288.0.sink1328, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 1>
+  %369 = shufflevector <4 x float> %.sroa.01288.0.sink1327, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 1>
   %370 = shufflevector <4 x float> %.sroa.0261.0, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 1>
   %371 = fmul <4 x float> %370, %369
   %372 = fadd <4 x float> %371, %365
-  %373 = shufflevector <4 x float> %.sroa.01288.0.sink1328, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %373 = shufflevector <4 x float> %.sroa.01288.0.sink1327, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
   %374 = fmul <4 x float> %231, %373
   %375 = fsub <4 x float> %368, %374
   %376 = fadd <4 x float> %372, %375
@@ -527,8 +527,8 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %387 = fmul <4 x float> %386, %386
   %388 = shufflevector <4 x float> %387, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %389 = fadd <4 x float> %387, %388
-  %shift1350 = shufflevector <4 x float> %389, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %390 = fadd <4 x float> %389, %shift1350
+  %shift1349 = shufflevector <4 x float> %389, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %390 = fadd <4 x float> %389, %shift1349
   %391 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float> %390)
   %392 = shufflevector <4 x float> %391, <4 x float> poison, <4 x i32> zeroinitializer
   %393 = fmul <4 x float> %386, %392

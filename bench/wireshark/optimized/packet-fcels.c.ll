@@ -2270,48 +2270,48 @@ define internal fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef read
   br label %38
 
 38:                                               ; preds = %5, %71
-  %.02 = phi i32 [ 1, %5 ], [ %73, %71 ]
-  %.0881 = phi i32 [ 36, %5 ], [ %72, %71 ]
+  %.02 = phi i32 [ 36, %5 ], [ %72, %71 ]
+  %.0871 = phi i32 [ 1, %5 ], [ %73, %71 ]
   %39 = load i32, ptr @ett_fcels_logi_cmnsvc, align 4
-  %40 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %7, ptr noundef %0, i32 noundef %.0881, i32 noundef 16, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.585, i32 noundef %.02) #3
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0881) #3
+  %40 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %7, ptr noundef %0, i32 noundef %.02, i32 noundef 16, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.585, i32 noundef %.0871) #3
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.02) #3
   %42 = load i32, ptr @hf_fcels_clsflags, align 4
   %43 = load i32, ptr @ett_fcels_clsflags, align 4
   %44 = zext i16 %41 to i64
-  %45 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %40, ptr noundef %0, i32 noundef %.0881, i32 noundef %42, i32 noundef %43, ptr noundef nonnull %35, i64 noundef %44, i32 noundef 0) #3
+  %45 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %40, ptr noundef %0, i32 noundef %.02, i32 noundef %42, i32 noundef %43, ptr noundef nonnull %35, i64 noundef %44, i32 noundef 0) #3
   %.not91 = icmp sgt i16 %41, -1
   br i1 %.not91, label %71, label %46
 
 46:                                               ; preds = %38
-  %47 = or disjoint i32 %.0881, 2
+  %47 = or disjoint i32 %.02, 2
   %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %47) #3
   %49 = load i32, ptr @hf_fcels_initctl, align 4
   %50 = load i32, ptr @ett_fcels_initctl, align 4
   %51 = zext i16 %48 to i64
   %52 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %40, ptr noundef %0, i32 noundef %47, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %36, i64 noundef %51, i32 noundef 4) #3
-  %53 = add nuw nsw i32 %.0881, 4
+  %53 = add nuw nsw i32 %.02, 4
   %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %53) #3
   %55 = load i32, ptr @hf_fcels_rcptctl, align 4
   %56 = load i32, ptr @ett_fcels_rcptctl, align 4
   %57 = zext i16 %54 to i64
   %58 = tail call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %40, ptr noundef %0, i32 noundef %53, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %37, i64 noundef %57, i32 noundef 4) #3
   %59 = load i32, ptr @hf_fcels_clsrcvsize, align 4
-  %60 = add nuw nsw i32 %.0881, 6
+  %60 = add nuw nsw i32 %.02, 6
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef 0) #3
   %62 = load i32, ptr @hf_fcels_conseq, align 4
-  %63 = add nuw nsw i32 %.0881, 8
+  %63 = add nuw nsw i32 %.02, 8
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #3
   %65 = load i32, ptr @hf_fcels_e2e, align 4
-  %66 = add nuw nsw i32 %.0881, 10
+  %66 = add nuw nsw i32 %.02, 10
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef 0) #3
   %68 = load i32, ptr @hf_fcels_openseq, align 4
-  %69 = add nuw nsw i32 %.0881, 12
+  %69 = add nuw nsw i32 %.02, 12
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0) #3
   br label %71
 
 71:                                               ; preds = %46, %38
-  %72 = add nuw nsw i32 %.0881, 16
-  %73 = add nuw nsw i32 %.02, 1
+  %72 = add nuw nsw i32 %.02, 16
+  %73 = add nuw nsw i32 %.0871, 1
   %exitcond.not = icmp eq i32 %73, 5
   br i1 %exitcond.not, label %74, label %38, !llvm.loop !9
 

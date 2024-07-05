@@ -740,18 +740,18 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_ecmg_parameter_value.exit
-  %.0934 = phi i32 [ 0, %.lr.ph ], [ %422, %dissect_ecmg_parameter_value.exit ]
-  %.0943 = phi i32 [ %4, %.lr.ph ], [ %421, %dissect_ecmg_parameter_value.exit ]
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.0943) #3
-  %15 = add i32 %.0943, 2
+  %.04 = phi i32 [ %4, %.lr.ph ], [ %421, %dissect_ecmg_parameter_value.exit ]
+  %.0933 = phi i32 [ 0, %.lr.ph ], [ %422, %dissect_ecmg_parameter_value.exit ]
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.04) #3
+  %15 = add i32 %.04, 2
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %15) #3
   %17 = load ptr, ptr %10, align 8
-  %18 = add i32 %.0943, 4
+  %18 = add i32 %.04, 4
   %19 = zext i16 %16 to i32
   %20 = tail call ptr @tvb_bytes_to_str(ptr noundef %17, ptr noundef %2, i32 noundef %18, i32 noundef %19) #3
   %21 = load i32, ptr @hf_simulcrypt_parameter, align 4
   %22 = add nuw nsw i32 %19, 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %2, i32 noundef %.0943, i32 noundef %22, i32 noundef 0) #3
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %2, i32 noundef %.04, i32 noundef %22, i32 noundef 0) #3
   switch i16 %6, label %36 [
     i16 1, label %24
     i16 2, label %27
@@ -806,7 +806,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %38
   %41 = load i32, ptr @hf_simulcrypt_ecmg_parameter_type, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %2, i32 noundef %.0943, i32 noundef 2, i32 noundef 0) #3
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %2, i32 noundef %.04, i32 noundef 2, i32 noundef 0) #3
   %43 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0) #3
   switch i16 %14, label %171 [
@@ -841,7 +841,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 .thread1:                                         ; preds = %38
   %45 = load i32, ptr @hf_simulcrypt_emmg_parameter_type, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %2, i32 noundef %.0943, i32 noundef 2, i32 noundef 0) #3
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %2, i32 noundef %.04, i32 noundef 2, i32 noundef 0) #3
   %47 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %47, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0) #3
   switch i16 %14, label %204 [
@@ -859,7 +859,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 .thread2:                                         ; preds = %38
   %49 = load i32, ptr @hf_simulcrypt_eis_parameter_type, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %49, ptr noundef %2, i32 noundef %.0943, i32 noundef 2, i32 noundef 0) #3
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %49, ptr noundef %2, i32 noundef %.04, i32 noundef 2, i32 noundef 0) #3
   %51 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %51, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0) #3
   br label %207
@@ -870,7 +870,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 54:                                               ; preds = %38, %38, %38, %53
   %hf_simulcrypt_parameter_type.sink = phi ptr [ @hf_simulcrypt_parameter_type, %53 ], [ @hf_simulcrypt_psig_parameter_type, %38 ], [ @hf_simulcrypt_psig_parameter_type, %38 ], [ @hf_simulcrypt_psig_parameter_type, %38 ]
   %55 = load i32, ptr %hf_simulcrypt_parameter_type.sink, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %55, ptr noundef %2, i32 noundef %.0943, i32 noundef 2, i32 noundef 0) #3
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %55, ptr noundef %2, i32 noundef %.04, i32 noundef 2, i32 noundef 0) #3
   %57 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %57, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0) #3
   switch i16 %6, label %418 [
@@ -901,7 +901,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 71:                                               ; preds = %69, %.critedge.i
   %72 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
-  %73 = add i32 %.0943, 6
+  %73 = add i32 %.04, 6
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %72, ptr noundef %2, i32 noundef %73, i32 noundef 2, i32 noundef 0) #3
   br label %dissect_ecmg_parameter_value.exit
 
@@ -1210,7 +1210,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 243:                                              ; preds = %241, %.critedge.i96
   %244 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
-  %245 = add i32 %.0943, 6
+  %245 = add i32 %.04, 6
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %234, i32 noundef %244, ptr noundef %2, i32 noundef %245, i32 noundef 2, i32 noundef 0) #3
   br label %dissect_ecmg_parameter_value.exit
 
@@ -1232,22 +1232,22 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   %258 = load i32, ptr @hf_simulcrypt_year, align 4
   %259 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %258, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0) #3
   %260 = load i32, ptr @hf_simulcrypt_month, align 4
-  %261 = add i32 %.0943, 6
+  %261 = add i32 %.04, 6
   %262 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %260, ptr noundef %2, i32 noundef %261, i32 noundef 1, i32 noundef 0) #3
   %263 = load i32, ptr @hf_simulcrypt_day, align 4
-  %264 = add i32 %.0943, 7
+  %264 = add i32 %.04, 7
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %263, ptr noundef %2, i32 noundef %264, i32 noundef 1, i32 noundef 0) #3
   %266 = load i32, ptr @hf_simulcrypt_hour, align 4
-  %267 = add i32 %.0943, 8
+  %267 = add i32 %.04, 8
   %268 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %266, ptr noundef %2, i32 noundef %267, i32 noundef 1, i32 noundef 0) #3
   %269 = load i32, ptr @hf_simulcrypt_minute, align 4
-  %270 = add i32 %.0943, 9
+  %270 = add i32 %.04, 9
   %271 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %269, ptr noundef %2, i32 noundef %270, i32 noundef 1, i32 noundef 0) #3
   %272 = load i32, ptr @hf_simulcrypt_second, align 4
-  %273 = add i32 %.0943, 10
+  %273 = add i32 %.04, 10
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %272, ptr noundef %2, i32 noundef %273, i32 noundef 1, i32 noundef 0) #3
   %275 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
-  %276 = add i32 %.0943, 11
+  %276 = add i32 %.04, 11
   %277 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %275, ptr noundef %2, i32 noundef %276, i32 noundef 1, i32 noundef 0) #3
   br label %dissect_ecmg_parameter_value.exit
 
@@ -1440,22 +1440,22 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   %374 = load i32, ptr @hf_simulcrypt_year, align 4
   %375 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %374, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0) #3
   %376 = load i32, ptr @hf_simulcrypt_month, align 4
-  %377 = add i32 %.0943, 6
+  %377 = add i32 %.04, 6
   %378 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %376, ptr noundef %2, i32 noundef %377, i32 noundef 1, i32 noundef 0) #3
   %379 = load i32, ptr @hf_simulcrypt_day, align 4
-  %380 = add i32 %.0943, 7
+  %380 = add i32 %.04, 7
   %381 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %379, ptr noundef %2, i32 noundef %380, i32 noundef 1, i32 noundef 0) #3
   %382 = load i32, ptr @hf_simulcrypt_hour, align 4
-  %383 = add i32 %.0943, 8
+  %383 = add i32 %.04, 8
   %384 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %382, ptr noundef %2, i32 noundef %383, i32 noundef 1, i32 noundef 0) #3
   %385 = load i32, ptr @hf_simulcrypt_minute, align 4
-  %386 = add i32 %.0943, 9
+  %386 = add i32 %.04, 9
   %387 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %385, ptr noundef %2, i32 noundef %386, i32 noundef 1, i32 noundef 0) #3
   %388 = load i32, ptr @hf_simulcrypt_second, align 4
-  %389 = add i32 %.0943, 10
+  %389 = add i32 %.04, 10
   %390 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %388, ptr noundef %2, i32 noundef %389, i32 noundef 1, i32 noundef 0) #3
   %391 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
-  %392 = add i32 %.0943, 11
+  %392 = add i32 %.04, 11
   %393 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %391, ptr noundef %2, i32 noundef %392, i32 noundef 1, i32 noundef 0) #3
   br label %dissect_ecmg_parameter_value.exit
 
@@ -1506,7 +1506,7 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
 
 dissect_ecmg_parameter_value.exit:                ; preds = %415, %412, %409, %406, %403, %400, %397, %394, %369, %366, %363, %358, %355, %352, %349, %346, %343, %340, %337, %336, %335, %334, %330, %326, %323, %320, %317, %314, %308, %302, %299, %296, %293, %290, %287, %284, %281, %278, %253, %250, %247, %243, %228, %225, %220, %217, %214, %211, %208, %204, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %159, %157, %152, %.critedge162.i, %144, %138, %135, %132, %126, %123, %120, %117, %114, %111, %105, %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %71, %418
   %421 = add i32 %18, %19
-  %422 = add i32 %22, %.0934
+  %422 = add i32 %22, %.0933
   %.95 = select i1 %.not, i32 %421, i32 %422
   %423 = icmp slt i32 %.95, %5
   br i1 %423, label %13, label %._crit_edge, !llvm.loop !4

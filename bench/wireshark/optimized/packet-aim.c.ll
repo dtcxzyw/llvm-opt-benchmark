@@ -1327,19 +1327,19 @@ define hidden void @proto_register_aim() local_unnamed_addr #0 {
 ; Function Attrs: nofree nounwind uwtable
 define internal void @aim_generic_family(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i16
-  %.07.i = load ptr, ptr @families, align 8
-  %.not8.i = icmp eq ptr %.07.i, null
+  %.067.i = load ptr, ptr @families, align 8
+  %.not8.i = icmp eq ptr %.067.i, null
   br i1 %.not8.i, label %aim_get_family.exit.thread, label %.lr.ph.i
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds i8, ptr %.09.i, i64 8
-  %.0.i = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %5 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %.06.i = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %2, %4
-  %.09.i = phi ptr [ %.0.i, %4 ], [ %.07.i, %2 ]
-  %6 = load ptr, ptr %.09.i, align 8
+  %.069.i = phi ptr [ %.06.i, %4 ], [ %.067.i, %2 ]
+  %6 = load ptr, ptr %.069.i, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, %3
@@ -1933,34 +1933,34 @@ dissect_aim_tlv_sequence.exit.i:                  ; preds = %.lr.ph.i.i, %31, %2
 
 44:                                               ; preds = %26
   %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #9
-  %.07.i.i55 = load ptr, ptr @families, align 8
-  %.not8.i.i = icmp eq ptr %.07.i.i55, null
-  br i1 %.not8.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i56
+  %.067.i.i = load ptr, ptr @families, align 8
+  %.not8.i.i = icmp eq ptr %.067.i.i, null
+  br i1 %.not8.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i55
 
-46:                                               ; preds = %.lr.ph.i.i56
-  %47 = getelementptr inbounds i8, ptr %.09.i.i, i64 8
-  %.0.i.i = load ptr, ptr %47, align 8
-  %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i56, !llvm.loop !4
+46:                                               ; preds = %.lr.ph.i.i55
+  %47 = getelementptr inbounds i8, ptr %.069.i.i, i64 8
+  %.06.i.i = load ptr, ptr %47, align 8
+  %.not.i.i = icmp eq ptr %.06.i.i, null
+  br i1 %.not.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i55, !llvm.loop !4
 
-.lr.ph.i.i56:                                     ; preds = %44, %46
-  %.09.i.i = phi ptr [ %.0.i.i, %46 ], [ %.07.i.i55, %44 ]
-  %48 = load ptr, ptr %.09.i.i, align 8
+.lr.ph.i.i55:                                     ; preds = %44, %46
+  %.069.i.i = phi ptr [ %.06.i.i, %46 ], [ %.067.i.i, %44 ]
+  %48 = load ptr, ptr %.069.i.i, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %50, %45
   br i1 %51, label %aim_get_family.exit.i, label %46
 
-aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i56, %46, %44
-  %.06.i.i = phi ptr [ null, %44 ], [ null, %46 ], [ %48, %.lr.ph.i.i56 ]
+aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, %44
+  %.0.i.i = phi ptr [ null, %44 ], [ null, %46 ], [ %48, %.lr.ph.i.i55 ]
   %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #9
-  %.01321.i.i = load ptr, ptr @families, align 8
-  %.not22.i.i = icmp eq ptr %.01321.i.i, null
+  %.01421.i.i = load ptr, ptr @families, align 8
+  %.not22.i.i = icmp eq ptr %.01421.i.i, null
   br i1 %.not22.i.i, label %aim_get_subtype.exit.i, label %.lr.ph24.i.i
 
 .lr.ph24.i.i:                                     ; preds = %aim_get_family.exit.i, %.loopexit.i.i
-  %.01323.i.i = phi ptr [ %.013.i.i, %.loopexit.i.i ], [ %.01321.i.i, %aim_get_family.exit.i ]
-  %53 = load ptr, ptr %.01323.i.i, align 8
+  %.01423.i.i = phi ptr [ %.014.i.i, %.loopexit.i.i ], [ %.01421.i.i, %aim_get_family.exit.i ]
+  %53 = load ptr, ptr %.01423.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = icmp eq i16 %55, %45
@@ -1972,18 +1972,18 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i56, %46, 
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not1519.i.i = icmp eq ptr %60, null
-  br i1 %.not1519.i.i, label %.loopexit.i.i, label %.lr.ph.i126.i
+  br i1 %.not1519.i.i, label %.loopexit.i.i, label %.lr.ph.i125.i
 
-61:                                               ; preds = %.lr.ph.i126.i
+61:                                               ; preds = %.lr.ph.i125.i
   %62 = add i32 %.020.i.i, 1
   %63 = sext i32 %62 to i64
   %64 = getelementptr %struct._aim_subtype, ptr %58, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not15.i.i = icmp eq ptr %66, null
-  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i126.i, !llvm.loop !7
+  br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i125.i, !llvm.loop !7
 
-.lr.ph.i126.i:                                    ; preds = %.preheader.i.i, %61
+.lr.ph.i125.i:                                    ; preds = %.preheader.i.i, %61
   %67 = phi ptr [ %64, %61 ], [ %58, %.preheader.i.i ]
   %.020.i.i = phi i32 [ %62, %61 ], [ 0, %.preheader.i.i ]
   %68 = load i16, ptr %67, align 8
@@ -1991,44 +1991,44 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i56, %46, 
   br i1 %69, label %aim_get_subtype.exit.i, label %61
 
 .loopexit.i.i:                                    ; preds = %61, %.preheader.i.i, %.lr.ph24.i.i
-  %70 = getelementptr inbounds i8, ptr %.01323.i.i, i64 8
-  %.013.i.i = load ptr, ptr %70, align 8
-  %.not.i125.i = icmp eq ptr %.013.i.i, null
-  br i1 %.not.i125.i, label %aim_get_subtype.exit.i, label %.lr.ph24.i.i, !llvm.loop !8
+  %70 = getelementptr inbounds i8, ptr %.01423.i.i, i64 8
+  %.014.i.i = load ptr, ptr %70, align 8
+  %.not.i124.i = icmp eq ptr %.014.i.i, null
+  br i1 %.not.i124.i, label %aim_get_subtype.exit.i, label %.lr.ph24.i.i, !llvm.loop !8
 
-aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr.ph.i126.i, %aim_get_family.exit.i
-  %.014.i.i = phi ptr [ null, %aim_get_family.exit.i ], [ %67, %.lr.ph.i126.i ], [ null, %.loopexit.i.i ]
+aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr.ph.i125.i, %aim_get_family.exit.i
+  %.013.i.i = phi ptr [ null, %aim_get_family.exit.i ], [ %67, %.lr.ph.i125.i ], [ null, %.loopexit.i.i ]
   %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #9
   %72 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #9
   %73 = icmp ne ptr %.0, null
-  %74 = icmp ne ptr %.014.i.i, null
+  %74 = icmp ne ptr %.013.i.i, null
   %or.cond.i = and i1 %73, %74
   br i1 %or.cond.i, label %75, label %104
 
 75:                                               ; preds = %aim_get_subtype.exit.i
   %76 = load i32, ptr @ett_aim_fnac, align 4
-  %.not.i = icmp eq ptr %.06.i.i, null
+  %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %.06.i.i, i64 24
+  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %79 = load ptr, ptr %78, align 8
   br label %80
 
 80:                                               ; preds = %77, %75
   %81 = phi ptr [ %79, %77 ], [ @.str.110, %75 ]
   %82 = zext i16 %45 to i32
-  %83 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %83 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
   %84 = load ptr, ptr %83, align 8
-  %.not121.i = icmp eq ptr %84, null
-  %85 = select i1 %.not121.i, ptr @.str.110, ptr %84
+  %.not120.i = icmp eq ptr %84, null
+  %85 = select i1 %.not120.i, ptr @.str.110, ptr %84
   %86 = zext i16 %52 to i32
   %87 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef 6, i32 noundef 10, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.573, ptr noundef %81, i32 noundef %82, ptr noundef nonnull %85, i32 noundef %86) #9
   %88 = load i32, ptr @hf_aim_fnac_family, align 4
   br i1 %.not.i, label %92, label %89
 
 89:                                               ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %.06.i.i, i64 24
+  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %91 = load ptr, ptr %90, align 8
   br label %92
 
@@ -2037,8 +2037,8 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   %94 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %82, ptr noundef nonnull @.str.516, ptr noundef %93, i32 noundef %82) #9
   %95 = load i32, ptr @hf_aim_fnac_subtype, align 4
   %96 = load ptr, ptr %83, align 8
-  %.not122.i = icmp eq ptr %96, null
-  %97 = select i1 %.not122.i, ptr @.str.110, ptr %96
+  %.not121.i = icmp eq ptr %96, null
+  %97 = select i1 %.not121.i, ptr @.str.110, ptr %96
   %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %95, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef %86, ptr noundef nonnull @.str.516, ptr noundef nonnull %97, i32 noundef %86) #9
   %99 = load i32, ptr @hf_aim_fnac_flags, align 4
   %100 = load i32, ptr @ett_aim_fnac_flags, align 4
@@ -2048,31 +2048,31 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br label %104
 
 104:                                              ; preds = %92, %aim_get_subtype.exit.i
-  %.not123.i = icmp sgt i16 %71, -1
-  br i1 %.not123.i, label %.loopexit.i, label %105
+  %.not122.i = icmp sgt i16 %71, -1
+  br i1 %.not122.i, label %.loopexit.i, label %105
 
 105:                                              ; preds = %104
   %106 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16) #9
   %107 = zext i16 %106 to i32
   %108 = add nuw nsw i32 %107, 18
-  %.not135.i = icmp eq i16 %106, 0
-  br i1 %.not135.i, label %.loopexit.i, label %.lr.ph.i
+  %.not134.i = icmp eq i16 %106, 0
+  br i1 %.not134.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %105, %.lr.ph.i
-  %.1134.i = phi i32 [ %109, %.lr.ph.i ], [ 18, %105 ]
-  %109 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.1134.i, ptr noundef %.0, ptr noundef nonnull @aim_fnac_tlvs)
+  %.1133.i = phi i32 [ %109, %.lr.ph.i ], [ 18, %105 ]
+  %109 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.1133.i, ptr noundef %.0, ptr noundef nonnull @aim_fnac_tlvs)
   %110 = icmp slt i32 %109, %108
   br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %105, %104
   %.2.i = phi i32 [ 16, %104 ], [ 18, %105 ], [ %109, %.lr.ph.i ]
   %111 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2.i) #9
-  %112 = icmp ne ptr %.06.i.i, null
+  %112 = icmp ne ptr %.0.i.i, null
   %113 = load ptr, ptr %5, align 8
   br i1 %112, label %114, label %126
 
 114:                                              ; preds = %.loopexit.i
-  %115 = getelementptr inbounds i8, ptr %.06.i.i, i64 24
+  %115 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %116 = load ptr, ptr %115, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 34, ptr noundef %116) #9
   %117 = load ptr, ptr %5, align 8
@@ -2082,7 +2082,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   %119 = load ptr, ptr %115, align 8
   tail call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef %119) #9
   %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %121 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
   %122 = load ptr, ptr %121, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.574, ptr noundef %122) #9
   br label %132
@@ -2112,38 +2112,38 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %or.cond5.i, label %133, label %143
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %.06.i.i, i64 4
+  %134 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %135, ptr noundef %111, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
-  %137 = load i32, ptr %.06.i.i, align 8
+  %137 = load i32, ptr %.0.i.i, align 8
   %138 = tail call ptr @proto_item_add_subtree(ptr noundef %136, i32 noundef %137) #9
-  br i1 %74, label %140, label %.thread129.i
+  br i1 %74, label %140, label %.thread128.i
 
-.thread129.i:                                     ; preds = %133
+.thread128.i:                                     ; preds = %133
   %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #9
   br label %dissect_aim_newconn.exit
 
 140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %141 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
   %142 = load ptr, ptr %141, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.574, ptr noundef %142) #9
   br label %143
 
 143:                                              ; preds = %140, %132
-  %.0.i57 = phi ptr [ %138, %140 ], [ null, %132 ]
+  %.0109.i = phi ptr [ %138, %140 ], [ null, %132 ]
   %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #9
   %145 = icmp sgt i32 %144, 0
   %or.cond7.i = and i1 %74, %145
   br i1 %or.cond7.i, label %146, label %dissect_aim_newconn.exit
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %147 = getelementptr inbounds i8, ptr %.013.i.i, i64 16
   %148 = load ptr, ptr %147, align 8
-  %.not124.i = icmp eq ptr %148, null
-  br i1 %.not124.i, label %dissect_aim_newconn.exit, label %149
+  %.not123.i = icmp eq ptr %148, null
+  br i1 %.not123.i, label %dissect_aim_newconn.exit, label %149
 
 149:                                              ; preds = %146
-  %150 = tail call i32 %148(ptr noundef %111, ptr noundef nonnull %1, ptr noundef %.0.i57) #9
+  %150 = tail call i32 %148(ptr noundef %111, ptr noundef nonnull %1, ptr noundef %.0109.i) #9
   br label %dissect_aim_newconn.exit
 
 151:                                              ; preds = %26
@@ -2163,14 +2163,14 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   tail call void @col_set_str(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.388) #9
   %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6) #9
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph.i.i59, label %dissect_aim_newconn.exit
+  br i1 %160, label %.lr.ph.i.i57, label %dissect_aim_newconn.exit
 
-.lr.ph.i.i59:                                     ; preds = %157, %.lr.ph.i.i59
-  %.07.i.i60 = phi i32 [ %161, %.lr.ph.i.i59 ], [ 6, %157 ]
-  %161 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i60, ptr noundef %.0, ptr noundef nonnull readonly @aim_client_tlvs)
+.lr.ph.i.i57:                                     ; preds = %157, %.lr.ph.i.i57
+  %.07.i.i58 = phi i32 [ %161, %.lr.ph.i.i57 ], [ 6, %157 ]
+  %161 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i.i58, ptr noundef %.0, ptr noundef nonnull readonly @aim_client_tlvs)
   %162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %161) #9
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph.i.i59, label %dissect_aim_newconn.exit, !llvm.loop !6
+  br i1 %163, label %.lr.ph.i.i57, label %dissect_aim_newconn.exit, !llvm.loop !6
 
 164:                                              ; preds = %26
   %.val53 = load ptr, ptr %5, align 8
@@ -2196,7 +2196,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   %175 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %174, ptr noundef %0, i32 noundef 6, i32 noundef -1, i32 noundef 0) #9
   br label %dissect_aim_newconn.exit
 
-dissect_aim_newconn.exit:                         ; preds = %.lr.ph.i.i59, %173, %170, %167, %164, %157, %154, %151, %149, %146, %143, %.thread129.i, %41, %dissect_aim_tlv_sequence.exit.i
+dissect_aim_newconn.exit:                         ; preds = %.lr.ph.i.i57, %173, %170, %167, %164, %157, %154, %151, %149, %146, %143, %.thread128.i, %41, %dissect_aim_tlv_sequence.exit.i
   %176 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   ret i32 %176
 }
@@ -2412,16 +2412,16 @@ define internal i32 @dissect_aim_admin_accnt_info_repl(ptr noundef %0, ptr nound
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.016.i = phi i16 [ %10, %.lr.ph.i ], [ 0, %3 ]
-  %.01415.i = phi i32 [ %9, %.lr.ph.i ], [ 4, %3 ]
-  %9 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
-  %10 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %9, %.lr.ph.i ], [ 4, %3 ]
+  %.01415.i = phi i16 [ %10, %.lr.ph.i ], [ 0, %3 ]
+  %9 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
+  %10 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %10, %6
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
-  %.014.lcssa.i = phi i32 [ 4, %3 ], [ %9, %.lr.ph.i ]
-  ret i32 %.014.lcssa.i
+  %.0.lcssa.i = phi i32 [ 4, %3 ], [ %9, %.lr.ph.i ]
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2611,16 +2611,16 @@ define internal i32 @dissect_aim_buddylist_oncoming(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.016.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
-  %.01415.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
-  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
-  %24 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
+  %.01415.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
+  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
+  %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
-  %.014.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
-  ret i32 %.014.lcssa.i
+  %.0.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2650,16 +2650,16 @@ define internal i32 @dissect_aim_buddylist_offgoing(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.016.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
-  %.01415.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
-  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
-  %24 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %3 ]
+  %.01415.i = phi i16 [ %24, %.lr.ph.i ], [ 0, %3 ]
+  %23 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
+  %24 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %24, %19
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
-  %.014.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
-  ret i32 %.014.lcssa.i
+  %.0.lcssa.i = phi i32 [ %22, %3 ], [ %23, %.lr.ph.i ]
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2965,16 +2965,16 @@ define internal fastcc i32 @dissect_aim_userinfo(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.016.i = phi i16 [ %14, %.lr.ph.i ], [ 0, %4 ]
-  %.01415.i = phi i32 [ %13, %.lr.ph.i ], [ %12, %4 ]
-  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %3, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
-  %14 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %13, %.lr.ph.i ], [ %12, %4 ]
+  %.01415.i = phi i16 [ %14, %.lr.ph.i ], [ 0, %4 ]
+  %13 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %3, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
+  %14 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %14, %9
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %4
-  %.014.lcssa.i = phi i32 [ %12, %4 ], [ %13, %.lr.ph.i ]
-  ret i32 %.014.lcssa.i
+  %.0.lcssa.i = phi i32 [ %12, %4 ], [ %13, %.lr.ph.i ]
+  ret i32 %.0.lcssa.i
 }
 
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -3221,19 +3221,19 @@ define internal noundef i32 @dissect_aim_generic_serverready(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_aim_generic_service_req(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
-  %.07.i = load ptr, ptr @families, align 8
-  %.not8.i = icmp eq ptr %.07.i, null
+  %.067.i = load ptr, ptr @families, align 8
+  %.not8.i = icmp eq ptr %.067.i, null
   br i1 %.not8.i, label %aim_get_family.exit.thread, label %.lr.ph.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = getelementptr inbounds i8, ptr %.09.i, i64 8
-  %.0.i = load ptr, ptr %6, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %6 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %.06.i = load ptr, ptr %6, align 8
+  %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %3, %5
-  %.09.i = phi ptr [ %.0.i, %5 ], [ %.07.i, %3 ]
-  %7 = load ptr, ptr %.09.i, align 8
+  %.069.i = phi ptr [ %.06.i, %5 ], [ %.067.i, %3 ]
+  %7 = load ptr, ptr %.069.i, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i16, ptr %8, align 8
   %10 = icmp eq i16 %9, %4
@@ -3296,7 +3296,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
   br label %12
 
 12:                                               ; preds = %8, %3
-  %.072 = phi ptr [ %11, %8 ], [ null, %3 ]
+  %.071 = phi ptr [ %11, %8 ], [ null, %3 ]
   %.not107 = icmp eq i16 %4, 0
   br i1 %.not107, label %._crit_edge.thread, label %.lr.ph
 
@@ -3307,13 +3307,13 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.092 = phi i32 [ %19, %.lr.ph ], [ 2, %12 ]
-  %.07091 = phi i16 [ %20, %.lr.ph ], [ 0, %12 ]
+  %.06991 = phi i16 [ %20, %.lr.ph ], [ 0, %12 ]
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.092) #9
   %16 = load i32, ptr @ett_generic_rateinfo_class, align 4
   %17 = zext i16 %15 to i32
-  %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.072, ptr noundef %0, i32 noundef %.092, i32 noundef 35, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.718, i32 noundef %17) #9
+  %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.071, ptr noundef %0, i32 noundef %.092, i32 noundef 35, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.718, i32 noundef %17) #9
   %19 = tail call fastcc i32 @dissect_rate_class(ptr noundef %0, i32 noundef %.092, ptr noundef %18)
-  %20 = add nuw i16 %.07091, 1
+  %20 = add nuw i16 %.06991, 1
   %exitcond.not = icmp eq i16 %20, %4
   br i1 %exitcond.not, label %.lr.ph104.preheader, label %.lr.ph, !llvm.loop !23
 
@@ -3324,7 +3324,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %._crit_edge99
   %.1102 = phi i32 [ %.2.lcssa, %._crit_edge99 ], [ %19, %.lr.ph104.preheader ]
-  %.171101 = phi i16 [ %81, %._crit_edge99 ], [ 0, %.lr.ph104.preheader ]
+  %.170101 = phi i16 [ %81, %._crit_edge99 ], [ 0, %.lr.ph104.preheader ]
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1102) #9
   %24 = add i32 %.1102, 2
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24) #9
@@ -3345,12 +3345,12 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
 .lr.ph98:                                         ; preds = %.lr.ph104, %73
   %.296 = phi i32 [ %.2, %73 ], [ %.293, %.lr.ph104 ]
   %.2.in95 = phi i32 [ %.296, %73 ], [ %.1102, %.lr.ph104 ]
-  %.06994 = phi i16 [ %80, %73 ], [ 0, %.lr.ph104 ]
+  %.07294 = phi i16 [ %80, %73 ], [ 0, %.lr.ph104 ]
   %36 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.296) #9
   %37 = add i32 %.2.in95, 6
   %38 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %37) #9
-  %.07.i = load ptr, ptr @families, align 8
-  %.not8.i = icmp eq ptr %.07.i, null
+  %.067.i = load ptr, ptr @families, align 8
+  %.not8.i = icmp eq ptr %.067.i, null
   br i1 %.not8.i, label %.thread, label %.lr.ph.i
 
 .thread:                                          ; preds = %.lr.ph98
@@ -3358,26 +3358,26 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
   br label %73
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds i8, ptr %.09.i, i64 8
-  %.0.i = load ptr, ptr %41, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %41 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %.06.i = load ptr, ptr %41, align 8
+  %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %.lr.ph98, %40
-  %.09.i = phi ptr [ %.0.i, %40 ], [ %.07.i, %.lr.ph98 ]
-  %42 = load ptr, ptr %.09.i, align 8
+  %.069.i = phi ptr [ %.06.i, %40 ], [ %.067.i, %.lr.ph98 ]
+  %42 = load ptr, ptr %.069.i, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load i16, ptr %43, align 8
   %45 = icmp eq i16 %44, %36
   br i1 %45, label %aim_get_family.exit, label %40
 
 aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
-  %.06.i = phi ptr [ null, %40 ], [ %42, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %40 ], [ %42, %.lr.ph.i ]
   br label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %aim_get_family.exit, %.loopexit.i
-  %.01323.i = phi ptr [ %.013.i, %.loopexit.i ], [ %.07.i, %aim_get_family.exit ]
-  %46 = load ptr, ptr %.01323.i, align 8
+  %.01423.i = phi ptr [ %.014.i, %.loopexit.i ], [ %.067.i, %aim_get_family.exit ]
+  %46 = load ptr, ptr %.01423.i, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i16, ptr %47, align 8
   %49 = icmp eq i16 %48, %36
@@ -3408,29 +3408,29 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
   br i1 %62, label %aim_get_subtype.exit, label %54
 
 .loopexit.i:                                      ; preds = %54, %.preheader.i, %.lr.ph24.i
-  %63 = getelementptr inbounds i8, ptr %.01323.i, i64 8
-  %.013.i = load ptr, ptr %63, align 8
-  %.not.i79 = icmp eq ptr %.013.i, null
+  %63 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %.014.i = load ptr, ptr %63, align 8
+  %.not.i79 = icmp eq ptr %.014.i, null
   br i1 %.not.i79, label %aim_get_subtype.exit, label %.lr.ph24.i, !llvm.loop !8
 
 aim_get_subtype.exit:                             ; preds = %.loopexit.i, %.lr.ph.i80
-  %.014.i = phi ptr [ %60, %.lr.ph.i80 ], [ null, %.loopexit.i ]
+  %.013.i = phi ptr [ %60, %.lr.ph.i80 ], [ null, %.loopexit.i ]
   %64 = load i32, ptr @hf_generic_family, align 4
-  %.not77 = icmp eq ptr %.06.i, null
+  %.not77 = icmp eq ptr %.0.i, null
   br i1 %.not77, label %68, label %65
 
 65:                                               ; preds = %aim_get_subtype.exit
-  %66 = getelementptr inbounds i8, ptr %.06.i, i64 24
+  %66 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %67 = load ptr, ptr %66, align 8
   br label %68
 
 68:                                               ; preds = %aim_get_subtype.exit, %65
   %69 = phi ptr [ %67, %65 ], [ @.str.110, %aim_get_subtype.exit ]
-  %.not78 = icmp eq ptr %.014.i, null
+  %.not78 = icmp eq ptr %.013.i, null
   br i1 %.not78, label %73, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %71 = getelementptr inbounds i8, ptr %.013.i, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -3441,14 +3441,14 @@ aim_get_subtype.exit:                             ; preds = %.loopexit.i, %.lr.p
   %77 = zext i16 %36 to i32
   %78 = zext i16 %38 to i32
   %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %75, ptr noundef %0, i32 noundef %.296, i32 noundef 4, i32 noundef %77, ptr noundef nonnull @.str.721, ptr noundef %74, i32 noundef %77, ptr noundef %76, i32 noundef %78) #9
-  %80 = add nuw i16 %.06994, 1
+  %80 = add nuw i16 %.07294, 1
   %.2 = add i32 %.296, 4
   %exitcond114.not = icmp eq i16 %80, %25
   br i1 %exitcond114.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !24
 
 ._crit_edge99:                                    ; preds = %73, %.lr.ph104
   %.2.lcssa = phi i32 [ %.293, %.lr.ph104 ], [ %.2, %73 ]
-  %81 = add nuw i16 %.171101, 1
+  %81 = add nuw i16 %.170101, 1
   %exitcond115.not = icmp eq i16 %81, %4
   br i1 %exitcond115.not, label %._crit_edge105, label %.lr.ph104, !llvm.loop !25
 
@@ -3519,16 +3519,16 @@ define internal i32 @dissect_aim_generic_selfinfo_repl(ptr noundef %0, ptr nound
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.016.i = phi i16 [ %13, %.lr.ph.i ], [ 0, %3 ]
-  %.01415.i = phi i32 [ %12, %.lr.ph.i ], [ %11, %3 ]
-  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
-  %13 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %12, %.lr.ph.i ], [ %11, %3 ]
+  %.01415.i = phi i16 [ %13, %.lr.ph.i ], [ 0, %3 ]
+  %12 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
+  %13 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %13, %8
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
-  %.014.lcssa.i = phi i32 [ %11, %3 ], [ %12, %.lr.ph.i ]
-  ret i32 %.014.lcssa.i
+  %.0.lcssa.i = phi i32 [ %11, %3 ], [ %12, %.lr.ph.i ]
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3571,30 +3571,30 @@ define internal noundef i32 @dissect_aim_generic_migration_req(ptr noundef %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.023 = phi i32 [ %14, %.lr.ph ], [ 0, %3 ]
-  %.02122 = phi i32 [ %13, %.lr.ph ], [ 2, %3 ]
+  %.023 = phi i32 [ %13, %.lr.ph ], [ 2, %3 ]
+  %.02122 = phi i32 [ %14, %.lr.ph ], [ 0, %3 ]
   %11 = load i32, ptr @hf_generic_family, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.02122, i32 noundef 2, i32 noundef 0) #9
-  %13 = add nuw nsw i32 %.02122, 2
-  %14 = add nuw nsw i32 %.023, 1
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.023, i32 noundef 2, i32 noundef 0) #9
+  %13 = add nuw nsw i32 %.023, 2
+  %14 = add nuw nsw i32 %.02122, 1
   %exitcond.not = icmp eq i32 %14, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.021.lcssa = phi i32 [ 2, %3 ], [ %13, %.lr.ph ]
-  %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.021.lcssa) #9
+  %.0.lcssa = phi i32 [ 2, %3 ], [ %13, %.lr.ph ]
+  %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa) #9
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.07.i = phi i32 [ %17, %.lr.ph.i ], [ %.021.lcssa, %._crit_edge ]
+  %.07.i = phi i32 [ %17, %.lr.ph.i ], [ %.0.lcssa, %._crit_edge ]
   %17 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_client_tlvs)
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %17) #9
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.i, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
 
 dissect_aim_tlv_sequence.exit:                    ; preds = %.lr.ph.i, %._crit_edge
-  %.0.lcssa.i = phi i32 [ %.021.lcssa, %._crit_edge ], [ %17, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %.0.lcssa, %._crit_edge ], [ %17, %.lr.ph.i ]
   ret i32 %.0.lcssa.i
 }
 
@@ -3929,29 +3929,29 @@ define internal noundef i32 @dissect_aim_snac_location_user_information(ptr noun
   br i1 %.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.016.i = phi i16 [ %19, %.lr.ph.i ], [ 0, %3 ]
-  %.01415.i = phi i32 [ %18, %.lr.ph.i ], [ %17, %3 ]
-  %18 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.01415.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
-  %19 = add nuw i16 %.016.i, 1
+  %.016.i = phi i32 [ %18, %.lr.ph.i ], [ %17, %3 ]
+  %.01415.i = phi i16 [ %19, %.lr.ph.i ], [ 0, %3 ]
+  %18 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.016.i, ptr noundef %2, ptr noundef nonnull readonly @aim_onlinebuddy_tlvs)
+  %19 = add nuw i16 %.01415.i, 1
   %exitcond.not.i = icmp eq i16 %19, %14
   br i1 %exitcond.not.i, label %dissect_aim_tlv_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
-  %.014.lcssa.i = phi i32 [ %17, %3 ], [ %18, %.lr.ph.i ]
-  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.014.lcssa.i) #9
+  %.0.lcssa.i = phi i32 [ %17, %3 ], [ %18, %.lr.ph.i ]
+  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #9
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph.i23, label %dissect_aim_tlv_sequence.exit
+  br i1 %21, label %.lr.ph.i24, label %dissect_aim_tlv_sequence.exit
 
-.lr.ph.i23:                                       ; preds = %dissect_aim_tlv_list.exit, %.lr.ph.i23
-  %.07.i = phi i32 [ %22, %.lr.ph.i23 ], [ %.014.lcssa.i, %dissect_aim_tlv_list.exit ]
+.lr.ph.i24:                                       ; preds = %dissect_aim_tlv_list.exit, %.lr.ph.i24
+  %.07.i = phi i32 [ %22, %.lr.ph.i24 ], [ %.0.lcssa.i, %dissect_aim_tlv_list.exit ]
   %22 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.07.i, ptr noundef %2, ptr noundef nonnull readonly @aim_locate_tags_tlvs)
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22) #9
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.i23, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
+  br i1 %24, label %.lr.ph.i24, label %dissect_aim_tlv_sequence.exit, !llvm.loop !6
 
-dissect_aim_tlv_sequence.exit:                    ; preds = %.lr.ph.i23, %dissect_aim_tlv_list.exit
-  %.0.lcssa.i = phi i32 [ %.014.lcssa.i, %dissect_aim_tlv_list.exit ], [ %22, %.lr.ph.i23 ]
-  ret i32 %.0.lcssa.i
+dissect_aim_tlv_sequence.exit:                    ; preds = %.lr.ph.i24, %dissect_aim_tlv_list.exit
+  %.0.lcssa.i23 = phi i32 [ %.0.lcssa.i, %dissect_aim_tlv_list.exit ], [ %22, %.lr.ph.i24 ]
+  ret i32 %.0.lcssa.i23
 }
 
 ; Function Attrs: nounwind uwtable

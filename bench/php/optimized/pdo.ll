@@ -298,31 +298,31 @@ define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
 
 .lr.ph:                                           ; preds = %1, %19
   %10 = phi ptr [ %20, %19 ], [ null, %1 ]
-  %.022 = phi ptr [ %21, %19 ], [ %4, %1 ]
-  %.01521 = phi ptr [ %.1, %19 ], [ %3, %1 ]
-  %11 = getelementptr inbounds i8, ptr %.022, i64 8
+  %.022 = phi ptr [ %.1, %19 ], [ %3, %1 ]
+  %.01521 = phi ptr [ %21, %19 ], [ %4, %1 ]
+  %11 = getelementptr inbounds i8, ptr %.01521, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %.022, align 8
+  %15 = load ptr, ptr %.01521, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %.01521, ptr noundef %16) #13
-  call void @_efree(ptr noundef %.01521) #13
+  %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %.022, ptr noundef %16) #13
+  call void @_efree(ptr noundef %.022) #13
   %18 = load ptr, ptr %2, align 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %14
   %20 = phi ptr [ %10, %.lr.ph ], [ %18, %14 ]
-  %.1 = phi ptr [ %.01521, %.lr.ph ], [ %18, %14 ]
-  %21 = getelementptr inbounds i8, ptr %.022, i64 32
+  %.1 = phi ptr [ %.022, %.lr.ph ], [ %18, %14 ]
+  %21 = getelementptr inbounds i8, ptr %.01521, i64 32
   %.not17 = icmp eq ptr %21, %7
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %19, %1
   %22 = phi ptr [ null, %1 ], [ %20, %19 ]
-  %.015.lcssa = phi ptr [ %3, %1 ], [ %.1, %19 ]
+  %.0.lcssa = phi ptr [ %3, %1 ], [ %.1, %19 ]
   %.not18 = icmp eq ptr %22, null
   %23 = getelementptr inbounds i8, ptr %22, i64 2
   %24 = select i1 %.not18, ptr @.str.7, ptr %23
@@ -336,7 +336,7 @@ define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
   br label %28
 
 27:                                               ; preds = %._crit_edge
-  call void @_efree(ptr noundef %.015.lcssa) #13
+  call void @_efree(ptr noundef %.0.lcssa) #13
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -456,9 +456,9 @@ define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapt
 
 6:                                                ; preds = %.lr.ph215, %.backedge
   %.0153214 = phi i32 [ 0, %.lr.ph215 ], [ %.0153.be, %.backedge ]
-  %.0155213 = phi i32 [ 0, %.lr.ph215 ], [ %.0155.be, %.backedge ]
-  %.0159212 = phi i64 [ 0, %.lr.ph215 ], [ %.0159.be, %.backedge ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %.0159212
+  %.0155213 = phi i64 [ 0, %.lr.ph215 ], [ %.0155.be, %.backedge ]
+  %.0157212 = phi i32 [ 0, %.lr.ph215 ], [ %.0157.be, %.backedge ]
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.0155213
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %9 [
     i8 0, label %._crit_edge
@@ -466,43 +466,43 @@ define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapt
   ]
 
 9:                                                ; preds = %6
-  %10 = add nuw i64 %.0159212, 1
+  %10 = add nuw i64 %.0155213, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %9, %.critedge2
-  %.0159.be = phi i64 [ %10, %9 ], [ %.3.lcssa, %.critedge2 ]
-  %.0155.be = phi i32 [ %.0155213, %9 ], [ %91, %.critedge2 ]
+  %.0157.be = phi i32 [ %.0157212, %9 ], [ %91, %.critedge2 ]
+  %.0155.be = phi i64 [ %10, %9 ], [ %.3.lcssa, %.critedge2 ]
   %.0153.be = phi i32 [ %.0153214, %9 ], [ %.1154, %.critedge2 ]
-  %11 = icmp ult i64 %.0159.be, %1
+  %11 = icmp ult i64 %.0155.be, %1
   br i1 %11, label %6, label %._crit_edge
 
 12:                                               ; preds = %6
-  %13 = add nuw i64 %.0159212, 1
+  %13 = add nuw i64 %.0155213, 1
   %14 = trunc i64 %13 to i32
   %15 = icmp ult i64 %13, %1
   br i1 %15, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %12, %.outer
   %.0152.ph194 = phi i32 [ %26, %.outer ], [ 0, %12 ]
-  %.1160.ph193 = phi i64 [ %27, %.outer ], [ %13, %12 ]
+  %.1156.ph193 = phi i64 [ %27, %.outer ], [ %13, %12 ]
   br label %18
 
 .thread.loopexit:                                 ; preds = %29
-  %16 = add nuw i64 %.1160.ph193, 1
+  %16 = add nuw i64 %.1156.ph193, 1
   %umax.le = tail call i64 @llvm.umax.i64(i64 %1, i64 %16)
   br label %.thread
 
 .thread:                                          ; preds = %.outer, %.thread.loopexit, %12
   %.0152.ph.lcssa185 = phi i32 [ 0, %12 ], [ %.0152.ph194, %.thread.loopexit ], [ %26, %.outer ]
-  %.1160.lcssa = phi i64 [ %13, %12 ], [ %umax.le, %.thread.loopexit ], [ %27, %.outer ]
-  %17 = trunc i64 %.1160.lcssa to i32
+  %.1156.lcssa = phi i64 [ %13, %12 ], [ %umax.le, %.thread.loopexit ], [ %27, %.outer ]
+  %17 = trunc i64 %.1156.lcssa to i32
   br label %32
 
 18:                                               ; preds = %.lr.ph, %29
-  %.1160189 = phi i64 [ %.1160.ph193, %.lr.ph ], [ %21, %29 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %.1160189
+  %.1156189 = phi i64 [ %.1156.ph193, %.lr.ph ], [ %21, %29 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.1156189
   %20 = load i8, ptr %19, align 1
-  %21 = add i64 %.1160189, 1
+  %21 = add i64 %.1156189, 1
   switch i8 %20, label %29 [
     i8 0, label %.loopexit180
     i8 59, label %22
@@ -520,7 +520,7 @@ define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapt
 
 .outer:                                           ; preds = %23
   %26 = add nuw nsw i32 %.0152.ph194, 1
-  %27 = add i64 %.1160189, 2
+  %27 = add i64 %.1156189, 2
   %28 = icmp ult i64 %27, %1
   br i1 %28, label %.lr.ph, label %.thread
 
@@ -529,21 +529,21 @@ define i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, ptr nocapt
   br i1 %30, label %18, label %.thread.loopexit
 
 .loopexit180:                                     ; preds = %22, %23, %18
-  %.0156 = trunc i64 %.1160189 to i32
-  %31 = icmp eq i32 %.0156, -1
-  %spec.select = select i1 %31, i32 0, i32 %.0156
+  %.0158 = trunc i64 %.1156189 to i32
+  %31 = icmp eq i32 %.0158, -1
+  %spec.select = select i1 %31, i32 0, i32 %.0158
   br label %32
 
 32:                                               ; preds = %.loopexit180, %.thread
   %.0152.ph186 = phi i32 [ %.0152.ph.lcssa185, %.thread ], [ %.0152.ph194, %.loopexit180 ]
-  %.2178 = phi i64 [ %.1160.lcssa, %.thread ], [ %21, %.loopexit180 ]
+  %.2178 = phi i64 [ %.1156.lcssa, %.thread ], [ %21, %.loopexit180 ]
   %33 = phi i32 [ %17, %.thread ], [ %spec.select, %.loopexit180 ]
   br i1 %5, label %.lr.ph198, label %.loopexit
 
 .lr.ph198:                                        ; preds = %32
-  %34 = xor i32 %.0155213, -1
+  %34 = xor i32 %.0157212, -1
   %35 = add i32 %14, %34
-  %36 = sext i32 %.0155213 to i64
+  %36 = sext i32 %.0157212 to i64
   %37 = getelementptr inbounds i8, ptr %0, i64 %36
   %38 = sext i32 %35 to i64
   br label %39

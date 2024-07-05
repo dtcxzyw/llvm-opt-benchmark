@@ -176,7 +176,7 @@ switch.lookup:                                    ; preds = %22
 44:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   %.sroa.03.070 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.04268 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.04468 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -204,7 +204,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %44
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %56 = add i64 %.04268, -4
+  %56 = add i64 %.04468, -4
   %57 = load ptr, ptr %41, align 8
   %58 = and i8 %.sroa.03.070, -8
   store i32 0, ptr %4, align 4
@@ -214,7 +214,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %62 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp ne i64 %63, %59
-  %65 = and i64 %.04268, 3
+  %65 = and i64 %.04468, 3
   %66 = icmp ne i64 %65, 0
   %brmerge = select i1 %66, i1 true, i1 %64
   br i1 %brmerge, label %.critedge, label %67
@@ -285,7 +285,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %94, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.04268, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %94 ]
+  %.1 = phi i64 [ %.04468, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %94 ]
   %.sroa.03.1 = phi i8 [ %.sroa.03.070, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %94 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not71 = icmp eq i64 %indvars.iv, 0
@@ -397,7 +397,7 @@ switch.lookup:                                    ; preds = %22
 44:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   %.sroa.03.070 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.04268 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.04468 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -425,7 +425,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %44
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %56 = add i64 %.04268, -8
+  %56 = add i64 %.04468, -8
   %57 = load ptr, ptr %41, align 8
   %58 = and i8 %.sroa.03.070, -8
   store i64 0, ptr %4, align 8
@@ -435,7 +435,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %62 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp ne i64 %63, %59
-  %65 = and i64 %.04268, 7
+  %65 = and i64 %.04468, 7
   %66 = icmp ne i64 %65, 0
   %brmerge = select i1 %66, i1 true, i1 %64
   br i1 %brmerge, label %.critedge, label %67
@@ -505,7 +505,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %94, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.04268, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %94 ]
+  %.1 = phi i64 [ %.04468, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %94 ]
   %.sroa.03.1 = phi i8 [ %.sroa.03.070, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %94 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not71 = icmp eq i64 %indvars.iv, 0
@@ -602,8 +602,8 @@ switch.lookup:                                    ; preds = %22
 
 46:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.sroa.07.095 = phi i8 [ undef, %switch.lookup ], [ %.sroa.07.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.05293 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.05195 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.sroa.07.094 = phi i8 [ undef, %switch.lookup ], [ %.sroa.07.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -631,9 +631,9 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %46
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %58 = add i64 %.05293, -4
+  %58 = add i64 %.05195, -4
   %59 = load ptr, ptr %41, align 8
-  %60 = and i8 %.sroa.07.095, -8
+  %60 = and i8 %.sroa.07.094, -8
   store i32 0, ptr %4, align 4
   %61 = lshr i64 %58, 12
   %62 = getelementptr inbounds i8, ptr %59, i64 39056
@@ -641,7 +641,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %64 = getelementptr inbounds [256 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp ne i64 %65, %61
-  %67 = and i64 %.05293, 3
+  %67 = and i64 %.05195, 3
   %68 = icmp ne i64 %67, 0
   %brmerge = select i1 %68, i1 true, i1 %66
   br i1 %brmerge, label %.critedge, label %69
@@ -772,8 +772,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %120, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.05293, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %120 ]
-  %.sroa.07.1 = phi i8 [ %.sroa.07.095, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %120 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.094, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %120 ]
+  %.1 = phi i64 [ %.05195, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %120 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not100 = icmp eq i64 %indvars.iv, 0
   br i1 %.not100, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %46, !llvm.loop !9
@@ -924,8 +924,8 @@ switch.lookup:                                    ; preds = %22
 
 46:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.sroa.07.095 = phi i8 [ undef, %switch.lookup ], [ %.sroa.07.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.05293 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.05195 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.sroa.07.094 = phi i8 [ undef, %switch.lookup ], [ %.sroa.07.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -953,9 +953,9 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %46
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %58 = add i64 %.05293, -8
+  %58 = add i64 %.05195, -8
   %59 = load ptr, ptr %41, align 8
-  %60 = and i8 %.sroa.07.095, -8
+  %60 = and i8 %.sroa.07.094, -8
   store i64 0, ptr %4, align 8
   %61 = lshr i64 %58, 12
   %62 = getelementptr inbounds i8, ptr %59, i64 39056
@@ -963,7 +963,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %64 = getelementptr inbounds [256 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp ne i64 %65, %61
-  %67 = and i64 %.05293, 7
+  %67 = and i64 %.05195, 7
   %68 = icmp ne i64 %67, 0
   %brmerge = select i1 %68, i1 true, i1 %66
   br i1 %brmerge, label %.critedge, label %69
@@ -1093,8 +1093,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %119, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.05293, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %119 ]
-  %.sroa.07.1 = phi i8 [ %.sroa.07.095, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %119 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.094, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %119 ]
+  %.1 = phi i64 [ %.05195, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %119 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not100 = icmp eq i64 %indvars.iv, 0
   br i1 %.not100, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %46, !llvm.loop !10
@@ -1242,7 +1242,7 @@ switch.lookup:                                    ; preds = %22
 44:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   %.sroa.04.074 = phi i8 [ undef, %switch.lookup ], [ %.sroa.04.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.04572 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.04772 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -1270,7 +1270,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %44
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %56 = add i64 %.04572, -4
+  %56 = add i64 %.04772, -4
   %57 = load ptr, ptr %41, align 8
   %58 = and i8 %.sroa.04.074, -8
   store i32 0, ptr %4, align 4
@@ -1280,7 +1280,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %62 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp ne i64 %63, %59
-  %65 = and i64 %.04572, 3
+  %65 = and i64 %.04772, 3
   %66 = icmp ne i64 %65, 0
   %brmerge = select i1 %66, i1 true, i1 %64
   br i1 %brmerge, label %.critedge, label %67
@@ -1367,7 +1367,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %101, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.04572, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %101 ]
+  %.1 = phi i64 [ %.04772, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %101 ]
   %.sroa.04.1 = phi i8 [ %.sroa.04.074, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %101 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not75 = icmp eq i64 %indvars.iv, 0
@@ -1465,7 +1465,7 @@ switch.lookup:                                    ; preds = %22
 44:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   %.sroa.04.074 = phi i8 [ undef, %switch.lookup ], [ %.sroa.04.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.04572 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.04772 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
@@ -1493,7 +1493,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %44
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %56 = add i64 %.04572, -8
+  %56 = add i64 %.04772, -8
   %57 = load ptr, ptr %41, align 8
   %58 = and i8 %.sroa.04.074, -8
   store i64 0, ptr %4, align 8
@@ -1503,7 +1503,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %62 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp ne i64 %63, %59
-  %65 = and i64 %.04572, 7
+  %65 = and i64 %.04772, 7
   %66 = icmp ne i64 %65, 0
   %brmerge = select i1 %66, i1 true, i1 %64
   br i1 %brmerge, label %.critedge, label %67
@@ -1589,7 +1589,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %101, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.04572, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %101 ]
+  %.1 = phi i64 [ %.04772, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %101 ]
   %.sroa.04.1 = phi i8 [ %.sroa.04.074, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %101 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not75 = icmp eq i64 %indvars.iv, 0
@@ -1686,8 +1686,8 @@ switch.lookup:                                    ; preds = %22
 
 46:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.sroa.08.099 = phi i8 [ undef, %switch.lookup ], [ %.sroa.08.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.05597 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.05499 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.sroa.08.097 = phi i8 [ undef, %switch.lookup ], [ %.sroa.08.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -1715,9 +1715,9 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %46
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %58 = add i64 %.05597, -4
+  %58 = add i64 %.05499, -4
   %59 = load ptr, ptr %41, align 8
-  %60 = and i8 %.sroa.08.099, -8
+  %60 = and i8 %.sroa.08.097, -8
   store i32 0, ptr %4, align 4
   %61 = lshr i64 %58, 12
   %62 = getelementptr inbounds i8, ptr %59, i64 39056
@@ -1725,7 +1725,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %64 = getelementptr inbounds [256 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp ne i64 %65, %61
-  %67 = and i64 %.05597, 3
+  %67 = and i64 %.05499, 3
   %68 = icmp ne i64 %67, 0
   %brmerge = select i1 %68, i1 true, i1 %66
   br i1 %brmerge, label %.critedge, label %69
@@ -1872,8 +1872,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %127, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.05597, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %127 ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.099, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %127 ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.097, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %127 ]
+  %.1 = phi i64 [ %.05499, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %127 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not104 = icmp eq i64 %indvars.iv, 0
   br i1 %.not104, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %46, !llvm.loop !13
@@ -2024,8 +2024,8 @@ switch.lookup:                                    ; preds = %22
 
 46:                                               ; preds = %switch.lookup, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.sroa.08.099 = phi i8 [ undef, %switch.lookup ], [ %.sroa.08.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
-  %.05597 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.05499 = phi i64 [ %39, %switch.lookup ], [ %.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
+  %.sroa.08.097 = phi i8 [ undef, %switch.lookup ], [ %.sroa.08.1, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -2053,9 +2053,9 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %46
   br i1 %.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %58 = add i64 %.05597, -8
+  %58 = add i64 %.05499, -8
   %59 = load ptr, ptr %41, align 8
-  %60 = and i8 %.sroa.08.099, -8
+  %60 = and i8 %.sroa.08.097, -8
   store i64 0, ptr %4, align 8
   %61 = lshr i64 %58, 12
   %62 = getelementptr inbounds i8, ptr %59, i64 39056
@@ -2063,7 +2063,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %64 = getelementptr inbounds [256 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp ne i64 %65, %61
-  %67 = and i64 %.05597, 7
+  %67 = and i64 %.05499, 7
   %68 = icmp ne i64 %67, 0
   %brmerge = select i1 %68, i1 true, i1 %66
   br i1 %brmerge, label %.critedge, label %69
@@ -2209,8 +2209,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %126, %_ZN6insn_t12zcmp_regmaskEv.exit
-  %.1 = phi i64 [ %.05597, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %126 ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.099, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %126 ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.097, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %60, %126 ]
+  %.1 = phi i64 [ %.05499, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %58, %126 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not104 = icmp eq i64 %indvars.iv, 0
   br i1 %.not104, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %46, !llvm.loop !14

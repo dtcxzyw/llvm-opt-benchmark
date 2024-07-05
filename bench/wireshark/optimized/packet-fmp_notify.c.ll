@@ -311,36 +311,36 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.02.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %4 ]
-  %.0221.i = phi i32 [ %15, %.lr.ph.i ], [ 4, %4 ]
-  %12 = add i32 %.0221.i, %9
+  %.0222.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %4 ]
+  %.0231.i = phi i32 [ %15, %.lr.ph.i ], [ 4, %4 ]
+  %12 = add i32 %.0231.i, %9
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12) #2
-  %14 = add i32 %.0221.i, 4
+  %14 = add i32 %.0231.i, 4
   %15 = add i32 %14, %13
-  %16 = add nuw nsw i32 %.02.i, 1
+  %16 = add nuw nsw i32 %.0222.i, 1
   %exitcond.not.i = icmp eq i32 %16, %10
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %4
-  %.022.lcssa.i = phi i32 [ 4, %4 ], [ %15, %.lr.ph.i ]
+  %.023.lcssa.i = phi i32 [ 4, %4 ], [ %15, %.lr.ph.i ]
   %17 = load i32, ptr @ett_fmp_notify_hlist, align 4
-  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %.022.lcssa.i, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.76) #2
+  %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %.023.lcssa.i, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.76) #2
   %19 = load i32, ptr @hf_fmp_handleListLen, align 4
   %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %19, i32 noundef %9) #2
   br i1 %11, label %.lr.ph6.i, label %dissect_handleList.exit
 
 .lr.ph6.i:                                        ; preds = %._crit_edge.i, %.lr.ph6.i
-  %.14.i = phi i32 [ %23, %.lr.ph6.i ], [ 0, %._crit_edge.i ]
-  %.0233.i = phi i32 [ %22, %.lr.ph6.i ], [ %20, %._crit_edge.i ]
+  %.04.i = phi i32 [ %22, %.lr.ph6.i ], [ %20, %._crit_edge.i ]
+  %.13.i = phi i32 [ %23, %.lr.ph6.i ], [ 0, %._crit_edge.i ]
   %21 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %22 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %18, i32 noundef %21, i32 noundef %.0233.i) #2
-  %23 = add nuw nsw i32 %.14.i, 1
+  %22 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %18, i32 noundef %21, i32 noundef %.04.i) #2
+  %23 = add nuw nsw i32 %.13.i, 1
   %exitcond10.not.i = icmp eq i32 %23, %10
   br i1 %exitcond10.not.i, label %dissect_handleList.exit, label %.lr.ph6.i, !llvm.loop !7
 
 dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_edge.i
-  %.023.lcssa.i = phi i32 [ %20, %._crit_edge.i ], [ %22, %.lr.ph6.i ]
-  ret i32 %.023.lcssa.i
+  %.0.lcssa.i = phi i32 [ %20, %._crit_edge.i ], [ %22, %.lr.ph6.i ]
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable

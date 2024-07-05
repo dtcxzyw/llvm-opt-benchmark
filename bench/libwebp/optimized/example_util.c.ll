@@ -139,8 +139,8 @@ ExUtilGetInt.exit:                                ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4, %ExUtilGetInt.exit
-  %.013 = phi i32 [ -1, %ExUtilGetInt.exit ], [ 0, %4 ], [ %21, %.loopexit.loopexit ]
-  ret i32 %.013
+  %.0 = phi i32 [ -1, %ExUtilGetInt.exit ], [ 0, %4 ], [ %21, %.loopexit.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

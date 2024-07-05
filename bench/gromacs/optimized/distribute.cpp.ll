@@ -1694,13 +1694,13 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 .lr.ph153:                                        ; preds = %70, %.lr.ph153
   %indvars.iv213 = phi i64 [ 1, %.lr.ph153 ], [ %indvars.iv211, %70 ]
-  %.0119151 = phi float [ %79, %.lr.ph153 ], [ %59, %70 ]
+  %.0120151 = phi float [ %79, %.lr.ph153 ], [ %59, %70 ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %75 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %indvars.iv.next214
   %76 = load float, ptr %75, align 4
   %77 = getelementptr inbounds [3 x [3 x float]], ptr %2, i64 0, i64 %indvars.iv.next214, i64 %indvars.iv211
   %78 = load float, ptr %77, align 4
-  %79 = tail call float @llvm.fmuladd.f32(float %76, float %78, float %.0119151)
+  %79 = tail call float @llvm.fmuladd.f32(float %76, float %78, float %.0120151)
   %80 = icmp eq i64 %indvars.iv213, 0
   br i1 %80, label %.lr.ph153, label %.loopexit138, !llvm.loop !26
 

@@ -1056,8 +1056,8 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %371, label %.thread.i51, label %.critedge.i
 
 .thread.i51:                                      ; preds = %380, %379, %373
-  %.0308387.i = phi i32 [ 0, %380 ], [ %374, %373 ], [ %374, %379 ]
-  %.0309384.i = phi ptr [ @.str.229, %380 ], [ %377, %373 ], [ %377, %379 ]
+  %.0309387.i = phi ptr [ @.str.229, %380 ], [ %377, %373 ], [ %377, %379 ]
+  %.0311384.i = phi i32 [ 0, %380 ], [ %374, %373 ], [ %374, %379 ]
   %381 = and i32 %365, 2
   %382 = icmp ne i32 %381, 0
   %383 = icmp ugt i16 %9, 15
@@ -1072,8 +1072,8 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
 
 386:                                              ; preds = %.critedge.i, %.thread.i51
   %.sink.i = phi i32 [ 12, %.thread.i51 ], [ 8, %.critedge.i ]
-  %.0308385.i = phi i32 [ %.0308387.i, %.thread.i51 ], [ 0, %.critedge.i ]
-  %.0309382.i = phi ptr [ %.0309384.i, %.thread.i51 ], [ @.str.229, %.critedge.i ]
+  %.0309385.i = phi ptr [ %.0309387.i, %.thread.i51 ], [ @.str.229, %.critedge.i ]
+  %.0311382.i = phi i32 [ %.0311384.i, %.thread.i51 ], [ 0, %.critedge.i ]
   %387 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.sink.i) #2
   %.not329.i = icmp eq i32 %387, 0
   br i1 %.not329.i, label %.lr.ph.i48, label %388
@@ -1128,32 +1128,32 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br i1 %.not330399.i, label %dissect_ppi_vector_v2.exit, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %annotate_vector_chars.exit.i, %402, %400, %386, %.thread.i51
-  %.0308385394410.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ %.0308387.i, %.thread.i51 ], [ %.0308385.i, %402 ], [ %.0308385.i, %400 ], [ %.0308385.i, %386 ]
-  %.0309382395408.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309384.i, %.thread.i51 ], [ %.0309382.i, %402 ], [ %.0309382.i, %400 ], [ %.0309382.i, %386 ]
-  %.0307396407.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ 0, %.thread.i51 ], [ %387, %402 ], [ %387, %400 ], [ 0, %386 ]
+  %.0309385394409.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309387.i, %.thread.i51 ], [ %.0309385.i, %402 ], [ %.0309385.i, %400 ], [ %.0309385.i, %386 ]
+  %.0311382395408.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ %.0311384.i, %.thread.i51 ], [ %.0311382.i, %402 ], [ %.0311382.i, %400 ], [ %.0311382.i, %386 ]
+  %.0310396407.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ 0, %.thread.i51 ], [ %387, %402 ], [ %387, %400 ], [ 0, %386 ]
   %.not370.i = icmp eq ptr %15, null
   %403 = getelementptr inbounds i8, ptr %1, i64 408
-  %404 = and i32 %.0307396407.i, 1
+  %404 = and i32 %.0310396407.i, 1
   %.not.i374.i = icmp eq i32 %404, 0
-  %405 = and i32 %.0307396407.i, 2
+  %405 = and i32 %.0310396407.i, 2
   %.not9.i375.i = icmp eq i32 %405, 0
-  %406 = and i32 %.0307396407.i, 4
+  %406 = and i32 %.0310396407.i, 4
   %.not10.i376.i = icmp eq i32 %406, 0
-  %407 = and i32 %.0307396407.i, 8
+  %407 = and i32 %.0310396407.i, 8
   %.not11.i377.i = icmp eq i32 %407, 0
-  %408 = and i32 %.0307396407.i, 16
+  %408 = and i32 %.0310396407.i, 16
   %.not12.i378.i = icmp eq i32 %408, 0
-  %409 = and i32 %.0308385394410.i, 1
+  %409 = and i32 %.0311382395408.i, 1
   %.not373.i = icmp eq i32 %409, 0
   %410 = insertelement <2 x i32> <i32 poison, i32 8>, i32 %369, i64 0
   br label %411
 
 411:                                              ; preds = %652, %.lr.ph.i48
-  %.0311400.i = phi i32 [ %365, %.lr.ph.i48 ], [ %414, %652 ]
+  %.0307400.i = phi i32 [ %365, %.lr.ph.i48 ], [ %414, %652 ]
   %412 = phi <2 x i32> [ %410, %.lr.ph.i48 ], [ %653, %652 ]
-  %413 = add i32 %.0311400.i, -1
-  %414 = and i32 %413, %.0311400.i
-  %415 = xor i32 %414, %.0311400.i
+  %413 = add i32 %.0307400.i, -1
+  %414 = and i32 %413, %.0307400.i
+  %415 = xor i32 %414, %.0307400.i
   %.not331.i = icmp ult i32 %415, 65536
   br i1 %.not331.i, label %445, label %416
 
@@ -1320,7 +1320,7 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
 478:                                              ; preds = %477
   %479 = load i32, ptr @hf_ppi_vector_vflags, align 4
   %480 = extractelement <2 x i32> %412, i64 1
-  %481 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %479, ptr noundef %0, i32 noundef %480, i32 noundef 4, i32 noundef %.0308385394410.i) #2
+  %481 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %479, ptr noundef %0, i32 noundef %480, i32 noundef 4, i32 noundef %.0311382395408.i) #2
   %482 = load i32, ptr @ett_ppi_vectorflags, align 4
   %483 = tail call ptr @proto_item_add_subtree(ptr noundef %481, i32 noundef %482) #2
   %484 = load i32, ptr @hf_ppi_vector_vflags_defines_forward, align 4
@@ -1334,7 +1334,7 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br label %489
 
 489:                                              ; preds = %488, %478
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %483, ptr noundef nonnull @.str.230, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %483, ptr noundef nonnull @.str.230, ptr noundef %.0309385394409.i) #2
   br label %490
 
 490:                                              ; preds = %489, %477
@@ -1352,7 +1352,7 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
 496:                                              ; preds = %495
   %497 = load i32, ptr @hf_ppi_vector_vchars, align 4
   %498 = extractelement <2 x i32> %412, i64 1
-  %499 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef %.0307396407.i) #2
+  %499 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef %.0310396407.i) #2
   %500 = load i32, ptr @ett_ppi_vectorchars, align 4
   %501 = tail call ptr @proto_item_add_subtree(ptr noundef %499, i32 noundef %500) #2
   %502 = load i32, ptr @hf_ppi_vector_vchars_antenna, align 4
@@ -1425,7 +1425,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 536:                                              ; preds = %532
   %537 = load i32, ptr @hf_ppi_vector_rot_x, align 4
   %538 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %537, ptr noundef %0, i32 noundef %533, i32 noundef 4, double noundef %535) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %538, ptr noundef nonnull @.str.231, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %538, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.232, double noundef %535) #2
   br label %539
 
@@ -1445,7 +1445,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 545:                                              ; preds = %541
   %546 = load i32, ptr @hf_ppi_vector_rot_y, align 4
   %547 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %546, ptr noundef %0, i32 noundef %542, i32 noundef 4, double noundef %544) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %547, ptr noundef nonnull @.str.231, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %547, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.233, double noundef %544) #2
   br label %548
 
@@ -1467,7 +1467,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 557:                                              ; preds = %553
   %558 = load i32, ptr @hf_ppi_vector_rot_z, align 4
   %559 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %558, ptr noundef %0, i32 noundef %554, i32 noundef 4, double noundef %556) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %559, ptr noundef nonnull @.str.231, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %559, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.234, double noundef %556) #2
   br label %560
 
@@ -1489,7 +1489,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 569:                                              ; preds = %565
   %570 = load i32, ptr @hf_ppi_vector_off_x, align 4
   %571 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %570, ptr noundef %0, i32 noundef %566, i32 noundef 4, double noundef %568) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %571, ptr noundef nonnull @.str.235, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %571, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.236, double noundef %568) #2
   br label %572
 
@@ -1511,7 +1511,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 581:                                              ; preds = %577
   %582 = load i32, ptr @hf_ppi_vector_off_y, align 4
   %583 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %582, ptr noundef %0, i32 noundef %578, i32 noundef 4, double noundef %580) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %583, ptr noundef nonnull @.str.235, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %583, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.237, double noundef %580) #2
   br label %584
 
@@ -1533,7 +1533,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
 593:                                              ; preds = %589
   %594 = load i32, ptr @hf_ppi_vector_off_z, align 4
   %595 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %594, ptr noundef %0, i32 noundef %590, i32 noundef 4, double noundef %592) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %595, ptr noundef nonnull @.str.235, ptr noundef %.0309382395408.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %595, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.238, double noundef %592) #2
   br label %596
 
@@ -1637,8 +1637,8 @@ annotate_vector_chars.exit379.i:                  ; preds = %530, %529, %495
   br i1 %.not330.i, label %dissect_ppi_vector_v2.exit, label %411, !llvm.loop !6
 
 dissect_ppi_vector_v2.exit:                       ; preds = %652, %annotate_vector_chars.exit.i, %.thread411.i
-  %.0309382395409.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309382395408.i, %.thread411.i ], [ %.0309382395408.i, %652 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.230, ptr noundef %.0309382395409.i) #2
+  %.0309385394410.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309385394409.i, %.thread411.i ], [ %.0309385394409.i, %652 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.230, ptr noundef %.0309385394410.i) #2
   br label %dissect_ppi_vector_v1.exit
 
 654:                                              ; preds = %25

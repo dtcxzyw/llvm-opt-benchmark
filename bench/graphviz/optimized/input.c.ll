@@ -468,7 +468,7 @@ dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %.0230 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %55 ]
+  %.0105230 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %55 ]
   %50 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %.not146 = icmp eq ptr %51, null
@@ -478,11 +478,11 @@ dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %
   %53 = load i8, ptr %51, align 1
   %.not147 = icmp ne i8 %53, 45
   %54 = zext i1 %.not147 to i64
-  %spec.select = add i64 %.0230, %54
+  %spec.select = add i64 %.0105230, %54
   br label %55
 
 55:                                               ; preds = %52, %.lr.ph
-  %.1 = phi i64 [ %.0230, %.lr.ph ], [ %spec.select, %52 ]
+  %.1 = phi i64 [ %.0105230, %.lr.ph ], [ %spec.select, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -533,12 +533,12 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
 
 .outer:                                           ; preds = %.thread186, %.lr.ph234
   %.2233.ph = phi i64 [ %.3, %.thread186 ], [ 0, %.lr.ph234 ]
-  %.0104232.ph = phi i32 [ %.0104232, %.thread186 ], [ 0, %.lr.ph234 ]
+  %.0106232.ph = phi i32 [ %.0106232, %.thread186 ], [ 0, %.lr.ph234 ]
   %storemerge124231.ph = phi i32 [ %289, %.thread186 ], [ 1, %.lr.ph234 ]
   br label %74
 
 74:                                               ; preds = %.outer, %.thread186.thread
-  %.0104232 = phi i32 [ 1, %.thread186.thread ], [ %.0104232.ph, %.outer ]
+  %.0106232 = phi i32 [ 1, %.thread186.thread ], [ %.0106232.ph, %.outer ]
   %storemerge124231 = phi i32 [ %291, %.thread186.thread ], [ %storemerge124231.ph, %.outer ]
   %75 = sext i32 %storemerge124231 to i64
   %76 = getelementptr inbounds ptr, ptr %2, i64 %75
@@ -991,7 +991,7 @@ getFlagOpt.exit158:                               ; preds = %236, %232
   br i1 %292, label %74, label %._crit_edge235.thread273
 
 ._crit_edge235:                                   ; preds = %.thread186
-  %293 = icmp eq i32 %.0104232, 0
+  %293 = icmp eq i32 %.0106232, 0
   br i1 %293, label %._crit_edge235.thread, label %._crit_edge235.thread273
 
 ._crit_edge235.thread:                            ; preds = %gv_calloc.exit, %._crit_edge235
@@ -1024,15 +1024,15 @@ getFlagOpt.exit158:                               ; preds = %236, %232
   br label %309
 
 309:                                              ; preds = %308, %306
-  %.0106 = phi ptr [ @.str.18, %308 ], [ %294, %306 ]
-  %310 = tail call i32 @gvlayout_select(ptr noundef nonnull %0, ptr noundef nonnull %.0106) #20
+  %.0104 = phi ptr [ @.str.18, %308 ], [ %294, %306 ]
+  %310 = tail call i32 @gvlayout_select(ptr noundef nonnull %0, ptr noundef nonnull %.0104) #20
   %311 = icmp eq i32 %310, 999
   br i1 %311, label %312, label %._crit_edge235.thread273
 
 312:                                              ; preds = %309
   %313 = load ptr, ptr @stderr, align 8
-  %314 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0106) #24
-  %315 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0106, ptr noundef nonnull readonly dereferenceable(4) @.str.18) #26
+  %314 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0104) #24
+  %315 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0104, ptr noundef nonnull readonly dereferenceable(4) @.str.18) #26
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %320
 
@@ -1096,8 +1096,8 @@ getFlagOpt.exit158:                               ; preds = %236, %232
   br label %346
 
 346:                                              ; preds = %342, %344, %329, %202, %166, %90, %339, %280, %270, %242, %217, %179, %150, %136, %129, %122, %111
-  %.0107 = phi i32 [ %112, %111 ], [ %284, %280 ], [ %273, %270 ], [ %245, %242 ], [ %220, %217 ], [ %182, %179 ], [ %153, %150 ], [ %139, %136 ], [ %132, %129 ], [ %125, %122 ], [ 2, %339 ], [ 1, %90 ], [ 2, %166 ], [ 2, %202 ], [ 2, %329 ], [ 0, %344 ], [ 0, %342 ]
-  ret i32 %.0107
+  %.0 = phi i32 [ %112, %111 ], [ %284, %280 ], [ %273, %270 ], [ %245, %242 ], [ %220, %217 ], [ %182, %179 ], [ %153, %150 ], [ %139, %136 ], [ %132, %129 ], [ %125, %122 ], [ 2, %339 ], [ 1, %90 ], [ 2, %166 ], [ 2, %202 ], [ 2, %329 ], [ 0, %344 ], [ 0, %342 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)

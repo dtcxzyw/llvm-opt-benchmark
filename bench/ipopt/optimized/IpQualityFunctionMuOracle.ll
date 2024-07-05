@@ -14880,18 +14880,18 @@ define noundef double @_ZN5Ipopt23QualityFunctionMuOracle20PerformGoldenSectionE
   %.0227270 = phi double [ %33, %.lr.ph ], [ %.1228, %66 ]
   %.0229269 = phi double [ %32, %.lr.ph ], [ %.1230, %66 ]
   %.0231268 = phi double [ %31, %.lr.ph ], [ %.1232, %66 ]
-  %.0235267 = phi double [ %3, %.lr.ph ], [ %.1236, %66 ]
-  %.0237266 = phi double [ %1, %.lr.ph ], [ %.1238, %66 ]
-  %.0239265 = phi double [ %4, %.lr.ph ], [ %.1240, %66 ]
-  %39 = fcmp olt double %.0221273, %.0239265
+  %.0233267 = phi double [ %4, %.lr.ph ], [ %.1234, %66 ]
+  %.0237266 = phi double [ %3, %.lr.ph ], [ %.1238, %66 ]
+  %.0239265 = phi double [ %1, %.lr.ph ], [ %.1240, %66 ]
+  %39 = fcmp olt double %.0221273, %.0233267
   %40 = fcmp olt double %.0225271, %.0227270
   %41 = select i1 %40, double %.0225271, double %.0227270
-  %42 = select i1 %39, double %.0221273, double %.0239265
+  %42 = select i1 %39, double %.0221273, double %.0233267
   %43 = fcmp olt double %41, %42
   %44 = select i1 %43, double %41, double %42
-  %45 = fcmp olt double %.0239265, %.0221273
+  %45 = fcmp olt double %.0233267, %.0221273
   %46 = fcmp olt double %.0227270, %.0225271
-  %47 = select i1 %45, double %.0221273, double %.0239265
+  %47 = select i1 %45, double %.0221273, double %.0233267
   %48 = select i1 %46, double %.0225271, double %.0227270
   %49 = fcmp olt double %47, %48
   %50 = select i1 %49, double %48, double %47
@@ -14908,28 +14908,28 @@ define noundef double @_ZN5Ipopt23QualityFunctionMuOracle20PerformGoldenSectionE
   br i1 %40, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = fsub double %.0237266, %.0231268
+  %59 = fsub double %.0239265, %.0231268
   %60 = tail call double @llvm.fmuladd.f64(double %59, double 0x3FE3C6EF372FE950, double %.0231268)
   %61 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %60, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
   br label %66
 
 62:                                               ; preds = %56
-  %63 = fsub double %.0229269, %.0235267
-  %64 = tail call double @llvm.fmuladd.f64(double %63, double 0x3FD8722191A02D60, double %.0235267)
+  %63 = fsub double %.0229269, %.0237266
+  %64 = tail call double @llvm.fmuladd.f64(double %63, double 0x3FD8722191A02D60, double %.0237266)
   %65 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %64, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
   br label %66
 
 66:                                               ; preds = %62, %58
   %.pre-phi = phi double [ %63, %62 ], [ %59, %58 ]
-  %.1240 = phi double [ %.0239265, %62 ], [ %.0227270, %58 ]
-  %.1238 = phi double [ %.0229269, %62 ], [ %.0237266, %58 ]
-  %.1236 = phi double [ %.0235267, %62 ], [ %.0231268, %58 ]
+  %.1240 = phi double [ %.0229269, %62 ], [ %.0239265, %58 ]
+  %.1238 = phi double [ %.0237266, %62 ], [ %.0231268, %58 ]
+  %.1234 = phi double [ %.0233267, %62 ], [ %.0227270, %58 ]
   %.1232 = phi double [ %64, %62 ], [ %.0229269, %58 ]
   %.1230 = phi double [ %.0231268, %62 ], [ %60, %58 ]
   %.1228 = phi double [ %65, %62 ], [ %.0225271, %58 ]
   %.1226 = phi double [ %.0227270, %62 ], [ %61, %58 ]
   %.1 = phi double [ %.0225271, %62 ], [ %.0221273, %58 ]
-  %67 = fmul double %.1238, %5
+  %67 = fmul double %.1240, %5
   %68 = fcmp ult double %.pre-phi, %67
   br i1 %68, label %.critedge245, label %38, !llvm.loop !737
 
@@ -14966,7 +14966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #14
-  %78 = fcmp oeq double %44, %.0239265
+  %78 = fcmp oeq double %44, %.0233267
   br i1 %78, label %105, label %83
 
 79:                                               ; preds = %.noexc, %70
@@ -14991,13 +14991,13 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 85:                                               ; preds = %83
   %86 = fcmp oeq double %44, %.0225271
-  %.0229..0237 = select i1 %86, double %.0229269, double %.0237266
+  %.0229..0239 = select i1 %86, double %.0229269, double %.0239265
   br label %105
 
 .critedge245:                                     ; preds = %66, %27, %.critedge
-  %.0239263 = phi double [ %.0239265, %.critedge ], [ %4, %27 ], [ %.1240, %66 ]
-  %.0237261 = phi double [ %.0237266, %.critedge ], [ %1, %27 ], [ %.1238, %66 ]
-  %.0235259 = phi double [ %.0235267, %.critedge ], [ %3, %27 ], [ %.1236, %66 ]
+  %.0239263 = phi double [ %.0239265, %.critedge ], [ %1, %27 ], [ %.1240, %66 ]
+  %.0237261 = phi double [ %.0237266, %.critedge ], [ %3, %27 ], [ %.1238, %66 ]
+  %.0233259 = phi double [ %.0233267, %.critedge ], [ %4, %27 ], [ %.1234, %66 ]
   %.0231257 = phi double [ %.0231268, %.critedge ], [ %31, %27 ], [ %.1232, %66 ]
   %.0229255 = phi double [ %.0229269, %.critedge ], [ %32, %27 ], [ %.1230, %66 ]
   %.0227253 = phi double [ %.0227270, %.critedge ], [ %33, %27 ], [ %.1228, %66 ]
@@ -15006,7 +15006,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   %87 = fcmp olt double %.0227253, %.0225251
   %.0231..0229 = select i1 %87, double %.0231257, double %.0229255
   %.0227..0225 = select i1 %87, double %.0227253, double %.0225251
-  %88 = fcmp oeq double %.0237261, %1
+  %88 = fcmp oeq double %.0239263, %1
   br i1 %88, label %89, label %96
 
 89:                                               ; preds = %.critedge245
@@ -15014,7 +15014,7 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %89
-  %92 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %.0237261, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
+  %92 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %.0239263, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
   br label %93
 
 93:                                               ; preds = %89, %91
@@ -15026,19 +15026,19 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %105
 
 96:                                               ; preds = %.critedge245
-  %97 = fcmp oeq double %.0235259, %3
+  %97 = fcmp oeq double %.0237261, %3
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %96
-  %99 = fcmp olt double %.0239263, 0.000000e+00
+  %99 = fcmp olt double %.0233259, 0.000000e+00
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %.0235259, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
+  %101 = tail call noundef double @_ZN5Ipopt23QualityFunctionMuOracle24CalculateQualityFunctionEdRKNS_6VectorES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(432) %0, double noundef %.0237261, ptr noundef nonnull align 8 dereferenceable(205) %7, ptr noundef nonnull align 8 dereferenceable(205) %8, ptr noundef nonnull align 8 dereferenceable(205) %9, ptr noundef nonnull align 8 dereferenceable(205) %10, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %13, ptr noundef nonnull align 8 dereferenceable(205) %14, ptr noundef nonnull align 8 dereferenceable(205) %15, ptr noundef nonnull align 8 dereferenceable(205) %16, ptr noundef nonnull align 8 dereferenceable(205) %17, ptr noundef nonnull align 8 dereferenceable(205) %18, ptr noundef nonnull align 8 dereferenceable(205) %19, ptr noundef nonnull align 8 dereferenceable(205) %20, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(205) %23, ptr noundef nonnull align 8 dereferenceable(205) %24, ptr noundef nonnull align 8 dereferenceable(205) %25, ptr noundef nonnull align 8 dereferenceable(205) %26)
   br label %102
 
 102:                                              ; preds = %98, %100
-  %.0 = phi double [ %101, %100 ], [ %.0239263, %98 ]
+  %.0 = phi double [ %101, %100 ], [ %.0233259, %98 ]
   %103 = fcmp olt double %.0, %.0227..0225
   br i1 %103, label %104, label %105
 
@@ -15046,8 +15046,8 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %105
 
 105:                                              ; preds = %85, %83, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %95, %93, %102, %104, %96
-  %.1234 = phi double [ %.0237261, %95 ], [ %.0231..0229, %93 ], [ %.0235259, %104 ], [ %.0231..0229, %102 ], [ %.0231..0229, %96 ], [ %.0235267, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0231268, %83 ], [ %.0229..0237, %85 ]
-  ret double %.1234
+  %.1236 = phi double [ %.0239263, %95 ], [ %.0231..0229, %93 ], [ %.0237261, %104 ], [ %.0231..0229, %102 ], [ %.0231..0229, %96 ], [ %.0237266, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0231268, %83 ], [ %.0229..0239, %85 ]
+  ret double %.1236
 }
 
 declare noundef double @_ZN5Ipopt25IpoptCalculatedQuantities32uncached_slack_frac_to_the_boundEdRKNS_6VectorES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(2185), double noundef, ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205)) local_unnamed_addr #0

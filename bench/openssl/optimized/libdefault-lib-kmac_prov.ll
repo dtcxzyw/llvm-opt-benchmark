@@ -561,13 +561,13 @@ if.end.i:                                         ; preds = %get_encode_size.exi
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
-  %bits.016.i = phi i64 [ %mul.i, %if.end.i ], [ %shr.i, %for.body.i ]
-  %i.015.i = phi i64 [ %conv.i, %if.end.i ], [ %dec.i, %for.body.i ]
-  %conv8.i = trunc i64 %bits.016.i to i8
-  %arrayidx9.i = getelementptr inbounds i8, ptr %custom, i64 %i.015.i
+  %i.016.i = phi i64 [ %conv.i, %if.end.i ], [ %dec.i, %for.body.i ]
+  %bits.015.i = phi i64 [ %mul.i, %if.end.i ], [ %shr.i, %for.body.i ]
+  %conv8.i = trunc i64 %bits.015.i to i8
+  %arrayidx9.i = getelementptr inbounds i8, ptr %custom, i64 %i.016.i
   store i8 %conv8.i, ptr %arrayidx9.i, align 1
-  %shr.i = lshr i64 %bits.016.i, 8
-  %dec.i = add nsw i64 %i.015.i, -1
+  %shr.i = lshr i64 %bits.015.i, 8
+  %dec.i = add nsw i64 %i.016.i, -1
   %cmp6.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp6.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
@@ -771,13 +771,13 @@ if.end.i.i:                                       ; preds = %get_encode_size.exi
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i.i
-  %bits.016.i.i = phi i64 [ %mul.i.i, %if.end.i.i ], [ %shr.i.i, %for.body.i.i ]
-  %i.015.i.i = phi i64 [ %conv.i.i, %if.end.i.i ], [ %dec.i.i, %for.body.i.i ]
-  %conv8.i.i = trunc i64 %bits.016.i.i to i8
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 %i.015.i.i
+  %i.016.i.i = phi i64 [ %conv.i.i, %if.end.i.i ], [ %dec.i.i, %for.body.i.i ]
+  %bits.015.i.i = phi i64 [ %mul.i.i, %if.end.i.i ], [ %shr.i.i, %for.body.i.i ]
+  %conv8.i.i = trunc i64 %bits.015.i.i to i8
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 %i.016.i.i
   store i8 %conv8.i.i, ptr %arrayidx9.i.i, align 1
-  %shr.i.i = lshr i64 %bits.016.i.i, 8
-  %dec.i.i = add nsw i64 %i.015.i.i, -1
+  %shr.i.i = lshr i64 %bits.015.i.i, 8
+  %dec.i.i = add nsw i64 %i.016.i.i, -1
   %cmp6.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp6.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
 

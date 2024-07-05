@@ -4686,10 +4686,10 @@ for.body81.preheader:                             ; preds = %_ZNSt6futureIvED2Ev
   br label %for.body81
 
 for.body81:                                       ; preds = %for.body81.preheader, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit
-  %__begin1.sroa.0.0335 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit ], [ %135, %for.body81.preheader ]
+  %__begin1.sroa.11.0335 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit ], [ %137, %for.body81.preheader ]
   %__begin1.sroa.8.0334 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit ], [ %138, %for.body81.preheader ]
-  %__begin1.sroa.11.0333 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit ], [ %137, %for.body81.preheader ]
-  %impl_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0335, i64 8
+  %__begin1.sroa.0.0333 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit ], [ %135, %for.body81.preheader ]
+  %impl_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0333, i64 8
   %139 = load ptr, ptr %impl_.i, align 8
   %enabled_.i.i.i = getelementptr inbounds i8, ptr %139, i64 96
   %140 = load i8, ptr %enabled_.i.i.i, align 8
@@ -4757,20 +4757,20 @@ if.then.i8.i.i:                                   ; preds = %lpad.i.i
   br label %ehcleanup
 
 for.inc85:                                        ; preds = %if.then.i4.i.i, %invoke.cont.i.i
-  %incdec.ptr.i219 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0335, i64 16
+  %incdec.ptr.i219 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0333, i64 16
   %cmp.i221 = icmp eq ptr %incdec.ptr.i219, %__begin1.sroa.8.0334
   br i1 %cmp.i221, label %if.then.i223, label %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit
 
 if.then.i223:                                     ; preds = %for.inc85
-  %add.ptr.i225 = getelementptr inbounds i8, ptr %__begin1.sroa.11.0333, i64 8
+  %add.ptr.i225 = getelementptr inbounds i8, ptr %__begin1.sroa.11.0335, i64 8
   %147 = load ptr, ptr %add.ptr.i225, align 8
   %add.ptr.i.i227 = getelementptr inbounds i8, ptr %147, i64 512
   br label %_ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN4asio10io_contextERS1_PS1_EppEv.exit: ; preds = %for.inc85, %if.then.i223
-  %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i225, %if.then.i223 ], [ %__begin1.sroa.11.0333, %for.inc85 ]
-  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i227, %if.then.i223 ], [ %__begin1.sroa.8.0334, %for.inc85 ]
   %__begin1.sroa.0.1 = phi ptr [ %147, %if.then.i223 ], [ %incdec.ptr.i219, %for.inc85 ]
+  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i227, %if.then.i223 ], [ %__begin1.sroa.8.0334, %for.inc85 ]
+  %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i225, %if.then.i223 ], [ %__begin1.sroa.11.0335, %for.inc85 ]
   %cmp.i213 = icmp eq ptr %__begin1.sroa.0.1, %136
   br i1 %cmp.i213, label %for.end87, label %for.body81
 

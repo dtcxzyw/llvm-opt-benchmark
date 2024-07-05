@@ -333,28 +333,28 @@ entry:
 
 do.body:                                          ; preds = %entry, %do.end17
   %node.041 = phi ptr [ %node.0, %do.end17 ], [ %node.037, %entry ]
-  %next.040 = phi i64 [ %add, %do.end17 ], [ %0, %entry ]
-  %addr.039 = phi i64 [ %4, %do.end17 ], [ %spec.select, %entry ]
+  %addr.040 = phi i64 [ %4, %do.end17 ], [ %spec.select, %entry ]
+  %next.039 = phi i64 [ %add, %do.end17 ], [ %0, %entry ]
   %addr3 = getelementptr inbounds i8, ptr %node.041, i64 24
   %2 = load i64, ptr %addr3, align 8
-  %cmp4 = icmp sgt i64 %2, %addr.039
+  %cmp4 = icmp sgt i64 %2, %addr.040
   br i1 %cmp4, label %do.body6, label %if.else
 
 if.else:                                          ; preds = %do.body
   %conv = sitofp i64 %2 to x86_fp80
-  %conv5 = sitofp i64 %addr.039 to x86_fp80
+  %conv5 = sitofp i64 %addr.040 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %conv, ptr noundef nonnull @.str.15, x86_fp80 noundef %conv5, i8 noundef signext 105) #11
   %.pre = load i64, ptr %addr3, align 8
   br label %do.body6
 
 do.body6:                                         ; preds = %do.body, %if.else
   %3 = phi i64 [ %2, %do.body ], [ %.pre, %if.else ]
-  %cmp10.not = icmp slt i64 %3, %next.040
+  %cmp10.not = icmp slt i64 %3, %next.039
   br i1 %cmp10.not, label %if.else13, label %do.end17
 
 if.else13:                                        ; preds = %do.body6
   %conv14 = sitofp i64 %3 to x86_fp80
-  %conv15 = sitofp i64 %next.040 to x86_fp80
+  %conv15 = sitofp i64 %next.039 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %conv14, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv15, i8 noundef signext 105) #11
   %.pre47 = load i64, ptr %addr3, align 8
   br label %do.end17
@@ -384,28 +384,28 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 do.body33:                                        ; preds = %for.end, %do.end56
   %node.146 = phi ptr [ %node.1, %do.end56 ], [ %node.142, %for.end ]
-  %next.145 = phi i64 [ %add60, %do.end56 ], [ %6, %for.end ]
-  %addr.144 = phi i64 [ %10, %do.end56 ], [ %spec.select36.pre-phi, %for.end ]
+  %addr.145 = phi i64 [ %10, %do.end56 ], [ %spec.select36.pre-phi, %for.end ]
+  %next.144 = phi i64 [ %add60, %do.end56 ], [ %6, %for.end ]
   %addr35 = getelementptr inbounds i8, ptr %node.146, i64 24
   %8 = load i64, ptr %addr35, align 8
-  %cmp37 = icmp sgt i64 %8, %addr.144
+  %cmp37 = icmp sgt i64 %8, %addr.145
   br i1 %cmp37, label %do.body45, label %if.else40
 
 if.else40:                                        ; preds = %do.body33
   %conv41 = sitofp i64 %8 to x86_fp80
-  %conv42 = sitofp i64 %addr.144 to x86_fp80
+  %conv42 = sitofp i64 %addr.145 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %conv41, ptr noundef nonnull @.str.15, x86_fp80 noundef %conv42, i8 noundef signext 105) #11
   %.pre49 = load i64, ptr %addr35, align 8
   br label %do.body45
 
 do.body45:                                        ; preds = %do.body33, %if.else40
   %9 = phi i64 [ %8, %do.body33 ], [ %.pre49, %if.else40 ]
-  %cmp49.not = icmp slt i64 %9, %next.145
+  %cmp49.not = icmp slt i64 %9, %next.144
   br i1 %cmp49.not, label %if.else52, label %do.end56
 
 if.else52:                                        ; preds = %do.body45
   %conv53 = sitofp i64 %9 to x86_fp80
-  %conv54 = sitofp i64 %next.145 to x86_fp80
+  %conv54 = sitofp i64 %next.144 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %conv53, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv54, i8 noundef signext 105) #11
   %.pre50 = load i64, ptr %addr35, align 8
   br label %do.end56

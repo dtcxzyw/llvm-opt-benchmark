@@ -66,14 +66,14 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br i1 %7, label %.preheader37._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader37.preheader, %.preheader37
-  %.0324044 = phi ptr [ %8, %.preheader37 ], [ @rerrs, %.preheader37.preheader ]
-  %8 = getelementptr i8, ptr %.0324044, i64 24
+  %.04044 = phi ptr [ %8, %.preheader37 ], [ @rerrs, %.preheader37.preheader ]
+  %8 = getelementptr i8, ptr %.04044, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %.preheader37, label %.preheader37._crit_edge, !llvm.loop !5
 
 .preheader37:                                     ; preds = %.lr.ph
-  %11 = getelementptr i8, ptr %.0324044, i64 32
+  %11 = getelementptr i8, ptr %.04044, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %2) #6
   %14 = icmp eq i32 %13, 0
@@ -133,8 +133,8 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br label %41
 
 41:                                               ; preds = %36, %39, %25, %28, %.preheader37._crit_edge
-  %.0 = phi ptr [ %38, %36 ], [ %5, %39 ], [ %27, %25 ], [ %5, %28 ], [ %5, %.preheader37._crit_edge ]
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #6
+  %.032 = phi ptr [ %38, %36 ], [ %5, %39 ], [ %27, %25 ], [ %5, %28 ], [ %5, %.preheader37._crit_edge ]
+  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032) #6
   %43 = add i64 %42, 1
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %51, label %44
@@ -144,12 +144,12 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.0) #7
+  %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.032) #7
   br label %51
 
 48:                                               ; preds = %44
   %49 = add i64 %3, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %.0, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %.032, i64 %49, i1 false)
   %50 = getelementptr i8, ptr %2, i64 %49
   store i8 0, ptr %50, align 1
   br label %51

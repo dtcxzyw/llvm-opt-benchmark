@@ -415,13 +415,13 @@ if.else155.thread:                                ; preds = %if.end130
   br i1 %cmp160.not, label %if.else172, label %if.then161
 
 if.then161:                                       ; preds = %if.else101, %if.else155.thread
-  %mySourceChar.1114128238 = phi i32 [ %or100, %if.else155.thread ], [ %or108, %if.else101 ]
-  %shr = lshr i32 %mySourceChar.1114128238, 8
+  %mySourceChar.1113128238 = phi i32 [ %or100, %if.else155.thread ], [ %or108, %if.else101 ]
+  %shr = lshr i32 %mySourceChar.1113128238, 8
   %conv162 = trunc i32 %shr to i8
   %35 = load ptr, ptr %converter, align 8
   %toUBytes164 = getelementptr inbounds i8, ptr %35, i64 65
   store i8 %conv162, ptr %toUBytes164, align 1
-  %conv166 = trunc i32 %mySourceChar.1114128238 to i8
+  %conv166 = trunc i32 %mySourceChar.1113128238 to i8
   %36 = load ptr, ptr %converter, align 8
   %arrayidx169 = getelementptr inbounds i8, ptr %36, i64 66
   store i8 %conv166, ptr %arrayidx169, align 1
@@ -432,8 +432,8 @@ if.then161:                                       ; preds = %if.else101, %if.els
 
 if.else172:                                       ; preds = %if.else101, %if.else155.thread.thread, %if.else155.thread
   %mySource.3115127133 = phi ptr [ %incdec.ptr, %if.else155.thread.thread ], [ %incdec.ptr, %if.else155.thread ], [ %mySource.0178, %if.else101 ]
-  %mySourceChar.1114128132 = phi i32 [ %conv, %if.else155.thread.thread ], [ %or100, %if.else155.thread ], [ %and.le182, %if.else101 ]
-  %conv173 = trunc nuw i32 %mySourceChar.1114128132 to i8
+  %mySourceChar.1113128132 = phi i32 [ %conv, %if.else155.thread.thread ], [ %or100, %if.else155.thread ], [ %and.le182, %if.else101 ]
+  %conv173 = trunc nuw i32 %mySourceChar.1113128132 to i8
   %38 = load ptr, ptr %converter, align 8
   %toUBytes175 = getelementptr inbounds i8, ptr %38, i64 65
   store i8 %conv173, ptr %toUBytes175, align 1
@@ -501,11 +501,11 @@ while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheade
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end247
-  %isTargetUCharDBCS.0.ph175 = phi i8 [ %7, %while.body.lr.ph.lr.ph ], [ %conv62, %if.end247 ]
-  %myTargetIndex.0.ph174 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %myTargetIndex.10, %if.end247 ]
-  %mySourceIndex.0.ph173 = phi i64 [ 0, %while.body.lr.ph.lr.ph ], [ %indvars.iv.next, %if.end247 ]
-  %offsets.0.ph172 = phi ptr [ %2, %while.body.lr.ph.lr.ph ], [ %offsets.12, %if.end247 ]
-  %sext = shl i64 %mySourceIndex.0.ph173, 32
+  %offsets.0.ph175 = phi ptr [ %2, %while.body.lr.ph.lr.ph ], [ %offsets.12, %if.end247 ]
+  %mySourceIndex.0.ph174 = phi i64 [ 0, %while.body.lr.ph.lr.ph ], [ %indvars.iv.next, %if.end247 ]
+  %myTargetIndex.0.ph173 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %myTargetIndex.10, %if.end247 ]
+  %isTargetUCharDBCS.0.ph172 = phi i8 [ %7, %while.body.lr.ph.lr.ph ], [ %conv62, %if.end247 ]
+  %sext = shl i64 %mySourceIndex.0.ph174, 32
   %10 = ashr exact i64 %sext, 32
   br label %while.body
 
@@ -515,10 +515,10 @@ while.cond.loopexit:                              ; preds = %if.end35
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %indvars.iv = phi i64 [ %10, %while.body.lr.ph ], [ %indvars.iv.next, %while.cond.loopexit ]
-  %myTargetIndex.0157 = phi i32 [ %myTargetIndex.0.ph174, %while.body.lr.ph ], [ %myTargetIndex.2, %while.cond.loopexit ]
-  %offsets.0155 = phi ptr [ %offsets.0.ph172, %while.body.lr.ph ], [ %offsets.3, %while.cond.loopexit ]
+  %offsets.0157 = phi ptr [ %offsets.0.ph175, %while.body.lr.ph ], [ %offsets.3, %while.cond.loopexit ]
+  %myTargetIndex.0155 = phi i32 [ %myTargetIndex.0.ph173, %while.body.lr.ph ], [ %myTargetIndex.2, %while.cond.loopexit ]
   store i32 65535, ptr %targetUniChar, align 4
-  %cmp11 = icmp slt i32 %myTargetIndex.0157, %conv
+  %cmp11 = icmp slt i32 %myTargetIndex.0155, %conv
   br i1 %cmp11, label %if.then12, label %if.else246
 
 if.then12:                                        ; preds = %while.body
@@ -531,16 +531,16 @@ if.then12:                                        ; preds = %while.body
 
 while.body18:                                     ; preds = %if.then12, %if.end35
   %dec152 = phi i32 [ %dec, %if.end35 ], [ 1, %if.then12 ]
-  %escSeq.0151 = phi ptr [ %incdec.ptr36, %if.end35 ], [ @.str.1, %if.then12 ]
-  %myTargetIndex.1150 = phi i32 [ %myTargetIndex.2, %if.end35 ], [ %myTargetIndex.0157, %if.then12 ]
-  %offsets.1149 = phi ptr [ %offsets.3, %if.end35 ], [ %offsets.0155, %if.then12 ]
-  %cmp19 = icmp slt i32 %myTargetIndex.1150, %conv
-  %13 = load i8, ptr %escSeq.0151, align 1
+  %offsets.1151 = phi ptr [ %offsets.3, %if.end35 ], [ %offsets.0157, %if.then12 ]
+  %escSeq.0150 = phi ptr [ %incdec.ptr36, %if.end35 ], [ @.str.1, %if.then12 ]
+  %myTargetIndex.1149 = phi i32 [ %myTargetIndex.2, %if.end35 ], [ %myTargetIndex.0155, %if.then12 ]
+  %cmp19 = icmp slt i32 %myTargetIndex.1149, %conv
+  %13 = load i8, ptr %escSeq.0150, align 1
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %while.body18
   %14 = load ptr, ptr %target, align 8
-  %idxprom22 = sext i32 %myTargetIndex.1150 to i64
+  %idxprom22 = sext i32 %myTargetIndex.1149 to i64
   %arrayidx23 = getelementptr inbounds i8, ptr %14, i64 %idxprom22
   store i8 %13, ptr %arrayidx23, align 1
   %15 = load ptr, ptr %offsets1, align 8
@@ -548,13 +548,13 @@ if.then20:                                        ; preds = %while.body18
   br i1 %cmp25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.then20
-  %incdec.ptr = getelementptr inbounds i8, ptr %offsets.1149, i64 4
-  store i32 %12, ptr %offsets.1149, align 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %offsets.1151, i64 4
+  store i32 %12, ptr %offsets.1151, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.then20
-  %offsets.2 = phi ptr [ %incdec.ptr, %if.then26 ], [ %offsets.1149, %if.then20 ]
-  %inc28 = add nsw i32 %myTargetIndex.1150, 1
+  %offsets.2 = phi ptr [ %incdec.ptr, %if.then26 ], [ %offsets.1151, %if.then20 ]
+  %inc28 = add nsw i32 %myTargetIndex.1149, 1
   br label %if.end35
 
 if.else:                                          ; preds = %while.body18
@@ -571,9 +571,9 @@ if.else:                                          ; preds = %while.body18
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %if.end27
-  %offsets.3 = phi ptr [ %offsets.2, %if.end27 ], [ %offsets.1149, %if.else ]
-  %myTargetIndex.2 = phi i32 [ %inc28, %if.end27 ], [ %myTargetIndex.1150, %if.else ]
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %escSeq.0151, i64 1
+  %myTargetIndex.2 = phi i32 [ %inc28, %if.end27 ], [ %myTargetIndex.1149, %if.else ]
+  %offsets.3 = phi ptr [ %offsets.2, %if.end27 ], [ %offsets.1151, %if.else ]
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %escSeq.0150, i64 1
   %dec = add nsw i32 %dec152, -1
   %cmp17.not = icmp eq i32 %dec152, 0
   br i1 %cmp17.not, label %while.cond.loopexit, label %while.body18, !llvm.loop !6
@@ -626,7 +626,7 @@ if.then60:                                        ; preds = %if.end58
   %cmp61 = icmp ugt i32 %storemerge, 255
   %conv62 = zext i1 %cmp61 to i8
   store i8 %conv62, ptr %isTargetUCharDBCS7, align 2
-  %conv64 = sext i8 %isTargetUCharDBCS.0.ph175 to i32
+  %conv64 = sext i8 %isTargetUCharDBCS.0.ph172 to i32
   %conv65 = zext i1 %cmp61 to i32
   %cmp66.not = icmp eq i32 %conv64, %conv65
   br i1 %cmp66.not, label %lor.lhs.false, label %if.then67
@@ -641,16 +641,16 @@ if.then67:                                        ; preds = %lor.lhs.false, %if.
 
 while.body74:                                     ; preds = %if.then67, %if.end96
   %dec72166 = phi i32 [ %dec72, %if.end96 ], [ 1, %if.then67 ]
-  %escSeq.1165 = phi ptr [ %incdec.ptr97, %if.end96 ], [ @.str.2, %if.then67 ]
-  %myTargetIndex.3164 = phi i32 [ %myTargetIndex.4, %if.end96 ], [ %myTargetIndex.0157, %if.then67 ]
-  %offsets.4163 = phi ptr [ %offsets.6, %if.end96 ], [ %offsets.0155, %if.then67 ]
-  %cmp75 = icmp slt i32 %myTargetIndex.3164, %conv
-  %25 = load i8, ptr %escSeq.1165, align 1
+  %offsets.4165 = phi ptr [ %offsets.6, %if.end96 ], [ %offsets.0157, %if.then67 ]
+  %escSeq.1164 = phi ptr [ %incdec.ptr97, %if.end96 ], [ @.str.2, %if.then67 ]
+  %myTargetIndex.3163 = phi i32 [ %myTargetIndex.4, %if.end96 ], [ %myTargetIndex.0155, %if.then67 ]
+  %cmp75 = icmp slt i32 %myTargetIndex.3163, %conv
+  %25 = load i8, ptr %escSeq.1164, align 1
   br i1 %cmp75, label %if.then76, label %if.else87
 
 if.then76:                                        ; preds = %while.body74
   %26 = load ptr, ptr %target, align 8
-  %idxprom78 = sext i32 %myTargetIndex.3164 to i64
+  %idxprom78 = sext i32 %myTargetIndex.3163 to i64
   %arrayidx79 = getelementptr inbounds i8, ptr %26, i64 %idxprom78
   store i8 %25, ptr %arrayidx79, align 1
   %27 = load ptr, ptr %offsets1, align 8
@@ -658,13 +658,13 @@ if.then76:                                        ; preds = %while.body74
   br i1 %cmp81.not, label %if.end85, label %if.then82
 
 if.then82:                                        ; preds = %if.then76
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %offsets.4163, i64 4
-  store i32 %12, ptr %offsets.4163, align 4
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %offsets.4165, i64 4
+  store i32 %12, ptr %offsets.4165, align 4
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then82, %if.then76
-  %offsets.5 = phi ptr [ %incdec.ptr84, %if.then82 ], [ %offsets.4163, %if.then76 ]
-  %inc86 = add nsw i32 %myTargetIndex.3164, 1
+  %offsets.5 = phi ptr [ %incdec.ptr84, %if.then82 ], [ %offsets.4165, %if.then76 ]
+  %inc86 = add nsw i32 %myTargetIndex.3163, 1
   br label %if.end96
 
 if.else87:                                        ; preds = %while.body74
@@ -681,25 +681,25 @@ if.else87:                                        ; preds = %while.body74
   br label %if.end96
 
 if.end96:                                         ; preds = %if.else87, %if.end85
-  %offsets.6 = phi ptr [ %offsets.5, %if.end85 ], [ %offsets.4163, %if.else87 ]
-  %myTargetIndex.4 = phi i32 [ %inc86, %if.end85 ], [ %myTargetIndex.3164, %if.else87 ]
-  %incdec.ptr97 = getelementptr inbounds i8, ptr %escSeq.1165, i64 1
+  %myTargetIndex.4 = phi i32 [ %inc86, %if.end85 ], [ %myTargetIndex.3163, %if.else87 ]
+  %offsets.6 = phi ptr [ %offsets.5, %if.end85 ], [ %offsets.4165, %if.else87 ]
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %escSeq.1164, i64 1
   %dec72 = add nsw i32 %dec72166, -1
   %cmp73.not = icmp eq i32 %dec72166, 0
   br i1 %cmp73.not, label %if.end134.sink.split, label %while.body74, !llvm.loop !7
 
 while.body106:                                    ; preds = %if.then67, %if.end128
   %dec104170 = phi i32 [ %dec104, %if.end128 ], [ 1, %if.then67 ]
-  %escSeq.2169 = phi ptr [ %incdec.ptr129, %if.end128 ], [ @.str.3, %if.then67 ]
-  %myTargetIndex.5168 = phi i32 [ %myTargetIndex.6, %if.end128 ], [ %myTargetIndex.0157, %if.then67 ]
-  %offsets.7167 = phi ptr [ %offsets.9, %if.end128 ], [ %offsets.0155, %if.then67 ]
-  %cmp107 = icmp slt i32 %myTargetIndex.5168, %conv
-  %30 = load i8, ptr %escSeq.2169, align 1
+  %offsets.7169 = phi ptr [ %offsets.9, %if.end128 ], [ %offsets.0157, %if.then67 ]
+  %escSeq.2168 = phi ptr [ %incdec.ptr129, %if.end128 ], [ @.str.3, %if.then67 ]
+  %myTargetIndex.5167 = phi i32 [ %myTargetIndex.6, %if.end128 ], [ %myTargetIndex.0155, %if.then67 ]
+  %cmp107 = icmp slt i32 %myTargetIndex.5167, %conv
+  %30 = load i8, ptr %escSeq.2168, align 1
   br i1 %cmp107, label %if.then108, label %if.else119
 
 if.then108:                                       ; preds = %while.body106
   %31 = load ptr, ptr %target, align 8
-  %idxprom110 = sext i32 %myTargetIndex.5168 to i64
+  %idxprom110 = sext i32 %myTargetIndex.5167 to i64
   %arrayidx111 = getelementptr inbounds i8, ptr %31, i64 %idxprom110
   store i8 %30, ptr %arrayidx111, align 1
   %32 = load ptr, ptr %offsets1, align 8
@@ -707,13 +707,13 @@ if.then108:                                       ; preds = %while.body106
   br i1 %cmp113.not, label %if.end117, label %if.then114
 
 if.then114:                                       ; preds = %if.then108
-  %incdec.ptr116 = getelementptr inbounds i8, ptr %offsets.7167, i64 4
-  store i32 %12, ptr %offsets.7167, align 4
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %offsets.7169, i64 4
+  store i32 %12, ptr %offsets.7169, align 4
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then114, %if.then108
-  %offsets.8 = phi ptr [ %incdec.ptr116, %if.then114 ], [ %offsets.7167, %if.then108 ]
-  %inc118 = add nsw i32 %myTargetIndex.5168, 1
+  %offsets.8 = phi ptr [ %incdec.ptr116, %if.then114 ], [ %offsets.7169, %if.then108 ]
+  %inc118 = add nsw i32 %myTargetIndex.5167, 1
   br label %if.end128
 
 if.else119:                                       ; preds = %while.body106
@@ -730,22 +730,22 @@ if.else119:                                       ; preds = %while.body106
   br label %if.end128
 
 if.end128:                                        ; preds = %if.else119, %if.end117
-  %offsets.9 = phi ptr [ %offsets.8, %if.end117 ], [ %offsets.7167, %if.else119 ]
-  %myTargetIndex.6 = phi i32 [ %inc118, %if.end117 ], [ %myTargetIndex.5168, %if.else119 ]
-  %incdec.ptr129 = getelementptr inbounds i8, ptr %escSeq.2169, i64 1
+  %myTargetIndex.6 = phi i32 [ %inc118, %if.end117 ], [ %myTargetIndex.5167, %if.else119 ]
+  %offsets.9 = phi ptr [ %offsets.8, %if.end117 ], [ %offsets.7169, %if.else119 ]
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %escSeq.2168, i64 1
   %dec104 = add nsw i32 %dec104170, -1
   %cmp105.not = icmp eq i32 %dec104170, 0
   br i1 %cmp105.not, label %if.end134.sink.split, label %while.body106, !llvm.loop !8
 
 if.end134.sink.split:                             ; preds = %if.end96, %if.end128
-  %offsets.10.ph = phi ptr [ %offsets.9, %if.end128 ], [ %offsets.6, %if.end96 ]
   %myTargetIndex.7.ph = phi i32 [ %myTargetIndex.6, %if.end128 ], [ %myTargetIndex.4, %if.end96 ]
+  %offsets.10.ph = phi ptr [ %offsets.9, %if.end128 ], [ %offsets.6, %if.end96 ]
   store i8 1, ptr %isEscapeAppended, align 8
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end134.sink.split, %lor.lhs.false
-  %offsets.10 = phi ptr [ %offsets.0155, %lor.lhs.false ], [ %offsets.10.ph, %if.end134.sink.split ]
-  %myTargetIndex.7 = phi i32 [ %myTargetIndex.0157, %lor.lhs.false ], [ %myTargetIndex.7.ph, %if.end134.sink.split ]
+  %myTargetIndex.7 = phi i32 [ %myTargetIndex.0155, %lor.lhs.false ], [ %myTargetIndex.7.ph, %if.end134.sink.split ]
+  %offsets.10 = phi ptr [ %offsets.0157, %lor.lhs.false ], [ %offsets.10.ph, %if.end134.sink.split ]
   %cmp137 = icmp slt i32 %myTargetIndex.7, %conv
   %35 = load i32, ptr %targetUniChar, align 4
   br i1 %cmp61, label %if.then136, label %if.else188
@@ -879,10 +879,10 @@ if.then216:                                       ; preds = %if.then213
   br label %getTrail
 
 getTrail:                                         ; preds = %entry, %if.then216
-  %mySourceIndex.1 = phi i32 [ %18, %if.then216 ], [ 0, %entry ]
-  %myTargetIndex.8 = phi i32 [ %myTargetIndex.0157, %if.then216 ], [ 0, %entry ]
   %mySourceChar.0 = phi i32 [ %conv13.le, %if.then216 ], [ 0, %entry ]
-  %isTargetUCharDBCS.1 = phi i8 [ %isTargetUCharDBCS.0.ph175, %if.then216 ], [ %7, %entry ]
+  %isTargetUCharDBCS.1 = phi i8 [ %isTargetUCharDBCS.0.ph172, %if.then216 ], [ %7, %entry ]
+  %myTargetIndex.8 = phi i32 [ %myTargetIndex.0155, %if.then216 ], [ 0, %entry ]
+  %mySourceIndex.1 = phi i32 [ %18, %if.then216 ], [ 0, %entry ]
   %cmp219 = icmp slt i32 %mySourceIndex.1, %conv6
   br i1 %cmp219, label %if.then220, label %if.end242
 
@@ -909,10 +909,10 @@ if.then227:                                       ; preds = %if.then220
 
 if.end242:                                        ; preds = %if.else211, %if.then213, %getTrail, %if.then220, %if.then227
   %.sink = phi i32 [ 10, %if.then227 ], [ 12, %if.then220 ], [ 0, %getTrail ], [ 12, %if.then213 ], [ 10, %if.else211 ]
-  %mySourceIndex.2 = phi i32 [ %inc228, %if.then227 ], [ %mySourceIndex.1, %if.then220 ], [ %mySourceIndex.1, %getTrail ], [ %18, %if.then213 ], [ %18, %if.else211 ]
-  %myTargetIndex.9 = phi i32 [ %myTargetIndex.8, %if.then227 ], [ %myTargetIndex.8, %if.then220 ], [ %myTargetIndex.8, %getTrail ], [ %myTargetIndex.0157, %if.then213 ], [ %myTargetIndex.0157, %if.else211 ]
   %mySourceChar.1 = phi i32 [ %sub232, %if.then227 ], [ %mySourceChar.0, %if.then220 ], [ %mySourceChar.0, %getTrail ], [ %conv13.le, %if.then213 ], [ %conv13.le, %if.else211 ]
-  %isTargetUCharDBCS.2 = phi i8 [ %isTargetUCharDBCS.1, %if.then227 ], [ %isTargetUCharDBCS.1, %if.then220 ], [ %isTargetUCharDBCS.1, %getTrail ], [ %isTargetUCharDBCS.0.ph175, %if.then213 ], [ %isTargetUCharDBCS.0.ph175, %if.else211 ]
+  %isTargetUCharDBCS.2 = phi i8 [ %isTargetUCharDBCS.1, %if.then227 ], [ %isTargetUCharDBCS.1, %if.then220 ], [ %isTargetUCharDBCS.1, %getTrail ], [ %isTargetUCharDBCS.0.ph172, %if.then213 ], [ %isTargetUCharDBCS.0.ph172, %if.else211 ]
+  %myTargetIndex.9 = phi i32 [ %myTargetIndex.8, %if.then227 ], [ %myTargetIndex.8, %if.then220 ], [ %myTargetIndex.8, %getTrail ], [ %myTargetIndex.0155, %if.then213 ], [ %myTargetIndex.0155, %if.else211 ]
+  %mySourceIndex.2 = phi i32 [ %inc228, %if.then227 ], [ %mySourceIndex.1, %if.then220 ], [ %mySourceIndex.1, %getTrail ], [ %18, %if.then213 ], [ %18, %if.else211 ]
   store i32 %.sink, ptr %err, align 4
   %51 = load ptr, ptr %converter, align 8
   %fromUChar32244 = getelementptr inbounds i8, ptr %51, i64 84
@@ -925,8 +925,8 @@ if.else246:                                       ; preds = %while.body
   br label %while.end248
 
 if.end247:                                        ; preds = %if.then149.thread, %if.else200, %if.then196, %if.then190, %if.else169, %if.then155, %if.else159
-  %offsets.12 = phi ptr [ %incdec.ptr157, %if.then155 ], [ %offsets.11126, %if.else159 ], [ %offsets.10, %if.else169 ], [ %incdec.ptr198, %if.then196 ], [ null, %if.then190 ], [ %offsets.10, %if.else200 ], [ null, %if.then149.thread ]
   %myTargetIndex.10 = phi i32 [ %inc151, %if.then155 ], [ %inc140, %if.else159 ], [ %myTargetIndex.7, %if.else169 ], [ %inc192, %if.then196 ], [ %inc192, %if.then190 ], [ %myTargetIndex.7, %if.else200 ], [ %inc151129, %if.then149.thread ]
+  %offsets.12 = phi ptr [ %incdec.ptr157, %if.then155 ], [ %offsets.11126, %if.else159 ], [ %offsets.10, %if.else169 ], [ %incdec.ptr198, %if.then196 ], [ null, %if.then190 ], [ %offsets.10, %if.else200 ], [ null, %if.then149.thread ]
   store i32 65535, ptr %targetUniChar, align 4
   %cmp10154 = icmp slt i32 %18, %conv6
   br i1 %cmp10154, label %while.body.lr.ph, label %while.end248, !llvm.loop !9
@@ -936,9 +936,9 @@ while.end248.loopexit:                            ; preds = %while.cond.loopexit
   br label %while.end248
 
 while.end248:                                     ; preds = %if.end247, %while.end248.loopexit, %while.cond.preheader, %if.else246, %if.end242
+  %isTargetUCharDBCS.3 = phi i8 [ %isTargetUCharDBCS.2, %if.end242 ], [ %isTargetUCharDBCS.0.ph172, %if.else246 ], [ %7, %while.cond.preheader ], [ %isTargetUCharDBCS.0.ph172, %while.end248.loopexit ], [ %conv62, %if.end247 ]
+  %myTargetIndex.11 = phi i32 [ %myTargetIndex.9, %if.end242 ], [ %myTargetIndex.0155, %if.else246 ], [ 0, %while.cond.preheader ], [ %myTargetIndex.2, %while.end248.loopexit ], [ %myTargetIndex.10, %if.end247 ]
   %mySourceIndex.3 = phi i32 [ %mySourceIndex.2, %if.end242 ], [ %52, %if.else246 ], [ 0, %while.cond.preheader ], [ %53, %while.end248.loopexit ], [ %18, %if.end247 ]
-  %myTargetIndex.11 = phi i32 [ %myTargetIndex.9, %if.end242 ], [ %myTargetIndex.0157, %if.else246 ], [ 0, %while.cond.preheader ], [ %myTargetIndex.2, %while.end248.loopexit ], [ %myTargetIndex.10, %if.end247 ]
-  %isTargetUCharDBCS.3 = phi i8 [ %isTargetUCharDBCS.2, %if.end242 ], [ %isTargetUCharDBCS.0.ph175, %if.else246 ], [ %7, %while.cond.preheader ], [ %isTargetUCharDBCS.0.ph175, %while.end248.loopexit ], [ %conv62, %if.end247 ]
   %54 = load ptr, ptr %target, align 8
   %idx.ext = sext i32 %myTargetIndex.11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %54, i64 %idx.ext

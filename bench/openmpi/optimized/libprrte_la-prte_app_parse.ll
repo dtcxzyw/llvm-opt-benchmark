@@ -436,11 +436,11 @@ pmix_cmd_line_get_param.exit220:                  ; preds = %.lr.ph.i215
   br label %114
 
 114:                                              ; preds = %112, %110
-  %.0144 = phi ptr [ %111, %110 ], [ %113, %112 ]
+  %.0146 = phi ptr [ %111, %110 ], [ %113, %112 ]
   %115 = load ptr, ptr %75, align 8
   %116 = load ptr, ptr %115, align 8
-  %117 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %.0144, ptr noundef %116, ptr noundef null) #13
-  call void @free(ptr noundef %.0144) #13
+  %117 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %.0146, ptr noundef %116, ptr noundef null) #13
+  call void @free(ptr noundef %.0146) #13
   %118 = load ptr, ptr %75, align 8
   %119 = load ptr, ptr %118, align 8
   call void @free(ptr noundef %119) #13
@@ -919,7 +919,7 @@ pmix_cmd_line_get_param.exit292.thread:           ; preds = %300, %pmix_cmd_line
   br i1 %.not22.i, label %.thread33, label %.thread24
 
 .thread24:                                        ; preds = %318, %316, %309, %325
-  %.014528 = phi i32 [ %98, %325 ], [ %323, %318 ], [ %317, %316 ], [ -13, %309 ]
+  %.014728 = phi i32 [ %98, %325 ], [ %323, %318 ], [ %317, %316 ], [ -13, %309 ]
   %327 = call i32 @pthread_mutex_lock(ptr noundef nonnull %56) #13
   %328 = icmp eq i32 %327, 35
   br i1 %328, label %329, label %331
@@ -974,7 +974,7 @@ pmix_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %337
   br label %.thread33
 
 .thread33:                                        ; preds = %50, %324, %325, %331, %350, %348
-  %.014529 = phi i32 [ %98, %325 ], [ %.014528, %331 ], [ %.014528, %350 ], [ %.014528, %348 ], [ -13, %50 ], [ 0, %324 ]
+  %.014729 = phi i32 [ %98, %325 ], [ %.014728, %331 ], [ %.014728, %350 ], [ %.014728, %348 ], [ -13, %50 ], [ 0, %324 ]
   %351 = load ptr, ptr %14, align 8
   %352 = getelementptr inbounds i8, ptr %351, i64 48
   %353 = load ptr, ptr %352, align 8
@@ -992,8 +992,8 @@ pmix_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %337
   br i1 %.not.i302, label %pmix_obj_run_destructors.exit, label %.lr.ph.i300, !llvm.loop !7
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i206, %.lr.ph.i300, %.lr.ph.i202, %.thread33, %42, %30, %277
-  %.0147 = phi i32 [ -6, %277 ], [ %24, %30 ], [ %41, %42 ], [ %.014529, %.thread33 ], [ %24, %.lr.ph.i202 ], [ %.014529, %.lr.ph.i300 ], [ %41, %.lr.ph.i206 ]
-  ret i32 %.0147
+  %.0143 = phi i32 [ -6, %277 ], [ %24, %30 ], [ %41, %42 ], [ %.014729, %.thread33 ], [ %24, %.lr.ph.i202 ], [ %.014729, %.lr.ph.i300 ], [ %41, %.lr.ph.i206 ]
+  ret i32 %.0143
 }
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1

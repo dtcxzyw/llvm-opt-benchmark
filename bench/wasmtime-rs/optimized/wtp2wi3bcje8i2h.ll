@@ -208,8 +208,8 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
   br label %11
 
 11:                                               ; preds = %1, %5, %8
-  %.sroa.35.0 = phi i16 [ %9, %8 ], [ undef, %5 ], [ undef, %1 ]
   %.sroa.04.0 = phi i16 [ 1, %8 ], [ 0, %5 ], [ 0, %1 ]
+  %.sroa.35.0 = phi i16 [ %9, %8 ], [ undef, %5 ], [ undef, %1 ]
   %.sroa.46.0 = phi i16 [ %10, %8 ], [ undef, %5 ], [ undef, %1 ]
   %.sroa.46.0.insert.ext = zext i16 %.sroa.46.0 to i48
   %.sroa.46.0.insert.shift = shl nuw i48 %.sroa.46.0.insert.ext, 32

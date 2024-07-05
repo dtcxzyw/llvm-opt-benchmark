@@ -2932,16 +2932,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %140
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02333, 7
+  %53 = shl nuw i64 %.033, 7
   br label %54
 
 54:                                               ; preds = %49, %138
-  %.031 = phi i64 [ 0, %49 ], [ %139, %138 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
+  %.02331 = phi i64 [ 0, %49 ], [ %139, %138 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %138, label %57
@@ -3002,7 +3002,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !4
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.031, %53
+  %102 = add nuw nsw i64 %.02331, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit
 
@@ -3083,12 +3083,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
   br label %138
 
 138:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
-  %139 = add nuw nsw i64 %.031, 1
+  %139 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %139, 128
   br i1 %exitcond.not, label %140, label %54, !llvm.loop !14
 
 140:                                              ; preds = %138
-  %141 = add nuw nsw i64 %.02333, 1
+  %141 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %141, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !15
 
@@ -3178,14 +3178,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02333
+  %.02233 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02233
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %121
-  %.02232 = phi i64 [ 0, %40 ], [ %122, %121 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02232
+  %.02332 = phi i64 [ 0, %40 ], [ %122, %121 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02332
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %121, label %46
@@ -3322,7 +3322,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
   br label %121
 
 121:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit
-  %122 = add nuw nsw i64 %.02232, 1
+  %122 = add nuw nsw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %122, 128
   br i1 %exitcond.not, label %123, label %43, !llvm.loop !16
 
@@ -3337,7 +3337,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE6insertEm.exit: ; preds = 
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE8freeDataEv.exit: ; preds = %123, %125
-  %126 = add nuw nsw i64 %.02333, 1
+  %126 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %126, %38
   br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !17
 

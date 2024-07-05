@@ -563,7 +563,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
 215:                                              ; preds = %278, %.lr.ph87.i
   %216 = phi i32 [ %210, %.lr.ph87.i ], [ %279, %278 ]
   %.06285.i = phi ptr [ %213, %.lr.ph87.i ], [ %283, %278 ]
-  %.06884.i = phi i32 [ 0, %.lr.ph87.i ], [ %284, %278 ]
+  %.06484.i = phi i32 [ 0, %.lr.ph87.i ], [ %284, %278 ]
   %217 = load i32, ptr %.06285.i, align 4
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds i32, ptr %75, i64 %218
@@ -618,7 +618,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
 
 .lr.ph.i:                                         ; preds = %234, %.lr.ph.i
   %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %.lr.ph.i ], [ 0, %234 ]
-  %.06377.i = phi i1 [ %.164.i, %.lr.ph.i ], [ true, %234 ]
+  %.06577.i = phi i1 [ %.166.i, %.lr.ph.i ], [ true, %234 ]
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
   %235 = getelementptr inbounds i32, ptr %.06285.i, i64 %indvars.iv.next.i56
   %236 = load i32, ptr %235, align 4
@@ -626,12 +626,12 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   %238 = getelementptr inbounds %struct.t_atom, ptr %202, i64 %237
   %239 = load float, ptr %238, align 4
   %240 = fcmp uge float %239, 1.500000e+00
-  %.164.i = select i1 %240, i1 %.06377.i, i1 false
+  %.166.i = select i1 %240, i1 %.06577.i, i1 false
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i53
   br i1 %exitcond.not.i57, label %.loopexit75.i, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit75.i:                                    ; preds = %.lr.ph.i, %234
-  %.2.i54 = phi i1 [ true, %234 ], [ %.164.i, %.lr.ph.i ]
+  %.2.i54 = phi i1 [ true, %234 ], [ %.166.i, %.lr.ph.i ]
   br i1 %204, label %.loopexit.i, label %.lr.ph80.i
 
 .lr.ph80.i:                                       ; preds = %.loopexit75.i, %253
@@ -719,7 +719,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
   %281 = add nsw i32 %280, 1
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i32, ptr %.06285.i, i64 %282
-  %284 = add nsw i32 %281, %.06884.i
+  %284 = add nsw i32 %281, %.06484.i
   %285 = icmp slt i32 %284, %279
   br i1 %285, label %215, label %._crit_edge88.i, !llvm.loop !14
 

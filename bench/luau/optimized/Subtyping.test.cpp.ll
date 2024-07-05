@@ -4239,10 +4239,10 @@ define dso_local noundef zeroext i1 @_ZN4LuaueqERKNS_12DenseHashSetINS_18Subtypi
 
 24:                                               ; preds = %30, %20
   %.pn.i.i = phi i64 [ %23, %20 ], [ %32, %30 ]
-  %.019.i.i = phi i64 [ 0, %20 ], [ %31, %30 ]
-  %.01520.i.i = and i64 %.pn.i.i, %22
+  %.01519.i.i = phi i64 [ 0, %20 ], [ %31, %30 ]
+  %.01620.i.i = and i64 %.pn.i.i, %22
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds %"struct.Luau::SubtypingReasoning", ptr %25, i64 %.01520.i.i
+  %26 = getelementptr inbounds %"struct.Luau::SubtypingReasoning", ptr %25, i64 %.01620.i.i
   %27 = tail call noundef zeroext i1 @_ZNK4Luau18SubtypingReasoningeqERKS0_(ptr noundef nonnull align 8 dereferenceable(52) %26, ptr noundef nonnull align 8 dereferenceable(52) %.sroa.08.015)
   br i1 %27, label %_ZNK4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EE8containsERKS1_.exit, label %28
 
@@ -4251,8 +4251,8 @@ define dso_local noundef zeroext i1 @_ZN4LuaueqERKNS_12DenseHashSetINS_18Subtypi
   br i1 %29, label %_ZNK4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EE8containsERKS1_.exit.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = add i64 %.019.i.i, 1
-  %32 = add i64 %31, %.01520.i.i
+  %31 = add i64 %.01519.i.i, 1
+  %32 = add i64 %31, %.01620.i.i
   %.not.i.i = icmp ugt i64 %31, %22
   br i1 %.not.i.i, label %_ZNK4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EE8containsERKS1_.exit.thread, label %24, !llvm.loop !7
 
@@ -45385,9 +45385,9 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11661fEvEU
 
 240:                                              ; preds = %252, %225
   %.pn.i.i.i = phi i64 [ %238, %225 ], [ %254, %252 ]
-  %.019.i.i.i = phi i64 [ 0, %225 ], [ %253, %252 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %228
-  %241 = getelementptr inbounds %"struct.std::pair.641", ptr %239, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %225 ], [ %253, %252 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %228
+  %241 = getelementptr inbounds %"struct.std::pair.641", ptr %239, i64 %.01620.i.i.i
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, %212
   %244 = getelementptr inbounds i8, ptr %241, i64 8
@@ -45403,15 +45403,15 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11661fEvEU
   br i1 %251, label %_ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit.i, label %252
 
 252:                                              ; preds = %248
-  %253 = add i64 %.019.i.i.i, 1
-  %254 = add i64 %253, %.01520.i.i.i
+  %253 = add i64 %.01519.i.i.i, 1
+  %254 = add i64 %253, %.01620.i.i.i
   %.not.i.i75.i = icmp ugt i64 %253, %228
   br i1 %.not.i.i75.i, label %_ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit.i, label %240, !llvm.loop !474
 
 _ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit.i: ; preds = %252, %248, %240, %217, %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11661fEvEUlPSoE_ED2Ev.exit.i
-  %.016.i.i.i = phi ptr [ null, %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11661fEvEUlPSoE_ED2Ev.exit.i ], [ null, %217 ], [ %241, %240 ], [ null, %248 ], [ null, %252 ]
-  %.not.i.i = icmp eq ptr %.016.i.i.i, null
-  %255 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 16
+  %.0.i.i.i = phi ptr [ null, %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11661fEvEUlPSoE_ED2Ev.exit.i ], [ null, %217 ], [ %241, %240 ], [ null, %248 ], [ null, %252 ]
+  %.not.i.i = icmp eq ptr %.0.i.i.i, null
+  %255 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   %256 = select i1 %.not.i.i, ptr null, ptr %255
   store ptr %256, ptr %20, align 8
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull @.str)
@@ -45652,9 +45652,9 @@ _ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePai
 
 349:                                              ; preds = %361, %334
   %.pn.i.i78.i = phi i64 [ %347, %334 ], [ %363, %361 ]
-  %.019.i.i79.i = phi i64 [ 0, %334 ], [ %362, %361 ]
-  %.01520.i.i80.i = and i64 %.pn.i.i78.i, %337
-  %350 = getelementptr inbounds %"struct.std::pair.641", ptr %348, i64 %.01520.i.i80.i
+  %.01519.i.i79.i = phi i64 [ 0, %334 ], [ %362, %361 ]
+  %.01620.i.i80.i = and i64 %.pn.i.i78.i, %337
+  %350 = getelementptr inbounds %"struct.std::pair.641", ptr %348, i64 %.01620.i.i80.i
   %351 = load ptr, ptr %350, align 8
   %352 = icmp eq ptr %351, %322
   %353 = getelementptr inbounds i8, ptr %350, i64 8
@@ -45670,15 +45670,15 @@ _ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePai
   br i1 %360, label %_ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit84.i, label %361
 
 361:                                              ; preds = %357
-  %362 = add i64 %.019.i.i79.i, 1
-  %363 = add i64 %362, %.01520.i.i80.i
+  %362 = add i64 %.01519.i.i79.i, 1
+  %363 = add i64 %362, %.01620.i.i80.i
   %.not.i.i81.i = icmp ugt i64 %362, %337
   br i1 %.not.i.i81.i, label %_ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit84.i, label %349, !llvm.loop !474
 
 _ZNK4Luau12DenseHashMapISt4pairIPKNS_4TypeES4_ENS_15SubtypingResultENS_12TypePairHashESt8equal_toIS5_EE4findERKS5_.exit84.i: ; preds = %361, %357, %349, %326, %318
-  %.016.i.i82.i = phi ptr [ null, %318 ], [ null, %326 ], [ %350, %349 ], [ null, %357 ], [ null, %361 ]
-  %.not.i83.i = icmp eq ptr %.016.i.i82.i, null
-  %364 = getelementptr inbounds i8, ptr %.016.i.i82.i, i64 16
+  %.0.i.i82.i = phi ptr [ null, %318 ], [ null, %326 ], [ %350, %349 ], [ null, %357 ], [ null, %361 ]
+  %.not.i83.i = icmp eq ptr %.0.i.i82.i, null
+  %364 = getelementptr inbounds i8, ptr %.0.i.i82.i, i64 16
   %365 = select i1 %.not.i83.i, ptr null, ptr %364
   store ptr %365, ptr %20, align 8
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull @.str)
@@ -46815,9 +46815,9 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11781fEvEU
 
 211:                                              ; preds = %223, %196
   %.pn.i.i.i = phi i64 [ %209, %196 ], [ %225, %223 ]
-  %.019.i.i.i = phi i64 [ 0, %196 ], [ %224, %223 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %199
-  %212 = getelementptr inbounds %"struct.std::pair.641", ptr %210, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %196 ], [ %224, %223 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %199
+  %212 = getelementptr inbounds %"struct.std::pair.641", ptr %210, i64 %.01620.i.i.i
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, %183
   %215 = getelementptr inbounds i8, ptr %212, i64 8
@@ -46833,17 +46833,17 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_123DOCTEST_ANON_CLASS_11781fEvEU
   br i1 %222, label %.loopexit.i, label %223
 
 223:                                              ; preds = %219
-  %224 = add i64 %.019.i.i.i, 1
-  %225 = add i64 %224, %.01520.i.i.i
+  %224 = add i64 %.01519.i.i.i, 1
+  %225 = add i64 %224, %.01620.i.i.i
   %.not.i.i58.i = icmp ugt i64 %224, %199
   br i1 %.not.i.i58.i, label %.loopexit.i, label %211, !llvm.loop !474
 
 .loopexit.i:                                      ; preds = %223, %219, %211, %188, %181
-  %.016.i.i.i = phi i64 [ 1, %181 ], [ 1, %188 ], [ 0, %211 ], [ 1, %219 ], [ 1, %223 ]
+  %.0.i.i.i = phi i64 [ 1, %181 ], [ 1, %188 ], [ 0, %211 ], [ 1, %219 ], [ 1, %223 ]
   %226 = load i32, ptr %26, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %226 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %25, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %24, ptr noundef nonnull align 4 dereferenceable(8) %25)
           to label %227 unwind label %235

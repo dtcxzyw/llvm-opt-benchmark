@@ -579,10 +579,10 @@ define void @Abc_FlowRetime_PrintInitStateInfo(ptr nocapture noundef readonly %0
 
 8:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %23 ]
-  %.01741 = phi i32 [ 0, %.lr.ph ], [ %.118, %23 ]
-  %.01940 = phi i32 [ 0, %.lr.ph ], [ %.120, %23 ]
-  %.02139 = phi i32 [ 0, %.lr.ph ], [ %.122, %23 ]
+  %.01741 = phi i32 [ 0, %.lr.ph ], [ %.1, %23 ]
+  %.01840 = phi i32 [ 0, %.lr.ph ], [ %.119, %23 ]
+  %.02039 = phi i32 [ 0, %.lr.ph ], [ %.121, %23 ]
+  %.02238 = phi i32 [ 0, %.lr.ph ], [ %.123, %23 ]
   %9 = getelementptr inbounds ptr, ptr %.val28.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 20
@@ -602,32 +602,32 @@ define void @Abc_FlowRetime_PrintInitStateInfo(ptr nocapture noundef readonly %0
   ]
 
 15:                                               ; preds = %13
-  %16 = add nsw i32 %.02139, 1
+  %16 = add nsw i32 %.02238, 1
   br label %23
 
 17:                                               ; preds = %13
-  %18 = add nsw i32 %.01940, 1
+  %18 = add nsw i32 %.02039, 1
   br label %23
 
 19:                                               ; preds = %13
-  %20 = add nsw i32 %.01741, 1
+  %20 = add nsw i32 %.01840, 1
   br label %23
 
 21:                                               ; preds = %13
-  %22 = add nsw i32 %.042, 1
+  %22 = add nsw i32 %.01741, 1
   br label %23
 
 23:                                               ; preds = %8, %17, %21, %19, %15
-  %.122 = phi i32 [ %16, %15 ], [ %.02139, %17 ], [ %.02139, %19 ], [ %.02139, %21 ], [ %.02139, %8 ]
-  %.120 = phi i32 [ %.01940, %15 ], [ %18, %17 ], [ %.01940, %19 ], [ %.01940, %21 ], [ %.01940, %8 ]
-  %.118 = phi i32 [ %.01741, %15 ], [ %.01741, %17 ], [ %20, %19 ], [ %.01741, %21 ], [ %.01741, %8 ]
-  %.1 = phi i32 [ %.042, %15 ], [ %.042, %17 ], [ %.042, %19 ], [ %22, %21 ], [ %.042, %8 ]
+  %.123 = phi i32 [ %16, %15 ], [ %.02238, %17 ], [ %.02238, %19 ], [ %.02238, %21 ], [ %.02238, %8 ]
+  %.121 = phi i32 [ %.02039, %15 ], [ %18, %17 ], [ %.02039, %19 ], [ %.02039, %21 ], [ %.02039, %8 ]
+  %.119 = phi i32 [ %.01840, %15 ], [ %.01840, %17 ], [ %20, %19 ], [ %.01840, %21 ], [ %.01840, %8 ]
+  %.1 = phi i32 [ %.01741, %15 ], [ %.01741, %17 ], [ %.01741, %19 ], [ %22, %21 ], [ %.01741, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !11
 
 .critedge:                                        ; preds = %23
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.122, i32 noundef %.120, i32 noundef %.118)
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.123, i32 noundef %.121, i32 noundef %.119)
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %27, label %25
 
@@ -891,7 +891,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
 
 134:                                              ; preds = %157, %.lr.ph203.i
   %indvars.iv208.i = phi i64 [ 0, %.lr.ph203.i ], [ %indvars.iv.next209.i, %157 ]
-  %.0202.i = phi ptr [ %38, %.lr.ph203.i ], [ %.1.i, %157 ]
+  %.090201.i = phi ptr [ %38, %.lr.ph203.i ], [ %.191.i, %157 ]
   %.val143.i = load ptr, ptr %0, align 8
   %.val144.i = load ptr, ptr %132, align 8
   %135 = getelementptr i8, ptr %.val143.i, i64 32
@@ -924,11 +924,11 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   %154 = xor i64 %153, 1
   %155 = inttoptr i64 %154 to ptr
   %.sink.i = select i1 %.not121.i, ptr %143, ptr %155
-  %156 = tail call ptr @Cudd_Cofactor(ptr noundef %36, ptr noundef %.0202.i, ptr noundef %.sink.i) #17
+  %156 = tail call ptr @Cudd_Cofactor(ptr noundef %36, ptr noundef %.090201.i, ptr noundef %.sink.i) #17
   br label %157
 
 157:                                              ; preds = %.sink.split.i, %134
-  %.1.i = phi ptr [ %.0202.i, %134 ], [ %156, %.sink.split.i ]
+  %.191.i = phi ptr [ %.090201.i, %134 ], [ %156, %.sink.split.i ]
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
   %.val138.i = load i32, ptr %22, align 4
   %158 = sext i32 %.val138.i to i64
@@ -936,9 +936,9 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   br i1 %159, label %134, label %.critedge.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %157, %.preheader.i
-  %.0.lcssa.i = phi ptr [ %38, %.preheader.i ], [ %.1.i, %157 ]
+  %.090.lcssa.i = phi ptr [ %38, %.preheader.i ], [ %.191.i, %157 ]
   %160 = tail call ptr @Cudd_ReadOne(ptr noundef %36) #17
-  %161 = ptrtoint ptr %.0.lcssa.i to i64
+  %161 = ptrtoint ptr %.090.lcssa.i to i64
   %162 = and i64 %161, -2
   %163 = inttoptr i64 %162 to ptr
   %164 = load i32, ptr %163, align 8
@@ -955,7 +955,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   br i1 %.not213.i, label %.sink.split.i170.i, label %Abc_FlowRetime_SimulateNode.exit
 
 .sink.split.i170.i:                               ; preds = %.critedge.i
-  %172 = icmp eq ptr %.0.lcssa.i, %160
+  %172 = icmp eq ptr %.090.lcssa.i, %160
   %173 = load ptr, ptr @pManMR, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 112
   %175 = load ptr, ptr %174, align 8
@@ -2574,9 +2574,9 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
   br i1 %.not4285, label %._crit_edge, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %91, %98
-  %.03687 = phi i32 [ %.03687., %98 ], [ %.val51, %91 ]
-  %.03886 = phi i32 [ %..03886, %98 ], [ 0, %91 ]
-  %92 = add nsw i32 %.03687, %.03886
+  %.087 = phi i32 [ %..087, %98 ], [ 0, %91 ]
+  %.03686 = phi i32 [ %.03686., %98 ], [ %.val51, %91 ]
+  %92 = add nsw i32 %.087, %.03686
   %93 = ashr i32 %92, 1
   %94 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %93)
   %.not46 = icmp eq i32 %94, 0
@@ -2584,8 +2584,8 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
   %96 = getelementptr inbounds i8, ptr %95, i64 40
   %97 = load i32, ptr %96, align 8
   %.not47 = icmp eq i32 %97, 0
-  %..03886 = select i1 %.not46, i32 %93, i32 %.03886
-  %.03687. = select i1 %.not46, i32 %.03687, i32 %93
+  %.03686. = select i1 %.not46, i32 %.03686, i32 %93
+  %..087 = select i1 %.not46, i32 %93, i32 %.087
   br i1 %.not47, label %98, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph88
@@ -2596,14 +2596,14 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
 98:                                               ; preds = %.lr.ph88, %.sink.split
   %99 = load ptr, ptr @stdout, align 8
   %100 = tail call i32 @fflush(ptr noundef %99)
-  %101 = add nsw i32 %.03687., -1
-  %.not42 = icmp eq i32 %..03886, %101
+  %101 = add nsw i32 %.03686., -1
+  %.not42 = icmp eq i32 %..087, %101
   br i1 %.not42, label %._crit_edge, label %.lr.ph88, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %98, %91
-  %.038.lcssa = phi i32 [ 0, %91 ], [ %..03886, %98 ]
+  %.0.lcssa = phi i32 [ 0, %91 ], [ %..087, %98 ]
   %.val53 = load ptr, ptr %59, align 8
-  %102 = sext i32 %.038.lcssa to i64
+  %102 = sext i32 %.0.lcssa to i64
   %103 = getelementptr inbounds ptr, ptr %.val53, i64 %102
   %104 = load ptr, ptr %103, align 8
   tail call void @Abc_NtkMarkCone_rec(ptr noundef %104, i32 noundef 1) #17
@@ -2614,7 +2614,7 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %68
   br i1 %.not43, label %110, label %108
 
 108:                                              ; preds = %._crit_edge
-  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.038.lcssa)
+  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.0.lcssa)
   %.pre98 = load ptr, ptr @pManMR, align 8
   br label %110
 
@@ -3791,16 +3791,16 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %10 = phi i8 [ %4, %.preheader.lr.ph ], [ %35, %.critedge ]
-  %.060 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %.critedge ]
-  %.03259 = phi i32 [ 0, %.preheader.lr.ph ], [ %.133, %.critedge ]
-  %.03858 = phi ptr [ %1, %.preheader.lr.ph ], [ %34, %.critedge ]
+  %.060 = phi ptr [ %1, %.preheader.lr.ph ], [ %34, %.critedge ]
+  %.02859 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %.critedge ]
+  %.03358 = phi i32 [ 0, %.preheader.lr.ph ], [ %.134, %.critedge ]
   br label %11
 
 11:                                               ; preds = %.preheader, %32
   %12 = phi i8 [ %10, %.preheader ], [ %.pre, %32 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
-  %.035 = phi i32 [ 1, %.preheader ], [ %.136, %32 ]
-  %.028 = phi i32 [ 0, %.preheader ], [ %.129, %32 ]
+  %.036 = phi i32 [ 1, %.preheader ], [ %.137, %32 ]
+  %.029 = phi i32 [ 0, %.preheader ], [ %.130, %32 ]
   switch i8 %12, label %13 [
     i8 32, label %.critedge
     i8 0, label %.critedge
@@ -3840,27 +3840,27 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
 
 29:                                               ; preds = %22
   %30 = lshr i16 %27, %.sink64
-  %.031.in = and i16 %30, 1
-  %.031 = zext nneg i16 %.031.in to i32
-  %31 = and i32 %.035, %.031
+  %.032.in = and i16 %30, 1
+  %.032 = zext nneg i16 %.032.in to i32
+  %31 = and i32 %.036, %.032
   br label %32
 
 32:                                               ; preds = %22, %13, %29
-  %.136 = phi i32 [ %31, %29 ], [ %.035, %13 ], [ %.035, %22 ]
-  %.129 = phi i32 [ %.028, %29 ], [ %.028, %13 ], [ 1, %22 ]
+  %.137 = phi i32 [ %31, %29 ], [ %.036, %13 ], [ %.036, %22 ]
+  %.130 = phi i32 [ %.029, %29 ], [ %.029, %13 ], [ 1, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03858, i64 %indvars.iv.next
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.060, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %11, !llvm.loop !35
 
 .critedge:                                        ; preds = %11, %11
-  %.not44 = icmp eq i32 %.035, 0
-  %.not4555 = icmp eq i32 %.028, 0
+  %.not44 = icmp eq i32 %.036, 0
+  %.not4555 = icmp eq i32 %.029, 0
   %.not45 = select i1 %.not44, i1 true, i1 %.not4555
-  %33 = select i1 %.not45, i32 %.035, i32 0
-  %.133 = or i32 %33, %.03259
-  %.1 = select i1 %.not45, i32 %.060, i32 1
-  %34 = getelementptr inbounds i8, ptr %.03858, i64 %9
+  %33 = select i1 %.not45, i32 %.036, i32 0
+  %.134 = or i32 %33, %.03358
+  %.1 = select i1 %.not45, i32 %.02859, i32 1
+  %34 = getelementptr inbounds i8, ptr %.060, i64 %9
   %35 = load i8, ptr %34, align 1
   %.not = icmp eq i8 %35, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !36
@@ -3870,9 +3870,9 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.032.lcssa = phi i32 [ 0, %2 ], [ %.133, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i1 [ true, %2 ], [ %36, %._crit_edge.loopexit ]
-  %.not40 = icmp ne i32 %.032.lcssa, 0
+  %.033.lcssa = phi i32 [ 0, %2 ], [ %.134, %._crit_edge.loopexit ]
+  %.028.lcssa = phi i1 [ true, %2 ], [ %36, %._crit_edge.loopexit ]
+  %.not40 = icmp ne i32 %.033.lcssa, 0
   %37 = tail call i32 @Abc_SopGetPhase(ptr noundef nonnull %1) #17
   %38 = load ptr, ptr @pManMR, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 112
@@ -3884,13 +3884,13 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, -97
   store i16 %45, ptr %43, align 8
-  %.not.i = select i1 %.not40, i1 true, i1 %.0.lcssa
+  %.not.i = select i1 %.not40, i1 true, i1 %.028.lcssa
   br i1 %.not.i, label %.sink.split.i, label %Abc_FlowRetime_SetInitValue.exit
 
 .sink.split.i:                                    ; preds = %._crit_edge
   %.not41 = icmp eq i32 %37, 0
   %46 = zext i1 %.not41 to i32
-  %.not4.i = icmp eq i32 %.032.lcssa, %46
+  %.not4.i = icmp eq i32 %.033.lcssa, %46
   %47 = load ptr, ptr @pManMR, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 112
   %49 = load ptr, ptr %48, align 8

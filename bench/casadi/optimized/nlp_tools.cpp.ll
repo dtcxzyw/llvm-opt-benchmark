@@ -17485,16 +17485,16 @@ _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i.i364: ; preds = %_ZSt8_
 
 .lr.ph465:                                        ; preds = %.loopexit448, %451
   %445 = phi ptr [ %454, %451 ], [ %444, %.loopexit448 ]
-  %.056463 = phi i64 [ %452, %451 ], [ 0, %.loopexit448 ]
+  %.066463 = phi i64 [ %452, %451 ], [ 0, %.loopexit448 ]
   %446 = load ptr, ptr %38, align 8
-  %447 = getelementptr inbounds %"class.std::vector.35", ptr %446, i64 %.056463
+  %447 = getelementptr inbounds %"class.std::vector.35", ptr %446, i64 %.066463
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds %"class.casadi::Matrix", ptr %445, i64 %.056463
+  %449 = getelementptr inbounds %"class.casadi::Matrix", ptr %445, i64 %.066463
   %450 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN6casadi6MatrixINS_6SXElemEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %449, ptr noundef nonnull align 8 dereferenceable(40) %448)
           to label %451 unwind label %.loopexit447
 
 451:                                              ; preds = %.lr.ph465
-  %452 = add nuw nsw i64 %.056463, 1
+  %452 = add nuw nsw i64 %.066463, 1
   %453 = load ptr, ptr %210, align 8
   %454 = load ptr, ptr %37, align 8
   %455 = ptrtoint ptr %453 to i64
@@ -20576,16 +20576,16 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i348: ; preds = %_ZSt8_Destro
 
 .lr.ph474:                                        ; preds = %.loopexit457, %_ZN6casadi2MXaSERKS0_.exit
   %391 = phi ptr [ %399, %_ZN6casadi2MXaSERKS0_.exit ], [ %390, %.loopexit457 ]
-  %.056472 = phi i64 [ %397, %_ZN6casadi2MXaSERKS0_.exit ], [ 0, %.loopexit457 ]
+  %.066472 = phi i64 [ %397, %_ZN6casadi2MXaSERKS0_.exit ], [ 0, %.loopexit457 ]
   %392 = load ptr, ptr %36, align 8
-  %393 = getelementptr inbounds %"class.std::vector.64", ptr %392, i64 %.056472
+  %393 = getelementptr inbounds %"class.std::vector.64", ptr %392, i64 %.066472
   %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds %"class.casadi::MX", ptr %391, i64 %.056472
+  %395 = getelementptr inbounds %"class.casadi::MX", ptr %391, i64 %.066472
   %396 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi12SharedObjectaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %395, ptr noundef nonnull align 8 dereferenceable(8) %394)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %.loopexit456
 
 _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %.lr.ph474
-  %397 = add nuw nsw i64 %.056472, 1
+  %397 = add nuw nsw i64 %.066472, 1
   %398 = load ptr, ptr %208, align 8
   %399 = load ptr, ptr %35, align 8
   %400 = ptrtoint ptr %398 to i64

@@ -497,26 +497,26 @@ to_ascii.exit.thread:                             ; preds = %18
   br label %32
 
 32:                                               ; preds = %75, %.preheader.i
-  %.059.i = phi i32 [ %.160.i, %75 ], [ 0, %.preheader.i ]
-  %.0.i = phi ptr [ %79, %75 ], [ %23, %.preheader.i ]
-  %33 = icmp ult ptr %.0.i, %25
+  %.059.i = phi ptr [ %79, %75 ], [ %23, %.preheader.i ]
+  %.0.i = phi i32 [ %.1.i, %75 ], [ 0, %.preheader.i ]
+  %33 = icmp ult ptr %.059.i, %25
   br i1 %33, label %34, label %81
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %31, align 8
-  %36 = call i32 %35(ptr noundef %.0.i, ptr noundef nonnull %25) #8
+  %36 = call i32 %35(ptr noundef %.059.i, ptr noundef nonnull %25) #8
   %37 = icmp ugt i32 %36, 127
   br i1 %37, label %38, label %70
 
 38:                                               ; preds = %34
   %39 = icmp ugt i32 %36, 65535
-  %40 = icmp slt i32 %.059.i, 18
+  %40 = icmp slt i32 %.0.i, 18
   %or.cond.i = select i1 %39, i1 %40, i1 false
   br i1 %or.cond.i, label %41, label %58
 
 41:                                               ; preds = %38
-  %42 = add nsw i32 %.059.i, 10
-  %43 = sext i32 %.059.i to i64
+  %42 = add nsw i32 %.0.i, 10
+  %43 = sext i32 %.0.i to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 %43
   %45 = lshr i32 %36, 24
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
@@ -534,12 +534,12 @@ to_ascii.exit.thread:                             ; preds = %18
   br label %75
 
 58:                                               ; preds = %38
-  %59 = icmp slt i32 %.059.i, 22
+  %59 = icmp slt i32 %.0.i, 22
   br i1 %59, label %60, label %81
 
 60:                                               ; preds = %58
-  %61 = add nsw i32 %.059.i, 6
-  %62 = sext i32 %.059.i to i64
+  %61 = add nsw i32 %.0.i, 6
+  %62 = sext i32 %.0.i to i64
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %64 = lshr i32 %36, 8
   %65 = and i32 %64, 255
@@ -551,25 +551,25 @@ to_ascii.exit.thread:                             ; preds = %18
 
 70:                                               ; preds = %34
   %71 = trunc nuw nsw i32 %36 to i8
-  %72 = add nsw i32 %.059.i, 1
-  %73 = sext i32 %.059.i to i64
+  %72 = add nsw i32 %.0.i, 1
+  %73 = sext i32 %.0.i to i64
   %74 = getelementptr inbounds i8, ptr %3, i64 %73
   store i8 %71, ptr %74, align 1
   br label %75
 
 75:                                               ; preds = %70, %60, %41
-  %.160.i = phi i32 [ %42, %41 ], [ %61, %60 ], [ %72, %70 ]
+  %.1.i = phi i32 [ %42, %41 ], [ %61, %60 ], [ %72, %70 ]
   %76 = load ptr, ptr %21, align 8
-  %77 = call i32 %76(ptr noundef %.0.i) #8
+  %77 = call i32 %76(ptr noundef %.059.i) #8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.0.i, i64 %78
-  %80 = icmp sgt i32 %.160.i, 26
+  %79 = getelementptr inbounds i8, ptr %.059.i, i64 %78
+  %80 = icmp sgt i32 %.1.i, 26
   br i1 %80, label %81, label %32, !llvm.loop !4
 
 81:                                               ; preds = %75, %58, %32
-  %.2.i = phi i32 [ %.160.i, %75 ], [ %.059.i, %58 ], [ %.059.i, %32 ]
-  %.1.i = phi ptr [ %79, %75 ], [ %.0.i, %58 ], [ %.0.i, %32 ]
-  %82 = icmp ult ptr %.1.i, %25
+  %.160.i = phi ptr [ %79, %75 ], [ %.059.i, %58 ], [ %.059.i, %32 ]
+  %.2.i = phi i32 [ %.1.i, %75 ], [ %.0.i, %58 ], [ %.0.i, %32 ]
+  %82 = icmp ult ptr %.160.i, %25
   %83 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %84 = sext i32 %.2.i to i64
   %.sink.shrunk.i.fr40 = freeze i1 %82

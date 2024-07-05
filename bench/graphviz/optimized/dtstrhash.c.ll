@@ -15,27 +15,27 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %5 = phi i8 [ %16, %.lr.ph37 ], [ %4, %.preheader ]
-  %.036 = phi ptr [ %15, %.lr.ph37 ], [ %0, %.preheader ]
-  %.02335 = phi i32 [ %13, %.lr.ph37 ], [ 0, %.preheader ]
+  %.02336 = phi ptr [ %15, %.lr.ph37 ], [ %0, %.preheader ]
+  %.02435 = phi i32 [ %13, %.lr.ph37 ], [ 0, %.preheader ]
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
-  %8 = add i32 %7, %.02335
-  %9 = getelementptr inbounds i8, ptr %.036, i64 1
+  %8 = add i32 %7, %.02435
+  %9 = getelementptr inbounds i8, ptr %.02336, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add i32 %8, %11
   %13 = mul i32 %12, 17109811
   %.not30 = icmp eq i8 %10, 0
   %14 = select i1 %.not30, i64 1, i64 2
-  %15 = getelementptr inbounds i8, ptr %.036, i64 %14
+  %15 = getelementptr inbounds i8, ptr %.02336, i64 %14
   %16 = load i8, ptr %15, align 1
   %.not29 = icmp eq i8 %16, 0
   br i1 %.not29, label %._crit_edge38, label %.lr.ph37
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %.preheader
-  %.023.lcssa = phi i32 [ 0, %.preheader ], [ %13, %.lr.ph37 ]
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %15, %.lr.ph37 ]
-  %17 = ptrtoint ptr %.0.lcssa to i64
+  %.024.lcssa = phi i32 [ 0, %.preheader ], [ %13, %.lr.ph37 ]
+  %.023.lcssa = phi ptr [ %0, %.preheader ], [ %15, %.lr.ph37 ]
+  %17 = ptrtoint ptr %.023.lcssa to i64
   %18 = ptrtoint ptr %0 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
@@ -50,11 +50,11 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.132 = phi ptr [ %35, %.lr.ph ], [ %0, %21 ]
-  %.12431 = phi i32 [ %34, %.lr.ph ], [ 0, %21 ]
+  %.12531 = phi i32 [ %34, %.lr.ph ], [ 0, %21 ]
   %26 = load i8, ptr %.132, align 1
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 8
-  %29 = add i32 %28, %.12431
+  %29 = add i32 %28, %.12531
   %30 = getelementptr inbounds i8, ptr %.132, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
@@ -65,7 +65,7 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.124.lcssa = phi i32 [ 0, %21 ], [ %34, %.lr.ph ]
+  %.125.lcssa = phi i32 [ 0, %21 ], [ %34, %.lr.ph ]
   %.1.lcssa = phi ptr [ %0, %21 ], [ %35, %.lr.ph ]
   %.not = icmp ugt ptr %.1.lcssa, %24
   br i1 %.not, label %43, label %37
@@ -74,14 +74,14 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %38 = load i8, ptr %.1.lcssa, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
-  %41 = add i32 %40, %.124.lcssa
+  %41 = add i32 %40, %.125.lcssa
   %42 = mul i32 %41, 17109811
   br label %43
 
 43:                                               ; preds = %._crit_edge, %37, %._crit_edge38
-  %.025 = phi i32 [ %20, %._crit_edge38 ], [ %1, %37 ], [ %1, %._crit_edge ]
-  %.2 = phi i32 [ %.023.lcssa, %._crit_edge38 ], [ %42, %37 ], [ %.124.lcssa, %._crit_edge ]
-  %44 = add i32 %.2, %.025
+  %.2 = phi i32 [ %.024.lcssa, %._crit_edge38 ], [ %42, %37 ], [ %.125.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ %20, %._crit_edge38 ], [ %1, %37 ], [ %1, %._crit_edge ]
+  %44 = add i32 %.0, %.2
   %45 = mul i32 %44, 17109811
   ret i32 %45
 }

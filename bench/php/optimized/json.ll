@@ -332,8 +332,8 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   br label %68
 
 68:                                               ; preds = %21, %27, %49, %62, %40, %9, %14, %19, %10, %66
-  %.0114 = phi ptr [ %67, %66 ], [ null, %10 ], [ null, %19 ], [ null, %14 ], [ null, %9 ], [ %26, %27 ], [ null, %21 ], [ %43, %40 ], [ %52, %62 ], [ %52, %49 ]
-  ret ptr %.0114
+  %.0115 = phi ptr [ %67, %66 ], [ null, %10 ], [ null, %19 ], [ null, %14 ], [ null, %9 ], [ %26, %27 ], [ null, %21 ], [ %43, %40 ], [ %52, %62 ], [ %52, %49 ]
+  ret ptr %.0115
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -514,10 +514,10 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %30, label %.thread282, label %.thread290
 
 .thread290:                                       ; preds = %29, %20, %10
-  %.0242298 = phi i32 [ 9, %20 ], [ 1, %10 ], [ 9, %29 ]
-  %.0244297 = phi ptr [ %15, %20 ], [ null, %10 ], [ %24, %29 ]
-  %.0245296 = phi i32 [ 2, %20 ], [ 0, %10 ], [ 3, %29 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0242298, i32 noundef %.0245296, ptr noundef null, i32 noundef 0, ptr noundef %.0244297) #13
+  %.0243298 = phi i32 [ 9, %20 ], [ 1, %10 ], [ 9, %29 ]
+  %.0246297 = phi ptr [ %15, %20 ], [ null, %10 ], [ %24, %29 ]
+  %.0247296 = phi i32 [ 2, %20 ], [ 0, %10 ], [ 3, %29 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0243298, i32 noundef %.0247296, ptr noundef null, i32 noundef 0, ptr noundef %.0246297) #13
   br label %141
 
 .thread282:                                       ; preds = %29, %.thread, %22, %11
@@ -713,12 +713,12 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   br label %130
 
 130:                                              ; preds = %113, %126, %104
-  %.0247 = phi ptr [ %107, %104 ], [ %116, %126 ], [ %116, %113 ]
+  %.0244 = phi ptr [ %107, %104 ], [ %116, %126 ], [ %116, %113 ]
   store i64 %95, ptr %92, align 8
   br label %131
 
 131:                                              ; preds = %130, %91, %85
-  %132 = phi ptr [ %.0247, %130 ], [ %90, %91 ], [ null, %85 ]
+  %132 = phi ptr [ %.0244, %130 ], [ %90, %91 ], [ null, %85 ]
   store ptr null, ptr %4, align 8
   br label %135
 

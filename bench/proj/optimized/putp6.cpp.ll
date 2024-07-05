@@ -147,26 +147,26 @@ define internal { double, double } @_ZL15putp6_s_forward5PJ_LPP8PJconsts(double 
   br label %14
 
 12:                                               ; preds = %14
-  %13 = add nsw i32 %.02731, -1
+  %13 = add nsw i32 %.02730, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %29, label %14, !llvm.loop !4
 
 14:                                               ; preds = %3, %12
   %15 = phi double [ %.pre, %3 ], [ %23, %12 ]
-  %.02731 = phi i32 [ 10, %3 ], [ %13, %12 ]
-  %.sroa.2.030 = phi double [ %10, %3 ], [ %26, %12 ]
-  %16 = tail call double @llvm.fmuladd.f64(double %.sroa.2.030, double %.sroa.2.030, double 1.000000e+00)
+  %.sroa.2.031 = phi double [ %10, %3 ], [ %26, %12 ]
+  %.02730 = phi i32 [ 10, %3 ], [ %13, %12 ]
+  %16 = tail call double @llvm.fmuladd.f64(double %.sroa.2.031, double %.sroa.2.031, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %16)
   %17 = fsub double %15, %sqrt
-  %18 = fadd double %.sroa.2.030, %sqrt
+  %18 = fadd double %.sroa.2.031, %sqrt
   %19 = tail call double @log(double noundef %18) #8
   %20 = fneg double %19
-  %21 = tail call double @llvm.fmuladd.f64(double %17, double %.sroa.2.030, double %20)
+  %21 = tail call double @llvm.fmuladd.f64(double %17, double %.sroa.2.031, double %20)
   %22 = fsub double %21, %9
   %23 = load double, ptr %11, align 8
   %24 = tail call double @llvm.fmuladd.f64(double %sqrt, double -2.000000e+00, double %23)
   %25 = fdiv double %22, %24
-  %26 = fsub double %.sroa.2.030, %25
+  %26 = fsub double %.sroa.2.031, %25
   %27 = tail call double @llvm.fabs.f64(double %25)
   %28 = fcmp olt double %27, 1.000000e-10
   br i1 %28, label %32, label %12

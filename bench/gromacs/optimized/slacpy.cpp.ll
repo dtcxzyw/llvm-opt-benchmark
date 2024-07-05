@@ -36,32 +36,32 @@ define void @slacpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph68:                                         ; preds = %.preheader55, %._crit_edge66
   %15 = phi i32 [ %30, %._crit_edge66 ], [ %11, %.preheader55 ]
-  %.067 = phi i32 [ %31, %._crit_edge66 ], [ 0, %.preheader55 ]
+  %.04967 = phi i32 [ %31, %._crit_edge66 ], [ 0, %.preheader55 ]
   %16 = load i32, ptr %1, align 4
   %.not62 = icmp slt i32 %16, 1
   br i1 %.not62, label %._crit_edge66, label %.lr.ph65.preheader
 
 .lr.ph65.preheader:                               ; preds = %.lr.ph68
   %17 = add nsw i32 %16, -1
-  %smin = tail call i32 @llvm.smin.i32(i32 %.067, i32 %17)
+  %smin = tail call i32 @llvm.smin.i32(i32 %.04967, i32 %17)
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
-  %.04963 = phi i32 [ %29, %.lr.ph65 ], [ 0, %.lr.ph65.preheader ]
+  %.063 = phi i32 [ %29, %.lr.ph65 ], [ 0, %.lr.ph65.preheader ]
   %18 = load i32, ptr %4, align 4
-  %19 = mul nsw i32 %18, %.067
-  %20 = add nsw i32 %19, %.04963
+  %19 = mul nsw i32 %18, %.04967
+  %20 = add nsw i32 %19, %.063
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds float, ptr %3, i64 %21
   %23 = load float, ptr %22, align 4
   %24 = load i32, ptr %6, align 4
-  %25 = mul nsw i32 %24, %.067
-  %26 = add nsw i32 %25, %.04963
+  %25 = mul nsw i32 %24, %.04967
+  %26 = add nsw i32 %25, %.063
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds float, ptr %5, i64 %27
   store float %23, ptr %28, align 4
-  %29 = add nuw nsw i32 %.04963, 1
-  %exitcond.not = icmp eq i32 %.04963, %smin
+  %29 = add nuw nsw i32 %.063, 1
+  %exitcond.not = icmp eq i32 %.063, %smin
   br i1 %exitcond.not, label %._crit_edge66.loopexit, label %.lr.ph65, !llvm.loop !4
 
 ._crit_edge66.loopexit:                           ; preds = %.lr.ph65
@@ -70,32 +70,32 @@ define void @slacpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 ._crit_edge66:                                    ; preds = %._crit_edge66.loopexit, %.lr.ph68
   %30 = phi i32 [ %.pre77, %._crit_edge66.loopexit ], [ %15, %.lr.ph68 ]
-  %31 = add nuw nsw i32 %.067, 1
+  %31 = add nuw nsw i32 %.04967, 1
   %32 = icmp slt i32 %31, %30
   br i1 %32, label %.lr.ph68, label %.loopexit, !llvm.loop !6
 
 .preheader57:                                     ; preds = %.preheader57.preheader, %._crit_edge
   %33 = phi i32 [ %50, %._crit_edge ], [ %11, %.preheader57.preheader ]
   %34 = phi i32 [ %51, %._crit_edge ], [ %.pre, %.preheader57.preheader ]
-  %.161 = phi i32 [ %52, %._crit_edge ], [ 0, %.preheader57.preheader ]
-  %35 = icmp slt i32 %.161, %34
+  %.15061 = phi i32 [ %52, %._crit_edge ], [ 0, %.preheader57.preheader ]
+  %35 = icmp slt i32 %.15061, %34
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader57, %.lr.ph
-  %.15060 = phi i32 [ %47, %.lr.ph ], [ %.161, %.preheader57 ]
+  %.160 = phi i32 [ %47, %.lr.ph ], [ %.15061, %.preheader57 ]
   %36 = load i32, ptr %4, align 4
-  %37 = mul nsw i32 %36, %.161
-  %38 = add nsw i32 %37, %.15060
+  %37 = mul nsw i32 %36, %.15061
+  %38 = add nsw i32 %37, %.160
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %3, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = load i32, ptr %6, align 4
-  %43 = mul nsw i32 %42, %.161
-  %44 = add nsw i32 %43, %.15060
+  %43 = mul nsw i32 %42, %.15061
+  %44 = add nsw i32 %43, %.160
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds float, ptr %5, i64 %45
   store float %41, ptr %46, align 4
-  %47 = add nuw nsw i32 %.15060, 1
+  %47 = add nuw nsw i32 %.160, 1
   %48 = load i32, ptr %1, align 4
   %49 = icmp slt i32 %47, %48
   br i1 %49, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
@@ -107,32 +107,32 @@ define void @slacpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader57
   %50 = phi i32 [ %.pre76, %._crit_edge.loopexit ], [ %33, %.preheader57 ]
   %51 = phi i32 [ %48, %._crit_edge.loopexit ], [ %34, %.preheader57 ]
-  %52 = add nuw nsw i32 %.161, 1
+  %52 = add nuw nsw i32 %.15061, 1
   %53 = icmp slt i32 %52, %50
   br i1 %53, label %.preheader57, label %.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge71
   %54 = phi i32 [ %71, %._crit_edge71 ], [ %11, %.preheader.lr.ph ]
   %55 = phi i32 [ %72, %._crit_edge71 ], [ %13, %.preheader.lr.ph ]
-  %.272 = phi i32 [ %73, %._crit_edge71 ], [ 0, %.preheader.lr.ph ]
+  %.25172 = phi i32 [ %73, %._crit_edge71 ], [ 0, %.preheader.lr.ph ]
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph70, label %._crit_edge71
 
 .lr.ph70:                                         ; preds = %.preheader, %.lr.ph70
-  %.25169 = phi i32 [ %68, %.lr.ph70 ], [ 0, %.preheader ]
+  %.269 = phi i32 [ %68, %.lr.ph70 ], [ 0, %.preheader ]
   %57 = load i32, ptr %4, align 4
-  %58 = mul nsw i32 %57, %.272
-  %59 = add nsw i32 %58, %.25169
+  %58 = mul nsw i32 %57, %.25172
+  %59 = add nsw i32 %58, %.269
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds float, ptr %3, i64 %60
   %62 = load float, ptr %61, align 4
   %63 = load i32, ptr %6, align 4
-  %64 = mul nsw i32 %63, %.272
-  %65 = add nsw i32 %64, %.25169
+  %64 = mul nsw i32 %63, %.25172
+  %65 = add nsw i32 %64, %.269
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds float, ptr %5, i64 %66
   store float %62, ptr %67, align 4
-  %68 = add nuw nsw i32 %.25169, 1
+  %68 = add nuw nsw i32 %.269, 1
   %69 = load i32, ptr %1, align 4
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %.lr.ph70, label %._crit_edge71.loopexit, !llvm.loop !9
@@ -144,7 +144,7 @@ define void @slacpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 ._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %.preheader
   %71 = phi i32 [ %.pre78, %._crit_edge71.loopexit ], [ %54, %.preheader ]
   %72 = phi i32 [ %69, %._crit_edge71.loopexit ], [ %55, %.preheader ]
-  %73 = add nuw nsw i32 %.272, 1
+  %73 = add nuw nsw i32 %.25172, 1
   %74 = icmp slt i32 %73, %71
   br i1 %74, label %.preheader, label %.loopexit, !llvm.loop !10
 

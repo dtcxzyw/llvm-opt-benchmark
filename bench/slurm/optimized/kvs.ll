@@ -380,9 +380,9 @@ define ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
-  %10 = lshr i32 %.011.i, 24
-  %11 = shl i32 %.011.i, 8
+  %.0910.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
+  %10 = lshr i32 %.0910.i, 24
+  %11 = shl i32 %.0910.i, 8
   %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
@@ -393,9 +393,9 @@ define ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !6
 
 _hash.exit:                                       ; preds = %.lr.ph.i, %5
-  %.0.lcssa.i = phi i32 [ 0, %5 ], [ %16, %.lr.ph.i ]
+  %.09.lcssa.i = phi i32 [ 0, %5 ], [ %16, %.lr.ph.i ]
   %17 = load i32, ptr @hash_size, align 4
-  %18 = urem i32 %.0.lcssa.i, %17
+  %18 = urem i32 %.09.lcssa.i, %17
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds %struct.kvs_bucket, ptr %6, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -467,9 +467,9 @@ define noundef i32 @kvs_put(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
-  %11 = lshr i32 %.011.i, 24
-  %12 = shl i32 %.011.i, 8
+  %.0910.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
+  %11 = lshr i32 %.0910.i, 24
+  %12 = shl i32 %.0910.i, 8
   %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
@@ -480,9 +480,9 @@ define noundef i32 @kvs_put(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !6
 
 _hash.exit:                                       ; preds = %.lr.ph.i, %6
-  %.0.lcssa.i = phi i32 [ 0, %6 ], [ %17, %.lr.ph.i ]
+  %.09.lcssa.i = phi i32 [ 0, %6 ], [ %17, %.lr.ph.i ]
   %18 = load i32, ptr @hash_size, align 4
-  %19 = urem i32 %.0.lcssa.i, %18
+  %19 = urem i32 %.09.lcssa.i, %18
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds %struct.kvs_bucket, ptr %7, i64 %20
   %.b = load i1, ptr @no_dup_keys, align 4

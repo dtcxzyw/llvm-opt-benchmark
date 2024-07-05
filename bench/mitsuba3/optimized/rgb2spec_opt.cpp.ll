@@ -375,15 +375,15 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %.02640 = phi double [ 0.000000e+00, %1 ], [ %19, %5 ]
+  %.02640 = phi double [ 0.000000e+00, %1 ], [ %11, %5 ]
   %.02739 = phi double [ 0.000000e+00, %1 ], [ %15, %5 ]
-  %.02838 = phi double [ 0.000000e+00, %1 ], [ %11, %5 ]
+  %.02838 = phi double [ 0.000000e+00, %1 ], [ %19, %5 ]
   %6 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds [3 x double], ptr @rgb_to_xyz, i64 0, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fmul contract double %7, %9
-  %11 = fadd contract double %.02838, %10
+  %11 = fadd contract double %.02640, %10
   %12 = getelementptr inbounds [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fmul contract double %7, %13
@@ -391,7 +391,7 @@ define hidden void @_Z7cie_labPd(ptr nocapture noundef %0) local_unnamed_addr #5
   %16 = getelementptr inbounds [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fmul contract double %7, %17
-  %19 = fadd contract double %.02640, %18
+  %19 = fadd contract double %.02838, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %20, label %5, !llvm.loop !16
@@ -1257,7 +1257,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0, %._crit_edge49.i ]
-  %.151 = phi double [ %167, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
+  %.152 = phi double [ %167, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
   %159 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv
   %160 = load double, ptr %159, align 8
   %161 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
@@ -1267,7 +1267,7 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   %164 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv
   %165 = load double, ptr %164, align 8
   %166 = fmul contract double %165, %165
-  %167 = fadd contract double %.151, %166
+  %167 = fadd contract double %.152, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond60.not, label %168, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !27

@@ -147,14 +147,14 @@ define void @WriteTableIntoFile(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not45, label %._crit_edge47, label %.preheader38
 
 .preheader38:                                     ; preds = %1, %._crit_edge44
-  %.02646 = phi ptr [ %30, %._crit_edge44 ], [ %2, %1 ]
+  %.02546 = phi ptr [ %30, %._crit_edge44 ], [ %2, %1 ]
   %3 = load i32, ptr @g_CoverInfo, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader38, %8
   %.039 = phi i32 [ %9, %8 ], [ 0, %.preheader38 ]
-  %5 = tail call i32 @GetVar(ptr noundef nonnull %.02646, i32 noundef %.039) #5
+  %5 = tail call i32 @GetVar(ptr noundef nonnull %.02546, i32 noundef %.039) #5
   %switch.tableidx = add i32 %5, -1
   %6 = icmp ult i32 %switch.tableidx, 3
   br i1 %6, label %switch.lookup, label %8
@@ -180,17 +180,17 @@ switch.lookup:                                    ; preds = %.lr.ph
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge44
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %.02646, i64 16
+  %15 = getelementptr inbounds i8, ptr %.02546, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02443 = phi i32 [ 0, %.preheader.lr.ph ], [ %22, %26 ]
+  %.02642 = phi i32 [ 0, %.preheader.lr.ph ], [ %22, %26 ]
   br label %16
 
 16:                                               ; preds = %16, %.preheader
   %.141 = phi i32 [ 0, %.preheader ], [ %24, %16 ]
-  %.12540 = phi i32 [ %.02443, %.preheader ], [ %22, %16 ]
+  %.12740 = phi i32 [ %.02642, %.preheader ], [ %22, %16 ]
   %17 = load ptr, ptr %15, align 8
   %18 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
@@ -199,7 +199,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %.not32 = icmp eq i32 %21, 0
   %. = select i1 %.not32, i32 48, i32 49
   %fputc33 = tail call i32 @fputc(i32 %., ptr %0)
-  %22 = add nsw i32 %.12540, 1
+  %22 = add nsw i32 %.12740, 1
   %23 = icmp ne i32 %22, %12
   %24 = add nuw nsw i32 %.141, 1
   %25 = icmp ult i32 %.141, 31

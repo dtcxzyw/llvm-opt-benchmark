@@ -427,14 +427,14 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   br label %12
 
 12:                                               ; preds = %3, %12
-  %.097104 = phi ptr [ %9, %3 ], [ %14, %12 ]
-  %.099103 = phi i64 [ 0, %3 ], [ %15, %12 ]
-  %.0101102 = phi i64 [ %11, %3 ], [ %16, %12 ]
-  %13 = trunc i64 %.0101102 to i8
-  %14 = getelementptr inbounds i8, ptr %.097104, i64 1
-  store i8 %13, ptr %.097104, align 1
-  %15 = add nuw nsw i64 %.099103, 1
-  %16 = lshr i64 %.0101102, 8
+  %.096104 = phi i64 [ %11, %3 ], [ %16, %12 ]
+  %.097103 = phi i64 [ 0, %3 ], [ %15, %12 ]
+  %.0100102 = phi ptr [ %9, %3 ], [ %14, %12 ]
+  %13 = trunc i64 %.096104 to i8
+  %14 = getelementptr inbounds i8, ptr %.0100102, i64 1
+  store i8 %13, ptr %.0100102, align 1
+  %15 = add nuw nsw i64 %.097103, 1
+  %16 = lshr i64 %.096104, 8
   %exitcond.not = icmp eq i64 %15, 8
   br i1 %exitcond.not, label %17, label %12
 
@@ -450,9 +450,9 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
 
 21:                                               ; preds = %.lr.ph, %39
   %.094112 = phi ptr [ %18, %.lr.ph ], [ %56, %39 ]
-  %.096111 = phi i64 [ 0, %.lr.ph ], [ %57, %39 ]
+  %.099111 = phi i64 [ 0, %.lr.ph ], [ %57, %39 ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %22, i64 %.096111
+  %23 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %22, i64 %.099111
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8
@@ -508,7 +508,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   %55 = trunc nuw i32 %54 to i8
   store i8 %55, ptr %52, align 1
   %56 = getelementptr inbounds i8, ptr %.094112, i64 20
-  %57 = add nuw i64 %.096111, 1
+  %57 = add nuw i64 %.099111, 1
   %58 = load i64, ptr %10, align 8
   %59 = icmp ult i64 %57, %58
   br i1 %59, label %21, label %.loopexit

@@ -878,11 +878,11 @@ entry:
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
-  %sum.015 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
-  %x.014 = phi double [ %add4, %for.body ], [ %0, %entry ]
-  %call = tail call double %f(double noundef %x.014) #33
-  %add = fadd double %sum.015, %call
-  %add4 = fadd double %div, %x.014
+  %x.015 = phi double [ %add4, %for.body ], [ %0, %entry ]
+  %sum.014 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
+  %call = tail call double %f(double noundef %x.015) #33
+  %add = fadd double %sum.014, %call
+  %add4 = fadd double %div, %x.015
   %sub1 = fsub double %b, %add4
   %sub2 = fsub double %add4, %a
   %mul = fmul double %sub1, %sub2

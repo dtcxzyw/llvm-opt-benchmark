@@ -667,11 +667,11 @@ define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
   br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %8, %9, %7, %10
-  %.0.ph = phi ptr [ %12, %10 ], [ @ft_bitmap_glyph_class, %7 ], [ @ft_svg_glyph_class, %9 ], [ @ft_outline_glyph_class, %8 ]
+  %.014.ph = phi ptr [ %12, %10 ], [ @ft_bitmap_glyph_class, %7 ], [ @ft_svg_glyph_class, %9 ], [ @ft_outline_glyph_class, %8 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %14 = load ptr, ptr %0, align 8
   store ptr null, ptr %2, align 8
-  %15 = load i64, ptr %.0.ph, align 8
+  %15 = load i64, ptr %.014.ph, align 8
   %16 = call ptr @ft_mem_alloc(ptr noundef %14, i64 noundef %15, ptr noundef nonnull %4) #6
   %17 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %17, 0
@@ -680,8 +680,8 @@ define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
 18:                                               ; preds = %13
   store ptr %0, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %.0.ph, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.0.ph, i64 8
+  store ptr %.014.ph, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %.014.ph, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 %21, ptr %22, align 8
@@ -693,8 +693,8 @@ ft_new_glyph.exit:                                ; preds = %13, %18
   br label %23
 
 23:                                               ; preds = %10, %3, %ft_new_glyph.exit
-  %.014 = phi i32 [ %17, %ft_new_glyph.exit ], [ 6, %3 ], [ 18, %10 ]
-  ret i32 %.014
+  %.0 = phi i32 [ %17, %ft_new_glyph.exit ], [ 6, %3 ], [ 18, %10 ]
+  ret i32 %.0
 }
 
 declare hidden ptr @FT_Lookup_Renderer(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

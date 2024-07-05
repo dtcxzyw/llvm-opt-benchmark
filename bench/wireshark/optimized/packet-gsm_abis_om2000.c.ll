@@ -1491,7 +1491,7 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
 
 .lr.ph27.i.i:                                     ; preds = %431, %._crit_edge.i.i
   %.025.i.i = phi i32 [ %.1.lcssa.i393.i, %._crit_edge.i.i ], [ %433, %431 ]
-  %.02124.i.i = phi i8 [ %446, %._crit_edge.i.i ], [ 0, %431 ]
+  %.02024.i.i = phi i8 [ %446, %._crit_edge.i.i ], [ 0, %431 ]
   %435 = add i32 %.025.i.i, 1
   %436 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.025.i.i) #5
   %437 = load i32, ptr @hf_om2k_iwd_type, align 4
@@ -1504,17 +1504,17 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
 
 .lr.ph.i392.i:                                    ; preds = %.lr.ph27.i.i, %.lr.ph.i392.i
   %.123.i.i = phi i32 [ %444, %.lr.ph.i392.i ], [ %438, %.lr.ph27.i.i ]
-  %.02022.i.i = phi i8 [ %445, %.lr.ph.i392.i ], [ 0, %.lr.ph27.i.i ]
+  %.02122.i.i = phi i8 [ %445, %.lr.ph.i392.i ], [ 0, %.lr.ph27.i.i ]
   %442 = load i32, ptr @hf_om2k_iwd_gen_rev, align 4
   %443 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %442, ptr noundef %0, i32 noundef %.123.i.i, i32 noundef 6, i32 noundef 0) #5
   %444 = add i32 %.123.i.i, 6
-  %445 = add nuw i8 %.02022.i.i, 1
+  %445 = add nuw i8 %.02122.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %445, %436
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i392.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i392.i, %.lr.ph27.i.i
   %.1.lcssa.i393.i = phi i32 [ %438, %.lr.ph27.i.i ], [ %444, %.lr.ph.i392.i ]
-  %446 = add nuw i8 %.02124.i.i, 1
+  %446 = add nuw i8 %.02024.i.i, 1
   %exitcond31.not.i.i = icmp eq i8 %446, %434
   br i1 %exitcond31.not.i.i, label %dissect_om2k_con_list.exit.i, label %.lr.ph27.i.i, !llvm.loop !10
 

@@ -731,7 +731,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %134
 
 134:                                              ; preds = %129, %133
-  %.080 = phi i32 [ 0, %133 ], [ 1, %129 ]
+  %.077 = phi i32 [ 0, %133 ], [ 1, %129 ]
   %135 = load i32, ptr %11, align 8
   %136 = icmp eq i32 %135, 3
   br i1 %136, label %137, label %144
@@ -748,7 +748,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %151
 
 144:                                              ; preds = %137, %134
-  %145 = call i32 @H5O_msg_append_oh(ptr noundef %0, ptr noundef %1, i32 noundef 8, i32 noundef %.080, i32 noundef 0, ptr noundef nonnull %11) #3
+  %145 = call i32 @H5O_msg_append_oh(ptr noundef %0, ptr noundef %1, i32 noundef 8, i32 noundef %.077, i32 noundef 0, ptr noundef nonnull %11) #3
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %.thread
 
@@ -779,10 +779,10 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %34, %21, %144, %160, %157, %151
-  %.178 = phi i32 [ -1, %160 ], [ -1, %157 ], [ -1, %151 ], [ 0, %144 ], [ -1, %34 ], [ -1, %21 ]
+  %.180 = phi i32 [ -1, %160 ], [ -1, %157 ], [ -1, %151 ], [ 0, %144 ], [ -1, %34 ], [ -1, %21 ]
   %164 = load i64, ptr %5, align 8
   call void @H5AC_tag(i64 noundef %164, ptr noundef null) #3
-  ret i32 %.178
+  ret i32 %.180
 }
 
 declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #1

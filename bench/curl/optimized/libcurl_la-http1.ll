@@ -71,8 +71,8 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end33
-  %nread.056 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end33 ]
-  %buf.addr.055 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end33 ]
+  %buf.addr.057 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end33 ]
+  %nread.055 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end33 ]
   %buflen.addr.054 = phi i64 [ %buflen, %while.body.lr.ph ], [ %sub, %if.end33 ]
   %1 = load ptr, ptr %line.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -85,14 +85,14 @@ if.then.i:                                        ; preds = %while.body
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
-  %call.i.i = call ptr @memchr(ptr noundef %buf.addr.055, i32 noundef 10, i64 noundef %buflen.addr.054) #7
+  %call.i.i = call ptr @memchr(ptr noundef %buf.addr.057, i32 noundef 10, i64 noundef %buflen.addr.054) #7
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then26.i, label %detect_line.exit.i
 
 detect_line.exit.i:                               ; preds = %if.end.i
-  store ptr %buf.addr.055, ptr %line.i, align 8
+  store ptr %buf.addr.057, ptr %line.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.addr.055 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.addr.057 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.i.i = add i64 %reass.sub, 1
   store i64 %add.i.i, ptr %line_len.i, align 8
@@ -178,7 +178,7 @@ next_line.exit.thread37:                          ; preds = %if.else22.i.i, %if.
 
 if.then26.i:                                      ; preds = %if.end.i
   store i32 81, ptr %err, align 4
-  %call28.i = call i32 @Curl_dyn_addn(ptr noundef nonnull %scratch.i, ptr noundef %buf.addr.055, i64 noundef %buflen.addr.054) #6
+  %call28.i = call i32 @Curl_dyn_addn(ptr noundef nonnull %scratch.i, ptr noundef %buf.addr.057, i64 noundef %buflen.addr.054) #6
   store i32 %call28.i, ptr %err, align 4
   %tobool29.not.i = icmp ne i32 %call28.i, 0
   %cmp = icmp slt i64 %buflen.addr.054, 0
@@ -189,13 +189,13 @@ if.then.loopexit:                                 ; preds = %if.then6.i, %if.the
   %12 = phi i32 [ %call10.i, %if.then6.i ], [ %call28.i, %if.then26.i ]
   %.fr = freeze i32 %12
   %13 = icmp eq i32 %.fr, 81
-  %spec.select = select i1 %13, i64 %nread.056, i64 -1
+  %spec.select = select i1 %13, i64 %nread.055, i64 -1
   br label %out.sink.split
 
 if.end3:                                          ; preds = %if.then26.i, %next_line.exit.thread37
   %retval.0.i40 = phi i64 [ %2, %next_line.exit.thread37 ], [ %buflen.addr.054, %if.then26.i ]
-  %add = add i64 %retval.0.i40, %nread.056
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.055, i64 %retval.0.i40
+  %add = add i64 %retval.0.i40, %nread.055
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.057, i64 %retval.0.i40
   %sub = sub i64 %buflen.addr.054, %retval.0.i40
   %14 = load ptr, ptr %line.i, align 8
   %tobool4.not = icmp eq ptr %14, null

@@ -60,8 +60,8 @@ define dso_local i32 @archive_write_set_filter_option(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_set_filter_option(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 232
-  %.02027 = load ptr, ptr %5, align 8
-  %.not28 = icmp eq ptr %.02027, null
+  %.02127 = load ptr, ptr %5, align 8
+  %.not28 = icmp eq ptr %.02127, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -69,39 +69,39 @@ define internal i32 @archive_set_filter_option(ptr nocapture noundef readonly %0
   br i1 %.not24.not, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %14
-  %.02030.us = phi ptr [ %.020.us, %14 ], [ %.02027, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %.02030.us, i64 24
+  %.02130.us = phi ptr [ %.021.us, %14 ], [ %.02127, %.lr.ph ]
+  %6 = getelementptr inbounds i8, ptr %.02130.us, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %.lr.ph.split.us
-  %10 = getelementptr inbounds i8, ptr %.02030.us, i64 80
+  %10 = getelementptr inbounds i8, ptr %.02130.us, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #4
   %.not25.us = icmp eq i32 %12, 0
   br i1 %.not25.us, label %.loopexit.split.us, label %14
 
 .loopexit.split.us:                               ; preds = %9
-  %13 = tail call i32 %7(ptr noundef nonnull %.02030.us, ptr noundef %2, ptr noundef %3) #3
+  %13 = tail call i32 %7(ptr noundef nonnull %.02130.us, ptr noundef %2, ptr noundef %3) #3
   br label %.loopexit
 
 14:                                               ; preds = %9, %.lr.ph.split.us
-  %15 = getelementptr inbounds i8, ptr %.02030.us, i64 16
-  %.020.us = load ptr, ptr %15, align 8
-  %.not.us = icmp eq ptr %.020.us, null
+  %15 = getelementptr inbounds i8, ptr %.02130.us, i64 16
+  %.021.us = load ptr, ptr %15, align 8
+  %.not.us = icmp eq ptr %.021.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %24
-  %.02030 = phi ptr [ %.020, %24 ], [ %.02027, %.lr.ph ]
+  %.02130 = phi ptr [ %.021, %24 ], [ %.02127, %.lr.ph ]
   %.029 = phi i32 [ %.1, %24 ], [ -20, %.lr.ph ]
-  %16 = getelementptr inbounds i8, ptr %.02030, i64 24
+  %16 = getelementptr inbounds i8, ptr %.02130, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %.lr.ph.split
-  %20 = tail call i32 %17(ptr noundef nonnull %.02030, ptr noundef %2, ptr noundef %3) #3
+  %20 = tail call i32 %17(ptr noundef nonnull %.02130, ptr noundef %2, ptr noundef %3) #3
   %21 = icmp eq i32 %20, -30
   br i1 %21, label %.loopexit, label %22
 
@@ -112,9 +112,9 @@ define internal i32 @archive_set_filter_option(ptr nocapture noundef readonly %0
 
 24:                                               ; preds = %22, %.lr.ph.split
   %.1 = phi i32 [ %.029, %.lr.ph.split ], [ %spec.select, %22 ]
-  %25 = getelementptr inbounds i8, ptr %.02030, i64 16
-  %.020 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %.020, null
+  %25 = getelementptr inbounds i8, ptr %.02130, i64 16
+  %.021 = load ptr, ptr %25, align 8
+  %.not = icmp eq ptr %.021, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %14, %24, %4
@@ -126,8 +126,8 @@ define internal i32 @archive_set_filter_option(ptr nocapture noundef readonly %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.loopexit.split.us, %._crit_edge
-  %.021 = phi i32 [ %spec.store.select, %._crit_edge ], [ %13, %.loopexit.split.us ], [ -30, %19 ]
-  ret i32 %.021
+  %.020 = phi i32 [ %spec.store.select, %._crit_edge ], [ %13, %.loopexit.split.us ], [ -30, %19 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable

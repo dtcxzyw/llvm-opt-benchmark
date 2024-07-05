@@ -408,27 +408,27 @@ define noundef i32 @pmix_progress_thread_start(ptr noundef readonly %0) local_un
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7, %4
-  %.025 = phi ptr [ %0, %4 ], [ @.str.2, %7 ]
-  %.036 = load ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 240), align 8
-  %.not37 = icmp eq ptr %.036, getelementptr inbounds (i8, ptr @tracking, i64 120)
+  %.026 = phi ptr [ %0, %4 ], [ @.str.2, %7 ]
+  %.02536 = load ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 240), align 8
+  %.not37 = icmp eq ptr %.02536, getelementptr inbounds (i8, ptr @tracking, i64 120)
   br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %48
-  %.038 = phi ptr [ %.0, %48 ], [ %.036, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.038, i64 152
+  %.02538 = phi ptr [ %.025, %48 ], [ %.02536, %10 ]
+  %11 = getelementptr inbounds i8, ptr %.02538, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.025, ptr noundef nonnull dereferenceable(1) %12) #14
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.026, ptr noundef nonnull dereferenceable(1) %12) #14
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %48
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.038, i64 168
+  %16 = getelementptr inbounds i8, ptr %.02538, i64 168
   %17 = load volatile i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call fastcc i32 @start_progress_engine(ptr noundef %.038)
+  %20 = tail call fastcc i32 @start_progress_engine(ptr noundef %.02538)
   switch i32 %20, label %21 [
     i32 0, label %.loopexit
     i32 -2, label %23
@@ -440,7 +440,7 @@ define noundef i32 @pmix_progress_thread_start(ptr noundef readonly %0) local_un
   br label %23
 
 23:                                               ; preds = %19, %21
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef %.038) #13
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef %.02538) #13
   %25 = icmp eq i32 %24, 35
   br i1 %25, label %26, label %28
 
@@ -452,16 +452,16 @@ define noundef i32 @pmix_progress_thread_start(ptr noundef readonly %0) local_un
   unreachable
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %.038, i64 48
+  %29 = getelementptr inbounds i8, ptr %.02538, i64 48
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 8
-  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef %.038) #13
+  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef %.02538) #13
   %33 = icmp eq i32 %31, 0
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.038, i64 40
+  %35 = getelementptr inbounds i8, ptr %.02538, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
@@ -472,36 +472,36 @@ define noundef i32 @pmix_progress_thread_start(ptr noundef readonly %0) local_un
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %34 ]
   %.07.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
-  tail call void %40(ptr noundef %.038) #13
+  tail call void %40(ptr noundef %.02538) #13
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
-  %43 = getelementptr inbounds i8, ptr %.038, i64 96
+  %43 = getelementptr inbounds i8, ptr %.02538, i64 96
   %44 = load ptr, ptr %43, align 8
   %.not33 = icmp eq ptr %44, null
   br i1 %.not33, label %47, label %45
 
 45:                                               ; preds = %pmix_obj_run_destructors.exit
-  %46 = getelementptr inbounds i8, ptr %.038, i64 56
-  tail call void %44(ptr noundef nonnull %46, ptr noundef nonnull %.038) #13
+  %46 = getelementptr inbounds i8, ptr %.02538, i64 56
+  tail call void %44(ptr noundef nonnull %46, ptr noundef nonnull %.02538) #13
   br label %.loopexit
 
 47:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.038) #13
+  tail call void @free(ptr noundef nonnull %.02538) #13
   br label %.loopexit
 
 48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %.038, i64 120
-  %.0 = load ptr, ptr %49, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @tracking, i64 120)
+  %49 = getelementptr inbounds i8, ptr %.02538, i64 120
+  %.025 = load ptr, ptr %49, align 8
+  %.not = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @tracking, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %48, %10, %28, %19, %47, %45, %15, %7, %1
-  %.026 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ %20, %45 ], [ %20, %47 ], [ %20, %19 ], [ %20, %28 ], [ -46, %10 ], [ -46, %48 ]
-  ret i32 %.026
+  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ %20, %45 ], [ %20, %47 ], [ %20, %19 ], [ %20, %28 ], [ -46, %10 ], [ -46, %48 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -572,12 +572,12 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %30, %45
-  %.03443 = phi i32 [ %46, %45 ], [ %31, %30 ]
-  %36 = icmp ult i32 %.03443, 1024
+  %.03243 = phi i32 [ %46, %45 ], [ %31, %30 ]
+  %36 = icmp ult i32 %.03243, 1024
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %.lr.ph
-  %38 = zext nneg i32 %.03443 to i64
+  %38 = zext nneg i32 %.03243 to i64
   %39 = and i64 %38, 63
   %40 = shl nuw i64 1, %39
   %41 = lshr i64 %38, 6
@@ -588,7 +588,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %45
 
 45:                                               ; preds = %.lr.ph, %37
-  %46 = add nsw i32 %.03443, 1
+  %46 = add nsw i32 %.03243, 1
   %exitcond.not = icmp eq i32 %46, %34
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -620,12 +620,12 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %59
 
 59:                                               ; preds = %._crit_edge, %52, %55
-  %.032 = phi i32 [ -47, %55 ], [ 0, %52 ], [ 0, %._crit_edge ]
+  %.034 = phi i32 [ -47, %55 ], [ 0, %52 ], [ 0, %._crit_edge ]
   call void @PMIx_Argv_free(ptr noundef nonnull %14) #13
   br label %60
 
 60:                                               ; preds = %11, %59, %9, %1
-  %.0 = phi i32 [ %8, %1 ], [ %8, %9 ], [ %.032, %59 ], [ 0, %11 ]
+  %.0 = phi i32 [ %8, %1 ], [ %8, %9 ], [ %.034, %59 ], [ 0, %11 ]
   ret i32 %.0
 }
 

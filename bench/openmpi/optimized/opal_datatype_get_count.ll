@@ -27,24 +27,24 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %69, %2
-  %.068.ph.ph = phi i64 [ %1, %2 ], [ %71, %69 ]
-  %.064.ph.ph = phi ptr [ %8, %2 ], [ %.367, %69 ]
-  %.060.ph.ph = phi i32 [ 0, %2 ], [ %72, %69 ]
-  %.058.ph.ph = phi i64 [ 0, %2 ], [ %70, %69 ]
-  %.057.ph.ph = phi i64 [ 0, %2 ], [ %.3, %69 ]
+  %.066.ph.ph = phi i32 [ 0, %2 ], [ %72, %69 ]
+  %.064.ph.ph = phi i64 [ 0, %2 ], [ %70, %69 ]
+  %.060.ph.ph = phi i64 [ 0, %2 ], [ %.363, %69 ]
+  %.058.ph.ph = phi ptr [ %8, %2 ], [ %.3, %69 ]
+  %.057.ph.ph = phi i64 [ %1, %2 ], [ %71, %69 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %.loopexit74
-  %.064.ph = phi ptr [ %.367, %.loopexit74 ], [ %.064.ph.ph, %.outer.outer ]
-  %.060.ph = phi i32 [ %.363, %.loopexit74 ], [ %.060.ph.ph, %.outer.outer ]
-  %.057.ph = phi i64 [ %.3, %.loopexit74 ], [ %.057.ph.ph, %.outer.outer ]
+  %.066.ph = phi i32 [ %.369, %.loopexit74 ], [ %.066.ph.ph, %.outer.outer ]
+  %.060.ph = phi i64 [ %.363, %.loopexit74 ], [ %.060.ph.ph, %.outer.outer ]
+  %.058.ph = phi ptr [ %.3, %.loopexit74 ], [ %.058.ph.ph, %.outer.outer ]
   br label %13
 
 13:                                               ; preds = %.outer, %29
-  %.064 = phi ptr [ %.165, %29 ], [ %.064.ph, %.outer ]
-  %.060 = phi i32 [ %.161, %29 ], [ %.060.ph, %.outer ]
-  %.057 = phi i64 [ %.1, %29 ], [ %.057.ph, %.outer ]
-  %14 = zext i32 %.060 to i64
+  %.066 = phi i32 [ %.167, %29 ], [ %.066.ph, %.outer ]
+  %.060 = phi i64 [ %.161, %29 ], [ %.060.ph, %.outer ]
+  %.058 = phi ptr [ %.159, %29 ], [ %.058.ph, %.outer ]
+  %14 = zext i32 %.066 to i64
   %15 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %14, i32 0, i32 0, i32 1
   %16 = load i16, ptr %15, align 2
   switch i16 %16, label %.loopexit74 [
@@ -53,7 +53,7 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
   ]
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.064, i64 8
+  %18 = getelementptr inbounds i8, ptr %.058, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8
@@ -61,43 +61,43 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %17
-  %23 = icmp eq i64 %.057, 0
+  %23 = icmp eq i64 %.060, 0
   br i1 %23, label %.loopexit75, label %24
 
 24:                                               ; preds = %22
-  %25 = add nsw i64 %.057, -1
-  %26 = getelementptr inbounds i8, ptr %.064, i64 -24
+  %25 = add nsw i64 %.060, -1
+  %26 = getelementptr inbounds i8, ptr %.058, i64 -24
   br label %29
 
 27:                                               ; preds = %17
-  %28 = load i32, ptr %.064, align 8
+  %28 = load i32, ptr %.058, align 8
   br label %29
 
 29:                                               ; preds = %27, %24
-  %.165 = phi ptr [ %26, %24 ], [ %.064, %27 ]
-  %.161.in = phi i32 [ %.060, %24 ], [ %28, %27 ]
-  %.1 = phi i64 [ %25, %24 ], [ %.057, %27 ]
-  %.161 = add i32 %.161.in, 1
+  %.167.in = phi i32 [ %.066, %24 ], [ %28, %27 ]
+  %.161 = phi i64 [ %25, %24 ], [ %.060, %27 ]
+  %.159 = phi ptr [ %26, %24 ], [ %.058, %27 ]
+  %.167 = add i32 %.167.in, 1
   br label %13
 
 .preheader:                                       ; preds = %13, %.preheader
-  %.266 = phi ptr [ %30, %.preheader ], [ %.064, %13 ]
-  %.262 = phi i32 [ %39, %.preheader ], [ %.060, %13 ]
-  %.2 = phi i64 [ %38, %.preheader ], [ %.057, %13 ]
-  %30 = getelementptr inbounds i8, ptr %.266, i64 24
-  store i32 %.262, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.266, i64 28
+  %.268 = phi i32 [ %39, %.preheader ], [ %.066, %13 ]
+  %.262 = phi i64 [ %38, %.preheader ], [ %.060, %13 ]
+  %.2 = phi ptr [ %30, %.preheader ], [ %.058, %13 ]
+  %30 = getelementptr inbounds i8, ptr %.2, i64 24
+  store i32 %.268, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %.2, i64 28
   store i16 0, ptr %31, align 4
-  %32 = zext i32 %.262 to i64
+  %32 = zext i32 %.268 to i64
   %33 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %32, i32 0, i32 2
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.266, i64 32
+  %36 = getelementptr inbounds i8, ptr %.2, i64 32
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.266, i64 40
+  %37 = getelementptr inbounds i8, ptr %.2, i64 40
   store i64 0, ptr %37, align 8
-  %38 = add nsw i64 %.2, 1
-  %39 = add i32 %.262, 1
+  %38 = add nsw i64 %.262, 1
+  %39 = add i32 %.268, 1
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %40, i32 0, i32 0, i32 1
   %42 = load i16, ptr %41, align 2
@@ -106,9 +106,9 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
 
 .loopexit74:                                      ; preds = %13, %.preheader
   %.pre-phi = phi i64 [ %40, %.preheader ], [ %14, %13 ]
-  %.367 = phi ptr [ %30, %.preheader ], [ %.064, %13 ]
-  %.363 = phi i32 [ %39, %.preheader ], [ %.060, %13 ]
-  %.3 = phi i64 [ %38, %.preheader ], [ %.057, %13 ]
+  %.369 = phi i32 [ %39, %.preheader ], [ %.066, %13 ]
+  %.363 = phi i64 [ %38, %.preheader ], [ %.060, %13 ]
+  %.3 = phi ptr [ %30, %.preheader ], [ %.058, %13 ]
   %44 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %.pre-phi
   %45 = load i16, ptr %44, align 8
   %46 = and i16 %45, 256
@@ -117,9 +117,9 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
 
 .lr.ph:                                           ; preds = %.loopexit74, %69
   %47 = phi ptr [ %74, %69 ], [ %44, %.loopexit74 ]
-  %.15993 = phi i64 [ %70, %69 ], [ %.058.ph.ph, %.loopexit74 ]
-  %.492 = phi i32 [ %72, %69 ], [ %.363, %.loopexit74 ]
-  %.16991 = phi i64 [ %71, %69 ], [ %.068.ph.ph, %.loopexit74 ]
+  %.193 = phi i64 [ %71, %69 ], [ %.057.ph.ph, %.loopexit74 ]
+  %.16592 = phi i64 [ %70, %69 ], [ %.064.ph.ph, %.loopexit74 ]
+  %.491 = phi i32 [ %72, %69 ], [ %.369, %.loopexit74 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 2
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i64
@@ -134,23 +134,23 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
   %59 = getelementptr inbounds i8, ptr %52, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = mul i64 %58, %60
-  %.not73 = icmp ult i64 %61, %.16991
+  %.not73 = icmp ult i64 %61, %.193
   br i1 %.not73, label %69, label %62
 
 62:                                               ; preds = %.lr.ph
-  %63 = udiv i64 %.16991, %60
+  %63 = udiv i64 %.193, %60
   %sext = shl i64 %63, 32
   %64 = ashr exact i64 %sext, 32
-  %65 = add nsw i64 %64, %.15993
+  %65 = add nsw i64 %64, %.16592
   %66 = mul i64 %63, %60
-  %67 = icmp eq i64 %.16991, %66
+  %67 = icmp eq i64 %.193, %66
   %68 = select i1 %67, i64 %65, i64 -1
   br label %.loopexit75
 
 69:                                               ; preds = %.lr.ph
-  %70 = add i64 %58, %.15993
-  %71 = sub i64 %.16991, %61
-  %72 = add i32 %.492, 1
+  %70 = add i64 %58, %.16592
+  %71 = sub i64 %.193, %61
+  %72 = add i32 %.491, 1
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %73
   %75 = load i16, ptr %74, align 8
@@ -159,7 +159,7 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
   br i1 %.not, label %.outer.outer, label %.lr.ph, !llvm.loop !6
 
 .loopexit75:                                      ; preds = %22, %62
-  %.0 = phi i64 [ %68, %62 ], [ %.058.ph.ph, %22 ]
+  %.0 = phi i64 [ %68, %62 ], [ %.064.ph.ph, %22 ]
   ret i64 %.0
 }
 
@@ -193,28 +193,28 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %75, %12
-  %.065.ph.ph = phi i64 [ %7, %12 ], [ %78, %75 ]
-  %.061.ph.ph = phi ptr [ %18, %12 ], [ %.364, %75 ]
-  %.057.ph.ph = phi i64 [ 0, %12 ], [ %79, %75 ]
-  %.056.ph.ph = phi i32 [ 0, %12 ], [ %.3, %75 ]
+  %.063.ph.ph = phi i64 [ 0, %12 ], [ %79, %75 ]
+  %.059.ph.ph = phi i32 [ 0, %12 ], [ %.362, %75 ]
+  %.057.ph.ph = phi ptr [ %18, %12 ], [ %.3, %75 ]
+  %.056.ph.ph = phi i64 [ %7, %12 ], [ %78, %75 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %.loopexit71
-  %.061.ph = phi ptr [ %.364, %.loopexit71 ], [ %.061.ph.ph, %.outer.outer ]
-  %.057.ph = phi i64 [ %.360, %.loopexit71 ], [ %.057.ph.ph, %.outer.outer ]
-  %.056.ph = phi i32 [ %.3, %.loopexit71 ], [ %.056.ph.ph, %.outer.outer ]
+  %.063.ph = phi i64 [ %.366, %.loopexit71 ], [ %.063.ph.ph, %.outer.outer ]
+  %.059.ph = phi i32 [ %.362, %.loopexit71 ], [ %.059.ph.ph, %.outer.outer ]
+  %.057.ph = phi ptr [ %.3, %.loopexit71 ], [ %.057.ph.ph, %.outer.outer ]
   br label %.outer132
 
 .outer132:                                        ; preds = %33, %.outer
-  %.061.ph133 = phi ptr [ %35, %33 ], [ %.061.ph, %.outer ]
-  %.057.ph134 = phi i64 [ %36, %33 ], [ %.057.ph, %.outer ]
-  %.056.ph135 = phi i32 [ %34, %33 ], [ %.056.ph, %.outer ]
-  %23 = getelementptr inbounds i8, ptr %.061.ph133, i64 8
+  %.063.ph133 = phi i64 [ %36, %33 ], [ %.063.ph, %.outer ]
+  %.059.ph134 = phi i32 [ %34, %33 ], [ %.059.ph, %.outer ]
+  %.057.ph135 = phi ptr [ %35, %33 ], [ %.057.ph, %.outer ]
+  %23 = getelementptr inbounds i8, ptr %.057.ph135, i64 8
   br label %24
 
 24:                                               ; preds = %.outer132, %37
-  %.057 = phi i64 [ %40, %37 ], [ %.057.ph134, %.outer132 ]
-  %25 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.057, i32 0, i32 0, i32 1
+  %.063 = phi i64 [ %40, %37 ], [ %.063.ph133, %.outer132 ]
+  %25 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.063, i32 0, i32 0, i32 1
   %26 = load i16, ptr %25, align 2
   switch i16 %26, label %.loopexit71 [
     i16 1, label %27
@@ -229,49 +229,49 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
-  %32 = icmp eq i32 %.056.ph135, 0
+  %32 = icmp eq i32 %.059.ph134, 0
   br i1 %32, label %.loopexit72, label %33
 
 33:                                               ; preds = %31
-  %34 = add nsw i32 %.056.ph135, -1
-  %35 = getelementptr inbounds i8, ptr %.061.ph133, i64 -24
-  %36 = add i64 %.057, 1
+  %34 = add nsw i32 %.059.ph134, -1
+  %35 = getelementptr inbounds i8, ptr %.057.ph135, i64 -24
+  %36 = add i64 %.063, 1
   br label %.outer132
 
 37:                                               ; preds = %27
-  %38 = load i32, ptr %.061.ph133, align 8
+  %38 = load i32, ptr %.057.ph135, align 8
   %39 = add nsw i32 %38, 1
   %40 = sext i32 %39 to i64
   br label %24
 
 .preheader:                                       ; preds = %24, %.preheader
-  %.263 = phi ptr [ %41, %.preheader ], [ %.061.ph133, %24 ]
-  %.259 = phi i64 [ %50, %.preheader ], [ %.057, %24 ]
-  %.2 = phi i32 [ %49, %.preheader ], [ %.056.ph135, %24 ]
-  %41 = getelementptr inbounds i8, ptr %.263, i64 24
-  %42 = trunc i64 %.259 to i32
+  %.265 = phi i64 [ %50, %.preheader ], [ %.063, %24 ]
+  %.261 = phi i32 [ %49, %.preheader ], [ %.059.ph134, %24 ]
+  %.2 = phi ptr [ %41, %.preheader ], [ %.057.ph135, %24 ]
+  %41 = getelementptr inbounds i8, ptr %.2, i64 24
+  %42 = trunc i64 %.265 to i32
   store i32 %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.263, i64 28
+  %43 = getelementptr inbounds i8, ptr %.2, i64 28
   store i16 0, ptr %43, align 4
-  %44 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.259, i32 0, i32 2
+  %44 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.265, i32 0, i32 2
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %.263, i64 32
+  %47 = getelementptr inbounds i8, ptr %.2, i64 32
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.263, i64 40
+  %48 = getelementptr inbounds i8, ptr %.2, i64 40
   store i64 0, ptr %48, align 8
-  %49 = add nsw i32 %.2, 1
-  %50 = add i64 %.259, 1
+  %49 = add nsw i32 %.261, 1
+  %50 = add i64 %.265, 1
   %51 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %50, i32 0, i32 0, i32 1
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, 0
   br i1 %53, label %.preheader, label %.loopexit71, !llvm.loop !7
 
 .loopexit71:                                      ; preds = %24, %.preheader
-  %.364 = phi ptr [ %41, %.preheader ], [ %.061.ph133, %24 ]
-  %.360 = phi i64 [ %50, %.preheader ], [ %.057, %24 ]
-  %.3 = phi i32 [ %49, %.preheader ], [ %.056.ph135, %24 ]
-  %54 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.360
+  %.366 = phi i64 [ %50, %.preheader ], [ %.063, %24 ]
+  %.362 = phi i32 [ %49, %.preheader ], [ %.059.ph134, %24 ]
+  %.3 = phi ptr [ %41, %.preheader ], [ %.057.ph135, %24 ]
+  %54 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %.366
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, 256
   %.not85 = icmp eq i16 %56, 0
@@ -284,8 +284,8 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %57 = phi i64 [ %77, %75 ], [ %.promoted, %.lr.ph.preheader ]
   %58 = phi ptr [ %80, %75 ], [ %54, %.lr.ph.preheader ]
-  %.487 = phi i64 [ %79, %75 ], [ %.360, %.lr.ph.preheader ]
-  %.16686 = phi i64 [ %78, %75 ], [ %.065.ph.ph, %.lr.ph.preheader ]
+  %.187 = phi i64 [ %78, %75 ], [ %.056.ph.ph, %.lr.ph.preheader ]
+  %.486 = phi i64 [ %79, %75 ], [ %.366, %.lr.ph.preheader ]
   %59 = getelementptr inbounds i8, ptr %58, i64 2
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
@@ -297,13 +297,13 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
   %67 = getelementptr inbounds i8, ptr %58, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = mul i64 %68, %66
-  %.not70 = icmp ult i64 %69, %.16686
+  %.not70 = icmp ult i64 %69, %.187
   %70 = getelementptr inbounds i8, ptr %63, i64 24
   %71 = load i64, ptr %70, align 8
   br i1 %.not70, label %75, label %72
 
 72:                                               ; preds = %.lr.ph
-  %73 = mul i64 %71, %.16686
+  %73 = mul i64 %71, %.187
   %74 = add i64 %57, %73
   store i64 %74, ptr %2, align 8
   br label %.loopexit72
@@ -312,8 +312,8 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
   %76 = mul i64 %71, %69
   %77 = add i64 %57, %76
   store i64 %77, ptr %2, align 8
-  %78 = sub i64 %.16686, %69
-  %79 = add i64 %.487, 1
+  %78 = sub i64 %.187, %69
+  %79 = add i64 %.486, 1
   %80 = getelementptr inbounds %union.dt_elem_desc, ptr %22, i64 %79
   %81 = load i16, ptr %80, align 8
   %82 = and i16 %81, 256
@@ -350,10 +350,10 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %4
-  %.045 = phi ptr [ %11, %4 ], [ %.045.be, %.backedge.backedge ]
-  %.041 = phi i32 [ 0, %4 ], [ %.041.be, %.backedge.backedge ]
-  %.040 = phi i64 [ 0, %4 ], [ %.040.be, %.backedge.backedge ]
-  %16 = zext i32 %.041 to i64
+  %.045 = phi i32 [ 0, %4 ], [ %.045.be, %.backedge.backedge ]
+  %.041 = phi i64 [ 0, %4 ], [ %.041.be, %.backedge.backedge ]
+  %.040 = phi ptr [ %11, %4 ], [ %.040.be, %.backedge.backedge ]
+  %16 = zext i32 %.045 to i64
   %17 = getelementptr inbounds %union.dt_elem_desc, ptr %15, i64 %16, i32 0, i32 0, i32 1
   %18 = load i16, ptr %17, align 2
   switch i16 %18, label %.loopexit51 [
@@ -362,7 +362,7 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
   ]
 
 19:                                               ; preds = %.backedge
-  %20 = getelementptr inbounds i8, ptr %.045, i64 8
+  %20 = getelementptr inbounds i8, ptr %.040, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, -1
   store i64 %22, ptr %20, align 8
@@ -370,43 +370,43 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %19
-  %25 = icmp eq i64 %.040, 0
+  %25 = icmp eq i64 %.041, 0
   br i1 %25, label %.loopexit52, label %26
 
 26:                                               ; preds = %24
-  %27 = add nsw i64 %.040, -1
-  %28 = getelementptr inbounds i8, ptr %.045, i64 -24
+  %27 = add nsw i64 %.041, -1
+  %28 = getelementptr inbounds i8, ptr %.040, i64 -24
   br label %31
 
 29:                                               ; preds = %19
-  %30 = load i32, ptr %.045, align 8
+  %30 = load i32, ptr %.040, align 8
   br label %31
 
 31:                                               ; preds = %29, %26
-  %.146 = phi ptr [ %28, %26 ], [ %.045, %29 ]
-  %.142.in = phi i32 [ %.041, %26 ], [ %30, %29 ]
-  %.1 = phi i64 [ %27, %26 ], [ %.040, %29 ]
-  %.142 = add i32 %.142.in, 1
+  %.146.in = phi i32 [ %.045, %26 ], [ %30, %29 ]
+  %.142 = phi i64 [ %27, %26 ], [ %.041, %29 ]
+  %.1 = phi ptr [ %28, %26 ], [ %.040, %29 ]
+  %.146 = add i32 %.146.in, 1
   br label %.backedge.backedge
 
 .preheader:                                       ; preds = %.backedge, %.preheader
-  %.247 = phi ptr [ %32, %.preheader ], [ %.045, %.backedge ]
-  %.243 = phi i32 [ %41, %.preheader ], [ %.041, %.backedge ]
-  %.2 = phi i64 [ %40, %.preheader ], [ %.040, %.backedge ]
-  %32 = getelementptr inbounds i8, ptr %.247, i64 24
-  store i32 %.243, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.247, i64 28
+  %.247 = phi i32 [ %41, %.preheader ], [ %.045, %.backedge ]
+  %.243 = phi i64 [ %40, %.preheader ], [ %.041, %.backedge ]
+  %.2 = phi ptr [ %32, %.preheader ], [ %.040, %.backedge ]
+  %32 = getelementptr inbounds i8, ptr %.2, i64 24
+  store i32 %.247, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %.2, i64 28
   store i16 0, ptr %33, align 4
-  %34 = zext i32 %.243 to i64
+  %34 = zext i32 %.247 to i64
   %35 = getelementptr inbounds %union.dt_elem_desc, ptr %15, i64 %34, i32 0, i32 2
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.247, i64 32
+  %38 = getelementptr inbounds i8, ptr %.2, i64 32
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.247, i64 40
+  %39 = getelementptr inbounds i8, ptr %.2, i64 40
   store i64 0, ptr %39, align 8
-  %40 = add nsw i64 %.2, 1
-  %41 = add i32 %.243, 1
+  %40 = add nsw i64 %.243, 1
+  %41 = add i32 %.247, 1
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds %union.dt_elem_desc, ptr %15, i64 %42, i32 0, i32 0, i32 1
   %44 = load i16, ptr %43, align 2
@@ -415,9 +415,9 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
 
 .loopexit51:                                      ; preds = %.preheader, %.backedge
   %.pre-phi = phi i64 [ %16, %.backedge ], [ %42, %.preheader ]
-  %.348 = phi ptr [ %.045, %.backedge ], [ %32, %.preheader ]
-  %.344 = phi i32 [ %.041, %.backedge ], [ %41, %.preheader ]
-  %.3 = phi i64 [ %.040, %.backedge ], [ %40, %.preheader ]
+  %.348 = phi i32 [ %.045, %.backedge ], [ %41, %.preheader ]
+  %.344 = phi i64 [ %.041, %.backedge ], [ %40, %.preheader ]
+  %.3 = phi ptr [ %.040, %.backedge ], [ %32, %.preheader ]
   %46 = getelementptr inbounds %union.dt_elem_desc, ptr %15, i64 %.pre-phi
   %47 = load i16, ptr %46, align 8
   %48 = and i16 %47, 256
@@ -425,14 +425,14 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
   br i1 %.not5055, label %.backedge.backedge, label %.lr.ph
 
 .backedge.backedge:                               ; preds = %.lr.ph, %.loopexit51, %31
-  %.045.be = phi ptr [ %.146, %31 ], [ %.348, %.loopexit51 ], [ %.348, %.lr.ph ]
-  %.041.be = phi i32 [ %.142, %31 ], [ %.344, %.loopexit51 ], [ %63, %.lr.ph ]
-  %.040.be = phi i64 [ %.1, %31 ], [ %.3, %.loopexit51 ], [ %.3, %.lr.ph ]
+  %.045.be = phi i32 [ %.146, %31 ], [ %.348, %.loopexit51 ], [ %63, %.lr.ph ]
+  %.041.be = phi i64 [ %.142, %31 ], [ %.344, %.loopexit51 ], [ %.344, %.lr.ph ]
+  %.040.be = phi ptr [ %.1, %31 ], [ %.3, %.loopexit51 ], [ %.3, %.lr.ph ]
   br label %.backedge
 
 .lr.ph:                                           ; preds = %.loopexit51, %.lr.ph
   %49 = phi ptr [ %65, %.lr.ph ], [ %46, %.loopexit51 ]
-  %.456 = phi i32 [ %63, %.lr.ph ], [ %.344, %.loopexit51 ]
+  %.456 = phi i32 [ %63, %.lr.ph ], [ %.348, %.loopexit51 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64

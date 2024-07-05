@@ -410,7 +410,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %22
 
 22:                                               ; preds = %17, %19
-  %.070 = phi i32 [ %21, %19 ], [ 0, %17 ]
+  %.071 = phi i32 [ %21, %19 ], [ 0, %17 ]
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %23, align 4
   %.pr = load i32, ptr @rtse_reassemble, align 4
@@ -423,16 +423,16 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24
-  %27 = call ptr @fragment_end_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef nonnull %1, i32 noundef %.070, ptr noundef null) #3
+  %27 = call ptr @fragment_end_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef nonnull %1, i32 noundef %.071, ptr noundef null) #3
   %28 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.124, ptr noundef %27, ptr noundef nonnull @rtse_frag_items, ptr noundef null, ptr noundef %2) #3
   br label %.thread
 
 .thread:                                          ; preds = %15, %9, %26, %24, %22
-  %.17196 = phi i32 [ %.070, %26 ], [ %.070, %24 ], [ %.070, %22 ], [ 0, %9 ], [ 0, %15 ]
-  %.073 = phi ptr [ %28, %26 ], [ null, %24 ], [ null, %22 ], [ null, %9 ], [ null, %15 ]
+  %.17296 = phi i32 [ %.071, %26 ], [ %.071, %24 ], [ %.071, %22 ], [ 0, %9 ], [ 0, %15 ]
+  %.074 = phi ptr [ %28, %26 ], [ null, %24 ], [ null, %22 ], [ null, %9 ], [ null, %15 ]
   %29 = load i32, ptr @proto_rtse, align 4
-  %.not87 = icmp eq ptr %.073, null
-  %30 = select i1 %.not87, ptr %0, ptr %.073
+  %.not87 = icmp eq ptr %.074, null
+  %30 = select i1 %.not87, ptr %0, ptr %.074
   %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %30, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   store ptr %31, ptr %5, align 8
   %32 = load i32, ptr @ett_rtse, align 4
@@ -463,7 +463,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %46 = select i1 %45, ptr @.str.126, ptr @.str.127
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.125, i32 noundef %42, ptr noundef nonnull %46) #3
   %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %47, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.17196, ptr noundef null, i32 noundef %42, i32 noundef 1) #3
+  %48 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %47, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.17296, ptr noundef null, i32 noundef %42, i32 noundef 1) #3
   %.not91 = icmp eq ptr %48, null
   br i1 %.not91, label %58, label %49
 
@@ -491,11 +491,11 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %62
 
 62:                                               ; preds = %60, %58
-  %.072 = phi i32 [ %42, %58 ], [ %61, %60 ]
+  %.073 = phi i32 [ %42, %58 ], [ %61, %60 ]
   %63 = load ptr, ptr %11, align 8
-  %64 = icmp eq i32 %.072, 1
+  %64 = icmp eq i32 %.073, 1
   %65 = select i1 %64, ptr @.str.126, ptr @.str.127
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.128, i32 noundef %.072, ptr noundef nonnull %65) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.128, i32 noundef %.073, ptr noundef nonnull %65) #3
   br i1 %.not90, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %35, %.thread, %62
@@ -507,7 +507,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
 67:                                               ; preds = %66
   %68 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 318767104, ptr %68, align 4
-  %69 = call i32 @dissect_ber_external_type(i1 noundef zeroext false, ptr noundef %33, ptr noundef nonnull %.073, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1, ptr noundef nonnull @call_rtse_external_type_callback) #3
+  %69 = call i32 @dissect_ber_external_type(i1 noundef zeroext false, ptr noundef %33, ptr noundef nonnull %.074, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1, ptr noundef nonnull @call_rtse_external_type_callback) #3
   store ptr null, ptr @top_tree, align 8
   br label %85
 
@@ -543,8 +543,8 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %85
 
 85:                                               ; preds = %4, %.loopexit, %67
-  %.074 = phi i32 [ %84, %.loopexit ], [ 1, %67 ], [ 0, %4 ]
-  ret i32 %.074
+  %.0 = phi i32 [ %84, %.loopexit ], [ 1, %67 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

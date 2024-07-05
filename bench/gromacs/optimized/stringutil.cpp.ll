@@ -1375,8 +1375,8 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_115replaceInternalERKNSt7__cxx1
   br i1 %4, label %.lr.ph.us, label %.lr.ph
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.outer.us
-  %.0.ph54.us = phi i64 [ %16, %.outer.us ], [ %11, %.lr.ph.lr.ph ]
-  %.036.ph52.us = phi i64 [ %20, %.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.0.ph53.us = phi i64 [ %20, %.outer.us ], [ 0, %.lr.ph.lr.ph ]
+  %.036.ph52.us = phi i64 [ %16, %.outer.us ], [ %11, %.lr.ph.lr.ph ]
   br label %19
 
 14:                                               ; preds = %.split.us.us
@@ -1390,13 +1390,13 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_115replaceInternalERKNSt7__cxx1
   br i1 %18, label %.lr.ph.us, label %.outer._crit_edge, !llvm.loop !18
 
 19:                                               ; preds = %36, %.lr.ph.us
-  %.045.us.us = phi i64 [ %.0.ph54.us, %.lr.ph.us ], [ %38, %36 ]
-  %20 = add i64 %.045.us.us, %10
-  %21 = icmp eq i64 %.045.us.us, 0
+  %.03645.us.us = phi i64 [ %.036.ph52.us, %.lr.ph.us ], [ %38, %36 ]
+  %20 = add i64 %.03645.us.us, %10
+  %21 = icmp eq i64 %.03645.us.us, 0
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %19
-  %23 = add i64 %.045.us.us, -1
+  %23 = add i64 %.03645.us.us, -1
   %24 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %23) #22
   %25 = load i8, ptr %24, align 1
   %26 = sext i8 %25 to i32
@@ -1432,15 +1432,15 @@ switch.early.test40.us.us:                        ; preds = %31
   ]
 
 36:                                               ; preds = %switch.early.test40.us.us, %switch.early.test40.us.us, %31, %switch.early.test.us.us, %switch.early.test.us.us, %22
-  %37 = add nuw i64 %.045.us.us, 1
+  %37 = add nuw i64 %.03645.us.us, 1
   %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i64 noundef %37) #22
   %39 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %19, label %.outer._crit_edge, !llvm.loop !18
 
 .split.us.us:                                     ; preds = %switch.early.test40.us.us, %28
-  %41 = sub i64 %.045.us.us, %.036.ph52.us
-  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.036.ph52.us, i64 noundef %41)
+  %41 = sub i64 %.03645.us.us, %.0.ph53.us
+  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.0.ph53.us, i64 noundef %41)
           to label %14 unwind label %.loopexit.split.us
 
 .loopexit.split.us:                               ; preds = %.split.us.us, %14
@@ -1449,11 +1449,11 @@ switch.early.test40.us.us:                        ; preds = %31
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph54 = phi i64 [ %48, %.outer ], [ %11, %.lr.ph.lr.ph ]
-  %.036.ph52 = phi i64 [ %43, %.outer ], [ 0, %.lr.ph.lr.ph ]
-  %43 = add i64 %.0.ph54, %10
-  %44 = sub i64 %.0.ph54, %.036.ph52
-  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.036.ph52, i64 noundef %44)
+  %.0.ph53 = phi i64 [ %43, %.outer ], [ 0, %.lr.ph.lr.ph ]
+  %.036.ph52 = phi i64 [ %48, %.outer ], [ %11, %.lr.ph.lr.ph ]
+  %43 = add i64 %.036.ph52, %10
+  %44 = sub i64 %.036.ph52, %.0.ph53
+  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.0.ph53, i64 noundef %44)
           to label %46 unwind label %.loopexit.split
 
 .loopexit.split:                                  ; preds = %.lr.ph, %46
@@ -1482,10 +1482,10 @@ switch.early.test40.us.us:                        ; preds = %31
   br i1 %50, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer.us, %36, %9
-  %.036.ph.lcssa44 = phi i64 [ 0, %9 ], [ %.036.ph52.us, %36 ], [ %20, %.outer.us ], [ %43, %.outer ]
-  %.0.lcssa = phi i64 [ %11, %9 ], [ %38, %36 ], [ %16, %.outer.us ], [ %48, %.outer ]
-  %51 = sub i64 %.0.lcssa, %.036.ph.lcssa44
-  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.036.ph.lcssa44, i64 noundef %51)
+  %.0.ph.lcssa44 = phi i64 [ 0, %9 ], [ %.0.ph53.us, %36 ], [ %20, %.outer.us ], [ %43, %.outer ]
+  %.036.lcssa = phi i64 [ %11, %9 ], [ %38, %36 ], [ %16, %.outer.us ], [ %48, %.outer ]
+  %51 = sub i64 %.036.lcssa, %.0.ph.lcssa44
+  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.0.ph.lcssa44, i64 noundef %51)
           to label %53 unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %.outer._crit_edge
@@ -1807,7 +1807,7 @@ define noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr nocapture n
   br label %23
 
 23:                                               ; preds = %20, %.thread
-  %.03448 = phi i64 [ %2, %.thread ], [ %13, %20 ]
+  %.03348 = phi i64 [ %2, %.thread ], [ %13, %20 ]
   %24 = phi i32 [ %19, %.thread ], [ %22, %20 ]
   %25 = load i32, ptr %0, align 4
   %26 = icmp sgt i32 %25, 0
@@ -1816,7 +1816,7 @@ define noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr nocapture n
 27:                                               ; preds = %23
   %28 = zext nneg i32 %25 to i64
   %29 = sext i32 %24 to i64
-  %30 = sub i64 %.03448, %29
+  %30 = sub i64 %.03348, %29
   %31 = add i64 %30, %28
   %.pre = tail call i64 @llvm.umin.i64(i64 %4, i64 %31)
   br label %32
@@ -1830,15 +1830,15 @@ define noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr nocapture n
   br label %38
 
 38:                                               ; preds = %49, %32
-  %.033 = phi i64 [ %.03448, %32 ], [ %47, %49 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 %.033
+  %.034 = phi i64 [ %.03348, %32 ], [ %47, %49 ]
+  %39 = getelementptr inbounds i8, ptr %1, i64 %.034
   %40 = tail call noundef ptr @strpbrk(ptr noundef %39, ptr noundef nonnull @.str.7) #21
   %.not40 = icmp eq ptr %40, null
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %41, %37
   %43 = select i1 %.not40, i64 %4, i64 %42
   %44 = icmp ugt i64 %43, %36
-  %45 = icmp ugt i64 %.033, %.03448
+  %45 = icmp ugt i64 %.034, %.03348
   %or.cond = and i1 %45, %44
   br i1 %or.cond, label %.critedge, label %46
 
@@ -1854,7 +1854,7 @@ define noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr nocapture n
   br i1 %.not41, label %.critedge, label %38, !llvm.loop !23
 
 .critedge:                                        ; preds = %38, %46, %49
-  %.1 = phi i64 [ %47, %49 ], [ %47, %46 ], [ %.033, %38 ]
+  %.1 = phi i64 [ %47, %49 ], [ %47, %46 ], [ %.034, %38 ]
   %52 = tail call i64 @llvm.umin.i64(i64 %.1, i64 %4)
   br label %53
 

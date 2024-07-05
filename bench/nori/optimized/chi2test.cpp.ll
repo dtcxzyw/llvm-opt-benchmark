@@ -1009,7 +1009,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
 
 .lr.ph189:                                        ; preds = %.lr.ph198.split, %323
   %.1187 = phi i32 [ %spec.select, %323 ], [ %.0196, %.lr.ph198.split ]
-  %.049186 = phi i32 [ %324, %323 ], [ 0, %.lr.ph198.split ]
+  %.044186 = phi i32 [ %324, %323 ], [ 0, %.lr.ph198.split ]
   %.sroa.0114.1185 = phi i64 [ %.sroa.0114.2.lcssa, %323 ], [ %.sroa.0114.0195, %.lr.ph198.split ]
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %28, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %28, i1 false)
@@ -1131,7 +1131,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
 
 .lr.ph:                                           ; preds = %136, %204
   %.sroa.0114.2175 = phi i64 [ %.sroa.0114.2, %204 ], [ %.sroa.0114.2173, %136 ]
-  %.048174 = phi i32 [ %205, %204 ], [ 0, %136 ]
+  %.045174 = phi i32 [ %205, %204 ], [ 0, %136 ]
   %139 = mul i64 %.sroa.0114.2175, 6364136223846793005
   %140 = add i64 %139, -2720673578348880933
   %141 = lshr i64 %.sroa.0114.2175, 45
@@ -1219,10 +1219,10 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
   %189 = fmul float %188, 0x3FC45F3060000000
   %190 = fcmp olt float %189, 0.000000e+00
   %191 = fadd float %189, 1.000000e+00
-  %.047 = select i1 %190, float %191, float %189
+  %.049 = select i1 %190, float %191, float %189
   %192 = load i32, ptr %23, align 4
   %193 = sitofp i32 %192 to float
-  %194 = fmul float %.047, %193
+  %194 = fmul float %.049, %193
   %195 = call noundef float @llvm.floor.f32(float %194)
   %196 = fptosi float %195 to i32
   %197 = add nsw i32 %192, -1
@@ -1238,7 +1238,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
   br label %204
 
 204:                                              ; preds = %167, %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE0EEEKNS_5ArrayIfLi3ELi1ELi0ELi3ELi1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEES7_EEEEE3allEv.exit.thread
-  %205 = add nuw nsw i32 %.048174, 1
+  %205 = add nuw nsw i32 %.045174, 1
   %.sroa.0114.2.in = mul i64 %140, 6364136223846793005
   %.sroa.0114.2 = add i64 %.sroa.0114.2.in, -2720673578348880933
   %206 = load i32, ptr %39, align 4
@@ -1277,21 +1277,21 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph183.split
   %219 = phi i32 [ %222, %.lr.ph183.split ], [ %.pre, %.loopexit.loopexit ]
   %220 = phi i32 [ %223, %.lr.ph183.split ], [ %276, %.loopexit.loopexit ]
-  %.144.lcssa = phi ptr [ %.043181, %.lr.ph183.split ], [ %275, %.loopexit.loopexit ]
+  %.148.lcssa = phi ptr [ %.047181, %.lr.ph183.split ], [ %275, %.loopexit.loopexit ]
   %221 = icmp slt i32 %229, %219
   br i1 %221, label %.lr.ph183.split, label %._crit_edge184, !llvm.loop !7
 
 .lr.ph183.split:                                  ; preds = %.preheader, %.loopexit
   %222 = phi i32 [ %219, %.loopexit ], [ %215, %.preheader ]
   %223 = phi i32 [ %220, %.loopexit ], [ %217, %.preheader ]
-  %.042182 = phi i32 [ %229, %.loopexit ], [ 0, %.preheader ]
-  %.043181 = phi ptr [ %.144.lcssa, %.loopexit ], [ %31, %.preheader ]
-  %224 = shl nuw i32 %.042182, 1
+  %.046182 = phi i32 [ %229, %.loopexit ], [ 0, %.preheader ]
+  %.047181 = phi ptr [ %.148.lcssa, %.loopexit ], [ %31, %.preheader ]
+  %224 = shl nuw i32 %.046182, 1
   %225 = uitofp i32 %224 to double
   %226 = sitofp i32 %222 to double
   %227 = fdiv double %225, %226
   %228 = fadd double %227, -1.000000e+00
-  %229 = add nuw nsw i32 %.042182, 1
+  %229 = add nuw nsw i32 %.046182, 1
   %230 = shl nuw i32 %229, 1
   %231 = uitofp i32 %230 to double
   %232 = fdiv double %231, %226
@@ -1301,9 +1301,9 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 
 .lr.ph179:                                        ; preds = %.lr.ph183.split, %_ZNSt8functionIFdddEED2Ev.exit
   %235 = phi i32 [ %276, %_ZNSt8functionIFdddEED2Ev.exit ], [ %223, %.lr.ph183.split ]
-  %.041177 = phi i32 [ %236, %_ZNSt8functionIFdddEED2Ev.exit ], [ 0, %.lr.ph183.split ]
-  %.144176 = phi ptr [ %275, %_ZNSt8functionIFdddEED2Ev.exit ], [ %.043181, %.lr.ph183.split ]
-  %236 = add nuw nsw i32 %.041177, 1
+  %.043177 = phi i32 [ %236, %_ZNSt8functionIFdddEED2Ev.exit ], [ 0, %.lr.ph183.split ]
+  %.148176 = phi ptr [ %275, %_ZNSt8functionIFdddEED2Ev.exit ], [ %.047181, %.lr.ph183.split ]
+  %236 = add nuw nsw i32 %.043177, 1
   store ptr %14, ptr %18, align 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFdddEZN4nori13ChiSquareTest8activateEvEUlddE_E9_M_invokeERKSt9_Any_dataOdS8_, ptr %48, align 8
@@ -1328,7 +1328,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
   %241 = sitofp i32 %235 to float
   %242 = fdiv float %240, %241
   %243 = fpext float %242 to double
-  %244 = shl nuw nsw i32 %.041177, 1
+  %244 = shl nuw nsw i32 %.043177, 1
   %245 = uitofp nneg i32 %244 to float
   %246 = fmul float %245, 0x400921FB60000000
   %247 = fdiv float %246, %241
@@ -1407,8 +1407,8 @@ _ZNSt8functionIFdddEED2Ev.exit:                   ; preds = %265, %267
   %272 = load i32, ptr %39, align 4
   %273 = sitofp i32 %272 to double
   %274 = fmul double %249, %273
-  %275 = getelementptr inbounds i8, ptr %.144176, i64 8
-  store double %274, ptr %.144176, align 8
+  %275 = getelementptr inbounds i8, ptr %.148176, i64 8
+  store double %274, ptr %.148176, align 8
   %276 = load i32, ptr %23, align 4
   %277 = icmp slt i32 %236, %276
   br i1 %277, label %.lr.ph179, label %.loopexit.loopexit, !llvm.loop !9
@@ -1519,7 +1519,7 @@ _ZNSt8functionIFdddEED2Ev.exit:                   ; preds = %265, %267
 
 323:                                              ; preds = %321
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #19
-  %324 = add nuw nsw i32 %.049186, 1
+  %324 = add nuw nsw i32 %.044186, 1
   %325 = load i32, ptr %37, align 8
   %326 = icmp slt i32 %324, %325
   br i1 %326, label %.lr.ph189, label %._crit_edge190, !llvm.loop !16
@@ -3351,9 +3351,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 33:                                               ; preds = %.lr.ph154, %100
   %.085153 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.186, %100 ]
   %.087152 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.188, %100 ]
-  %.089151 = phi i32 [ 0, %.lr.ph154 ], [ %.190, %100 ]
+  %.089151 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.190, %100 ]
   %.092150 = phi i32 [ 0, %.lr.ph154 ], [ %.193, %100 ]
-  %.094149 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.195, %100 ]
+  %.095149 = phi i32 [ 0, %.lr.ph154 ], [ %.196, %100 ]
   %.sroa.0116.0148 = phi ptr [ %.sroa.0119.0167183, %.lr.ph154 ], [ %101, %100 ]
   %34 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
   %35 = load i64, ptr %34, align 8
@@ -3445,7 +3445,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   %81 = load double, ptr %80, align 8
   %82 = fadd double %.085153, %81
   %83 = fadd double %.087152, %37
-  %84 = add nsw i32 %.092150, 1
+  %84 = add nsw i32 %.095149, 1
   br label %100
 
 85:                                               ; preds = %77
@@ -3459,21 +3459,21 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 90:                                               ; preds = %85
   %91 = fadd double %.085153, %89
   %92 = fadd double %.087152, %37
-  %93 = add nsw i32 %.092150, 1
+  %93 = add nsw i32 %.095149, 1
   br label %100
 
 94:                                               ; preds = %85
   %95 = fsub double %89, %37
   %96 = fmul double %95, %95
   %97 = fdiv double %96, %37
-  %98 = fadd double %.094149, %97
-  %99 = add nsw i32 %.089151, 1
+  %98 = fadd double %.089151, %97
+  %99 = add nsw i32 %.092150, 1
   br label %100
 
 100:                                              ; preds = %79, %94, %90, %58
-  %.195 = phi double [ %.094149, %58 ], [ %.094149, %79 ], [ %.094149, %90 ], [ %98, %94 ]
-  %.193 = phi i32 [ %.092150, %58 ], [ %84, %79 ], [ %93, %90 ], [ %.092150, %94 ]
-  %.190 = phi i32 [ %.089151, %58 ], [ %.089151, %79 ], [ %.089151, %90 ], [ %99, %94 ]
+  %.196 = phi i32 [ %.095149, %58 ], [ %84, %79 ], [ %93, %90 ], [ %.095149, %94 ]
+  %.193 = phi i32 [ %.092150, %58 ], [ %.092150, %79 ], [ %.092150, %90 ], [ %99, %94 ]
+  %.190 = phi double [ %.089151, %58 ], [ %.089151, %79 ], [ %.089151, %90 ], [ %98, %94 ]
   %.188 = phi double [ %.087152, %58 ], [ %83, %79 ], [ %92, %90 ], [ %.087152, %94 ]
   %.186 = phi double [ %.085153, %58 ], [ %82, %79 ], [ %91, %90 ], [ %.085153, %94 ]
   %101 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 16
@@ -3481,9 +3481,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   br i1 %.not, label %._crit_edge155, label %33
 
 ._crit_edge155:                                   ; preds = %100, %.preheader
-  %.094.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.195, %100 ]
+  %.095.lcssa = phi i32 [ 0, %.preheader ], [ %.196, %100 ]
   %.092.lcssa = phi i32 [ 0, %.preheader ], [ %.193, %100 ]
-  %.089.lcssa = phi i32 [ 0, %.preheader ], [ %.190, %100 ]
+  %.089.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.190, %100 ]
   %.087.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.188, %100 ]
   %.085.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.186, %100 ]
   %102 = fcmp ogt double %.087.lcssa, 0.000000e+00
@@ -3496,7 +3496,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %106 unwind label %54
 
 106:                                              ; preds = %104
-  %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %.092.lcssa)
+  %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %.095.lcssa)
           to label %108 unwind label %54
 
 108:                                              ; preds = %106
@@ -3519,15 +3519,15 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   %117 = fsub double %.085.lcssa, %.087.lcssa
   %118 = fmul double %117, %117
   %119 = fdiv double %118, %.087.lcssa
-  %120 = fadd double %.094.lcssa, %119
-  %121 = add nsw i32 %.089.lcssa, 1
+  %120 = fadd double %.089.lcssa, %119
+  %121 = add nsw i32 %.092.lcssa, 1
   br label %122
 
 122:                                              ; preds = %._crit_edge155, %116
-  %.296 = phi double [ %120, %116 ], [ %.094.lcssa, %._crit_edge155 ]
-  %.291 = phi i32 [ %121, %116 ], [ %.089.lcssa, %._crit_edge155 ]
-  %123 = add nsw i32 %.291, -1
-  %124 = icmp slt i32 %.291, 2
+  %.294 = phi i32 [ %121, %116 ], [ %.092.lcssa, %._crit_edge155 ]
+  %.291 = phi double [ %120, %116 ], [ %.089.lcssa, %._crit_edge155 ]
+  %123 = add nsw i32 %.294, -1
+  %124 = icmp slt i32 %.294, 2
   br i1 %124, label %125, label %134
 
 125:                                              ; preds = %122
@@ -3555,7 +3555,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %136 unwind label %54
 
 136:                                              ; preds = %134
-  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %135, double noundef %.296)
+  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %135, double noundef %.291)
           to label %138 unwind label %54
 
 138:                                              ; preds = %136
@@ -3575,7 +3575,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
           to label %146 unwind label %54
 
 146:                                              ; preds = %144
-  %147 = fcmp olt double %.296, 0.000000e+00
+  %147 = fcmp olt double %.291, 0.000000e+00
   br i1 %147, label %_ZN10hypothesis8chi2_cdfEdi.exit, label %148
 
 148:                                              ; preds = %146
@@ -3583,7 +3583,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %148
-  %151 = fmul double %.296, -5.000000e-01
+  %151 = fmul double %.291, -5.000000e-01
   %152 = call double @exp(double noundef %151) #19
   %153 = fsub double 1.000000e+00, %152
   br label %_ZN10hypothesis8chi2_cdfEdi.exit
@@ -3591,7 +3591,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 154:                                              ; preds = %148
   %155 = uitofp nneg i32 %123 to double
   %156 = fmul double %155, 5.000000e-01
-  %157 = fmul double %.296, 5.000000e-01
+  %157 = fmul double %.291, 5.000000e-01
   %158 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %156, double noundef %157)
           to label %_ZN10hypothesis8chi2_cdfEdi.exit unwind label %54
 
@@ -5367,13 +5367,13 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   br i1 %or.cond89, label %35, label %.preheader
 
 .preheader:                                       ; preds = %22, %.preheader
-  %.084 = phi double [ %25, %.preheader ], [ %0, %22 ]
-  %.083 = phi double [ %27, %.preheader ], [ 1.000000e+00, %22 ]
-  %.082 = phi double [ %28, %.preheader ], [ 1.000000e+00, %22 ]
-  %25 = fadd double %.084, 1.000000e+00
-  %26 = fmul double %.083, %1
+  %.071 = phi double [ %28, %.preheader ], [ 1.000000e+00, %22 ]
+  %.070 = phi double [ %27, %.preheader ], [ 1.000000e+00, %22 ]
+  %.069 = phi double [ %25, %.preheader ], [ %0, %22 ]
+  %25 = fadd double %.069, 1.000000e+00
+  %26 = fmul double %.070, %1
   %27 = fdiv double %26, %25
-  %28 = fadd double %.082, %27
+  %28 = fadd double %.071, %27
   %29 = fdiv double %27, %28
   %30 = fcmp ogt double %29, 1.000000e-15
   br i1 %30, label %.preheader, label %31, !llvm.loop !57
@@ -5399,12 +5399,12 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   br label %47
 
 47:                                               ; preds = %70, %35
-  %.081 = phi i32 [ 0, %35 ], [ %51, %70 ]
-  %.070 = phi double [ %41, %35 ], [ %.1, %70 ]
+  %.084 = phi i32 [ 0, %35 ], [ %51, %70 ]
+  %.073 = phi double [ %41, %35 ], [ %.1, %70 ]
   %48 = phi <2 x double> [ %43, %35 ], [ %76, %70 ]
   %49 = phi <2 x double> [ %44, %35 ], [ %77, %70 ]
   %50 = phi <2 x double> [ %46, %35 ], [ %52, %70 ]
-  %51 = add nuw nsw i32 %.081, 1
+  %51 = add nuw nsw i32 %.084, 1
   %52 = fadd <2 x double> %50, <double 2.000000e+00, double 1.000000e+00>
   %53 = uitofp nneg i32 %51 to double
   %54 = extractelement <2 x double> %52, i64 1
@@ -5422,14 +5422,14 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
 64:                                               ; preds = %47
   %65 = extractelement <2 x double> %61, i64 0
   %66 = fdiv double %65, %62
-  %67 = fsub double %.070, %66
+  %67 = fsub double %.073, %66
   %68 = fdiv double %67, %66
   %69 = tail call noundef double @llvm.fabs.f64(double %68)
   br label %70
 
 70:                                               ; preds = %47, %64
-  %.1 = phi double [ %66, %64 ], [ %.070, %47 ]
-  %.069 = phi double [ %69, %64 ], [ 1.000000e+00, %47 ]
+  %.1 = phi double [ %66, %64 ], [ %.073, %47 ]
+  %.072 = phi double [ %69, %64 ], [ 1.000000e+00, %47 ]
   %71 = extractelement <2 x double> %61, i64 0
   %72 = tail call noundef double @llvm.fabs.f64(double %71)
   %73 = fcmp ogt double %72, 0x4330000000000000
@@ -5437,7 +5437,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %75 = fmul <2 x double> %61, <double 0x3CB0000000000000, double 0x3CB0000000000000>
   %76 = select i1 %73, <2 x double> %75, <2 x double> %61
   %77 = select i1 %73, <2 x double> %74, <2 x double> %48
-  %78 = fcmp ogt double %.069, 1.000000e-15
+  %78 = fcmp ogt double %.072, 1.000000e-15
   br i1 %78, label %47, label %79, !llvm.loop !58
 
 79:                                               ; preds = %70

@@ -212,8 +212,8 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
   br label %86
 
 63:                                               ; preds = %75, %.preheader.i.i.i
-  %.049.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %77, %75 ]
-  %64 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %.049.i.i.i
+  %.04149.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %77, %75 ]
+  %64 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %.04149.i.i.i
   %65 = load i8, ptr %64, align 1
   switch i8 %65, label %74 [
     i8 43, label %75
@@ -245,9 +245,9 @@ define internal ptr @php_password_bcrypt_hash(ptr noundef %0, ptr noundef %1) #0
 
 75:                                               ; preds = %74, %63
   %.sink.i.i.i = phi i8 [ %65, %74 ], [ 46, %63 ]
-  %76 = getelementptr inbounds i8, ptr %45, i64 %.049.i.i.i
+  %76 = getelementptr inbounds i8, ptr %45, i64 %.04149.i.i.i
   store i8 %.sink.i.i.i, ptr %76, align 1
-  %77 = add nuw nsw i64 %.049.i.i.i, 1
+  %77 = add nuw nsw i64 %.04149.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %77, 22
   br i1 %exitcond.not.i.i.i, label %78, label %63
 
@@ -857,11 +857,11 @@ define hidden void @zif_password_get_info(ptr noundef %0, ptr noundef %1) local_
   br i1 %.fr, label %.thread156, label %.thread163
 
 .thread163:                                       ; preds = %14, %7
-  %.0114172 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.0115171 = phi i32 [ 0, %7 ], [ 4, %14 ]
-  %.0116170 = phi ptr [ null, %7 ], [ %9, %14 ]
-  %.0117169 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0114172, i32 noundef %.0117169, ptr noundef null, i32 noundef %.0115171, ptr noundef %.0116170) #12
+  %.0114172 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  %.0115171 = phi ptr [ null, %7 ], [ %9, %14 ]
+  %.0116170 = phi i32 [ 1, %7 ], [ 9, %14 ]
+  %.0117169 = phi i32 [ 0, %7 ], [ 4, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0116170, i32 noundef %.0114172, ptr noundef null, i32 noundef %.0117169, ptr noundef %.0115171) #12
   br label %101
 
 .thread156:                                       ; preds = %14, %.thread152
@@ -1143,10 +1143,10 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
 
 .thread159:                                       ; preds = %30, %27, %16, %9
   %.0170 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %30 ]
-  %.0133169 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
-  %.0134168 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
-  %.0135167 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0170, i32 noundef %.0135167, ptr noundef null, i32 noundef %.0133169, ptr noundef %.0134168) #12
+  %.0134169 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
+  %.0135168 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
+  %.0136167 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0170, i32 noundef %.0136167, ptr noundef null, i32 noundef %.0134169, ptr noundef %.0135168) #12
   br label %52
 
 .thread171:                                       ; preds = %.thread, %.thread181
@@ -1390,10 +1390,10 @@ define hidden void @zif_password_verify(ptr noundef %0, ptr nocapture noundef wr
 
 .thread118:                                       ; preds = %22, %14, %7
   %.0127 = phi i32 [ 9, %14 ], [ 1, %7 ], [ 9, %22 ]
-  %.089126 = phi i32 [ 4, %14 ], [ 0, %7 ], [ 4, %22 ]
-  %.090125 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %22 ]
-  %.091124 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %22 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0127, i32 noundef %.091124, ptr noundef null, i32 noundef %.089126, ptr noundef %.090125) #12
+  %.090126 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %22 ]
+  %.091125 = phi i32 [ 4, %14 ], [ 0, %7 ], [ 4, %22 ]
+  %.092124 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %22 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0127, i32 noundef %.090126, ptr noundef null, i32 noundef %.091125, ptr noundef %.092124) #12
   br label %37
 
 .thread130:                                       ; preds = %..thread130_crit_edge, %.thread114
@@ -1503,11 +1503,11 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread173
 
 .thread161:                                       ; preds = %30, %27, %16, %9
-  %.0133172 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %30 ]
-  %.0134171 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
-  %.0135170 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
-  %.0136169 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0133172, i32 noundef %.0136169, ptr noundef null, i32 noundef %.0134171, ptr noundef %.0135170) #12
+  %.0134172 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %30 ]
+  %.0136171 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
+  %.0137170 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
+  %.0138169 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0134172, i32 noundef %.0138169, ptr noundef null, i32 noundef %.0136171, ptr noundef %.0137170) #12
   br label %54
 
 .thread173:                                       ; preds = %.thread, %.thread183

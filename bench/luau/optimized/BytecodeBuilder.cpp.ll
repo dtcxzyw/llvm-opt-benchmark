@@ -3102,9 +3102,9 @@ _ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i: ; preds
 
 30:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i
   %.07.lcssa.i.pn.i = phi i64 [ %.07.lcssa.i.i, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %42, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
-  %.024.i = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %41, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
-  %.01725.i = and i64 %.07.lcssa.i.pn.i, %13
-  %31 = getelementptr inbounds %"struct.std::pair.110", ptr %23, i64 %.01725.i
+  %.01724.i = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %41, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
+  %.01825.i = and i64 %.07.lcssa.i.pn.i, %13
+  %31 = getelementptr inbounds %"struct.std::pair.110", ptr %23, i64 %.01825.i
   %32 = getelementptr inbounds i8, ptr %31, i64 128
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %25
@@ -3132,8 +3132,8 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.i: ; pre
   br i1 %40, label %_ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS2_14TableShapeHashESt8equal_toIS3_EE13insert_unsafeERS6_.exit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.i, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread.i
-  %41 = add i64 %.024.i, 1
-  %42 = add i64 %41, %.01725.i
+  %41 = add i64 %.01724.i, 1
+  %42 = add i64 %41, %.01825.i
   %.not.i3 = icmp ule i64 %41, %13
   tail call void @llvm.assume(i1 %.not.i3)
   br label %30
@@ -3180,13 +3180,13 @@ define dso_local noundef signext i16 @_ZN4Luau15BytecodeBuilder16addChildFunctio
   %14 = add i64 %13, -1
   %15 = zext i32 %1 to i64
   %16 = load ptr, ptr %3, align 8
-  %.01522.i.i = and i64 %14, %15
+  %.01622.i.i = and i64 %14, %15
   br label %17
 
 17:                                               ; preds = %23, %11
-  %.01524.i.i = phi i64 [ %.01522.i.i, %11 ], [ %.015.i.i, %23 ]
-  %.023.i.i = phi i64 [ 0, %11 ], [ %24, %23 ]
-  %18 = getelementptr inbounds %"struct.std::pair.107", ptr %16, i64 %.01524.i.i
+  %.01624.i.i = phi i64 [ %.01622.i.i, %11 ], [ %.016.i.i, %23 ]
+  %.01523.i.i = phi i64 [ 0, %11 ], [ %24, %23 ]
+  %18 = getelementptr inbounds %"struct.std::pair.107", ptr %16, i64 %.01624.i.i
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %26, label %21
@@ -3196,14 +3196,14 @@ define dso_local noundef signext i16 @_ZN4Luau15BytecodeBuilder16addChildFunctio
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %21
-  %24 = add i64 %.023.i.i, 1
-  %25 = add i64 %24, %.01524.i.i
-  %.015.i.i = and i64 %25, %14
+  %24 = add i64 %.01523.i.i, 1
+  %25 = add i64 %24, %.01624.i.i
+  %.016.i.i = and i64 %25, %14
   %.not.i.i = icmp ugt i64 %24, %14
   br i1 %.not.i.i, label %.loopexit, label %17, !llvm.loop !28
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds %"struct.std::pair.107", ptr %16, i64 %.01524.i.i, i32 1
+  %27 = getelementptr inbounds %"struct.std::pair.107", ptr %16, i64 %.01624.i.i, i32 1
   %28 = load i16, ptr %27, align 2
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -3242,13 +3242,13 @@ define dso_local noundef signext i16 @_ZN4Luau15BytecodeBuilder16addChildFunctio
   %50 = add i64 %41, -1
   %51 = zext i32 %1 to i64
   %52 = load ptr, ptr %3, align 8
-  %.01522.i.i.i = and i64 %50, %51
+  %.01622.i.i.i = and i64 %50, %51
   br label %53
 
 53:                                               ; preds = %59, %49
-  %.01524.i.i.i = phi i64 [ %.01522.i.i.i, %49 ], [ %.015.i.i.i, %59 ]
-  %.023.i.i.i = phi i64 [ 0, %49 ], [ %60, %59 ]
-  %54 = getelementptr inbounds %"struct.std::pair.107", ptr %52, i64 %.01524.i.i.i
+  %.01624.i.i.i = phi i64 [ %.01622.i.i.i, %49 ], [ %.016.i.i.i, %59 ]
+  %.01523.i.i.i = phi i64 [ 0, %49 ], [ %60, %59 ]
+  %54 = getelementptr inbounds %"struct.std::pair.107", ptr %52, i64 %.01624.i.i.i
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %1
   br i1 %56, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i, label %57
@@ -3258,9 +3258,9 @@ define dso_local noundef signext i16 @_ZN4Luau15BytecodeBuilder16addChildFunctio
   br i1 %58, label %.loopexit.i.i, label %59
 
 59:                                               ; preds = %57
-  %60 = add i64 %.023.i.i.i, 1
-  %61 = add i64 %60, %.01524.i.i.i
-  %.015.i.i.i = and i64 %61, %50
+  %60 = add i64 %.01523.i.i.i, 1
+  %61 = add i64 %60, %.01624.i.i.i
+  %.016.i.i.i = and i64 %61, %50
   %.not.i.i.i = icmp ugt i64 %60, %50
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %53, !llvm.loop !28
 
@@ -3276,15 +3276,15 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEES
   %65 = load ptr, ptr %3, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 432
   %67 = load i32, ptr %66, align 8
-  %.01725.i.i = and i64 %63, %64
-  %68 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.01725.i.i
+  %.01825.i.i = and i64 %63, %64
+  %68 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.01825.i.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, %67
   br i1 %70, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %76, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
-  %.01727.i.lcssa6.i = phi i64 [ %.01725.i.i, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ], [ %.017.i.i, %76 ]
-  %71 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.01727.i.lcssa6.i
+  %.01827.i.lcssa6.i = phi i64 [ %.01825.i.i, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ], [ %.018.i.i, %76 ]
+  %71 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.01827.i.lcssa6.i
   store i32 %1, ptr %71, align 4
   %72 = load i64, ptr %4, align 8
   %73 = add i64 %72, 1
@@ -3293,24 +3293,24 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEES
 
 .lr.ph.i:                                         ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i, %76
   %74 = phi i32 [ %80, %76 ], [ %69, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ]
-  %.026.i8.i = phi i64 [ %77, %76 ], [ 0, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ]
-  %.01727.i7.i = phi i64 [ %.017.i.i, %76 ], [ %.01725.i.i, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ]
+  %.01726.i8.i = phi i64 [ %77, %76 ], [ 0, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ]
+  %.01827.i7.i = phi i64 [ %.018.i.i, %76 ], [ %.01825.i.i, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ]
   %75 = icmp eq i32 %74, %1
   br i1 %75, label %_ZN4Luau12DenseHashMapIjsSt4hashIjESt8equal_toIjEEixERKj.exit, label %76
 
 76:                                               ; preds = %.lr.ph.i
-  %77 = add i64 %.026.i8.i, 1
-  %78 = add i64 %77, %.01727.i7.i
-  %.017.i.i = and i64 %78, %63
+  %77 = add i64 %.01726.i8.i, 1
+  %78 = add i64 %77, %.01827.i7.i
+  %.018.i.i = and i64 %78, %63
   %.not.i3.i = icmp ule i64 %77, %63
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %79 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.017.i.i
+  %79 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %.018.i.i
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, %67
   br i1 %81, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashMapIjsSt4hashIjESt8equal_toIjEEixERKj.exit: ; preds = %.lr.ph.i, %._crit_edge.i
-  %82 = phi i64 [ %.01727.i.lcssa6.i, %._crit_edge.i ], [ %.01727.i7.i, %.lr.ph.i ]
+  %82 = phi i64 [ %.01827.i.lcssa6.i, %._crit_edge.i ], [ %.01827.i7.i, %.lr.ph.i ]
   %83 = getelementptr inbounds %"struct.std::pair.107", ptr %65, i64 %82, i32 1
   store i16 %39, ptr %83, align 2
   %84 = load ptr, ptr %30, align 8
@@ -5472,17 +5472,17 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder13writeLineInfoERNSt7__cxx1112b
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.065128 = phi i32 [ %.1, %.critedge ], [ 16777216, %2 ]
-  %.068127 = phi i64 [ %.pre-phi152, %.critedge ], [ 0, %2 ]
-  %15 = getelementptr inbounds i32, ptr %10, i64 %.068127
+  %.063128 = phi i32 [ %.1, %.critedge ], [ 16777216, %2 ]
+  %.066127 = phi i64 [ %.pre-phi152, %.critedge ], [ 0, %2 ]
+  %15 = getelementptr inbounds i32, ptr %10, i64 %.066127
   %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %.065128 to i64
-  %18 = add i64 %.068127, %17
-  %umax = tail call i64 @llvm.umax.i64(i64 %.068127, i64 %18)
+  %17 = sext i32 %.063128 to i64
+  %18 = add i64 %.066127, %17
+  %umax = tail call i64 @llvm.umax.i64(i64 %.066127, i64 %18)
   br label %19
 
 19:                                               ; preds = %.lr.ph, %26
-  %.069126 = phi i64 [ %.068127, %.lr.ph ], [ %27, %26 ]
+  %.069126 = phi i64 [ %.066127, %.lr.ph ], [ %27, %26 ]
   %.0109125 = phi i32 [ %16, %.lr.ph ], [ %.sroa.speculated99, %26 ]
   %.0110124 = phi i32 [ %16, %.lr.ph ], [ %.sroa.speculated104, %26 ]
   %20 = icmp ult i64 %.069126, %18
@@ -5504,7 +5504,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder13writeLineInfoERNSt7__cxx1112b
 
 29:                                               ; preds = %21, %19
   %.069126.lcssa = phi i64 [ %.069126, %21 ], [ %umax, %19 ]
-  %30 = sub i64 %.069126.lcssa, %.068127
+  %30 = sub i64 %.069126.lcssa, %.066127
   %31 = icmp ult i64 %30, %17
   br i1 %31, label %32, label %.critedge
 
@@ -5522,20 +5522,20 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder13writeLineInfoERNSt7__cxx1112b
 _ZN4LuauL4log2Ei.exit:                            ; preds = %34
   %37 = shl nuw i32 1, %.0.i
   %.pre = sext i32 %37 to i64
-  %.pre151 = add i64 %.068127, %.pre
+  %.pre151 = add i64 %.066127, %.pre
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %29, %_ZN4LuauL4log2Ei.exit
   %.pre-phi152 = phi i64 [ %18, %29 ], [ %.pre151, %_ZN4LuauL4log2Ei.exit ], [ %18, %26 ]
-  %.1 = phi i32 [ %.065128, %29 ], [ %37, %_ZN4LuauL4log2Ei.exit ], [ %.065128, %26 ]
+  %.1 = phi i32 [ %.063128, %29 ], [ %37, %_ZN4LuauL4log2Ei.exit ], [ %.063128, %26 ]
   %38 = icmp ult i64 %.pre-phi152, %14
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.critedge, %2
-  %.065.lcssa = phi i32 [ 16777216, %2 ], [ %.1, %.critedge ]
+  %.063.lcssa = phi i32 [ 16777216, %2 ], [ %.1, %.critedge ]
   store i32 0, ptr %6, align 4
   %39 = add nsw i64 %14, -1
-  %40 = sext i32 %.065.lcssa to i64
+  %40 = sext i32 %.063.lcssa to i64
   %41 = udiv i64 %39, %40
   %42 = add i64 %41, 1
   %43 = icmp ugt i64 %42, 1
@@ -5596,27 +5596,27 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   br i1 %.not, label %.preheader119.preheader, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %55, %.critedge2
-  %.067137 = phi i64 [ %58, %.critedge2 ], [ 0, %55 ]
-  %56 = getelementptr inbounds i32, ptr %10, i64 %.067137
+  %.068137 = phi i64 [ %58, %.critedge2 ], [ 0, %55 ]
+  %56 = getelementptr inbounds i32, ptr %10, i64 %.068137
   %57 = load i32, ptr %56, align 4
-  %58 = add i64 %.067137, %40
+  %58 = add i64 %.068137, %40
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %14, i64 %58)
-  %or.cond130 = icmp ult i64 %.067137, %invariant.umin
+  %or.cond130 = icmp ult i64 %.068137, %invariant.umin
   br i1 %or.cond130, label %.lr.ph134, label %.critedge2
 
 .lr.ph134:                                        ; preds = %.lr.ph139, %.lr.ph134
-  %.066132 = phi i64 [ %61, %.lr.ph134 ], [ %.067137, %.lr.ph139 ]
+  %.067132 = phi i64 [ %61, %.lr.ph134 ], [ %.068137, %.lr.ph139 ]
   %.0108131 = phi i32 [ %.sroa.speculated, %.lr.ph134 ], [ %57, %.lr.ph139 ]
-  %59 = getelementptr inbounds i32, ptr %10, i64 %.066132
+  %59 = getelementptr inbounds i32, ptr %10, i64 %.067132
   %60 = load i32, ptr %59, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %60, i32 %.0108131)
-  %61 = add nuw i64 %.066132, 1
+  %61 = add nuw i64 %.067132, 1
   %or.cond = icmp ult i64 %61, %invariant.umin
   br i1 %or.cond, label %.lr.ph134, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %.lr.ph134, %.lr.ph139
   %.0108.lcssa = phi i32 [ %57, %.lr.ph139 ], [ %.sroa.speculated, %.lr.ph134 ]
-  %62 = udiv i64 %.067137, %40
+  %62 = udiv i64 %.068137, %40
   %63 = getelementptr inbounds i32, ptr %.070, i64 %62
   store i32 %.0108.lcssa, ptr %63, align 4
   %64 = icmp ult i64 %58, %14
@@ -5628,7 +5628,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
 .preheader119:                                    ; preds = %.preheader119.preheader, %.preheader119
   %.0.i76 = phi i32 [ %66, %.preheader119 ], [ 0, %.preheader119.preheader ]
   %65 = shl i32 2, %.0.i76
-  %.not.i77 = icmp sgt i32 %65, %.065.lcssa
+  %.not.i77 = icmp sgt i32 %65, %.063.lcssa
   %66 = add nuw nsw i32 %.0.i76, 1
   br i1 %.not.i77, label %_ZN4LuauL4log2Ei.exit78, label %.preheader119, !llvm.loop !41
 
@@ -5656,15 +5656,15 @@ _ZN4LuauL9writeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit:
 
 72:                                               ; preds = %.lr.ph142, %83
   %73 = phi ptr [ %70, %.lr.ph142 ], [ %86, %83 ]
-  %.063141 = phi i64 [ 0, %.lr.ph142 ], [ %84, %83 ]
-  %.064140 = phi i32 [ 0, %.lr.ph142 ], [ %79, %83 ]
-  %74 = getelementptr inbounds i32, ptr %73, i64 %.063141
+  %.064141 = phi i64 [ 0, %.lr.ph142 ], [ %84, %83 ]
+  %.065140 = phi i32 [ 0, %.lr.ph142 ], [ %79, %83 ]
+  %74 = getelementptr inbounds i32, ptr %73, i64 %.064141
   %75 = load i32, ptr %74, align 4
-  %76 = lshr i64 %.063141, %71
+  %76 = lshr i64 %.064141, %71
   %77 = getelementptr inbounds i32, ptr %.070, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = sub nsw i32 %75, %78
-  %80 = sub i32 %79, %.064140
+  %80 = sub i32 %79, %.065140
   %81 = trunc i32 %80 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %81, ptr %4, align 1
@@ -5673,7 +5673,7 @@ _ZN4LuauL9writeByteERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit:
 
 83:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %84 = add nuw i64 %.063141, 1
+  %84 = add nuw i64 %.064141, 1
   %85 = load ptr, ptr %8, align 8
   %86 = load ptr, ptr %7, align 8
   %87 = ptrtoint ptr %85 to i64
@@ -5823,36 +5823,36 @@ define dso_local void @_ZN4Luau15BytecodeBuilder9foldJumpsEv(ptr nocapture nound
   %18 = ashr i32 %16, 16
   %19 = add i32 %17, %18
   %.pn30 = zext i32 %19 to i64
-  %.0.in31 = getelementptr inbounds i32, ptr %14, i64 %.pn30
-  %.032 = load i32, ptr %.0.in31, align 4
-  %20 = and i32 %.032, 255
+  %.025.in31 = getelementptr inbounds i32, ptr %14, i64 %.pn30
+  %.02532 = load i32, ptr %.025.in31, align 4
+  %20 = and i32 %.02532, 255
   %21 = icmp eq i32 %20, 23
-  %22 = ashr i32 %.032, 16
+  %22 = ashr i32 %.02532, 16
   %23 = icmp sgt i32 %22, -1
   %24 = and i1 %21, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %25 = phi i32 [ %30, %.lr.ph ], [ %22, %11 ]
-  %.02533 = phi i32 [ %27, %.lr.ph ], [ %19, %11 ]
-  %26 = add i32 %.02533, 1
+  %.033 = phi i32 [ %27, %.lr.ph ], [ %19, %11 ]
+  %26 = add i32 %.033, 1
   %27 = add i32 %26, %25
   %.pn = zext i32 %27 to i64
-  %.0.in = getelementptr inbounds i32, ptr %14, i64 %.pn
-  %.0 = load i32, ptr %.0.in, align 4
-  %28 = and i32 %.0, 255
+  %.025.in = getelementptr inbounds i32, ptr %14, i64 %.pn
+  %.025 = load i32, ptr %.025.in, align 4
+  %28 = and i32 %.025, 255
   %29 = icmp eq i32 %28, 23
-  %30 = ashr i32 %.0, 16
+  %30 = ashr i32 %.025, 16
   %31 = icmp sgt i32 %30, -1
   %32 = and i1 %29, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.025.lcssa = phi i32 [ %19, %11 ], [ %27, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %.032, %11 ], [ %.0, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %19, %11 ], [ %27, %.lr.ph ]
+  %.025.lcssa = phi i32 [ %.02532, %11 ], [ %.025, %.lr.ph ]
   %.lcssa = phi i32 [ %20, %11 ], [ %28, %.lr.ph ]
   %33 = xor i32 %12, -1
-  %34 = add i32 %.025.lcssa, %33
+  %34 = add i32 %.0.lcssa, %33
   %35 = and i32 %16, 255
   %36 = icmp eq i32 %35, 23
   %37 = icmp eq i32 %.lcssa, 22
@@ -5860,7 +5860,7 @@ define dso_local void @_ZN4Luau15BytecodeBuilder9foldJumpsEv(ptr nocapture nound
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %._crit_edge
-  store i32 %.0.lcssa, ptr %15, align 4
+  store i32 %.025.lcssa, ptr %15, align 4
   br label %49
 
 39:                                               ; preds = %._crit_edge
@@ -5881,7 +5881,7 @@ define dso_local void @_ZN4Luau15BytecodeBuilder9foldJumpsEv(ptr nocapture nound
 
 49:                                               ; preds = %39, %42, %38
   %50 = getelementptr inbounds i8, ptr %.sroa.027.037, i64 4
-  store i32 %.025.lcssa, ptr %50, align 4
+  store i32 %.0.lcssa, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %.sroa.027.037, i64 8
   %.not = icmp eq ptr %51, %9
   br i1 %.not, label %.loopexit, label %11
@@ -7884,14 +7884,14 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder19dumpCurrentFunctionB5cxx11ERS
 
 17:                                               ; preds = %.lr.ph, %39
   %18 = phi ptr [ %15, %.lr.ph ], [ %42, %39 ]
-  %.0135258 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %19 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::DebugLocal", ptr %18, i64 %.0135258
+  %.0130258 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
+  %19 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::DebugLocal", ptr %18, i64 %.0130258
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %21, %23
-  %25 = trunc i64 %.0135258 to i32
+  %25 = trunc i64 %.0130258 to i32
   %26 = getelementptr inbounds i8, ptr %19, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = zext i8 %27 to i32
@@ -7949,7 +7949,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder19dumpCurrentFunctionB5cxx11ERS
           to label %39 unwind label %.loopexit.split-lp229.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 39:                                               ; preds = %33, %34
-  %40 = add nuw i64 %.0135258, 1
+  %40 = add nuw i64 %.0130258, 1
   %41 = load ptr, ptr %13, align 8
   %42 = load ptr, ptr %12, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -8006,7 +8006,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder19dumpCurrentFunctionB5cxx11ERS
 
 69:                                               ; preds = %.lr.ph266, %92
   %70 = phi i64 [ 2, %.lr.ph266 ], [ %94, %92 ]
-  %.0139265 = phi i8 [ 2, %.lr.ph266 ], [ %93, %92 ]
+  %.0138265 = phi i8 [ 2, %.lr.ph266 ], [ %93, %92 ]
   %71 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef %70) #29
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 127
@@ -8042,13 +8042,13 @@ _ZN4LuauL17getBaseTypeStringEh.exit:              ; preds = %_ZNK4Luau15Bytecode
   %88 = phi ptr [ %85, %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit ], [ %switch.load, %switch.lookup ], [ null, %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.thread ]
   %.not169 = icmp sgt i8 %72, -1
   %89 = select i1 %.not169, ptr @.str.79, ptr @.str.105
-  %90 = zext i8 %.0139265 to i32
+  %90 = zext i8 %.0138265 to i32
   %91 = add nsw i32 %90, -2
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.106, i32 noundef %91, ptr noundef %88, ptr noundef nonnull %89)
           to label %92 unwind label %.loopexit.split-lp229.loopexit.split-lp.loopexit
 
 92:                                               ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit
-  %93 = add i8 %.0139265, 1
+  %93 = add i8 %.0138265, 1
   %94 = zext i8 %93 to i64
   %95 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #29
   %96 = icmp ugt i64 %95, %94
@@ -8069,8 +8069,8 @@ _ZN4LuauL17getBaseTypeStringEh.exit:              ; preds = %_ZNK4Luau15Bytecode
 
 103:                                              ; preds = %.lr.ph268, %138
   %104 = phi ptr [ %66, %.lr.ph268 ], [ %141, %138 ]
-  %.0141267 = phi i64 [ 0, %.lr.ph268 ], [ %139, %138 ]
-  %105 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedUpval", ptr %104, i64 %.0141267
+  %.0139267 = phi i64 [ 0, %.lr.ph268 ], [ %139, %138 ]
+  %105 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedUpval", ptr %104, i64 %.0139267
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, -129
   %108 = add nsw i32 %107, -64
@@ -8148,12 +8148,12 @@ _ZN4LuauL17getBaseTypeStringEh.exit175:           ; preds = %132, %131, %130, %1
   %135 = and i32 %133, 128
   %.not167 = icmp eq i32 %135, 0
   %136 = select i1 %.not167, ptr @.str.79, ptr @.str.105
-  %137 = trunc i64 %.0141267 to i32
+  %137 = trunc i64 %.0139267 to i32
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.107, i32 noundef %137, ptr noundef %134, ptr noundef nonnull %136)
           to label %138 unwind label %.loopexit.split-lp229.loopexit
 
 138:                                              ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit175
-  %139 = add nuw i64 %.0141267, 1
+  %139 = add nuw i64 %.0139267, 1
   %140 = load ptr, ptr %64, align 8
   %141 = load ptr, ptr %63, align 8
   %142 = ptrtoint ptr %140 to i64
@@ -8165,8 +8165,8 @@ _ZN4LuauL17getBaseTypeStringEh.exit175:           ; preds = %132, %131, %130, %1
 
 147:                                              ; preds = %.lr.ph270, %188
   %148 = phi ptr [ %100, %.lr.ph270 ], [ %191, %188 ]
-  %.0142269 = phi i64 [ 0, %.lr.ph270 ], [ %189, %188 ]
-  %149 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedLocal", ptr %148, i64 %.0142269
+  %.0141269 = phi i64 [ 0, %.lr.ph270 ], [ %189, %188 ]
+  %149 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedLocal", ptr %148, i64 %.0141269
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, -129
   %152 = add nsw i32 %151, -64
@@ -8255,7 +8255,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit179:           ; preds = %176, %175, %174, %1
           to label %188 unwind label %.loopexit228
 
 188:                                              ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit179
-  %189 = add nuw i64 %.0142269, 1
+  %189 = add nuw i64 %.0141269, 1
   %190 = load ptr, ptr %98, align 8
   %191 = load ptr, ptr %97, align 8
   %192 = ptrtoint ptr %190 to i64
@@ -8275,7 +8275,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit179:           ; preds = %176, %175, %174, %1
 
 .lr.ph260:                                        ; preds = %.preheader247, %210
   %201 = phi i64 [ %212, %210 ], [ 2, %.preheader247 ]
-  %.0143259 = phi i8 [ %211, %210 ], [ 2, %.preheader247 ]
+  %.0142259 = phi i8 [ %211, %210 ], [ 2, %.preheader247 ]
   %202 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef %201) #29
   %203 = load i8, ptr %202, align 1
   %204 = and i8 %203, 127
@@ -8292,13 +8292,13 @@ _ZN4LuauL17getBaseTypeStringEh.exit181:           ; preds = %.lr.ph260, %switch.
   %.0.i180 = phi ptr [ %switch.load344, %switch.lookup342 ], [ null, %.lr.ph260 ]
   %.not158 = icmp sgt i8 %203, -1
   %207 = select i1 %.not158, ptr @.str.79, ptr @.str.105
-  %208 = zext i8 %.0143259 to i32
+  %208 = zext i8 %.0142259 to i32
   %209 = add nsw i32 %208, -2
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.106, i32 noundef %209, ptr noundef %.0.i180, ptr noundef nonnull %207)
           to label %210 unwind label %.loopexit.split-lp229.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 210:                                              ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit181
-  %211 = add i8 %.0143259, 1
+  %211 = add i8 %.0142259, 1
   %212 = zext i8 %211 to i64
   %213 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #29
   %214 = icmp ugt i64 %213, %212
@@ -8314,8 +8314,8 @@ _ZN4LuauL17getBaseTypeStringEh.exit181:           ; preds = %.lr.ph260, %switch.
 
 .lr.ph262:                                        ; preds = %.preheader244, %229
   %219 = phi ptr [ %232, %229 ], [ %200, %.preheader244 ]
-  %.0140261 = phi i64 [ %230, %229 ], [ 0, %.preheader244 ]
-  %220 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedUpval", ptr %219, i64 %.0140261
+  %.0143261 = phi i64 [ %230, %229 ], [ 0, %.preheader244 ]
+  %220 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedUpval", ptr %219, i64 %.0143261
   %221 = load i32, ptr %220, align 4
   %222 = trunc i32 %221 to i8
   %223 = and i8 %222, 127
@@ -8333,12 +8333,12 @@ _ZN4LuauL17getBaseTypeStringEh.exit183:           ; preds = %.lr.ph262, %switch.
   %226 = and i32 %221, 128
   %.not157 = icmp eq i32 %226, 0
   %227 = select i1 %.not157, ptr @.str.79, ptr @.str.105
-  %228 = trunc i64 %.0140261 to i32
+  %228 = trunc i64 %.0143261 to i32
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.107, i32 noundef %228, ptr noundef %.0.i182, ptr noundef nonnull %227)
           to label %229 unwind label %.loopexit.split-lp229.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 229:                                              ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit183
-  %230 = add nuw i64 %.0140261, 1
+  %230 = add nuw i64 %.0143261, 1
   %231 = load ptr, ptr %198, align 8
   %232 = load ptr, ptr %197, align 8
   %233 = ptrtoint ptr %231 to i64
@@ -8350,8 +8350,8 @@ _ZN4LuauL17getBaseTypeStringEh.exit183:           ; preds = %.lr.ph262, %switch.
 
 .lr.ph264:                                        ; preds = %.preheader239, %254
   %238 = phi ptr [ %257, %254 ], [ %218, %.preheader239 ]
-  %.0138263 = phi i64 [ %255, %254 ], [ 0, %.preheader239 ]
-  %239 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedLocal", ptr %238, i64 %.0138263
+  %.0140263 = phi i64 [ %255, %254 ], [ 0, %.preheader239 ]
+  %239 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::TypedLocal", ptr %238, i64 %.0140263
   %240 = load i32, ptr %239, align 4
   %241 = trunc i32 %240 to i8
   %242 = and i8 %241, 127
@@ -8380,7 +8380,7 @@ _ZN4LuauL17getBaseTypeStringEh.exit185:           ; preds = %.lr.ph264, %switch.
           to label %254 unwind label %.loopexit.split-lp229.loopexit.split-lp.loopexit.split-lp.loopexit
 
 254:                                              ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit185
-  %255 = add nuw i64 %.0138263, 1
+  %255 = add nuw i64 %.0140263, 1
   %256 = load ptr, ptr %216, align 8
   %257 = load ptr, ptr %215, align 8
   %258 = ptrtoint ptr %256 to i64
@@ -8439,10 +8439,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.loopexit227
 
 .lr.ph272:                                        ; preds = %.lr.ph272.preheader, %_ZN4LuauL13getJumpTargetEjj.exit.thread
   %280 = phi ptr [ %308, %_ZN4LuauL13getJumpTargetEjj.exit.thread ], [ %266, %.lr.ph272.preheader ]
-  %.0134271 = phi i64 [ %306, %_ZN4LuauL13getJumpTargetEjj.exit.thread ], [ 0, %.lr.ph272.preheader ]
-  %281 = getelementptr inbounds i32, ptr %280, i64 %.0134271
+  %.0136271 = phi i64 [ %306, %_ZN4LuauL13getJumpTargetEjj.exit.thread ], [ 0, %.lr.ph272.preheader ]
+  %281 = getelementptr inbounds i32, ptr %280, i64 %.0136271
   %282 = load i32, ptr %281, align 4
-  %283 = trunc i64 %.0134271 to i32
+  %283 = trunc i64 %.0136271 to i32
   %284 = and i32 %282, 255
   %trunc.i = trunc i32 %282 to i8
   switch i8 %trunc.i, label %_ZN4Luau10isFastCallE10LuauOpcode.exit.i [
@@ -8554,7 +8554,7 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %291, %298, %_ZN4Lua
   %.pre-phi = phi i32 [ %284, %291 ], [ %.pre309, %298 ], [ %284, %_ZN4LuauL13getJumpTargetEjj.exit ]
   %304 = tail call noundef i32 @_ZN4Luau11getOpLengthE10LuauOpcode(i32 noundef %.pre-phi)
   %305 = sext i32 %304 to i64
-  %306 = add i64 %.0134271, %305
+  %306 = add i64 %.0136271, %305
   %307 = load ptr, ptr %264, align 8
   %308 = load ptr, ptr %263, align 8
   %309 = ptrtoint ptr %307 to i64
@@ -8565,21 +8565,21 @@ _ZN4LuauL13getJumpTargetEjj.exit.thread:          ; preds = %291, %298, %_ZN4Lua
   br i1 %313, label %.lr.ph272, label %.preheader225, !llvm.loop !62
 
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %319
-  %.0131274 = phi i64 [ %320, %319 ], [ 0, %.lr.ph275.preheader ]
-  %.0132273 = phi i32 [ %.1133, %319 ], [ 0, %.lr.ph275.preheader ]
-  %314 = getelementptr inbounds i32, ptr %274, i64 %.0131274
+  %.0132274 = phi i64 [ %320, %319 ], [ 0, %.lr.ph275.preheader ]
+  %.0133273 = phi i32 [ %.1134, %319 ], [ 0, %.lr.ph275.preheader ]
+  %314 = getelementptr inbounds i32, ptr %274, i64 %.0132274
   %315 = load i32, ptr %314, align 4
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %319
 
 317:                                              ; preds = %.lr.ph275
-  %318 = add nsw i32 %.0132273, 1
-  store i32 %.0132273, ptr %314, align 4
+  %318 = add nsw i32 %.0133273, 1
+  store i32 %.0133273, ptr %314, align 4
   br label %319
 
 319:                                              ; preds = %.lr.ph275, %317
-  %.1133 = phi i32 [ %318, %317 ], [ %.0132273, %.lr.ph275 ]
-  %320 = add nuw i64 %.0131274, 1
+  %.1134 = phi i32 [ %318, %317 ], [ %.0133273, %.lr.ph275 ]
+  %320 = add nuw i64 %.0132274, 1
   %exitcond.not = icmp eq i64 %320, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph275, !llvm.loop !63
 
@@ -8635,25 +8635,25 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
   %345 = phi ptr [ %339, %.lr.ph279.lr.ph ], [ %447, %.outer ]
   %.0.ph288 = phi i32 [ -1, %.lr.ph279.lr.ph ], [ %.1, %.outer ]
   %.0128.ph287 = phi i64 [ 0, %.lr.ph279.lr.ph ], [ %.2, %.outer ]
-  %.0130.ph286 = phi i64 [ 0, %.lr.ph279.lr.ph ], [ %445, %.outer ]
+  %.0131.ph286 = phi i64 [ 0, %.lr.ph279.lr.ph ], [ %445, %.outer ]
   br label %346
 
 346:                                              ; preds = %.lr.ph279, %356
   %347 = phi ptr [ %345, %.lr.ph279 ], [ %359, %356 ]
-  %.0130278 = phi i64 [ %.0130.ph286, %.lr.ph279 ], [ %357, %356 ]
-  %348 = getelementptr inbounds i32, ptr %347, i64 %.0130278
+  %.0131278 = phi i64 [ %.0131.ph286, %.lr.ph279 ], [ %357, %356 ]
+  %348 = getelementptr inbounds i32, ptr %347, i64 %.0131278
   %349 = load i32, ptr %348, align 4
   %350 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   %351 = trunc i64 %350 to i32
   %352 = load ptr, ptr %2, align 8
-  %353 = getelementptr inbounds i32, ptr %352, i64 %.0130278
+  %353 = getelementptr inbounds i32, ptr %352, i64 %.0131278
   store i32 %351, ptr %353, align 4
   %354 = and i32 %349, 255
   %355 = icmp eq i32 %354, 65
   br i1 %355, label %356, label %365
 
 356:                                              ; preds = %346
-  %357 = add i64 %.0130278, 1
+  %357 = add i64 %.0131278, 1
   %358 = load ptr, ptr %264, align 8
   %359 = load ptr, ptr %263, align 8
   %360 = ptrtoint ptr %358 to i64
@@ -8664,7 +8664,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
   br i1 %364, label %346, label %.outer._crit_edge, !llvm.loop !64
 
 365:                                              ; preds = %346
-  %366 = getelementptr inbounds i32, ptr %347, i64 %.0130278
+  %366 = getelementptr inbounds i32, ptr %347, i64 %.0131278
   %367 = load i32, ptr %5, align 8
   %368 = and i32 %367, 16
   %.not159 = icmp eq i32 %368, 0
@@ -8686,7 +8686,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
   %377 = getelementptr inbounds %"struct.std::pair", ptr %376, i64 %.1129281
   %378 = load i32, ptr %377, align 4
   %379 = zext i32 %378 to i64
-  %380 = icmp eq i64 %.0130278, %379
+  %380 = icmp eq i64 %.0131278, %379
   br i1 %380, label %381, label %.critedge.loopexit
 
 381:                                              ; preds = %.lr.ph282
@@ -8724,7 +8724,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
 
 399:                                              ; preds = %.critedge
   %400 = load ptr, ptr %343, align 8
-  %401 = getelementptr inbounds i32, ptr %400, i64 %.0130278
+  %401 = getelementptr inbounds i32, ptr %400, i64 %.0131278
   %402 = load i32, ptr %401, align 4
   %403 = icmp slt i32 %402, 1
   %.not161 = icmp eq i32 %402, %.0.ph288
@@ -8753,13 +8753,13 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
 
 413:                                              ; preds = %410
   %414 = load ptr, ptr %343, align 8
-  %415 = getelementptr inbounds i32, ptr %414, i64 %.0130278
+  %415 = getelementptr inbounds i32, ptr %414, i64 %.0131278
   %416 = load i32, ptr %415, align 4
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.111, i32 noundef %416)
           to label %417 unwind label %.loopexit.split-lp.loopexit
 
 417:                                              ; preds = %413, %410
-  %418 = getelementptr inbounds i32, ptr %.sroa.0.0313320, i64 %.0130278
+  %418 = getelementptr inbounds i32, ptr %.sroa.0.0313320, i64 %.0131278
   %419 = load i32, ptr %418, align 4
   %.not163 = icmp eq i32 %419, -1
   br i1 %.not163, label %421, label %420
@@ -8770,7 +8770,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %331, %333, %335, %3
 
 421:                                              ; preds = %420, %417
   %422 = load i32, ptr %366, align 4
-  %423 = trunc i64 %.0130278 to i32
+  %423 = trunc i64 %.0131278 to i32
   %424 = and i32 %422, 255
   %trunc.i189 = trunc i32 %422 to i8
   switch i8 %trunc.i189, label %_ZN4Luau10isFastCallE10LuauOpcode.exit.i191 [
@@ -8849,7 +8849,7 @@ _ZN4LuauL13getJumpTargetEjj.exit195.thread:       ; preds = %431, %_ZN4LuauL13ge
 .outer:                                           ; preds = %_ZN4LuauL13getJumpTargetEjj.exit195.thread
   %443 = call noundef i32 @_ZN4Luau11getOpLengthE10LuauOpcode(i32 noundef %354)
   %444 = sext i32 %443 to i64
-  %445 = add i64 %.0130278, %444
+  %445 = add i64 %.0131278, %444
   %446 = load ptr, ptr %264, align 8
   %447 = load ptr, ptr %263, align 8
   %448 = ptrtoint ptr %446 to i64
@@ -10137,7 +10137,7 @@ _ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds
   %52 = phi i64 [ %.pre, %27 ], [ %34, %33 ]
   %.0.in.i = phi i32 [ %32, %27 ], [ %51, %33 ]
   %.0.i = zext i32 %.0.in.i to i64
-  %.01520 = and i64 %24, %.0.i
+  %.01620 = and i64 %24, %.0.i
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 16
   %55 = load i64, ptr %54, align 8
@@ -10148,9 +10148,9 @@ _ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds
   br label %60
 
 60:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
-  %.01522 = phi i64 [ %.01520, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.015, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
-  %.021 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %79, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
-  %61 = getelementptr inbounds %"struct.std::pair.112", ptr %53, i64 %.01522
+  %.01622 = phi i64 [ %.01620, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.016, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
+  %.01521 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %79, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
+  %61 = getelementptr inbounds %"struct.std::pair.112", ptr %53, i64 %.01622
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, %8
   br i1 %63, label %64, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
@@ -10184,15 +10184,15 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19: ; pred
   br i1 %78, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread, %72, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19
-  %79 = add i64 %.021, 1
-  %80 = add i64 %79, %.01522
-  %.015 = and i64 %80, %24
+  %79 = add i64 %.01521, 1
+  %80 = add i64 %79, %.01622
+  %.016 = and i64 %80, %24
   %.not = icmp ugt i64 %79, %24
   br i1 %.not, label %.loopexit, label %60, !llvm.loop !77
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19 ], [ %61, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18 ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19 ], [ %61, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10239,7 +10239,7 @@ _ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds
   %34 = phi i64 [ %.pre, %9 ], [ %16, %15 ]
   %.0.in.i = phi i32 [ %14, %9 ], [ %33, %15 ]
   %.0.i = zext i32 %.0.in.i to i64
-  %.01721 = and i64 %5, %.0.i
+  %.01821 = and i64 %5, %.0.i
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8
@@ -10252,9 +10252,9 @@ _ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds
   br label %44
 
 44:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
-  %.01723 = phi i64 [ %.01721, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.017, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
-  %.022 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %67, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
-  %45 = getelementptr inbounds %"struct.std::pair.112", ptr %35, i64 %.01723
+  %.01823 = phi i64 [ %.01821, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.018, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
+  %.01722 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %67, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
+  %45 = getelementptr inbounds %"struct.std::pair.112", ptr %35, i64 %.01823
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %37
   br i1 %47, label %48, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
@@ -10296,15 +10296,15 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20: ; pred
   br i1 %66, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread, %60, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20
-  %67 = add i64 %.022, 1
-  %68 = add i64 %67, %.01723
-  %.017 = and i64 %68, %5
+  %67 = add i64 %.01722, 1
+  %68 = add i64 %67, %.01823
+  %.018 = and i64 %68, %5
   %.not = icmp ugt i64 %67, %5
   br i1 %.not, label %.loopexit, label %44, !llvm.loop !78
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20, %55
-  %.018 = phi ptr [ %45, %55 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ], [ %45, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %45, %55 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ], [ %45, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10450,7 +10450,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau6detail14DenseHashTableINS_15
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef i64 @_ZN4Luau9hashRangeEPKcm(ptr noundef %6, i64 noundef %8)
-  %.01726 = and i64 %9, %5
+  %.01826 = and i64 %9, %5
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i.i = load ptr, ptr %11, align 8
@@ -10468,24 +10468,24 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau6detail14DenseHashTableINS_15
   br i1 %.not7.i.i22, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us
-  %.01728.us.us = phi i64 [ %.017.us.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ %.01726, %.split.us ]
-  %.027.us.us = phi i64 [ %18, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ 0, %.split.us ]
-  %15 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01728.us.us
+  %.01828.us.us = phi i64 [ %.018.us.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ %.01826, %.split.us ]
+  %.01727.us.us = phi i64 [ %18, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ 0, %.split.us ]
+  %15 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01828.us.us
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.split30.us, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us: ; preds = %.split.us.split.us
-  %18 = add i64 %.027.us.us, 1
-  %19 = add i64 %18, %.01728.us.us
-  %.017.us.us = and i64 %19, %5
+  %18 = add i64 %.01727.us.us, 1
+  %19 = add i64 %18, %.01828.us.us
+  %.018.us.us = and i64 %19, %5
   %.not.us.us = icmp ugt i64 %18, %5
   br i1 %.not.us.us, label %.loopexit, label %.split.us.split.us, !llvm.loop !80
 
 .split.us.split:                                  ; preds = %.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us
-  %.01728.us = phi i64 [ %.017.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ %.01726, %.split.us ]
-  %.027.us = phi i64 [ %27, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ 0, %.split.us ]
-  %20 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01728.us
+  %.01828.us = phi i64 [ %.018.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ %.01826, %.split.us ]
+  %.01727.us = phi i64 [ %27, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ 0, %.split.us ]
+  %20 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01828.us
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.split30.us, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.us
@@ -10502,9 +10502,9 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.us: ; pred
   br i1 %26, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.us
-  %27 = add i64 %.027.us, 1
-  %28 = add i64 %27, %.01728.us
-  %.017.us = and i64 %28, %5
+  %27 = add i64 %.01727.us, 1
+  %28 = add i64 %27, %.01828.us
+  %.018.us = and i64 %28, %5
   %.not.us = icmp ugt i64 %27, %5
   br i1 %.not.us, label %.loopexit, label %.split.us.split, !llvm.loop !80
 
@@ -10512,9 +10512,9 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us:
   br i1 %.not7.i.i22, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37
-  %.01728.us32 = phi i64 [ %.017.us38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ %.01726, %.split ]
-  %.027.us33 = phi i64 [ %36, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ 0, %.split ]
-  %29 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01728.us32
+  %.01828.us32 = phi i64 [ %.018.us38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ %.01826, %.split ]
+  %.01727.us33 = phi i64 [ %36, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ 0, %.split ]
+  %29 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01828.us32
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.us34 = icmp eq ptr %30, null
   br i1 %.not.i.i.us34, label %.loopexit, label %31
@@ -10531,16 +10531,16 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.us: ; preds 
   br i1 %35, label %.split30.us, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.us, %31
-  %36 = add i64 %.027.us33, 1
-  %37 = add i64 %36, %.01728.us32
-  %.017.us38 = and i64 %37, %5
+  %36 = add i64 %.01727.us33, 1
+  %37 = add i64 %36, %.01828.us32
+  %.018.us38 = and i64 %37, %5
   %.not.us39 = icmp ugt i64 %36, %5
   br i1 %.not.us39, label %.loopexit, label %.split.split.us, !llvm.loop !80
 
 .split.split:                                     ; preds = %.split, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread
-  %.01728 = phi i64 [ %.017, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ], [ %.01726, %.split ]
-  %.027 = phi i64 [ %53, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ], [ 0, %.split ]
-  %38 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01728
+  %.01828 = phi i64 [ %.018, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ], [ %.01826, %.split ]
+  %.01727 = phi i64 [ %53, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ], [ 0, %.split ]
+  %38 = getelementptr inbounds %"struct.std::pair.101", ptr %10, i64 %.01828
   %39 = load ptr, ptr %38, align 8
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread, label %40
@@ -10577,15 +10577,15 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25: ; preds =
   br i1 %52, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread: ; preds = %.split.split, %48, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25
-  %53 = add i64 %.027, 1
-  %54 = add i64 %53, %.01728
-  %.017 = and i64 %54, %5
+  %53 = add i64 %.01727, 1
+  %54 = add i64 %53, %.01828
+  %.018 = and i64 %54, %5
   %.not = icmp ugt i64 %53, %5
   br i1 %.not, label %.loopexit, label %.split.split, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37, %.split.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us, %.split30.us
-  %.018 = phi ptr [ %.us-phi, %.split30.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ %20, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ %29, %.split.split.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ %38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ]
-  ret ptr %.018
+  %.0 = phi ptr [ %.us-phi, %.split30.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us.us ], [ %20, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us ], [ %29, %.split.split.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread.us37 ], [ %38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit25.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10633,7 +10633,7 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread: ; pr
   %21 = add i64 %20, -1
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = tail call noundef i64 @_ZN4Luau9hashRangeEPKcm(ptr noundef %8, i64 noundef %18)
-  %.01530 = and i64 %23, %21
+  %.01630 = and i64 %23, %21
   %24 = load ptr, ptr %0, align 8
   %.pre.i.i19 = load ptr, ptr %1, align 8
   %.pre.i.i19.fr = freeze ptr %.pre.i.i19
@@ -10650,24 +10650,24 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split
   br i1 %.not7.i.i26, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us
-  %.01532.us.us = phi i64 [ %.015.us.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ %.01530, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
-  %.031.us.us = phi i64 [ %31, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
-  %28 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01532.us.us
+  %.01632.us.us = phi i64 [ %.016.us.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ %.01630, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
+  %.01531.us.us = phi i64 [ %31, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
+  %28 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01632.us.us
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us
-  %31 = add i64 %.031.us.us, 1
-  %32 = add i64 %31, %.01532.us.us
-  %.015.us.us = and i64 %32, %21
+  %31 = add i64 %.01531.us.us, 1
+  %32 = add i64 %31, %.01632.us.us
+  %.016.us.us = and i64 %32, %21
   %.not.us.us = icmp ugt i64 %31, %21
   br i1 %.not.us.us, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us, !llvm.loop !81
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us
-  %.01532.us = phi i64 [ %.015.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ %.01530, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
-  %.031.us = phi i64 [ %40, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
-  %33 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01532.us
+  %.01632.us = phi i64 [ %.016.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ %.01630, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
+  %.01531.us = phi i64 [ %40, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us ]
+  %33 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01632.us
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.thread.us
@@ -10684,9 +10684,9 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.us: ; pred
   br i1 %39, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.thread.us
-  %40 = add i64 %.031.us, 1
-  %41 = add i64 %40, %.01532.us
-  %.015.us = and i64 %41, %21
+  %40 = add i64 %.01531.us, 1
+  %41 = add i64 %40, %.01632.us
+  %.016.us = and i64 %41, %21
   %.not.us = icmp ugt i64 %40, %21
   br i1 %.not.us, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split, !llvm.loop !81
 
@@ -10694,9 +10694,9 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split
   br i1 %.not7.i.i26, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38
-  %.01532.us33 = phi i64 [ %.015.us39, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ %.01530, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
-  %.031.us34 = phi i64 [ %49, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
-  %42 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01532.us33
+  %.01632.us33 = phi i64 [ %.016.us39, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ %.01630, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
+  %.01531.us34 = phi i64 [ %49, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
+  %42 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01632.us33
   %43 = load ptr, ptr %42, align 8
   %.not.i.i18.us35 = icmp eq ptr %43, null
   br i1 %.not.i.i18.us35, label %.loopexit, label %44
@@ -10713,16 +10713,16 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.us: ; pred
   br i1 %48, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.us, %44
-  %49 = add i64 %.031.us34, 1
-  %50 = add i64 %49, %.01532.us33
-  %.015.us39 = and i64 %50, %21
+  %49 = add i64 %.01531.us34, 1
+  %50 = add i64 %49, %.01632.us33
+  %.016.us39 = and i64 %50, %21
   %.not.us40 = icmp ugt i64 %49, %21
   br i1 %.not.us40, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us, !llvm.loop !81
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread
-  %.01532 = phi i64 [ %.015, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ %.01530, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
-  %.031 = phi i64 [ %63, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
-  %51 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01532
+  %.01632 = phi i64 [ %.016, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ %.01630, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
+  %.01531 = phi i64 [ %63, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split ]
+  %51 = getelementptr inbounds %"struct.std::pair.101", ptr %24, i64 %.01632
   %52 = load ptr, ptr %51, align 8
   %.not.i.i18 = icmp eq ptr %52, null
   br i1 %.not.i.i18, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread, label %53
@@ -10750,15 +10750,15 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29: ; preds =
   br i1 %62, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split, %58, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29
-  %63 = add i64 %.031, 1
-  %64 = add i64 %63, %.01532
-  %.015 = and i64 %64, %21
+  %63 = add i64 %.01531, 1
+  %64 = add i64 %63, %.01632
+  %.016 = and i64 %64, %21
   %.not = icmp ugt i64 %63, %21
   br i1 %.not, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split, !llvm.loop !81
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us, %15, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit ], [ null, %15 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ %28, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ %33, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us ], [ %42, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29 ], [ %51, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23 ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit ], [ null, %15 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us.us ], [ %28, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us ], [ %33, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.us.split ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit.thread.split.split.us ], [ %42, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23.us ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread.us38 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit29 ], [ %51, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder9StringRefEEclERKS2_S5_.exit23 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10953,9 +10953,9 @@ _ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit: ; preds =
 
 29:                                               ; preds = %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread
   %.07.lcssa.i.pn = phi i64 [ %.07.lcssa.i, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit ], [ %38, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread ]
-  %.023 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit ], [ %37, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread ]
-  %.01524 = and i64 %.07.lcssa.i.pn, %18
-  %30 = getelementptr inbounds %"struct.std::pair.110", ptr %25, i64 %.01524
+  %.01523 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit ], [ %37, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread ]
+  %.01624 = and i64 %.07.lcssa.i.pn, %18
+  %30 = getelementptr inbounds %"struct.std::pair.110", ptr %25, i64 %.01624
   %31 = getelementptr inbounds i8, ptr %30, i64 128
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %9
@@ -10976,14 +10976,14 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21: ; preds
   br i1 %36, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit19.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21
-  %37 = add i64 %.023, 1
-  %38 = add i64 %37, %.01524
+  %37 = add i64 %.01523, 1
+  %38 = add i64 %37, %.01624
   %.not = icmp ugt i64 %37, %18
   br i1 %.not, label %.loopexit, label %29, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit19, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21 ], [ %30, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit19 ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21 ], [ %30, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit19 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11078,9 +11078,9 @@ _ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i: ; preds
 
 41:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i
   %.07.lcssa.i.pn.i = phi i64 [ %.07.lcssa.i.i, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %52, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
-  %.024.i = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %51, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
-  %.01725.i = and i64 %.07.lcssa.i.pn.i, %18
-  %42 = getelementptr inbounds %"struct.std::pair.110", ptr %15, i64 %.01725.i
+  %.01724.i = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder14TableShapeHashclERKNS0_10TableShapeE.exit.i ], [ %51, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i ]
+  %.01825.i = and i64 %.07.lcssa.i.pn.i, %18
+  %42 = getelementptr inbounds %"struct.std::pair.110", ptr %15, i64 %.01825.i
   %43 = getelementptr inbounds i8, ptr %42, i64 128
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %37
@@ -11106,8 +11106,8 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.i: ; pre
   br i1 %50, label %_ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS2_14TableShapeHashESt8equal_toIS3_EE13insert_unsafeERS6_.exit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i
 
 _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.thread.i: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit21.i, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread.i
-  %51 = add i64 %.024.i, 1
-  %52 = add i64 %51, %.01725.i
+  %51 = add i64 %.01724.i, 1
+  %52 = add i64 %51, %.01825.i
   %.not.i13 = icmp ule i64 %51, %18
   tail call void @llvm.assume(i1 %.not.i13)
   br label %41
@@ -11196,38 +11196,38 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEES
 
 24:                                               ; preds = %17
   %25 = zext i32 %21 to i64
-  %.01725.i = and i64 %16, %25
-  %26 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01725.i
+  %.01825.i = and i64 %16, %25
+  %26 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01825.i
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %7
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %24
-  %.01727.i.lcssa25 = phi i64 [ %.01725.i, %24 ], [ %.017.i, %32 ]
-  %29 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01727.i.lcssa25
+  %.01827.i.lcssa25 = phi i64 [ %.01825.i, %24 ], [ %.018.i, %32 ]
+  %29 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01827.i.lcssa25
   store i32 %21, ptr %29, align 4
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
 .lr.ph:                                           ; preds = %24, %32
   %30 = phi i32 [ %36, %32 ], [ %27, %24 ]
-  %.026.i27 = phi i64 [ %33, %32 ], [ 0, %24 ]
-  %.01727.i26 = phi i64 [ %.017.i, %32 ], [ %.01725.i, %24 ]
+  %.01726.i27 = phi i64 [ %33, %32 ], [ 0, %24 ]
+  %.01827.i26 = phi i64 [ %.018.i, %32 ], [ %.01825.i, %24 ]
   %31 = icmp eq i32 %30, %21
   br i1 %31, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = add i64 %.026.i27, 1
-  %34 = add i64 %33, %.01727.i26
-  %.017.i = and i64 %34, %16
+  %33 = add i64 %.01726.i27, 1
+  %34 = add i64 %33, %.01827.i26
+  %.018.i = and i64 %34, %16
   %.not.i11 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i11)
-  %35 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.017.i
+  %35 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.018.i
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %7
   br i1 %37, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit: ; preds = %.lr.ph
-  %38 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01727.i26
+  %38 = getelementptr inbounds %"struct.std::pair.107", ptr %.sroa.0.0, i64 %.01827.i26
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjsES2_IKjsENS0_16ItemInterfaceMapIjsEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit, %._crit_edge

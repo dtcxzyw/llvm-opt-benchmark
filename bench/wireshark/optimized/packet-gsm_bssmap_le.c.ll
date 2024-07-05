@@ -650,7 +650,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   br label %46
 
 46:                                               ; preds = %36, %32
-  %.050 = phi ptr [ %35, %32 ], [ %42, %36 ]
+  %.051 = phi ptr [ %35, %32 ], [ %42, %36 ]
   %47 = load ptr, ptr @dissect_bssmap_le.tap_p, align 8
   store i8 0, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %47, i64 1
@@ -673,14 +673,14 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
 57:                                               ; preds = %51
   %58 = load i32, ptr @hf_gsm_bssmap_le_message_elements, align 4
   %59 = add i32 %18, -1
-  %60 = call ptr @proto_tree_add_item(ptr noundef %.050, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %59, i32 noundef 0) #2
+  %60 = call ptr @proto_tree_add_item(ptr noundef %.051, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %59, i32 noundef 0) #2
   br label %65
 
 61:                                               ; preds = %51
   %62 = getelementptr [14 x ptr], ptr @bssmap_le_msg_fcn, i64 0, i64 %53
   %63 = load ptr, ptr %62, align 8
   %64 = add i32 %18, -1
-  call void %63(ptr noundef %0, ptr noundef %.050, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %64) #2
+  call void %63(ptr noundef %0, ptr noundef %.051, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %64) #2
   br label %65
 
 65:                                               ; preds = %57, %61, %46

@@ -299,9 +299,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end133
-  %strfrmt.0272 = phi ptr [ %call1, %while.body.lr.ph ], [ %strfrmt.1, %if.end133 ]
-  %arg.0271 = phi i32 [ 1, %while.body.lr.ph ], [ %arg.1, %if.end133 ]
-  %1 = load i8, ptr %strfrmt.0272, align 1
+  %arg.0272 = phi i32 [ 1, %while.body.lr.ph ], [ %arg.1, %if.end133 ]
+  %strfrmt.0271 = phi ptr [ %call1, %while.body.lr.ph ], [ %strfrmt.1, %if.end133 ]
+  %1 = load i8, ptr %strfrmt.0271, align 1
   %cmp2.not = icmp eq i8 %1, 37
   br i1 %cmp2.not, label %if.else, label %if.then
 
@@ -313,14 +313,14 @@ if.then:                                          ; preds = %while.body
 
 lor.rhs:                                          ; preds = %if.then
   %call6 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b, i64 noundef 1) #13
-  %.pre = load i8, ptr %strfrmt.0272, align 1
+  %.pre = load i8, ptr %strfrmt.0271, align 1
   %.pre275 = load i64, ptr %n, align 8
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then
   %4 = phi i64 [ %.pre275, %lor.rhs ], [ %2, %if.then ]
   %5 = phi i8 [ %.pre, %lor.rhs ], [ %1, %if.then ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %strfrmt.0272, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %strfrmt.0271, i64 1
   %6 = load ptr, ptr %b, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %n, align 8
@@ -329,7 +329,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.then
   br label %if.end133
 
 if.else:                                          ; preds = %while.body
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %strfrmt.0272, i64 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %strfrmt.0271, i64 1
   %7 = load i8, ptr %incdec.ptr9, align 1
   %cmp11 = icmp eq i8 %7, 37
   br i1 %cmp11, label %if.then13, label %if.else28
@@ -349,7 +349,7 @@ lor.rhs18:                                        ; preds = %if.then13
 lor.end21:                                        ; preds = %lor.rhs18, %if.then13
   %10 = phi i64 [ %.pre283, %lor.rhs18 ], [ %8, %if.then13 ]
   %11 = phi i8 [ %.pre282, %lor.rhs18 ], [ 37, %if.then13 ]
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %strfrmt.0272, i64 2
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %strfrmt.0271, i64 2
   %12 = load ptr, ptr %b, align 8
   %inc26 = add i64 %10, 1
   store i64 %inc26, ptr %n, align 8
@@ -359,8 +359,8 @@ lor.end21:                                        ; preds = %lor.rhs18, %if.then
 
 if.else28:                                        ; preds = %if.else
   %call30 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b, i64 noundef 120) #13
-  %inc31 = add nsw i32 %arg.0271, 1
-  %cmp32.not = icmp slt i32 %arg.0271, %call
+  %inc31 = add nsw i32 %arg.0272, 1
+  %cmp32.not = icmp slt i32 %arg.0272, %call
   br i1 %cmp32.not, label %if.end, label %if.then34
 
 if.then34:                                        ; preds = %if.else28
@@ -1131,8 +1131,8 @@ sw.epilog:                                        ; preds = %if.then100, %if.els
   br label %if.end133
 
 if.end133:                                        ; preds = %lor.end21, %sw.epilog, %lor.end
-  %arg.1 = phi i32 [ %arg.0271, %lor.end ], [ %arg.0271, %lor.end21 ], [ %inc31, %sw.epilog ]
   %strfrmt.1 = phi ptr [ %incdec.ptr, %lor.end ], [ %incdec.ptr23, %lor.end21 ], [ %add.ptr2.i, %sw.epilog ]
+  %arg.1 = phi i32 [ %arg.0272, %lor.end ], [ %arg.0272, %lor.end21 ], [ %inc31, %sw.epilog ]
   %cmp = icmp ult ptr %strfrmt.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
@@ -2486,16 +2486,16 @@ while.body.lr.ph:                                 ; preds = %lor.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %n.091 = phi i32 [ 0, %while.body.lr.ph ], [ %n.1, %sw.epilog ]
-  %pos.090 = phi i64 [ %sub, %while.body.lr.ph ], [ %add92, %sw.epilog ]
-  %call12 = call fastcc i32 @getdetails(ptr noundef nonnull %h, i64 noundef %pos.090, ptr noundef nonnull %fmt, ptr noundef nonnull %size, ptr noundef nonnull %ntoalign)
+  %pos.091 = phi i64 [ %sub, %while.body.lr.ph ], [ %add92, %sw.epilog ]
+  %n.090 = phi i32 [ 0, %while.body.lr.ph ], [ %n.1, %sw.epilog ]
+  %call12 = call fastcc i32 @getdetails(ptr noundef nonnull %h, i64 noundef %pos.091, ptr noundef nonnull %fmt, ptr noundef nonnull %size, ptr noundef nonnull %ntoalign)
   %5 = load i32, ptr %ntoalign, align 4
   %conv13 = sext i32 %5 to i64
   %6 = load i32, ptr %size, align 4
   %conv14 = sext i32 %6 to i64
   %add = add nsw i64 %conv14, %conv13
   %7 = load i64, ptr %ld, align 8
-  %sub15 = sub i64 %7, %pos.090
+  %sub15 = sub i64 %7, %pos.091
   %cmp16.not = icmp ugt i64 %add, %sub15
   br i1 %cmp16.not, label %lor.rhs22, label %lor.end25
 
@@ -2504,9 +2504,9 @@ lor.rhs22:                                        ; preds = %while.body
   br label %lor.end25
 
 lor.end25:                                        ; preds = %lor.rhs22, %while.body
-  %add28 = add i64 %pos.090, %conv13
+  %add28 = add i64 %pos.091, %conv13
   call void @luaL_checkstack(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.72) #13
-  %inc = add nsw i32 %n.091, 1
+  %inc = add nsw i32 %n.090, 1
   switch i32 %call12, label %default.unreachable97 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
@@ -2768,8 +2768,8 @@ default.unreachable97:                            ; preds = %lor.end25
   unreachable
 
 sw.epilog:                                        ; preds = %lor.end25, %lor.end25, %lor.end25, %lor.end84, %lor.end64, %sw.bb44, %copywithendian.exit77, %copywithendian.exit65, %copywithendian.exit, %sw.bb
+  %n.1 = phi i32 [ %inc, %lor.end84 ], [ %inc, %lor.end64 ], [ %inc, %sw.bb44 ], [ %inc, %copywithendian.exit77 ], [ %inc, %copywithendian.exit65 ], [ %inc, %copywithendian.exit ], [ %inc, %sw.bb ], [ %n.090, %lor.end25 ], [ %n.090, %lor.end25 ], [ %n.090, %lor.end25 ]
   %pos.1 = phi i64 [ %add89, %lor.end84 ], [ %add69, %lor.end64 ], [ %add28, %sw.bb44 ], [ %add28, %copywithendian.exit77 ], [ %add28, %copywithendian.exit65 ], [ %add28, %copywithendian.exit ], [ %add28, %sw.bb ], [ %add28, %lor.end25 ], [ %add28, %lor.end25 ], [ %add28, %lor.end25 ]
-  %n.1 = phi i32 [ %inc, %lor.end84 ], [ %inc, %lor.end64 ], [ %inc, %sw.bb44 ], [ %inc, %copywithendian.exit77 ], [ %inc, %copywithendian.exit65 ], [ %inc, %copywithendian.exit ], [ %inc, %sw.bb ], [ %n.091, %lor.end25 ], [ %n.091, %lor.end25 ], [ %n.091, %lor.end25 ]
   %add92 = add i64 %pos.1, %conv14
   %40 = load ptr, ptr %fmt, align 8
   %41 = load i8, ptr %40, align 1
@@ -2782,8 +2782,8 @@ while.end.loopexit:                               ; preds = %sw.epilog
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %lor.end
-  %pos.0.lcssa = phi i64 [ %retval.0.i, %lor.end ], [ %42, %while.end.loopexit ]
   %n.0.lcssa = phi i32 [ 1, %lor.end ], [ %43, %while.end.loopexit ]
+  %pos.0.lcssa = phi i64 [ %retval.0.i, %lor.end ], [ %42, %while.end.loopexit ]
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %pos.0.lcssa) #13
   ret i32 %n.0.lcssa
 }

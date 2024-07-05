@@ -468,8 +468,8 @@ if.then37:                                        ; preds = %if.end35.thread, %i
 
 if.end40:                                         ; preds = %if.end35, %if.end35.thread54, %entry
   %i.0 = phi i32 [ %idx, %entry ], [ 0, %if.end35.thread54 ], [ 0, %if.end35 ]
-  %desc.1 = phi ptr [ %0, %entry ], [ %desc_buf, %if.end35.thread54 ], [ %call21, %if.end35 ]
   %max.0 = phi i32 [ %2, %entry ], [ %div29, %if.end35.thread54 ], [ %div29, %if.end35 ]
+  %desc.1 = phi ptr [ %0, %entry ], [ %desc_buf, %if.end35.thread54 ], [ %call21, %if.end35 ]
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i, %if.end40

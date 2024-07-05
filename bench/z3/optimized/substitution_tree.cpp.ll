@@ -3890,17 +3890,17 @@ _ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit: ; preds = %entry
   br i1 %cmp.not5, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit, %if.end
-  %first.07 = phi i1 [ false, %if.end ], [ true, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit ]
-  %it.06 = phi ptr [ %incdec.ptr, %if.end ], [ %0, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit ]
-  br i1 %first.07, label %if.end, label %if.then
+  %it.07 = phi ptr [ %incdec.ptr, %if.end ], [ %0, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit ]
+  %first.06 = phi i1 [ false, %if.end ], [ true, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit ]
+  br i1 %first.06, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  tail call void @_ZNK17substitution_tree7displayERSoRKSt4pairIP3varP4exprE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %it.06)
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.06, i64 16
+  tail call void @_ZNK17substitution_tree7displayERSoRKSt4pairIP3varP4exprE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %it.07)
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.07, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !33
 
@@ -3938,17 +3938,17 @@ _ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i: ; preds = %for.end
   br i1 %cmp.not5.i, label %_ZNK17substitution_tree7displayERSoRK7svectorISt4pairIP3varP4exprEjE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i, %if.end.i
-  %first.07.i = phi i1 [ false, %if.end.i ], [ true, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i ]
-  %it.06.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %0, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i ]
-  br i1 %first.07.i, label %if.end.i, label %if.then.i
+  %it.07.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %0, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i ]
+  %first.06.i = phi i1 [ false, %if.end.i ], [ true, %_ZNK6vectorISt4pairIP3varP4exprELb0EjE3endEv.exit.i ]
+  br i1 %first.06.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i
-  tail call void @_ZNK17substitution_tree7displayERSoRKSt4pairIP3varP4exprE(ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %it.06.i)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.06.i, i64 16
+  tail call void @_ZNK17substitution_tree7displayERSoRKSt4pairIP3varP4exprE(ptr noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %it.07.i)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.07.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZNK17substitution_tree7displayERSoRK7svectorISt4pairIP3varP4exprEjE.exit, label %for.body.i, !llvm.loop !33
 
@@ -4879,8 +4879,8 @@ for.body18.preheader:                             ; preds = %_ZNK15ref_vector_co
 
 for.body18:                                       ; preds = %for.body18.preheader, %invoke.cont25
   %indvars.iv = phi i64 [ 0, %for.body18.preheader ], [ %indvars.iv.next, %invoke.cont25 ]
-  %found_var.135 = phi i8 [ %found_var.039, %for.body18.preheader ], [ %found_var.2, %invoke.cont25 ]
-  %tobool19 = trunc nuw i8 %found_var.135 to i1
+  %found_var.136 = phi i8 [ %found_var.039, %for.body18.preheader ], [ %found_var.2, %invoke.cont25 ]
+  %tobool19 = trunc nuw i8 %found_var.136 to i1
   br i1 %tobool19, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %for.body18
@@ -4888,7 +4888,7 @@ if.then20:                                        ; preds = %for.body18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %for.body18
-  %found_var.2 = phi i8 [ %found_var.135, %for.body18 ], [ 1, %if.then20 ]
+  %found_var.2 = phi i8 [ %found_var.136, %for.body18 ], [ 1, %if.then20 ]
   %10 = load ptr, ptr %m_nodes.i, align 8
   %arrayidx.i.i28 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx.i.i28, align 8
@@ -7108,8 +7108,8 @@ if.then18:                                        ; preds = %if.then16
   br label %if.end
 
 if.end:                                           ; preds = %if.then18, %if.then16
-  %p2.sroa.11.0 = phi i32 [ %p.sroa.5.0.lcssa.i, %if.then18 ], [ %p.sroa.5.0.lcssa.i30, %if.then16 ]
   %p2.sroa.0.0 = phi ptr [ %p.sroa.0.0.lcssa.i, %if.then18 ], [ %p.sroa.0.0.lcssa.i31, %if.then16 ]
+  %p2.sroa.11.0 = phi i32 [ %p.sroa.5.0.lcssa.i, %if.then18 ], [ %p.sroa.5.0.lcssa.i30, %if.then16 ]
   %p1.sroa.0.0 = phi ptr [ %p.sroa.0.0.lcssa.i31, %if.then18 ], [ %p.sroa.0.0.lcssa.i, %if.then16 ]
   %p1.sroa.10.0 = phi i32 [ %p.sroa.5.0.lcssa.i30, %if.then18 ], [ %p.sroa.5.0.lcssa.i, %if.then16 ]
   %25 = load ptr, ptr %m_subst.i, align 8

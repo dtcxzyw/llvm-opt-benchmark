@@ -1383,8 +1383,8 @@ invoke.cont38.lr.ph:                              ; preds = %_ZNSt15_Deque_itera
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %invoke.cont38.lr.ph, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271
-  %skip_until_time.0474 = phi i64 [ 0, %invoke.cont38.lr.ph ], [ %skip_until_time.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
-  %num_entries_to_fill.0473 = phi i64 [ %output_size, %invoke.cont38.lr.ph ], [ %num_entries_to_fill.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
+  %num_entries_to_fill.0474 = phi i64 [ %output_size, %invoke.cont38.lr.ph ], [ %num_entries_to_fill.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
+  %skip_until_time.0473 = phi i64 [ 0, %invoke.cont38.lr.ph ], [ %skip_until_time.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
   %it.sroa.21.0472 = phi ptr [ %start_it.sroa.42.6, %invoke.cont38.lr.ph ], [ %it.sroa.21.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
   %it.sroa.16.0471 = phi ptr [ %start_it.sroa.30.6, %invoke.cont38.lr.ph ], [ %it.sroa.16.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
   %it.sroa.0.0470 = phi ptr [ %start_it.sroa.0.4, %invoke.cont38.lr.ph ], [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271 ]
@@ -1399,13 +1399,13 @@ invoke.cont38:                                    ; preds = %invoke.cont38.lr.ph
   %sub.ptr.div11.i.i.i222 = ashr exact i64 %sub.ptr.sub10.i.i.i221, 4
   %add.i.i.i223 = add nsw i64 %sub.ptr.div11.i.i.i222, %sub.ptr.div6.i.i.i
   %add12.i.i.i224 = add i64 %add.i.i.i223, %mul.i.i.i214
-  %cmp40 = icmp sgt i64 %add12.i.i.i224, %num_entries_to_fill.0473
+  %cmp40 = icmp sgt i64 %add12.i.i.i224, %num_entries_to_fill.0474
   br i1 %cmp40, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %invoke.cont38
   %time42 = getelementptr inbounds i8, ptr %it.sroa.0.0470, i64 8
   %25 = load i64, ptr %time42, align 8
-  %cmp43 = icmp ult i64 %25, %skip_until_time.0474
+  %cmp43 = icmp ult i64 %25, %skip_until_time.0473
   br i1 %cmp43, label %for.inc, label %if.end45
 
 lpad.loopexit:                                    ; preds = %_ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.i
@@ -1447,9 +1447,9 @@ if.else.i:                                        ; preds = %if.end45
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont50:                                    ; preds = %if.else.i, %if.then.i
-  %dec = add nsw i64 %num_entries_to_fill.0473, -1
-  %cmp52 = icmp sge i64 %add12.i.i.i224, %num_entries_to_fill.0473
-  %cmp54 = icmp sgt i64 %num_entries_to_fill.0473, 1
+  %dec = add nsw i64 %num_entries_to_fill.0474, -1
+  %cmp52 = icmp sge i64 %add12.i.i.i224, %num_entries_to_fill.0474
+  %cmp54 = icmp sgt i64 %num_entries_to_fill.0474, 1
   %or.cond = and i1 %cmp54, %cmp52
   br i1 %or.cond, label %if.then55, label %for.inc
 
@@ -1462,8 +1462,8 @@ if.then55:                                        ; preds = %invoke.cont50
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont50, %if.then55, %land.lhs.true
-  %num_entries_to_fill.1 = phi i64 [ %num_entries_to_fill.0473, %land.lhs.true ], [ %dec, %if.then55 ], [ %dec, %invoke.cont50 ]
-  %skip_until_time.1 = phi i64 [ %skip_until_time.0474, %land.lhs.true ], [ %add, %if.then55 ], [ %skip_until_time.0474, %invoke.cont50 ]
+  %skip_until_time.1 = phi i64 [ %skip_until_time.0473, %land.lhs.true ], [ %add, %if.then55 ], [ %skip_until_time.0473, %invoke.cont50 ]
+  %num_entries_to_fill.1 = phi i64 [ %num_entries_to_fill.0474, %land.lhs.true ], [ %dec, %if.then55 ], [ %dec, %invoke.cont50 ]
   %incdec.ptr.i.i266 = getelementptr inbounds i8, ptr %it.sroa.0.0470, i64 16
   %cmp.i.i267 = icmp eq ptr %incdec.ptr.i.i266, %it.sroa.16.0471
   br i1 %cmp.i.i267, label %if.then.i.i268, label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS2_PS3_EppEi.exit271
@@ -4932,8 +4932,8 @@ while.cond.i.i.sink.split:                        ; preds = %for.body.i, %if.the
 
 while.cond.i.i.preheader:                         ; preds = %for.body.i, %while.cond.i.i.sink.split
   %.ph59 = phi ptr [ %.ph, %while.cond.i.i.sink.split ], [ %__i.sroa.0.019.i, %for.body.i ]
-  %__next.sroa.8.1.i.i.ph = phi ptr [ %20, %while.cond.i.i.sink.split ], [ %__i.sroa.6.018.i, %for.body.i ]
   %.pn.i.i.ph = phi ptr [ %add.ptr.i.i15.i.i, %while.cond.i.i.sink.split ], [ %__i.sroa.0.019.i, %for.body.i ]
+  %__next.sroa.8.1.i.i.ph = phi ptr [ %20, %while.cond.i.i.sink.split ], [ %__i.sroa.6.018.i, %for.body.i ]
   %__next.sroa.18.1.i.i.ph = phi ptr [ %add.ptr.i14.i.i, %while.cond.i.i.sink.split ], [ %__i.sroa.13.016.i, %for.body.i ]
   br label %while.cond.i.i
 
@@ -5333,9 +5333,9 @@ cond.end.i.i60:                                   ; preds = %cond.false.i.i58, %
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74: ; preds = %if.then.i.i72, %cond.end.i.i60
-  %agg.tmp5.sroa.20.0 = phi ptr [ %14, %if.then.i.i72 ], [ %add.ptr11.i.i62, %cond.end.i.i60 ]
   %agg.tmp5.sroa.13.0 = phi ptr [ %13, %if.then.i.i72 ], [ %add.ptr.i.i.i63, %cond.end.i.i60 ]
   %agg.tmp5.sroa.8.0 = phi ptr [ %12, %if.then.i.i72 ], [ %15, %cond.end.i.i60 ]
+  %agg.tmp5.sroa.20.0 = phi ptr [ %14, %if.then.i.i72 ], [ %add.ptr11.i.i62, %cond.end.i.i60 ]
   %storemerge.i.i67 = phi ptr [ %add.ptr.i.i73, %if.then.i.i72 ], [ %add.ptr15.i.i66, %cond.end.i.i60 ]
   %16 = load ptr, ptr %__last, align 8
   %17 = load ptr, ptr %_M_first.i, align 8
@@ -5345,21 +5345,21 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74
-  %agg.tmp5.sroa.20.1 = phi ptr [ %agg.tmp5.sroa.20.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.20.1.be, %while.body.i.backedge ]
   %agg.tmp5.sroa.13.1 = phi ptr [ %agg.tmp5.sroa.13.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.13.1.be, %while.body.i.backedge ]
   %agg.tmp5.sroa.8.1 = phi ptr [ %agg.tmp5.sroa.8.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.8.1.be, %while.body.i.backedge ]
   %agg.tmp5.sroa.0.0 = phi ptr [ %storemerge.i.i67, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.0.0.be, %while.body.i.backedge ]
   %agg.tmp6.sroa.10.0 = phi ptr [ %18, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp6.sroa.10.2.ph, %while.body.i.backedge ]
   %agg.tmp6.sroa.3.0 = phi ptr [ %17, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %.ph, %while.body.i.backedge ]
   %agg.tmp6.sroa.0.0 = phi ptr [ %16, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %storemerge.i, %while.body.i.backedge ]
+  %agg.tmp5.sroa.20.1 = phi ptr [ %agg.tmp5.sroa.20.0, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74 ], [ %agg.tmp5.sroa.20.1.be, %while.body.i.backedge ]
   %19 = load i64, ptr %11, align 8, !noalias !313
   br label %while.cond1.i.outer
 
 while.cond1.i.outer:                              ; preds = %if.then.i.i92, %while.body.i
-  %agg.tmp5.sroa.20.2.ph = phi ptr [ %add.ptr.i.i93, %if.then.i.i92 ], [ %agg.tmp5.sroa.20.1, %while.body.i ]
   %agg.tmp5.sroa.13.2.ph = phi ptr [ %add.ptr.i.i.i94, %if.then.i.i92 ], [ %agg.tmp5.sroa.13.1, %while.body.i ]
   %agg.tmp5.sroa.8.2.ph = phi ptr [ %23, %if.then.i.i92 ], [ %agg.tmp5.sroa.8.1, %while.body.i ]
   %agg.tmp5.sroa.0.1.ph = phi ptr [ %23, %if.then.i.i92 ], [ %agg.tmp5.sroa.0.0, %while.body.i ]
+  %agg.tmp5.sroa.20.2.ph = phi ptr [ %add.ptr.i.i93, %if.then.i.i92 ], [ %agg.tmp5.sroa.20.1, %while.body.i ]
   br label %while.cond1.i
 
 while.cond1.i:                                    ; preds = %while.cond1.i.outer, %while.body3.i
@@ -5456,10 +5456,10 @@ if.then.i68.i:                                    ; preds = %if.end.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.then.i68.i, %if.end.i
-  %agg.tmp5.sroa.20.1.be = phi ptr [ %add.ptr.i70.i, %if.then.i68.i ], [ %agg.tmp5.sroa.20.2.ph, %if.end.i ]
   %agg.tmp5.sroa.13.1.be = phi ptr [ %add.ptr.i.i72.i, %if.then.i68.i ], [ %agg.tmp5.sroa.13.2.ph, %if.end.i ]
   %agg.tmp5.sroa.8.1.be = phi ptr [ %28, %if.then.i68.i ], [ %agg.tmp5.sroa.8.2.ph, %if.end.i ]
   %agg.tmp5.sroa.0.0.be = phi ptr [ %28, %if.then.i68.i ], [ %incdec.ptr.i65.i, %if.end.i ]
+  %agg.tmp5.sroa.20.1.be = phi ptr [ %add.ptr.i70.i, %if.then.i68.i ], [ %agg.tmp5.sroa.20.2.ph, %if.end.i ]
   br label %while.body.i, !llvm.loop !318
 
 _ZSt21__unguarded_partitionISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_SA_T0_.exit: ; preds = %while.end12.i
@@ -5756,8 +5756,8 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103
-  %__secondChild.0166 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
-  %add = shl i64 %__secondChild.0166, 1
+  %__holeIndex.addr.0166 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
+  %add = shl i64 %__holeIndex.addr.0166, 1
   %mul = add i64 %add, 2
   %0 = load ptr, ptr %__first, align 8, !noalias !46
   %1 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !46
@@ -5883,7 +5883,7 @@ cond.end.i.i60:                                   ; preds = %cond.false.i.i58, %
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74: ; preds = %if.then.i.i72, %cond.end.i.i60
   %storemerge.i.i67 = phi ptr [ %add.ptr15.i.i66, %cond.end.i.i60 ], [ %add.ptr.i.i73, %if.then.i.i72 ]
-  %add.i.i85 = add nsw i64 %sub.ptr.div.i.i, %__secondChild.0166
+  %add.i.i85 = add nsw i64 %sub.ptr.div.i.i, %__holeIndex.addr.0166
   %cmp.i.i86 = icmp sgt i64 %add.i.i85, -1
   br i1 %cmp.i.i86, label %land.lhs.true.i.i97, label %cond.false.i.i87
 
@@ -5892,7 +5892,7 @@ land.lhs.true.i.i97:                              ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp2.i.i98, label %if.then.i.i101, label %cond.true.i.i99
 
 if.then.i.i101:                                   ; preds = %land.lhs.true.i.i97
-  %add.ptr.i.i102 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %0, i64 %__secondChild.0166
+  %add.ptr.i.i102 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %0, i64 %__holeIndex.addr.0166
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103
 
 cond.true.i.i99:                                  ; preds = %land.lhs.true.i.i97
@@ -5919,7 +5919,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !339
 
 while.end:                                        ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103, %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %9, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit103 ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end19
@@ -5927,11 +5927,11 @@ while.end:                                        ; preds = %_ZStplRKSt15_Deque_
 land.lhs.true:                                    ; preds = %while.end
   %sub7 = add nsw i64 %__len, -2
   %div8 = ashr exact i64 %sub7, 1
-  %cmp9 = icmp eq i64 %__secondChild.0.lcssa, %div8
+  %cmp9 = icmp eq i64 %__holeIndex.addr.0.lcssa, %div8
   br i1 %cmp9, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub14 = or disjoint i64 %add11, 1
   %12 = load ptr, ptr %__first, align 8, !noalias !46
   %_M_first3.i.i105 = getelementptr inbounds i8, ptr %__first, i64 8
@@ -5973,7 +5973,7 @@ cond.end.i.i118:                                  ; preds = %cond.false.i.i116, 
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit132: ; preds = %if.then.i.i130, %cond.end.i.i118
   %storemerge.i.i125 = phi ptr [ %add.ptr15.i.i124, %cond.end.i.i118 ], [ %add.ptr.i.i131, %if.then.i.i130 ]
-  %add.i.i143 = add nsw i64 %sub.ptr.div.i.i113, %__secondChild.0.lcssa
+  %add.i.i143 = add nsw i64 %sub.ptr.div.i.i113, %__holeIndex.addr.0.lcssa
   %cmp.i.i144 = icmp sgt i64 %add.i.i143, -1
   br i1 %cmp.i.i144, label %land.lhs.true.i.i155, label %cond.false.i.i145
 
@@ -5982,7 +5982,7 @@ land.lhs.true.i.i155:                             ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp2.i.i156, label %if.then.i.i159, label %cond.true.i.i157
 
 if.then.i.i159:                                   ; preds = %land.lhs.true.i.i155
-  %add.ptr.i.i160 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %12, i64 %__secondChild.0.lcssa
+  %add.ptr.i.i160 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %12, i64 %__holeIndex.addr.0.lcssa
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit161
 
 cond.true.i.i157:                                 ; preds = %land.lhs.true.i.i155
@@ -6008,7 +6008,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit161, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %sub14, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit161 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
+  %__holeIndex.addr.1 = phi i64 [ %sub14, %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit161 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   %17 = load <4 x ptr>, ptr %__first, align 8
   store <4 x ptr> %17, ptr %agg.tmp21, align 8
   call void @_ZSt11__push_heapISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_ElS3_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SB_T1_RT2_(ptr noundef nonnull %agg.tmp21, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, i64 %__value.coerce0, i64 %__value.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__cmp)
@@ -6481,9 +6481,9 @@ cond.end.i.i34:                                   ; preds = %cond.false.i.i32, %
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit48
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit48: ; preds = %if.then.i.i46, %cond.end.i.i34
-  %agg.tmp8.sroa.8.0 = phi ptr [ %__i.sroa.25.196, %if.then.i.i46 ], [ %add.ptr11.i.i36, %cond.end.i.i34 ]
   %agg.tmp8.sroa.5.0 = phi ptr [ %__i.sroa.17.195, %if.then.i.i46 ], [ %add.ptr.i.i.i37, %cond.end.i.i34 ]
   %agg.tmp8.sroa.2.0 = phi ptr [ %__i.sroa.10.193, %if.then.i.i46 ], [ %12, %cond.end.i.i34 ]
+  %agg.tmp8.sroa.8.0 = phi ptr [ %__i.sroa.25.196, %if.then.i.i46 ], [ %add.ptr11.i.i36, %cond.end.i.i34 ]
   %storemerge.i.i41 = phi ptr [ %add.ptr.i.i47, %if.then.i.i46 ], [ %add.ptr15.i.i40, %cond.end.i.i34 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !365
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !368
@@ -6523,8 +6523,8 @@ while.cond.i.sink.split:                          ; preds = %if.else, %if.then.i
 
 while.cond.i.preheader:                           ; preds = %if.else, %while.cond.i.sink.split
   %.ph98 = phi ptr [ %.ph, %while.cond.i.sink.split ], [ %__i.sroa.0.090, %if.else ]
-  %__next.sroa.8.1.i.ph = phi ptr [ %14, %while.cond.i.sink.split ], [ %__i.sroa.10.193, %if.else ]
   %.pn.i.ph = phi ptr [ %add.ptr.i.i15.i, %while.cond.i.sink.split ], [ %__i.sroa.0.090, %if.else ]
+  %__next.sroa.8.1.i.ph = phi ptr [ %14, %while.cond.i.sink.split ], [ %__i.sroa.10.193, %if.else ]
   %__next.sroa.18.1.i.ph = phi ptr [ %add.ptr.i14.i, %while.cond.i.sink.split ], [ %__i.sroa.25.196, %if.else ]
   br label %while.cond.i
 

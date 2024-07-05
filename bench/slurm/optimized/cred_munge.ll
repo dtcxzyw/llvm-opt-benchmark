@@ -442,7 +442,7 @@ define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %
   br label %49
 
 45:                                               ; preds = %.critedge.thread, %.critedge, %31
-  %.0 = phi i32 [ 5002, %31 ], [ %.mux, %.critedge ], [ 6, %.critedge.thread ]
+  %.021 = phi i32 [ 5002, %31 ], [ %.mux, %.critedge ], [ 6, %.critedge.thread ]
   %46 = load ptr, ptr %7, align 8
   %.not31 = icmp eq ptr %46, null
   br i1 %.not31, label %48, label %47
@@ -456,8 +456,8 @@ define internal fastcc noundef i32 @_decode(ptr noundef %0, i1 noundef zeroext %
   br label %49
 
 49:                                               ; preds = %4, %48, %41
-  %.021 = phi i32 [ %.0, %48 ], [ 0, %41 ], [ -1, %4 ]
-  ret i32 %.021
+  %.0 = phi i32 [ %.021, %48 ], [ 0, %41 ], [ -1, %4 ]
+  ret i32 %.0
 }
 
 declare i32 @slurm_unpack_node_alias_addrs(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1

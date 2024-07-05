@@ -337,31 +337,31 @@ define hidden void @utp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef
   %73 = load ptr, ptr %20, align 8
   %74 = call ptr @wmem_list_tail(ptr noundef %73) #8
   %75 = call ptr @wmem_list_frame_prev(ptr noundef %74) #8
-  %.0103128 = add i8 %72, -1
+  %.0104128 = add i8 %72, -1
   %.not109129 = icmp eq ptr %75, null
   br i1 %.not109129, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %80
-  %.0103131 = phi i8 [ %.0103, %80 ], [ %.0103128, %71 ]
-  %.0130 = phi ptr [ %81, %80 ], [ %75, %71 ]
+  %.0104131 = phi i8 [ %.0104, %80 ], [ %.0104128, %71 ]
+  %.0103130 = phi ptr [ %81, %80 ], [ %75, %71 ]
   %76 = load i32, ptr @proto_bt_utp, align 4
-  %77 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0130) #8
+  %77 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0103130) #8
   %78 = ptrtoint ptr %77 to i64
   %79 = trunc i64 %78 to i32
   %.not110 = icmp eq i32 %76, %79
   br i1 %.not110, label %.critedge, label %80
 
 80:                                               ; preds = %.lr.ph
-  %81 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.0130) #8
-  %.0103 = add i8 %.0103131, -1
+  %81 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.0103130) #8
+  %.0104 = add i8 %.0104131, -1
   %.not109 = icmp eq ptr %81, null
   br i1 %.not109, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %80, %71
-  %.0103.lcssa = phi i8 [ %.0103128, %71 ], [ %.0103, %80 ], [ %.0103131, %.lr.ph ]
+  %.0104.lcssa = phi i8 [ %.0104128, %71 ], [ %.0104, %80 ], [ %.0104131, %.lr.ph ]
   %82 = load ptr, ptr %21, align 8
   %83 = load i32, ptr @proto_bt_utp, align 4
-  %84 = zext i8 %.0103.lcssa to i32
+  %84 = zext i8 %.0104.lcssa to i32
   %85 = call ptr @p_get_proto_data(ptr noundef %82, ptr noundef %1, i32 noundef %83, i32 noundef %84) #8
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -396,10 +396,10 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %90, %93
   br label %99
 
 99:                                               ; preds = %98, %proto_item_set_generated.exit
-  %.0104 = phi i32 [ %.0..0..0..0.39, %98 ], [ %29, %proto_item_set_generated.exit ]
+  %.0 = phi i32 [ %.0..0..0..0.39, %98 ], [ %29, %proto_item_set_generated.exit ]
   %.0..0..0..0.55 = load volatile i32, ptr %9, align 4
   %.0..0..0..0.40 = load volatile i32, ptr %10, align 4
-  %100 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.55, i32 noundef %.0104, i32 noundef %.0..0..0..0.40) #8
+  %100 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.55, i32 noundef %.0, i32 noundef %.0..0..0..0.40) #8
   br i1 %.not, label %103, label %101
 
 101:                                              ; preds = %99

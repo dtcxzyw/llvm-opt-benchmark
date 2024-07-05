@@ -97,13 +97,13 @@ ir_str_hash.exit:                                 ; preds = %3, %._crit_edge.loo
   %15 = or i32 %14, %.0.lcssa.i
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %12, i64 %16
-  %.020 = load i32, ptr %17, align 4
-  %.not21 = icmp eq i32 %.020, -1
+  %.01820 = load i32, ptr %17, align 4
+  %.not21 = icmp eq i32 %.01820, -1
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ir_str_hash.exit, %33
-  %.022 = phi i32 [ %.0, %33 ], [ %.020, %ir_str_hash.exit ]
-  %18 = zext i32 %.022 to i64
+  %.01822 = phi i32 [ %.018, %33 ], [ %.01820, %ir_str_hash.exit ]
+  %18 = zext i32 %.01822 to i64
   %19 = getelementptr inbounds i8, ptr %12, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %.0.lcssa.i
@@ -129,13 +129,13 @@ ir_str_hash.exit:                                 ; preds = %3, %._crit_edge.loo
 
 33:                                               ; preds = %26, %22, %.lr.ph
   %34 = getelementptr inbounds i8, ptr %19, i64 16
-  %.0 = load i32, ptr %34, align 4
-  %.not = icmp eq i32 %.0, -1
+  %.018 = load i32, ptr %34, align 4
+  %.not = icmp eq i32 %.018, -1
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %33, %ir_str_hash.exit, %30
-  %.018 = phi i32 [ %32, %30 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
-  ret i32 %.018
+  %.0 = phi i32 [ %32, %30 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -253,24 +253,24 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   br label %70
 
 70:                                               ; preds = %70, %40
-  %.0101.i = phi ptr [ %69, %40 ], [ %82, %70 ]
-  %.0100.i = phi i32 [ 0, %40 ], [ %81, %70 ]
-  %.0.i = phi i32 [ %68, %40 ], [ %83, %70 ]
-  %71 = load i32, ptr %.0101.i, align 8
+  %.0101.i = phi i32 [ 0, %40 ], [ %81, %70 ]
+  %.0100.i = phi i32 [ %68, %40 ], [ %83, %70 ]
+  %.0.i = phi ptr [ %69, %40 ], [ %82, %70 ]
+  %71 = load i32, ptr %.0.i, align 8
   %72 = load i32, ptr %14, align 8
   %73 = or i32 %72, %71
   %74 = load ptr, ptr %0, align 8
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds i32, ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.0101.i, i64 16
+  %78 = getelementptr inbounds i8, ptr %.0.i, i64 16
   store i32 %77, ptr %78, align 8
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds i32, ptr %79, i64 %75
-  store i32 %.0100.i, ptr %80, align 4
-  %81 = add i32 %.0100.i, 24
-  %82 = getelementptr inbounds i8, ptr %.0101.i, i64 24
-  %83 = add i32 %.0.i, -1
+  store i32 %.0101.i, ptr %80, align 4
+  %81 = add i32 %.0101.i, 24
+  %82 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %83 = add i32 %.0100.i, -1
   %.not.i67 = icmp eq i32 %83, 0
   br i1 %.not.i67, label %ir_strtab_resize.exit, label %70
 
@@ -426,13 +426,13 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
   %16 = or i32 %15, %.0.lcssa.i
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %13, i64 %17
-  %.021 = load i32, ptr %18, align 4
-  %.not22 = icmp eq i32 %.021, -1
+  %.01921 = load i32, ptr %18, align 4
+  %.not22 = icmp eq i32 %.01921, -1
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ir_str_hash.exit, %33
-  %.023 = phi i32 [ %.0, %33 ], [ %.021, %ir_str_hash.exit ]
-  %19 = zext i32 %.023 to i64
+  %.01923 = phi i32 [ %.019, %33 ], [ %.01921, %ir_str_hash.exit ]
+  %19 = zext i32 %.01923 to i64
   %20 = getelementptr inbounds i8, ptr %13, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %.0.lcssa.i
@@ -458,13 +458,13 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
 
 33:                                               ; preds = %27, %23, %.lr.ph
   %34 = getelementptr inbounds i8, ptr %20, i64 16
-  %.0 = load i32, ptr %34, align 4
-  %.not = icmp eq i32 %.0, -1
+  %.019 = load i32, ptr %34, align 4
+  %.not = icmp eq i32 %.019, -1
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %33, %ir_str_hash.exit, %31
-  %.019 = phi i32 [ %3, %31 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
-  ret i32 %.019
+  %.0 = phi i32 [ %3, %31 ], [ 0, %ir_str_hash.exit ], [ 0, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

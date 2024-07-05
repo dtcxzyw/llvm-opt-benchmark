@@ -1648,22 +1648,22 @@ Gia_ManInseInit.exit:                             ; preds = %55, %.loopexit.i
 
 91:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %.0125 = phi i32 [ 0, %.lr.ph ], [ %96, %91 ]
+  %.046124 = phi i32 [ 0, %.lr.ph ], [ %96, %91 ]
   %92 = getelementptr inbounds i32, ptr %.val53, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   %94 = lshr i32 %93, 1
   %95 = and i32 %94, 1
-  %96 = add nuw nsw i32 %95, %.0125
+  %96 = add nuw nsw i32 %95, %.046124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %91, !llvm.loop !29
 
 .critedge:                                        ; preds = %91, %Vec_IntStart.exit, %Gia_ManInseInit.exit
-  %.0.lcssa = phi i32 [ 0, %Gia_ManInseInit.exit ], [ 0, %Vec_IntStart.exit ], [ %96, %91 ]
+  %.046.lcssa = phi i32 [ 0, %Gia_ManInseInit.exit ], [ 0, %Vec_IntStart.exit ], [ %96, %91 ]
   br i1 %.not, label %99, label %97
 
 97:                                               ; preds = %.critedge
-  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 0, i32 noundef %.0.lcssa, i32 noundef %.0.lcssa)
+  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 0, i32 noundef %.046.lcssa, i32 noundef %.046.lcssa)
   br label %99
 
 99:                                               ; preds = %97, %.critedge
@@ -1812,7 +1812,7 @@ Gia_ManInseInit.exit92:                           ; preds = %.lr.ph58.i66, %.loo
 
 153:                                              ; preds = %Gia_ManInseInit.exit92
   %154 = load i32, ptr %10, align 4
-  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.pre, i32 noundef %154, i32 noundef %.0.lcssa)
+  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.pre, i32 noundef %154, i32 noundef %.046.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %156 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #14
   %157 = icmp slt i32 %156, 0

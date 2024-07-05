@@ -242,7 +242,7 @@ define i32 @node_features_g_fini() local_unnamed_addr #0 {
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %14, %13 ]
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
+  %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
@@ -251,7 +251,7 @@ define i32 @node_features_g_fini() local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #8
   %.not17 = icmp eq i32 %12, 0
-  %spec.select = select i1 %.not17, i32 %.020, i32 %12
+  %spec.select = select i1 %.not17, i32 %.01119, i32 %12
   %.pre = load ptr, ptr @g_context, align 8
   %.pre23 = load i32, ptr @g_context_cnt, align 4
   br label %13
@@ -259,14 +259,14 @@ define i32 @node_features_g_fini() local_unnamed_addr #0 {
 13:                                               ; preds = %11, %.lr.ph
   %14 = phi i32 [ %7, %.lr.ph ], [ %.pre23, %11 ]
   %15 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %.1 = phi i32 [ %.020, %.lr.ph ], [ %spec.select, %11 ]
+  %.1 = phi i32 [ %.01119, %.lr.ph ], [ %spec.select, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
+  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   tail call void @slurm_xfree(ptr noundef nonnull @node_features_plugin_list) #8
@@ -274,7 +274,7 @@ define i32 @node_features_g_fini() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %4 ], [ %.011.lcssa, %._crit_edge ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
@@ -416,7 +416,7 @@ define zeroext i1 @node_features_g_changeable_feature(ptr noundef %0) local_unna
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i1 [ false, %.preheader ], [ %15, %.lr.ph ]
+  %.09.lcssa = phi i1 [ false, %.preheader ], [ %15, %.lr.ph ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %22, label %20
@@ -430,7 +430,7 @@ define zeroext i1 @node_features_g_changeable_feature(ptr noundef %0) local_unna
 22:                                               ; preds = %._crit_edge
   %23 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_changeable_feature, i64 noundef 0, ptr noundef nonnull %5) #8
-  ret i1 %.0.lcssa
+  ret i1 %.09.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -471,7 +471,7 @@ define i32 @node_features_g_get_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %15, %.lr.ph ]
+  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %15, %.lr.ph ]
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %24, label %22
@@ -485,7 +485,7 @@ define i32 @node_features_g_get_node(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %._crit_edge
   %25 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_get_node, i64 noundef 0, ptr noundef nonnull %5) #8
-  ret i32 %.0.lcssa
+  ret i32 %.09.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -526,7 +526,7 @@ define i32 @node_features_g_job_valid(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %25, label %23
@@ -540,7 +540,7 @@ define i32 @node_features_g_job_valid(ptr noundef %0, ptr noundef %1) local_unna
 25:                                               ; preds = %._crit_edge
   %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_job_valid, i64 noundef 0, ptr noundef nonnull %6) #8
-  ret i32 %.0.lcssa
+  ret i32 %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -702,12 +702,12 @@ define i32 @node_features_g_overlap(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.0913 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
+  %.014 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
   %13 = getelementptr inbounds %struct.node_features_ops, ptr %12, i64 %indvars.iv, i32 6
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0) #8
-  %16 = add nsw i32 %15, %.0913
+  %16 = add nsw i32 %15, %.014
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @g_context_cnt, align 4
   %18 = sext i32 %17 to i64
@@ -715,7 +715,7 @@ define i32 @node_features_g_overlap(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not12 = icmp eq i32 %20, 0
   br i1 %.not12, label %23, label %21
@@ -729,7 +729,7 @@ define i32 @node_features_g_overlap(ptr noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %._crit_edge
   %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_overlap, i64 noundef 0, ptr noundef nonnull %5) #8
-  ret i32 %.09.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -826,7 +826,7 @@ define i32 @node_features_g_node_set(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %15, %.lr.ph ]
+  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %15, %.lr.ph ]
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %24, label %22
@@ -840,7 +840,7 @@ define i32 @node_features_g_node_set(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %._crit_edge
   %25 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_set, i64 noundef 0, ptr noundef nonnull %5) #8
-  ret i32 %.0.lcssa
+  ret i32 %.09.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -933,7 +933,7 @@ define i32 @node_features_g_node_update(ptr noundef %0, ptr noundef %1) local_un
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %25, label %23
@@ -947,7 +947,7 @@ define i32 @node_features_g_node_update(ptr noundef %0, ptr noundef %1) local_un
 25:                                               ; preds = %._crit_edge
   %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_update, i64 noundef 0, ptr noundef nonnull %6) #8
-  ret i32 %.0.lcssa
+  ret i32 %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1037,7 +1037,7 @@ define ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
 
 18:                                               ; preds = %16, %14
   %19 = phi i32 [ %15, %14 ], [ %.pre, %16 ]
-  %.015 = phi ptr [ null, %14 ], [ %17, %16 ]
+  %.0 = phi ptr [ null, %14 ], [ %17, %16 ]
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -1047,12 +1047,12 @@ define ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.123.us = phi ptr [ %24, %.lr.ph.split.us ], [ %.015, %.lr.ph ]
-  store ptr %.123.us, ptr %9, align 8
+  %.124.us = phi ptr [ %24, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
+  store ptr %.124.us, ptr %9, align 8
   %21 = load ptr, ptr @ops, align 8
   %22 = getelementptr inbounds %struct.node_features_ops, ptr %21, i64 %indvars.iv29, i32 12
   %23 = load ptr, ptr %22, align 8
-  %24 = call ptr %23(ptr noundef %0, ptr noundef %.123.us, ptr noundef %2, i32 noundef %3) #8
+  %24 = call ptr %23(ptr noundef %0, ptr noundef %.124.us, ptr noundef %2, i32 noundef %3) #8
   call void @slurm_xfree(ptr noundef nonnull %9) #8
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %25 = load i32, ptr @g_context_cnt, align 4
@@ -1062,8 +1062,8 @@ define ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
-  %.123 = phi ptr [ %34, %30 ], [ %.015, %.lr.ph ]
-  %.not21 = icmp eq ptr %.123, null
+  %.124 = phi ptr [ %34, %30 ], [ %.0, %.lr.ph ]
+  %.not21 = icmp eq ptr %.124, null
   br i1 %.not21, label %28, label %30
 
 28:                                               ; preds = %.lr.ph.split
@@ -1071,7 +1071,7 @@ define ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
   br label %30
 
 30:                                               ; preds = %.lr.ph.split, %28
-  %storemerge = phi ptr [ %29, %28 ], [ %.123, %.lr.ph.split ]
+  %storemerge = phi ptr [ %29, %28 ], [ %.124, %.lr.ph.split ]
   store ptr %storemerge, ptr %9, align 8
   %31 = load ptr, ptr @ops, align 8
   %32 = getelementptr inbounds %struct.node_features_ops, ptr %31, i64 %indvars.iv, i32 12
@@ -1085,7 +1085,7 @@ define ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph.split.us, %18
-  %.1.lcssa = phi ptr [ %.015, %18 ], [ %24, %.lr.ph.split.us ], [ %34, %30 ]
+  %.1.lcssa = phi ptr [ %.0, %18 ], [ %24, %.lr.ph.split.us ], [ %34, %30 ]
   %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not20 = icmp eq i32 %38, 0
   br i1 %.not20, label %41, label %39
@@ -1133,18 +1133,18 @@ define ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %13, %11
   %16 = phi i32 [ %12, %11 ], [ %.pre, %13 ]
-  %.011 = phi ptr [ null, %11 ], [ %14, %13 ]
+  %.0 = phi ptr [ null, %11 ], [ %14, %13 ]
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %15 ]
-  %.117 = phi ptr [ %26, %22 ], [ %.011, %15 ]
-  %.not16 = icmp eq ptr %.117, null
+  %.118 = phi ptr [ %26, %22 ], [ %.0, %15 ]
+  %.not16 = icmp eq ptr %.118, null
   br i1 %.not16, label %20, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = call ptr @xstrdup(ptr noundef nonnull %.117) #8
+  %19 = call ptr @xstrdup(ptr noundef nonnull %.118) #8
   br label %22
 
 20:                                               ; preds = %.lr.ph
@@ -1166,7 +1166,7 @@ define ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22, %15
-  %.1.lcssa = phi ptr [ %.011, %15 ], [ %26, %22 ]
+  %.1.lcssa = phi ptr [ %.0, %15 ], [ %26, %22 ]
   %30 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not15 = icmp eq i32 %30, 0
   br i1 %.not15, label %33, label %31
@@ -1220,7 +1220,7 @@ define zeroext i1 @node_features_g_user_update(i32 noundef %0) local_unnamed_add
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i1 [ true, %.preheader ], [ %15, %.lr.ph ]
+  %.0.lcssa = phi i1 [ true, %.preheader ], [ %15, %.lr.ph ]
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %20, 0
   br i1 %.not13, label %23, label %21
@@ -1234,7 +1234,7 @@ define zeroext i1 @node_features_g_user_update(i32 noundef %0) local_unnamed_add
 23:                                               ; preds = %._crit_edge
   %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_user_update, i64 noundef 0, ptr noundef nonnull %5) #8
-  ret i1 %.010.lcssa
+  ret i1 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1262,12 +1262,12 @@ define i32 @node_features_g_boot_time() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
-  %.01115 = phi i32 [ %22, %21 ], [ 0, %.preheader ]
+  %.016 = phi i32 [ %22, %21 ], [ 0, %.preheader ]
   %11 = load ptr, ptr @ops, align 8
   %12 = getelementptr inbounds %struct.node_features_ops, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13() #8
-  %15 = icmp ugt i32 %.01115, %14
+  %15 = icmp ugt i32 %.016, %14
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %.lr.ph
@@ -1278,7 +1278,7 @@ define i32 @node_features_g_boot_time() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %.lr.ph, %16
-  %22 = phi i32 [ %20, %16 ], [ %.01115, %.lr.ph ]
+  %22 = phi i32 [ %20, %16 ], [ %.016, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr @g_context_cnt, align 4
   %24 = sext i32 %23 to i64
@@ -1286,7 +1286,7 @@ define i32 @node_features_g_boot_time() local_unnamed_addr #0 {
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %21, %.preheader
-  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %22, %21 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %22, %21 ]
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not14 = icmp eq i32 %26, 0
   br i1 %.not14, label %29, label %27
@@ -1300,7 +1300,7 @@ define i32 @node_features_g_boot_time() local_unnamed_addr #0 {
 29:                                               ; preds = %._crit_edge
   %30 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_boot_time, i64 noundef 0, ptr noundef nonnull %4) #8
-  ret i32 %.011.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1320,7 +1320,7 @@ define ptr @node_features_g_get_config() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %0, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %0 ]
+  %.014 = phi ptr [ %9, %8 ], [ null, %0 ]
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.preheader, label %14
@@ -1355,7 +1355,7 @@ define ptr @node_features_g_get_config() local_unnamed_addr #0 {
   br label %25
 
 24:                                               ; preds = %.lr.ph
-  tail call void @list_append(ptr noundef %.0, ptr noundef nonnull %16) #8
+  tail call void @list_append(ptr noundef %.014, ptr noundef nonnull %16) #8
   br label %25
 
 25:                                               ; preds = %23, %24
@@ -1379,7 +1379,7 @@ define ptr @node_features_g_get_config() local_unnamed_addr #0 {
 32:                                               ; preds = %._crit_edge
   %33 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_get_config, i64 noundef 0, ptr noundef nonnull %4) #8
-  ret ptr %.0
+  ret ptr %.014
 }
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #4

@@ -1565,10 +1565,10 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end, %if.end5
-  %context.sroa.0.0119 = phi ptr [ %context.coerce0, %if.end5 ], [ %text.coerce0, %if.end ]
-  %context.sroa.11.0118 = phi i64 [ %context.coerce1, %if.end5 ], [ %text.coerce1, %if.end ]
+  %context.sroa.11.0119 = phi i64 [ %context.coerce1, %if.end5 ], [ %text.coerce1, %if.end ]
+  %context.sroa.0.0118 = phi ptr [ %context.coerce0, %if.end5 ], [ %text.coerce0, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %context.sroa.0.0119, i64 %context.sroa.11.0118
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119
   %cmp14 = icmp ugt ptr %add.ptr.i, %add.ptr.i43
   br i1 %cmp14, label %if.then15, label %if.end19
 
@@ -1615,7 +1615,7 @@ if.end19:                                         ; preds = %lor.lhs.false
   %3 = load ptr, ptr %this, align 8
   %4 = load i8, ptr %3, align 8
   %tobool.i = trunc i8 %4 to i1
-  %cmp25.not = icmp ne ptr %context.sroa.0.0119, %text.coerce0
+  %cmp25.not = icmp ne ptr %context.sroa.0.0118, %text.coerce0
   %or.cond123.not = select i1 %tobool.i, i1 %cmp25.not, i1 false
   br i1 %or.cond123.not, label %return, label %if.end27
 
@@ -1704,7 +1704,7 @@ if.end63:                                         ; preds = %if.then61, %if.end5
   %matched_ = getelementptr inbounds i8, ptr %this, i64 232
   store i8 0, ptr %matched_, align 8
   %btext_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %context.sroa.0.0119, ptr %btext_, align 8
+  store ptr %context.sroa.0.0118, ptr %btext_, align 8
   %etext_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %etext_, align 8
   %q0_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -1734,7 +1734,7 @@ cond.true:                                        ; preds = %for.cond
 
 cond.end:                                         ; preds = %for.cond, %cond.true
   %cond = phi i32 [ %conv77, %cond.true ], [ -1, %for.cond ]
-  %call79 = tail call noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %runq.0, ptr noundef nonnull %nextq.0, i32 noundef %cond, ptr %context.sroa.0.0119, i64 %context.sroa.11.0118, ptr noundef %p.0)
+  %call79 = tail call noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %runq.0, ptr noundef nonnull %nextq.0, i32 noundef %cond, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119, ptr noundef %p.0)
   store i32 0, ptr %runq.0, align 8
   %cmp80.not = icmp eq i32 %call79, 0
   %12 = load ptr, ptr %etext_, align 8
@@ -1949,7 +1949,7 @@ cond.true151:                                     ; preds = %_ZN3re23NFA11AllocT
 
 cond.end156:                                      ; preds = %_ZN3re23NFA11AllocThreadEv.exit, %cond.true151
   %cond157 = phi i32 [ %conv153, %cond.true151 ], [ -1, %_ZN3re23NFA11AllocThreadEv.exit ]
-  tail call void @_ZN3re23NFA12AddToThreadqEPNS_11SparseArrayIPNS0_6ThreadEEEiiN4absl7debian211string_viewEPKcS3_(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, i32 noundef %49, i32 noundef %cond157, ptr %context.sroa.0.0119, i64 %context.sroa.11.0118, ptr noundef %p.1, ptr noundef nonnull %retval.0.i71)
+  tail call void @_ZN3re23NFA12AddToThreadqEPNS_11SparseArrayIPNS0_6ThreadEEEiiN4absl7debian211string_viewEPKcS3_(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, i32 noundef %49, i32 noundef %cond157, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119, ptr noundef %p.1, ptr noundef nonnull %retval.0.i71)
   %52 = load i32, ptr %retval.0.i71, align 8
   %dec.i = add nsw i32 %52, -1
   store i32 %dec.i, ptr %retval.0.i71, align 8
@@ -1974,7 +1974,7 @@ if.end163:                                        ; preds = %if.end159
   br i1 %cmp164, label %if.then165, label %for.cond, !llvm.loop !31
 
 if.then165:                                       ; preds = %if.end163
-  %call167 = tail call noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, ptr noundef nonnull %runq.0, i32 noundef -1, ptr %context.sroa.0.0119, i64 %context.sroa.11.0118, ptr noundef null)
+  %call167 = tail call noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, ptr noundef nonnull %runq.0, i32 noundef -1, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119, ptr noundef null)
   store i32 0, ptr %nextq.0, align 8
   br label %for.end169
 

@@ -1594,23 +1594,23 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   br i1 %196, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i:                                   ; preds = %209, %201
-  %.16547.i.i = phi i8 [ %.2.i.i, %201 ], [ %.06448.i.i, %209 ]
-  %.sroa.025.046.i.i = phi i64 [ %197, %201 ], [ 0, %209 ]
-  %197 = add nuw nsw i64 %.sroa.025.046.i.i, 1
-  %198 = getelementptr inbounds [4 x i16], ptr %7, i64 0, i64 %.sroa.025.046.i.i
+  %.sroa.025.047.i.i = phi i64 [ %197, %201 ], [ 0, %209 ]
+  %.16546.i.i = phi i8 [ %.2.i.i, %201 ], [ %.06448.i.i, %209 ]
+  %197 = add nuw nsw i64 %.sroa.025.047.i.i, 1
+  %198 = getelementptr inbounds [4 x i16], ptr %7, i64 0, i64 %.sroa.025.047.i.i
   %199 = load i16, ptr %198, align 2, !noalias !304, !noundef !4
   %200 = icmp eq i16 %199, 0
   br i1 %200, label %201, label %202
 
 201:                                              ; preds = %202, %.preheader.i.i
-  %.2.i.i = phi i8 [ %.16547.i.i, %.preheader.i.i ], [ %208, %202 ]
+  %.2.i.i = phi i8 [ %.16546.i.i, %.preheader.i.i ], [ %208, %202 ]
   %exitcond63.not.i.i = icmp eq i64 %197, 4
   br i1 %exitcond63.not.i.i, label %193, label %.preheader.i.i
 
 202:                                              ; preds = %.preheader.i.i
-  %203 = shl nuw nsw i64 %.sroa.025.046.i.i, 4
+  %203 = shl nuw nsw i64 %.sroa.025.047.i.i, 4
   %204 = add nuw nsw i64 %203, %.06249.i.i
-  %205 = trunc nuw i8 %.16547.i.i to i1
+  %205 = trunc nuw i8 %.16546.i.i to i1
   %206 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h171ad6fc75ef21f6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %204, i16 noundef %199, i1 noundef zeroext %205), !noalias !299
   %207 = or i1 %206, %205
   %208 = zext i1 %207 to i8

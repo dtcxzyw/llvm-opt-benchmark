@@ -29,14 +29,14 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
 11:                                               ; preds = %6, %10
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %.05059 = load volatile ptr, ptr %13, align 8
-  %.not60 = icmp eq ptr %.05059, %12
+  %.05159 = load volatile ptr, ptr %13, align 8
+  %.not60 = icmp eq ptr %.05159, %12
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %45
-  %.05062 = phi ptr [ %.050, %45 ], [ %.05059, %11 ]
-  %.061 = phi i32 [ %.1, %45 ], [ -2147483648, %11 ]
-  %14 = getelementptr inbounds i8, ptr %.05062, i64 40
+  %.05162 = phi ptr [ %.051, %45 ], [ %.05159, %11 ]
+  %.05061 = phi i32 [ %.1, %45 ], [ -2147483648, %11 ]
+  %14 = getelementptr inbounds i8, ptr %.05162, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 176
   %17 = load ptr, ptr %16, align 8
@@ -93,7 +93,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
 
 40:                                               ; preds = %36, %37
   %41 = load i32, ptr %8, align 4
-  %42 = icmp sgt i32 %41, %.061
+  %42 = icmp sgt i32 %41, %.05061
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
@@ -103,19 +103,19 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br label %45
 
 45:                                               ; preds = %26, %40, %43, %34, %33, %21, %20
-  %.1 = phi i32 [ %.061, %21 ], [ %.061, %20 ], [ %.061, %34 ], [ %.061, %33 ], [ %41, %43 ], [ %.061, %40 ], [ %.061, %26 ]
-  %46 = getelementptr inbounds i8, ptr %.05062, i64 16
-  %.050 = load volatile ptr, ptr %46, align 8
-  %.not = icmp eq ptr %.050, %12
+  %.1 = phi i32 [ %.05061, %21 ], [ %.05061, %20 ], [ %.05061, %34 ], [ %.05061, %33 ], [ %41, %43 ], [ %.05061, %40 ], [ %.05061, %26 ]
+  %46 = getelementptr inbounds i8, ptr %.05162, i64 16
+  %.051 = load volatile ptr, ptr %46, align 8
+  %.not = icmp eq ptr %.051, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %45, %11
-  %.0.lcssa = phi i32 [ -2147483648, %11 ], [ %.1, %45 ]
+  %.050.lcssa = phi i32 [ -2147483648, %11 ], [ %.1, %45 ]
   %.not56 = icmp eq ptr %5, null
   br i1 %.not56, label %48, label %47
 
 47:                                               ; preds = %._crit_edge
-  store i32 %.0.lcssa, ptr %5, align 4
+  store i32 %.050.lcssa, ptr %5, align 4
   br label %48
 
 48:                                               ; preds = %47, %._crit_edge
@@ -150,8 +150,8 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %60, %54
-  %.051 = phi i32 [ -13, %54 ], [ 0, %60 ], [ %28, %26 ]
-  ret i32 %.051
+  %.0 = phi i32 [ -13, %54 ], [ 0, %60 ], [ %28, %26 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -310,11 +310,11 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 16:                                               ; preds = %.lr.ph353, %.loopexit
   %.0352 = phi ptr [ null, %.lr.ph353 ], [ %.1, %.loopexit ]
   %.0320351 = phi ptr [ null, %.lr.ph353 ], [ %.1321, %.loopexit ]
-  %.0323350 = phi ptr [ null, %.lr.ph353 ], [ %.1324, %.loopexit ]
-  %.0325349 = phi i32 [ 1, %.lr.ph353 ], [ %246, %.loopexit ]
+  %.0322350 = phi ptr [ null, %.lr.ph353 ], [ %.1323, %.loopexit ]
+  %.0324349 = phi ptr [ null, %.lr.ph353 ], [ %.1325, %.loopexit ]
   %.0326348 = phi ptr [ null, %.lr.ph353 ], [ %.1327, %.loopexit ]
-  %.0328347 = phi ptr [ null, %.lr.ph353 ], [ %.1329, %.loopexit ]
-  %17 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0325349) #2
+  %.0329347 = phi i32 [ 1, %.lr.ph353 ], [ %246, %.loopexit ]
+  %17 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0329347) #2
   %18 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %19 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %20 = icmp eq i32 %18, -1
@@ -327,13 +327,13 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %24 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %24, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.159) #2
   %25 = load i32, ptr @hf_rng_invalid_tlv, align 4
-  %26 = sub i32 %7, %.0325349
-  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.0325349, i32 noundef %26, i32 noundef 0) #2
+  %26 = sub i32 %7, %.0329347
+  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.0329347, i32 noundef %26, i32 noundef 0) #2
   br label %.loopexit334
 
 28:                                               ; preds = %16
   %29 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #2
-  %30 = add i32 %29, %.0325349
+  %30 = add i32 %29, %.0329347
   switch i32 %18, label %243 [
     i32 1, label %31
     i32 2, label %43
@@ -367,7 +367,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 31:                                               ; preds = %28
   %32 = load i32, ptr @hf_rng_rsp_timing_adjust, align 4
-  %33 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0325349) #2
+  %33 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0329347) #2
   %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30) #2
   %35 = uitofp i32 %34 to double
   %36 = fmul double %35, 2.500000e-01
@@ -384,7 +384,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 43:                                               ; preds = %28
   %44 = load i32, ptr @hf_rng_rsp_power_level_adjust, align 4
-  %45 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %44, ptr noundef %0, i32 noundef %.0325349) #2
+  %45 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %44, ptr noundef %0, i32 noundef %.0329347) #2
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %30) #2
   %47 = uitofp i8 %46 to double
   %48 = fmul double %47, 2.500000e-01
@@ -396,27 +396,27 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 53:                                               ; preds = %28
   %54 = load i32, ptr @hf_rng_rsp_offset_freq_adjust, align 4
-  %55 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %54, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %55 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %54, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 56:                                               ; preds = %28
   %57 = load i32, ptr @hf_rng_rsp_ranging_status, align 4
-  %58 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %57, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %58 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %57, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 59:                                               ; preds = %28
   %60 = load i32, ptr @hf_rng_rsp_dl_freq_override, align 4
-  %61 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %60, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %61 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %60, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 62:                                               ; preds = %28
   %63 = load i32, ptr @hf_rng_rsp_ul_chan_id_override, align 4
-  %64 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %63, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %64 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %63, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 65:                                               ; preds = %28
   %66 = load i32, ptr @hf_rng_rsp_dl_operational_burst_profile, align 4
-  %67 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %66, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %67 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %66, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %68 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #2
   %70 = load i32, ptr @hf_rng_rsp_dl_operational_burst_profile_diuc, align 4
@@ -431,37 +431,37 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 76:                                               ; preds = %74
   %77 = load i32, ptr @hf_rng_rsp_ss_mac_address, align 4
-  %78 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %78 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 79:                                               ; preds = %74
   %80 = load i32, ptr @hf_rng_invalid_tlv, align 4
-  %81 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %80, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %81 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %80, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 82:                                               ; preds = %28
   %83 = load i32, ptr @hf_rng_rsp_basic_cid, align 4
-  %84 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %83, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %84 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %83, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 85:                                               ; preds = %28
   %86 = load i32, ptr @hf_rng_rsp_primary_mgmt_cid, align 4
-  %87 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %86, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %87 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %86, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 88:                                               ; preds = %28
   %89 = load i32, ptr @hf_rng_rsp_broadcast, align 4
-  %90 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %89, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %90 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %89, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 91:                                               ; preds = %28
   %92 = load i32, ptr @hf_rng_rsp_frame_number, align 4
-  %93 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %92, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %93 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %92, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 94:                                               ; preds = %28
   %95 = load i32, ptr @hf_rng_rsp_opportunity_number, align 4
-  %96 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %95, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %96 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %95, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %97 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30) #2
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %.loopexit
@@ -472,17 +472,17 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 100:                                              ; preds = %28
   %101 = load i32, ptr @hf_rng_rsp_service_level_prediction, align 4
-  %102 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %101, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %102 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %101, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 103:                                              ; preds = %28
   %104 = load i32, ptr @hf_rng_rsp_resource_retain_flag, align 4
-  %105 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %104, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %105 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %104, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 106:                                              ; preds = %28
   %107 = load i32, ptr @hf_rng_rsp_ho_process_optimization, align 4
-  %108 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %107, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %108 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %107, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %109 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %110 = call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #2
   %111 = load i32, ptr @hf_rng_rsp_ho_process_optimization_0, align 4
@@ -520,7 +520,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 141:                                              ; preds = %28
   %142 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %143 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %144 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %142, ptr noundef %11, i32 noundef %143, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.164) #2
+  %144 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %142, ptr noundef %11, i32 noundef %143, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.164) #2
   %145 = load ptr, ptr @sbc_rsp_handle, align 8
   %146 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   %147 = call i32 @call_dissector(ptr noundef %145, ptr noundef %146, ptr noundef %1, ptr noundef %144) #2
@@ -529,7 +529,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 148:                                              ; preds = %28
   %149 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %150 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %151 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %149, ptr noundef %11, i32 noundef %150, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.165) #2
+  %151 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %149, ptr noundef %11, i32 noundef %150, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.165) #2
   %152 = load ptr, ptr @reg_rsp_handle, align 8
   %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   %154 = call i32 @call_dissector(ptr noundef %152, ptr noundef %153, ptr noundef %1, ptr noundef %151) #2
@@ -537,7 +537,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 155:                                              ; preds = %28
   %156 = load i32, ptr @hf_rng_rsp_dl_op_burst_profile_ofdma, align 4
-  %157 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %156, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %157 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %156, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %158 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %159 = call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158) #2
   %160 = load i32, ptr @hf_rng_rsp_least_robust_diuc, align 4
@@ -550,17 +550,17 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 166:                                              ; preds = %28
   %167 = load i32, ptr @hf_rng_rsp_ho_id, align 4
-  %168 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %167, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %168 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %167, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 169:                                              ; preds = %28
   %170 = load i32, ptr @hf_rng_rsp_location_update_response, align 4
-  %171 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %170, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %171 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %170, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 172:                                              ; preds = %28
   %173 = load i32, ptr @hf_rng_rsp_paging_information, align 4
-  %174 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %173, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %174 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %173, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %175 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %176 = call ptr @proto_item_add_subtree(ptr noundef %174, i32 noundef %175) #2
   %177 = load i32, ptr @hf_rng_rsp_paging_cycle, align 4
@@ -576,20 +576,20 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 185:                                              ; preds = %28
   %186 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %187 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %188 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %186, ptr noundef %11, i32 noundef %187, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.166) #2
+  %188 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %186, ptr noundef %11, i32 noundef %187, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.166) #2
   call void @dissect_power_saving_class(ptr noundef %188, i32 noundef 27, ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %30) #2
   br label %.loopexit
 
 189:                                              ; preds = %28
   %190 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %191 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %192 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %190, ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.167) #2
+  %192 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %190, ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.167) #2
   %193 = icmp ult i32 %30, %19
   br i1 %193, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %189, %203
-  %.0322346 = phi i32 [ %208, %203 ], [ %30, %189 ]
-  %194 = call i32 @init_tlv_info(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.0322346) #2
+  %.0328346 = phi i32 [ %208, %203 ], [ %30, %189 ]
+  %194 = call i32 @init_tlv_info(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.0328346) #2
   %195 = call i32 @get_tlv_type(ptr noundef nonnull %6) #2
   %196 = call i32 @get_tlv_length(ptr noundef nonnull %6) #2
   %197 = add i32 %196, -64001
@@ -613,8 +613,8 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %hf_tlv_type.val = load i32, ptr @hf_tlv_type, align 4
   %switch.select.val = select i1 %switch.selectcmp, i32 %hf_rng_rsp_akid.val, i32 %hf_tlv_type.val
   %205 = select i1 %switch.selectcmp390, i32 %hf_rng_rsp_bs_random.val, i32 %switch.select.val
-  %206 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %192, i32 noundef %205, ptr noundef %0, i32 noundef %.0322346, i32 noundef 0) #2
-  %207 = add i32 %196, %.0322346
+  %206 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %192, i32 noundef %205, ptr noundef %0, i32 noundef %.0328346, i32 noundef 0) #2
+  %207 = add i32 %196, %.0328346
   %208 = add i32 %207, %204
   %209 = icmp ult i32 %208, %19
   br i1 %209, label %.lr.ph, label %.loopexit, !llvm.loop !4
@@ -622,7 +622,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 210:                                              ; preds = %28
   %211 = load i32, ptr @ett_mac_mgmt_msg_rng_rsp_decoder, align 4
   %212 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %213 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %211, ptr noundef %11, i32 noundef %212, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.168) #2
+  %213 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %211, ptr noundef %11, i32 noundef %212, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.168) #2
   %214 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   call void @wimax_service_flow_encodings_decoder(ptr noundef %214, ptr noundef %1, ptr noundef %213) #2
   br label %.loopexit
@@ -630,14 +630,14 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 215:                                              ; preds = %28
   %216 = load i32, ptr @ett_mac_mgmt_msg_rng_rsp_decoder, align 4
   %217 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %218 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %216, ptr noundef %11, i32 noundef %217, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.169) #2
+  %218 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %216, ptr noundef %11, i32 noundef %217, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.169) #2
   %219 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   call void @wimax_service_flow_encodings_decoder(ptr noundef %219, ptr noundef %1, ptr noundef %218) #2
   br label %.loopexit
 
 220:                                              ; preds = %28
   %221 = load i32, ptr @hf_rng_rsp_ranging_subchan, align 4
-  %222 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %221, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %222 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %221, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   %223 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %224 = call ptr @proto_item_add_subtree(ptr noundef %222, i32 noundef %223) #2
   %225 = load i32, ptr @hf_rng_rsp_time_symbol_reference, align 4
@@ -658,25 +658,25 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 235:                                              ; preds = %233
   %236 = load i32, ptr @ett_rng_rsp_message_tree, align 4
   %237 = load i32, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
-  %238 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %236, ptr noundef %11, i32 noundef %237, ptr noundef %0, i32 noundef %.0325349, i32 noundef %19, ptr noundef nonnull @.str.170) #2
-  %239 = sub i32 %7, %.0325349
+  %238 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %236, ptr noundef %11, i32 noundef %237, ptr noundef %0, i32 noundef %.0329347, i32 noundef %19, ptr noundef nonnull @.str.170) #2
+  %239 = sub i32 %7, %.0329347
   call void @wimax_short_hmac_tuple_decoder(ptr noundef %238, ptr noundef %0, i32 noundef %30, i32 noundef %239) #2
   br label %.loopexit
 
 240:                                              ; preds = %233
   %241 = load i32, ptr @hf_tlv_type, align 4
-  %242 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %241, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %242 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %241, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 243:                                              ; preds = %28
   %244 = load i32, ptr @hf_tlv_type, align 4
-  %245 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %244, ptr noundef %0, i32 noundef %.0325349, i32 noundef 0) #2
+  %245 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %244, ptr noundef %0, i32 noundef %.0329347, i32 noundef 0) #2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %203, %189, %235, %240, %198, %94, %99, %76, %79, %42, %31, %243, %220, %215, %210, %185, %172, %169, %166, %155, %148, %141, %106, %103, %100, %91, %88, %85, %82, %65, %62, %59, %56, %53, %43
-  %.1329 = phi ptr [ %.0328347, %243 ], [ %.0328347, %235 ], [ %.0328347, %240 ], [ %.0328347, %220 ], [ %.0328347, %215 ], [ %.0328347, %210 ], [ %.0328347, %198 ], [ %.0328347, %185 ], [ %.0328347, %172 ], [ %.0328347, %169 ], [ %.0328347, %166 ], [ %.0328347, %155 ], [ %.0328347, %148 ], [ %.0328347, %141 ], [ %.0328347, %106 ], [ %.0328347, %103 ], [ %.0328347, %100 ], [ %.0328347, %99 ], [ %.0328347, %94 ], [ %93, %91 ], [ %.0328347, %88 ], [ %.0328347, %85 ], [ %.0328347, %82 ], [ %.0328347, %76 ], [ %.0328347, %79 ], [ %.0328347, %65 ], [ %.0328347, %62 ], [ %.0328347, %59 ], [ %.0328347, %56 ], [ %.0328347, %53 ], [ %.0328347, %43 ], [ %.0328347, %42 ], [ %.0328347, %31 ], [ %.0328347, %189 ], [ %.0328347, %203 ]
   %.1327 = phi ptr [ %.0326348, %243 ], [ %.0326348, %235 ], [ %.0326348, %240 ], [ %.0326348, %220 ], [ %.0326348, %215 ], [ %.0326348, %210 ], [ %.0326348, %198 ], [ %.0326348, %185 ], [ %.0326348, %172 ], [ %.0326348, %169 ], [ %.0326348, %166 ], [ %.0326348, %155 ], [ %.0326348, %148 ], [ %.0326348, %141 ], [ %.0326348, %106 ], [ %.0326348, %103 ], [ %.0326348, %100 ], [ %96, %99 ], [ %96, %94 ], [ %.0326348, %91 ], [ %.0326348, %88 ], [ %.0326348, %85 ], [ %.0326348, %82 ], [ %.0326348, %76 ], [ %.0326348, %79 ], [ %.0326348, %65 ], [ %.0326348, %62 ], [ %.0326348, %59 ], [ %.0326348, %56 ], [ %.0326348, %53 ], [ %.0326348, %43 ], [ %.0326348, %42 ], [ %.0326348, %31 ], [ %.0326348, %189 ], [ %.0326348, %203 ]
-  %.1324 = phi ptr [ %.0323350, %243 ], [ %.0323350, %235 ], [ %.0323350, %240 ], [ %.0323350, %220 ], [ %.0323350, %215 ], [ %.0323350, %210 ], [ %.0323350, %198 ], [ %.0323350, %185 ], [ %.0323350, %172 ], [ %.0323350, %169 ], [ %.0323350, %166 ], [ %.0323350, %155 ], [ %.0323350, %148 ], [ %.0323350, %141 ], [ %.0323350, %106 ], [ %.0323350, %103 ], [ %.0323350, %100 ], [ %.0323350, %99 ], [ %.0323350, %94 ], [ %.0323350, %91 ], [ %.0323350, %88 ], [ %.0323350, %85 ], [ %.0323350, %82 ], [ %78, %76 ], [ %.0323350, %79 ], [ %.0323350, %65 ], [ %.0323350, %62 ], [ %.0323350, %59 ], [ %.0323350, %56 ], [ %.0323350, %53 ], [ %.0323350, %43 ], [ %.0323350, %42 ], [ %.0323350, %31 ], [ %.0323350, %189 ], [ %.0323350, %203 ]
+  %.1325 = phi ptr [ %.0324349, %243 ], [ %.0324349, %235 ], [ %.0324349, %240 ], [ %.0324349, %220 ], [ %.0324349, %215 ], [ %.0324349, %210 ], [ %.0324349, %198 ], [ %.0324349, %185 ], [ %.0324349, %172 ], [ %.0324349, %169 ], [ %.0324349, %166 ], [ %.0324349, %155 ], [ %.0324349, %148 ], [ %.0324349, %141 ], [ %.0324349, %106 ], [ %.0324349, %103 ], [ %.0324349, %100 ], [ %.0324349, %99 ], [ %.0324349, %94 ], [ %93, %91 ], [ %.0324349, %88 ], [ %.0324349, %85 ], [ %.0324349, %82 ], [ %.0324349, %76 ], [ %.0324349, %79 ], [ %.0324349, %65 ], [ %.0324349, %62 ], [ %.0324349, %59 ], [ %.0324349, %56 ], [ %.0324349, %53 ], [ %.0324349, %43 ], [ %.0324349, %42 ], [ %.0324349, %31 ], [ %.0324349, %189 ], [ %.0324349, %203 ]
+  %.1323 = phi ptr [ %.0322350, %243 ], [ %.0322350, %235 ], [ %.0322350, %240 ], [ %.0322350, %220 ], [ %.0322350, %215 ], [ %.0322350, %210 ], [ %.0322350, %198 ], [ %.0322350, %185 ], [ %.0322350, %172 ], [ %.0322350, %169 ], [ %.0322350, %166 ], [ %.0322350, %155 ], [ %.0322350, %148 ], [ %.0322350, %141 ], [ %.0322350, %106 ], [ %.0322350, %103 ], [ %.0322350, %100 ], [ %.0322350, %99 ], [ %.0322350, %94 ], [ %.0322350, %91 ], [ %.0322350, %88 ], [ %.0322350, %85 ], [ %.0322350, %82 ], [ %78, %76 ], [ %.0322350, %79 ], [ %.0322350, %65 ], [ %.0322350, %62 ], [ %.0322350, %59 ], [ %.0322350, %56 ], [ %.0322350, %53 ], [ %.0322350, %43 ], [ %.0322350, %42 ], [ %.0322350, %31 ], [ %.0322350, %189 ], [ %.0322350, %203 ]
   %.1321 = phi ptr [ %.0320351, %243 ], [ %.0320351, %235 ], [ %.0320351, %240 ], [ %.0320351, %220 ], [ %.0320351, %215 ], [ %.0320351, %210 ], [ %.0320351, %198 ], [ %.0320351, %185 ], [ %.0320351, %172 ], [ %.0320351, %169 ], [ %.0320351, %166 ], [ %.0320351, %155 ], [ %.0320351, %148 ], [ %.0320351, %141 ], [ %.0320351, %106 ], [ %.0320351, %103 ], [ %.0320351, %100 ], [ %.0320351, %99 ], [ %.0320351, %94 ], [ %.0320351, %91 ], [ %.0320351, %88 ], [ %.0320351, %85 ], [ %.0320351, %82 ], [ %.0320351, %76 ], [ %.0320351, %79 ], [ %.0320351, %65 ], [ %.0320351, %62 ], [ %61, %59 ], [ %.0320351, %56 ], [ %.0320351, %53 ], [ %.0320351, %43 ], [ %.0320351, %42 ], [ %.0320351, %31 ], [ %.0320351, %189 ], [ %.0320351, %203 ]
   %.1 = phi ptr [ %.0352, %243 ], [ %.0352, %235 ], [ %.0352, %240 ], [ %.0352, %220 ], [ %.0352, %215 ], [ %.0352, %210 ], [ %.0352, %198 ], [ %.0352, %185 ], [ %.0352, %172 ], [ %.0352, %169 ], [ %.0352, %166 ], [ %.0352, %155 ], [ %.0352, %148 ], [ %.0352, %141 ], [ %.0352, %106 ], [ %.0352, %103 ], [ %.0352, %100 ], [ %.0352, %99 ], [ %.0352, %94 ], [ %.0352, %91 ], [ %.0352, %88 ], [ %.0352, %85 ], [ %.0352, %82 ], [ %.0352, %76 ], [ %.0352, %79 ], [ %.0352, %65 ], [ %.0352, %62 ], [ %.0352, %59 ], [ %58, %56 ], [ %.0352, %53 ], [ %.0352, %43 ], [ %.0352, %42 ], [ %.0352, %31 ], [ %.0352, %189 ], [ %.0352, %203 ]
   %246 = add i32 %30, %19
@@ -684,9 +684,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   br i1 %247, label %16, label %.loopexit334, !llvm.loop !6
 
 .loopexit334:                                     ; preds = %.loopexit, %23
-  %.0328345 = phi ptr [ %.0328347, %23 ], [ %.1329, %.loopexit ]
-  %.0326343 = phi ptr [ %.0326348, %23 ], [ %.1327, %.loopexit ]
-  %.0323340 = phi ptr [ %.0323350, %23 ], [ %.1324, %.loopexit ]
+  %.0326344 = phi ptr [ %.0326348, %23 ], [ %.1327, %.loopexit ]
+  %.0324342 = phi ptr [ %.0324349, %23 ], [ %.1325, %.loopexit ]
+  %.0322340 = phi ptr [ %.0322350, %23 ], [ %.1323, %.loopexit ]
   %.0320338 = phi ptr [ %.0320351, %23 ], [ %.1321, %.loopexit ]
   %.0336 = phi ptr [ %.0352, %23 ], [ %.1, %.loopexit ]
   %248 = icmp ne ptr %.0336, null
@@ -699,24 +699,24 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   br label %251
 
 251:                                              ; preds = %250, %.loopexit334
-  %252 = icmp ne ptr %.0323340, null
-  %253 = icmp ne ptr %.0328345, null
+  %252 = icmp ne ptr %.0322340, null
+  %253 = icmp ne ptr %.0324342, null
   %or.cond13 = select i1 %252, i1 %253, i1 false
   br i1 %or.cond13, label %254, label %255
 
 254:                                              ; preds = %251
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0328345, ptr noundef nonnull @.str.172) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0323340, ptr noundef nonnull @.str.173) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0324342, ptr noundef nonnull @.str.172) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0322340, ptr noundef nonnull @.str.173) #2
   br label %255
 
 255:                                              ; preds = %254, %251
-  %256 = icmp ne ptr %.0326343, null
+  %256 = icmp ne ptr %.0326344, null
   %or.cond15 = select i1 %252, i1 %256, i1 false
   br i1 %or.cond15, label %257, label %258
 
 257:                                              ; preds = %255
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0326343, ptr noundef nonnull @.str.172) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0323340, ptr noundef nonnull @.str.174) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0326344, ptr noundef nonnull @.str.172) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0322340, ptr noundef nonnull @.str.174) #2
   br i1 %248, label %259, label %.thread383
 
 258:                                              ; preds = %255

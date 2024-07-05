@@ -1458,8 +1458,8 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
 
 517:                                              ; preds = %dissect_version_5_and_6_primary_header.exit, %dissect_version_4_primary_header.exit
   %.067 = phi i8 [ %88, %dissect_version_4_primary_header.exit ], [ %231, %dissect_version_5_and_6_primary_header.exit ]
-  %.051 = phi i32 [ %.0.i, %dissect_version_4_primary_header.exit ], [ %.0.i52, %dissect_version_5_and_6_primary_header.exit ]
-  %518 = icmp eq i32 %.051, 0
+  %.050 = phi i32 [ %.0.i, %dissect_version_4_primary_header.exit ], [ %.0.i52, %dissect_version_5_and_6_primary_header.exit ]
+  %518 = icmp eq i32 %.050, 0
   br i1 %518, label %519, label %521
 
 519:                                              ; preds = %517
@@ -1469,7 +1469,7 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
 
 521:                                              ; preds = %517
   %522 = load ptr, ptr %69, align 8
-  call void @proto_item_set_len(ptr noundef %522, i32 noundef %.051) #6
+  call void @proto_item_set_len(ptr noundef %522, i32 noundef %.050) #6
   %523 = getelementptr inbounds i8, ptr %1, i64 408
   %524 = and i8 %.067, 2
   %.not98.i = icmp eq i8 %524, 0
@@ -1478,8 +1478,8 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
   br label %527
 
 527:                                              ; preds = %521, %1335
-  %.05092 = phi i32 [ %.051, %521 ], [ %.1, %1335 ]
-  %528 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05092) #6
+  %.05192 = phi i32 [ %.050, %521 ], [ %.1, %1335 ]
+  %528 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05192) #6
   %529 = icmp eq i8 %528, 1
   br i1 %529, label %530, label %935
 
@@ -1487,23 +1487,23 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   %531 = load i32, ptr @ett_payload_hdr, align 4
-  %532 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %0, i32 noundef %.05092, i32 noundef -1, i32 noundef %531, ptr noundef nonnull %47, ptr noundef nonnull @.str.340) #6
+  %532 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %0, i32 noundef %.05192, i32 noundef -1, i32 noundef %531, ptr noundef nonnull %47, ptr noundef nonnull @.str.340) #6
   %533 = load i32, ptr @ett_payload_hdr, align 4
-  %534 = call ptr @proto_tree_add_subtree(ptr noundef %532, ptr noundef %0, i32 noundef %.05092, i32 noundef -1, i32 noundef %533, ptr noundef nonnull %48, ptr noundef nonnull @.str.341) #6
+  %534 = call ptr @proto_tree_add_subtree(ptr noundef %532, ptr noundef %0, i32 noundef %.05192, i32 noundef -1, i32 noundef %533, ptr noundef nonnull %48, ptr noundef nonnull @.str.341) #6
   %535 = load i32, ptr @hf_bundle_payload_header_type, align 4
-  %536 = call ptr @proto_tree_add_uint(ptr noundef %534, i32 noundef %535, ptr noundef %0, i32 noundef %.05092, i32 noundef 1, i32 noundef 1) #6
-  %537 = add i32 %.05092, 1
+  %536 = call ptr @proto_tree_add_uint(ptr noundef %534, i32 noundef %535, ptr noundef %0, i32 noundef %.05192, i32 noundef 1, i32 noundef 1) #6
+  %537 = add i32 %.05192, 1
   br i1 %86, label %538, label %545
 
 538:                                              ; preds = %530
   %539 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %537) #6
   %540 = lshr i8 %539, 3
-  %.lobit123.i = and i8 %540, 1
-  %..i = zext nneg i8 %.lobit123.i to i32
+  %.lobit124.i = and i8 %540, 1
+  %..i = zext nneg i8 %.lobit124.i to i32
   %541 = load i32, ptr @hf_bundle_payload_flags, align 4
   %542 = load i32, ptr @ett_payload_flags, align 4
   %543 = call ptr @proto_tree_add_bitmask(ptr noundef %534, ptr noundef %0, i32 noundef %537, i32 noundef %541, i32 noundef %542, ptr noundef nonnull @dissect_payload_header.flags, i32 noundef 0) #6
-  %544 = add i32 %.05092, 2
+  %544 = add i32 %.05192, 2
   br label %574
 
 545:                                              ; preds = %530
@@ -1657,7 +1657,7 @@ evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
   br label %640
 
 640:                                              ; preds = %638, %603
-  %.0289.i.i = phi i32 [ %639, %638 ], [ %627, %603 ]
+  %.0286.i.i = phi i32 [ %639, %638 ], [ %627, %603 ]
   %641 = zext i8 %607 to i32
   %642 = and i32 %641, 1
   %.not316.i.i = icmp eq i32 %642, 0
@@ -1665,16 +1665,16 @@ evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
 
 643:                                              ; preds = %640
   %644 = load i32, ptr @hf_bundle_admin_receipt_time, align 4
-  %645 = call fastcc i32 @add_dtn_time_to_tree(ptr noundef %597, ptr noundef %0, i32 noundef %.0289.i.i, i32 noundef %644)
+  %645 = call fastcc i32 @add_dtn_time_to_tree(ptr noundef %597, ptr noundef %0, i32 noundef %.0286.i.i, i32 noundef %644)
   %646 = icmp slt i32 %645, 1
   br i1 %646, label %914, label %647
 
 647:                                              ; preds = %643
-  %648 = add i32 %645, %.0289.i.i
+  %648 = add i32 %645, %.0286.i.i
   br label %649
 
 649:                                              ; preds = %647, %640
-  %.1.i.i = phi i32 [ %648, %647 ], [ %.0289.i.i, %640 ]
+  %.1.i.i = phi i32 [ %648, %647 ], [ %.0286.i.i, %640 ]
   %650 = and i32 %641, 2
   %.not317.i.i = icmp eq i32 %650, 0
   br i1 %.not317.i.i, label %657, label %651
@@ -2124,12 +2124,12 @@ evaluate_sdnv.exit337.i.i:                        ; preds = %853, %852, %845
   br i1 %867, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %864, %901
-  %.0383.i.i = phi i32 [ %903, %901 ], [ %857, %864 ]
-  %.0286382.i.i = phi i32 [ %905, %901 ], [ %866, %864 ]
-  %.8381.i.i = phi i32 [ %904, %901 ], [ %865, %864 ]
+  %.8383.i.i = phi i32 [ %904, %901 ], [ %865, %864 ]
+  %.0287382.i.i = phi i32 [ %903, %901 ], [ %857, %864 ]
+  %.0288381.i.i = phi i32 [ %905, %901 ], [ %866, %864 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   store i64 0, ptr %31, align 8
-  %868 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.8381.i.i, i32 noundef 10, ptr noundef nonnull %31, i32 noundef 16) #6
+  %868 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.8383.i.i, i32 noundef 10, ptr noundef nonnull %31, i32 noundef 16) #6
   %869 = icmp eq i32 %868, 0
   br i1 %869, label %evaluate_sdnv.exit339.i.i, label %870
 
@@ -2150,7 +2150,7 @@ evaluate_sdnv.exit339.i.i:                        ; preds = %874, %873, %.lr.ph.
   %.0.i338.i.i = phi i32 [ 2147483647, %873 ], [ %875, %874 ], [ -1, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   %876 = load i32, ptr @hf_bundle_custody_id_range_start, align 4
-  %877 = call ptr @proto_tree_add_int(ptr noundef %597, i32 noundef %876, ptr noundef %0, i32 noundef %.8381.i.i, i32 noundef %868, i32 noundef %.0.i338.i.i) #6
+  %877 = call ptr @proto_tree_add_int(ptr noundef %597, i32 noundef %876, ptr noundef %0, i32 noundef %.8383.i.i, i32 noundef %868, i32 noundef %.0.i338.i.i) #6
   %878 = or i32 %.0.i338.i.i, %868
   %or.cond5.not.i.i = icmp sgt i32 %878, -1
   br i1 %or.cond5.not.i.i, label %881, label %879
@@ -2160,7 +2160,7 @@ evaluate_sdnv.exit339.i.i:                        ; preds = %874, %873, %.lr.ph.
   br label %914
 
 881:                                              ; preds = %evaluate_sdnv.exit339.i.i
-  %882 = add i32 %868, %.8381.i.i
+  %882 = add i32 %868, %.8383.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   store i64 0, ptr %30, align 8
   %883 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %882, i32 noundef 10, ptr noundef nonnull %30, i32 noundef 16) #6
@@ -2185,36 +2185,36 @@ evaluate_sdnv.exit341.i.i:                        ; preds = %889, %888, %881
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   %891 = load i32, ptr @hf_bundle_custody_id_range_end, align 4
   %892 = add i32 %883, %868
-  %893 = add i32 %.0383.i.i, -1
+  %893 = add i32 %.0287382.i.i, -1
   %894 = add i32 %893, %.0.i338.i.i
   %895 = add i32 %894, %.0.i340.i.i
-  %896 = call ptr @proto_tree_add_int(ptr noundef %597, i32 noundef %891, ptr noundef %0, i32 noundef %.8381.i.i, i32 noundef %892, i32 noundef %895) #6
+  %896 = call ptr @proto_tree_add_int(ptr noundef %597, i32 noundef %891, ptr noundef %0, i32 noundef %.8383.i.i, i32 noundef %892, i32 noundef %895) #6
   %897 = or i32 %.0.i340.i.i, %883
   %or.cond7.not.i.i = icmp sgt i32 %897, -1
   br i1 %or.cond7.not.i.i, label %901, label %898
 
 898:                                              ; preds = %evaluate_sdnv.exit341.i.i
   %899 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %896, ptr noundef nonnull @ei_bundle_sdnv_length, ptr noundef nonnull @.str.344) #6
-  %900 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8381.i.i) #6
+  %900 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8383.i.i) #6
   br label %914
 
 901:                                              ; preds = %evaluate_sdnv.exit341.i.i
-  %902 = add i32 %.0.i338.i.i, %.0383.i.i
+  %902 = add i32 %.0.i338.i.i, %.0287382.i.i
   %903 = add i32 %902, %.0.i340.i.i
-  %904 = add i32 %892, %.8381.i.i
-  %905 = add i32 %892, %.0286382.i.i
+  %904 = add i32 %892, %.8383.i.i
+  %905 = add i32 %892, %.0288381.i.i
   %906 = icmp slt i32 %905, %.0.i101.ph.i
   br i1 %906, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %901, %864
+  %.0289.lcssa.i.i = phi ptr [ %859, %864 ], [ %896, %901 ]
+  %.0288.lcssa.i.i = phi i32 [ %866, %864 ], [ %905, %901 ]
   %.8.lcssa.i.i = phi i32 [ %865, %864 ], [ %904, %901 ]
-  %.0287.lcssa.i.i = phi ptr [ %859, %864 ], [ %896, %901 ]
-  %.0286.lcssa.i.i = phi i32 [ %866, %864 ], [ %905, %901 ]
-  %907 = icmp sgt i32 %.0286.lcssa.i.i, %.0.i101.ph.i
+  %907 = icmp sgt i32 %.0288.lcssa.i.i, %.0.i101.ph.i
   br i1 %907, label %908, label %dissect_admin_record.exit.i
 
 908:                                              ; preds = %._crit_edge.i.i
-  %909 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0287.lcssa.i.i, ptr noundef nonnull @ei_bundle_offset_error, ptr noundef nonnull @.str.346) #6
+  %909 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0289.lcssa.i.i, ptr noundef nonnull @ei_bundle_offset_error, ptr noundef nonnull @.str.346) #6
   br label %914
 
 910:                                              ; preds = %595
@@ -2230,7 +2230,7 @@ dissect_admin_record.exit.i:                      ; preds = %910, %._crit_edge.i
   br label %dissect_payload_header.exit
 
 914:                                              ; preds = %908, %898, %879, %861, %843, %814, %799, %add_sdnv_time_to_tree.exit328.i.i, %add_sdnv_time_to_tree.exit328.thread.i.i, %764, %757, %753, %734, %719, %add_sdnv_time_to_tree.exit.i.i, %add_sdnv_time_to_tree.exit.thread.i.i, %683, %675, %667, %659, %651, %643, %633, %629
-  %.0288.i.ph.i = phi i32 [ %769, %add_sdnv_time_to_tree.exit328.thread.i.i ], [ %.6.i.i, %add_sdnv_time_to_tree.exit.thread.i.i ], [ %769, %add_sdnv_time_to_tree.exit328.i.i ], [ %.7.i.i, %764 ], [ %758, %757 ], [ %751, %753 ], [ %.6.i.i, %add_sdnv_time_to_tree.exit.i.i ], [ %.5.i.i, %683 ], [ %.4.i.i, %675 ], [ %.3.i.i, %667 ], [ %.2.i.i, %659 ], [ %.1.i.i, %651 ], [ %.0289.i.i, %643 ], [ %634, %633 ], [ %627, %629 ], [ %735, %734 ], [ %703, %719 ], [ %815, %814 ], [ %783, %799 ], [ %.8.lcssa.i.i, %908 ], [ %900, %898 ], [ %.8381.i.i, %879 ], [ %863, %861 ], [ %831, %843 ]
+  %.0.i103.ph.i = phi i32 [ %769, %add_sdnv_time_to_tree.exit328.thread.i.i ], [ %.6.i.i, %add_sdnv_time_to_tree.exit.thread.i.i ], [ %769, %add_sdnv_time_to_tree.exit328.i.i ], [ %.7.i.i, %764 ], [ %758, %757 ], [ %751, %753 ], [ %.6.i.i, %add_sdnv_time_to_tree.exit.i.i ], [ %.5.i.i, %683 ], [ %.4.i.i, %675 ], [ %.3.i.i, %667 ], [ %.2.i.i, %659 ], [ %.1.i.i, %651 ], [ %.0286.i.i, %643 ], [ %634, %633 ], [ %627, %629 ], [ %735, %734 ], [ %703, %719 ], [ %815, %814 ], [ %783, %799 ], [ %.8.lcssa.i.i, %908 ], [ %900, %898 ], [ %.8383.i.i, %879 ], [ %863, %861 ], [ %831, %843 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   br label %dissect_payload_header.exit
 
@@ -2275,7 +2275,7 @@ dissect_admin_record.exit.i:                      ; preds = %910, %._crit_edge.i
 
 dissect_payload_header.exit:                      ; preds = %583, %dissect_admin_record.exit.i, %914, %933
   %.2 = phi i32 [ 1, %583 ], [ %.169, %933 ], [ %.169, %dissect_admin_record.exit.i ], [ 1, %914 ]
-  %.0.i53 = phi i32 [ %.094.i, %583 ], [ %934, %933 ], [ %.9.i.i, %dissect_admin_record.exit.i ], [ %.0288.i.ph.i, %914 ]
+  %.0.i53 = phi i32 [ %.094.i, %583 ], [ %934, %933 ], [ %.9.i.i, %dissect_admin_record.exit.i ], [ %.0.i103.ph.i, %914 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   br label %1335
@@ -2285,12 +2285,12 @@ dissect_payload_header.exit:                      ; preds = %583, %dissect_admin
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  %937 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05092) #6
+  %937 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05192) #6
   %938 = load i32, ptr @ett_metadata_hdr, align 4
-  %939 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %0, i32 noundef %.05092, i32 noundef -1, i32 noundef %938, ptr noundef nonnull %27, ptr noundef nonnull @.str.347) #6
+  %939 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %0, i32 noundef %.05192, i32 noundef -1, i32 noundef %938, ptr noundef nonnull %27, ptr noundef nonnull @.str.347) #6
   %940 = load i32, ptr @hf_bundle_block_type_code, align 4
-  %941 = call ptr @proto_tree_add_item(ptr noundef %939, i32 noundef %940, ptr noundef %0, i32 noundef %.05092, i32 noundef 1, i32 noundef 0) #6
-  %942 = add i32 %.05092, 1
+  %941 = call ptr @proto_tree_add_item(ptr noundef %939, i32 noundef %940, ptr noundef %0, i32 noundef %.05192, i32 noundef 1, i32 noundef 0) #6
+  %942 = add i32 %.05192, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %943 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %942, i32 noundef 10, ptr noundef nonnull %26, i32 noundef 16) #6
@@ -2375,8 +2375,8 @@ evaluate_sdnv.exit362.i:                          ; preds = %977
 
 .lr.ph.i:                                         ; preds = %998, %.lr.ph.preheader.i
   %.0338483.i = phi i32 [ %999, %998 ], [ %980, %.lr.ph.preheader.i ]
-  %.0341482.i = phi i32 [ %1001, %998 ], [ 0, %.lr.ph.preheader.i ]
-  %.0342481.i = phi i32 [ %1000, %998 ], [ %981, %.lr.ph.preheader.i ]
+  %.0339482.i = phi i32 [ %1000, %998 ], [ %981, %.lr.ph.preheader.i ]
+  %.0342481.i = phi i32 [ %1001, %998 ], [ 0, %.lr.ph.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %983 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.0338483.i, i32 noundef 10, ptr noundef nonnull %24, i32 noundef 16) #6
@@ -2399,7 +2399,7 @@ evaluate_sdnv.exit364.i:                          ; preds = %.lr.ph.i
 989:                                              ; preds = %988, %985
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %990 = add i32 %983, %.0338483.i
-  %991 = add i32 %983, %.0342481.i
+  %991 = add i32 %983, %.0339482.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 0, ptr %23, align 8
   %992 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %990, i32 noundef 10, ptr noundef nonnull %23, i32 noundef 16) #6
@@ -2423,12 +2423,12 @@ evaluate_sdnv.exit366.i:                          ; preds = %989
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %999 = add i32 %992, %990
   %1000 = add i32 %992, %991
-  %1001 = add nuw nsw i32 %.0341482.i, 1
+  %1001 = add nuw nsw i32 %.0342481.i, 1
   %exitcond.not.i = icmp eq i32 %1001, %.0.i361511.i
   br i1 %exitcond.not.i, label %.loopexit469.i, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit469.i:                                   ; preds = %998, %evaluate_sdnv.exit366.i, %evaluate_sdnv.exit364.i, %evaluate_sdnv.exit362.i, %evaluate_sdnv.exit362.thread512.i, %evaluate_sdnv.exit.i56
-  %.1343.i = phi i32 [ %.0342481.i, %evaluate_sdnv.exit364.i ], [ %991, %evaluate_sdnv.exit366.i ], [ %972, %evaluate_sdnv.exit.i56 ], [ %981, %evaluate_sdnv.exit362.i ], [ %972, %evaluate_sdnv.exit362.thread512.i ], [ %1000, %998 ]
+  %.1340.i = phi i32 [ %.0339482.i, %evaluate_sdnv.exit364.i ], [ %991, %evaluate_sdnv.exit366.i ], [ %972, %evaluate_sdnv.exit.i56 ], [ %981, %evaluate_sdnv.exit362.i ], [ %972, %evaluate_sdnv.exit362.thread512.i ], [ %1000, %998 ]
   %.1.i = phi i32 [ %.0338483.i, %evaluate_sdnv.exit364.i ], [ %990, %evaluate_sdnv.exit366.i ], [ %971, %evaluate_sdnv.exit.i56 ], [ %980, %evaluate_sdnv.exit362.i ], [ %971, %evaluate_sdnv.exit362.thread512.i ], [ %999, %998 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 0, ptr %22, align 8
@@ -2462,7 +2462,7 @@ evaluate_sdnv.exit366.i:                          ; preds = %989
   %1015 = load i32, ptr @hf_block_control_block_length, align 4
   %1016 = call ptr @proto_tree_add_int(ptr noundef %939, i32 noundef %1015, ptr noundef %0, i32 noundef %.1.i, i32 noundef %1002, i32 noundef %.0.i367.ph.i) #6
   %1017 = add i32 %1002, %.1.i
-  %1018 = add i32 %1002, %.1343.i
+  %1018 = add i32 %1002, %.1340.i
   %1019 = load ptr, ptr %27, align 8
   %1020 = add i32 %1018, %.0.i367.ph.i
   call void @proto_item_set_len(ptr noundef %1019, i32 noundef %1020) #6
@@ -2683,7 +2683,7 @@ evaluate_sdnv.exit378.i:                          ; preds = %1093, %1092, %evalu
 
 .lr.ph487.i:                                      ; preds = %1115, %1176
   %.2486.i = phi i32 [ %.3.i, %1176 ], [ %1121, %1115 ]
-  %.0340485.i = phi i32 [ %1178, %1176 ], [ 0, %1115 ]
+  %.0343485.i = phi i32 [ %1178, %1176 ], [ 0, %1115 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %1122 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.2486.i, i32 noundef 10, ptr noundef nonnull %15, i32 noundef 16) #6
@@ -2811,7 +2811,7 @@ evaluate_sdnv.exit388.i:                          ; preds = %1171, %1170, %evalu
 
 1176:                                             ; preds = %evaluate_sdnv.exit388.i, %1149, %1145
   %.3.i = phi i32 [ %1148, %1145 ], [ %1175, %evaluate_sdnv.exit388.i ], [ %1152, %1149 ]
-  %1177 = add i32 %.0340485.i, 2
+  %1177 = add i32 %.0343485.i, 2
   %1178 = add i32 %1177, %.0.i.ph.i382.i
   %1179 = icmp slt i32 %1178, %.0.i.ph.i.i61
   br i1 %1179, label %.lr.ph487.i, label %.loopexit468.i, !llvm.loop !7
@@ -2851,7 +2851,7 @@ evaluate_sdnv.exit390.i:                          ; preds = %1186, %1185, %.loop
 
 .lr.ph491.i:                                      ; preds = %evaluate_sdnv.exit390.i, %1249
   %.5490.i = phi i32 [ %.6.i, %1249 ], [ %1193, %evaluate_sdnv.exit390.i ]
-  %.0339489.i = phi i32 [ %1251, %1249 ], [ 0, %evaluate_sdnv.exit390.i ]
+  %.0341489.i = phi i32 [ %1251, %1249 ], [ 0, %evaluate_sdnv.exit390.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %1195 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.5490.i, i32 noundef 10, ptr noundef nonnull %10, i32 noundef 16) #6
@@ -2979,7 +2979,7 @@ evaluate_sdnv.exit400.i:                          ; preds = %1244, %1243, %evalu
 
 1249:                                             ; preds = %evaluate_sdnv.exit400.i, %1222, %1218
   %.6.i = phi i32 [ %1221, %1218 ], [ %1248, %evaluate_sdnv.exit400.i ], [ %1225, %1222 ]
-  %1250 = add i32 %.0339489.i, 2
+  %1250 = add i32 %.0341489.i, 2
   %1251 = add i32 %1250, %.0.i.ph.i394.i
   %1252 = icmp slt i32 %1251, %.0.i389.i
   br i1 %1252, label %.lr.ph491.i, label %display_extension_block.exit, !llvm.loop !8

@@ -25,8 +25,8 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %.036 = phi i32 [ 1, %.lr.ph.preheader ], [ %.2, %42 ]
-  %.02135 = phi i32 [ 0, %.lr.ph.preheader ], [ %.122, %42 ]
+  %.02235 = phi i32 [ 1, %.lr.ph.preheader ], [ %.2, %42 ]
+  %.02334 = phi i32 [ 0, %.lr.ph.preheader ], [ %.124, %42 ]
   %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #6
@@ -79,7 +79,7 @@ sub_2:                                            ; preds = %sub_1
   %27 = load ptr, ptr %3, align 8
   %28 = load i64, ptr %4, align 8
   %29 = call i32 @VP8EstimateQuality(ptr noundef %27, i64 noundef %28) #7
-  %.not32 = icmp eq i32 %.02135, 0
+  %.not32 = icmp eq i32 %.02334, 0
   br i1 %.not32, label %30, label %.thread
 
 30:                                               ; preds = %26
@@ -111,8 +111,8 @@ sub_2:                                            ; preds = %sub_1
   br label %42
 
 42:                                               ; preds = %.lr.ph, %40
-  %.122 = phi i32 [ %.02135, %40 ], [ 1, %.lr.ph ]
-  %.2 = phi i32 [ %.1, %40 ], [ %.036, %.lr.ph ]
+  %.124 = phi i32 [ %.02334, %40 ], [ 1, %.lr.ph ]
+  %.2 = phi i32 [ %.1, %40 ], [ %.02235, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = icmp ne i32 %.2, 0
   %44 = icmp ult i64 %indvars.iv.next, %6
@@ -126,8 +126,8 @@ sub_2:                                            ; preds = %sub_1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit, %23
-  %.024 = phi i32 [ 0, %23 ], [ 0, %2 ], [ %47, %._crit_edge.loopexit ]
-  ret i32 %.024
+  %.0 = phi i32 [ 0, %23 ], [ 0, %2 ], [ %47, %._crit_edge.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

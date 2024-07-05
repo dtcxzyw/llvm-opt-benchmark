@@ -69,8 +69,8 @@ define internal i32 @dissect_mac_nr_framed(ptr noundef %0, ptr noundef %1, ptr n
   br label %29
 
 29:                                               ; preds = %7, %4, %.thread26, %20
-  %.017 = phi i32 [ %28, %.thread26 ], [ %21, %20 ], [ 0, %4 ], [ 5, %7 ]
-  ret i32 %.017
+  %.0 = phi i32 [ %28, %.thread26 ], [ %21, %20 ], [ 0, %4 ], [ 5, %7 ]
+  ret i32 %.0
 }
 
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1

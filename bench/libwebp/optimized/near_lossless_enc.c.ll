@@ -72,8 +72,8 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr nocapture noundef re
   br label %34
 
 34:                                               ; preds = %.sink.split, %3
-  %.041 = phi i32 [ 0, %3 ], [ 1, %.sink.split ]
-  ret i32 %.041
+  %.0 = phi i32 [ 0, %3 ], [ 1, %.sink.split ]
+  ret i32 %.0
 }
 
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -117,10 +117,10 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef %1, ptr no
   %.05675.us = phi ptr [ %.05873.us, %..loopexit68_crit_edge.us ], [ %11, %.lr.ph77.split.us.preheader ]
   %.05774.us = phi ptr [ %.05675.us, %..loopexit68_crit_edge.us ], [ %10, %.lr.ph77.split.us.preheader ]
   %.05873.us = phi ptr [ %.05774.us, %..loopexit68_crit_edge.us ], [ %5, %.lr.ph77.split.us.preheader ]
-  %.05972.us = phi i32 [ %118, %..loopexit68_crit_edge.us ], [ 0, %.lr.ph77.split.us.preheader ]
-  %.06170.us = phi ptr [ %120, %..loopexit68_crit_edge.us ], [ %6, %.lr.ph77.split.us.preheader ]
-  %23 = icmp eq i32 %.05972.us, 0
-  %24 = icmp eq i32 %.05972.us, %16
+  %.05971.us = phi ptr [ %120, %..loopexit68_crit_edge.us ], [ %6, %.lr.ph77.split.us.preheader ]
+  %.06070.us = phi i32 [ %118, %..loopexit68_crit_edge.us ], [ 0, %.lr.ph77.split.us.preheader ]
+  %23 = icmp eq i32 %.06070.us, 0
+  %24 = icmp eq i32 %.06070.us, %16
   %or.cond.us = select i1 %23, i1 true, i1 %24
   br i1 %or.cond.us, label %117, label %.lr.ph.us
 
@@ -128,10 +128,10 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef %1, ptr no
   %25 = getelementptr inbounds i32, ptr %.076.us, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05675.us, ptr align 4 %25, i64 %12, i1 false)
   %26 = load i32, ptr %.076.us, align 4
-  store i32 %26, ptr %.06170.us, align 4
+  store i32 %26, ptr %.05971.us, align 4
   %27 = getelementptr inbounds i32, ptr %.076.us, i64 %18
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i32, ptr %.06170.us, i64 %18
+  %29 = getelementptr inbounds i32, ptr %.05971.us, i64 %18
   store i32 %28, ptr %29, align 4
   br label %30
 
@@ -144,8 +144,8 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef %1, ptr no
   br label %35
 
 35:                                               ; preds = %42, %30
-  %.015.i.i.us = phi i32 [ 0, %30 ], [ %43, %42 ]
-  %36 = shl nuw nsw i32 %.015.i.i.us, 3
+  %.01115.i.i.us = phi i32 [ 0, %30 ], [ %43, %42 ]
+  %36 = shl nuw nsw i32 %.01115.i.i.us, 3
   %37 = lshr i32 %32, %36
   %38 = and i32 %37, 255
   %39 = lshr i32 %34, %36
@@ -157,7 +157,7 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond.i.i.us, label %42, label %.loopexit.us
 
 42:                                               ; preds = %35
-  %43 = add nuw nsw i32 %.015.i.i.us, 1
+  %43 = add nuw nsw i32 %.01115.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %43, 4
   br i1 %exitcond.not.i.i.us, label %IsNear.exit.i.us, label %35, !llvm.loop !7
 
@@ -167,8 +167,8 @@ IsNear.exit.i.us:                                 ; preds = %42
   br label %46
 
 46:                                               ; preds = %53, %IsNear.exit.i.us
-  %.015.i21.i.us = phi i32 [ 0, %IsNear.exit.i.us ], [ %54, %53 ]
-  %47 = shl nuw nsw i32 %.015.i21.i.us, 3
+  %.01115.i21.i.us = phi i32 [ 0, %IsNear.exit.i.us ], [ %54, %53 ]
+  %47 = shl nuw nsw i32 %.01115.i21.i.us, 3
   %48 = lshr i32 %32, %47
   %49 = and i32 %48, 255
   %50 = lshr i32 %45, %47
@@ -180,7 +180,7 @@ IsNear.exit.i.us:                                 ; preds = %42
   br i1 %or.cond.i24.i.us, label %53, label %.loopexit.us
 
 53:                                               ; preds = %46
-  %54 = add nuw nsw i32 %.015.i21.i.us, 1
+  %54 = add nuw nsw i32 %.01115.i21.i.us, 1
   %exitcond.not.i26.i.us = icmp eq i32 %54, 4
   br i1 %exitcond.not.i26.i.us, label %IsNear.exit27.i.us, label %46, !llvm.loop !7
 
@@ -190,8 +190,8 @@ IsNear.exit27.i.us:                               ; preds = %53
   br label %57
 
 57:                                               ; preds = %64, %IsNear.exit27.i.us
-  %.015.i28.i.us = phi i32 [ 0, %IsNear.exit27.i.us ], [ %65, %64 ]
-  %58 = shl nuw nsw i32 %.015.i28.i.us, 3
+  %.01115.i28.i.us = phi i32 [ 0, %IsNear.exit27.i.us ], [ %65, %64 ]
+  %58 = shl nuw nsw i32 %.01115.i28.i.us, 3
   %59 = lshr i32 %32, %58
   %60 = and i32 %59, 255
   %61 = lshr i32 %56, %58
@@ -203,7 +203,7 @@ IsNear.exit27.i.us:                               ; preds = %53
   br i1 %or.cond.i31.i.us, label %64, label %.loopexit.us
 
 64:                                               ; preds = %57
-  %65 = add nuw nsw i32 %.015.i28.i.us, 1
+  %65 = add nuw nsw i32 %.01115.i28.i.us, 1
   %exitcond.not.i33.i.us = icmp eq i32 %65, 4
   br i1 %exitcond.not.i33.i.us, label %IsNear.exit34.i.us, label %57, !llvm.loop !7
 
@@ -213,8 +213,8 @@ IsNear.exit34.i.us:                               ; preds = %64
   br label %68
 
 68:                                               ; preds = %114, %IsNear.exit34.i.us
-  %.015.i35.i.us = phi i32 [ 0, %IsNear.exit34.i.us ], [ %115, %114 ]
-  %69 = shl nuw nsw i32 %.015.i35.i.us, 3
+  %.01115.i35.i.us = phi i32 [ 0, %IsNear.exit34.i.us ], [ %115, %114 ]
+  %69 = shl nuw nsw i32 %.01115.i35.i.us, 3
   %70 = lshr i32 %32, %69
   %71 = and i32 %70, 255
   %72 = lshr i32 %67, %69
@@ -269,26 +269,26 @@ IsNear.exit34.i.us:                               ; preds = %64
   br label %IsSmooth.exit.us
 
 114:                                              ; preds = %68
-  %115 = add nuw nsw i32 %.015.i35.i.us, 1
+  %115 = add nuw nsw i32 %.01115.i35.i.us, 1
   %exitcond.not.i40.i.us = icmp eq i32 %115, 4
   br i1 %exitcond.not.i40.i.us, label %IsSmooth.exit.us, label %68, !llvm.loop !7
 
 IsSmooth.exit.us:                                 ; preds = %114, %.loopexit.us
   %.sink = phi i32 [ %113, %.loopexit.us ], [ %32, %114 ]
-  %116 = getelementptr inbounds i32, ptr %.06170.us, i64 %indvars.iv
+  %116 = getelementptr inbounds i32, ptr %.05971.us, i64 %indvars.iv
   store i32 %.sink, ptr %116, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond83.not, label %..loopexit68_crit_edge.us, label %30, !llvm.loop !8
 
 117:                                              ; preds = %.lr.ph77.split.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.06170.us, ptr align 4 %.076.us, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05971.us, ptr align 4 %.076.us, i64 %12, i1 false)
   br label %..loopexit68_crit_edge.us
 
 ..loopexit68_crit_edge.us:                        ; preds = %IsSmooth.exit.us, %117
-  %118 = add nuw nsw i32 %.05972.us, 1
+  %118 = add nuw nsw i32 %.06070.us, 1
   %119 = getelementptr inbounds i32, ptr %.076.us, i64 %13
-  %120 = getelementptr inbounds i32, ptr %.06170.us, i64 %9
+  %120 = getelementptr inbounds i32, ptr %.05971.us, i64 %9
   %exitcond84.not = icmp eq i32 %118, %1
   br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph77.split.us, !llvm.loop !9
 
@@ -297,32 +297,32 @@ IsSmooth.exit.us:                                 ; preds = %114, %.loopexit.us
   %.05675 = phi ptr [ %.05873, %129 ], [ %11, %.lr.ph77 ]
   %.05774 = phi ptr [ %.05675, %129 ], [ %10, %.lr.ph77 ]
   %.05873 = phi ptr [ %.05774, %129 ], [ %5, %.lr.ph77 ]
-  %.05972 = phi i32 [ %130, %129 ], [ 0, %.lr.ph77 ]
-  %.06170 = phi ptr [ %132, %129 ], [ %6, %.lr.ph77 ]
-  %121 = icmp eq i32 %.05972, 0
-  %122 = icmp eq i32 %.05972, %16
+  %.05971 = phi ptr [ %132, %129 ], [ %6, %.lr.ph77 ]
+  %.06070 = phi i32 [ %130, %129 ], [ 0, %.lr.ph77 ]
+  %121 = icmp eq i32 %.06070, 0
+  %122 = icmp eq i32 %.06070, %16
   %or.cond = select i1 %121, i1 true, i1 %122
   br i1 %or.cond, label %123, label %.loopexit68
 
 123:                                              ; preds = %.lr.ph77.split
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.06170, ptr align 4 %.076, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05971, ptr align 4 %.076, i64 %12, i1 false)
   br label %129
 
 .loopexit68:                                      ; preds = %.lr.ph77.split
   %124 = getelementptr inbounds i32, ptr %.076, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05675, ptr align 4 %124, i64 %12, i1 false)
   %125 = load i32, ptr %.076, align 4
-  store i32 %125, ptr %.06170, align 4
+  store i32 %125, ptr %.05971, align 4
   %126 = getelementptr inbounds i32, ptr %.076, i64 %18
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i32, ptr %.06170, i64 %18
+  %128 = getelementptr inbounds i32, ptr %.05971, i64 %18
   store i32 %127, ptr %128, align 4
   br label %129
 
 129:                                              ; preds = %.loopexit68, %123
-  %130 = add nuw nsw i32 %.05972, 1
+  %130 = add nuw nsw i32 %.06070, 1
   %131 = getelementptr inbounds i32, ptr %.076, i64 %13
-  %132 = getelementptr inbounds i32, ptr %.06170, i64 %9
+  %132 = getelementptr inbounds i32, ptr %.05971, i64 %9
   %exitcond.not = icmp eq i32 %130, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph77.split, !llvm.loop !9
 

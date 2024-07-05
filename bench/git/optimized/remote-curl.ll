@@ -358,9 +358,9 @@ if.end40:                                         ; preds = %if.then34, %if.then
 do.body.i:                                        ; preds = %if.end42.i, %if.end40
   %17 = phi ptr [ %30, %if.end42.i ], [ %.pre.i, %if.end40 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end42.i ], [ 0, %if.end40 ]
-  %to_fetch.0.i = phi ptr [ %to_fetch.1.i, %if.end42.i ], [ null, %if.end40 ]
   %list.0.i = phi ptr [ %call13.i, %if.end42.i ], [ %list_head.i, %if.end40 ]
   %alloc_heads.0.i = phi i32 [ %alloc_heads.2.i, %if.end42.i ], [ 0, %if.end40 ]
+  %to_fetch.0.i = phi ptr [ %to_fetch.1.i, %if.end42.i ], [ null, %if.end40 ]
   %scevgep.i = getelementptr i8, ptr %17, i64 6
   br label %do.body.i.i
 
@@ -442,8 +442,8 @@ st_mult.exit.i:                                   ; preds = %if.then18.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %if.end12.i
-  %to_fetch.1.i = phi ptr [ %call32.i, %st_mult.exit.i ], [ %to_fetch.0.i, %if.end12.i ]
   %alloc_heads.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %alloc_heads.0.i, %if.end12.i ]
+  %to_fetch.1.i = phi ptr [ %call32.i, %st_mult.exit.i ], [ %to_fetch.0.i, %if.end12.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %to_fetch.1.i, i64 %indvars.iv.i
   store ptr %call13.i, ptr %arrayidx.i, align 8
   store i64 0, ptr %len, align 8
@@ -2663,19 +2663,19 @@ while.body.i:                                     ; preds = %if.end.i70, %if.end
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end37.i ], [ 0, %if.end.i70 ]
   %last_ref.042.i = phi ptr [ %last_ref.1.i, %if.end37.i ], [ null, %if.end.i70 ]
   %refs.041.i = phi ptr [ %refs.2.i, %if.end37.i ], [ null, %if.end.i70 ]
-  %mid.039.i = phi ptr [ %mid.1.i, %if.end37.i ], [ %61, %if.end.i70 ]
-  %start.038.i = phi ptr [ %start.2.i, %if.end37.i ], [ null, %if.end.i70 ]
-  %tobool3.not.i = icmp eq ptr %start.038.i, null
+  %start.039.i = phi ptr [ %start.2.i, %if.end37.i ], [ null, %if.end.i70 ]
+  %mid.038.i = phi ptr [ %mid.1.i, %if.end37.i ], [ %61, %if.end.i70 ]
+  %tobool3.not.i = icmp eq ptr %start.039.i, null
   %arrayidx.i71 = getelementptr inbounds i8, ptr %61, i64 %indvars.iv.i
-  %spec.select.i = select i1 %tobool3.not.i, ptr %arrayidx.i71, ptr %start.038.i
+  %spec.select.i = select i1 %tobool3.not.i, ptr %arrayidx.i71, ptr %start.039.i
   %63 = load i8, ptr %arrayidx.i71, align 1
   %cmp9.i = icmp eq i8 %63, 9
-  %mid.1.i = select i1 %cmp9.i, ptr %arrayidx.i71, ptr %mid.039.i
+  %mid.1.i = select i1 %cmp9.i, ptr %arrayidx.i71, ptr %mid.038.i
   %cmp18.i = icmp eq i8 %63, 10
   br i1 %cmp18.i, label %if.then20.i, label %if.end37.i
 
 if.then20.i:                                      ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %mid.039.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %mid.038.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8
@@ -2693,7 +2693,7 @@ if.then23.i:                                      ; preds = %if.then20.i
 
 if.end26.i:                                       ; preds = %if.then20.i
   store i8 0, ptr %arrayidx.i71, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %mid.039.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %mid.038.i, i64 1
   %call29.i = call ptr @alloc_ref(ptr noundef nonnull %add.ptr.i) #16
   %old_oid.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8

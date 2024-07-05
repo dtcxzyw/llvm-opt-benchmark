@@ -105,7 +105,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %28, %.lr.ph.i
   %23 = phi i8 [ %19, %.lr.ph.i ], [ %30, %28 ]
-  %.081.i = phi ptr [ %9, %.lr.ph.i ], [ %29, %28 ]
+  %.06781.i = phi ptr [ %9, %.lr.ph.i ], [ %29, %28 ]
   %24 = zext i8 %23 to i64
   %25 = getelementptr i16, ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
@@ -114,21 +114,21 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not72.i, label %.critedge.i, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr i8, ptr %.081.i, i64 1
+  %29 = getelementptr i8, ptr %.06781.i, i64 1
   %30 = load i8, ptr %29, align 1
   %.not.i = icmp eq i8 %30, 0
   br i1 %.not.i, label %.critedge.i, label %22, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %28, %22, %1
-  %.0.lcssa.i = phi ptr [ %9, %1 ], [ %.081.i, %22 ], [ %29, %28 ]
-  %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull @.str.21, i64 noundef 5) #14
+  %.067.lcssa.i = phi ptr [ %9, %1 ], [ %.06781.i, %22 ], [ %29, %28 ]
+  %31 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.067.lcssa.i, ptr noundef nonnull @.str.21, i64 noundef 5) #14
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %.critedge.i
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %34 = getelementptr i8, ptr %.0.lcssa.i, i64 5
+  %34 = getelementptr i8, ptr %.067.lcssa.i, i64 5
   %35 = load i8, ptr %34, align 1
   %.not7684.i = icmp eq i8 %35, 0
   br i1 %.not7684.i, label %.thread40, label %.lr.ph86.i
@@ -159,7 +159,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %47, label %.critedge2.thread.sink.split.i, label %91
 
 48:                                               ; preds = %.critedge.i
-  %49 = load i8, ptr %.0.lcssa.i, align 1
+  %49 = load i8, ptr %.067.lcssa.i, align 1
   switch i8 %49, label %51 [
     i8 91, label %50
     i8 40, label %53
@@ -174,7 +174,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 53:                                               ; preds = %50, %48
   %.034 = phi i8 [ 0, %48 ], [ 2, %50 ]
-  %.2.i = getelementptr i8, ptr %.0.lcssa.i, i64 1
+  %.2.i = getelementptr i8, ptr %.067.lcssa.i, i64 1
   %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %.2.i, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %17)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %91, label %56
@@ -6455,21 +6455,21 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %24, %22, %27, %47, 
   br label %57
 
 57:                                               ; preds = %53, %range_cmp_bound_values.exit.thread.thread
-  %.0 = phi i8 [ 8, %range_cmp_bound_values.exit.thread.thread ], [ %spec.select, %53 ]
+  %.069 = phi i8 [ 8, %range_cmp_bound_values.exit.thread.thread ], [ %spec.select, %53 ]
   %58 = load i8, ptr %10, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = or disjoint i8 %.0, 16
+  %61 = or disjoint i8 %.069, 16
   br label %67
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds i8, ptr %2, i64 9
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
-  %66 = or disjoint i8 %.0, 4
-  %spec.select76 = select i1 %65, i8 %66, i8 %.0
+  %66 = or disjoint i8 %.069, 4
+  %spec.select76 = select i1 %65, i8 %66, i8 %.069
   br label %67
 
 67:                                               ; preds = %62, %range_cmp_bound_values.exit.thread.thread133, %47, %5, %60
@@ -6581,7 +6581,7 @@ range_cmp_bound_values.exit.thread.thread:        ; preds = %24, %22, %27, %47, 
   br label %datum_compute_size.exit
 
 datum_compute_size.exit:                          ; preds = %124, %67
-  %.071 = phi i64 [ 8, %67 ], [ %125, %124 ]
+  %.070 = phi i64 [ 8, %67 ], [ %125, %124 ]
   %126 = and i32 %79, 81
   %.not75 = icmp eq i32 %126, 0
   br i1 %.not75, label %129, label %datum_compute_size.exit94
@@ -6603,7 +6603,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
   br label %150
 
 .thread109:                                       ; preds = %datum_compute_size.exit.thread, %129
-  %.071106115 = phi i64 [ %.071, %129 ], [ %127, %datum_compute_size.exit.thread ]
+  %.070106115 = phi i64 [ %.070, %129 ], [ %127, %datum_compute_size.exit.thread ]
   %132 = load i64, ptr %2, align 8
   %133 = inttoptr i64 %132 to ptr
   %134 = tail call ptr @pg_detoast_datum_packed(ptr noundef %133) #14
@@ -6626,7 +6626,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
 
 144:                                              ; preds = %138
   %145 = zext nneg i32 %140 to i64
-  %146 = add i64 %.071106115, -3
+  %146 = add i64 %.070106115, -3
   %147 = add i64 %146, %145
   br label %datum_compute_size.exit94
 
@@ -6638,7 +6638,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
 
 150:                                              ; preds = %.thread129, %.thread.i91
   %.ptr137 = phi ptr [ %134, %.thread.i91 ], [ %.ptr138, %.thread129 ]
-  %.071106114120 = phi i64 [ %.071106115, %.thread.i91 ], [ %.071, %.thread129 ]
+  %.070106114120 = phi i64 [ %.070106115, %.thread.i91 ], [ %.070, %.thread129 ]
   %151 = phi i1 [ true, %.thread.i91 ], [ false, %.thread129 ]
   switch i8 %76, label %158 [
     i8 105, label %152
@@ -6647,22 +6647,22 @@ datum_compute_size.exit.thread:                   ; preds = %90
   ]
 
 152:                                              ; preds = %150
-  %153 = add i64 %.071106114120, 3
+  %153 = add i64 %.070106114120, 3
   %154 = and i64 %153, -4
   br label %161
 
 155:                                              ; preds = %150
-  %156 = add i64 %.071106114120, 7
+  %156 = add i64 %.070106114120, 7
   %157 = and i64 %156, -8
   br label %161
 
 158:                                              ; preds = %150
-  %159 = add i64 %.071106114120, 1
+  %159 = add i64 %.070106114120, 1
   %160 = and i64 %159, -2
   br label %161
 
 161:                                              ; preds = %158, %155, %152, %150
-  %162 = phi i64 [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %.071106114120, %150 ]
+  %162 = phi i64 [ %154, %152 ], [ %157, %155 ], [ %160, %158 ], [ %.070106114120, %150 ]
   %163 = icmp sgt i16 %71, 0
   br i1 %163, label %164, label %166
 
@@ -6680,7 +6680,7 @@ datum_compute_size.exit.thread:                   ; preds = %90
 .thread36.i84:                                    ; preds = %..thread36_crit_edge.i82, %.thread.i91
   %167 = phi i8 [ %.pr.i83, %..thread36_crit_edge.i82 ], [ %148, %.thread.i91 ]
   %.pre-phi40.i85 = phi ptr [ %.ptr137, %..thread36_crit_edge.i82 ], [ %134, %.thread.i91 ]
-  %168 = phi i64 [ %162, %..thread36_crit_edge.i82 ], [ %.071106115, %.thread.i91 ]
+  %168 = phi i64 [ %162, %..thread36_crit_edge.i82 ], [ %.070106115, %.thread.i91 ]
   %169 = icmp eq i8 %167, 1
   br i1 %169, label %170, label %176
 
@@ -6729,8 +6729,8 @@ datum_compute_size.exit.thread:                   ; preds = %90
 
 datum_compute_size.exit94:                        ; preds = %190, %144, %datum_compute_size.exit.thread, %datum_compute_size.exit
   %.not75107 = phi i1 [ false, %datum_compute_size.exit ], [ false, %datum_compute_size.exit.thread ], [ true, %144 ], [ true, %190 ]
-  %.172 = phi i64 [ %.071, %datum_compute_size.exit ], [ %127, %datum_compute_size.exit.thread ], [ %147, %144 ], [ %192, %190 ]
-  %193 = add i64 %.172, 1
+  %.171 = phi i64 [ %.070, %datum_compute_size.exit ], [ %127, %datum_compute_size.exit.thread ], [ %147, %144 ], [ %192, %190 ]
+  %193 = add i64 %.171, 1
   %194 = tail call ptr @palloc0(i64 noundef %193) #14
   %195 = trunc i64 %193 to i32
   %196 = shl i32 %195, 2
@@ -6747,22 +6747,22 @@ datum_compute_size.exit94:                        ; preds = %190, %144, %datum_c
   br label %203
 
 203:                                              ; preds = %200, %datum_compute_size.exit94
-  %.069 = phi ptr [ %199, %datum_compute_size.exit94 ], [ %202, %200 ]
+  %.072 = phi ptr [ %199, %datum_compute_size.exit94 ], [ %202, %200 ]
   br i1 %.not75107, label %204, label %207
 
 204:                                              ; preds = %203
   %205 = load i64, ptr %2, align 8
-  %206 = tail call fastcc ptr @datum_write(ptr noundef %.069, i64 noundef %205, i1 noundef zeroext %74, i8 noundef signext %76, i16 noundef signext %71, i8 noundef signext %78)
+  %206 = tail call fastcc ptr @datum_write(ptr noundef %.072, i64 noundef %205, i1 noundef zeroext %74, i8 noundef signext %76, i16 noundef signext %71, i8 noundef signext %78)
   br label %207
 
 207:                                              ; preds = %204, %203
-  %.170 = phi ptr [ %.069, %203 ], [ %206, %204 ]
-  store i8 %.1, ptr %.170, align 1
+  %.173 = phi ptr [ %.072, %203 ], [ %206, %204 ]
+  store i8 %.1, ptr %.173, align 1
   br label %208
 
 208:                                              ; preds = %40, %range_cmp_bound_values.exit.thread100, %207
-  %.073 = phi ptr [ %194, %207 ], [ null, %range_cmp_bound_values.exit.thread100 ], [ null, %40 ]
-  ret ptr %.073
+  %.0 = phi ptr [ %194, %207 ], [ null, %range_cmp_bound_values.exit.thread100 ], [ null, %40 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7333,9 +7333,9 @@ store_att_byval.exit:                             ; preds = %21, %23, %25, %27
   br label %100
 
 100:                                              ; preds = %44, %74, %55, %95, %80, %store_att_byval.exit
-  %.061 = phi ptr [ %20, %store_att_byval.exit ], [ %0, %44 ], [ %0, %55 ], [ %76, %74 ], [ %0, %80 ], [ %97, %95 ]
-  %.0 = phi i64 [ %32, %store_att_byval.exit ], [ %46, %44 ], [ %57, %55 ], [ %79, %74 ], [ %83, %80 ], [ %98, %95 ]
-  %101 = getelementptr i8, ptr %.061, i64 %.0
+  %.061 = phi i64 [ %32, %store_att_byval.exit ], [ %46, %44 ], [ %57, %55 ], [ %79, %74 ], [ %83, %80 ], [ %98, %95 ]
+  %.0 = phi ptr [ %20, %store_att_byval.exit ], [ %0, %44 ], [ %0, %55 ], [ %76, %74 ], [ %0, %80 ], [ %97, %95 ]
+  %101 = getelementptr i8, ptr %.0, i64 %.061
   ret ptr %101
 }
 
@@ -7857,10 +7857,10 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br label %9
 
 9:                                                ; preds = %.backedge, %8
-  %.031 = phi ptr [ %1, %8 ], [ %.031.be, %.backedge ]
-  %.0 = phi i1 [ false, %8 ], [ %.0.be, %.backedge ]
-  %.pr = load i8, ptr %.031, align 1
-  br i1 %.0, label %.critedge, label %10
+  %.031 = phi i1 [ false, %8 ], [ %.031.be, %.backedge ]
+  %.030 = phi ptr [ %1, %8 ], [ %.030.be, %.backedge ]
+  %.pr = load i8, ptr %.030, align 1
+  br i1 %.031, label %.critedge, label %10
 
 10:                                               ; preds = %9
   switch i8 %.pr, label %.critedge [
@@ -7870,7 +7870,7 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   ]
 
 .critedge:                                        ; preds = %9, %10
-  %11 = getelementptr i8, ptr %.031, i64 1
+  %11 = getelementptr i8, ptr %.030, i64 1
   switch i8 %.pr, label %.sink.split [
     i8 0, label %12
     i8 92, label %18
@@ -7905,11 +7905,11 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br label %37
 
 27:                                               ; preds = %18
-  %28 = getelementptr i8, ptr %.031, i64 2
+  %28 = getelementptr i8, ptr %.030, i64 2
   br label %.sink.split
 
 29:                                               ; preds = %.critedge
-  br i1 %.0, label %30, label %.backedge
+  br i1 %.031, label %30, label %.backedge
 
 30:                                               ; preds = %29
   %31 = load i8, ptr %11, align 1
@@ -7917,19 +7917,19 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   br i1 %32, label %33, label %.backedge
 
 33:                                               ; preds = %30
-  %34 = getelementptr i8, ptr %.031, i64 2
+  %34 = getelementptr i8, ptr %.030, i64 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %27, %33
   %.sink = phi i8 [ 34, %33 ], [ %19, %27 ], [ %.pr, %.critedge ]
-  %.132.ph = phi ptr [ %34, %33 ], [ %28, %27 ], [ %11, %.critedge ]
-  %.1.ph = phi i1 [ true, %33 ], [ %.0, %27 ], [ %.0, %.critedge ]
+  %.132.ph = phi i1 [ true, %33 ], [ %.031, %27 ], [ %.031, %.critedge ]
+  %.1.ph = phi ptr [ %34, %33 ], [ %28, %27 ], [ %11, %.critedge ]
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %.sink) #14
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %30, %29
-  %.031.be = phi ptr [ %11, %29 ], [ %11, %30 ], [ %.132.ph, %.sink.split ]
-  %.0.be = phi i1 [ true, %29 ], [ false, %30 ], [ %.1.ph, %.sink.split ]
+  %.031.be = phi i1 [ true, %29 ], [ false, %30 ], [ %.132.ph, %.sink.split ]
+  %.030.be = phi ptr [ %11, %29 ], [ %11, %30 ], [ %.1.ph, %.sink.split ]
   br label %9, !llvm.loop !18
 
 .critedge38:                                      ; preds = %10, %10, %10
@@ -7939,14 +7939,14 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 36:                                               ; preds = %5, %5, %5, %.critedge38
   %storemerge36 = phi ptr [ %35, %.critedge38 ], [ null, %5 ], [ null, %5 ], [ null, %5 ]
   %storemerge = phi i8 [ 0, %.critedge38 ], [ 1, %5 ], [ 1, %5 ], [ 1, %5 ]
-  %.2 = phi ptr [ %.031, %.critedge38 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
+  %.2 = phi ptr [ %.030, %.critedge38 ], [ %1, %5 ], [ %1, %5 ], [ %1, %5 ]
   store ptr %storemerge36, ptr %2, align 8
   store i8 %storemerge, ptr %3, align 1
   br label %37
 
 37:                                               ; preds = %23, %21, %14, %12, %36
-  %.030 = phi ptr [ %.2, %36 ], [ null, %12 ], [ null, %14 ], [ null, %21 ], [ null, %23 ]
-  ret ptr %.030
+  %.0 = phi ptr [ %.2, %36 ], [ null, %12 ], [ null, %14 ], [ null, %21 ], [ null, %23 ]
+  ret ptr %.0
 }
 
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
@@ -7965,7 +7965,7 @@ define internal fastcc ptr @range_bound_escape(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %14, %1
   %6 = phi i8 [ %.pr, %14 ], [ %3, %1 ]
-  %.0 = phi ptr [ %15, %14 ], [ %0, %1 ]
+  %.042 = phi ptr [ %15, %14 ], [ %0, %1 ]
   switch i8 %6, label %7 [
     i8 0, label %16
     i8 93, label %.thread
@@ -7988,7 +7988,7 @@ define internal fastcc ptr @range_bound_escape(ptr nocapture noundef readonly %0
   br i1 %.not45, label %14, label %.thread
 
 14:                                               ; preds = %7
-  %15 = getelementptr i8, ptr %.0, i64 1
+  %15 = getelementptr i8, ptr %.042, i64 1
   %.pr = load i8, ptr %15, align 1
   br label %5, !llvm.loop !19
 
@@ -8000,7 +8000,7 @@ define internal fastcc ptr @range_bound_escape(ptr nocapture noundef readonly %0
   br label %17
 
 17:                                               ; preds = %.thread, %16
-  %.04248 = phi i1 [ true, %.thread ], [ false, %16 ]
+  %.048 = phi i1 [ true, %.thread ], [ false, %16 ]
   br label %18
 
 18:                                               ; preds = %21, %17
@@ -8022,7 +8022,7 @@ define internal fastcc ptr @range_bound_escape(ptr nocapture noundef readonly %0
   br label %18, !llvm.loop !20
 
 23:                                               ; preds = %18
-  br i1 %.04248, label %24, label %25
+  br i1 %.048, label %24, label %25
 
 24:                                               ; preds = %23
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 34) #14

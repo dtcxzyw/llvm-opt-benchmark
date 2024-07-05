@@ -3446,9 +3446,9 @@ lpad37.loopexit.split-lp:                         ; preds = %invoke.cont58
 
 if.end49:                                         ; preds = %if.then42, %if.end35
   %32 = phi ptr [ %add.ptr1.i43, %if.then42 ], [ %add.ptr3289, %if.end35 ]
-  %head1.sroa.4.0.in.in = phi i64 [ %retval.sroa.0.0.insert.insert.i44, %if.then42 ], [ %retval.sroa.0.0.insert.insert.i41, %if.end35 ]
   %head1.sroa.0.0 = phi i32 [ %head1.sroa.0.0.extract.trunc10, %if.then42 ], [ %head1.sroa.0.0.extract.trunc, %if.end35 ]
   %bufOffset1.0 = phi i64 [ 4, %if.then42 ], [ 0, %if.end35 ]
+  %head1.sroa.4.0.in.in = phi i64 [ %retval.sroa.0.0.insert.insert.i44, %if.then42 ], [ %retval.sroa.0.0.insert.insert.i41, %if.end35 ]
   %head1.sroa.4.0.in = lshr i64 %head1.sroa.4.0.in.in, 32
   %head1.sroa.4.0 = trunc nuw i64 %head1.sroa.4.0.in to i32
   %add.ptr53 = getelementptr inbounds i8, ptr %32, i64 %head1.sroa.4.0.in

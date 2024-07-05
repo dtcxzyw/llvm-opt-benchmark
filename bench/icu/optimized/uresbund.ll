@@ -2212,8 +2212,8 @@ if.end34:                                         ; preds = %invoke.cont
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end34
-  %rootRes.0 = phi i32 [ %21, %if.end34 ], [ %rootRes.1, %do.cond ]
   %helper.1 = phi ptr [ %helper.0139, %if.end34 ], [ %helper.2, %do.cond ]
+  %rootRes.0 = phi i32 [ %21, %if.end34 ], [ %rootRes.1, %do.cond ]
   %dataEntry.2 = phi ptr [ %dataEntry.0., %if.end34 ], [ %dataEntry.3, %do.cond ]
   %resPath.1 = phi ptr [ %resPath.0142, %if.end34 ], [ %resPath.2, %do.cond ]
   %len.1 = phi i32 [ %len.0143, %if.end34 ], [ %len.2, %do.cond ]
@@ -2258,8 +2258,8 @@ if.else54:                                        ; preds = %invoke.cont38
   br i1 %cmp55, label %if.end60, label %do.cond
 
 do.cond:                                          ; preds = %land.lhs.true, %if.then47, %if.else54
-  %rootRes.1 = phi i32 [ %28, %if.then47 ], [ %rootRes.0, %if.else54 ], [ %rootRes.0, %land.lhs.true ]
   %helper.2 = phi ptr [ %call.i94, %if.then47 ], [ %helper.1, %if.else54 ], [ %helper.1, %land.lhs.true ]
+  %rootRes.1 = phi i32 [ %28, %if.then47 ], [ %rootRes.0, %if.else54 ], [ %rootRes.0, %land.lhs.true ]
   %dataEntry.3 = phi ptr [ %27, %if.then47 ], [ %dataEntry.2, %if.else54 ], [ %dataEntry.2, %land.lhs.true ]
   %resPath.2 = phi ptr [ %29, %if.then47 ], [ %resPath.1, %if.else54 ], [ %resPath.1, %land.lhs.true ]
   %len.2 = phi i32 [ %30, %if.then47 ], [ %len.1, %if.else54 ], [ %len.1, %land.lhs.true ]
@@ -5285,8 +5285,8 @@ if.end:                                           ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.end, %while.end
   %call33563 = phi ptr [ %call335, %while.end ], [ %call33559, %if.end ]
-  %valuesCount.0.ph62 = phi i32 [ %valuesCount.1.ph.lcssa, %while.end ], [ 0, %if.end ]
-  %valuesIndex.0.ph61 = phi i32 [ %valuesIndex.1.ph.lcssa, %while.end ], [ 0, %if.end ]
+  %valuesIndex.0.ph62 = phi i32 [ %valuesIndex.1.ph.lcssa, %while.end ], [ 0, %if.end ]
+  %valuesCount.0.ph61 = phi i32 [ %valuesCount.1.ph.lcssa, %while.end ], [ 0, %if.end ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then9
@@ -5341,11 +5341,11 @@ lor.lhs.false24:                                  ; preds = %lor.lhs.false21
   br i1 %cmp26, label %if.then27, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false24
-  %cmp2948 = icmp sgt i32 %valuesCount.1.ph55, 0
+  %cmp2948 = icmp sgt i32 %valuesCount.1.ph54, 0
   br i1 %cmp2948, label %for.body.preheader, label %lor.lhs.false40
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = zext nneg i32 %valuesCount.1.ph55 to i64
+  %wide.trip.count = zext nneg i32 %valuesCount.1.ph54 to i64
   br label %for.body
 
 if.then27:                                        ; preds = %lor.lhs.false24, %lor.lhs.false21, %lor.lhs.false19, %ures_getKey_75.exit
@@ -5370,13 +5370,13 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool32.not, label %if.end57, label %for.cond
 
 if.then36:                                        ; preds = %for.cond
-  %cmp39 = icmp sgt i32 %valuesCount.1.ph55, 510
+  %cmp39 = icmp sgt i32 %valuesCount.1.ph54, 510
   br i1 %cmp39, label %if.then44, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %for.cond.preheader, %if.then36
   %call37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
   %conv38 = trunc i64 %call37 to i32
-  %add = add nsw i32 %valuesIndex.1.ph54, %conv38
+  %add = add nsw i32 %valuesIndex.1.ph55, %conv38
   %cmp43 = icmp sgt i32 %add, 2045
   br i1 %cmp43, label %if.then44, label %if.else
 
@@ -5386,11 +5386,11 @@ if.then44:                                        ; preds = %lor.lhs.false40, %i
 
 if.else:                                          ; preds = %lor.lhs.false40
   %add41 = add nsw i32 %add, 1
-  %idx.ext = sext i32 %valuesIndex.1.ph54 to i64
+  %idx.ext = sext i32 %valuesIndex.1.ph55 to i64
   %add.ptr = getelementptr inbounds i8, ptr %valuesBuf, i64 %idx.ext
   %call45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %3) #20
-  %inc49 = add nsw i32 %valuesCount.1.ph55, 1
-  %idxprom50 = sext i32 %valuesCount.1.ph55 to i64
+  %inc49 = add nsw i32 %valuesCount.1.ph54, 1
+  %idxprom50 = sext i32 %valuesCount.1.ph54 to i64
   %arrayidx51 = getelementptr inbounds [512 x ptr], ptr %valuesList, i64 0, i64 %idxprom50
   store ptr %add.ptr, ptr %arrayidx51, align 8
   %idxprom54 = sext i32 %add to i64
@@ -5399,8 +5399,8 @@ if.else:                                          ; preds = %lor.lhs.false40
   br label %if.end57
 
 if.end57:                                         ; preds = %for.body, %if.then44, %if.else
-  %valuesIndex.2 = phi i32 [ %valuesIndex.1.ph54, %if.then44 ], [ %add41, %if.else ], [ %valuesIndex.1.ph54, %for.body ]
-  %valuesCount.2 = phi i32 [ %valuesCount.1.ph55, %if.then44 ], [ %inc49, %if.else ], [ %valuesCount.1.ph55, %for.body ]
+  %valuesCount.2 = phi i32 [ %valuesCount.1.ph54, %if.then44 ], [ %inc49, %if.else ], [ %valuesCount.1.ph54, %for.body ]
+  %valuesIndex.2 = phi i32 [ %valuesIndex.1.ph55, %if.then44 ], [ %add41, %if.else ], [ %valuesIndex.1.ph55, %for.body ]
   %call1239 = call ptr @ures_getNextResource_75(ptr noundef nonnull %item, ptr noundef nonnull %subItem, ptr noundef nonnull %subStatus)
   %cmp13.not40 = icmp eq ptr %call1239, null
   %7 = load i32, ptr %subStatus, align 4
@@ -5410,20 +5410,20 @@ if.end57:                                         ; preds = %for.body, %if.then4
 
 ures_getKey_75.exit.lr.ph:                        ; preds = %while.cond11.preheader, %if.end57
   %call123956 = phi ptr [ %call1239, %if.end57 ], [ %call123950, %while.cond11.preheader ]
-  %valuesCount.1.ph55 = phi i32 [ %valuesCount.2, %if.end57 ], [ %valuesCount.0.ph62, %while.cond11.preheader ]
-  %valuesIndex.1.ph54 = phi i32 [ %valuesIndex.2, %if.end57 ], [ %valuesIndex.0.ph61, %while.cond11.preheader ]
+  %valuesIndex.1.ph55 = phi i32 [ %valuesIndex.2, %if.end57 ], [ %valuesIndex.0.ph62, %while.cond11.preheader ]
+  %valuesCount.1.ph54 = phi i32 [ %valuesCount.2, %if.end57 ], [ %valuesCount.0.ph61, %while.cond11.preheader ]
   br label %ures_getKey_75.exit
 
 while.end:                                        ; preds = %if.end57, %if.then27, %while.cond11.preheader
-  %valuesIndex.1.ph.lcssa = phi i32 [ %valuesIndex.0.ph61, %while.cond11.preheader ], [ %valuesIndex.1.ph54, %if.then27 ], [ %valuesIndex.2, %if.end57 ]
-  %valuesCount.1.ph.lcssa = phi i32 [ %valuesCount.0.ph62, %while.cond11.preheader ], [ %valuesCount.1.ph55, %if.then27 ], [ %valuesCount.2, %if.end57 ]
+  %valuesCount.1.ph.lcssa = phi i32 [ %valuesCount.0.ph61, %while.cond11.preheader ], [ %valuesCount.1.ph54, %if.then27 ], [ %valuesCount.2, %if.end57 ]
+  %valuesIndex.1.ph.lcssa = phi i32 [ %valuesIndex.0.ph62, %while.cond11.preheader ], [ %valuesIndex.1.ph55, %if.then27 ], [ %valuesIndex.2, %if.end57 ]
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %call.i, i8 noundef signext 1)
   %call335 = call ptr @uenum_next_75(ptr noundef %call, ptr noundef nonnull %locLen, ptr noundef nonnull %status)
   %cmp.not36 = icmp eq ptr %call335, null
   br i1 %cmp.not36, label %while.end58, label %while.body.lr.ph, !llvm.loop !23
 
 while.end58:                                      ; preds = %while.end, %if.then9, %if.end
-  %valuesIndex.0.ph.lcssa = phi i32 [ 0, %if.end ], [ %valuesIndex.0.ph61, %if.then9 ], [ %valuesIndex.1.ph.lcssa, %while.end ]
+  %valuesIndex.0.ph.lcssa = phi i32 [ 0, %if.end ], [ %valuesIndex.0.ph62, %if.then9 ], [ %valuesIndex.1.ph.lcssa, %while.end ]
   %inc59 = add nsw i32 %valuesIndex.0.ph.lcssa, 1
   %idxprom60 = sext i32 %valuesIndex.0.ph.lcssa to i64
   %arrayidx61 = getelementptr inbounds [2048 x i8], ptr %valuesBuf, i64 0, i64 %idxprom60
@@ -7041,15 +7041,15 @@ if.end26.i:                                       ; preds = %invoke.cont18.i
   br i1 %cmp27.i, label %while.body.i, label %if.end35.i
 
 while.body.i:                                     ; preds = %if.end26.i, %if.else.i27
-  %top.011.i = phi ptr [ %top.1.i, %if.else.i27 ], [ getelementptr inbounds (i8, ptr @_ZL17parentLocaleTable, i64 1440), %if.end26.i ]
-  %bottom.010.i = phi ptr [ %bottom.1.i, %if.else.i27 ], [ @_ZL17parentLocaleTable, %if.end26.i ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %top.011.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.010.i to i64
+  %bottom.011.i = phi ptr [ %bottom.1.i, %if.else.i27 ], [ @_ZL17parentLocaleTable, %if.end26.i ]
+  %top.010.i = phi ptr [ %top.1.i, %if.else.i27 ], [ getelementptr inbounds (i8, ptr @_ZL17parentLocaleTable, i64 1440), %if.end26.i ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %top.010.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.011.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %div.i = sdiv i64 %sub.ptr.div.i, 4
   %add.ptr1.idx.i = shl nsw i64 %div.i, 3
-  %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.010.i, i64 %add.ptr1.idx.i
+  %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.011.i, i64 %add.ptr1.idx.i
   %21 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %21 to i64
   %arrayidx.i25 = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom.i
@@ -7060,8 +7060,8 @@ while.body.i:                                     ; preds = %if.end26.i, %if.els
 if.else.i27:                                      ; preds = %while.body.i
   %cmp6.i = icmp slt i32 %call.i26, 0
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
-  %bottom.1.i = select i1 %cmp6.i, ptr %bottom.010.i, ptr %add.ptr9.i
-  %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.011.i
+  %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
+  %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i28 = icmp ult ptr %bottom.1.i, %top.1.i
   br i1 %cmp.i28, label %while.body.i, label %if.end35.i, !llvm.loop !30
 
@@ -8190,15 +8190,15 @@ if.end:                                           ; preds = %invoke.cont9
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.else.i, %if.end
-  %top.011.i = phi ptr [ %top.1.i, %if.else.i ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.end ]
-  %bottom.010.i = phi ptr [ %bottom.1.i, %if.else.i ], [ @_ZL18defaultScriptTable, %if.end ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %top.011.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.010.i to i64
+  %bottom.011.i = phi ptr [ %bottom.1.i, %if.else.i ], [ @_ZL18defaultScriptTable, %if.end ]
+  %top.010.i = phi ptr [ %top.1.i, %if.else.i ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.end ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %top.010.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %bottom.011.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %div.i = sdiv i64 %sub.ptr.div.i, 4
   %add.ptr1.idx.i = shl nsw i64 %div.i, 3
-  %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.010.i, i64 %add.ptr1.idx.i
+  %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.011.i, i64 %add.ptr1.idx.i
   %18 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %18 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i
@@ -8209,8 +8209,8 @@ while.body.i:                                     ; preds = %if.else.i, %if.end
 if.else.i:                                        ; preds = %while.body.i
   %cmp6.i = icmp slt i32 %call.i, 0
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
-  %bottom.1.i = select i1 %cmp6.i, ptr %bottom.010.i, ptr %add.ptr9.i
-  %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.011.i
+  %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
+  %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i16 = icmp ult ptr %bottom.1.i, %top.1.i
   br i1 %cmp.i16, label %while.body.i, label %cleanup.thread56, !llvm.loop !30
 
@@ -8229,15 +8229,15 @@ if.then17:                                        ; preds = %cleanup.thread56, %
   br label %while.body.i17
 
 while.body.i17:                                   ; preds = %if.else.i31, %if.then17
-  %top.011.i18 = phi ptr [ %top.1.i35, %if.else.i31 ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.then17 ]
-  %bottom.010.i19 = phi ptr [ %bottom.1.i34, %if.else.i31 ], [ @_ZL18defaultScriptTable, %if.then17 ]
-  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %top.011.i18 to i64
-  %sub.ptr.rhs.cast.i21 = ptrtoint ptr %bottom.010.i19 to i64
+  %bottom.011.i18 = phi ptr [ %bottom.1.i35, %if.else.i31 ], [ @_ZL18defaultScriptTable, %if.then17 ]
+  %top.010.i19 = phi ptr [ %top.1.i34, %if.else.i31 ], [ getelementptr inbounds (i8, ptr @_ZL18defaultScriptTable, i64 8168), %if.then17 ]
+  %sub.ptr.lhs.cast.i20 = ptrtoint ptr %top.010.i19 to i64
+  %sub.ptr.rhs.cast.i21 = ptrtoint ptr %bottom.011.i18 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i21
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
   %div.i24 = sdiv i64 %sub.ptr.div.i23, 4
   %add.ptr1.idx.i25 = shl nsw i64 %div.i24, 3
-  %add.ptr1.i26 = getelementptr inbounds i8, ptr %bottom.010.i19, i64 %add.ptr1.idx.i25
+  %add.ptr1.i26 = getelementptr inbounds i8, ptr %bottom.011.i18, i64 %add.ptr1.idx.i25
   %21 = load i32, ptr %add.ptr1.i26, align 4
   %idxprom.i27 = sext i32 %21 to i64
   %arrayidx.i28 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i27
@@ -8253,9 +8253,9 @@ if.then.i38:                                      ; preds = %while.body.i17
 if.else.i31:                                      ; preds = %while.body.i17
   %cmp6.i32 = icmp slt i32 %call.i29, 0
   %add.ptr9.i33 = getelementptr inbounds i8, ptr %add.ptr1.i26, i64 8
-  %bottom.1.i34 = select i1 %cmp6.i32, ptr %bottom.010.i19, ptr %add.ptr9.i33
-  %top.1.i35 = select i1 %cmp6.i32, ptr %add.ptr1.i26, ptr %top.011.i18
-  %cmp.i36 = icmp ult ptr %bottom.1.i34, %top.1.i35
+  %top.1.i34 = select i1 %cmp6.i32, ptr %add.ptr1.i26, ptr %top.010.i19
+  %bottom.1.i35 = select i1 %cmp6.i32, ptr %bottom.011.i18, ptr %add.ptr9.i33
+  %cmp.i36 = icmp ult ptr %bottom.1.i35, %top.1.i34
   br i1 %cmp.i36, label %while.body.i17, label %nrvo.skipdtor, !llvm.loop !30
 
 if.then23:                                        ; preds = %cleanup, %if.then.i38

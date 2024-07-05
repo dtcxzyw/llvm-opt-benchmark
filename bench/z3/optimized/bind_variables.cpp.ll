@@ -724,23 +724,23 @@ if.end.i.i:                                       ; preds = %invoke.cont24
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i29
 
 for.body.i.i29:                                   ; preds = %if.end.i.i, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i31, %for.inc.i.i ], [ %36, %if.end.i.i ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %38 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i31, %for.inc.i.i ], [ %36, %if.end.i.i ]
+  %38 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i30 = icmp eq ptr %38, null
   br i1 %cmp.i.i.i30, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i29
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i29
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i31, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i29, !llvm.loop !9
 
@@ -1337,8 +1337,8 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIP4exprLb
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv418 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next419, %for.inc ]
-  %some_diff.0390 = phi i1 [ false, %for.body.lr.ph ], [ %some_diff.1, %for.inc ]
-  %all_visited.0389 = phi i8 [ 1, %for.body.lr.ph ], [ %all_visited.1, %for.inc ]
+  %all_visited.0391 = phi i8 [ 1, %for.body.lr.ph ], [ %all_visited.1, %for.inc ]
+  %some_diff.0389 = phi i1 [ false, %for.body.lr.ph ], [ %some_diff.1, %for.inc ]
   %arrayidx.i121 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv418
   %68 = load ptr, ptr %arrayidx.i121, align 8
   %m_hash.i.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %68, i64 12
@@ -1439,7 +1439,7 @@ if.else53:                                        ; preds = %if.then.i.i.i153, %
   %retval.0.i.i.i152 = phi ptr [ %curr.133.i.i.i140, %if.then22.i.i.i146 ], [ %curr.031.i.i.i132, %if.then.i.i.i153 ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i152, i64 8
   %83 = load ptr, ptr %m_value.i, align 8
-  %tobool54 = trunc nuw i8 %all_visited.0389 to i1
+  %tobool54 = trunc nuw i8 %all_visited.0391 to i1
   br i1 %tobool54, label %if.then55, label %for.inc
 
 if.then55:                                        ; preds = %if.else53
@@ -1474,12 +1474,12 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187:  ; preds = %lor.lhs.false.i174,
   %inc.i182 = add i32 %90, 1
   store i32 %inc.i182, ptr %arrayidx10.i181, align 4
   %cmp58.not = icmp ne ptr %83, %68
-  %spec.select = select i1 %cmp58.not, i1 true, i1 %some_diff.0390
+  %spec.select = select i1 %cmp58.not, i1 true, i1 %some_diff.0389
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172, %if.else53
-  %all_visited.1 = phi i8 [ %all_visited.0389, %if.else53 ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %all_visited.0389, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
-  %some_diff.1 = phi i1 [ %some_diff.0390, %if.else53 ], [ %some_diff.0390, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %spec.select, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
+  %some_diff.1 = phi i1 [ %some_diff.0389, %if.else53 ], [ %some_diff.0389, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %spec.select, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
+  %all_visited.1 = phi i8 [ %all_visited.0391, %if.else53 ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %all_visited.0391, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %91 = load i32, ptr %m_num_args.i, align 8
   %92 = zext i32 %91 to i64

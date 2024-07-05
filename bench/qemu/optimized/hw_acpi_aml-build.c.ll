@@ -162,20 +162,20 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %1 = phi i32 [ %5, %if.end ], [ %0, %entry ]
-  %i.024 = phi i32 [ %inc, %if.end ], [ 0, %entry ]
-  %free_base.023 = phi i64 [ %add, %if.end ], [ %start, %entry ]
+  %free_base.024 = phi i64 [ %add, %if.end ], [ %start, %entry ]
+  %i.023 = phi i32 [ %inc, %if.end ], [ 0, %entry ]
   %2 = load ptr, ptr %ranges, align 8
-  %idxprom = sext i32 %i.024 to i64
+  %idxprom = sext i32 %i.023 to i64
   %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i64, ptr %3, align 8
-  %cmp1 = icmp ult i64 %free_base.023, %4
+  %cmp1 = icmp ult i64 %free_base.024, %4
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   %sub = add i64 %4, -1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  store i64 %free_base.023, ptr %call.i, align 8
+  store i64 %free_base.024, ptr %call.i, align 8
   %limit3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %sub, ptr %limit3.i, align 8
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef nonnull %call.i) #14
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %limit = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %limit, align 8
   %add = add i64 %6, 1
-  %inc = add nuw i32 %i.024, 1
+  %inc = add nuw i32 %i.023, 1
   %cmp = icmp ult i32 %inc, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
@@ -4956,20 +4956,20 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %core_offset.052 = phi i32 [ 0, %for.body.lr.ph ], [ %core_offset.2, %for.inc ]
-  %cluster_offset.051 = phi i32 [ 0, %for.body.lr.ph ], [ %cluster_offset.1, %for.inc ]
-  %socket_offset.050 = phi i32 [ 0, %for.body.lr.ph ], [ %socket_offset.1, %for.inc ]
-  %core_id.049 = phi i64 [ -1, %for.body.lr.ph ], [ %core_id.4, %for.inc ]
-  %cluster_id.048 = phi i64 [ -1, %for.body.lr.ph ], [ %cluster_id.2, %for.inc ]
-  %socket_id.047 = phi i64 [ -1, %for.body.lr.ph ], [ %socket_id.1, %for.inc ]
+  %socket_id.052 = phi i64 [ -1, %for.body.lr.ph ], [ %socket_id.1, %for.inc ]
+  %core_offset.051 = phi i32 [ 0, %for.body.lr.ph ], [ %core_offset.2, %for.inc ]
+  %cluster_offset.050 = phi i32 [ 0, %for.body.lr.ph ], [ %cluster_offset.1, %for.inc ]
+  %socket_offset.049 = phi i32 [ 0, %for.body.lr.ph ], [ %socket_offset.1, %for.inc ]
+  %core_id.048 = phi i64 [ -1, %for.body.lr.ph ], [ %core_id.4, %for.inc ]
+  %cluster_id.047 = phi i64 [ -1, %for.body.lr.ph ], [ %cluster_id.2, %for.inc ]
   %props = getelementptr [0 x %struct.CPUArchId], ptr %cpus4, i64 0, i64 %indvars.iv, i32 2
   %socket_id5 = getelementptr inbounds i8, ptr %props, i64 56
   %3 = load i64, ptr %socket_id5, align 8
-  %cmp6.not = icmp eq i64 %3, %socket_id.047
+  %cmp6.not = icmp eq i64 %3, %socket_id.052
   br i1 %cmp6.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmp12 = icmp sgt i64 %3, %socket_id.047
+  %cmp12 = icmp sgt i64 %3, %socket_id.052
   br i1 %cmp12, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -4984,10 +4984,10 @@ if.end:                                           ; preds = %if.then
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end, %for.body
-  %socket_id.1 = phi i64 [ %3, %if.end ], [ %socket_id.047, %for.body ]
-  %cluster_id.1 = phi i64 [ -1, %if.end ], [ %cluster_id.048, %for.body ]
-  %core_id.1 = phi i64 [ -1, %if.end ], [ %core_id.049, %for.body ]
-  %socket_offset.1 = phi i32 [ %sub, %if.end ], [ %socket_offset.050, %for.body ]
+  %cluster_id.1 = phi i64 [ -1, %if.end ], [ %cluster_id.047, %for.body ]
+  %core_id.1 = phi i64 [ -1, %if.end ], [ %core_id.048, %for.body ]
+  %socket_offset.1 = phi i32 [ %sub, %if.end ], [ %socket_offset.049, %for.body ]
+  %socket_id.1 = phi i64 [ %3, %if.end ], [ %socket_id.052, %for.body ]
   %5 = load i8, ptr %clusters_supported, align 2
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end54
@@ -5021,7 +5021,7 @@ if.end43:                                         ; preds = %if.then33
 if.end54:                                         ; preds = %if.end20, %land.lhs.true, %if.then25, %if.end43
   %cluster_id.2 = phi i64 [ %7, %if.end43 ], [ %cluster_id.1, %if.then25 ], [ %cluster_id.1, %land.lhs.true ], [ %cluster_id.1, %if.end20 ]
   %core_id.2 = phi i64 [ -1, %if.end43 ], [ %core_id.1, %if.then25 ], [ %core_id.1, %land.lhs.true ], [ %core_id.1, %if.end20 ]
-  %cluster_offset.1 = phi i32 [ %sub50, %if.end43 ], [ %cluster_offset.051, %if.then25 ], [ %socket_offset.1, %land.lhs.true ], [ %socket_offset.1, %if.end20 ]
+  %cluster_offset.1 = phi i32 [ %sub50, %if.end43 ], [ %cluster_offset.050, %if.then25 ], [ %socket_offset.1, %land.lhs.true ], [ %socket_offset.1, %if.end20 ]
   %9 = load i32, ptr %threads, align 4
   %cmp55 = icmp eq i32 %9, 1
   br i1 %cmp55, label %if.then57, label %if.else58
@@ -5054,14 +5054,14 @@ if.end76:                                         ; preds = %if.then66
 
 if.end85:                                         ; preds = %if.end76, %if.else58
   %core_id.3 = phi i64 [ %11, %if.end76 ], [ %core_id.2, %if.else58 ]
-  %core_offset.1 = phi i32 [ %sub83, %if.end76 ], [ %core_offset.052, %if.else58 ]
+  %core_offset.1 = phi i32 [ %sub83, %if.end76 ], [ %core_offset.051, %if.else58 ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @build_processor_hierarchy_node(ptr noundef %table_data, i32 noundef 14, i32 noundef %core_offset.1, i32 noundef %13)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then57, %if.end85
   %core_id.4 = phi i64 [ %core_id.2, %if.then57 ], [ %core_id.3, %if.end85 ]
-  %core_offset.2 = phi i32 [ %core_offset.052, %if.then57 ], [ %core_offset.1, %if.end85 ]
+  %core_offset.2 = phi i32 [ %core_offset.051, %if.then57 ], [ %core_offset.1, %if.end85 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %0, align 8
   %15 = sext i32 %14 to i64

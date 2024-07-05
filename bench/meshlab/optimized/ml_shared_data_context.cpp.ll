@@ -715,8 +715,8 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
   br label %31
 
 31:                                               ; preds = %.split, %120
-  %.03247 = phi i64 [ 0, %.split ], [ %121, %120 ]
-  %32 = trunc nuw nsw i64 %.03247 to i32
+  %.02847 = phi i64 [ 0, %.split ], [ %121, %120 ]
+  %32 = trunc nuw nsw i64 %.02847 to i32
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
   %33 = load ptr, ptr %23, align 8
   %34 = load ptr, ptr %22, align 8
@@ -724,7 +724,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 9
-  %.not.i37 = icmp ugt i64 %38, %.03247
+  %.not.i37 = icmp ugt i64 %38, %.02847
   br i1 %.not.i37, label %41, label %.thread
 
 .thread:                                          ; preds = %31
@@ -734,7 +734,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
           to label %113 unwind label %.thread40
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %34, i64 %.03247
+  %42 = getelementptr inbounds %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %34, i64 %.02847
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !11
   br label %43
@@ -879,7 +879,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br label %122
 
 120:                                              ; preds = %111, %.noexc
-  %121 = add nuw nsw i64 %.03247, 1
+  %121 = add nuw nsw i64 %.02847, 1
   %exitcond.not = icmp eq i64 %121, 4
   br i1 %exitcond.not, label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit, label %31, !llvm.loop !16
 

@@ -429,7 +429,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
 
 178:                                              ; preds = %.lr.ph263, %189
   %indvars.iv322 = phi i64 [ 0, %.lr.ph263 ], [ %indvars.iv.next323, %189 ]
-  %.0205261 = phi float [ 0.000000e+00, %.lr.ph263 ], [ %.1206, %189 ]
+  %.0215260 = phi float [ 0.000000e+00, %.lr.ph263 ], [ %.1216, %189 ]
   %179 = icmp eq i64 %indvars.iv322, %indvars.iv327
   br i1 %179, label %189, label %180
 
@@ -442,18 +442,18 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   %186 = fdiv float -1.000000e+00, %185
   %187 = getelementptr inbounds float, ptr %175, i64 %indvars.iv322
   store float %186, ptr %187, align 4
-  %188 = fsub float %.0205261, %186
+  %188 = fsub float %.0215260, %186
   br label %189
 
 189:                                              ; preds = %178, %180
-  %.1206 = phi float [ %.0205261, %178 ], [ %188, %180 ]
+  %.1216 = phi float [ %.0215260, %178 ], [ %188, %180 ]
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next323, %173
   br i1 %exitcond326.not, label %._crit_edge264, label %178
 
 ._crit_edge264:                                   ; preds = %189
   %190 = getelementptr inbounds float, ptr %175, i64 %indvars.iv327
-  store float %.1206, ptr %190, align 4
+  store float %.1216, ptr %190, align 4
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %173
   br i1 %exitcond331.not, label %.preheader237, label %.lr.ph263
@@ -575,7 +575,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   br label %.lr.ph290.split
 
 245:                                              ; preds = %.preheader234, %._crit_edge286.split.us
-  %.0217288 = phi i32 [ 0, %.preheader234 ], [ %283, %._crit_edge286.split.us ]
+  %.0288 = phi i32 [ 0, %.preheader234 ], [ %283, %._crit_edge286.split.us ]
   %246 = tail call i32 @conjugate_gradient_f(ptr noundef %7, ptr noundef %3, ptr noundef %8, i32 noundef %1, double noundef %4, i32 noundef %1, i1 noundef zeroext true) #12
   %247 = icmp sgt i32 %246, -1
   %brmerge.not = and i1 %247, %10
@@ -583,7 +583,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
 
 .lr.ph280.us:                                     ; preds = %245, %258
   %indvars.iv357 = phi i64 [ %indvars.iv.next358, %258 ], [ 0, %245 ]
-  %.1202284.us = phi i1 [ %.2.us, %258 ], [ true, %245 ]
+  %.1205283.us = phi i1 [ %.2206.us, %258 ], [ true, %245 ]
   %248 = getelementptr inbounds double, ptr %3, i64 %indvars.iv357
   %249 = load double, ptr %248, align 8
   %250 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv357
@@ -591,25 +591,25 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   br label %259
 
 252:                                              ; preds = %._crit_edge281.us
-  %253 = fdiv double %.1204.us, %281
+  %253 = fdiv double %.1208.us, %281
   %254 = fsub double 1.000000e+00, %253
   %255 = tail call double @llvm.fabs.f64(double %254)
   %256 = fcmp ogt double %255, 1.000000e-05
   br i1 %256, label %257, label %258
 
 257:                                              ; preds = %252
-  store double %.1204.us, ptr %280, align 8
+  store double %.1208.us, ptr %280, align 8
   br label %258
 
 258:                                              ; preds = %257, %252, %._crit_edge281.us
-  %.2.us = phi i1 [ false, %257 ], [ %.1202284.us, %252 ], [ %.1202284.us, %._crit_edge281.us ]
+  %.2206.us = phi i1 [ false, %257 ], [ %.1205283.us, %252 ], [ %.1205283.us, %._crit_edge281.us ]
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count359
   br i1 %exitcond360.not, label %._crit_edge286.split.us, label %.lr.ph280.us
 
 259:                                              ; preds = %.lr.ph280.us, %279
   %indvars.iv352 = phi i64 [ 0, %.lr.ph280.us ], [ %indvars.iv.next353, %279 ]
-  %.0203278.us = phi double [ 0.000000e+00, %.lr.ph280.us ], [ %.1204.us, %279 ]
+  %.0207278.us = phi double [ 0.000000e+00, %.lr.ph280.us ], [ %.1208.us, %279 ]
   %260 = icmp eq i64 %indvars.iv352, %indvars.iv357
   br i1 %260, label %279, label %261
 
@@ -630,15 +630,15 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   br i1 %264, label %277, label %275
 
 275:                                              ; preds = %261
-  %276 = fadd double %.0203278.us, %274
+  %276 = fadd double %.0207278.us, %274
   br label %279
 
 277:                                              ; preds = %261
-  %278 = fsub double %.0203278.us, %274
+  %278 = fsub double %.0207278.us, %274
   br label %279
 
 279:                                              ; preds = %277, %275, %259
-  %.1204.us = phi double [ %.0203278.us, %259 ], [ %276, %275 ], [ %278, %277 ]
+  %.1208.us = phi double [ %.0207278.us, %259 ], [ %276, %275 ], [ %278, %277 ]
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count359
   br i1 %exitcond356.not, label %._crit_edge281.us, label %259
@@ -646,13 +646,13 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
 ._crit_edge281.us:                                ; preds = %279
   %280 = getelementptr inbounds double, ptr %8, i64 %indvars.iv357
   %281 = load double, ptr %280, align 8
-  %282 = fcmp une double %.1204.us, %281
+  %282 = fcmp une double %.1208.us, %281
   br i1 %282, label %252, label %258
 
 ._crit_edge286.split.us:                          ; preds = %258
-  %283 = add nuw nsw i32 %.0217288, 1
-  %284 = icmp ugt i32 %.0217288, 198
-  %.not222 = select i1 %284, i1 true, i1 %.2.us
+  %283 = add nuw nsw i32 %.0288, 1
+  %284 = icmp ugt i32 %.0288, 198
+  %.not222 = select i1 %284, i1 true, i1 %.2206.us
   br i1 %.not222, label %.preheader, label %245
 
 .lr.ph290.split:                                  ; preds = %.lr.ph290.split.preheader, %.lr.ph290.split
@@ -675,7 +675,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph290.split, %.loopexit.loopexit383, %.preheader
-  %.0207 = phi i32 [ 0, %.preheader ], [ %.mux, %.loopexit.loopexit383 ], [ 0, %.lr.ph290.split ]
+  %.0217 = phi i32 [ 0, %.preheader ], [ %.mux, %.loopexit.loopexit383 ], [ 0, %.lr.ph290.split ]
   %291 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %291) #12
   tail call void @free(ptr noundef %9) #12
@@ -683,7 +683,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   tail call void @free(ptr noundef %292) #12
   tail call void @free(ptr noundef %7) #12
   tail call void @free(ptr noundef %8) #12
-  ret i32 %.0207
+  ret i32 %.0217
 }
 
 ; Function Attrs: nounwind uwtable

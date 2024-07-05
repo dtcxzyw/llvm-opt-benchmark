@@ -398,11 +398,11 @@ list_length.exit.thread:                          ; preds = %86, %list_length.ex
 
 167:                                              ; preds = %161, %159
   %168 = phi ptr [ %.pre, %159 ], [ %162, %161 ]
-  %.086 = phi i32 [ %160, %159 ], [ %164, %161 ]
   %.084 = phi i8 [ 116, %159 ], [ %166, %161 ]
+  %.0 = phi i32 [ %160, %159 ], [ %164, %161 ]
   %169 = getelementptr inbounds i8, ptr %168, i64 84
   %170 = load i32, ptr %169, align 4
-  %171 = call i32 @make_new_heap(i32 noundef %16, i32 noundef %.086, i32 noundef %170, i8 noundef signext %.084, i32 noundef 7) #8
+  %171 = call i32 @make_new_heap(i32 noundef %16, i32 noundef %.0, i32 noundef %170, i8 noundef signext %.084, i32 noundef 7) #8
   call void @LockRelationOid(i32 noundef %171, i32 noundef 8) #8
   %172 = call ptr @palloc0(i64 noundef 72) #8
   store ptr @transientrel_receive, ptr %172, align 8
@@ -472,7 +472,7 @@ refresh_matview_datafill.exit:                    ; preds = %187, %191
   br label %200
 
 200:                                              ; preds = %refresh_matview_datafill.exit, %167
-  %.085 = phi i64 [ 0, %167 ], [ %199, %refresh_matview_datafill.exit ]
+  %.083 = phi i64 [ 0, %167 ], [ %199, %refresh_matview_datafill.exit ]
   br i1 %12, label %201, label %432
 
 201:                                              ; preds = %200
@@ -644,7 +644,7 @@ refresh_matview_datafill.exit:                    ; preds = %187, %191
   br label %384
 
 .lr.ph125:                                        ; preds = %.lr.ph124.i, %is_usable_unique_index.exit.thread.i
-  %.090122.i124 = phi i8 [ %.3.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
+  %.0123.i124 = phi i8 [ %.3.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
   %indvars.iv135.i123 = phi i64 [ %indvars.iv.next136.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
   %292 = load ptr, ptr %288, align 8
   %293 = getelementptr %union.ListCell, ptr %292, i64 %indvars.iv135.i123
@@ -724,7 +724,7 @@ is_usable_unique_index.exit.i:                    ; preds = %323
 
 338:                                              ; preds = %379, %.lr.ph.i
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i100, %379 ]
-  %.1120.i = phi i8 [ %.090122.i124, %.lr.ph.i ], [ %.2.i, %379 ]
+  %.1121.i = phi i8 [ %.0123.i124, %.lr.ph.i ], [ %.2.i, %379 ]
   %339 = getelementptr [0 x i16], ptr %336, i64 0, i64 %indvars.iv.i99
   %340 = load i16, ptr %339, align 2
   %341 = sext i16 %340 to i64
@@ -777,7 +777,7 @@ is_usable_unique_index.exit.i:                    ; preds = %323
 
 372:                                              ; preds = %368
   store i32 %364, ptr %369, align 4
-  %373 = trunc nuw i8 %.1120.i to i1
+  %373 = trunc nuw i8 %.1121.i to i1
   br i1 %373, label %374, label %375
 
 374:                                              ; preds = %372
@@ -792,13 +792,13 @@ is_usable_unique_index.exit.i:                    ; preds = %323
   br label %379
 
 379:                                              ; preds = %375, %368
-  %.2.i = phi i8 [ %.1120.i, %368 ], [ 1, %375 ]
+  %.2.i = phi i8 [ %.1121.i, %368 ], [ 1, %375 ]
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
   br i1 %exitcond.not.i101, label %is_usable_unique_index.exit.thread.i, label %338, !llvm.loop !7
 
 is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usable_unique_index.exit.i, %318, %315, %311, %305, %301, %.lr.ph125
-  %.3.i = phi i8 [ %.090122.i124, %318 ], [ %.090122.i124, %315 ], [ %.090122.i124, %311 ], [ %.090122.i124, %305 ], [ %.090122.i124, %301 ], [ %.090122.i124, %.lr.ph125 ], [ %.090122.i124, %is_usable_unique_index.exit.i ], [ %.2.i, %379 ], [ %.090122.i124, %324 ]
+  %.3.i = phi i8 [ %.0123.i124, %318 ], [ %.0123.i124, %315 ], [ %.0123.i124, %311 ], [ %.0123.i124, %305 ], [ %.0123.i124, %301 ], [ %.0123.i124, %.lr.ph125 ], [ %.0123.i124, %is_usable_unique_index.exit.i ], [ %.2.i, %379 ], [ %.0123.i124, %324 ]
   call void @index_close(ptr noundef %295, i32 noundef 0) #8
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i123, 1
   %380 = load i32, ptr %287, align 4
@@ -940,7 +940,7 @@ refresh_by_match_merge.exit:                      ; preds = %426
   br i1 %436, label %438, label %437
 
 437:                                              ; preds = %432
-  call void @pgstat_count_heap_insert(ptr noundef nonnull %17, i64 noundef %.085) #8
+  call void @pgstat_count_heap_insert(ptr noundef nonnull %17, i64 noundef %.083) #8
   br label %438
 
 438:                                              ; preds = %432, %437, %refresh_by_match_merge.exit
@@ -955,7 +955,7 @@ refresh_by_match_merge.exit:                      ; preds = %426
 441:                                              ; preds = %438
   store i32 169, ptr %3, align 8
   %442 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.085, ptr %442, align 8
+  store i64 %.083, ptr %442, align 8
   br label %443
 
 443:                                              ; preds = %441, %438

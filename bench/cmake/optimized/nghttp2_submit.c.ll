@@ -84,10 +84,10 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
   br label %38
 
 38:                                               ; preds = %36, %27
-  %.037..i = phi i32 [ %34, %36 ], [ 0, %27 ]
-  %.037.i = phi i32 [ %34, %36 ], [ %2, %27 ]
-  %.0.i = phi i32 [ 0, %36 ], [ 3, %27 ]
-  call void @nghttp2_frame_headers_init(ptr noundef nonnull %19, i8 noundef zeroext %30, i32 noundef %.037.i, i32 noundef %.0.i, ptr noundef nonnull %10, ptr noundef %18, i64 noundef %5) #5
+  %.036..i = phi i32 [ %34, %36 ], [ 0, %27 ]
+  %.036.i = phi i32 [ %34, %36 ], [ %2, %27 ]
+  %.035.i = phi i32 [ 0, %36 ], [ 3, %27 ]
+  call void @nghttp2_frame_headers_init(ptr noundef nonnull %19, i8 noundef zeroext %30, i32 noundef %.036.i, i32 noundef %.035.i, ptr noundef nonnull %10, ptr noundef %18, i64 noundef %5) #5
   %39 = call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %19) #5
   %.not44.i = icmp eq i32 %39, 0
   br i1 %.not44.i, label %submit_headers_shared.exit, label %40
@@ -97,17 +97,17 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
   br label %42
 
 41:                                               ; preds = %32, %17
-  %.035.i = phi i32 [ -901, %17 ], [ -509, %32 ]
+  %.037.i = phi i32 [ -901, %17 ], [ -509, %32 ]
   call void @nghttp2_nv_array_del(ptr noundef %18, ptr noundef nonnull %11) #5
   br label %42
 
 42:                                               ; preds = %41, %40
-  %.1.i = phi i32 [ %.035.i, %41 ], [ %39, %40 ]
+  %.1.i = phi i32 [ %.037.i, %41 ], [ %39, %40 ]
   call void @nghttp2_mem_free(ptr noundef nonnull %11, ptr noundef %19) #5
   br label %submit_headers_shared.exit
 
 submit_headers_shared.exit:                       ; preds = %42, %38, %14
-  %.0 = phi i32 [ %15, %14 ], [ %.1.i, %42 ], [ %.037..i, %38 ]
+  %.0 = phi i32 [ %15, %14 ], [ %.1.i, %42 ], [ %.036..i, %38 ]
   ret i32 %.0
 }
 

@@ -131,7 +131,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 .lr.ph218:                                        ; preds = %.critedge, %.lr.ph218
   %.val170217 = phi i32 [ %.val170, %.lr.ph218 ], [ %.val170214, %.critedge ]
   %.1216 = phi i32 [ %81, %.lr.ph218 ], [ 0, %.critedge ]
-  %.0156215 = phi ptr [ %80, %.lr.ph218 ], [ %63, %.critedge ]
+  %.0157215 = phi ptr [ %80, %.lr.ph218 ], [ %63, %.critedge ]
   %.val177 = load i32, ptr %18, align 4
   %65 = add nsw i32 %.val177, %.1216
   %66 = sext i32 %65 to i64
@@ -148,16 +148,16 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %77 = zext i1 %76 to i64
   %78 = xor i64 %77, %73
   %79 = inttoptr i64 %78 to ptr
-  %80 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef %.0156215, ptr noundef %79) #10
+  %80 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef %.0157215, ptr noundef %79) #10
   call void @Cudd_Ref(ptr noundef %80) #10
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.0156215) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.0157215) #10
   %81 = add nuw nsw i32 %.1216, 1
   %.val170 = load i32, ptr %17, align 8
   %82 = icmp slt i32 %81, %.val170
   br i1 %82, label %.lr.ph218, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.lr.ph218, %.critedge
-  %.0156.lcssa = phi ptr [ %63, %.critedge ], [ %80, %.lr.ph218 ]
+  %.0157.lcssa = phi ptr [ %63, %.critedge ], [ %80, %.lr.ph218 ]
   %.val187 = load i32, ptr %19, align 4
   %83 = icmp sgt i32 %.val187, 0
   br i1 %83, label %.lr.ph234, label %.critedge8
@@ -170,23 +170,23 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %.val201261 = load ptr, ptr %84, align 8
   %87 = getelementptr inbounds ptr, ptr %.val201261, i64 %indvars.iv.next246260
   %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.0156.lcssa) #10
+  %89 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.0157.lcssa) #10
   %90 = icmp eq ptr %89, null
   br i1 %90, label %._crit_edge, label %.lr.ph265
 
 .critedge10.loopexit:                             ; preds = %.lr.ph228, %122
-  %.2158.lcssa = phi ptr [ %123, %122 ], [ %140, %.lr.ph228 ]
+  %.2159.lcssa = phi ptr [ %123, %122 ], [ %140, %.lr.ph228 ]
   %indvars.iv.next246 = add nsw i64 %indvars.iv.next246264, -1
   %.val201 = load ptr, ptr %84, align 8
   %91 = getelementptr inbounds ptr, ptr %.val201, i64 %indvars.iv.next246
   %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.2158.lcssa) #10
+  %93 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.2159.lcssa) #10
   %94 = icmp eq ptr %93, null
   br i1 %94, label %._crit_edge, label %.lr.ph265
 
 ._crit_edge:                                      ; preds = %.critedge10.loopexit, %.lr.ph234
-  %.1157231.lcssa = phi ptr [ %.0156.lcssa, %.lr.ph234 ], [ %.2158.lcssa, %.critedge10.loopexit ]
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1157231.lcssa) #10
+  %.1158231.lcssa = phi ptr [ %.0157.lcssa, %.lr.ph234 ], [ %.2159.lcssa, %.critedge10.loopexit ]
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1158231.lcssa) #10
   %.not164 = icmp eq i32 %7, 0
   br i1 %.not164, label %95, label %97
 
@@ -207,10 +207,10 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %99 = phi ptr [ %93, %.critedge10.loopexit ], [ %89, %.lr.ph234 ]
   %100 = phi ptr [ %92, %.critedge10.loopexit ], [ %88, %.lr.ph234 ]
   %indvars.iv.next246264 = phi i64 [ %indvars.iv.next246, %.critedge10.loopexit ], [ %indvars.iv.next246260, %.lr.ph234 ]
-  %.1157231263 = phi ptr [ %.2158.lcssa, %.critedge10.loopexit ], [ %.0156.lcssa, %.lr.ph234 ]
-  %.0232262 = phi i32 [ %120, %.critedge10.loopexit ], [ %61, %.lr.ph234 ]
+  %.1158231263 = phi ptr [ %.2159.lcssa, %.critedge10.loopexit ], [ %.0157.lcssa, %.lr.ph234 ]
+  %.0154232262 = phi i32 [ %120, %.critedge10.loopexit ], [ %61, %.lr.ph234 ]
   call void @Cudd_Ref(ptr noundef nonnull %99) #10
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1157231263) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.1158231263) #10
   %101 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef nonnull %99, ptr noundef %100) #10
   call void @Cudd_Ref(ptr noundef %101) #10
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %99) #10
@@ -230,7 +230,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 
 107:                                              ; preds = %.lr.ph222
   %108 = trunc i64 %indvars.iv242 to i32
-  %109 = add i32 %.0232262, %108
+  %109 = add i32 %.0154232262, %108
   %110 = and i32 %109, 31
   %111 = shl nuw i32 1, %110
   %112 = ashr i32 %109, 5
@@ -251,7 +251,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 
 .critedge6:                                       ; preds = %117, %.lr.ph265
   %.val179.lcssa = phi i32 [ %.val179220, %.lr.ph265 ], [ %.val179, %117 ]
-  %120 = sub nsw i32 %.0232262, %.val179.lcssa
+  %120 = sub nsw i32 %.0154232262, %.val179.lcssa
   %121 = icmp eq i64 %indvars.iv.next246264, 0
   br i1 %121, label %.critedge8, label %122
 
@@ -265,7 +265,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 .lr.ph228:                                        ; preds = %122, %.lr.ph228
   %.val172227 = phi i32 [ %.val172, %.lr.ph228 ], [ %.val172224, %122 ]
   %.4226 = phi i32 [ %141, %.lr.ph228 ], [ 0, %122 ]
-  %.2158225 = phi ptr [ %140, %.lr.ph228 ], [ %123, %122 ]
+  %.2159225 = phi ptr [ %140, %.lr.ph228 ], [ %123, %122 ]
   %.val182 = load i32, ptr %18, align 4
   %125 = add nsw i32 %.val182, %.4226
   %126 = sext i32 %125 to i64
@@ -282,9 +282,9 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %137 = zext i1 %136 to i64
   %138 = xor i64 %137, %133
   %139 = inttoptr i64 %138 to ptr
-  %140 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef %.2158225, ptr noundef %139) #10
+  %140 = call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef %.2159225, ptr noundef %139) #10
   call void @Cudd_Ref(ptr noundef %140) #10
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.2158225) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.2159225) #10
   %141 = add nuw nsw i32 %.4226, 1
   %.val172 = load i32, ptr %17, align 8
   %142 = icmp slt i32 %141, %.val172
@@ -346,8 +346,8 @@ Abc_Clock.exit206:                                ; preds = %153, %156
   br label %166
 
 166:                                              ; preds = %150, %Abc_Clock.exit206, %98, %97, %33, %34
-  %.0159 = phi ptr [ null, %34 ], [ null, %33 ], [ null, %97 ], [ null, %98 ], [ %21, %Abc_Clock.exit206 ], [ %21, %150 ]
-  ret ptr %.0159
+  %.0 = phi ptr [ null, %34 ], [ null, %33 ], [ null, %97 ], [ null, %98 ], [ %21, %Abc_Clock.exit206 ], [ %21, %150 ]
+  ret ptr %.0
 }
 
 declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

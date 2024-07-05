@@ -292,11 +292,11 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 .lr.ph.i.i:                                       ; preds = %48, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %48 ]
   %.046.i.i = phi i8 [ 0, %.lr.ph.preheader.i.i ], [ %23, %48 ]
-  %.03645.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %51, %48 ]
-  %.03843.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.139.i.i, %48 ]
+  %.03645.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %48 ]
+  %.03744.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %51, %48 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i.i
   %23 = load i8, ptr %22, align 1
-  switch i32 %.03843.i.i, label %default.unreachable [
+  switch i32 %.03645.i.i, label %default.unreachable [
     i32 0, label %24
     i32 1, label %27
     i32 2, label %33
@@ -325,8 +325,8 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
-  %43 = add i32 %.03645.i.i, 1
-  %44 = zext i32 %.03645.i.i to i64
+  %43 = add i32 %.03744.i.i, 1
+  %44 = zext i32 %.03744.i.i to i64
   %45 = getelementptr inbounds i8, ptr %20, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = and i32 %37, 63
@@ -339,11 +339,11 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
 48:                                               ; preds = %33, %27, %24
   %.sink.i.i = phi i64 [ %47, %33 ], [ %32, %27 ], [ %26, %24 ]
   %.sink58.i.i = phi i32 [ 2, %33 ], [ 1, %27 ], [ 1, %24 ]
-  %.sink57.i.i = phi i32 [ %43, %33 ], [ %.03645.i.i, %27 ], [ %.03645.i.i, %24 ]
-  %.139.i.i = phi i32 [ 0, %33 ], [ 2, %27 ], [ 1, %24 ]
+  %.sink57.i.i = phi i32 [ %43, %33 ], [ %.03744.i.i, %27 ], [ %.03744.i.i, %24 ]
+  %.1.i.i = phi i32 [ 0, %33 ], [ 2, %27 ], [ 1, %24 ]
   %49 = getelementptr inbounds [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %.sink.i.i
   %50 = load i8, ptr %49, align 1
-  %51 = add i32 %.sink58.i.i, %.03645.i.i
+  %51 = add i32 %.sink58.i.i, %.03744.i.i
   %52 = zext i32 %.sink57.i.i to i64
   %53 = getelementptr inbounds i8, ptr %20, i64 %52
   store i8 %50, ptr %53, align 1
@@ -352,7 +352,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %48
-  switch i32 %.139.i.i, label %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i [
+  switch i32 %.1.i.i, label %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i [
     i32 1, label %54
     i32 2, label %63
   ]
@@ -379,11 +379,11 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
 
 ._crit_edge.thread.sink.split.i.i:                ; preds = %63, %54
   %.sink67.i.i = phi i32 [ 1, %63 ], [ 2, %54 ]
-  %.1.lcssa.sink.i.i = phi i32 [ %51, %63 ], [ %60, %54 ]
+  %.138.lcssa.sink.i.i = phi i32 [ %51, %63 ], [ %60, %54 ]
   %.sink64.i.i = phi i8 [ %68, %63 ], [ 61, %54 ]
   %.sink63.i.i = phi i32 [ 2, %63 ], [ 3, %54 ]
   %69 = add i32 %.sink67.i.i, %51
-  %70 = zext i32 %.1.lcssa.sink.i.i to i64
+  %70 = zext i32 %.138.lcssa.sink.i.i to i64
   %71 = getelementptr inbounds i8, ptr %20, i64 %70
   store i8 %.sink64.i.i, ptr %71, align 1
   %72 = add i32 %.sink63.i.i, %51
@@ -1124,7 +1124,7 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 
 .lr.ph.i.i:                                       ; preds = %69, %.lr.ph.i.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %indvars.iv.next.i, %69 ]
-  %.038.i.i = phi i32 [ 0, %.lr.ph.i.preheader.i ], [ %.1.i.i, %69 ]
+  %.03338.i.i = phi i32 [ 0, %.lr.ph.i.preheader.i ], [ %.1.i.i, %69 ]
   %24 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 61
@@ -1154,7 +1154,7 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 
 37:                                               ; preds = %34
   %38 = shl i8 %32, 2
-  %39 = zext i32 %.038.i.i to i64
+  %39 = zext i32 %.03338.i.i to i64
   %40 = getelementptr inbounds i8, ptr %19, i64 %39
   store i8 %38, ptr %40, align 1
   br label %69
@@ -1162,8 +1162,8 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 41:                                               ; preds = %34
   %42 = lshr i8 %32, 4
   %43 = and i8 %42, 3
-  %44 = add i32 %.038.i.i, 1
-  %45 = zext i32 %.038.i.i to i64
+  %44 = add i32 %.03338.i.i, 1
+  %45 = zext i32 %.03338.i.i to i64
   %46 = getelementptr inbounds i8, ptr %19, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = or i8 %47, %43
@@ -1177,8 +1177,8 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 52:                                               ; preds = %34
   %53 = lshr i8 %32, 2
   %54 = and i8 %53, 15
-  %55 = add i32 %.038.i.i, 1
-  %56 = zext i32 %.038.i.i to i64
+  %55 = add i32 %.03338.i.i, 1
+  %56 = zext i32 %.03338.i.i to i64
   %57 = getelementptr inbounds i8, ptr %19, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = or i8 %58, %54
@@ -1190,8 +1190,8 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
   br label %69
 
 63:                                               ; preds = %34
-  %64 = add i32 %.038.i.i, 1
-  %65 = zext i32 %.038.i.i to i64
+  %64 = add i32 %.03338.i.i, 1
+  %65 = zext i32 %.03338.i.i to i64
   %66 = getelementptr inbounds i8, ptr %19, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = or i8 %67, %32
@@ -1202,16 +1202,16 @@ default.unreachable:                              ; preds = %34
   unreachable
 
 69:                                               ; preds = %63, %52, %41, %37
-  %.1.i.i = phi i32 [ %64, %63 ], [ %55, %52 ], [ %44, %41 ], [ %.038.i.i, %37 ]
+  %.1.i.i = phi i32 [ %64, %63 ], [ %55, %52 ], [ %44, %41 ], [ %.03338.i.i, %37 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i, %23
   br i1 %exitcond.not.i.i, label %_ZN4pkpyL13base64_decodeEPKcjPh.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZN4pkpyL13base64_decodeEPKcjPh.exit.i:           ; preds = %69, %29, %27, %.lr.ph.i.i, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %.034.i.i = phi i32 [ 0, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ 0, %27 ], [ 0, %29 ], [ %.038.i.i, %.lr.ph.i.i ], [ %.1.i.i, %69 ]
+  %.0.i.i = phi i32 [ 0, %_ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i ], [ 0, %27 ], [ 0, %29 ], [ %.03338.i.i, %.lr.ph.i.i ], [ %.1.i.i, %69 ]
   store ptr %19, ptr %4, align 8
   %70 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %.034.i.i, ptr %70, align 8
+  store i32 %.0.i.i, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 16
   %72 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5BytesEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %71, i16 16, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i unwind label %76

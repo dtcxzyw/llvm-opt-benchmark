@@ -1278,8 +1278,8 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   br label %27
 
 27:                                               ; preds = %25, %23
-  %.sroa.3.0.us = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.65, %25 ], [ @anon.5f95ae5c3a1da310297d0616fff28abc.64, %23 ]
   %.sroa.014.0.us = phi ptr [ %10, %25 ], [ %9, %23 ]
+  %.sroa.3.0.us = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.65, %25 ], [ @anon.5f95ae5c3a1da310297d0616fff28abc.64, %23 ]
   %.2.us = phi i1 [ false, %25 ], [ true, %23 ]
   %28 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hacbadea320006592E"(i64 noundef 8192, i1 noundef zeroext false)
           to label %29 unwind label %49
@@ -1388,8 +1388,8 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   br label %59
 
 59:                                               ; preds = %52, %57
-  %.sroa.3.0 = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.65, %52 ], [ @anon.5f95ae5c3a1da310297d0616fff28abc.64, %57 ]
   %.sroa.014.0 = phi ptr [ %10, %52 ], [ %9, %57 ]
+  %.sroa.3.0 = phi ptr [ @anon.5f95ae5c3a1da310297d0616fff28abc.65, %52 ], [ @anon.5f95ae5c3a1da310297d0616fff28abc.64, %57 ]
   %.2 = phi i1 [ false, %52 ], [ true, %57 ]
   %60 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hacbadea320006592E"(i64 noundef 8192, i1 noundef zeroext false)
           to label %64 unwind label %.split

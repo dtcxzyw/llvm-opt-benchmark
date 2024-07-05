@@ -738,15 +738,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %i.09 = phi i64 [ 0, %entry ], [ %inc2, %if.end ]
+  %i.08 = phi i64 [ 0, %entry ], [ %inc2, %if.end ]
   %call = tail call i32 @PyCode_AddWatcher(ptr noundef nonnull @noop_code_event_handler) #6
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %arrayidx = getelementptr [9 x i32], ptr %watcher_ids, i64 0, i64 %i.09
+  %arrayidx = getelementptr [9 x i32], ptr %watcher_ids, i64 0, i64 %i.08
   store i32 %call, ptr %arrayidx, align 4
-  %inc2 = add nuw nsw i64 %i.09, 1
+  %inc2 = add nuw nsw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc2, 9
   br i1 %exitcond.not, label %for.end.thread, label %for.body, !llvm.loop !6
 
@@ -755,14 +755,14 @@ for.end.thread:                                   ; preds = %if.end
   br label %for.body7.preheader
 
 for.end:                                          ; preds = %for.body
-  %indvars12.le = trunc i64 %i.09 to i32
+  %indvars12.le = trunc i64 %i.08 to i32
   %call3 = tail call ptr @PyErr_GetRaisedException() #6
   %cmp610 = icmp sgt i32 %indvars12.le, 0
   br i1 %cmp610, label %for.body7.preheader, label %for.end15
 
 for.body7.preheader:                              ; preds = %for.end.thread, %for.end
   %call320 = phi ptr [ %call316, %for.end.thread ], [ %call3, %for.end ]
-  %num_watchers.0.lcssa18 = phi i64 [ 9, %for.end.thread ], [ %i.09, %for.end ]
+  %num_watchers.0.lcssa18 = phi i64 [ 9, %for.end.thread ], [ %i.08, %for.end ]
   %wide.trip.count = and i64 %num_watchers.0.lcssa18, 4294967295
   br label %for.body7
 
@@ -987,15 +987,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %i.09 = phi i64 [ 0, %entry ], [ %inc2, %if.end ]
+  %i.08 = phi i64 [ 0, %entry ], [ %inc2, %if.end ]
   %call = tail call i32 @PyFunction_AddWatcher(ptr noundef nonnull @noop_func_event_handler) #6
   %cmp1 = icmp eq i32 %call, -1
   br i1 %cmp1, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %arrayidx = getelementptr [9 x i32], ptr %watcher_ids, i64 0, i64 %i.09
+  %arrayidx = getelementptr [9 x i32], ptr %watcher_ids, i64 0, i64 %i.08
   store i32 %call, ptr %arrayidx, align 4
-  %inc2 = add nuw nsw i64 %i.09, 1
+  %inc2 = add nuw nsw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc2, 9
   br i1 %exitcond.not, label %for.end.thread, label %for.body, !llvm.loop !10
 
@@ -1004,14 +1004,14 @@ for.end.thread:                                   ; preds = %if.end
   br label %for.body7.preheader
 
 for.end:                                          ; preds = %for.body
-  %indvars12.le = trunc i64 %i.09 to i32
+  %indvars12.le = trunc i64 %i.08 to i32
   %call3 = tail call ptr @PyErr_GetRaisedException() #6
   %cmp610 = icmp sgt i32 %indvars12.le, 0
   br i1 %cmp610, label %for.body7.preheader, label %for.end15
 
 for.body7.preheader:                              ; preds = %for.end.thread, %for.end
   %call320 = phi ptr [ %call316, %for.end.thread ], [ %call3, %for.end ]
-  %num_watchers.0.lcssa18 = phi i64 [ 9, %for.end.thread ], [ %i.09, %for.end ]
+  %num_watchers.0.lcssa18 = phi i64 [ 9, %for.end.thread ], [ %i.08, %for.end ]
   %wide.trip.count = and i64 %num_watchers.0.lcssa18, 4294967295
   br label %for.body7
 

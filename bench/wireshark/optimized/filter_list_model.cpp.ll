@@ -5605,7 +5605,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
 32:                                               ; preds = %.backedge, %29
   %.059 = phi i64 [ %11, %29 ], [ %.059.be, %.backedge ]
   %.057 = phi i64 [ %14, %29 ], [ %.057.be, %.backedge ]
-  %.038 = phi ptr [ %0, %29 ], [ %.038.be, %.backedge ]
+  %.039 = phi ptr [ %0, %29 ], [ %.039.be, %.backedge ]
   %33 = sub i64 %.059, %.057
   %34 = icmp slt i64 %.057, %33
   br i1 %34, label %35, label %55
@@ -5615,13 +5615,13 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br i1 %36, label %.lr.ph69.preheader, label %._crit_edge70
 
 .lr.ph69.preheader:                               ; preds = %35
-  %37 = getelementptr %class.QString, ptr %.038, i64 %.057
+  %37 = getelementptr %class.QString, ptr %.039, i64 %.057
   br label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %.03667 = phi i64 [ %50, %.lr.ph69 ], [ 0, %.lr.ph69.preheader ]
   %.03766 = phi ptr [ %49, %.lr.ph69 ], [ %37, %.lr.ph69.preheader ]
-  %.165 = phi ptr [ %48, %.lr.ph69 ], [ %.038, %.lr.ph69.preheader ]
+  %.165 = phi ptr [ %48, %.lr.ph69 ], [ %.039, %.lr.ph69.preheader ]
   %38 = load ptr, ptr %.165, align 8
   %39 = load ptr, ptr %.03766, align 8
   store ptr %39, ptr %.165, align 8
@@ -5645,7 +5645,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br i1 %exitcond74.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !30
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %35
-  %.1.lcssa = phi ptr [ %.038, %35 ], [ %48, %.lr.ph69 ]
+  %.1.lcssa = phi ptr [ %.039, %35 ], [ %48, %.lr.ph69 ]
   %51 = srem i64 %.059, %.057
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %_ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit, label %53
@@ -5655,7 +5655,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br label %.backedge
 
 55:                                               ; preds = %32
-  %56 = getelementptr %class.QString, ptr %.038, i64 %.059
+  %56 = getelementptr %class.QString, ptr %.039, i64 %.059
   %57 = sub i64 0, %33
   %58 = getelementptr %class.QString, ptr %56, i64 %57
   %59 = icmp sgt i64 %.057, 0
@@ -5688,7 +5688,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
-  %.2.lcssa = phi ptr [ %58, %55 ], [ %.038, %.lr.ph ]
+  %.2.lcssa = phi ptr [ %58, %55 ], [ %.039, %.lr.ph ]
   %73 = srem i64 %.059, %33
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %_ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit, label %.backedge
@@ -5696,12 +5696,12 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
 .backedge:                                        ; preds = %._crit_edge, %53
   %.059.be = phi i64 [ %.057, %53 ], [ %33, %._crit_edge ]
   %.057.be = phi i64 [ %54, %53 ], [ %73, %._crit_edge ]
-  %.038.be = phi ptr [ %.1.lcssa, %53 ], [ %.2.lcssa, %._crit_edge ]
+  %.039.be = phi ptr [ %.1.lcssa, %53 ], [ %.2.lcssa, %._crit_edge ]
   br label %32, !llvm.loop !32
 
 _ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit:  ; preds = %._crit_edge, %._crit_edge70, %.lr.ph.i, %5, %3
-  %.039 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %31, %._crit_edge70 ], [ %31, %._crit_edge ]
-  ret ptr %.039
+  %.038 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %31, %._crit_edge70 ], [ %31, %._crit_edge ]
+  ret ptr %.038
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

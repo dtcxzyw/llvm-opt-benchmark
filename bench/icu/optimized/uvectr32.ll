@@ -1158,22 +1158,22 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %max.015 = phi i32 [ %0, %while.body.lr.ph ], [ %max.1, %while.body ]
-  %min.014 = phi i32 [ 0, %while.body.lr.ph ], [ %min.1, %while.body ]
-  %add = add nsw i32 %max.015, %min.014
+  %min.015 = phi i32 [ 0, %while.body.lr.ph ], [ %min.1, %while.body ]
+  %max.014 = phi i32 [ %0, %while.body.lr.ph ], [ %max.1, %while.body ]
+  %add = add nsw i32 %min.015, %max.014
   %div = sdiv i32 %add, 2
   %idxprom = sext i32 %div to i64
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %cmp2 = icmp sgt i32 %2, %tok
   %add3 = add nsw i32 %div, 1
-  %min.1 = select i1 %cmp2, i32 %min.014, i32 %add3
-  %max.1 = select i1 %cmp2, i32 %div, i32 %max.015
+  %max.1 = select i1 %cmp2, i32 %div, i32 %max.014
+  %min.1 = select i1 %cmp2, i32 %min.015, i32 %add3
   %cmp.not = icmp eq i32 %min.1, %max.1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %while.body, %entry
-  %min.0.lcssa = phi i32 [ 0, %entry ], [ %min.1, %while.body ]
+  %min.0.lcssa = phi i32 [ 0, %entry ], [ %max.1, %while.body ]
   %add5 = add nsw i32 %0, 1
   %cmp.i = icmp slt i32 %0, -1
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 12

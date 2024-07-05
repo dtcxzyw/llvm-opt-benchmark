@@ -1862,8 +1862,8 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br label %_ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit.thread
 
 .loopexit613.i.i:                                 ; preds = %200, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i.i", %.noexc19.i, %196
-  %.sroa.5417.0510.ph.i.i = phi i64 [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i.i" ], [ 0, %.noexc19.i ], [ 0, %196 ], [ 0, %200 ]
-  store i64 %.sroa.5417.0510.ph.i.i, ptr %62, align 8, !alias.scope !104, !noalias !105
+  %.sroa.5417.0506.ph.i.i = phi i64 [ 1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread20.i.i.i" ], [ 0, %.noexc19.i ], [ 0, %196 ], [ 0, %200 ]
+  store i64 %.sroa.5417.0506.ph.i.i, ptr %62, align 8, !alias.scope !104, !noalias !105
   store i64 %193, ptr %63, align 8, !alias.scope !104, !noalias !105
   br label %452
 
@@ -2034,9 +2034,9 @@ _ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit: ; preds = %452, %4
   br i1 %473, label %575, label %501
 
 501:                                              ; preds = %500, %499
-  %.061.i = phi i8 [ %.73.i, %499 ], [ 1, %500 ]
+  %.064.i = phi i8 [ %.73.i, %499 ], [ 1, %500 ]
   %502 = icmp eq i8 %.0.i, 3
-  %503 = icmp eq i8 %.061.i, 2
+  %503 = icmp eq i8 %.064.i, 2
   br i1 %502, label %504, label %505
 
 default.unreachable.i.i:                          ; preds = %507
@@ -2049,12 +2049,12 @@ default.unreachable.i.i:                          ; preds = %507
   br i1 %503, label %switch.lookup, label %507
 
 506:                                              ; preds = %504
-  %trunc20.i.i = trunc i8 %.061.i to i1
+  %trunc20.i.i = trunc i8 %.064.i to i1
   %anon.c1442423ab71096c578c2ca821fd175a.139.anon.c1442423ab71096c578c2ca821fd175a.140.i.i = select i1 %trunc20.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.140, ptr @anon.c1442423ab71096c578c2ca821fd175a.139
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 507:                                              ; preds = %505
-  %trunc19.i.i = trunc i8 %.061.i to i1
+  %trunc19.i.i = trunc i8 %.064.i to i1
   switch i8 %.0.i, label %default.unreachable.i.i [
     i8 0, label %508
     i8 1, label %509
@@ -2167,11 +2167,11 @@ _ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i: ; preds = %536,
   %spec.select.i = select i1 %484, i8 %.79.i, i8 undef
   %trunc.i = trunc nuw i64 %.sroa.0.0.copyload to i1
   %trunc69.i = trunc nuw i64 %.sroa.8.0.copyload to i1
-  %.063.i = select i1 %trunc69.i, i64 %.sroa.915.0.copyload, i64 512
+  %.062.i = select i1 %trunc69.i, i64 %.sroa.915.0.copyload, i64 512
   %trunc70.i = trunc nuw i64 %.sroa.10.0.copyload to i1
   %537 = load i64, ptr %.sroa.9.0..sroa_idx3, align 8
   %spec.select = select i1 %trunc70.i, i64 %537, i64 512
-  %.164.i = select i1 %trunc.i, i64 %.sroa.512.0.copyload, i64 %.063.i
+  %.163.i = select i1 %trunc.i, i64 %.sroa.512.0.copyload, i64 %.062.i
   %.1.i = select i1 %trunc.i, i64 %.sroa.512.0.copyload, i64 %spec.select
   %.not71.i = icmp eq i64 %.sroa.0.0.copyload, 0
   %538 = getelementptr inbounds i8, ptr %22, i64 192
@@ -2187,7 +2187,7 @@ _ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i: ; preds = %536,
   %547 = trunc nuw i8 %546 to i1
   %548 = icmp ne i64 %541, 0
   %switch.i.not.i = or i1 %548, %547
-  %549 = select i1 %switch.i.not.i, i64 1, i64 %.164.i
+  %549 = select i1 %switch.i.not.i, i64 1, i64 %.163.i
   %.0.i.i = mul i64 %549, %543
   %550 = getelementptr inbounds i8, ptr %22, i64 80
   %551 = load i64, ptr %550, align 8, !range !73, !alias.scope !494, !noalias !491, !noundef !5
@@ -2239,7 +2239,7 @@ _ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i: ; preds = %536,
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 107
   store i8 %486, ptr %.sroa.12.0..sroa_idx.i, align 1, !alias.scope !491, !noalias !494
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 112
-  store i64 %.164.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !491, !noalias !494
+  store i64 %.163.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !491, !noalias !494
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %.1.i, ptr %.sroa.15.0..sroa_idx.i, align 8, !alias.scope !491, !noalias !494
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 128
@@ -3124,7 +3124,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs31parse_bytes_with_opt_multiplie
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !630
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.lcssa, ptr %30, align 8
+  store i64 %.087.lcssa, ptr %30, align 8
   store i64 14, ptr %0, align 8
   br label %62
 
@@ -3183,7 +3183,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs31parse_bytes_with_opt_multiplie
           to label %.thread unwind label %103
 
 ._crit_edge:                                      ; preds = %87, %31
-  %.0.lcssa = phi i64 [ 1, %31 ], [ %88, %87 ]
+  %.087.lcssa = phi i64 [ 1, %31 ], [ %88, %87 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !630
   store ptr %15, ptr %13, align 8, !noalias !630
   %51 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd659a0a7bae460a1E.llvm.14303161345558456588(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %15)
@@ -3207,7 +3207,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs31parse_bytes_with_opt_multiplie
 
 56:                                               ; preds = %.lr.ph, %87
   %57 = phi ptr [ %.sroa.4.0.copyload, %.lr.ph ], [ %90, %87 ]
-  %.0128 = phi i64 [ 1, %.lr.ph ], [ %88, %87 ]
+  %.087128 = phi i64 [ 1, %.lr.ph ], [ %88, %87 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   store ptr %58, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !635
@@ -3322,7 +3322,7 @@ _ZN5uu_dd9parseargs28show_zero_multiplier_warning17h5461c6bf4880ec7aE.exit: ; pr
 
 81:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %82 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0128, i64 %80)
+  %82 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.087128, i64 %80)
   %83 = extractvalue { i64, i1 } %82, 1
   br i1 %83, label %85, label %87
 

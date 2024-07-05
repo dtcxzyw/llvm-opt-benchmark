@@ -1247,16 +1247,16 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   %62 = getelementptr inbounds i8, ptr %1, i64 53
   %63 = load i8, ptr %62, align 1, !range !574, !noundef !4
   %.not = icmp eq i8 %63, 2
-  %.0323.in.in.v = select i1 %.not, i64 60, i64 36
-  %.0323.in.in = getelementptr inbounds i8, ptr %1, i64 %.0323.in.in.v
+  %.0324.in.in.v = select i1 %.not, i64 60, i64 36
+  %.0324.in.in = getelementptr inbounds i8, ptr %1, i64 %.0324.in.in.v
   %.0315.in.in.v = select i1 %.not, i64 56, i64 32
   %.0315.in.in = getelementptr inbounds i8, ptr %1, i64 %.0315.in.in.v
   %.0315.in346 = load i32, ptr %.0315.in.in, align 8, !noundef !4
-  %.0323.in = load i32, ptr %.0323.in.in, align 4, !noundef !4
-  %.0323 = zext i32 %.0323.in to i64
+  %.0324.in = load i32, ptr %.0324.in.in, align 4, !noundef !4
+  %.0324 = zext i32 %.0324.in to i64
   %64 = tail call noundef i64 @_ZN3png7encoder11PartialInfo25raw_row_length_from_width17h61bfbd45c15a7a7cE(ptr noalias noundef nonnull readonly align 4 dereferenceable(52) %37, i32 noundef %.0315.in346)
   %65 = add i64 %64, -1
-  %66 = mul i64 %65, %.0323
+  %66 = mul i64 %65, %.0324
   %.not347 = icmp eq i64 %66, %3
   br i1 %.not347, label %68, label %74
 
@@ -1453,7 +1453,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   store ptr %124, ptr %.sroa.2306.0..sroa_idx, align 8
   %.sroa.3307.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   store i64 %.sroa.5187.sroa.0.0.copyload, ptr %.sroa.3307.0..sroa_idx, align 8
-  %126 = mul i64 %64, %.0323
+  %126 = mul i64 %64, %.0324
   %127 = call i64 @llvm.usub.sat.i64(i64 %126, i64 1)
   %128 = udiv i64 %127, 65535
   %129 = mul i64 %128, 65540
@@ -3149,8 +3149,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hef4
   br i1 %switch.not.not, label %10, label %12
 
 9:                                                ; preds = %10, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
-  ret i1 %.0
+  %.014 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
+  ret i1 %.014
 
 10:                                               ; preds = %5
   %11 = icmp sle i32 %4, %8
@@ -5025,8 +5025,8 @@ define hidden noundef zeroext i1 @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Contain
   %9 = extractvalue { i64, i1 } %7, 0
   %10 = icmp ule i64 %9, %2
   %not. = xor i1 %8, true
-  %.0 = and i1 %10, %not.
-  ret i1 %.0
+  %.04 = and i1 %10, %not.
+  ret i1 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5039,8 +5039,8 @@ define hidden noundef zeroext i1 @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Contain
   %9 = extractvalue { i64, i1 } %7, 0
   %10 = icmp ule i64 %9, %2
   %not. = xor i1 %8, true
-  %.0 = and i1 %10, %not.
-  ret i1 %.0
+  %.04 = and i1 %10, %not.
+  ret i1 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5062,8 +5062,8 @@ define hidden noundef zeroext i1 @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Contain
   %9 = extractvalue { i64, i1 } %7, 0
   %10 = icmp ule i64 %9, %2
   %not. = xor i1 %8, true
-  %.0 = and i1 %10, %not.
-  ret i1 %.0
+  %.04 = and i1 %10, %not.
+  ret i1 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5129,8 +5129,8 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_ra
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
   %12 = icmp ugt i64 %11, %4
-  %.0.i.not = or i1 %10, %12
-  br i1 %.0.i.not, label %14, label %13
+  %.04.i.not = or i1 %10, %12
+  br i1 %.04.i.not, label %14, label %13
 
 13:                                               ; preds = %5
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -5156,8 +5156,8 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_ra
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
   %12 = icmp ugt i64 %11, %4
-  %.0.i.not = or i1 %10, %12
-  br i1 %.0.i.not, label %14, label %13
+  %.04.i.not = or i1 %10, %12
+  br i1 %.04.i.not, label %14, label %13
 
 13:                                               ; preds = %5
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -5183,8 +5183,8 @@ define hidden void @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_ra
   %10 = extractvalue { i64, i1 } %9, 1
   %11 = extractvalue { i64, i1 } %9, 0
   %12 = icmp ugt i64 %11, %4
-  %.0.i.not = or i1 %10, %12
-  br i1 %.0.i.not, label %14, label %13
+  %.04.i.not = or i1 %10, %12
+  br i1 %.04.i.not, label %14, label %13
 
 13:                                               ; preds = %5
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

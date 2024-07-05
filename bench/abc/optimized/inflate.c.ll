@@ -112,9 +112,9 @@ define range(i32 -2, 1) i32 @inflateReset2(ptr noundef %0, i32 noundef %1) local
   br label %select.unfold
 
 select.unfold:                                    ; preds = %12, %10
-  %.024 = phi i32 [ %11, %10 ], [ %spec.select, %12 ]
-  %.0 = phi i32 [ 0, %10 ], [ %14, %12 ]
-  switch i32 %.024, label %inflateReset.exit [
+  %.025 = phi i32 [ %11, %10 ], [ %spec.select, %12 ]
+  %.024 = phi i32 [ 0, %10 ], [ %14, %12 ]
+  switch i32 %.025, label %inflateReset.exit [
     i32 15, label %17
     i32 14, label %17
     i32 13, label %17
@@ -135,7 +135,7 @@ select.unfold:                                    ; preds = %12, %10
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %6, i64 48
   %22 = load i32, ptr %21, align 8
-  %.not31 = icmp eq i32 %22, %.024
+  %.not31 = icmp eq i32 %22, %.025
   br i1 %.not31, label %28, label %23
 
 23:                                               ; preds = %20
@@ -149,9 +149,9 @@ select.unfold:                                    ; preds = %12, %10
 
 28:                                               ; preds = %17, %20, %23
   %29 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.0, ptr %29, align 8
+  store i32 %.024, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 48
-  store i32 %.024, ptr %30, align 8
+  store i32 %.025, ptr %30, align 8
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %inflateReset.exit, label %33
@@ -198,8 +198,8 @@ select.unfold:                                    ; preds = %12, %10
   br label %inflateReset.exit
 
 inflateReset.exit:                                ; preds = %33, %28, %select.unfold, %2, %4
-  %.025 = phi i32 [ -2, %4 ], [ -2, %2 ], [ -2, %select.unfold ], [ 0, %33 ], [ -2, %28 ]
-  ret i32 %.025
+  %.0 = phi i32 [ -2, %4 ], [ -2, %2 ], [ -2, %select.unfold ], [ 0, %33 ], [ -2, %28 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -276,9 +276,9 @@ define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr n
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %39, %37
-  %.024.i = phi i32 [ %38, %37 ], [ %spec.select, %39 ]
-  %.0.i = phi i32 [ 0, %37 ], [ %41, %39 ]
-  switch i32 %.024.i, label %77 [
+  %.025.i = phi i32 [ %38, %37 ], [ %spec.select, %39 ]
+  %.024.i = phi i32 [ 0, %37 ], [ %41, %39 ]
+  switch i32 %.025.i, label %77 [
     i32 15, label %44
     i32 14, label %44
     i32 13, label %44
@@ -299,7 +299,7 @@ select.unfold.i:                                  ; preds = %39, %37
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %33, i64 48
   %49 = load i32, ptr %48, align 8
-  %.not31.i = icmp eq i32 %49, %.024.i
+  %.not31.i = icmp eq i32 %49, %.025.i
   br i1 %.not31.i, label %53, label %50
 
 50:                                               ; preds = %47
@@ -311,9 +311,9 @@ select.unfold.i:                                  ; preds = %39, %37
 
 53:                                               ; preds = %50, %47, %44
   %54 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 %.0.i, ptr %54, align 8
+  store i32 %.024.i, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %33, i64 48
-  store i32 %.024.i, ptr %55, align 8
+  store i32 %.025.i, ptr %55, align 8
   %56 = load ptr, ptr %31, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %77, label %inflateReset2.exit

@@ -343,10 +343,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %source.0533 = phi ptr [ %call73, %for.body.lr.ph ], [ %source.3, %for.inc459 ]
   %destination.1532 = phi ptr [ %destination.0, %for.body.lr.ph ], [ %destination.4, %for.inc459 ]
   %submodule_gitfile.0531 = phi ptr [ %call88, %for.body.lr.ph ], [ %submodule_gitfile.3, %for.inc459 ]
-  %modes.0530 = phi ptr [ %call74, %for.body.lr.ph ], [ %modes.3, %for.inc459 ]
-  %src_dir_alloc.0529 = phi i32 [ 0, %for.body.lr.ph ], [ %src_dir_alloc.5, %for.inc459 ]
-  %src_dir_nr.0528 = phi i32 [ 0, %for.body.lr.ph ], [ %src_dir_nr.3, %for.inc459 ]
-  %src_dir.0527 = phi ptr [ null, %for.body.lr.ph ], [ %src_dir.4, %for.inc459 ]
+  %src_dir.0530 = phi ptr [ null, %for.body.lr.ph ], [ %src_dir.4, %for.inc459 ]
+  %src_dir_nr.0529 = phi i32 [ 0, %for.body.lr.ph ], [ %src_dir_nr.3, %for.inc459 ]
+  %src_dir_alloc.0528 = phi i32 [ 0, %for.body.lr.ph ], [ %src_dir_alloc.5, %for.inc459 ]
+  %modes.0527 = phi ptr [ %call74, %for.body.lr.ph ], [ %modes.3, %for.inc459 ]
   %idxprom = sext i32 %i.0534 to i64
   %arrayidx136 = getelementptr inbounds ptr, ptr %source.0533, i64 %idxprom
   %13 = load ptr, ptr %arrayidx136, align 8
@@ -424,14 +424,14 @@ land.lhs.true158:                                 ; preds = %add_slash.exit228
   br i1 %tobool160.not, label %if.end164, label %if.then161
 
 if.then161:                                       ; preds = %land.lhs.true158
-  %arrayidx163 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %arrayidx163 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %19 = load i32, ptr %arrayidx163, align 4
   %or = or i32 %19, 16
   store i32 %or, ptr %arrayidx163, align 4
   br label %dir_check
 
 if.end164:                                        ; preds = %land.lhs.true158, %add_slash.exit228
-  %arrayidx166 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %arrayidx166 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %20 = load i32, ptr %arrayidx166, align 4
   %and167 = and i32 %20, 8
   %tobool168.not = icmp eq i32 %and167, 0
@@ -475,7 +475,7 @@ if.end183:                                        ; preds = %if.end179
   br i1 %cmp187, label %if.then189, label %if.end193
 
 if.then189:                                       ; preds = %if.end183
-  %arrayidx191 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %arrayidx191 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %27 = load i32, ptr %arrayidx191, align 4
   %or192 = or i32 %27, 8
   store i32 %or192, ptr %arrayidx191, align 4
@@ -492,7 +492,7 @@ if.then195:                                       ; preds = %if.end193
   br i1 %tobool1.not.i239, label %if.end422, label %act_on_entry.sink.split
 
 if.end197:                                        ; preds = %if.end193
-  %arrayidx199 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %arrayidx199 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %30 = load i32, ptr %arrayidx199, align 4
   %or200 = or i32 %30, 8
   store i32 %or200, ptr %arrayidx199, align 4
@@ -605,19 +605,19 @@ if.then245:                                       ; preds = %if.else241
   br i1 %tobool1.not.i260, label %if.end422, label %act_on_entry.sink.split
 
 if.end248:                                        ; preds = %if.else241
-  %arrayidx250 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %arrayidx250 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %41 = load i32, ptr %arrayidx250, align 4
   %or251 = or i32 %41, 2
   store i32 %or251, ptr %arrayidx250, align 4
-  %add = add nsw i32 %src_dir_nr.0528, 1
-  %cmp252.not = icmp slt i32 %src_dir_nr.0528, %src_dir_alloc.0529
+  %add = add nsw i32 %src_dir_nr.0529, 1
+  %cmp252.not = icmp slt i32 %src_dir_nr.0529, %src_dir_alloc.0528
   br i1 %cmp252.not, label %do.end, label %if.then254
 
 if.then254:                                       ; preds = %if.end248
-  %42 = mul i32 %src_dir_alloc.0529, 3
+  %42 = mul i32 %src_dir_alloc.0528, 3
   %mul = add i32 %42, 48
   %div = sdiv i32 %mul, 2
-  %cmp257.not = icmp sgt i32 %div, %src_dir_nr.0528
+  %cmp257.not = icmp sgt i32 %div, %src_dir_nr.0529
   %div.add = select i1 %cmp257.not, i32 %div, i32 %add
   %conv266 = sext i32 %div.add to i64
   %mul.ov.i = icmp slt i32 %div.add, 0
@@ -629,13 +629,13 @@ if.then.i266:                                     ; preds = %if.then254
 
 st_mult.exit:                                     ; preds = %if.then254
   %mul.i = shl nuw nsw i64 %conv266, 3
-  %call268 = call ptr @xrealloc(ptr noundef %src_dir.0527, i64 noundef %mul.i) #11
+  %call268 = call ptr @xrealloc(ptr noundef %src_dir.0530, i64 noundef %mul.i) #11
   br label %do.end
 
 do.end:                                           ; preds = %if.end248, %st_mult.exit
-  %src_dir.1 = phi ptr [ %call268, %st_mult.exit ], [ %src_dir.0527, %if.end248 ]
-  %src_dir_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %src_dir_alloc.0529, %if.end248 ]
-  %idxprom270 = sext i32 %src_dir_nr.0528 to i64
+  %src_dir_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %src_dir_alloc.0528, %if.end248 ]
+  %src_dir.1 = phi ptr [ %call268, %st_mult.exit ], [ %src_dir.0530, %if.end248 ]
+  %idxprom270 = sext i32 %src_dir_nr.0529 to i64
   %arrayidx271 = getelementptr inbounds ptr, ptr %src_dir.1, i64 %idxprom270
   store ptr %13, ptr %arrayidx271, align 8
   %43 = load i32, ptr %last, align 4
@@ -655,7 +655,7 @@ st_mult.exit278:                                  ; preds = %do.end
   %call275 = call ptr @xrealloc(ptr noundef nonnull %source.0533, i64 noundef %mul.i270) #11
   %call278 = call ptr @xrealloc(ptr noundef nonnull %destination.1532, i64 noundef %mul.i270) #11
   %mul.i282 = shl nuw nsw i64 %conv273, 2
-  %call281 = call ptr @xrealloc(ptr noundef nonnull %modes.0530, i64 noundef %mul.i282) #11
+  %call281 = call ptr @xrealloc(ptr noundef nonnull %modes.0527, i64 noundef %mul.i282) #11
   %call284 = call ptr @xrealloc(ptr noundef %submodule_gitfile.0531, i64 noundef %mul.i270) #11
   %call.i291 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #13
   %tobool.not.i292 = icmp eq i64 %call.i291, 0
@@ -946,14 +946,14 @@ act_on_entry:                                     ; preds = %act_on_entry.sink.s
   br i1 %tobool420.not, label %for.inc459, label %if.end422
 
 if.end422:                                        ; preds = %if.then379, %if.then370, %if.else363, %if.then334, %if.then328, %if.then245, %if.then227, %if.then216, %if.then195, %if.then177, %if.then169, %act_on_entry
-  %bad.1419 = phi ptr [ %bad.1, %act_on_entry ], [ @.str.22, %if.then379 ], [ @.str.21, %if.then370 ], [ @.str.20, %if.else363 ], [ @.str.18, %if.then334 ], [ @.str.17, %if.then328 ], [ @.str.16, %if.then245 ], [ @.str.15, %if.then227 ], [ @.str.14, %if.then216 ], [ @.str.13, %if.then195 ], [ @.str.12, %if.then177 ], [ @.str.12, %if.then169 ]
+  %bad.1414 = phi ptr [ %bad.1, %act_on_entry ], [ @.str.22, %if.then379 ], [ @.str.21, %if.then370 ], [ @.str.20, %if.else363 ], [ @.str.18, %if.then334 ], [ @.str.17, %if.then328 ], [ @.str.16, %if.then245 ], [ @.str.15, %if.then227 ], [ @.str.14, %if.then216 ], [ @.str.13, %if.then195 ], [ @.str.12, %if.then177 ], [ @.str.12, %if.then169 ]
   %79 = load i32, ptr %ignore_errors, align 4
   %tobool423.not = icmp eq i32 %79, 0
   br i1 %tobool423.not, label %if.then424, label %remove_entry
 
 if.then424:                                       ; preds = %if.end422
   %call425 = call fastcc ptr @_(ptr noundef nonnull @.str.24)
-  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.1419, ptr noundef %13, ptr noundef %14) #12
+  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.1414, ptr noundef %13, ptr noundef %14) #12
   unreachable
 
 remove_entry:                                     ; preds = %if.end415.thread, %if.end422, %if.end415
@@ -981,7 +981,7 @@ if.then.i366:                                     ; preds = %if.then.i362
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx136, ptr nonnull readonly align 1 %add.ptr437, i64 %mul.i.i, i1 false)
   %add.ptr443 = getelementptr inbounds i8, ptr %arrayidx138, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx138, ptr nonnull readonly align 1 %add.ptr443, i64 %mul.i.i, i1 false)
-  %add.ptr446 = getelementptr inbounds i32, ptr %modes.0530, i64 %idxprom
+  %add.ptr446 = getelementptr inbounds i32, ptr %modes.0527, i64 %idxprom
   %add.ptr449 = getelementptr inbounds i8, ptr %add.ptr446, i64 4
   %mul.i.i379 = shl nuw nsw i64 %conv438, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr446, ptr nonnull readonly align 1 %add.ptr449, i64 %mul.i.i379, i1 false)
@@ -995,10 +995,10 @@ move_array.exit391:                               ; preds = %if.then430, %if.the
   br label %for.inc459
 
 for.inc459:                                       ; preds = %if.then358, %_.exit329, %if.then181, %if.end197, %if.then189, %if.end418, %for.end, %prepare_move_submodule.exit, %if.end164, %remove_entry, %move_array.exit391, %act_on_entry
-  %src_dir.4 = phi ptr [ %src_dir.0527, %move_array.exit391 ], [ %src_dir.0527, %remove_entry ], [ %src_dir.0527, %act_on_entry ], [ %src_dir.0527, %if.then358 ], [ %src_dir.0527, %_.exit329 ], [ %src_dir.0527, %if.then181 ], [ %src_dir.0527, %if.end197 ], [ %src_dir.0527, %if.then189 ], [ %src_dir.0527, %if.end418 ], [ %src_dir.1, %for.end ], [ %src_dir.0527, %prepare_move_submodule.exit ], [ %src_dir.0527, %if.end164 ]
-  %src_dir_nr.3 = phi i32 [ %src_dir_nr.0528, %move_array.exit391 ], [ %src_dir_nr.0528, %remove_entry ], [ %src_dir_nr.0528, %act_on_entry ], [ %src_dir_nr.0528, %if.then358 ], [ %src_dir_nr.0528, %_.exit329 ], [ %src_dir_nr.0528, %if.then181 ], [ %src_dir_nr.0528, %if.end197 ], [ %src_dir_nr.0528, %if.then189 ], [ %src_dir_nr.0528, %if.end418 ], [ %add, %for.end ], [ %src_dir_nr.0528, %prepare_move_submodule.exit ], [ %src_dir_nr.0528, %if.end164 ]
-  %src_dir_alloc.5 = phi i32 [ %src_dir_alloc.0529, %move_array.exit391 ], [ %src_dir_alloc.0529, %remove_entry ], [ %src_dir_alloc.0529, %act_on_entry ], [ %src_dir_alloc.0529, %if.then358 ], [ %src_dir_alloc.0529, %_.exit329 ], [ %src_dir_alloc.0529, %if.then181 ], [ %src_dir_alloc.0529, %if.end197 ], [ %src_dir_alloc.0529, %if.then189 ], [ %src_dir_alloc.0529, %if.end418 ], [ %src_dir_alloc.2, %for.end ], [ %src_dir_alloc.0529, %prepare_move_submodule.exit ], [ %src_dir_alloc.0529, %if.end164 ]
-  %modes.3 = phi ptr [ %modes.0530, %move_array.exit391 ], [ %modes.0530, %remove_entry ], [ %modes.0530, %act_on_entry ], [ %modes.0530, %if.then358 ], [ %modes.0530, %_.exit329 ], [ %modes.0530, %if.then181 ], [ %modes.0530, %if.end197 ], [ %modes.0530, %if.then189 ], [ %modes.0530, %if.end418 ], [ %call281, %for.end ], [ %modes.0530, %prepare_move_submodule.exit ], [ %modes.0530, %if.end164 ]
+  %modes.3 = phi ptr [ %modes.0527, %move_array.exit391 ], [ %modes.0527, %remove_entry ], [ %modes.0527, %act_on_entry ], [ %modes.0527, %if.then358 ], [ %modes.0527, %_.exit329 ], [ %modes.0527, %if.then181 ], [ %modes.0527, %if.end197 ], [ %modes.0527, %if.then189 ], [ %modes.0527, %if.end418 ], [ %call281, %for.end ], [ %modes.0527, %prepare_move_submodule.exit ], [ %modes.0527, %if.end164 ]
+  %src_dir_alloc.5 = phi i32 [ %src_dir_alloc.0528, %move_array.exit391 ], [ %src_dir_alloc.0528, %remove_entry ], [ %src_dir_alloc.0528, %act_on_entry ], [ %src_dir_alloc.0528, %if.then358 ], [ %src_dir_alloc.0528, %_.exit329 ], [ %src_dir_alloc.0528, %if.then181 ], [ %src_dir_alloc.0528, %if.end197 ], [ %src_dir_alloc.0528, %if.then189 ], [ %src_dir_alloc.0528, %if.end418 ], [ %src_dir_alloc.2, %for.end ], [ %src_dir_alloc.0528, %prepare_move_submodule.exit ], [ %src_dir_alloc.0528, %if.end164 ]
+  %src_dir_nr.3 = phi i32 [ %src_dir_nr.0529, %move_array.exit391 ], [ %src_dir_nr.0529, %remove_entry ], [ %src_dir_nr.0529, %act_on_entry ], [ %src_dir_nr.0529, %if.then358 ], [ %src_dir_nr.0529, %_.exit329 ], [ %src_dir_nr.0529, %if.then181 ], [ %src_dir_nr.0529, %if.end197 ], [ %src_dir_nr.0529, %if.then189 ], [ %src_dir_nr.0529, %if.end418 ], [ %add, %for.end ], [ %src_dir_nr.0529, %prepare_move_submodule.exit ], [ %src_dir_nr.0529, %if.end164 ]
+  %src_dir.4 = phi ptr [ %src_dir.0530, %move_array.exit391 ], [ %src_dir.0530, %remove_entry ], [ %src_dir.0530, %act_on_entry ], [ %src_dir.0530, %if.then358 ], [ %src_dir.0530, %_.exit329 ], [ %src_dir.0530, %if.then181 ], [ %src_dir.0530, %if.end197 ], [ %src_dir.0530, %if.then189 ], [ %src_dir.0530, %if.end418 ], [ %src_dir.1, %for.end ], [ %src_dir.0530, %prepare_move_submodule.exit ], [ %src_dir.0530, %if.end164 ]
   %submodule_gitfile.3 = phi ptr [ %submodule_gitfile.0531, %move_array.exit391 ], [ %submodule_gitfile.0531, %remove_entry ], [ %submodule_gitfile.0531, %act_on_entry ], [ %submodule_gitfile.0531, %if.then358 ], [ %submodule_gitfile.0531, %_.exit329 ], [ %submodule_gitfile.0531, %if.then181 ], [ %submodule_gitfile.0531, %if.end197 ], [ %submodule_gitfile.0531, %if.then189 ], [ %submodule_gitfile.0531, %if.end418 ], [ %call284, %for.end ], [ %submodule_gitfile.0531, %prepare_move_submodule.exit ], [ %submodule_gitfile.0531, %if.end164 ]
   %destination.4 = phi ptr [ %destination.1532, %move_array.exit391 ], [ %destination.1532, %remove_entry ], [ %destination.1532, %act_on_entry ], [ %destination.1532, %if.then358 ], [ %destination.1532, %_.exit329 ], [ %destination.1532, %if.then181 ], [ %destination.1532, %if.end197 ], [ %destination.1532, %if.then189 ], [ %destination.1532, %if.end418 ], [ %call278, %for.end ], [ %destination.1532, %prepare_move_submodule.exit ], [ %destination.1532, %if.end164 ]
   %source.3 = phi ptr [ %source.0533, %move_array.exit391 ], [ %source.0533, %remove_entry ], [ %source.0533, %act_on_entry ], [ %source.0533, %if.then358 ], [ %source.0533, %_.exit329 ], [ %source.0533, %if.then181 ], [ %source.0533, %if.end197 ], [ %source.0533, %if.then189 ], [ %source.0533, %if.end418 ], [ %call275, %for.end ], [ %source.0533, %prepare_move_submodule.exit ], [ %source.0533, %if.end164 ]

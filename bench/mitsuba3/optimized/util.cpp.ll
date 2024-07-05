@@ -148,9 +148,9 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
   br i1 %7, label %.preheader, label %40
 
 .preheader:                                       ; preds = %3, %22
-  %.03748 = phi i32 [ %24, %22 ], [ 0, %3 ]
-  %.03847 = phi i32 [ %23, %22 ], [ %5, %3 ]
-  %8 = sext i32 %.03847 to i64
+  %.03548 = phi i32 [ %23, %22 ], [ %5, %3 ]
+  %.03847 = phi i32 [ %24, %22 ], [ 0, %3 ]
+  %8 = sext i32 %.03548 to i64
   %9 = add nsw i64 %8, 63
   %10 = lshr i64 %9, 3
   %11 = and i64 %10, 2305843009213693944
@@ -182,23 +182,23 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
 
 22:                                               ; preds = %18
   tail call void @__sched_cpufree(ptr noundef nonnull %12) #18
-  %23 = shl nsw i32 %.03847, 1
-  %24 = add nuw nsw i32 %.03748, 1
+  %23 = shl nsw i32 %.03548, 1
+  %24 = add nuw nsw i32 %.03847, 1
   %exitcond.not = icmp eq i32 %24, 10
   br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !4
 
 25:                                               ; preds = %22, %18
-  %.038.lcssa = phi i32 [ %23, %22 ], [ %.03847, %18 ]
-  %26 = icmp sgt i32 %.038.lcssa, 0
+  %.035.lcssa = phi i32 [ %23, %22 ], [ %.03548, %18 ]
+  %26 = icmp sgt i32 %.035.lcssa, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %25
-  %wide.trip.count = zext nneg i32 %.038.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.035.lcssa to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %.03349 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %37 ]
+  %.03449 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %37 ]
   %27 = lshr i64 %indvars.iv, 3
   %28 = icmp ult i64 %27, %11
   br i1 %28, label %29, label %37
@@ -216,23 +216,23 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
 37:                                               ; preds = %.lr.ph, %29
   %.not45 = phi i1 [ %36, %29 ], [ false, %.lr.ph ]
   %38 = zext i1 %.not45 to i32
-  %39 = add nuw nsw i32 %.03349, %38
+  %39 = add nuw nsw i32 %.03449, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %37, %25
-  %.033.lcssa = phi i32 [ 0, %25 ], [ %39, %37 ]
+  %.034.lcssa = phi i32 [ 0, %25 ], [ %39, %37 ]
   tail call void @__sched_cpufree(ptr noundef nonnull %12) #18
   br label %40
 
 40:                                               ; preds = %3, %._crit_edge
-  %.034 = phi i32 [ %.033.lcssa, %._crit_edge ], [ %5, %3 ]
-  store i32 %.034, ptr @_ZN7mitsuba4utilL19__cached_core_countE, align 4
+  %.032 = phi i32 [ %.034.lcssa, %._crit_edge ], [ %5, %3 ]
+  store i32 %.032, ptr @_ZN7mitsuba4utilL19__cached_core_countE, align 4
   br label %41
 
 41:                                               ; preds = %0, %40
-  %.0 = phi i32 [ %.034, %40 ], [ %2, %0 ]
+  %.0 = phi i32 [ %.032, %40 ], [ %2, %0 ]
   ret i32 %.0
 }
 

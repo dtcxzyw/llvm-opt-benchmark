@@ -265,8 +265,8 @@ riff_read_chunk.exit.thread.sink.split:           ; preds = %36, %tailrecurse.i
   br label %riff_read_chunk.exit.thread
 
 riff_read_chunk.exit.thread:                      ; preds = %riff_read_chunk.exit, %15, %19, %24, %26, %riff_read_chunk.exit.thread.sink.split, %11, %9, %1
-  %.09 = phi i32 [ 0, %1 ], [ 0, %9 ], [ 0, %11 ], [ 0, %riff_read_chunk.exit.thread.sink.split ], [ 0, %riff_read_chunk.exit ], [ 0, %26 ], [ 0, %24 ], [ 2, %19 ], [ 0, %15 ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %1 ], [ 0, %9 ], [ 0, %11 ], [ 0, %riff_read_chunk.exit.thread.sink.split ], [ 0, %riff_read_chunk.exit ], [ 0, %26 ], [ 0, %24 ], [ 2, %19 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -285,9 +285,9 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph:                                           ; preds = %4, %39
   %.096 = phi i64 [ %40, %39 ], [ 0, %4 ]
-  %.06395 = phi i64 [ %.164, %39 ], [ 0, %4 ]
-  %.06994 = phi i32 [ %.271, %39 ], [ 0, %4 ]
-  %.07293 = phi i32 [ %.173, %39 ], [ 0, %4 ]
+  %.06295 = phi i64 [ %.163, %39 ], [ 0, %4 ]
+  %.06594 = phi i32 [ %.166, %39 ], [ 0, %4 ]
+  %.07193 = phi i32 [ %.273, %39 ], [ 0, %4 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 %.096
   %14 = load i8, ptr %13, align 1
   %15 = or disjoint i64 %.096, 1
@@ -299,7 +299,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = add nsw i32 %.07293, 1
+  %21 = add nsw i32 %.06594, 1
   br label %39
 
 22:                                               ; preds = %.lr.ph
@@ -314,7 +314,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not87, label %30, label %31
 
 30:                                               ; preds = %22
-  %.not88 = icmp eq i32 %.06994, 0
+  %.not88 = icmp eq i32 %.07193, 0
   br i1 %.not88, label %39, label %33
 
 31:                                               ; preds = %22
@@ -323,46 +323,46 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not89, label %33, label %39
 
 33:                                               ; preds = %30, %31
-  %.170 = phi i32 [ 1, %31 ], [ 0, %30 ]
-  %.062 = phi i8 [ %14, %31 ], [ 32, %30 ]
-  %34 = zext i8 %.062 to i32
+  %.172 = phi i32 [ 1, %31 ], [ 0, %30 ]
+  %.064 = phi i8 [ %14, %31 ], [ 32, %30 ]
+  %34 = zext i8 %.064 to i32
   %35 = tail call i32 @tolower(i32 noundef %34) #9
   %36 = trunc i32 %35 to i8
-  %37 = add nuw nsw i64 %.06395, 1
-  %38 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.06395
+  %37 = add nuw nsw i64 %.06295, 1
+  %38 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.06295
   store i8 %36, ptr %38, align 1
   br label %39
 
 39:                                               ; preds = %31, %30, %33, %20
-  %.173 = phi i32 [ %.07293, %31 ], [ %.07293, %33 ], [ %.07293, %30 ], [ %21, %20 ]
-  %.271 = phi i32 [ 1, %31 ], [ %.170, %33 ], [ 0, %30 ], [ %.06994, %20 ]
-  %.164 = phi i64 [ %.06395, %31 ], [ %37, %33 ], [ %.06395, %30 ], [ %.06395, %20 ]
+  %.273 = phi i32 [ 1, %31 ], [ %.172, %33 ], [ 0, %30 ], [ %.07193, %20 ]
+  %.166 = phi i32 [ %.06594, %31 ], [ %.06594, %33 ], [ %.06594, %30 ], [ %21, %20 ]
+  %.163 = phi i64 [ %.06295, %31 ], [ %37, %33 ], [ %.06295, %30 ], [ %.06295, %20 ]
   %40 = add i64 %.096, 2
   %41 = icmp ult i64 %40, %12
-  %42 = icmp ult i64 %.164, 4094
+  %42 = icmp ult i64 %.163, 4094
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
-  %44 = icmp sgt i32 %.173, 7
-  %45 = add nuw nsw i64 %.164, 1
-  %46 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.164
+  %44 = icmp sgt i32 %.166, 7
+  %45 = add nuw nsw i64 %.163, 1
+  %46 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.163
   store i8 0, ptr %46, align 1
   %47 = icmp eq i32 %3, 0
   %or.cond3 = select i1 %47, i1 %44, i1 false
-  %48 = icmp ult i64 %.164, 3
+  %48 = icmp ult i64 %.163, 3
   %or.cond5 = or i1 %or.cond3, %48
   br i1 %or.cond5, label %._crit_edge.thread, label %.lr.ph102.preheader
 
 .lr.ph102.preheader:                              ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17576) %6, i8 0, i64 17576, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, i8 0, i64 6, i1 false)
-  %49 = add i64 %.164, -2
+  %49 = add i64 %.163, -2
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %78
   %.199 = phi i64 [ %.pre113, %78 ], [ 0, %.lr.ph102.preheader ]
-  %.06598 = phi i16 [ %.166, %78 ], [ 0, %.lr.ph102.preheader ]
+  %.06798 = phi i16 [ %.168, %78 ], [ 0, %.lr.ph102.preheader ]
   %50 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.199
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
@@ -408,17 +408,17 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph102._crit_edge:                             ; preds = %.lr.ph102, %57, %53
   %77 = zext i1 %.not84 to i16
-  %spec.select = add i16 %.06598, %77
+  %spec.select = add i16 %.06798, %77
   br label %78
 
 78:                                               ; preds = %.lr.ph102._crit_edge, %70, %61
-  %.166 = phi i16 [ %spec.select, %.lr.ph102._crit_edge ], [ %.06598, %70 ], [ %.06598, %61 ]
+  %.168 = phi i16 [ %spec.select, %.lr.ph102._crit_edge ], [ %.06798, %70 ], [ %.06798, %61 ]
   %exitcond.not = icmp eq i64 %.199, %49
   br i1 %exitcond.not, label %.preheader, label %.lr.ph102
 
 .preheader:                                       ; preds = %78, %89
   %.2105 = phi i64 [ %90, %89 ], [ 0, %78 ]
-  %.067104 = phi i16 [ %.168, %89 ], [ 0, %78 ]
+  %.069104 = phi i16 [ %.170, %89 ], [ 0, %78 ]
   %79 = getelementptr inbounds [17576 x i8], ptr %6, i64 0, i64 %.2105
   %80 = load i8, ptr %79, align 1
   %.not83 = icmp eq i8 %80, 0
@@ -433,17 +433,17 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %86 = load i16, ptr %85, align 2
   %87 = add i16 %86, 1
   store i16 %87, ptr %85, align 2
-  %88 = add i16 %.067104, 1
+  %88 = add i16 %.069104, 1
   br label %89
 
 89:                                               ; preds = %.preheader, %81
-  %.168 = phi i16 [ %88, %81 ], [ %.067104, %.preheader ]
+  %.170 = phi i16 [ %88, %81 ], [ %.069104, %.preheader ]
   %90 = add nuw nsw i64 %.2105, 1
   %exitcond109.not = icmp eq i64 %90, 17576
   br i1 %exitcond109.not, label %91, label %.preheader
 
 91:                                               ; preds = %89
-  %.not = icmp eq i16 %.168, 0
+  %.not = icmp eq i16 %.170, 0
   br i1 %.not, label %._crit_edge.thread, label %92
 
 92:                                               ; preds = %91
@@ -456,7 +456,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %94, i32 noundef %97, i32 noundef %100) #7
-  %101 = zext i16 %.168 to i32
+  %101 = zext i16 %.170 to i32
   br label %102
 
 102:                                              ; preds = %92, %102
@@ -502,8 +502,8 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 
 swizz_j48.exit:                                   ; preds = %122, %110, %120
   %.0.shrunk.i = phi i1 [ %narrow.i, %120 ], [ false, %110 ], [ %spec.select91, %122 ]
-  %125 = zext i16 %.166 to i32
-  %126 = icmp ugt i16 %.166, 2
+  %125 = zext i16 %.168 to i32
+  %126 = icmp ugt i16 %.168, 2
   %.not81.not = and i1 %126, %.0.shrunk.i
   %127 = select i1 %.not81.not, ptr @.str.8, ptr @.str.9
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %127, i32 noundef %125) #7

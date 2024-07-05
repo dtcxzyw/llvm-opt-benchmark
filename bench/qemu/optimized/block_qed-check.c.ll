@@ -217,8 +217,8 @@ for.body.lr.ph:                                   ; preds = %qed_set_used_cluste
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %last_error.0103 = phi i32 [ 0, %for.body.lr.ph ], [ %last_error.1, %for.inc ]
   %num_invalid_l1.0102 = phi i32 [ 0, %for.body.lr.ph ], [ %num_invalid_l1.1, %for.inc ]
+  %last_error.0101 = phi i32 [ 0, %for.body.lr.ph ], [ %last_error.1, %for.inc ]
   %arrayidx = getelementptr [0 x i64], ptr %table, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %arrayidx, align 8
   %cmp.i = icmp eq i64 %12, 0
@@ -359,8 +359,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end25
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %last_offset.026.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %last_offset.1.i, %for.inc.i ]
-  %num_invalid.025.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %num_invalid.1.i, %for.inc.i ]
+  %last_offset.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %last_offset.1.i, %for.inc.i ]
+  %num_invalid.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %num_invalid.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr [0 x i64], ptr %33, i64 0, i64 %indvars.iv.i
   %36 = load i64, ptr %arrayidx.i, align 8
   %switch.i = icmp ult i64 %36, 2
@@ -372,10 +372,10 @@ if.end.i77:                                       ; preds = %for.body.i
   %38 = load i64, ptr %bfi.i, align 8
   %inc.i78 = add i64 %38, 1
   store i64 %inc.i78, ptr %bfi.i, align 8
-  %tobool.not.i = icmp eq i64 %last_offset.026.i, 0
+  %tobool.not.i = icmp eq i64 %last_offset.025.i, 0
   %.pre28.i = load i32, ptr %cluster_size.i74, align 4
   %conv.i79 = zext i32 %.pre28.i to i64
-  %add.i80 = add i64 %last_offset.026.i, %conv.i79
+  %add.i80 = add i64 %last_offset.025.i, %conv.i79
   %cmp3.not.i = icmp eq i64 %add.i80, %36
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.end9.i, label %if.then5.i
@@ -432,7 +432,7 @@ if.else.i:                                        ; preds = %if.then11.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then13.i
-  %inc22.i = add i32 %num_invalid.025.i, 1
+  %inc22.i = add i32 %num_invalid.024.i, 1
   br label %for.inc.i
 
 if.end23.i:                                       ; preds = %qed_check_cluster_offset.exit.i91
@@ -463,8 +463,8 @@ if.end23.i:                                       ; preds = %qed_check_cluster_o
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end23.i, %if.end21.i, %for.body.i
-  %num_invalid.1.i = phi i32 [ %num_invalid.025.i, %if.end23.i ], [ %inc22.i, %if.end21.i ], [ %num_invalid.025.i, %for.body.i ]
-  %last_offset.1.i = phi i64 [ %36, %if.end23.i ], [ %36, %if.end21.i ], [ %last_offset.026.i, %for.body.i ]
+  %num_invalid.1.i = phi i32 [ %num_invalid.024.i, %if.end23.i ], [ %inc22.i, %if.end21.i ], [ %num_invalid.024.i, %for.body.i ]
+  %last_offset.1.i = phi i64 [ %36, %if.end23.i ], [ %36, %if.end21.i ], [ %last_offset.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = load i32, ptr %table_nelems.i, align 8
   %58 = zext i32 %57 to i64
@@ -495,8 +495,8 @@ if.then37:                                        ; preds = %if.then32
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25, %qed_check_l2_table.exit, %land.lhs.true, %if.then32, %qed_set_used_clusters.exit72, %for.body, %if.then37, %if.then22, %if.end12
+  %last_error.1 = phi i32 [ %last_error.0101, %for.body ], [ %call20, %if.then22 ], [ %call35, %if.then37 ], [ %last_error.0101, %if.then32 ], [ %last_error.0101, %land.lhs.true ], [ %last_error.0101, %qed_check_l2_table.exit ], [ %last_error.0101, %qed_set_used_clusters.exit72 ], [ %last_error.0101, %if.end12 ], [ %last_error.0101, %if.end25 ]
   %num_invalid_l1.1 = phi i32 [ %num_invalid_l1.0102, %for.body ], [ %num_invalid_l1.0102, %if.then22 ], [ %num_invalid_l1.0102, %if.then37 ], [ %num_invalid_l1.0102, %if.then32 ], [ %num_invalid_l1.0102, %land.lhs.true ], [ %num_invalid_l1.0102, %qed_check_l2_table.exit ], [ %num_invalid_l1.0102, %qed_set_used_clusters.exit72 ], [ %inc13, %if.end12 ], [ %num_invalid_l1.0102, %if.end25 ]
-  %last_error.1 = phi i32 [ %last_error.0103, %for.body ], [ %call20, %if.then22 ], [ %call35, %if.then37 ], [ %last_error.0103, %if.then32 ], [ %last_error.0103, %land.lhs.true ], [ %last_error.0103, %qed_check_l2_table.exit ], [ %last_error.0103, %qed_set_used_clusters.exit72 ], [ %last_error.0103, %if.end12 ], [ %last_error.0103, %if.end25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %table_nelems, align 8
   %64 = zext i32 %63 to i64

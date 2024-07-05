@@ -3065,19 +3065,19 @@ for.body254.lr.ph:                                ; preds = %invoke.cont241
   br label %for.body254
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %for.inc291
-  %i250.01164 = phi i64 [ 1, %for.body254.lr.ph ], [ %inc292, %for.inc291 ]
-  %nextToInclude.01163 = phi i32 [ 1, %for.body254.lr.ph ], [ %nextToInclude.1.lcssa, %for.inc291 ]
-  %RLEmapping.sroa.26.11162 = phi ptr [ %add.ptr37.i.i, %for.body254.lr.ph ], [ %RLEmapping.sroa.26.3, %for.inc291 ]
-  %RLEmapping.sroa.14.11161 = phi ptr [ %add.ptr37.i.i, %for.body254.lr.ph ], [ %RLEmapping.sroa.14.3, %for.inc291 ]
-  %RLEmapping.sroa.0.11160 = phi ptr [ %call5.i.i.i.i.i294, %for.body254.lr.ph ], [ %RLEmapping.sroa.0.4, %for.inc291 ]
-  %second256 = getelementptr inbounds %"struct.std::pair.43", ptr %sortedIndices.sroa.0.0, i64 %i250.01164, i32 1
+  %nextToInclude.01164 = phi i32 [ 1, %for.body254.lr.ph ], [ %nextToInclude.1.lcssa, %for.inc291 ]
+  %i250.01163 = phi i64 [ 1, %for.body254.lr.ph ], [ %inc292, %for.inc291 ]
+  %RLEmapping.sroa.0.11162 = phi ptr [ %call5.i.i.i.i.i294, %for.body254.lr.ph ], [ %RLEmapping.sroa.0.4, %for.inc291 ]
+  %RLEmapping.sroa.26.11161 = phi ptr [ %add.ptr37.i.i, %for.body254.lr.ph ], [ %RLEmapping.sroa.26.3, %for.inc291 ]
+  %RLEmapping.sroa.14.11160 = phi ptr [ %add.ptr37.i.i, %for.body254.lr.ph ], [ %RLEmapping.sroa.14.3, %for.inc291 ]
+  %second256 = getelementptr inbounds %"struct.std::pair.43", ptr %sortedIndices.sroa.0.0, i64 %i250.01163, i32 1
   %57 = load i32, ptr %second256, align 4
-  %cmp257 = icmp eq i32 %57, %nextToInclude.01163
+  %cmp257 = icmp eq i32 %57, %nextToInclude.01164
   br i1 %cmp257, label %if.then258, label %if.else263
 
 if.then258:                                       ; preds = %for.body254
-  %second262 = getelementptr inbounds i8, ptr %RLEmapping.sroa.14.11161, i64 -4
-  store i32 %nextToInclude.01163, ptr %second262, align 4
+  %second262 = getelementptr inbounds i8, ptr %RLEmapping.sroa.14.11160, i64 -4
+  store i32 %nextToInclude.01164, ptr %second262, align 4
   br label %if.end270
 
 lpad216:                                          ; preds = %if.then.i.i.i.i.i, %if.then.i.i274
@@ -3091,26 +3091,26 @@ lpad222.loopexit:                                 ; preds = %cond.true.i.i.i
   br label %ehcleanup533
 
 lpad222.loopexit.split-lp:                        ; preds = %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i334
-  %RLEmapping.sroa.0.2.ph = phi ptr [ null, %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %RLEmapping.sroa.0.11160, %if.then.i.i.i334 ]
+  %RLEmapping.sroa.0.2.ph = phi ptr [ null, %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %RLEmapping.sroa.0.11162, %if.then.i.i.i334 ]
   %lpad.loopexit.split-lp1084 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup533
 
 if.else263:                                       ; preds = %for.body254
-  %cmp.not.i = icmp eq ptr %RLEmapping.sroa.14.11161, %RLEmapping.sroa.26.11162
+  %cmp.not.i = icmp eq ptr %RLEmapping.sroa.14.11160, %RLEmapping.sroa.26.11161
   br i1 %cmp.not.i, label %if.else.i319, label %if.then.i318
 
 if.then.i318:                                     ; preds = %if.else263
   %newEntry.sroa.3.0.insert.ext = zext i32 %57 to i64
   %newEntry.sroa.3.0.insert.shift = shl nuw i64 %newEntry.sroa.3.0.insert.ext, 32
   %newEntry.sroa.0.0.insert.insert = or disjoint i64 %newEntry.sroa.3.0.insert.shift, %newEntry.sroa.3.0.insert.ext
-  store i64 %newEntry.sroa.0.0.insert.insert, ptr %RLEmapping.sroa.14.11161, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %RLEmapping.sroa.14.11161, i64 8
+  store i64 %newEntry.sroa.0.0.insert.insert, ptr %RLEmapping.sroa.14.11160, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %RLEmapping.sroa.14.11160, i64 8
   br label %if.end270
 
 if.else.i319:                                     ; preds = %if.else263
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %RLEmapping.sroa.26.11162 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %RLEmapping.sroa.0.11160 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %RLEmapping.sroa.26.11161 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %RLEmapping.sroa.0.11162 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i320 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i320, label %if.then.i.i.i334, label %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i321
@@ -3144,29 +3144,29 @@ _ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond
   %newEntry.sroa.3.0.insert.shift974 = shl nuw i64 %newEntry.sroa.3.0.insert.ext973, 32
   %newEntry.sroa.0.0.insert.insert971 = or disjoint i64 %newEntry.sroa.3.0.insert.shift974, %newEntry.sroa.3.0.insert.ext973
   store i64 %newEntry.sroa.0.0.insert.insert971, ptr %add.ptr.i.i325, align 4
-  %cmp.not5.i.i.i.i.i326 = icmp eq ptr %RLEmapping.sroa.0.11160, %RLEmapping.sroa.26.11162
+  %cmp.not5.i.i.i.i.i326 = icmp eq ptr %RLEmapping.sroa.0.11162, %RLEmapping.sroa.26.11161
   br i1 %cmp.not5.i.i.i.i.i326, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i327
 
 for.body.i.i.i.i.i327:                            ; preds = %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i327
   %__cur.07.i.i.i.i.i328 = phi ptr [ %incdec.ptr1.i.i.i.i.i331, %for.body.i.i.i.i.i327 ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i329 = phi ptr [ %incdec.ptr.i.i.i.i.i330, %for.body.i.i.i.i.i327 ], [ %RLEmapping.sroa.0.11160, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i329 = phi ptr [ %incdec.ptr.i.i.i.i.i330, %for.body.i.i.i.i.i327 ], [ %RLEmapping.sroa.0.11162, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %60 = load i64, ptr %__first.addr.06.i.i.i.i.i329, align 4, !alias.scope !51, !noalias !48
   store i64 %60, ptr %__cur.07.i.i.i.i.i328, align 4, !alias.scope !48, !noalias !51
   %incdec.ptr.i.i.i.i.i330 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i329, i64 8
   %incdec.ptr1.i.i.i.i.i331 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i328, i64 8
-  %cmp.not.i.i.i.i.i332 = icmp eq ptr %incdec.ptr.i.i.i.i.i330, %RLEmapping.sroa.26.11162
+  %cmp.not.i.i.i.i.i332 = icmp eq ptr %incdec.ptr.i.i.i.i.i330, %RLEmapping.sroa.26.11161
   br i1 %cmp.not.i.i.i.i.i332, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i327, !llvm.loop !53
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i327, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i333 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i331, %for.body.i.i.i.i.i327 ]
   %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i333, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %RLEmapping.sroa.0.11160, null
+  %tobool.not.i.i.i = icmp eq ptr %RLEmapping.sroa.0.11162, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %RLEmapping.sroa.0.11160) #32
+  call void @_ZdlPv(ptr noundef nonnull %RLEmapping.sroa.0.11162) #32
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
@@ -3174,10 +3174,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__nor
   br label %if.end270
 
 if.end270:                                        ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i318, %if.then258
-  %RLEmapping.sroa.0.4 = phi ptr [ %RLEmapping.sroa.0.11160, %if.then258 ], [ %cond.i10.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %RLEmapping.sroa.0.11160, %if.then.i318 ]
-  %RLEmapping.sroa.14.3 = phi ptr [ %RLEmapping.sroa.14.11161, %if.then258 ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i318 ]
-  %RLEmapping.sroa.26.3 = phi ptr [ %RLEmapping.sroa.26.11162, %if.then258 ], [ %add.ptr19.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %RLEmapping.sroa.26.11162, %if.then.i318 ]
-  %conv271 = trunc i64 %i250.01164 to i32
+  %RLEmapping.sroa.14.3 = phi ptr [ %RLEmapping.sroa.14.11160, %if.then258 ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i318 ]
+  %RLEmapping.sroa.26.3 = phi ptr [ %RLEmapping.sroa.26.11161, %if.then258 ], [ %add.ptr19.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %RLEmapping.sroa.26.11161, %if.then.i318 ]
+  %RLEmapping.sroa.0.4 = phi ptr [ %RLEmapping.sroa.0.11162, %if.then258 ], [ %cond.i10.i.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %RLEmapping.sroa.0.11162, %if.then.i318 ]
+  %conv271 = trunc i64 %i250.01163 to i32
   %61 = load i32, ptr %second256, align 4
   %conv274 = sext i32 %61 to i64
   %add.ptr.i339 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i277, i64 %conv274
@@ -3204,14 +3204,14 @@ for.inc291.split.loop.exit:                       ; preds = %land.rhs283
 
 for.inc291:                                       ; preds = %while.cond279, %for.inc291.split.loop.exit
   %nextToInclude.1.lcssa = phi i32 [ %64, %for.inc291.split.loop.exit ], [ %smax, %while.cond279 ]
-  %inc292 = add nuw i64 %i250.01164, 1
+  %inc292 = add nuw i64 %i250.01163, 1
   %exitcond1271.not = icmp eq i64 %inc292, %.pre1296
   br i1 %exitcond1271.not, label %if.end294, label %for.body254, !llvm.loop !55
 
 if.end294:                                        ; preds = %for.inc291, %invoke.cont213, %invoke.cont241
   %stringIndices.sroa.0.01061 = phi ptr [ %call5.i.i.i.i2.i.i277, %invoke.cont241 ], [ null, %invoke.cont213 ], [ %call5.i.i.i.i2.i.i277, %for.inc291 ]
-  %RLEmapping.sroa.0.5 = phi ptr [ %call5.i.i.i.i.i294, %invoke.cont241 ], [ null, %invoke.cont213 ], [ %RLEmapping.sroa.0.4, %for.inc291 ]
   %RLEmapping.sroa.14.4 = phi ptr [ %add.ptr37.i.i, %invoke.cont241 ], [ null, %invoke.cont213 ], [ %RLEmapping.sroa.14.3, %for.inc291 ]
+  %RLEmapping.sroa.0.5 = phi ptr [ %call5.i.i.i.i.i294, %invoke.cont241 ], [ null, %invoke.cont213 ], [ %RLEmapping.sroa.0.4, %for.inc291 ]
   %65 = load ptr, ptr %prefixedStringList, align 8
   %_M_finish.i.i347 = getelementptr inbounds i8, ptr %prefixedStringList, i64 8
   %66 = load ptr, ptr %_M_finish.i.i347, align 8
@@ -4604,7 +4604,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit928:                 ; preds = %ehcleanup532, %if.t
 
 ehcleanup533:                                     ; preds = %lpad222.loopexit, %lpad222.loopexit.split-lp, %_ZNSt6vectorIcSaIcEED2Ev.exit928
   %stringIndices.sroa.0.01062 = phi ptr [ %stringIndices.sroa.0.01061, %_ZNSt6vectorIcSaIcEED2Ev.exit928 ], [ %call5.i.i.i.i2.i.i277, %lpad222.loopexit.split-lp ], [ %call5.i.i.i.i2.i.i277, %lpad222.loopexit ]
-  %RLEmapping.sroa.0.6 = phi ptr [ %RLEmapping.sroa.0.5, %_ZNSt6vectorIcSaIcEED2Ev.exit928 ], [ %RLEmapping.sroa.0.2.ph, %lpad222.loopexit.split-lp ], [ %RLEmapping.sroa.0.11160, %lpad222.loopexit ]
+  %RLEmapping.sroa.0.6 = phi ptr [ %RLEmapping.sroa.0.5, %_ZNSt6vectorIcSaIcEED2Ev.exit928 ], [ %RLEmapping.sroa.0.2.ph, %lpad222.loopexit.split-lp ], [ %RLEmapping.sroa.0.11162, %lpad222.loopexit ]
   %.pn109 = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIcSaIcEED2Ev.exit928 ], [ %lpad.loopexit.split-lp1084, %lpad222.loopexit.split-lp ], [ %lpad.loopexit1083, %lpad222.loopexit ]
   %tobool.not.i.i.i930 = icmp eq ptr %RLEmapping.sroa.0.6, null
   br i1 %tobool.not.i.i.i930, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit932, label %if.then.i.i.i931

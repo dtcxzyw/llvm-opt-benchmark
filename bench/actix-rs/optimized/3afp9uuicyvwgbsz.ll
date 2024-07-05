@@ -5229,7 +5229,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %trunc.i = trunc nuw i32 %19 to i1
   %20 = getelementptr inbounds i8, ptr %2, i64 92
   %21 = load i32, ptr %20, align 4, !alias.scope !154, !noalias !151
-  %.016.i = select i1 %trunc.i, i32 %21, i32 65535
+  %.017.i = select i1 %trunc.i, i32 %21, i32 65535
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   %23 = getelementptr inbounds i8, ptr %2, i64 124
   %24 = load i32, ptr %23, align 4, !alias.scope !154, !noalias !151, !noundef !5
@@ -5242,7 +5242,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %29 = icmp ne i32 %28, 0
   %narrow.i = select i1 %trunc18.i, i1 %29, i1 false
   %narrow25.i = select i1 %switch21.i, i1 true, i1 %narrow.i
-  %.017.i = zext i1 %narrow25.i to i8
+  %.014.i = zext i1 %narrow25.i to i8
   %30 = getelementptr inbounds i8, ptr %2, i64 112
   %31 = load i32, ptr %30, align 8, !range !20, !alias.scope !154, !noalias !151, !noundef !5
   %trunc19.i = trunc nuw i32 %31 to i1
@@ -5265,14 +5265,14 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %.sroa.5.0.i = select i1 %trunc20.i, i64 %44, i64 undef
   %.sroa.04.0.i = zext nneg i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %17, i64 80
-  store i32 %.016.i, ptr %45, align 8, !alias.scope !151, !noalias !154
+  store i32 %.017.i, ptr %45, align 8, !alias.scope !151, !noalias !154
   %46 = getelementptr inbounds i8, ptr %17, i64 48
   %47 = load <2 x i64>, ptr %22, align 8, !alias.scope !154, !noalias !151
   store <2 x i64> %47, ptr %46, align 8, !alias.scope !151, !noalias !154
   %48 = getelementptr inbounds i8, ptr %17, i64 84
   store i32 %24, ptr %48, align 4, !alias.scope !151, !noalias !154
   %49 = getelementptr inbounds i8, ptr %17, i64 92
-  store i8 %.017.i, ptr %49, align 4, !alias.scope !151, !noalias !154
+  store i8 %.014.i, ptr %49, align 4, !alias.scope !151, !noalias !154
   %50 = getelementptr inbounds i8, ptr %17, i64 93
   store i8 %.0.i, ptr %50, align 1, !alias.scope !151, !noalias !154
   %51 = getelementptr inbounds i8, ptr %17, i64 32
@@ -5586,7 +5586,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %trunc.i = trunc nuw i32 %19 to i1
   %20 = getelementptr inbounds i8, ptr %2, i64 92
   %21 = load i32, ptr %20, align 4, !alias.scope !160, !noalias !157
-  %.016.i = select i1 %trunc.i, i32 %21, i32 65535
+  %.017.i = select i1 %trunc.i, i32 %21, i32 65535
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   %23 = getelementptr inbounds i8, ptr %2, i64 124
   %24 = load i32, ptr %23, align 4, !alias.scope !160, !noalias !157, !noundef !5
@@ -5599,7 +5599,7 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %29 = icmp ne i32 %28, 0
   %narrow.i = select i1 %trunc18.i, i1 %29, i1 false
   %narrow25.i = select i1 %switch21.i, i1 true, i1 %narrow.i
-  %.017.i = zext i1 %narrow25.i to i8
+  %.014.i = zext i1 %narrow25.i to i8
   %30 = getelementptr inbounds i8, ptr %2, i64 112
   %31 = load i32, ptr %30, align 8, !range !20, !alias.scope !160, !noalias !157, !noundef !5
   %trunc19.i = trunc nuw i32 %31 to i1
@@ -5622,14 +5622,14 @@ define hidden void @"_ZN2h25proto10connection27Connection$LT$T$C$P$C$B$GT$3new17
   %.sroa.5.0.i = select i1 %trunc20.i, i64 %44, i64 undef
   %.sroa.04.0.i = zext nneg i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %17, i64 80
-  store i32 %.016.i, ptr %45, align 8, !alias.scope !157, !noalias !160
+  store i32 %.017.i, ptr %45, align 8, !alias.scope !157, !noalias !160
   %46 = getelementptr inbounds i8, ptr %17, i64 48
   %47 = load <2 x i64>, ptr %22, align 8, !alias.scope !160, !noalias !157
   store <2 x i64> %47, ptr %46, align 8, !alias.scope !157, !noalias !160
   %48 = getelementptr inbounds i8, ptr %17, i64 84
   store i32 %24, ptr %48, align 4, !alias.scope !157, !noalias !160
   %49 = getelementptr inbounds i8, ptr %17, i64 92
-  store i8 %.017.i, ptr %49, align 4, !alias.scope !157, !noalias !160
+  store i8 %.014.i, ptr %49, align 4, !alias.scope !157, !noalias !160
   %50 = getelementptr inbounds i8, ptr %17, i64 93
   store i8 %.0.i, ptr %50, align 1, !alias.scope !157, !noalias !160
   %51 = getelementptr inbounds i8, ptr %17, i64 32

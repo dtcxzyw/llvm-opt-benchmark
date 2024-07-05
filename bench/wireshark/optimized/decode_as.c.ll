@@ -360,11 +360,11 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 .preheader92:                                     ; preds = %4, %16
   %indvars.iv109 = phi i32 [ %indvars.iv.next110, %16 ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %4 ]
-  %.07194 = phi ptr [ %22, %16 ], [ %1, %4 ]
+  %.06495 = phi ptr [ %22, %16 ], [ %1, %4 ]
   %9 = getelementptr [4 x i8], ptr @__const.read_set_decode_as_entries.delimiter, i64 0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07194, i32 noundef %11) #16
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06495, i32 noundef %11) #16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.preheader, label %16
 
@@ -387,9 +387,9 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 16:                                               ; preds = %.preheader92
   %17 = ptrtoint ptr %12 to i64
-  %18 = ptrtoint ptr %.07194 to i64
+  %18 = ptrtoint ptr %.06495 to i64
   %19 = sub i64 %17, %18
-  %20 = tail call noalias ptr @g_strndup(ptr noundef %.07194, i64 noundef %19) #14
+  %20 = tail call noalias ptr @g_strndup(ptr noundef %.06495, i64 noundef %19) #14
   %21 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %12, i64 1
@@ -453,8 +453,8 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   br label %48
 
 48:                                               ; preds = %36, %42, %46
-  %.064 = phi i32 [ 0, %46 ], [ 1, %42 ], [ 1, %36 ]
   %.not82 = phi i1 [ false, %46 ], [ true, %42 ], [ true, %36 ]
+  %.067 = phi i32 [ 0, %46 ], [ 1, %42 ], [ 1, %36 ]
   br i1 %.not79, label %66, label %49
 
 49:                                               ; preds = %48
@@ -490,7 +490,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 67:                                               ; preds = %.thread86, %66
   %68 = phi ptr [ %35, %.thread86 ], [ %38, %66 ]
-  %.16590 = phi i32 [ 0, %.thread86 ], [ %.064, %66 ]
+  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %66 ]
   %69 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   %70 = tail call noalias ptr @g_strdup(ptr noundef %24) #14
   store ptr %70, ptr %69, align 8
@@ -538,7 +538,7 @@ decode_build_reset_list.exit:                     ; preds = %72, %76, %78
   br label %.thread
 
 .thread:                                          ; preds = %31, %4, %23, %decode_build_reset_list.exit, %66
-  %.266 = phi i32 [ %.16590, %decode_build_reset_list.exit ], [ %.064, %66 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
+  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %66 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
   br label %84
 
 84:                                               ; preds = %.thread, %84
@@ -551,8 +551,8 @@ decode_build_reset_list.exit:                     ; preds = %72, %76, %78
   br i1 %exitcond105.not, label %.loopexit, label %84, !llvm.loop !8
 
 .loopexit:                                        ; preds = %84, %.lr.ph, %.preheader
-  %.070 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.266, %84 ]
-  ret i32 %.070
+  %.063 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.2, %84 ]
+  ret i32 %.063
 }
 
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1

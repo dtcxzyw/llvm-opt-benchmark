@@ -4104,7 +4104,7 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread: ; pred
 
 .loopexit206.i.i.i:                               ; preds = %122, %.loopexit.i.i.i.i.i, %.thread193.i.i.i
   %.sroa.8103.0.i.i.i = phi i64 [ %95, %.thread193.i.i.i ], [ %.sroa.6.0.i, %.loopexit.i.i.i.i.i ], [ %.sroa.6.0.i, %122 ]
-  %.0119.i.i.i = phi i64 [ %207, %.thread193.i.i.i ], [ 0, %.loopexit.i.i.i.i.i ], [ 0, %122 ]
+  %.0118.i.i.i = phi i64 [ %207, %.thread193.i.i.i ], [ 0, %.loopexit.i.i.i.i.i ], [ 0, %122 ]
   %148 = icmp eq i64 %.sroa.8103.0.i.i.i, 0
   br i1 %148, label %.thread.i, label %217
 
@@ -4302,7 +4302,7 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread: ; pred
   store ptr %.sroa.0112.sroa.3.0.i.i.i, ptr %.sroa.0112.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !826
   %.sroa.0112.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %25, i64 16
   store i64 %.sroa.0112.sroa.4.0.i.i.i, ptr %.sroa.0112.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !826
-  %241 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %.0.i.i.i, i64 %.0119.i.i.i)
+  %241 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %.0.i.i.i, i64 %.0118.i.i.i)
   %242 = extractvalue { i64, i1 } %241, 0
   %243 = extractvalue { i64, i1 } %241, 1
   br i1 %243, label %300, label %284

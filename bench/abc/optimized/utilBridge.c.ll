@@ -783,21 +783,21 @@ Gia_AigerWriteUnsigned.exit:                      ; preds = %.Vec_StrGrow.exit10
 
 69:                                               ; preds = %.lr.ph79, %._crit_edge
   %70 = phi i32 [ %.pre, %.lr.ph79 ], [ %111, %._crit_edge ]
-  %.078 = phi i32 [ %66, %.lr.ph79 ], [ %.1.lcssa, %._crit_edge ]
-  %.03477 = phi i32 [ 0, %.lr.ph79 ], [ %112, %._crit_edge ]
+  %.03478 = phi i32 [ %66, %.lr.ph79 ], [ %.135.lcssa, %._crit_edge ]
+  %.03677 = phi i32 [ 0, %.lr.ph79 ], [ %112, %._crit_edge ]
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %2, i32 noundef %70)
   %71 = load i32, ptr %67, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %69, %Vec_StrPush.exit59
-  %.175 = phi i32 [ %108, %Vec_StrPush.exit59 ], [ %.078, %69 ]
-  %.03574 = phi i32 [ %107, %Vec_StrPush.exit59 ], [ 0, %69 ]
-  %73 = ashr i32 %.175, 5
+  %.075 = phi i32 [ %107, %Vec_StrPush.exit59 ], [ 0, %69 ]
+  %.13574 = phi i32 [ %108, %Vec_StrPush.exit59 ], [ %.03478, %69 ]
+  %73 = ashr i32 %.13574, 5
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %68, i64 %74
   %76 = load i32, ptr %75, align 4
-  %77 = and i32 %.175, 31
+  %77 = and i32 %.13574, 31
   %78 = shl nuw i32 1, %77
   %79 = and i32 %76, %78
   %.not37 = icmp eq i32 %79, 0
@@ -862,18 +862,18 @@ Vec_StrPush.exit59:                               ; preds = %.Vec_StrGrow.exit10
   %105 = sext i32 %81 to i64
   %106 = getelementptr inbounds i8, ptr %103, i64 %105
   store i8 %80, ptr %106, align 1
-  %107 = add nuw nsw i32 %.03574, 1
-  %108 = add nsw i32 %.175, 1
+  %107 = add nuw nsw i32 %.075, 1
+  %108 = add nsw i32 %.13574, 1
   %109 = load i32, ptr %67, align 4
   %110 = icmp slt i32 %107, %109
   br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %Vec_StrPush.exit59, %69
   %111 = phi i32 [ %71, %69 ], [ %109, %Vec_StrPush.exit59 ]
-  %.1.lcssa = phi i32 [ %.078, %69 ], [ %108, %Vec_StrPush.exit59 ]
-  %112 = add nuw nsw i32 %.03477, 1
+  %.135.lcssa = phi i32 [ %.03478, %69 ], [ %108, %Vec_StrPush.exit59 ]
+  %112 = add nuw nsw i32 %.03677, 1
   %113 = load i32, ptr %34, align 4
-  %.not.not = icmp slt i32 %.03477, %113
+  %.not.not = icmp slt i32 %.03677, %113
   br i1 %.not.not, label %69, label %._crit_edge80, !llvm.loop !15
 
 ._crit_edge80:                                    ; preds = %._crit_edge, %Gia_AigerWriteUnsigned.exit
@@ -944,7 +944,7 @@ Vec_StrPush.exit66:                               ; preds = %.Vec_StrGrow.exit10
   br i1 %142, label %.lr.ph82, label %._crit_edge83
 
 .lr.ph82:                                         ; preds = %Vec_StrPush.exit66, %Vec_StrPush.exit73
-  %.13681 = phi i32 [ %169, %Vec_StrPush.exit73 ], [ 0, %Vec_StrPush.exit66 ]
+  %.181 = phi i32 [ %169, %Vec_StrPush.exit73 ], [ 0, %Vec_StrPush.exit66 ]
   %143 = load i32, ptr %3, align 4
   %144 = load i32, ptr %2, align 8
   %145 = icmp eq i32 %143, %144
@@ -1005,7 +1005,7 @@ Vec_StrPush.exit73:                               ; preds = %.Vec_StrGrow.exit10
   %167 = sext i32 %143 to i64
   %168 = getelementptr inbounds i8, ptr %165, i64 %167
   store i8 2, ptr %168, align 1
-  %169 = add nuw nsw i32 %.13681, 1
+  %169 = add nuw nsw i32 %.181, 1
   %170 = load i32, ptr %64, align 4
   %171 = icmp slt i32 %169, %170
   br i1 %171, label %.lr.ph82, label %._crit_edge83, !llvm.loop !16

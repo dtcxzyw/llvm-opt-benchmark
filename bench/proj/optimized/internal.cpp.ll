@@ -445,17 +445,17 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
   br label %16
 
 16:                                               ; preds = %12, %8
-  %.036 = phi i64 [ -1, %8 ], [ 1, %12 ]
-  %.032 = phi i64 [ 1, %8 ], [ %spec.select, %12 ]
-  %17 = icmp ult i64 %.032, %6
+  %.034 = phi i64 [ 1, %8 ], [ %spec.select, %12 ]
+  %.032 = phi i64 [ -1, %8 ], [ 1, %12 ]
+  %17 = icmp ult i64 %.034, %6
   br i1 %17, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16, %29
   %.03143 = phi i64 [ %.1, %29 ], [ 0, %16 ]
-  %.13342 = phi i64 [ %30, %29 ], [ %.032, %16 ]
-  %.03441 = phi i1 [ %.135, %29 ], [ false, %16 ]
-  %.13740 = phi i64 [ %.2, %29 ], [ %.036, %16 ]
-  %18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.13342) #15
+  %.13342 = phi i64 [ %.2, %29 ], [ %.032, %16 ]
+  %.13541 = phi i64 [ %30, %29 ], [ %.034, %16 ]
+  %.03640 = phi i1 [ %.137, %29 ], [ false, %16 ]
+  %18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.13541) #15
   %19 = load i8, ptr %18, align 1
   %20 = add i8 %19, -48
   %or.cond4 = icmp ult i8 %20, 10
@@ -466,21 +466,21 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
   %23 = zext nneg i8 %19 to i64
   %24 = add i64 %22, -48
   %25 = add i64 %24, %23
-  %26 = mul nsw i64 %.13740, 10
-  %spec.select39 = select i1 %.03441, i64 %26, i64 %.13740
+  %26 = mul nsw i64 %.13342, 10
+  %spec.select39 = select i1 %.03640, i64 %26, i64 %.13342
   br label %29
 
 27:                                               ; preds = %.lr.ph
   %28 = icmp eq i8 %19, 46
-  %.137. = select i1 %28, i64 %.13740, i64 0
-  %..034 = select i1 %28, i1 true, i1 %.03441
+  %..036 = select i1 %28, i1 true, i1 %.03640
+  %.133. = select i1 %28, i64 %.13342, i64 0
   br label %29
 
 29:                                               ; preds = %21, %27
-  %.2 = phi i64 [ %spec.select39, %21 ], [ %.137., %27 ]
-  %.135 = phi i1 [ %.03441, %21 ], [ %..034, %27 ]
+  %.137 = phi i1 [ %.03640, %21 ], [ %..036, %27 ]
+  %.2 = phi i64 [ %spec.select39, %21 ], [ %.133., %27 ]
   %.1 = phi i64 [ %25, %21 ], [ %.03143, %27 ]
-  %30 = add nuw i64 %.13342, 1
+  %30 = add nuw i64 %.13541, 1
   %exitcond.not = icmp eq i64 %30, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -491,8 +491,8 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
   %.031.lcssa50 = phi double [ %31, %._crit_edge ], [ 0.000000e+00, %16 ]
-  %.137.lcssa49 = phi i64 [ %.2, %._crit_edge ], [ %.036, %16 ]
-  %32 = sitofp i64 %.137.lcssa49 to double
+  %.133.lcssa49 = phi i64 [ %.2, %._crit_edge ], [ %.032, %16 ]
+  %32 = sitofp i64 %.133.lcssa49 to double
   %33 = fdiv double %.031.lcssa50, %32
   br label %62
 

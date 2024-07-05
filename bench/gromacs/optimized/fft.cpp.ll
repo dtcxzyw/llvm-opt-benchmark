@@ -124,15 +124,15 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   br label %43
 
 43:                                               ; preds = %41, %.preheader253.preheader
-  %.0207 = phi i32 [ %42, %41 ], [ 2, %.preheader253.preheader ]
+  %.0200 = phi i32 [ %42, %41 ], [ 2, %.preheader253.preheader ]
   %44 = mul nuw nsw i32 %3, %2
   %45 = add nsw i32 %44, -1
   %46 = sext i32 %45 to i64
   br label %47
 
 47:                                               ; preds = %115, %43
-  %.0210 = phi i32 [ %3, %43 ], [ %spec.select, %115 ]
-  %.1208 = phi i32 [ %.0207, %43 ], [ %71, %115 ]
+  %.1201 = phi i32 [ %.0200, %43 ], [ %71, %115 ]
+  %.0196 = phi i32 [ %3, %43 ], [ %spec.select, %115 ]
   %.4 = phi i32 [ 1, %43 ], [ %95, %115 ]
   %48 = sub nsw i32 %45, %.4
   %49 = sext i32 %.4 to i64
@@ -144,35 +144,35 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   br label %55
 
 55:                                               ; preds = %75, %47
-  %.2209 = phi i32 [ %.1208, %47 ], [ %71, %75 ]
-  %.0199 = phi i32 [ %.4, %47 ], [ %59, %75 ]
-  %.0197 = phi i32 [ %48, %47 ], [ %60, %75 ]
-  %56 = mul nsw i32 %.0199, %3
-  %57 = sdiv i32 %.0199, %2
+  %.0208 = phi i32 [ %.4, %47 ], [ %59, %75 ]
+  %.0206 = phi i32 [ %48, %47 ], [ %60, %75 ]
+  %.2202 = phi i32 [ %.1201, %47 ], [ %71, %75 ]
+  %56 = mul nsw i32 %.0208, %3
+  %57 = sdiv i32 %.0208, %2
   %58 = mul nsw i32 %57, %45
   %59 = sub nsw i32 %56, %58
   %60 = sub nsw i32 %45, %59
-  %61 = icmp slt i32 %.0199, 500
+  %61 = icmp slt i32 %.0208, 500
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %55
-  %63 = sext i32 %.0199 to i64
+  %63 = sext i32 %.0208 to i64
   %64 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %63
   store i8 1, ptr %64, align 1
   br label %65
 
 65:                                               ; preds = %62, %55
-  %66 = icmp slt i32 %.0197, 500
+  %66 = icmp slt i32 %.0206, 500
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
-  %68 = sext i32 %.0197 to i64
+  %68 = sext i32 %.0206 to i64
   %69 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %68
   store i8 1, ptr %69, align 1
   br label %70
 
 70:                                               ; preds = %67, %65
-  %71 = add nuw nsw i32 %.2209, 2
+  %71 = add nuw nsw i32 %.2202, 2
   %72 = icmp eq i32 %59, %.4
   br i1 %72, label %.thread, label %73
 
@@ -183,13 +183,13 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 75:                                               ; preds = %73
   %76 = sext i32 %59 to i64
   %77 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %76
-  %78 = sext i32 %.0199 to i64
+  %78 = sext i32 %.0208 to i64
   %79 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %78
   %80 = load <2 x float>, ptr %77, align 4
   store <2 x float> %80, ptr %79, align 4
   %81 = sext i32 %60 to i64
   %82 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %81
-  %83 = sext i32 %.0197 to i64
+  %83 = sext i32 %.0206 to i64
   %84 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %83
   %85 = load <2 x float>, ptr %82, align 4
   store <2 x float> %85, ptr %84, align 4
@@ -198,10 +198,10 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 .thread:                                          ; preds = %73, %70
   %86 = phi <2 x float> [ %53, %73 ], [ %54, %70 ]
   %87 = phi <2 x float> [ %54, %73 ], [ %53, %70 ]
-  %88 = sext i32 %.0199 to i64
+  %88 = sext i32 %.0208 to i64
   %89 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %88
   store <2 x float> %87, ptr %89, align 4
-  %90 = sext i32 %.0197 to i64
+  %90 = sext i32 %.0206 to i64
   %91 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %90
   store <2 x float> %86, ptr %91, align 4
   %.not226 = icmp slt i32 %71, %44
@@ -209,10 +209,10 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 
 .preheader251:                                    ; preds = %.thread, %.preheader251.backedge
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %.preheader251.backedge ], [ %49, %.thread ]
-  %.1211 = phi i32 [ %spec.select, %.preheader251.backedge ], [ %.0210, %.thread ]
+  %.1197 = phi i32 [ %spec.select, %.preheader251.backedge ], [ %.0196, %.thread ]
   %92 = sub nsw i64 %46, %indvars.iv281
   %indvars.iv.next282 = add nsw i64 %indvars.iv281, 1
-  %93 = add nsw i32 %.1211, %3
+  %93 = add nsw i32 %.1197, %3
   %.not227 = icmp slt i32 %93, %44
   %94 = select i1 %.not227, i32 0, i32 %45
   %spec.select = sub nsw i32 %93, %94
@@ -235,9 +235,9 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   br i1 %101, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader250, %.lr.ph
-  %.0196261 = phi i32 [ %105, %.lr.ph ], [ %spec.select, %.preheader250 ]
-  %102 = mul nsw i32 %.0196261, %3
-  %103 = sdiv i32 %.0196261, %2
+  %.0205261 = phi i32 [ %105, %.lr.ph ], [ %spec.select, %.preheader250 ]
+  %102 = mul nsw i32 %.0205261, %3
+  %103 = sdiv i32 %.0205261, %2
   %104 = mul nsw i32 %103, %45
   %105 = sub nsw i32 %102, %104
   %106 = sext i32 %105 to i64
@@ -247,8 +247,8 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader250
-  %.0196.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %105, %.lr.ph ]
-  %110 = zext i32 %.0196.lcssa to i64
+  %.0205.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %105, %.lr.ph ]
+  %110 = zext i32 %.0205.lcssa to i64
   %111 = icmp eq i64 %indvars.iv.next282, %110
   br i1 %111, label %115, label %.preheader251.backedge
 

@@ -249,8 +249,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry, %for.end3591
-  %blocks.addr.0 = phi ptr [ %add.ptr3592, %for.end3591 ], [ %blocks, %entry ]
   %len.addr.0 = phi i64 [ %sub, %for.end3591 ], [ %len, %entry ]
+  %blocks.addr.0 = phi ptr [ %add.ptr3592, %for.end3591 ], [ %blocks, %entry ]
   %m.sroa.0.0.copyload = load i32, ptr %blocks.addr.0, align 1
   %m.sroa.8.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 4
   %m.sroa.8.0.copyload = load i32, ptr %m.sroa.8.0.blocks.addr.0.sroa_idx, align 1

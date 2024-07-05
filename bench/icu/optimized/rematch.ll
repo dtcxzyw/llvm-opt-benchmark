@@ -2232,10 +2232,10 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.else, %cond.true
   br label %if.end28
 
 if.end28:                                         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %if.then20
-  %s.0.in = phi ptr [ %fMatchStart, %if.then20 ], [ %arrayidx, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
   %e.0.in = phi ptr [ %fMatchEnd, %if.then20 ], [ %arrayidx27, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
-  %e.0 = load i64, ptr %e.0.in, align 8
+  %s.0.in = phi ptr [ %fMatchStart, %if.then20 ], [ %arrayidx, %_ZNK6icu_759UVector3210elementAtiEi.exit ]
   %s.0 = load i64, ptr %s.0.in, align 8
+  %e.0 = load i64, ptr %e.0.in, align 8
   %cmp29 = icmp slt i64 %s.0, 0
   br i1 %cmp29, label %if.then30, label %if.end33
 
@@ -3639,8 +3639,8 @@ if.else624:                                       ; preds = %land.lhs.true614, %
   br label %if.end628
 
 if.end628:                                        ; preds = %cond.true536, %cond.false543, %if.else624, %if.then620
-  %startPos.5 = phi i64 [ %startPos.1, %if.then620 ], [ %startPos.1, %if.else624 ], [ %add542, %cond.true536 ], [ %call548, %cond.false543 ]
-  %ch.0 = phi i32 [ %cond602, %if.then620 ], [ %cond602, %if.else624 ], [ %cond530, %cond.true536 ], [ %cond530, %cond.false543 ]
+  %ch.0 = phi i32 [ %cond602, %if.then620 ], [ %cond602, %if.else624 ], [ %cond530, %cond.false543 ], [ %cond530, %cond.true536 ]
+  %startPos.5 = phi i64 [ %startPos.1, %if.then620 ], [ %startPos.1, %if.else624 ], [ %call548, %cond.false543 ], [ %add542, %cond.true536 ]
   %150 = load ptr, ptr %fPattern113, align 8
   %fFlags = getelementptr inbounds i8, ptr %150, i64 24
   %151 = load i32, ptr %fFlags, align 8
@@ -3660,8 +3660,8 @@ for.cond727.preheader:                            ; preds = %if.end628
   br label %for.cond727
 
 for.cond632:                                      ; preds = %for.cond632.backedge, %for.cond632.preheader
-  %startPos.6 = phi i64 [ %startPos.5, %for.cond632.preheader ], [ %cond721, %for.cond632.backedge ]
   %ch.1 = phi i32 [ %ch.0, %for.cond632.preheader ], [ %cond701, %for.cond632.backedge ]
+  %startPos.6 = phi i64 [ %startPos.5, %for.cond632.preheader ], [ %cond721, %for.cond632.backedge ]
   %cmp633 = icmp eq i32 %ch.1, 10
   br i1 %cmp633, label %if.then634, label %if.end668
 
@@ -3793,8 +3793,8 @@ _ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit172.thread: ;
   br label %return
 
 for.cond727:                                      ; preds = %for.cond727.backedge, %for.cond727.preheader
-  %startPos.7 = phi i64 [ %startPos.5, %for.cond727.preheader ], [ %cond900, %for.cond727.backedge ]
   %ch.2 = phi i32 [ %ch.0, %for.cond727.preheader ], [ %cond880, %for.cond727.backedge ]
+  %startPos.7 = phi i64 [ %startPos.5, %for.cond727.preheader ], [ %cond900, %for.cond727.backedge ]
   %and.i173 = and i32 %ch.2, -8368
   %tobool.not.i174 = icmp eq i32 %and.i173, 0
   br i1 %tobool.not.i174, label %if.end.i, label %if.end847
@@ -9076,8 +9076,8 @@ if.then2894:                                      ; preds = %land.lhs.true2888
   br label %do.end2902
 
 do.end2902:                                       ; preds = %land.lhs.true2888, %if.then2894, %do.body2878
-  %patternStringIdx.1 = phi i32 [ %inc2895, %if.then2894 ], [ %inc2879, %land.lhs.true2888 ], [ %inc2879, %do.body2878 ]
   %cPattern.0 = phi i32 [ %sub2899, %if.then2894 ], [ %conv2882, %land.lhs.true2888 ], [ %conv2882, %do.body2878 ]
+  %patternStringIdx.1 = phi i32 [ %inc2895, %if.then2894 ], [ %inc2879, %land.lhs.true2888 ], [ %inc2879, %do.body2878 ]
   %call2904 = invoke noundef i32 @_ZN6icu_7524CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %inputIterator)
           to label %invoke.cont2903 unwind label %lpad2847.loopexit
 
@@ -12798,9 +12798,9 @@ for.body1364.lr.ph:                               ; preds = %if.end1360
   br label %for.body1364
 
 for.body1364:                                     ; preds = %for.body1364.lr.ph, %for.inc1377
-  %groupIndex.01339 = phi i64 [ %385, %for.body1364.lr.ph ], [ %inc1378, %for.inc1377 ]
-  %inputIndex.01338 = phi i64 [ %391, %for.body1364.lr.ph ], [ %inc1379, %for.inc1377 ]
-  %cmp1366.not = icmp slt i64 %inputIndex.01338, %392
+  %inputIndex.01339 = phi i64 [ %391, %for.body1364.lr.ph ], [ %inc1379, %for.inc1377 ]
+  %groupIndex.01338 = phi i64 [ %385, %for.body1364.lr.ph ], [ %inc1378, %for.inc1377 ]
+  %cmp1366.not = icmp slt i64 %inputIndex.01339, %392
   br i1 %cmp1366.not, label %if.end1369, label %if.then1367
 
 if.then1367:                                      ; preds = %for.body1364
@@ -12808,16 +12808,16 @@ if.then1367:                                      ; preds = %for.body1364
   br label %if.else1403
 
 if.end1369:                                       ; preds = %for.body1364
-  %arrayidx1370 = getelementptr inbounds i16, ptr %8, i64 %groupIndex.01339
+  %arrayidx1370 = getelementptr inbounds i16, ptr %8, i64 %groupIndex.01338
   %395 = load i16, ptr %arrayidx1370, align 2
-  %arrayidx1372 = getelementptr inbounds i16, ptr %8, i64 %inputIndex.01338
+  %arrayidx1372 = getelementptr inbounds i16, ptr %8, i64 %inputIndex.01339
   %396 = load i16, ptr %arrayidx1372, align 2
   %cmp1374.not = icmp eq i16 %395, %396
   br i1 %cmp1374.not, label %for.inc1377, label %if.else1403
 
 for.inc1377:                                      ; preds = %if.end1369
-  %inc1378 = add i64 %groupIndex.01339, 1
-  %inc1379 = add nsw i64 %inputIndex.01338, 1
+  %inc1378 = add i64 %groupIndex.01338, 1
+  %inc1379 = add nsw i64 %inputIndex.01339, 1
   %exitcond.not = icmp eq i64 %inc1378, %386
   br i1 %exitcond.not, label %land.lhs.true1382, label %for.body1364, !llvm.loop !32
 
@@ -16511,8 +16511,8 @@ if.end71:                                         ; preds = %if.else63, %if.then
   br label %for.end273
 
 if.end74:                                         ; preds = %if.end74.lr.ph, %for.inc271
-  %i.0262 = phi i32 [ 0, %if.end74.lr.ph ], [ %inc272, %for.inc271 ]
-  %nextOutputStringStart.0261 = phi i64 [ 0, %if.end74.lr.ph ], [ %35, %for.inc271 ]
+  %nextOutputStringStart.0262 = phi i64 [ 0, %if.end74.lr.ph ], [ %35, %for.inc271 ]
+  %i.0261 = phi i32 [ 0, %if.end74.lr.ph ], [ %inc272, %for.inc271 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %22 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i.i = icmp slt i32 %22, 1
@@ -16547,7 +16547,7 @@ land.lhs.true84:                                  ; preds = %land.lhs.true80
   br i1 %cmp88, label %if.then89, label %if.else116
 
 if.then89:                                        ; preds = %land.lhs.true84
-  %idxprom90 = sext i32 %i.0262 to i64
+  %idxprom90 = sext i32 %i.0261 to i64
   %arrayidx91 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom90
   %27 = load ptr, ptr %arrayidx91, align 8
   %tobool92.not = icmp eq ptr %27, null
@@ -16556,9 +16556,9 @@ if.then89:                                        ; preds = %land.lhs.true84
 if.then93:                                        ; preds = %if.then89
   %call98 = call i64 @utext_nativeLength_75(ptr noundef nonnull %27)
   %28 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr100 = getelementptr inbounds i16, ptr %28, i64 %nextOutputStringStart.0261
+  %add.ptr100 = getelementptr inbounds i16, ptr %28, i64 %nextOutputStringStart.0262
   %29 = load i64, ptr %fMatchStart119, align 8
-  %sub101 = sub nsw i64 %29, %nextOutputStringStart.0261
+  %sub101 = sub nsw i64 %29, %nextOutputStringStart.0262
   %conv102 = trunc i64 %sub101 to i32
   %call103 = call i32 @utext_replace_75(ptr noundef nonnull %27, i64 noundef 0, i64 noundef %call98, ptr noundef %add.ptr100, i32 noundef %conv102, ptr noundef nonnull %status)
   br label %if.end151
@@ -16568,9 +16568,9 @@ if.else104:                                       ; preds = %if.then89
   store i32 878368812, ptr %remainingText105, align 8
   store i32 144, ptr %6, align 4
   %30 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr107 = getelementptr inbounds i16, ptr %30, i64 %nextOutputStringStart.0261
+  %add.ptr107 = getelementptr inbounds i16, ptr %30, i64 %nextOutputStringStart.0262
   %31 = load i64, ptr %fMatchStart119, align 8
-  %sub109 = sub nsw i64 %31, %nextOutputStringStart.0261
+  %sub109 = sub nsw i64 %31, %nextOutputStringStart.0262
   %call110 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText105, ptr noundef %add.ptr107, i64 noundef %sub109, ptr noundef nonnull %status)
   %call111 = call ptr @utext_clone_75(ptr noundef null, ptr noundef nonnull %remainingText105, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %status)
   store ptr %call111, ptr %arrayidx91, align 8
@@ -16580,7 +16580,7 @@ if.else104:                                       ; preds = %if.then89
 if.else116:                                       ; preds = %land.lhs.true84, %land.lhs.true80, %if.then77
   store i32 0, ptr %lengthStatus117, align 4
   %32 = load i64, ptr %fMatchStart119, align 8
-  %call120 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0261, i64 noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus117)
+  %call120 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0262, i64 noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus117)
   %add122 = add nsw i32 %call120, 1
   %conv123 = sext i32 %add122 to i64
   %mul124 = shl nsw i64 %conv123, 1
@@ -16594,8 +16594,8 @@ if.then127:                                       ; preds = %if.else116
 
 if.end128:                                        ; preds = %if.else116
   %33 = load i64, ptr %fMatchStart119, align 8
-  %call131 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0261, i64 noundef %33, ptr noundef nonnull %call125, i32 noundef %add122, ptr noundef nonnull %status)
-  %idxprom132 = sext i32 %i.0262 to i64
+  %call131 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0262, i64 noundef %33, ptr noundef nonnull %call125, i32 noundef %add122, ptr noundef nonnull %status)
+  %idxprom132 = sext i32 %i.0261 to i64
   %arrayidx133 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom132
   %34 = load ptr, ptr %arrayidx133, align 8
   %tobool134.not = icmp eq ptr %34, null
@@ -16623,12 +16623,12 @@ if.end150:                                        ; preds = %if.else142, %if.the
 
 if.end151:                                        ; preds = %if.then93, %if.else104, %if.end150
   %35 = load i64, ptr %fMatchEnd, align 8
-  %cmp155.not255 = icmp slt i32 %i.0262, %sub154
+  %cmp155.not255 = icmp slt i32 %i.0261, %sub154
   %or.cond256 = select i1 %cmp153.not254, i1 %cmp155.not255, i1 false
   br i1 %or.cond256, label %if.end157.preheader, label %for.end
 
 if.end157.preheader:                              ; preds = %if.end151
-  %36 = sext i32 %i.0262 to i64
+  %36 = sext i32 %i.0261 to i64
   br label %if.end157
 
 if.end157:                                        ; preds = %if.end157.preheader, %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
@@ -16897,7 +16897,7 @@ for.end.loopexit:                                 ; preds = %_ZN6icu_75L21utext_
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end151
-  %i.1.lcssa = phi i32 [ %i.0262, %if.end151 ], [ %77, %for.end.loopexit ]
+  %i.1.lcssa = phi i32 [ %i.0261, %if.end151 ], [ %77, %for.end.loopexit ]
   %78 = load i64, ptr %fActiveLimit, align 8
   %cmp167 = icmp eq i64 %35, %78
   br i1 %cmp167, label %if.then168, label %if.end266
@@ -16942,7 +16942,7 @@ land.lhs.true197:                                 ; preds = %land.lhs.true193
   br i1 %cmp201, label %if.then202, label %if.else230
 
 if.then202:                                       ; preds = %land.lhs.true197
-  %idxprom203 = sext i32 %i.0262 to i64
+  %idxprom203 = sext i32 %i.0261 to i64
   %arrayidx204 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom203
   %84 = load ptr, ptr %arrayidx204, align 8
   %tobool205.not = icmp eq ptr %84, null
@@ -16951,9 +16951,9 @@ if.then202:                                       ; preds = %land.lhs.true197
 if.then206:                                       ; preds = %if.then202
   %call211 = call i64 @utext_nativeLength_75(ptr noundef nonnull %84)
   %85 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr213 = getelementptr inbounds i16, ptr %85, i64 %nextOutputStringStart.0261
+  %add.ptr213 = getelementptr inbounds i16, ptr %85, i64 %nextOutputStringStart.0262
   %86 = load i64, ptr %fActiveLimit, align 8
-  %sub215 = sub nsw i64 %86, %nextOutputStringStart.0261
+  %sub215 = sub nsw i64 %86, %nextOutputStringStart.0262
   %conv216 = trunc i64 %sub215 to i32
   %call217 = call i32 @utext_replace_75(ptr noundef nonnull %84, i64 noundef 0, i64 noundef %call211, ptr noundef %add.ptr213, i32 noundef %conv216, ptr noundef nonnull %status)
   br label %for.end273
@@ -16964,9 +16964,9 @@ if.else218:                                       ; preds = %if.then202
   %87 = getelementptr inbounds i8, ptr %remainingText219, i64 12
   store i32 144, ptr %87, align 4
   %88 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr221 = getelementptr inbounds i16, ptr %88, i64 %nextOutputStringStart.0261
+  %add.ptr221 = getelementptr inbounds i16, ptr %88, i64 %nextOutputStringStart.0262
   %89 = load i64, ptr %fActiveLimit, align 8
-  %sub223 = sub nsw i64 %89, %nextOutputStringStart.0261
+  %sub223 = sub nsw i64 %89, %nextOutputStringStart.0262
   %call224 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText219, ptr noundef %add.ptr221, i64 noundef %sub223, ptr noundef nonnull %status)
   %call225 = call ptr @utext_clone_75(ptr noundef null, ptr noundef nonnull %remainingText219, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %status)
   store ptr %call225, ptr %arrayidx204, align 8
@@ -16976,7 +16976,7 @@ if.else218:                                       ; preds = %if.then202
 if.else230:                                       ; preds = %land.lhs.true197, %land.lhs.true193, %if.else190
   store i32 0, ptr %lengthStatus231, align 4
   %90 = load i64, ptr %fActiveLimit, align 8
-  %call234 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0261, i64 noundef %90, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus231)
+  %call234 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0262, i64 noundef %90, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus231)
   %add236 = add nsw i32 %call234, 1
   %conv237 = sext i32 %add236 to i64
   %mul238 = shl nsw i64 %conv237, 1
@@ -16990,8 +16990,8 @@ if.then241:                                       ; preds = %if.else230
 
 if.end242:                                        ; preds = %if.else230
   %91 = load i64, ptr %fActiveLimit, align 8
-  %call245 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0261, i64 noundef %91, ptr noundef nonnull %call239, i32 noundef %add236, ptr noundef nonnull %status)
-  %idxprom246 = sext i32 %i.0262 to i64
+  %call245 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0262, i64 noundef %91, ptr noundef nonnull %call239, i32 noundef %add236, ptr noundef nonnull %status)
+  %idxprom246 = sext i32 %i.0261 to i64
   %arrayidx247 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom246
   %92 = load ptr, ptr %arrayidx247, align 8
   %tobool248.not = icmp eq ptr %92, null
@@ -17029,7 +17029,7 @@ for.inc271:                                       ; preds = %if.end266
   br i1 %cmp9.not, label %if.end74, label %if.then10, !llvm.loop !43
 
 for.end273:                                       ; preds = %if.end266, %if.end264, %if.else218, %if.then206, %if.then168, %if.else180, %if.then176, %if.then10, %if.then22, %if.else, %if.end71, %if.then241, %if.then127, %if.then48
-  %i.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.else ], [ %sub, %if.then48 ], [ %sub, %if.end71 ], [ %sub, %if.then10 ], [ %add169, %if.then176 ], [ %add169, %if.else180 ], [ %i.1.lcssa, %if.then168 ], [ %i.0262, %if.then127 ], [ %i.0262, %if.then206 ], [ %i.0262, %if.else218 ], [ %i.0262, %if.then241 ], [ %i.0262, %if.end264 ], [ %i.1.lcssa, %if.end266 ]
+  %i.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.else ], [ %sub, %if.then48 ], [ %sub, %if.end71 ], [ %sub, %if.then10 ], [ %add169, %if.then176 ], [ %add169, %if.else180 ], [ %i.1.lcssa, %if.then168 ], [ %i.0261, %if.then127 ], [ %i.0261, %if.then206 ], [ %i.0261, %if.else218 ], [ %i.0261, %if.then241 ], [ %i.0261, %if.end264 ], [ %i.1.lcssa, %if.end266 ]
   %add274 = add nsw i32 %i.2, 1
   br label %return
 

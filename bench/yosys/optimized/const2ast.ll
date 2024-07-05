@@ -743,7 +743,7 @@ define internal fastcc void @_ZN5YosysL11my_strtobinERSt6vectorINS_5RTLIL5StateE
 
 .lr.ph:                                           ; preds = %6, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
   %11 = phi i8 [ %125, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %10, %6 ]
-  %.068284 = phi ptr [ %124, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %1, %6 ]
+  %.067284 = phi ptr [ %124, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ %1, %6 ]
   %.sroa.0213.0283 = phi ptr [ %.sroa.0213.6, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ null, %6 ]
   %.sroa.21.0282 = phi ptr [ %.sroa.21.6, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ null, %6 ]
   %.sroa.48.0281 = phi ptr [ %.sroa.48.6, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ], [ null, %6 ]
@@ -1085,7 +1085,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   %.sroa.48.6 = phi ptr [ %.sroa.48.0281, %81 ], [ %33, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.48.0281, %14 ], [ %57, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i97 ], [ %.sroa.48.0281, %38 ], [ %80, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i108 ], [ %.sroa.48.0281, %61 ], [ %102, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i119 ], [ %.sroa.48.0281, %83 ], [ %123, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i130 ], [ %.sroa.48.0281, %104 ]
   %.sroa.21.6 = phi ptr [ %.sroa.21.0282, %81 ], [ %31, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %15, %14 ], [ %55, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i97 ], [ %39, %38 ], [ %78, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i108 ], [ %62, %61 ], [ %100, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i119 ], [ %84, %83 ], [ %121, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i130 ], [ %105, %104 ]
   %.sroa.0213.6 = phi ptr [ %.sroa.0213.0283, %81 ], [ %27, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.0213.0283, %14 ], [ %51, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i97 ], [ %.sroa.0213.0283, %38 ], [ %74, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i108 ], [ %.sroa.0213.0283, %61 ], [ %96, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i119 ], [ %.sroa.0213.0283, %83 ], [ %117, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i130 ], [ %.sroa.0213.0283, %104 ]
-  %124 = getelementptr inbounds i8, ptr %.068284, i64 1
+  %124 = getelementptr inbounds i8, ptr %.067284, i64 1
   %125 = load i8, ptr %124, align 1
   %.not = icmp eq i8 %125, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -1313,7 +1313,7 @@ _ZN5YosysL8my_ilog2Ei.exit:                       ; preds = %.lr.ph.i145, %194
 
 .preheader254.us:                                 ; preds = %.lr.ph290.split.us, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us
   %213 = phi ptr [ %291, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us ], [ %208, %.lr.ph290.split.us ]
-  %.067286.us = phi i32 [ %292, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us ], [ 0, %.lr.ph290.split.us ]
+  %.068286.us = phi i32 [ %292, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us ], [ 0, %.lr.ph290.split.us ]
   %214 = load i8, ptr %209, align 1
   switch i8 %214, label %263 [
     i8 -16, label %239
@@ -1441,7 +1441,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us
 
 263:                                              ; preds = %.preheader254.us
-  %264 = shl nuw i32 1, %.067286.us
+  %264 = shl nuw i32 1, %.068286.us
   %265 = zext i8 %214 to i32
   %266 = and i32 %264, %265
   %.not81.us = icmp ne i32 %266, 0
@@ -1507,7 +1507,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i175.us, %269, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i153.us, %241, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i164.us, %217
   %291 = phi ptr [ %288, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i175.us ], [ %271, %269 ], [ %260, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i153.us ], [ %243, %241 ], [ %236, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i164.us ], [ %219, %217 ]
-  %292 = add nuw nsw i32 %.067286.us, 1
+  %292 = add nuw nsw i32 %.068286.us, 1
   %exitcond.not = icmp eq i32 %292, %.0.lcssa.i144.fr
   br i1 %exitcond.not, label %..loopexit255_crit_edge.us, label %.preheader254.us, !llvm.loop !15
 

@@ -1883,18 +1883,18 @@ define ptr @H5O_protect(ptr nocapture noundef readonly %0, i32 noundef %1, i1 no
   br label %58
 
 54:                                               ; preds = %72
-  %55 = add nuw i64 %.05570, 1
+  %55 = add nuw i64 %.05670, 1
   %56 = load i64, ptr %5, align 8
   %57 = icmp ult i64 %55, %56
   br i1 %57, label %58, label %._crit_edge
 
 58:                                               ; preds = %.lr.ph, %54
-  %.05570 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
+  %.05670 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
   %59 = load ptr, ptr %51, align 8
-  %60 = getelementptr inbounds %struct.H5O_cont_t, ptr %59, i64 %.05570
+  %60 = getelementptr inbounds %struct.H5O_cont_t, ptr %59, i64 %.05670
   %61 = load i64, ptr %60, align 8
   store i64 %61, ptr %52, align 8
-  %62 = getelementptr inbounds %struct.H5O_cont_t, ptr %59, i64 %.05570, i32 1
+  %62 = getelementptr inbounds %struct.H5O_cont_t, ptr %59, i64 %.05670, i32 1
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %53, align 8
   %64 = load ptr, ptr %0, align 8
@@ -1912,7 +1912,7 @@ define ptr @H5O_protect(ptr nocapture noundef readonly %0, i32 noundef %1, i1 no
 72:                                               ; preds = %58
   %73 = load ptr, ptr %0, align 8
   %74 = load ptr, ptr %51, align 8
-  %75 = getelementptr inbounds %struct.H5O_cont_t, ptr %74, i64 %.05570
+  %75 = getelementptr inbounds %struct.H5O_cont_t, ptr %74, i64 %.05670
   %76 = load i64, ptr %75, align 8
   %77 = call i32 @H5AC_unprotect(ptr noundef %73, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %76, ptr noundef nonnull %66, i32 noundef 0) #11
   %78 = icmp slt i32 %77, 0
@@ -2755,9 +2755,9 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
   %51 = phi i64 [ %98, %111 ], [ 0, %.lr.ph.preheader ]
   %52 = phi i64 [ %99, %111 ], [ 0, %.lr.ph.preheader ]
   %53 = phi i64 [ %100, %111 ], [ %39, %.lr.ph.preheader ]
-  %.058 = phi i32 [ %113, %111 ], [ 0, %.lr.ph.preheader ]
-  %.05557 = phi ptr [ %114, %111 ], [ %48, %.lr.ph.preheader ]
-  %54 = load ptr, ptr %.05557, align 8
+  %.058 = phi ptr [ %114, %111 ], [ %48, %.lr.ph.preheader ]
+  %.05457 = phi i32 [ %113, %111 ], [ 0, %.lr.ph.preheader ]
+  %54 = load ptr, ptr %.058, align 8
   %55 = load i32, ptr %54, align 8
   %56 = load i8, ptr %3, align 8
   %57 = icmp eq i8 %56, 1
@@ -2779,7 +2779,7 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
 
 65:                                               ; preds = %58, %59
   %66 = phi i64 [ %64, %59 ], [ 8, %58 ]
-  %67 = getelementptr inbounds i8, ptr %.05557, i64 40
+  %67 = getelementptr inbounds i8, ptr %.058, i64 40
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, %66
   %70 = add i64 %69, %52
@@ -2799,7 +2799,7 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
 
 78:                                               ; preds = %71, %72
   %79 = phi i64 [ %77, %72 ], [ 8, %71 ]
-  %80 = getelementptr inbounds i8, ptr %.05557, i64 40
+  %80 = getelementptr inbounds i8, ptr %.058, i64 40
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %79
   %83 = add i64 %82, %53
@@ -2821,7 +2821,7 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
   %92 = phi i64 [ %90, %85 ], [ 8, %84 ]
   %93 = add i64 %53, %92
   store i64 %93, ptr %41, align 8
-  %94 = getelementptr inbounds i8, ptr %.05557, i64 40
+  %94 = getelementptr inbounds i8, ptr %.058, i64 40
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %51, %95
   store i64 %96, ptr %42, align 8
@@ -2831,13 +2831,13 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
   %98 = phi i64 [ %51, %78 ], [ %96, %91 ], [ %51, %65 ]
   %99 = phi i64 [ %52, %78 ], [ %52, %91 ], [ %70, %65 ]
   %100 = phi i64 [ %83, %78 ], [ %93, %91 ], [ %53, %65 ]
-  %101 = load ptr, ptr %.05557, align 8
+  %101 = load ptr, ptr %.058, align 8
   %102 = load i32, ptr %101, align 8
   %103 = zext nneg i32 %102 to i64
   %104 = shl nuw i64 1, %103
   %105 = or i64 %104, %50
   store i64 %105, ptr %44, align 8
-  %106 = getelementptr inbounds i8, ptr %.05557, i64 9
+  %106 = getelementptr inbounds i8, ptr %.058, i64 9
   %107 = load i8, ptr %106, align 1
   %108 = and i8 %107, 2
   %.not = icmp eq i8 %108, 0
@@ -2850,8 +2850,8 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
 
 111:                                              ; preds = %97, %109
   %112 = phi i64 [ %49, %97 ], [ %110, %109 ]
-  %113 = add i32 %.058, 1
-  %114 = getelementptr inbounds i8, ptr %.05557, i64 48
+  %113 = add i32 %.05457, 1
+  %114 = getelementptr inbounds i8, ptr %.058, i64 48
   %115 = zext i32 %113 to i64
   %116 = load i64, ptr %6, align 8
   %117 = icmp ugt i64 %116, %115
@@ -2873,17 +2873,17 @@ define internal fastcc void @H5O__get_hdr_info_real(ptr nocapture noundef readon
   %122 = phi i64 [ %129, %.lr.ph62 ], [ %118, %.lr.ph62.preheader ]
   %123 = phi i64 [ %126, %.lr.ph62 ], [ 0, %.lr.ph62.preheader ]
   %.160 = phi i32 [ %130, %.lr.ph62 ], [ 0, %.lr.ph62.preheader ]
-  %.05459 = phi ptr [ %131, %.lr.ph62 ], [ %121, %.lr.ph62.preheader ]
-  %124 = getelementptr inbounds i8, ptr %.05459, i64 8
+  %.05559 = phi ptr [ %131, %.lr.ph62 ], [ %121, %.lr.ph62.preheader ]
+  %124 = getelementptr inbounds i8, ptr %.05559, i64 8
   %125 = load i64, ptr %124, align 8
   %126 = add i64 %123, %125
   store i64 %126, ptr %40, align 8
-  %127 = getelementptr inbounds i8, ptr %.05459, i64 16
+  %127 = getelementptr inbounds i8, ptr %.05559, i64 16
   %128 = load i64, ptr %127, align 8
   %129 = add i64 %122, %128
   store i64 %129, ptr %43, align 8
   %130 = add i32 %.160, 1
-  %131 = getelementptr inbounds i8, ptr %.05459, i64 40
+  %131 = getelementptr inbounds i8, ptr %.05559, i64 40
   %132 = zext i32 %130 to i64
   %133 = load i64, ptr %10, align 8
   %134 = icmp ugt i64 %133, %132

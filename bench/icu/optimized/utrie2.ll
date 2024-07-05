@@ -1053,8 +1053,8 @@ if.else:                                          ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then5
-  %data32.0.in = phi ptr [ %data326, %if.then5 ], [ %data, %if.else ]
   %idx.0 = phi ptr [ %4, %if.then5 ], [ null, %if.else ]
+  %data32.0.in = phi ptr [ %data326, %if.then5 ], [ %data, %if.else ]
   %index2NullOffset.0 = phi i32 [ %conv, %if.then5 ], [ %5, %if.else ]
   %nullBlock.0 = phi i32 [ %conv8, %if.then5 ], [ %6, %if.else ]
   %data32.0 = load ptr, ptr %data32.0.in, align 8

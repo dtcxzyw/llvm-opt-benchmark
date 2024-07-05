@@ -557,8 +557,8 @@ _ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i: ; preds
 
 78:                                               ; preds = %34, %66, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i, %48, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %36
   %79 = phi ptr [ %53, %66 ], [ %37, %36 ], [ %37, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %35, %34 ], [ %53, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ %53, %48 ]
-  %.sroa.12.0.i = phi i64 [ %77, %66 ], [ 12884901888, %36 ], [ 12884901888, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 12884901888, %34 ], [ 8589934592, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ 8589934592, %48 ]
   %.sroa.06.0.i = phi i32 [ %.sroa.06.0.extract.trunc.i, %66 ], [ 5, %36 ], [ 5, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 4, %34 ], [ 1, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ 1, %48 ]
+  %.sroa.12.0.i = phi i64 [ %77, %66 ], [ 12884901888, %36 ], [ 12884901888, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 12884901888, %34 ], [ 8589934592, %_ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i ], [ 8589934592, %48 ]
   %80 = getelementptr inbounds i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null

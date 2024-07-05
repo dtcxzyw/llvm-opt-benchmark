@@ -133,21 +133,21 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
 50:                                               ; preds = %34, %50
   %indvars.iv92 = phi i64 [ 0, %34 ], [ %indvars.iv.next93, %50 ]
   %.sroa.50.085 = phi i32 [ %49, %34 ], [ %.sroa.45.084, %50 ]
-  %.sroa.45.084 = phi i32 [ %47, %34 ], [ %.sroa.40.077, %50 ]
-  %.sroa.0.082 = phi i32 [ %35, %34 ], [ %79, %50 ]
-  %.sroa.12.081 = phi i32 [ %37, %34 ], [ %.sroa.0.082, %50 ]
-  %.sroa.18.080 = phi i32 [ %39, %34 ], [ %.sroa.12.081, %50 ]
-  %.sroa.24.079 = phi i32 [ %41, %34 ], [ %.sroa.18.080, %50 ]
-  %.sroa.28.078 = phi i32 [ %43, %34 ], [ %68, %50 ]
-  %.sroa.40.077 = phi i32 [ %45, %34 ], [ %.sroa.28.078, %50 ]
-  %51 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.078, i32 %.sroa.28.078, i32 26)
-  %52 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.078, i32 %.sroa.28.078, i32 21)
+  %.sroa.45.084 = phi i32 [ %47, %34 ], [ %.sroa.40.082, %50 ]
+  %.sroa.40.082 = phi i32 [ %45, %34 ], [ %.sroa.28.077, %50 ]
+  %.sroa.0.081 = phi i32 [ %35, %34 ], [ %79, %50 ]
+  %.sroa.12.080 = phi i32 [ %37, %34 ], [ %.sroa.0.081, %50 ]
+  %.sroa.18.079 = phi i32 [ %39, %34 ], [ %.sroa.12.080, %50 ]
+  %.sroa.24.078 = phi i32 [ %41, %34 ], [ %.sroa.18.079, %50 ]
+  %.sroa.28.077 = phi i32 [ %43, %34 ], [ %68, %50 ]
+  %51 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.077, i32 %.sroa.28.077, i32 26)
+  %52 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.077, i32 %.sroa.28.077, i32 21)
   %53 = xor i32 %51, %52
-  %54 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.078, i32 %.sroa.28.078, i32 7)
+  %54 = tail call i32 @llvm.fshl.i32(i32 %.sroa.28.077, i32 %.sroa.28.077, i32 7)
   %55 = xor i32 %53, %54
   %56 = add i32 %.sroa.50.085, %55
-  %57 = and i32 %.sroa.28.078, %.sroa.40.077
-  %58 = xor i32 %.sroa.28.078, -1
+  %57 = and i32 %.sroa.40.082, %.sroa.28.077
+  %58 = xor i32 %.sroa.28.077, -1
   %59 = and i32 %.sroa.45.084, %58
   %60 = or i32 %59, %57
   %61 = add i32 %56, %60
@@ -157,15 +157,15 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
   %65 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %indvars.iv92
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %64, %66
-  %68 = add i32 %67, %.sroa.24.079
-  %69 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.082, i32 %.sroa.0.082, i32 30)
-  %70 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.082, i32 %.sroa.0.082, i32 19)
+  %68 = add i32 %67, %.sroa.24.078
+  %69 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.081, i32 %.sroa.0.081, i32 30)
+  %70 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.081, i32 %.sroa.0.081, i32 19)
   %71 = xor i32 %69, %70
-  %72 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.082, i32 %.sroa.0.082, i32 10)
+  %72 = tail call i32 @llvm.fshl.i32(i32 %.sroa.0.081, i32 %.sroa.0.081, i32 10)
   %73 = xor i32 %71, %72
-  %74 = xor i32 %.sroa.12.081, %.sroa.18.080
-  %75 = and i32 %.sroa.0.082, %74
-  %76 = and i32 %.sroa.12.081, %.sroa.18.080
+  %74 = xor i32 %.sroa.12.080, %.sroa.18.079
+  %75 = and i32 %.sroa.0.081, %74
+  %76 = and i32 %.sroa.12.080, %.sroa.18.079
   %77 = xor i32 %75, %76
   %78 = add i32 %73, %77
   %79 = add i32 %78, %67
@@ -176,17 +176,17 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
 80:                                               ; preds = %50
   %81 = add i32 %79, %35
   store i32 %81, ptr %0, align 4
-  %82 = add i32 %.sroa.0.082, %37
+  %82 = add i32 %.sroa.0.081, %37
   store i32 %82, ptr %36, align 4
-  %83 = add i32 %.sroa.12.081, %39
+  %83 = add i32 %.sroa.12.080, %39
   store i32 %83, ptr %38, align 4
-  %84 = add i32 %.sroa.18.080, %41
+  %84 = add i32 %.sroa.18.079, %41
   store i32 %84, ptr %40, align 4
   %85 = add i32 %68, %43
   store i32 %85, ptr %42, align 4
-  %86 = add i32 %.sroa.28.078, %45
+  %86 = add i32 %.sroa.28.077, %45
   store i32 %86, ptr %44, align 4
-  %87 = add i32 %.sroa.40.077, %47
+  %87 = add i32 %.sroa.40.082, %47
   store i32 %87, ptr %46, align 4
   %88 = add i32 %.sroa.45.084, %49
   store i32 %88, ptr %48, align 4

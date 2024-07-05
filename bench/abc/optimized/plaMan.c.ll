@@ -70,14 +70,14 @@ define void @Pla_GenSorter(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond59.not, label %.preheader.us, label %.lr.ph42.us, !llvm.loop !7
 
 18:                                               ; preds = %.preheader37.us, %18
-  %.03239.us = phi i32 [ 0, %.preheader37.us ], [ %21, %18 ]
-  %.033.in38.us = phi i32 [ %0, %.preheader37.us ], [ %.033.us, %18 ]
-  %.033.us = add nsw i32 %.033.in38.us, -1
-  %19 = lshr i32 %.047.us, %.033.us
+  %.032.in39.us = phi i32 [ %0, %.preheader37.us ], [ %.032.us, %18 ]
+  %.03338.us = phi i32 [ 0, %.preheader37.us ], [ %21, %18 ]
+  %.032.us = add nsw i32 %.032.in39.us, -1
+  %19 = lshr i32 %.047.us, %.032.us
   %20 = and i32 %19, 1
-  %21 = add i32 %20, %.03239.us
+  %21 = add i32 %20, %.03338.us
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %20) #17
-  %23 = icmp sgt i32 %.033.in38.us, 1
+  %23 = icmp sgt i32 %.032.in39.us, 1
   br i1 %23, label %18, label %._crit_edge.us, !llvm.loop !8
 
 .preheader.us:                                    ; preds = %.lr.ph42.us, %._crit_edge.us
@@ -148,17 +148,17 @@ Vec_BitStartFull.exit:
   br label %.lr.ph32.preheader
 
 .lr.ph:                                           ; preds = %Vec_BitStartFull.exit, %.lr.ph
-  %.02325 = phi i32 [ %26, %.lr.ph ], [ %1, %Vec_BitStartFull.exit ]
-  %18 = and i32 %.02325, 31
+  %.025 = phi i32 [ %26, %.lr.ph ], [ %1, %Vec_BitStartFull.exit ]
+  %18 = and i32 %.025, 31
   %19 = shl nuw i32 1, %18
   %20 = xor i32 %19, -1
-  %21 = ashr i32 %.02325, 5
+  %21 = ashr i32 %.025, 5
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %12, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, %20
   store i32 %25, ptr %23, align 4
-  %26 = add i32 %.02325, 1
+  %26 = add i32 %.025, 1
   %exitcond.not = icmp eq i32 %26, 64
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -174,16 +174,16 @@ Vec_BitStartFull.exit:
   br label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.loopexit
-  %.029 = phi i32 [ %49, %.loopexit ], [ 2, %.lr.ph32.preheader ]
-  %30 = lshr i32 %.029, 5
+  %.02329 = phi i32 [ %49, %.loopexit ], [ 2, %.lr.ph32.preheader ]
+  %30 = lshr i32 %.02329, 5
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %12, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = and i32 %.029, 31
+  %34 = and i32 %.02329, 31
   %35 = shl nuw i32 1, %34
   %36 = and i32 %33, %35
   %.not = icmp ne i32 %36, 0
-  %37 = shl nuw nsw i32 %.029, 1
+  %37 = shl nuw nsw i32 %.02329, 1
   %38 = icmp slt i32 %37, %1
   %or.cond = select i1 %.not, i1 %38, i1 false
   br i1 %or.cond, label %.lr.ph28, label %.loopexit
@@ -199,12 +199,12 @@ Vec_BitStartFull.exit:
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, %41
   store i32 %46, ptr %44, align 4
-  %47 = add nuw nsw i32 %.126, %.029
+  %47 = add nuw nsw i32 %.126, %.02329
   %48 = icmp slt i32 %47, %1
   br i1 %48, label %.lr.ph28, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph28, %.lr.ph32
-  %49 = add nuw nsw i32 %.029, 1
+  %49 = add nuw nsw i32 %.02329, 1
   %exitcond35.not = icmp eq i32 %49, %1
   br i1 %exitcond35.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !11
 
@@ -372,22 +372,22 @@ define noalias noundef ptr @Pla_GenFromMinterms(ptr noundef %0, ptr nocapture no
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %18
-  %.038.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %18 ]
-  %19 = lshr i32 %.038.us, 5
+  %.02938.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %18 ]
+  %19 = lshr i32 %.02938.us, 5
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds i64, ptr %15, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = shl nuw i32 %.038.us, 1
+  %23 = shl nuw i32 %.02938.us, 1
   %24 = and i32 %23, 62
   %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw i32 1, %.038.us
+  %26 = shl nuw i32 1, %.02938.us
   %27 = and i32 %26, %17
   %.not.us = icmp eq i32 %27, 0
   %28 = select i1 %.not.us, i64 1, i64 2
   %29 = shl nuw i64 %28, %25
   %30 = or i64 %22, %29
   store i64 %30, ptr %21, align 8
-  %31 = add nuw nsw i32 %.038.us, 1
+  %31 = add nuw nsw i32 %.02938.us, 1
   %exitcond.not = icmp eq i32 %31, %.val35
   br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %18, !llvm.loop !13
 
@@ -623,22 +623,22 @@ define noalias noundef ptr @Pla_ManPrimesDetector(i32 noundef %0) local_unnamed_
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph.us.i
-  %.038.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %32, %19 ]
-  %20 = lshr i32 %.038.us.i, 5
+  %.02938.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %32, %19 ]
+  %20 = lshr i32 %.02938.us.i, 5
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds i64, ptr %16, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = shl nuw i32 %.038.us.i, 1
+  %24 = shl nuw i32 %.02938.us.i, 1
   %25 = and i32 %24, 62
   %26 = zext nneg i32 %25 to i64
-  %27 = shl nuw i32 1, %.038.us.i
+  %27 = shl nuw i32 1, %.02938.us.i
   %28 = and i32 %27, %18
   %.not.us.i = icmp eq i32 %28, 0
   %29 = select i1 %.not.us.i, i64 1, i64 2
   %30 = shl nuw i64 %29, %26
   %31 = or i64 %30, %23
   store i64 %31, ptr %22, align 8
-  %32 = add nuw nsw i32 %.038.us.i, 1
+  %32 = add nuw nsw i32 %.02938.us.i, 1
   %exitcond.not.i = icmp eq i32 %32, %.val35.i
   br i1 %exitcond.not.i, label %..critedge2_crit_edge.us.i, label %19, !llvm.loop !13
 

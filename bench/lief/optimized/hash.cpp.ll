@@ -414,8 +414,8 @@ _ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11Lo
   br i1 %.not3.i4.i6, label %.lr.ph.i7, label %_ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS6_EESaIS9_EEPKS6_N9__gnu_cxx17__normal_iteratorIPKS9_SB_EEEEEERS0_T_SN_.exit
 
 .lr.ph.i7:                                        ; preds = %_ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS6_EESaIS9_EEPS6_N9__gnu_cxx17__normal_iteratorIPKS9_SB_EEEEEERS0_T_SM_.exit, %.lr.ph.i7
-  %.sroa.7.0 = phi i64 [ %73, %.lr.ph.i7 ], [ 0, %_ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS6_EESaIS9_EEPS6_N9__gnu_cxx17__normal_iteratorIPKS9_SB_EEEEEERS0_T_SM_.exit ]
   %.sroa.315.0 = phi ptr [ %72, %.lr.ph.i7 ], [ %50, %_ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS6_EESaIS9_EEPS6_N9__gnu_cxx17__normal_iteratorIPKS9_SB_EEEEEERS0_T_SM_.exit ]
+  %.sroa.7.0 = phi i64 [ %73, %.lr.ph.i7 ], [ 0, %_ZN4LIEF4Hash7processINS_12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO11LoadCommandESt14default_deleteIS6_EESaIS9_EEPS6_N9__gnu_cxx17__normal_iteratorIPKS9_SB_EEEEEERS0_T_SM_.exit ]
   %67 = load ptr, ptr %.sroa.315.0, align 8
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 1320

@@ -1518,15 +1518,15 @@ for.cond124:                                      ; preds = %if.end171
 for.body127:                                      ; preds = %for.body127.lr.ph, %for.cond124
   %indvars.iv186 = phi i64 [ 0, %for.body127.lr.ph ], [ %indvars.iv.next187, %for.cond124 ]
   %def.1168 = phi ptr [ %def.0, %for.body127.lr.ph ], [ %def.2, %for.cond124 ]
-  %numParadigms.0166 = phi i32 [ 0, %for.body127.lr.ph ], [ %numParadigms.1, %for.cond124 ]
-  %suppLength.0165 = phi i32 [ 0, %for.body127.lr.ph ], [ %suppLength.1, %for.cond124 ]
-  %defLSR.1164 = phi ptr [ %defLSR.0, %for.body127.lr.ph ], [ %defLSR.2, %for.cond124 ]
+  %defLSR.1167 = phi ptr [ %defLSR.0, %for.body127.lr.ph ], [ %defLSR.2, %for.cond124 ]
+  %numParadigms.0165 = phi i32 [ 0, %for.body127.lr.ph ], [ %numParadigms.1, %for.cond124 ]
+  %suppLength.0164 = phi i32 [ 0, %for.body127.lr.ph ], [ %suppLength.1, %for.cond124 ]
   %53 = load ptr, ptr %supportedLocales, align 8
   %arrayidx131 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv186
   %54 = load ptr, ptr %arrayidx131, align 8
   %55 = load ptr, ptr %lsrs, align 8
   %arrayidx135 = getelementptr inbounds %"struct.icu_75::LSR", ptr %55, i64 %indvars.iv186
-  %cond81 = icmp eq ptr %defLSR.1164, null
+  %cond81 = icmp eq ptr %defLSR.1167, null
   br i1 %cond81, label %land.lhs.true, label %land.lhs.true145
 
 land.lhs.true:                                    ; preds = %for.body127
@@ -1538,11 +1538,11 @@ if.then138:                                       ; preds = %land.lhs.true
   %57 = load ptr, ptr %order, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %57, i64 %indvars.iv186
   store i8 1, ptr %arrayidx.i, align 1
-  %call143 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, i32 noundef 0, i32 noundef %suppLength.0165, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call143 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, i32 noundef 0, i32 noundef %suppLength.0164, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end171 unwind label %lpad117.loopexit.split-lp.loopexit.split-lp
 
 land.lhs.true145:                                 ; preds = %for.body127
-  %call147 = invoke noundef signext i8 @_ZNK6icu_753LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, ptr noundef nonnull align 8 dereferenceable(48) %defLSR.1164)
+  %call147 = invoke noundef signext i8 @_ZNK6icu_753LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, ptr noundef nonnull align 8 dereferenceable(48) %defLSR.1167)
           to label %invoke.cont146 unwind label %lpad117.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont146:                                   ; preds = %land.lhs.true145
@@ -1554,7 +1554,7 @@ if.then149:                                       ; preds = %invoke.cont146
   %arrayidx.i121 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv186
   store i8 1, ptr %arrayidx.i121, align 1
   %59 = trunc nuw nsw i64 %indvars.iv186 to i32
-  %call154 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, i32 noundef %59, i32 noundef %suppLength.0165, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call154 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, i32 noundef %59, i32 noundef %suppLength.0164, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end171 unwind label %lpad117.loopexit.split-lp.loopexit.split-lp
 
 if.else155:                                       ; preds = %land.lhs.true, %invoke.cont146
@@ -1570,7 +1570,7 @@ invoke.cont157:                                   ; preds = %if.else155
 
 if.then160:                                       ; preds = %invoke.cont157
   store i8 2, ptr %arrayidx.i123, align 1
-  %inc164 = add nsw i32 %numParadigms.0166, 1
+  %inc164 = add nsw i32 %numParadigms.0165, 1
   br label %if.end171
 
 if.else165:                                       ; preds = %invoke.cont157
@@ -1578,9 +1578,9 @@ if.else165:                                       ; preds = %invoke.cont157
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then149, %if.then138, %if.else165, %if.then160
-  %defLSR.2 = phi ptr [ %defLSR.1164, %if.then160 ], [ %defLSR.1164, %if.else165 ], [ %arrayidx135, %if.then138 ], [ %defLSR.1164, %if.then149 ]
-  %suppLength.1 = phi i32 [ %suppLength.0165, %if.then160 ], [ %suppLength.0165, %if.else165 ], [ %call143, %if.then138 ], [ %call154, %if.then149 ]
-  %numParadigms.1 = phi i32 [ %inc164, %if.then160 ], [ %numParadigms.0166, %if.else165 ], [ %numParadigms.0166, %if.then138 ], [ %numParadigms.0166, %if.then149 ]
+  %suppLength.1 = phi i32 [ %suppLength.0164, %if.then160 ], [ %suppLength.0164, %if.else165 ], [ %call143, %if.then138 ], [ %call154, %if.then149 ]
+  %numParadigms.1 = phi i32 [ %inc164, %if.then160 ], [ %numParadigms.0165, %if.else165 ], [ %numParadigms.0165, %if.then138 ], [ %numParadigms.0165, %if.then149 ]
+  %defLSR.2 = phi ptr [ %defLSR.1167, %if.then160 ], [ %defLSR.1167, %if.else165 ], [ %arrayidx135, %if.then138 ], [ %defLSR.1167, %if.then149 ]
   %def.2 = phi ptr [ %def.1168, %if.then160 ], [ %def.1168, %if.else165 ], [ %54, %if.then138 ], [ %def.1168, %if.then149 ]
   %62 = load i32, ptr %errorCode, align 4
   %cmp.i124 = icmp slt i32 %62, 1
@@ -2364,9 +2364,9 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end39, %if.end
-  %desiredIndex.0 = phi i32 [ 0, %if.end ], [ %inc, %if.end39 ]
   %bestSupportedLsrIndex.0 = phi i32 [ -1, %if.end ], [ %bestSupportedLsrIndex.1, %if.end39 ]
   %bestShiftedDistance.0 = phi i32 [ %shl.i, %if.end ], [ %sub, %if.end39 ]
+  %desiredIndex.0 = phi i32 [ 0, %if.end ], [ %inc, %if.end39 ]
   %2 = load ptr, ptr %supportedLsrToIndex, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end13, label %if.then3

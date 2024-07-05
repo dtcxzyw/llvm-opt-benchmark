@@ -226,17 +226,17 @@ define internal i32 @dissect_PNMRP(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %50, label %.lr.ph.i, label %dissect_PNMRP_PDU.exit
 
 .lr.ph.i:                                         ; preds = %45, %257
-  %.073.i = phi i32 [ %258, %257 ], [ 0, %45 ]
-  %.05972.i = phi i32 [ %.1.i, %257 ], [ 0, %45 ]
+  %.05873.i = phi i32 [ %.1.i, %257 ], [ 0, %45 ]
+  %.05972.i = phi i32 [ %258, %257 ], [ 0, %45 ]
   %51 = load i32, ptr @hf_pn_mrp_type, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %.012, i32 noundef %51, ptr noundef %48, i32 noundef %.05972.i, i32 noundef 1, i32 noundef 0) #3
+  %52 = call ptr @proto_tree_add_item(ptr noundef %.012, i32 noundef %51, ptr noundef %48, i32 noundef %.05873.i, i32 noundef 1, i32 noundef 0) #3
   %53 = load i32, ptr @ett_pn_mrp_type, align 4
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #3
   %55 = load i32, ptr @hf_pn_mrp_type, align 4
-  %56 = call i32 @dissect_pn_uint8(ptr noundef %48, i32 noundef %.05972.i, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %55, ptr noundef nonnull %35) #3
+  %56 = call i32 @dissect_pn_uint8(ptr noundef %48, i32 noundef %.05873.i, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %55, ptr noundef nonnull %35) #3
   %57 = load i32, ptr @hf_pn_mrp_length, align 4
   %58 = call i32 @dissect_pn_uint8(ptr noundef %48, i32 noundef %56, ptr noundef nonnull %1, ptr noundef %54, i32 noundef %57, ptr noundef nonnull %36) #3
-  %.not.i = icmp eq i32 %.073.i, 0
+  %.not.i = icmp eq i32 %.05972.i, 0
   br i1 %.not.i, label %61, label %59
 
 59:                                               ; preds = %.lr.ph.i
@@ -708,7 +708,7 @@ dissect_PNMRP_Option.exit.i:                      ; preds = %249, %247
 
 257:                                              ; preds = %253, %dissect_PNMRP_Option.exit.i, %dissect_PNMRP_Link.exit.i, %dissect_PNMRP_TopologyChange.exit.i, %dissect_PNMRP_Test.exit.i, %70
   %.1.i = phi i32 [ %256, %253 ], [ %252, %dissect_PNMRP_Option.exit.i ], [ %161, %dissect_PNMRP_Link.exit.i ], [ %133, %dissect_PNMRP_TopologyChange.exit.i ], [ %107, %dissect_PNMRP_Test.exit.i ], [ %74, %70 ]
-  %258 = add i32 %.073.i, 1
+  %258 = add i32 %.05972.i, 1
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #3
   %260 = icmp sgt i32 %259, 0
   br i1 %260, label %.lr.ph.i, label %dissect_PNMRP_PDU.exit, !llvm.loop !4

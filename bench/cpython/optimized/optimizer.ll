@@ -309,7 +309,7 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %if.then12.thread.i
 
 if.then12.thread.i:                               ; preds = %if.then12.i, %if.end.i19
-  %size.01724.i = phi i32 [ 0, %if.end.i19 ], [ %12, %if.then12.i ]
+  %size.01824.i = phi i32 [ 0, %if.end.i19 ], [ %12, %if.then12.i ]
   %14 = phi i32 [ 4, %if.end.i19 ], [ %spec.select.i, %if.then12.i ]
   %conv13.i = sext i32 %14 to i64
   %mul14.i = shl nsw i64 %conv13.i, 3
@@ -321,12 +321,12 @@ if.then12.thread.i:                               ; preds = %if.then12.i, %if.en
 if.end18.i:                                       ; preds = %if.then12.thread.i
   %capacity19.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %14, ptr %capacity19.i, align 4
-  store i32 %size.01724.i, ptr %call.i, align 8
+  store i32 %size.01824.i, ptr %call.i, align 8
   store ptr %call.i, ptr %co_executors.i20, align 8
   br label %get_index_for_executor.exit
 
 get_index_for_executor.exit:                      ; preds = %if.end9.i, %if.end18.i
-  %retval.0.i21 = phi i32 [ %size.01724.i, %if.end18.i ], [ %12, %if.end9.i ]
+  %retval.0.i21 = phi i32 [ %size.01824.i, %if.end18.i ], [ %12, %if.end9.i ]
   %cmp8 = icmp slt i32 %retval.0.i21, 0
   br i1 %cmp8, label %if.then10, label %if.end11
 
@@ -935,9 +935,9 @@ if.end.lr.ph.lr.ph.i:                             ; preds = %top.outer.backedge.
   %sub.ptr.rhs.cast423.i = phi i64 [ %sub.ptr.rhs.cast413.i, %top.preheader.i ], [ %sub.ptr.rhs.cast.i, %top.outer.backedge.i ]
   %code.addr.0.ph422.i = phi ptr [ %code, %top.preheader.i ], [ %code.addr.0.ph.be.i, %top.outer.backedge.i ]
   %instr.addr.0.ph421.i = phi ptr [ %instr, %top.preheader.i ], [ %instr.addr.0.ph.be.i, %top.outer.backedge.i ]
-  %confidence.0.ph420.i = phi i32 [ 1000, %top.preheader.i ], [ %confidence.1361.i, %top.outer.backedge.i ]
+  %trace_length.0.ph420.i = phi i32 [ 0, %top.preheader.i ], [ %inc264272.i, %top.outer.backedge.i ]
   %trace_stack_depth.0.ph419.i = phi i32 [ 0, %top.preheader.i ], [ %trace_stack_depth.0.ph.be.i, %top.outer.backedge.i ]
-  %trace_length.0.ph418.i = phi i32 [ 0, %top.preheader.i ], [ %inc264272.i, %top.outer.backedge.i ]
+  %confidence.0.ph418.i = phi i32 [ 1000, %top.preheader.i ], [ %confidence.1360.i, %top.outer.backedge.i ]
   %co_executors.i = getelementptr inbounds i8, ptr %code.addr.0.ph422.i, i64 152
   %cmp161.i = icmp eq i32 %trace_stack_depth.0.ph419.i, 0
   br label %if.end.i
@@ -947,9 +947,9 @@ if.end.i:                                         ; preds = %if.end.i.backedge, 
   %conv365.i = phi i32 [ %conv357397425.i, %if.end.lr.ph.lr.ph.i ], [ %conv365.i.be, %if.end.i.backedge ]
   %sub.ptr.div364.i = phi i64 [ %sub.ptr.div356396424.i, %if.end.lr.ph.lr.ph.i ], [ %sub.ptr.div364.i.be, %if.end.i.backedge ]
   %instr.addr.1363.i = phi ptr [ %instr.addr.0.ph421.i, %if.end.lr.ph.lr.ph.i ], [ %instr.addr.1363.i.be, %if.end.i.backedge ]
-  %confidence.1361.i = phi i32 [ %confidence.0.ph420.i, %if.end.lr.ph.lr.ph.i ], [ %confidence.1361.i.be, %if.end.i.backedge ]
-  %trace_length.1360.i = phi i32 [ %trace_length.0.ph418.i, %if.end.lr.ph.lr.ph.i ], [ %trace_length.1360.i.be, %if.end.i.backedge ]
-  %idxprom.i = sext i32 %trace_length.1360.i to i64
+  %trace_length.1362.i = phi i32 [ %trace_length.0.ph420.i, %if.end.lr.ph.lr.ph.i ], [ %trace_length.1362.i.be, %if.end.i.backedge ]
+  %confidence.1360.i = phi i32 [ %confidence.0.ph418.i, %if.end.lr.ph.lr.ph.i ], [ %confidence.1360.i.be, %if.end.i.backedge ]
+  %idxprom.i = sext i32 %trace_length.1362.i to i64
   %arrayidx.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom.i
   store i16 301, ptr %arrayidx.i, align 16
   %conv2.i = trunc i64 %sub.ptr.div364.i to i16
@@ -959,7 +959,7 @@ if.end.i:                                         ; preds = %if.end.i.backedge, 
   store i64 0, ptr %operand.i, align 8
   %target9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 %conv365.i, ptr %target9.i, align 4
-  %inc.i = add i32 %trace_length.1360.i, 1
+  %inc.i = add i32 %trace_length.1362.i, 1
   %idxprom10.i = sext i32 %inc.i to i64
   %arrayidx11.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom10.i
   store i16 395, ptr %arrayidx11.i, align 16
@@ -969,7 +969,7 @@ if.end.i:                                         ; preds = %if.end.i.backedge, 
   store i64 0, ptr %operand18.i, align 8
   %target21.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 4
   store i32 %conv365.i, ptr %target21.i, align 4
-  %inc22.i = add i32 %trace_length.1360.i, 2
+  %inc22.i = add i32 %trace_length.1362.i, 2
   %2 = load i8, ptr %instr.addr.1363.i, align 2
   %arg.i = getelementptr inbounds i8, ptr %instr.addr.1363.i, i64 1
   %3 = load i8, ptr %arg.i, align 1
@@ -989,8 +989,8 @@ if.then30.i:                                      ; preds = %if.end.i
   br i1 %cmp36.i, label %done.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then30.i, %if.end.i
-  %opcode23.0.in.i = phi i8 [ %4, %if.then30.i ], [ %2, %if.end.i ]
   %oparg26.0.i = phi i32 [ %or.i, %if.then30.i ], [ %conv27.i, %if.end.i ]
+  %opcode23.0.in.i = phi i8 [ %4, %if.then30.i ], [ %2, %if.end.i ]
   %instr.addr.2.i = phi ptr [ %incdec.ptr.i, %if.then30.i ], [ %instr.addr.1363.i, %if.end.i ]
   %cmp42.i = icmp eq i8 %opcode23.0.in.i, 70
   br i1 %cmp42.i, label %if.then44.i, label %if.end54.i
@@ -1012,8 +1012,8 @@ if.then44.i:                                      ; preds = %if.end41.i
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.then44.i, %if.end41.i
-  %opcode23.1.in.i = phi i8 [ %8, %if.then44.i ], [ %opcode23.0.in.i, %if.end41.i ]
   %oparg26.1.i = phi i32 [ %or53.i, %if.then44.i ], [ %oparg26.0.i, %if.end41.i ]
+  %opcode23.1.in.i = phi i8 [ %8, %if.then44.i ], [ %opcode23.0.in.i, %if.end41.i ]
   %opcode23.1.i = zext i8 %opcode23.1.in.i to i32
   switch i8 %opcode23.1.in.i, label %sw.default.i [
     i8 98, label %sw.bb.i
@@ -1025,7 +1025,7 @@ if.end54.i:                                       ; preds = %if.then44.i, %if.en
   ]
 
 sw.bb.i:                                          ; preds = %if.end54.i, %if.end54.i, %if.end54.i, %if.end54.i
-  %add55.i = add i32 %trace_length.1360.i, 6
+  %add55.i = add i32 %trace_length.1362.i, 6
   %cmp56.i = icmp sgt i32 %add55.i, 512
   br i1 %cmp56.i, label %done.i, label %if.end59.i
 
@@ -1037,7 +1037,7 @@ if.end59.i:                                       ; preds = %sw.bb.i
   %cmp62.i = icmp ugt i16 %11, 8
   %sub.i = sub nuw nsw i32 16, %12
   %call.pn.i = select i1 %cmp62.i, i32 %12, i32 %sub.i
-  %confidence.2.in.i = mul nuw nsw i32 %call.pn.i, %confidence.1361.i
+  %confidence.2.in.i = mul nuw nsw i32 %call.pn.i, %confidence.1360.i
   %cmp68.i = icmp slt i32 %confidence.2.in.i, 5328
   br i1 %cmp68.i, label %done.i, label %if.end71.i
 
@@ -1087,7 +1087,7 @@ sw.bb104.i:                                       ; preds = %if.end54.i
   %cmp108.i = icmp ne ptr %add.ptr107.i, %instr
   %cmp110.i = icmp ne ptr %code.addr.0.ph422.i, %code
   %or.cond211.not251.i = select i1 %cmp108.i, i1 true, i1 %cmp110.i
-  %add113.i = add i32 %trace_length.1360.i, 6
+  %add113.i = add i32 %trace_length.1362.i, 6
   %cmp114.i = icmp sgt i32 %add113.i, 512
   %or.cond212.i = or i1 %cmp114.i, %or.cond211.not251.i
   br i1 %or.cond212.i, label %done.i, label %if.end117.i
@@ -1105,7 +1105,7 @@ if.end117.i:                                      ; preds = %sw.bb104.i
   br label %done.i
 
 sw.bb133.i:                                       ; preds = %if.end54.i
-  %add134.i = add i32 %trace_length.1360.i, 5
+  %add134.i = add i32 %trace_length.1362.i, 5
   %cmp135.i = icmp sgt i32 %add134.i, 512
   br i1 %cmp135.i, label %done.i, label %if.end138.i
 
@@ -1122,7 +1122,7 @@ sw.default.i:                                     ; preds = %if.end54.i
   br i1 %cmp143.i, label %if.then145.i, label %done.i
 
 if.then145.i:                                     ; preds = %sw.default.i
-  %add148.i = add i32 %trace_length.1360.i, 5
+  %add148.i = add i32 %trace_length.1362.i, 5
   %add149.i = add i32 %add148.i, %16
   %cmp150.i = icmp sgt i32 %add149.i, 512
   br i1 %cmp150.i, label %done.i, label %if.end153.i
@@ -1151,8 +1151,8 @@ for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %for.body.us.preheader.i
   %indvars.iv583.i = phi i64 [ 0, %for.body.us.preheader.i ], [ %indvars.iv.next584.i, %for.inc.us.i ]
-  %target.0336.us.i = phi i32 [ %conv365.i, %for.body.us.preheader.i ], [ %target.1249.us.i, %for.inc.us.i ]
-  %trace_length.2335.us.i = phi i32 [ %inc22.i, %for.body.us.preheader.i ], [ %inc264250.us.i, %for.inc.us.i ]
+  %trace_length.2337.us.i = phi i32 [ %inc22.i, %for.body.us.preheader.i ], [ %inc264250.us.i, %for.inc.us.i ]
+  %target.0335.us.i = phi i32 [ %conv365.i, %for.body.us.preheader.i ], [ %target.1249.us.i, %for.inc.us.i ]
   %arrayidx172.us.i = getelementptr [12 x %struct.anon.6], ptr %uops.i, i64 0, i64 %indvars.iv583.i
   %18 = load i16, ptr %arrayidx172.us.i, align 4
   %conv174.us.i = sext i16 %18 to i32
@@ -1216,9 +1216,9 @@ if.then205.us.i:                                  ; preds = %sw.bb186.us.i
   br i1 %cmp209.us.i, label %sw.epilog.thread.us.i, label %sw.epilog.us.i
 
 sw.epilog.thread.us.i:                            ; preds = %if.then205.us.i
-  %add214.us.i = add i32 %target.0336.us.i, 3
+  %add214.us.i = add i32 %target.0335.us.i, 3
   %add216.us.i = add i32 %add214.us.i, %oparg26.2.us.i
-  %idxprom251242.us.i = sext i32 %trace_length.2335.us.i to i64
+  %idxprom251242.us.i = sext i32 %trace_length.2337.us.i to i64
   %arrayidx252243.us.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom251242.us.i
   store i16 356, ptr %arrayidx252243.us.i, align 16
   %conv254244.us.i = trunc i32 %oparg26.2.us.i to i16
@@ -1228,7 +1228,7 @@ sw.epilog.thread.us.i:                            ; preds = %if.then205.us.i
   store i64 0, ptr %operand260246.us.i, align 8
   %target263247.us.i = getelementptr inbounds i8, ptr %arrayidx252243.us.i, i64 4
   store i32 %add216.us.i, ptr %target263247.us.i, align 4
-  %inc264248.us.i = add i32 %trace_length.2335.us.i, 1
+  %inc264248.us.i = add i32 %trace_length.2337.us.i, 1
   br label %for.inc.us.i
 
 sw.epilog.us.i:                                   ; preds = %if.then205.us.i, %sw.bb186.us.i, %sw.bb220.us.i, %sw.bb225.us.i, %sw.bb230.us.i, %sw.bb234.us.i, %sw.bb235.us.i, %for.body.us.i
@@ -1236,7 +1236,7 @@ sw.epilog.us.i:                                   ; preds = %if.then205.us.i, %s
   %uop169.0.us.i = phi i32 [ %conv174.us.i, %sw.bb235.us.i ], [ %conv174.us.i, %sw.bb234.us.i ], [ %conv174.us.i, %sw.bb230.us.i ], [ %conv174.us.i, %sw.bb225.us.i ], [ %conv174.us.i, %sw.bb220.us.i ], [ %conv208.us.i, %if.then205.us.i ], [ %conv174.us.i, %sw.bb186.us.i ], [ %conv174.us.i, %for.body.us.i ]
   %operand175.0.us.i = phi i64 [ 0, %sw.bb235.us.i ], [ 0, %sw.bb234.us.i ], [ %arrayidx232.val.us.i, %sw.bb230.us.i ], [ %conv229.us.i, %sw.bb225.us.i ], [ %conv224.us.i, %sw.bb220.us.i ], [ 0, %if.then205.us.i ], [ 0, %sw.bb186.us.i ], [ 0, %for.body.us.i ]
   %conv250.us.i = trunc i32 %uop169.0.us.i to i16
-  %idxprom251.us.i = sext i32 %trace_length.2335.us.i to i64
+  %idxprom251.us.i = sext i32 %trace_length.2337.us.i to i64
   %arrayidx252.us.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom251.us.i
   store i16 %conv250.us.i, ptr %arrayidx252.us.i, align 16
   %conv254.us.i = trunc i32 %oparg26.3.us.i to i16
@@ -1245,8 +1245,8 @@ sw.epilog.us.i:                                   ; preds = %if.then205.us.i, %s
   %operand260.us.i = getelementptr inbounds i8, ptr %arrayidx252.us.i, i64 8
   store i64 %operand175.0.us.i, ptr %operand260.us.i, align 8
   %target263.us.i = getelementptr inbounds i8, ptr %arrayidx252.us.i, i64 4
-  store i32 %target.0336.us.i, ptr %target263.us.i, align 4
-  %inc264.us.i = add i32 %trace_length.2335.us.i, 1
+  store i32 %target.0335.us.i, ptr %target263.us.i, align 4
+  %inc264.us.i = add i32 %trace_length.2337.us.i, 1
   switch i32 %uop169.0.us.i, label %for.inc.us.i [
     i32 319, label %if.then267.i
     i32 385, label %if.then281.i
@@ -1254,7 +1254,7 @@ sw.epilog.us.i:                                   ; preds = %if.then205.us.i, %s
 
 for.inc.us.i:                                     ; preds = %sw.epilog.us.i, %sw.epilog.thread.us.i
   %inc264250.us.i = phi i32 [ %inc264248.us.i, %sw.epilog.thread.us.i ], [ %inc264.us.i, %sw.epilog.us.i ]
-  %target.1249.us.i = phi i32 [ %add216.us.i, %sw.epilog.thread.us.i ], [ %target.0336.us.i, %sw.epilog.us.i ]
+  %target.1249.us.i = phi i32 [ %add216.us.i, %sw.epilog.thread.us.i ], [ %target.0335.us.i, %sw.epilog.us.i ]
   %indvars.iv.next584.i = add nuw nsw i64 %indvars.iv583.i, 1
   %exitcond587.not.i = icmp eq i64 %indvars.iv.next584.i, %wide.trip.count586.i
   br i1 %exitcond587.not.i, label %sw.epilog375.i, label %for.body.us.i, !llvm.loop !9
@@ -1266,8 +1266,8 @@ for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.split.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.split.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %target.0336.i = phi i32 [ %conv365.i, %for.body.lr.ph.split.i ], [ %target.1249.i, %for.inc.i ]
-  %trace_length.2335.i = phi i32 [ %inc22.i, %for.body.lr.ph.split.i ], [ %inc264250.i, %for.inc.i ]
+  %trace_length.2337.i = phi i32 [ %inc22.i, %for.body.lr.ph.split.i ], [ %inc264250.i, %for.inc.i ]
+  %target.0335.i = phi i32 [ %conv365.i, %for.body.lr.ph.split.i ], [ %target.1249.i, %for.inc.i ]
   %arrayidx172.i = getelementptr [12 x %struct.anon.6], ptr %uops.i, i64 0, i64 %indvars.iv.i
   %23 = load i16, ptr %arrayidx172.i, align 4
   %conv174.i = sext i16 %23 to i32
@@ -1300,8 +1300,8 @@ if.then205.i:                                     ; preds = %sw.bb186.i
   br i1 %cmp209.i, label %sw.epilog.thread.i, label %sw.epilog.i
 
 sw.epilog.thread.i:                               ; preds = %if.then205.i
-  %add216.i = add i32 %add214.i, %target.0336.i
-  %idxprom251242.i = sext i32 %trace_length.2335.i to i64
+  %add216.i = add i32 %add214.i, %target.0335.i
+  %idxprom251242.i = sext i32 %trace_length.2337.i to i64
   %arrayidx252243.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom251242.i
   store i16 356, ptr %arrayidx252243.i, align 16
   %oparg257245.i = getelementptr inbounds i8, ptr %arrayidx252243.i, i64 2
@@ -1310,7 +1310,7 @@ sw.epilog.thread.i:                               ; preds = %if.then205.i
   store i64 0, ptr %operand260246.i, align 8
   %target263247.i = getelementptr inbounds i8, ptr %arrayidx252243.i, i64 4
   store i32 %add216.i, ptr %target263247.i, align 4
-  %inc264248.i = add i32 %trace_length.2335.i, 1
+  %inc264248.i = add i32 %trace_length.2337.i, 1
   br label %for.inc.i
 
 sw.bb220.i:                                       ; preds = %for.body.i
@@ -1355,7 +1355,7 @@ sw.epilog.i:                                      ; preds = %sw.bb235.i, %sw.bb2
   %uop169.0.i = phi i32 [ %conv174.i, %sw.bb235.i ], [ %conv174.i, %sw.bb234.i ], [ %conv174.i, %sw.bb230.i ], [ %conv174.i, %sw.bb225.i ], [ %conv174.i, %sw.bb220.i ], [ %conv208.i, %if.then205.i ], [ %conv174.i, %sw.bb186.i ], [ %conv174.i, %for.body.i ]
   %operand175.0.i = phi i64 [ 0, %sw.bb235.i ], [ 0, %sw.bb234.i ], [ %arrayidx232.val.i, %sw.bb230.i ], [ %conv229.i, %sw.bb225.i ], [ %conv224.i, %sw.bb220.i ], [ 0, %if.then205.i ], [ 0, %sw.bb186.i ], [ 0, %for.body.i ]
   %conv250.i = trunc i32 %uop169.0.i to i16
-  %idxprom251.i = sext i32 %trace_length.2335.i to i64
+  %idxprom251.i = sext i32 %trace_length.2337.i to i64
   %arrayidx252.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom251.i
   store i16 %conv250.i, ptr %arrayidx252.i, align 16
   %conv254.i = trunc i32 %oparg26.3.i to i16
@@ -1364,8 +1364,8 @@ sw.epilog.i:                                      ; preds = %sw.bb235.i, %sw.bb2
   %operand260.i = getelementptr inbounds i8, ptr %arrayidx252.i, i64 8
   store i64 %operand175.0.i, ptr %operand260.i, align 8
   %target263.i = getelementptr inbounds i8, ptr %arrayidx252.i, i64 4
-  store i32 %target.0336.i, ptr %target263.i, align 4
-  %inc264.i = add i32 %trace_length.2335.i, 1
+  store i32 %target.0335.i, ptr %target263.i, align 4
+  %inc264.i = add i32 %trace_length.2337.i, 1
   switch i32 %uop169.0.i, label %for.inc.i [
     i32 319, label %if.then267.i
     i32 385, label %if.then281.i
@@ -1406,8 +1406,8 @@ top.outer.backedge.i:                             ; preds = %_Py_BloomFilter_Add
 
 if.then281.i:                                     ; preds = %sw.epilog.i, %sw.epilog.us.i
   %.us-phi348.i = phi i32 [ %inc264.us.i, %sw.epilog.us.i ], [ %inc264.i, %sw.epilog.i ]
-  %.us-phi349.i = phi i32 [ %trace_length.2335.us.i, %sw.epilog.us.i ], [ %trace_length.2335.i, %sw.epilog.i ]
-  %.us-phi350.i = phi i32 [ %target.0336.us.i, %sw.epilog.us.i ], [ %target.0336.i, %sw.epilog.i ]
+  %.us-phi349.i = phi i32 [ %target.0335.us.i, %sw.epilog.us.i ], [ %target.0335.i, %sw.epilog.i ]
+  %.us-phi350.i = phi i32 [ %trace_length.2337.us.i, %sw.epilog.us.i ], [ %trace_length.2337.i, %sw.epilog.i ]
   %arrayidx283.i = getelementptr i8, ptr %instr.addr.2.i, i64 4
   %arrayidx283.val.i = load i32, ptr %arrayidx283.i, align 2
   %call285.i = tail call ptr @_PyFunction_LookupByVersion(i32 noundef %arrayidx283.val.i) #17
@@ -1430,7 +1430,7 @@ if.then292.i:                                     ; preds = %if.then288.i
   store i64 0, ptr %operand301.i, align 8
   %target304.i = getelementptr inbounds i8, ptr %arrayidx294.i, i64 4
   store i32 0, ptr %target304.i, align 4
-  %inc305.i = add i32 %.us-phi349.i, 2
+  %inc305.i = add i32 %.us-phi350.i, 2
   br label %done.i
 
 if.end306.i:                                      ; preds = %if.then288.i
@@ -1449,7 +1449,7 @@ if.then309.i:                                     ; preds = %if.end306.i
   store i64 0, ptr %operand318.i, align 8
   %target321.i = getelementptr inbounds i8, ptr %arrayidx311.i, i64 4
   store i32 0, ptr %target321.i, align 4
-  %inc322.i = add i32 %.us-phi349.i, 2
+  %inc322.i = add i32 %.us-phi350.i, 2
   br label %done.i
 
 if.end323.i:                                      ; preds = %if.end306.i
@@ -1466,7 +1466,7 @@ if.then334.i:                                     ; preds = %if.end323.i
   store i64 0, ptr %operand343.i, align 8
   %target346.i = getelementptr inbounds i8, ptr %arrayidx336.i, i64 4
   store i32 0, ptr %target346.i, align 4
-  %inc347.i = add i32 %.us-phi349.i, 2
+  %inc347.i = add i32 %.us-phi350.i, 2
   br label %done.i
 
 if.end348.i:                                      ; preds = %if.end323.i
@@ -1530,19 +1530,19 @@ if.end358.i:                                      ; preds = %if.then281.i
   store i64 0, ptr %operand367.i, align 8
   %target370.i = getelementptr inbounds i8, ptr %arrayidx360.i, i64 4
   store i32 0, ptr %target370.i, align 4
-  %inc371.i = add i32 %.us-phi349.i, 2
+  %inc371.i = add i32 %.us-phi350.i, 2
   br label %done.i
 
 for.inc.i:                                        ; preds = %sw.epilog.i, %sw.epilog.thread.i
   %inc264250.i = phi i32 [ %inc264248.i, %sw.epilog.thread.i ], [ %inc264.i, %sw.epilog.i ]
-  %target.1249.i = phi i32 [ %add216.i, %sw.epilog.thread.i ], [ %target.0336.i, %sw.epilog.i ]
+  %target.1249.i = phi i32 [ %add216.i, %sw.epilog.thread.i ], [ %target.0335.i, %sw.epilog.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count586.i
   br i1 %exitcond.not.i, label %sw.epilog375.i, label %for.body.i, !llvm.loop !9
 
 sw.epilog375.i:                                   ; preds = %for.inc.i, %for.inc.us.i, %if.end138.i, %if.end71.i
+  %confidence.3.i = phi i32 [ %confidence.1360.i, %if.end138.i ], [ %confidence.2427.i, %if.end71.i ], [ %confidence.1360.i, %for.inc.us.i ], [ %confidence.1360.i, %for.inc.i ]
   %trace_length.3.i = phi i32 [ %inc22.i, %if.end138.i ], [ %add366.i, %if.end71.i ], [ %inc264250.us.i, %for.inc.us.i ], [ %inc264250.i, %for.inc.i ]
-  %confidence.3.i = phi i32 [ %confidence.1361.i, %if.end138.i ], [ %confidence.2427.i, %if.end71.i ], [ %confidence.1361.i, %for.inc.us.i ], [ %confidence.1361.i, %for.inc.i ]
   %instr.addr.3.i = phi ptr [ %add.ptr140.i, %if.end138.i ], [ %instr.addr.2.i, %if.end71.i ], [ %instr.addr.2.i, %for.inc.us.i ], [ %instr.addr.2.i, %for.inc.i ]
   %incdec.ptr376.i = getelementptr i8, ptr %instr.addr.3.i, i64 2
   %idxprom377.i = zext i8 %opcode23.1.in.i to i64
@@ -1566,13 +1566,13 @@ if.end.i.backedge:                                ; preds = %sw.epilog375.i, %if
   %conv365.i.be = phi i32 [ %conv.i, %sw.epilog375.i ], [ %conv357.i, %if.then100.i ]
   %sub.ptr.div364.i.be = phi i64 [ %sub.ptr.div.i, %sw.epilog375.i ], [ %sub.ptr.div356.i, %if.then100.i ]
   %instr.addr.1363.i.be = phi ptr [ %add.ptr383.i, %sw.epilog375.i ], [ %add.ptr102.i, %if.then100.i ]
-  %confidence.1361.i.be = phi i32 [ %confidence.3.i, %sw.epilog375.i ], [ %confidence.2427.i, %if.then100.i ]
-  %trace_length.1360.i.be = phi i32 [ %trace_length.3.i, %sw.epilog375.i ], [ %add366.i, %if.then100.i ]
+  %trace_length.1362.i.be = phi i32 [ %trace_length.3.i, %sw.epilog375.i ], [ %add366.i, %if.then100.i ]
+  %confidence.1360.i.be = phi i32 [ %confidence.3.i, %sw.epilog375.i ], [ %confidence.2427.i, %if.then100.i ]
   br label %if.end.i
 
 done.i:                                           ; preds = %if.end153.i, %if.then145.i, %sw.default.i, %sw.bb133.i, %if.end59.i, %sw.bb.i, %if.then30.i, %if.end358.i, %if.then334.i, %if.then309.i, %if.then292.i, %if.end117.i, %sw.bb104.i
+  %target.2.i = phi i32 [ %.us-phi349.i, %if.then292.i ], [ %.us-phi349.i, %if.then309.i ], [ %.us-phi349.i, %if.then334.i ], [ %.us-phi349.i, %if.end358.i ], [ %conv365.i, %if.end117.i ], [ %conv365.i, %sw.bb104.i ], [ %conv365.i, %if.then30.i ], [ %conv365.i, %sw.bb.i ], [ %conv365.i, %if.end59.i ], [ %conv365.i, %sw.bb133.i ], [ %conv365.i, %sw.default.i ], [ %conv365.i, %if.then145.i ], [ %conv365.i, %if.end153.i ]
   %trace_length.4.i = phi i32 [ %inc305.i, %if.then292.i ], [ %inc322.i, %if.then309.i ], [ %inc347.i, %if.then334.i ], [ %inc371.i, %if.end358.i ], [ %add366.i, %if.end117.i ], [ %inc22.i, %sw.bb104.i ], [ %inc22.i, %if.then30.i ], [ %inc22.i, %sw.bb.i ], [ %inc22.i, %if.end59.i ], [ %inc22.i, %sw.bb133.i ], [ %inc22.i, %sw.default.i ], [ %inc22.i, %if.then145.i ], [ %inc22.i, %if.end153.i ]
-  %target.2.i = phi i32 [ %.us-phi350.i, %if.then292.i ], [ %.us-phi350.i, %if.then309.i ], [ %.us-phi350.i, %if.then334.i ], [ %.us-phi350.i, %if.end358.i ], [ %conv365.i, %if.end117.i ], [ %conv365.i, %sw.bb104.i ], [ %conv365.i, %if.then30.i ], [ %conv365.i, %sw.bb.i ], [ %conv365.i, %if.end59.i ], [ %conv365.i, %sw.bb133.i ], [ %conv365.i, %sw.default.i ], [ %conv365.i, %if.then145.i ], [ %conv365.i, %if.end153.i ]
   %cmp397.i = icmp sgt i32 %trace_length.4.i, 4
   br i1 %cmp397.i, label %if.end, label %translate_bytecode_to_trace.exit.thread
 
@@ -1581,9 +1581,9 @@ translate_bytecode_to_trace.exit.thread:          ; preds = %done.i
   br label %return
 
 if.end:                                           ; preds = %top.outer.backedge.i, %if.then100.i, %sw.epilog375.i, %done.i
-  %target.2592.i = phi i32 [ %target.2.i, %done.i ], [ %conv357.i, %if.then100.i ], [ %conv.i, %sw.epilog375.i ], [ %conv357397.i, %top.outer.backedge.i ]
-  %trace_length.4591.i = phi i32 [ %trace_length.4.i, %done.i ], [ %add366.i, %if.then100.i ], [ %trace_length.3.i, %sw.epilog375.i ], [ %inc264272.i, %top.outer.backedge.i ]
-  %idxprom400.i = zext nneg i32 %trace_length.4591.i to i64
+  %trace_length.4592.i = phi i32 [ %trace_length.4.i, %done.i ], [ %add366.i, %if.then100.i ], [ %trace_length.3.i, %sw.epilog375.i ], [ %inc264272.i, %top.outer.backedge.i ]
+  %target.2591.i = phi i32 [ %target.2.i, %done.i ], [ %conv357.i, %if.then100.i ], [ %conv.i, %sw.epilog375.i ], [ %conv357397.i, %top.outer.backedge.i ]
+  %idxprom400.i = zext nneg i32 %trace_length.4592.i to i64
   %arrayidx401.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom400.i
   store i16 300, ptr %arrayidx401.i, align 16
   %oparg405.i = getelementptr inbounds i8, ptr %arrayidx401.i, i64 2
@@ -1591,7 +1591,7 @@ if.end:                                           ; preds = %top.outer.backedge.
   %operand408.i = getelementptr inbounds i8, ptr %arrayidx401.i, i64 8
   store i64 0, ptr %operand408.i, align 8
   %target411.i = getelementptr inbounds i8, ptr %arrayidx401.i, i64 4
-  store i32 %target.2592.i, ptr %target411.i, align 4
+  store i32 %target.2591.i, ptr %target411.i, align 4
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %trace_stack.i)
   %call1 = tail call ptr @Py_GETENV(ptr noundef nonnull @.str.12) #17
   %cmp2 = icmp eq ptr %call1, null
@@ -1615,7 +1615,7 @@ if.end12:                                         ; preds = %if.then5, %lor.lhs.
 
 for.body.i.i6:                                    ; preds = %for.inc.i.i, %if.end12
   %indvars.iv.i.i = phi i64 [ 0, %if.end12 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %count.022.i.i = phi i32 [ 0, %if.end12 ], [ %count.1.i.i, %for.inc.i.i ]
+  %count.023.i.i = phi i32 [ 0, %if.end12 ], [ %count.1.i.i, %for.inc.i.i ]
   %39 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shr.i.i7 = lshr i64 %indvars.iv.i.i, 5
   %idxprom.i.i = and i64 %shr.i.i7, 134217727
@@ -1628,7 +1628,7 @@ for.body.i.i6:                                    ; preds = %for.inc.i.i, %if.en
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i6
-  %inc.i.i10 = add i32 %count.022.i.i, 1
+  %inc.i.i10 = add i32 %count.023.i.i, 1
   %arrayidx4.i.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %indvars.iv.i.i
   %41 = load i16, ptr %arrayidx4.i.i, align 16
   switch i16 %41, label %if.end11.i.i [
@@ -1679,7 +1679,7 @@ if.then40.i.i:                                    ; preds = %if.end37.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then40.i.i, %if.end37.i.i, %if.end.i.i, %if.end.i.i, %for.body.i.i6
-  %count.1.i.i = phi i32 [ %inc.i.i10, %if.end.i.i ], [ %count.022.i.i, %if.then40.i.i ], [ %inc.i.i10, %if.end37.i.i ], [ %count.022.i.i, %for.body.i.i6 ], [ %inc.i.i10, %if.end.i.i ]
+  %count.1.i.i = phi i32 [ %inc.i.i10, %if.end.i.i ], [ %count.023.i.i, %if.then40.i.i ], [ %inc.i.i10, %if.end37.i.i ], [ %count.023.i.i, %for.body.i.i6 ], [ %inc.i.i10, %if.end.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i11 = icmp eq i64 %indvars.iv.next.i.i, 512
   br i1 %exitcond.not.i.i11, label %compute_used.exit.i, label %for.body.i.i6, !llvm.loop !10
@@ -1701,7 +1701,7 @@ if.end.i14:                                       ; preds = %compute_used.exit.i
 
 for.body.i16:                                     ; preds = %for.inc.i26, %if.end.i14
   %indvars.iv.i17 = phi i64 [ 511, %if.end.i14 ], [ %indvars.iv.next.i27, %for.inc.i26 ]
-  %dest.028.i = phi i32 [ %sub.i15, %if.end.i14 ], [ %dest.1.i, %for.inc.i26 ]
+  %dest.029.i = phi i32 [ %sub.i15, %if.end.i14 ], [ %dest.1.i, %for.inc.i26 ]
   %48 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %shr.i18 = lshr i64 %indvars.iv.i17, 5
   %idxprom.i19 = and i64 %shr.i18, 134217727
@@ -1714,7 +1714,7 @@ for.body.i16:                                     ; preds = %for.inc.i26, %if.en
   br i1 %tobool.not.i, label %for.inc.i26, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.body.i16
-  %idxprom8.i = sext i32 %dest.028.i to i64
+  %idxprom8.i = sext i32 %dest.029.i to i64
   %arrayidx9.i = getelementptr [1 x %struct._PyUOpInstruction], ptr %trace.i, i64 0, i64 %idxprom8.i
   %arrayidx11.i23 = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %indvars.iv.i17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i23, i64 16, i1 false)
@@ -1733,14 +1733,14 @@ if.then20.i:                                      ; preds = %if.end7.i
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then20.i, %if.end7.i
-  %conv34.i = trunc i32 %dest.028.i to i16
+  %conv34.i = trunc i32 %dest.029.i to i16
   %oparg37.i = getelementptr inbounds i8, ptr %arrayidx11.i23, i64 2
   store i16 %conv34.i, ptr %oparg37.i, align 2
-  %dec.i25 = add i32 %dest.028.i, -1
+  %dec.i25 = add i32 %dest.029.i, -1
   br label %for.inc.i26
 
 for.inc.i26:                                      ; preds = %if.end33.i, %for.body.i16
-  %dest.1.i = phi i32 [ %dec.i25, %if.end33.i ], [ %dest.028.i, %for.body.i16 ]
+  %dest.1.i = phi i32 [ %dec.i25, %if.end33.i ], [ %dest.029.i, %for.body.i16 ]
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i17, -1
   %cmp3.not.i = icmp eq i64 %indvars.iv.i17, 0
   br i1 %cmp3.not.i, label %for.end.i, label %for.body.i16, !llvm.loop !11

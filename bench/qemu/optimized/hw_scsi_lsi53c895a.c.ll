@@ -6387,8 +6387,8 @@ if.then389:                                       ; preds = %if.end386
   br label %sw.epilog393
 
 sw.epilog393:                                     ; preds = %if.end386, %if.then379, %if.then389, %sw.bb375
-  %op0.2 = phi i8 [ %op0.1, %if.then389 ], [ %442, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.1, %if.end386 ]
   %op1.0 = phi i8 [ %443, %if.then389 ], [ %conv361, %sw.bb375 ], [ %conv361, %if.then379 ], [ %conv361, %if.end386 ]
+  %op0.2 = phi i8 [ %op0.1, %if.then389 ], [ %442, %sw.bb375 ], [ %call380, %if.then379 ], [ %op0.1, %if.end386 ]
   switch i32 %and365, label %default.unreachable900 [
     i32 0, label %sw.epilog464
     i32 1, label %sw.bb395
@@ -6412,15 +6412,15 @@ sw.bb395:                                         ; preds = %sw.epilog393
   br label %sw.epilog464
 
 sw.bb406:                                         ; preds = %sw.epilog393
-  %or409308 = or i8 %op1.0, %op0.2
+  %or409308 = or i8 %op0.2, %op1.0
   br label %sw.epilog464
 
 sw.bb411:                                         ; preds = %sw.epilog393
-  %xor307 = xor i8 %op1.0, %op0.2
+  %xor307 = xor i8 %op0.2, %op1.0
   br label %sw.epilog464
 
 sw.bb415:                                         ; preds = %sw.epilog393
-  %and418306 = and i8 %op1.0, %op0.2
+  %and418306 = and i8 %op0.2, %op1.0
   br label %sw.epilog464
 
 sw.bb420:                                         ; preds = %sw.epilog393
@@ -6433,7 +6433,7 @@ sw.bb420:                                         ; preds = %sw.epilog393
   br label %sw.epilog464
 
 sw.bb432:                                         ; preds = %sw.epilog393
-  %add435 = add i8 %op1.0, %op0.2
+  %add435 = add i8 %op0.2, %op1.0
   %cmp439 = icmp ult i8 %add435, %op1.0
   %conv440 = zext i1 %cmp439 to i32
   store i32 %conv440, ptr %carry491, align 8
@@ -6442,7 +6442,7 @@ sw.bb432:                                         ; preds = %sw.epilog393
 sw.bb442:                                         ; preds = %sw.epilog393
   %446 = load i32, ptr %carry491, align 8
   %447 = trunc i32 %446 to i8
-  %448 = add i8 %op1.0, %op0.2
+  %448 = add i8 %op0.2, %op1.0
   %conv448 = add i8 %448, %447
   %tobool450.not = icmp eq i32 %446, 0
   br i1 %tobool450.not, label %if.else457, label %if.then451

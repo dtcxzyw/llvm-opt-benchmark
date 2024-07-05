@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %48, %14, %7, %12, %10, %45
   %.not17 = phi i1 [ true, %7 ], [ false, %45 ], [ true, %12 ], [ true, %10 ], [ true, %14 ], [ true, %48 ]
-  %.08 = phi i32 [ 0, %7 ], [ -1, %45 ], [ 0, %12 ], [ 0, %10 ], [ 0, %14 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %7 ], [ -1, %45 ], [ 0, %12 ], [ 0, %10 ], [ 0, %14 ], [ 0, %48 ]
   %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_container_context_lock) #6
   %.not16 = icmp eq i32 %52, 0
   br i1 %.not16, label %55, label %53
@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #0 {
   br label %58
 
 58:                                               ; preds = %56, %55
-  ret i32 %.08
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
@@ -211,7 +211,7 @@ define range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #0 {
   %8 = phi i32 [ %15, %14 ], [ %6, %.preheader ]
   %9 = phi ptr [ %16, %14 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
-  %.018 = phi i32 [ %.1, %14 ], [ 0, %.preheader ]
+  %.0917 = phi i32 [ %.1, %14 ], [ 0, %.preheader ]
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not15 = icmp eq ptr %11, null
@@ -220,7 +220,7 @@ define range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph
   %13 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %11) #6
   %.not16 = icmp eq i32 %13, 0
-  %spec.select = select i1 %.not16, i32 %.018, i32 -1
+  %spec.select = select i1 %.not16, i32 %.0917, i32 -1
   %.pre = load ptr, ptr @g_container_context, align 8
   %.pre21 = load i32, ptr @g_container_context_num, align 4
   br label %14
@@ -228,21 +228,21 @@ define range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #0 {
 14:                                               ; preds = %12, %.lr.ph
   %15 = phi i32 [ %8, %.lr.ph ], [ %.pre21, %12 ]
   %16 = phi ptr [ %9, %.lr.ph ], [ %.pre, %12 ]
-  %.1 = phi i32 [ %.018, %.lr.ph ], [ %spec.select, %12 ]
+  %.1 = phi i32 [ %.0917, %.lr.ph ], [ %spec.select, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %14 ]
+  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %14 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #6
   tail call void @slurm_xfree(ptr noundef nonnull @g_container_context) #6
   store i32 -1, ptr @g_container_context_num, align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %4 ]
+  %.2 = phi i32 [ %.09.lcssa, %._crit_edge ], [ 0, %4 ]
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_container_context_lock) #6
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %23, label %21

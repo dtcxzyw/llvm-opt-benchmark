@@ -629,13 +629,13 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br label %110
 
 64:                                               ; preds = %.lr.ph123, %107
-  %.085120 = phi i32 [ 0, %.lr.ph123 ], [ %108, %107 ]
-  %65 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.085120, i32 noundef %6) #10
+  %.084120 = phi i32 [ 0, %.lr.ph123 ], [ %108, %107 ]
+  %65 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.084120, i32 noundef %6) #10
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.085120, i32 noundef %6) #10
+  %67 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.084120, i32 noundef %6) #10
   br label %68
 
 68:                                               ; preds = %64, %66
@@ -644,12 +644,12 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %69 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %5, i64 noundef %59, i64 noundef 24, ptr noundef nonnull @pivotFieldCompare) #10
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 8
-  %72 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.085120, i32 noundef %3) #10
+  %72 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.084120, i32 noundef %3) #10
   %.not95 = icmp eq i32 %72, 0
   br i1 %.not95, label %73, label %75
 
 73:                                               ; preds = %68
-  %74 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.085120, i32 noundef %3) #10
+  %74 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.084120, i32 noundef %3) #10
   br label %75
 
 75:                                               ; preds = %68, %73
@@ -688,12 +688,12 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br label %125
 
 96:                                               ; preds = %81
-  %97 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.085120, i32 noundef %7) #10
+  %97 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.084120, i32 noundef %7) #10
   %.not98 = icmp eq i32 %97, 0
   br i1 %.not98, label %98, label %100
 
 98:                                               ; preds = %96
-  %99 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.085120, i32 noundef %7) #10
+  %99 = call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.084120, i32 noundef %7) #10
   br label %103
 
 100:                                              ; preds = %96
@@ -710,7 +710,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br label %107
 
 107:                                              ; preds = %75, %103
-  %108 = add nuw nsw i32 %.085120, 1
+  %108 = add nuw nsw i32 %.084120, 1
   %109 = call i32 @PQntuples(ptr noundef %0) #10
   %.not146 = icmp slt i32 %108, %109
   br i1 %.not146, label %64, label %.preheader, !llvm.loop !14

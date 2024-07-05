@@ -821,14 +821,14 @@ Ivy_HaigObjCountClass.exit:                       ; preds = %.lr.ph.i, %22
   %.08.i = phi i32 [ 1, %22 ], [ %26, %.lr.ph.i ]
   %32 = icmp sgt i32 %.08.i, 1
   %33 = zext i1 %32 to i32
-  %34 = add nsw i32 %.01725, %33
-  %35 = add i32 %.01824, -1
+  %34 = add nsw i32 %.01824, %33
+  %35 = add i32 %.01725, -1
   %36 = add i32 %35, %.08.i
   br label %37
 
 37:                                               ; preds = %Ivy_HaigObjCountClass.exit, %10, %19, %14
-  %.119 = phi i32 [ %.01824, %10 ], [ %.01824, %14 ], [ %.01824, %19 ], [ %36, %Ivy_HaigObjCountClass.exit ]
-  %.1 = phi i32 [ %.01725, %10 ], [ %.01725, %14 ], [ %.01725, %19 ], [ %34, %Ivy_HaigObjCountClass.exit ]
+  %.119 = phi i32 [ %.01824, %10 ], [ %.01824, %14 ], [ %.01824, %19 ], [ %34, %Ivy_HaigObjCountClass.exit ]
+  %.1 = phi i32 [ %.01725, %10 ], [ %.01725, %14 ], [ %.01725, %19 ], [ %36, %Ivy_HaigObjCountClass.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !10
@@ -836,8 +836,8 @@ Ivy_HaigObjCountClass.exit:                       ; preds = %.lr.ph.i, %22
 .critedge:                                        ; preds = %37, %2
   %.018.lcssa = phi i32 [ 0, %2 ], [ %.119, %37 ]
   %.017.lcssa = phi i32 [ 0, %2 ], [ %.1, %37 ]
-  store i32 %.018.lcssa, ptr %1, align 4
-  ret i32 %.017.lcssa
+  store i32 %.017.lcssa, ptr %1, align 4
+  ret i32 %.018.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -915,14 +915,14 @@ Ivy_HaigObjCountClass.exit.i:                     ; preds = %.lr.ph.i.i, %26
   %.08.i.i = phi i32 [ 1, %26 ], [ %30, %.lr.ph.i.i ]
   %36 = icmp sgt i32 %.08.i.i, 1
   %37 = zext i1 %36 to i32
-  %38 = add nsw i32 %.01725.i, %37
-  %39 = add i32 %.01824.i, -1
+  %38 = add nsw i32 %.01824.i, %37
+  %39 = add i32 %.01725.i, -1
   %40 = add i32 %39, %.08.i.i
   br label %41
 
 41:                                               ; preds = %Ivy_HaigObjCountClass.exit.i, %23, %18, %14
-  %.119.i = phi i32 [ %.01824.i, %14 ], [ %.01824.i, %18 ], [ %.01824.i, %23 ], [ %40, %Ivy_HaigObjCountClass.exit.i ]
-  %.1.i = phi i32 [ %.01725.i, %14 ], [ %.01725.i, %18 ], [ %.01725.i, %23 ], [ %38, %Ivy_HaigObjCountClass.exit.i ]
+  %.119.i = phi i32 [ %.01824.i, %14 ], [ %.01824.i, %18 ], [ %.01824.i, %23 ], [ %38, %Ivy_HaigObjCountClass.exit.i ]
+  %.1.i = phi i32 [ %.01725.i, %14 ], [ %.01725.i, %18 ], [ %.01725.i, %23 ], [ %40, %Ivy_HaigObjCountClass.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %14, !llvm.loop !10
@@ -932,7 +932,7 @@ Ivy_HaigObjCountClass.exit.i:                     ; preds = %.lr.ph.i.i, %26
   %.017.lcssa.i = phi i32 [ 0, %3 ], [ %.1.i, %41 ]
   %42 = getelementptr inbounds i8, ptr %8, i64 224
   %43 = load i32, ptr %42, align 8
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.017.lcssa.i, i32 noundef %.018.lcssa.i, i32 noundef %43)
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.018.lcssa.i, i32 noundef %.017.lcssa.i, i32 noundef %43)
   %45 = load ptr, ptr %6, align 8
   %46 = tail call i32 @Ivy_ManIsAcyclic(ptr noundef %45) #10
   %.not7 = icmp eq i32 %46, 0

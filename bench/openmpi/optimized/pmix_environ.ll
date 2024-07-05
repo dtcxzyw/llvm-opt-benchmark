@@ -102,7 +102,7 @@ define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %2, %39
   %4 = phi ptr [ %42, %39 ], [ %3, %2 ]
-  %.026 = phi i64 [ %40, %39 ], [ 0, %2 ]
+  %.01126 = phi i64 [ %40, %39 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %pmix_getenv.exit.thread, label %.preheader32.i
@@ -190,15 +190,15 @@ pmix_getenv.exit.thread:                          ; preds = %.loopexit.i, %13, %
   br i1 %.not14, label %39, label %._crit_edge
 
 39:                                               ; preds = %pmix_getenv.exit, %pmix_getenv.exit.thread
-  %40 = add i64 %.026, 1
+  %40 = add i64 %.01126, 1
   %41 = getelementptr inbounds ptr, ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %pmix_getenv.exit.thread, %39, %2
-  %.011 = phi i32 [ 0, %2 ], [ 0, %39 ], [ %38, %pmix_getenv.exit.thread ]
-  ret i32 %.011
+  %.0 = phi i32 [ 0, %2 ], [ 0, %39 ], [ %38, %pmix_getenv.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -361,8 +361,8 @@ define range(i32 -46, 1) i32 @pmix_unsetenv(ptr noundef nonnull %0, ptr nocaptur
   br label %37
 
 37:                                               ; preds = %6, %2, %.loopexit
-  %.022 = phi i32 [ %35, %.loopexit ], [ 0, %2 ], [ -29, %6 ]
-  ret i32 %.022
+  %.021 = phi i32 [ %35, %.loopexit ], [ 0, %2 ], [ -29, %6 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind
@@ -479,13 +479,13 @@ define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr nocapture noundef rea
 30:                                               ; preds = %26
   store i8 0, ptr %28, align 1
   %31 = getelementptr inbounds i8, ptr %28, i64 1
-  %.097148 = load ptr, ptr %6, align 8
-  %.not118.not149 = icmp eq ptr %.097148, %5
+  %.098148 = load ptr, ptr %6, align 8
+  %.not118.not149 = icmp eq ptr %.098148, %5
   br i1 %.not118.not149, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %49
-  %.097150 = phi ptr [ %.097, %49 ], [ %.097148, %30 ]
-  %32 = getelementptr inbounds i8, ptr %.097150, i64 152
+  %.098150 = phi ptr [ %.098, %49 ], [ %.098148, %30 ]
+  %32 = getelementptr inbounds i8, ptr %.098150, i64 152
   %33 = load ptr, ptr %32, align 8
   %34 = load i16, ptr %33, align 8
   %.not119 = icmp eq i16 %34, 46
@@ -506,7 +506,7 @@ define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr nocapture noundef rea
   br i1 %.not120, label %.sink.split, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %.097150, i64 152
+  %45 = getelementptr inbounds i8, ptr %.098150, i64 152
   tail call void @free(ptr noundef %42) #14
   %46 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #14
   %47 = load ptr, ptr %45, align 8
@@ -515,9 +515,9 @@ define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr nocapture noundef rea
   br label %.sink.split
 
 49:                                               ; preds = %35, %.lr.ph
-  %50 = getelementptr inbounds i8, ptr %.097150, i64 120
-  %.097 = load ptr, ptr %50, align 8
-  %.not118.not = icmp eq ptr %.097, %5
+  %50 = getelementptr inbounds i8, ptr %.098150, i64 120
+  %.098 = load ptr, ptr %50, align 8
+  %.not118.not = icmp eq ptr %.098, %5
   br i1 %.not118.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %49, %30
@@ -692,9 +692,9 @@ pmix_bfrop_tma_kval_new.exit:                     ; preds = %pmix_obj_new_tma.ex
   br i1 %.not115163, label %._crit_edge168, label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.lr.ph171.split, %164
-  %.1164 = phi ptr [ %.096165, %164 ], [ %124, %.lr.ph171.split ]
-  %.096165.in = getelementptr inbounds i8, ptr %.1164, i64 120
-  %.096165 = load ptr, ptr %.096165.in, align 8
+  %.1164 = phi ptr [ %.097165, %164 ], [ %124, %.lr.ph171.split ]
+  %.097165.in = getelementptr inbounds i8, ptr %.1164, i64 120
+  %.097165 = load ptr, ptr %.097165.in, align 8
   %125 = getelementptr inbounds i8, ptr %.1164, i64 152
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8
@@ -708,9 +708,9 @@ pmix_bfrop_tma_kval_new.exit:                     ; preds = %pmix_obj_new_tma.ex
   %133 = getelementptr inbounds i8, ptr %.1164, i64 128
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 120
-  store volatile ptr %.096165, ptr %135, align 8
+  store volatile ptr %.097165, ptr %135, align 8
   %136 = load ptr, ptr %133, align 8
-  %137 = getelementptr inbounds i8, ptr %.096165, i64 128
+  %137 = getelementptr inbounds i8, ptr %.097165, i64 128
   store volatile ptr %136, ptr %137, align 8
   %138 = load volatile i64, ptr %113, align 8
   %139 = add i64 %138, -1
@@ -769,7 +769,7 @@ pmix_obj_run_destructors.exit128:                 ; preds = %.lr.ph.i125, %150
   br label %164
 
 164:                                              ; preds = %161, %163, %.lr.ph167, %144
-  %.not115 = icmp eq ptr %.096165, %111
+  %.not115 = icmp eq ptr %.097165, %111
   br i1 %.not115, label %._crit_edge168, label %.lr.ph167, !llvm.loop !16
 
 ._crit_edge168:                                   ; preds = %164, %.lr.ph171.split
@@ -780,13 +780,13 @@ pmix_obj_run_destructors.exit128:                 ; preds = %.lr.ph.i125, %150
   br i1 %.not114, label %.loopexit, label %.lr.ph171.split, !llvm.loop !17
 
 .loopexit.sink.split:                             ; preds = %56, %26, %79, %95, %94
-  %.0103.ph = phi i32 [ -32, %94 ], [ -32, %95 ], [ -32, %79 ], [ -27, %26 ], [ -32, %56 ]
+  %.096.ph = phi i32 [ -32, %94 ], [ -32, %95 ], [ -32, %79 ], [ -27, %26 ], [ -32, %56 ]
   tail call void @free(ptr noundef %27) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge168, %.loopexit.sink.split, %.lr.ph171, %.preheader, %._crit_edge160
-  %.0103 = phi i32 [ 0, %._crit_edge160 ], [ 0, %.preheader ], [ 0, %.lr.ph171 ], [ %.0103.ph, %.loopexit.sink.split ], [ 0, %._crit_edge168 ]
-  ret i32 %.0103
+  %.096 = phi i32 [ 0, %._crit_edge160 ], [ 0, %.preheader ], [ 0, %.lr.ph171 ], [ %.096.ph, %.loopexit.sink.split ], [ 0, %._crit_edge168 ]
+  ret i32 %.096
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

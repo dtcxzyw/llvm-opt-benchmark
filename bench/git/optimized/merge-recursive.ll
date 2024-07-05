@@ -1708,7 +1708,7 @@ for.end.i:                                        ; preds = %for.body.i97, %for.
 for.body10.i:                                     ; preds = %for.end.i, %for.inc53.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %for.inc53.i ], [ 0, %for.end.i ]
   %last_file.026.i = phi ptr [ %last_file.1.i, %for.inc53.i ], [ null, %for.end.i ]
-  %last_len.024.i = phi i32 [ %last_len.1.i, %for.inc53.i ], [ 0, %for.end.i ]
+  %last_len.025.i = phi i32 [ %last_len.1.i, %for.inc53.i ], [ 0, %for.end.i ]
   %229 = load ptr, ptr %df_sorted_entries.i, align 8
   %arrayidx13.i = getelementptr inbounds %struct.string_list_item, ptr %229, i64 %indvars.iv29.i
   %230 = load ptr, ptr %arrayidx13.i, align 8
@@ -1717,12 +1717,12 @@ for.body10.i:                                     ; preds = %for.end.i, %for.inc
   %util20.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 8
   %231 = load ptr, ptr %util20.i, align 8
   %tobool21.not.i = icmp ne ptr %last_file.026.i, null
-  %cmp22.i = icmp slt i32 %last_len.024.i, %conv16.i
+  %cmp22.i = icmp slt i32 %last_len.025.i, %conv16.i
   %or.cond.i = select i1 %tobool21.not.i, i1 %cmp22.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true24.i, label %if.end39.i
 
 land.lhs.true24.i:                                ; preds = %for.body10.i
-  %conv25.i = sext i32 %last_len.024.i to i64
+  %conv25.i = sext i32 %last_len.025.i to i64
   %bcmp.i = call i32 @bcmp(ptr %230, ptr nonnull %last_file.026.i, i64 %conv25.i)
   %cmp27.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp27.i, label %land.lhs.true29.i, label %if.end39.i
@@ -1752,7 +1752,7 @@ if.else.i105:                                     ; preds = %if.end39.i
   br label %for.inc53.i
 
 for.inc53.i:                                      ; preds = %if.else.i105, %if.end39.i, %if.end39.i
-  %last_len.1.i = phi i32 [ %last_len.024.i, %if.else.i105 ], [ %conv16.i, %if.end39.i ], [ %conv16.i, %if.end39.i ]
+  %last_len.1.i = phi i32 [ %last_len.025.i, %if.else.i105 ], [ %conv16.i, %if.end39.i ], [ %conv16.i, %if.end39.i ]
   %last_file.1.i = phi ptr [ null, %if.else.i105 ], [ %230, %if.end39.i ], [ %230, %if.end39.i ]
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %236 = load i64, ptr %nr7.i, align 8
@@ -8396,9 +8396,9 @@ if.else33:                                        ; preds = %lor.lhs.false
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else33, %if.then26
-  %base.0 = phi ptr [ %call28, %if.then26 ], [ %call35, %if.else33 ]
   %name1.0 = phi ptr [ %call30, %if.then26 ], [ %call36, %if.else33 ]
   %name2.0 = phi ptr [ %call32, %if.then26 ], [ %call37, %if.else33 ]
+  %base.0 = phi ptr [ %call28, %if.then26 ], [ %call35, %if.else33 ]
   call void @read_mmblob(ptr noundef nonnull %orig, ptr noundef nonnull %o) #21
   call void @read_mmblob(ptr noundef nonnull %src1, ptr noundef nonnull %a) #21
   call void @read_mmblob(ptr noundef nonnull %src2, ptr noundef nonnull %b) #21

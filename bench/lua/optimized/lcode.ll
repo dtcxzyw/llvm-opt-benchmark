@@ -4099,9 +4099,9 @@ if.then14:                                        ; preds = %if.end11
   br label %for.inc
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %if.else.i
-  %count.06.i = phi i32 [ %inc.i, %if.else.i ], [ 0, %for.body.i.preheader ]
-  %i.addr.05.i = phi i32 [ %add4.i, %if.else.i ], [ %4, %for.body.i.preheader ]
-  %idxprom.i = sext i32 %i.addr.05.i to i64
+  %i.addr.06.i = phi i32 [ %add4.i, %if.else.i ], [ %4, %for.body.i.preheader ]
+  %count.05.i = phi i32 [ %inc.i, %if.else.i ], [ 0, %for.body.i.preheader ]
+  %idxprom.i = sext i32 %i.addr.06.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %12, 127
@@ -4110,14 +4110,14 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.else.i:                                        ; preds = %for.body.i
   %shr2.i = lshr i32 %12, 7
-  %add.i = add i32 %i.addr.05.i, -16777214
+  %add.i = add i32 %i.addr.06.i, -16777214
   %add4.i = add i32 %add.i, %shr2.i
-  %inc.i = add nuw nsw i32 %count.06.i, 1
+  %inc.i = add nuw nsw i32 %count.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 100
   br i1 %exitcond.not.i, label %finaltarget.exit, label %for.body.i, !llvm.loop !8
 
 finaltarget.exit:                                 ; preds = %for.body.i, %if.else.i
-  %i.addr.0.lcssa.i = phi i32 [ %i.addr.05.i, %for.body.i ], [ %add4.i, %if.else.i ]
+  %i.addr.0.lcssa.i = phi i32 [ %i.addr.06.i, %for.body.i ], [ %add4.i, %if.else.i ]
   %add.neg.i = xor i32 %4, -1
   %sub.i = add i32 %i.addr.0.lcssa.i, %add.neg.i
   %13 = add i32 %sub.i, 16777215

@@ -6086,7 +6086,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %.thread341.i unwind label %1596
 
 1662:                                             ; preds = %1675
-  br i1 %.2227.i, label %.thread353.i, label %1526
+  br i1 %.2226.i, label %.thread353.i, label %1526
 
 .thread353.loopexit.i:                            ; preds = %1669, %1533
   %lpad.loopexit.i71 = landingpad { ptr, i32 }
@@ -6128,13 +6128,13 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1676 unwind label %.loopexit.i72
 
 1675:                                             ; preds = %1683, %.loopexit.split-lp.i73, %.loopexit.i72
-  %.2227.i = phi i1 [ false, %1683 ], [ %.3228.ph.i, %.loopexit.i72 ], [ %1677, %.loopexit.split-lp.i73 ]
+  %.2226.i = phi i1 [ false, %1683 ], [ %.3227.ph.i, %.loopexit.i72 ], [ %1677, %.loopexit.split-lp.i73 ]
   %.pn247.i = phi { ptr, i32 } [ %1684, %1683 ], [ %lpad.loopexit364.i, %.loopexit.i72 ], [ %lpad.loopexit.split-lp365.i, %.loopexit.split-lp.i73 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %140) #12
           to label %1662 unwind label %1596
 
 .loopexit.i72:                                    ; preds = %1689, %1687, %1679, %1676, %1674
-  %.3228.ph.i = phi i1 [ true, %1674 ], [ true, %1676 ], [ false, %1679 ], [ false, %1687 ], [ false, %1689 ]
+  %.3227.ph.i = phi i1 [ true, %1674 ], [ true, %1676 ], [ false, %1679 ], [ false, %1687 ], [ false, %1689 ]
   %lpad.loopexit364.i = landingpad { ptr, i32 }
           cleanup
   br label %1675
@@ -8554,13 +8554,13 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
   br label %39
 
 .loopexit.split-lp:                               ; preds = %31, %49
-  %.027.ph = phi i1 [ true, %31 ], [ false, %49 ]
+  %.028.ph = phi i1 [ true, %31 ], [ false, %49 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %39
 
 39:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %.027 = phi i1 [ true, %.loopexit ], [ %.027.ph, %.loopexit.split-lp ]
+  %.028 = phi i1 [ true, %.loopexit ], [ %.028.ph, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hd5c321a691b58caeE"(ptr nonnull align 8 %9) #12
           to label %52 unwind label %65
@@ -8576,7 +8576,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
   br label %45
 
 45:                                               ; preds = %63, %40
-  %.0 = phi ptr [ %15, %40 ], [ %64, %63 ]
+  %.027 = phi ptr [ %15, %40 ], [ %64, %63 ]
   %46 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91478b1c38e07aacE"(ptr nonnull align 8 %8)
           to label %47 unwind label %.loopexit
 
@@ -8586,7 +8586,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
 
 49:                                               ; preds = %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h949bb18200a1a315E"(ptr align 8 %.0, ptr nonnull align 8 %4)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h949bb18200a1a315E"(ptr align 8 %.027, ptr nonnull align 8 %4)
           to label %51 unwind label %.loopexit.split-lp
 
 50:                                               ; preds = %47
@@ -8598,7 +8598,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
           to label %56 unwind label %54
 
 52:                                               ; preds = %54, %39
-  %.1 = phi i1 [ false, %54 ], [ %.027, %39 ]
+  %.129 = phi i1 [ false, %54 ], [ %.028, %39 ]
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %lpad.phi, %39 ]
   %53 = load i64, ptr %19, align 8, !range !26, !noundef !4
   %.not31 = icmp eq i64 %53, -9223372036854775808
@@ -8622,7 +8622,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
           to label %.backedge.backedge unwind label %.thread45
 
 59:                                               ; preds = %67, %52
-  br i1 %.1, label %68, label %24
+  br i1 %.129, label %68, label %24
 
 .thread45:                                        ; preds = %58
   %60 = landingpad { ptr, i32 }
@@ -8630,7 +8630,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
   br label %24
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %.0, i64 24
+  %62 = getelementptr inbounds i8, ptr %.027, i64 24
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17he46a49e288bbc766E"(ptr nonnull sret({ i64, [6 x i64] }) align 8 %7, ptr nonnull align 8 %62, ptr nonnull align 8 %6)
           to label %63 unwind label %.loopexit
 

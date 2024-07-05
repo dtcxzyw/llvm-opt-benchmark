@@ -176,8 +176,8 @@ if.then10.i:                                      ; preds = %_ZN4absl12_GLOBAL__
   br label %return
 
 return:                                           ; preds = %if.end19.i.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %while.body.i.i.i.i, %if.then10.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %if.end6.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i, %if.then.i11, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.then6
-  %retval.sroa.4.0 = phi ptr [ %add.ptr, %if.then6 ], [ %add.ptr.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr6.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %add.ptr12.i, %if.then10.i ], [ %add.ptr3.i, %if.then.i11 ], [ %add.ptr6.i, %if.end.i.i.i.i ], [ %add.ptr6.i, %if.end6.i.i.i.i ], [ %text.coerce1, %if.then.i.i.i.i ], [ %add.ptr6.i, %while.body.i.i.i.i ], [ %add.ptr6.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %add.ptr6.i, %if.end19.i.i.i.i ]
   %retval.sroa.0.0 = phi i64 [ 0, %if.then6 ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %2, %if.then10.i ], [ 0, %if.then.i11 ], [ 0, %if.end.i.i.i.i ], [ 0, %if.end6.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %if.end19.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ %add.ptr, %if.then6 ], [ %add.ptr.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr6.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %add.ptr12.i, %if.then10.i ], [ %add.ptr3.i, %if.then.i11 ], [ %add.ptr6.i, %if.end.i.i.i.i ], [ %add.ptr6.i, %if.end6.i.i.i.i ], [ %text.coerce1, %if.then.i.i.i.i ], [ %add.ptr6.i, %while.body.i.i.i.i ], [ %add.ptr6.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %add.ptr6.i, %if.end19.i.i.i.i ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -228,8 +228,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %if.then.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %text.coerce0.pn = phi i64 [ %sub.ptr.sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %text.coerce0, %entry ], [ %text.coerce0, %if.then.i ], [ %text.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ]
   %retval.sroa.0.0 = phi i64 [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %entry ], [ 0, %if.then.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ]
+  %text.coerce0.pn = phi i64 [ %sub.ptr.sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %text.coerce0, %entry ], [ %text.coerce0, %if.then.i ], [ %text.coerce0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ]
   %retval.sroa.3.0 = getelementptr inbounds i8, ptr %text.coerce1, i64 %text.coerce0.pn
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1

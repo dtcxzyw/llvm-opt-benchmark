@@ -160,7 +160,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 
 .preheader40:                                     ; preds = %.preheader40.lr.ph, %._crit_edge
   %39 = phi i32 [ %64, %._crit_edge ], [ %29, %.preheader40.lr.ph ]
-  %.03745 = phi i64 [ %65, %._crit_edge ], [ 0, %.preheader40.lr.ph ]
+  %.03845 = phi i64 [ %65, %._crit_edge ], [ 0, %.preheader40.lr.ph ]
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph44, label %._crit_edge
 
@@ -173,7 +173,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %60 ], [ 0, %.preheader40 ]
   %43 = load i32, ptr %31, align 8
   %44 = sext i32 %43 to i64
-  %45 = mul nsw i64 %.03745, %44
+  %45 = mul nsw i64 %.03845, %44
   %46 = getelementptr inbounds float, ptr %2, i64 %45
   %47 = load i64, ptr %32, align 8
   %48 = mul i64 %47, %indvars.iv51
@@ -207,7 +207,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 
 ._crit_edge:                                      ; preds = %60, %.preheader40
   %64 = phi i32 [ %39, %.preheader40 ], [ %61, %60 ]
-  %65 = add nuw nsw i64 %.03745, 1
+  %65 = add nuw nsw i64 %.03845, 1
   %exitcond.not = icmp eq i64 %65, %1
   br i1 %exitcond.not, label %.preheader, label %.preheader40, !llvm.loop !8
 

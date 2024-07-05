@@ -358,8 +358,8 @@ copy_address.exit.i60:                            ; preds = %98, %92
   br i1 %150, label %140, label %.thread82, !llvm.loop !7
 
 .thread82:                                        ; preds = %140, %.preheader, %89, %90, %.thread86, %.thread78, %134, %5
-  %.043 = phi i32 [ 0, %5 ], [ 1, %134 ], [ 1, %.thread78 ], [ 0, %.thread86 ], [ 0, %90 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %140 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 0, %5 ], [ 1, %134 ], [ 1, %.thread78 ], [ 0, %.thread86 ], [ 0, %90 ], [ 0, %89 ], [ 1, %.preheader ], [ 1, %140 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

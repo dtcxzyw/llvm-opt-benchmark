@@ -972,7 +972,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   %.not199 = icmp eq ptr %183, null
   %spec.select = select i1 %.not199, ptr @.str.68, ptr %183
   %.not200 = icmp eq ptr %191, null
-  %.0163 = select i1 %.not200, ptr @.str.68, ptr %191
+  %.0164 = select i1 %.not200, ptr @.str.68, ptr %191
   %192 = load i32, ptr @loginfected, align 4
   %193 = and i32 %192, 2
   %194 = icmp ne i32 %193, 0
@@ -988,8 +988,8 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %makesanehdr.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %197, %209
-  %.0.i = phi ptr [ %210, %209 ], [ %199, %197 ]
-  %200 = load i8, ptr %.0.i, align 1
+  %.012.i = phi ptr [ %210, %209 ], [ %199, %197 ]
+  %200 = load i8, ptr %.012.i, align 1
   switch i8 %200, label %201 [
     i8 0, label %makesanehdr.exit
     i8 39, label %208
@@ -1009,22 +1009,22 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not17.i, label %208, label %209
 
 208:                                              ; preds = %201, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  store i8 32, ptr %.0.i, align 1
+  store i8 32, ptr %.012.i, align 1
   br label %209
 
 209:                                              ; preds = %208, %201
-  %210 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %210 = getelementptr inbounds i8, ptr %.012.i, i64 1
   br label %.preheader.i
 
 makesanehdr.exit:                                 ; preds = %.preheader.i, %197
-  %.012.i = phi ptr [ @.str.68, %197 ], [ %199, %.preheader.i ]
+  %.0.i = phi ptr [ @.str.68, %197 ], [ %199, %.preheader.i ]
   %211 = load ptr, ptr %175, align 8
   %.not.i207 = icmp eq ptr %211, null
   br i1 %.not.i207, label %makesanehdr.exit212, label %.preheader.i208
 
 .preheader.i208:                                  ; preds = %makesanehdr.exit, %221
-  %.0.i209 = phi ptr [ %222, %221 ], [ %211, %makesanehdr.exit ]
-  %212 = load i8, ptr %.0.i209, align 1
+  %.012.i209 = phi ptr [ %222, %221 ], [ %211, %makesanehdr.exit ]
+  %212 = load i8, ptr %.012.i209, align 1
   switch i8 %212, label %213 [
     i8 0, label %makesanehdr.exit212
     i8 39, label %220
@@ -1044,22 +1044,22 @@ makesanehdr.exit:                                 ; preds = %.preheader.i, %197
   br i1 %.not17.i211, label %220, label %221
 
 220:                                              ; preds = %213, %.preheader.i208, %.preheader.i208, %.preheader.i208, %.preheader.i208
-  store i8 32, ptr %.0.i209, align 1
+  store i8 32, ptr %.012.i209, align 1
   br label %221
 
 221:                                              ; preds = %220, %213
-  %222 = getelementptr inbounds i8, ptr %.0.i209, i64 1
+  %222 = getelementptr inbounds i8, ptr %.012.i209, i64 1
   br label %.preheader.i208
 
 makesanehdr.exit212:                              ; preds = %.preheader.i208, %makesanehdr.exit
-  %.012.i210 = phi ptr [ @.str.68, %makesanehdr.exit ], [ %211, %.preheader.i208 ]
+  %.0.i210 = phi ptr [ @.str.68, %makesanehdr.exit ], [ %211, %.preheader.i208 ]
   %223 = load ptr, ptr %176, align 8
   %.not.i213 = icmp eq ptr %223, null
   br i1 %.not.i213, label %makesanehdr.exit218, label %.preheader.i214
 
 .preheader.i214:                                  ; preds = %makesanehdr.exit212, %233
-  %.0.i215 = phi ptr [ %234, %233 ], [ %223, %makesanehdr.exit212 ]
-  %224 = load i8, ptr %.0.i215, align 1
+  %.012.i215 = phi ptr [ %234, %233 ], [ %223, %makesanehdr.exit212 ]
+  %224 = load i8, ptr %.012.i215, align 1
   switch i8 %224, label %225 [
     i8 0, label %makesanehdr.exit218
     i8 39, label %232
@@ -1079,15 +1079,15 @@ makesanehdr.exit212:                              ; preds = %.preheader.i208, %m
   br i1 %.not17.i217, label %232, label %233
 
 232:                                              ; preds = %225, %.preheader.i214, %.preheader.i214, %.preheader.i214, %.preheader.i214
-  store i8 32, ptr %.0.i215, align 1
+  store i8 32, ptr %.012.i215, align 1
   br label %233
 
 233:                                              ; preds = %232, %225
-  %234 = getelementptr inbounds i8, ptr %.0.i215, i64 1
+  %234 = getelementptr inbounds i8, ptr %.012.i215, i64 1
   br label %.preheader.i214
 
 makesanehdr.exit218:                              ; preds = %.preheader.i214, %makesanehdr.exit212
-  %.012.i216 = phi ptr [ @.str.68, %makesanehdr.exit212 ], [ %223, %.preheader.i214 ]
+  %.0.i216 = phi ptr [ @.str.68, %makesanehdr.exit212 ], [ %223, %.preheader.i214 ]
   %.not201 = icmp eq ptr %198, null
   %spec.select206 = select i1 %.not201, ptr @.str.68, ptr %198
   %235 = load i32, ptr @loginfected, align 4
@@ -1096,7 +1096,7 @@ makesanehdr.exit218:                              ; preds = %.preheader.i214, %m
   br i1 %.not202, label %239, label %237
 
 237:                                              ; preds = %makesanehdr.exit218
-  %238 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.select206, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0163, ptr noundef nonnull %.012.i, ptr noundef nonnull %.012.i216, ptr noundef nonnull %.012.i210, ptr noundef nonnull %161) #17
+  %238 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.select206, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0164, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i216, ptr noundef nonnull %.0.i210, ptr noundef nonnull %161) #17
   br label %239
 
 239:                                              ; preds = %237, %makesanehdr.exit218
@@ -1107,10 +1107,10 @@ makesanehdr.exit218:                              ; preds = %.preheader.i214, %m
 241:                                              ; preds = %239
   %242 = call noalias ptr @strdup(ptr noundef nonnull %spec.select206) #17
   %243 = call noalias ptr @strdup(ptr noundef nonnull %spec.select) #17
-  %244 = call noalias ptr @strdup(ptr noundef nonnull %.0163) #17
-  %245 = call noalias ptr @strdup(ptr noundef nonnull %.012.i) #17
-  %246 = call noalias ptr @strdup(ptr noundef nonnull %.012.i210) #17
-  %247 = call noalias ptr @strdup(ptr noundef nonnull %.012.i216) #17
+  %244 = call noalias ptr @strdup(ptr noundef nonnull %.0164) #17
+  %245 = call noalias ptr @strdup(ptr noundef nonnull %.0.i) #17
+  %246 = call noalias ptr @strdup(ptr noundef nonnull %.0.i210) #17
+  %247 = call noalias ptr @strdup(ptr noundef nonnull %.0.i216) #17
   %248 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef nonnull %240, ptr noundef nonnull %161, ptr noundef %242, ptr noundef %243, ptr noundef %244, ptr noundef %245, ptr noundef %247, ptr noundef %246) #17
   %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull @virusaction_lock) #17
   %250 = call i32 @fork() #17
@@ -1223,7 +1223,7 @@ makesanehdr.exit218:                              ; preds = %.preheader.i214, %m
   br i1 %.not205, label %303, label %301
 
 301:                                              ; preds = %298
-  %302 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0163, ptr noundef nonnull %161) #17
+  %302 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0164, ptr noundef nonnull %161) #17
   %.pre = load i32, ptr @loginfected, align 4
   br label %303
 
@@ -1363,8 +1363,8 @@ define internal fastcc noundef ptr @makesanehdr(ptr noundef %0) unnamed_addr #8 
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %11
-  %.0 = phi ptr [ %12, %11 ], [ %0, %1 ]
-  %2 = load i8, ptr %.0, align 1
+  %.012 = phi ptr [ %12, %11 ], [ %0, %1 ]
+  %2 = load i8, ptr %.012, align 1
   switch i8 %2, label %3 [
     i8 0, label %.loopexit
     i8 39, label %10
@@ -1384,16 +1384,16 @@ define internal fastcc noundef ptr @makesanehdr(ptr noundef %0) unnamed_addr #8 
   br i1 %.not17, label %10, label %11
 
 10:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %3
-  store i8 32, ptr %.0, align 1
+  store i8 32, ptr %.012, align 1
   br label %11
 
 11:                                               ; preds = %10, %3
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
+  %12 = getelementptr inbounds i8, ptr %.012, i64 1
   br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %.012 = phi ptr [ @.str.68, %1 ], [ %0, %.preheader ]
-  ret ptr %.012
+  %.0 = phi ptr [ @.str.68, %1 ], [ %0, %.preheader ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -942,7 +942,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.lr.ph, %.outer
-  %.0.ph127 = phi i32 [ 0, %.lr.ph102.lr.ph ], [ %82, %.outer ]
+  %.048.ph127 = phi i32 [ 0, %.lr.ph102.lr.ph ], [ %82, %.outer ]
   %.049.ph126 = phi i16 [ %2, %.lr.ph102.lr.ph ], [ %83, %.outer ]
   %24 = load i8, ptr %20, align 4
   %25 = trunc i8 %24 to i1
@@ -1066,12 +1066,12 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br i1 %78, label %.outer, label %.loopexit
 
 .outer:                                           ; preds = %77
-  %79 = sext i32 %.0.ph127 to i64
+  %79 = sext i32 %.048.ph127 to i64
   %80 = getelementptr [408 x %struct.HashScanPosItem], ptr %23, i64 0, i64 %79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %80, ptr noundef nonnull readonly align 2 dereferenceable(6) %.us-phi107, i64 6, i1 false)
   %81 = getelementptr inbounds i8, ptr %80, i64 6
   store i16 %.us-phi108, ptr %81, align 2
-  %82 = add i32 %.0.ph127, 1
+  %82 = add i32 %.048.ph127, 1
   %83 = add i16 %.us-phi108, 1
   %.not54100 = icmp ugt i16 %83, %.0.i
   br i1 %.not54100, label %.loopexit, label %.lr.ph102, !llvm.loop !8
@@ -1212,8 +1212,8 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br label %.split
 
 .loopexit:                                        ; preds = %.outer64, %97, %.split.us, %89, %137, %118, %.outer, %77, %.split106.us, %69, %57, %38, %.preheader62, %.preheader
-  %.048 = phi i32 [ 0, %.preheader ], [ 408, %.preheader62 ], [ %.0.ph127, %38 ], [ %.0.ph127, %57 ], [ %.0.ph127, %69 ], [ %82, %.outer ], [ %.0.ph127, %77 ], [ %.0.ph127, %.split106.us ], [ %.1.ph96, %118 ], [ %.1.ph96, %137 ], [ %.1.ph96, %89 ], [ %99, %.outer64 ], [ %.1.ph96, %97 ], [ %.1.ph96, %.split.us ]
-  ret i32 %.048
+  %.0 = phi i32 [ 0, %.preheader ], [ 408, %.preheader62 ], [ %.048.ph127, %38 ], [ %.048.ph127, %57 ], [ %.048.ph127, %69 ], [ %82, %.outer ], [ %.048.ph127, %77 ], [ %.048.ph127, %.split106.us ], [ %.1.ph96, %118 ], [ %.1.ph96, %137 ], [ %.1.ph96, %89 ], [ %99, %.outer64 ], [ %.1.ph96, %97 ], [ %.1.ph96, %.split.us ]
+  ret i32 %.0
 }
 
 declare zeroext i16 @_hash_binsearch_last(ptr noundef, i32 noundef) local_unnamed_addr #1

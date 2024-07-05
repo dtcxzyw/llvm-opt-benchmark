@@ -166,10 +166,10 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   %77 = getelementptr i8, ptr %.val82, i64 %.sink
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %.0 = load ptr, ptr %79, align 8
+  %.063 = load ptr, ptr %79, align 8
   %80 = zext i1 %4 to i32
   %81 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %24, i32 noundef 0, i32 noundef %80, ptr noundef null, ptr noundef null) #7
-  %82 = tail call signext i16 @get_attnum(i32 noundef %81, ptr noundef %.0) #7
+  %82 = tail call signext i16 @get_attnum(i32 noundef %81, ptr noundef %.063) #7
   %83 = icmp eq i16 %82, 0
   br i1 %83, label %84, label %93
 
@@ -182,7 +182,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   %87 = tail call i32 @errcode(i32 noundef 50360452) #7
   %88 = getelementptr inbounds i8, ptr %24, i64 24
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %.0, ptr noundef %89) #7
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %.063, ptr noundef %89) #7
   %91 = load i32, ptr %22, align 8
   %92 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %91) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.LookupTypeNameExtended) #7
@@ -403,8 +403,8 @@ list_length.exit60.i:                             ; preds = %193
   br label %207
 
 207:                                              ; preds = %204, %190, %187, %182
-  %.0.i = phi ptr [ %186, %182 ], [ %189, %187 ], [ %192, %190 ], [ %206, %204 ]
-  %.not57.i = icmp eq ptr %.0.i, null
+  %.049.i = phi ptr [ %186, %182 ], [ %189, %187 ], [ %192, %190 ], [ %206, %204 ]
+  %.not57.i = icmp eq ptr %.049.i, null
   br i1 %.not57.i, label %.thread64.i, label %214
 
 .thread64.i:                                      ; preds = %207, %199, %list_length.exit60.i, %193, %179, %.lr.ph75.i
@@ -419,7 +419,7 @@ list_length.exit60.i:                             ; preds = %193
   unreachable
 
 214:                                              ; preds = %207
-  %215 = ptrtoint ptr %.0.i to i64
+  %215 = ptrtoint ptr %.049.i to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %216 = getelementptr i64, ptr %169, i64 %indvars.iv.i
   store i64 %215, ptr %216, align 8
@@ -433,8 +433,8 @@ list_length.exit60.i:                             ; preds = %193
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i, %list_length.exit.i
-  %.050.lcssa.i = phi i32 [ 0, %list_length.exit.i ], [ 0, %.lr.ph.i ], [ %220, %._crit_edge.loopexit.i ]
-  %221 = call ptr @construct_array_builtin(ptr noundef %169, i32 noundef %.050.lcssa.i, i32 noundef 2275) #7
+  %.048.lcssa.i = phi i32 [ 0, %list_length.exit.i ], [ 0, %.lr.ph.i ], [ %220, %._crit_edge.loopexit.i ]
+  %221 = call ptr @construct_array_builtin(ptr noundef %169, i32 noundef %.048.lcssa.i, i32 noundef 2275) #7
   %222 = getelementptr inbounds i8, ptr %1, i64 48
   %223 = load i32, ptr %222, align 8
   call void @setup_parser_errposition_callback(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %223) #7
@@ -447,20 +447,20 @@ list_length.exit60.i:                             ; preds = %193
   br label %typenameTypeMod.exit
 
 typenameTypeMod.exit:                             ; preds = %132, %._crit_edge.i
-  %.048.i = phi i32 [ %134, %132 ], [ %226, %._crit_edge.i ]
+  %.0.i = phi i32 [ %134, %132 ], [ %226, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %.not74 = icmp eq ptr %2, null
   br i1 %.not74, label %227, label %.sink.split
 
 .sink.split:                                      ; preds = %typenameTypeMod.exit, %.thread
-  %.048.i.sink = phi i32 [ -1, %.thread ], [ %.048.i, %typenameTypeMod.exit ]
-  %.063.ph = phi ptr [ null, %.thread ], [ %124, %typenameTypeMod.exit ]
-  store i32 %.048.i.sink, ptr %2, align 4
+  %.0.i.sink = phi i32 [ -1, %.thread ], [ %.0.i, %typenameTypeMod.exit ]
+  %.0.ph = phi ptr [ null, %.thread ], [ %124, %typenameTypeMod.exit ]
+  store i32 %.0.i.sink, ptr %2, align 4
   br label %227
 
 227:                                              ; preds = %.sink.split, %typenameTypeMod.exit, %.thread
-  %.063 = phi ptr [ null, %.thread ], [ %124, %typenameTypeMod.exit ], [ %.063.ph, %.sink.split ]
-  ret ptr %.063
+  %.0 = phi ptr [ null, %.thread ], [ %124, %typenameTypeMod.exit ], [ %.0.ph, %.sink.split ]
+  ret ptr %.0
 }
 
 declare ptr @makeRangeVar(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

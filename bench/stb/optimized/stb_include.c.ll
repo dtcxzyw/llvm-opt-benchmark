@@ -149,13 +149,13 @@ while.cond1.preheader:                            ; preds = %while.cond1.prehead
   %1 = phi i8 [ %0, %while.cond1.preheader.lr.ph ], [ %.pre102, %if.end178 ]
   %line_count.092 = phi i32 [ 1, %while.cond1.preheader.lr.ph ], [ %inc179, %if.end178 ]
   %list.091 = phi ptr [ null, %while.cond1.preheader.lr.ph ], [ %list.1, %if.end178 ]
-  %s.090 = phi ptr [ %text, %while.cond1.preheader.lr.ph ], [ %add.ptr177, %if.end178 ]
-  %inc_count.089 = phi i32 [ 0, %while.cond1.preheader.lr.ph ], [ %inc_count.1, %if.end178 ]
+  %inc_count.090 = phi i32 [ 0, %while.cond1.preheader.lr.ph ], [ %inc_count.1, %if.end178 ]
+  %s.089 = phi ptr [ %text, %while.cond1.preheader.lr.ph ], [ %add.ptr177, %if.end178 ]
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.cond1.preheader, %while.body6
   %2 = phi i8 [ %.pr, %while.body6 ], [ %1, %while.cond1.preheader ]
-  %s.1 = phi ptr [ %incdec.ptr, %while.body6 ], [ %s.090, %while.cond1.preheader ]
+  %s.1 = phi ptr [ %incdec.ptr, %while.body6 ], [ %s.089, %while.cond1.preheader ]
   switch i8 %2, label %if.end145 [
     i8 32, label %while.body6
     i8 9, label %while.body6
@@ -289,8 +289,8 @@ while.body129:                                    ; preds = %while.cond116
 if.end145.sink.split:                             ; preds = %while.cond76, %while.cond76, %while.cond76, %while.cond116, %while.cond116, %while.cond116
   %s.4.lcssa.sink = phi ptr [ %s.5, %while.cond116 ], [ %s.5, %while.cond116 ], [ %s.5, %while.cond116 ], [ %s.4, %while.cond76 ], [ %s.4, %while.cond76 ], [ %s.4, %while.cond76 ]
   %call68.sink = phi ptr [ null, %while.cond116 ], [ null, %while.cond116 ], [ null, %while.cond116 ], [ %call68, %while.cond76 ], [ %call68, %while.cond76 ], [ %call68, %while.cond76 ]
-  %inc = add nsw i32 %inc_count.089, 1
-  %sub.ptr.lhs.cast92 = ptrtoint ptr %s.090 to i64
+  %inc = add nsw i32 %inc_count.090, 1
+  %sub.ptr.lhs.cast92 = ptrtoint ptr %s.089 to i64
   %sub.ptr.sub94 = sub i64 %sub.ptr.lhs.cast92, %sub.ptr.rhs.cast93
   %conv95 = trunc i64 %sub.ptr.sub94 to i32
   %sub.ptr.lhs.cast96 = ptrtoint ptr %s.4.lcssa.sink to i64
@@ -300,7 +300,7 @@ if.end145.sink.split:                             ; preds = %while.cond76, %whil
   %conv.i = sext i32 %inc to i64
   %mul.i = mul nsw i64 %conv.i, 24
   %call.i = tail call ptr @realloc(ptr noundef %list.091, i64 noundef %mul.i) #15
-  %idxprom.i = sext i32 %inc_count.089 to i64
+  %idxprom.i = sext i32 %inc_count.090 to i64
   %arrayidx.i = getelementptr inbounds %struct.include_info, ptr %call.i, i64 %idxprom.i
   store i32 %conv95, ptr %arrayidx.i, align 8
   %end4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -312,8 +312,8 @@ if.end145.sink.split:                             ; preds = %while.cond76, %whil
   br label %if.end145
 
 if.end145:                                        ; preds = %while.cond1, %while.cond29, %while.cond46, %while.cond46, %while.cond46, %if.end145.sink.split, %land.lhs.true106, %if.else
-  %inc_count.1 = phi i32 [ %inc_count.089, %if.else ], [ %inc_count.089, %land.lhs.true106 ], [ %inc, %if.end145.sink.split ], [ %inc_count.089, %while.cond46 ], [ %inc_count.089, %while.cond46 ], [ %inc_count.089, %while.cond46 ], [ %inc_count.089, %while.cond29 ], [ %inc_count.089, %while.cond1 ]
   %s.6 = phi ptr [ %s.2, %if.else ], [ %s.2, %land.lhs.true106 ], [ %s.4.lcssa.sink, %if.end145.sink.split ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %s.3, %while.cond29 ], [ %s.1, %while.cond1 ]
+  %inc_count.1 = phi i32 [ %inc_count.090, %if.else ], [ %inc_count.090, %land.lhs.true106 ], [ %inc, %if.end145.sink.split ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond29 ], [ %inc_count.090, %while.cond1 ]
   %list.1 = phi ptr [ %list.091, %if.else ], [ %list.091, %land.lhs.true106 ], [ %call.i, %if.end145.sink.split ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond29 ], [ %list.091, %while.cond1 ]
   br label %while.cond146
 

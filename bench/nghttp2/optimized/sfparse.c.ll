@@ -1214,15 +1214,15 @@ for.cond9.preheader.preheader:                    ; preds = %if.end
   br label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %for.cond9.preheader.preheader, %for.end
-  %p.046 = phi ptr [ %scevgep, %for.end ], [ %1, %for.cond9.preheader.preheader ]
-  %o.045 = phi ptr [ %incdec.ptr63, %for.end ], [ %2, %for.cond9.preheader.preheader ]
-  %scevgep = getelementptr i8, ptr %p.046, i64 4
+  %o.046 = phi ptr [ %incdec.ptr63, %for.end ], [ %2, %for.cond9.preheader.preheader ]
+  %p.045 = phi ptr [ %scevgep, %for.end ], [ %1, %for.cond9.preheader.preheader ]
+  %scevgep = getelementptr i8, ptr %p.045, i64 4
   br label %for.body11
 
 for.body11:                                       ; preds = %for.cond9.preheader, %if.end52
   %i.043 = phi i64 [ 1, %for.cond9.preheader ], [ %inc, %if.end52 ]
   %n.042 = phi i32 [ 0, %for.cond9.preheader ], [ %add, %if.end52 ]
-  %p.141 = phi ptr [ %p.046, %for.cond9.preheader ], [ %incdec.ptr53, %if.end52 ]
+  %p.141 = phi ptr [ %p.045, %for.cond9.preheader ], [ %incdec.ptr53, %if.end52 ]
   %3 = load i8, ptr %p.141, align 1
   %idxprom = zext i8 %3 to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr @sf_base64decode.index_tbl, i64 0, i64 %idxprom
@@ -1272,8 +1272,8 @@ if.else43:                                        ; preds = %if.end34
 if.end44:                                         ; preds = %if.end34
   %shr45 = lshr i32 %n.042, 16
   %conv46 = trunc i32 %shr45 to i8
-  %incdec.ptr47 = getelementptr inbounds i8, ptr %o.045, i64 1
-  store i8 %conv46, ptr %o.045, align 1
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %o.046, i64 1
+  store i8 %conv46, ptr %o.046, align 1
   br label %fin.sink.split
 
 if.end52:                                         ; preds = %for.body11
@@ -1290,14 +1290,14 @@ if.end52:                                         ; preds = %for.body11
 for.end:                                          ; preds = %if.end52
   %shr54 = lshr i32 %add, 16
   %conv55 = trunc i32 %shr54 to i8
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %o.045, i64 1
-  store i8 %conv55, ptr %o.045, align 1
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %o.046, i64 1
+  store i8 %conv55, ptr %o.046, align 1
   %shr57 = lshr i32 %add, 8
   %conv59 = trunc i32 %shr57 to i8
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %o.045, i64 2
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %o.046, i64 2
   store i8 %conv59, ptr %incdec.ptr56, align 1
   %conv62 = trunc i32 %add to i8
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %o.045, i64 3
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %o.046, i64 3
   store i8 %conv62, ptr %incdec.ptr60, align 1
   %cmp8.not = icmp eq ptr %scevgep, %add.ptr
   br i1 %cmp8.not, label %fin, label %for.cond9.preheader, !llvm.loop !10
@@ -1305,10 +1305,10 @@ for.end:                                          ; preds = %if.end52
 fin.sink.split:                                   ; preds = %land.lhs.true, %if.end44
   %.sink57 = phi i32 [ 8, %if.end44 ], [ 16, %land.lhs.true ]
   %.sink = phi i64 [ 2, %if.end44 ], [ 1, %land.lhs.true ]
-  %incdec.ptr47.sink = phi ptr [ %incdec.ptr47, %if.end44 ], [ %o.045, %land.lhs.true ]
+  %incdec.ptr47.sink = phi ptr [ %incdec.ptr47, %if.end44 ], [ %o.046, %land.lhs.true ]
   %shr48 = lshr i32 %n.042, %.sink57
   %conv50 = trunc i32 %shr48 to i8
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %o.045, i64 %.sink
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %o.046, i64 %.sink
   store i8 %conv50, ptr %incdec.ptr47.sink, align 1
   br label %fin
 

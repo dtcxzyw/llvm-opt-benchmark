@@ -41,7 +41,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
 20:                                               ; preds = %17, %12
   %.pre-phi = phi i64 [ %.pre, %17 ], [ %13, %12 ]
   %.021 = phi ptr [ %18, %17 ], [ %1, %12 ]
-  %.019 = phi i64 [ 1, %17 ], [ 0, %12 ]
+  %.020 = phi i64 [ 1, %17 ], [ 0, %12 ]
   %21 = lshr i64 %.pre-phi, 52
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = and i32 %22, 2047
@@ -657,7 +657,7 @@ lexbor_write_exponent.exit126.i:                  ; preds = %341, %325
 
 lexbor_prettify.exit:                             ; preds = %261, %272, %274, %279, %285, %289, %294, %299, %lexbor_write_exponent.exit.i, %323, %lexbor_write_exponent.exit126.i
   %.0.i = phi i64 [ %262, %261 ], [ %273, %272 ], [ %276, %274 ], [ %296, %294 ], [ %.017.i.i, %lexbor_write_exponent.exit.i ], [ %324, %323 ], [ %348, %lexbor_write_exponent.exit126.i ], [ %283, %285 ], [ %283, %279 ], [ %283, %289 ], [ 1, %299 ]
-  %349 = add i64 %.0.i, %.019
+  %349 = add i64 %.0.i, %.020
   br label %350
 
 350:                                              ; preds = %15, %3, %lexbor_prettify.exit, %11

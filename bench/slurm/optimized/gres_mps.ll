@@ -422,7 +422,7 @@ define void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %20
 
 20:                                               ; preds = %22, %17
-  %.029 = phi i32 [ -1, %17 ], [ %23, %22 ]
+  %.030 = phi i32 [ -1, %17 ], [ %23, %22 ]
   %21 = tail call ptr @slurm_list_next(ptr noundef %19) #7
   %.not39 = icmp eq ptr %21, null
   br i1 %.not39, label %.thread47, label %22
@@ -432,7 +432,7 @@ define void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %.thread45
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.029, 1
+  %23 = add nsw i32 %.030, 1
   %24 = icmp eq i32 %23, %15
   br i1 %24, label %25, label %20, !llvm.loop !10
 
@@ -503,8 +503,8 @@ _get_dev_count.exit.thread:                       ; preds = %47, %37, %49
   br label %54
 
 54:                                               ; preds = %47, %_get_dev_count.exit.thread
-  %.028 = phi i64 [ %53, %_get_dev_count.exit.thread ], [ %48, %47 ]
-  %55 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %.028) #7
+  %.029 = phi i64 [ %53, %_get_dev_count.exit.thread ], [ %48, %47 ]
+  %55 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %.029) #7
   br label %.thread45
 
 .thread45:                                        ; preds = %6, %9, %13, %.thread47, %25, %29, %32, %54, %3

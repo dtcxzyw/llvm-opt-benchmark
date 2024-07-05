@@ -1016,8 +1016,8 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br label %39
 
 39:                                               ; preds = %.thread, %37
-  %.0884 = phi i16 [ %38, %37 ], [ 0, %.thread ]
-  %40 = zext i16 %.0884 to i32
+  %.0876 = phi i16 [ %38, %37 ], [ 0, %.thread ]
+  %40 = zext i16 %.0876 to i32
   %41 = and i32 %40, 64
   %.not928 = icmp eq i32 %41, 0
   %hf_rf_channel.val = load i32, ptr @hf_rf_channel, align 4
@@ -1112,9 +1112,9 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread986:                                       ; preds = %67, %88, %77
   %98 = phi i1 [ false, %88 ], [ true, %77 ], [ true, %67 ]
-  %.0885988 = phi ptr [ %86, %88 ], [ null, %77 ], [ null, %67 ]
-  %.0911 = phi i8 [ %97, %88 ], [ 0, %77 ], [ 0, %67 ]
-  %.0888 = phi i32 [ %95, %88 ], [ -1, %77 ], [ -1, %67 ]
+  %.0907988 = phi ptr [ %86, %88 ], [ null, %77 ], [ null, %67 ]
+  %.0910 = phi i32 [ %95, %88 ], [ -1, %77 ], [ -1, %67 ]
+  %.0877 = phi i8 [ %97, %88 ], [ 0, %77 ], [ 0, %67 ]
   %99 = and i32 %40, 16
   %.not932 = icmp eq i32 %99, 0
   %hf_invalid_reference_lower_address_part.val = load i32, ptr @hf_invalid_reference_lower_address_part, align 4
@@ -1135,7 +1135,7 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br label %108
 
 108:                                              ; preds = %106, %103
-  %.1912 = phi i8 [ %105, %103 ], [ %.0911, %106 ]
+  %.1878 = phi i8 [ %105, %103 ], [ %.0877, %106 ]
   %.4874 = phi i32 [ %104, %103 ], [ %107, %106 ]
   %109 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %.4874, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #7
   %110 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef -2147483648) #7
@@ -1170,7 +1170,7 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond5, label %126, label %137
 
 126:                                              ; preds = %125
-  %127 = select i1 %116, i8 0, i8 %.1912
+  %127 = select i1 %116, i8 0, i8 %.1878
   %128 = and i32 %110, 262143
   %rev.i.i = call noundef i8 @llvm.bitreverse.i8(i8 %127)
   %129 = zext i8 %rev.i.i to i32
@@ -1198,7 +1198,7 @@ check_hec.exit:                                   ; preds = %131
   br i1 %or.cond7, label %138, label %156
 
 138:                                              ; preds = %137
-  %139 = select i1 %119, i8 0, i8 %.1912
+  %139 = select i1 %119, i8 0, i8 %.1878
   %140 = lshr i32 %110, 8
   %141 = and i32 %140, 63
   br label %142
@@ -1403,9 +1403,9 @@ broken_check_hec.exit:                            ; preds = %142
   br label %.thread1114
 
 .thread1114:                                      ; preds = %186, %208, %232, %253, %274, %265, %243, %220, %196
-  %.0907 = phi i16 [ %192, %186 ], [ %202, %196 ], [ %214, %208 ], [ %226, %220 ], [ %238, %232 ], [ %249, %243 ], [ %259, %253 ], [ %271, %265 ], [ -1, %274 ]
-  %.0904 = phi ptr [ %194, %186 ], [ %204, %196 ], [ %216, %208 ], [ %228, %220 ], [ %240, %232 ], [ %251, %243 ], [ %261, %253 ], [ %273, %265 ], [ @.str.251, %274 ]
-  %.0901 = phi ptr [ %195, %186 ], [ %205, %196 ], [ %217, %208 ], [ %229, %220 ], [ %241, %232 ], [ %252, %243 ], [ %262, %253 ], [ null, %265 ], [ null, %274 ]
+  %.0886 = phi ptr [ %195, %186 ], [ %205, %196 ], [ %217, %208 ], [ %229, %220 ], [ %241, %232 ], [ %252, %243 ], [ %262, %253 ], [ null, %265 ], [ null, %274 ]
+  %.0883 = phi ptr [ %194, %186 ], [ %204, %196 ], [ %216, %208 ], [ %228, %220 ], [ %240, %232 ], [ %251, %243 ], [ %261, %253 ], [ %273, %265 ], [ @.str.251, %274 ]
+  %.0880 = phi i16 [ %192, %186 ], [ %202, %196 ], [ %214, %208 ], [ %226, %220 ], [ %238, %232 ], [ %249, %243 ], [ %259, %253 ], [ %271, %265 ], [ -1, %274 ]
   %277 = load i32, ptr @hf_packet_header_broken_flow_control, align 4
   %278 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %277, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
   %279 = load i32, ptr @hf_packet_header_broken_acknowledge_indication, align 4
@@ -1420,7 +1420,7 @@ broken_check_hec.exit:                            ; preds = %142
 .thread1012:                                      ; preds = %165, %156
   %286 = phi i1 [ true, %165 ], [ false, %156 ]
   %287 = phi i1 [ false, %165 ], [ true, %156 ]
-  %.0883997101110151018 = phi i32 [ 1, %165 ], [ 0, %156 ]
+  %.0875997101110151018 = phi i32 [ 1, %165 ], [ 0, %156 ]
   %.lobit999100910161017 = phi i32 [ %.lobit995, %165 ], [ %.lobit, %156 ]
   %288 = load i32, ptr @hf_packet_header, align 4
   %289 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %288, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
@@ -1566,9 +1566,9 @@ broken_check_hec.exit:                            ; preds = %142
   br label %393
 
 393:                                              ; preds = %312, %336, %359, %381, %390, %369, %348, %324, %302
-  %.1908 = phi i16 [ %308, %302 ], [ %318, %312 ], [ %330, %324 ], [ %342, %336 ], [ %354, %348 ], [ %365, %359 ], [ %375, %369 ], [ %387, %381 ], [ -1, %390 ]
-  %.1905 = phi ptr [ %310, %302 ], [ %320, %312 ], [ %332, %324 ], [ %344, %336 ], [ %356, %348 ], [ %367, %359 ], [ %377, %369 ], [ %389, %381 ], [ @.str.251, %390 ]
-  %.1902 = phi ptr [ %311, %302 ], [ %321, %312 ], [ %333, %324 ], [ %345, %336 ], [ %357, %348 ], [ %368, %359 ], [ %378, %369 ], [ null, %381 ], [ null, %390 ]
+  %.1887 = phi ptr [ %311, %302 ], [ %321, %312 ], [ %333, %324 ], [ %345, %336 ], [ %357, %348 ], [ %368, %359 ], [ %378, %369 ], [ null, %381 ], [ null, %390 ]
+  %.1884 = phi ptr [ %310, %302 ], [ %320, %312 ], [ %332, %324 ], [ %344, %336 ], [ %356, %348 ], [ %367, %359 ], [ %377, %369 ], [ %389, %381 ], [ @.str.251, %390 ]
+  %.1881 = phi i16 [ %308, %302 ], [ %318, %312 ], [ %330, %324 ], [ %342, %336 ], [ %354, %348 ], [ %365, %359 ], [ %375, %369 ], [ %387, %381 ], [ -1, %390 ]
   %394 = load i32, ptr @hf_packet_header_flow_control, align 4
   %395 = call ptr @proto_tree_add_item(ptr noundef %291, i32 noundef %394, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
   %396 = load i32, ptr @hf_packet_header_acknowledge_indication, align 4
@@ -1583,19 +1583,19 @@ broken_check_hec.exit:                            ; preds = %142
   %hf_packet_header_reserved.sink = phi ptr [ @hf_packet_header_reserved, %393 ], [ @hf_whitened_packet_header, %.thread1000 ], [ @hf_whitened_packet_header, %156 ]
   %.sink = phi ptr [ %291, %393 ], [ %32, %.thread1000 ], [ %32, %156 ]
   %.lobit998 = phi i32 [ %.lobit999100910161017, %393 ], [ %.lobit1002, %.thread1000 ], [ %.lobit, %156 ]
-  %.0883996 = phi i32 [ %.0883997101110151018, %393 ], [ -1, %.thread1000 ], [ %.971, %156 ]
+  %.0875996 = phi i32 [ %.0875997101110151018, %393 ], [ -1, %.thread1000 ], [ %.971, %156 ]
   %403 = phi i1 [ %287, %393 ], [ true, %.thread1000 ], [ true, %156 ]
   %404 = phi i1 [ %286, %393 ], [ false, %.thread1000 ], [ false, %156 ]
-  %.0910 = phi i32 [ %295, %393 ], [ undef, %.thread1000 ], [ undef, %156 ]
-  %.2909 = phi i16 [ %.1908, %393 ], [ -1, %.thread1000 ], [ -1, %156 ]
-  %.2906 = phi ptr [ %.1905, %393 ], [ @.str.251, %.thread1000 ], [ @.str.251, %156 ]
-  %.2903 = phi ptr [ %.1902, %393 ], [ null, %.thread1000 ], [ null, %156 ]
-  %.0890 = phi i32 [ %298, %393 ], [ 0, %.thread1000 ], [ 0, %156 ]
-  %.0889 = phi i32 [ %301, %393 ], [ 0, %.thread1000 ], [ 0, %156 ]
+  %.0912 = phi i32 [ %298, %393 ], [ 0, %.thread1000 ], [ 0, %156 ]
+  %.0911 = phi i32 [ %301, %393 ], [ 0, %.thread1000 ], [ 0, %156 ]
+  %.2888 = phi ptr [ %.1887, %393 ], [ null, %.thread1000 ], [ null, %156 ]
+  %.2885 = phi ptr [ %.1884, %393 ], [ @.str.251, %.thread1000 ], [ @.str.251, %156 ]
+  %.2882 = phi i16 [ %.1881, %393 ], [ -1, %.thread1000 ], [ -1, %156 ]
+  %.0879 = phi i32 [ %295, %393 ], [ undef, %.thread1000 ], [ undef, %156 ]
   %.0868 = phi ptr [ %401, %393 ], [ null, %.thread1000 ], [ null, %156 ]
   %405 = load i32, ptr %hf_packet_header_reserved.sink, align 4
   %406 = call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %405, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
-  switch i32 %.0883996, label %411 [
+  switch i32 %.0875996, label %411 [
     i32 0, label %409
     i32 -1, label %407
   ]
@@ -1609,16 +1609,16 @@ broken_check_hec.exit:                            ; preds = %142
   br label %411
 
 411:                                              ; preds = %402, %.thread1114, %409, %407, %.thread1089
-  %.08891113 = phi i32 [ %.0889, %402 ], [ %185, %.thread1114 ], [ %.0889, %409 ], [ %.0889, %407 ], [ 0, %.thread1089 ]
-  %.08901111 = phi i32 [ %.0890, %402 ], [ %182, %.thread1114 ], [ %.0890, %409 ], [ %.0890, %407 ], [ 0, %.thread1089 ]
-  %.29031109 = phi ptr [ %.2903, %402 ], [ %.0901, %.thread1114 ], [ %.2903, %409 ], [ %.2903, %407 ], [ null, %.thread1089 ]
-  %.29061107 = phi ptr [ %.2906, %402 ], [ %.0904, %.thread1114 ], [ %.2906, %409 ], [ %.2906, %407 ], [ @.str.251, %.thread1089 ]
-  %.29091105 = phi i16 [ %.2909, %402 ], [ %.0907, %.thread1114 ], [ %.2909, %409 ], [ %.2909, %407 ], [ -1, %.thread1089 ]
-  %.09101103 = phi i32 [ %.0910, %402 ], [ %179, %.thread1114 ], [ %.0910, %409 ], [ %.0910, %407 ], [ undef, %.thread1089 ]
+  %.08791113 = phi i32 [ %.0879, %402 ], [ %179, %.thread1114 ], [ %.0879, %409 ], [ %.0879, %407 ], [ undef, %.thread1089 ]
+  %.28821111 = phi i16 [ %.2882, %402 ], [ %.0880, %.thread1114 ], [ %.2882, %409 ], [ %.2882, %407 ], [ -1, %.thread1089 ]
+  %.28851109 = phi ptr [ %.2885, %402 ], [ %.0883, %.thread1114 ], [ %.2885, %409 ], [ %.2885, %407 ], [ @.str.251, %.thread1089 ]
+  %.28881107 = phi ptr [ %.2888, %402 ], [ %.0886, %.thread1114 ], [ %.2888, %409 ], [ %.2888, %407 ], [ null, %.thread1089 ]
+  %.09111105 = phi i32 [ %.0911, %402 ], [ %185, %.thread1114 ], [ %.0911, %409 ], [ %.0911, %407 ], [ 0, %.thread1089 ]
+  %.09121103 = phi i32 [ %.0912, %402 ], [ %182, %.thread1114 ], [ %.0912, %409 ], [ %.0912, %407 ], [ 0, %.thread1089 ]
   %412 = phi i1 [ %404, %402 ], [ true, %.thread1114 ], [ %404, %409 ], [ %404, %407 ], [ false, %.thread1089 ]
   %413 = phi i1 [ %403, %402 ], [ false, %.thread1114 ], [ %403, %409 ], [ %403, %407 ], [ true, %.thread1089 ]
   %.lobit9981101 = phi i32 [ %.lobit998, %402 ], [ %.lobit9951086, %.thread1114 ], [ %.lobit998, %409 ], [ %.lobit998, %407 ], [ %.lobit9951076, %.thread1089 ]
-  %414 = icmp ne i32 %.09101103, 0
+  %414 = icmp ne i32 %.08791113, 0
   %or.cond27 = select i1 %412, i1 %414, i1 false
   br i1 %or.cond27, label %415, label %489
 
@@ -1637,7 +1637,7 @@ broken_check_hec.exit:                            ; preds = %142
   store i32 %416, ptr %5, align 4
   store i32 %417, ptr %6, align 4
   store i32 %418, ptr %7, align 4
-  store i32 %.09101103, ptr %8, align 4
+  store i32 %.08791113, ptr %8, align 4
   store i32 %420, ptr %9, align 4
   store i32 1, ptr %10, align 16
   %421 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1706,7 +1706,7 @@ broken_check_hec.exit:                            ; preds = %142
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
-  %457 = icmp sgt i32 %.0888, -1
+  %457 = icmp sgt i32 %.0910, -1
   br label %.thread1033
 
 458:                                              ; preds = %442
@@ -1722,14 +1722,14 @@ broken_check_hec.exit:                            ; preds = %142
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
-  %463 = icmp sgt i32 %.0888, -1
+  %463 = icmp sgt i32 %.0910, -1
   %or.cond29 = select i1 %.not11.i, i1 %463, i1 false
   br i1 %or.cond29, label %464, label %.thread1033
 
 464:                                              ; preds = %458
   %465 = getelementptr inbounds i8, ptr %1, i64 112
   %466 = getelementptr inbounds i8, ptr %spec.select.i985, i64 56
-  %467 = zext nneg i32 %.0888 to i64
+  %467 = zext nneg i32 %.0910 to i64
   %468 = getelementptr [2 x [6 x i8]], ptr %466, i64 0, i64 %467
   store i32 1, ptr %465, align 8
   %469 = getelementptr inbounds i8, ptr %1, i64 116
@@ -1739,7 +1739,7 @@ broken_check_hec.exit:                            ; preds = %142
   %471 = getelementptr inbounds i8, ptr %1, i64 128
   store ptr null, ptr %471, align 8
   %472 = getelementptr inbounds i8, ptr %1, i64 136
-  %473 = sub nuw nsw i32 1, %.0888
+  %473 = sub nuw nsw i32 1, %.0910
   %474 = zext nneg i32 %473 to i64
   %475 = getelementptr [2 x [6 x i8]], ptr %466, i64 0, i64 %474
   store i32 1, ptr %472, align 8
@@ -1770,7 +1770,7 @@ broken_check_hec.exit:                            ; preds = %142
 .thread1033:                                      ; preds = %.thread1027, %458
   %.ph1031 = phi i1 [ %457, %.thread1027 ], [ %463, %458 ]
   %.ph1032 = phi i1 [ false, %.thread1027 ], [ %.not11.i, %458 ]
-  %.08861023.ph = phi ptr [ null, %.thread1027 ], [ %spec.select.i985, %458 ]
+  %.09081023.ph = phi ptr [ null, %.thread1027 ], [ %spec.select.i985, %458 ]
   %487 = getelementptr inbounds i8, ptr %1, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
   %488 = getelementptr inbounds i8, ptr %1, i64 184
@@ -1778,7 +1778,7 @@ broken_check_hec.exit:                            ; preds = %142
   br label %503
 
 489:                                              ; preds = %411
-  %490 = icmp sgt i32 %.0888, -1
+  %490 = icmp sgt i32 %.0910, -1
   %491 = getelementptr inbounds i8, ptr %1, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
   %492 = getelementptr inbounds i8, ptr %1, i64 184
@@ -1789,7 +1789,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 493:                                              ; preds = %489
   %494 = getelementptr inbounds i8, ptr %1, i64 112
-  %495 = getelementptr inbounds i8, ptr %.0885988, i64 8
+  %495 = getelementptr inbounds i8, ptr %.0907988, i64 8
   store i32 1, ptr %494, align 8
   %496 = getelementptr inbounds i8, ptr %1, i64 116
   store i32 6, ptr %496, align 4
@@ -1808,7 +1808,7 @@ broken_check_hec.exit:                            ; preds = %142
   br label %508
 
 503:                                              ; preds = %.thread1033, %489
-  %.088610231039 = phi ptr [ %.08861023.ph, %.thread1033 ], [ null, %489 ]
+  %.090810231039 = phi ptr [ %.09081023.ph, %.thread1033 ], [ null, %489 ]
   %504 = phi i1 [ %.ph1032, %.thread1033 ], [ false, %489 ]
   %505 = phi i1 [ %.ph1031, %.thread1033 ], [ %490, %489 ]
   %506 = getelementptr inbounds i8, ptr %1, i64 112
@@ -1823,7 +1823,7 @@ broken_check_hec.exit:                            ; preds = %142
   %or.cond291024 = phi i1 [ false, %493 ], [ false, %503 ], [ true, %464 ]
   %511 = phi i1 [ %490, %493 ], [ %505, %503 ], [ true, %464 ]
   %512 = phi i1 [ false, %493 ], [ %504, %503 ], [ true, %464 ]
-  %.08861022 = phi ptr [ null, %493 ], [ %.088610231039, %503 ], [ %433, %464 ]
+  %.09081022 = phi ptr [ null, %493 ], [ %.090810231039, %503 ], [ %433, %464 ]
   %513 = phi <2 x i32> [ <i32 1, i32 6>, %493 ], [ zeroinitializer, %503 ], [ <i32 1, i32 6>, %464 ]
   %514 = phi <2 x i32> [ zeroinitializer, %493 ], [ zeroinitializer, %503 ], [ <i32 1, i32 6>, %464 ]
   %515 = getelementptr inbounds i8, ptr %1, i64 208
@@ -1926,7 +1926,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 582:                                              ; preds = %580
   %583 = load ptr, ptr %33, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %583, i32 noundef 25, ptr noundef nonnull @.str.260, ptr noundef %.29061107) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %583, i32 noundef 25, ptr noundef nonnull @.str.260, ptr noundef %.28851109) #7
   br label %584
 
 584:                                              ; preds = %582, %580
@@ -1936,7 +1936,7 @@ broken_check_hec.exit:                            ; preds = %142
   ]
 
 585:                                              ; preds = %584
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 8, label %591
     i16 7, label %590
     i16 2, label %586
@@ -1964,7 +1964,7 @@ broken_check_hec.exit:                            ; preds = %142
   br label %647
 
 592:                                              ; preds = %584
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 13, label %595
     i16 12, label %594
     i16 7, label %593
@@ -1985,7 +1985,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %or.cond36, label %598, label %603
 
 598:                                              ; preds = %596
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 13, label %602
     i16 12, label %601
     i16 6, label %599
@@ -2009,7 +2009,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %604, label %605, label %614
 
 605:                                              ; preds = %603
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 15, label %613
     i16 14, label %612
     i16 2, label %606
@@ -2050,7 +2050,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %or.cond39, label %616, label %626
 
 616:                                              ; preds = %614
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 15, label %625
     i16 14, label %624
     i16 2, label %617
@@ -2096,7 +2096,7 @@ broken_check_hec.exit:                            ; preds = %142
   ]
 
 627:                                              ; preds = %626
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 15, label %633
     i16 3, label %628
     i16 4, label %629
@@ -2124,7 +2124,7 @@ broken_check_hec.exit:                            ; preds = %142
   br label %647
 
 634:                                              ; preds = %626
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 15, label %641
     i16 3, label %635
     i16 4, label %636
@@ -2160,7 +2160,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %643, label %644, label %647
 
 644:                                              ; preds = %642
-  switch i16 %.29091105, label %647 [
+  switch i16 %.28821111, label %647 [
     i16 3, label %646
     i16 2, label %645
   ]
@@ -2172,18 +2172,18 @@ broken_check_hec.exit:                            ; preds = %142
   br label %647
 
 647:                                              ; preds = %592, %595, %594, %593, %605, %613, %612, %611, %610, %609, %608, %607, %606, %627, %633, %632, %631, %630, %629, %628, %642, %644, %646, %645, %635, %636, %637, %638, %639, %640, %641, %634, %617, %618, %619, %620, %621, %622, %623, %624, %625, %616, %599, %600, %601, %602, %598, %586, %587, %588, %589, %590, %591, %585
-  %.0900 = phi i32 [ %.lobit9981101, %591 ], [ %.lobit9981101, %590 ], [ %.lobit9981101, %589 ], [ %.lobit9981101, %588 ], [ %.lobit9981101, %587 ], [ 1, %586 ], [ %.lobit9981101, %595 ], [ %.lobit9981101, %594 ], [ %.lobit9981101, %593 ], [ %.lobit9981101, %602 ], [ %.lobit9981101, %601 ], [ %.lobit9981101, %600 ], [ %.lobit9981101, %599 ], [ %.lobit9981101, %613 ], [ %.lobit9981101, %612 ], [ %.lobit9981101, %611 ], [ %.lobit9981101, %610 ], [ %.lobit9981101, %609 ], [ %.lobit9981101, %608 ], [ %.lobit9981101, %607 ], [ 1, %606 ], [ %.lobit9981101, %625 ], [ %.lobit9981101, %624 ], [ %.lobit9981101, %623 ], [ %.lobit9981101, %622 ], [ %.lobit9981101, %621 ], [ %.lobit9981101, %620 ], [ %.lobit9981101, %619 ], [ %.lobit9981101, %618 ], [ 1, %617 ], [ %.lobit9981101, %633 ], [ %.lobit9981101, %632 ], [ %.lobit9981101, %631 ], [ %.lobit9981101, %630 ], [ %.lobit9981101, %629 ], [ %.lobit9981101, %628 ], [ %.lobit9981101, %641 ], [ %.lobit9981101, %640 ], [ %.lobit9981101, %639 ], [ %.lobit9981101, %638 ], [ %.lobit9981101, %637 ], [ %.lobit9981101, %636 ], [ %.lobit9981101, %635 ], [ %.lobit9981101, %646 ], [ 1, %645 ], [ %.lobit9981101, %642 ], [ %.lobit9981101, %585 ], [ %.lobit9981101, %592 ], [ %.lobit9981101, %598 ], [ %.lobit9981101, %605 ], [ %.lobit9981101, %616 ], [ %.lobit9981101, %627 ], [ %.lobit9981101, %634 ], [ %.lobit9981101, %644 ]
-  %648 = phi i1 [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ false, %587 ], [ false, %586 ], [ true, %595 ], [ true, %594 ], [ true, %593 ], [ true, %602 ], [ true, %601 ], [ true, %600 ], [ true, %599 ], [ false, %613 ], [ false, %612 ], [ false, %611 ], [ false, %610 ], [ false, %609 ], [ false, %608 ], [ false, %607 ], [ false, %606 ], [ false, %625 ], [ false, %624 ], [ false, %623 ], [ false, %622 ], [ false, %621 ], [ false, %620 ], [ false, %619 ], [ false, %618 ], [ false, %617 ], [ false, %633 ], [ false, %632 ], [ false, %631 ], [ false, %630 ], [ false, %629 ], [ false, %628 ], [ false, %641 ], [ false, %640 ], [ false, %639 ], [ false, %638 ], [ false, %637 ], [ false, %636 ], [ false, %635 ], [ false, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
-  %.0898 = phi i32 [ 10, %591 ], [ 30, %590 ], [ 20, %589 ], [ 10, %588 ], [ 0, %587 ], [ 0, %586 ], [ 180, %595 ], [ 120, %594 ], [ 30, %593 ], [ 540, %602 ], [ 360, %601 ], [ 90, %600 ], [ 60, %599 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
-  %.not944 = phi i1 [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ true, %587 ], [ true, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ true, %645 ], [ true, %642 ], [ true, %585 ], [ true, %592 ], [ true, %598 ], [ true, %605 ], [ true, %616 ], [ true, %627 ], [ true, %634 ], [ true, %644 ]
-  %.0896 = phi i32 [ 0, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 0, %587 ], [ 0, %586 ], [ 1, %595 ], [ 1, %594 ], [ 1, %593 ], [ 1, %602 ], [ 1, %601 ], [ 1, %600 ], [ 1, %599 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
-  %649 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ true, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ true, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
-  %.0893 = phi i32 [ 10, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 18, %587 ], [ 18, %586 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 341, %613 ], [ 226, %612 ], [ 185, %611 ], [ 123, %610 ], [ 30, %609 ], [ 28, %608 ], [ 18, %607 ], [ 18, %606 ], [ 1023, %625 ], [ 681, %624 ], [ 554, %623 ], [ 369, %622 ], [ 30, %621 ], [ 85, %620 ], [ 56, %619 ], [ 18, %618 ], [ 18, %617 ], [ 341, %633 ], [ 226, %632 ], [ 185, %631 ], [ 123, %630 ], [ 28, %629 ], [ 18, %628 ], [ 1023, %641 ], [ 681, %640 ], [ 554, %639 ], [ 369, %638 ], [ 85, %637 ], [ 56, %636 ], [ 18, %635 ], [ 18, %646 ], [ 18, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
-  %650 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ false, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ false, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
-  %651 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ false, %613 ], [ false, %612 ], [ false, %611 ], [ false, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ false, %606 ], [ false, %625 ], [ false, %624 ], [ false, %623 ], [ false, %622 ], [ true, %621 ], [ false, %620 ], [ false, %619 ], [ true, %618 ], [ false, %617 ], [ false, %633 ], [ false, %632 ], [ false, %631 ], [ false, %630 ], [ true, %629 ], [ true, %628 ], [ false, %641 ], [ false, %640 ], [ false, %639 ], [ false, %638 ], [ false, %637 ], [ false, %636 ], [ true, %635 ], [ true, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
-  %652 = phi i1 [ false, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ false, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ false, %609 ], [ false, %608 ], [ false, %607 ], [ false, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ false, %621 ], [ true, %620 ], [ true, %619 ], [ false, %618 ], [ false, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ false, %629 ], [ false, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ false, %635 ], [ false, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
-  %.0892 = phi i32 [ 1, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 1, %587 ], [ 0, %586 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 2, %613 ], [ 2, %612 ], [ 2, %611 ], [ 2, %610 ], [ 1, %609 ], [ 1, %608 ], [ 1, %607 ], [ 0, %606 ], [ 2, %625 ], [ 2, %624 ], [ 2, %623 ], [ 2, %622 ], [ 1, %621 ], [ 2, %620 ], [ 2, %619 ], [ 1, %618 ], [ 0, %617 ], [ 2, %633 ], [ 2, %632 ], [ 2, %631 ], [ 2, %630 ], [ 1, %629 ], [ 1, %628 ], [ 2, %641 ], [ 2, %640 ], [ 2, %639 ], [ 2, %638 ], [ 2, %637 ], [ 2, %636 ], [ 1, %635 ], [ 1, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
   %.not950 = phi i1 [ false, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ false, %587 ], [ false, %586 ], [ true, %595 ], [ true, %594 ], [ true, %593 ], [ true, %602 ], [ true, %601 ], [ true, %600 ], [ true, %599 ], [ false, %613 ], [ false, %612 ], [ false, %611 ], [ false, %610 ], [ true, %609 ], [ false, %608 ], [ false, %607 ], [ false, %606 ], [ false, %625 ], [ false, %624 ], [ false, %623 ], [ false, %622 ], [ true, %621 ], [ false, %620 ], [ false, %619 ], [ false, %618 ], [ false, %617 ], [ false, %633 ], [ false, %632 ], [ false, %631 ], [ false, %630 ], [ false, %629 ], [ false, %628 ], [ false, %641 ], [ false, %640 ], [ false, %639 ], [ false, %638 ], [ false, %637 ], [ false, %636 ], [ false, %635 ], [ false, %646 ], [ false, %645 ], [ true, %642 ], [ true, %585 ], [ true, %592 ], [ true, %598 ], [ true, %605 ], [ true, %616 ], [ true, %627 ], [ true, %634 ], [ true, %644 ]
+  %648 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ false, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ false, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
+  %649 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ false, %613 ], [ false, %612 ], [ false, %611 ], [ false, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ false, %606 ], [ false, %625 ], [ false, %624 ], [ false, %623 ], [ false, %622 ], [ true, %621 ], [ false, %620 ], [ false, %619 ], [ true, %618 ], [ false, %617 ], [ false, %633 ], [ false, %632 ], [ false, %631 ], [ false, %630 ], [ true, %629 ], [ true, %628 ], [ false, %641 ], [ false, %640 ], [ false, %639 ], [ false, %638 ], [ false, %637 ], [ false, %636 ], [ true, %635 ], [ true, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
+  %650 = phi i1 [ false, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ false, %587 ], [ false, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ false, %609 ], [ false, %608 ], [ false, %607 ], [ false, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ false, %621 ], [ true, %620 ], [ true, %619 ], [ false, %618 ], [ false, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ false, %629 ], [ false, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ false, %635 ], [ false, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
+  %.0905 = phi i32 [ 1, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 1, %587 ], [ 0, %586 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 2, %613 ], [ 2, %612 ], [ 2, %611 ], [ 2, %610 ], [ 1, %609 ], [ 1, %608 ], [ 1, %607 ], [ 0, %606 ], [ 2, %625 ], [ 2, %624 ], [ 2, %623 ], [ 2, %622 ], [ 1, %621 ], [ 2, %620 ], [ 2, %619 ], [ 1, %618 ], [ 0, %617 ], [ 2, %633 ], [ 2, %632 ], [ 2, %631 ], [ 2, %630 ], [ 1, %629 ], [ 1, %628 ], [ 2, %641 ], [ 2, %640 ], [ 2, %639 ], [ 2, %638 ], [ 2, %637 ], [ 2, %636 ], [ 1, %635 ], [ 1, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
+  %651 = phi i1 [ true, %591 ], [ false, %590 ], [ false, %589 ], [ false, %588 ], [ true, %587 ], [ true, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ true, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
+  %.0902 = phi i32 [ 10, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 18, %587 ], [ 18, %586 ], [ 0, %595 ], [ 0, %594 ], [ 0, %593 ], [ 0, %602 ], [ 0, %601 ], [ 0, %600 ], [ 0, %599 ], [ 341, %613 ], [ 226, %612 ], [ 185, %611 ], [ 123, %610 ], [ 30, %609 ], [ 28, %608 ], [ 18, %607 ], [ 18, %606 ], [ 1023, %625 ], [ 681, %624 ], [ 554, %623 ], [ 369, %622 ], [ 30, %621 ], [ 85, %620 ], [ 56, %619 ], [ 18, %618 ], [ 18, %617 ], [ 341, %633 ], [ 226, %632 ], [ 185, %631 ], [ 123, %630 ], [ 28, %629 ], [ 18, %628 ], [ 1023, %641 ], [ 681, %640 ], [ 554, %639 ], [ 369, %638 ], [ 85, %637 ], [ 56, %636 ], [ 18, %635 ], [ 18, %646 ], [ 18, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
+  %.not944 = phi i1 [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ true, %587 ], [ true, %586 ], [ false, %595 ], [ false, %594 ], [ false, %593 ], [ false, %602 ], [ false, %601 ], [ false, %600 ], [ false, %599 ], [ true, %613 ], [ true, %612 ], [ true, %611 ], [ true, %610 ], [ true, %609 ], [ true, %608 ], [ true, %607 ], [ true, %606 ], [ true, %625 ], [ true, %624 ], [ true, %623 ], [ true, %622 ], [ true, %621 ], [ true, %620 ], [ true, %619 ], [ true, %618 ], [ true, %617 ], [ true, %633 ], [ true, %632 ], [ true, %631 ], [ true, %630 ], [ true, %629 ], [ true, %628 ], [ true, %641 ], [ true, %640 ], [ true, %639 ], [ true, %638 ], [ true, %637 ], [ true, %636 ], [ true, %635 ], [ true, %646 ], [ true, %645 ], [ true, %642 ], [ true, %585 ], [ true, %592 ], [ true, %598 ], [ true, %605 ], [ true, %616 ], [ true, %627 ], [ true, %634 ], [ true, %644 ]
+  %.0900 = phi i32 [ 0, %591 ], [ 0, %590 ], [ 0, %589 ], [ 0, %588 ], [ 0, %587 ], [ 0, %586 ], [ 1, %595 ], [ 1, %594 ], [ 1, %593 ], [ 1, %602 ], [ 1, %601 ], [ 1, %600 ], [ 1, %599 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
+  %652 = phi i1 [ true, %591 ], [ true, %590 ], [ true, %589 ], [ true, %588 ], [ false, %587 ], [ false, %586 ], [ true, %595 ], [ true, %594 ], [ true, %593 ], [ true, %602 ], [ true, %601 ], [ true, %600 ], [ true, %599 ], [ false, %613 ], [ false, %612 ], [ false, %611 ], [ false, %610 ], [ false, %609 ], [ false, %608 ], [ false, %607 ], [ false, %606 ], [ false, %625 ], [ false, %624 ], [ false, %623 ], [ false, %622 ], [ false, %621 ], [ false, %620 ], [ false, %619 ], [ false, %618 ], [ false, %617 ], [ false, %633 ], [ false, %632 ], [ false, %631 ], [ false, %630 ], [ false, %629 ], [ false, %628 ], [ false, %641 ], [ false, %640 ], [ false, %639 ], [ false, %638 ], [ false, %637 ], [ false, %636 ], [ false, %635 ], [ false, %646 ], [ false, %645 ], [ false, %642 ], [ false, %585 ], [ false, %592 ], [ false, %598 ], [ false, %605 ], [ false, %616 ], [ false, %627 ], [ false, %634 ], [ false, %644 ]
+  %.0898 = phi i32 [ 10, %591 ], [ 30, %590 ], [ 20, %589 ], [ 10, %588 ], [ 0, %587 ], [ 0, %586 ], [ 180, %595 ], [ 120, %594 ], [ 30, %593 ], [ 540, %602 ], [ 360, %601 ], [ 90, %600 ], [ 60, %599 ], [ 0, %613 ], [ 0, %612 ], [ 0, %611 ], [ 0, %610 ], [ 0, %609 ], [ 0, %608 ], [ 0, %607 ], [ 0, %606 ], [ 0, %625 ], [ 0, %624 ], [ 0, %623 ], [ 0, %622 ], [ 0, %621 ], [ 0, %620 ], [ 0, %619 ], [ 0, %618 ], [ 0, %617 ], [ 0, %633 ], [ 0, %632 ], [ 0, %631 ], [ 0, %630 ], [ 0, %629 ], [ 0, %628 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ 0, %638 ], [ 0, %637 ], [ 0, %636 ], [ 0, %635 ], [ 0, %646 ], [ 0, %645 ], [ 0, %642 ], [ 0, %585 ], [ 0, %592 ], [ 0, %598 ], [ 0, %605 ], [ 0, %616 ], [ 0, %627 ], [ 0, %634 ], [ 0, %644 ]
+  %.0894 = phi i32 [ %.lobit9981101, %591 ], [ %.lobit9981101, %590 ], [ %.lobit9981101, %589 ], [ %.lobit9981101, %588 ], [ %.lobit9981101, %587 ], [ 1, %586 ], [ %.lobit9981101, %595 ], [ %.lobit9981101, %594 ], [ %.lobit9981101, %593 ], [ %.lobit9981101, %602 ], [ %.lobit9981101, %601 ], [ %.lobit9981101, %600 ], [ %.lobit9981101, %599 ], [ %.lobit9981101, %613 ], [ %.lobit9981101, %612 ], [ %.lobit9981101, %611 ], [ %.lobit9981101, %610 ], [ %.lobit9981101, %609 ], [ %.lobit9981101, %608 ], [ %.lobit9981101, %607 ], [ 1, %606 ], [ %.lobit9981101, %625 ], [ %.lobit9981101, %624 ], [ %.lobit9981101, %623 ], [ %.lobit9981101, %622 ], [ %.lobit9981101, %621 ], [ %.lobit9981101, %620 ], [ %.lobit9981101, %619 ], [ %.lobit9981101, %618 ], [ 1, %617 ], [ %.lobit9981101, %633 ], [ %.lobit9981101, %632 ], [ %.lobit9981101, %631 ], [ %.lobit9981101, %630 ], [ %.lobit9981101, %629 ], [ %.lobit9981101, %628 ], [ %.lobit9981101, %641 ], [ %.lobit9981101, %640 ], [ %.lobit9981101, %639 ], [ %.lobit9981101, %638 ], [ %.lobit9981101, %637 ], [ %.lobit9981101, %636 ], [ %.lobit9981101, %635 ], [ %.lobit9981101, %646 ], [ 1, %645 ], [ %.lobit9981101, %642 ], [ %.lobit9981101, %585 ], [ %.lobit9981101, %592 ], [ %.lobit9981101, %598 ], [ %.lobit9981101, %605 ], [ %.lobit9981101, %616 ], [ %.lobit9981101, %627 ], [ %.lobit9981101, %634 ], [ %.lobit9981101, %644 ]
   %653 = and i32 %528, 32
   %.not941 = icmp eq i32 %653, 0
   br i1 %.not941, label %1007, label %654
@@ -2192,19 +2192,19 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not940, label %1002, label %655
 
 655:                                              ; preds = %654
-  %.not942 = icmp eq i32 %.0900, 0
+  %.not942 = icmp eq i32 %.0894, 0
   br i1 %.not942, label %997, label %656
 
 656:                                              ; preds = %655
   %657 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 22) #7
-  %658 = icmp ne ptr %.29031109, null
-  %659 = icmp sgt i16 %.29091105, -1
+  %658 = icmp ne ptr %.28881107, null
+  %659 = icmp sgt i16 %.28821111, -1
   %or.cond45 = select i1 %658, i1 %659, i1 false
   br i1 %or.cond45, label %660, label %665
 
 660:                                              ; preds = %656
-  %661 = zext nneg i16 %.29091105 to i32
-  %662 = call i32 @dissector_try_uint_new(ptr noundef nonnull %.29031109, i32 noundef %661, ptr noundef %657, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #7
+  %661 = zext nneg i16 %.28821111 to i32
+  %662 = call i32 @dissector_try_uint_new(ptr noundef nonnull %.28881107, i32 noundef %661, ptr noundef %657, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #7
   %.not943 = icmp eq i32 %662, 0
   br i1 %.not943, label %665, label %663
 
@@ -2213,7 +2213,7 @@ broken_check_hec.exit:                            ; preds = %142
   br label %1015
 
 665:                                              ; preds = %660, %656
-  br i1 %648, label %666, label %707
+  br i1 %652, label %666, label %707
 
 666:                                              ; preds = %665
   %667 = and i32 %528, 3072
@@ -2244,7 +2244,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 681:                                              ; preds = %676
   %682 = add nuw nsw i32 %.1899, 2
-  %683 = call fastcc i32 @check_crc(i8 noundef zeroext %.1912, ptr noundef %0, i32 noundef 22, i32 noundef %682)
+  %683 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef 22, i32 noundef %682)
   %.not946 = icmp eq i32 %683, 0
   br i1 %.not946, label %684, label %686
 
@@ -2258,11 +2258,11 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %512, label %688, label %707
 
 688:                                              ; preds = %686
-  %689 = getelementptr inbounds i8, ptr %.08861022, i64 70
+  %689 = getelementptr inbounds i8, ptr %.09081022, i64 70
   %690 = load i8, ptr %689, align 2
   %691 = and i8 %690, 1
   %692 = zext nneg i8 %691 to i32
-  %.not947 = icmp eq i32 %.0896, %692
+  %.not947 = icmp eq i32 %.0900, %692
   br i1 %.not947, label %695, label %693
 
 693:                                              ; preds = %688
@@ -2279,8 +2279,8 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not948, label %707, label %699
 
 699:                                              ; preds = %696
-  %700 = getelementptr inbounds i8, ptr %.08861022, i64 52
-  %701 = zext nneg i32 %.0888 to i64
+  %700 = getelementptr inbounds i8, ptr %.09081022, i64 52
+  %701 = zext nneg i32 %.0910 to i64
   %702 = getelementptr [2 x i16], ptr %700, i64 0, i64 %701
   %703 = load i16, ptr %702, align 2
   %704 = zext i16 %703 to i32
@@ -2293,7 +2293,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 707:                                              ; preds = %666, %669, %695, %696, %699, %705, %686, %665
   %.1 = phi i32 [ %687, %705 ], [ %687, %699 ], [ %687, %696 ], [ %687, %695 ], [ %687, %686 ], [ 22, %669 ], [ 22, %665 ], [ 22, %666 ]
-  br i1 %649, label %708, label %.thread1040
+  br i1 %651, label %708, label %.thread1040
 
 708:                                              ; preds = %707
   %709 = and i32 %528, 3072
@@ -2305,18 +2305,18 @@ broken_check_hec.exit:                            ; preds = %142
   %712 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #7
   %713 = add i32 %712, -2
   %spec.select976 = select i1 %.not950, i32 %712, i32 %713
-  %.1894 = call i32 @llvm.smin.i32(i32 %.0893, i32 %spec.select976)
-  br i1 %650, label %714, label %717
+  %.1903 = call i32 @llvm.smin.i32(i32 %.0902, i32 %spec.select976)
+  br i1 %648, label %714, label %717
 
 714:                                              ; preds = %711
-  %715 = icmp slt i32 %spec.select976, %.0892
+  %715 = icmp slt i32 %spec.select976, %.0905
   br i1 %715, label %.thread1040, label %716
 
 716:                                              ; preds = %714
-  br i1 %651, label %.thread1057, label %.thread1044
+  br i1 %649, label %.thread1057, label %.thread1044
 
 717:                                              ; preds = %711
-  %718 = icmp slt i32 %.1894, 1
+  %718 = icmp slt i32 %.1903, 1
   br i1 %718, label %.thread1040, label %735
 
 .thread1057:                                      ; preds = %716
@@ -2327,8 +2327,8 @@ broken_check_hec.exit:                            ; preds = %142
   %723 = add nuw nsw i8 %722, 1
   %724 = zext nneg i8 %723 to i32
   %725 = icmp ult i32 %spec.select976, %724
-  %.1894. = select i1 %725, i32 %.1894, i32 %724
-  %726 = icmp slt i32 %.1894., 1
+  %.1903. = select i1 %725, i32 %.1903, i32 %724
+  %726 = icmp slt i32 %.1903., 1
   %or.cond471060 = or i1 %725, %726
   br i1 %or.cond471060, label %.thread1040, label %.thread1061
 
@@ -2341,17 +2341,17 @@ broken_check_hec.exit:                            ; preds = %142
   %narrow = add nuw nsw i16 %731, 2
   %732 = zext nneg i16 %narrow to i32
   %733 = icmp ult i32 %spec.select976, %732
-  %.1894.978 = select i1 %733, i32 %.1894, i32 %732
-  %734 = icmp slt i32 %.1894.978, 1
+  %.1903.978 = select i1 %733, i32 %.1903, i32 %732
+  %734 = icmp slt i32 %.1903.978, 1
   %or.cond471047 = or i1 %733, %734
   br i1 %or.cond471047, label %.thread1040, label %.thread1050
 
 735:                                              ; preds = %717
-  br i1 %651, label %.thread1061, label %.thread1050
+  br i1 %649, label %.thread1061, label %.thread1050
 
 .thread1061:                                      ; preds = %.thread1057, %735
-  %.289510481065 = phi i32 [ %.1894, %735 ], [ %.1894., %.thread1057 ]
-  %.087710491064 = phi i32 [ -1, %735 ], [ %721, %.thread1057 ]
+  %.290410481065 = phi i32 [ %.1903, %735 ], [ %.1903., %.thread1057 ]
+  %.089110491064 = phi i32 [ -1, %735 ], [ %721, %.thread1057 ]
   %736 = load i32, ptr @hf_payload_header1, align 4
   %737 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %736, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef -2147483648) #7
   %738 = load i32, ptr @ett_payload_header, align 4
@@ -2365,9 +2365,9 @@ broken_check_hec.exit:                            ; preds = %142
   br label %759
 
 .thread1050:                                      ; preds = %.thread1044, %735
-  %.289510481056 = phi i32 [ %.1894, %735 ], [ %.1894.978, %.thread1044 ]
-  %.087710491054 = phi i32 [ -1, %735 ], [ %729, %.thread1044 ]
-  br i1 %652, label %746, label %759
+  %.290410481056 = phi i32 [ %.1903, %735 ], [ %.1903.978, %.thread1044 ]
+  %.089110491054 = phi i32 [ -1, %735 ], [ %729, %.thread1044 ]
+  br i1 %650, label %746, label %759
 
 746:                                              ; preds = %.thread1050
   %747 = load i32, ptr @hf_payload_header2, align 4
@@ -2385,8 +2385,8 @@ broken_check_hec.exit:                            ; preds = %142
   br label %759
 
 759:                                              ; preds = %.thread1050, %746, %.thread1061
-  %.289510481055 = phi i32 [ %.289510481056, %.thread1050 ], [ %.289510481056, %746 ], [ %.289510481065, %.thread1061 ]
-  %.087710491053 = phi i32 [ %.087710491054, %.thread1050 ], [ %.087710491054, %746 ], [ %.087710491064, %.thread1061 ]
+  %.290410481055 = phi i32 [ %.290410481056, %.thread1050 ], [ %.290410481056, %746 ], [ %.290410481065, %.thread1061 ]
+  %.089110491053 = phi i32 [ %.089110491054, %.thread1050 ], [ %.089110491054, %746 ], [ %.089110491064, %.thread1061 ]
   %760 = getelementptr inbounds i8, ptr %1, i64 80
   %761 = load ptr, ptr %760, align 8
   %762 = getelementptr inbounds i8, ptr %761, i64 50
@@ -2407,17 +2407,17 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %or.cond291024, label %773, label %800
 
 773:                                              ; preds = %766
-  %774 = zext nneg i32 %.0888 to i64
-  %775 = getelementptr [2 x %struct._reassembly_t], ptr %.08861022, i64 0, i64 %774, i32 2
+  %774 = zext nneg i32 %.0910 to i64
+  %775 = getelementptr [2 x %struct._reassembly_t], ptr %.09081022, i64 0, i64 %774, i32 2
   %776 = load i8, ptr %775, align 4
   %777 = and i8 %776, 1
   %778 = zext nneg i8 %777 to i32
-  %779 = icmp eq i32 %.08891113, %778
+  %779 = icmp eq i32 %.09111105, %778
   %780 = zext i1 %779 to i8
   %781 = load i8, ptr %767, align 4
   %782 = and i8 %781, -4
   %783 = or disjoint i8 %782, %780
-  %784 = trunc nuw nsw i32 %.08901111 to i8
+  %784 = trunc nuw nsw i32 %.09121103 to i8
   %785 = shl nuw nsw i8 %784, 1
   %786 = or disjoint i8 %783, %785
   store i8 %786, ptr %767, align 4
@@ -2425,7 +2425,7 @@ broken_check_hec.exit:                            ; preds = %142
   %788 = load i32, ptr %787, align 4
   %789 = getelementptr inbounds i8, ptr %767, i64 4
   store i32 %788, ptr %789, align 4
-  %790 = trunc nuw nsw i32 %.08891113 to i8
+  %790 = trunc nuw nsw i32 %.09111105 to i8
   %791 = load i8, ptr %775, align 4
   %792 = and i8 %791, -2
   %793 = or disjoint i8 %792, %790
@@ -2441,13 +2441,13 @@ broken_check_hec.exit:                            ; preds = %142
   br label %800
 
 800:                                              ; preds = %766, %773, %794
-  %.0887 = phi ptr [ %799, %794 ], [ %767, %773 ], [ %767, %766 ]
-  %801 = icmp eq i16 %.29091105, 2
+  %.0909 = phi ptr [ %799, %794 ], [ %767, %773 ], [ %767, %766 ]
+  %801 = icmp eq i16 %.28821111, 2
   br i1 %801, label %802, label %814
 
 802:                                              ; preds = %800
-  %803 = add nuw nsw i32 %.1, %.0892
-  %804 = sub nsw i32 %.289510481055, %.0892
+  %803 = add nuw nsw i32 %.1, %.0905
+  %804 = sub nsw i32 %.290410481055, %.0905
   %805 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %803, i32 noundef %804) #7
   %.not952 = icmp eq ptr %805, null
   br i1 %.not952, label %814, label %806
@@ -2458,17 +2458,17 @@ broken_check_hec.exit:                            ; preds = %142
   %809 = call noalias ptr @wmem_alloc0(ptr noundef %808, i64 noundef 24) #7
   store ptr %3, ptr %809, align 8
   %810 = getelementptr inbounds i8, ptr %809, i64 16
-  store ptr %.0885988, ptr %810, align 8
+  store ptr %.0907988, ptr %810, align 8
   %811 = getelementptr inbounds i8, ptr %809, i64 8
-  store ptr %.08861022, ptr %811, align 8
+  store ptr %.09081022, ptr %811, align 8
   %812 = load ptr, ptr @btbredr_fhs_handle, align 8
   %813 = call i32 @call_dissector_with_data(ptr noundef %812, ptr noundef nonnull %805, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %809) #7
   br label %814
 
 814:                                              ; preds = %802, %806, %800
-  %.0881 = phi ptr [ %805, %806 ], [ null, %802 ], [ %657, %800 ]
+  %.0896 = phi ptr [ %805, %806 ], [ null, %802 ], [ %657, %800 ]
   %.not966 = phi i1 [ false, %806 ], [ true, %802 ], [ true, %800 ]
-  switch i32 %.087710491053, label %971 [
+  switch i32 %.089110491053, label %971 [
     i32 3, label %815
     i32 2, label %824
     i32 1, label %893
@@ -2480,29 +2480,29 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not964, label %971, label %817
 
 817:                                              ; preds = %815
-  %818 = add nuw nsw i32 %.1, %.0892
-  %819 = sub nsw i32 %.289510481055, %.0892
+  %818 = add nuw nsw i32 %.1, %.0905
+  %819 = sub nsw i32 %.290410481055, %.0905
   %820 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %818, i32 noundef %819) #7
   %.not965 = icmp eq ptr %820, null
   br i1 %.not965, label %971, label %821
 
 821:                                              ; preds = %817
   %822 = load ptr, ptr @btlmp_handle, align 8
-  %823 = call i32 @call_dissector_with_data(ptr noundef %822, ptr noundef nonnull %820, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.08861022) #7
+  %823 = call i32 @call_dissector_with_data(ptr noundef %822, ptr noundef nonnull %820, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.09081022) #7
   br label %.thread1067
 
 824:                                              ; preds = %814
   %825 = load ptr, ptr @btl2cap_handle, align 8
   %826 = icmp ne ptr %825, null
-  %827 = icmp ne ptr %.0887, null
+  %827 = icmp ne ptr %.0909, null
   %or.cond63 = select i1 %826, i1 %827, i1 false
-  %828 = icmp ugt i32 %.289510481055, %.0892
+  %828 = icmp ugt i32 %.290410481055, %.0905
   %or.cond980 = and i1 %828, %or.cond63
   br i1 %or.cond980, label %829, label %971
 
 829:                                              ; preds = %824
-  %830 = sub nsw i32 %.289510481055, %.0892
-  %831 = add nuw nsw i32 %.1, %.0892
+  %830 = sub nsw i32 %.290410481055, %.0905
+  %831 = add nuw nsw i32 %.1, %.0905
   %832 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %831) #7
   %833 = zext i16 %832 to i32
   %834 = add nuw nsw i32 %833, 4
@@ -2543,8 +2543,8 @@ broken_check_hec.exit:                            ; preds = %142
 855:                                              ; preds = %835
   %856 = getelementptr inbounds i8, ptr %1, i64 20
   %857 = load i32, ptr %856, align 4
-  %858 = zext nneg i32 %.0888 to i64
-  %859 = getelementptr [2 x %struct._reassembly_t], ptr %.08861022, i64 0, i64 %858
+  %858 = zext nneg i32 %.0910 to i64
+  %859 = getelementptr [2 x %struct._reassembly_t], ptr %.09081022, i64 0, i64 %858
   %860 = getelementptr inbounds i8, ptr %859, i64 4
   store i32 %857, ptr %860, align 4
   store i32 0, ptr %859, align 4
@@ -2553,7 +2553,7 @@ broken_check_hec.exit:                            ; preds = %142
 861:                                              ; preds = %829
   %862 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 1, ptr %862, align 8
-  %863 = load i8, ptr %.0887, align 4
+  %863 = load i8, ptr %.0909, align 4
   %864 = and i8 %863, 1
   %865 = icmp eq i8 %864, 0
   %or.cond55 = and i1 %512, %865
@@ -2571,20 +2571,20 @@ broken_check_hec.exit:                            ; preds = %142
 871:                                              ; preds = %866
   %872 = getelementptr inbounds i8, ptr %1, i64 20
   %873 = load i32, ptr %872, align 4
-  %874 = zext nneg i32 %.0888 to i64
-  %875 = getelementptr [2 x %struct._reassembly_t], ptr %.08861022, i64 0, i64 %874
+  %874 = zext nneg i32 %.0910 to i64
+  %875 = getelementptr [2 x %struct._reassembly_t], ptr %.09081022, i64 0, i64 %874
   %876 = getelementptr inbounds i8, ptr %875, i64 4
   store i32 %873, ptr %876, align 4
   %877 = sub nsw i32 %834, %830
   store i32 %877, ptr %875, align 4
-  %878 = load i8, ptr %.0887, align 4
+  %878 = load i8, ptr %.0909, align 4
   %879 = or i8 %878, 4
-  store i8 %879, ptr %.0887, align 4
+  store i8 %879, ptr %.0909, align 4
   br label %880
 
 880:                                              ; preds = %871, %866
   %881 = phi i8 [ %879, %871 ], [ %863, %866 ]
-  %882 = getelementptr inbounds i8, ptr %.0887, i64 4
+  %882 = getelementptr inbounds i8, ptr %.0909, i64 4
   %883 = load i32, ptr %882, align 4
   %884 = lshr i8 %881, 2
   %885 = and i8 %884, 1
@@ -2606,8 +2606,8 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not953, label %971, label %895
 
 895:                                              ; preds = %893
-  %.not954 = icmp ne ptr %.0887, null
-  %.not955 = icmp ugt i32 %.289510481055, %.0892
+  %.not954 = icmp ne ptr %.0909, null
+  %.not955 = icmp ugt i32 %.290410481055, %.0905
   %or.cond981 = and i1 %.not955, %.not954
   br i1 %or.cond981, label %898, label %896
 
@@ -2619,7 +2619,7 @@ broken_check_hec.exit:                            ; preds = %142
 898:                                              ; preds = %895
   %899 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 1, ptr %899, align 8
-  %900 = load i8, ptr %.0887, align 4
+  %900 = load i8, ptr %.0909, align 4
   %901 = and i8 %900, 1
   %902 = icmp eq i8 %901, 0
   %or.cond59 = and i1 %512, %902
@@ -2627,7 +2627,7 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %or.cond61, label %903, label %945
 
 903:                                              ; preds = %898
-  %904 = sub nsw i32 %.289510481055, %.0892
+  %904 = sub nsw i32 %.290410481055, %.0905
   %905 = load ptr, ptr %760, align 8
   %906 = getelementptr inbounds i8, ptr %905, i64 50
   %907 = load i16, ptr %906, align 2
@@ -2636,8 +2636,8 @@ broken_check_hec.exit:                            ; preds = %142
   br i1 %.not956, label %909, label %935
 
 909:                                              ; preds = %903
-  %910 = zext nneg i32 %.0888 to i64
-  %911 = getelementptr [2 x %struct._reassembly_t], ptr %.08861022, i64 0, i64 %910
+  %910 = zext nneg i32 %.0910 to i64
+  %911 = getelementptr [2 x %struct._reassembly_t], ptr %.09081022, i64 0, i64 %910
   %912 = load i32, ptr %911, align 4
   %.not957 = icmp eq i32 %912, 0
   br i1 %.not957, label %930, label %913
@@ -2651,7 +2651,7 @@ broken_check_hec.exit:                            ; preds = %142
   store i32 %915, ptr %911, align 4
   %916 = getelementptr inbounds i8, ptr %911, i64 4
   %917 = load i32, ptr %916, align 4
-  %918 = getelementptr inbounds i8, ptr %.0887, i64 4
+  %918 = getelementptr inbounds i8, ptr %.0909, i64 4
   store i32 %917, ptr %918, align 4
   %.pre = load i32, ptr %911, align 4
   %919 = icmp eq i32 %.pre, 0
@@ -2660,7 +2660,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 921:                                              ; preds = %913
   %922 = or i8 %900, 12
-  store i8 %922, ptr %.0887, align 4
+  store i8 %922, ptr %.0909, align 4
   %923 = getelementptr inbounds i8, ptr %1, i64 20
   %924 = load i32, ptr %923, align 4
   %925 = getelementptr inbounds i8, ptr %911, i64 4
@@ -2670,27 +2670,27 @@ broken_check_hec.exit:                            ; preds = %142
 
 926:                                              ; preds = %921, %914
   %.not959 = phi i8 [ 0, %921 ], [ %920, %914 ]
-  %927 = load i8, ptr %.0887, align 4
+  %927 = load i8, ptr %.0909, align 4
   %928 = and i8 %927, -5
   %929 = or disjoint i8 %928, %.not959
-  store i8 %929, ptr %.0887, align 4
+  store i8 %929, ptr %.0909, align 4
   br label %935
 
 930:                                              ; preds = %909
   %931 = or i8 %900, 12
-  store i8 %931, ptr %.0887, align 4
+  store i8 %931, ptr %.0909, align 4
   %932 = getelementptr inbounds i8, ptr %1, i64 20
   %933 = load i32, ptr %932, align 4
   %934 = getelementptr inbounds i8, ptr %911, i64 4
   store i32 %933, ptr %934, align 4
   store i32 0, ptr %911, align 4
-  %.pre1082 = load i8, ptr %.0887, align 4
+  %.pre1082 = load i8, ptr %.0909, align 4
   br label %935
 
 935:                                              ; preds = %926, %930, %903
   %936 = phi i8 [ %929, %926 ], [ %.pre1082, %930 ], [ %900, %903 ]
-  %937 = add nuw nsw i32 %.1, %.0892
-  %938 = getelementptr inbounds i8, ptr %.0887, i64 4
+  %937 = add nuw nsw i32 %.1, %.0905
+  %938 = getelementptr inbounds i8, ptr %.0909, i64 4
   %939 = load i32, ptr %938, align 4
   %940 = lshr i8 %936, 2
   %941 = and i8 %940, 1
@@ -2700,8 +2700,8 @@ broken_check_hec.exit:                            ; preds = %142
   br label %945
 
 945:                                              ; preds = %935, %898
-  %.1882 = phi ptr [ %944, %935 ], [ %.0881, %898 ]
-  %.not960 = icmp eq ptr %.1882, null
+  %.1897 = phi ptr [ %944, %935 ], [ %.0896, %898 ]
+  %.not960 = icmp eq ptr %.1897, null
   br i1 %.not960, label %960, label %946
 
 946:                                              ; preds = %945
@@ -2722,17 +2722,17 @@ broken_check_hec.exit:                            ; preds = %142
   %956 = getelementptr inbounds i8, ptr %949, i64 24
   store ptr @bluetooth_max_disconnect_in_frame, ptr %956, align 8
   %957 = load ptr, ptr @btl2cap_handle, align 8
-  %958 = call i32 @call_dissector_with_data(ptr noundef %957, ptr noundef nonnull %.1882, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %949) #7
+  %958 = call i32 @call_dissector_with_data(ptr noundef %957, ptr noundef nonnull %.1897, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %949) #7
   %959 = load ptr, ptr %33, align 8
   call void @col_set_str(ptr noundef %959, i32 noundef 25, ptr noundef nonnull @.str.261) #7
   br label %.thread1067
 
 960:                                              ; preds = %945
   %961 = load i32, ptr @hf_l2cap_fragment, align 4
-  %962 = add nuw nsw i32 %.1, %.0892
-  %963 = sub nsw i32 %.289510481055, %.0892
+  %962 = add nuw nsw i32 %.1, %.0905
+  %963 = sub nsw i32 %.290410481055, %.0905
   %964 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %961, ptr noundef %0, i32 noundef %962, i32 noundef %963, i32 noundef 0) #7
-  %965 = load i8, ptr %.0887, align 4
+  %965 = load i8, ptr %.0909, align 4
   %966 = and i8 %965, 8
   %.not961 = icmp eq i8 %966, 0
   br i1 %.not961, label %969, label %967
@@ -2751,8 +2751,8 @@ broken_check_hec.exit:                            ; preds = %142
 
 972:                                              ; preds = %971
   %973 = load i32, ptr @hf_asynchronous_data, align 4
-  %974 = add nuw nsw i32 %.1, %.0892
-  %975 = sub nsw i32 %.289510481055, %.0892
+  %974 = add nuw nsw i32 %.1, %.0905
+  %975 = sub nsw i32 %.290410481055, %.0905
   %976 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %973, ptr noundef %0, i32 noundef %974, i32 noundef %975, i32 noundef 0) #7
   br label %.thread1067
 
@@ -2761,15 +2761,15 @@ broken_check_hec.exit:                            ; preds = %142
 
 977:                                              ; preds = %.thread1067
   %978 = load i32, ptr @hf_crc, align 4
-  %979 = add nuw nsw i32 %.289510481055, %.1
+  %979 = add nuw nsw i32 %.290410481055, %.1
   %980 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %978, ptr noundef %0, i32 noundef %979, i32 noundef 2, i32 noundef -2147483648) #7
   %981 = and i32 %528, 128
   %.not967 = icmp eq i32 %981, 0
   br i1 %.not967, label %987, label %982
 
 982:                                              ; preds = %977
-  %983 = add nuw nsw i32 %.289510481055, 2
-  %984 = call fastcc i32 @check_crc(i8 noundef zeroext %.1912, ptr noundef %0, i32 noundef %.1, i32 noundef %983)
+  %983 = add nuw nsw i32 %.290410481055, 2
+  %984 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef %.1, i32 noundef %983)
   %.not968 = icmp eq i32 %984, 0
   br i1 %.not968, label %985, label %987
 
@@ -2783,7 +2783,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 989:                                              ; preds = %987, %.thread1067
   %.2 = phi i32 [ %988, %987 ], [ %.1, %.thread1067 ]
-  %990 = add nuw nsw i32 %.2, %.289510481055
+  %990 = add nuw nsw i32 %.2, %.290410481055
   br label %.thread1040
 
 .thread1040:                                      ; preds = %714, %.thread1057, %.thread1044, %708, %717, %989, %707

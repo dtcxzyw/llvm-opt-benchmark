@@ -304,7 +304,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   br label %63
 
 63:                                               ; preds = %23, %57
-  %.0232 = phi i32 [ %36, %23 ], [ %62, %57 ]
+  %.0231 = phi i32 [ %36, %23 ], [ %62, %57 ]
   switch i8 %15, label %common.ret243 [
     i8 0, label %64
     i8 1, label %70
@@ -335,21 +335,21 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 64:                                               ; preds = %63
   %65 = load i32, ptr @hf_mqttsn_gw_id, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %65, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
-  %67 = add i32 %.0232, 1
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %65, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
+  %67 = add i32 %.0231, 1
   %68 = load i32, ptr @hf_mqttsn_adv_interv, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0) #2
   br label %common.ret243
 
 70:                                               ; preds = %63
   %71 = load i32, ptr @hf_mqttsn_radius, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %71, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %71, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 73:                                               ; preds = %63
   %74 = load i32, ptr @hf_mqttsn_gw_id, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %74, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
-  %76 = add i32 %.0232, 1
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %74, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
+  %76 = add i32 %.0231, 1
   %77 = zext i16 %13 to i32
   %78 = icmp slt i32 %76, %77
   br i1 %78, label %79, label %common.ret243
@@ -361,13 +361,13 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   br label %common.ret243
 
 83:                                               ; preds = %.thread, %63
-  %.0232239 = phi i32 [ %45, %.thread ], [ %.0232, %63 ]
+  %.0231239 = phi i32 [ %45, %.thread ], [ %.0231, %63 ]
   %84 = load i32, ptr @hf_mqttsn_protocol_id, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %84, ptr noundef %0, i32 noundef %.0232239, i32 noundef 1, i32 noundef 0) #2
-  %86 = add i32 %.0232239, 1
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %84, ptr noundef %0, i32 noundef %.0231239, i32 noundef 1, i32 noundef 0) #2
+  %86 = add i32 %.0231239, 1
   %87 = load i32, ptr @hf_mqttsn_keep_alive, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %87, ptr noundef %0, i32 noundef %86, i32 noundef 2, i32 noundef 0) #2
-  %89 = add i32 %.0232239, 3
+  %89 = add i32 %.0231239, 3
   %90 = load i32, ptr @hf_mqttsn_client_id, align 4
   %91 = zext i16 %13 to i32
   %92 = sub i32 %91, %89
@@ -376,30 +376,30 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 94:                                               ; preds = %63
   %95 = load i32, ptr @hf_mqttsn_return_code, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %95, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %95, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 97:                                               ; preds = %63
   %98 = load i32, ptr @hf_mqttsn_will_topic, align 4
   %99 = zext i16 %13 to i32
-  %100 = sub i32 %99, %.0232
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %98, ptr noundef %0, i32 noundef %.0232, i32 noundef %100, i32 noundef 0) #2
+  %100 = sub i32 %99, %.0231
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %98, ptr noundef %0, i32 noundef %.0231, i32 noundef %100, i32 noundef 0) #2
   br label %common.ret243
 
 102:                                              ; preds = %63
   %103 = load i32, ptr @hf_mqttsn_will_msg, align 4
   %104 = zext i16 %13 to i32
-  %105 = sub i32 %104, %.0232
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %103, ptr noundef %0, i32 noundef %.0232, i32 noundef %105, i32 noundef 0) #2
+  %105 = sub i32 %104, %.0231
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %103, ptr noundef %0, i32 noundef %.0231, i32 noundef %105, i32 noundef 0) #2
   br label %common.ret243
 
 107:                                              ; preds = %63
   %108 = load i32, ptr @hf_mqttsn_topic_id, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %108, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
-  %110 = add i32 %.0232, 2
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %108, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
+  %110 = add i32 %.0231, 2
   %111 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %111, ptr noundef %0, i32 noundef %110, i32 noundef 2, i32 noundef 0) #2
-  %113 = add i32 %.0232, 4
+  %113 = add i32 %.0231, 4
   %114 = load i32, ptr @hf_mqttsn_topic, align 4
   %115 = zext i16 %13 to i32
   %116 = sub i32 %115, %113
@@ -408,23 +408,23 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 118:                                              ; preds = %63
   %119 = load i32, ptr @hf_mqttsn_topic_id, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %119, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
-  %121 = add i32 %.0232, 2
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %119, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
+  %121 = add i32 %.0231, 2
   %122 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 2, i32 noundef 0) #2
-  %124 = add i32 %.0232, 4
+  %124 = add i32 %.0231, 4
   %125 = load i32, ptr @hf_mqttsn_return_code, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 127:                                              ; preds = %.thread240, %63
-  %.0232242 = phi i32 [ %56, %.thread240 ], [ %.0232, %63 ]
+  %.0231242 = phi i32 [ %56, %.thread240 ], [ %.0231, %63 ]
   %128 = load i32, ptr @hf_mqttsn_topic_id, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %128, ptr noundef %0, i32 noundef %.0232242, i32 noundef 2, i32 noundef 0) #2
-  %130 = add i32 %.0232242, 2
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %128, ptr noundef %0, i32 noundef %.0231242, i32 noundef 2, i32 noundef 0) #2
+  %130 = add i32 %.0231242, 2
   %131 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 2, i32 noundef 0) #2
-  %133 = add i32 %.0232242, 4
+  %133 = add i32 %.0231242, 4
   %134 = load i32, ptr @hf_mqttsn_pub_msg, align 4
   %135 = zext i16 %13 to i32
   %136 = sub i32 %135, %133
@@ -433,24 +433,24 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 138:                                              ; preds = %63
   %139 = load i32, ptr @hf_mqttsn_topic_id, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %139, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
-  %141 = add i32 %.0232, 2
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %139, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
+  %141 = add i32 %.0231, 2
   %142 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0) #2
-  %144 = add i32 %.0232, 4
+  %144 = add i32 %.0231, 4
   %145 = load i32, ptr @hf_mqttsn_return_code, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 147:                                              ; preds = %63, %63, %63
   %148 = load i32, ptr @hf_mqttsn_msg_id, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %148, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %148, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
   br label %common.ret243
 
 150:                                              ; preds = %63, %63
   %151 = load i32, ptr @hf_mqttsn_msg_id, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %151, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
-  %153 = add i32 %.0232, 2
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %151, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
+  %153 = add i32 %.0231, 2
   %154 = load i32, ptr @hf_mqttsn_topic_name_or_id, align 4
   %155 = zext i16 %13 to i32
   %156 = sub i32 %155, %153
@@ -459,64 +459,64 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 158:                                              ; preds = %63
   %159 = load i32, ptr @hf_mqttsn_topic_id, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %159, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
-  %161 = add i32 %.0232, 2
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %159, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
+  %161 = add i32 %.0231, 2
   %162 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %163 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 2, i32 noundef 0) #2
-  %164 = add i32 %.0232, 4
+  %164 = add i32 %.0231, 4
   %165 = load i32, ptr @hf_mqttsn_return_code, align 4
   %166 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 167:                                              ; preds = %63
   %168 = load i32, ptr @hf_mqttsn_msg_id, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %168, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %168, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
   br label %common.ret243
 
 170:                                              ; preds = %63
   %171 = zext i16 %13 to i32
-  %172 = icmp slt i32 %.0232, %171
+  %172 = icmp slt i32 %.0231, %171
   br i1 %172, label %173, label %common.ret243
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @hf_mqttsn_client_id, align 4
-  %175 = sub i32 %171, %.0232
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %174, ptr noundef %0, i32 noundef %.0232, i32 noundef %175, i32 noundef 0) #2
+  %175 = sub i32 %171, %.0231
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %174, ptr noundef %0, i32 noundef %.0231, i32 noundef %175, i32 noundef 0) #2
   br label %common.ret243
 
 177:                                              ; preds = %63
   %178 = zext i16 %13 to i32
-  %179 = icmp slt i32 %.0232, %178
+  %179 = icmp slt i32 %.0231, %178
   br i1 %179, label %180, label %common.ret243
 
 180:                                              ; preds = %177
   %181 = load i32, ptr @hf_mqttsn_sleep_timer, align 4
-  %182 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %181, ptr noundef %0, i32 noundef %.0232, i32 noundef 2, i32 noundef 0) #2
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %181, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0) #2
   br label %common.ret243
 
 183:                                              ; preds = %63
   %184 = load i32, ptr @hf_mqttsn_will_topic, align 4
   %185 = zext i16 %13 to i32
-  %186 = sub i32 %185, %.0232
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %184, ptr noundef %0, i32 noundef %.0232, i32 noundef %186, i32 noundef 0) #2
+  %186 = sub i32 %185, %.0231
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %184, ptr noundef %0, i32 noundef %.0231, i32 noundef %186, i32 noundef 0) #2
   br label %common.ret243
 
 188:                                              ; preds = %63
   %189 = load i32, ptr @hf_mqttsn_will_msg, align 4
   %190 = zext i16 %13 to i32
-  %191 = sub i32 %190, %.0232
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %189, ptr noundef %0, i32 noundef %.0232, i32 noundef %191, i32 noundef 0) #2
+  %191 = sub i32 %190, %.0231
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %189, ptr noundef %0, i32 noundef %.0231, i32 noundef %191, i32 noundef 0) #2
   br label %common.ret243
 
 193:                                              ; preds = %63, %63
   %194 = load i32, ptr @hf_mqttsn_return_code, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %194, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %194, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
   br label %common.ret243
 
 196:                                              ; preds = %63
   %197 = load i32, ptr @hf_mqttsn_control_info, align 4
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %197, ptr noundef %0, i32 noundef %.0232, i32 noundef 1, i32 noundef 0) #2
-  %199 = add i32 %.0232, 1
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %197, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
+  %199 = add i32 %.0231, 1
   %200 = load i32, ptr @hf_mqttsn_wireless_node_id, align 4
   %201 = zext i16 %13 to i32
   %202 = sub i32 %201, %199

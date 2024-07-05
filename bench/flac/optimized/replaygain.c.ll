@@ -72,9 +72,9 @@ while.cond.preheader:                             ; preds = %if.then
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %for.end
-  %samples.addr.0 = phi i32 [ %sub, %for.end ], [ %samples, %while.cond.preheader ]
-  %block_peak.0 = phi i32 [ %cond25, %for.end ], [ 0, %while.cond.preheader ]
   %j.0 = phi i32 [ %inc26, %for.end ], [ 0, %while.cond.preheader ]
+  %block_peak.0 = phi i32 [ %cond25, %for.end ], [ 0, %while.cond.preheader ]
+  %samples.addr.0 = phi i32 [ %sub, %for.end ], [ %samples, %while.cond.preheader ]
   %cmp2.not = icmp eq i32 %samples.addr.0, 0
   br i1 %cmp2.not, label %if.end200, label %while.body
 
@@ -85,17 +85,17 @@ while.body:                                       ; preds = %while.cond
 
 for.body:                                         ; preds = %while.body, %for.body
   %indvars.iv137 = phi i64 [ 0, %while.body ], [ %indvars.iv.next138, %for.body ]
-  %j.1117 = phi i32 [ %j.0, %while.body ], [ %inc26, %for.body ]
-  %block_peak.1115 = phi i32 [ %block_peak.0, %while.body ], [ %cond25, %for.body ]
+  %block_peak.1117 = phi i32 [ %block_peak.0, %while.body ], [ %cond25, %for.body ]
+  %j.1115 = phi i32 [ %j.0, %while.body ], [ %inc26, %for.body ]
   %0 = load ptr, ptr %input, align 8
-  %idxprom = zext i32 %j.1117 to i64
+  %idxprom = zext i32 %j.1115 to i64
   %arrayidx5 = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %1 = load i32, ptr %arrayidx5, align 4
   %conv = sitofp i32 %1 to float
   %arrayidx7 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv137
   store float %conv, ptr %arrayidx7, align 4
   %2 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %cond13 = tail call i32 @llvm.smax.i32(i32 %block_peak.1115, i32 %2)
+  %cond13 = tail call i32 @llvm.smax.i32(i32 %block_peak.1117, i32 %2)
   %3 = load ptr, ptr %arrayidx14, align 8
   %arrayidx16 = getelementptr inbounds i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx16, align 4
@@ -105,7 +105,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %5 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
   %cond25 = tail call i32 @llvm.umax.i32(i32 %cond13, i32 %5)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %inc26 = add i32 %j.1117, 1
+  %inc26 = add i32 %j.1115, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -116,9 +116,9 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp28.not, label %while.cond, label %return, !llvm.loop !7
 
 while.cond31:                                     ; preds = %if.then, %for.end61
-  %samples.addr.1 = phi i32 [ %sub62, %for.end61 ], [ %samples, %if.then ]
-  %block_peak.2 = phi i32 [ %cond57, %for.end61 ], [ 0, %if.then ]
   %j.2 = phi i32 [ %inc60, %for.end61 ], [ 0, %if.then ]
+  %block_peak.2 = phi i32 [ %cond57, %for.end61 ], [ 0, %if.then ]
+  %samples.addr.1 = phi i32 [ %sub62, %for.end61 ], [ %samples, %if.then ]
   %cmp32.not = icmp eq i32 %samples.addr.1, 0
   br i1 %cmp32.not, label %if.end200, label %while.body34
 
@@ -129,19 +129,19 @@ while.body34:                                     ; preds = %while.cond31
 
 for.body45:                                       ; preds = %while.body34, %for.body45
   %indvars.iv142 = phi i64 [ 0, %while.body34 ], [ %indvars.iv.next143, %for.body45 ]
-  %j.3120 = phi i32 [ %j.2, %while.body34 ], [ %inc60, %for.body45 ]
-  %block_peak.3118 = phi i32 [ %block_peak.2, %while.body34 ], [ %cond57, %for.body45 ]
+  %block_peak.3120 = phi i32 [ %block_peak.2, %while.body34 ], [ %cond57, %for.body45 ]
+  %j.3118 = phi i32 [ %j.2, %while.body34 ], [ %inc60, %for.body45 ]
   %6 = load ptr, ptr %input, align 8
-  %idxprom47 = zext i32 %j.3120 to i64
+  %idxprom47 = zext i32 %j.3118 to i64
   %arrayidx48 = getelementptr inbounds i32, ptr %6, i64 %idxprom47
   %7 = load i32, ptr %arrayidx48, align 4
   %conv49 = sitofp i32 %7 to float
   %arrayidx51 = getelementptr inbounds [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv142
   store float %conv49, ptr %arrayidx51, align 4
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
-  %cond57 = tail call i32 @llvm.smax.i32(i32 %block_peak.3118, i32 %8)
+  %cond57 = tail call i32 @llvm.smax.i32(i32 %block_peak.3120, i32 %8)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %inc60 = add i32 %j.3120, 1
+  %inc60 = add i32 %j.3118, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %for.end61, label %for.body45, !llvm.loop !8
 
@@ -178,9 +178,9 @@ while.cond85.preheader:                           ; preds = %cond.end81
   br label %while.cond85
 
 while.cond85:                                     ; preds = %while.cond85.preheader, %for.end142
-  %samples.addr.2 = phi i32 [ %sub143, %for.end142 ], [ %samples, %while.cond85.preheader ]
-  %block_peak.4 = phi i32 [ %cond138, %for.end142 ], [ 0, %while.cond85.preheader ]
   %j.4 = phi i32 [ %inc141, %for.end142 ], [ 0, %while.cond85.preheader ]
+  %block_peak.4 = phi i32 [ %cond138, %for.end142 ], [ 0, %while.cond85.preheader ]
+  %samples.addr.2 = phi i32 [ %sub143, %for.end142 ], [ %samples, %while.cond85.preheader ]
   %cmp86.not = icmp eq i32 %samples.addr.2, 0
   br i1 %cmp86.not, label %if.end200, label %while.body88
 
@@ -191,10 +191,10 @@ while.body88:                                     ; preds = %while.cond85
 
 for.body99:                                       ; preds = %while.body88, %for.body99
   %indvars.iv = phi i64 [ 0, %while.body88 ], [ %indvars.iv.next, %for.body99 ]
-  %j.5111 = phi i32 [ %j.4, %while.body88 ], [ %inc141, %for.body99 ]
-  %block_peak.5109 = phi i32 [ %block_peak.4, %while.body88 ], [ %cond138, %for.body99 ]
+  %block_peak.5111 = phi i32 [ %block_peak.4, %while.body88 ], [ %cond138, %for.body99 ]
+  %j.5109 = phi i32 [ %j.4, %while.body88 ], [ %inc141, %for.body99 ]
   %9 = load ptr, ptr %input, align 8
-  %idxprom101 = zext i32 %j.5111 to i64
+  %idxprom101 = zext i32 %j.5109 to i64
   %arrayidx102 = getelementptr inbounds i32, ptr %9, i64 %idxprom101
   %10 = load i32, ptr %arrayidx102, align 4
   %conv103 = sitofp i32 %10 to double
@@ -205,7 +205,7 @@ for.body99:                                       ; preds = %while.body88, %for.
   %cmp107 = icmp eq i32 %10, -2147483648
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %cond112 = select i1 %cmp107, i32 2147483647, i32 %11
-  %cond118 = tail call i32 @llvm.smax.i32(i32 %block_peak.5109, i32 %cond112)
+  %cond118 = tail call i32 @llvm.smax.i32(i32 %block_peak.5111, i32 %cond112)
   %12 = load ptr, ptr %arrayidx119, align 8
   %arrayidx121 = getelementptr inbounds i32, ptr %12, i64 %idxprom101
   %13 = load i32, ptr %arrayidx121, align 4
@@ -219,7 +219,7 @@ for.body99:                                       ; preds = %while.body88, %for.
   %cond132 = select i1 %cmp127, i32 2147483647, i32 %14
   %cond138 = tail call i32 @llvm.umax.i32(i32 %cond118, i32 %cond132)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc141 = add i32 %j.5111, 1
+  %inc141 = add i32 %j.5109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end142, label %for.body99, !llvm.loop !10
 
@@ -230,9 +230,9 @@ for.end142:                                       ; preds = %for.body99
   br i1 %cmp146.not, label %while.cond85, label %return, !llvm.loop !11
 
 while.cond152:                                    ; preds = %cond.end81, %for.end190
-  %samples.addr.3 = phi i32 [ %sub191, %for.end190 ], [ %samples, %cond.end81 ]
-  %block_peak.6 = phi i32 [ %cond186, %for.end190 ], [ 0, %cond.end81 ]
   %j.6 = phi i32 [ %inc189, %for.end190 ], [ 0, %cond.end81 ]
+  %block_peak.6 = phi i32 [ %cond186, %for.end190 ], [ 0, %cond.end81 ]
+  %samples.addr.3 = phi i32 [ %sub191, %for.end190 ], [ %samples, %cond.end81 ]
   %cmp153.not = icmp eq i32 %samples.addr.3, 0
   br i1 %cmp153.not, label %if.end200, label %while.body155
 
@@ -243,10 +243,10 @@ while.body155:                                    ; preds = %while.cond152
 
 for.body166:                                      ; preds = %while.body155, %for.body166
   %indvars.iv132 = phi i64 [ 0, %while.body155 ], [ %indvars.iv.next133, %for.body166 ]
-  %j.7114 = phi i32 [ %j.6, %while.body155 ], [ %inc189, %for.body166 ]
-  %block_peak.7112 = phi i32 [ %block_peak.6, %while.body155 ], [ %cond186, %for.body166 ]
+  %block_peak.7114 = phi i32 [ %block_peak.6, %while.body155 ], [ %cond186, %for.body166 ]
+  %j.7112 = phi i32 [ %j.6, %while.body155 ], [ %inc189, %for.body166 ]
   %15 = load ptr, ptr %input, align 8
-  %idxprom168 = zext i32 %j.7114 to i64
+  %idxprom168 = zext i32 %j.7112 to i64
   %arrayidx169 = getelementptr inbounds i32, ptr %15, i64 %idxprom168
   %16 = load i32, ptr %arrayidx169, align 4
   %conv170 = sitofp i32 %16 to double
@@ -257,9 +257,9 @@ for.body166:                                      ; preds = %while.body155, %for
   %cmp175 = icmp eq i32 %16, -2147483648
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %cond180 = select i1 %cmp175, i32 2147483647, i32 %17
-  %cond186 = tail call i32 @llvm.smax.i32(i32 %block_peak.7112, i32 %cond180)
+  %cond186 = tail call i32 @llvm.smax.i32(i32 %block_peak.7114, i32 %cond180)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %inc189 = add i32 %j.7114, 1
+  %inc189 = add i32 %j.7112, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %for.end190, label %for.body166, !llvm.loop !12
 

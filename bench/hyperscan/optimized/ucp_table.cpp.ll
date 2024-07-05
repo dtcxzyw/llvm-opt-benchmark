@@ -6816,22 +6816,22 @@ do.end42:                                         ; preds = %invoke.cont35, %for
   br i1 %cmp28.i.i, label %while.body.i.i, label %invoke.cont44
 
 while.body.i.i:                                   ; preds = %do.end42, %while.body.i.i
-  %__len.030.i.i = phi i64 [ %12, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %do.end42 ]
-  %__first.addr.029.i.i = phi ptr [ %11, %while.body.i.i ], [ %uc_begin.143, %do.end42 ]
-  %shr.i.i = lshr i64 %__len.030.i.i, 1
-  %add.ptr.i.i.i.i26 = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.029.i.i, i64 %shr.i.i
+  %__first.addr.030.i.i = phi ptr [ %12, %while.body.i.i ], [ %uc_begin.143, %do.end42 ]
+  %__len.029.i.i = phi i64 [ %11, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %do.end42 ]
+  %shr.i.i = lshr i64 %__len.029.i.i, 1
+  %add.ptr.i.i.i.i26 = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
   %__it.val.i.i.i = load i32, ptr %add.ptr.i.i.i.i26, align 4
   %cmp.i.i8.i.i = icmp ult i32 %__it.val.i.i.i, %b.042
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i26, i64 8
   %10 = xor i64 %shr.i.i, -1
-  %sub214.i.i = add nsw i64 %__len.030.i.i, %10
-  %11 = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr13.i.i, ptr %__first.addr.029.i.i
-  %12 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
-  %cmp.i.i = icmp sgt i64 %12, 0
+  %sub214.i.i = add nsw i64 %__len.029.i.i, %10
+  %11 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
+  %12 = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr13.i.i, ptr %__first.addr.030.i.i
+  %cmp.i.i = icmp sgt i64 %11, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %invoke.cont44, !llvm.loop !143
 
 invoke.cont44:                                    ; preds = %while.body.i.i, %do.end42
-  %__first.addr.0.lcssa.i.i = phi ptr [ %uc_begin.143, %do.end42 ], [ %11, %while.body.i.i ]
+  %__first.addr.0.lcssa.i.i = phi ptr [ %uc_begin.143, %do.end42 ], [ %12, %while.body.i.i ]
   %cmp46 = icmp eq ptr %__first.addr.0.lcssa.i.i, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp46, label %cleanup, label %land.rhs53
 
@@ -7000,31 +7000,31 @@ entry:
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
-  %__len.030.i.i = phi i64 [ 2254, %entry ], [ %3, %while.body.i.i ]
-  %__first.addr.029.i.i = phi ptr [ @_ZN3ue2L16ucp_caseless_defE, %entry ], [ %2, %while.body.i.i ]
-  %shr.i.i = lshr i64 %__len.030.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.029.i.i, i64 %shr.i.i
+  %__first.addr.030.i.i = phi ptr [ @_ZN3ue2L16ucp_caseless_defE, %entry ], [ %3, %while.body.i.i ]
+  %__len.029.i.i = phi i64 [ 2254, %entry ], [ %2, %while.body.i.i ]
+  %shr.i.i = lshr i64 %__len.029.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
   %__it.val.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %cmp.i.i8.i.i = icmp ult i32 %__it.val.i.i.i, %0
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %1 = xor i64 %shr.i.i, -1
-  %sub214.i.i = add nsw i64 %__len.030.i.i, %1
-  %2 = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr13.i.i, ptr %__first.addr.029.i.i
-  %3 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
-  %cmp.i.i = icmp sgt i64 %3, 0
+  %sub214.i.i = add nsw i64 %__len.029.i.i, %1
+  %2 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
+  %3 = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr13.i.i, ptr %__first.addr.030.i.i
+  %cmp.i.i = icmp sgt i64 %2, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit, !llvm.loop !143
 
 _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %while.body.i.i
-  %cmp.not = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
+  %cmp.not = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit
-  %4 = load i32, ptr %2, align 4
+  %4 = load i32, ptr %3, align 4
   %cmp4 = icmp eq i32 %4, %0
   br i1 %cmp4, label %do.end, label %return
 
 do.end:                                           ; preds = %land.lhs.true
-  %caseless5 = getelementptr inbounds i8, ptr %2, i64 4
+  %caseless5 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %caseless5, align 4
   store i32 %5, ptr %c, align 4
   br label %return

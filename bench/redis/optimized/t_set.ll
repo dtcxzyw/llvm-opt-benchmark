@@ -934,9 +934,9 @@ if.end:                                           ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %str.addr.0 = phi ptr [ %str, %entry ], [ %tmpbuf, %if.end ]
   %len.addr.0 = phi i64 [ %len, %entry ], [ %conv, %if.end ]
   %str_is_sds.addr.0 = phi i32 [ %str_is_sds, %entry ], [ 0, %if.end ]
+  %str.addr.0 = phi ptr [ %str, %entry ], [ %tmpbuf, %if.end ]
   %bf.load6 = load i32, ptr %setobj, align 8
   %bf.lshr7 = lshr i32 %bf.load6, 4
   %bf.clear8 = and i32 %bf.lshr7, 15
@@ -1114,8 +1114,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %len.addr.0 = phi i64 [ %len, %entry ], [ %conv3, %if.end ]
   %str_is_sds.addr.0 = phi i32 [ %str_is_sds, %entry ], [ 0, %if.end ]
+  %len.addr.0 = phi i64 [ %len, %entry ], [ %conv3, %if.end ]
   %str.addr.0 = phi ptr [ %str, %entry ], [ %tmpbuf, %if.end ]
   %bf.load6 = load i32, ptr %set, align 8
   %bf.lshr7 = lshr i32 %bf.load6, 4
@@ -3044,12 +3044,12 @@ if.then55:                                        ; preds = %land.lhs.true
   br label %for.body
 
 for.body:                                         ; preds = %if.then55, %if.end87
-  %i.0173 = phi i64 [ 0, %if.then55 ], [ %inc92, %if.end87 ]
-  %p.0172 = phi ptr [ %call56, %if.then55 ], [ %call89, %if.end87 ]
-  %propindex.0171 = phi i64 [ 2, %if.then55 ], [ %propindex.2, %if.end87 ]
-  %sub60 = sub i64 %2, %i.0173
+  %propindex.0173 = phi i64 [ 2, %if.then55 ], [ %propindex.2, %if.end87 ]
+  %i.0172 = phi i64 [ 0, %if.then55 ], [ %inc92, %if.end87 ]
+  %p.0171 = phi ptr [ %call56, %if.then55 ], [ %call89, %if.end87 ]
+  %sub60 = sub i64 %2, %i.0172
   %conv = trunc i64 %sub60 to i32
-  %call61 = call ptr @lpNextRandom(ptr noundef %39, ptr noundef %p.0172, ptr noundef nonnull %index, i32 noundef %conv, i32 noundef 0) #10
+  %call61 = call ptr @lpNextRandom(ptr noundef %39, ptr noundef %p.0171, ptr noundef nonnull %index, i32 noundef %conv, i32 noundef 0) #10
   %call63 = call ptr @lpGetValue(ptr noundef %call61, ptr noundef nonnull %len62, ptr noundef nonnull %llele) #10
   %tobool64.not = icmp eq ptr %call63, null
   br i1 %tobool64.not, label %if.else, label %if.then65
@@ -3072,9 +3072,9 @@ if.else:                                          ; preds = %for.body
 
 if.end73:                                         ; preds = %if.else, %if.then65
   %call68.sink = phi ptr [ %call70, %if.else ], [ %call68, %if.then65 ]
-  %44 = getelementptr inbounds ptr, ptr %call47, i64 %propindex.0171
+  %44 = getelementptr inbounds ptr, ptr %call47, i64 %propindex.0173
   store ptr %call68.sink, ptr %44, align 8
-  %propindex.1 = add i64 %propindex.0171, 1
+  %propindex.1 = add i64 %propindex.0173, 1
   %cmp75 = icmp eq i64 %propindex.1, %add46
   br i1 %cmp75, label %for.body84.preheader, label %if.end87
 
@@ -3096,13 +3096,13 @@ for.body84:                                       ; preds = %for.body84.preheade
 
 if.end87:                                         ; preds = %for.body84, %if.end73
   %propindex.2 = phi i64 [ %propindex.1, %if.end73 ], [ 2, %for.body84 ]
-  %arrayidx88 = getelementptr inbounds ptr, ptr %call58, i64 %i.0173
+  %arrayidx88 = getelementptr inbounds ptr, ptr %call58, i64 %i.0172
   store ptr %call61, ptr %arrayidx88, align 8
   %call89 = call ptr @lpNext(ptr noundef %39, ptr noundef %call61) #10
   %48 = load i32, ptr %index, align 4
   %inc90 = add i32 %48, 1
   store i32 %inc90, ptr %index, align 4
-  %inc92 = add nuw i64 %i.0173, 1
+  %inc92 = add nuw i64 %i.0172, 1
   %exitcond181.not = icmp eq i64 %inc92, %2
   br i1 %exitcond181.not, label %for.end93, label %for.body, !llvm.loop !13
 
@@ -3113,13 +3113,13 @@ for.end93:                                        ; preds = %if.end87
   br label %if.end225
 
 for.body105:                                      ; preds = %for.body105.preheader, %for.inc127
-  %i101.0166 = phi i64 [ %inc128, %for.inc127 ], [ 0, %for.body105.preheader ]
-  %propindex.3165 = phi i64 [ %propindex.4, %for.inc127 ], [ 2, %for.body105.preheader ]
+  %propindex.3166 = phi i64 [ %propindex.4, %for.inc127 ], [ 2, %for.body105.preheader ]
+  %i101.0165 = phi i64 [ %inc128, %for.inc127 ], [ 0, %for.body105.preheader ]
   %call106 = call ptr @setTypePopRandom(ptr noundef nonnull %call4)
-  %arrayidx107 = getelementptr inbounds ptr, ptr %call47, i64 %propindex.3165
+  %arrayidx107 = getelementptr inbounds ptr, ptr %call47, i64 %propindex.3166
   store ptr %call106, ptr %arrayidx107, align 8
   call void @addReplyBulk(ptr noundef %c, ptr noundef %call106) #10
-  %inc109 = add i64 %propindex.3165, 1
+  %inc109 = add i64 %propindex.3166, 1
   %cmp111 = icmp eq i64 %inc109, %add46
   br i1 %cmp111, label %for.body121.preheader, label %for.inc127
 
@@ -3141,7 +3141,7 @@ for.body121:                                      ; preds = %for.body121.prehead
 
 for.inc127:                                       ; preds = %for.body121, %for.body105
   %propindex.4 = phi i64 [ %inc109, %for.body105 ], [ 2, %for.body121 ]
-  %inc128 = add nuw i64 %i101.0166, 1
+  %inc128 = add nuw i64 %i101.0165, 1
   %exitcond178.not = icmp eq i64 %inc128, %2
   br i1 %exitcond178.not, label %if.end225, label %for.body105, !llvm.loop !15
 
@@ -5280,8 +5280,8 @@ if.then52:                                        ; preds = %if.else50
   br label %if.end55
 
 if.end55:                                         ; preds = %if.else50, %if.then52, %if.then31, %if.else46, %if.then39
-  %dstset.0 = phi ptr [ %call32, %if.then31 ], [ %call43, %if.then39 ], [ %call47, %if.else46 ], [ null, %if.else50 ], [ null, %if.then52 ]
   %replylen.0 = phi ptr [ null, %if.then31 ], [ null, %if.then39 ], [ null, %if.else46 ], [ null, %if.else50 ], [ %call53, %if.then52 ]
+  %dstset.0 = phi ptr [ %call32, %if.then31 ], [ %call43, %if.then39 ], [ %call47, %if.else46 ], [ null, %if.else50 ], [ null, %if.then52 ]
   %12 = load ptr, ptr %call, align 8
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #12
   store ptr %12, ptr %call.i, align 8

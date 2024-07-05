@@ -1967,10 +1967,10 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %otherIt.sroa.0.032 = phi ptr [ %call.i17, %for.inc ], [ %3, %for.body.preheader ]
-  %it.sroa.0.031 = phi ptr [ %call.i16, %for.inc ], [ %2, %for.body.preheader ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.031, i64 32
-  %_M_storage.i.i4 = getelementptr inbounds i8, ptr %otherIt.sroa.0.032, i64 32
+  %it.sroa.0.032 = phi ptr [ %call.i16, %for.inc ], [ %2, %for.body.preheader ]
+  %otherIt.sroa.0.031 = phi ptr [ %call.i17, %for.inc ], [ %3, %for.body.preheader ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.032, i64 32
+  %_M_storage.i.i4 = getelementptr inbounds i8, ptr %otherIt.sroa.0.031, i64 32
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #15
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i4) #15
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
@@ -1989,10 +1989,10 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br i1 %.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.031, i64 64
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.032, i64 64
   %4 = load ptr, ptr %second, align 8
   %cmp.i6 = icmp ne ptr %4, null
-  %second19 = getelementptr inbounds i8, ptr %otherIt.sroa.0.032, i64 64
+  %second19 = getelementptr inbounds i8, ptr %otherIt.sroa.0.031, i64 64
   %5 = load ptr, ptr %second19, align 8
   %cmp.i8 = icmp ne ptr %5, null
   %6 = xor i1 %cmp.i6, %cmp.i8
@@ -2007,8 +2007,8 @@ land.lhs.true31:                                  ; preds = %if.end24
   br i1 %call.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end24, %land.lhs.true31
-  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.031) #14
-  %call.i17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %otherIt.sroa.0.032) #14
+  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.032) #14
+  %call.i17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %otherIt.sroa.0.031) #14
   %cmp.i.not = icmp eq ptr %call.i16, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !10
 

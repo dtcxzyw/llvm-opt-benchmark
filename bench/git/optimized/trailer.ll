@@ -1573,20 +1573,20 @@ last_line.exit.i:                                 ; preds = %for.inc.i.i, %if.th
   br i1 %cmp9.not115.i, label %find_trailer_block_start.exit, label %for.body11.i
 
 for.body11.i:                                     ; preds = %last_line.exit.i, %last_line.exit91.i
-  %possible_continuation_lines.0122.i = phi i32 [ %possible_continuation_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
-  %non_trailer_lines.0120.i = phi i32 [ %non_trailer_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
-  %trailer_lines.0119.i = phi i32 [ %trailer_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
-  %recognized_prefix.0118.i = phi i32 [ %recognized_prefix.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
-  %only_spaces.0117.i = phi i32 [ %only_spaces.1.i, %last_line.exit91.i ], [ 1, %last_line.exit.i ]
-  %l.0116.i = phi i64 [ %retval.0.i78.i, %last_line.exit91.i ], [ %retval.0.i.i, %last_line.exit.i ]
-  %add.ptr12.i = getelementptr inbounds i8, ptr %str, i64 %l.0116.i
+  %l.0122.i = phi i64 [ %retval.0.i78.i, %last_line.exit91.i ], [ %retval.0.i.i, %last_line.exit.i ]
+  %possible_continuation_lines.0121.i = phi i32 [ %possible_continuation_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
+  %non_trailer_lines.0119.i = phi i32 [ %non_trailer_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
+  %trailer_lines.0118.i = phi i32 [ %trailer_lines.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
+  %recognized_prefix.0117.i = phi i32 [ %recognized_prefix.1.i, %last_line.exit91.i ], [ 0, %last_line.exit.i ]
+  %only_spaces.0116.i = phi i32 [ %only_spaces.1.i, %last_line.exit91.i ], [ 1, %last_line.exit.i ]
+  %add.ptr12.i = getelementptr inbounds i8, ptr %str, i64 %l.0122.i
   %16 = load i8, ptr %add.ptr12.i, align 1
   %17 = load i8, ptr @comment_line_char, align 1
   %cmp16.i = icmp eq i8 %16, %17
   br i1 %cmp16.i, label %if.then18.i, label %while.cond.i44.i
 
 if.then18.i:                                      ; preds = %for.body11.i
-  %add.i = add nsw i32 %non_trailer_lines.0120.i, %possible_continuation_lines.0122.i
+  %add.i = add nsw i32 %non_trailer_lines.0119.i, %possible_continuation_lines.0121.i
   br label %for.inc95.i
 
 while.cond.i44thread-pre-split.i:                 ; preds = %land.rhs.i50.i
@@ -1615,19 +1615,19 @@ is_blank_line.exit55.i:                           ; preds = %land.rhs.i50.i
   br i1 %cond.i, label %if.then22.i, label %for.body48.i
 
 if.then22.i:                                      ; preds = %while.cond.i44.i, %while.cond.i44.i, %is_blank_line.exit55.i
-  %tobool23.not.i = icmp eq i32 %only_spaces.0117.i, 0
+  %tobool23.not.i = icmp eq i32 %only_spaces.0116.i, 0
   br i1 %tobool23.not.i, label %if.end25.i, label %for.inc95.i
 
 if.end25.i:                                       ; preds = %if.then22.i
-  %add26.i = add nsw i32 %non_trailer_lines.0120.i, %possible_continuation_lines.0122.i
-  %tobool27.not.i = icmp eq i32 %recognized_prefix.0118.i, 0
-  %mul.i = mul nsw i32 %trailer_lines.0119.i, 3
+  %add26.i = add nsw i32 %non_trailer_lines.0119.i, %possible_continuation_lines.0121.i
+  %tobool27.not.i = icmp eq i32 %recognized_prefix.0117.i, 0
+  %mul.i = mul nsw i32 %trailer_lines.0118.i, 3
   %cmp28.not.i = icmp slt i32 %mul.i, %add26.i
   %or.cond42.i = select i1 %tobool27.not.i, i1 true, i1 %cmp28.not.i
   br i1 %or.cond42.i, label %if.else.i, label %return.sink.split.i
 
 if.else.i:                                        ; preds = %if.end25.i
-  %tobool35.i = icmp eq i32 %trailer_lines.0119.i, 0
+  %tobool35.i = icmp eq i32 %trailer_lines.0118.i, 0
   %tobool37.i = icmp ne i32 %add26.i, 0
   %or.cond.i = select i1 %tobool35.i, i1 true, i1 %tobool37.i
   br i1 %or.cond.i, label %find_trailer_block_start.exit, label %return.sink.split.i
@@ -1646,7 +1646,7 @@ for.body48.i:                                     ; preds = %is_blank_line.exit5
   br i1 %tobool50.not.i, label %for.cond46.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %for.body48.i
-  %inc.i = add nsw i32 %trailer_lines.0119.i, 1
+  %inc.i = add nsw i32 %trailer_lines.0118.i, 1
   br label %for.inc95.i
 
 for.end54.i:                                      ; preds = %for.cond46.i
@@ -1711,8 +1711,8 @@ land.lhs.true58.i:                                ; preds = %find_separator.exit
   br i1 %cmp62.not.i, label %if.then64.i, label %if.else80.i
 
 if.then64.i:                                      ; preds = %land.lhs.true58.i
-  %inc65.i = add nsw i32 %trailer_lines.0119.i, 1
-  %tobool66.not.i = icmp eq i32 %recognized_prefix.0118.i, 0
+  %inc65.i = add nsw i32 %trailer_lines.0118.i, 1
+  %tobool66.not.i = icmp eq i32 %recognized_prefix.0117.i, 0
   br i1 %tobool66.not.i, label %for.cond69.i, label %for.inc95.i
 
 for.cond69.i:                                     ; preds = %if.then64.i, %token_matches_item.exit.i
@@ -1754,21 +1754,21 @@ if.else80.i:                                      ; preds = %for.inc.i67.i, %lan
   br i1 %cmp86.not.i, label %if.else90.i, label %if.then88.i
 
 if.then88.i:                                      ; preds = %if.else80.i
-  %inc89.i = add nsw i32 %possible_continuation_lines.0122.i, 1
+  %inc89.i = add nsw i32 %possible_continuation_lines.0121.i, 1
   br label %for.inc95.i
 
 if.else90.i:                                      ; preds = %if.else80.i
-  %inc91.i = add i32 %non_trailer_lines.0120.i, %possible_continuation_lines.0122.i
+  %inc91.i = add i32 %non_trailer_lines.0119.i, %possible_continuation_lines.0121.i
   %add92.i = add i32 %inc91.i, 1
   br label %for.inc95.i
 
 for.inc95.i:                                      ; preds = %token_matches_item.exit.i, %for.body72.i, %for.cond69.i, %if.else90.i, %if.then88.i, %if.then64.i, %if.then51.i, %if.then22.i, %if.then18.i
-  %only_spaces.1.i = phi i32 [ %only_spaces.0117.i, %if.then18.i ], [ 1, %if.then22.i ], [ 0, %if.then51.i ], [ 0, %if.then88.i ], [ 0, %if.else90.i ], [ 0, %if.then64.i ], [ 0, %for.cond69.i ], [ 0, %for.body72.i ], [ 0, %token_matches_item.exit.i ]
-  %recognized_prefix.1.i = phi i32 [ %recognized_prefix.0118.i, %if.then18.i ], [ %recognized_prefix.0118.i, %if.then22.i ], [ 1, %if.then51.i ], [ %recognized_prefix.0118.i, %if.then88.i ], [ %recognized_prefix.0118.i, %if.else90.i ], [ 1, %if.then64.i ], [ 1, %token_matches_item.exit.i ], [ 1, %for.body72.i ], [ 0, %for.cond69.i ]
-  %trailer_lines.1.i = phi i32 [ %trailer_lines.0119.i, %if.then18.i ], [ %trailer_lines.0119.i, %if.then22.i ], [ %inc.i, %if.then51.i ], [ %trailer_lines.0119.i, %if.then88.i ], [ %trailer_lines.0119.i, %if.else90.i ], [ %inc65.i, %if.then64.i ], [ %inc65.i, %for.cond69.i ], [ %inc65.i, %for.body72.i ], [ %inc65.i, %token_matches_item.exit.i ]
-  %non_trailer_lines.1.i = phi i32 [ %add.i, %if.then18.i ], [ %non_trailer_lines.0120.i, %if.then22.i ], [ %non_trailer_lines.0120.i, %if.then51.i ], [ %non_trailer_lines.0120.i, %if.then88.i ], [ %add92.i, %if.else90.i ], [ %non_trailer_lines.0120.i, %if.then64.i ], [ %non_trailer_lines.0120.i, %for.cond69.i ], [ %non_trailer_lines.0120.i, %for.body72.i ], [ %non_trailer_lines.0120.i, %token_matches_item.exit.i ]
-  %possible_continuation_lines.1.i = phi i32 [ 0, %if.then18.i ], [ %possible_continuation_lines.0122.i, %if.then22.i ], [ 0, %if.then51.i ], [ %inc89.i, %if.then88.i ], [ 0, %if.else90.i ], [ 0, %if.then64.i ], [ 0, %for.cond69.i ], [ 0, %for.body72.i ], [ 0, %token_matches_item.exit.i ]
-  switch i64 %l.0116.i, label %if.end3.i79.i [
+  %only_spaces.1.i = phi i32 [ %only_spaces.0116.i, %if.then18.i ], [ 1, %if.then22.i ], [ 0, %if.then51.i ], [ 0, %if.then88.i ], [ 0, %if.else90.i ], [ 0, %if.then64.i ], [ 0, %for.cond69.i ], [ 0, %for.body72.i ], [ 0, %token_matches_item.exit.i ]
+  %recognized_prefix.1.i = phi i32 [ %recognized_prefix.0117.i, %if.then18.i ], [ %recognized_prefix.0117.i, %if.then22.i ], [ 1, %if.then51.i ], [ %recognized_prefix.0117.i, %if.then88.i ], [ %recognized_prefix.0117.i, %if.else90.i ], [ 1, %if.then64.i ], [ 1, %token_matches_item.exit.i ], [ 1, %for.body72.i ], [ 0, %for.cond69.i ]
+  %trailer_lines.1.i = phi i32 [ %trailer_lines.0118.i, %if.then18.i ], [ %trailer_lines.0118.i, %if.then22.i ], [ %inc.i, %if.then51.i ], [ %trailer_lines.0118.i, %if.then88.i ], [ %trailer_lines.0118.i, %if.else90.i ], [ %inc65.i, %if.then64.i ], [ %inc65.i, %for.cond69.i ], [ %inc65.i, %for.body72.i ], [ %inc65.i, %token_matches_item.exit.i ]
+  %non_trailer_lines.1.i = phi i32 [ %add.i, %if.then18.i ], [ %non_trailer_lines.0119.i, %if.then22.i ], [ %non_trailer_lines.0119.i, %if.then51.i ], [ %non_trailer_lines.0119.i, %if.then88.i ], [ %add92.i, %if.else90.i ], [ %non_trailer_lines.0119.i, %if.then64.i ], [ %non_trailer_lines.0119.i, %for.cond69.i ], [ %non_trailer_lines.0119.i, %for.body72.i ], [ %non_trailer_lines.0119.i, %token_matches_item.exit.i ]
+  %possible_continuation_lines.1.i = phi i32 [ 0, %if.then18.i ], [ %possible_continuation_lines.0121.i, %if.then22.i ], [ 0, %if.then51.i ], [ %inc89.i, %if.then88.i ], [ 0, %if.else90.i ], [ 0, %if.then64.i ], [ 0, %for.cond69.i ], [ 0, %for.body72.i ], [ 0, %token_matches_item.exit.i ]
+  switch i64 %l.0122.i, label %if.end3.i79.i [
     i64 0, label %last_line.exit91.i
     i64 1, label %if.then2.i77.i
   ]
@@ -1777,7 +1777,7 @@ if.then2.i77.i:                                   ; preds = %for.inc95.i
   br label %last_line.exit91.i
 
 if.end3.i79.i:                                    ; preds = %for.inc95.i
-  %sub.i80.i = add i64 %l.0116.i, -2
+  %sub.i80.i = add i64 %l.0122.i, -2
   %cmp47.i81.i = icmp sgt i64 %sub.i80.i, -1
   br i1 %cmp47.i81.i, label %for.body.i82.i, label %last_line.exit91.i
 

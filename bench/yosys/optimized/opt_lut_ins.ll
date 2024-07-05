@@ -4385,7 +4385,7 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit:               ; preds = %1811, %1804, %_ZNSt
 
 .lr.ph5167:                                       ; preds = %.lr.ph5167.preheader, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592
   %indvars.iv5612 = phi i64 [ 0, %.lr.ph5167.preheader ], [ %indvars.iv.next5613, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
-  %.01095164 = phi i1 [ false, %.lr.ph5167.preheader ], [ %.1110, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
+  %.01045166 = phi i1 [ false, %.lr.ph5167.preheader ], [ %.1105, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
   %.sroa.32.25163 = phi ptr [ null, %.lr.ph5167.preheader ], [ %.sroa.32.8, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
   %.sroa.15.25162 = phi ptr [ null, %.lr.ph5167.preheader ], [ %.sroa.15.8, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
   %.sroa.01287.25161 = phi ptr [ null, %.lr.ph5167.preheader ], [ %.sroa.01287.9, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592 ]
@@ -4554,12 +4554,12 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.01287.6 = phi ptr [ %1852, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.01287.25161, %1837 ], [ %1876, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i573 ], [ %.sroa.01287.25161, %1861 ]
   %.sroa.15.5 = phi ptr [ %1857, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %1838, %1837 ], [ %1881, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i573 ], [ %1862, %1861 ]
   %.sroa.32.5 = phi ptr [ %1859, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.32.25163, %1837 ], [ %1883, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i573 ], [ %.sroa.32.25163, %1861 ]
-  %spec.select = select i1 %not..0103, i1 true, i1 %.01095164
+  %spec.select = select i1 %not..0103, i1 true, i1 %.01045166
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592
 
 1884:                                             ; preds = %.lr.ph5158, %1890
   %indvars.iv = phi i64 [ 0, %.lr.ph5158 ], [ %indvars.iv.next, %1890 ]
-  %.01065156 = phi i1 [ true, %.lr.ph5158 ], [ %spec.select159, %1890 ]
+  %.01095156 = phi i1 [ true, %.lr.ph5158 ], [ %spec.select159, %1890 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %1824
   br i1 %exitcond.not, label %.invoke6643, label %1886
 
@@ -4584,7 +4584,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %1893 = getelementptr inbounds i8, ptr %.sroa.4.8, i64 %1889
   %1894 = load i8, ptr %1893, align 1
   %.not156 = icmp eq i8 %1892, %1894
-  %spec.select159 = select i1 %.not156, i1 %.01065156, i1 false
+  %spec.select159 = select i1 %.not156, i1 %.01095156, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond5611.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond5611.not, label %._crit_edge5159, label %1884, !llvm.loop !113
@@ -4801,13 +4801,13 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit592:        ; preds = %_ZNSt6vectorIN5Yosy
   %.sroa.01287.9 = phi ptr [ %.sroa.01287.6, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %1910, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i589 ], [ %.sroa.01287.25161, %1895 ], [ %.sroa.01287.8, %1949 ], [ %.sroa.01287.8, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %.sroa.15.8 = phi ptr [ %.sroa.15.5, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %1915, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i589 ], [ %1896, %1895 ], [ %.sroa.15.7, %1949 ], [ %.sroa.15.7, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %.sroa.32.8 = phi ptr [ %.sroa.32.5, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %1917, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i589 ], [ %.sroa.32.25163, %1895 ], [ %.sroa.32.7, %1949 ], [ %.sroa.32.7, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %.1110 = phi i1 [ %spec.select, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ true, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i589 ], [ true, %1895 ], [ %.01095164, %1949 ], [ %.01095164, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %.1105 = phi i1 [ %spec.select, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ true, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i589 ], [ true, %1895 ], [ %.01045166, %1949 ], [ %.01045166, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %indvars.iv.next5613 = add nuw nsw i64 %indvars.iv5612, 1
   %1974 = icmp slt i64 %indvars.iv.next5613, %1830
   br i1 %1974, label %.lr.ph5167, label %._crit_edge5168, !llvm.loop !119
 
 ._crit_edge5168:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit592
-  br i1 %.1110, label %1975, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit978
+  br i1 %.1105, label %1975, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit978
 
 1975:                                             ; preds = %._crit_edge5168
   %1976 = getelementptr inbounds i8, ptr %218, i64 72
@@ -4865,7 +4865,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %1975
   br i1 %.not14725175, label %.loopexit, label %.lr.ph5177
 
 .lr.ph5174:                                       ; preds = %.lr.ph5174.preheader, %2044
-  %.01045173 = phi i32 [ %2045, %2044 ], [ 0, %.lr.ph5174.preheader ]
+  %.01065173 = phi i32 [ %2045, %2044 ], [ 0, %.lr.ph5174.preheader ]
   %2006 = load ptr, ptr %38, align 8
   %2007 = ptrtoint ptr %2006 to i64
   %2008 = load ptr, ptr %150, align 8
@@ -4980,7 +4980,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cx
   br label %2044
 
 2044:                                             ; preds = %2012, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %2045 = add nuw nsw i32 %.01045173, 1
+  %2045 = add nuw nsw i32 %.01065173, 1
   %exitcond5614.not = icmp eq i32 %2045, %smax
   br i1 %exitcond5614.not, label %.preheader1480, label %.lr.ph5174, !llvm.loop !124
 
@@ -8544,14 +8544,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !183
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -8998,8 +8998,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

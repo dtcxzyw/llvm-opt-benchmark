@@ -536,18 +536,18 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   br label %95
 
 95:                                               ; preds = %.lr.ph, %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit ]
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit ]
   %96 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %96, null
   %97 = load ptr, ptr %84, align 8
-  %98 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv30
+  %98 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv31
   %99 = load ptr, ptr %1, align 8
   br i1 %.not, label %102, label %100
 
 100:                                              ; preds = %95
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %96, ptr noundef %98, ptr noundef %99, ptr noundef nonnull %3)
   %101 = load <2 x float>, ptr %3, align 8
-  %.pre34 = load float, ptr %90, align 8
+  %.pre35 = load float, ptr %90, align 8
   br label %111
 
 102:                                              ; preds = %95
@@ -562,7 +562,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   br label %111
 
 111:                                              ; preds = %102, %100
-  %112 = phi float [ %110, %102 ], [ %.pre34, %100 ]
+  %112 = phi float [ %110, %102 ], [ %.pre35, %100 ]
   %113 = phi <2 x float> [ %105, %102 ], [ %101, %100 ]
   %114 = fmul <2 x float> %113, %113
   %115 = extractelement <2 x float> %114, i64 1
@@ -607,8 +607,8 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
 
 145:                                              ; preds = %135, %130, %111
   %146 = phi float [ %.pre.i22, %135 ], [ %128, %111 ], [ %128, %130 ]
-  %.066.i = phi float [ %139, %135 ], [ 0x400921FB60000000, %111 ], [ 0x400921FB60000000, %130 ]
-  %.065.i = phi float [ %144, %135 ], [ 0.000000e+00, %111 ], [ 0x400921FB60000000, %130 ]
+  %.066.i = phi float [ %144, %135 ], [ 0.000000e+00, %111 ], [ 0x400921FB60000000, %130 ]
+  %.064.i = phi float [ %139, %135 ], [ 0x400921FB60000000, %111 ], [ 0x400921FB60000000, %130 ]
   %147 = fsub float %124, %146
   %148 = load float, ptr %92, align 4
   %149 = fdiv float %147, %148
@@ -635,7 +635,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   %161 = phi float [ %358, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %153, %.lr.ph.preheader.i ]
   %162 = phi float [ %357, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %146, %.lr.ph.preheader.i ]
   %.178.i = phi float [ %.062.i, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %..i, %.lr.ph.preheader.i ]
-  %.06477.i = phi float [ %169, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %157, %.lr.ph.preheader.i ]
+  %.06577.i = phi float [ %169, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit ], [ %157, %.lr.ph.preheader.i ]
   %163 = load i32, ptr %21, align 8
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv, %164
@@ -686,14 +686,14 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
 
 199:                                              ; preds = %183, %175, %171, %166
   %.062.i = phi float [ %198, %183 ], [ 0.000000e+00, %166 ], [ 0x400921FB60000000, %175 ], [ 0x400921FB60000000, %171 ]
-  %200 = fcmp ult float %.065.i, %.06477.i
-  %201 = fcmp ugt float %.065.i, %169
+  %200 = fcmp ult float %.066.i, %.06577.i
+  %201 = fcmp ugt float %.066.i, %169
   %or.cond73.i = or i1 %200, %201
-  %..066.i = select i1 %or.cond73.i, float 0.000000e+00, float %.066.i
+  %..064.i = select i1 %or.cond73.i, float 0.000000e+00, float %.064.i
   %202 = fcmp olt float %.178.i, %.062.i
   %.sroa.speculated104.i = select i1 %202, float %.062.i, float %.178.i
-  %203 = fcmp olt float %.sroa.speculated104.i, %..066.i
-  %.sroa.speculated.i23 = select i1 %203, float %..066.i, float %.sroa.speculated104.i
+  %203 = fcmp olt float %.sroa.speculated104.i, %..064.i
+  %.sroa.speculated.i23 = select i1 %203, float %..064.i, float %.sroa.speculated104.i
   %204 = fsub float %127, %.sroa.speculated.i23
   %205 = fpext float %204 to double
   %206 = fcmp ult double %205, 0xC00921FB54442D18
@@ -827,16 +827,16 @@ _ZL18find_partition_binP9partitionf.exit98.i:     ; preds = %266, %260
   br label %_ZL18find_partition_binP9partitionf.exit91.i
 
 _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %250, %_ZL18find_partition_binP9partitionf.exit98.i, %246
-  %.064.i = phi i32 [ 0, %246 ], [ %276, %_ZL18find_partition_binP9partitionf.exit98.i ], [ %.012..i89.i, %250 ]
-  %277 = add nsw i32 %.064.i, 1
+  %.064.i25 = phi i32 [ 0, %246 ], [ %276, %_ZL18find_partition_binP9partitionf.exit98.i ], [ %.012..i89.i, %250 ]
+  %277 = add nsw i32 %.064.i25, 1
   %278 = sub nsw i32 %277, %.066.i24
   %279 = icmp sgt i32 %278, %242
   %280 = add nsw i32 %242, %.066.i24
   %spec.select.i = select i1 %279, i32 %280, i32 %277
   %.not108.i = icmp eq i32 %.066.i24, %spec.select.i
-  br i1 %.not108.i, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, label %.lr.ph.i25
+  br i1 %.not108.i, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, label %.lr.ph.i26
 
-.lr.ph.i25:                                       ; preds = %_ZL18find_partition_binP9partitionf.exit91.i
+.lr.ph.i26:                                       ; preds = %_ZL18find_partition_binP9partitionf.exit91.i
   %281 = fcmp olt float %.062.i, %.178.i
   %.sroa.speculated102.i = select i1 %281, float %.062.i, float %.178.i
   %282 = fadd float %127, %.sroa.speculated102.i
@@ -850,10 +850,10 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %250, %_ZL18find_par
   %289 = insertelement <2 x float> %288, float %.069.i, i64 1
   br label %290
 
-290:                                              ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, %.lr.ph.i25
-  %.1112.i = phi i32 [ %.0.i, %.lr.ph.i25 ], [ %356, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
-  %.063111.i = phi i32 [ %.066.i24, %.lr.ph.i25 ], [ %355, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
-  %291 = phi <2 x float> [ %289, %.lr.ph.i25 ], [ %299, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+290:                                              ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, %.lr.ph.i26
+  %.1112.i = phi i32 [ %.0.i, %.lr.ph.i26 ], [ %356, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+  %.063111.i = phi i32 [ %.066.i24, %.lr.ph.i26 ], [ %355, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
+  %291 = phi <2 x float> [ %289, %.lr.ph.i26 ], [ %299, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %292 = load ptr, ptr %93, align 8
   %293 = getelementptr inbounds %struct.partition, ptr %292, i64 %indvars.iv
   %294 = load i32, ptr %293, align 8
@@ -873,7 +873,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %250, %_ZL18find_par
   br i1 %306, label %._crit_edge113.i, label %307
 
 ._crit_edge113.i:                                 ; preds = %290
-  %.pre.i27 = load ptr, ptr %94, align 8
+  %.pre.i28 = load ptr, ptr %94, align 8
   br label %317
 
 307:                                              ; preds = %290
@@ -893,7 +893,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %250, %_ZL18find_par
   br label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i
 
 317:                                              ; preds = %307, %._crit_edge113.i
-  %318 = phi ptr [ %.pre.i27, %._crit_edge113.i ], [ %.pre114.i, %307 ]
+  %318 = phi ptr [ %.pre.i28, %._crit_edge113.i ], [ %.pre114.i, %307 ]
   %319 = getelementptr inbounds %struct.t_partition_item, ptr %301, i64 %302, i32 1
   %320 = load i32, ptr %319, align 4
   %321 = sext i32 %320 to i64
@@ -950,8 +950,8 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %250, %_ZL18find_par
 _ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i: ; preds = %339, %317, %312
   %355 = add nsw i32 %.063111.i, 1
   %356 = add nsw i32 %.2.i, 1
-  %.not.i26 = icmp eq i32 %355, %spec.select.i
-  br i1 %.not.i26, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, label %290, !llvm.loop !12
+  %.not.i27 = icmp eq i32 %355, %spec.select.i
+  br i1 %.not.i27, label %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, label %290, !llvm.loop !12
 
 _ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit: ; preds = %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, %_ZL18find_partition_binP9partitionf.exit91.i
   %357 = load float, ptr %91, align 8
@@ -963,10 +963,10 @@ _ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit: ; preds = %_ZL17a
   br i1 %362, label %.lr.ph.i21, label %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, !llvm.loop !13
 
 _ZL19store_surface_pointP23methoddata_insolidanglePf.exit: ; preds = %.lr.ph.i21, %_ZL18update_surface_binP23methoddata_insolidangleiffffPf.exit, %145
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %363 = load i32, ptr %85, align 8
   %364 = sext i32 %363 to i64
-  %365 = icmp slt i64 %indvars.iv.next31, %364
+  %365 = icmp slt i64 %indvars.iv.next32, %364
   br i1 %365, label %95, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit
@@ -1997,7 +1997,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   br label %27
 
 .loopexit.i:                                      ; preds = %65, %27
-  %.1.lcssa.i = phi float [ %.02934.i, %27 ], [ %.2.i, %65 ]
+  %.1.lcssa.i = phi float [ %.03034.i, %27 ], [ %.2.i, %65 ]
   %24 = load i32, ptr %18, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next40.i, %25
@@ -2005,7 +2005,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
 
 27:                                               ; preds = %.loopexit.i, %.lr.ph36.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph36.i ], [ %indvars.iv.next40.i, %.loopexit.i ]
-  %.02934.i = phi float [ 0.000000e+00, %.lr.ph36.i ], [ %.1.lcssa.i, %.loopexit.i ]
+  %.03034.i = phi float [ 0.000000e+00, %.lr.ph36.i ], [ %.1.lcssa.i, %.loopexit.i ]
   %28 = trunc nuw nsw i64 %indvars.iv39.i to i32
   %29 = uitofp nneg i32 %28 to float
   %30 = load float, ptr %21, align 4
@@ -2035,7 +2035,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
 46:                                               ; preds = %65, %.lr.ph.i
   %47 = phi float [ %.pre.i, %.lr.ph.i ], [ %49, %65 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %.133.i = phi float [ %.02934.i, %.lr.ph.i ], [ %.2.i, %65 ]
+  %.132.i = phi float [ %.03034.i, %.lr.ph.i ], [ %.2.i, %65 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = getelementptr inbounds %struct.t_partition_item, ptr %44, i64 %indvars.iv.next.i
   %49 = load float, ptr %48, align 4
@@ -2049,7 +2049,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %46
-  %58 = tail call float @llvm.fmuladd.f32(float %38, float %50, float %.133.i)
+  %58 = tail call float @llvm.fmuladd.f32(float %38, float %50, float %.132.i)
   br label %65
 
 59:                                               ; preds = %46
@@ -2059,11 +2059,11 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
 61:                                               ; preds = %59
   %62 = fmul float %38, %50
   %63 = fmul float %62, 5.000000e-01
-  %64 = fadd float %.133.i, %63
+  %64 = fadd float %.132.i, %63
   br label %65
 
 65:                                               ; preds = %61, %59, %57
-  %.2.i = phi float [ %58, %57 ], [ %64, %61 ], [ %.133.i, %59 ]
+  %.2.i = phi float [ %58, %57 ], [ %64, %61 ], [ %.132.i, %59 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %46, !llvm.loop !20
 
@@ -2072,8 +2072,8 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   br label %_ZL25estimate_covered_fractionP23methoddata_insolidangle.exit
 
 _ZL25estimate_covered_fractionP23methoddata_insolidangle.exit: ; preds = %17, %._crit_edge.loopexit.i
-  %.029.lcssa.i = phi double [ 0.000000e+00, %17 ], [ %66, %._crit_edge.loopexit.i ]
-  %67 = fdiv double %.029.lcssa.i, 0x402921FB54442D18
+  %.030.lcssa.i = phi double [ 0.000000e+00, %17 ], [ %66, %._crit_edge.loopexit.i ]
+  %67 = fdiv double %.030.lcssa.i, 0x402921FB54442D18
   %68 = fptrunc double %67 to float
   store float %68, ptr %14, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit

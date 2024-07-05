@@ -126,8 +126,8 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocaptur
   br i1 %21, label %sub_0, label %._crit_edge.thread
 
 sub_0:                                            ; preds = %2, %82
-  %.054187 = phi i32 [ %83, %82 ], [ 1, %2 ]
-  %22 = sext i32 %.054187 to i64
+  %.063187 = phi i32 [ %83, %82 ], [ 1, %2 ]
+  %22 = sext i32 %.063187 to i64
   %23 = getelementptr inbounds ptr, ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
@@ -213,16 +213,16 @@ sub_2180:                                         ; preds = %sub_1179
 .tail177:                                         ; preds = %sub_1179, %sub_2180
   %57 = phi i32 [ %52, %sub_1179 ], [ %56, %sub_2180 ]
   %.not91 = icmp eq i32 %57, 0
-  %58 = icmp slt i32 %.054187, %20
+  %58 = icmp slt i32 %.063187, %20
   %or.cond = select i1 %.not91, i1 %58, i1 false
   br i1 %or.cond, label %60, label %sub_0183
 
 .tail177.thread:                                  ; preds = %sub_0178
-  %59 = icmp slt i32 %.054187, %20
+  %59 = icmp slt i32 %.063187, %20
   br label %.tail182
 
 60:                                               ; preds = %.tail177
-  %61 = add nsw i32 %.054187, 1
+  %61 = add nsw i32 %.063187, 1
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %1, i64 %62
   %64 = load ptr, ptr %63, align 8
@@ -255,7 +255,7 @@ sub_2185:                                         ; preds = %sub_1184
   br i1 %or.cond95, label %76, label %82
 
 76:                                               ; preds = %.tail182
-  %77 = add nsw i32 %.054187, 1
+  %77 = add nsw i32 %.063187, 1
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds ptr, ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8
@@ -263,8 +263,8 @@ sub_2185:                                         ; preds = %sub_1184
           to label %82 unwind label %47
 
 82:                                               ; preds = %.tail182, %76, %60
-  %.155 = phi i32 [ %.054187, %.tail182 ], [ %77, %76 ], [ %61, %60 ]
-  %83 = add nsw i32 %.155, 1
+  %.164 = phi i32 [ %.063187, %.tail182 ], [ %77, %76 ], [ %61, %60 ]
+  %83 = add nsw i32 %.164, 1
   %84 = icmp slt i32 %83, %0
   br i1 %84, label %sub_0, label %._crit_edge, !llvm.loop !5
 
@@ -431,8 +431,8 @@ _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i: ; preds = %148
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit103: ; preds = %144, %138
-  %.056 = phi i32 [ -1, %138 ], [ 0, %144 ]
-  %.1 = phi ptr [ null, %138 ], [ %147, %144 ]
+  %.139 = phi ptr [ null, %138 ], [ %147, %144 ]
+  %.0 = phi i32 [ -1, %138 ], [ 0, %144 ]
   %153 = getelementptr inbounds i8, ptr %9, i64 40
   %154 = load ptr, ptr %153, align 8
   %.not.i.i = icmp eq ptr %154, null
@@ -550,7 +550,7 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit: ; pr
 
 195:                                              ; preds = %180, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit
   %.sroa.0121.3 = phi ptr [ %194, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %180 ]
-  %.157 = phi i32 [ 0, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit ], [ -1, %180 ]
+  %.1 = phi i32 [ 0, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EEaSEOS4_.exit ], [ -1, %180 ]
   %196 = getelementptr inbounds i8, ptr %11, i64 40
   %197 = load ptr, ptr %196, align 8
   %.not.i.i108 = icmp eq ptr %197, null
@@ -577,8 +577,8 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
   br label %275
 
 203:                                              ; preds = %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit
-  %.sroa.0121.5 = phi ptr [ %.sroa.0121.3, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.1, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
-  %.2 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.1, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
+  %.sroa.0121.5 = phi ptr [ %.sroa.0121.3, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.139, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
+  %.240 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.139, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
   %.not.i111 = icmp eq ptr %.sroa.0121.5, null
   br i1 %.not.i111, label %.thread, label %204
 
@@ -629,11 +629,11 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
           to label %221 unwind label %227
 
 221:                                              ; preds = %220
-  %.not78 = icmp eq ptr %.2, null
+  %.not78 = icmp eq ptr %.240, null
   br i1 %.not78, label %231, label %222
 
 222:                                              ; preds = %221
-  %223 = invoke noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef nonnull align 8 dereferenceable(216) %.2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %223 = invoke noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef nonnull align 8 dereferenceable(216) %.240, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %224 unwind label %229
 
 224:                                              ; preds = %222
@@ -682,11 +682,11 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
           to label %239 unwind label %227
 
 239:                                              ; preds = %238
-  %.not75 = icmp eq ptr %.2, null
+  %.not75 = icmp eq ptr %.240, null
   br i1 %.not75, label %244, label %240
 
 240:                                              ; preds = %239
-  %241 = invoke noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(216) %.2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %241 = invoke noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(216) %.240, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %242 unwind label %227
 
 242:                                              ; preds = %240
@@ -717,11 +717,11 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
           to label %252 unwind label %227
 
 252:                                              ; preds = %251
-  %.not = icmp eq ptr %.2, null
+  %.not = icmp eq ptr %.240, null
   br i1 %.not, label %259, label %253
 
 253:                                              ; preds = %252
-  invoke void @_ZN5draco10StlEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.draco::Status") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(216) %.2, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke void @_ZN5draco10StlEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.draco::Status") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(216) %.240, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %254 unwind label %227
 
 254:                                              ; preds = %253
@@ -758,7 +758,7 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
   br label %.thread148
 
 .thread148:                                       ; preds = %243, %247, %259, %260, %264, %234, %257
-  %.561 = phi i32 [ 0, %264 ], [ -1, %234 ], [ -1, %243 ], [ -1, %247 ], [ -1, %257 ], [ -1, %259 ], [ -1, %260 ]
+  %.5 = phi i32 [ 0, %264 ], [ -1, %234 ], [ -1, %243 ], [ -1, %247 ], [ -1, %257 ], [ -1, %259 ], [ -1, %260 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #11
   %266 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %266) #11
@@ -770,15 +770,15 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit
 
 268:                                              ; preds = %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110
-  %.sroa.0121.6 = phi ptr [ %.sroa.0121.3, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.1, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
-  %.662 = phi i32 [ %.157, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.056, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
+  %.sroa.0121.6 = phi ptr [ %.sroa.0121.3, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.139, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
+  %.6 = phi i32 [ %.1, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit110 ], [ %.0, %_ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEED2Ev.exit ]
   %269 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %269) #11
   %.not.i112 = icmp eq ptr %.sroa.0121.6, null
   br i1 %.not.i112, label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i: ; preds = %.thread148, %268
-  %.662153 = phi i32 [ %.561, %.thread148 ], [ %.662, %268 ]
+  %.6153 = phi i32 [ %.5, %.thread148 ], [ %.6, %268 ]
   %.sroa.0121.6152 = phi ptr [ %.sroa.0121.5, %.thread148 ], [ %.sroa.0121.6, %268 ]
   %270 = load ptr, ptr %.sroa.0121.6152, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 8
@@ -787,7 +787,7 @@ _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i: ; preds = %.thread14
   br label %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread143, %268, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i
-  %.662147 = phi i32 [ -1, %.thread143 ], [ %.662, %268 ], [ %.662153, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i ]
+  %.6147 = phi i32 [ -1, %.thread143 ], [ %.6, %268 ], [ %.6153, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i ]
   %273 = getelementptr inbounds i8, ptr %5, i64 24
   call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %273) #11
   br label %281
@@ -824,7 +824,7 @@ _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit115: ; pr
   br label %284
 
 281:                                              ; preds = %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit, %99, %91
-  %.763 = phi i32 [ -1, %99 ], [ %.662147, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit ], [ -1, %91 ]
+  %.7 = phi i32 [ -1, %99 ], [ %.6147, %_ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit ], [ -1, %91 ]
   %282 = load ptr, ptr %4, align 8
   %.not.i.i.i116 = icmp eq ptr %282, null
   br i1 %.not.i.i.i116, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %283
@@ -843,10 +843,10 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %281, %283
   br label %286
 
 285:                                              ; preds = %._crit_edge.thread, %46, %_ZNSt6vectorIcSaIcEED2Ev.exit
-  %.864 = phi i32 [ %.763, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ 0, %46 ], [ -1, %._crit_edge.thread ]
+  %.8 = phi i32 [ %.7, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ 0, %46 ], [ -1, %._crit_edge.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  ret i32 %.864
+  ret i32 %.8
 
 286:                                              ; preds = %284, %47
   %.pn93 = phi { ptr, i32 } [ %48, %47 ], [ %.pn81.pn.pn.pn.pn, %284 ]

@@ -1847,9 +1847,9 @@ if.end10.i:                                       ; preds = %get_buffer_backend.
 
 for.body.i250:                                    ; preds = %for.inc.i, %if.end10.i
   %indvars.iv.i251 = phi i64 [ 0, %if.end10.i ], [ %indvars.iv.next.i254, %for.inc.i ]
-  %cur_size.0106.i = phi i64 [ 0, %if.end10.i ], [ %cur_size.1.i, %for.inc.i ]
-  %cur_prio.0105.i = phi i32 [ 2147483647, %if.end10.i ], [ %cur_prio.1.i, %for.inc.i ]
-  %cur_backend.0104.i = phi ptr [ null, %if.end10.i ], [ %cur_backend.1.i, %for.inc.i ]
+  %cur_backend.0107.i = phi ptr [ null, %if.end10.i ], [ %cur_backend.1.i, %for.inc.i ]
+  %cur_prio.0106.i = phi i32 [ 2147483647, %if.end10.i ], [ %cur_prio.1.i, %for.inc.i ]
+  %cur_size.0105.i = phi i64 [ 0, %if.end10.i ], [ %cur_size.1.i, %for.inc.i ]
   %arrayidx.i252 = getelementptr inbounds [10 x ptr], ptr %src12.i, i64 0, i64 %indvars.iv.i251
   %81 = load ptr, ptr %arrayidx.i252, align 8
   %cmp13.i = icmp eq ptr %81, null
@@ -1930,8 +1930,8 @@ return.loopexit.split.loop.exit9.i.i259:          ; preds = %for.body.i85.i
 sched_backend_prio.exit.i:                        ; preds = %for.inc.i.i257, %return.loopexit.split.loop.exit9.i.i259, %if.then19.i
   %retval.0.i84.i = phi i32 [ 2147483647, %if.then19.i ], [ %94, %return.loopexit.split.loop.exit9.i.i259 ], [ 2147483647, %for.inc.i.i257 ]
   %call21.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %81) #19
-  %cmp22.i = icmp sge i32 %retval.0.i84.i, %cur_prio.0105.i
-  %cmp24.not.i = icmp ult i64 %call21.i, %cur_size.0106.i
+  %cmp22.i = icmp sge i32 %retval.0.i84.i, %cur_prio.0106.i
+  %cmp24.not.i = icmp ult i64 %call21.i, %cur_size.0105.i
   %or.cond.i = select i1 %cmp22.i, i1 true, i1 %cmp24.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then25.i
 
@@ -1939,15 +1939,15 @@ if.then25.i:                                      ; preds = %sched_backend_prio.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then25.i, %sched_backend_prio.exit.i, %get_buffer_backend.exit82.i, %if.end15.i
-  %cur_backend.1.i = phi ptr [ %91, %if.then25.i ], [ %cur_backend.0104.i, %sched_backend_prio.exit.i ], [ %cur_backend.0104.i, %get_buffer_backend.exit82.i ], [ %cur_backend.0104.i, %if.end15.i ]
-  %cur_prio.1.i = phi i32 [ %retval.0.i84.i, %if.then25.i ], [ %cur_prio.0105.i, %sched_backend_prio.exit.i ], [ %cur_prio.0105.i, %get_buffer_backend.exit82.i ], [ %cur_prio.0105.i, %if.end15.i ]
-  %cur_size.1.i = phi i64 [ %call21.i, %if.then25.i ], [ %cur_size.0106.i, %sched_backend_prio.exit.i ], [ %cur_size.0106.i, %get_buffer_backend.exit82.i ], [ %cur_size.0106.i, %if.end15.i ]
+  %cur_size.1.i = phi i64 [ %call21.i, %if.then25.i ], [ %cur_size.0105.i, %sched_backend_prio.exit.i ], [ %cur_size.0105.i, %get_buffer_backend.exit82.i ], [ %cur_size.0105.i, %if.end15.i ]
+  %cur_prio.1.i = phi i32 [ %retval.0.i84.i, %if.then25.i ], [ %cur_prio.0106.i, %sched_backend_prio.exit.i ], [ %cur_prio.0106.i, %get_buffer_backend.exit82.i ], [ %cur_prio.0106.i, %if.end15.i ]
+  %cur_backend.1.i = phi ptr [ %91, %if.then25.i ], [ %cur_backend.0107.i, %sched_backend_prio.exit.i ], [ %cur_backend.0107.i, %get_buffer_backend.exit82.i ], [ %cur_backend.0107.i, %if.end15.i ]
   %indvars.iv.next.i254 = add nuw nsw i64 %indvars.iv.i251, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i254, 10
   br i1 %exitcond.not.i, label %sched_backend_from_cur.exit, label %for.body.i250, !llvm.loop !14
 
 sched_backend_from_cur.exit:                      ; preds = %for.body.i250, %for.inc.i, %if.then2.i58.i
-  %retval.0.i249 = phi ptr [ %78, %if.then2.i58.i ], [ %cur_backend.1.i, %for.inc.i ], [ %cur_backend.0104.i, %for.body.i250 ]
+  %retval.0.i249 = phi ptr [ %78, %if.then2.i58.i ], [ %cur_backend.1.i, %for.inc.i ], [ %cur_backend.0107.i, %for.body.i250 ]
   %cmp44.not = icmp eq ptr %retval.0.i249, null
   br i1 %cmp44.not, label %for.inc52, label %if.then45
 
@@ -2025,9 +2025,9 @@ for.cond70.preheader:                             ; preds = %for.body59
 
 for.body72:                                       ; preds = %for.cond70.preheader, %for.inc93
   %indvars.iv494 = phi i64 [ 0, %for.cond70.preheader ], [ %indvars.iv.next495, %for.inc93 ]
-  %cur_size.0441 = phi i64 [ 0, %for.cond70.preheader ], [ %cur_size.1, %for.inc93 ]
-  %cur_prio.0440 = phi i32 [ 2147483647, %for.cond70.preheader ], [ %cur_prio.1, %for.inc93 ]
-  %node_allocr.0439 = phi ptr [ null, %for.cond70.preheader ], [ %node_allocr.1, %for.inc93 ]
+  %node_allocr.0442 = phi ptr [ null, %for.cond70.preheader ], [ %node_allocr.1, %for.inc93 ]
+  %cur_prio.0441 = phi i32 [ 2147483647, %for.cond70.preheader ], [ %cur_prio.1, %for.inc93 ]
+  %cur_size.0440 = phi i64 [ 0, %for.cond70.preheader ], [ %cur_size.1, %for.inc93 ]
   %arrayidx75 = getelementptr inbounds [10 x ptr], ptr %src73, i64 0, i64 %indvars.iv494
   %110 = load ptr, ptr %arrayidx75, align 8
   %cmp76 = icmp eq ptr %110, null
@@ -2071,8 +2071,8 @@ return.loopexit.split.loop.exit9.i:               ; preds = %for.body.i280
 sched_allocr_prio.exit:                           ; preds = %for.inc.i284, %if.then84, %return.loopexit.split.loop.exit9.i
   %retval.0.i279 = phi i32 [ 2147483647, %if.then84 ], [ %117, %return.loopexit.split.loop.exit9.i ], [ 2147483647, %for.inc.i284 ]
   %call86 = tail call i64 @ggml_nbytes(ptr noundef nonnull %110) #19
-  %cmp87 = icmp sge i32 %retval.0.i279, %cur_prio.0440
-  %cmp89.not = icmp ult i64 %call86, %cur_size.0441
+  %cmp87 = icmp sge i32 %retval.0.i279, %cur_prio.0441
+  %cmp89.not = icmp ult i64 %call86, %cur_size.0440
   %or.cond = select i1 %cmp87, i1 true, i1 %cmp89.not
   br i1 %or.cond, label %for.inc93, label %if.then90
 
@@ -2080,15 +2080,15 @@ if.then90:                                        ; preds = %sched_allocr_prio.e
   br label %for.inc93
 
 for.inc93:                                        ; preds = %if.end78, %if.then90, %sched_allocr_prio.exit
-  %node_allocr.1 = phi ptr [ %114, %if.then90 ], [ %node_allocr.0439, %sched_allocr_prio.exit ], [ %node_allocr.0439, %if.end78 ]
-  %cur_prio.1 = phi i32 [ %retval.0.i279, %if.then90 ], [ %cur_prio.0440, %sched_allocr_prio.exit ], [ %cur_prio.0440, %if.end78 ]
-  %cur_size.1 = phi i64 [ %call86, %if.then90 ], [ %cur_size.0441, %sched_allocr_prio.exit ], [ %cur_size.0441, %if.end78 ]
+  %cur_size.1 = phi i64 [ %call86, %if.then90 ], [ %cur_size.0440, %sched_allocr_prio.exit ], [ %cur_size.0440, %if.end78 ]
+  %cur_prio.1 = phi i32 [ %retval.0.i279, %if.then90 ], [ %cur_prio.0441, %sched_allocr_prio.exit ], [ %cur_prio.0441, %if.end78 ]
+  %node_allocr.1 = phi ptr [ %114, %if.then90 ], [ %node_allocr.0442, %sched_allocr_prio.exit ], [ %node_allocr.0442, %if.end78 ]
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next495, 10
   br i1 %exitcond.not, label %for.end95, label %for.body72, !llvm.loop !17
 
 for.end95:                                        ; preds = %for.body72, %for.inc93
-  %node_allocr.0.lcssa = phi ptr [ %node_allocr.0439, %for.body72 ], [ %node_allocr.1, %for.inc93 ]
+  %node_allocr.0.lcssa = phi ptr [ %node_allocr.0442, %for.body72 ], [ %node_allocr.1, %for.inc93 ]
   %cmp96.not = icmp eq ptr %node_allocr.0.lcssa, null
   br i1 %cmp96.not, label %for.inc104, label %if.then97
 
@@ -2243,9 +2243,9 @@ for.body187.lr.ph:                                ; preds = %sched_allocr_prio.e
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc306
   %152 = phi i32 [ %151, %for.body187.lr.ph ], [ %190, %for.inc306 ]
   %indvars.iv515 = phi i64 [ 0, %for.body187.lr.ph ], [ %indvars.iv.next516, %for.inc306 ]
-  %cur_backend_id.0454 = phi i64 [ %retval.0.i289, %for.body187.lr.ph ], [ %cur_backend_id.2, %for.inc306 ]
-  %cur_allocr.0453 = phi ptr [ %146, %for.body187.lr.ph ], [ %cur_allocr.2, %for.inc306 ]
-  %cur_split.0452 = phi i32 [ 0, %for.body187.lr.ph ], [ %cur_split.2, %for.inc306 ]
+  %cur_split.0455 = phi i32 [ 0, %for.body187.lr.ph ], [ %cur_split.2, %for.inc306 ]
+  %cur_allocr.0454 = phi ptr [ %146, %for.body187.lr.ph ], [ %cur_allocr.2, %for.inc306 ]
+  %cur_backend_id.0453 = phi i64 [ %retval.0.i289, %for.body187.lr.ph ], [ %cur_backend_id.2, %for.inc306 ]
   %153 = load ptr, ptr %nodes189, align 8
   %arrayidx191 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv515
   %154 = load ptr, ptr %arrayidx191, align 8
@@ -2262,15 +2262,15 @@ if.end194:                                        ; preds = %for.body187
   %call198 = tail call i64 @ggml_hash_find_or_insert(i64 %158, ptr %159, ptr noundef nonnull %154) #19
   %arrayidx199 = getelementptr inbounds ptr, ptr %157, i64 %call198
   %160 = load ptr, ptr %arrayidx199, align 8
-  %cmp200.not = icmp eq ptr %160, %cur_allocr.0453
-  %.pre541 = sext i32 %cur_split.0452 to i64
+  %cmp200.not = icmp eq ptr %160, %cur_allocr.0454
+  %.pre541 = sext i32 %cur_split.0455 to i64
   br i1 %cmp200.not, label %if.end232, label %if.then202
 
 if.then202:                                       ; preds = %if.end194
   %i_end = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %.pre541, i32 2
   %161 = trunc nuw nsw i64 %indvars.iv515 to i32
   store i32 %161, ptr %i_end, align 4
-  %cmp207 = icmp slt i32 %cur_split.0452, 255
+  %cmp207 = icmp slt i32 %cur_split.0455, 255
   br i1 %cmp207, label %do.end, label %if.then209
 
 if.then209:                                       ; preds = %if.then202
@@ -2283,7 +2283,7 @@ if.then209:                                       ; preds = %if.then202
   unreachable
 
 do.end:                                           ; preds = %if.then202
-  %inc206 = add nsw i32 %cur_split.0452, 1
+  %inc206 = add nsw i32 %cur_split.0455, 1
   %idxprom214 = sext i32 %inc206 to i64
   %arrayidx215 = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %idxprom214
   store ptr %160, ptr %arrayidx215, align 8
@@ -2319,9 +2319,9 @@ sched_allocr_prio.exit314:                        ; preds = %for.body.i306, %for
 
 if.end232:                                        ; preds = %if.end194, %sched_allocr_prio.exit314
   %idxprom256.pre-phi = phi i64 [ %idxprom214, %sched_allocr_prio.exit314 ], [ %.pre541, %if.end194 ]
-  %cur_split.1 = phi i32 [ %inc206, %sched_allocr_prio.exit314 ], [ %cur_split.0452, %if.end194 ]
-  %cur_allocr.1 = phi ptr [ %160, %sched_allocr_prio.exit314 ], [ %cur_allocr.0453, %if.end194 ]
-  %cur_backend_id.1 = phi i64 [ %conv231, %sched_allocr_prio.exit314 ], [ %cur_backend_id.0454, %if.end194 ]
+  %cur_backend_id.1 = phi i64 [ %conv231, %sched_allocr_prio.exit314 ], [ %cur_backend_id.0453, %if.end194 ]
+  %cur_allocr.1 = phi ptr [ %160, %sched_allocr_prio.exit314 ], [ %cur_allocr.0454, %if.end194 ]
+  %cur_split.1 = phi i32 [ %inc206, %sched_allocr_prio.exit314 ], [ %cur_split.0455, %if.end194 ]
   %src239 = getelementptr inbounds i8, ptr %154, i64 160
   %arrayidx257 = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %idxprom256.pre-phi
   %n_inputs258 = getelementptr inbounds i8, ptr %arrayidx257, i64 144
@@ -2455,9 +2455,9 @@ for.inc306.loopexit:                              ; preds = %for.body237, %for.i
 
 for.inc306:                                       ; preds = %for.inc306.loopexit, %for.body187
   %190 = phi i32 [ %152, %for.body187 ], [ %.pre539, %for.inc306.loopexit ]
-  %cur_split.2 = phi i32 [ %cur_split.0452, %for.body187 ], [ %cur_split.1, %for.inc306.loopexit ]
-  %cur_allocr.2 = phi ptr [ %cur_allocr.0453, %for.body187 ], [ %cur_allocr.1, %for.inc306.loopexit ]
-  %cur_backend_id.2 = phi i64 [ %cur_backend_id.0454, %for.body187 ], [ %cur_backend_id.1, %for.inc306.loopexit ]
+  %cur_backend_id.2 = phi i64 [ %cur_backend_id.0453, %for.body187 ], [ %cur_backend_id.1, %for.inc306.loopexit ]
+  %cur_allocr.2 = phi ptr [ %cur_allocr.0454, %for.body187 ], [ %cur_allocr.1, %for.inc306.loopexit ]
+  %cur_split.2 = phi i32 [ %cur_split.0455, %for.body187 ], [ %cur_split.1, %for.inc306.loopexit ]
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %191 = sext i32 %190 to i64
   %cmp185 = icmp slt i64 %indvars.iv.next516, %191

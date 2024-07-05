@@ -458,10 +458,10 @@ for.body.lr.ph:                                   ; preds = %if.end
   br i1 %cmp933, label %for.body.us.us, label %for.body
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph, %if.end61.us.us
-  %tot.042.us.us = phi i64 [ %add62.us.us, %if.end61.us.us ], [ 0, %for.body.lr.ph ]
-  %i.041.us.us = phi i64 [ %inc64.us.us, %if.end61.us.us ], [ 0, %for.body.lr.ph ]
+  %i.042.us.us = phi i64 [ %inc64.us.us, %if.end61.us.us ], [ 0, %for.body.lr.ph ]
+  %tot.041.us.us = phi i64 [ %add62.us.us, %if.end61.us.us ], [ 0, %for.body.lr.ph ]
   %2 = load ptr, ptr %data, align 8
-  %conv6.us.us = trunc i64 %i.041.us.us to i32
+  %conv6.us.us = trunc i64 %i.042.us.us to i32
   %call.i32.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %conv6.us.us) #5
   br label %for.body11.us.us
 
@@ -470,8 +470,8 @@ if.end23.us.us:                                   ; preds = %for.cond8.for.end_c
   br label %for.body28.us.us
 
 if.end61.us.us:                                   ; preds = %for.cond25.for.end51_crit_edge.us.us
-  %add62.us.us = add nsw i64 %sub.ptr.sub.us.us, %tot.042.us.us
-  %inc64.us.us = add nuw nsw i64 %i.041.us.us, 1
+  %add62.us.us = add nsw i64 %sub.ptr.sub.us.us, %tot.041.us.us
+  %inc64.us.us = add nuw nsw i64 %i.042.us.us, 1
   %exitcond110.not = icmp eq i64 %inc64.us.us, %conv
   br i1 %exitcond110.not, label %err, label %for.body.us.us, !llvm.loop !7
 
@@ -555,10 +555,10 @@ for.cond25.for.end51_crit_edge.us.us:             ; preds = %if.end47.us.us
   br i1 %cmp58.not.us.us, label %if.end61.us.us, label %err
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end61
-  %tot.042 = phi i64 [ %add62, %if.end61 ], [ 0, %for.body.lr.ph ]
-  %i.041 = phi i64 [ %inc64, %if.end61 ], [ 0, %for.body.lr.ph ]
+  %i.042 = phi i64 [ %inc64, %if.end61 ], [ 0, %for.body.lr.ph ]
+  %tot.041 = phi i64 [ %add62, %if.end61 ], [ 0, %for.body.lr.ph ]
   %10 = load ptr, ptr %data, align 8
-  %conv6 = trunc i64 %i.041 to i32
+  %conv6 = trunc i64 %i.042 to i32
   %call.i32 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %conv6) #5
   %call21 = tail call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %call, i64 noundef %conv2) #5
   %tobool.not = icmp eq i64 %call21, 0
@@ -579,8 +579,8 @@ if.end23:                                         ; preds = %for.body
   br i1 %cmp58.not, label %if.end61, label %err
 
 if.end61:                                         ; preds = %if.end23
-  %add62 = add nsw i64 %sub.ptr.sub, %tot.042
-  %inc64 = add nuw nsw i64 %i.041, 1
+  %add62 = add nsw i64 %sub.ptr.sub, %tot.041
+  %inc64 = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc64, %conv
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !7
 

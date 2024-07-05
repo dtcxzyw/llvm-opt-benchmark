@@ -5255,8 +5255,8 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEED2Ev.
   ret void
 
 1887:                                             ; preds = %.lr.ph8881, %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit2263
-  %.sroa.04403.08869 = phi ptr [ %1617, %.lr.ph8881 ], [ %9218, %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit2263 ]
-  %1888 = load ptr, ptr %.sroa.04403.08869, align 8
+  %.sroa.04403.08875 = phi ptr [ %1617, %.lr.ph8881 ], [ %9218, %_ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit2263 ]
+  %1888 = load ptr, ptr %.sroa.04403.08875, align 8
   store ptr %1888, ptr %100, align 8
   store i32 0, ptr %1620, align 8
   store ptr null, ptr %1621, align 8
@@ -23383,7 +23383,7 @@ _ZN5Yosys6SigMapD2Ev.exit2262:                    ; preds = %_ZNSt6vectorIN5Yosy
   unreachable
 
 _ZNSt3setIN5Yosys5RTLIL8IdStringESt4lessIS2_ESaIS2_EED2Ev.exit2263: ; preds = %_ZN5Yosys6SigMapD2Ev.exit2262
-  %9218 = getelementptr inbounds i8, ptr %.sroa.04403.08869, i64 8
+  %9218 = getelementptr inbounds i8, ptr %.sroa.04403.08875, i64 8
   %.not4564 = icmp eq ptr %9218, %1619
   br i1 %.not4564, label %._crit_edge8882.loopexit, label %1887
 
@@ -73352,14 +73352,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !546
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -73806,8 +73806,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

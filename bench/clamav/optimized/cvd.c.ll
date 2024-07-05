@@ -640,9 +640,9 @@ define i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 
 109:                                              ; preds = %105
   store i32 %6, ptr %75, align 4
-  %.075.v = select i1 %76, i32 65536, i32 16448
-  %.075 = or i32 %.075.v, %3
-  %110 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.075, ptr noundef nonnull %11, ptr noundef nonnull %107)
+  %.074.v = select i1 %76, i32 65536, i32 16448
+  %.074 = or i32 %.074.v, %3
+  %110 = call fastcc i32 @cli_tgzload(i32 noundef %74, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.074, ptr noundef nonnull %11, ptr noundef nonnull %107)
   %111 = load ptr, ptr %80, align 8
   %.not102104 = icmp eq ptr %111, null
   br i1 %.not102104, label %.loopexit, label %.lr.ph
@@ -1588,7 +1588,7 @@ define i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) 
   br label %cli_cvdunpack.exit.thread23
 
 54:                                               ; preds = %103, %.lr.ph.i.i
-  %55 = phi i1 [ false, %.lr.ph.i.i ], [ %.173.in.i.i, %103 ]
+  %55 = phi i1 [ false, %.lr.ph.i.i ], [ %.174.in.i.i, %103 ]
   %56 = phi i32 [ %47, %.lr.ph.i.i ], [ %104, %103 ]
   %.0112.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %103 ]
   %.not82.i.i = icmp eq i32 %56, 512
@@ -1717,11 +1717,11 @@ define i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) 
   br label %103
 
 103:                                              ; preds = %99, %87
-  %.173.in.i.i = phi i1 [ %.not87.i.i, %87 ], [ %102, %99 ]
+  %.174.in.i.i = phi i1 [ %.not87.i.i, %87 ], [ %102, %99 ]
   %.1.i.i = phi ptr [ %80, %87 ], [ %.0112.i.i, %99 ]
   %104 = call i32 @gzread(ptr noundef nonnull %35, ptr noundef nonnull %6, i32 noundef 512) #19
   %105 = icmp ne i32 %104, 0
-  %or.cond.i.i = select i1 %.173.in.i.i, i1 true, i1 %105
+  %or.cond.i.i = select i1 %.174.in.i.i, i1 true, i1 %105
   br i1 %or.cond.i.i, label %54, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %103, %62, %.preheader.i.i

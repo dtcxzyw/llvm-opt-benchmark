@@ -627,7 +627,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
 
 .lr.ph:                                           ; preds = %0, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %0 ]
-  %.01216 = phi ptr [ %.2, %11 ], [ null, %0 ]
+  %.017 = phi ptr [ %.2, %11 ], [ null, %0 ]
   %2 = load ptr, ptr @uat_pkcs11_libs, align 8
   %3 = getelementptr %struct.pkcs11_lib_record_t, ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
@@ -636,7 +636,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   br i1 %.not14, label %11, label %6
 
 6:                                                ; preds = %.lr.ph
-  %.not15 = icmp eq ptr %.01216, null
+  %.not15 = icmp eq ptr %.017, null
   br i1 %.not15, label %7, label %9
 
 7:                                                ; preds = %6
@@ -644,13 +644,13 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   br label %9
 
 9:                                                ; preds = %7, %6
-  %.1 = phi ptr [ %.01216, %6 ], [ %8, %7 ]
+  %.1 = phi ptr [ %.017, %6 ], [ %8, %7 ]
   %10 = tail call ptr @gnutls_strerror(i32 noundef %5) #15
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %.1, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %10) #14
   br label %11
 
 11:                                               ; preds = %.lr.ph, %9
-  %.2 = phi ptr [ %.1, %9 ], [ %.01216, %.lr.ph ]
+  %.2 = phi ptr [ %.1, %9 ], [ %.017, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr @uat_num_pkcs11_libs, align 4
   %13 = zext i32 %12 to i64
@@ -787,7 +787,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 
 .lr.ph:                                           ; preds = %0, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %0 ]
-  %.01418 = phi ptr [ %.2, %115 ], [ null, %0 ]
+  %.019 = phi ptr [ %.2, %115 ], [ null, %0 ]
   %12 = load ptr, ptr @uat_rsa_privkeys, align 8
   %13 = getelementptr %struct.rsa_privkey_record_t, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
@@ -970,7 +970,7 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
   br i1 %.not16, label %115, label %94
 
 94:                                               ; preds = %92
-  %.not17 = icmp eq ptr %.01418, null
+  %.not17 = icmp eq ptr %.019, null
   br i1 %.not17, label %95, label %97
 
 95:                                               ; preds = %94
@@ -978,7 +978,7 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
   br label %97
 
 97:                                               ; preds = %95, %94
-  %.1 = phi ptr [ %.01418, %94 ], [ %96, %95 ]
+  %.1 = phi ptr [ %.019, %94 ], [ %96, %95 ]
   %98 = getelementptr inbounds i8, ptr %.1, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 1
@@ -1011,7 +1011,7 @@ g_string_append_c_inline.exit:                    ; preds = %104, %110
   br label %115
 
 115:                                              ; preds = %92, %g_string_append_c_inline.exit
-  %.2 = phi ptr [ %.1, %g_string_append_c_inline.exit ], [ %.01418, %92 ]
+  %.2 = phi ptr [ %.1, %g_string_append_c_inline.exit ], [ %.019, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr @uat_num_rsa_privkeys, align 4
   %117 = zext i32 %116 to i64

@@ -1522,13 +1522,13 @@ define noundef zeroext i1 @_ZN5Ipopt16MonotoneMuUpdate22UpdateBarrierParameterEv
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.thread53
-  %.02570 = phi i1 [ %29, %.lr.ph ], [ false, %.thread53 ]
-  %.02669 = phi i8 [ 0, %.lr.ph ], [ %.12762, %.thread53 ]
-  %.02868 = phi double [ %25, %.lr.ph ], [ %.12961, %.thread53 ]
-  %.03067 = phi double [ %17, %.lr.ph ], [ %.13160, %.thread53 ]
-  %.03266 = phi double [ %11, %.lr.ph ], [ %.sroa.speculated.i13.i, %.thread53 ]
-  %.03365 = phi double [ %9, %.lr.ph ], [ %.sroa.speculated.i12.i, %.thread53 ]
-  %42 = trunc nuw i8 %.02669 to i1
+  %.02570 = phi double [ %9, %.lr.ph ], [ %.sroa.speculated.i12.i, %.thread53 ]
+  %.02669 = phi i1 [ %29, %.lr.ph ], [ false, %.thread53 ]
+  %.02768 = phi i8 [ 0, %.lr.ph ], [ %.12862, %.thread53 ]
+  %.02967 = phi double [ %25, %.lr.ph ], [ %.13061, %.thread53 ]
+  %.03166 = phi double [ %17, %.lr.ph ], [ %.13260, %.thread53 ]
+  %.03365 = phi double [ %11, %.lr.ph ], [ %.sroa.speculated.i13.i, %.thread53 ]
+  %42 = trunc nuw i8 %.02768 to i1
   br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %41
@@ -1541,12 +1541,12 @@ define noundef zeroext i1 @_ZN5Ipopt16MonotoneMuUpdate22UpdateBarrierParameterEv
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %50(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.26, double noundef %.02868)
+  tail call void (ptr, i32, i32, ptr, ...) %50(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.26, double noundef %.02967)
   %51 = load ptr, ptr %18, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull align 8 dereferenceable(40) %51, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.27, double noundef %.03365, double noundef %.03266)
+  tail call void (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull align 8 dereferenceable(40) %51, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.27, double noundef %.02570, double noundef %.03365)
   %55 = load ptr, ptr %6, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 72
   %57 = load double, ptr %56, align 8
@@ -1635,8 +1635,8 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   tail call void (ptr, i32, i32, ptr, ...) %109(ptr noundef nonnull align 8 dereferenceable(40) %106, i32 noundef 6, i32 noundef 4, ptr noundef nonnull @.str.28, double noundef %.sroa.speculated.i12.i, double noundef %.sroa.speculated.i13.i)
-  %110 = fcmp oeq double %.03365, %.sroa.speculated.i12.i
-  %brmerge36.not = and i1 %.02570, %110
+  %110 = fcmp oeq double %.02570, %.sroa.speculated.i12.i
+  %brmerge36.not = and i1 %.02669, %110
   br i1 %brmerge36.not, label %111, label %123
 
 111:                                              ; preds = %_ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit
@@ -1727,10 +1727,10 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
   br label %146
 
 146:                                              ; preds = %132, %136
-  %.131 = phi double [ %141, %136 ], [ %.03067, %132 ]
-  %.129 = phi double [ %143, %136 ], [ %.02868, %132 ]
-  %.127 = phi i8 [ %145, %136 ], [ 1, %132 ]
-  %147 = trunc nuw i8 %.127 to i1
+  %.132 = phi double [ %141, %136 ], [ %.03166, %132 ]
+  %.130 = phi double [ %143, %136 ], [ %.02967, %132 ]
+  %.128 = phi i8 [ %145, %136 ], [ 1, %132 ]
+  %147 = trunc nuw i8 %.128 to i1
   %.not37 = xor i1 %147, true
   %brmerge39 = or i1 %110, %.not37
   br i1 %brmerge39, label %.thread53, label %148
@@ -1744,10 +1744,10 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
   br label %.thread53
 
 .thread53:                                        ; preds = %135, %146, %148
-  %.12762 = phi i8 [ %.127, %146 ], [ %.127, %148 ], [ 1, %135 ]
-  %.12961 = phi double [ %.129, %146 ], [ %.129, %148 ], [ %.02868, %135 ]
-  %.13160 = phi double [ %.131, %146 ], [ %.131, %148 ], [ %.03067, %135 ]
-  %153 = fcmp ugt double %.13160, %.12961
+  %.12862 = phi i8 [ %.128, %146 ], [ %.128, %148 ], [ 1, %135 ]
+  %.13061 = phi double [ %.130, %146 ], [ %.130, %148 ], [ %.02967, %135 ]
+  %.13260 = phi double [ %.132, %146 ], [ %.132, %148 ], [ %.03166, %135 ]
+  %153 = fcmp ugt double %.13260, %.13061
   br i1 %153, label %.critedge, label %41, !llvm.loop !7
 
 .critedge:                                        ; preds = %43, %41, %.thread53, %1

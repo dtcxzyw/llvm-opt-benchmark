@@ -1525,7 +1525,7 @@ define i32 @Aig_ManCiCleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
 9:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %10 = phi ptr [ %4, %.lr.ph ], [ %31, %28 ]
-  %.047 = phi i32 [ 0, %.lr.ph ], [ %.1, %28 ]
+  %.02746 = phi i32 [ 0, %.lr.ph ], [ %.1, %28 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val31 = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv
@@ -1538,7 +1538,7 @@ define i32 @Aig_ManCiCleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
   br i1 %.not28, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = add nsw i32 %.047, 1
+  %17 = add nsw i32 %.02746, 1
   br label %28
 
 18:                                               ; preds = %9
@@ -1549,7 +1549,7 @@ define i32 @Aig_ManCiCleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
   br i1 %.not29, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = add nsw i32 %.047, 1
+  %22 = add nsw i32 %.02746, 1
   br label %28
 
 23:                                               ; preds = %18
@@ -1561,11 +1561,11 @@ define i32 @Aig_ManCiCleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
   br label %28
 
 28:                                               ; preds = %16, %23, %21
-  %.047.sink = phi i32 [ %.047, %16 ], [ %26, %23 ], [ %.047, %21 ]
+  %.02746.sink = phi i32 [ %.02746, %16 ], [ %26, %23 ], [ %.02746, %21 ]
   %.val31.sink = phi ptr [ %.val31, %16 ], [ %.val42, %23 ], [ %.val31, %21 ]
   %.sink = phi ptr [ %13, %16 ], [ null, %23 ], [ %13, %21 ]
-  %.1 = phi i32 [ %17, %16 ], [ %.047, %23 ], [ %22, %21 ]
-  %29 = sext i32 %.047.sink to i64
+  %.1 = phi i32 [ %17, %16 ], [ %.02746, %23 ], [ %22, %21 ]
+  %29 = sext i32 %.02746.sink to i64
   %30 = getelementptr inbounds ptr, ptr %.val31.sink, i64 %29
   store ptr %.sink, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1578,9 +1578,9 @@ define i32 @Aig_ManCiCleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
 
 .critedge:                                        ; preds = %28, %1
   %.lcssa44 = phi ptr [ %4, %1 ], [ %31, %28 ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %28 ]
+  %.027.lcssa = phi i32 [ 0, %1 ], [ %.1, %28 ]
   %35 = getelementptr i8, ptr %.lcssa44, i64 4
-  store i32 %.0.lcssa, ptr %35, align 4
+  store i32 %.027.lcssa, ptr %35, align 4
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr i8, ptr %36, i64 4
   %.val = load i32, ptr %37, align 4
@@ -1620,7 +1620,7 @@ define i32 @Aig_ManCoCleanup(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %10 = phi ptr [ %4, %.lr.ph ], [ %37, %34 ]
-  %.054 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
+  %.03053 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val35 = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv
@@ -1633,7 +1633,7 @@ define i32 @Aig_ManCoCleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not31, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = add nsw i32 %.054, 1
+  %17 = add nsw i32 %.03053, 1
   br label %34
 
 18:                                               ; preds = %9
@@ -1652,7 +1652,7 @@ define i32 @Aig_ManCoCleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %27, label %29
 
 27:                                               ; preds = %18
-  %28 = add nsw i32 %.054, 1
+  %28 = add nsw i32 %.03053, 1
   br label %34
 
 29:                                               ; preds = %18
@@ -1665,11 +1665,11 @@ define i32 @Aig_ManCoCleanup(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %16, %29, %27
-  %.054.sink = phi i32 [ %.054, %16 ], [ %32, %29 ], [ %.054, %27 ]
+  %.03053.sink = phi i32 [ %.03053, %16 ], [ %32, %29 ], [ %.03053, %27 ]
   %.val35.sink = phi ptr [ %.val35, %16 ], [ %.val45, %29 ], [ %.val35, %27 ]
   %.sink = phi ptr [ %13, %16 ], [ null, %29 ], [ %13, %27 ]
-  %.1 = phi i32 [ %17, %16 ], [ %.054, %29 ], [ %28, %27 ]
-  %35 = sext i32 %.054.sink to i64
+  %.1 = phi i32 [ %17, %16 ], [ %.03053, %29 ], [ %28, %27 ]
+  %35 = sext i32 %.03053.sink to i64
   %36 = getelementptr inbounds ptr, ptr %.val35.sink, i64 %35
   store ptr %.sink, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1682,9 +1682,9 @@ define i32 @Aig_ManCoCleanup(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %34, %1
   %.lcssa51 = phi ptr [ %4, %1 ], [ %37, %34 ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %34 ]
+  %.030.lcssa = phi i32 [ 0, %1 ], [ %.1, %34 ]
   %41 = getelementptr i8, ptr %.lcssa51, i64 4
-  store i32 %.0.lcssa, ptr %41, align 4
+  store i32 %.030.lcssa, ptr %41, align 4
   %42 = load ptr, ptr %3, align 8
   %43 = getelementptr i8, ptr %42, i64 4
   %.val = load i32, ptr %43, align 4

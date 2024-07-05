@@ -201,8 +201,8 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   br i1 %exitcond.not, label %.critedge, label %100, !llvm.loop !8
 
 .critedge:                                        ; preds = %100, %107, %69, %76, %37, %25, %2, %15
-  %.049 = phi i32 [ %24, %15 ], [ 0, %2 ], [ -1, %25 ], [ -1, %37 ], [ %.075, %69 ], [ %82, %76 ], [ %.171, %100 ], [ %113, %107 ]
-  ret i32 %.049
+  %.047 = phi i32 [ %24, %15 ], [ 0, %2 ], [ -1, %25 ], [ -1, %37 ], [ %.075, %69 ], [ %82, %76 ], [ %.171, %100 ], [ %113, %107 ]
+  ret i32 %.047
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1805,8 +1805,8 @@ If_LogCreateAndXorMulti.exit166:                  ; preds = %.lr.ph.i162, %.crit
   br label %436
 
 436:                                              ; preds = %If_LogCreateAndXorMulti.exit166, %432, %7
-  %.058 = phi i32 [ -1, %7 ], [ %.052.lcssa263, %432 ], [ %.052.lcssa262268, %If_LogCreateAndXorMulti.exit166 ]
-  ret i32 %.058
+  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa263, %432 ], [ %.052.lcssa262268, %If_LogCreateAndXorMulti.exit166 ]
+  ret i32 %.056
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2557,8 +2557,8 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 38:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.05278 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
-  %.05377 = phi i32 [ -1, %.lr.ph ], [ %.154, %59 ]
+  %.05377 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
+  %.05476 = phi i32 [ -1, %.lr.ph ], [ %.155, %59 ]
   %39 = phi i32 [ 0, %.lr.ph ], [ %60, %59 ]
   %40 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
@@ -2568,7 +2568,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   %45 = getelementptr inbounds i8, ptr %44, i64 92
   %46 = load float, ptr %45, align 4
   %47 = fptosi float %46 to i32
-  %48 = icmp slt i32 %.05377, %47
+  %48 = icmp slt i32 %.05476, %47
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %38
@@ -2577,11 +2577,11 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   br label %59
 
 52:                                               ; preds = %38
-  %53 = icmp eq i32 %.05377, %47
+  %53 = icmp eq i32 %.05476, %47
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52
-  %55 = add nsw i32 %.05278, 1
+  %55 = add nsw i32 %.05377, 1
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = shl nuw i32 1, %56
   %58 = or i32 %39, %57
@@ -2589,8 +2589,8 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 59:                                               ; preds = %49, %54, %52
   %60 = phi i32 [ %51, %49 ], [ %58, %54 ], [ %39, %52 ]
-  %.154 = phi i32 [ %47, %49 ], [ %.05377, %54 ], [ %.05377, %52 ]
-  %.1 = phi i32 [ 1, %49 ], [ %55, %54 ], [ %.05278, %52 ]
+  %.155 = phi i32 [ %47, %49 ], [ %.05476, %54 ], [ %.05476, %52 ]
+  %.1 = phi i32 [ 1, %49 ], [ %55, %54 ], [ %.05377, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !28
@@ -2608,7 +2608,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   %65 = shl nuw nsw i64 %64, 32
   %66 = or disjoint i64 %65, %14
   store i64 %66, ptr %8, align 4
-  %67 = add nsw i32 %.154, 1
+  %67 = add nsw i32 %.155, 1
   br label %151
 
 68:                                               ; preds = %._crit_edge
@@ -2618,7 +2618,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
 
 69:                                               ; preds = %68
   %.not64 = icmp eq i32 %3, 0
-  %70 = add nsw i32 %.154, 2
+  %70 = add nsw i32 %.155, 2
   %71 = uitofp nneg i32 %70 to float
   br i1 %.not64, label %76, label %72
 
@@ -2638,7 +2638,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   br label %83
 
 83:                                               ; preds = %72, %76
-  %.051.shrunk = phi i1 [ %75, %72 ], [ %82, %76 ]
+  %.052.shrunk = phi i1 [ %75, %72 ], [ %82, %76 ]
   %84 = icmp eq i32 %.1, %33
   br i1 %84, label %86, label %89
 
@@ -2647,7 +2647,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   br i1 %85, label %.thread71, label %89
 
 86:                                               ; preds = %83
-  br i1 %.051.shrunk, label %87, label %.thread71
+  br i1 %.052.shrunk, label %87, label %.thread71
 
 87:                                               ; preds = %86
   %88 = or disjoint i64 %12, 12287
@@ -2659,7 +2659,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
   br label %89
 
 89:                                               ; preds = %.thread, %.thread71, %83
-  %.051.shrunk70 = phi i1 [ false, %.thread ], [ false, %.thread71 ], [ %.051.shrunk, %83 ]
+  %.052.shrunk70 = phi i1 [ false, %.thread ], [ false, %.thread71 ], [ %.052.shrunk, %83 ]
   %90 = getelementptr inbounds i8, ptr %0, i64 152
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -2741,7 +2741,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %128 = load i64, ptr %8, align 4
   %129 = trunc i64 %128 to i32
   %130 = lshr i32 %129, 24
-  %131 = xor i1 %.051.shrunk70, true
+  %131 = xor i1 %.052.shrunk70, true
   %132 = zext i1 %131 to i32
   %133 = call i32 @acd_evaluate(ptr noundef %127, i32 noundef %130, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %132) #14
   %134 = load i32, ptr %6, align 4
@@ -2766,7 +2766,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %148 = and i64 %140, -4096
   %149 = or disjoint i64 %148, %147
   store i64 %149, ptr %8, align 4
-  %150 = add nsw i32 %133, %.154
+  %150 = add nsw i32 %133, %.155
   br label %151
 
 151:                                              ; preds = %5, %144, %142, %87, %61, %19

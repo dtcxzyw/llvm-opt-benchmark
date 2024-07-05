@@ -3583,17 +3583,17 @@ define void @If_ManSetupSetAll(ptr nocapture noundef %0, i32 noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %.lr.ph, %56
-  %.027 = phi i32 [ 0, %.lr.ph ], [ %58, %56 ]
-  %.02326 = phi ptr [ %8, %.lr.ph ], [ %.sink, %56 ]
-  %16 = getelementptr inbounds i8, ptr %.02326, i64 2
+  %.027 = phi ptr [ %8, %.lr.ph ], [ %.sink, %56 ]
+  %.02326 = phi i32 [ 0, %.lr.ph ], [ %58, %56 ]
+  %16 = getelementptr inbounds i8, ptr %.027, i64 2
   store i16 0, ptr %16, align 2
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i16
-  store i16 %20, ptr %.02326, align 8
-  %21 = getelementptr inbounds i8, ptr %.02326, i64 24
-  %22 = getelementptr inbounds i8, ptr %.02326, i64 16
+  store i16 %20, ptr %.027, align 8
+  %21 = getelementptr inbounds i8, ptr %.027, i64 24
+  %22 = getelementptr inbounds i8, ptr %.027, i64 16
   store ptr %21, ptr %22, align 8
   %sext.i = shl i32 %19, 16
   %23 = ashr exact i32 %sext.i, 16
@@ -3631,26 +3631,26 @@ define void @If_ManSetupSetAll(ptr nocapture noundef %0, i32 noundef %1) local_u
   %48 = or disjoint i64 %47, %46
   store i64 %48, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %49 = load i16, ptr %.02326, align 8
+  %49 = load i16, ptr %.027, align 8
   %50 = sext i16 %49 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i, %50
   br i1 %.not.not.i, label %.lr.ph.i, label %If_ManSetupSet.exit, !llvm.loop !38
 
 If_ManSetupSet.exit:                              ; preds = %.lr.ph.i, %15
-  %51 = icmp eq i32 %.027, %14
+  %51 = icmp eq i32 %.02326, %14
   br i1 %51, label %56, label %52
 
 52:                                               ; preds = %If_ManSetupSet.exit
   %53 = load i32, ptr %4, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %.02326, i64 %54
+  %55 = getelementptr inbounds i8, ptr %.027, i64 %54
   br label %56
 
 56:                                               ; preds = %If_ManSetupSet.exit, %52
   %.sink = phi ptr [ %55, %52 ], [ null, %If_ManSetupSet.exit ]
-  %57 = getelementptr inbounds i8, ptr %.02326, i64 8
+  %57 = getelementptr inbounds i8, ptr %.027, i64 8
   store ptr %.sink, ptr %57, align 8
-  %58 = add nuw nsw i32 %.027, 1
+  %58 = add nuw nsw i32 %.02326, 1
   %exitcond.not = icmp eq i32 %58, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !42
 

@@ -2660,7 +2660,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
   br label %59
 
 59:                                               ; preds = %.lr.ph250, %_ZN7QStringD2Ev.exit102
-  %.032249 = phi ptr [ %46, %.lr.ph250 ], [ %141, %_ZN7QStringD2Ev.exit102 ]
+  %.019249 = phi ptr [ %46, %.lr.ph250 ], [ %141, %_ZN7QStringD2Ev.exit102 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, i64 4, ptr nonnull @.str.5)
           to label %60 unwind label %.loopexit234
@@ -2671,7 +2671,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
   %62 = load i64, ptr %50, align 16
   store i64 %62, ptr %49, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %63 = load ptr, ptr %.032249, align 8
+  %63 = load ptr, ptr %.019249, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %.not.i.i48 = icmp eq ptr %63, null
   br i1 %.not.i.i48, label %_ZN7QStringD2Ev.exit.i, label %.split.i.i49
@@ -2965,7 +2965,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100:   ; preds = %_ZN5QListI7QStringE
   br label %_ZN7QStringD2Ev.exit102
 
 _ZN7QStringD2Ev.exit102:                          ; preds = %_ZN5QListI7QStringElsERKS0_.exit98, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100, %138
-  %140 = getelementptr inbounds i8, ptr %.032249, i64 8
+  %140 = getelementptr inbounds i8, ptr %.019249, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not = icmp eq ptr %141, null
   br i1 %.not, label %._crit_edge, label %59, !llvm.loop !33
@@ -11660,15 +11660,15 @@ define linkonce_odr void @_ZN5QListIS_I7QStringEEC2IN5QHashIS0_S1_E14const_itera
 
 .lr.ph.i.i:                                       ; preds = %5, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i
   %.08.i.i = phi i64 [ %25, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i ], [ 0, %5 ]
-  %.sroa.4.07.i.i = phi i64 [ %.sroa.4.1.i.i, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i ], [ %2, %5 ]
-  %.sroa.02.06.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i ], [ %1, %5 ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 16
-  %12 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 32
+  %.sroa.02.07.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i ], [ %1, %5 ]
+  %.sroa.4.06.i.i = phi i64 [ %.sroa.4.1.i.i, %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i ], [ %2, %5 ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.02.07.i.i, i64 16
+  %12 = getelementptr inbounds i8, ptr %.sroa.02.07.i.i, i64 32
   %13 = load i64, ptr %11, align 8
   br label %14
 
 14:                                               ; preds = %18, %.lr.ph.i.i
-  %15 = phi i64 [ %16, %18 ], [ %.sroa.4.07.i.i, %.lr.ph.i.i ]
+  %15 = phi i64 [ %16, %18 ], [ %.sroa.4.06.i.i, %.lr.ph.i.i ]
   %16 = add i64 %15, 1
   %17 = icmp eq i64 %16, %13
   br i1 %17, label %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i, label %18
@@ -11684,8 +11684,8 @@ define linkonce_odr void @_ZN5QListIS_I7QStringEEC2IN5QHashIS0_S1_E14const_itera
   br i1 %.not.i.i.i.i.i, label %14, label %_ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i, !llvm.loop !19
 
 _ZN5QHashI7QString5QListIS0_EE14const_iteratorppEv.exit.i.i: ; preds = %18, %14
-  %.sroa.02.1.i.i = phi ptr [ %.sroa.02.06.i.i, %18 ], [ null, %14 ]
   %.sroa.4.1.i.i = phi i64 [ %16, %18 ], [ 0, %14 ]
+  %.sroa.02.1.i.i = phi ptr [ %.sroa.02.07.i.i, %18 ], [ null, %14 ]
   %25 = add i64 %.08.i.i, 1
   %26 = icmp ne ptr %.sroa.02.1.i.i, %3
   %27 = icmp ne i64 %.sroa.4.1.i.i, %4
@@ -13135,16 +13135,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %156
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %157, %156 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %157, %156 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span.50", ptr %50, i64 %.02333
+  %51 = getelementptr %"struct.QHashPrivate::Span.50", ptr %50, i64 %.033
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02333, 7
+  %53 = shl nuw i64 %.033, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit
-  %.031 = phi i64 [ 0, %49 ], [ %155, %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
+  %.02331 = phi i64 [ 0, %49 ], [ %155, %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit, label %57
@@ -13207,7 +13207,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !76
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.031, %53
+  %100 = add nuw nsw i64 %.02331, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEE4findERKS2_.exit
 
@@ -13321,12 +13321,12 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %142, %_ZN12QHashPri
   br label %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit
 
 _ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit: ; preds = %153, %_ZN7QStringC2ERKS_.exit.i, %54
-  %155 = add nuw nsw i64 %.031, 1
+  %155 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %155, 128
   br i1 %exitcond.not, label %156, label %54, !llvm.loop !82
 
 156:                                              ; preds = %_ZN12QHashPrivate4NodeI7QString5QListIS1_EEC2ERKS4_.exit
-  %157 = add nuw nsw i64 %.02333, 1
+  %157 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %157, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !83
 
@@ -13416,14 +13416,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %136
-  %.02331 = phi i64 [ 0, %.lr.ph ], [ %137, %136 ]
-  %41 = getelementptr %"struct.QHashPrivate::Span.50", ptr %15, i64 %.02331
+  %.02231 = phi i64 [ 0, %.lr.ph ], [ %137, %136 ]
+  %41 = getelementptr %"struct.QHashPrivate::Span.50", ptr %15, i64 %.02231
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %134
-  %.02230 = phi i64 [ 0, %40 ], [ %135, %134 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02230
+  %.02330 = phi i64 [ 0, %40 ], [ %135, %134 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02330
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %134, label %46
@@ -13587,13 +13587,13 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString5QListIS2_EEEE6insertEm.exit: ; preds = 
   br label %134
 
 134:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QString5QListIS2_EEEE6insertEm.exit
-  %135 = add nuw nsw i64 %.02230, 1
+  %135 = add nuw nsw i64 %.02330, 1
   %exitcond.not = icmp eq i64 %135, 128
   br i1 %exitcond.not, label %136, label %43, !llvm.loop !84
 
 136:                                              ; preds = %134
   tail call void @_ZN12QHashPrivate4SpanINS_4NodeI7QString5QListIS2_EEEE8freeDataEv(ptr noundef nonnull align 8 dereferenceable(138) %41) #18
-  %137 = add nuw nsw i64 %.02331, 1
+  %137 = add nuw nsw i64 %.02231, 1
   %exitcond33.not = icmp eq i64 %137, %38
   br i1 %exitcond33.not, label %._crit_edge, label %40, !llvm.loop !85
 
@@ -14142,16 +14142,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %149
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02333, 7
+  %53 = shl nuw i64 %.033, 7
   br label %54
 
 54:                                               ; preds = %49, %147
-  %.031 = phi i64 [ 0, %49 ], [ %148, %147 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
+  %.02331 = phi i64 [ 0, %49 ], [ %148, %147 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %147, label %57
@@ -14214,7 +14214,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringiEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !80
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.031, %53
+  %100 = add nuw nsw i64 %.02331, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringiEEE4findERKS2_.exit
 
@@ -14315,12 +14315,12 @@ _ZN12QHashPrivate4NodeI7QStringiEC2ERKS2_.exit:   ; preds = %_ZN12QHashPrivate4S
   br label %147
 
 147:                                              ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringiEC2ERKS2_.exit
-  %148 = add nuw nsw i64 %.031, 1
+  %148 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %148, 128
   br i1 %exitcond.not, label %149, label %54, !llvm.loop !87
 
 149:                                              ; preds = %147
-  %150 = add nuw nsw i64 %.02333, 1
+  %150 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %150, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !88
 
@@ -14398,14 +14398,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE8freeDataEv.exit
-  %.02334 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02334
+  %.02234 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02234
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %128
-  %.02233 = phi i64 [ 0, %40 ], [ %129, %128 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02233
+  %.02333 = phi i64 [ 0, %40 ], [ %129, %128 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02333
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %128, label %46
@@ -14560,7 +14560,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE6insertEm.exit: ; preds = %._crit_ed
   br label %128
 
 128:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE6insertEm.exit
-  %129 = add nuw nsw i64 %.02233, 1
+  %129 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %129, 128
   br i1 %exitcond.not, label %130, label %43, !llvm.loop !89
 
@@ -14612,7 +14612,7 @@ _ZN12QHashPrivate4NodeI7QStringiED2Ev.exit.i:     ; preds = %139, %_ZN17QArrayDa
   br label %_ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE8freeDataEv.exit: ; preds = %130, %146
-  %147 = add nuw nsw i64 %.02334, 1
+  %147 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %147, %38
   br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !90
 

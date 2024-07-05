@@ -129,7 +129,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   br label %.thread54
 
 .thread54:                                        ; preds = %21, %.thread54.loopexit.split.loop.exit, %.lr.ph, %.lr.ph124
-  %.04057 = phi ptr [ null, %.lr.ph124 ], [ null, %.lr.ph ], [ %29, %.thread54.loopexit.split.loop.exit ], [ null, %21 ]
+  %.04157 = phi ptr [ null, %.lr.ph124 ], [ null, %.lr.ph ], [ %29, %.thread54.loopexit.split.loop.exit ], [ null, %21 ]
   %30 = getelementptr inbounds i8, ptr %12, i64 32
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %58 [
@@ -140,7 +140,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   ]
 
 32:                                               ; preds = %.thread54
-  %.not50 = icmp eq ptr %.04057, null
+  %.not50 = icmp eq ptr %.04157, null
   br i1 %.not50, label %33, label %39
 
 33:                                               ; preds = %32
@@ -154,11 +154,11 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   unreachable
 
 39:                                               ; preds = %32
-  %40 = tail call ptr @list_delete_cell(ptr noundef %.03984123, ptr noundef nonnull %.04057) #8
+  %40 = tail call ptr @list_delete_cell(ptr noundef %.03984123, ptr noundef nonnull %.04157) #8
   br label %65
 
 41:                                               ; preds = %.thread54
-  %.not49 = icmp eq ptr %.04057, null
+  %.not49 = icmp eq ptr %.04157, null
   br i1 %.not49, label %42, label %48
 
 42:                                               ; preds = %41
@@ -172,11 +172,11 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   unreachable
 
 48:                                               ; preds = %41
-  store ptr %12, ptr %.04057, align 8
+  store ptr %12, ptr %.04157, align 8
   br label %65
 
 49:                                               ; preds = %.thread54, %.thread54
-  %.not48 = icmp eq ptr %.04057, null
+  %.not48 = icmp eq ptr %.04157, null
   br i1 %.not48, label %56, label %50
 
 50:                                               ; preds = %49
@@ -1667,11 +1667,11 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
   br label %15
 
 15:                                               ; preds = %1, %12
-  %.034 = phi i32 [ %14, %12 ], [ 0, %1 ]
+  %.0 = phi i32 [ %14, %12 ], [ 0, %1 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @GetForeignServerByName(ptr noundef %17, i1 noundef zeroext false) #8
-  %19 = zext i32 %.034 to i64
+  %19 = zext i32 %.0 to i64
   %20 = load i32, ptr %18, align 8
   %21 = zext i32 %20 to i64
   %22 = tail call i32 @GetSysCacheOid(i32 noundef 82, i16 noundef signext 1, i64 noundef %19, i64 noundef %21, i64 noundef 0, i64 noundef 0) #8
@@ -1682,11 +1682,11 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %.not37 = icmp eq i32 %.034, 0
+  %.not37 = icmp eq i32 %.0, 0
   br i1 %.not37, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @GetUserNameFromId(i32 noundef %.034, i1 noundef zeroext false) #8
+  %27 = tail call ptr @GetUserNameFromId(i32 noundef %.0, i1 noundef zeroext false) #8
   br label %28
 
 28:                                               ; preds = %23, %26
@@ -1704,11 +1704,11 @@ define dso_local { i64, i32 } @AlterUserMapping(ptr nocapture noundef readonly %
   br i1 %36, label %user_mapping_ddl_aclcheck.exit, label %37
 
 37:                                               ; preds = %32
-  %38 = icmp eq i32 %35, %.034
+  %38 = icmp eq i32 %35, %.0
   br i1 %38, label %39, label %.sink.split.i
 
 39:                                               ; preds = %37
-  %40 = tail call i32 @object_aclcheck(i32 noundef 1417, i32 noundef %33, i32 noundef %.034, i64 noundef 256) #8
+  %40 = tail call i32 @object_aclcheck(i32 noundef 1417, i32 noundef %33, i32 noundef %.0, i64 noundef 256) #8
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %user_mapping_ddl_aclcheck.exit, label %.sink.split.i
 
@@ -1823,7 +1823,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br label %76
 
 19:                                               ; preds = %1, %8
-  %.0 = phi i32 [ %12, %8 ], [ 0, %1 ]
+  %.026 = phi i32 [ %12, %8 ], [ 0, %1 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @GetForeignServerByName(ptr noundef %21, i1 noundef zeroext true) #8
@@ -1856,7 +1856,7 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br label %76
 
 37:                                               ; preds = %19
-  %38 = zext i32 %.0 to i64
+  %38 = zext i32 %.026 to i64
   %39 = load i32, ptr %22, align 8
   %40 = zext i32 %39 to i64
   %41 = tail call i32 @GetSysCacheOid(i32 noundef 82, i16 noundef signext 1, i64 noundef %38, i64 noundef %40, i64 noundef 0, i64 noundef 0) #8
@@ -1873,11 +1873,11 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %47)
   %48 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %.not32 = icmp eq i32 %.0, 0
+  %.not32 = icmp eq i32 %.026, 0
   br i1 %.not32, label %51, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call ptr @GetUserNameFromId(i32 noundef %.0, i1 noundef zeroext false) #8
+  %50 = tail call ptr @GetUserNameFromId(i32 noundef %.026, i1 noundef zeroext false) #8
   br label %51
 
 51:                                               ; preds = %46, %49
@@ -1892,11 +1892,11 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br i1 %56, label %57, label %76
 
 57:                                               ; preds = %55
-  %.not33 = icmp eq i32 %.0, 0
+  %.not33 = icmp eq i32 %.026, 0
   br i1 %.not33, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call ptr @GetUserNameFromId(i32 noundef %.0, i1 noundef zeroext false) #8
+  %59 = tail call ptr @GetUserNameFromId(i32 noundef %.026, i1 noundef zeroext false) #8
   br label %60
 
 60:                                               ; preds = %57, %58
@@ -1915,11 +1915,11 @@ define dso_local i32 @RemoveUserMapping(ptr nocapture noundef readonly %0) local
   br i1 %69, label %user_mapping_ddl_aclcheck.exit, label %70
 
 70:                                               ; preds = %64
-  %71 = icmp eq i32 %68, %.0
+  %71 = icmp eq i32 %68, %.026
   br i1 %71, label %72, label %.sink.split.i
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @object_aclcheck(i32 noundef 1417, i32 noundef %65, i32 noundef %.0, i64 noundef 256) #8
+  %73 = tail call i32 @object_aclcheck(i32 noundef 1417, i32 noundef %65, i32 noundef %.026, i64 noundef 256) #8
   %.not.i = icmp eq i32 %73, 0
   br i1 %.not.i, label %user_mapping_ddl_aclcheck.exit, label %.sink.split.i
 
@@ -1938,8 +1938,8 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %64, %72, %.sink.spl
   br label %76
 
 76:                                               ; preds = %60, %55, %34, %32, %15, %13, %user_mapping_ddl_aclcheck.exit
-  %.026 = phi i32 [ %41, %user_mapping_ddl_aclcheck.exit ], [ 0, %13 ], [ 0, %15 ], [ 0, %32 ], [ 0, %34 ], [ 0, %55 ], [ 0, %60 ]
-  ret i32 %.026
+  %.0 = phi i32 [ %41, %user_mapping_ddl_aclcheck.exit ], [ 0, %13 ], [ 0, %15 ], [ 0, %32 ], [ 0, %34 ], [ 0, %55 ], [ 0, %60 ]
+  ret i32 %.0
 }
 
 declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

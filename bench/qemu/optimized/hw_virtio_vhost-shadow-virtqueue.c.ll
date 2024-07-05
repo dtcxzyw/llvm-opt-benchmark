@@ -1091,10 +1091,10 @@ for.cond.preheader:                               ; preds = %vhost_svq_translate
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
   %conv1434.us = phi i64 [ %conv14.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %n.033.us = phi i32 [ %add.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %i.032.us = phi i16 [ %21, %for.body.us ], [ %0, %for.cond.preheader ]
-  %add.us = add i32 %n.033.us, 1
-  %idxprom.us = zext i16 %i.032.us to i64
+  %i.033.us = phi i16 [ %21, %for.body.us ], [ %0, %for.cond.preheader ]
+  %n.032.us = phi i32 [ %add.us, %for.body.us ], [ 0, %for.cond.preheader ]
+  %add.us = add i32 %n.032.us, 1
+  %idxprom.us = zext i16 %i.033.us to i64
   %arrayidx.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us
   %flags27.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 12
   store i16 %or29, ptr %flags27.us, align 4
@@ -1120,12 +1120,12 @@ for.body.us:                                      ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end36
   %conv1434 = phi i64 [ %conv19, %if.end36 ], [ 0, %for.cond.preheader ]
-  %n.033 = phi i32 [ %add, %if.end36 ], [ 0, %for.cond.preheader ]
-  %i.032 = phi i16 [ %27, %if.end36 ], [ %0, %for.cond.preheader ]
-  %add = add i32 %n.033, 1
+  %i.033 = phi i16 [ %27, %if.end36 ], [ %0, %for.cond.preheader ]
+  %n.032 = phi i32 [ %add, %if.end36 ], [ 0, %for.cond.preheader ]
+  %add = add i32 %n.032, 1
   %conv19 = zext i32 %add to i64
   %cmp20 = icmp ult i64 %conv19, %num
-  %idxprom = zext i16 %i.032 to i64
+  %idxprom = zext i16 %i.033 to i64
   br i1 %cmp20, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body

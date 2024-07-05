@@ -443,38 +443,38 @@ define hidden void @recent_add_cfilter(ptr noundef %0, ptr noundef %1) local_unn
   br label %17
 
 17:                                               ; preds = %14, %7
-  %.021 = phi ptr [ %8, %7 ], [ %16, %14 ]
-  %18 = tail call ptr @g_list_first(ptr noundef %.021) #13
+  %.020 = phi ptr [ %8, %7 ], [ %16, %14 ]
+  %18 = tail call ptr @g_list_first(ptr noundef %.020) #13
   %.not29 = icmp eq ptr %18, null
   br i1 %.not29, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %22
-  %.02030 = phi ptr [ %24, %22 ], [ %18, %17 ]
-  %19 = load ptr, ptr %.02030, align 8
+  %.02230 = phi ptr [ %24, %22 ], [ %18, %17 ]
+  %19 = load ptr, ptr %.02230, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %19) #15
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02030, i64 8
+  %23 = getelementptr inbounds i8, ptr %.02230, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call ptr @g_list_remove(ptr noundef %.021, ptr noundef %19) #13
+  %26 = tail call ptr @g_list_remove(ptr noundef %.020, ptr noundef %19) #13
   %27 = icmp eq ptr %19, null
   br i1 %27, label %.thread, label %29
 
 .thread:                                          ; preds = %22, %17, %25
-  %.12228 = phi ptr [ %26, %25 ], [ %.021, %17 ], [ %.021, %22 ]
+  %.12128 = phi ptr [ %26, %25 ], [ %.020, %17 ], [ %.020, %22 ]
   %28 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
   br label %29
 
 29:                                               ; preds = %.thread, %25
-  %.12227 = phi ptr [ %.12228, %.thread ], [ %26, %25 ]
+  %.12127 = phi ptr [ %.12128, %.thread ], [ %26, %25 ]
   %.1 = phi ptr [ %28, %.thread ], [ %19, %25 ]
-  %30 = tail call ptr @g_list_prepend(ptr noundef %.12227, ptr noundef %.1) #13
+  %30 = tail call ptr @g_list_prepend(ptr noundef %.12127, ptr noundef %.1) #13
   br i1 %6, label %31, label %32
 
 31:                                               ; preds = %29
@@ -723,30 +723,30 @@ define internal fastcc void @write_recent_enum(ptr nocapture noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %5, %14
   %10 = phi ptr [ %.pre, %14 ], [ %9, %5 ]
-  %.030 = phi ptr [ %15, %14 ], [ %3, %5 ]
-  %.02229 = phi ptr [ %spec.select, %14 ], [ null, %5 ]
-  %11 = icmp eq ptr %.02229, null
-  %spec.select = select i1 %11, ptr %10, ptr %.02229
+  %.030 = phi ptr [ %spec.select, %14 ], [ null, %5 ]
+  %.02229 = phi ptr [ %15, %14 ], [ %3, %5 ]
+  %11 = icmp eq ptr %.030, null
+  %spec.select = select i1 %11, ptr %10, ptr %.030
   %fputs = tail call i32 @fputs(ptr nonnull %10, ptr %0)
-  %12 = getelementptr i8, ptr %.030, i64 24
+  %12 = getelementptr i8, ptr %.02229, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not27 = icmp eq ptr %13, null
   br i1 %.not27, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr i8, ptr %.030, i64 16
+  %15 = getelementptr i8, ptr %.02229, i64 16
   %16 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %0)
   %.pre = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.pre, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14, %5
-  %.022.lcssa = phi ptr [ null, %5 ], [ %spec.select, %14 ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa = phi ptr [ null, %5 ], [ %spec.select, %14 ], [ %spec.select, %.lr.ph ]
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %17 = tail call ptr @try_val_to_str(i32 noundef %4, ptr noundef %3) #13
   %.not25 = icmp eq ptr %17, null
-  %.not26 = icmp eq ptr %.022.lcssa, null
-  %18 = select i1 %.not26, ptr @.str.74, ptr %.022.lcssa
+  %.not26 = icmp eq ptr %.0.lcssa, null
+  %18 = select i1 %.not26, ptr @.str.74, ptr %.0.lcssa
   %.sink = select i1 %.not25, ptr %18, ptr %17
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %2, ptr noundef nonnull %.sink) #13
   ret void
@@ -865,11 +865,11 @@ define hidden range(i32 0, 2) i32 @write_profile_recent() local_unnamed_addr #0 
 
 91:                                               ; preds = %23, %91
   %92 = phi ptr [ @.str.168, %23 ], [ %96, %91 ]
-  %.0115117 = phi ptr [ @ts_precision_values, %23 ], [ %93, %91 ]
-  %93 = getelementptr i8, ptr %.0115117, i64 16
+  %.098115117 = phi ptr [ @ts_precision_values, %23 ], [ %93, %91 ]
+  %93 = getelementptr i8, ptr %.098115117, i64 16
   %94 = call i64 @fwrite(ptr nonnull @.str.69, i64 2, i64 1, ptr %16)
   %fputs = call i32 @fputs(ptr nonnull %92, ptr %16)
-  %95 = getelementptr i8, ptr %.0115117, i64 40
+  %95 = getelementptr i8, ptr %.098115117, i64 40
   %96 = load ptr, ptr %95, align 8
   %.not113 = icmp eq ptr %96, null
   br i1 %.not113, label %97, label %91, !llvm.loop !8
@@ -1063,8 +1063,8 @@ window_splitter_recent_write_all.exit:            ; preds = %.lr.ph.i, %158, %16
   br label %214
 
 214:                                              ; preds = %202, %18, %7
-  %.099 = phi i32 [ 0, %7 ], [ 0, %18 ], [ 1, %202 ]
-  ret i32 %.099
+  %.0 = phi i32 [ 0, %7 ], [ 0, %18 ], [ 1, %202 ]
+  ret i32 %.0
 }
 
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1569,9 +1569,9 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br i1 %.not118138, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %228, %246
-  %.0139 = phi ptr [ %249, %246 ], [ %230, %228 ]
+  %.0107139 = phi ptr [ %249, %246 ], [ %230, %228 ]
   %231 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #14
-  %232 = getelementptr inbounds i8, ptr %.0139, i64 8
+  %232 = getelementptr inbounds i8, ptr %.0107139, i64 8
   %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr %233, align 8
   %235 = call i64 @strtol(ptr noundef %234, ptr noundef nonnull %6, i32 noundef 0) #13
@@ -1648,8 +1648,8 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   br label %268
 
 268:                                              ; preds = %9, %24, %36, %48, %60, %72, %89, %105, %115, %127, %137, %154, %171, %186, %183, %197, %209, %._crit_edge, %261, %266, %255, %215, %203, %191, %177, %166, %142, %132, %121, %110, %100, %83, %84, %66, %54, %42, %30, %15, %263, %221, %159, %163, %147, %151, %94, %98, %242, %227
-  %.0107 = phi i32 [ 1, %227 ], [ 1, %242 ], [ 1, %98 ], [ 1, %94 ], [ 1, %151 ], [ 1, %147 ], [ 1, %163 ], [ 1, %159 ], [ 1, %221 ], [ 2, %263 ], [ 0, %15 ], [ 0, %30 ], [ 0, %42 ], [ 0, %54 ], [ 0, %66 ], [ 0, %84 ], [ 0, %83 ], [ 0, %100 ], [ 0, %110 ], [ 0, %121 ], [ 0, %132 ], [ 0, %142 ], [ 0, %166 ], [ 0, %177 ], [ 0, %191 ], [ 0, %203 ], [ 0, %215 ], [ 0, %255 ], [ 0, %266 ], [ 0, %261 ], [ 0, %._crit_edge ], [ 0, %209 ], [ 0, %197 ], [ 0, %183 ], [ 0, %186 ], [ 0, %171 ], [ 0, %154 ], [ 0, %137 ], [ 0, %127 ], [ 0, %115 ], [ 0, %105 ], [ 0, %89 ], [ 0, %72 ], [ 0, %60 ], [ 0, %48 ], [ 0, %36 ], [ 0, %24 ], [ 0, %9 ]
-  ret i32 %.0107
+  %.0 = phi i32 [ 1, %227 ], [ 1, %242 ], [ 1, %98 ], [ 1, %94 ], [ 1, %151 ], [ 1, %147 ], [ 1, %163 ], [ 1, %159 ], [ 1, %221 ], [ 2, %263 ], [ 0, %15 ], [ 0, %30 ], [ 0, %42 ], [ 0, %54 ], [ 0, %66 ], [ 0, %84 ], [ 0, %83 ], [ 0, %100 ], [ 0, %110 ], [ 0, %121 ], [ 0, %132 ], [ 0, %142 ], [ 0, %166 ], [ 0, %177 ], [ 0, %191 ], [ 0, %203 ], [ 0, %215 ], [ 0, %255 ], [ 0, %266 ], [ 0, %261 ], [ 0, %._crit_edge ], [ 0, %209 ], [ 0, %197 ], [ 0, %183 ], [ 0, %186 ], [ 0, %171 ], [ 0, %154 ], [ 0, %137 ], [ 0, %127 ], [ 0, %115 ], [ 0, %105 ], [ 0, %89 ], [ 0, %72 ], [ 0, %60 ], [ 0, %48 ], [ 0, %36 ], [ 0, %24 ], [ 0, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2201,14 +2201,14 @@ define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0
   br i1 %.not29.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %27
-  %.02030.i = phi ptr [ %29, %27 ], [ %23, %21 ]
-  %24 = load ptr, ptr %.02030.i, align 8
+  %.02230.i = phi ptr [ %29, %27 ], [ %23, %21 ]
+  %24 = load ptr, ptr %.02230.i, align 8
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %24) #15
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds i8, ptr %.02030.i, i64 8
+  %28 = getelementptr inbounds i8, ptr %.02230.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !4
@@ -2219,14 +2219,14 @@ define internal range(i32 0, 2) i32 @read_set_recent_pair_dynamic(ptr noundef %0
   br i1 %32, label %.thread.i, label %34
 
 .thread.i:                                        ; preds = %27, %30, %21
-  %.12228.i = phi ptr [ %31, %30 ], [ %22, %21 ], [ %22, %27 ]
+  %.12128.i = phi ptr [ %31, %30 ], [ %22, %21 ], [ %22, %27 ]
   %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #13
   br label %34
 
 34:                                               ; preds = %.thread.i, %30
-  %.12227.i = phi ptr [ %.12228.i, %.thread.i ], [ %31, %30 ]
+  %.12127.i = phi ptr [ %.12128.i, %.thread.i ], [ %31, %30 ]
   %.1.i = phi ptr [ %33, %.thread.i ], [ %24, %30 ]
-  %35 = tail call ptr @g_list_prepend(ptr noundef %.12227.i, ptr noundef %.1.i) #13
+  %35 = tail call ptr @g_list_prepend(ptr noundef %.12127.i, ptr noundef %.1.i) #13
   store ptr %35, ptr @recent_cfilter_list, align 8
   br label %recent_add_cfilter.exit
 

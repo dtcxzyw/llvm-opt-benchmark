@@ -298,21 +298,21 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %68
   %indvars.iv40 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next41, %68 ]
-  %.033 = phi i8 [ 0, %.lr.ph34.preheader ], [ %.1, %68 ]
+  %.02332 = phi i8 [ 0, %.lr.ph34.preheader ], [ %.124, %68 ]
   %61 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %indvars.iv40
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %.lr.ph34
-  %65 = add i8 %.033, 1
+  %65 = add i8 %.02332, 1
   %66 = zext nneg i32 %62 to i64
   %67 = getelementptr inbounds i8, ptr %9, i64 %66
   store i8 %65, ptr %67, align 1
   br label %68
 
 68:                                               ; preds = %.lr.ph34, %64
-  %.1 = phi i8 [ %65, %64 ], [ %.033, %.lr.ph34 ]
+  %.124 = phi i8 [ %65, %64 ], [ %.02332, %.lr.ph34 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !8
@@ -1701,8 +1701,8 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph37.preheader, %.preheader, %._crit_edge
-  %.022 = phi i32 [ %57, %._crit_edge ], [ 4095, %.preheader ], [ 4095, %.lr.ph37.preheader ]
-  ret i32 %.022
+  %.0 = phi i32 [ %57, %._crit_edge ], [ 4095, %.preheader ], [ 4095, %.lr.ph37.preheader ]
+  ret i32 %.0
 }
 
 declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

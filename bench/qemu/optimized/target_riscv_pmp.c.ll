@@ -687,7 +687,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %pmp_read_cfg.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %pmp_read_cfg.exit ]
-  %cfg_val.011 = phi i64 [ 0, %for.body.lr.ph ], [ %or, %pmp_read_cfg.exit ]
+  %cfg_val.010 = phi i64 [ 0, %for.body.lr.ph ], [ %or, %pmp_read_cfg.exit ]
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %mul, %1
   %cmp.i = icmp ult i32 %add, 16
@@ -705,7 +705,7 @@ pmp_read_cfg.exit:                                ; preds = %for.body, %if.then.
   %mul2 = shl i64 %indvars.iv, 3
   %sh_prom = and i64 %mul2, 4294967288
   %shl3 = shl i64 %conv, %sh_prom
-  %or = or i64 %shl3, %cfg_val.011
+  %or = or i64 %shl3, %cfg_val.010
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10

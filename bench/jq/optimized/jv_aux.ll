@@ -635,18 +635,18 @@ define { i64, ptr } @jv_set(i64 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %5) loca
 .lr.ph:                                           ; preds = %106, %.lr.ph
   %.sroa.38.4198 = phi ptr [ %118, %.lr.ph ], [ %.sroa.38.2, %106 ]
   %.sroa.0139.4197 = phi i64 [ %117, %.lr.ph ], [ %.sroa.0139.2, %106 ]
-  %.0186196 = phi i32 [ %119, %.lr.ph ], [ %84, %106 ]
-  %109 = sub nsw i32 %.0186196, %107
+  %.0185196 = phi i32 [ %119, %.lr.ph ], [ %84, %106 ]
+  %109 = sub nsw i32 %.0185196, %107
   %110 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0139.4197, ptr %.sroa.38.4198) #6
   %111 = extractvalue { i64, ptr } %110, 0
   %112 = extractvalue { i64, ptr } %110, 1
-  %113 = tail call { i64, ptr } @jv_array_get(i64 %111, ptr %112, i32 noundef %.0186196) #6
+  %113 = tail call { i64, ptr } @jv_array_get(i64 %111, ptr %112, i32 noundef %.0185196) #6
   %114 = extractvalue { i64, ptr } %113, 0
   %115 = extractvalue { i64, ptr } %113, 1
   %116 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.0139.4197, ptr %.sroa.38.4198, i32 noundef %109, i64 %114, ptr %115) #6
   %117 = extractvalue { i64, ptr } %116, 0
   %118 = extractvalue { i64, ptr } %116, 1
-  %119 = add i32 %.0186196, 1
+  %119 = add i32 %.0185196, 1
   %exitcond.not = icmp eq i32 %119, %83
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -668,18 +668,18 @@ define { i64, ptr } @jv_set(i64 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %5) loca
 .lr.ph212:                                        ; preds = %.loopexit, %.lr.ph212
   %.sroa.38.6210 = phi ptr [ %134, %.lr.ph212 ], [ %.sroa.38.5, %.loopexit ]
   %.sroa.0139.6209 = phi i64 [ %133, %.lr.ph212 ], [ %.sroa.0139.5, %.loopexit ]
-  %.0185208 = phi i32 [ %135, %.lr.ph212 ], [ 0, %.loopexit ]
-  %125 = add nsw i32 %85, %.0185208
+  %.0186208 = phi i32 [ %135, %.lr.ph212 ], [ 0, %.loopexit ]
+  %125 = add nsw i32 %85, %.0186208
   %126 = tail call { i64, ptr } @jv_copy(i64 %4, ptr %5) #6
   %127 = extractvalue { i64, ptr } %126, 0
   %128 = extractvalue { i64, ptr } %126, 1
-  %129 = tail call { i64, ptr } @jv_array_get(i64 %127, ptr %128, i32 noundef %.0185208) #6
+  %129 = tail call { i64, ptr } @jv_array_get(i64 %127, ptr %128, i32 noundef %.0186208) #6
   %130 = extractvalue { i64, ptr } %129, 0
   %131 = extractvalue { i64, ptr } %129, 1
   %132 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.0139.6209, ptr %.sroa.38.6210, i32 noundef %125, i64 %130, ptr %131) #6
   %133 = extractvalue { i64, ptr } %132, 0
   %134 = extractvalue { i64, ptr } %132, 1
-  %135 = add nuw nsw i32 %.0185208, 1
+  %135 = add nuw nsw i32 %.0186208, 1
   %exitcond221.not = icmp eq i32 %135, %90
   br i1 %exitcond221.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !7
 
@@ -1414,11 +1414,11 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %.sroa.0143.1315.i = phi i64 [ %.sroa.0143.2.i, %192 ], [ %125, %.preheader252.i ]
   %.sroa.5140.1314.i = phi ptr [ %.sroa.5140.2.i, %192 ], [ %129, %.preheader252.i ]
   %.sroa.0137.1313.i = phi i64 [ %.sroa.0137.2.i, %192 ], [ %128, %.preheader252.i ]
-  %.1211312.i = phi i32 [ %193, %192 ], [ 0, %.preheader252.i ]
+  %.1312.i = phi i32 [ %193, %192 ], [ 0, %.preheader252.i ]
   %134 = tail call { i64, ptr } @jv_copy(i64 %.sroa.066.0166, ptr %.sroa.5.0161) #6
   %135 = extractvalue { i64, ptr } %134, 0
   %136 = extractvalue { i64, ptr } %134, 1
-  %137 = tail call { i64, ptr } @jv_array_get(i64 %135, ptr %136, i32 noundef %.1211312.i) #6
+  %137 = tail call { i64, ptr } @jv_array_get(i64 %135, ptr %136, i32 noundef %.1312.i) #6
   %138 = extractvalue { i64, ptr } %137, 0
   %139 = extractvalue { i64, ptr } %137, 1
   %140 = tail call i32 @jv_get_kind(i64 %138, ptr %139) #6
@@ -1502,7 +1502,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %.sroa.6159.2.i = phi ptr [ %.sroa.6159.1318.i, %145 ], [ %152, %149 ], [ %.sroa.6159.1318.i, %165 ]
   %.sroa.0163.2.i = phi i64 [ %147, %145 ], [ %.sroa.0163.1319.i, %149 ], [ %.sroa.0163.1319.i, %165 ]
   %.sroa.6167.2.i = phi ptr [ %148, %145 ], [ %.sroa.6167.1320.i, %149 ], [ %.sroa.6167.1320.i, %165 ]
-  %193 = add nuw nsw i32 %.1211312.i, 1
+  %193 = add nuw nsw i32 %.1312.i, 1
   %exitcond400.not.i = icmp eq i32 %193, %133
   br i1 %exitcond400.not.i, label %.loopexit253.i, label %.lr.ph321.i, !llvm.loop !12
 
@@ -1562,7 +1562,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 
 .lr.ph342.i:                                      ; preds = %.preheader.i, %227
   %.2341.i = phi i32 [ %228, %227 ], [ %.1214.i, %.preheader.i ]
-  %.0222340.i = phi i32 [ %spec.select.i, %227 ], [ 0, %.preheader.i ]
+  %.0221340.i = phi i32 [ %spec.select.i, %227 ], [ 0, %.preheader.i ]
   %216 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0163.0.lcssa.i, ptr %.sroa.6167.0.lcssa.i) #6
   %217 = extractvalue { i64, ptr } %216, 0
   %218 = extractvalue { i64, ptr } %216, 1
@@ -1574,7 +1574,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %223 = fptosi double %222 to i32
   %224 = add nsw i32 %197, %223
   %225 = icmp eq i32 %.1219.i, %224
-  %spec.select.i = select i1 %225, i32 1, i32 %.0222340.i
+  %spec.select.i = select i1 %225, i32 1, i32 %.0221340.i
   %226 = icmp slt i32 %.1219.i, %224
   br i1 %226, label %._crit_edge.i, label %227
 
@@ -1589,7 +1589,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 
 ._crit_edge.i:                                    ; preds = %227, %.lr.ph342.i, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.1214.i, %.preheader.i ], [ %228, %227 ], [ %.2341.i, %.lr.ph342.i ]
-  %.2224.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph342.i ], [ %spec.select.i, %227 ]
+  %.2223.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph342.i ], [ %spec.select.i, %227 ]
   %234 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0155.0.lcssa.i, ptr %.sroa.6159.0.lcssa.i) #6
   %235 = extractvalue { i64, ptr } %234, 0
   %236 = extractvalue { i64, ptr } %234, 1
@@ -1599,7 +1599,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 
 .lr.ph351.i:                                      ; preds = %._crit_edge.i, %249
   %.2217349.i = phi i32 [ %250, %249 ], [ %.1216.i, %._crit_edge.i ]
-  %.3348.i = phi i32 [ %spec.select236.i, %249 ], [ %.2224.i, %._crit_edge.i ]
+  %.3348.i = phi i32 [ %spec.select236.i, %249 ], [ %.2223.i, %._crit_edge.i ]
   %239 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0155.0.lcssa.i, ptr %.sroa.6159.0.lcssa.i) #6
   %240 = extractvalue { i64, ptr } %239, 0
   %241 = extractvalue { i64, ptr } %239, 1
@@ -1625,24 +1625,24 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 
 ._crit_edge352.i:                                 ; preds = %249, %.lr.ph351.i, %._crit_edge.i
   %.2217.lcssa.i = phi i32 [ %.1216.i, %._crit_edge.i ], [ %250, %249 ], [ %.2217349.i, %.lr.ph351.i ]
-  %.5.i = phi i32 [ %.2224.i, %._crit_edge.i ], [ %spec.select236.i, %.lr.ph351.i ], [ %spec.select236.i, %249 ]
+  %.5.i = phi i32 [ %.2223.i, %._crit_edge.i ], [ %spec.select236.i, %.lr.ph351.i ], [ %spec.select236.i, %249 ]
   %.not232358.i = icmp eq i32 %.5.i, 0
   br i1 %.not232358.i, label %.lr.ph361.i, label %.critedge238.i
 
 .lr.ph361.i:                                      ; preds = %._crit_edge352.i, %280
-  %.0221359.i = phi i32 [ %281, %280 ], [ 0, %._crit_edge352.i ]
+  %.0224359.i = phi i32 [ %281, %280 ], [ 0, %._crit_edge352.i ]
   %256 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0143.0.lcssa.i, ptr %.sroa.6.0.lcssa.i) #6
   %257 = extractvalue { i64, ptr } %256, 0
   %258 = extractvalue { i64, ptr } %256, 1
   %259 = tail call i32 @jv_array_length(i64 %257, ptr %258) #6
-  %260 = icmp slt i32 %.0221359.i, %259
+  %260 = icmp slt i32 %.0224359.i, %259
   br i1 %260, label %261, label %.critedge.i
 
 261:                                              ; preds = %.lr.ph361.i
   %262 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0143.0.lcssa.i, ptr %.sroa.6.0.lcssa.i) #6
   %263 = extractvalue { i64, ptr } %262, 0
   %264 = extractvalue { i64, ptr } %262, 1
-  %265 = tail call { i64, ptr } @jv_array_get(i64 %263, ptr %264, i32 noundef %.0221359.i) #6
+  %265 = tail call { i64, ptr } @jv_array_get(i64 %263, ptr %264, i32 noundef %.0224359.i) #6
   %266 = extractvalue { i64, ptr } %265, 0
   %267 = extractvalue { i64, ptr } %265, 1
   %268 = tail call double @jv_number_value(i64 %266, ptr %267) #6
@@ -1655,7 +1655,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %271 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0137.0.lcssa.i, ptr %.sroa.5140.0.lcssa.i) #6
   %272 = extractvalue { i64, ptr } %271, 0
   %273 = extractvalue { i64, ptr } %271, 1
-  %274 = tail call { i64, ptr } @jv_array_get(i64 %272, ptr %273, i32 noundef %.0221359.i) #6
+  %274 = tail call { i64, ptr } @jv_array_get(i64 %272, ptr %273, i32 noundef %.0224359.i) #6
   %275 = extractvalue { i64, ptr } %274, 0
   %276 = extractvalue { i64, ptr } %274, 1
   %277 = tail call double @jv_number_value(i64 %275, ptr %276) #6
@@ -1667,7 +1667,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 
 280:                                              ; preds = %270, %261
   %.7.i = phi i32 [ 0, %261 ], [ %spec.select237.i, %270 ]
-  %281 = add nuw nsw i32 %.0221359.i, 1
+  %281 = add nuw nsw i32 %.0224359.i, 1
   %.not232.i = icmp eq i32 %.7.i, 0
   br i1 %.not232.i, label %.lr.ph361.i, label %.critedge238.i, !llvm.loop !15
 
@@ -1727,11 +1727,11 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
 .lr.ph.i:                                         ; preds = %.preheader254.i, %310
   %.sroa.18.1305.i = phi ptr [ %313, %310 ], [ %.sroa.13.3, %.preheader254.i ]
   %.sroa.0184.1304.i = phi i64 [ %312, %310 ], [ %.sroa.089.3, %.preheader254.i ]
-  %.1303.i = phi i32 [ %314, %310 ], [ 0, %.preheader254.i ]
+  %.1212303.i = phi i32 [ %314, %310 ], [ 0, %.preheader254.i ]
   %294 = tail call { i64, ptr } @jv_copy(i64 %.sroa.066.0166, ptr %.sroa.5.0161) #6
   %295 = extractvalue { i64, ptr } %294, 0
   %296 = extractvalue { i64, ptr } %294, 1
-  %297 = tail call { i64, ptr } @jv_array_get(i64 %295, ptr %296, i32 noundef %.1303.i) #6
+  %297 = tail call { i64, ptr } @jv_array_get(i64 %295, ptr %296, i32 noundef %.1212303.i) #6
   %298 = extractvalue { i64, ptr } %297, 0
   %299 = extractvalue { i64, ptr } %297, 1
   %300 = tail call i32 @jv_get_kind(i64 %298, ptr %299) #6
@@ -1755,7 +1755,7 @@ define internal fastcc { i64, ptr } @delpaths_sorted(i64 %0, ptr %1, i64 %2, ptr
   %311 = tail call { i64, ptr } @jv_object_delete(i64 %.sroa.0184.1304.i, ptr %.sroa.18.1305.i, i64 %298, ptr %299) #6
   %312 = extractvalue { i64, ptr } %311, 0
   %313 = extractvalue { i64, ptr } %311, 1
-  %314 = add nuw nsw i32 %.1303.i, 1
+  %314 = add nuw nsw i32 %.1212303.i, 1
   %exitcond.not.i = icmp eq i32 %314, %293
   br i1 %exitcond.not.i, label %jv_dels.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -1879,11 +1879,11 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph82 ], [ 0, %.preheader ]
-  %.16180 = phi i32 [ %22, %.lr.ph82 ], [ %11, %.preheader ]
-  %15 = tail call { i64, ptr } @jv_object_iter_key(i64 %0, ptr %1, i32 noundef %.16180) #6
+  %.15980 = phi i32 [ %22, %.lr.ph82 ], [ %11, %.preheader ]
+  %15 = tail call { i64, ptr } @jv_object_iter_key(i64 %0, ptr %1, i32 noundef %.15980) #6
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
-  %18 = tail call { i64, ptr } @jv_object_iter_value(i64 %0, ptr %1, i32 noundef %.16180) #6
+  %18 = tail call { i64, ptr } @jv_object_iter_value(i64 %0, ptr %1, i32 noundef %.15980) #6
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1892,7 +1892,7 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %17, ptr %.sroa.219.0..sroa_idx, align 8
   tail call void @jv_free(i64 %19, ptr %20) #6
-  %22 = tail call i32 @jv_object_iter_next(i64 %0, ptr %1, i32 noundef %.16180) #6
+  %22 = tail call i32 @jv_object_iter_next(i64 %0, ptr %1, i32 noundef %.15980) #6
   %23 = tail call i32 @jv_object_iter_valid(i64 %0, ptr %1, i32 noundef %22) #6
   %.not66 = icmp eq i32 %23, 0
   br i1 %.not66, label %.loopexit, label %.lr.ph82, !llvm.loop !19
@@ -1930,15 +1930,15 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
   %.pn78 = phi { i64, ptr } [ %40, %.lr.ph ], [ %34, %32 ]
-  %.077 = phi i32 [ %41, %.lr.ph ], [ 0, %32 ]
+  %.06077 = phi i32 [ %41, %.lr.ph ], [ 0, %32 ]
   %.sroa.8.1 = extractvalue { i64, ptr } %.pn78, 1
   %.sroa.054.1 = extractvalue { i64, ptr } %.pn78, 0
-  %36 = uitofp nneg i32 %.077 to double
+  %36 = uitofp nneg i32 %.06077 to double
   %37 = tail call { i64, ptr } @jv_number(double noundef %36) #6
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
-  %40 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.054.1, ptr %.sroa.8.1, i32 noundef %.077, i64 %38, ptr %39) #6
-  %41 = add nuw nsw i32 %.077, 1
+  %40 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.054.1, ptr %.sroa.8.1, i32 noundef %.06077, i64 %38, ptr %39) #6
+  %41 = add nuw nsw i32 %.06077, 1
   %exitcond.not = icmp eq i32 %41, %33
   br i1 %exitcond.not, label %.loopexit76, label %.lr.ph, !llvm.loop !21
 

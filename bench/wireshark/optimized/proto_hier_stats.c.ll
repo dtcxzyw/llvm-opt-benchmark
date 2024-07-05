@@ -83,46 +83,46 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %.lr.ph, %179
-  %.05495 = phi i32 [ 0, %.lr.ph ], [ %.1, %179 ]
-  %.05594 = phi float [ 0.000000e+00, %.lr.ph ], [ %.156, %179 ]
-  %.05792 = phi i32 [ 0, %.lr.ph ], [ %180, %179 ]
-  %.05891 = phi ptr [ null, %.lr.ph ], [ %.159, %179 ]
-  %.06090 = phi i32 [ 1, %.lr.ph ], [ %181, %179 ]
+  %.05595 = phi i32 [ 0, %.lr.ph ], [ %.1, %179 ]
+  %.05694 = phi float [ 0.000000e+00, %.lr.ph ], [ %.157, %179 ]
+  %.05892 = phi i32 [ 0, %.lr.ph ], [ %180, %179 ]
+  %.05991 = phi ptr [ null, %.lr.ph ], [ %.160, %179 ]
+  %.06190 = phi i32 [ 1, %.lr.ph ], [ %181, %179 ]
   %31 = load ptr, ptr %25, align 8
-  %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef %.06090) #6
-  %33 = icmp eq ptr %.05891, null
+  %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef %.06190) #6
+  %33 = icmp eq ptr %.05991, null
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %26, align 8
-  %36 = call ptr @delayed_create_progress_dlg(ptr noundef %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %13, float noundef %.05594) #6
+  %36 = call ptr @delayed_create_progress_dlg(ptr noundef %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %13, float noundef %.05694) #6
   br label %37
 
 37:                                               ; preds = %34, %30
-  %.159 = phi ptr [ %36, %34 ], [ %.05891, %30 ]
-  %.not65 = icmp slt i32 %.05792, %.05495
+  %.160 = phi ptr [ %36, %34 ], [ %.05991, %30 ]
+  %.not65 = icmp slt i32 %.05892, %.05595
   br i1 %.not65, label %47, label %38
 
 38:                                               ; preds = %37
-  %39 = sitofp i32 %.05792 to float
+  %39 = sitofp i32 %.05892 to float
   %40 = load i32, ptr %21, align 8
   %41 = uitofp i32 %40 to float
   %42 = fdiv float %39, %41
-  %.not66 = icmp eq ptr %.159, null
+  %.not66 = icmp eq ptr %.160, null
   br i1 %.not66, label %45, label %43
 
 43:                                               ; preds = %38
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.6, i32 noundef %.05792, i32 noundef %40) #6
-  call void @update_progress_dlg(ptr noundef nonnull %.159, float noundef %42, ptr noundef nonnull %5) #6
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.6, i32 noundef %.05892, i32 noundef %40) #6
+  call void @update_progress_dlg(ptr noundef nonnull %.160, float noundef %42, ptr noundef nonnull %5) #6
   br label %45
 
 45:                                               ; preds = %43, %38
-  %46 = add i32 %.05495, %23
+  %46 = add i32 %.05595, %23
   br label %47
 
 47:                                               ; preds = %45, %37
-  %.156 = phi float [ %42, %45 ], [ %.05594, %37 ]
-  %.1 = phi i32 [ %46, %45 ], [ %.05495, %37 ]
+  %.157 = phi float [ %42, %45 ], [ %.05694, %37 ]
+  %.1 = phi i32 [ %46, %45 ], [ %.05595, %37 ]
   %48 = load i32, ptr %13, align 8
   %.not67 = icmp eq i32 %48, 0
   br i1 %.not67, label %49, label %.loopexit
@@ -407,14 +407,14 @@ process_tree.exit.i:                              ; preds = %.critedge2.i.i, %pr
   br label %179
 
 179:                                              ; preds = %174, %49
-  %180 = add i32 %.05792, 1
-  %181 = add i32 %.06090, 1
+  %180 = add i32 %.05892, 1
+  %181 = add i32 %.06190, 1
   %182 = load i32, ptr %21, align 8
   %.not64 = icmp ugt i32 %181, %182
   br i1 %.not64, label %.loopexit, label %30, !llvm.loop !9
 
 .loopexit:                                        ; preds = %179, %47, %12, %173
-  %.2 = phi ptr [ %.159, %173 ], [ null, %12 ], [ %.159, %47 ], [ %.159, %179 ]
+  %.2 = phi ptr [ %.160, %173 ], [ null, %12 ], [ %.160, %47 ], [ %.160, %179 ]
   call void @wtap_rec_cleanup(ptr noundef nonnull %3) #6
   call void @ws_buffer_free(ptr noundef nonnull %4) #6
   %.not71 = icmp eq ptr %.2, null
@@ -444,12 +444,12 @@ ph_stats_free.exit:                               ; preds = %186, %188
   br label %189
 
 189:                                              ; preds = %ph_stats_free.exit, %184
-  %.061 = phi ptr [ null, %ph_stats_free.exit ], [ %15, %184 ]
+  %.054 = phi ptr [ null, %ph_stats_free.exit ], [ %15, %184 ]
   store i32 0, ptr %7, align 4
   br label %190
 
 190:                                              ; preds = %1, %189, %9
-  %.0 = phi ptr [ null, %9 ], [ %.061, %189 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %9 ], [ %.054, %189 ], [ null, %1 ]
   ret ptr %.0
 }
 

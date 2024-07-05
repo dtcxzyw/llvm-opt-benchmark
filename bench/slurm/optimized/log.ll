@@ -2890,7 +2890,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br label %85
 
 85:                                               ; preds = %68, %69, %72, %76, %78, %80, %82, %83, %84, %64
-  %.049 = phi i32 [ 3, %84 ], [ 7, %83 ], [ 7, %82 ], [ 7, %80 ], [ 7, %78 ], [ 7, %76 ], [ %73, %72 ], [ 3, %69 ], [ 6, %64 ], [ 2, %68 ]
+  %.050 = phi i32 [ 3, %84 ], [ 7, %83 ], [ 7, %82 ], [ 7, %80 ], [ 7, %78 ], [ 7, %76 ], [ %73, %72 ], [ 3, %69 ], [ 6, %64 ], [ 2, %68 ]
   %.0 = phi ptr [ @.str.67, %84 ], [ @.str.66, %83 ], [ @.str.65, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %72 ], [ %71, %69 ], [ @.str.10, %64 ], [ @.str.54, %68 ]
   %86 = load ptr, ptr %7, align 8
   %.not62 = icmp eq ptr %86, null
@@ -3087,7 +3087,7 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %198 = load i32, ptr %197, align 8
   call void @openlog(ptr noundef %196, i32 noundef 1, i32 noundef %198) #18
   %199 = load ptr, ptr %8, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %.049, ptr noundef nonnull @.str.79, ptr noundef %199) #18
+  call void (i32, ptr, ...) @syslog(i32 noundef %.050, ptr noundef nonnull @.str.79, ptr noundef %199) #18
   call void @closelog() #18
   call void @slurm_seterrno(i32 noundef %190) #18
   call void @slurm_xfree(ptr noundef nonnull %8) #18
@@ -3289,20 +3289,20 @@ define void @_log_flag_hex(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %13 = icmp slt i64 %3, 0
   %14 = tail call i64 @llvm.umin.i64(i64 %3, i64 %1)
-  %.025 = select i1 %13, i64 %1, i64 %14
+  %.0 = select i1 %13, i64 %1, i64 %14
   call void @llvm.va_start.p0(ptr nonnull %6)
   %15 = call ptr @vxstrfmt(ptr noundef %4, ptr noundef nonnull %6)
   store ptr %15, ptr %7, align 8
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %16 = icmp ult i64 %spec.store.select, %.025
+  %16 = icmp ult i64 %spec.store.select, %.0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12, %27
-  %.030 = phi i64 [ %29, %27 ], [ %spec.store.select, %12 ]
-  %17 = sub i64 %.025, %.030
+  %.02530 = phi i64 [ %29, %27 ], [ %spec.store.select, %12 ]
+  %17 = sub i64 %.0, %.02530
   %18 = trunc i64 %17 to i32
   %19 = call i32 @llvm.smin.i32(i32 %18, i32 16)
-  %20 = getelementptr inbounds i8, ptr %0, i64 %.030
+  %20 = getelementptr inbounds i8, ptr %0, i64 %.02530
   %21 = call ptr @xstring_bytes2hex(ptr noundef nonnull %20, i32 noundef %19, ptr noundef nonnull @.str.29) #18
   store ptr %21, ptr %8, align 8
   %22 = call ptr @xstring_bytes2printable(ptr noundef nonnull %20, i32 noundef %19, i8 noundef signext 46) #18
@@ -3313,15 +3313,15 @@ define void @_log_flag_hex(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %8, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %15, i64 noundef %.030, i64 noundef %1, ptr noundef %26, ptr noundef %22)
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %15, i64 noundef %.02530, i64 noundef %1, ptr noundef %26, ptr noundef %22)
   br label %27
 
 27:                                               ; preds = %.lr.ph, %25
   %28 = sext i32 %19 to i64
-  %29 = add i64 %.030, %28
+  %29 = add i64 %.02530, %28
   call void @slurm_xfree(ptr noundef nonnull %8) #18
   call void @slurm_xfree(ptr noundef nonnull %9) #18
-  %30 = icmp ult i64 %29, %.025
+  %30 = icmp ult i64 %29, %.0
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %27, %12

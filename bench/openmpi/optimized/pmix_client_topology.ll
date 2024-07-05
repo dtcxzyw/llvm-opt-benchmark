@@ -559,7 +559,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   br i1 %.not, label %40, label %60
 
 40:                                               ; preds = %pmix_obj_new_tma.exit, %35, %38
-  %.0282 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %38 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %35 ], [ %0, %pmix_obj_new_tma.exit ]
+  %.0283 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %38 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2856), %35 ], [ %0, %pmix_obj_new_tma.exit ]
   %41 = icmp eq ptr %1, null
   br i1 %41, label %42, label %47
 
@@ -574,11 +574,11 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   br i1 %.not313, label %47, label %60
 
 47:                                               ; preds = %40, %42, %45
-  %.0 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2872), %45 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2872), %42 ], [ %1, %40 ]
+  %.0282 = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2872), %45 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 2872), %42 ], [ %1, %40 ]
   %48 = load i64, ptr %7, align 8
   %49 = getelementptr inbounds i8, ptr %16, i64 776
   %50 = getelementptr inbounds i8, ptr %16, i64 792
-  %51 = tail call i32 @pmix_hwloc_compute_distances(ptr noundef nonnull %.0282, ptr noundef nonnull %.0, ptr noundef %2, i64 noundef %48, ptr noundef nonnull %49, ptr noundef nonnull %50) #10
+  %51 = tail call i32 @pmix_hwloc_compute_distances(ptr noundef nonnull %.0283, ptr noundef nonnull %.0282, ptr noundef %2, i64 noundef %48, ptr noundef nonnull %49, ptr noundef nonnull %50) #10
   %52 = getelementptr inbounds i8, ptr %16, i64 500
   store i32 %51, ptr %52, align 4
   %53 = icmp eq i32 %51, 0
@@ -597,8 +597,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   br label %608
 
 60:                                               ; preds = %47, %45, %38
-  %.1283 = phi ptr [ null, %38 ], [ %.0282, %45 ], [ %.0282, %47 ]
-  %.1 = phi ptr [ null, %38 ], [ null, %45 ], [ %.0, %47 ]
+  %.1284 = phi ptr [ null, %38 ], [ %.0283, %45 ], [ %.0283, %47 ]
+  %.1 = phi ptr [ null, %38 ], [ null, %45 ], [ %.0282, %47 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 136
   %63 = load i32, ptr %62, align 8
@@ -674,8 +674,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   fence release
   %96 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #10
   %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #10
-  %98 = icmp eq ptr %.1283, getelementptr inbounds (i8, ptr @pmix_globals, i64 2856)
-  %spec.store.select = select i1 %98, ptr null, ptr %.1283
+  %98 = icmp eq ptr %.1284, getelementptr inbounds (i8, ptr @pmix_globals, i64 2856)
+  %spec.store.select = select i1 %98, ptr null, ptr %.1284
   %99 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 56), align 8
   %100 = tail call noalias noundef ptr @malloc(i64 noundef %99) #11
   %101 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -771,13 +771,13 @@ pmix_obj_new_tma.exit350:                         ; preds = %.lr.ph.i.i347, %104
   ]
 
 .thread:                                          ; preds = %141, %143
-  %.0284424 = phi i32 [ %148, %143 ], [ -22, %141 ]
-  %149 = call ptr @PMIx_Error_string(i32 noundef %.0284424) #10
+  %.0285424 = phi i32 [ %148, %143 ], [ -22, %141 ]
+  %149 = call ptr @PMIx_Error_string(i32 noundef %.0285424) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %149, ptr noundef nonnull @.str.3, i32 noundef 335) #10
   br label %150
 
 150:                                              ; preds = %143, %.thread
-  %.0284425 = phi i32 [ %148, %143 ], [ %.0284424, %.thread ]
+  %.0285425 = phi i32 [ %148, %143 ], [ %.0285424, %.thread ]
   %151 = call i32 @pthread_mutex_lock(ptr noundef nonnull %100) #10
   %152 = icmp eq i32 %151, 35
   br i1 %152, label %153, label %155
@@ -940,13 +940,13 @@ pmix_obj_run_destructors.exit361:                 ; preds = %.lr.ph.i358, %186
   ]
 
 .thread426:                                       ; preds = %225, %227
-  %.1285428 = phi i32 [ %232, %227 ], [ -22, %225 ]
-  %233 = call ptr @PMIx_Error_string(i32 noundef %.1285428) #10
+  %.1286428 = phi i32 [ %232, %227 ], [ -22, %225 ]
+  %233 = call ptr @PMIx_Error_string(i32 noundef %.1286428) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %233, ptr noundef nonnull @.str.3, i32 noundef 344) #10
   br label %234
 
 234:                                              ; preds = %227, %.thread426
-  %.1285429 = phi i32 [ %232, %227 ], [ %.1285428, %.thread426 ]
+  %.1286429 = phi i32 [ %232, %227 ], [ %.1286428, %.thread426 ]
   %235 = call i32 @pthread_mutex_lock(ptr noundef nonnull %100) #10
   %236 = icmp eq i32 %235, 35
   br i1 %236, label %237, label %239
@@ -1718,8 +1718,8 @@ pmix_obj_run_destructors.exit421:                 ; preds = %.lr.ph.i418, %594
   br label %608
 
 608:                                              ; preds = %546, %588, %607, %605, %515, %534, %532, %432, %451, %449, %348, %367, %365, %264, %283, %281, %180, %199, %197, %75, %94, %92, %54
-  %.0286 = phi i32 [ 0, %54 ], [ -25, %92 ], [ -25, %94 ], [ -25, %75 ], [ %.0284425, %197 ], [ %.0284425, %199 ], [ %.0284425, %180 ], [ %.1285429, %281 ], [ %.1285429, %283 ], [ %.1285429, %264 ], [ %.2433, %365 ], [ %.2433, %367 ], [ %.2433, %348 ], [ %.3437, %449 ], [ %.3437, %451 ], [ %.3437, %432 ], [ %.4441, %532 ], [ %.4441, %534 ], [ %.4441, %515 ], [ -25, %605 ], [ -25, %607 ], [ -25, %588 ], [ 0, %546 ]
-  ret i32 %.0286
+  %.0 = phi i32 [ 0, %54 ], [ -25, %92 ], [ -25, %94 ], [ -25, %75 ], [ %.0285425, %197 ], [ %.0285425, %199 ], [ %.0285425, %180 ], [ %.1286429, %281 ], [ %.1286429, %283 ], [ %.1286429, %264 ], [ %.2433, %365 ], [ %.2433, %367 ], [ %.2433, %348 ], [ %.3437, %449 ], [ %.3437, %451 ], [ %.3437, %432 ], [ %.4441, %532 ], [ %.4441, %534 ], [ %.4441, %515 ], [ -25, %605 ], [ -25, %607 ], [ -25, %588 ], [ 0, %546 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -670,21 +670,21 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef %0
   br label %3
 
 2:                                                ; preds = %3
-  %.0.add = add nuw nsw i64 %.0.idx8, 48
-  %.not = icmp eq i64 %.0.add, 4608
+  %.07.add = add nuw nsw i64 %.07.idx8, 48
+  %.not = icmp eq i64 %.07.add, 4608
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1, %2
-  %.0.idx8 = phi i64 [ 0, %1 ], [ %.0.add, %2 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx8
-  %4 = getelementptr inbounds i8, ptr %.0.ptr, i64 8
+  %.07.idx8 = phi i64 [ 0, %1 ], [ %.07.add, %2 ]
+  %.07.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.07.idx8
+  %4 = getelementptr inbounds i8, ptr %.07.ptr, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %2, %3
-  %.07 = phi ptr [ %.0.ptr, %3 ], [ null, %2 ]
-  ret ptr %.07
+  %.0 = phi ptr [ %.07.ptr, %3 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -695,43 +695,43 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_15Operatio
   br i1 %.not14, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %7
-  %.0.idx15.us = phi i64 [ %.0.add.us, %7 ], [ 0, %1 ]
-  %.0.ptr16.us = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx15.us
-  %4 = load ptr, ptr %.0.ptr16.us, align 16
+  %.012.idx15.us = phi i64 [ %.012.add.us, %7 ], [ 0, %1 ]
+  %.012.ptr16.us = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
+  %4 = load ptr, ptr %.012.ptr16.us, align 16
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %6 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %4, ptr noundef %5) #15
   br i1 %6, label %.split18.us.loopexit.split.loop.exit, label %7
 
 7:                                                ; preds = %.split.us
-  %.0.add.us = add nuw nsw i64 %.0.idx15.us, 48
-  %.not.us = icmp eq i64 %.0.add.us, 4608
+  %.012.add.us = add nuw nsw i64 %.012.idx15.us, 48
+  %.not.us = icmp eq i64 %.012.add.us, 4608
   br i1 %.not.us, label %.split18.us, label %.split.us
 
 8:                                                ; preds = %12
-  %.0.add = add nuw nsw i64 %.0.idx15, 48
-  %.not = icmp eq i64 %.0.add, 4608
+  %.012.add = add nuw nsw i64 %.012.idx15, 48
+  %.not = icmp eq i64 %.012.add, 4608
   br i1 %.not, label %.split18.us, label %.split
 
 .split:                                           ; preds = %1, %8
-  %.0.idx15 = phi i64 [ %.0.add, %8 ], [ 0, %1 ]
-  %.0.ptr16 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx15
-  %9 = getelementptr inbounds i8, ptr %.0.ptr16, i64 8
+  %.012.idx15 = phi i64 [ %.012.add, %8 ], [ 0, %1 ]
+  %.012.ptr16 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15
+  %9 = getelementptr inbounds i8, ptr %.012.ptr16, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %3
   br i1 %11, label %.split18.us, label %12
 
 12:                                               ; preds = %.split
-  %13 = load ptr, ptr %.0.ptr16, align 16
+  %13 = load ptr, ptr %.012.ptr16, align 16
   %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %15 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %13, ptr noundef %14) #15
   br i1 %15, label %.split18.us, label %8
 
 .split18.us.loopexit.split.loop.exit:             ; preds = %.split.us
-  %.0.ptr16.us.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx15.us
+  %.012.ptr16.us.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
   br label %.split18.us
 
 .split18.us:                                      ; preds = %12, %.split, %8, %7, %.split18.us.loopexit.split.loop.exit
-  %.us-phi = phi ptr [ %.0.ptr16.us.le, %.split18.us.loopexit.split.loop.exit ], [ null, %7 ], [ %.0.ptr16, %12 ], [ %.0.ptr16, %.split ], [ null, %8 ]
+  %.us-phi = phi ptr [ %.012.ptr16.us.le, %.split18.us.loopexit.split.loop.exit ], [ null, %7 ], [ %.012.ptr16, %12 ], [ %.012.ptr16, %.split ], [ null, %8 ]
   ret ptr %.us-phi
 }
 
@@ -762,9 +762,9 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1ERKNSt7__
   br i1 %5, label %_ZN5osgeo4proj9operation10getMappingEi.exit, label %.preheader13
 
 .preheader13:                                     ; preds = %4, %11
-  %.0.idx16 = phi i64 [ %.0.add, %11 ], [ 0, %4 ]
-  %.0.ptr17 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx16
-  %6 = getelementptr inbounds i8, ptr %.0.ptr17, i64 16
+  %.010.idx16 = phi i64 [ %.010.add, %11 ], [ 0, %4 ]
+  %.010.ptr17 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.010.idx16
+  %6 = getelementptr inbounds i8, ptr %.010.ptr17, i64 16
   %7 = load ptr, ptr %6, align 16
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %11, label %8
@@ -775,13 +775,13 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1ERKNSt7__
   br i1 %10, label %_ZN5osgeo4proj9operation10getMappingEi.exit, label %11
 
 11:                                               ; preds = %.preheader13, %8
-  %.0.add = add nuw nsw i64 %.0.idx16, 48
-  %.not = icmp eq i64 %.0.add, 4608
+  %.010.add = add nuw nsw i64 %.010.idx16, 48
+  %.not = icmp eq i64 %.010.add, 4608
   br i1 %.not, label %_ZN5osgeo4proj9operation10getMappingEi.exit, label %.preheader13
 
 _ZN5osgeo4proj9operation10getMappingEi.exit:      ; preds = %11, %8, %4
-  %.010 = phi ptr [ @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, %4 ], [ null, %11 ], [ %.0.ptr17, %8 ]
-  ret ptr %.010
+  %.0 = phi ptr [ @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, %4 ], [ null, %11 ], [ %.010.ptr17, %8 ]
+  ret ptr %.0
 
 12:                                               ; preds = %1
   %13 = landingpad { ptr, i32 }
@@ -823,40 +823,40 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
   br label %2
 
 2:                                                ; preds = %1, %5
-  %.016.idx19 = phi i64 [ 0, %1 ], [ %.016.add, %5 ]
-  %.016.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.016.idx19
-  %3 = load ptr, ptr %.016.ptr, align 16
+  %.015.idx19 = phi i64 [ 0, %1 ], [ %.015.add, %5 ]
+  %.015.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
+  %3 = load ptr, ptr %.015.ptr, align 16
   %4 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %3, ptr noundef %0) #15
   br i1 %4, label %.loopexit.loopexit25, label %5
 
 5:                                                ; preds = %2
-  %.016.add = add nuw nsw i64 %.016.idx19, 48
-  %.not = icmp eq i64 %.016.add, 4608
+  %.015.add = add nuw nsw i64 %.015.idx19, 48
+  %.not = icmp eq i64 %.015.add, 4608
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %5, %8
-  %.0.idx22 = phi i64 [ %.0.add, %8 ], [ 0, %5 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.0.idx22
-  %6 = load ptr, ptr %.0.ptr, align 16
+  %.016.idx22 = phi i64 [ %.016.add, %8 ], [ 0, %5 ]
+  %.016.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
+  %6 = load ptr, ptr %.016.ptr, align 16
   %7 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %6, ptr noundef %0) #15
   br i1 %7, label %.loopexit.loopexit.split.loop.exit, label %8
 
 8:                                                ; preds = %.preheader
-  %.0.add = add nuw nsw i64 %.0.idx22, 48
-  %.not17 = icmp eq i64 %.0.add, 2400
+  %.016.add = add nuw nsw i64 %.016.idx22, 48
+  %.not17 = icmp eq i64 %.016.add, 2400
   br i1 %.not17, label %.loopexit, label %.preheader
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %.0.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.0.idx22
+  %.016.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
   br label %.loopexit
 
 .loopexit.loopexit25:                             ; preds = %2
-  %.016.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.016.idx19
+  %.015.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit25
-  %.015 = phi ptr [ %.016.ptr.le, %.loopexit.loopexit25 ], [ %.0.ptr.le, %.loopexit.loopexit.split.loop.exit ], [ null, %8 ]
-  ret ptr %.015
+  %.0 = phi ptr [ %.015.ptr.le, %.loopexit.loopexit25 ], [ %.016.ptr.le, %.loopexit.loopexit.split.loop.exit ], [ null, %8 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1087,8 +1087,8 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph53, %35, %27, %.preheader44, %.loopexit45, %.preheader, %2
-  %.033 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.loopexit45 ], [ null, %.preheader44 ], [ %31, %35 ], [ null, %27 ], [ %23, %.lr.ph53 ], [ %14, %.lr.ph ]
-  ret ptr %.033
+  %.031 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.loopexit45 ], [ null, %.preheader44 ], [ %31, %35 ], [ null, %27 ], [ %23, %.lr.ph53 ], [ %14, %.lr.ph ]
+  ret ptr %.031
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -11515,14 +11515,14 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6GetV
 
 .body:                                            ; preds = %94, %114, %135, %155, %169, %189, %203, %77, %217, %210, %196, %175, %162, %141, %128, %108, %.body154, %219, %177, %143, %116, %96, %83
   %.pn42 = phi { ptr, i32 } [ %eh.lpad-body155, %.body154 ], [ %220, %219 ], [ %178, %177 ], [ %144, %143 ], [ %117, %116 ], [ %97, %96 ], [ %84, %83 ], [ %95, %94 ], [ %109, %108 ], [ %115, %114 ], [ %129, %128 ], [ %136, %135 ], [ %142, %141 ], [ %156, %155 ], [ %163, %162 ], [ %170, %169 ], [ %176, %175 ], [ %190, %189 ], [ %197, %196 ], [ %204, %203 ], [ %211, %210 ], [ %78, %77 ], [ %218, %217 ]
-  %.2 = extractvalue { ptr, i32 } %.pn42, 1
+  %.236 = extractvalue { ptr, i32 } %.pn42, 1
   %232 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #22
-  %233 = icmp eq i32 %.2, %232
+  %233 = icmp eq i32 %.236, %232
   br i1 %233, label %234, label %.body159
 
 234:                                              ; preds = %.body
-  %.238 = extractvalue { ptr, i32 } %.pn42, 0
-  %235 = call ptr @__cxa_begin_catch(ptr %.238) #22
+  %.2 = extractvalue { ptr, i32 } %.pn42, 0
+  %235 = call ptr @__cxa_begin_catch(ptr %.2) #22
   %236 = getelementptr inbounds i8, ptr %1, i64 120
   %237 = load ptr, ptr %236, align 8
   %238 = invoke noundef i32 @_ZNK2mu17ParserTokenReader6GetPosEv(ptr noundef nonnull align 8 dereferenceable(400) %237)
@@ -12162,7 +12162,7 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetC
   br label %194
 
 194:                                              ; preds = %.lr.ph, %252
-  %.042199 = phi i32 [ 0, %.lr.ph ], [ %253, %252 ]
+  %.046199 = phi i32 [ 0, %.lr.ph ], [ %253, %252 ]
   %195 = load ptr, ptr %187, align 8
   %196 = load ptr, ptr %188, align 8
   %197 = icmp eq ptr %195, %196
@@ -12305,7 +12305,7 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetT
   br label %.body104
 
 252:                                              ; preds = %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetTypeEv.exit114, %_ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GetTypeEv.exit118
-  %253 = add nuw nsw i32 %.042199, 1
+  %253 = add nuw nsw i32 %.046199, 1
   %exitcond.not = icmp eq i32 %253, %129
   br i1 %exitcond.not, label %._crit_edge, label %194, !llvm.loop !89
 
@@ -15382,9 +15382,9 @@ common.resume:                                    ; preds = %218, %.body, %.body
   br label %common.resume
 
 _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit.preheader, %1132
-  %.0528 = phi i32 [ %.1529, %1132 ], [ 0, %_ZNK2mu14ParserByteCode7GetBaseEv.exit.preheader ]
-  %.0526 = phi ptr [ %1133, %1132 ], [ %34, %_ZNK2mu14ParserByteCode7GetBaseEv.exit.preheader ]
-  %44 = load i32, ptr %.0526, align 8
+  %.0519 = phi ptr [ %1133, %1132 ], [ %34, %_ZNK2mu14ParserByteCode7GetBaseEv.exit.preheader ]
+  %.0517 = phi i32 [ %.1518, %1132 ], [ 0, %_ZNK2mu14ParserByteCode7GetBaseEv.exit.preheader ]
+  %44 = load i32, ptr %.0519, align 8
   switch i32 %44, label %1124 [
     i32 33, label %1134
     i32 0, label %45
@@ -15416,11 +15416,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   ]
 
 45:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %46 = add nsw i32 %.0528, -1
+  %46 = add nsw i32 %.0517, -1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds double, ptr %30, i64 %47
   %49 = load double, ptr %48, align 8
-  %50 = sext i32 %.0528 to i64
+  %50 = sext i32 %.0517 to i64
   %51 = getelementptr inbounds double, ptr %30, i64 %50
   %52 = load double, ptr %51, align 8
   %53 = fcmp ole double %49, %52
@@ -15429,11 +15429,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 55:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %56 = add nsw i32 %.0528, -1
+  %56 = add nsw i32 %.0517, -1
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds double, ptr %30, i64 %57
   %59 = load double, ptr %58, align 8
-  %60 = sext i32 %.0528 to i64
+  %60 = sext i32 %.0517 to i64
   %61 = getelementptr inbounds double, ptr %30, i64 %60
   %62 = load double, ptr %61, align 8
   %63 = fcmp oge double %59, %62
@@ -15442,11 +15442,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 65:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %66 = add nsw i32 %.0528, -1
+  %66 = add nsw i32 %.0517, -1
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds double, ptr %30, i64 %67
   %69 = load double, ptr %68, align 8
-  %70 = sext i32 %.0528 to i64
+  %70 = sext i32 %.0517 to i64
   %71 = getelementptr inbounds double, ptr %30, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fcmp une double %69, %72
@@ -15455,11 +15455,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 75:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %76 = add nsw i32 %.0528, -1
+  %76 = add nsw i32 %.0517, -1
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds double, ptr %30, i64 %77
   %79 = load double, ptr %78, align 8
-  %80 = sext i32 %.0528 to i64
+  %80 = sext i32 %.0517 to i64
   %81 = getelementptr inbounds double, ptr %30, i64 %80
   %82 = load double, ptr %81, align 8
   %83 = fcmp oeq double %79, %82
@@ -15468,11 +15468,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 85:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %86 = add nsw i32 %.0528, -1
+  %86 = add nsw i32 %.0517, -1
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds double, ptr %30, i64 %87
   %89 = load double, ptr %88, align 8
-  %90 = sext i32 %.0528 to i64
+  %90 = sext i32 %.0517 to i64
   %91 = getelementptr inbounds double, ptr %30, i64 %90
   %92 = load double, ptr %91, align 8
   %93 = fcmp olt double %89, %92
@@ -15481,11 +15481,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 95:                                               ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %96 = add nsw i32 %.0528, -1
+  %96 = add nsw i32 %.0517, -1
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds double, ptr %30, i64 %97
   %99 = load double, ptr %98, align 8
-  %100 = sext i32 %.0528 to i64
+  %100 = sext i32 %.0517 to i64
   %101 = getelementptr inbounds double, ptr %30, i64 %100
   %102 = load double, ptr %101, align 8
   %103 = fcmp ogt double %99, %102
@@ -15494,8 +15494,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 105:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %106 = add nsw i32 %.0528, -1
-  %107 = sext i32 %.0528 to i64
+  %106 = add nsw i32 %.0517, -1
+  %107 = sext i32 %.0517 to i64
   %108 = getelementptr inbounds double, ptr %30, i64 %107
   %109 = load double, ptr %108, align 8
   %110 = sext i32 %106 to i64
@@ -15506,8 +15506,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 114:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %115 = add nsw i32 %.0528, -1
-  %116 = sext i32 %.0528 to i64
+  %115 = add nsw i32 %.0517, -1
+  %116 = sext i32 %.0517 to i64
   %117 = getelementptr inbounds double, ptr %30, i64 %116
   %118 = load double, ptr %117, align 8
   %119 = sext i32 %115 to i64
@@ -15518,8 +15518,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 123:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %124 = add nsw i32 %.0528, -1
-  %125 = sext i32 %.0528 to i64
+  %124 = add nsw i32 %.0517, -1
+  %125 = sext i32 %.0517 to i64
   %126 = getelementptr inbounds double, ptr %30, i64 %125
   %127 = load double, ptr %126, align 8
   %128 = sext i32 %124 to i64
@@ -15530,8 +15530,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 132:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %133 = add nsw i32 %.0528, -1
-  %134 = sext i32 %.0528 to i64
+  %133 = add nsw i32 %.0517, -1
+  %134 = sext i32 %.0517 to i64
   %135 = getelementptr inbounds double, ptr %30, i64 %134
   %136 = load double, ptr %135, align 8
   %137 = sext i32 %133 to i64
@@ -15542,11 +15542,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 141:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %142 = add nsw i32 %.0528, -1
+  %142 = add nsw i32 %.0517, -1
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds double, ptr %30, i64 %143
   %145 = load double, ptr %144, align 8
-  %146 = sext i32 %.0528 to i64
+  %146 = sext i32 %.0517 to i64
   %147 = getelementptr inbounds double, ptr %30, i64 %146
   %148 = load double, ptr %147, align 8
   %149 = tail call noundef double @pow(double noundef %145, double noundef %148) #22
@@ -15554,7 +15554,7 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 150:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %151 = add nsw i32 %.0528, -1
+  %151 = add nsw i32 %.0517, -1
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds double, ptr %30, i64 %152
   %154 = load double, ptr %153, align 8
@@ -15562,7 +15562,7 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %150
-  %157 = sext i32 %.0528 to i64
+  %157 = sext i32 %.0517 to i64
   %158 = getelementptr inbounds double, ptr %30, i64 %157
   %159 = load double, ptr %158, align 8
   %160 = fcmp une double %159, 0.000000e+00
@@ -15575,7 +15575,7 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 164:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %165 = add nsw i32 %.0528, -1
+  %165 = add nsw i32 %.0517, -1
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds double, ptr %30, i64 %166
   %168 = load double, ptr %167, align 8
@@ -15583,7 +15583,7 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br i1 %169, label %175, label %170
 
 170:                                              ; preds = %164
-  %171 = sext i32 %.0528 to i64
+  %171 = sext i32 %.0517 to i64
   %172 = getelementptr inbounds double, ptr %30, i64 %171
   %173 = load double, ptr %172, align 8
   %174 = fcmp une double %173, 0.000000e+00
@@ -15596,11 +15596,11 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 178:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %179 = add nsw i32 %.0528, -1
-  %180 = sext i32 %.0528 to i64
+  %179 = add nsw i32 %.0517, -1
+  %180 = sext i32 %.0517 to i64
   %181 = getelementptr inbounds double, ptr %30, i64 %180
   %182 = load double, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %183 = getelementptr inbounds i8, ptr %.0519, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds double, ptr %184, i64 %38
   store double %182, ptr %185, align 8
@@ -15610,15 +15610,15 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %1132
 
 188:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %189 = add nsw i32 %.0528, -1
-  %190 = sext i32 %.0528 to i64
+  %189 = add nsw i32 %.0517, -1
+  %190 = sext i32 %.0517 to i64
   %191 = getelementptr inbounds double, ptr %30, i64 %190
   %192 = load double, ptr %191, align 8
   %193 = fcmp oeq double %192, 0.000000e+00
   br i1 %193, label %194, label %1132
 
 194:                                              ; preds = %188
-  %195 = icmp sgt i32 %.0528, 0
+  %195 = icmp sgt i32 %.0517, 0
   br i1 %195, label %219, label %196
 
 196:                                              ; preds = %194
@@ -15689,97 +15689,97 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   br label %common.resume
 
 219:                                              ; preds = %194
-  %220 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %220 = getelementptr inbounds i8, ptr %.0519, i64 16
   %221 = load i32, ptr %220, align 8
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds %"struct.mu::SToken", ptr %.0526, i64 %222
+  %223 = getelementptr inbounds %"struct.mu::SToken", ptr %.0519, i64 %222
   br label %1132
 
 224:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %225 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %225 = getelementptr inbounds i8, ptr %.0519, i64 16
   %226 = load i32, ptr %225, align 8
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds %"struct.mu::SToken", ptr %.0526, i64 %227
+  %228 = getelementptr inbounds %"struct.mu::SToken", ptr %.0519, i64 %227
   br label %1132
 
 229:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %230 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %230 = getelementptr inbounds i8, ptr %.0519, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds double, ptr %231, i64 %38
   %233 = load double, ptr %232, align 8
-  %234 = add nsw i32 %.0528, 1
+  %234 = add nsw i32 %.0517, 1
   %235 = sext i32 %234 to i64
   %236 = getelementptr inbounds double, ptr %30, i64 %235
   store double %233, ptr %236, align 8
   br label %1132
 
 237:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %238 = getelementptr inbounds i8, ptr %.0526, i64 24
+  %238 = getelementptr inbounds i8, ptr %.0519, i64 24
   %239 = load double, ptr %238, align 8
-  %240 = add nsw i32 %.0528, 1
+  %240 = add nsw i32 %.0517, 1
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds double, ptr %30, i64 %241
   store double %239, ptr %242, align 8
   br label %1132
 
 243:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %244 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %244 = getelementptr inbounds i8, ptr %.0519, i64 8
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds double, ptr %245, i64 %38
   %247 = load double, ptr %246, align 8
   %248 = fmul double %247, %247
-  %249 = add nsw i32 %.0528, 1
+  %249 = add nsw i32 %.0517, 1
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds double, ptr %30, i64 %250
   store double %248, ptr %251, align 8
   br label %1132
 
 252:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %253 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %253 = getelementptr inbounds i8, ptr %.0519, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds double, ptr %254, i64 %38
   %256 = load double, ptr %255, align 8
   %257 = fmul double %256, %256
   %258 = fmul double %256, %257
-  %259 = add nsw i32 %.0528, 1
+  %259 = add nsw i32 %.0517, 1
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds double, ptr %30, i64 %260
   store double %258, ptr %261, align 8
   br label %1132
 
 262:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %263 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %263 = getelementptr inbounds i8, ptr %.0519, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds double, ptr %264, i64 %38
   %266 = load double, ptr %265, align 8
   %267 = fmul double %266, %266
   %268 = fmul double %266, %267
   %269 = fmul double %266, %268
-  %270 = add nsw i32 %.0528, 1
+  %270 = add nsw i32 %.0517, 1
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds double, ptr %30, i64 %271
   store double %269, ptr %272, align 8
   br label %1132
 
 273:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %274 = getelementptr inbounds i8, ptr %.0526, i64 8
+  %274 = getelementptr inbounds i8, ptr %.0519, i64 8
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds double, ptr %275, i64 %38
   %277 = load double, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %278 = getelementptr inbounds i8, ptr %.0519, i64 16
   %279 = load double, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %.0526, i64 24
+  %280 = getelementptr inbounds i8, ptr %.0519, i64 24
   %281 = load double, ptr %280, align 8
   %282 = tail call double @llvm.fmuladd.f64(double %277, double %279, double %281)
-  %283 = add nsw i32 %.0528, 1
+  %283 = add nsw i32 %.0517, 1
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds double, ptr %30, i64 %284
   store double %282, ptr %285, align 8
   br label %1132
 
 286:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %287 = getelementptr inbounds i8, ptr %.0526, i64 8
-  %288 = getelementptr inbounds i8, ptr %.0526, i64 24
+  %287 = getelementptr inbounds i8, ptr %.0519, i64 8
+  %288 = getelementptr inbounds i8, ptr %.0519, i64 24
   %289 = load i32, ptr %288, align 8
   switch i32 %289, label %602 [
     i32 0, label %290
@@ -15796,8 +15796,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit:           ; preds = %_ZNK2mu14ParserByte
   ]
 
 290:                                              ; preds = %286
-  %291 = add nsw i32 %.0528, 1
-  %292 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %291 = add nsw i32 %.0517, 1
+  %292 = getelementptr inbounds i8, ptr %.0519, i64 16
   %293 = load ptr, ptr %292, align 8
   %294 = icmp eq ptr %293, null
   %295 = load ptr, ptr %287, align 8
@@ -15819,9 +15819,9 @@ _ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit: ; preds = %296, %2
   br label %1132
 
 302:                                              ; preds = %286
-  %303 = sext i32 %.0528 to i64
+  %303 = sext i32 %.0517 to i64
   %304 = getelementptr inbounds double, ptr %30, i64 %303
-  %305 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %305 = getelementptr inbounds i8, ptr %.0519, i64 16
   %306 = load ptr, ptr %305, align 8
   %307 = icmp eq ptr %306, null
   %308 = load ptr, ptr %287, align 8
@@ -15842,12 +15842,12 @@ _ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit: ; preds = %310, 
   br label %1132
 
 314:                                              ; preds = %286
-  %315 = add nsw i32 %.0528, -1
+  %315 = add nsw i32 %.0517, -1
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds double, ptr %30, i64 %316
-  %318 = sext i32 %.0528 to i64
+  %318 = sext i32 %.0517 to i64
   %319 = getelementptr inbounds double, ptr %30, i64 %318
-  %320 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %320 = getelementptr inbounds i8, ptr %.0519, i64 16
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, null
   %323 = load ptr, ptr %287, align 8
@@ -15869,15 +15869,15 @@ _ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit: ; preds = %32
   br label %1132
 
 330:                                              ; preds = %286
-  %331 = add nsw i32 %.0528, -2
+  %331 = add nsw i32 %.0517, -2
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds double, ptr %30, i64 %332
-  %334 = add nsw i32 %.0528, -1
+  %334 = add nsw i32 %.0517, -1
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds double, ptr %30, i64 %335
-  %337 = sext i32 %.0528 to i64
+  %337 = sext i32 %.0517 to i64
   %338 = getelementptr inbounds double, ptr %30, i64 %337
-  %339 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %339 = getelementptr inbounds i8, ptr %.0519, i64 16
   %340 = load ptr, ptr %339, align 8
   %341 = icmp eq ptr %340, null
   %342 = load ptr, ptr %287, align 8
@@ -15900,18 +15900,18 @@ _ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit: ; preds = 
   br label %1132
 
 350:                                              ; preds = %286
-  %351 = add nsw i32 %.0528, -3
+  %351 = add nsw i32 %.0517, -3
   %352 = sext i32 %351 to i64
   %353 = getelementptr inbounds double, ptr %30, i64 %352
-  %354 = add nsw i32 %.0528, -2
+  %354 = add nsw i32 %.0517, -2
   %355 = sext i32 %354 to i64
   %356 = getelementptr inbounds double, ptr %30, i64 %355
-  %357 = add nsw i32 %.0528, -1
+  %357 = add nsw i32 %.0517, -1
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds double, ptr %30, i64 %358
-  %360 = sext i32 %.0528 to i64
+  %360 = sext i32 %.0517 to i64
   %361 = getelementptr inbounds double, ptr %30, i64 %360
-  %362 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %362 = getelementptr inbounds i8, ptr %.0519, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = icmp eq ptr %363, null
   %365 = load ptr, ptr %287, align 8
@@ -15935,21 +15935,21 @@ _ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit: ; preds
   br label %1132
 
 374:                                              ; preds = %286
-  %375 = add nsw i32 %.0528, -4
+  %375 = add nsw i32 %.0517, -4
   %376 = sext i32 %375 to i64
   %377 = getelementptr inbounds double, ptr %30, i64 %376
-  %378 = add nsw i32 %.0528, -3
+  %378 = add nsw i32 %.0517, -3
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds double, ptr %30, i64 %379
-  %381 = add nsw i32 %.0528, -2
+  %381 = add nsw i32 %.0517, -2
   %382 = sext i32 %381 to i64
   %383 = getelementptr inbounds double, ptr %30, i64 %382
-  %384 = add nsw i32 %.0528, -1
+  %384 = add nsw i32 %.0517, -1
   %385 = sext i32 %384 to i64
   %386 = getelementptr inbounds double, ptr %30, i64 %385
-  %387 = sext i32 %.0528 to i64
+  %387 = sext i32 %.0517 to i64
   %388 = getelementptr inbounds double, ptr %30, i64 %387
-  %389 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %389 = getelementptr inbounds i8, ptr %.0519, i64 16
   %390 = load ptr, ptr %389, align 8
   %391 = icmp eq ptr %390, null
   %392 = load ptr, ptr %287, align 8
@@ -15974,24 +15974,24 @@ _ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit: ; pr
   br label %1132
 
 402:                                              ; preds = %286
-  %403 = add nsw i32 %.0528, -5
+  %403 = add nsw i32 %.0517, -5
   %404 = sext i32 %403 to i64
   %405 = getelementptr inbounds double, ptr %30, i64 %404
-  %406 = add nsw i32 %.0528, -4
+  %406 = add nsw i32 %.0517, -4
   %407 = sext i32 %406 to i64
   %408 = getelementptr inbounds double, ptr %30, i64 %407
-  %409 = add nsw i32 %.0528, -3
+  %409 = add nsw i32 %.0517, -3
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds double, ptr %30, i64 %410
-  %412 = add nsw i32 %.0528, -2
+  %412 = add nsw i32 %.0517, -2
   %413 = sext i32 %412 to i64
   %414 = getelementptr inbounds double, ptr %30, i64 %413
-  %415 = add nsw i32 %.0528, -1
+  %415 = add nsw i32 %.0517, -1
   %416 = sext i32 %415 to i64
   %417 = getelementptr inbounds double, ptr %30, i64 %416
-  %418 = sext i32 %.0528 to i64
+  %418 = sext i32 %.0517 to i64
   %419 = getelementptr inbounds double, ptr %30, i64 %418
-  %420 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %420 = getelementptr inbounds i8, ptr %.0519, i64 16
   %421 = load ptr, ptr %420, align 8
   %422 = icmp eq ptr %421, null
   %423 = load ptr, ptr %287, align 8
@@ -16017,27 +16017,27 @@ _ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit: ;
   br label %1132
 
 434:                                              ; preds = %286
-  %435 = add nsw i32 %.0528, -6
+  %435 = add nsw i32 %.0517, -6
   %436 = sext i32 %435 to i64
   %437 = getelementptr inbounds double, ptr %30, i64 %436
-  %438 = add nsw i32 %.0528, -5
+  %438 = add nsw i32 %.0517, -5
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds double, ptr %30, i64 %439
-  %441 = add nsw i32 %.0528, -4
+  %441 = add nsw i32 %.0517, -4
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds double, ptr %30, i64 %442
-  %444 = add nsw i32 %.0528, -3
+  %444 = add nsw i32 %.0517, -3
   %445 = sext i32 %444 to i64
   %446 = getelementptr inbounds double, ptr %30, i64 %445
-  %447 = add nsw i32 %.0528, -2
+  %447 = add nsw i32 %.0517, -2
   %448 = sext i32 %447 to i64
   %449 = getelementptr inbounds double, ptr %30, i64 %448
-  %450 = add nsw i32 %.0528, -1
+  %450 = add nsw i32 %.0517, -1
   %451 = sext i32 %450 to i64
   %452 = getelementptr inbounds double, ptr %30, i64 %451
-  %453 = sext i32 %.0528 to i64
+  %453 = sext i32 %.0517 to i64
   %454 = getelementptr inbounds double, ptr %30, i64 %453
-  %455 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %455 = getelementptr inbounds i8, ptr %.0519, i64 16
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq ptr %456, null
   %458 = load ptr, ptr %287, align 8
@@ -16064,30 +16064,30 @@ _ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit
   br label %1132
 
 470:                                              ; preds = %286
-  %471 = add nsw i32 %.0528, -7
+  %471 = add nsw i32 %.0517, -7
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds double, ptr %30, i64 %472
-  %474 = add nsw i32 %.0528, -6
+  %474 = add nsw i32 %.0517, -6
   %475 = sext i32 %474 to i64
   %476 = getelementptr inbounds double, ptr %30, i64 %475
-  %477 = add nsw i32 %.0528, -5
+  %477 = add nsw i32 %.0517, -5
   %478 = sext i32 %477 to i64
   %479 = getelementptr inbounds double, ptr %30, i64 %478
-  %480 = add nsw i32 %.0528, -4
+  %480 = add nsw i32 %.0517, -4
   %481 = sext i32 %480 to i64
   %482 = getelementptr inbounds double, ptr %30, i64 %481
-  %483 = add nsw i32 %.0528, -3
+  %483 = add nsw i32 %.0517, -3
   %484 = sext i32 %483 to i64
   %485 = getelementptr inbounds double, ptr %30, i64 %484
-  %486 = add nsw i32 %.0528, -2
+  %486 = add nsw i32 %.0517, -2
   %487 = sext i32 %486 to i64
   %488 = getelementptr inbounds double, ptr %30, i64 %487
-  %489 = add nsw i32 %.0528, -1
+  %489 = add nsw i32 %.0517, -1
   %490 = sext i32 %489 to i64
   %491 = getelementptr inbounds double, ptr %30, i64 %490
-  %492 = sext i32 %.0528 to i64
+  %492 = sext i32 %.0517 to i64
   %493 = getelementptr inbounds double, ptr %30, i64 %492
-  %494 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %494 = getelementptr inbounds i8, ptr %.0519, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = icmp eq ptr %495, null
   %497 = load ptr, ptr %287, align 8
@@ -16115,33 +16115,33 @@ _ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.e
   br label %1132
 
 510:                                              ; preds = %286
-  %511 = add nsw i32 %.0528, -8
+  %511 = add nsw i32 %.0517, -8
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds double, ptr %30, i64 %512
-  %514 = add nsw i32 %.0528, -7
+  %514 = add nsw i32 %.0517, -7
   %515 = sext i32 %514 to i64
   %516 = getelementptr inbounds double, ptr %30, i64 %515
-  %517 = add nsw i32 %.0528, -6
+  %517 = add nsw i32 %.0517, -6
   %518 = sext i32 %517 to i64
   %519 = getelementptr inbounds double, ptr %30, i64 %518
-  %520 = add nsw i32 %.0528, -5
+  %520 = add nsw i32 %.0517, -5
   %521 = sext i32 %520 to i64
   %522 = getelementptr inbounds double, ptr %30, i64 %521
-  %523 = add nsw i32 %.0528, -4
+  %523 = add nsw i32 %.0517, -4
   %524 = sext i32 %523 to i64
   %525 = getelementptr inbounds double, ptr %30, i64 %524
-  %526 = add nsw i32 %.0528, -3
+  %526 = add nsw i32 %.0517, -3
   %527 = sext i32 %526 to i64
   %528 = getelementptr inbounds double, ptr %30, i64 %527
-  %529 = add nsw i32 %.0528, -2
+  %529 = add nsw i32 %.0517, -2
   %530 = sext i32 %529 to i64
   %531 = getelementptr inbounds double, ptr %30, i64 %530
-  %532 = add nsw i32 %.0528, -1
+  %532 = add nsw i32 %.0517, -1
   %533 = sext i32 %532 to i64
   %534 = getelementptr inbounds double, ptr %30, i64 %533
-  %535 = sext i32 %.0528 to i64
+  %535 = sext i32 %.0517 to i64
   %536 = getelementptr inbounds double, ptr %30, i64 %535
-  %537 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %537 = getelementptr inbounds i8, ptr %.0519, i64 16
   %538 = load ptr, ptr %537, align 8
   %539 = icmp eq ptr %538, null
   %540 = load ptr, ptr %287, align 8
@@ -16170,36 +16170,36 @@ _ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0
   br label %1132
 
 554:                                              ; preds = %286
-  %555 = add nsw i32 %.0528, -9
+  %555 = add nsw i32 %.0517, -9
   %556 = sext i32 %555 to i64
   %557 = getelementptr inbounds double, ptr %30, i64 %556
-  %558 = add nsw i32 %.0528, -8
+  %558 = add nsw i32 %.0517, -8
   %559 = sext i32 %558 to i64
   %560 = getelementptr inbounds double, ptr %30, i64 %559
-  %561 = add nsw i32 %.0528, -7
+  %561 = add nsw i32 %.0517, -7
   %562 = sext i32 %561 to i64
   %563 = getelementptr inbounds double, ptr %30, i64 %562
-  %564 = add nsw i32 %.0528, -6
+  %564 = add nsw i32 %.0517, -6
   %565 = sext i32 %564 to i64
   %566 = getelementptr inbounds double, ptr %30, i64 %565
-  %567 = add nsw i32 %.0528, -5
+  %567 = add nsw i32 %.0517, -5
   %568 = sext i32 %567 to i64
   %569 = getelementptr inbounds double, ptr %30, i64 %568
-  %570 = add nsw i32 %.0528, -4
+  %570 = add nsw i32 %.0517, -4
   %571 = sext i32 %570 to i64
   %572 = getelementptr inbounds double, ptr %30, i64 %571
-  %573 = add nsw i32 %.0528, -3
+  %573 = add nsw i32 %.0517, -3
   %574 = sext i32 %573 to i64
   %575 = getelementptr inbounds double, ptr %30, i64 %574
-  %576 = add nsw i32 %.0528, -2
+  %576 = add nsw i32 %.0517, -2
   %577 = sext i32 %576 to i64
   %578 = getelementptr inbounds double, ptr %30, i64 %577
-  %579 = add nsw i32 %.0528, -1
+  %579 = add nsw i32 %.0517, -1
   %580 = sext i32 %579 to i64
   %581 = getelementptr inbounds double, ptr %30, i64 %580
-  %582 = sext i32 %.0528 to i64
+  %582 = sext i32 %.0517 to i64
   %583 = getelementptr inbounds double, ptr %30, i64 %582
-  %584 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %584 = getelementptr inbounds i8, ptr %.0519, i64 16
   %585 = load ptr, ptr %584, align 8
   %586 = icmp eq ptr %585, null
   %587 = load ptr, ptr %287, align 8
@@ -16269,7 +16269,7 @@ _ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdD
 
 615:                                              ; preds = %602
   %616 = sub nsw i32 0, %289
-  %.neg = add i32 %.0528, 1
+  %.neg = add i32 %.0517, 1
   %617 = add i32 %.neg, %289
   %618 = icmp slt i32 %617, 1
   br i1 %618, label %619, label %630
@@ -16312,7 +16312,7 @@ _ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdD
 630:                                              ; preds = %615
   %631 = zext nneg i32 %617 to i64
   %632 = getelementptr inbounds double, ptr %30, i64 %631
-  %633 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %633 = getelementptr inbounds i8, ptr %.0519, i64 16
   %634 = load ptr, ptr %633, align 8
   %635 = icmp eq ptr %634, null
   %636 = load ptr, ptr %287, align 8
@@ -16332,12 +16332,12 @@ _ZNK2mu21generic_callable_type12call_multfunEPKdi.exit: ; preds = %637, %639
   br label %1132
 
 641:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %642 = getelementptr inbounds i8, ptr %.0526, i64 8
-  %643 = getelementptr inbounds i8, ptr %.0526, i64 24
+  %642 = getelementptr inbounds i8, ptr %.0519, i64 8
+  %643 = getelementptr inbounds i8, ptr %.0519, i64 24
   %644 = load i32, ptr %643, align 8
-  %.neg623 = add i32 %.0528, 1
+  %.neg623 = add i32 %.0517, 1
   %645 = sub i32 %.neg623, %644
-  %646 = getelementptr inbounds i8, ptr %.0526, i64 28
+  %646 = getelementptr inbounds i8, ptr %.0519, i64 28
   %647 = load i32, ptr %646, align 4
   %648 = icmp slt i32 %647, 0
   br i1 %648, label %657, label %649
@@ -16404,7 +16404,7 @@ _ZNK2mu21generic_callable_type12call_multfunEPKdi.exit: ; preds = %637, %639
   %672 = zext nneg i32 %647 to i64
   %673 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %651, i64 %672
   %674 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %673) #22
-  %675 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %675 = getelementptr inbounds i8, ptr %.0519, i64 16
   %676 = load ptr, ptr %675, align 8
   %677 = icmp eq ptr %676, null
   %678 = load ptr, ptr %642, align 8
@@ -16431,7 +16431,7 @@ _ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit: ; preds = %
   %688 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %687) #22
   %689 = sext i32 %645 to i64
   %690 = getelementptr inbounds double, ptr %30, i64 %689
-  %691 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %691 = getelementptr inbounds i8, ptr %.0519, i64 16
   %692 = load ptr, ptr %691, align 8
   %693 = icmp eq ptr %692, null
   %694 = load ptr, ptr %642, align 8
@@ -16460,7 +16460,7 @@ _ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit: ; preds =
   %706 = add nsw i32 %645, 1
   %707 = sext i32 %706 to i64
   %708 = getelementptr inbounds double, ptr %30, i64 %707
-  %709 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %709 = getelementptr inbounds i8, ptr %.0519, i64 16
   %710 = load ptr, ptr %709, align 8
   %711 = icmp eq ptr %710, null
   %712 = load ptr, ptr %642, align 8
@@ -16493,7 +16493,7 @@ _ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit: ; pred
   %728 = add nsw i32 %645, 2
   %729 = sext i32 %728 to i64
   %730 = getelementptr inbounds double, ptr %30, i64 %729
-  %731 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %731 = getelementptr inbounds i8, ptr %.0519, i64 16
   %732 = load ptr, ptr %731, align 8
   %733 = icmp eq ptr %732, null
   %734 = load ptr, ptr %642, align 8
@@ -16530,7 +16530,7 @@ _ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit: ; p
   %754 = add nsw i32 %645, 3
   %755 = sext i32 %754 to i64
   %756 = getelementptr inbounds double, ptr %30, i64 %755
-  %757 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %757 = getelementptr inbounds i8, ptr %.0519, i64 16
   %758 = load ptr, ptr %757, align 8
   %759 = icmp eq ptr %758, null
   %760 = load ptr, ptr %642, align 8
@@ -16571,7 +16571,7 @@ _ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit: 
   %784 = add nsw i32 %645, 4
   %785 = sext i32 %784 to i64
   %786 = getelementptr inbounds double, ptr %30, i64 %785
-  %787 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %787 = getelementptr inbounds i8, ptr %.0519, i64 16
   %788 = load ptr, ptr %787, align 8
   %789 = icmp eq ptr %788, null
   %790 = load ptr, ptr %642, align 8
@@ -16596,8 +16596,8 @@ _ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exi
   br label %1132
 
 800:                                              ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit
-  %801 = getelementptr inbounds i8, ptr %.0526, i64 8
-  %802 = getelementptr inbounds i8, ptr %.0526, i64 24
+  %801 = getelementptr inbounds i8, ptr %.0519, i64 8
+  %802 = getelementptr inbounds i8, ptr %.0519, i64 24
   %803 = load i32, ptr %802, align 8
   switch i32 %803, label %1116 [
     i32 0, label %804
@@ -16614,8 +16614,8 @@ _ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exi
   ]
 
 804:                                              ; preds = %800
-  %805 = add nsw i32 %.0528, 1
-  %806 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %805 = add nsw i32 %.0517, 1
+  %806 = getelementptr inbounds i8, ptr %.0519, i64 16
   %807 = load ptr, ptr %806, align 8
   %808 = icmp eq ptr %807, null
   %809 = load ptr, ptr %801, align 8
@@ -16637,9 +16637,9 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit: ; preds 
   br label %1132
 
 816:                                              ; preds = %800
-  %817 = sext i32 %.0528 to i64
+  %817 = sext i32 %.0517 to i64
   %818 = getelementptr inbounds double, ptr %30, i64 %817
-  %819 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %819 = getelementptr inbounds i8, ptr %.0519, i64 16
   %820 = load ptr, ptr %819, align 8
   %821 = icmp eq ptr %820, null
   %822 = load ptr, ptr %801, align 8
@@ -16660,12 +16660,12 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit: ; pred
   br label %1132
 
 828:                                              ; preds = %800
-  %829 = add nsw i32 %.0528, -1
+  %829 = add nsw i32 %.0517, -1
   %830 = sext i32 %829 to i64
   %831 = getelementptr inbounds double, ptr %30, i64 %830
-  %832 = sext i32 %.0528 to i64
+  %832 = sext i32 %.0517 to i64
   %833 = getelementptr inbounds double, ptr %30, i64 %832
-  %834 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %834 = getelementptr inbounds i8, ptr %.0519, i64 16
   %835 = load ptr, ptr %834, align 8
   %836 = icmp eq ptr %835, null
   %837 = load ptr, ptr %801, align 8
@@ -16687,15 +16687,15 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit: ; p
   br label %1132
 
 844:                                              ; preds = %800
-  %845 = add nsw i32 %.0528, -2
+  %845 = add nsw i32 %.0517, -2
   %846 = sext i32 %845 to i64
   %847 = getelementptr inbounds double, ptr %30, i64 %846
-  %848 = add nsw i32 %.0528, -1
+  %848 = add nsw i32 %.0517, -1
   %849 = sext i32 %848 to i64
   %850 = getelementptr inbounds double, ptr %30, i64 %849
-  %851 = sext i32 %.0528 to i64
+  %851 = sext i32 %.0517 to i64
   %852 = getelementptr inbounds double, ptr %30, i64 %851
-  %853 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %853 = getelementptr inbounds i8, ptr %.0519, i64 16
   %854 = load ptr, ptr %853, align 8
   %855 = icmp eq ptr %854, null
   %856 = load ptr, ptr %801, align 8
@@ -16718,18 +16718,18 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit: 
   br label %1132
 
 864:                                              ; preds = %800
-  %865 = add nsw i32 %.0528, -3
+  %865 = add nsw i32 %.0517, -3
   %866 = sext i32 %865 to i64
   %867 = getelementptr inbounds double, ptr %30, i64 %866
-  %868 = add nsw i32 %.0528, -2
+  %868 = add nsw i32 %.0517, -2
   %869 = sext i32 %868 to i64
   %870 = getelementptr inbounds double, ptr %30, i64 %869
-  %871 = add nsw i32 %.0528, -1
+  %871 = add nsw i32 %.0517, -1
   %872 = sext i32 %871 to i64
   %873 = getelementptr inbounds double, ptr %30, i64 %872
-  %874 = sext i32 %.0528 to i64
+  %874 = sext i32 %.0517 to i64
   %875 = getelementptr inbounds double, ptr %30, i64 %874
-  %876 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %876 = getelementptr inbounds i8, ptr %.0519, i64 16
   %877 = load ptr, ptr %876, align 8
   %878 = icmp eq ptr %877, null
   %879 = load ptr, ptr %801, align 8
@@ -16753,21 +16753,21 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exi
   br label %1132
 
 888:                                              ; preds = %800
-  %889 = add nsw i32 %.0528, -4
+  %889 = add nsw i32 %.0517, -4
   %890 = sext i32 %889 to i64
   %891 = getelementptr inbounds double, ptr %30, i64 %890
-  %892 = add nsw i32 %.0528, -3
+  %892 = add nsw i32 %.0517, -3
   %893 = sext i32 %892 to i64
   %894 = getelementptr inbounds double, ptr %30, i64 %893
-  %895 = add nsw i32 %.0528, -2
+  %895 = add nsw i32 %.0517, -2
   %896 = sext i32 %895 to i64
   %897 = getelementptr inbounds double, ptr %30, i64 %896
-  %898 = add nsw i32 %.0528, -1
+  %898 = add nsw i32 %.0517, -1
   %899 = sext i32 %898 to i64
   %900 = getelementptr inbounds double, ptr %30, i64 %899
-  %901 = sext i32 %.0528 to i64
+  %901 = sext i32 %.0517 to i64
   %902 = getelementptr inbounds double, ptr %30, i64 %901
-  %903 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %903 = getelementptr inbounds i8, ptr %.0519, i64 16
   %904 = load ptr, ptr %903, align 8
   %905 = icmp eq ptr %904, null
   %906 = load ptr, ptr %801, align 8
@@ -16792,24 +16792,24 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.
   br label %1132
 
 916:                                              ; preds = %800
-  %917 = add nsw i32 %.0528, -5
+  %917 = add nsw i32 %.0517, -5
   %918 = sext i32 %917 to i64
   %919 = getelementptr inbounds double, ptr %30, i64 %918
-  %920 = add nsw i32 %.0528, -4
+  %920 = add nsw i32 %.0517, -4
   %921 = sext i32 %920 to i64
   %922 = getelementptr inbounds double, ptr %30, i64 %921
-  %923 = add nsw i32 %.0528, -3
+  %923 = add nsw i32 %.0517, -3
   %924 = sext i32 %923 to i64
   %925 = getelementptr inbounds double, ptr %30, i64 %924
-  %926 = add nsw i32 %.0528, -2
+  %926 = add nsw i32 %.0517, -2
   %927 = sext i32 %926 to i64
   %928 = getelementptr inbounds double, ptr %30, i64 %927
-  %929 = add nsw i32 %.0528, -1
+  %929 = add nsw i32 %.0517, -1
   %930 = sext i32 %929 to i64
   %931 = getelementptr inbounds double, ptr %30, i64 %930
-  %932 = sext i32 %.0528 to i64
+  %932 = sext i32 %.0517 to i64
   %933 = getelementptr inbounds double, ptr %30, i64 %932
-  %934 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %934 = getelementptr inbounds i8, ptr %.0519, i64 16
   %935 = load ptr, ptr %934, align 8
   %936 = icmp eq ptr %935, null
   %937 = load ptr, ptr %801, align 8
@@ -16835,27 +16835,27 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT
   br label %1132
 
 948:                                              ; preds = %800
-  %949 = add nsw i32 %.0528, -6
+  %949 = add nsw i32 %.0517, -6
   %950 = sext i32 %949 to i64
   %951 = getelementptr inbounds double, ptr %30, i64 %950
-  %952 = add nsw i32 %.0528, -5
+  %952 = add nsw i32 %.0517, -5
   %953 = sext i32 %952 to i64
   %954 = getelementptr inbounds double, ptr %30, i64 %953
-  %955 = add nsw i32 %.0528, -4
+  %955 = add nsw i32 %.0517, -4
   %956 = sext i32 %955 to i64
   %957 = getelementptr inbounds double, ptr %30, i64 %956
-  %958 = add nsw i32 %.0528, -3
+  %958 = add nsw i32 %.0517, -3
   %959 = sext i32 %958 to i64
   %960 = getelementptr inbounds double, ptr %30, i64 %959
-  %961 = add nsw i32 %.0528, -2
+  %961 = add nsw i32 %.0517, -2
   %962 = sext i32 %961 to i64
   %963 = getelementptr inbounds double, ptr %30, i64 %962
-  %964 = add nsw i32 %.0528, -1
+  %964 = add nsw i32 %.0517, -1
   %965 = sext i32 %964 to i64
   %966 = getelementptr inbounds double, ptr %30, i64 %965
-  %967 = sext i32 %.0528 to i64
+  %967 = sext i32 %.0517 to i64
   %968 = getelementptr inbounds double, ptr %30, i64 %967
-  %969 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %969 = getelementptr inbounds i8, ptr %.0519, i64 16
   %970 = load ptr, ptr %969, align 8
   %971 = icmp eq ptr %970, null
   %972 = load ptr, ptr %801, align 8
@@ -16882,30 +16882,30 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdD
   br label %1132
 
 984:                                              ; preds = %800
-  %985 = add nsw i32 %.0528, -7
+  %985 = add nsw i32 %.0517, -7
   %986 = sext i32 %985 to i64
   %987 = getelementptr inbounds double, ptr %30, i64 %986
-  %988 = add nsw i32 %.0528, -6
+  %988 = add nsw i32 %.0517, -6
   %989 = sext i32 %988 to i64
   %990 = getelementptr inbounds double, ptr %30, i64 %989
-  %991 = add nsw i32 %.0528, -5
+  %991 = add nsw i32 %.0517, -5
   %992 = sext i32 %991 to i64
   %993 = getelementptr inbounds double, ptr %30, i64 %992
-  %994 = add nsw i32 %.0528, -4
+  %994 = add nsw i32 %.0517, -4
   %995 = sext i32 %994 to i64
   %996 = getelementptr inbounds double, ptr %30, i64 %995
-  %997 = add nsw i32 %.0528, -3
+  %997 = add nsw i32 %.0517, -3
   %998 = sext i32 %997 to i64
   %999 = getelementptr inbounds double, ptr %30, i64 %998
-  %1000 = add nsw i32 %.0528, -2
+  %1000 = add nsw i32 %.0517, -2
   %1001 = sext i32 %1000 to i64
   %1002 = getelementptr inbounds double, ptr %30, i64 %1001
-  %1003 = add nsw i32 %.0528, -1
+  %1003 = add nsw i32 %.0517, -1
   %1004 = sext i32 %1003 to i64
   %1005 = getelementptr inbounds double, ptr %30, i64 %1004
-  %1006 = sext i32 %.0528 to i64
+  %1006 = sext i32 %.0517 to i64
   %1007 = getelementptr inbounds double, ptr %30, i64 %1006
-  %1008 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %1008 = getelementptr inbounds i8, ptr %.0519, i64 16
   %1009 = load ptr, ptr %1008, align 8
   %1010 = icmp eq ptr %1009, null
   %1011 = load ptr, ptr %801, align 8
@@ -16933,33 +16933,33 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EE
   br label %1132
 
 1024:                                             ; preds = %800
-  %1025 = add nsw i32 %.0528, -8
+  %1025 = add nsw i32 %.0517, -8
   %1026 = sext i32 %1025 to i64
   %1027 = getelementptr inbounds double, ptr %30, i64 %1026
-  %1028 = add nsw i32 %.0528, -7
+  %1028 = add nsw i32 %.0517, -7
   %1029 = sext i32 %1028 to i64
   %1030 = getelementptr inbounds double, ptr %30, i64 %1029
-  %1031 = add nsw i32 %.0528, -6
+  %1031 = add nsw i32 %.0517, -6
   %1032 = sext i32 %1031 to i64
   %1033 = getelementptr inbounds double, ptr %30, i64 %1032
-  %1034 = add nsw i32 %.0528, -5
+  %1034 = add nsw i32 %.0517, -5
   %1035 = sext i32 %1034 to i64
   %1036 = getelementptr inbounds double, ptr %30, i64 %1035
-  %1037 = add nsw i32 %.0528, -4
+  %1037 = add nsw i32 %.0517, -4
   %1038 = sext i32 %1037 to i64
   %1039 = getelementptr inbounds double, ptr %30, i64 %1038
-  %1040 = add nsw i32 %.0528, -3
+  %1040 = add nsw i32 %.0517, -3
   %1041 = sext i32 %1040 to i64
   %1042 = getelementptr inbounds double, ptr %30, i64 %1041
-  %1043 = add nsw i32 %.0528, -2
+  %1043 = add nsw i32 %.0517, -2
   %1044 = sext i32 %1043 to i64
   %1045 = getelementptr inbounds double, ptr %30, i64 %1044
-  %1046 = add nsw i32 %.0528, -1
+  %1046 = add nsw i32 %.0517, -1
   %1047 = sext i32 %1046 to i64
   %1048 = getelementptr inbounds double, ptr %30, i64 %1047
-  %1049 = sext i32 %.0528 to i64
+  %1049 = sext i32 %.0517 to i64
   %1050 = getelementptr inbounds double, ptr %30, i64 %1049
-  %1051 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %1051 = getelementptr inbounds i8, ptr %.0519, i64 16
   %1052 = load ptr, ptr %1051, align 8
   %1053 = icmp eq ptr %1052, null
   %1054 = load ptr, ptr %801, align 8
@@ -16988,36 +16988,36 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3
   br label %1132
 
 1068:                                             ; preds = %800
-  %1069 = add nsw i32 %.0528, -9
+  %1069 = add nsw i32 %.0517, -9
   %1070 = sext i32 %1069 to i64
   %1071 = getelementptr inbounds double, ptr %30, i64 %1070
-  %1072 = add nsw i32 %.0528, -8
+  %1072 = add nsw i32 %.0517, -8
   %1073 = sext i32 %1072 to i64
   %1074 = getelementptr inbounds double, ptr %30, i64 %1073
-  %1075 = add nsw i32 %.0528, -7
+  %1075 = add nsw i32 %.0517, -7
   %1076 = sext i32 %1075 to i64
   %1077 = getelementptr inbounds double, ptr %30, i64 %1076
-  %1078 = add nsw i32 %.0528, -6
+  %1078 = add nsw i32 %.0517, -6
   %1079 = sext i32 %1078 to i64
   %1080 = getelementptr inbounds double, ptr %30, i64 %1079
-  %1081 = add nsw i32 %.0528, -5
+  %1081 = add nsw i32 %.0517, -5
   %1082 = sext i32 %1081 to i64
   %1083 = getelementptr inbounds double, ptr %30, i64 %1082
-  %1084 = add nsw i32 %.0528, -4
+  %1084 = add nsw i32 %.0517, -4
   %1085 = sext i32 %1084 to i64
   %1086 = getelementptr inbounds double, ptr %30, i64 %1085
-  %1087 = add nsw i32 %.0528, -3
+  %1087 = add nsw i32 %.0517, -3
   %1088 = sext i32 %1087 to i64
   %1089 = getelementptr inbounds double, ptr %30, i64 %1088
-  %1090 = add nsw i32 %.0528, -2
+  %1090 = add nsw i32 %.0517, -2
   %1091 = sext i32 %1090 to i64
   %1092 = getelementptr inbounds double, ptr %30, i64 %1091
-  %1093 = add nsw i32 %.0528, -1
+  %1093 = add nsw i32 %.0517, -1
   %1094 = sext i32 %1093 to i64
   %1095 = getelementptr inbounds double, ptr %30, i64 %1094
-  %1096 = sext i32 %.0528 to i64
+  %1096 = sext i32 %.0517 to i64
   %1097 = getelementptr inbounds double, ptr %30, i64 %1096
-  %1098 = getelementptr inbounds i8, ptr %.0526, i64 16
+  %1098 = getelementptr inbounds i8, ptr %.0519, i64 16
   %1099 = load ptr, ptr %1098, align 8
   %1100 = icmp eq ptr %1099, null
   %1101 = load ptr, ptr %801, align 8
@@ -17113,9 +17113,9 @@ _ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S
   br label %common.resume
 
 1132:                                             ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit, %670, %188, %219, %_ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type12call_multfunEPKdi.exit, %_ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit, %_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit, %273, %262, %252, %243, %237, %229, %224, %178, %175, %161, %141, %132, %123, %114, %105, %95, %85, %75, %65, %55, %45
-  %.1529 = phi i32 [ %1069, %_ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %1025, %_ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %985, %_ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %949, %_ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %917, %_ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %889, %_ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.exit ], [ %865, %_ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exit ], [ %845, %_ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit ], [ %829, %_ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit ], [ %.0528, %_ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit ], [ %805, %_ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit ], [ %645, %670 ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit ], [ %617, %_ZNK2mu21generic_callable_type12call_multfunEPKdi.exit ], [ %555, %_ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %511, %_ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %471, %_ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %435, %_ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %403, %_ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %375, %_ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit ], [ %351, %_ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit ], [ %331, %_ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit ], [ %315, %_ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit ], [ %.0528, %_ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit ], [ %291, %_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit ], [ %283, %273 ], [ %270, %262 ], [ %259, %252 ], [ %249, %243 ], [ %240, %237 ], [ %234, %229 ], [ %.0528, %224 ], [ %189, %219 ], [ %189, %188 ], [ %179, %178 ], [ %165, %175 ], [ %151, %161 ], [ %142, %141 ], [ %133, %132 ], [ %124, %123 ], [ %115, %114 ], [ %106, %105 ], [ %96, %95 ], [ %86, %85 ], [ %76, %75 ], [ %66, %65 ], [ %56, %55 ], [ %46, %45 ], [ %.0528, %_ZNK2mu14ParserByteCode7GetBaseEv.exit ]
-  %.1527 = phi ptr [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit ], [ %.0526, %670 ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type12call_multfunEPKdi.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit ], [ %.0526, %_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit ], [ %.0526, %273 ], [ %.0526, %262 ], [ %.0526, %252 ], [ %.0526, %243 ], [ %.0526, %237 ], [ %.0526, %229 ], [ %228, %224 ], [ %223, %219 ], [ %.0526, %188 ], [ %.0526, %178 ], [ %.0526, %175 ], [ %.0526, %161 ], [ %.0526, %141 ], [ %.0526, %132 ], [ %.0526, %123 ], [ %.0526, %114 ], [ %.0526, %105 ], [ %.0526, %95 ], [ %.0526, %85 ], [ %.0526, %75 ], [ %.0526, %65 ], [ %.0526, %55 ], [ %.0526, %45 ], [ %.0526, %_ZNK2mu14ParserByteCode7GetBaseEv.exit ]
-  %1133 = getelementptr inbounds i8, ptr %.1527, i64 32
+  %.1520 = phi ptr [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit ], [ %.0519, %670 ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type12call_multfunEPKdi.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit ], [ %.0519, %_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit ], [ %.0519, %273 ], [ %.0519, %262 ], [ %.0519, %252 ], [ %.0519, %243 ], [ %.0519, %237 ], [ %.0519, %229 ], [ %228, %224 ], [ %223, %219 ], [ %.0519, %188 ], [ %.0519, %178 ], [ %.0519, %175 ], [ %.0519, %161 ], [ %.0519, %141 ], [ %.0519, %132 ], [ %.0519, %123 ], [ %.0519, %114 ], [ %.0519, %105 ], [ %.0519, %95 ], [ %.0519, %85 ], [ %.0519, %75 ], [ %.0519, %65 ], [ %.0519, %55 ], [ %.0519, %45 ], [ %.0519, %_ZNK2mu14ParserByteCode7GetBaseEv.exit ]
+  %.1518 = phi i32 [ %1069, %_ZNK2mu21generic_callable_type12call_bulkfunILm10EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %1025, %_ZNK2mu21generic_callable_type12call_bulkfunILm9EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %985, %_ZNK2mu21generic_callable_type12call_bulkfunILm8EJRiS2_RdS3_S3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %949, %_ZNK2mu21generic_callable_type12call_bulkfunILm7EJRiS2_RdS3_S3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %917, %_ZNK2mu21generic_callable_type12call_bulkfunILm6EJRiS2_RdS3_S3_S3_S3_S3_EEEdDpOT0_.exit ], [ %889, %_ZNK2mu21generic_callable_type12call_bulkfunILm5EJRiS2_RdS3_S3_S3_S3_EEEdDpOT0_.exit ], [ %865, %_ZNK2mu21generic_callable_type12call_bulkfunILm4EJRiS2_RdS3_S3_S3_EEEdDpOT0_.exit ], [ %845, %_ZNK2mu21generic_callable_type12call_bulkfunILm3EJRiS2_RdS3_S3_EEEdDpOT0_.exit ], [ %829, %_ZNK2mu21generic_callable_type12call_bulkfunILm2EJRiS2_RdS3_EEEdDpOT0_.exit ], [ %.0517, %_ZNK2mu21generic_callable_type12call_bulkfunILm1EJRiS2_RdEEEdDpOT0_.exit ], [ %805, %_ZNK2mu21generic_callable_type12call_bulkfunILm0EJRiS2_EEEdDpOT0_.exit ], [ %645, %670 ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm6EJPKcRdS4_S4_S4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm5EJPKcRdS4_S4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm4EJPKcRdS4_S4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm3EJPKcRdS4_EEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm2EJPKcRdEEEdDpOT0_.exit ], [ %645, %_ZNK2mu21generic_callable_type11call_strfunILm1EJPKcEEEdDpOT0_.exit ], [ %617, %_ZNK2mu21generic_callable_type12call_multfunEPKdi.exit ], [ %555, %_ZNK2mu21generic_callable_type8call_funILm10EJRdS2_S2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %511, %_ZNK2mu21generic_callable_type8call_funILm9EJRdS2_S2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %471, %_ZNK2mu21generic_callable_type8call_funILm8EJRdS2_S2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %435, %_ZNK2mu21generic_callable_type8call_funILm7EJRdS2_S2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %403, %_ZNK2mu21generic_callable_type8call_funILm6EJRdS2_S2_S2_S2_S2_EEEdDpOT0_.exit ], [ %375, %_ZNK2mu21generic_callable_type8call_funILm5EJRdS2_S2_S2_S2_EEEdDpOT0_.exit ], [ %351, %_ZNK2mu21generic_callable_type8call_funILm4EJRdS2_S2_S2_EEEdDpOT0_.exit ], [ %331, %_ZNK2mu21generic_callable_type8call_funILm3EJRdS2_S2_EEEdDpOT0_.exit ], [ %315, %_ZNK2mu21generic_callable_type8call_funILm2EJRdS2_EEEdDpOT0_.exit ], [ %.0517, %_ZNK2mu21generic_callable_type8call_funILm1EJRdEEEdDpOT0_.exit ], [ %291, %_ZNK2mu21generic_callable_type8call_funILm0EJEEEdDpOT0_.exit ], [ %283, %273 ], [ %270, %262 ], [ %259, %252 ], [ %249, %243 ], [ %240, %237 ], [ %234, %229 ], [ %.0517, %224 ], [ %189, %219 ], [ %189, %188 ], [ %179, %178 ], [ %165, %175 ], [ %151, %161 ], [ %142, %141 ], [ %133, %132 ], [ %124, %123 ], [ %115, %114 ], [ %106, %105 ], [ %96, %95 ], [ %86, %85 ], [ %76, %75 ], [ %66, %65 ], [ %56, %55 ], [ %46, %45 ], [ %.0517, %_ZNK2mu14ParserByteCode7GetBaseEv.exit ]
+  %1133 = getelementptr inbounds i8, ptr %.1520, i64 32
   br label %_ZNK2mu14ParserByteCode7GetBaseEv.exit, !llvm.loop !130
 
 1134:                                             ; preds = %_ZNK2mu14ParserByteCode7GetBaseEv.exit

@@ -476,8 +476,8 @@ x64_type_is_structure.exit:                       ; preds = %47
   br label %58
 
 58:                                               ; preds = %x64_type_is_structure.exit, %55
-  %.024 = phi ptr [ %56, %55 ], [ %57, %x64_type_is_structure.exit ]
-  %59 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.024) #7
+  %.025 = phi ptr [ %56, %55 ], [ %57, %x64_type_is_structure.exit ]
+  %59 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #7
   br i1 %59, label %60, label %84
 
 60:                                               ; preds = %58
@@ -538,8 +538,8 @@ x64_type_is_structure.exit:                       ; preds = %47
   br label %x64_indirect_return_result.exit
 
 x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %81, %62, %.critedge.i, %37, %18, %._crit_edge, %5
-  %.026 = phi ptr [ %9, %5 ], [ %88, %._crit_edge ], [ %19, %18 ], [ %38, %37 ], [ %39, %.critedge.i ], [ %63, %62 ], [ %82, %81 ], [ %83, %.critedge.i32 ]
-  ret ptr %.026
+  %.024 = phi ptr [ %9, %5 ], [ %88, %._crit_edge ], [ %19, %18 ], [ %38, %37 ], [ %39, %.critedge.i ], [ %63, %62 ], [ %82, %81 ], [ %83, %.critedge.i32 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1489,8 +1489,8 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
   br i1 %42, label %31, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.lr.ph, %31, %18, %.lr.ph64, %13, %23, %28, %7, %5, %3
-  %.046 = phi i1 [ true, %3 ], [ false, %5 ], [ true, %7 ], [ true, %28 ], [ true, %23 ], [ false, %18 ], [ true, %.lr.ph64 ], [ true, %13 ], [ false, %37 ], [ true, %.lr.ph ], [ true, %31 ]
-  ret i1 %.046
+  %.044 = phi i1 [ true, %3 ], [ false, %5 ], [ true, %7 ], [ true, %28 ], [ true, %23 ], [ false, %18 ], [ true, %.lr.ph64 ], [ true, %13 ], [ false, %37 ], [ true, %.lr.ph ], [ true, %31 ]
+  ret i1 %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2225,8 +2225,8 @@ tailrecurse.i77.backedge:                         ; preds = %101, %x64_get_membe
   br label %113
 
 113:                                              ; preds = %109, %.loopexit
-  %.058 = phi i32 [ %112, %109 ], [ %107, %.loopexit ]
-  %114 = add i32 %.058, -13
+  %.0 = phi i32 [ %112, %109 ], [ %107, %.loopexit ]
+  %114 = add i32 %.0, -13
   %115 = icmp ult i32 %114, 2
   %116 = icmp ugt i32 %57, 4
   %or.cond = and i1 %116, %115
@@ -2383,8 +2383,8 @@ x64_get_fp_type_at_offset.exit97:                 ; preds = %67, %125
   br label %187
 
 187:                                              ; preds = %183, %181
-  %.063 = phi i32 [ %186, %183 ], [ %165, %181 ]
-  %188 = add i32 %.063, -13
+  %.060 = phi i32 [ %186, %183 ], [ %165, %181 ]
+  %188 = add i32 %.060, -13
   %189 = icmp ult i32 %188, 2
   br i1 %189, label %190, label %242
 
@@ -2517,8 +2517,8 @@ x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
   br label %247
 
 247:                                              ; preds = %243, %242
-  %.062 = phi i32 [ %246, %243 ], [ %172, %242 ]
-  %248 = add i32 %.062, -13
+  %.061 = phi i32 [ %246, %243 ], [ %172, %242 ]
+  %248 = add i32 %.061, -13
   %249 = icmp ult i32 %248, 2
   br i1 %249, label %259, label %250
 
@@ -2533,8 +2533,8 @@ x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
   br label %256
 
 256:                                              ; preds = %252, %250
-  %.061 = phi i32 [ %255, %252 ], [ %165, %250 ]
-  %257 = add i32 %.061, -13
+  %.062 = phi i32 [ %255, %252 ], [ %165, %250 ]
+  %257 = add i32 %.062, -13
   %258 = icmp ult i32 %257, 2
   br i1 %258, label %259, label %262
 
@@ -2548,8 +2548,8 @@ x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
   br label %x64_get_fp_type_at_offset.exit118.thread
 
 x64_get_fp_type_at_offset.exit118.thread:         ; preds = %128, %113, %x64_get_fp_type_at_offset.exit, %x64_get_fp_type_at_offset.exit.thread, %262, %259, %x64_get_fp_type_at_offset.exit139, %169
-  %.060 = phi ptr [ %170, %169 ], [ %241, %x64_get_fp_type_at_offset.exit139 ], [ %261, %259 ], [ %263, %262 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %52, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %113 ], [ %.tr.i, %128 ]
-  ret ptr %.060
+  %.063 = phi ptr [ %170, %169 ], [ %241, %x64_get_fp_type_at_offset.exit139 ], [ %261, %259 ], [ %263, %262 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %52, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %113 ], [ %.tr.i, %128 ]
+  ret ptr %.063
 }
 
 ; Function Attrs: nounwind uwtable

@@ -147,8 +147,8 @@ entry:
 
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %entry
   %outIx.promoted763 = phi i32 [ 0, %entry ], [ %outIx.promoted763.be, %for.cond.outer.backedge ]
-  %fmtIx.0.ph = phi i32 [ 0, %entry ], [ %fmtIx.0.ph.be, %for.cond.outer.backedge ]
   %longArg.0.ph = phi i64 [ 0, %entry ], [ %longArg.0.ph.be, %for.cond.outer.backedge ]
+  %fmtIx.0.ph = phi i32 [ 0, %entry ], [ %fmtIx.0.ph.be, %for.cond.outer.backedge ]
   %inc766 = add i32 %fmtIx.0.ph, 1
   %idxprom767 = sext i32 %fmtIx.0.ph to i64
   %arrayidx768 = getelementptr inbounds i8, ptr %fmt, i64 %idxprom767
@@ -1768,8 +1768,8 @@ sw.epilog182.loopexit756:                         ; preds = %if.then28.i.i199
 
 for.cond.outer.backedge:                          ; preds = %sw.epilog182.loopexit756, %sw.epilog182.loopexit755, %sw.epilog182.loopexit754, %sw.epilog182.loopexit753, %sw.epilog182.loopexit752, %sw.epilog182.loopexit, %if.then28.i630, %if.end25.i628, %if.then28.i117, %if.end25.i115, %_ZL10outputCharcPcPiii.exit623, %_ZL10outputCharcPcPiii.exit248, %_ZL14outputPtrBytesPvPcPii.exit, %vaarg.end43
   %outIx.promoted763.be = phi i32 [ %inc29.i602, %_ZL10outputCharcPcPiii.exit623 ], [ %inc29.i227, %_ZL10outputCharcPcPiii.exit248 ], [ %70, %_ZL14outputPtrBytesPvPcPii.exit ], [ %outIx.promoted763.pre.pre, %vaarg.end43 ], [ %19, %if.end25.i115 ], [ %inc29.i118, %if.then28.i117 ], [ %138, %if.end25.i628 ], [ %inc29.i631, %if.then28.i630 ], [ %inc.i.us73.i.lcssa854857, %sw.epilog182.loopexit ], [ %inc29.i.us.i851, %sw.epilog182.loopexit752 ], [ %139, %sw.epilog182.loopexit753 ], [ %140, %sw.epilog182.loopexit754 ], [ %141, %sw.epilog182.loopexit755 ], [ %142, %sw.epilog182.loopexit756 ]
-  %fmtIx.0.ph.be = phi i32 [ %spec.select, %_ZL10outputCharcPcPiii.exit623 ], [ %inc.lcssa, %_ZL10outputCharcPcPiii.exit248 ], [ %inc5, %_ZL14outputPtrBytesPvPcPii.exit ], [ %inc5, %vaarg.end43 ], [ %inc5, %if.end25.i115 ], [ %inc5, %if.then28.i117 ], [ %inc5, %if.end25.i628 ], [ %inc5, %if.then28.i630 ], [ %inc5, %sw.epilog182.loopexit ], [ %inc5, %sw.epilog182.loopexit752 ], [ %inc5, %sw.epilog182.loopexit753 ], [ %inc5, %sw.epilog182.loopexit754 ], [ %inc5, %sw.epilog182.loopexit755 ], [ %inc5, %sw.epilog182.loopexit756 ]
   %longArg.0.ph.be = phi i64 [ %longArg.3, %_ZL10outputCharcPcPiii.exit623 ], [ %longArg.0.ph, %_ZL10outputCharcPcPiii.exit248 ], [ %longArg.0.ph, %_ZL14outputPtrBytesPvPcPii.exit ], [ %longArg.0.ph, %vaarg.end43 ], [ %longArg.0.ph, %if.end25.i115 ], [ %longArg.0.ph, %if.then28.i117 ], [ %longArg.0.ph, %if.end25.i628 ], [ %longArg.0.ph, %if.then28.i630 ], [ %longArg.0.ph, %sw.epilog182.loopexit ], [ %longArg.0.ph, %sw.epilog182.loopexit752 ], [ %longArg.0.ph, %sw.epilog182.loopexit753 ], [ %longArg.0.ph, %sw.epilog182.loopexit754 ], [ %longArg.0.ph, %sw.epilog182.loopexit755 ], [ %60, %sw.epilog182.loopexit756 ]
+  %fmtIx.0.ph.be = phi i32 [ %spec.select, %_ZL10outputCharcPcPiii.exit623 ], [ %inc.lcssa, %_ZL10outputCharcPcPiii.exit248 ], [ %inc5, %_ZL14outputPtrBytesPvPcPii.exit ], [ %inc5, %vaarg.end43 ], [ %inc5, %if.end25.i115 ], [ %inc5, %if.then28.i117 ], [ %inc5, %if.end25.i628 ], [ %inc5, %if.then28.i630 ], [ %inc5, %sw.epilog182.loopexit ], [ %inc5, %sw.epilog182.loopexit752 ], [ %inc5, %sw.epilog182.loopexit753 ], [ %inc5, %sw.epilog182.loopexit754 ], [ %inc5, %sw.epilog182.loopexit755 ], [ %inc5, %sw.epilog182.loopexit756 ]
   br label %for.cond.outer, !llvm.loop !6
 
 for.end183:                                       ; preds = %if.end25.i

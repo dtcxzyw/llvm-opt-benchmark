@@ -1695,15 +1695,15 @@ lpad.i141:                                        ; preds = %if.then90
   br label %ehcleanup215
 
 land.rhs:                                         ; preds = %for.cond.preheader, %_ZN6icu_7515MeasureUnitImplD2Ev.exit
-  %i.0252 = phi i32 [ 0, %for.cond.preheader ], [ %inc144, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ]
-  %unitsMatchSystem.0251 = phi i8 [ 1, %for.cond.preheader ], [ %unitsMatchSystem.1.lcssa, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ]
+  %unitsMatchSystem.0252 = phi i8 [ 1, %for.cond.preheader ], [ %unitsMatchSystem.1.lcssa, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ]
+  %i.0251 = phi i32 [ 0, %for.cond.preheader ], [ %inc144, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ]
   %90 = load i32, ptr %prefsCount, align 4
-  %cmp93 = icmp slt i32 %i.0252, %90
+  %cmp93 = icmp slt i32 %i.0251, %90
   br i1 %cmp93, label %invoke.cont97, label %cleanup193
 
 invoke.cont97:                                    ; preds = %land.rhs
   %91 = load i32, ptr %prefsOffset, align 8
-  %add = add nsw i32 %91, %i.0252
+  %add = add nsw i32 %91, %i.0251
   %conv95 = sext i32 %add to i64
   %92 = load ptr, ptr %fPool.i143, align 8
   %arrayidx.i.i144 = getelementptr inbounds ptr, ptr %92, i64 %conv95
@@ -1720,7 +1720,7 @@ invoke.cont103:                                   ; preds = %invoke.cont97
           to label %for.cond105.preheader unwind label %lpad96.loopexit
 
 for.cond105.preheader:                            ; preds = %invoke.cont103
-  %tobool106246 = trunc nuw i8 %unitsMatchSystem.0251 to i1
+  %tobool106246 = trunc nuw i8 %unitsMatchSystem.0252 to i1
   %97 = load i32, ptr %singleUnits, align 8
   %cmp111247 = icmp sgt i32 %97, 0
   %or.cond248 = select i1 %tobool106246, i1 %cmp111247, i1 false
@@ -1728,7 +1728,7 @@ for.cond105.preheader:                            ; preds = %invoke.cont103
 
 for.body113:                                      ; preds = %for.cond105.preheader, %if.end140
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end140 ], [ 0, %for.cond105.preheader ]
-  %unitsMatchSystem.1249 = phi i8 [ %unitsMatchSystem.2, %if.end140 ], [ %unitsMatchSystem.0251, %for.cond105.preheader ]
+  %unitsMatchSystem.1249 = phi i8 [ %unitsMatchSystem.2, %if.end140 ], [ %unitsMatchSystem.0252, %for.cond105.preheader ]
   %98 = load ptr, ptr %fPool.i145, align 8
   %arrayidx.i.i146 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv
   %99 = load ptr, ptr %arrayidx.i.i146, align 8
@@ -1874,7 +1874,7 @@ if.end140:                                        ; preds = %invoke.cont136, %in
   br i1 %or.cond, label %for.body113, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end140, %for.cond105.preheader
-  %unitsMatchSystem.1.lcssa = phi i8 [ %unitsMatchSystem.0251, %for.cond105.preheader ], [ %unitsMatchSystem.2, %if.end140 ]
+  %unitsMatchSystem.1.lcssa = phi i8 [ %unitsMatchSystem.0252, %for.cond105.preheader ], [ %unitsMatchSystem.2, %if.end140 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #15
   %121 = load i32, ptr %singleUnits, align 8
   %cmp3.i.i.i = icmp sgt i32 %121, 0
@@ -1919,7 +1919,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  %inc144 = add nuw nsw i32 %i.0252, 1
+  %inc144 = add nuw nsw i32 %i.0251, 1
   %tobool92 = trunc nuw i8 %unitsMatchSystem.1.lcssa to i1
   br i1 %tobool92, label %land.rhs, label %if.then147, !llvm.loop !16
 
@@ -2021,8 +2021,8 @@ if.end187:                                        ; preds = %invoke.cont181
   br label %cleanup193
 
 cleanup193:                                       ; preds = %land.rhs, %if.end187, %invoke.cont181
-  %cond = phi i1 [ false, %invoke.cont181 ], [ true, %if.end187 ], [ true, %land.rhs ]
   %m.1 = phi ptr [ %82, %invoke.cont181 ], [ %150, %if.end187 ], [ %82, %land.rhs ]
+  %cond = phi i1 [ false, %invoke.cont181 ], [ true, %if.end187 ], [ true, %land.rhs ]
   %nrvo.2 = phi i1 [ true, %invoke.cont181 ], [ false, %if.end187 ], [ false, %land.rhs ]
   %151 = load i32, ptr %rates, align 8
   %cmp3.i.i.i189 = icmp sgt i32 %151, 0
@@ -2257,9 +2257,9 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 while.body.i:                                     ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i, %while.body.lr.ph.i
   %6 = phi i8 [ 0, %while.body.lr.ph.i ], [ %12, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
   %7 = phi i8 [ 0, %while.body.lr.ph.i ], [ %13, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
-  %end.09.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %spec.select6.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
-  %start.08.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %spec.select.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
-  %add.i = add nuw nsw i32 %start.08.i, %end.09.i
+  %start.09.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %spec.select6.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
+  %end.08.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %spec.select.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
+  %add.i = add nuw nsw i32 %end.08.i, %start.09.i
   %div11.i = lshr i32 %add.i, 1
   %conv.i19 = zext nneg i32 %div11.i to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %conv.i19
@@ -2290,9 +2290,9 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; pred
   %cmp.110.i.i = phi i32 [ %call15.i.i, %if.end16.i.i ], [ %call9.i.i, %if.end.i.i ], [ %call4.i.i, %while.body.i ]
   %cmp5.i = icmp slt i32 %cmp.110.i.i, 0
   %add7.i = add nuw nsw i32 %div11.i, 1
-  %spec.select.i = select i1 %cmp5.i, i32 %add7.i, i32 %start.08.i
-  %spec.select6.i = select i1 %cmp5.i, i32 %end.09.i, i32 %div11.i
-  %cmp.i20 = icmp slt i32 %spec.select.i, %spec.select6.i
+  %spec.select.i = select i1 %cmp5.i, i32 %end.08.i, i32 %div11.i
+  %spec.select6.i = select i1 %cmp5.i, i32 %add7.i, i32 %start.09.i
+  %cmp.i20 = icmp slt i32 %spec.select6.i, %spec.select.i
   br i1 %cmp.i20, label %while.body.i, label %if.end9, !llvm.loop !20
 
 lpad.loopexit:                                    ; preds = %while.body, %if.then18, %if.then27, %invoke.cont29, %invoke.cont32
@@ -2382,9 +2382,9 @@ while.body.lr.ph.i28:                             ; preds = %if.end.i26
 
 while.body.i33:                                   ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43, %while.body.lr.ph.i28
   %23 = phi i8 [ 0, %while.body.lr.ph.i28 ], [ %28, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
-  %end.09.i34 = phi i32 [ %18, %while.body.lr.ph.i28 ], [ %spec.select6.i48, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
-  %start.08.i35 = phi i32 [ 0, %while.body.lr.ph.i28 ], [ %spec.select.i47, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
-  %add.i36 = add nuw nsw i32 %start.08.i35, %end.09.i34
+  %start.09.i34 = phi i32 [ 0, %while.body.lr.ph.i28 ], [ %spec.select6.i48, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
+  %end.08.i35 = phi i32 [ %18, %while.body.lr.ph.i28 ], [ %spec.select.i47, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
+  %add.i36 = add nuw nsw i32 %end.08.i35, %start.09.i34
   %div11.i37 = lshr i32 %add.i36, 1
   %conv.i38 = zext nneg i32 %div11.i37 to i64
   %arrayidx.i.i.i39 = getelementptr inbounds ptr, ptr %19, i64 %conv.i38
@@ -2414,9 +2414,9 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43: ; pr
   %cmp.110.i.i44 = phi i32 [ %call15.i.i56, %if.end16.i.i54 ], [ %call9.i.i52, %if.end.i.i50 ], [ %call4.i.i41, %while.body.i33 ]
   %cmp5.i45 = icmp slt i32 %cmp.110.i.i44, 0
   %add7.i46 = add nuw nsw i32 %div11.i37, 1
-  %spec.select.i47 = select i1 %cmp5.i45, i32 %add7.i46, i32 %start.08.i35
-  %spec.select6.i48 = select i1 %cmp5.i45, i32 %end.09.i34, i32 %div11.i37
-  %cmp.i49 = icmp slt i32 %spec.select.i47, %spec.select6.i48
+  %spec.select.i47 = select i1 %cmp5.i45, i32 %end.08.i35, i32 %div11.i37
+  %spec.select6.i48 = select i1 %cmp5.i45, i32 %add7.i46, i32 %start.09.i34
+  %cmp.i49 = icmp slt i32 %spec.select6.i48, %spec.select.i47
   br i1 %cmp.i49, label %while.body.i33, label %invoke.cont38, !llvm.loop !20
 
 invoke.cont38:                                    ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43, %if.end.i26
@@ -3824,9 +3824,9 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit
-  %end.09 = phi i32 [ %0, %while.body.lr.ph ], [ %spec.select6, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
-  %start.08 = phi i32 [ 0, %while.body.lr.ph ], [ %spec.select, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
-  %add = add nuw nsw i32 %end.09, %start.08
+  %start.09 = phi i32 [ 0, %while.body.lr.ph ], [ %spec.select6, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
+  %end.08 = phi i32 [ %0, %while.body.lr.ph ], [ %spec.select, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
+  %add = add nuw nsw i32 %start.09, %end.08
   %div11 = lshr i32 %add, 1
   %conv = zext nneg i32 %div11 to i64
   %1 = load ptr, ptr %fPool.i, align 8
@@ -3865,9 +3865,9 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit: ; preds 
   %cmp.110.i = phi i32 [ %call15.i, %if.end16.i ], [ %call9.i, %if.end.i ], [ %call4.i, %while.body ]
   %cmp5 = icmp slt i32 %cmp.110.i, 0
   %add7 = add nuw nsw i32 %div11, 1
-  %spec.select = select i1 %cmp5, i32 %add7, i32 %start.08
-  %spec.select6 = select i1 %cmp5, i32 %end.09, i32 %div11
-  %cmp = icmp slt i32 %spec.select, %spec.select6
+  %spec.select = select i1 %cmp5, i32 %end.08, i32 %div11
+  %spec.select6 = select i1 %cmp5, i32 %add7, i32 %start.09
+  %cmp = icmp slt i32 %spec.select6, %spec.select
   br i1 %cmp, label %while.body, label %return, !llvm.loop !20
 
 return:                                           ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit, %if.end, %if.else.thread, %entry

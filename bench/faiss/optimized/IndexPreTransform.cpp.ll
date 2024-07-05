@@ -158,7 +158,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
 
 42:                                               ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPfvEEvT_.exit, %.lr.ph
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPfvEEvT_.exit ]
-  %.03552 = phi ptr [ %2, %.lr.ph ], [ %94, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPfvEEvT_.exit ]
+  %.03453 = phi ptr [ %2, %.lr.ph ], [ %94, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPfvEEvT_.exit ]
   %.sroa.0.051 = phi ptr [ null, %.lr.ph ], [ %94, %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPfvEEvT_.exit ]
   %43 = load ptr, ptr %40, align 8
   %44 = load ptr, ptr %39, align 8
@@ -197,7 +197,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
 65:                                               ; preds = %59, %63, %56
   %66 = load ptr, ptr %52, align 8
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(17) %52, i64 noundef %1, ptr noundef %.03552)
+  invoke void %67(ptr noundef nonnull align 8 dereferenceable(17) %52, i64 noundef %1, ptr noundef %.03453)
           to label %77 unwind label %35
 
 68:                                               ; preds = %42
@@ -214,7 +214,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(36) %73, i64 noundef %1, ptr noundef %.03552)
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(36) %73, i64 noundef %1, ptr noundef %.03453)
           to label %77 unwind label %35
 
 77:                                               ; preds = %72, %50, %65
@@ -242,7 +242,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %35, %_ZNKSt1
   %91 = phi ptr [ %.pre, %82 ], [ %.pre62, %79 ]
   %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv58
   %93 = load ptr, ptr %92, align 8
-  %94 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %93, i64 noundef %1, ptr noundef %.03552)
+  %94 = invoke noundef ptr @_ZNK5faiss15VectorTransform5applyElPKf(ptr noundef nonnull align 8 dereferenceable(17) %93, i64 noundef %1, ptr noundef %.03453)
           to label %95 unwind label %35
 
 95:                                               ; preds = %90

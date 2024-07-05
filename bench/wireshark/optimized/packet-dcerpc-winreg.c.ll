@@ -636,27 +636,27 @@ define hidden i32 @winreg_dissect_struct_String(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.036 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %16 = load i32, ptr @ett_winreg_winreg_String, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_winreg_winreg_String_name_len, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = load i32, ptr @hf_winreg_winreg_String_name_size, align 4
-  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
+  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
   %23 = load i32, ptr @hf_winreg_winreg_String_name, align 4
-  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_String_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %23) #3
-  %25 = sub i32 %24, %.036
-  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #3
+  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_String_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %23) #3
+  %25 = sub i32 %24, %.0
+  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #3
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -723,27 +723,27 @@ define hidden i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_KeySecurityData, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_KeySecurityData_data, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_KeySecurityData_data_, i32 noundef 2, ptr noundef nonnull @.str.254, i32 noundef %32) #3
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_KeySecurityData_data_, i32 noundef 2, ptr noundef nonnull @.str.254, i32 noundef %32) #3
   %34 = load i32, ptr @hf_winreg_KeySecurityData_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_winreg_KeySecurityData_len, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #3
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -806,27 +806,27 @@ define hidden i32 @winreg_dissect_struct_SecBuf(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_winreg_SecBuf, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_winreg_SecBuf_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_winreg_winreg_SecBuf_sd, align 4
-  %35 = tail call i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_winreg_winreg_SecBuf_inherit, align 4
-  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #3
+  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -960,27 +960,27 @@ define hidden i32 @winreg_dissect_struct_StringBuf(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_winreg_StringBuf, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_winreg_StringBuf_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_winreg_winreg_StringBuf_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_winreg_winreg_StringBuf_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_StringBuf_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %36) #3
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #3
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_StringBuf_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %36) #3
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1043,27 +1043,27 @@ define hidden i32 @winreg_dissect_struct_ValNameBuf(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_winreg_ValNameBuf, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_winreg_ValNameBuf_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_winreg_winreg_ValNameBuf_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_winreg_winreg_ValNameBuf_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_ValNameBuf_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %36) #3
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #3
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_ValNameBuf_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %36) #3
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1212,27 +1212,27 @@ define hidden i32 @winreg_dissect_struct_KeySecurityAttribute(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_KeySecurityAttribute, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_KeySecurityAttribute_data_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_winreg_KeySecurityAttribute_sec_data, align 4
-  %35 = tail call i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_winreg_KeySecurityAttribute_inherit, align 4
-  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #3
+  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1295,29 +1295,29 @@ define hidden i32 @winreg_dissect_struct_QueryMultipleValue(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_winreg_QueryMultipleValue, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_winreg_QueryMultipleValue_ve_valuename, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValue_ve_valuename_, i32 noundef 2, ptr noundef nonnull @.str.255, i32 noundef %32) #3
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValue_ve_valuename_, i32 noundef 2, ptr noundef nonnull @.str.255, i32 noundef %32) #3
   %34 = load i32, ptr @hf_winreg_QueryMultipleValue_ve_valuelen, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_winreg_QueryMultipleValue_ve_valueptr, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
   %38 = load i32, ptr @hf_winreg_QueryMultipleValue_ve_type, align 4
-  %39 = tail call i32 @misc_dissect_enum_winreg_Type(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #3
-  %40 = sub i32 %39, %.050
-  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #3
+  %39 = tail call i32 @misc_dissect_enum_winreg_Type(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #3
+  %40 = sub i32 %39, %.0
+  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #3
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -3090,7 +3090,7 @@ define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not35, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.033 = select i1 %or.cond, i32 %1, i32 %14
+  %.0 = select i1 %or.cond, i32 %1, i32 %14
   %15 = tail call ptr @proto_registrar_get_nth(i32 noundef %7) #3
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %20, label %16
@@ -3098,21 +3098,21 @@ define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 nounde
 16:                                               ; preds = %8
   %17 = load i32, ptr @ett_winreg_winreg_String, align 4
   %18 = load ptr, ptr %15, align 8
-  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %.033, i32 noundef 0, i32 noundef %17, ptr noundef nonnull %9, ptr noundef nonnull @.str.336, ptr noundef %18) #3
+  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %.0, i32 noundef 0, i32 noundef %17, ptr noundef nonnull %9, ptr noundef nonnull @.str.336, ptr noundef %18) #3
   br label %20
 
 20:                                               ; preds = %16, %8
-  %.0 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.033 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_winreg_winreg_String_name_len, align 4
-  %22 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.033, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
+  %22 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
   %23 = load i32, ptr @hf_winreg_winreg_String_name_size, align 4
-  %24 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #3
+  %24 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #3
   %25 = load ptr, ptr %15, align 8
   %26 = zext nneg i32 %6 to i64
   %27 = inttoptr i64 %26 to ptr
-  %28 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef %25, i32 noundef %7, ptr noundef nonnull @cb_wstr_postprocess, ptr noundef %27) #3
+  %28 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef %25, i32 noundef %7, ptr noundef nonnull @cb_wstr_postprocess, ptr noundef %27) #3
   %29 = load ptr, ptr %9, align 8
-  %30 = sub i32 %28, %.033
+  %30 = sub i32 %28, %.0
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %30) #3
   ret i32 %28
 }

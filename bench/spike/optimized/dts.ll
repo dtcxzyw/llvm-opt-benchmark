@@ -847,14 +847,14 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.053 = phi i64 [ %24, %.lr.ph ], [ 0, %17 ]
   %.03452 = phi ptr [ %21, %.lr.ph ], [ %16, %17 ]
-  %.03551 = phi i32 [ %25, %.lr.ph ], [ 0, %17 ]
+  %.03651 = phi i32 [ %25, %.lr.ph ], [ 0, %17 ]
   %20 = shl i64 %.053, 32
   %21 = getelementptr inbounds i8, ptr %.03452, i64 4
   %22 = load i32, ptr %.03452, align 4
   %rev.i = call noundef i32 @llvm.bswap.i32(i32 %22)
   %23 = zext i32 %rev.i to i64
   %24 = or disjoint i64 %20, %23
-  %25 = add nuw nsw i32 %.03551, 1
+  %25 = add nuw nsw i32 %.03651, 1
   %exitcond.not = icmp eq i32 %25, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -873,14 +873,14 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
   %.156 = phi i64 [ %32, %.lr.ph57 ], [ 0, %.preheader ]
   %.03355 = phi ptr [ %29, %.lr.ph57 ], [ %19, %.preheader ]
-  %.13654 = phi i32 [ %33, %.lr.ph57 ], [ 0, %.preheader ]
+  %.13754 = phi i32 [ %33, %.lr.ph57 ], [ 0, %.preheader ]
   %28 = shl i64 %.156, 32
   %29 = getelementptr inbounds i8, ptr %.03355, i64 4
   %30 = load i32, ptr %.03355, align 4
   %rev.i49 = call noundef i32 @llvm.bswap.i32(i32 %30)
   %31 = zext i32 %rev.i49 to i64
   %32 = or disjoint i64 %28, %31
-  %33 = add nuw nsw i32 %.13654, 1
+  %33 = add nuw nsw i32 %.13754, 1
   %exitcond61.not = icmp eq i32 %33, %13
   br i1 %exitcond61.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !10
 
@@ -890,8 +890,8 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
   br label %34
 
 34:                                               ; preds = %26, %._crit_edge58, %15, %12, %9, %5
-  %.037 = phi i32 [ %7, %5 ], [ -19, %9 ], [ -19, %12 ], [ -19, %15 ], [ 0, %._crit_edge58 ], [ 0, %26 ]
-  ret i32 %.037
+  %.035 = phi i32 [ %7, %5 ], [ -19, %9 ], [ -19, %12 ], [ -19, %15 ], [ 0, %._crit_edge58 ], [ 0, %26 ]
+  ret i32 %.035
 }
 
 declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -961,14 +961,14 @@ define noundef range(i32 -2147483648, 1) i32 @_Z15fdt_parse_clintPKvPmPKc(ptr no
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.053.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %18 ]
   %.03452.i = phi ptr [ %20, %.lr.ph.i ], [ %17, %18 ]
-  %.03551.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %18 ]
+  %.03651.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %18 ]
   %19 = shl i64 %.053.i, 32
   %20 = getelementptr inbounds i8, ptr %.03452.i, i64 4
   %21 = load i32, ptr %.03452.i, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %21)
   %22 = zext i32 %rev.i.i to i64
   %23 = or disjoint i64 %19, %22
-  %24 = add nuw nsw i32 %.03551.i, 1
+  %24 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %24, %11
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
@@ -977,10 +977,10 @@ define noundef range(i32 -2147483648, 1) i32 @_Z15fdt_parse_clintPKvPmPKc(ptr no
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %18, %._crit_edge.i, %7, %10, %13, %16
-  %.037.i = phi i1 [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ true, %._crit_edge.i ], [ true, %18 ]
+  %.035.i = phi i1 [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ true, %._crit_edge.i ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %25 = icmp ne ptr %1, null
-  %or.cond = and i1 %25, %.037.i
+  %or.cond = and i1 %25, %.035.i
   %. = select i1 %or.cond, i32 0, i32 -19
   br label %26
 
@@ -1025,14 +1025,14 @@ define noundef range(i32 -2147483648, 1) i32 @_Z14fdt_parse_plicPKvPmPjPKc(ptr n
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.053.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %18 ]
   %.03452.i = phi ptr [ %21, %.lr.ph.i ], [ %19, %18 ]
-  %.03551.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %18 ]
+  %.03651.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %18 ]
   %20 = shl i64 %.053.i, 32
   %21 = getelementptr inbounds i8, ptr %.03452.i, i64 4
   %22 = load i32, ptr %.03452.i, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %22)
   %23 = zext i32 %rev.i.i to i64
   %24 = or disjoint i64 %20, %23
-  %25 = add nuw nsw i32 %.03551.i, 1
+  %25 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %25, %13
   br i1 %exitcond.not.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -1094,14 +1094,14 @@ define noundef range(i32 -2147483648, 1) i32 @_Z17fdt_parse_ns16550PKvPmPjS2_S2_
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.053.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %20 ]
   %.03452.i = phi ptr [ %23, %.lr.ph.i ], [ %21, %20 ]
-  %.03551.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %20 ]
+  %.03651.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %20 ]
   %22 = shl i64 %.053.i, 32
   %23 = getelementptr inbounds i8, ptr %.03452.i, i64 4
   %24 = load i32, ptr %.03452.i, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %24)
   %25 = zext i32 %rev.i.i to i64
   %26 = or disjoint i64 %22, %25
-  %27 = add nuw nsw i32 %.03551.i, 1
+  %27 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %27, %15
   br i1 %exitcond.not.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -1241,14 +1241,14 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %.053.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %30 ]
   %.03452.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %30 ]
-  %.03551.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
+  %.03651.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
   %31 = shl i64 %.053.i, 32
   %32 = getelementptr inbounds i8, ptr %.03452.i, i64 4
   %33 = load i32, ptr %.03452.i, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %33)
   %34 = zext i32 %rev.i.i to i64
   %35 = or disjoint i64 %31, %34
-  %36 = add nuw nsw i32 %.03551.i, 1
+  %36 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %36, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
@@ -1257,10 +1257,10 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
-  %.037.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %37 = icmp ne ptr %2, null
-  %or.cond = and i1 %37, %.037.i
+  %or.cond = and i1 %37, %.035.i
   %. = select i1 %or.cond, i32 0, i32 -19
   br label %38
 
@@ -1337,14 +1337,14 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %.053.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %30 ]
   %.03452.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %30 ]
-  %.03551.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
+  %.03651.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %30 ]
   %31 = shl i64 %.053.i, 32
   %32 = getelementptr inbounds i8, ptr %.03452.i, i64 4
   %33 = load i32, ptr %.03452.i, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %33)
   %34 = zext i32 %rev.i.i to i64
   %35 = or disjoint i64 %31, %34
-  %36 = add nuw nsw i32 %.03551.i, 1
+  %36 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %36, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
@@ -1353,10 +1353,10 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
-  %.037.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %37 = icmp ne ptr %2, null
-  %or.cond = and i1 %37, %.037.i
+  %or.cond = and i1 %37, %.035.i
   %. = select i1 %or.cond, i32 0, i32 -19
   br label %38
 

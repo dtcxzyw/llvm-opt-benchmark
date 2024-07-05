@@ -1203,8 +1203,8 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %177 unwind label %175, !noalias !9
 
 174:                                              ; preds = %178, %175
-  %.pn24.i = phi { ptr, i32 } [ %176, %175 ], [ %.pn22.i, %178 ]
   %.sroa.02.3.i = phi i1 [ %.sroa.02.4.i, %175 ], [ false, %178 ]
+  %.pn24.i = phi { ptr, i32 } [ %176, %175 ], [ %.pn22.i, %178 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %45) #8
           to label %159 unwind label %153, !noalias !9
 
@@ -1796,16 +1796,16 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
 .sink.split:                                      ; preds = %300, %345, %351, %357, %404, %414, %429
   %.sroa.3170.0..sroa_idx.sink = phi ptr [ %.sroa.3170.0..sroa_idx, %429 ], [ %.sroa.3176.0..sroa_idx, %414 ], [ %.sroa.3173.0..sroa_idx, %404 ], [ %.sroa.3156.0..sroa_idx, %357 ], [ %.sroa.3153.0..sroa_idx, %351 ], [ %.sroa.3150.0..sroa_idx, %345 ], [ %.sroa.6, %300 ]
   %.sroa.2169.0..sroa_idx.sink = phi ptr [ %428, %429 ], [ %413, %414 ], [ %403, %404 ], [ %356, %357 ], [ %350, %351 ], [ %344, %345 ], [ %.sroa.3229, %300 ]
-  %.sroa.0135.2.ph = phi i1 [ true, %429 ], [ true, %414 ], [ true, %404 ], [ true, %357 ], [ false, %351 ], [ true, %345 ], [ true, %300 ]
   %.sroa.13.sroa.0.0.ph = phi i64 [ %427, %429 ], [ %412, %414 ], [ %402, %404 ], [ %355, %357 ], [ %349, %351 ], [ %343, %345 ], [ %.sroa.0271.0.copyload, %300 ]
+  %.sroa.0135.2.ph = phi i1 [ true, %429 ], [ true, %414 ], [ true, %404 ], [ true, %357 ], [ false, %351 ], [ true, %345 ], [ true, %300 ]
   %.sroa.06.0.ph = phi i64 [ 1, %429 ], [ 0, %414 ], [ 0, %404 ], [ 1, %357 ], [ 1, %351 ], [ 1, %345 ], [ 0, %300 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3170.0..sroa_idx.sink, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.13, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2169.0..sroa_idx.sink, i64 24, i1 false)
   br label %303
 
 303:                                              ; preds = %.sink.split, %463, %447, %423
-  %.sroa.0135.2 = phi i1 [ true, %463 ], [ true, %447 ], [ true, %423 ], [ %.sroa.0135.2.ph, %.sink.split ]
   %.sroa.13.sroa.0.0 = phi i64 [ %461, %463 ], [ %445, %447 ], [ %421, %423 ], [ %.sroa.13.sroa.0.0.ph, %.sink.split ]
+  %.sroa.0135.2 = phi i1 [ true, %463 ], [ true, %447 ], [ true, %423 ], [ %.sroa.0135.2.ph, %.sink.split ]
   %.sroa.06.0 = phi i64 [ 0, %463 ], [ 0, %447 ], [ 0, %423 ], [ %.sroa.06.0.ph, %.sink.split ]
   store i64 %.sroa.06.0, ptr %0, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

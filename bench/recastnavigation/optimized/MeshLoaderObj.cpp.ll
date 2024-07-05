@@ -281,12 +281,12 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
 .outer:                                           ; preds = %.loopexit, %30
   %.0118.ph = phi i32 [ %.2120145, %.loopexit ], [ 0, %30 ]
   %.0117.ph = phi i32 [ %.4, %.loopexit ], [ 0, %30 ]
-  %.091.ph = phi ptr [ %40, %.loopexit ], [ %26, %30 ]
+  %.089.ph = phi ptr [ %40, %.loopexit ], [ %26, %30 ]
   br label %36
 
 36:                                               ; preds = %_ZL8parseRowPcS_S_i.exit, %.outer
-  %.091 = phi ptr [ %40, %_ZL8parseRowPcS_S_i.exit ], [ %.091.ph, %.outer ]
-  %37 = icmp ult ptr %.091, %31
+  %.089 = phi ptr [ %40, %_ZL8parseRowPcS_S_i.exit ], [ %.089.ph, %.outer ]
+  %37 = icmp ult ptr %.089, %31
   br i1 %37, label %38, label %148
 
 38:                                               ; preds = %36
@@ -294,11 +294,11 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %50
-  %.027.i = phi i32 [ %.1.i, %50 ], [ 0, %38 ]
-  %.01725.i = phi i8 [ %.118.i, %50 ], [ 1, %38 ]
-  %.01924.i = phi ptr [ %40, %50 ], [ %.091, %38 ]
-  %39 = load i8, ptr %.01924.i, align 1
-  %40 = getelementptr inbounds i8, ptr %.01924.i, i64 1
+  %.027.i = phi ptr [ %40, %50 ], [ %.089, %38 ]
+  %.01526.i = phi i32 [ %.1.i, %50 ], [ 0, %38 ]
+  %.01824.i = phi i8 [ %.119.i, %50 ], [ 1, %38 ]
+  %39 = load i8, ptr %.027.i, align 1
+  %40 = getelementptr inbounds i8, ptr %.027.i, i64 1
   switch i8 %39, label %45 [
     i8 92, label %50
     i8 10, label %41
@@ -308,28 +308,28 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   ]
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = trunc nuw i8 %.01725.i to i1
+  %42 = trunc nuw i8 %.01824.i to i1
   %not..i = xor i1 %42, true
   br label %50
 
 43:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %44 = trunc nuw i8 %.01725.i to i1
+  %44 = trunc nuw i8 %.01824.i to i1
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %43, %.lr.ph.i
-  %46 = add nsw i32 %.027.i, 1
-  %47 = sext i32 %.027.i to i64
+  %46 = add nsw i32 %.01526.i, 1
+  %47 = sext i32 %.01526.i to i64
   %48 = getelementptr inbounds i8, ptr %3, i64 %47
   store i8 %39, ptr %48, align 1
-  %49 = icmp sgt i32 %.027.i, 509
+  %49 = icmp sgt i32 %.01526.i, 509
   br label %50
 
 50:                                               ; preds = %45, %43, %41, %.lr.ph.i, %.lr.ph.i
-  %.118.i = phi i8 [ %.01725.i, %43 ], [ %.01725.i, %.lr.ph.i ], [ %.01725.i, %.lr.ph.i ], [ %.01725.i, %41 ], [ 0, %45 ]
-  %.116.i = phi i1 [ false, %43 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i ], [ %not..i, %41 ], [ %49, %45 ]
-  %.1.i = phi i32 [ %.027.i, %43 ], [ %.027.i, %.lr.ph.i ], [ %.027.i, %.lr.ph.i ], [ %.027.i, %41 ], [ %46, %45 ]
+  %.119.i = phi i8 [ %.01824.i, %43 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %41 ], [ 0, %45 ]
+  %.117.i = phi i1 [ false, %43 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i ], [ %not..i, %41 ], [ %49, %45 ]
+  %.1.i = phi i32 [ %.01526.i, %43 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %41 ], [ %46, %45 ]
   %51 = icmp uge ptr %40, %31
-  %.not22.i = select i1 %.116.i, i1 true, i1 %51
+  %.not22.i = select i1 %.117.i, i1 true, i1 %51
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %50
@@ -428,19 +428,19 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
 
 .outer.i:                                         ; preds = %104, %92
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %104 ], [ 0, %92 ]
-  %.029.ph.i = phi ptr [ %.2.i, %104 ], [ %32, %92 ]
-  %.pre.i106 = load i8, ptr %.029.ph.i, align 1
+  %.028.ph.i = phi ptr [ %.2.i, %104 ], [ %32, %92 ]
+  %.pre.i106 = load i8, ptr %.028.ph.i, align 1
   br label %94
 
 94:                                               ; preds = %.critedge4.i, %.outer.i
   %95 = phi i8 [ %98, %.critedge4.i ], [ %.pre.i106, %.outer.i ]
-  %.029.i = phi ptr [ %.2.i, %.critedge4.i ], [ %.029.ph.i, %.outer.i ]
+  %.028.i = phi ptr [ %.2.i, %.critedge4.i ], [ %.028.ph.i, %.outer.i ]
   %.not.i107 = icmp eq i8 %95, 0
   br i1 %.not.i107, label %_ZL9parseFacePcPiii.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %94, %.critedge2.i
   %96 = phi i8 [ %.pr.i, %.critedge2.i ], [ %95, %94 ]
-  %.1.i108 = phi ptr [ %97, %.critedge2.i ], [ %.029.i, %94 ]
+  %.1.i108 = phi ptr [ %97, %.critedge2.i ], [ %.028.i, %94 ]
   switch i8 %96, label %.critedge.i [
     i8 9, label %.critedge2.i
     i8 32, label %.critedge2.i
@@ -491,13 +491,13 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   br i1 %108, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %104, %_ZL9parseFacePcPiii.exit
-  %.028.i147 = phi i64 [ %indvars.iv.i, %_ZL9parseFacePcPiii.exit ], [ 32, %104 ]
+  %.0.i147 = phi i64 [ %indvars.iv.i, %_ZL9parseFacePcPiii.exit ], [ 32, %104 ]
   %109 = load i32, ptr %4, align 16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = and i64 %.028.i147, 4294967295
+  %wide.trip.count = and i64 %.0.i147, 4294967295
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.lr.ph.split
 
@@ -705,8 +705,8 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   br label %227
 
 227:                                              ; preds = %2, %._crit_edge, %29, %23, %19, %14
-  %.090 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %._crit_edge ], [ false, %2 ]
-  ret i1 %.090
+  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %._crit_edge ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nofree nounwind

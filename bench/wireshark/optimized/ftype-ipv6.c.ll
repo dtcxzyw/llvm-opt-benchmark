@@ -178,15 +178,15 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %21
-  %.047 = phi i32 [ %23, %21 ], [ 0, %3 ]
   %.03346 = phi i32 [ %22, %21 ], [ %10, %3 ]
-  %12 = zext nneg i32 %.047 to i64
+  %.03445 = phi i32 [ %23, %21 ], [ 0, %3 ]
+  %12 = zext nneg i32 %.03445 to i64
   %13 = getelementptr [16 x i8], ptr %4, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr [16 x i8], ptr %5, i64 0, i64 %12
   %16 = load i8, ptr %15, align 1
-  %.not42 = icmp eq i8 %14, %16
-  br i1 %.not42, label %21, label %17
+  %.not41 = icmp eq i8 %14, %16
+  br i1 %.not41, label %21, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = zext i8 %16 to i32
@@ -196,7 +196,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 
 21:                                               ; preds = %.lr.ph
   %22 = add i32 %.03346, -8
-  %23 = add nuw nsw i32 %.047, 1
+  %23 = add nuw nsw i32 %.03445, 1
   %24 = icmp ugt i32 %22, 7
   br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
@@ -205,23 +205,23 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.034.lcssa = phi i64 [ 0, %3 ], [ %25, %._crit_edge.loopexit ]
   %.033.lcssa = phi i32 [ %10, %3 ], [ %22, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %3 ], [ %25, %._crit_edge.loopexit ]
   %.not = icmp eq i32 %.033.lcssa, 0
   br i1 %.not, label %40, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr [16 x i8], ptr %4, i64 0, i64 %.0.lcssa
+  %27 = getelementptr [16 x i8], ptr %4, i64 0, i64 %.034.lcssa
   %28 = load i8, ptr %27, align 1
   %29 = zext nneg i32 %.033.lcssa to i64
   %30 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, %28
-  %33 = getelementptr [16 x i8], ptr %5, i64 0, i64 %.0.lcssa
+  %33 = getelementptr [16 x i8], ptr %5, i64 0, i64 %.034.lcssa
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, %31
-  %.not41 = icmp eq i8 %32, %35
-  br i1 %.not41, label %40, label %36
+  %.not40 = icmp eq i8 %32, %35
+  br i1 %.not40, label %40, label %36
 
 36:                                               ; preds = %26
   %37 = zext i8 %35 to i32

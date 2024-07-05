@@ -1375,13 +1375,13 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc110.i
-  %chunk.079.i = phi i64 [ %add112.i, %for.inc110.i ], [ 0, %for.cond.preheader.i ]
-  %doread.078.i = phi i1 [ %doread.2.i, %for.inc110.i ], [ false, %for.cond.preheader.i ]
+  %doread.079.i = phi i1 [ %doread.2.i, %for.inc110.i ], [ false, %for.cond.preheader.i ]
+  %chunk.078.i = phi i64 [ %add112.i, %for.inc110.i ], [ 0, %for.cond.preheader.i ]
   %imgdata.sroa.10.077.i = phi ptr [ %imgdata.sroa.10.4.i, %for.inc110.i ], [ null, %for.cond.preheader.i ]
   %imgdata.sroa.6.076.i = phi ptr [ %imgdata.sroa.6.4.i, %for.inc110.i ], [ null, %for.cond.preheader.i ]
   %imgdata.sroa.0.175.i = phi ptr [ %imgdata.sroa.0.5.i, %for.inc110.i ], [ null, %for.cond.preheader.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cinfo.i, i8 0, i64 64, i1 false)
-  %conv17.i = trunc i64 %chunk.079.i to i32
+  %conv17.i = trunc i64 %chunk.078.i to i32
   %7 = load i32, ptr %y7.i, align 4
   %add20.i = add nsw i32 %7, %conv17.i
   %call22.i = invoke i32 @exr_read_scanline_chunk_info(ptr noundef %f, i32 noundef %p.096, i32 noundef %add20.i, ptr noundef nonnull %cinfo.i)
@@ -1567,7 +1567,7 @@ if.end71.i:                                       ; preds = %invoke.cont63.i, %i
   %imgdata.sroa.0.4.i = phi ptr [ %imgdata.sroa.0.3.i, %invoke.cont58.i ], [ %imgdata.sroa.0.175.i, %invoke.cont63.i ]
   %imgdata.sroa.6.3.i = phi ptr [ %imgdata.sroa.6.2.i, %invoke.cont58.i ], [ %imgdata.sroa.6.076.i, %invoke.cont63.i ]
   %imgdata.sroa.10.3.i = phi ptr [ %imgdata.sroa.10.2.i, %invoke.cont58.i ], [ %imgdata.sroa.10.077.i, %invoke.cont63.i ]
-  %doread.1.i = phi i1 [ %or.cond102.i, %invoke.cont58.i ], [ %doread.078.i, %invoke.cont63.i ]
+  %doread.1.i = phi i1 [ %or.cond102.i, %invoke.cont58.i ], [ %doread.079.i, %invoke.cont63.i ]
   br i1 %doread.1.i, label %for.cond76.preheader.i, label %for.inc110.i
 
 for.cond76.preheader.i:                           ; preds = %if.end71.i
@@ -1615,11 +1615,11 @@ for.inc110.i:                                     ; preds = %invoke.cont101.i, %
   %imgdata.sroa.0.5.i = phi ptr [ %imgdata.sroa.0.4.i, %invoke.cont101.i ], [ %imgdata.sroa.0.4.i, %if.end71.i ], [ %imgdata.sroa.0.175.i, %if.then66.i ], [ %imgdata.sroa.0.175.i, %if.then24.i ]
   %imgdata.sroa.6.4.i = phi ptr [ %imgdata.sroa.6.3.i, %invoke.cont101.i ], [ %imgdata.sroa.6.3.i, %if.end71.i ], [ %imgdata.sroa.6.076.i, %if.then66.i ], [ %imgdata.sroa.6.076.i, %if.then24.i ]
   %imgdata.sroa.10.4.i = phi ptr [ %imgdata.sroa.10.3.i, %invoke.cont101.i ], [ %imgdata.sroa.10.3.i, %if.end71.i ], [ %imgdata.sroa.10.077.i, %if.then66.i ], [ %imgdata.sroa.10.077.i, %if.then24.i ]
-  %doread.2.i = phi i1 [ true, %invoke.cont101.i ], [ false, %if.end71.i ], [ %doread.078.i, %if.then66.i ], [ %doread.078.i, %if.then24.i ]
+  %doread.2.i = phi i1 [ true, %invoke.cont101.i ], [ false, %if.end71.i ], [ %doread.079.i, %if.then66.i ], [ %doread.079.i, %if.then24.i ]
   %rv.2.i = phi i32 [ %call102.i, %invoke.cont101.i ], [ 0, %if.end71.i ], [ %call64.i, %if.then66.i ], [ %call22.i, %if.then24.i ]
   %24 = load i32, ptr %lines_per_chunk.i, align 4
   %conv111.i = sext i32 %24 to i64
-  %add112.i = add i64 %chunk.079.i, %conv111.i
+  %add112.i = add i64 %chunk.078.i, %conv111.i
   %cmp15.i = icmp ult i64 %add112.i, %add10.i
   br i1 %cmp15.i, label %for.body.i, label %for.end113.loopexit.i, !llvm.loop !7
 

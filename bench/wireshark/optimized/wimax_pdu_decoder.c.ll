@@ -55,19 +55,19 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   br i1 %.not122, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.backedge
-  %.0106121 = phi i32 [ %.0106.be, %.backedge ], [ 0, %4 ]
-  %6 = icmp eq i32 %.0106121, 0
+  %.0121 = phi i32 [ %.0.be, %.backedge ], [ 0, %4 ]
+  %6 = icmp eq i32 %.0121, 0
   %. = zext i1 %6 to i32
   store i32 %., ptr @first_gmh, align 4
-  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0106121) #2
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0106121) #2
+  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0121) #2
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0121) #2
   %9 = zext i8 %8 to i32
   %10 = icmp eq i8 %8, -1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
   %12 = load i32, ptr @proto_wimax_pdu_decoder, align 4
-  %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %.0106121, i32 noundef %7, ptr noundef nonnull @.str.7, i32 noundef %7) #2
+  %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %.0121, i32 noundef %7, ptr noundef nonnull @.str.7, i32 noundef %7) #2
   br label %.loopexit.sink.split
 
 14:                                               ; preds = %.lr.ph
@@ -78,22 +78,22 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   ]
 
 15:                                               ; preds = %14
-  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0106121) #2
+  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0121) #2
   %17 = lshr i16 %16, 2
   %18 = and i16 %17, 511
   %19 = icmp eq i16 %18, 0
   %narrow = select i1 %19, i16 3, i16 %18
   %spec.store.select = zext nneg i16 %narrow to i32
   %20 = load ptr, ptr @wimax_harq_map_handle, align 8
-  %21 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0106121, i32 noundef %spec.store.select) #2
+  %21 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0121, i32 noundef %spec.store.select) #2
   %22 = tail call i32 @call_dissector(ptr noundef %20, ptr noundef %21, ptr noundef %1, ptr noundef %2) #2
-  %23 = add i32 %.0106121, %spec.store.select
+  %23 = add i32 %.0121, %spec.store.select
   br label %.backedge
 
 .backedge:                                        ; preds = %15, %35, %77, %70
-  %.0106.be = phi i32 [ %23, %15 ], [ %36, %35 ], [ %81, %77 ], [ %48, %70 ]
+  %.0.be = phi i32 [ %23, %15 ], [ %36, %35 ], [ %81, %77 ], [ %48, %70 ]
   %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %25 = icmp ult i32 %.0106.be, %24
+  %25 = icmp ult i32 %.0.be, %24
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 26:                                               ; preds = %14
@@ -115,8 +115,8 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   br label %35
 
 35:                                               ; preds = %33, %31
-  %.0 = phi i32 [ %32, %31 ], [ %34, %33 ]
-  %36 = add i32 %.0, %.0106121
+  %.0106 = phi i32 [ %32, %31 ], [ %34, %33 ]
+  %36 = add i32 %.0106, %.0121
   br label %.backedge
 
 37:                                               ; preds = %14
@@ -129,14 +129,14 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   %42 = load ptr, ptr %41, align 8
   tail call void @col_append_sep_str(ptr noundef %42, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.8) #2
   %43 = load i32, ptr @proto_wimax_pdu_decoder, align 4
-  %44 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %.0106121, i32 noundef %7, ptr noundef nonnull @.str.9, i32 noundef %7) #2
+  %44 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %.0121, i32 noundef %7, ptr noundef nonnull @.str.9, i32 noundef %7) #2
   br label %.loopexit.sink.split
 
 45:                                               ; preds = %37, %26
-  %46 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0106121, i32 noundef 5) #2
+  %46 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0121, i32 noundef 5) #2
   %47 = tail call zeroext i8 @wimax_mac_calc_crc8(ptr noundef %46, i32 noundef 5) #2
-  %48 = add i32 %.0106121, 6
-  %49 = add i32 %.0106121, 5
+  %48 = add i32 %.0121, 6
+  %49 = add i32 %.0121, 5
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #2
   %.not111 = icmp eq i8 %50, %47
   br i1 %.not111, label %58, label %51
@@ -148,7 +148,7 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   %55 = load ptr, ptr %54, align 8
   tail call void @col_append_sep_str(ptr noundef %55, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.10) #2
   %56 = load i32, ptr @proto_wimax_pdu_decoder, align 4
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %.0106121, i32 noundef 6, ptr noundef nonnull @.str.11, i32 noundef %53, i32 noundef %52) #2
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %.0121, i32 noundef 6, ptr noundef nonnull @.str.11, i32 noundef %53, i32 noundef %52) #2
   br label %.loopexit.sink.split
 
 58:                                               ; preds = %45
@@ -158,12 +158,12 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   br i1 %.not112, label %60, label %70
 
 60:                                               ; preds = %58
-  %61 = add nuw i32 %.0106121, 1
+  %61 = add nuw i32 %.0121, 1
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #2
   %63 = and i8 %62, 7
   %64 = zext nneg i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 8
-  %66 = add i32 %.0106121, 2
+  %66 = add i32 %.0121, 2
   %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #2
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %65, %68
@@ -172,7 +172,7 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
 70:                                               ; preds = %58, %60
   %.1 = phi i32 [ %69, %60 ], [ 6, %58 ]
   %71 = load i32, ptr @proto_wimax_pdu_decoder, align 4
-  %72 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %.0106121, i32 noundef %.1, ptr noundef nonnull @.str.12, i32 noundef %.1) #2
+  %72 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %.0121, i32 noundef %.1, ptr noundef nonnull @.str.12, i32 noundef %.1) #2
   %73 = load i32, ptr @ett_wimax_pdu_decoder, align 4
   %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #2
   %75 = icmp eq i32 %.1, 0
@@ -190,9 +190,9 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
 77:                                               ; preds = %.sink.split, %76
   %mac_header_type2_handle.sink = phi ptr [ @mac_generic_decoder_handle, %76 ], [ %mac_header_type1_handle.mac_header_type2_handle, %.sink.split ]
   %78 = load ptr, ptr %mac_header_type2_handle.sink, align 8
-  %79 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0106121, i32 noundef %.1) #2
+  %79 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0121, i32 noundef %.1) #2
   %80 = tail call i32 @call_dissector(ptr noundef %78, ptr noundef %79, ptr noundef %1, ptr noundef %74) #2
-  %81 = add i32 %.1, %.0106121
+  %81 = add i32 %.1, %.0121
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %11, %40, %51
@@ -200,7 +200,7 @@ define internal i32 @dissect_wimax_pdu_decoder(ptr noundef %0, ptr noundef %1, p
   %82 = load i32, ptr @ett_wimax_pdu_decoder, align 4
   %83 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink149, i32 noundef %82) #2
   %84 = load i32, ptr @hf_wimax_value_bytes, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef %.0106121, i32 noundef %7, i32 noundef 0) #2
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef %.0121, i32 noundef %7, i32 noundef 0) #2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %4

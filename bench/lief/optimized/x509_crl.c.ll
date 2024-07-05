@@ -476,30 +476,30 @@ define internal fastcc i32 @x509_get_entries(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph:                                           ; preds = %12, %62
   %17 = phi ptr [ %63, %62 ], [ %13, %12 ]
-  %.057 = phi ptr [ %.1, %62 ], [ %2, %12 ]
+  %.03657 = phi ptr [ %.1, %62 ], [ %2, %12 ]
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  store i32 %19, ptr %.057, align 8
+  store i32 %19, ptr %.03657, align 8
   %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 48) #11
   %.not46 = icmp eq i32 %20, 0
   br i1 %.not46, label %21, label %.loopexit
 
 21:                                               ; preds = %.lr.ph
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %.057, i64 16
+  %23 = getelementptr inbounds i8, ptr %.03657, i64 16
   store ptr %22, ptr %23, align 8
   %24 = load i64, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %.057, i64 8
+  %25 = getelementptr inbounds i8, ptr %.03657, i64 8
   store i64 %24, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 %24
-  %28 = getelementptr inbounds i8, ptr %.057, i64 24
+  %28 = getelementptr inbounds i8, ptr %.03657, i64 24
   %29 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %28) #11
   %.not47 = icmp eq i32 %29, 0
   br i1 %.not47, label %30, label %.loopexit
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %.057, i64 48
+  %31 = getelementptr inbounds i8, ptr %.03657, i64 48
   %32 = call i32 @mbedtls_x509_get_time(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %31) #11
   %.not48 = icmp eq i32 %32, 0
   br i1 %.not48, label %33, label %.loopexit
@@ -512,14 +512,14 @@ define internal fastcc i32 @x509_get_entries(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %35, label %x509_get_crl_entry_ext.exit.thread
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.057, i64 72
+  %36 = getelementptr inbounds i8, ptr %.03657, i64 72
   %37 = load i8, ptr %34, align 1
   %38 = zext i8 %37 to i32
   store i32 %38, ptr %36, align 8
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %.057, i64 88
+  %40 = getelementptr inbounds i8, ptr %.03657, i64 88
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.057, i64 80
+  %41 = getelementptr inbounds i8, ptr %.03657, i64 80
   %42 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %41, i32 noundef 48) #11
   switch i32 %42, label %x509_get_crl_entry_ext.exit [
     i32 0, label %44
@@ -577,7 +577,7 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %35
 
 58:                                               ; preds = %55
   %59 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #10
-  %60 = getelementptr inbounds i8, ptr %.057, i64 96
+  %60 = getelementptr inbounds i8, ptr %.03657, i64 96
   store ptr %59, ptr %60, align 8
   %61 = icmp eq ptr %59, null
   br i1 %61, label %.loopexit, label %._crit_edge
@@ -588,13 +588,13 @@ x509_get_crl_entry_ext.exit:                      ; preds = %.lr.ph.i, %35
 
 62:                                               ; preds = %._crit_edge, %55
   %63 = phi ptr [ %56, %55 ], [ %.pre, %._crit_edge ]
-  %.1 = phi ptr [ %.057, %55 ], [ %59, %._crit_edge ]
+  %.1 = phi ptr [ %.03657, %55 ], [ %59, %._crit_edge ]
   %64 = icmp ult ptr %63, %15
   br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %30, %x509_get_crl_entry_ext.exit, %58, %62, %12, %x509_get_crl_entry_ext.exit.thread52, %9, %3, %11
-  %.036 = phi i32 [ %10, %11 ], [ 0, %3 ], [ 0, %9 ], [ -9574, %x509_get_crl_entry_ext.exit.thread52 ], [ 0, %12 ], [ %20, %.lr.ph ], [ %29, %21 ], [ %32, %30 ], [ %.0.i, %x509_get_crl_entry_ext.exit ], [ -10368, %58 ], [ 0, %62 ]
-  ret i32 %.036
+  %.0 = phi i32 [ %10, %11 ], [ 0, %3 ], [ 0, %9 ], [ -9574, %x509_get_crl_entry_ext.exit.thread52 ], [ 0, %12 ], [ %20, %.lr.ph ], [ %29, %21 ], [ %32, %30 ], [ %.0.i, %x509_get_crl_entry_ext.exit ], [ -10368, %58 ], [ 0, %62 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

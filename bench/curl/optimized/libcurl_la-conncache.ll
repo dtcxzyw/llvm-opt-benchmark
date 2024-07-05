@@ -614,9 +614,9 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.body:                                       ; preds = %if.end, %while.end
   %he.031 = phi ptr [ %call17, %while.end ], [ %call2, %if.end ]
-  %bundle_candidate.030 = phi ptr [ %bundle_candidate.1.lcssa, %while.end ], [ null, %if.end ]
+  %highscore.030 = phi i64 [ %highscore.1.lcssa, %while.end ], [ -1, %if.end ]
   %conn_candidate.029 = phi ptr [ %conn_candidate.1.lcssa, %while.end ], [ null, %if.end ]
-  %highscore.028 = phi i64 [ %highscore.1.lcssa, %while.end ], [ -1, %if.end ]
+  %bundle_candidate.028 = phi ptr [ %bundle_candidate.1.lcssa, %while.end ], [ null, %if.end ]
   %ptr = getelementptr inbounds i8, ptr %he.031, i64 24
   %4 = load ptr, ptr %ptr, align 8
   %curr.0.in18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -626,9 +626,9 @@ while.body:                                       ; preds = %if.end, %while.end
 
 while.body6:                                      ; preds = %while.body, %if.end16
   %curr.024 = phi ptr [ %curr.0, %if.end16 ], [ %curr.019, %while.body ]
-  %bundle_candidate.123 = phi ptr [ %bundle_candidate.2, %if.end16 ], [ %bundle_candidate.030, %while.body ]
+  %highscore.123 = phi i64 [ %highscore.2, %if.end16 ], [ %highscore.030, %while.body ]
   %conn_candidate.122 = phi ptr [ %conn_candidate.2, %if.end16 ], [ %conn_candidate.029, %while.body ]
-  %highscore.121 = phi i64 [ %highscore.2, %if.end16 ], [ %highscore.028, %while.body ]
+  %bundle_candidate.121 = phi ptr [ %bundle_candidate.2, %if.end16 ], [ %bundle_candidate.028, %while.body ]
   %5 = load ptr, ptr %curr.024, align 8
   %size = getelementptr inbounds i8, ptr %5, i64 776
   %6 = load i64, ptr %size, align 8
@@ -654,25 +654,25 @@ if.then12:                                        ; preds = %land.lhs.true10
   %10 = getelementptr inbounds i8, ptr %5, i64 384
   %11 = load i32, ptr %10, align 8
   %call13 = call i64 @Curl_timediff(i64 %1, i32 %2, i64 %9, i32 %11) #7
-  %cmp = icmp sgt i64 %call13, %highscore.121
+  %cmp = icmp sgt i64 %call13, %highscore.123
   br i1 %cmp, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.then12
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.then14, %land.lhs.true10, %land.lhs.true, %while.body6
-  %highscore.2 = phi i64 [ %highscore.121, %while.body6 ], [ %highscore.121, %land.lhs.true ], [ %highscore.121, %land.lhs.true10 ], [ %call13, %if.then14 ], [ %highscore.121, %if.then12 ]
+  %bundle_candidate.2 = phi ptr [ %bundle_candidate.121, %while.body6 ], [ %bundle_candidate.121, %land.lhs.true ], [ %bundle_candidate.121, %land.lhs.true10 ], [ %4, %if.then14 ], [ %bundle_candidate.121, %if.then12 ]
   %conn_candidate.2 = phi ptr [ %conn_candidate.122, %while.body6 ], [ %conn_candidate.122, %land.lhs.true ], [ %conn_candidate.122, %land.lhs.true10 ], [ %5, %if.then14 ], [ %conn_candidate.122, %if.then12 ]
-  %bundle_candidate.2 = phi ptr [ %bundle_candidate.123, %while.body6 ], [ %bundle_candidate.123, %land.lhs.true ], [ %bundle_candidate.123, %land.lhs.true10 ], [ %4, %if.then14 ], [ %bundle_candidate.123, %if.then12 ]
+  %highscore.2 = phi i64 [ %highscore.123, %while.body6 ], [ %highscore.123, %land.lhs.true ], [ %highscore.123, %land.lhs.true10 ], [ %call13, %if.then14 ], [ %highscore.123, %if.then12 ]
   %curr.0.in = getelementptr inbounds i8, ptr %curr.024, i64 16
   %curr.0 = load ptr, ptr %curr.0.in, align 8
   %tobool5.not = icmp eq ptr %curr.0, null
   br i1 %tobool5.not, label %while.end, label %while.body6, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end16, %while.body
-  %highscore.1.lcssa = phi i64 [ %highscore.028, %while.body ], [ %highscore.2, %if.end16 ]
+  %bundle_candidate.1.lcssa = phi ptr [ %bundle_candidate.028, %while.body ], [ %bundle_candidate.2, %if.end16 ]
   %conn_candidate.1.lcssa = phi ptr [ %conn_candidate.029, %while.body ], [ %conn_candidate.2, %if.end16 ]
-  %bundle_candidate.1.lcssa = phi ptr [ %bundle_candidate.030, %while.body ], [ %bundle_candidate.2, %if.end16 ]
+  %highscore.1.lcssa = phi i64 [ %highscore.030, %while.body ], [ %highscore.2, %if.end16 ]
   %call17 = call ptr @Curl_hash_next_element(ptr noundef nonnull %iter) #7
   %tobool3.not = icmp eq ptr %call17, null
   br i1 %tobool3.not, label %while.end18, label %while.body, !llvm.loop !10

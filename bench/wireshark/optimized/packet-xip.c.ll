@@ -327,12 +327,12 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv73 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next74, %26 ]
-  %.03756 = phi i8 [ %7, %.lr.ph.preheader ], [ %30, %26 ]
+  %.057 = phi i8 [ %7, %.lr.ph.preheader ], [ %30, %26 ]
   %18 = getelementptr [9 x %struct.xia_row], ptr %9, i64 0, i64 %indvars.iv73
-  %19 = zext i8 %.03756 to i32
+  %19 = zext i8 %.057 to i32
   %20 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19) #4
   store i32 %20, ptr %18, align 4
-  %.153 = add i8 %.03756, 4
+  %.153 = add i8 %.057, 4
   %21 = getelementptr inbounds i8, ptr %18, i64 4
   br label %22
 
@@ -370,11 +370,11 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 
 .preheader:                                       ; preds = %.preheader.preheader, %41
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %41 ], [ 0, %.preheader.preheader ]
-  %.02364.i.i = phi i32 [ %.1.i.i, %41 ], [ 0, %.preheader.preheader ]
   %.02463.i.i = phi i32 [ %.125.i.i, %41 ], [ 9, %.preheader.preheader ]
+  %.02662.i.i = phi i32 [ %.127.i.i, %41 ], [ 0, %.preheader.preheader ]
   %36 = getelementptr [9 x %struct.xia_row], ptr %9, i64 0, i64 %indvars.iv.i.i
   %37 = load i32, ptr %36, align 4
-  %.not30.i.i = icmp eq i32 %.02364.i.i, 0
+  %.not30.i.i = icmp eq i32 %.02662.i.i, 0
   %.not42.i.i = icmp eq i32 %37, 0
   br i1 %.not30.i.i, label %39, label %38
 
@@ -382,14 +382,14 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %.not42.i.i, label %41, label %xia_test_addr.exit.thread24.i
 
 39:                                               ; preds = %.preheader
+  %spec.select.i.i = zext i1 %.not42.i.i to i32
   %40 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %spec.select.i.i = select i1 %.not42.i.i, i32 %40, i32 %.02463.i.i
-  %spec.select33.i.i = zext i1 %.not42.i.i to i32
+  %spec.select33.i.i = select i1 %.not42.i.i, i32 %40, i32 %.02463.i.i
   br label %41
 
 41:                                               ; preds = %39, %38
-  %.125.i.i = phi i32 [ %.02463.i.i, %38 ], [ %spec.select.i.i, %39 ]
-  %.1.i.i = phi i32 [ 1, %38 ], [ %spec.select33.i.i, %39 ]
+  %.127.i.i = phi i32 [ 1, %38 ], [ %spec.select.i.i, %39 ]
+  %.125.i.i = phi i32 [ %.02463.i.i, %38 ], [ %spec.select33.i.i, %39 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.preheader, !llvm.loop !7
@@ -412,10 +412,10 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 
 .preheader.split.us.i.i.i:                        ; preds = %.preheader.i.i.i, %52
   %.137.i.i = phi i32 [ %55, %52 ], [ %.03665.i.i, %.preheader.i.i.i ]
-  %.037.us.i.i.i = phi i32 [ %56, %52 ], [ 0, %.preheader.i.i.i ]
-  %.02336.us.i.i.i = phi i32 [ %53, %52 ], [ -1, %.preheader.i.i.i ]
-  %.02435.us.i.i.i = phi ptr [ %57, %52 ], [ %44, %.preheader.i.i.i ]
-  %48 = load i8, ptr %.02435.us.i.i.i, align 1
+  %.02337.us.i.i.i = phi i32 [ %56, %52 ], [ 0, %.preheader.i.i.i ]
+  %.02436.us.i.i.i = phi i32 [ %53, %52 ], [ -1, %.preheader.i.i.i ]
+  %.02535.us.i.i.i = phi ptr [ %57, %52 ], [ %44, %.preheader.i.i.i ]
+  %48 = load i8, ptr %.02535.us.i.i.i, align 1
   %49 = zext nneg i8 %48 to i32
   %50 = icmp eq i8 %48, 127
   br i1 %50, label %.split.us.i.i.i, label %51
@@ -425,27 +425,27 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %.not29.us.i.i.i, label %52, label %xia_test_addr.exit.thread24.i
 
 52:                                               ; preds = %51
-  %53 = lshr i32 %.02336.us.i.i.i, 8
+  %53 = lshr i32 %.02436.us.i.i.i, 8
   %54 = shl nuw i32 1, %49
   %55 = or i32 %54, %.137.i.i
-  %56 = add nuw nsw i32 %.037.us.i.i.i, 1
-  %57 = getelementptr i8, ptr %.02435.us.i.i.i, i64 1
+  %56 = add nuw nsw i32 %.02337.us.i.i.i, 1
+  %57 = getelementptr i8, ptr %.02535.us.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq i32 %56, 4
   br i1 %exitcond.not.i.i.i, label %xia_are_edges_valid.exit.i.i, label %.preheader.split.us.i.i.i, !llvm.loop !8
 
 .preheader.split.i.i.i:                           ; preds = %.preheader.i.i.i, %65
   %.2.i.i = phi i32 [ %68, %65 ], [ %.03665.i.i, %.preheader.i.i.i ]
-  %.037.i.i.i = phi i32 [ %69, %65 ], [ 0, %.preheader.i.i.i ]
-  %.02336.i.i.i = phi i32 [ %66, %65 ], [ -1, %.preheader.i.i.i ]
-  %.02435.i.i.i = phi ptr [ %70, %65 ], [ %44, %.preheader.i.i.i ]
-  %58 = load i8, ptr %.02435.i.i.i, align 1
+  %.02337.i.i.i = phi i32 [ %69, %65 ], [ 0, %.preheader.i.i.i ]
+  %.02436.i.i.i = phi i32 [ %66, %65 ], [ -1, %.preheader.i.i.i ]
+  %.02535.i.i.i = phi ptr [ %70, %65 ], [ %44, %.preheader.i.i.i ]
+  %58 = load i8, ptr %.02535.i.i.i, align 1
   %59 = zext nneg i8 %58 to i32
   %60 = icmp eq i8 %58, 127
   br i1 %60, label %.split.us.i.i.i, label %64
 
 .split.us.i.i.i:                                  ; preds = %.preheader.split.us.i.i.i, %.preheader.split.i.i.i
   %.3.i.i = phi i32 [ %.2.i.i, %.preheader.split.i.i.i ], [ %.137.i.i, %.preheader.split.us.i.i.i ]
-  %.us-phi.i.i.i = phi i32 [ %.02336.i.i.i, %.preheader.split.i.i.i ], [ %.02336.us.i.i.i, %.preheader.split.us.i.i.i ]
+  %.us-phi.i.i.i = phi i32 [ %.02436.i.i.i, %.preheader.split.i.i.i ], [ %.02436.us.i.i.i, %.preheader.split.us.i.i.i ]
   %61 = xor i32 %.val.i.i.i, 2139062143
   %62 = call i32 @llvm.bswap.i32(i32 %61)
   %63 = and i32 %.us-phi.i.i.i, %62
@@ -459,11 +459,11 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %or.cond.i, label %65, label %xia_test_addr.exit.thread24.i
 
 65:                                               ; preds = %64
-  %66 = lshr i32 %.02336.i.i.i, 8
+  %66 = lshr i32 %.02436.i.i.i, 8
   %67 = shl nuw i32 1, %59
   %68 = or i32 %67, %.2.i.i
-  %69 = add nuw nsw i32 %.037.i.i.i, 1
-  %70 = getelementptr i8, ptr %.02435.i.i.i, i64 1
+  %69 = add nuw nsw i32 %.02337.i.i.i, 1
+  %70 = getelementptr i8, ptr %.02535.i.i.i, i64 1
   %exitcond48.not.i.i.i = icmp eq i32 %69, 4
   br i1 %exitcond48.not.i.i.i, label %xia_are_edges_valid.exit.i.i, label %.preheader.split.i.i.i, !llvm.loop !8
 

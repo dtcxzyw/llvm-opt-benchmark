@@ -123,10 +123,10 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
   br label %19
 
 19:                                               ; preds = %12, %8, %6
-  %.0 = phi i32 [ %1, %6 ], [ %.pre, %12 ], [ %10, %8 ]
+  %.024 = phi i32 [ %1, %6 ], [ %.pre, %12 ], [ %10, %8 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = call ptr @cs_realloc(ptr noundef %21, i32 noundef %.0, i64 noundef 4, ptr noundef nonnull %3) #3
+  %22 = call ptr @cs_realloc(ptr noundef %21, i32 noundef %.024, i64 noundef 4, ptr noundef nonnull %3) #3
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @cs_realloc(ptr noundef %28, i32 noundef %.0, i64 noundef 4, ptr noundef nonnull %4) #3
+  %29 = call ptr @cs_realloc(ptr noundef %28, i32 noundef %.024, i64 noundef 4, ptr noundef nonnull %4) #3
   store ptr %29, ptr %27, align 8
   br label %30
 
@@ -147,7 +147,7 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
   br i1 %.not28, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = call ptr @cs_realloc(ptr noundef nonnull %32, i32 noundef %.0, i64 noundef 8, ptr noundef nonnull %5) #3
+  %34 = call ptr @cs_realloc(ptr noundef nonnull %32, i32 noundef %.024, i64 noundef 8, ptr noundef nonnull %5) #3
   store ptr %34, ptr %31, align 8
   %.pre34 = load i32, ptr %5, align 4
   %35 = icmp eq i32 %.pre34, 0
@@ -164,12 +164,12 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
   br i1 %or.cond30, label %.thread, label %41
 
 41:                                               ; preds = %36
-  store i32 %.0, ptr %0, align 8
+  store i32 %.024, ptr %0, align 8
   br label %.thread
 
 .thread:                                          ; preds = %36, %41, %2
-  %.024 = phi i32 [ 0, %2 ], [ 1, %41 ], [ 0, %36 ]
-  ret i32 %.024
+  %.0 = phi i32 [ 0, %2 ], [ 1, %41 ], [ 0, %36 ]
+  ret i32 %.0
 }
 
 declare ptr @cs_realloc(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

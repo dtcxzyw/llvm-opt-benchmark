@@ -526,9 +526,9 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   br label %141
 
 26:                                               ; preds = %.preheader, %136
-  %.076100 = phi ptr [ %12, %.preheader ], [ %138, %136 ]
-  %.07799 = phi i32 [ %3, %.preheader ], [ %139, %136 ]
-  %27 = icmp ult i32 %.07799, 4
+  %.077100 = phi i32 [ %3, %.preheader ], [ %139, %136 ]
+  %.07899 = phi ptr [ %12, %.preheader ], [ %138, %136 ]
+  %27 = icmp ult i32 %.077100, 4
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -539,8 +539,8 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   br label %141
 
 30:                                               ; preds = %26
-  %31 = load i16, ptr %.076100, align 2
-  %32 = getelementptr inbounds i8, ptr %.076100, i64 2
+  %31 = load i16, ptr %.07899, align 2
+  %32 = getelementptr inbounds i8, ptr %.07899, i64 2
   %33 = load i16, ptr %32, align 2
   switch i32 %5, label %38 [
     i32 0, label %34
@@ -570,11 +570,11 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   br label %141
 
 40:                                               ; preds = %30, %34, %36, %37
-  %.075 = phi i16 [ %rev, %37 ], [ %rev88, %36 ], [ %31, %34 ], [ %31, %30 ]
-  %.0 = phi i16 [ %rev86, %37 ], [ %rev89, %36 ], [ %33, %34 ], [ %33, %30 ]
-  %41 = getelementptr i8, ptr %.076100, i64 4
-  %42 = add i32 %.07799, -4
-  %43 = zext i16 %.0 to i32
+  %.076 = phi i16 [ %rev, %37 ], [ %rev88, %36 ], [ %31, %34 ], [ %31, %30 ]
+  %.075 = phi i16 [ %rev86, %37 ], [ %rev89, %36 ], [ %33, %34 ], [ %33, %30 ]
+  %41 = getelementptr i8, ptr %.07899, i64 4
+  %42 = add i32 %.077100, -4
+  %43 = zext i16 %.075 to i32
   %44 = add nuw nsw i32 %43, 3
   %45 = and i32 %44, 131068
   %46 = icmp ugt i32 %45, %42
@@ -588,7 +588,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   br label %141
 
 49:                                               ; preds = %40
-  switch i16 %.075, label %132 [
+  switch i16 %.076, label %132 [
     i16 0, label %136
     i16 1, label %50
     i16 2988, label %55
@@ -598,14 +598,14 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   ]
 
 50:                                               ; preds = %49
-  %51 = zext i16 %.0 to i64
+  %51 = zext i16 %.075 to i64
   %52 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %41, i64 noundef %51) #16
   %53 = load ptr, ptr %17, align 8
   %54 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %53, i32 noundef 1, ptr noundef %52) #16
   br label %136
 
 55:                                               ; preds = %49, %49, %49, %49
-  %56 = icmp ult i16 %.0, 4
+  %56 = icmp ult i16 %.075, 4
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -642,15 +642,15 @@ default.unreachable:                              ; preds = %59
   br i1 %cond.i, label %66, label %125
 
 66:                                               ; preds = %65
-  %67 = and i16 %.0, -4
+  %67 = and i16 %.075, -4
   %68 = icmp eq i16 %67, 4
   br i1 %68, label %pcapng_process_custom_option.exit.thread, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr i8, ptr %.076100, i64 8
+  %70 = getelementptr i8, ptr %.07899, i64 8
   %.0.copyload10.i.i = load i32, ptr %70, align 1
-  %71 = getelementptr i8, ptr %.076100, i64 12
-  %72 = add i16 %.0, -8
+  %71 = getelementptr i8, ptr %.07899, i64 12
+  %72 = add i16 %.075, -8
   switch i32 %.0.copyload10.i.i, label %121 [
     i32 1, label %73
     i32 2, label %76
@@ -692,7 +692,7 @@ default.unreachable:                              ; preds = %59
   %93 = load ptr, ptr %21, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   store i64 %92, ptr %94, align 8
-  %95 = getelementptr i8, ptr %.076100, i64 20
+  %95 = getelementptr i8, ptr %.07899, i64 20
   %.0.copyload2.i.i = load i64, ptr %95, align 1
   %96 = load i64, ptr %19, align 8
   %97 = add i64 %96, %.0.copyload2.i.i
@@ -732,7 +732,7 @@ default.unreachable:                              ; preds = %59
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %.sroa.1.0..sroa_idx.i.i = getelementptr i8, ptr %.076100, i64 68
+  %.sroa.1.0..sroa_idx.i.i = getelementptr i8, ptr %.07899, i64 68
   %120 = load <2 x i64>, ptr %.sroa.1.0..sroa_idx.i.i, align 1
   store <2 x i64> %120, ptr %18, align 8
   br label %121
@@ -745,8 +745,8 @@ default.unreachable:                              ; preds = %59
 
 125:                                              ; preds = %65
   %126 = load ptr, ptr %17, align 8
-  %127 = zext nneg i16 %.075 to i32
-  %128 = getelementptr i8, ptr %.076100, i64 8
+  %127 = zext nneg i16 %.076 to i32
+  %128 = getelementptr i8, ptr %.07899, i64 8
   %129 = add nsw i32 %43, -4
   %130 = zext nneg i32 %129 to i64
   %131 = tail call i32 @wtap_block_add_custom_option(ptr noundef %126, i32 noundef %127, i32 noundef %.030.i, ptr noundef %128, i64 noundef %130) #16
@@ -765,7 +765,7 @@ pcapng_process_custom_option.exit.thread:         ; preds = %66, %pcapng_process
   br i1 %24, label %135, label %133
 
 133:                                              ; preds = %132
-  %134 = tail call i32 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.075, i16 noundef zeroext %.0, ptr noundef %41, ptr noundef %6, ptr noundef %7) #16
+  %134 = tail call i32 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.076, i16 noundef zeroext %.075, ptr noundef %41, ptr noundef %6, ptr noundef %7) #16
   %.not91 = icmp eq i32 %134, 0
   br i1 %.not91, label %135, label %136
 
@@ -786,8 +786,8 @@ pcapng_process_custom_option.exit.thread:         ; preds = %66, %pcapng_process
   br label %141
 
 141:                                              ; preds = %8, %140, %135, %pcapng_process_custom_option.exit.thread, %47, %38, %28, %25, %14
-  %.078 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 0, %38 ], [ 0, %47 ], [ 0, %135 ], [ 0, %pcapng_process_custom_option.exit.thread ], [ 1, %140 ], [ 0, %25 ], [ 1, %8 ]
-  ret i32 %.078
+  %.0 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 0, %38 ], [ 0, %47 ], [ 0, %135 ], [ 0, %pcapng_process_custom_option.exit.thread ], [ 1, %140 ], [ 0, %25 ], [ 1, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -1099,9 +1099,9 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
 
 26:                                               ; preds = %16, %11
   %27 = phi i32 [ %23, %16 ], [ %.pre, %11 ]
-  %.051 = phi i32 [ 1, %16 ], [ 0, %11 ]
-  %.050 = phi i16 [ %rev, %16 ], [ %13, %11 ]
-  %.049 = phi i16 [ %rev53, %16 ], [ %15, %11 ]
+  %.051 = phi i16 [ %rev, %16 ], [ %13, %11 ]
+  %.050 = phi i16 [ %rev53, %16 ], [ %15, %11 ]
+  %.049 = phi i32 [ 1, %16 ], [ 0, %11 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 4
   %29 = add i32 %27, 3
   %30 = and i32 %29, -4
@@ -1128,16 +1128,16 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   br label %63
 
 40:                                               ; preds = %35
-  %41 = icmp eq i16 %.050, 1
-  %42 = and i16 %.049, -3
+  %41 = icmp eq i16 %.051, 1
+  %42 = and i16 %.050, -3
   %or.cond = icmp eq i16 %42, 0
   %or.cond66 = select i1 %41, i1 %or.cond, i1 false
   br i1 %or.cond66, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = zext i16 %.050 to i32
+  %44 = zext i16 %.051 to i32
   store i32 -4, ptr %4, align 4
-  %45 = zext i16 %.049 to i32
+  %45 = zext i16 %.050 to i32
   %46 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef %44, i32 noundef %45) #16
   store ptr %46, ptr %5, align 8
   br label %63
@@ -1145,11 +1145,11 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 40, i1 false)
-  store i32 %.051, ptr %2, align 8
+  store i32 %.049, ptr %2, align 8
   %49 = getelementptr inbounds i8, ptr %2, i64 4
   store i16 1, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %2, i64 6
-  store i16 %.049, ptr %50, align 2
+  store i16 %.050, ptr %50, align 2
   %51 = call ptr @wtap_block_create(i32 noundef 0) #16
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %51, ptr %52, align 8
@@ -1924,11 +1924,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 
 31:                                               ; preds = %28, %24
   %.sink = phi i32 [ %30, %28 ], [ %27, %24 ]
-  %.068.in = phi i16 [ %23, %28 ], [ %rev, %24 ]
+  %.069.in = phi i16 [ %23, %28 ], [ %rev, %24 ]
   %32 = getelementptr inbounds i8, ptr %21, i64 20
   store i32 %.sink, ptr %32, align 4
-  %.068 = zext i16 %.068.in to i32
-  %33 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %.068) #16
+  %.069 = zext i16 %.069.in to i32
+  %33 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %.069) #16
   store i32 %33, ptr %21, align 8
   %34 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %33) #16
   %35 = load i32, ptr %10, align 4
@@ -2029,12 +2029,12 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br label %78
 
 78:                                               ; preds = %50, %54, %56, %58, %60, %62, %64, %66, %68, %._crit_edge, %38
-  %.172 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
-  %.1 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
+  %.172 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
+  %.1 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
   %79 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 %.172, ptr %79, align 8
+  store i64 %.1, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %21, i64 16
-  store i32 %.1, ptr %80, align 8
+  store i32 %.172, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 144
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -2
@@ -2072,8 +2072,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br label %94
 
 94:                                               ; preds = %31, %16, %92, %73, %47, %13
-  %.069 = phi i32 [ 0, %13 ], [ 0, %47 ], [ 1, %92 ], [ 0, %73 ], [ 0, %16 ], [ 0, %31 ]
-  ret i32 %.069
+  %.068 = phi i32 [ 0, %13 ], [ 0, %47 ], [ 1, %92 ], [ 0, %73 ], [ 0, %16 ], [ 0, %31 ]
+  ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2193,10 +2193,10 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   br label %94
 
 84:                                               ; preds = %40, %26
-  %.sroa.26.0 = phi i32 [ %39, %26 ], [ %48, %40 ]
-  %.sroa.1026.0 = phi i32 [ %36, %26 ], [ %46, %40 ]
-  %.sroa.5.0 = phi i32 [ %33, %26 ], [ %44, %40 ]
   %.sroa.025.0 = phi i32 [ %30, %26 ], [ %42, %40 ]
+  %.sroa.5.0 = phi i32 [ %33, %26 ], [ %44, %40 ]
+  %.sroa.1026.0 = phi i32 [ %36, %26 ], [ %46, %40 ]
+  %.sroa.26.0 = phi i32 [ %39, %26 ], [ %48, %40 ]
   %.sroa.31.0 = phi i32 [ %27, %26 ], [ %25, %40 ]
   %85 = and i32 %.sroa.1026.0, 3
   %.not159 = icmp eq i32 %85, 0
@@ -2216,10 +2216,10 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   br label %207
 
 94:                                               ; preds = %58, %73
-  %.sroa.26.0.ph = phi i32 [ %83, %73 ], [ %72, %58 ]
-  %.sroa.1026.0.ph = phi i32 [ %81, %73 ], [ %69, %58 ]
-  %.sroa.5.0.ph = phi i32 [ %79, %73 ], [ %66, %58 ]
   %.sroa.025.0.ph = phi i32 [ %77, %73 ], [ %63, %58 ]
+  %.sroa.5.0.ph = phi i32 [ %79, %73 ], [ %66, %58 ]
+  %.sroa.1026.0.ph = phi i32 [ %81, %73 ], [ %69, %58 ]
+  %.sroa.26.0.ph = phi i32 [ %83, %73 ], [ %72, %58 ]
   %.sroa.31.0.ph.in = phi i16 [ %57, %73 ], [ %rev, %58 ]
   %.sroa.39.0.ph = phi i16 [ %75, %73 ], [ %rev129, %58 ]
   %.sroa.31.0.ph = zext i16 %.sroa.31.0.ph.in to i32
@@ -2245,10 +2245,10 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %.not159186 = phi i1 [ %.not159172, %94 ], [ %.not159, %84 ]
   %.sroa.39.0184 = phi i16 [ %.sroa.39.0.ph, %94 ], [ -1, %84 ]
   %.sroa.31.0182 = phi i32 [ %.sroa.31.0.ph, %94 ], [ %.sroa.31.0, %84 ]
-  %.sroa.025.0180 = phi i32 [ %.sroa.025.0.ph, %94 ], [ %.sroa.025.0, %84 ]
-  %.sroa.5.0178 = phi i32 [ %.sroa.5.0.ph, %94 ], [ %.sroa.5.0, %84 ]
-  %.sroa.1026.0176 = phi i32 [ %.sroa.1026.0.ph, %94 ], [ %.sroa.1026.0, %84 ]
-  %.sroa.26.0174 = phi i32 [ %.sroa.26.0.ph, %94 ], [ %.sroa.26.0, %84 ]
+  %.sroa.26.0180 = phi i32 [ %.sroa.26.0.ph, %94 ], [ %.sroa.26.0, %84 ]
+  %.sroa.1026.0178 = phi i32 [ %.sroa.1026.0.ph, %94 ], [ %.sroa.1026.0, %84 ]
+  %.sroa.5.0176 = phi i32 [ %.sroa.5.0.ph, %94 ], [ %.sroa.5.0, %84 ]
+  %.sroa.025.0174 = phi i32 [ %.sroa.025.0.ph, %94 ], [ %.sroa.025.0, %84 ]
   %105 = getelementptr inbounds i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
@@ -2279,13 +2279,13 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 32
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 8
   %118 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %.sroa.0.0.copyload) #16
-  %119 = icmp ugt i32 %.sroa.1026.0176, %118
+  %119 = icmp ugt i32 %.sroa.1026.0178, %118
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %114
   store i32 -13, ptr %4, align 4
   %121 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %.sroa.0.0.copyload) #16
-  %122 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef %.sroa.1026.0176, i32 noundef %121) #16
+  %122 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef %.sroa.1026.0178, i32 noundef %121) #16
   store ptr %122, ptr %5, align 8
   br label %207
 
@@ -2309,22 +2309,22 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %135 = getelementptr inbounds i8, ptr %134, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %135, i8 0, i64 152, i1 false)
   %136 = load ptr, ptr %124, align 8
-  %137 = call i32 @pcap_process_pseudo_header(ptr noundef %0, i32 noundef 0, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.1026.0176, ptr noundef %136, ptr noundef %4, ptr noundef %5) #16
+  %137 = call i32 @pcap_process_pseudo_header(ptr noundef %0, i32 noundef 0, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.1026.0178, ptr noundef %136, ptr noundef %4, ptr noundef %5) #16
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %207, label %139
 
 139:                                              ; preds = %123
-  %140 = sub i32 %.sroa.1026.0176, %137
+  %140 = sub i32 %.sroa.1026.0178, %137
   %141 = load ptr, ptr %124, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 64
   store i32 %140, ptr %142, align 8
-  %143 = sub i32 %.sroa.26.0174, %137
+  %143 = sub i32 %.sroa.26.0180, %137
   %144 = load ptr, ptr %124, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 68
   store i32 %143, ptr %145, align 4
-  %146 = zext i32 %.sroa.025.0180 to i64
+  %146 = zext i32 %.sroa.025.0174 to i64
   %147 = shl nuw i64 %146, 32
-  %148 = zext i32 %.sroa.5.0178 to i64
+  %148 = zext i32 %.sroa.5.0176 to i64
   %149 = or disjoint i64 %147, %148
   %150 = udiv i64 %149, %.sroa.616.0.copyload
   %151 = load ptr, ptr %124, align 8
@@ -2349,7 +2349,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   br i1 %.not161, label %207, label %166
 
 166:                                              ; preds = %139
-  %167 = add i32 %.sroa.1026.0176, 20
+  %167 = add i32 %.sroa.1026.0178, 20
   br i1 %.not159186, label %172, label %168
 
 168:                                              ; preds = %166
@@ -2478,10 +2478,10 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
   %30 = and i32 %.sroa.0.0, 3
   %.not77 = icmp eq i32 %30, 0
   %31 = sub nuw nsw i32 4, %30
-  %.0 = select i1 %.not77, i32 0, i32 %31
+  %.073 = select i1 %.not77, i32 0, i32 %31
   %32 = load i32, ptr %8, align 4
   %33 = add i32 %.sroa.0.0, 16
-  %34 = add i32 %33, %.0
+  %34 = add i32 %33, %.073
   %35 = icmp ult i32 %32, %34
   br i1 %35, label %36, label %39
 
@@ -2577,8 +2577,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
   br label %91
 
 91:                                               ; preds = %80, %67, %45, %14, %82, %42, %36, %22, %11
-  %.073 = phi i32 [ 0, %11 ], [ 0, %22 ], [ 0, %36 ], [ 0, %42 ], [ 1, %82 ], [ 0, %14 ], [ 0, %45 ], [ 0, %67 ], [ 0, %80 ]
-  ret i32 %.073
+  %.0 = phi i32 [ 0, %11 ], [ 0, %22 ], [ 0, %36 ], [ 0, %42 ], [ 1, %82 ], [ 0, %14 ], [ 0, %45 ], [ 0, %67 ], [ 0, %80 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3801,10 +3801,10 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
-  %.084101 = phi ptr [ %60, %.lr.ph.preheader ], [ %80, %79 ]
+  %.085101 = phi ptr [ %60, %.lr.ph.preheader ], [ %80, %79 ]
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr %struct.wtap_bpf_insn_s, ptr %61, i64 %indvars.iv
-  %63 = load i16, ptr %.084101, align 1
+  %63 = load i16, ptr %.085101, align 1
   store i16 %63, ptr %62, align 4
   %64 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %64, 0
@@ -3816,15 +3816,15 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br label %66
 
 66:                                               ; preds = %65, %.lr.ph
-  %67 = getelementptr i8, ptr %.084101, i64 2
+  %67 = getelementptr i8, ptr %.085101, i64 2
   %68 = getelementptr inbounds i8, ptr %62, i64 2
   %69 = load i8, ptr %67, align 1
   store i8 %69, ptr %68, align 2
-  %70 = getelementptr i8, ptr %.084101, i64 3
+  %70 = getelementptr i8, ptr %.085101, i64 3
   %71 = getelementptr inbounds i8, ptr %62, i64 3
   %72 = load i8, ptr %70, align 1
   store i8 %72, ptr %71, align 1
-  %73 = getelementptr i8, ptr %.084101, i64 4
+  %73 = getelementptr i8, ptr %.085101, i64 4
   %74 = getelementptr inbounds i8, ptr %62, i64 4
   %75 = load i32, ptr %73, align 1
   store i32 %75, ptr %74, align 4
@@ -3838,7 +3838,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br label %79
 
 79:                                               ; preds = %77, %66
-  %80 = getelementptr i8, ptr %.084101, i64 8
+  %80 = getelementptr i8, ptr %.085101, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -3917,8 +3917,8 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br label %pcapng_process_uint64_option.exit
 
 pcapng_process_uint64_option.exit:                ; preds = %118, %9, %15, %85, %98, %._crit_edge, %43, %7, %7, %7, %7, %7, %41, %21, %23, %29, %31, %91, %93, %104, %106, %112, %114, %39
-  %.085 = phi i32 [ 0, %39 ], [ 1, %114 ], [ 1, %112 ], [ 1, %106 ], [ 1, %104 ], [ 1, %93 ], [ 1, %91 ], [ 1, %31 ], [ 1, %29 ], [ 1, %23 ], [ 1, %21 ], [ 1, %41 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %98 ], [ 1, %85 ], [ 1, %15 ], [ 1, %9 ], [ %spec.select, %118 ]
-  ret i32 %.085
+  %.0 = phi i32 [ 0, %39 ], [ 1, %114 ], [ 1, %112 ], [ 1, %106 ], [ 1, %104 ], [ 1, %93 ], [ 1, %91 ], [ 1, %31 ], [ 1, %29 ], [ 1, %23 ], [ 1, %21 ], [ 1, %41 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %43 ], [ 1, %._crit_edge ], [ 1, %98 ], [ 1, %85 ], [ 1, %15 ], [ 1, %9 ], [ %spec.select, %118 ]
+  ret i32 %.0
 }
 
 declare i32 @wtap_block_get_uint8_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -4707,7 +4707,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %48 = and i32 %47, 3
   %.not.i = icmp eq i32 %48, 0
   %49 = sub nuw nsw i32 4, %48
-  %.078.i = select i1 %.not.i, i32 0, i32 %49
+  %.079.i = select i1 %.not.i, i32 0, i32 %49
   %50 = getelementptr inbounds i8, ptr %1, i64 232
   %51 = load ptr, ptr %50, align 8
   %.not85.i = icmp eq ptr %51, null
@@ -4727,7 +4727,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   br label %57
 
 57:                                               ; preds = %52, %42
-  %.079.i = phi i32 [ %spec.select.i.i, %52 ], [ 0, %42 ]
+  %.078.i = phi i32 [ %spec.select.i.i, %52 ], [ 0, %42 ]
   %58 = getelementptr inbounds i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 4
@@ -4878,8 +4878,8 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   store i32 6, ptr %26, align 4
   %138 = load i32, ptr %34, align 8
   %139 = add i32 %45, 32
-  %140 = add i32 %139, %.078.i
-  %141 = add i32 %140, %.079.i
+  %140 = add i32 %139, %.079.i
+  %141 = add i32 %140, %.078.i
   %142 = add i32 %141, %138
   %143 = getelementptr inbounds i8, ptr %26, i64 4
   store i32 %142, ptr %143, align 4
@@ -4939,7 +4939,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   br i1 %.not98.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %179
 
 179:                                              ; preds = %176, %175
-  %.not99.i = icmp eq i32 %.079.i, 0
+  %.not99.i = icmp eq i32 %.078.i, 0
   br i1 %.not99.i, label %pcapng_write_enhanced_packet_block.exit, label %180
 
 180:                                              ; preds = %179
@@ -5812,8 +5812,8 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   br label %85
 
 85:                                               ; preds = %83, %79
-  %.054 = phi ptr [ %82, %79 ], [ %84, %83 ]
-  %86 = call ptr @wtap_block_get_mandatory_data(ptr noundef %.054) #16
+  %.055 = phi ptr [ %82, %79 ], [ %84, %83 ]
+  %86 = call ptr @wtap_block_get_mandatory_data(ptr noundef %.055) #16
   %87 = load ptr, ptr %70, align 8
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %86, align 8
@@ -5822,13 +5822,13 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %91, ptr %92, align 8
-  %93 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %.054, ptr noundef %1)
+  %93 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %.055, ptr noundef %1)
   %.not62 = icmp eq i32 %93, 0
   br i1 %.not62, label %.loopexit, label %94
 
 94:                                               ; preds = %85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  call void @wtap_block_unref(ptr noundef %.054) #16
+  call void @wtap_block_unref(ptr noundef %.055) #16
   %95 = load ptr, ptr %70, align 8
   %96 = load ptr, ptr %95, align 8
   call void @g_list_free(ptr noundef %96) #16
@@ -5993,7 +5993,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %53 = getelementptr i8, ptr %17, i64 %52
   store i32 %51, ptr %53, align 1
   %54 = zext i32 %51 to i64
-  %55 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %17, i64 noundef %54, ptr noundef %2) #16
+  %55 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %54, ptr noundef %2) #16
   %.not174 = icmp eq i32 %55, 0
   br i1 %.not174, label %56, label %.outer178
 
@@ -6179,7 +6179,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %150 = getelementptr i8, ptr %17, i64 %149
   store i32 %148, ptr %150, align 1
   %151 = zext i32 %148 to i64
-  %152 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %151, ptr noundef %2) #16
+  %152 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %17, i64 noundef %151, ptr noundef %2) #16
   %.not172 = icmp ne i32 %152, 0
   call void @g_free(ptr noundef nonnull %17) #16
   %. = zext i1 %.not172 to i32

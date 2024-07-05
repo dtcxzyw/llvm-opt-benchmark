@@ -1855,7 +1855,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
 261:                                              ; preds = %._crit_edge.i, %.lr.ph112.i
   %.077110.i = phi double [ 0.000000e+00, %.lr.ph112.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.078109.i = phi double [ 0.000000e+00, %.lr.ph112.i ], [ %.179.lcssa.i, %._crit_edge.i ]
-  %.083108.i = phi double [ 0.000000e+00, %.lr.ph112.i ], [ %.184.lcssa.i, %._crit_edge.i ]
+  %.082108.i = phi double [ 0.000000e+00, %.lr.ph112.i ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.sroa.093.0107.i = phi ptr [ %252, %.lr.ph112.i ], [ %290, %._crit_edge.i ]
   %262 = load i32, ptr %.sroa.093.0107.i, align 8
   %263 = sext i32 %262 to i64
@@ -1878,7 +1878,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %273 ]
   %.1103.i = phi double [ %.077110.i, %.lr.ph.i ], [ %278, %273 ]
   %.179102.i = phi double [ %.078109.i, %.lr.ph.i ], [ %280, %273 ]
-  %.184100.i = phi double [ %.083108.i, %.lr.ph.i ], [ %289, %273 ]
+  %.183101.i = phi double [ %.082108.i, %.lr.ph.i ], [ %289, %273 ]
   %274 = getelementptr inbounds %struct.t_atom, ptr %271, i64 %indvars.iv.i
   %275 = getelementptr inbounds i8, ptr %274, i64 4
   %276 = load float, ptr %275, align 4
@@ -1894,13 +1894,13 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %286 = getelementptr inbounds %union.t_iparams, ptr %260, i64 %285
   %287 = load float, ptr %286, align 4
   %288 = fpext float %287 to double
-  %289 = call double @llvm.fmuladd.f64(double %272, double %288, double %.184100.i)
+  %289 = call double @llvm.fmuladd.f64(double %272, double %288, double %.183101.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %273, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %273, %261
-  %.184.lcssa.i = phi double [ %.083108.i, %261 ], [ %289, %273 ]
+  %.183.lcssa.i = phi double [ %.082108.i, %261 ], [ %289, %273 ]
   %.179.lcssa.i = phi double [ %.078109.i, %261 ], [ %280, %273 ]
   %.1.lcssa.i = phi double [ %.077110.i, %261 ], [ %278, %273 ]
   %290 = getelementptr inbounds i8, ptr %.sroa.093.0107.i, i64 56
@@ -1908,7 +1908,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   br i1 %.not98.i, label %._crit_edge113.i, label %261
 
 ._crit_edge113.i:                                 ; preds = %._crit_edge.i, %218
-  %.083.lcssa.i = phi double [ 0.000000e+00, %218 ], [ %.184.lcssa.i, %._crit_edge.i ]
+  %.082.lcssa.i = phi double [ 0.000000e+00, %218 ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.078.lcssa.i = phi double [ 0.000000e+00, %218 ], [ %.179.lcssa.i, %._crit_edge.i ]
   %.077.lcssa.i = phi double [ 0.000000e+00, %218 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %291 = getelementptr inbounds i8, ptr %3, i64 72
@@ -1916,7 +1916,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %292 = getelementptr inbounds i8, ptr %3, i64 88
   store double %.078.lcssa.i, ptr %292, align 8
   %293 = getelementptr inbounds i8, ptr %3, i64 104
-  store double %.083.lcssa.i, ptr %293, align 8
+  store double %.082.lcssa.i, ptr %293, align 8
   %294 = load i32, ptr %144, align 8
   %.not.i295 = icmp eq i32 %294, 0
   br i1 %.not.i295, label %.thread.i, label %295
@@ -1938,7 +1938,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
 303:                                              ; preds = %._crit_edge123.i, %.lr.ph133.i
   %.2131.i = phi double [ 0.000000e+00, %.lr.ph133.i ], [ %.3.lcssa.i, %._crit_edge123.i ]
   %.280130.i = phi double [ 0.000000e+00, %.lr.ph133.i ], [ %.381.lcssa.i, %._crit_edge123.i ]
-  %.285129.i = phi double [ 0.000000e+00, %.lr.ph133.i ], [ %.386.lcssa.i, %._crit_edge123.i ]
+  %.284129.i = phi double [ 0.000000e+00, %.lr.ph133.i ], [ %.385.lcssa.i, %._crit_edge123.i ]
   %.sroa.089.0128.i = phi ptr [ %296, %.lr.ph133.i ], [ %336, %._crit_edge123.i ]
   %304 = load i32, ptr %.sroa.089.0128.i, align 8
   %305 = sext i32 %304 to i64
@@ -1965,7 +1965,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %indvars.iv141.i = phi i64 [ 0, %.lr.ph122.i ], [ %indvars.iv.next142.i, %319 ]
   %.3119.i = phi double [ %.2131.i, %.lr.ph122.i ], [ %324, %319 ]
   %.381118.i = phi double [ %.280130.i, %.lr.ph122.i ], [ %326, %319 ]
-  %.386117.i = phi double [ %.285129.i, %.lr.ph122.i ], [ %335, %319 ]
+  %.385117.i = phi double [ %.284129.i, %.lr.ph122.i ], [ %335, %319 ]
   %320 = getelementptr inbounds %struct.t_atom, ptr %314, i64 %indvars.iv141.i
   %321 = getelementptr inbounds i8, ptr %320, i64 12
   %322 = load float, ptr %321, align 4
@@ -1981,18 +1981,18 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %332 = getelementptr inbounds %union.t_iparams, ptr %318, i64 %331
   %333 = load float, ptr %332, align 4
   %334 = fpext float %333 to double
-  %335 = call double @llvm.fmuladd.f64(double %315, double %334, double %.386117.i)
+  %335 = call double @llvm.fmuladd.f64(double %315, double %334, double %.385117.i)
   %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
   %exitcond145.not.i = icmp eq i64 %indvars.iv.next142.i, %wide.trip.count144.i
   br i1 %exitcond145.not.i, label %._crit_edge123.i, label %319, !llvm.loop !21
 
 ._crit_edge123.i:                                 ; preds = %319, %303
-  %.386.lcssa.i = phi double [ %.285129.i, %303 ], [ %335, %319 ]
+  %.385.lcssa.i = phi double [ %.284129.i, %303 ], [ %335, %319 ]
   %.381.lcssa.i = phi double [ %.280130.i, %303 ], [ %326, %319 ]
   %.3.lcssa.i = phi double [ %.2131.i, %303 ], [ %324, %319 ]
   store double %.3.lcssa.i, ptr %300, align 8
   store double %.381.lcssa.i, ptr %301, align 8
-  store double %.386.lcssa.i, ptr %302, align 8
+  store double %.385.lcssa.i, ptr %302, align 8
   %336 = getelementptr inbounds i8, ptr %.sroa.089.0128.i, i64 56
   %.not99.i = icmp eq ptr %336, %297
   br i1 %.not99.i, label %._crit_edge134.i, label %303
@@ -2007,7 +2007,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
   %338 = getelementptr inbounds i8, ptr %3, i64 96
   store double %.078.lcssa.i, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %3, i64 112
-  store double %.083.lcssa.i, ptr %339, align 8
+  store double %.082.lcssa.i, ptr %339, align 8
   %.not8896.i = icmp eq ptr %250, null
   br i1 %.not8896.i, label %345, label %.thread97.i
 
@@ -2996,7 +2996,7 @@ _ZNSt6vectorI13bondedtable_tSaIS0_EED2Ev.exit352: ; preds = %704, %_ZSt8_Destroy
   br label %732
 
 732:                                              ; preds = %.lr.ph, %_ZNSt6vectorI12ListedForcesSaIS0_EE12emplace_backIJRK14gmx_ffparams_tmiRSt6bitsetILm4EERP8_IO_FILEEEERS0_DpOT_.exit
-  %.0238457 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorI12ListedForcesSaIS0_EE12emplace_backIJRK14gmx_ffparams_tmiRSt6bitsetILm4EERP8_IO_FILEEEERS0_DpOT_.exit ]
+  %.0239457 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorI12ListedForcesSaIS0_EE12emplace_backIJRK14gmx_ffparams_tmiRSt6bitsetILm4EERP8_IO_FILEEEERS0_DpOT_.exit ]
   %.sroa.0405.0456 = phi ptr [ %724, %.lr.ph ], [ %765, %_ZNSt6vectorI12ListedForcesSaIS0_EE12emplace_backIJRK14gmx_ffparams_tmiRSt6bitsetILm4EERP8_IO_FILEEEERS0_DpOT_.exit ]
   store i64 0, ptr %42, align 8
   %733 = load i64, ptr %.sroa.0405.0456, align 8
@@ -3019,14 +3019,14 @@ _ZNSt6vectorI13bondedtable_tSaIS0_EED2Ev.exit352: ; preds = %704, %_ZSt8_Destroy
   %741 = phi i64 [ %.pre, %737 ], [ %735, %732 ]
   %742 = and i64 %741, 16
   %.not442 = icmp ne i64 %742, 0
-  %743 = or i1 %.not442, %.0238457
+  %743 = or i1 %.not442, %.0239457
   br i1 %743, label %744, label %748
 
 744:                                              ; preds = %739
   %745 = lshr exact i64 %742, 2
   %746 = or i64 %740, %745
   %747 = or i64 %746, 8
-  %simplifycfg.merge = select i1 %.0238457, i64 %747, i64 %746
+  %simplifycfg.merge = select i1 %.0239457, i64 %747, i64 %746
   store i64 %simplifycfg.merge, ptr %42, align 8
   br label %748
 
@@ -3387,7 +3387,7 @@ _ZNSt6vectorI23SimulationAtomGroupTypeSaIS0_EE9push_backEOS0_.exit173.i: ; preds
   br label %.lr.ph317.us.us.i
 
 .lr.ph317.us.us.i:                                ; preds = %._crit_edge318.split.us.us.us.i, %.lr.ph317.us.us.preheader.i
-  %.0138323.us.us.i = phi i1 [ %spec.select.us.us.us.i, %._crit_edge318.split.us.us.us.i ], [ true, %.lr.ph317.us.us.preheader.i ]
+  %.0133323.us.us.i = phi i1 [ %spec.select.us.us.us.i, %._crit_edge318.split.us.us.us.i ], [ true, %.lr.ph317.us.us.preheader.i ]
   %.sroa.0226.0322.us.us.i = phi ptr [ %928, %._crit_edge318.split.us.us.us.i ], [ %.sroa.0233.4.i, %.lr.ph317.us.us.preheader.i ]
   %919 = load i32, ptr %.sroa.0226.0322.us.us.i, align 4
   %920 = sext i32 %919 to i64
@@ -3398,20 +3398,20 @@ _ZNSt6vectorI23SimulationAtomGroupTypeSaIS0_EE9push_backEOS0_.exit173.i: ; preds
 
 .lr.ph.us.us.us.i:                                ; preds = %._crit_edge.us320.us.us.i, %.lr.ph317.us.us.i
   %indvars.iv379.i = phi i64 [ %indvars.iv.next380.i, %._crit_edge.us320.us.us.i ], [ 0, %.lr.ph317.us.us.i ]
-  %.1139315.us.us.us.i = phi i1 [ %spec.select.us.us.us.i, %._crit_edge.us320.us.us.i ], [ %.0138323.us.us.i, %.lr.ph317.us.us.i ]
+  %.1134315.us.us.us.i = phi i1 [ %spec.select.us.us.us.i, %._crit_edge.us320.us.us.i ], [ %.0133323.us.us.i, %.lr.ph317.us.us.i ]
   %923 = mul nuw nsw i64 %indvars.iv379.i, %918
   %gep412.i = getelementptr i8, ptr %invariant.gep411.i, i64 %923
   br label %924
 
 924:                                              ; preds = %924, %.lr.ph.us.us.us.i
   %indvars.iv375.i = phi i64 [ %indvars.iv.next376.i, %924 ], [ 0, %.lr.ph.us.us.us.i ]
-  %.2140313.us.us.us.i = phi i1 [ %spec.select.us.us.us.i, %924 ], [ %.1139315.us.us.us.i, %.lr.ph.us.us.us.i ]
+  %.2135313.us.us.us.i = phi i1 [ %spec.select.us.us.us.i, %924 ], [ %.1134315.us.us.us.i, %.lr.ph.us.us.us.i ]
   %925 = getelementptr i8, ptr %gep412.i, i64 %indvars.iv375.i
   %926 = load i8, ptr %925, align 1
   %gep.i = getelementptr i8, ptr %invariant.gep411.i, i64 %indvars.iv375.i
   %927 = load i8, ptr %gep.i, align 1
   %.not149.us.us.us.i = icmp eq i8 %926, %927
-  %spec.select.us.us.us.i = select i1 %.not149.us.us.us.i, i1 %.2140313.us.us.us.i, i1 false
+  %spec.select.us.us.us.i = select i1 %.not149.us.us.us.i, i1 %.2135313.us.us.us.i, i1 false
   %indvars.iv.next376.i = add nuw nsw i64 %indvars.iv375.i, 1
   %exitcond378.not.i = icmp eq i64 %indvars.iv.next376.i, %918
   br i1 %exitcond378.not.i, label %._crit_edge.us320.us.us.i, label %924, !llvm.loop !35
@@ -3427,8 +3427,8 @@ _ZNSt6vectorI23SimulationAtomGroupTypeSaIS0_EE9push_backEOS0_.exit173.i: ; preds
   br i1 %.not277.us.us.i, label %._crit_edge.i360, label %.lr.ph317.us.us.i
 
 ._crit_edge.i360:                                 ; preds = %._crit_edge318.split.us.us.us.i, %.lr.ph.split.us.i, %.lr.ph.i359, %903
-  %.0138.lcssa.i = phi i1 [ true, %903 ], [ true, %.lr.ph.i359 ], [ true, %.lr.ph.split.us.i ], [ %spec.select.us.us.us.i, %._crit_edge318.split.us.us.us.i ]
-  %cond.fr.i = freeze i1 %.0138.lcssa.i
+  %.0133.lcssa.i = phi i1 [ true, %903 ], [ true, %.lr.ph.i359 ], [ true, %.lr.ph.split.us.i ], [ %spec.select.us.us.us.i, %._crit_edge318.split.us.us.us.i ]
+  %cond.fr.i = freeze i1 %.0133.lcssa.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !noalias !30
   store i32 %.0131353.i, ptr %14, align 8, !noalias !30
   %929 = getelementptr inbounds i8, ptr %905, i64 4
@@ -3618,12 +3618,12 @@ _ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.n
 999:                                              ; preds = %._crit_edge347.i, %.lr.ph350.i
   %1000 = phi i32 [ %955, %.lr.ph350.i ], [ %1105, %._crit_edge347.i ]
   %1001 = phi i32 [ %.pre398.i, %.lr.ph350.i ], [ %1106, %._crit_edge347.i ]
-  %.0134349.i = phi i32 [ 0, %.lr.ph350.i ], [ %1107, %._crit_edge347.i ]
+  %.0141349.i = phi i32 [ 0, %.lr.ph350.i ], [ %1107, %._crit_edge347.i ]
   %1002 = icmp sgt i32 %1001, 0
   br i1 %1002, label %.lr.ph346.i, label %._crit_edge347.i
 
 .lr.ph346.i:                                      ; preds = %999
-  %1003 = mul nuw nsw i32 %.0134349.i, %1001
+  %1003 = mul nuw nsw i32 %.0141349.i, %1001
   %1004 = add nsw i32 %1003, %.0131353.i
   %1005 = zext nneg i32 %1003 to i64
   br label %1006
@@ -3832,7 +3832,7 @@ _Z9PERTURBEDRK6t_atom.exit.thread.i:              ; preds = %_Z9PERTURBEDRK6t_at
 ._crit_edge347.i:                                 ; preds = %._crit_edge347.loopexit.i, %999
   %1105 = phi i32 [ %.pre401.i, %._crit_edge347.loopexit.i ], [ %1000, %999 ]
   %1106 = phi i32 [ %1102, %._crit_edge347.loopexit.i ], [ %1001, %999 ]
-  %1107 = add nuw nsw i32 %.0134349.i, 1
+  %1107 = add nuw nsw i32 %.0141349.i, 1
   %1108 = icmp sle i32 %1105, %1107
   %.not360.i = select i1 %cond.fr.i, i1 true, i1 %1108
   br i1 %.not360.i, label %._crit_edge351.i, label %999, !llvm.loop !41

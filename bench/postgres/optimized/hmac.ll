@@ -133,16 +133,16 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br label %40
 
 40:                                               ; preds = %39, %5
-  %.058 = phi ptr [ %calloc, %39 ], [ %1, %5 ]
   %.057 = phi i64 [ %15, %39 ], [ %2, %5 ]
-  %.0 = phi ptr [ %calloc, %39 ], [ null, %5 ]
+  %.056 = phi ptr [ %calloc, %39 ], [ %1, %5 ]
+  %.055 = phi ptr [ %calloc, %39 ], [ null, %5 ]
   %.not66 = icmp eq i64 %.057, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %41 = phi i64 [ %52, %.lr.ph ], [ 0, %40 ]
-  %.05665 = phi i32 [ %51, %.lr.ph ], [ 0, %40 ]
-  %42 = getelementptr i8, ptr %.058, i64 %41
+  %.05865 = phi i32 [ %51, %.lr.ph ], [ 0, %40 ]
+  %42 = getelementptr i8, ptr %.056, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = getelementptr [128 x i8], ptr %12, i64 0, i64 %41
   %45 = load i8, ptr %44, align 1
@@ -153,7 +153,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, %47
   store i8 %50, ptr %48, align 1
-  %51 = add i32 %.05665, 1
+  %51 = add i32 %.05865, 1
   %52 = sext i32 %51 to i64
   %53 = icmp ugt i64 %.057, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !5
@@ -179,24 +179,24 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %66 = tail call ptr @pg_cryptohash_error(ptr noundef %65) #7
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %66, ptr %67, align 8
-  %.not64 = icmp eq ptr %.0, null
+  %.not64 = icmp eq ptr %.055, null
   br i1 %.not64, label %71, label %68
 
 68:                                               ; preds = %63
-  tail call void @free(ptr noundef nonnull %.0) #7
+  tail call void @free(ptr noundef nonnull %.055) #7
   br label %71
 
 69:                                               ; preds = %57
-  %.not = icmp eq ptr %.0, null
+  %.not = icmp eq ptr %.055, null
   br i1 %.not, label %71, label %70
 
 70:                                               ; preds = %69
-  tail call void @free(ptr noundef nonnull %.0) #7
+  tail call void @free(ptr noundef nonnull %.055) #7
   br label %71
 
 71:                                               ; preds = %69, %70, %63, %68, %3, %35, %24, %17
-  %.055 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %35 ], [ -1, %3 ], [ -1, %68 ], [ -1, %63 ], [ 0, %70 ], [ 0, %69 ]
-  ret i32 %.055
+  %.0 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %35 ], [ -1, %3 ], [ -1, %68 ], [ -1, %63 ], [ 0, %70 ], [ 0, %69 ]
+  ret i32 %.0
 }
 
 declare i32 @pg_cryptohash_init(ptr noundef) local_unnamed_addr #2
