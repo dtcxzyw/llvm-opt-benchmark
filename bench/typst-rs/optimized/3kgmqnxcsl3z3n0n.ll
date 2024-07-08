@@ -66602,7 +66602,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !52, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %89, label %5
+  br i1 %trunc, label %87, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18088)
@@ -66680,52 +66680,50 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %64 = fsub float %61, %63
   %65 = fdiv float 1.000000e+00, %34
   %66 = fneg float %64
-  %67 = fneg float %48
-  %68 = fneg float %56
-  %69 = fmul float %43, %65
-  %70 = insertelement <4 x float> poison, float %19, i64 0
-  %71 = insertelement <4 x float> %70, float %66, i64 1
-  %72 = insertelement <4 x float> %71, float %52, i64 2
-  %73 = insertelement <4 x float> %72, float %65, i64 3
-  %74 = shufflevector <4 x float> %73, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %75 = fneg <2 x float> %26
-  %76 = shufflevector <2 x float> %74, <2 x float> %75, <2 x i32> <i32 0, i32 3>
-  %77 = shufflevector <2 x float> %76, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %78 = fmul <4 x float> %73, %77
+  %67 = extractelement <2 x float> %26, i64 1
+  %68 = fneg float %67
+  %69 = fneg float %48
+  %70 = fneg float %56
+  %71 = fmul float %43, %65
+  %72 = insertelement <4 x float> poison, float %19, i64 0
+  %73 = insertelement <4 x float> %72, float %66, i64 1
+  %74 = insertelement <4 x float> %73, float %52, i64 2
+  %75 = insertelement <4 x float> %74, float %68, i64 3
+  %76 = insertelement <4 x float> poison, float %65, i64 0
+  %77 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> zeroinitializer
+  %78 = fmul <4 x float> %75, %77
   store <4 x float> %78, ptr %0, align 4, !alias.scope !18096, !noalias !18094
   %79 = getelementptr inbounds i8, ptr %0, i64 16
   %80 = insertelement <4 x float> poison, float %60, i64 0
-  %81 = insertelement <4 x float> %80, float %67, i64 1
+  %81 = insertelement <4 x float> %80, float %69, i64 1
   %82 = shufflevector <2 x float> %26, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %83 = shufflevector <4 x float> %81, <4 x float> %82, <4 x i32> <i32 0, i32 1, i32 4, i32 poison>
-  %84 = insertelement <4 x float> %83, float %68, i64 3
-  %85 = insertelement <4 x float> poison, float %65, i64 0
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
-  %87 = fmul <4 x float> %84, %86
-  store <4 x float> %87, ptr %79, align 4, !alias.scope !18096, !noalias !18094
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %69, ptr %88, align 4, !alias.scope !18096, !noalias !18094
+  %84 = insertelement <4 x float> %83, float %70, i64 3
+  %85 = fmul <4 x float> %84, %77
+  store <4 x float> %85, ptr %79, align 4, !alias.scope !18096, !noalias !18094
+  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %71, ptr %86, align 4, !alias.scope !18096, !noalias !18094
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18088
-  br label %98
+  br label %96
 
-89:                                               ; preds = %2
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+87:                                               ; preds = %2
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.97.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %91 = fptrunc double %.sroa.97.0.copyload to float
-  %92 = load <4 x double>, ptr %90, align 8
-  %93 = fptrunc <4 x double> %92 to <4 x float>
-  store <4 x float> %93, ptr %0, align 4, !alias.scope !18098, !noalias !18103
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
-  %95 = load <4 x double>, ptr %.sroa.53.0..sroa_idx, align 8
-  %96 = fptrunc <4 x double> %95 to <4 x float>
-  store <4 x float> %96, ptr %94, align 4, !alias.scope !18098, !noalias !18103
-  %97 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %91, ptr %97, align 4, !alias.scope !18098, !noalias !18103
-  br label %98
+  %89 = fptrunc double %.sroa.97.0.copyload to float
+  %90 = load <4 x double>, ptr %88, align 8
+  %91 = fptrunc <4 x double> %90 to <4 x float>
+  store <4 x float> %91, ptr %0, align 4, !alias.scope !18098, !noalias !18103
+  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %93 = load <4 x double>, ptr %.sroa.53.0..sroa_idx, align 8
+  %94 = fptrunc <4 x double> %93 to <4 x float>
+  store <4 x float> %94, ptr %92, align 4, !alias.scope !18098, !noalias !18103
+  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %89, ptr %95, align 4, !alias.scope !18098, !noalias !18103
+  br label %96
 
-98:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %89
+96:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %87
   ret void
 }
 
@@ -66734,7 +66732,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !52, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %89, label %5
+  br i1 %trunc, label %87, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18106)
@@ -66812,52 +66810,50 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %64 = fsub float %61, %63
   %65 = fdiv float 1.000000e+00, %34
   %66 = fneg float %64
-  %67 = fneg float %48
-  %68 = fneg float %56
-  %69 = fmul float %43, %65
-  %70 = insertelement <4 x float> poison, float %19, i64 0
-  %71 = insertelement <4 x float> %70, float %66, i64 1
-  %72 = insertelement <4 x float> %71, float %52, i64 2
-  %73 = insertelement <4 x float> %72, float %65, i64 3
-  %74 = shufflevector <4 x float> %73, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %75 = fneg <2 x float> %26
-  %76 = shufflevector <2 x float> %74, <2 x float> %75, <2 x i32> <i32 0, i32 3>
-  %77 = shufflevector <2 x float> %76, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %78 = fmul <4 x float> %73, %77
+  %67 = extractelement <2 x float> %26, i64 1
+  %68 = fneg float %67
+  %69 = fneg float %48
+  %70 = fneg float %56
+  %71 = fmul float %43, %65
+  %72 = insertelement <4 x float> poison, float %19, i64 0
+  %73 = insertelement <4 x float> %72, float %66, i64 1
+  %74 = insertelement <4 x float> %73, float %52, i64 2
+  %75 = insertelement <4 x float> %74, float %68, i64 3
+  %76 = insertelement <4 x float> poison, float %65, i64 0
+  %77 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> zeroinitializer
+  %78 = fmul <4 x float> %75, %77
   store <4 x float> %78, ptr %0, align 4, !alias.scope !18114, !noalias !18112
   %79 = getelementptr inbounds i8, ptr %0, i64 16
   %80 = insertelement <4 x float> poison, float %60, i64 0
-  %81 = insertelement <4 x float> %80, float %67, i64 1
+  %81 = insertelement <4 x float> %80, float %69, i64 1
   %82 = shufflevector <2 x float> %26, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %83 = shufflevector <4 x float> %81, <4 x float> %82, <4 x i32> <i32 0, i32 1, i32 4, i32 poison>
-  %84 = insertelement <4 x float> %83, float %68, i64 3
-  %85 = insertelement <4 x float> poison, float %65, i64 0
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
-  %87 = fmul <4 x float> %84, %86
-  store <4 x float> %87, ptr %79, align 4, !alias.scope !18114, !noalias !18112
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %69, ptr %88, align 4, !alias.scope !18114, !noalias !18112
+  %84 = insertelement <4 x float> %83, float %70, i64 3
+  %85 = fmul <4 x float> %84, %77
+  store <4 x float> %85, ptr %79, align 4, !alias.scope !18114, !noalias !18112
+  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %71, ptr %86, align 4, !alias.scope !18114, !noalias !18112
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18106
-  br label %98
+  br label %96
 
-89:                                               ; preds = %2
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+87:                                               ; preds = %2
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.97.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %91 = fptrunc double %.sroa.97.0.copyload to float
-  %92 = load <4 x double>, ptr %90, align 8
-  %93 = fptrunc <4 x double> %92 to <4 x float>
-  store <4 x float> %93, ptr %0, align 4, !alias.scope !18116, !noalias !18121
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
-  %95 = load <4 x double>, ptr %.sroa.53.0..sroa_idx, align 8
-  %96 = fptrunc <4 x double> %95 to <4 x float>
-  store <4 x float> %96, ptr %94, align 4, !alias.scope !18116, !noalias !18121
-  %97 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %91, ptr %97, align 4, !alias.scope !18116, !noalias !18121
-  br label %98
+  %89 = fptrunc double %.sroa.97.0.copyload to float
+  %90 = load <4 x double>, ptr %88, align 8
+  %91 = fptrunc <4 x double> %90 to <4 x float>
+  store <4 x float> %91, ptr %0, align 4, !alias.scope !18116, !noalias !18121
+  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %93 = load <4 x double>, ptr %.sroa.53.0..sroa_idx, align 8
+  %94 = fptrunc <4 x double> %93 to <4 x float>
+  store <4 x float> %94, ptr %92, align 4, !alias.scope !18116, !noalias !18121
+  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %89, ptr %95, align 4, !alias.scope !18116, !noalias !18121
+  br label %96
 
-98:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %89
+96:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %87
   ret void
 }
 

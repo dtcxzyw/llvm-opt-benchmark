@@ -13119,47 +13119,45 @@ if.end:                                           ; preds = %entry
   %2 = fadd <2 x float> %rect.coerce0, <float -5.000000e-01, float -5.000000e-01>
   %rect.sroa.0.4.vec.extract.sink = select i1 %cmp, float %rect.sroa.0.4.vec.extract, float %0
   %rect.coerce0.sink = select i1 %cmp, <2 x float> %rect.coerce0, <2 x float> %2
-  %3 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %rect.sroa.9.12.vec.extract = extractelement <2 x float> %rect.coerce1, i64 1
-  %add6 = fadd float %rect.sroa.0.4.vec.extract.sink, %rect.sroa.9.12.vec.extract
-  %retval.sroa.0.4.vec.insert.i23 = insertelement <2 x float> %3, float %add6, i64 1
-  tail call void @nk_draw_list_path_rect_to(ptr noundef nonnull %list, <2 x float> %rect.coerce0.sink, <2 x float> %retval.sroa.0.4.vec.insert.i23, float noundef %rounding)
+  %3 = insertelement <2 x float> %rect.coerce0, float %rect.sroa.0.4.vec.extract.sink, i64 1
+  %4 = fadd <2 x float> %3, %rect.coerce1
+  tail call void @nk_draw_list_path_rect_to(ptr noundef nonnull %list, <2 x float> %rect.coerce0.sink, <2 x float> %4, float noundef %rounding)
   %buffer.i = getelementptr inbounds i8, ptr %list, i64 176
-  %4 = load ptr, ptr %buffer.i, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %buffer.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.end.i7.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %memory.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %5 = load ptr, ptr %memory.i.i, align 8
+  %memory.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = load ptr, ptr %memory.i.i, align 8
   br label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.end.i.i, %if.end
-  %retval.0.i.i = phi ptr [ %5, %if.end.i.i ], [ null, %if.end ]
+  %retval.0.i.i = phi ptr [ %6, %if.end.i.i ], [ null, %if.end ]
   %path_count.i = getelementptr inbounds i8, ptr %list, i64 224
-  %6 = load i32, ptr %path_count.i, align 8
+  %7 = load i32, ptr %path_count.i, align 8
   %shape_AA.i = getelementptr inbounds i8, ptr %list, i64 120
-  %7 = load i32, ptr %shape_AA.i, align 8
-  tail call void @nk_draw_list_fill_poly_convex(ptr noundef nonnull %list, ptr noundef %retval.0.i.i, i32 noundef %6, i32 %col.coerce, i32 noundef %7)
-  %8 = load ptr, ptr %buffer.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %8 = load i32, ptr %shape_AA.i, align 8
+  tail call void @nk_draw_list_fill_poly_convex(ptr noundef nonnull %list, ptr noundef %retval.0.i.i, i32 noundef %7, i32 %col.coerce, i32 noundef %8)
+  %9 = load ptr, ptr %buffer.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %nk_draw_list_path_fill.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i7.i
-  %allocated.i.i.i = getelementptr inbounds i8, ptr %8, i64 88
-  %9 = load i64, ptr %allocated.i.i.i, align 8
-  %offset25.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %offset25.i.i.i, align 8
-  %sub26.neg.i.i.i = sub i64 %10, %9
-  %needed27.i.i.i = getelementptr inbounds i8, ptr %8, i64 96
-  %11 = load i64, ptr %needed27.i.i.i, align 8
-  %sub28.i.i.i = add i64 %sub26.neg.i.i.i, %11
+  %allocated.i.i.i = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = load i64, ptr %allocated.i.i.i, align 8
+  %offset25.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load i64, ptr %offset25.i.i.i, align 8
+  %sub26.neg.i.i.i = sub i64 %11, %10
+  %needed27.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
+  %12 = load i64, ptr %needed27.i.i.i, align 8
+  %sub28.i.i.i = add i64 %sub26.neg.i.i.i, %12
   store i64 %sub28.i.i.i, ptr %needed27.i.i.i, align 8
-  %12 = load i32, ptr %8, align 8
-  %tobool33.not.i.i.i = icmp eq i32 %12, 0
-  %spec.select.i.i.i = select i1 %tobool33.not.i.i.i, i64 0, i64 %10
+  %13 = load i32, ptr %9, align 8
+  %tobool33.not.i.i.i = icmp eq i32 %13, 0
+  %spec.select.i.i.i = select i1 %tobool33.not.i.i.i, i64 0, i64 %11
   store i64 %spec.select.i.i.i, ptr %allocated.i.i.i, align 8
-  store i32 0, ptr %8, align 8
+  store i32 0, ptr %9, align 8
   br label %nk_draw_list_path_fill.exit
 
 nk_draw_list_path_fill.exit:                      ; preds = %if.end.i7.i, %if.end.i.i.i
@@ -13189,47 +13187,45 @@ if.end:                                           ; preds = %entry
   %2 = fadd <2 x float> %rect.coerce0, <float -5.000000e-01, float -5.000000e-01>
   %rect.sroa.0.4.vec.extract.sink = select i1 %cmp, float %rect.sroa.0.4.vec.extract, float %0
   %rect.coerce0.sink = select i1 %cmp, <2 x float> %rect.coerce0, <2 x float> %2
-  %3 = fadd <2 x float> %rect.coerce0, %rect.coerce1
-  %rect.sroa.9.12.vec.extract = extractelement <2 x float> %rect.coerce1, i64 1
-  %add6 = fadd float %rect.sroa.0.4.vec.extract.sink, %rect.sroa.9.12.vec.extract
-  %retval.sroa.0.4.vec.insert.i23 = insertelement <2 x float> %3, float %add6, i64 1
-  tail call void @nk_draw_list_path_rect_to(ptr noundef nonnull %list, <2 x float> %rect.coerce0.sink, <2 x float> %retval.sroa.0.4.vec.insert.i23, float noundef %rounding)
+  %3 = insertelement <2 x float> %rect.coerce0, float %rect.sroa.0.4.vec.extract.sink, i64 1
+  %4 = fadd <2 x float> %3, %rect.coerce1
+  tail call void @nk_draw_list_path_rect_to(ptr noundef nonnull %list, <2 x float> %rect.coerce0.sink, <2 x float> %4, float noundef %rounding)
   %buffer.i = getelementptr inbounds i8, ptr %list, i64 176
-  %4 = load ptr, ptr %buffer.i, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %buffer.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.end.i7.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %memory.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %5 = load ptr, ptr %memory.i.i, align 8
+  %memory.i.i = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = load ptr, ptr %memory.i.i, align 8
   br label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.end.i.i, %if.end
-  %retval.0.i.i = phi ptr [ %5, %if.end.i.i ], [ null, %if.end ]
+  %retval.0.i.i = phi ptr [ %6, %if.end.i.i ], [ null, %if.end ]
   %path_count.i = getelementptr inbounds i8, ptr %list, i64 224
-  %6 = load i32, ptr %path_count.i, align 8
+  %7 = load i32, ptr %path_count.i, align 8
   %line_AA.i = getelementptr inbounds i8, ptr %list, i64 116
-  %7 = load i32, ptr %line_AA.i, align 4
-  tail call void @nk_draw_list_stroke_poly_line(ptr noundef nonnull %list, ptr noundef %retval.0.i.i, i32 noundef %6, i32 %col.coerce, i32 noundef 1, float noundef %thickness, i32 noundef %7)
-  %8 = load ptr, ptr %buffer.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %8 = load i32, ptr %line_AA.i, align 4
+  tail call void @nk_draw_list_stroke_poly_line(ptr noundef nonnull %list, ptr noundef %retval.0.i.i, i32 noundef %7, i32 %col.coerce, i32 noundef 1, float noundef %thickness, i32 noundef %8)
+  %9 = load ptr, ptr %buffer.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %nk_draw_list_path_stroke.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i7.i
-  %allocated.i.i.i = getelementptr inbounds i8, ptr %8, i64 88
-  %9 = load i64, ptr %allocated.i.i.i, align 8
-  %offset25.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %offset25.i.i.i, align 8
-  %sub26.neg.i.i.i = sub i64 %10, %9
-  %needed27.i.i.i = getelementptr inbounds i8, ptr %8, i64 96
-  %11 = load i64, ptr %needed27.i.i.i, align 8
-  %sub28.i.i.i = add i64 %sub26.neg.i.i.i, %11
+  %allocated.i.i.i = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = load i64, ptr %allocated.i.i.i, align 8
+  %offset25.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load i64, ptr %offset25.i.i.i, align 8
+  %sub26.neg.i.i.i = sub i64 %11, %10
+  %needed27.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
+  %12 = load i64, ptr %needed27.i.i.i, align 8
+  %sub28.i.i.i = add i64 %sub26.neg.i.i.i, %12
   store i64 %sub28.i.i.i, ptr %needed27.i.i.i, align 8
-  %12 = load i32, ptr %8, align 8
-  %tobool33.not.i.i.i = icmp eq i32 %12, 0
-  %spec.select.i.i.i = select i1 %tobool33.not.i.i.i, i64 0, i64 %10
+  %13 = load i32, ptr %9, align 8
+  %tobool33.not.i.i.i = icmp eq i32 %13, 0
+  %spec.select.i.i.i = select i1 %tobool33.not.i.i.i, i64 0, i64 %11
   store i64 %spec.select.i.i.i, ptr %allocated.i.i.i, align 8
-  store i32 0, ptr %8, align 8
+  store i32 0, ptr %9, align 8
   br label %nk_draw_list_path_stroke.exit
 
 nk_draw_list_path_stroke.exit:                    ; preds = %if.end.i7.i, %if.end.i.i.i
