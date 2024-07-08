@@ -1928,7 +1928,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK14btQuantizedBvh26reportAabbOverlappingNodexEP21btNodeOverlapCallbackRK9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax) local_unnamed_addr #3 align 2 {
 entry:
-  %quantizedQueryAabbMin = alloca [3 x i16], align 2
+  %quantizedQueryAabbMin = alloca [3 x i16], align 4
   %quantizedQueryAabbMax = alloca [3 x i16], align 4
   %m_useQuantization = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %m_useQuantization, align 8
@@ -1963,8 +1963,9 @@ if.then:                                          ; preds = %entry
   %13 = fmul <2 x float> %11, %12
   %14 = fptoui <2 x float> %13 to <2 x i16>
   %15 = and <2 x i16> %14, <i16 -2, i16 -2>
-  %16 = getelementptr inbounds i8, ptr %quantizedQueryAabbMin, i64 2
-  store <2 x i16> %15, ptr %16, align 2
+  %16 = getelementptr inbounds i8, ptr %quantizedQueryAabbMin, i64 4
+  %17 = extractelement <2 x i16> %15, i64 1
+  store i16 %17, ptr %16, align 4
   %clampedPoint.sroa.0.0.copyload.i6 = load float, ptr %aabbMax, align 4
   %clampedPoint.sroa.6.0.point2.sroa_idx.i7 = getelementptr inbounds i8, ptr %aabbMax, i64 4
   %cmp.i.i.i12 = fcmp olt float %clampedPoint.sroa.0.0.copyload.i6, %1
@@ -1972,41 +1973,42 @@ if.then:                                          ; preds = %entry
   %cmp.i.i1.i21 = fcmp olt float %2, %clampedPoint.sroa.0.0.i13
   %clampedPoint.sroa.0.1.i22 = select i1 %cmp.i.i1.i21, float %2, float %clampedPoint.sroa.0.0.i13
   %sub.i.i.i29 = fsub float %clampedPoint.sroa.0.1.i22, %1
-  %17 = load <2 x float>, ptr %clampedPoint.sroa.6.0.point2.sroa_idx.i7, align 4
-  %18 = fcmp olt <2 x float> %17, %5
-  %19 = select <2 x i1> %18, <2 x float> %5, <2 x float> %17
-  %20 = fcmp olt <2 x float> %8, %19
-  %21 = select <2 x i1> %20, <2 x float> %8, <2 x float> %19
-  %22 = fsub <2 x float> %21, %5
-  %23 = insertelement <4 x float> poison, float %sub.i.i.i29, i64 0
-  %24 = shufflevector <2 x float> %22, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %25 = shufflevector <4 x float> %23, <4 x float> %24, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %26 = insertelement <4 x float> %25, float %clampedPoint.sroa.0.1.i, i64 3
-  %27 = insertelement <4 x float> poison, float %3, i64 0
-  %28 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %29 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %30 = insertelement <4 x float> %29, float %1, i64 3
-  %31 = fmul <4 x float> %26, %30
-  %32 = fsub <4 x float> %26, %30
-  %33 = shufflevector <4 x float> %31, <4 x float> %32, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %34 = insertelement <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float poison>, float %3, i64 3
-  %35 = fadd <4 x float> %33, %34
-  %36 = fmul <4 x float> %33, %34
-  %37 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %38 = fptoui <4 x float> %37 to <4 x i16>
-  %39 = or <4 x i16> %38, <i16 1, i16 1, i16 1, i16 poison>
-  %40 = and <4 x i16> %38, <i16 poison, i16 poison, i16 poison, i16 -2>
-  %41 = shufflevector <4 x i16> %39, <4 x i16> %40, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %42 = extractelement <4 x i16> %40, i64 3
-  store i16 %42, ptr %quantizedQueryAabbMin, align 2
-  %43 = shufflevector <4 x i16> %39, <4 x i16> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x i16> %43, ptr %quantizedQueryAabbMax, align 4
-  %44 = getelementptr inbounds i8, ptr %quantizedQueryAabbMax, i64 4
-  %45 = extractelement <4 x i16> %39, i64 2
-  store i16 %45, ptr %44, align 4
+  %18 = load <2 x float>, ptr %clampedPoint.sroa.6.0.point2.sroa_idx.i7, align 4
+  %19 = fcmp olt <2 x float> %18, %5
+  %20 = select <2 x i1> %19, <2 x float> %5, <2 x float> %18
+  %21 = fcmp olt <2 x float> %8, %20
+  %22 = select <2 x i1> %21, <2 x float> %8, <2 x float> %20
+  %23 = fsub <2 x float> %22, %5
+  %24 = insertelement <4 x float> poison, float %sub.i.i.i29, i64 0
+  %25 = shufflevector <2 x float> %23, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %26 = shufflevector <4 x float> %24, <4 x float> %25, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %27 = insertelement <4 x float> %26, float %clampedPoint.sroa.0.1.i, i64 3
+  %28 = insertelement <4 x float> poison, float %3, i64 0
+  %29 = shufflevector <2 x float> %12, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %30 = shufflevector <4 x float> %28, <4 x float> %29, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %31 = insertelement <4 x float> %30, float %1, i64 3
+  %32 = fmul <4 x float> %27, %31
+  %33 = fsub <4 x float> %27, %31
+  %34 = shufflevector <4 x float> %32, <4 x float> %33, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %35 = insertelement <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float poison>, float %3, i64 3
+  %36 = fadd <4 x float> %34, %35
+  %37 = fmul <4 x float> %34, %35
+  %38 = shufflevector <4 x float> %36, <4 x float> %37, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %39 = fptoui <4 x float> %38 to <4 x i16>
+  %40 = or <4 x i16> %39, <i16 1, i16 1, i16 1, i16 poison>
+  %41 = and <4 x i16> %39, <i16 poison, i16 poison, i16 poison, i16 -2>
+  %42 = shufflevector <4 x i16> %40, <4 x i16> %41, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %43 = shufflevector <2 x i16> %15, <2 x i16> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %44 = shufflevector <4 x i16> %42, <4 x i16> %43, <2 x i32> <i32 3, i32 4>
+  store <2 x i16> %44, ptr %quantizedQueryAabbMin, align 4
+  %45 = shufflevector <4 x i16> %40, <4 x i16> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x i16> %45, ptr %quantizedQueryAabbMax, align 4
+  %46 = getelementptr inbounds i8, ptr %quantizedQueryAabbMax, i64 4
+  %47 = extractelement <4 x i16> %40, i64 2
+  store i16 %47, ptr %46, align 4
   %m_traversalMode = getelementptr inbounds i8, ptr %this, i64 200
-  %46 = load i32, ptr %m_traversalMode, align 8
-  switch i32 %46, label %if.end [
+  %48 = load i32, ptr %m_traversalMode, align 8
+  switch i32 %48, label %if.end [
     i32 0, label %sw.bb
     i32 1, label %sw.bb5
     i32 2, label %sw.bb8
@@ -2014,44 +2016,44 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %m_curNodeIndex = getelementptr inbounds i8, ptr %this, i64 60
-  %47 = load i32, ptr %m_curNodeIndex, align 4
-  %cmp21.i = icmp sgt i32 %47, 0
+  %49 = load i32, ptr %m_curNodeIndex, align 4
+  %cmp21.i = icmp sgt i32 %49, 0
   br i1 %cmp21.i, label %while.body.lr.ph.i, label %if.end
 
 while.body.lr.ph.i:                               ; preds = %sw.bb
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %48 = load ptr, ptr %m_data.i.i, align 8
+  %50 = load ptr, ptr %m_data.i.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end13.i, %while.body.lr.ph.i
   %curIndex.023.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %curIndex.1.i, %if.end13.i ]
-  %rootNode.022.i = phi ptr [ %48, %while.body.lr.ph.i ], [ %rootNode.1.i, %if.end13.i ]
+  %rootNode.022.i = phi ptr [ %50, %while.body.lr.ph.i ], [ %rootNode.1.i, %if.end13.i ]
   %arrayidx26.i.i = getelementptr inbounds i8, ptr %rootNode.022.i, i64 8
-  %49 = load <2 x i16>, ptr %arrayidx26.i.i, align 2
-  %50 = icmp ule <2 x i16> %15, %49
-  %51 = load <4 x i16>, ptr %rootNode.022.i, align 2
-  %52 = icmp uge <4 x i16> %41, %51
-  %53 = icmp ule <4 x i16> %41, %51
-  %54 = shufflevector <4 x i1> %52, <4 x i1> %53, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %55 = bitcast <4 x i1> %54 to i4
-  %56 = icmp eq i4 %55, -1
-  %57 = extractelement <2 x i1> %50, i64 1
-  %op.rdx = and i1 %56, %57
-  %58 = extractelement <2 x i1> %50, i64 0
-  %op.rdx64 = and i1 %op.rdx, %58
+  %51 = load <2 x i16>, ptr %arrayidx26.i.i, align 2
+  %52 = icmp ule <2 x i16> %15, %51
+  %53 = load <4 x i16>, ptr %rootNode.022.i, align 2
+  %54 = icmp uge <4 x i16> %42, %53
+  %55 = icmp ule <4 x i16> %42, %53
+  %56 = shufflevector <4 x i1> %54, <4 x i1> %55, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %57 = bitcast <4 x i1> %56 to i4
+  %58 = icmp eq i4 %57, -1
+  %59 = extractelement <2 x i1> %52, i64 1
+  %op.rdx = and i1 %58, %59
+  %60 = extractelement <2 x i1> %52, i64 0
+  %op.rdx64 = and i1 %op.rdx, %60
   %m_escapeIndexOrTriangleIndex.i.i = getelementptr inbounds i8, ptr %rootNode.022.i, i64 12
-  %59 = load i32, ptr %m_escapeIndexOrTriangleIndex.i.i, align 4
-  %cmp.i16.i = icmp sgt i32 %59, -1
+  %61 = load i32, ptr %m_escapeIndexOrTriangleIndex.i.i, align 4
+  %cmp.i16.i = icmp sgt i32 %61, -1
   %or.cond.i = and i1 %cmp.i16.i, %op.rdx64
   br i1 %or.cond.i, label %if.end.thread.i, label %if.end.i
 
 if.end.thread.i:                                  ; preds = %while.body.i
-  %shr.i.i = lshr i32 %59, 27
-  %and3.i.i = and i32 %59, 134217727
+  %shr.i.i = lshr i32 %61, 27
+  %and3.i.i = and i32 %61, 134217727
   %vtable.i = load ptr, ptr %nodeCallback, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %60 = load ptr, ptr %vfn.i, align 8
-  tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %shr.i.i, i32 noundef %and3.i.i)
+  %62 = load ptr, ptr %vfn.i, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %shr.i.i, i32 noundef %and3.i.i)
   br label %if.then10.i
 
 if.end.i:                                         ; preds = %while.body.i
@@ -2064,16 +2066,16 @@ if.then10.i:                                      ; preds = %if.end.i, %if.end.t
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %sub.i.i = sub nsw i32 0, %59
+  %sub.i.i = sub nsw i32 0, %61
   %idx.ext.i = zext nneg i32 %sub.i.i to i64
   %add.ptr.i = getelementptr inbounds %struct.btQuantizedBvhNode, ptr %rootNode.022.i, i64 %idx.ext.i
-  %add.i = sub i32 %curIndex.023.i, %59
+  %add.i = sub i32 %curIndex.023.i, %61
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then10.i
   %rootNode.1.i = phi ptr [ %incdec.ptr.i, %if.then10.i ], [ %add.ptr.i, %if.else.i ]
   %curIndex.1.i = phi i32 [ %inc11.i, %if.then10.i ], [ %add.i, %if.else.i ]
-  %cmp.i = icmp slt i32 %curIndex.1.i, %47
+  %cmp.i = icmp slt i32 %curIndex.1.i, %49
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !15
 
 sw.bb5:                                           ; preds = %if.then
@@ -2082,19 +2084,19 @@ sw.bb5:                                           ; preds = %if.then
 
 sw.bb8:                                           ; preds = %if.then
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 184
-  %61 = load ptr, ptr %m_data.i, align 8
-  call void @_ZNK14btQuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18btQuantizedBvhNodeP21btNodeOverlapCallbackPtS5_(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull %61, ptr noundef %nodeCallback, ptr noundef nonnull %quantizedQueryAabbMin, ptr noundef nonnull %quantizedQueryAabbMax)
+  %63 = load ptr, ptr %m_data.i, align 8
+  call void @_ZNK14btQuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18btQuantizedBvhNodeP21btNodeOverlapCallbackPtS5_(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull %63, ptr noundef %nodeCallback, ptr noundef nonnull %quantizedQueryAabbMin, ptr noundef nonnull %quantizedQueryAabbMax)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %m_curNodeIndex.i = getelementptr inbounds i8, ptr %this, i64 60
-  %62 = load i32, ptr %m_curNodeIndex.i, align 4
-  %cmp20.i = icmp sgt i32 %62, 0
+  %64 = load i32, ptr %m_curNodeIndex.i, align 4
+  %cmp20.i = icmp sgt i32 %64, 0
   br i1 %cmp20.i, label %while.body.lr.ph.i38, label %if.end
 
 while.body.lr.ph.i38:                             ; preds = %if.else
   %m_data.i.i39 = getelementptr inbounds i8, ptr %this, i64 120
-  %63 = load ptr, ptr %m_data.i.i39, align 8
+  %65 = load ptr, ptr %m_data.i.i39, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   %arrayidx.i15.i.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
@@ -2102,20 +2104,20 @@ while.body.lr.ph.i38:                             ; preds = %if.else
   br label %while.body.i40
 
 while.body.i40:                                   ; preds = %if.end10.i, %while.body.lr.ph.i38
-  %.pre59 = phi i32 [ %62, %while.body.lr.ph.i38 ], [ %.pre60, %if.end10.i ]
-  %64 = phi i32 [ %62, %while.body.lr.ph.i38 ], [ %83, %if.end10.i ]
-  %rootNode.022.i41 = phi ptr [ %63, %while.body.lr.ph.i38 ], [ %rootNode.1.i51, %if.end10.i ]
+  %.pre59 = phi i32 [ %64, %while.body.lr.ph.i38 ], [ %.pre60, %if.end10.i ]
+  %66 = phi i32 [ %64, %while.body.lr.ph.i38 ], [ %85, %if.end10.i ]
+  %rootNode.022.i41 = phi ptr [ %65, %while.body.lr.ph.i38 ], [ %rootNode.1.i51, %if.end10.i ]
   %curIndex.021.i = phi i32 [ 0, %while.body.lr.ph.i38 ], [ %curIndex.1.i50, %if.end10.i ]
   %m_aabbMaxOrg.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 16
-  %65 = load float, ptr %aabbMin, align 4
-  %66 = load float, ptr %m_aabbMaxOrg.i, align 4
-  %cmp.i.i42 = fcmp ogt float %65, %66
+  %67 = load float, ptr %aabbMin, align 4
+  %68 = load float, ptr %m_aabbMaxOrg.i, align 4
+  %cmp.i.i42 = fcmp ogt float %67, %68
   br i1 %cmp.i.i42, label %cond.end.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %while.body.i40
-  %67 = load float, ptr %aabbMax, align 4
-  %68 = load float, ptr %rootNode.022.i41, align 4
-  %cmp4.i.i = fcmp olt float %67, %68
+  %69 = load float, ptr %aabbMax, align 4
+  %70 = load float, ptr %rootNode.022.i41, align 4
+  %cmp4.i.i = fcmp olt float %69, %70
   br i1 %cmp4.i.i, label %cond.end.i.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false.i.i
@@ -2123,17 +2125,17 @@ cond.false.i.i:                                   ; preds = %lor.lhs.false.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %lor.lhs.false.i.i, %while.body.i40
   %cond.i.i = phi i1 [ true, %cond.false.i.i ], [ false, %lor.lhs.false.i.i ], [ false, %while.body.i40 ]
-  %69 = load float, ptr %arrayidx.i.i.i, align 4
+  %71 = load float, ptr %arrayidx.i.i.i, align 4
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 24
-  %70 = load float, ptr %arrayidx.i12.i.i, align 4
-  %cmp7.i.i = fcmp ogt float %69, %70
+  %72 = load float, ptr %arrayidx.i12.i.i, align 4
+  %cmp7.i.i = fcmp ogt float %71, %72
   br i1 %cmp7.i.i, label %cond.end15.i.i, label %lor.lhs.false8.i.i
 
 lor.lhs.false8.i.i:                               ; preds = %cond.end.i.i
-  %71 = load float, ptr %arrayidx.i13.i.i, align 4
+  %73 = load float, ptr %arrayidx.i13.i.i, align 4
   %arrayidx.i14.i.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 8
-  %72 = load float, ptr %arrayidx.i14.i.i, align 4
-  %cmp11.i.i = fcmp olt float %71, %72
+  %74 = load float, ptr %arrayidx.i14.i.i, align 4
+  %cmp11.i.i = fcmp olt float %73, %74
   br i1 %cmp11.i.i, label %cond.end15.i.i, label %cond.false13.i.i
 
 cond.false13.i.i:                                 ; preds = %lor.lhs.false8.i.i
@@ -2141,46 +2143,46 @@ cond.false13.i.i:                                 ; preds = %lor.lhs.false8.i.i
 
 cond.end15.i.i:                                   ; preds = %cond.false13.i.i, %lor.lhs.false8.i.i, %cond.end.i.i
   %cond16.i.i = phi i1 [ %cond.i.i, %cond.false13.i.i ], [ false, %lor.lhs.false8.i.i ], [ false, %cond.end.i.i ]
-  %73 = load float, ptr %arrayidx.i15.i.i, align 4
+  %75 = load float, ptr %arrayidx.i15.i.i, align 4
   %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 20
-  %74 = load float, ptr %arrayidx.i16.i.i, align 4
-  %cmp20.i.i = fcmp ogt float %73, %74
+  %76 = load float, ptr %arrayidx.i16.i.i, align 4
+  %cmp20.i.i = fcmp ogt float %75, %76
   br i1 %cmp20.i.i, label %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i, label %lor.lhs.false21.i.i
 
 lor.lhs.false21.i.i:                              ; preds = %cond.end15.i.i
-  %75 = load float, ptr %arrayidx.i17.i.i, align 4
+  %77 = load float, ptr %arrayidx.i17.i.i, align 4
   %arrayidx.i18.i.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 4
-  %76 = load float, ptr %arrayidx.i18.i.i, align 4
-  %cmp24.i.i = fcmp olt float %75, %76
+  %78 = load float, ptr %arrayidx.i18.i.i, align 4
+  %cmp24.i.i = fcmp olt float %77, %78
   br i1 %cmp24.i.i, label %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i, label %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i
 
 _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i: ; preds = %lor.lhs.false21.i.i, %cond.end15.i.i
   %m_escapeIndex14.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 32
-  %77 = load i32, ptr %m_escapeIndex14.i, align 4
-  %cmp315.i = icmp eq i32 %77, -1
+  %79 = load i32, ptr %m_escapeIndex14.i, align 4
+  %cmp315.i = icmp eq i32 %79, -1
   br label %if.end.i44
 
 _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i: ; preds = %lor.lhs.false21.i.i
   %m_escapeIndex.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 32
-  %78 = load i32, ptr %m_escapeIndex.i, align 4
-  %cmp3.i = icmp eq i32 %78, -1
+  %80 = load i32, ptr %m_escapeIndex.i, align 4
+  %cmp3.i = icmp eq i32 %80, -1
   %or.cond.i43 = and i1 %cond16.i.i, %cmp3.i
   br i1 %or.cond.i43, label %if.end.thread.i54, label %if.end.i44
 
 if.end.thread.i54:                                ; preds = %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i
   %m_subPart.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 36
-  %79 = load i32, ptr %m_subPart.i, align 4
+  %81 = load i32, ptr %m_subPart.i, align 4
   %m_triangleIndex.i = getelementptr inbounds i8, ptr %rootNode.022.i41, i64 40
-  %80 = load i32, ptr %m_triangleIndex.i, align 4
+  %82 = load i32, ptr %m_triangleIndex.i, align 4
   %vtable.i55 = load ptr, ptr %nodeCallback, align 8
   %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 16
-  %81 = load ptr, ptr %vfn.i56, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %79, i32 noundef %80)
+  %83 = load ptr, ptr %vfn.i56, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %81, i32 noundef %82)
   %.pre.pre = load i32, ptr %m_curNodeIndex.i, align 4
   br label %if.then7.i
 
 if.end.i44:                                       ; preds = %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i
-  %82 = phi i32 [ %77, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i ], [ %78, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i ]
+  %84 = phi i32 [ %79, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i ], [ %80, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i ]
   %cmp319.i = phi i1 [ %cmp315.i, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i ], [ %cmp3.i, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i ]
   %cond29.i17.i = phi i1 [ false, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread.i ], [ %cond16.i.i, %_Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.i ]
   %brmerge.i45 = or i1 %cmp319.i, %cond29.i17.i
@@ -2193,17 +2195,17 @@ if.then7.i:                                       ; preds = %if.end.i44, %if.end
   br label %if.end10.i
 
 if.else.i46:                                      ; preds = %if.end.i44
-  %idx.ext.i47 = sext i32 %82 to i64
+  %idx.ext.i47 = sext i32 %84 to i64
   %add.ptr.i48 = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %rootNode.022.i41, i64 %idx.ext.i47
-  %add.i49 = add nsw i32 %82, %curIndex.021.i
+  %add.i49 = add nsw i32 %84, %curIndex.021.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.else.i46, %if.then7.i
   %.pre60 = phi i32 [ %.pre, %if.then7.i ], [ %.pre59, %if.else.i46 ]
-  %83 = phi i32 [ %.pre, %if.then7.i ], [ %64, %if.else.i46 ]
+  %85 = phi i32 [ %.pre, %if.then7.i ], [ %66, %if.else.i46 ]
   %curIndex.1.i50 = phi i32 [ %inc8.i, %if.then7.i ], [ %add.i49, %if.else.i46 ]
   %rootNode.1.i51 = phi ptr [ %incdec.ptr.i53, %if.then7.i ], [ %add.ptr.i48, %if.else.i46 ]
-  %cmp.i52 = icmp slt i32 %curIndex.1.i50, %83
+  %cmp.i52 = icmp slt i32 %curIndex.1.i50, %85
   br i1 %cmp.i52, label %while.body.i40, label %if.end, !llvm.loop !16
 
 if.end:                                           ; preds = %if.end10.i, %if.end13.i, %if.else, %sw.bb, %sw.bb5, %sw.bb8, %if.then

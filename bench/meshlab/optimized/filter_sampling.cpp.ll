@@ -27253,8 +27253,8 @@ _ZN7QStringD2Ev.exit1982:                         ; preds = %_ZN7QStringD2Ev.exi
   %3799 = shufflevector <2 x float> %3798, <2 x float> poison, <2 x i32> zeroinitializer
   %3800 = fadd <2 x float> %3783, %3799
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22)
-  %3801 = shufflevector <4 x float> %3796, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %3802 = shufflevector <2 x float> %3801, <2 x float> %3800, <2 x i32> <i32 0, i32 2>
+  %3801 = shufflevector <2 x float> %3800, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %3802 = shufflevector <4 x float> %3797, <4 x float> %3801, <2 x i32> <i32 3, i32 4>
   %3803 = shufflevector <4 x float> %3795, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %3804 = fsub <2 x float> %3802, %3803
   %3805 = extractelement <4 x float> %3795, i64 2
@@ -49126,8 +49126,8 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE20In
   store <2 x float> %36, ptr %.sroa.14.0..sroa_idx65, align 8
   store float %38, ptr %.sroa.22.0..sroa_idx.i, align 8
   store i32 %.sroa.speculated, ptr %.sroa.222.0..0.6.sroa_idx.i, align 4
-  %41 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %42 = shufflevector <2 x float> %41, <2 x float> %36, <2 x i32> <i32 0, i32 2>
+  %41 = shufflevector <2 x float> %36, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %42 = shufflevector <4 x float> %31, <4 x float> %41, <2 x i32> <i32 3, i32 4>
   %43 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %44 = fsub <2 x float> %42, %43
   %45 = fdiv <2 x float> %44, %35

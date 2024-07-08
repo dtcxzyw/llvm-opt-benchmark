@@ -99,9 +99,9 @@ define internal void @ConvertBGRAToRGB_SSE41(ptr noundef %0, i32 noundef %1, ptr
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.091 = phi i32 [ %27, %.lr.ph ], [ %1, %3 ]
-  %.08790 = phi ptr [ %25, %.lr.ph ], [ %0, %3 ]
-  %.08889 = phi ptr [ %26, %.lr.ph ], [ %2, %3 ]
+  %.091 = phi i32 [ %23, %.lr.ph ], [ %1, %3 ]
+  %.08790 = phi ptr [ %21, %.lr.ph ], [ %0, %3 ]
+  %.08889 = phi ptr [ %22, %.lr.ph ], [ %2, %3 ]
   %5 = load <16 x i8>, ptr %.08790, align 1
   %6 = getelementptr inbounds i8, ptr %.08790, i64 16
   %7 = load <16 x i8>, ptr %6, align 1
@@ -113,36 +113,32 @@ define internal void @ConvertBGRAToRGB_SSE41(ptr noundef %0, i32 noundef %1, ptr
   %13 = shufflevector <16 x i8> %7, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16, i32 2, i32 1, i32 0, i32 6>
   %14 = shufflevector <16 x i8> %9, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16, i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9>
   %15 = shufflevector <16 x i8> %11, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12>
-  %16 = bitcast <16 x i8> %12 to <8 x i16>
-  %17 = bitcast <16 x i8> %13 to <8 x i16>
-  %18 = shufflevector <8 x i16> %16, <8 x i16> %17, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 14, i32 15>
-  %19 = bitcast <16 x i8> %14 to <8 x i16>
-  %20 = shufflevector <8 x i16> %17, <8 x i16> %19, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
-  %21 = bitcast <16 x i8> %15 to <8 x i16>
-  %22 = shufflevector <8 x i16> %19, <8 x i16> %21, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  store <8 x i16> %18, ptr %.08889, align 1
-  %23 = getelementptr inbounds i8, ptr %.08889, i64 16
-  store <8 x i16> %20, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.08889, i64 32
-  store <8 x i16> %22, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.08790, i64 64
-  %26 = getelementptr inbounds i8, ptr %.08889, i64 48
-  %27 = add nsw i32 %.091, -16
-  %28 = icmp ugt i32 %.091, 31
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %16 = shufflevector <16 x i8> %12, <16 x i8> %13, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
+  %17 = shufflevector <16 x i8> %13, <16 x i8> %14, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %18 = shufflevector <16 x i8> %14, <16 x i8> %15, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  store <16 x i8> %16, ptr %.08889, align 1
+  %19 = getelementptr inbounds i8, ptr %.08889, i64 16
+  store <16 x i8> %17, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %.08889, i64 32
+  store <16 x i8> %18, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %.08790, i64 64
+  %22 = getelementptr inbounds i8, ptr %.08889, i64 48
+  %23 = add nsw i32 %.091, -16
+  %24 = icmp ugt i32 %.091, 31
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.088.lcssa = phi ptr [ %2, %3 ], [ %26, %.lr.ph ]
-  %.087.lcssa = phi ptr [ %0, %3 ], [ %25, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %1, %3 ], [ %27, %.lr.ph ]
-  %29 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %29, label %30, label %31
+  %.088.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
+  %.087.lcssa = phi ptr [ %0, %3 ], [ %21, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %1, %3 ], [ %23, %.lr.ph ]
+  %25 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %25, label %26, label %27
 
-30:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToRGB_C(ptr noundef %.087.lcssa, i32 noundef %.0.lcssa, ptr noundef %.088.lcssa) #4
-  br label %31
+  br label %27
 
-31:                                               ; preds = %30, %._crit_edge
+27:                                               ; preds = %26, %._crit_edge
   ret void
 }
 
@@ -152,9 +148,9 @@ define internal void @ConvertBGRAToBGR_SSE41(ptr noundef %0, i32 noundef %1, ptr
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.091 = phi i32 [ %27, %.lr.ph ], [ %1, %3 ]
-  %.08790 = phi ptr [ %25, %.lr.ph ], [ %0, %3 ]
-  %.08889 = phi ptr [ %26, %.lr.ph ], [ %2, %3 ]
+  %.091 = phi i32 [ %23, %.lr.ph ], [ %1, %3 ]
+  %.08790 = phi ptr [ %21, %.lr.ph ], [ %0, %3 ]
+  %.08889 = phi ptr [ %22, %.lr.ph ], [ %2, %3 ]
   %5 = load <16 x i8>, ptr %.08790, align 1
   %6 = getelementptr inbounds i8, ptr %.08790, i64 16
   %7 = load <16 x i8>, ptr %6, align 1
@@ -166,36 +162,32 @@ define internal void @ConvertBGRAToBGR_SSE41(ptr noundef %0, i32 noundef %1, ptr
   %13 = shufflevector <16 x i8> %7, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 5, i32 6, i32 8, i32 9, i32 10, i32 12, i32 13, i32 14, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 2, i32 4>
   %14 = shufflevector <16 x i8> %9, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 10, i32 12, i32 13, i32 14, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 2, i32 4, i32 5, i32 6, i32 8, i32 9>
   %15 = shufflevector <16 x i8> %11, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 4, i32 5, i32 6, i32 8, i32 9, i32 10, i32 12, i32 13, i32 14>
-  %16 = bitcast <16 x i8> %12 to <8 x i16>
-  %17 = bitcast <16 x i8> %13 to <8 x i16>
-  %18 = shufflevector <8 x i16> %16, <8 x i16> %17, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 14, i32 15>
-  %19 = bitcast <16 x i8> %14 to <8 x i16>
-  %20 = shufflevector <8 x i16> %17, <8 x i16> %19, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
-  %21 = bitcast <16 x i8> %15 to <8 x i16>
-  %22 = shufflevector <8 x i16> %19, <8 x i16> %21, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  store <8 x i16> %18, ptr %.08889, align 1
-  %23 = getelementptr inbounds i8, ptr %.08889, i64 16
-  store <8 x i16> %20, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.08889, i64 32
-  store <8 x i16> %22, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.08790, i64 64
-  %26 = getelementptr inbounds i8, ptr %.08889, i64 48
-  %27 = add nsw i32 %.091, -16
-  %28 = icmp ugt i32 %.091, 31
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %16 = shufflevector <16 x i8> %12, <16 x i8> %13, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
+  %17 = shufflevector <16 x i8> %13, <16 x i8> %14, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %18 = shufflevector <16 x i8> %14, <16 x i8> %15, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  store <16 x i8> %16, ptr %.08889, align 1
+  %19 = getelementptr inbounds i8, ptr %.08889, i64 16
+  store <16 x i8> %17, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %.08889, i64 32
+  store <16 x i8> %18, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %.08790, i64 64
+  %22 = getelementptr inbounds i8, ptr %.08889, i64 48
+  %23 = add nsw i32 %.091, -16
+  %24 = icmp ugt i32 %.091, 31
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.088.lcssa = phi ptr [ %2, %3 ], [ %26, %.lr.ph ]
-  %.087.lcssa = phi ptr [ %0, %3 ], [ %25, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %1, %3 ], [ %27, %.lr.ph ]
-  %29 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %29, label %30, label %31
+  %.088.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
+  %.087.lcssa = phi ptr [ %0, %3 ], [ %21, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %1, %3 ], [ %23, %.lr.ph ]
+  %25 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %25, label %26, label %27
 
-30:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToBGR_C(ptr noundef %.087.lcssa, i32 noundef %.0.lcssa, ptr noundef %.088.lcssa) #4
-  br label %31
+  br label %27
 
-31:                                               ; preds = %30, %._crit_edge
+27:                                               ; preds = %26, %._crit_edge
   ret void
 }
 

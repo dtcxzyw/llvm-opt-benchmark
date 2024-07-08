@@ -2776,32 +2776,24 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then15:                                        ; preds = %for.body
   %cmp19.not60 = icmp eq i32 %7, 0
-  br i1 %cmp19.not60, label %if.end24, label %while.body
-
-while.body:                                       ; preds = %if.then15, %while.body
-  %s.062 = phi i32 [ %shr21, %while.body ], [ %7, %if.then15 ]
-  %accumbits.161 = phi i32 [ %inc, %while.body ], [ %accumbits.074, %if.then15 ]
-  %shr21 = lshr i32 %s.062, 1
-  %inc = add i32 %accumbits.161, 1
-  %cmp19.not = icmp ult i32 %s.062, 2
-  br i1 %cmp19.not, label %if.end24, label %while.body, !llvm.loop !23
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %reass.sub = sub i32 %accumbits.074, %8
+  %9 = add i32 %reass.sub, 32
+  %accumbits.2 = select i1 %cmp19.not60, i32 %accumbits.074, i32 %9
+  %cmp2663 = icmp ugt i32 %accumbits.2, 7
+  br i1 %cmp2663, label %while.body28.preheader, label %for.inc
 
 if.end24.thread:                                  ; preds = %for.body
   %add23 = add nuw nsw i32 %accumbits.074, 30
   br label %while.body28.preheader
 
-if.end24:                                         ; preds = %while.body, %if.then15
-  %accumbits.2 = phi i32 [ %accumbits.074, %if.then15 ], [ %inc, %while.body ]
-  %cmp2663 = icmp ugt i32 %accumbits.2, 7
-  br i1 %cmp2663, label %while.body28.preheader, label %for.inc
-
-while.body28.preheader:                           ; preds = %if.end24.thread, %if.end24
-  %accumbits.2129 = phi i32 [ %add23, %if.end24.thread ], [ %accumbits.2, %if.end24 ]
-  %8 = add i32 %accumbits.2129, -8
-  %9 = lshr i32 %8, 3
-  %10 = add nuw nsw i32 %9, 1
-  %11 = trunc i64 %j.076 to i32
-  %12 = add i32 %10, %11
+while.body28.preheader:                           ; preds = %if.end24.thread, %if.then15
+  %accumbits.2129 = phi i32 [ %add23, %if.end24.thread ], [ %accumbits.2, %if.then15 ]
+  %10 = add i32 %accumbits.2129, -8
+  %11 = lshr i32 %10, 3
+  %12 = add nuw nsw i32 %11, 1
+  %13 = trunc i64 %j.076 to i32
+  %14 = add i32 %12, %13
   br label %while.body28
 
 while.body28:                                     ; preds = %while.body28.preheader, %if.end32
@@ -2820,14 +2812,14 @@ if.end32:                                         ; preds = %while.body28
   %sub37 = add i32 %accumbits.364, -8
   %shr38 = lshr i64 %accum.167, 8
   %lftr.wideiv = trunc i64 %inc33 to i32
-  %exitcond.not = icmp eq i32 %12, %lftr.wideiv
+  %exitcond.not = icmp eq i32 %14, %lftr.wideiv
   br i1 %exitcond.not, label %for.inc, label %while.body28, !llvm.loop !25
 
-for.inc:                                          ; preds = %if.end32, %if.end24
-  %accumbits.3.lcssa = phi i32 [ %accumbits.2, %if.end24 ], [ %sub37, %if.end32 ]
-  %j.1.lcssa = phi i64 [ %j.076, %if.end24 ], [ %inc33, %if.end32 ]
-  %p.2.lcssa = phi ptr [ %p.177, %if.end24 ], [ %add.ptr36, %if.end32 ]
-  %accum.1.lcssa = phi i64 [ %or, %if.end24 ], [ %shr38, %if.end32 ]
+for.inc:                                          ; preds = %if.end32, %if.then15
+  %accumbits.3.lcssa = phi i32 [ %accumbits.2, %if.then15 ], [ %sub37, %if.end32 ]
+  %j.1.lcssa = phi i64 [ %j.076, %if.then15 ], [ %inc33, %if.end32 ]
+  %p.2.lcssa = phi ptr [ %p.177, %if.then15 ], [ %add.ptr36, %if.end32 ]
+  %accum.1.lcssa = phi i64 [ %or, %if.then15 ], [ %shr38, %if.end32 ]
   %inc40 = add nuw nsw i64 %i.079, 1
   %exitcond92.not = icmp eq i64 %inc40, %shr.i
   br i1 %exitcond92.not, label %for.end, label %for.body, !llvm.loop !24
@@ -2873,8 +2865,8 @@ if.else59:                                        ; preds = %if.end3.thread, %if
 
 if.then66:                                        ; preds = %if.else59
   %add.ptr68 = getelementptr i8, ptr %p.1.lcssa143, i64 %pincr.0.neg109140
-  %13 = load i8, ptr %add.ptr68, align 1
-  %.lobit = lshr i8 %13, 7
+  %15 = load i8, ptr %add.ptr68, align 1
+  %.lobit = lshr i8 %15, 7
   %conv71 = zext nneg i8 %.lobit to i32
   %cmp72 = icmp eq i32 %do_twos_comp.0106141, %conv71
   br i1 %cmp72, label %return, label %return.sink.split
@@ -2898,8 +2890,8 @@ for.body84:                                       ; preds = %if.end77, %for.body
 
 return.sink.split:                                ; preds = %while.body28, %while.body28.us, %if.then43, %if.then66, %if.then
   %.str.15.sink = phi ptr [ @.str.14, %if.then ], [ @.str.15, %if.then66 ], [ @.str.15, %if.then43 ], [ @.str.15, %while.body28.us ], [ @.str.15, %while.body28 ]
-  %14 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull %.str.15.sink) #16
+  %16 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull %.str.15.sink) #16
   br label %return
 
 return:                                           ; preds = %for.body84, %return.sink.split, %if.end77, %if.then66

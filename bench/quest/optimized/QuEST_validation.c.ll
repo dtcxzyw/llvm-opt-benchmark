@@ -118,7 +118,7 @@ define void @default_invalidQuESTInputError(ptr noundef %0, ptr noundef %1) loca
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %1, ptr noundef %0)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 }
 
@@ -134,7 +134,7 @@ define weak void @invalidQuESTInputError(ptr noundef %0, ptr noundef %1) local_u
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %1, ptr noundef %0)
   %puts2.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts3.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 }
 
@@ -708,21 +708,14 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr nocapture noundef readonly %0, i
   ret i32 %.09
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @calcLog2(i64 noundef %0) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define i32 @calcLog2(i64 noundef %0) local_unnamed_addr #4 {
+._crit_edge:
   %.not5 = icmp ult i64 %0, 2
-  br i1 %.not5, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  %.07 = phi i32 [ %3, %.lr.ph ], [ 0, %1 ]
-  %.036 = phi i64 [ %2, %.lr.ph ], [ %0, %1 ]
-  %2 = lshr i64 %.036, 1
-  %3 = add nuw nsw i32 %.07, 1
-  %.not = icmp ult i64 %.036, 4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %2 = trunc nuw nsw i64 %1 to i32
+  %3 = xor i32 %2, 63
+  %.0.lcssa = select i1 %.not5, i32 0, i32 %3
   ret i32 %.0.lcssa
 }
 
@@ -762,25 +755,25 @@ define void @validateNumQubitsInQureg(i32 noundef %0, i32 noundef %1, ptr nounde
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %3, %5
-  %.not = icmp ugt i32 %0, 63
-  br i1 %.not, label %6, label %QuESTAssert.exit10
+  %6 = icmp ugt i32 %0, 63
+  br i1 %6, label %7, label %QuESTAssert.exit9
 
-6:                                                ; preds = %QuESTAssert.exit
+7:                                                ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.58, ptr noundef %2)
-  br label %QuESTAssert.exit10
+  br label %QuESTAssert.exit9
 
-QuESTAssert.exit10:                               ; preds = %QuESTAssert.exit, %6
-  %7 = zext nneg i32 %0 to i64
-  %8 = shl nuw i64 1, %7
-  %9 = sext i32 %1 to i64
-  %.not13 = icmp ult i64 %8, %9
-  br i1 %.not13, label %10, label %QuESTAssert.exit12
+QuESTAssert.exit9:                                ; preds = %QuESTAssert.exit, %7
+  %8 = zext nneg i32 %0 to i64
+  %9 = shl nuw i64 1, %8
+  %10 = sext i32 %1 to i64
+  %.not = icmp ult i64 %9, %10
+  br i1 %.not, label %11, label %QuESTAssert.exit11
 
-10:                                               ; preds = %QuESTAssert.exit10
+11:                                               ; preds = %QuESTAssert.exit9
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.56, ptr noundef %2)
-  br label %QuESTAssert.exit12
+  br label %QuESTAssert.exit11
 
-QuESTAssert.exit12:                               ; preds = %QuESTAssert.exit10, %10
+QuESTAssert.exit11:                               ; preds = %QuESTAssert.exit9, %11
   ret void
 }
 
@@ -807,25 +800,25 @@ define void @validateNumQubitsInDiagOp(i32 noundef %0, i32 noundef %1, ptr nound
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %3, %5
-  %.not = icmp ugt i32 %0, 63
-  br i1 %.not, label %6, label %QuESTAssert.exit10
+  %6 = icmp ugt i32 %0, 63
+  br i1 %6, label %7, label %QuESTAssert.exit9
 
-6:                                                ; preds = %QuESTAssert.exit
+7:                                                ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.58, ptr noundef %2)
-  br label %QuESTAssert.exit10
+  br label %QuESTAssert.exit9
 
-QuESTAssert.exit10:                               ; preds = %QuESTAssert.exit, %6
-  %7 = zext nneg i32 %0 to i64
-  %8 = shl nuw i64 1, %7
-  %9 = sext i32 %1 to i64
-  %.not13 = icmp ult i64 %8, %9
-  br i1 %.not13, label %10, label %QuESTAssert.exit12
+QuESTAssert.exit9:                                ; preds = %QuESTAssert.exit, %7
+  %8 = zext nneg i32 %0 to i64
+  %9 = shl nuw i64 1, %8
+  %10 = sext i32 %1 to i64
+  %.not = icmp ult i64 %9, %10
+  br i1 %.not, label %11, label %QuESTAssert.exit11
 
-10:                                               ; preds = %QuESTAssert.exit10
+11:                                               ; preds = %QuESTAssert.exit9
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.57, ptr noundef %2)
-  br label %QuESTAssert.exit12
+  br label %QuESTAssert.exit11
 
-QuESTAssert.exit12:                               ; preds = %QuESTAssert.exit10, %10
+QuESTAssert.exit11:                               ; preds = %QuESTAssert.exit9, %11
   ret void
 }
 
@@ -839,14 +832,14 @@ define void @validateNumQubitsInSubDiagOp(i32 noundef %0, ptr noundef %1) local_
   br label %QuESTAssert.exit
 
 QuESTAssert.exit:                                 ; preds = %2, %4
-  %.not = icmp ugt i32 %0, 63
-  br i1 %.not, label %5, label %QuESTAssert.exit6
+  %5 = icmp ugt i32 %0, 63
+  br i1 %5, label %6, label %QuESTAssert.exit5
 
-5:                                                ; preds = %QuESTAssert.exit
+6:                                                ; preds = %QuESTAssert.exit
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.59, ptr noundef %1)
-  br label %QuESTAssert.exit6
+  br label %QuESTAssert.exit5
 
-QuESTAssert.exit6:                                ; preds = %QuESTAssert.exit, %5
+QuESTAssert.exit5:                                ; preds = %QuESTAssert.exit, %6
   ret void
 }
 
@@ -1674,8 +1667,8 @@ areUniqueQubits.exit.i29:                         ; preds = %.lr.ph.i.i25
   br label %validateMultiTargets.exit
 
 validateMultiTargets.exit:                        ; preds = %35, %validateNumTargets.exit.i, %areUniqueQubits.exit.i29
-  %37 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #14
-  %38 = tail call i64 @getQubitBitMask(ptr noundef %3, i32 noundef %4) #14
+  %37 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #13
+  %38 = tail call i64 @getQubitBitMask(ptr noundef %3, i32 noundef %4) #13
   %39 = and i64 %37, 4294967295
   %40 = and i64 %39, %38
   %.not.not = icmp eq i64 %40, 0
@@ -1689,7 +1682,7 @@ QuESTAssert.exit:                                 ; preds = %validateMultiTarget
   ret void
 }
 
-declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateControlState(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -2078,7 +2071,7 @@ QuESTAssert.exit:                                 ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define void @validateVector(ptr noundef byval(%struct.Vector) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #14
+  %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #13
   %4 = fcmp ule double %3, 1.000000e-13
   br i1 %4, label %5, label %QuESTAssert.exit
 
@@ -2090,7 +2083,7 @@ QuESTAssert.exit:                                 ; preds = %2, %5
   ret void
 }
 
-declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #9
+declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateStateVecQureg(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -2198,7 +2191,7 @@ define void @validateFileOpened(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %1) #14
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %1) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %2)
   br label %6
 
@@ -3040,7 +3033,7 @@ define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr nocaptu
 
 8:                                                ; preds = %5
   %9 = tail call i32 @fclose(ptr noundef %2)
-  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %3) #14
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %3) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %11
 
@@ -3057,9 +3050,9 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef byval(%str
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #14
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #13
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.62, ptr noundef %3) #14
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.62, ptr noundef %3) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3067,7 +3060,7 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef byval(%str
   ret void
 }
 
-declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #9
+declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
@@ -3075,9 +3068,9 @@ define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef byval(%str
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #14
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #13
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %3) #14
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %3) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3091,9 +3084,9 @@ define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef byval(%struc
   br i1 %narrow.i, label %6, label %9
 
 6:                                                ; preds = %5
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #14
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %1) #13
   %7 = tail call i32 @fclose(ptr noundef %2)
-  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %3, i32 noundef %0) #14
+  %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @errMsgBuffer, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %3, i32 noundef %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @errMsgBuffer, ptr noundef %4)
   br label %9
 
@@ -3226,75 +3219,74 @@ QuESTAssert.exit7:                                ; preds = %13, %13, %16
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagPauliHamilFromFile(ptr noundef byval(%struct.PauliHamil) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-calcLog2.exit:
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4
-  %.not = icmp ugt i32 %4, 63
-  br i1 %.not, label %5, label %QuESTAssert.exit
+  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp ult i32 %5, 64
+  br i1 %6, label %QuESTAssert.exit, label %7
 
-5:                                                ; preds = %calcLog2.exit
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #14
+7:                                                ; preds = %3
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.58, ptr noundef %2)
-  %.pre = load i32, ptr %3, align 4
+  %.pre = load i32, ptr %4, align 4
   br label %QuESTAssert.exit
 
-QuESTAssert.exit:                                 ; preds = %calcLog2.exit, %5
-  %6 = phi i32 [ %4, %calcLog2.exit ], [ %.pre, %5 ]
-  %7 = zext nneg i32 %6 to i64
-  %8 = shl nuw i64 1, %7
-  %9 = sext i32 %1 to i64
-  %.not24 = icmp ult i64 %8, %9
-  br i1 %.not24, label %10, label %QuESTAssert.exit18
+QuESTAssert.exit:                                 ; preds = %3, %7
+  %8 = phi i32 [ %5, %3 ], [ %.pre, %7 ]
+  %9 = zext nneg i32 %8 to i64
+  %10 = shl nuw i64 1, %9
+  %11 = sext i32 %1 to i64
+  %.not = icmp ult i64 %10, %11
+  br i1 %.not, label %12, label %QuESTAssert.exit17
 
-10:                                               ; preds = %QuESTAssert.exit
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #14
+12:                                               ; preds = %QuESTAssert.exit
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.57, ptr noundef %2)
-  %.pre29 = load i32, ptr %3, align 4
-  br label %QuESTAssert.exit18
+  %.pre27 = load i32, ptr %4, align 4
+  br label %QuESTAssert.exit17
 
-QuESTAssert.exit18:                               ; preds = %QuESTAssert.exit, %10
-  %11 = phi i32 [ %6, %QuESTAssert.exit ], [ %.pre29, %10 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8
-  %14 = mul nsw i32 %11, %13
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+QuESTAssert.exit17:                               ; preds = %QuESTAssert.exit, %12
+  %13 = phi i32 [ %8, %QuESTAssert.exit ], [ %.pre27, %12 ]
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8
+  %16 = mul nsw i32 %13, %15
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %QuESTAssert.exit18
-  %.pre31 = load ptr, ptr %0, align 8
+.lr.ph.preheader:                                 ; preds = %QuESTAssert.exit17
+  %.pre29 = load ptr, ptr %0, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit20
-  %16 = phi i32 [ %11, %.lr.ph.preheader ], [ %22, %QuESTAssert.exit20 ]
-  %17 = phi i32 [ %13, %.lr.ph.preheader ], [ %23, %QuESTAssert.exit20 ]
-  %18 = phi ptr [ %.pre31, %.lr.ph.preheader ], [ %24, %QuESTAssert.exit20 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit20 ]
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4
-  switch i32 %20, label %21 [
-    i32 3, label %QuESTAssert.exit20
-    i32 0, label %QuESTAssert.exit20
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %QuESTAssert.exit19
+  %18 = phi i32 [ %13, %.lr.ph.preheader ], [ %24, %QuESTAssert.exit19 ]
+  %19 = phi i32 [ %15, %.lr.ph.preheader ], [ %25, %QuESTAssert.exit19 ]
+  %20 = phi ptr [ %.pre29, %.lr.ph.preheader ], [ %26, %QuESTAssert.exit19 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %QuESTAssert.exit19 ]
+  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  switch i32 %22, label %23 [
+    i32 3, label %QuESTAssert.exit19
+    i32 0, label %QuESTAssert.exit19
   ]
 
-21:                                               ; preds = %.lr.ph
-  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #14
+23:                                               ; preds = %.lr.ph
+  tail call void @destroyPauliHamil(ptr noundef nonnull byval(%struct.PauliHamil) align 8 %0) #13
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.70, ptr noundef %2)
-  %.pre30 = load ptr, ptr %0, align 8
-  %.pre32 = load i32, ptr %12, align 8
-  %.pre33 = load i32, ptr %3, align 4
-  br label %QuESTAssert.exit20
+  %.pre28 = load ptr, ptr %0, align 8
+  %.pre30 = load i32, ptr %14, align 8
+  %.pre31 = load i32, ptr %4, align 4
+  br label %QuESTAssert.exit19
 
-QuESTAssert.exit20:                               ; preds = %.lr.ph, %.lr.ph, %21
-  %22 = phi i32 [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %.pre33, %21 ]
-  %23 = phi i32 [ %17, %.lr.ph ], [ %17, %.lr.ph ], [ %.pre32, %21 ]
-  %24 = phi ptr [ %18, %.lr.ph ], [ %18, %.lr.ph ], [ %.pre30, %21 ]
+QuESTAssert.exit19:                               ; preds = %.lr.ph, %.lr.ph, %23
+  %24 = phi i32 [ %18, %.lr.ph ], [ %18, %.lr.ph ], [ %.pre31, %23 ]
+  %25 = phi i32 [ %19, %.lr.ph ], [ %19, %.lr.ph ], [ %.pre30, %23 ]
+  %26 = phi ptr [ %20, %.lr.ph ], [ %20, %.lr.ph ], [ %.pre28, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = mul nsw i32 %22, %23
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %27 = mul nsw i32 %24, %25
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %QuESTAssert.exit20, %QuESTAssert.exit18
+._crit_edge:                                      ; preds = %QuESTAssert.exit19, %QuESTAssert.exit17
   ret void
 }
 
@@ -4074,7 +4066,7 @@ define void @validateQuregAllocation(ptr noundef %0, ptr noundef byval(%struct.Q
   br i1 %.not19, label %.split16, label %.split
 
 .split16:                                         ; preds = %30
-  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #14
+  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.87, ptr noundef %2)
   br label %.split
@@ -4083,7 +4075,7 @@ define void @validateQuregAllocation(ptr noundef %0, ptr noundef byval(%struct.Q
   ret void
 }
 
-declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #9
+declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateQuregGPUAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4111,7 +4103,7 @@ define void @validateQuregGPUAllocation(ptr noundef %0, ptr noundef byval(%struc
   br i1 %.not19, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6, %9, %12
-  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #14
+  tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #13
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.88, ptr noundef %2)
@@ -4135,7 +4127,7 @@ define void @validateDiagonalOpAllocation(ptr noundef %0, ptr noundef byval(%str
   br i1 %.not9, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6
-  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #14
+  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.89, ptr noundef %2)
   br label %QuESTAssert.exit
@@ -4144,7 +4136,7 @@ QuESTAssert.exit:                                 ; preds = %6, %.thread
   ret void
 }
 
-declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #9
+declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagonalOpGPUAllocation(ptr noundef %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4160,7 +4152,7 @@ define void @validateDiagonalOpGPUAllocation(ptr noundef %0, ptr noundef byval(%
   br i1 %.not11, label %.thread, label %QuESTAssert.exit
 
 .thread:                                          ; preds = %3, %6
-  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #14
+  tail call void @destroyDiagonalOp(ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #13
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.90, ptr noundef %2)
@@ -4203,22 +4195,25 @@ QuESTAssert.exit:                                 ; preds = %2, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #11
+declare double @llvm.sqrt.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #11
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -4228,13 +4223,12 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

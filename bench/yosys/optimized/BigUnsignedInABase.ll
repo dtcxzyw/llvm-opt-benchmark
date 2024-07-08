@@ -30,7 +30,7 @@ define void @_ZN18BigUnsignedInABaseC2EPKtjt(ptr nocapture noundef nonnull align
   store i32 %2, ptr %5, align 4
   %6 = zext i32 %2 to i64
   %7 = shl nuw nsw i64 %6, 1
-  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #6
+  %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %.not.i = icmp eq i32 %2, 0
@@ -76,7 +76,7 @@ _ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %4
   br i1 %25, label %_ZN15NumberlikeArrayItED2Ev.exit, label %26
 
 26:                                               ; preds = %22
-  tail call void @_ZdaPv(ptr noundef nonnull %24) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %24) #8
   br label %_ZN15NumberlikeArrayItED2Ev.exit
 
 _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %22, %26
@@ -96,9 +96,9 @@ _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %22, %26
 
 .invoke:                                          ; preds = %28, %_ZN15NumberlikeArrayItEC2EPKtj.exit, %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread
   %.str.sink = phi ptr [ @.str, %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread ], [ @.str, %_ZN15NumberlikeArrayItEC2EPKtj.exit ], [ @.str.1, %28 ]
-  %31 = tail call ptr @__cxa_allocate_exception(i64 8) #8
+  %31 = tail call ptr @__cxa_allocate_exception(i64 8) #9
   store ptr %.str.sink, ptr %31, align 16
-  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIPKc, ptr null) #9
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIPKc, ptr null) #10
           to label %.cont unwind label %22
 
 .cont:                                            ; preds = %.invoke
@@ -148,12 +148,12 @@ define void @_ZN18BigUnsignedInABaseC2ERK11BigUnsignedt(ptr nocapture noundef no
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #8
+  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #9
   store ptr @.str.2, ptr %9, align 16
-  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #9
-          to label %98 unwind label %10
+  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #10
+          to label %97 unwind label %10
 
-10:                                               ; preds = %_ZN15NumberlikeArrayItE8allocateEj.exit, %24, %8
+10:                                               ; preds = %_ZN15NumberlikeArrayItE8allocateEj.exit, %23, %8
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN11BigUnsignedD2Ev.exit34
@@ -164,218 +164,209 @@ define void @_ZN18BigUnsignedInABaseC2ERK11BigUnsignedt(ptr nocapture noundef no
   store i16 %2, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  br label %.lr.ph.i
+  %17 = shl i32 %16, 6
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
+  %19 = xor i32 %18, 31
+  %reass.sub = sub i32 %17, %18
+  %20 = add i32 %reass.sub, 30
+  %21 = udiv i32 %20, %19
+  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %21, ptr %22, align 4
+  %.not = icmp ugt i32 %19, %20
+  br i1 %.not, label %_ZN15NumberlikeArrayItE8allocateEj.exit, label %23
 
-.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %.07.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %12 ]
-  %.046.i = phi i32 [ %17, %.lr.ph.i ], [ %13, %12 ]
-  %17 = lshr i32 %.046.i, 1
-  %18 = add nuw nsw i32 %.07.i, 1
-  %.not.i = icmp ult i32 %.046.i, 2
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_16bitLenEj.exit, label %.lr.ph.i, !llvm.loop !10
-
-_ZN12_GLOBAL__N_16bitLenEj.exit:                  ; preds = %.lr.ph.i
-  %19 = shl i32 %16, 6
-  %20 = add i32 %19, -1
-  %21 = add i32 %20, %.07.i
-  %22 = udiv i32 %21, %.07.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %22, ptr %23, align 4
-  %.not = icmp ugt i32 %.07.i, %21
-  br i1 %.not, label %_ZN15NumberlikeArrayItE8allocateEj.exit, label %24
-
-24:                                               ; preds = %_ZN12_GLOBAL__N_16bitLenEj.exit
-  store i32 %22, ptr %0, align 8
-  %25 = zext i32 %22 to i64
-  %26 = shl nuw nsw i64 %25, 1
-  %27 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #6
+23:                                               ; preds = %12
+  store i32 %21, ptr %0, align 8
+  %24 = zext i32 %21 to i64
+  %25 = shl nuw nsw i64 %24, 1
+  %26 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #7
           to label %.noexc unwind label %10
 
-.noexc:                                           ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %27, ptr %28, align 8
+.noexc:                                           ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %26, ptr %27, align 8
   br label %_ZN15NumberlikeArrayItE8allocateEj.exit
 
-_ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %_ZN12_GLOBAL__N_16bitLenEj.exit
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
-  %30 = load i32, ptr %15, align 4
-  store i32 %30, ptr %29, align 4
-  store i32 %30, ptr %4, align 8
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #6
+_ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %12
+  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = load i32, ptr %15, align 4
+  store i32 %29, ptr %28, align 4
+  store i32 %29, ptr %4, align 8
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 3
+  %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #7
           to label %.noexc23 unwind label %10
 
 .noexc23:                                         ; preds = %_ZN15NumberlikeArrayItE8allocateEj.exit
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %33, ptr %34, align 8
-  %.not.i.i = icmp eq i32 %30, 0
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %32, ptr %33, align 8
+  %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc23
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8
-  br label %37
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = load ptr, ptr %34, align 8
+  br label %36
 
-37:                                               ; preds = %37, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %38 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv.i.i
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i
-  store i64 %39, ptr %40, align 8
+36:                                               ; preds = %36, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
+  %37 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv.i.i
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv.i.i
+  store i64 %38, ptr %39, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %41 = icmp ult i64 %indvars.iv.next.i.i, %31
-  br i1 %41, label %37, label %_ZN11BigUnsignedC2ERKS_.exit, !llvm.loop !11
+  %40 = icmp ult i64 %indvars.iv.next.i.i, %30
+  br i1 %40, label %36, label %_ZN11BigUnsignedC2ERKS_.exit, !llvm.loop !10
 
-_ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %37, %.noexc23
+_ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %36, %.noexc23
   invoke void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16) %5, i16 noundef zeroext %2)
-          to label %.preheader unwind label %71
+          to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %_ZN11BigUnsignedC2ERKS_.exit
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %45
+  %41 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %44
 
-45:                                               ; preds = %.lr.ph, %_ZN11BigUnsignedD2Ev.exit
-  %46 = phi i32 [ %30, %.lr.ph ], [ %69, %_ZN11BigUnsignedD2Ev.exit ]
-  %.037 = phi i32 [ 0, %.lr.ph ], [ %65, %_ZN11BigUnsignedD2Ev.exit ]
-  store i32 %46, ptr %42, align 4
-  store i32 %46, ptr %6, align 8
-  %47 = zext i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 3
-  %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #6
-          to label %.lr.ph.i.i25 unwind label %73
+44:                                               ; preds = %.lr.ph, %_ZN11BigUnsignedD2Ev.exit
+  %45 = phi i32 [ %29, %.lr.ph ], [ %68, %_ZN11BigUnsignedD2Ev.exit ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %64, %_ZN11BigUnsignedD2Ev.exit ]
+  store i32 %45, ptr %41, align 4
+  store i32 %45, ptr %6, align 8
+  %46 = zext i32 %45 to i64
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %47) #7
+          to label %.lr.ph.i.i25 unwind label %72
 
-.lr.ph.i.i25:                                     ; preds = %45
-  store ptr %49, ptr %43, align 8
-  br label %50
+.lr.ph.i.i25:                                     ; preds = %44
+  store ptr %48, ptr %42, align 8
+  br label %49
 
-50:                                               ; preds = %50, %.lr.ph.i.i25
-  %indvars.iv.i.i26 = phi i64 [ 0, %.lr.ph.i.i25 ], [ %indvars.iv.next.i.i27, %50 ]
-  %51 = load ptr, ptr %34, align 8
-  %52 = getelementptr inbounds i64, ptr %51, i64 %indvars.iv.i.i26
-  %53 = load i64, ptr %52, align 8
-  %54 = load ptr, ptr %43, align 8
-  %55 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv.i.i26
-  store i64 %53, ptr %55, align 8
+49:                                               ; preds = %49, %.lr.ph.i.i25
+  %indvars.iv.i.i26 = phi i64 [ 0, %.lr.ph.i.i25 ], [ %indvars.iv.next.i.i27, %49 ]
+  %50 = load ptr, ptr %33, align 8
+  %51 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv.i.i26
+  %52 = load i64, ptr %51, align 8
+  %53 = load ptr, ptr %42, align 8
+  %54 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv.i.i26
+  store i64 %52, ptr %54, align 8
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i26, 1
-  %56 = load i32, ptr %42, align 4
-  %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next.i.i27, %57
-  br i1 %58, label %50, label %_ZN11BigUnsignedC2ERKS_.exit29, !llvm.loop !11
+  %55 = load i32, ptr %41, align 4
+  %56 = zext i32 %55 to i64
+  %57 = icmp ult i64 %indvars.iv.next.i.i27, %56
+  br i1 %57, label %49, label %_ZN11BigUnsignedC2ERKS_.exit29, !llvm.loop !10
 
-_ZN11BigUnsignedC2ERKS_.exit29:                   ; preds = %50
+_ZN11BigUnsignedC2ERKS_.exit29:                   ; preds = %49
   invoke void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %59 unwind label %75
+          to label %58 unwind label %74
 
-59:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit29
-  %60 = invoke noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %61 unwind label %75
+58:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit29
+  %59 = invoke noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %60 unwind label %74
 
-61:                                               ; preds = %59
-  %62 = load ptr, ptr %44, align 8
-  %63 = zext i32 %.037 to i64
-  %64 = getelementptr inbounds i16, ptr %62, i64 %63
-  store i16 %60, ptr %64, align 2
-  %65 = add i32 %.037, 1
-  %66 = load ptr, ptr %43, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZN11BigUnsignedD2Ev.exit, label %68
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %43, align 8
+  %62 = zext i32 %.037 to i64
+  %63 = getelementptr inbounds i16, ptr %61, i64 %62
+  store i16 %59, ptr %63, align 2
+  %64 = add i32 %.037, 1
+  %65 = load ptr, ptr %42, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %_ZN11BigUnsignedD2Ev.exit, label %67
 
-68:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %66) #7
+67:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %65) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
-_ZN11BigUnsignedD2Ev.exit:                        ; preds = %61, %68
-  %69 = load i32, ptr %29, align 4
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %._crit_edge, label %45, !llvm.loop !12
+_ZN11BigUnsignedD2Ev.exit:                        ; preds = %60, %67
+  %68 = load i32, ptr %28, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %._crit_edge, label %44, !llvm.loop !11
 
-71:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN11BigUnsignedD2Ev.exit33
 
-73:                                               ; preds = %45
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %44
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN11BigUnsignedD2Ev.exit30
 
-75:                                               ; preds = %59, %_ZN11BigUnsignedC2ERKS_.exit29
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %58, %_ZN11BigUnsignedC2ERKS_.exit29
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %77 = load ptr, ptr %43, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %_ZN11BigUnsignedD2Ev.exit30, label %79
+  %76 = load ptr, ptr %42, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %_ZN11BigUnsignedD2Ev.exit30, label %78
 
-79:                                               ; preds = %75
-  call void @_ZdaPv(ptr noundef nonnull %77) #7
+78:                                               ; preds = %74
+  call void @_ZdaPv(ptr noundef nonnull %76) #8
   br label %_ZN11BigUnsignedD2Ev.exit30
 
 ._crit_edge:                                      ; preds = %_ZN11BigUnsignedD2Ev.exit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %65, %_ZN11BigUnsignedD2Ev.exit ]
-  store i32 %.0.lcssa, ptr %23, align 4
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZN11BigUnsignedD2Ev.exit31, label %83
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %64, %_ZN11BigUnsignedD2Ev.exit ]
+  store i32 %.0.lcssa, ptr %22, align 4
+  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %_ZN11BigUnsignedD2Ev.exit31, label %82
 
-83:                                               ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %81) #7
+82:                                               ; preds = %._crit_edge
+  call void @_ZdaPv(ptr noundef nonnull %80) #8
   br label %_ZN11BigUnsignedD2Ev.exit31
 
-_ZN11BigUnsignedD2Ev.exit31:                      ; preds = %._crit_edge, %83
-  %84 = load ptr, ptr %34, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %_ZN11BigUnsignedD2Ev.exit32, label %86
+_ZN11BigUnsignedD2Ev.exit31:                      ; preds = %._crit_edge, %82
+  %83 = load ptr, ptr %33, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %_ZN11BigUnsignedD2Ev.exit32, label %85
 
-86:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit31
-  call void @_ZdaPv(ptr noundef nonnull %84) #7
+85:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit31
+  call void @_ZdaPv(ptr noundef nonnull %83) #8
   br label %_ZN11BigUnsignedD2Ev.exit32
 
-_ZN11BigUnsignedD2Ev.exit32:                      ; preds = %_ZN11BigUnsignedD2Ev.exit31, %86
+_ZN11BigUnsignedD2Ev.exit32:                      ; preds = %_ZN11BigUnsignedD2Ev.exit31, %85
   ret void
 
-_ZN11BigUnsignedD2Ev.exit30:                      ; preds = %79, %75, %73
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %76, %79 ]
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %_ZN11BigUnsignedD2Ev.exit33, label %90
+_ZN11BigUnsignedD2Ev.exit30:                      ; preds = %78, %74, %72
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %75, %74 ], [ %75, %78 ]
+  %86 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %_ZN11BigUnsignedD2Ev.exit33, label %89
 
-90:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit30
-  call void @_ZdaPv(ptr noundef nonnull %88) #7
+89:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit30
+  call void @_ZdaPv(ptr noundef nonnull %87) #8
   br label %_ZN11BigUnsignedD2Ev.exit33
 
-_ZN11BigUnsignedD2Ev.exit33:                      ; preds = %90, %_ZN11BigUnsignedD2Ev.exit30, %71
-  %.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %_ZN11BigUnsignedD2Ev.exit30 ], [ %.pn, %90 ]
-  %91 = load ptr, ptr %34, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %_ZN11BigUnsignedD2Ev.exit34, label %93
+_ZN11BigUnsignedD2Ev.exit33:                      ; preds = %89, %_ZN11BigUnsignedD2Ev.exit30, %70
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn, %_ZN11BigUnsignedD2Ev.exit30 ], [ %.pn, %89 ]
+  %90 = load ptr, ptr %33, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %_ZN11BigUnsignedD2Ev.exit34, label %92
 
-93:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit33
-  call void @_ZdaPv(ptr noundef nonnull %91) #7
+92:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit33
+  call void @_ZdaPv(ptr noundef nonnull %90) #8
   br label %_ZN11BigUnsignedD2Ev.exit34
 
-_ZN11BigUnsignedD2Ev.exit34:                      ; preds = %93, %_ZN11BigUnsignedD2Ev.exit33, %10
-  %.pn21 = phi { ptr, i32 } [ %11, %10 ], [ %.pn.pn, %_ZN11BigUnsignedD2Ev.exit33 ], [ %.pn.pn, %93 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %_ZN15NumberlikeArrayItED2Ev.exit, label %97
+_ZN11BigUnsignedD2Ev.exit34:                      ; preds = %92, %_ZN11BigUnsignedD2Ev.exit33, %10
+  %.pn21 = phi { ptr, i32 } [ %11, %10 ], [ %.pn.pn, %_ZN11BigUnsignedD2Ev.exit33 ], [ %.pn.pn, %92 ]
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %_ZN15NumberlikeArrayItED2Ev.exit, label %96
 
-97:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit34
-  call void @_ZdaPv(ptr noundef nonnull %95) #7
+96:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit34
+  call void @_ZdaPv(ptr noundef nonnull %94) #8
   br label %_ZN15NumberlikeArrayItED2Ev.exit
 
-_ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %_ZN11BigUnsignedD2Ev.exit34, %97
+_ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %_ZN11BigUnsignedD2Ev.exit34, %96
   resume { ptr, i32 } %.pn21
 
-98:                                               ; preds = %8
+97:                                               ; preds = %8
   unreachable
 }
 
@@ -432,12 +423,12 @@ define void @_ZNK18BigUnsignedInABasecv11BigUnsignedEv(ptr dead_on_unwind noalia
   br i1 %23, label %_ZN11BigUnsignedD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZdaPv(ptr noundef nonnull %22) #7
+  call void @_ZdaPv(ptr noundef nonnull %22) #8
   br label %_ZN11BigUnsignedD2Ev.exit
 
 _ZN11BigUnsignedD2Ev.exit:                        ; preds = %21, %24
   %.not.wide = icmp eq i64 %15, 0
-  br i1 %.not.wide, label %._crit_edge, label %14, !llvm.loop !13
+  br i1 %.not.wide, label %._crit_edge, label %14, !llvm.loop !12
 
 25:                                               ; preds = %2
   %26 = landingpad { ptr, i32 }
@@ -457,7 +448,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %21, %24
   br i1 %32, label %_ZN11BigUnsignedD2Ev.exit13, label %33
 
 33:                                               ; preds = %29
-  call void @_ZdaPv(ptr noundef nonnull %31) #7
+  call void @_ZdaPv(ptr noundef nonnull %31) #8
   br label %_ZN11BigUnsignedD2Ev.exit13
 
 ._crit_edge:                                      ; preds = %_ZN11BigUnsignedD2Ev.exit
@@ -467,7 +458,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %21, %24
   br i1 %34, label %_ZN11BigUnsignedD2Ev.exit14, label %35
 
 35:                                               ; preds = %._crit_edge
-  call void @_ZdaPv(ptr noundef nonnull %.pre) #7
+  call void @_ZdaPv(ptr noundef nonnull %.pre) #8
   br label %_ZN11BigUnsignedD2Ev.exit14
 
 _ZN11BigUnsignedD2Ev.exit14:                      ; preds = %8, %._crit_edge, %35
@@ -477,7 +468,7 @@ _ZN11BigUnsignedD2Ev.exit14:                      ; preds = %8, %._crit_edge, %3
   br i1 %38, label %_ZN11BigUnsignedD2Ev.exit15, label %39
 
 39:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit14
-  call void @_ZdaPv(ptr noundef nonnull %37) #7
+  call void @_ZdaPv(ptr noundef nonnull %37) #8
   br label %_ZN11BigUnsignedD2Ev.exit15
 
 _ZN11BigUnsignedD2Ev.exit15:                      ; preds = %_ZN11BigUnsignedD2Ev.exit14, %39
@@ -491,7 +482,7 @@ _ZN11BigUnsignedD2Ev.exit13:                      ; preds = %33, %29, %27
   br i1 %42, label %_ZN11BigUnsignedD2Ev.exit16, label %43
 
 43:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit13
-  call void @_ZdaPv(ptr noundef nonnull %41) #7
+  call void @_ZdaPv(ptr noundef nonnull %41) #8
   br label %_ZN11BigUnsignedD2Ev.exit16
 
 _ZN11BigUnsignedD2Ev.exit16:                      ; preds = %43, %_ZN11BigUnsignedD2Ev.exit13
@@ -501,7 +492,7 @@ _ZN11BigUnsignedD2Ev.exit16:                      ; preds = %43, %_ZN11BigUnsign
   br i1 %46, label %_ZN11BigUnsignedD2Ev.exit17, label %47
 
 47:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit16
-  call void @_ZdaPv(ptr noundef nonnull %45) #7
+  call void @_ZdaPv(ptr noundef nonnull %45) #8
   br label %_ZN11BigUnsignedD2Ev.exit17
 
 _ZN11BigUnsignedD2Ev.exit17:                      ; preds = %47, %_ZN11BigUnsignedD2Ev.exit16, %25
@@ -512,7 +503,7 @@ _ZN11BigUnsignedD2Ev.exit17:                      ; preds = %47, %_ZN11BigUnsign
   br i1 %50, label %_ZN11BigUnsignedD2Ev.exit18, label %51
 
 51:                                               ; preds = %_ZN11BigUnsignedD2Ev.exit17
-  call void @_ZdaPv(ptr noundef nonnull %49) #7
+  call void @_ZdaPv(ptr noundef nonnull %49) #8
   br label %_ZN11BigUnsignedD2Ev.exit18
 
 _ZN11BigUnsignedD2Ev.exit18:                      ; preds = %_ZN11BigUnsignedD2Ev.exit17, %51
@@ -540,7 +531,7 @@ define void @_ZN18BigUnsignedInABaseC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %9, label %_ZN15NumberlikeArrayItED2Ev.exit, label %10
 
 10:                                               ; preds = %5
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #8
   br label %_ZN15NumberlikeArrayItED2Ev.exit
 
 _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %5, %10
@@ -549,7 +540,7 @@ _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %5, %10
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store i16 %2, ptr %12, align 8
-  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
+  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %14, ptr %15, align 4
@@ -564,14 +555,14 @@ _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %5, %10
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %18
-  tail call void @_ZdaPv(ptr noundef nonnull %20) #7
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #8
   br label %23
 
 23:                                               ; preds = %22, %18
   store i32 %14, ptr %0, align 8
   %24 = shl i64 %13, 1
   %25 = and i64 %24, 8589934590
-  %26 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #6
+  %26 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #7
           to label %.noexc unwind label %5
 
 .noexc:                                           ; preds = %23
@@ -593,7 +584,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %11, %.noexc
   %30 = load i32, ptr %15, align 4
   %31 = zext i32 %30 to i64
   %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %33, label %._crit_edge, !llvm.loop !14
+  br i1 %32, label %33, label %._crit_edge, !llvm.loop !13
 
 33:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -602,7 +593,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %11, %.noexc
   %36 = xor i32 %35, -1
   %37 = add i32 %34, %36
   %38 = zext i32 %37 to i64
-  %39 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %38) #8
+  %39 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %38) #9
   %40 = load i8, ptr %39, align 1
   %41 = add i8 %40, -48
   %or.cond = icmp ult i8 %41, 10
@@ -633,9 +624,9 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %11, %.noexc
 
 .invoke:                                          ; preds = %46, %44, %3
   %.str.3.sink = phi ptr [ @.str.3, %3 ], [ @.str.4, %44 ], [ @.str.1, %46 ]
-  %54 = tail call ptr @__cxa_allocate_exception(i64 8) #8
+  %54 = tail call ptr @__cxa_allocate_exception(i64 8) #9
   store ptr %.str.3.sink, ptr %54, align 16
-  invoke void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTIPKc, ptr null) #9
+  invoke void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTIPKc, ptr null) #10
           to label %.cont unwind label %5
 
 .cont:                                            ; preds = %.invoke
@@ -686,9 +677,9 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #8
+  %9 = tail call ptr @__cxa_allocate_exception(i64 8) #9
   store ptr @.str.5, ptr %9, align 16
-  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #9
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIPKc, ptr null) #10
   unreachable
 
 10:                                               ; preds = %2
@@ -698,12 +689,12 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   br label %42
 
 16:                                               ; preds = %14
@@ -714,7 +705,7 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
 18:                                               ; preds = %10
   %19 = add i32 %12, 1
   %20 = zext i32 %19 to i64
-  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #6
+  %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #7
   %22 = zext i32 %12 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
@@ -739,16 +730,16 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
   store i8 %.sink, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %38, label %26, !llvm.loop !15
+  br i1 %exitcond.not, label %38, label %26, !llvm.loop !14
 
 38:                                               ; preds = %26
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %39 unwind label %40
 
 39:                                               ; preds = %38
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
-  call void @_ZdaPv(ptr noundef nonnull %21) #7
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #9
+  call void @_ZdaPv(ptr noundef nonnull %21) #8
   br label %42
 
 40:                                               ; preds = %38
@@ -762,7 +753,7 @@ define void @_ZNK18BigUnsignedInABasecvNSt7__cxx1112basic_stringIcSt11char_trait
 43:                                               ; preds = %40, %16
   %.sink25 = phi ptr [ %4, %40 ], [ %3, %16 ]
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %17, %16 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink25) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink25) #9
   resume { ptr, i32 } %.pn
 }
 
@@ -783,16 +774,20 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { builtin allocsize(0) }
-attributes #7 = { builtin nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { builtin allocsize(0) }
+attributes #8 = { builtin nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -811,4 +806,3 @@ attributes #9 = { noreturn }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

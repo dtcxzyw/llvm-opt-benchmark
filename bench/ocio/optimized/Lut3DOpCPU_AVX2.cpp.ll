@@ -156,21 +156,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shuffle.i.i.i.i = shufflevector <8 x float> %66, <8 x float> %3, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i16.i.i.i = shufflevector <8 x float> %64, <8 x float> %65, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %shuffle.i13.i.i.i = shufflevector <8 x float> %66, <8 x float> %3, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %67 = bitcast <8 x float> %shuffle.i10.i.i.i to <4 x double>
-  %68 = bitcast <8 x float> %shuffle.i.i.i.i to <4 x double>
-  %shuffle.i.i.i.i.i = shufflevector <4 x double> %67, <4 x double> %68, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i.i = shufflevector <4 x double> %67, <4 x double> %68, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %69 = bitcast <8 x float> %shuffle.i16.i.i.i to <4 x double>
-  %70 = bitcast <8 x float> %shuffle.i13.i.i.i to <4 x double>
-  %shuffle.i.i10.i.i.i = shufflevector <4 x double> %69, <4 x double> %70, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i.i = shufflevector <4 x double> %69, <4 x double> %70, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  store <4 x double> %shuffle.i.i.i.i.i, ptr %dst.0164.i, align 1
+  %67 = shufflevector <8 x float> %shuffle.i10.i.i.i, <8 x float> %shuffle.i.i.i.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %68 = shufflevector <8 x float> %shuffle.i10.i.i.i, <8 x float> %shuffle.i.i.i.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %69 = shufflevector <8 x float> %shuffle.i16.i.i.i, <8 x float> %shuffle.i13.i.i.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %70 = shufflevector <8 x float> %shuffle.i16.i.i.i, <8 x float> %shuffle.i13.i.i.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  store <8 x float> %67, ptr %dst.0164.i, align 1
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %dst.0164.i, i64 32
-  store <4 x double> %shuffle.i.i9.i.i.i, ptr %add.ptr1.i.i, align 1
+  store <8 x float> %68, ptr %add.ptr1.i.i, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %dst.0164.i, i64 64
-  store <4 x double> %shuffle.i.i10.i.i.i, ptr %add.ptr2.i.i, align 1
+  store <8 x float> %69, ptr %add.ptr2.i.i, align 1
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %dst.0164.i, i64 96
-  store <4 x double> %shuffle.i.i11.i.i.i, ptr %add.ptr3.i.i, align 1
+  store <8 x float> %70, ptr %add.ptr3.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %src.0165.i, i64 128
   %add.ptr29.i = getelementptr inbounds i8, ptr %dst.0164.i, i64 128
   %add.i = add nuw nsw i32 %i.0166.i, 8
@@ -328,21 +324,17 @@ for.end52.i:                                      ; preds = %for.body34.i, %if.t
   %shuffle.i.i.i123.i = shufflevector <8 x float> %145, <8 x float> %82, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i16.i.i124.i = shufflevector <8 x float> %143, <8 x float> %144, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %shuffle.i13.i.i125.i = shufflevector <8 x float> %145, <8 x float> %82, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %146 = bitcast <8 x float> %shuffle.i10.i.i122.i to <4 x double>
-  %147 = bitcast <8 x float> %shuffle.i.i.i123.i to <4 x double>
-  %shuffle.i.i.i.i126.i = shufflevector <4 x double> %146, <4 x double> %147, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i127.i = shufflevector <4 x double> %146, <4 x double> %147, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %148 = bitcast <8 x float> %shuffle.i16.i.i124.i to <4 x double>
-  %149 = bitcast <8 x float> %shuffle.i13.i.i125.i to <4 x double>
-  %shuffle.i.i10.i.i128.i = shufflevector <4 x double> %148, <4 x double> %149, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i129.i = shufflevector <4 x double> %148, <4 x double> %149, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  store <4 x double> %shuffle.i.i.i.i126.i, ptr %out_buf.i, align 16
+  %146 = shufflevector <8 x float> %shuffle.i10.i.i122.i, <8 x float> %shuffle.i.i.i123.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %147 = shufflevector <8 x float> %shuffle.i10.i.i122.i, <8 x float> %shuffle.i.i.i123.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %148 = shufflevector <8 x float> %shuffle.i16.i.i124.i, <8 x float> %shuffle.i13.i.i125.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %149 = shufflevector <8 x float> %shuffle.i16.i.i124.i, <8 x float> %shuffle.i13.i.i125.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  store <8 x float> %146, ptr %out_buf.i, align 16
   %add.ptr1.i130.i = getelementptr inbounds i8, ptr %out_buf.i, i64 32
-  store <4 x double> %shuffle.i.i9.i.i127.i, ptr %add.ptr1.i130.i, align 16
+  store <8 x float> %147, ptr %add.ptr1.i130.i, align 16
   %add.ptr2.i131.i = getelementptr inbounds i8, ptr %out_buf.i, i64 64
-  store <4 x double> %shuffle.i.i10.i.i128.i, ptr %add.ptr2.i131.i, align 16
+  store <8 x float> %148, ptr %add.ptr2.i131.i, align 16
   %add.ptr3.i132.i = getelementptr inbounds i8, ptr %out_buf.i, i64 96
-  store <4 x double> %shuffle.i.i11.i.i129.i, ptr %add.ptr3.i132.i, align 16
+  store <8 x float> %149, ptr %add.ptr3.i132.i, align 16
   br i1 %cmp33168.i, label %for.body75.preheader.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralAVX2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiPKvPvi.exit
 
 for.body75.preheader.i:                           ; preds = %for.end52.i

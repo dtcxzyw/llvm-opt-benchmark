@@ -552,18 +552,15 @@ if.else:                                          ; preds = %entry
   %shr54 = trunc i64 %sum.shift to i32
   %shr5 = and i32 %shr54, 2147483647
   %cmp6.not5 = icmp eq i32 %shr5, 0
-  br i1 %cmp6.not5, label %return, label %while.body
+  br i1 %cmp6.not5, label %return, label %while.body.preheader
 
-while.body:                                       ; preds = %if.else, %while.body
-  %sz.07 = phi i32 [ %inc, %while.body ], [ 4, %if.else ]
-  %v.06 = phi i32 [ %shr7, %while.body ], [ %shr5, %if.else ]
-  %inc = add nuw nsw i32 %sz.07, 1
-  %shr7 = lshr i32 %v.06, 1
-  %cmp6.not = icmp ult i32 %v.06, 2
-  br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !6
+while.body.preheader:                             ; preds = %if.else
+  %2 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %shr5, i1 true)
+  %3 = sub nuw nsw i32 36, %2
+  br label %return
 
-return:                                           ; preds = %while.body, %if.else, %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ 4, %if.else ], [ %inc, %while.body ]
+return:                                           ; preds = %while.body.preheader, %if.else, %if.then
+  %retval.0 = phi i32 [ %conv, %if.then ], [ 4, %if.else ], [ %3, %while.body.preheader ]
   ret i32 %retval.0
 }
 
@@ -756,7 +753,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %del_entry.1 = phi ptr [ %del_entry.063, %land.lhs.true ], [ %del_entry.063, %if.then9 ], [ %curr.062, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %curr.062, i64 16
   %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr6
-  br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !7
+  br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !6
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.inc54
   %del_entry.266 = phi ptr [ %del_entry.0.lcssa, %for.body29.lr.ph ], [ %del_entry.3, %for.inc54 ]
@@ -787,7 +784,7 @@ for.inc54:                                        ; preds = %for.body29, %land.l
   %del_entry.3 = phi ptr [ %del_entry.266, %land.lhs.true34 ], [ %del_entry.266, %if.then31 ], [ %curr.165, %for.body29 ]
   %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.165, i64 16
   %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
-  br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !8
+  br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !7
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 460, ptr noundef nonnull @.str.5)
@@ -875,7 +872,7 @@ for.body8.i:                                      ; preds = %if.then.i, %for.inc
 for.inc.i:                                        ; preds = %for.body8.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %target_curr.024.i, i64 16
   %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i
-  br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !9
+  br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !8
 
 for.body13.i:                                     ; preds = %for.cond11.preheader.i, %for.inc17.i
   %target_curr.126.i = phi ptr [ %incdec.ptr18.i, %for.inc17.i ], [ %call.i.i, %for.cond11.preheader.i ]
@@ -887,7 +884,7 @@ for.body13.i:                                     ; preds = %for.cond11.preheade
 for.inc17.i:                                      ; preds = %for.body13.i
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %target_curr.126.i, i64 16
   %cmp12.not.i = icmp eq ptr %incdec.ptr18.i, %add.ptr5.i
-  br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !10
+  br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !9
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 212, ptr noundef nonnull @.str.5)
@@ -902,7 +899,7 @@ for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.b
 for.inc21.i:                                      ; preds = %for.inc21.sink.split.i, %for.body.i
   %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_curr.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
-  br i1 %cmp.not.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit, label %for.body.i, !llvm.loop !11
+  br i1 %cmp.not.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit, label %for.body.i, !llvm.loop !10
 
 _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit: ; preds = %for.inc21.i
   %.pre = load ptr, ptr %this, align 8
@@ -1002,7 +999,7 @@ for.inc:                                          ; preds = %_ZN12_GLOBAL__N_121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = zext i32 %10 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %11
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry
   %tables2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1177,7 +1174,7 @@ _ZN13string_bufferILj128EE6expandEv.exit.i:       ; preds = %if.end.i.i.i, %call
   store i64 %shl.i.i, ptr %m_capacity.i, align 8
   store ptr %call.i.i1, ptr %m_buffer.i.i, align 8
   %cmp.i = icmp ugt i64 %add.i, %shl.i.i
-  br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !13
+  br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !12
 
 while.end.loopexit.i:                             ; preds = %_ZN13string_bufferILj128EE6expandEv.exit.i
   %.pre5.i = load i64, ptr %m_pos.i, align 8
@@ -1239,7 +1236,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   %0 = udiv i32 %__value.addr.021.i, 10000
   %add17.i = add i32 %__n.020.i, 4
   %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
-  br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !14
+  br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !13
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
   %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
@@ -1300,7 +1297,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i8 %3, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i11 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i11, label %while.body.i, label %while.end.i, !llvm.loop !15
+  br i1 %cmp.i11, label %while.body.i, label %while.end.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %while.body.i, %invoke.cont6
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %invoke.cont6 ], [ %div.i, %while.body.i ]
@@ -1374,6 +1371,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
+
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -1411,4 +1411,3 @@ attributes #18 = { noreturn nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

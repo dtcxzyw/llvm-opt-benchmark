@@ -17159,13 +17159,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %21 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %19, <8 x i16> <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>)
   %shuffle.i116 = shufflevector <16 x i8> %20, <16 x i8> %21, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i128 = shufflevector <16 x i8> %20, <16 x i8> %21, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %22 = bitcast <16 x i8> %shuffle.i116 to <8 x i16>
-  %23 = bitcast <16 x i8> %shuffle.i128 to <8 x i16>
-  %shuffle.i = shufflevector <8 x i16> %22, <8 x i16> %23, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %shuffle.i97 = shufflevector <8 x i16> %22, <8 x i16> %23, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %shuffle.i, ptr %out.addr.0113, align 1
+  %22 = shufflevector <16 x i8> %shuffle.i116, <16 x i8> %shuffle.i128, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 2, i32 3, i32 18, i32 19, i32 4, i32 5, i32 20, i32 21, i32 6, i32 7, i32 22, i32 23>
+  %23 = shufflevector <16 x i8> %shuffle.i116, <16 x i8> %shuffle.i128, <16 x i32> <i32 8, i32 9, i32 24, i32 25, i32 10, i32 11, i32 26, i32 27, i32 12, i32 13, i32 28, i32 29, i32 14, i32 15, i32 30, i32 31>
+  store <16 x i8> %22, ptr %out.addr.0113, align 1
   %add.ptr41 = getelementptr inbounds i8, ptr %out.addr.0113, i64 16
-  store <8 x i16> %shuffle.i97, ptr %add.ptr41, align 1
+  store <16 x i8> %23, ptr %add.ptr41, align 1
   %add.ptr42 = getelementptr inbounds i8, ptr %out.addr.0113, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %24 = or disjoint i64 %indvars.iv.next, 7

@@ -116,11 +116,10 @@ entry:
   %ref.tmp.sroa.9.16.arrayidx7.i30.sroa_idx = getelementptr inbounds i8, ptr %h, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i30.sroa_idx, align 4
   %arrayidx11.i32 = getelementptr inbounds i8, ptr %h, i64 32
-  %57 = extractelement <2 x float> %31, i64 1
-  store float %57, ptr %arrayidx11.i32, align 4
   %ref.tmp.sroa.12.32.arrayidx11.i32.sroa_idx = getelementptr inbounds i8, ptr %h, i64 36
-  %58 = extractelement <4 x float> %52, i64 1
-  store float %58, ptr %ref.tmp.sroa.12.32.arrayidx11.i32.sroa_idx, align 4
+  %57 = shufflevector <2 x float> %31, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %58 = shufflevector <4 x float> %57, <4 x float> %52, <2 x i32> <i32 1, i32 5>
+  store <2 x float> %58, ptr %arrayidx11.i32, align 4
   %ref.tmp.sroa.13.32.arrayidx11.i32.sroa_idx = getelementptr inbounds i8, ptr %h, i64 40
   store float %mul33.i, ptr %ref.tmp.sroa.13.32.arrayidx11.i32.sroa_idx, align 4
   %ref.tmp.sroa.14.32.arrayidx11.i32.sroa_idx = getelementptr inbounds i8, ptr %h, i64 44

@@ -9345,51 +9345,53 @@ for.body.us249.preheader:                         ; preds = %_ZN21MapblockMeshGe
   %18 = fptrunc <2 x double> %17 to <2 x float>
   %19 = extractelement <2 x float> %18, i64 0
   store float %19, ptr %vertices, align 16, !tbaa !107
-  %20 = shufflevector <2 x float> %18, <2 x float> %16, <2 x i32> <i32 1, i32 3>
-  store <2 x float> %20, ptr %Z.i91, align 4, !tbaa !49
-  %21 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %21, ptr %Z.i93, align 16, !tbaa !49
-  %22 = extractelement <2 x float> %16, i64 0
-  store float %22, ptr %Z.i95, align 4, !tbaa !50
+  %20 = shufflevector <2 x double> %17, <2 x double> %15, <2 x i32> <i32 1, i32 3>
+  %21 = fptrunc <2 x double> %20 to <2 x float>
+  store <2 x float> %21, ptr %Z.i91, align 4, !tbaa !49
+  %22 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %22, ptr %Z.i93, align 16, !tbaa !49
+  %23 = extractelement <2 x float> %16, i64 0
+  store float %23, ptr %Z.i95, align 4, !tbaa !50
   br label %for.cond.cleanup
 
 for.body.us241.preheader:                         ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %add47.us = fadd nsz float %mul, %add45
   store float %add47.us, ptr %Y.i, align 4, !tbaa !104
-  %23 = insertelement <2 x float> poison, float %fneg, i64 0
-  %24 = insertelement <2 x float> %23, float %mul, i64 1
-  %25 = fpext <2 x float> %24 to <2 x double>
+  %24 = insertelement <2 x float> poison, float %fneg, i64 0
+  %25 = insertelement <2 x float> %24, float %mul, i64 1
+  %26 = fpext <2 x float> %25 to <2 x double>
   store float %add47.us, ptr %Y.i90, align 16, !tbaa !104
-  %26 = fmul nsz <2 x double> %25, <double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
-  %27 = fptrunc <2 x double> %26 to <2 x float>
-  store <2 x float> %27, ptr %Z.i, align 8, !tbaa !49
+  %27 = fmul nsz <2 x double> %26, <double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
+  %28 = fptrunc <2 x double> %27 to <2 x float>
+  store <2 x float> %28, ptr %Z.i, align 8, !tbaa !49
   %add47.us.2 = fsub nsz float %add45, %mul
   store float %add47.us.2, ptr %Y.i92, align 4, !tbaa !104
   store float %add47.us.2, ptr %Y.i94, align 8, !tbaa !104
-  %28 = fmul nsz <2 x double> %25, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
-  %29 = fptrunc <2 x double> %28 to <2 x float>
-  %30 = extractelement <2 x float> %29, i64 0
-  store float %30, ptr %vertices, align 16, !tbaa !107
-  %31 = shufflevector <2 x float> %29, <2 x float> %27, <2 x i32> <i32 1, i32 3>
-  store <2 x float> %31, ptr %Z.i91, align 4, !tbaa !49
-  %32 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %32, ptr %Z.i93, align 16, !tbaa !49
-  %33 = extractelement <2 x float> %27, i64 0
-  store float %33, ptr %Z.i95, align 4, !tbaa !50
+  %29 = fmul nsz <2 x double> %26, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
+  %30 = fptrunc <2 x double> %29 to <2 x float>
+  %31 = extractelement <2 x float> %30, i64 0
+  store float %31, ptr %vertices, align 16, !tbaa !107
+  %32 = shufflevector <2 x double> %29, <2 x double> %27, <2 x i32> <i32 1, i32 3>
+  %33 = fptrunc <2 x double> %32 to <2 x float>
+  store <2 x float> %33, ptr %Z.i91, align 4, !tbaa !49
+  %34 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %34, ptr %Z.i93, align 16, !tbaa !49
+  %35 = extractelement <2 x float> %28, i64 0
+  store float %35, ptr %Z.i95, align 4, !tbaa !50
   br label %for.cond.cleanup
 
 for.body.us233.preheader:                         ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %add41.us = fsub nsz float %add45, %mul
   %conv.i149.us = fpext float %add41.us to double
-  %34 = fmul nsz double %conv.i149.us, 0x3C91A62633145C07
-  %conv10.i151.us = fptrunc double %34 to float
+  %36 = fmul nsz double %conv.i149.us, 0x3C91A62633145C07
+  %conv10.i151.us = fptrunc double %36 to float
   %conv17.i153.us = fneg nsz float %add41.us
   store float %conv10.i151.us, ptr %vertices, align 16, !tbaa !107
   store float %conv17.i153.us, ptr %Z.i, align 8, !tbaa !50
   %add41.us.1 = fadd nsz float %mul, %add45
   %conv.i149.us.1 = fpext float %add41.us.1 to double
-  %35 = fmul nsz double %conv.i149.us.1, 0x3C91A62633145C07
-  %conv10.i151.us.1 = fptrunc double %35 to float
+  %37 = fmul nsz double %conv.i149.us.1, 0x3C91A62633145C07
+  %conv10.i151.us.1 = fptrunc double %37 to float
   %conv17.i153.us.1 = fneg nsz float %add41.us.1
   store float %conv10.i151.us.1, ptr %arrayinit.element, align 4, !tbaa !107
   store float %conv17.i153.us.1, ptr %Z.i91, align 4, !tbaa !50
@@ -9402,14 +9404,14 @@ for.body.us233.preheader:                         ; preds = %_ZN21MapblockMeshGe
 for.body.us225.preheader:                         ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %add35.us = fsub nsz float %add45, %mul
   %conv.i135.us = fpext float %add35.us to double
-  %36 = fmul nsz double %conv.i135.us, 0x3C91A62633145C07
-  %conv10.i138.us = fptrunc double %36 to float
+  %38 = fmul nsz double %conv.i135.us, 0x3C91A62633145C07
+  %conv10.i138.us = fptrunc double %38 to float
   store float %conv10.i138.us, ptr %vertices, align 16, !tbaa !107
   store float %add35.us, ptr %Z.i, align 8, !tbaa !50
   %add35.us.1 = fadd nsz float %mul, %add45
   %conv.i135.us.1 = fpext float %add35.us.1 to double
-  %37 = fmul nsz double %conv.i135.us.1, 0x3C91A62633145C07
-  %conv10.i138.us.1 = fptrunc double %37 to float
+  %39 = fmul nsz double %conv.i135.us.1, 0x3C91A62633145C07
+  %conv10.i138.us.1 = fptrunc double %39 to float
   store float %conv10.i138.us.1, ptr %arrayinit.element, align 4, !tbaa !107
   store float %add35.us.1, ptr %Z.i91, align 4, !tbaa !50
   store float %conv10.i138.us.1, ptr %arrayinit.element7, align 8, !tbaa !107
@@ -9422,15 +9424,15 @@ for.body.us217.preheader:                         ; preds = %_ZN21MapblockMeshGe
   %add29.us = fsub nsz float %add45, %mul
   %conv.i121.us = fpext float %add29.us to double
   %conv10.i124.us = fneg nsz float %add29.us
-  %38 = fmul nsz double %conv.i121.us, 0x3CA1A62633145C07
-  %conv17.i126.us = fptrunc double %38 to float
+  %40 = fmul nsz double %conv.i121.us, 0x3CA1A62633145C07
+  %conv17.i126.us = fptrunc double %40 to float
   store float %conv10.i124.us, ptr %vertices, align 16, !tbaa !107
   store float %conv17.i126.us, ptr %Z.i, align 8, !tbaa !50
   %add29.us.1 = fadd nsz float %mul, %add45
   %conv.i121.us.1 = fpext float %add29.us.1 to double
   %conv10.i124.us.1 = fneg nsz float %add29.us.1
-  %39 = fmul nsz double %conv.i121.us.1, 0x3CA1A62633145C07
-  %conv17.i126.us.1 = fptrunc double %39 to float
+  %41 = fmul nsz double %conv.i121.us.1, 0x3CA1A62633145C07
+  %conv17.i126.us.1 = fptrunc double %41 to float
   store float %conv10.i124.us.1, ptr %arrayinit.element, align 4, !tbaa !107
   store float %conv17.i126.us.1, ptr %Z.i91, align 4, !tbaa !50
   store float %conv10.i124.us.1, ptr %arrayinit.element7, align 8, !tbaa !107
@@ -9451,51 +9453,53 @@ for.body.us209.preheader:                         ; preds = %_ZN21MapblockMeshGe
 for.body.us201.preheader:                         ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %add19.us = fadd nsz float %mul, %sub50
   store float %add19.us, ptr %Y.i, align 4, !tbaa !104
-  %40 = insertelement <2 x float> poison, float %fneg, i64 0
-  %41 = insertelement <2 x float> %40, float %mul, i64 1
-  %42 = fpext <2 x float> %41 to <2 x double>
+  %42 = insertelement <2 x float> poison, float %fneg, i64 0
+  %43 = insertelement <2 x float> %42, float %mul, i64 1
+  %44 = fpext <2 x float> %43 to <2 x double>
   store float %add19.us, ptr %Y.i90, align 16, !tbaa !104
-  %43 = fmul nsz <2 x double> %42, <double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
-  %44 = fptrunc <2 x double> %43 to <2 x float>
-  store <2 x float> %44, ptr %Z.i, align 8, !tbaa !49
+  %45 = fmul nsz <2 x double> %44, <double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
+  %46 = fptrunc <2 x double> %45 to <2 x float>
+  store <2 x float> %46, ptr %Z.i, align 8, !tbaa !49
   %add19.us.2 = fsub nsz float %sub50, %mul
   store float %add19.us.2, ptr %Y.i92, align 4, !tbaa !104
   store float %add19.us.2, ptr %Y.i94, align 8, !tbaa !104
-  %45 = fmul nsz <2 x double> %42, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
-  %46 = fptrunc <2 x double> %45 to <2 x float>
-  %47 = extractelement <2 x float> %46, i64 0
-  store float %47, ptr %vertices, align 16, !tbaa !107
-  %48 = shufflevector <2 x float> %46, <2 x float> %44, <2 x i32> <i32 1, i32 3>
-  store <2 x float> %48, ptr %Z.i91, align 4, !tbaa !49
-  %49 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %49, ptr %Z.i93, align 16, !tbaa !49
-  %50 = extractelement <2 x float> %44, i64 0
-  store float %50, ptr %Z.i95, align 4, !tbaa !50
+  %47 = fmul nsz <2 x double> %44, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
+  %48 = fptrunc <2 x double> %47 to <2 x float>
+  %49 = extractelement <2 x float> %48, i64 0
+  store float %49, ptr %vertices, align 16, !tbaa !107
+  %50 = shufflevector <2 x double> %47, <2 x double> %45, <2 x i32> <i32 1, i32 3>
+  %51 = fptrunc <2 x double> %50 to <2 x float>
+  store <2 x float> %51, ptr %Z.i91, align 4, !tbaa !49
+  %52 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %52, ptr %Z.i93, align 16, !tbaa !49
+  %53 = extractelement <2 x float> %46, i64 0
+  store float %53, ptr %Z.i95, align 4, !tbaa !50
   br label %for.cond.cleanup
 
 for.body.us.preheader:                            ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %add16.us = fadd nsz float %mul, %add45
   store float %add16.us, ptr %Y.i, align 4, !tbaa !104
-  %51 = insertelement <2 x float> poison, float %fneg, i64 0
-  %52 = insertelement <2 x float> %51, float %mul, i64 1
-  %53 = fpext <2 x float> %52 to <2 x double>
+  %54 = insertelement <2 x float> poison, float %fneg, i64 0
+  %55 = insertelement <2 x float> %54, float %mul, i64 1
+  %56 = fpext <2 x float> %55 to <2 x double>
   store float %add16.us, ptr %Y.i90, align 16, !tbaa !104
-  %54 = fmul nsz <2 x double> %53, <double 0xBFE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
-  %55 = fptrunc <2 x double> %54 to <2 x float>
-  store <2 x float> %55, ptr %Z.i, align 8, !tbaa !49
+  %57 = fmul nsz <2 x double> %56, <double 0xBFE6A09E667F3BCC, double 0x3FE6A09E667F3BCD>
+  %58 = fptrunc <2 x double> %57 to <2 x float>
+  store <2 x float> %58, ptr %Z.i, align 8, !tbaa !49
   %add16.us.2 = fsub nsz float %add45, %mul
   store float %add16.us.2, ptr %Y.i92, align 4, !tbaa !104
   store float %add16.us.2, ptr %Y.i94, align 8, !tbaa !104
-  %56 = fmul nsz <2 x double> %53, <double 0x3FE6A09E667F3BCD, double 0xBFE6A09E667F3BCC>
-  %57 = fptrunc <2 x double> %56 to <2 x float>
-  %58 = extractelement <2 x float> %57, i64 0
-  store float %58, ptr %vertices, align 16, !tbaa !107
-  %59 = shufflevector <2 x float> %57, <2 x float> %55, <2 x i32> <i32 1, i32 3>
-  store <2 x float> %59, ptr %Z.i91, align 4, !tbaa !49
-  %60 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %60, ptr %Z.i93, align 16, !tbaa !49
-  %61 = extractelement <2 x float> %55, i64 0
-  store float %61, ptr %Z.i95, align 4, !tbaa !50
+  %59 = fmul nsz <2 x double> %56, <double 0x3FE6A09E667F3BCD, double 0xBFE6A09E667F3BCC>
+  %60 = fptrunc <2 x double> %59 to <2 x float>
+  %61 = extractelement <2 x float> %60, i64 0
+  store float %61, ptr %vertices, align 16, !tbaa !107
+  %62 = shufflevector <2 x double> %59, <2 x double> %57, <2 x i32> <i32 1, i32 3>
+  %63 = fptrunc <2 x double> %62 to <2 x float>
+  store <2 x float> %63, ptr %Z.i91, align 4, !tbaa !49
+  %64 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %64, ptr %Z.i93, align 16, !tbaa !49
+  %65 = extractelement <2 x float> %58, i64 0
+  store float %65, ptr %Z.i95, align 4, !tbaa !50
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.us.preheader, %for.body.us201.preheader, %for.body.us209.preheader, %for.body.us217.preheader, %for.body.us225.preheader, %for.body.us233.preheader, %for.body.us241.preheader, %for.body.us249.preheader, %_ZN21MapblockMeshGenerator7useTileEihhb.exit

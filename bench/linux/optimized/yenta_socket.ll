@@ -133,13 +133,13 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @yenta_cardbus_driver_init() #0 section ".init.text" align 16 {
-  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @yenta_cardbus_driver, ptr noundef null, ptr noundef nonnull @.str) #10
+  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @yenta_cardbus_driver, ptr noundef null, ptr noundef nonnull @.str) #11
   ret i32 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @yenta_cardbus_driver_exit() #0 section ".exit.text" align 16 {
-  tail call void @pci_unregister_driver(ptr noundef nonnull @yenta_cardbus_driver) #10
+  tail call void @pci_unregister_driver(ptr noundef nonnull @yenta_cardbus_driver) #11
   ret void
 }
 
@@ -158,12 +158,12 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.2) #12
   br label %104
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1424) #12
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1424) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %104, label %12
 
@@ -188,12 +188,12 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
   store ptr %0, ptr %10, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %10, ptr %22, align 8
-  %23 = tail call i32 @pci_enable_device(ptr noundef %0) #10
+  %23 = tail call i32 @pci_enable_device(ptr noundef %0) #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %102
 
 25:                                               ; preds = %12
-  %26 = tail call i32 @pci_request_regions(ptr noundef %0, ptr noundef nonnull @.str) #10
+  %26 = tail call i32 @pci_request_regions(ptr noundef %0, ptr noundef nonnull @.str) #11
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %100
 
@@ -204,11 +204,11 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.3) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.3) #12
   br label %98
 
 33:                                               ; preds = %28
-  %34 = tail call ptr @ioremap(i64 noundef %30, i64 noundef 4096) #10
+  %34 = tail call ptr @ioremap(i64 noundef %30, i64 noundef 4096) #11
   %35 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
@@ -221,14 +221,14 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
   %41 = getelementptr inbounds i8, ptr %0, i64 66
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %43) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %43) #12
   tail call fastcc void @yenta_config_init(ptr noundef nonnull %10)
   %44 = load ptr, ptr %35, align 8
   %45 = getelementptr i8, ptr %44, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %45) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %45) #11, !srcloc !5
   %46 = load ptr, ptr %35, align 8
   %47 = getelementptr i8, ptr %46, i64 4
-  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47) #10, !srcloc !6
+  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47) #11, !srcloc !6
   tail call fastcc void @yenta_allocate_resources(ptr noundef nonnull %10)
   %49 = getelementptr inbounds i8, ptr %0, i64 916
   %50 = load i32, ptr %49, align 4
@@ -244,7 +244,7 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
   %57 = getelementptr inbounds i8, ptr %10, i64 1368
   store ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %56, align 16
-  %59 = tail call i32 %58(ptr noundef nonnull %10) #10
+  %59 = tail call i32 %58(ptr noundef nonnull %10) #11
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %95, label %thread-pre-split
 
@@ -258,19 +258,19 @@ thread-pre-split:                                 ; preds = %55
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %61
-  %65 = tail call i32 @request_threaded_irq(i32 noundef %62, ptr noundef nonnull @yenta_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %10) #10
+  %65 = tail call i32 @request_threaded_irq(i32 noundef %62, ptr noundef nonnull @yenta_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %10) #11
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %64, %61
   store i32 0, ptr %51, align 8
   %68 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @init_timer_key(ptr noundef %68, ptr noundef nonnull @yenta_interrupt_wrapper, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  tail call void @init_timer_key(ptr noundef %68, ptr noundef nonnull @yenta_interrupt_wrapper, i32 noundef 0, ptr noundef null, ptr noundef null) #11
   %69 = load volatile i64, ptr @jiffies, align 64
   %70 = add i64 %69, 1000
-  %71 = tail call i32 @mod_timer(ptr noundef %68, i64 noundef %70) #10
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.6) #11
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.7) #11
+  %71 = tail call i32 @mod_timer(ptr noundef %68, i64 noundef %70) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.7) #12
   br label %75
 
 72:                                               ; preds = %64
@@ -284,21 +284,21 @@ thread-pre-split:                                 ; preds = %55
   tail call fastcc void @yenta_get_socket_capabilities(ptr noundef nonnull %10)
   %76 = load ptr, ptr %35, align 8
   %77 = getelementptr i8, ptr %76, i64 8
-  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #10, !srcloc !6
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.8, i32 noundef %78) #11
+  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #11, !srcloc !6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.8, i32 noundef %78) #12
   %79 = load ptr, ptr %3, align 8
   tail call fastcc void @yenta_fixup_parent_bridge(ptr noundef %79)
-  %80 = tail call i32 @pcmcia_register_socket(ptr noundef %13) #10
+  %80 = tail call i32 @pcmcia_register_socket(ptr noundef %13) #11
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %75
-  %83 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_yenta_registers) #10
+  %83 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_yenta_registers) #11
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %104, label %85
 
 85:                                               ; preds = %82
-  tail call void @pcmcia_unregister_socket(ptr noundef %13) #10
+  tail call void @pcmcia_unregister_socket(ptr noundef %13) #11
   br label %86
 
 86:                                               ; preds = %85, %75
@@ -308,35 +308,35 @@ thread-pre-split:                                 ; preds = %55
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %86
-  %91 = tail call ptr @free_irq(i32 noundef %88, ptr noundef nonnull %10) #10
+  %91 = tail call ptr @free_irq(i32 noundef %88, ptr noundef nonnull %10) #11
   br label %95
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds i8, ptr %10, i64 24
-  %94 = tail call i32 @timer_shutdown_sync(ptr noundef %93) #10
+  %94 = tail call i32 @timer_shutdown_sync(ptr noundef %93) #11
   br label %95
 
 95:                                               ; preds = %92, %90, %55
   %96 = phi i32 [ %59, %55 ], [ %87, %90 ], [ %87, %92 ]
   %97 = load ptr, ptr %35, align 8
-  tail call void @iounmap(ptr noundef %97) #10
+  tail call void @iounmap(ptr noundef %97) #11
   tail call fastcc void @yenta_free_resources(ptr noundef nonnull %10)
   br label %98
 
 98:                                               ; preds = %95, %33, %32
   %99 = phi i32 [ %96, %95 ], [ -19, %32 ], [ -12, %33 ]
-  tail call void @pci_release_regions(ptr noundef %0) #10
+  tail call void @pci_release_regions(ptr noundef %0) #11
   br label %100
 
 100:                                              ; preds = %98, %25
   %101 = phi i32 [ %26, %25 ], [ %99, %98 ]
-  tail call void @pci_disable_device(ptr noundef %0) #10
+  tail call void @pci_disable_device(ptr noundef %0) #11
   br label %102
 
 102:                                              ; preds = %100, %12
   %103 = phi i32 [ %101, %100 ], [ -16, %12 ]
   store ptr null, ptr %22, align 8
-  tail call void @kfree(ptr noundef nonnull %10) #10
+  tail call void @kfree(ptr noundef nonnull %10) #11
   br label %104
 
 104:                                              ; preds = %102, %82, %8, %6
@@ -349,44 +349,44 @@ define internal void @yenta_close(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @device_remove_file(ptr noundef %4, ptr noundef nonnull @dev_attr_yenta_registers) #10
+  tail call void @device_remove_file(ptr noundef %4, ptr noundef nonnull @dev_attr_yenta_registers) #11
   %5 = getelementptr inbounds i8, ptr %3, i64 64
-  tail call void @pcmcia_unregister_socket(ptr noundef %5) #10
+  tail call void @pcmcia_unregister_socket(ptr noundef %5) #11
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %8) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %8) #11, !srcloc !5
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr i8, ptr %9, i64 4
-  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #10, !srcloc !6
+  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #11, !srcloc !6
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr i8, ptr %12, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #11, !srcloc !7
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr i8, ptr %14, i64 2053
-  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #10, !srcloc !8
+  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #11, !srcloc !8
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @free_irq(i32 noundef %18, ptr noundef %3) #10
+  %21 = tail call ptr @free_irq(i32 noundef %18, ptr noundef %3) #11
   br label %25
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %3, i64 24
-  %24 = tail call i32 @timer_shutdown_sync(ptr noundef %23) #10
+  %24 = tail call i32 @timer_shutdown_sync(ptr noundef %23) #11
   br label %25
 
 25:                                               ; preds = %22, %20
   %26 = load ptr, ptr %6, align 8
-  tail call void @iounmap(ptr noundef %26) #10
+  tail call void @iounmap(ptr noundef %26) #11
   tail call fastcc void @yenta_free_resources(ptr noundef %3)
-  tail call void @pci_release_regions(ptr noundef %0) #10
-  tail call void @pci_disable_device(ptr noundef %0) #10
+  tail call void @pci_release_regions(ptr noundef %0) #11
+  tail call void @pci_disable_device(ptr noundef %0) #11
   store ptr null, ptr %2, align 8
-  tail call void @kfree(ptr noundef %3) #10
+  tail call void @kfree(ptr noundef %3) #11
   ret void
 }
 
@@ -413,24 +413,24 @@ define internal fastcc void @yenta_config_init(ptr nocapture noundef readonly %0
   %2 = alloca i16, align 2
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 920
-  call void @pcibios_resource_to_bus(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %7) #10
+  call void @pcibios_resource_to_bus(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %7) #11
   %8 = load ptr, ptr %0, align 8
-  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 68, i32 noundef 0) #10
+  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 68, i32 noundef 0) #11
   %10 = load i64, ptr %3, align 8
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @pci_write_config_dword(ptr noundef %12, i32 noundef 16, i32 noundef %11) #10
+  %13 = call i32 @pci_write_config_dword(ptr noundef %12, i32 noundef 16, i32 noundef %11) #11
   %14 = load ptr, ptr %0, align 8
-  %15 = call i32 @pci_write_config_word(ptr noundef %14, i32 noundef 4, i16 noundef zeroext 135) #10
+  %15 = call i32 @pci_write_config_word(ptr noundef %14, i32 noundef 4, i16 noundef zeroext 135) #11
   %16 = load ptr, ptr %0, align 8
-  %17 = call i32 @pci_write_config_byte(ptr noundef %16, i32 noundef 12, i8 noundef zeroext 16) #10
+  %17 = call i32 @pci_write_config_byte(ptr noundef %16, i32 noundef 12, i8 noundef zeroext 16) #11
   %18 = load ptr, ptr %0, align 8
-  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 13, i8 noundef zeroext -88) #10
+  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 13, i8 noundef zeroext -88) #11
   %20 = getelementptr inbounds i8, ptr %4, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 128
@@ -448,18 +448,18 @@ define internal fastcc void @yenta_config_init(ptr nocapture noundef readonly %0
   %34 = or disjoint i32 %33, %32
   %35 = or i32 %34, -1342177280
   %36 = load ptr, ptr %0, align 8
-  %37 = call i32 @pci_write_config_dword(ptr noundef %36, i32 noundef 24, i32 noundef %35) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  %37 = call i32 @pci_write_config_dword(ptr noundef %36, i32 noundef 24, i32 noundef %35) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
   %38 = load ptr, ptr %0, align 8
-  %39 = call i32 @pci_read_config_word(ptr noundef %38, i32 noundef 62, ptr noundef nonnull %2) #10
+  %39 = call i32 @pci_read_config_word(ptr noundef %38, i32 noundef 62, ptr noundef nonnull %2) #11
   %40 = load i16, ptr %2, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %41 = and i16 %40, -1869
   %42 = or disjoint i16 %41, 1280
   %43 = load ptr, ptr %0, align 8
-  %44 = call i32 @pci_write_config_word(ptr noundef %43, i32 noundef 62, i16 noundef zeroext %42) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  %44 = call i32 @pci_write_config_word(ptr noundef %43, i32 noundef 62, i16 noundef zeroext %42) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   ret void
 }
 
@@ -479,7 +479,7 @@ define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef read
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  tail call void @pci_setup_cardbus(ptr noundef %13) #10
+  tail call void @pci_setup_cardbus(ptr noundef %13) #11
   br label %14
 
 14:                                               ; preds = %10, %1
@@ -490,14 +490,14 @@ define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef read
 define internal noundef range(i32 0, 2) i32 @yenta_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #11, !srcloc !6
   %6 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr elementtype(i32) %6) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr elementtype(i32) %6) #11, !srcloc !5
   %7 = load ptr, ptr %3, align 8
-  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !6
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #11, !srcloc !6
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %9, i64 2052
-  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #11, !srcloc !8
   %12 = icmp ne i32 %5, 0
   %13 = icmp ne i8 %11, 0
   %14 = select i1 %12, i1 true, i1 %13
@@ -512,7 +512,7 @@ define internal noundef range(i32 0, 2) i32 @yenta_interrupt(i32 %0, ptr noundef
   %21 = select i1 %18, i32 %20, i32 128
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr i8, ptr %22, i64 2051
-  %24 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23) #10, !srcloc !8
+  %24 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23) #11, !srcloc !8
   %25 = and i8 %24, 32
   %26 = icmp eq i8 %25, 0
   %27 = shl nuw nsw i32 %16, 10
@@ -525,7 +525,7 @@ define internal noundef range(i32 0, 2) i32 @yenta_interrupt(i32 %0, ptr noundef
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds i8, ptr %1, i64 64
-  tail call void @pcmcia_parse_events(ptr noundef %34, i32 noundef %31) #10
+  tail call void @pcmcia_parse_events(ptr noundef %34, i32 noundef %31) #11
   br label %35
 
 35:                                               ; preds = %33, %15, %2
@@ -540,14 +540,14 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #10, !srcloc !6
+  %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #11, !srcloc !6
   %5 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %4, ptr elementtype(i32) %5) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %4, ptr elementtype(i32) %5) #11, !srcloc !5
   %6 = load ptr, ptr %2, align 8
-  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #10, !srcloc !6
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #11, !srcloc !6
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr i8, ptr %8, i64 2052
-  %10 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #10, !srcloc !8
+  %10 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #11, !srcloc !8
   %11 = icmp ne i32 %4, 0
   %12 = icmp ne i8 %10, 0
   %13 = select i1 %11, i1 true, i1 %12
@@ -562,7 +562,7 @@ define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
   %20 = select i1 %17, i32 %19, i32 128
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr i8, ptr %21, i64 2051
-  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #10, !srcloc !8
+  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #11, !srcloc !8
   %24 = and i8 %23, 32
   %25 = icmp eq i8 %24, 0
   %26 = shl nuw nsw i32 %15, 10
@@ -575,7 +575,7 @@ define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
 
 32:                                               ; preds = %14
   %33 = getelementptr i8, ptr %0, i64 40
-  tail call void @pcmcia_parse_events(ptr noundef %33, i32 noundef %30) #10
+  tail call void @pcmcia_parse_events(ptr noundef %33, i32 noundef %30) #11
   br label %34
 
 34:                                               ; preds = %32, %14, %1
@@ -583,7 +583,7 @@ define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
   %36 = add i64 %35, 1000
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %36, ptr %37, align 8
-  tail call void @add_timer(ptr noundef %0) #10
+  tail call void @add_timer(ptr noundef %0) #11
   ret void
 }
 
@@ -595,7 +595,7 @@ define internal fastcc void @yenta_interrogate(ptr nocapture noundef readonly %0
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
-  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #11, !srcloc !6
   %6 = and i32 %5, 15360
   %7 = icmp eq i32 %6, 0
   %8 = and i32 %5, 646
@@ -609,10 +609,10 @@ define internal fastcc void @yenta_interrogate(ptr nocapture noundef readonly %0
 14:                                               ; preds = %1
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr i8, ptr %15, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %16) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %16) #11, !srcloc !5
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr i8, ptr %17, i64 12
-  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #10, !srcloc !6
+  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #11, !srcloc !6
   br label %20
 
 20:                                               ; preds = %14, %1
@@ -641,7 +641,7 @@ define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef
   store i32 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.40, i32 noundef %11, i32 noundef %10) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.40, i32 noundef %11, i32 noundef %10) #12
   ret void
 }
 
@@ -696,7 +696,7 @@ define internal fastcc void @yenta_fixup_parent_bridge(ptr noundef %0) unnamed_a
 36:                                               ; preds = %.loopexit
   %37 = getelementptr inbounds i8, ptr %0, i64 280
   %38 = zext i8 %33 to i32
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %37, ptr noundef nonnull @.str.41, i32 noundef %38) #11
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %37, ptr noundef nonnull @.str.41, i32 noundef %38) #12
   %.pre = load i64, ptr %4, align 8
   br label %39
 
@@ -717,12 +717,12 @@ define internal fastcc void @yenta_fixup_parent_bridge(ptr noundef %0) unnamed_a
   %51 = zext i8 %50 to i32
   %52 = trunc nuw nsw i64 %40 to i32
   %53 = and i32 %46, 255
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %48, ptr noundef nonnull @.str.42, i32 noundef %51, i32 noundef %52, i32 noundef %53) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %48, ptr noundef nonnull @.str.42, i32 noundef %51, i32 noundef %52, i32 noundef %53) #12
   %54 = zext nneg i32 %53 to i64
   store i64 %54, ptr %4, align 8
   %55 = getelementptr inbounds i8, ptr %3, i64 56
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 @pci_write_config_byte(ptr noundef %56, i32 noundef 26, i8 noundef zeroext %47) #10
+  %57 = tail call i32 @pci_write_config_byte(ptr noundef %56, i32 noundef 26, i8 noundef zeroext %47) #11
   br label %58
 
 58:                                               ; preds = %42, %39, %9, %1
@@ -762,7 +762,7 @@ define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @release_resource(ptr noundef %3) #10
+  %11 = tail call i32 @release_resource(ptr noundef %3) #11
   br label %12
 
 12:                                               ; preds = %10, %6, %1
@@ -782,7 +782,7 @@ define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @release_resource(ptr noundef %15) #10
+  %23 = tail call i32 @release_resource(ptr noundef %15) #11
   br label %24
 
 24:                                               ; preds = %22, %18, %12
@@ -802,7 +802,7 @@ define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @release_resource(ptr noundef %27) #10
+  %35 = tail call i32 @release_resource(ptr noundef %27) #11
   br label %36
 
 36:                                               ; preds = %34, %30, %24
@@ -822,7 +822,7 @@ define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call i32 @release_resource(ptr noundef %39) #10
+  %47 = tail call i32 @release_resource(ptr noundef %39) #11
   br label %48
 
 48:                                               ; preds = %46, %42, %36
@@ -856,19 +856,19 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   %6 = getelementptr i8, ptr %0, i64 -48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 2078
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %8) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %8) #11, !srcloc !7
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr i8, ptr %9, i64 2078
-  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #11, !srcloc !8
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr i8, ptr %12, i64 2070
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #11, !srcloc !7
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr i8, ptr %14, i64 2070
-  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #10, !srcloc !8
+  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #11, !srcloc !8
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr i8, ptr %17, i64 8
-  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #10, !srcloc !6
+  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #11, !srcloc !6
   %20 = and i32 %19, 15360
   %21 = icmp eq i32 %20, 0
   %22 = and i32 %19, 646
@@ -882,22 +882,22 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
 28:                                               ; preds = %1
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr i8, ptr %29, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %30) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %30) #11, !srcloc !5
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr i8, ptr %31, i64 12
-  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #10, !srcloc !6
+  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #11, !srcloc !6
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 4095, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 1, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
   %36 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %36, align 8
@@ -918,9 +918,9 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   br i1 %45, label %46, label %40, !llvm.loop !17
 
 46:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
   %47 = getelementptr i8, ptr %0, i64 1304
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -933,16 +933,16 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %50
-  %55 = call i32 %52(ptr noundef %5) #10
+  %55 = call i32 %52(ptr noundef %5) #11
   br label %56
 
 56:                                               ; preds = %54, %50, %46
   %57 = load ptr, ptr %6, align 8
   %58 = getelementptr i8, ptr %57, i64 4
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %58) #10, !srcloc !5
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %58) #11, !srcloc !5
   %59 = load ptr, ptr %6, align 8
   %60 = getelementptr i8, ptr %59, i64 4
-  %61 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #10, !srcloc !6
+  %61 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #11, !srcloc !6
   ret i32 0
 }
 
@@ -951,10 +951,10 @@ define internal noundef i32 @yenta_sock_suspend(ptr nocapture noundef readonly %
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %4) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %4) #11, !srcloc !5
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr i8, ptr %5, i64 4
-  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #10, !srcloc !6
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #11, !srcloc !6
   ret i32 0
 }
 
@@ -963,7 +963,7 @@ define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0,
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #10, !srcloc !6
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !6
   %7 = shl i32 %6, 1
   %8 = and i32 %7, 12288
   %9 = and i32 %6, 15360
@@ -999,14 +999,14 @@ define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0,
 33:                                               ; preds = %30
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr i8, ptr %34, i64 2049
-  %36 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #10, !srcloc !8
+  %36 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #11, !srcloc !8
   %37 = zext i8 %36 to i32
   %38 = and i32 %37, 12
   %39 = icmp eq i32 %38, 12
   %40 = select i1 %39, i32 128, i32 0
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr i8, ptr %41, i64 2051
-  %43 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %42) #10, !srcloc !8
+  %43 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %42) #11, !srcloc !8
   %44 = and i8 %43, 32
   %45 = icmp eq i8 %44, 0
   %46 = select i1 %45, i32 4, i32 10
@@ -1052,17 +1052,17 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %12 = zext i8 %11 to i32
   %13 = getelementptr i8, ptr %0, i64 -52
   store i32 %12, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
   store i16 0, ptr %3, align 2, !annotation !9
   %14 = load ptr, ptr %4, align 8
-  %15 = call i32 @pci_read_config_word(ptr noundef %14, i32 noundef 62, ptr noundef nonnull %3) #10
+  %15 = call i32 @pci_read_config_word(ptr noundef %14, i32 noundef 62, ptr noundef nonnull %3) #11
   %16 = load i16, ptr %3, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
   %17 = and i16 %16, -193
   %18 = getelementptr i8, ptr %0, i64 -48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 8
-  %21 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #10, !srcloc !6
+  %21 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #11, !srcloc !6
   %22 = and i32 %21, 32
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %57, label %24
@@ -1074,7 +1074,7 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %28 = or disjoint i16 %27, %17
   %29 = load ptr, ptr %18, align 8
   %30 = getelementptr i8, ptr %29, i64 2051
-  %31 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30) #10, !srcloc !8
+  %31 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30) #11, !srcloc !8
   %32 = and i8 %31, -16
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 916
@@ -1107,16 +1107,16 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %51 = phi i8 [ %32, %24 ], [ %47, %45 ]
   %52 = load ptr, ptr %18, align 8
   %53 = getelementptr i8, ptr %52, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %51, ptr elementtype(i8) %53) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %51, ptr elementtype(i8) %53) #11, !srcloc !7
   %54 = load ptr, ptr %18, align 8
   %55 = getelementptr i8, ptr %54, i64 2051
-  %56 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #10, !srcloc !8
+  %56 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #11, !srcloc !8
   br label %145
 
 57:                                               ; preds = %9
   %58 = load ptr, ptr %18, align 8
   %59 = getelementptr i8, ptr %58, i64 2051
-  %60 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59) #10, !srcloc !8
+  %60 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59) #11, !srcloc !8
   %61 = and i8 %60, -112
   %62 = load i32, ptr %1, align 4
   %63 = trunc i32 %62 to i8
@@ -1135,13 +1135,13 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %76 = or i8 %75, %66
   %77 = load ptr, ptr %18, align 8
   %78 = getelementptr i8, ptr %77, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %76, ptr elementtype(i8) %78) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %76, ptr elementtype(i8) %78) #11, !srcloc !7
   %79 = load ptr, ptr %18, align 8
   %80 = getelementptr i8, ptr %79, i64 2051
-  %81 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %80) #10, !srcloc !8
+  %81 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %80) #11, !srcloc !8
   %82 = load ptr, ptr %18, align 8
   %83 = getelementptr i8, ptr %82, i64 2050
-  %84 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %83) #10, !srcloc !8
+  %84 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %83) #11, !srcloc !8
   %85 = and i8 %84, 27
   %86 = load i32, ptr %1, align 4
   %87 = and i32 %86, 16
@@ -1154,23 +1154,23 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %94 = or disjoint i8 %90, %93
   %95 = load ptr, ptr %18, align 8
   %96 = getelementptr i8, ptr %95, i64 2050
-  %97 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %96) #10, !srcloc !8
+  %97 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %96) #11, !srcloc !8
   %98 = icmp eq i8 %97, %94
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %57
   %100 = load ptr, ptr %18, align 8
   %101 = getelementptr i8, ptr %100, i64 2050
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %94, ptr elementtype(i8) %101) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %94, ptr elementtype(i8) %101) #11, !srcloc !7
   %102 = load ptr, ptr %18, align 8
   %103 = getelementptr i8, ptr %102, i64 2050
-  %104 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #10, !srcloc !8
+  %104 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #11, !srcloc !8
   br label %105
 
 105:                                              ; preds = %99, %57
   %106 = load ptr, ptr %18, align 8
   %107 = getelementptr i8, ptr %106, i64 2053
-  %108 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %107) #10, !srcloc !8
+  %108 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %107) #11, !srcloc !8
   %109 = and i8 %108, -16
   %110 = or disjoint i8 %109, 8
   %111 = load i32, ptr %1, align 4
@@ -1201,13 +1201,13 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
   %130 = phi i8 [ %120, %117 ], [ %128, %121 ]
   %131 = load ptr, ptr %18, align 8
   %132 = getelementptr i8, ptr %131, i64 2053
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %130, ptr elementtype(i8) %132) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %130, ptr elementtype(i8) %132) #11, !srcloc !7
   %133 = load ptr, ptr %18, align 8
   %134 = getelementptr i8, ptr %133, i64 2053
-  %135 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %134) #10, !srcloc !8
+  %135 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %134) #11, !srcloc !8
   %136 = load ptr, ptr %18, align 8
   %137 = getelementptr i8, ptr %136, i64 2052
-  %138 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %137) #10, !srcloc !8
+  %138 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %137) #11, !srcloc !8
   %139 = getelementptr inbounds i8, ptr %0, i64 376
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
@@ -1216,23 +1216,23 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
 142:                                              ; preds = %129
   %143 = load i32, ptr %1, align 4
   %144 = and i32 %143, 32768
-  call void %140(ptr noundef %0, i32 noundef %144) #10
+  call void %140(ptr noundef %0, i32 noundef %144) #11
   br label %145
 
 145:                                              ; preds = %142, %129, %49
   %146 = phi i16 [ %50, %49 ], [ %74, %142 ], [ %74, %129 ]
   %147 = load ptr, ptr %4, align 8
-  %148 = call i32 @pci_write_config_word(ptr noundef %147, i32 noundef 62, i16 noundef zeroext %146) #10
+  %148 = call i32 @pci_write_config_word(ptr noundef %147, i32 noundef 62, i16 noundef zeroext %146) #11
   %149 = load ptr, ptr %18, align 8
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %149) #10, !srcloc !5
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %149) #11, !srcloc !5
   %150 = load ptr, ptr %18, align 8
-  %151 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %150) #10, !srcloc !6
+  %151 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %150) #11, !srcloc !6
   %152 = load ptr, ptr %18, align 8
   %153 = getelementptr i8, ptr %152, i64 4
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %153) #10, !srcloc !5
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %153) #11, !srcloc !5
   %154 = load ptr, ptr %18, align 8
   %155 = getelementptr i8, ptr %154, i64 4
-  %156 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %155) #10, !srcloc !6
+  %156 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %155) #11, !srcloc !6
   %157 = load i8, ptr %5, align 4
   %158 = icmp eq i8 %157, 0
   br i1 %158, label %160, label %159
@@ -1257,7 +1257,7 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %8 = getelementptr i8, ptr %0, i64 -48
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 2054
-  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #11, !srcloc !8
   %12 = zext i8 %11 to i32
   %13 = and i32 %7, %12
   %14 = icmp eq i32 %13, 0
@@ -1269,10 +1269,10 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %18 = and i8 %11, %17
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr i8, ptr %19, i64 2054
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %18, ptr elementtype(i8) %20) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %18, ptr elementtype(i8) %20) #11, !srcloc !7
   %21 = load ptr, ptr %8, align 8
   %22 = getelementptr i8, ptr %21, i64 2054
-  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #10, !srcloc !8
+  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #11, !srcloc !8
   br label %24
 
 24:                                               ; preds = %15, %6
@@ -1286,23 +1286,23 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %32 = getelementptr i8, ptr %31, i64 2048
   %33 = zext nneg i32 %27 to i64
   %34 = getelementptr i8, ptr %32, i64 %33
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %30, ptr elementtype(i8) %34) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %30, ptr elementtype(i8) %34) #11, !srcloc !7
   %35 = lshr i64 %29, 8
   %36 = trunc i64 %35 to i8
   %37 = load ptr, ptr %8, align 8
   %38 = getelementptr i8, ptr %37, i64 2048
   %39 = getelementptr i8, ptr %38, i64 %33
   %40 = getelementptr i8, ptr %39, i64 1
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %36, ptr elementtype(i8) %40) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %36, ptr elementtype(i8) %40) #11, !srcloc !7
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr i8, ptr %41, i64 2048
   %43 = getelementptr i8, ptr %42, i64 %33
-  %44 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43) #10, !srcloc !8
+  %44 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43) #11, !srcloc !8
   %45 = load ptr, ptr %8, align 8
   %46 = getelementptr i8, ptr %45, i64 2048
   %47 = getelementptr i8, ptr %46, i64 %33
   %48 = getelementptr i8, ptr %47, i64 1
-  %49 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %48) #10, !srcloc !8
+  %49 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %48) #11, !srcloc !8
   %50 = or disjoint i32 %26, 10
   %51 = getelementptr inbounds i8, ptr %1, i64 16
   %52 = load i64, ptr %51, align 8
@@ -1311,26 +1311,26 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %55 = getelementptr i8, ptr %54, i64 2048
   %56 = zext nneg i32 %50 to i64
   %57 = getelementptr i8, ptr %55, i64 %56
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #11, !srcloc !7
   %58 = lshr i64 %52, 8
   %59 = trunc i64 %58 to i8
   %60 = load ptr, ptr %8, align 8
   %61 = getelementptr i8, ptr %60, i64 2048
   %62 = getelementptr i8, ptr %61, i64 %56
   %63 = getelementptr i8, ptr %62, i64 1
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, ptr elementtype(i8) %63) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, ptr elementtype(i8) %63) #11, !srcloc !7
   %64 = load ptr, ptr %8, align 8
   %65 = getelementptr i8, ptr %64, i64 2048
   %66 = getelementptr i8, ptr %65, i64 %56
-  %67 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66) #10, !srcloc !8
+  %67 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66) #11, !srcloc !8
   %68 = load ptr, ptr %8, align 8
   %69 = getelementptr i8, ptr %68, i64 2048
   %70 = getelementptr i8, ptr %69, i64 %56
   %71 = getelementptr i8, ptr %70, i64 1
-  %72 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71) #10, !srcloc !8
+  %72 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71) #11, !srcloc !8
   %73 = load ptr, ptr %8, align 8
   %74 = getelementptr i8, ptr %73, i64 2055
-  %75 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74) #10, !srcloc !8
+  %75 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74) #11, !srcloc !8
   %76 = shl nuw nsw i32 15, %26
   %77 = trunc nuw i32 %76 to i8
   %78 = xor i8 %77, -1
@@ -1357,10 +1357,10 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %99 = or i8 %93, %98
   %100 = load ptr, ptr %8, align 8
   %101 = getelementptr i8, ptr %100, i64 2055
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %99, ptr elementtype(i8) %101) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %99, ptr elementtype(i8) %101) #11, !srcloc !7
   %102 = load ptr, ptr %8, align 8
   %103 = getelementptr i8, ptr %102, i64 2055
-  %104 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #10, !srcloc !8
+  %104 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #11, !srcloc !8
   %105 = load i8, ptr %80, align 1
   %106 = and i8 %105, 1
   %107 = icmp eq i8 %106, 0
@@ -1371,10 +1371,10 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
   %110 = or i8 %25, %109
   %111 = load ptr, ptr %8, align 8
   %112 = getelementptr i8, ptr %111, i64 2054
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %110, ptr elementtype(i8) %112) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %110, ptr elementtype(i8) %112) #11, !srcloc !7
   %113 = load ptr, ptr %8, align 8
   %114 = getelementptr i8, ptr %113, i64 2054
-  %115 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %114) #10, !srcloc !8
+  %115 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %114) #11, !srcloc !8
   br label %116
 
 116:                                              ; preds = %108, %24, %2
@@ -1386,14 +1386,14 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture no
 define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = getelementptr i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  call void @pcibios_resource_to_bus(ptr noundef %7, ptr noundef nonnull %3, ptr noundef %9) #10
+  call void @pcibios_resource_to_bus(ptr noundef %7, ptr noundef nonnull %3, ptr noundef %9) #11
   %10 = load i8, ptr %1, align 8
   %11 = zext i8 %10 to i32
   %12 = load i64, ptr %3, align 8
@@ -1424,7 +1424,7 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %33 = getelementptr i8, ptr %0, i64 -48
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 2054
-  %36 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #10, !srcloc !8
+  %36 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #11, !srcloc !8
   %37 = zext i8 %36 to i32
   %38 = and i32 %32, %37
   %39 = icmp eq i32 %38, 0
@@ -1436,10 +1436,10 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %43 = and i8 %36, %42
   %44 = load ptr, ptr %33, align 8
   %45 = getelementptr i8, ptr %44, i64 2054
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %43, ptr elementtype(i8) %45) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %43, ptr elementtype(i8) %45) #11, !srcloc !7
   %46 = load ptr, ptr %33, align 8
   %47 = getelementptr i8, ptr %46, i64 2054
-  %48 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47) #10, !srcloc !8
+  %48 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47) #11, !srcloc !8
   br label %49
 
 49:                                               ; preds = %40, %31
@@ -1451,11 +1451,11 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %55 = getelementptr i8, ptr %54, i64 2048
   %56 = zext nneg i32 %51 to i64
   %57 = getelementptr i8, ptr %55, i64 %56
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #11, !srcloc !7
   %58 = load ptr, ptr %33, align 8
   %59 = getelementptr i8, ptr %58, i64 2048
   %60 = getelementptr i8, ptr %59, i64 %56
-  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #10, !srcloc !8
+  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #11, !srcloc !8
   %62 = lshr i64 %12, 12
   %63 = trunc i64 %62 to i16
   %64 = and i16 %63, 3840
@@ -1476,23 +1476,23 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %79 = getelementptr i8, ptr %78, i64 2048
   %80 = zext nneg i32 %76 to i64
   %81 = getelementptr i8, ptr %79, i64 %80
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %77, ptr elementtype(i8) %81) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %77, ptr elementtype(i8) %81) #11, !srcloc !7
   %82 = lshr exact i16 %74, 8
   %83 = trunc nuw i16 %82 to i8
   %84 = load ptr, ptr %33, align 8
   %85 = getelementptr i8, ptr %84, i64 2048
   %86 = getelementptr i8, ptr %85, i64 %80
   %87 = getelementptr i8, ptr %86, i64 1
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %83, ptr elementtype(i8) %87) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %83, ptr elementtype(i8) %87) #11, !srcloc !7
   %88 = load ptr, ptr %33, align 8
   %89 = getelementptr i8, ptr %88, i64 2048
   %90 = getelementptr i8, ptr %89, i64 %80
-  %91 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90) #10, !srcloc !8
+  %91 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90) #11, !srcloc !8
   %92 = load ptr, ptr %33, align 8
   %93 = getelementptr i8, ptr %92, i64 2048
   %94 = getelementptr i8, ptr %93, i64 %80
   %95 = getelementptr i8, ptr %94, i64 1
-  %96 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %95) #10, !srcloc !8
+  %96 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %95) #11, !srcloc !8
   %97 = lshr i64 %15, 12
   %98 = trunc i64 %97 to i16
   %99 = and i16 %98, 4095
@@ -1524,23 +1524,23 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %113 = getelementptr i8, ptr %112, i64 2048
   %114 = zext nneg i32 %110 to i64
   %115 = getelementptr i8, ptr %113, i64 %114
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %111, ptr elementtype(i8) %115) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %111, ptr elementtype(i8) %115) #11, !srcloc !7
   %116 = lshr i16 %109, 8
   %117 = trunc nuw i16 %116 to i8
   %118 = load ptr, ptr %33, align 8
   %119 = getelementptr i8, ptr %118, i64 2048
   %120 = getelementptr i8, ptr %119, i64 %114
   %121 = getelementptr i8, ptr %120, i64 1
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %117, ptr elementtype(i8) %121) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %117, ptr elementtype(i8) %121) #11, !srcloc !7
   %122 = load ptr, ptr %33, align 8
   %123 = getelementptr i8, ptr %122, i64 2048
   %124 = getelementptr i8, ptr %123, i64 %114
-  %125 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124) #10, !srcloc !8
+  %125 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124) #11, !srcloc !8
   %126 = load ptr, ptr %33, align 8
   %127 = getelementptr i8, ptr %126, i64 2048
   %128 = getelementptr i8, ptr %127, i64 %114
   %129 = getelementptr i8, ptr %128, i64 1
-  %130 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129) #10, !srcloc !8
+  %130 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129) #11, !srcloc !8
   %131 = sub i32 %18, %13
   %132 = lshr i32 %131, 12
   %133 = trunc i32 %132 to i16
@@ -1560,23 +1560,23 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %147 = getelementptr i8, ptr %146, i64 2048
   %148 = zext nneg i32 %144 to i64
   %149 = getelementptr i8, ptr %147, i64 %148
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %145, ptr elementtype(i8) %149) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %145, ptr elementtype(i8) %149) #11, !srcloc !7
   %150 = lshr exact i16 %143, 8
   %151 = trunc nuw i16 %150 to i8
   %152 = load ptr, ptr %33, align 8
   %153 = getelementptr i8, ptr %152, i64 2048
   %154 = getelementptr i8, ptr %153, i64 %148
   %155 = getelementptr i8, ptr %154, i64 1
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %151, ptr elementtype(i8) %155) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %151, ptr elementtype(i8) %155) #11, !srcloc !7
   %156 = load ptr, ptr %33, align 8
   %157 = getelementptr i8, ptr %156, i64 2048
   %158 = getelementptr i8, ptr %157, i64 %148
-  %159 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %158) #10, !srcloc !8
+  %159 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %158) #11, !srcloc !8
   %160 = load ptr, ptr %33, align 8
   %161 = getelementptr i8, ptr %160, i64 2048
   %162 = getelementptr i8, ptr %161, i64 %148
   %163 = getelementptr i8, ptr %162, i64 1
-  %164 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %163) #10, !srcloc !8
+  %164 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %163) #11, !srcloc !8
   %165 = load i8, ptr %65, align 1
   %166 = and i8 %165, 1
   %167 = icmp eq i8 %166, 0
@@ -1587,15 +1587,15 @@ define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture n
   %170 = or i8 %50, %169
   %171 = load ptr, ptr %33, align 8
   %172 = getelementptr i8, ptr %171, i64 2054
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %170, ptr elementtype(i8) %172) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %170, ptr elementtype(i8) %172) #11, !srcloc !7
   %173 = load ptr, ptr %33, align 8
   %174 = getelementptr i8, ptr %173, i64 2054
-  %175 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %174) #10, !srcloc !8
+  %175 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %174) #11, !srcloc !8
   br label %176
 
 176:                                              ; preds = %168, %108, %27, %2
   %177 = phi i32 [ -22, %27 ], [ -22, %2 ], [ 0, %168 ], [ 0, %108 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   ret i32 %177
 }
 
@@ -1607,7 +1607,7 @@ define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, 
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #10, !srcloc !6
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !6
   %7 = and i32 %6, 32
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %56
@@ -1622,7 +1622,7 @@ define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 2050
-  %17 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16) #10, !srcloc !8
+  %17 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16) #11, !srcloc !8
   %18 = and i8 %17, -32
   %19 = load i32, ptr %10, align 8
   %20 = and i32 %19, 2
@@ -1690,10 +1690,10 @@ define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %3, align 8
   %52 = getelementptr i8, ptr %51, i64 2050
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, ptr elementtype(i8) %52) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, ptr elementtype(i8) %52) #11, !srcloc !7
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr i8, ptr %53, i64 2050
-  %55 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %54) #10, !srcloc !8
+  %55 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %54) #11, !srcloc !8
   br label %83
 
 56:                                               ; preds = %9, %2
@@ -1727,17 +1727,17 @@ define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, 
   %72 = phi i32 [ %62, %56 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr i8, ptr %73, i64 16
-  %75 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74) #10, !srcloc !6
+  %75 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74) #11, !srcloc !6
   %76 = icmp eq i32 %72, %75
   br i1 %76, label %83, label %77
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %3, align 8
   %79 = getelementptr i8, ptr %78, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %79) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %79) #11, !srcloc !5
   %80 = load ptr, ptr %3, align 8
   %81 = getelementptr i8, ptr %80, i64 16
-  %82 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81) #10, !srcloc !6
+  %82 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81) #11, !srcloc !6
   br label %83
 
 83:                                               ; preds = %77, %71, %50, %47
@@ -1765,7 +1765,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
   %7 = alloca i32, align 4
   %8 = alloca %struct.pci_bus_region, align 8
   %9 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
   %10 = getelementptr inbounds i8, ptr %9, i64 920
   %11 = zext nneg i32 %1 to i64
   %12 = getelementptr [11 x %struct.resource], ptr %10, i64 0, i64 %11
@@ -1786,21 +1786,21 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
   %24 = zext nneg i32 %2 to i64
   %25 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 %24, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4, !annotation !9
   %26 = load ptr, ptr %0, align 8
-  %27 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef %3, ptr noundef nonnull %7) #10
+  %27 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef %3, ptr noundef nonnull %7) #11
   %28 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   %29 = and i32 %28, %19
   %30 = zext i32 %29 to i64
   store i64 %30, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !annotation !9
   %31 = load ptr, ptr %0, align 8
-  %32 = call i32 @pci_read_config_dword(ptr noundef %31, i32 noundef %4, ptr noundef nonnull %6) #10
+  %32 = call i32 @pci_read_config_dword(ptr noundef %31, i32 noundef %4, ptr noundef nonnull %6) #11
   %33 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   %34 = xor i32 %19, -1
   %35 = or i32 %33, %34
   %36 = zext i32 %35 to i64
@@ -1819,14 +1819,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   %46 = load ptr, ptr %45, align 8
-  call void @pcibios_bus_to_resource(ptr noundef %46, ptr noundef %12, ptr noundef nonnull %8) #10
-  %47 = call i32 @pci_claim_resource(ptr noundef %9, i32 noundef %1) #10
+  call void @pcibios_bus_to_resource(ptr noundef %46, ptr noundef %12, ptr noundef nonnull %8) #11
+  %47 = call i32 @pci_claim_resource(ptr noundef %9, i32 noundef %1) #11
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %85, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %9, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %50, ptr noundef nonnull @.str.10, i32 noundef %1) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %50, ptr noundef nonnull @.str.10, i32 noundef %1) #12
   br label %51
 
 51:                                               ; preds = %49, %39, %16
@@ -1888,14 +1888,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocap
 
 83:                                               ; preds = %80, %58
   %84 = getelementptr inbounds i8, ptr %9, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %2) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %2) #12
   store i64 0, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %85
 
 85:                                               ; preds = %83, %80, %77, %74, %70, %67, %64, %58, %55, %52, %44, %5
   %86 = phi i32 [ 0, %83 ], [ 0, %5 ], [ 0, %44 ], [ 1, %58 ], [ 1, %55 ], [ 1, %52 ], [ 1, %70 ], [ 1, %67 ], [ 1, %64 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
   ret i32 %86
 }
 
@@ -1913,7 +1913,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @pci_bus_resource_n(ptr noundef %6, i32 noundef 0) #10
+  %7 = tail call ptr @pci_bus_resource_n(ptr noundef %6, i32 noundef 0) #11
   %8 = icmp ne ptr %7, null
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   br label %10
@@ -1987,7 +1987,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   %53 = phi i32 [ %49, %47 ], [ %58, %51 ]
   %54 = zext i32 %53 to i64
   %55 = zext i32 %52 to i64
-  %56 = tail call i32 @allocate_resource(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %54, i64 noundef %50, i64 noundef 4294967295, i64 noundef %55, ptr noundef null, ptr noundef null) #10
+  %56 = tail call i32 @allocate_resource(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %54, i64 noundef %50, i64 noundef 4294967295, i64 noundef %55, ptr noundef null, ptr noundef null) #11
   %57 = icmp eq i32 %56, 0
   %58 = lshr i32 %53, 1
   %59 = icmp ult i32 %58, %2
@@ -2002,7 +2002,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr @pci_bus_resource_n(ptr noundef %66, i32 noundef %63) #10
+  %67 = tail call ptr @pci_bus_resource_n(ptr noundef %66, i32 noundef %63) #11
   %68 = icmp ne ptr %67, null
   %69 = icmp slt i32 %63, 4
   %70 = or i1 %69, %68
@@ -2027,7 +2027,7 @@ define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2051
-  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #10, !srcloc !8
+  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #11, !srcloc !8
   %6 = and i8 %5, -17
   %7 = icmp eq i8 %6, %5
   br i1 %7, label %14, label %8
@@ -2035,10 +2035,10 @@ define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr i8, ptr %9, i64 2051
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %6, ptr elementtype(i8) %10) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %6, ptr elementtype(i8) %10) #11, !srcloc !7
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr i8, ptr %11, i64 2051
-  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #10, !srcloc !8
+  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #11, !srcloc !8
   br label %14
 
 14:                                               ; preds = %8, %1
@@ -2083,46 +2083,46 @@ define internal void @ti_save_state(ptr nocapture noundef %0) #2 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4, !annotation !9
   %8 = load ptr, ptr %0, align 8
-  %9 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 128, ptr noundef nonnull %7) #10
+  %9 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 128, ptr noundef nonnull %7) #11
   %10 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   %11 = getelementptr inbounds i8, ptr %0, i64 1384
   store i32 %10, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !annotation !9
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 140, ptr noundef nonnull %6) #10
+  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 140, ptr noundef nonnull %6) #11
   %14 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   %15 = getelementptr i8, ptr %0, i64 1400
   store i32 %14, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   store i8 0, ptr %5, align 1, !annotation !9
   %16 = load ptr, ptr %0, align 8
-  %17 = call i32 @pci_read_config_byte(ptr noundef %16, i32 noundef 145, ptr noundef nonnull %5) #10
+  %17 = call i32 @pci_read_config_byte(ptr noundef %16, i32 noundef 145, ptr noundef nonnull %5) #11
   %18 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   %19 = zext i8 %18 to i32
   %20 = getelementptr i8, ptr %0, i64 1388
   store i32 %19, ptr %20, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
   store i8 0, ptr %4, align 1, !annotation !9
   %21 = load ptr, ptr %0, align 8
-  %22 = call i32 @pci_read_config_byte(ptr noundef %21, i32 noundef 146, ptr noundef nonnull %4) #10
+  %22 = call i32 @pci_read_config_byte(ptr noundef %21, i32 noundef 146, ptr noundef nonnull %4) #11
   %23 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
   %24 = zext i8 %23 to i32
   %25 = getelementptr i8, ptr %0, i64 1392
   store i32 %24, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %26 = load ptr, ptr %0, align 8
-  %27 = call i32 @pci_read_config_byte(ptr noundef %26, i32 noundef 147, ptr noundef nonnull %3) #10
+  %27 = call i32 @pci_read_config_byte(ptr noundef %26, i32 noundef 147, ptr noundef nonnull %3) #11
   %28 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %29 = zext i8 %28 to i32
   %30 = getelementptr i8, ptr %0, i64 1396
   store i32 %29, ptr %30, align 4
@@ -2133,11 +2133,11 @@ define internal void @ti_save_state(ptr nocapture noundef %0) #2 align 16 {
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
-  %36 = call i32 @pci_read_config_byte(ptr noundef %31, i32 noundef 201, ptr noundef nonnull %2) #10
+  %36 = call i32 @pci_read_config_byte(ptr noundef %31, i32 noundef 201, ptr noundef nonnull %2) #11
   %37 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %38 = zext i8 %37 to i32
   %39 = getelementptr i8, ptr %0, i64 1404
   store i32 %38, ptr %39, align 4
@@ -2152,26 +2152,26 @@ define internal void @ti_restore_state(ptr nocapture noundef readonly %0) #2 ali
   %2 = getelementptr inbounds i8, ptr %0, i64 1384
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i32 @pci_write_config_dword(ptr noundef %4, i32 noundef 128, i32 noundef %3) #10
+  %5 = tail call i32 @pci_write_config_dword(ptr noundef %4, i32 noundef 128, i32 noundef %3) #11
   %6 = getelementptr i8, ptr %0, i64 1400
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 140, i32 noundef %7) #10
+  %9 = tail call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 140, i32 noundef %7) #11
   %10 = getelementptr i8, ptr %0, i64 1388
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i8
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #10
+  %14 = tail call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #11
   %15 = getelementptr i8, ptr %0, i64 1392
   %16 = load i32, ptr %15, align 8
   %17 = trunc i32 %16 to i8
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 146, i8 noundef zeroext %17) #10
+  %19 = tail call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 146, i8 noundef zeroext %17) #11
   %20 = getelementptr i8, ptr %0, i64 1396
   %21 = load i32, ptr %20, align 4
   %22 = trunc i32 %21 to i8
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 @pci_write_config_byte(ptr noundef %23, i32 noundef 147, i8 noundef zeroext %22) #10
+  %24 = tail call i32 @pci_write_config_byte(ptr noundef %23, i32 noundef 147, i8 noundef zeroext %22) #11
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 60
   %27 = load i16, ptr %26, align 4
@@ -2182,7 +2182,7 @@ define internal void @ti_restore_state(ptr nocapture noundef readonly %0) #2 ali
   %30 = getelementptr i8, ptr %0, i64 1404
   %31 = load i32, ptr %30, align 4
   %32 = trunc i32 %31 to i8
-  %33 = tail call i32 @pci_write_config_byte(ptr noundef %25, i32 noundef 201, i8 noundef zeroext %32) #10
+  %33 = tail call i32 @pci_write_config_byte(ptr noundef %25, i32 noundef 201, i8 noundef zeroext %32) #11
   br label %34
 
 34:                                               ; preds = %29, %1
@@ -2194,7 +2194,7 @@ define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2051
-  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #10, !srcloc !8
+  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #11, !srcloc !8
   %6 = and i8 %5, -17
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 916
@@ -2208,10 +2208,10 @@ define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align
 14:                                               ; preds = %1
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr i8, ptr %15, i64 2051
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %12, ptr elementtype(i8) %16) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %12, ptr elementtype(i8) %16) #11, !srcloc !7
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr i8, ptr %17, i64 2051
-  %19 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18) #10, !srcloc !8
+  %19 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18) #11, !srcloc !8
   br label %20
 
 20:                                               ; preds = %14, %1
@@ -2221,12 +2221,12 @@ define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 16 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
   %3 = load ptr, ptr %0, align 8
-  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 145, ptr noundef nonnull %2) #10
+  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 145, ptr noundef nonnull %2) #11
   %5 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 916
   %8 = load i32, ptr %7, align 4
@@ -2235,106 +2235,100 @@ define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 
 
 10:                                               ; preds = %1
   %11 = or i8 %5, 56
-  br label %45
+  br label %41
 
 12:                                               ; preds = %1
   %13 = and i8 %5, -57
   %14 = load i8, ptr @isa_probe, align 1, !range !11, !noundef !12
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %45, label %16
+  br i1 %15, label %41, label %16
 
 16:                                               ; preds = %12
   %17 = call fastcc i32 @yenta_probe_irq(ptr noundef %0)
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %45, label %.preheader
+  br i1 %18, label %41, label %.preheader.preheader
 
-.preheader:                                       ; preds = %16, %.preheader
-  %19 = phi i32 [ %21, %.preheader ], [ %17, %16 ]
-  %20 = phi i32 [ %22, %.preheader ], [ -1, %16 ]
-  %21 = lshr i32 %19, 1
-  %22 = add nsw i32 %20, 1
-  %23 = icmp ult i32 %19, 2
-  br i1 %23, label %24, label %.preheader, !llvm.loop !21
-
-24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %22, ptr %25, align 8
-  %26 = trunc i32 %22 to i8
-  %27 = shl i8 %26, 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %29, i64 2053
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %27, ptr elementtype(i8) %30) #10, !srcloc !7
-  %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr i8, ptr %31, i64 2053
-  %33 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %32) #10, !srcloc !8
-  %34 = load ptr, ptr %28, align 8
+.preheader.preheader:                             ; preds = %16
+  %19 = call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
+  %20 = xor i32 %19, 31
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %20, ptr %21, align 8
+  %22 = trunc nuw nsw i32 %20 to i8
+  %23 = shl nuw i8 %22, 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %25, i64 2053
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %23, ptr elementtype(i8) %26) #11, !srcloc !7
+  %27 = load ptr, ptr %24, align 8
+  %28 = getelementptr i8, ptr %27, i64 2053
+  %29 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28) #11, !srcloc !8
+  %30 = load ptr, ptr %24, align 8
+  %31 = getelementptr i8, ptr %30, i64 2051
+  %32 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %31) #11, !srcloc !8
+  %33 = and i8 %32, -32
+  %34 = load ptr, ptr %24, align 8
   %35 = getelementptr i8, ptr %34, i64 2051
-  %36 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #10, !srcloc !8
-  %37 = and i8 %36, -32
-  %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr i8, ptr %38, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %37, ptr elementtype(i8) %39) #10, !srcloc !7
-  %40 = load ptr, ptr %28, align 8
-  %41 = getelementptr i8, ptr %40, i64 2051
-  %42 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %41) #10, !srcloc !8
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %33, ptr elementtype(i8) %35) #11, !srcloc !7
+  %36 = load ptr, ptr %24, align 8
+  %37 = getelementptr i8, ptr %36, i64 2051
+  %38 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %37) #11, !srcloc !8
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.12, i32 noundef %20) #12
+  br label %41
+
+41:                                               ; preds = %.preheader.preheader, %16, %12, %10
+  %42 = phi i8 [ %11, %10 ], [ %13, %12 ], [ %13, %16 ], [ %13, %.preheader.preheader ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %44, ptr noundef nonnull @.str.12, i32 noundef %22) #11
-  br label %45
+  %44 = call i32 @pci_write_config_byte(ptr noundef %43, i32 noundef 145, i8 noundef zeroext %42) #11
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr i8, ptr %46, i64 2051
+  %48 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47) #11, !srcloc !8
+  %49 = and i8 %48, -17
+  %50 = icmp eq i8 %49, %48
+  br i1 %50, label %57, label %51
 
-45:                                               ; preds = %24, %16, %12, %10
-  %46 = phi i8 [ %11, %10 ], [ %13, %12 ], [ %13, %16 ], [ %13, %24 ]
-  %47 = load ptr, ptr %0, align 8
-  %48 = call i32 @pci_write_config_byte(ptr noundef %47, i32 noundef 145, i8 noundef zeroext %46) #10
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr i8, ptr %50, i64 2051
-  %52 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51) #10, !srcloc !8
-  %53 = and i8 %52, -17
-  %54 = icmp eq i8 %53, %52
-  br i1 %54, label %61, label %55
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %45, align 8
+  %53 = getelementptr i8, ptr %52, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %49, ptr elementtype(i8) %53) #11, !srcloc !7
+  %54 = load ptr, ptr %45, align 8
+  %55 = getelementptr i8, ptr %54, i64 2051
+  %56 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #11, !srcloc !8
+  br label %57
 
-55:                                               ; preds = %45
-  %56 = load ptr, ptr %49, align 8
-  %57 = getelementptr i8, ptr %56, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #10, !srcloc !7
-  %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr i8, ptr %58, i64 2051
-  %60 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59) #10, !srcloc !8
-  br label %61
+57:                                               ; preds = %51, %41
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 60
+  %60 = load i16, ptr %59, align 4
+  %61 = icmp eq i16 %60, 4172
+  br i1 %61, label %62, label %69
 
-61:                                               ; preds = %55, %45
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 60
-  %64 = load i16, ptr %63, align 4
-  %65 = icmp eq i16 %64, 4172
-  br i1 %65, label %66, label %73
-
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %62, i64 62
-  %68 = load i16, ptr %67, align 2
-  switch i16 %68, label %73 [
-    i16 -21481, label %70
-    i16 -21479, label %70
-    i16 -21476, label %70
-    i16 -21436, label %70
-    i16 -21482, label %69
-    i16 -21475, label %69
-    i16 -21473, label %69
-    i16 -21477, label %69
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds i8, ptr %58, i64 62
+  %64 = load i16, ptr %63, align 2
+  switch i16 %64, label %69 [
+    i16 -21481, label %66
+    i16 -21479, label %66
+    i16 -21476, label %66
+    i16 -21436, label %66
+    i16 -21482, label %65
+    i16 -21475, label %65
+    i16 -21473, label %65
+    i16 -21477, label %65
   ]
 
-69:                                               ; preds = %66, %66, %66, %66
-  br label %70
+65:                                               ; preds = %62, %62, %62, %62
+  br label %66
 
-70:                                               ; preds = %69, %66, %66, %66, %66
-  %71 = phi ptr [ @ti1250_zoom_video, %69 ], [ @ti_zoom_video, %66 ], [ @ti_zoom_video, %66 ], [ @ti_zoom_video, %66 ], [ @ti_zoom_video, %66 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 440
-  store ptr %71, ptr %72, align 8
-  br label %73
+66:                                               ; preds = %65, %62, %62, %62, %62
+  %67 = phi ptr [ @ti1250_zoom_video, %65 ], [ @ti_zoom_video, %62 ], [ @ti_zoom_video, %62 ], [ @ti_zoom_video, %62 ], [ @ti_zoom_video, %62 ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr %67, ptr %68, align 8
+  br label %69
 
-73:                                               ; preds = %70, %66, %61
+69:                                               ; preds = %66, %62, %57
   ret i32 0
 }
 
@@ -2350,12 +2344,12 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
   store i32 0, ptr %11, align 4, !annotation !9
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 128, ptr noundef nonnull %11) #10
+  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 128, ptr noundef nonnull %11) #11
   %14 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   %15 = load i8, ptr @disable_clkrun, align 1, !range !11, !noundef !12
   %16 = icmp eq i8 %15, 0
   %.pre22.pre24.pre26 = load ptr, ptr %0, align 8
@@ -2370,7 +2364,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %.pre22.pre24.pre26, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %23, ptr noundef nonnull @.str.13) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %23, ptr noundef nonnull @.str.13) #12
   %24 = or i32 %14, 2
   %.pre22.pre24.pre = load ptr, ptr %0, align 8
   br label %25
@@ -2384,7 +2378,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %.pre22.pre24, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %30, ptr noundef nonnull @.str.14) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %30, ptr noundef nonnull @.str.14) #12
   %31 = or disjoint i32 %26, 16384
   %.pre22.pre = load ptr, ptr %0, align 8
   br label %32
@@ -2396,30 +2390,30 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = call i32 @pci_write_config_dword(ptr noundef %.pre22, i32 noundef 128, i32 noundef %33) #10
+  %36 = call i32 @pci_write_config_dword(ptr noundef %.pre22, i32 noundef 128, i32 noundef %33) #11
   %.pre = load ptr, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %35, %32
   %38 = phi ptr [ %.pre, %35 ], [ %.pre22, %32 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #11
   store i8 0, ptr %10, align 1, !annotation !9
-  %39 = call i32 @pci_read_config_byte(ptr noundef %38, i32 noundef 147, ptr noundef nonnull %10) #10
+  %39 = call i32 @pci_read_config_byte(ptr noundef %38, i32 noundef 147, ptr noundef nonnull %10) #11
   %40 = load i8, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #11
   %41 = zext i8 %40 to i32
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 184
   %44 = and i32 %41, 32
   %45 = icmp eq i32 %44, 0
   %46 = select i1 %45, ptr @.str.17, ptr @.str.16
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %43, ptr noundef nonnull @.str.15, ptr noundef nonnull %46) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %43, ptr noundef nonnull @.str.15, ptr noundef nonnull %46) #12
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 184
   %49 = and i32 %41, 64
   %50 = icmp eq i32 %49, 0
   %51 = select i1 %50, ptr @.str.20, ptr @.str.19
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %48, ptr noundef nonnull @.str.18, ptr noundef nonnull %51) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %48, ptr noundef nonnull @.str.18, ptr noundef nonnull %51) #12
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 56
   %54 = load i32, ptr %53, align 8
@@ -2428,25 +2422,25 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %56, label %57, label %147
 
 57:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   store i32 0, ptr %9, align 4, !annotation !9
-  %58 = call i32 @pci_read_config_dword(ptr noundef %52, i32 noundef 140, ptr noundef nonnull %9) #10
+  %58 = call i32 @pci_read_config_dword(ptr noundef %52, i32 noundef 140, ptr noundef nonnull %9) #11
   %59 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   store i8 0, ptr %8, align 1, !annotation !9
   %60 = load ptr, ptr %0, align 8
-  %61 = call i32 @pci_read_config_byte(ptr noundef %60, i32 noundef 146, ptr noundef nonnull %8) #10
+  %61 = call i32 @pci_read_config_byte(ptr noundef %60, i32 noundef 146, ptr noundef nonnull %8) #11
   %62 = load i8, ptr %8, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
   %63 = zext i8 %62 to i32
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %65, ptr noundef nonnull @.str.21, i32 noundef %59, i32 noundef %63) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %65, ptr noundef nonnull @.str.21, i32 noundef %59, i32 noundef %63) #12
   %66 = getelementptr inbounds i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 2051
-  %69 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %68) #10, !srcloc !8
+  %69 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %68) #11, !srcloc !8
   %70 = and i8 %69, -17
   %71 = load ptr, ptr %0, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 916
@@ -2460,10 +2454,10 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 78:                                               ; preds = %57
   %79 = load ptr, ptr %66, align 8
   %80 = getelementptr i8, ptr %79, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %76, ptr elementtype(i8) %80) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %76, ptr elementtype(i8) %80) #11, !srcloc !7
   %81 = load ptr, ptr %66, align 8
   %82 = getelementptr i8, ptr %81, i64 2051
-  %83 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %82) #10, !srcloc !8
+  %83 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %82) #11, !srcloc !8
   br label %84
 
 84:                                               ; preds = %78, %57
@@ -2474,7 +2468,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 87:                                               ; preds = %84
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %89, ptr noundef nonnull @.str.22) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %89, ptr noundef nonnull @.str.22) #12
   %90 = and i32 %63, 6
   %91 = icmp eq i32 %90, 6
   br i1 %91, label %92, label %114
@@ -2500,14 +2494,14 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %99, label %108, label %100
 
 100:                                              ; preds = %96
-  %101 = call i32 @pci_write_config_dword(ptr noundef %93, i32 noundef 140, i32 noundef %98) #10
+  %101 = call i32 @pci_write_config_dword(ptr noundef %93, i32 noundef 140, i32 noundef %98) #11
   %102 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
   %103 = icmp eq i32 %102, 1
   %104 = load ptr, ptr %0, align 8
   br i1 %103, label %.thread.sink.split, label %105
 
 105:                                              ; preds = %100
-  %106 = call i32 @pci_write_config_dword(ptr noundef %104, i32 noundef 140, i32 noundef %59) #10
+  %106 = call i32 @pci_write_config_dword(ptr noundef %104, i32 noundef 140, i32 noundef %59) #11
   %107 = icmp eq i32 %102, -1
   br i1 %107, label %.thread20, label %._crit_edge
 
@@ -2518,10 +2512,10 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 108:                                              ; preds = %._crit_edge, %96, %92, %92, %92, %92, %92, %92, %92
   %109 = phi ptr [ %.pre23, %._crit_edge ], [ %93, %96 ], [ %93, %92 ], [ %93, %92 ], [ %93, %92 ], [ %93, %92 ], [ %93, %92 ], [ %93, %92 ], [ %93, %92 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %110, ptr noundef nonnull @.str.24) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %110, ptr noundef nonnull @.str.24) #12
   %111 = and i8 %62, -3
   %112 = load ptr, ptr %0, align 8
-  %113 = call i32 @pci_write_config_byte(ptr noundef %112, i32 noundef 146, i8 noundef zeroext %111) #10
+  %113 = call i32 @pci_write_config_byte(ptr noundef %112, i32 noundef 146, i8 noundef zeroext %111) #11
   br label %114
 
 114:                                              ; preds = %108, %87
@@ -2536,18 +2530,18 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   ]
 
 118:                                              ; preds = %114, %114, %114, %114
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
   store i8 0, ptr %7, align 1, !annotation !9
-  %119 = call i32 @pci_read_config_byte(ptr noundef %115, i32 noundef 139, ptr noundef nonnull %7) #10
+  %119 = call i32 @pci_read_config_byte(ptr noundef %115, i32 noundef 139, ptr noundef nonnull %7) #11
   %120 = load i8, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
   %121 = and i8 %120, 63
   %122 = icmp ult i8 %120, 64
   br i1 %122, label %132, label %123
 
 123:                                              ; preds = %118
   %124 = load ptr, ptr %0, align 8
-  %125 = call i32 @pci_write_config_byte(ptr noundef %124, i32 noundef 139, i8 noundef zeroext %121) #10
+  %125 = call i32 @pci_write_config_byte(ptr noundef %124, i32 noundef 139, i8 noundef zeroext %121) #11
   br label %132
 
 126:                                              ; preds = %114
@@ -2557,7 +2551,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %129, label %132, label %130
 
 130:                                              ; preds = %126
-  %131 = call i32 @pci_write_config_dword(ptr noundef %115, i32 noundef 140, i32 noundef %128) #10
+  %131 = call i32 @pci_write_config_dword(ptr noundef %115, i32 noundef 140, i32 noundef %128) #11
   br label %132
 
 132:                                              ; preds = %130, %126, %123, %118
@@ -2569,13 +2563,13 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %136, label %.thread.sink.split, label %138
 
 138:                                              ; preds = %132
-  %139 = call i32 @pci_write_config_dword(ptr noundef %137, i32 noundef 140, i32 noundef %59) #10
+  %139 = call i32 @pci_write_config_dword(ptr noundef %137, i32 noundef 140, i32 noundef %59) #11
   %140 = icmp eq i8 %133, %134
   br i1 %140, label %144, label %141
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %0, align 8
-  %143 = call i32 @pci_write_config_byte(ptr noundef %142, i32 noundef 139, i8 noundef zeroext %134) #10
+  %143 = call i32 @pci_write_config_byte(ptr noundef %142, i32 noundef 139, i8 noundef zeroext %134) #11
   br label %144
 
 144:                                              ; preds = %141, %138, %84
@@ -2584,27 +2578,27 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %146, label %.thread20, label %.thread
 
 147:                                              ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !9
-  %148 = call i32 @pci_read_config_dword(ptr noundef %52, i32 noundef 140, ptr noundef nonnull %4) #10
+  %148 = call i32 @pci_read_config_dword(ptr noundef %52, i32 noundef 140, ptr noundef nonnull %4) #11
   %149 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %150 = load ptr, ptr %0, align 8
-  %151 = call i32 @pci_read_config_byte(ptr noundef %150, i32 noundef 146, ptr noundef nonnull %3) #10
+  %151 = call i32 @pci_read_config_byte(ptr noundef %150, i32 noundef 146, ptr noundef nonnull %3) #11
   %152 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %153 = zext i8 %152 to i32
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %155, ptr noundef nonnull @.str.21, i32 noundef %149, i32 noundef %153) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %155, ptr noundef nonnull @.str.21, i32 noundef %149, i32 noundef %153) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4, !annotation !9
   %156 = load ptr, ptr %0, align 8
-  %157 = call i32 @pci_read_config_dword(ptr noundef %156, i32 noundef 128, ptr noundef nonnull %2) #10
+  %157 = call i32 @pci_read_config_dword(ptr noundef %156, i32 noundef 128, ptr noundef nonnull %2) #11
   %158 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   %159 = and i32 %158, 536870912
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %176, label %161
@@ -2616,7 +2610,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   %165 = getelementptr inbounds i8, ptr %162, i64 56
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, -8
-  %168 = call ptr @pci_get_slot(ptr noundef %164, i32 noundef %167) #10
+  %168 = call ptr @pci_get_slot(ptr noundef %164, i32 noundef %167) #11
   %169 = icmp eq ptr %168, null
   br i1 %169, label %176, label %170
 
@@ -2628,14 +2622,14 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   store i32 %172, ptr %174, align 4
   %175 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %172, ptr %175, align 8
-  call void @pci_dev_put(ptr noundef nonnull %168) #10
+  call void @pci_dev_put(ptr noundef nonnull %168) #11
   br label %176
 
 176:                                              ; preds = %170, %161, %147
   %177 = getelementptr inbounds i8, ptr %0, i64 16
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr i8, ptr %178, i64 2051
-  %180 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %179) #10, !srcloc !8
+  %180 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %179) #11, !srcloc !8
   %181 = and i8 %180, -17
   %182 = load ptr, ptr %0, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 916
@@ -2649,10 +2643,10 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 189:                                              ; preds = %176
   %190 = load ptr, ptr %177, align 8
   %191 = getelementptr i8, ptr %190, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %187, ptr elementtype(i8) %191) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %187, ptr elementtype(i8) %191) #11, !srcloc !7
   %192 = load ptr, ptr %177, align 8
   %193 = getelementptr i8, ptr %192, i64 2051
-  %194 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %193) #10, !srcloc !8
+  %194 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %193) #11, !srcloc !8
   br label %195
 
 195:                                              ; preds = %189, %176
@@ -2663,13 +2657,13 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 198:                                              ; preds = %195
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %200, ptr noundef nonnull @.str.22) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %200, ptr noundef nonnull @.str.22) #12
   %201 = and i32 %153, 6
   %202 = icmp eq i32 %201, 6
   br i1 %202, label %203, label %216
 
 203:                                              ; preds = %198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4, !annotation !9
   %204 = call fastcc i32 @ti12xx_tie_interrupts(ptr noundef %0, ptr noundef nonnull %5), !range !10
   %205 = icmp eq i32 %204, 0
@@ -2683,7 +2677,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 209:                                              ; preds = %206
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %211, ptr noundef nonnull @.str.28) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %211, ptr noundef nonnull @.str.28) #12
   br label %214
 
 212:                                              ; preds = %206
@@ -2693,11 +2687,11 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 
 214:                                              ; preds = %212, %209, %203
   %215 = phi i32 [ 1, %209 ], [ %207, %212 ], [ 0, %203 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %248
 
 216:                                              ; preds = %198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !annotation !9
   %217 = load ptr, ptr %0, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 62
@@ -2721,7 +2715,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br i1 %224, label %.thread21, label %225
 
 225:                                              ; preds = %221
-  %226 = call i32 @pci_write_config_dword(ptr noundef %217, i32 noundef 140, i32 noundef %223) #10
+  %226 = call i32 @pci_write_config_dword(ptr noundef %217, i32 noundef 140, i32 noundef %223) #11
   %227 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
   %228 = icmp eq i32 %227, 1
   %229 = load ptr, ptr %0, align 8
@@ -2729,11 +2723,11 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 
 230:                                              ; preds = %225
   %231 = getelementptr inbounds i8, ptr %229, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %231, ptr noundef nonnull @.str.25) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %231, ptr noundef nonnull @.str.25) #12
   br label %246
 
 232:                                              ; preds = %225
-  %233 = call i32 @pci_write_config_dword(ptr noundef %229, i32 noundef 140, i32 noundef %149) #10
+  %233 = call i32 @pci_write_config_dword(ptr noundef %229, i32 noundef 140, i32 noundef %149) #11
   %234 = icmp eq i32 %227, -1
   br i1 %234, label %246, label %.thread21
 
@@ -2751,7 +2745,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 241:                                              ; preds = %238
   %242 = load ptr, ptr %0, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %243, ptr noundef nonnull @.str.29) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %243, ptr noundef nonnull @.str.29) #12
   br label %246
 
 244:                                              ; preds = %238
@@ -2761,7 +2755,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 
 246:                                              ; preds = %244, %241, %.thread21, %232, %230
   %247 = phi i32 [ 1, %230 ], [ 1, %241 ], [ -1, %232 ], [ %239, %244 ], [ %235, %.thread21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %248
 
 248:                                              ; preds = %246, %214, %195
@@ -2780,7 +2774,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   %.sink30 = phi ptr [ %253, %.thread20 ], [ %104, %100 ], [ %137, %132 ]
   %.str.25.sink = phi ptr [ %251, %.thread20 ], [ @.str.23, %100 ], [ @.str.25, %132 ]
   %254 = getelementptr inbounds i8, ptr %.sink30, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %254, ptr noundef nonnull %.str.25.sink) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %254, ptr noundef nonnull %.str.25.sink) #12
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %248, %144
@@ -2789,7 +2783,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   %256 = getelementptr inbounds i8, ptr %0, i64 16
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr i8, ptr %257, i64 2051
-  %259 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %258) #10, !srcloc !8
+  %259 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %258) #11, !srcloc !8
   %260 = and i8 %259, -17
   %261 = icmp eq i8 %260, %259
   br i1 %261, label %268, label %262
@@ -2797,10 +2791,10 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 262:                                              ; preds = %.thread
   %263 = load ptr, ptr %256, align 8
   %264 = getelementptr i8, ptr %263, i64 2051
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %260, ptr elementtype(i8) %264) #10, !srcloc !7
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %260, ptr elementtype(i8) %264) #11, !srcloc !7
   %265 = load ptr, ptr %256, align 8
   %266 = getelementptr i8, ptr %265, i64 2051
-  %267 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %266) #10, !srcloc !8
+  %267 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %266) #11, !srcloc !8
   br label %268
 
 268:                                              ; preds = %262, %.thread
@@ -2840,12 +2834,12 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ti1250_override(ptr noundef %0) #2 align 16 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
   %3 = load ptr, ptr %0, align 8
-  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 147, ptr noundef nonnull %2) #10
+  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 147, ptr noundef nonnull %2) #11
   %5 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %6 = and i8 %5, -97
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
@@ -2860,9 +2854,9 @@ define internal noundef i32 @ti1250_override(ptr noundef %0) #2 align 16 {
   %15 = zext i8 %11 to i32
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.31, i32 noundef %14, i32 noundef %15) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.31, i32 noundef %14, i32 noundef %15) #12
   %18 = load ptr, ptr %0, align 8
-  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 147, i8 noundef zeroext %11) #10
+  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 147, i8 noundef zeroext %11) #11
   br label %20
 
 20:                                               ; preds = %13, %1
@@ -2874,12 +2868,12 @@ define internal noundef i32 @ti1250_override(ptr noundef %0) #2 align 16 {
 define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
   store i16 0, ptr %3, align 2, !annotation !9
   %4 = load ptr, ptr %0, align 8
-  %5 = call i32 @pci_read_config_word(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %5 = call i32 @pci_read_config_word(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #11
   %6 = load i16, ptr %3, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 62
   %9 = load i16, ptr %8, align 2
@@ -2887,9 +2881,9 @@ define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 1
   %11 = zext i1 %10 to i16
   %12 = or i16 %6, %11
   %13 = select i1 %10, i16 768, i16 816
-  %14 = call i32 @pci_write_config_word(ptr noundef %7, i32 noundef 132, i16 noundef zeroext %13) #10
+  %14 = call i32 @pci_write_config_word(ptr noundef %7, i32 noundef 132, i16 noundef zeroext %13) #11
   %15 = load ptr, ptr %0, align 8
-  %16 = call i32 @pci_write_config_word(ptr noundef %15, i32 noundef 128, i16 noundef zeroext %12) #10
+  %16 = call i32 @pci_write_config_word(ptr noundef %15, i32 noundef 128, i16 noundef zeroext %12) #11
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 60
   %19 = load i16, ptr %18, align 4
@@ -2922,11 +2916,11 @@ define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 1
   br i1 %33, label %48, label %34
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
-  %35 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 162, ptr noundef nonnull %2) #10
+  %35 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 162, ptr noundef nonnull %2) #11
   %36 = load i16, ptr %2, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %37 = and i16 %36, 2
   %38 = icmp ne i16 %37, 0
   %39 = load i8, ptr @disable_clkrun, align 1, !range !11
@@ -2937,10 +2931,10 @@ define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 1
 42:                                               ; preds = %34
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %44, ptr noundef nonnull @.str.13) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %44, ptr noundef nonnull @.str.13) #12
   %45 = or disjoint i16 %36, 2
   %46 = load ptr, ptr %0, align 8
-  %47 = call i32 @pci_write_config_word(ptr noundef %46, i32 noundef 162, i16 noundef zeroext %45) #10
+  %47 = call i32 @pci_write_config_word(ptr noundef %46, i32 noundef 162, i16 noundef zeroext %45) #11
   br label %48
 
 48:                                               ; preds = %42, %34, %30, %27
@@ -2954,48 +2948,48 @@ define internal void @ricoh_save_state(ptr nocapture noundef %0) #2 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #11
   store i16 0, ptr %6, align 2, !annotation !9
   %7 = load ptr, ptr %0, align 8
-  %8 = call i32 @pci_read_config_word(ptr noundef %7, i32 noundef 130, ptr noundef nonnull %6) #10
+  %8 = call i32 @pci_read_config_word(ptr noundef %7, i32 noundef 130, ptr noundef nonnull %6) #11
   %9 = load i16, ptr %6, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
   %10 = zext i16 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 1384
   store i32 %10, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #11
   store i16 0, ptr %5, align 2, !annotation !9
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 132, ptr noundef nonnull %5) #10
+  %13 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 132, ptr noundef nonnull %5) #11
   %14 = load i16, ptr %5, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #11
   %15 = zext i16 %14 to i32
   %16 = getelementptr i8, ptr %0, i64 1388
   store i32 %15, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #11
   store i16 0, ptr %4, align 2, !annotation !9
   %17 = load ptr, ptr %0, align 8
-  %18 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 136, ptr noundef nonnull %4) #10
+  %18 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 136, ptr noundef nonnull %4) #11
   %19 = load i16, ptr %4, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #11
   %20 = zext i16 %19 to i32
   %21 = getelementptr i8, ptr %0, i64 1392
   store i32 %20, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
   store i16 0, ptr %3, align 2, !annotation !9
   %22 = load ptr, ptr %0, align 8
-  %23 = call i32 @pci_read_config_word(ptr noundef %22, i32 noundef 138, ptr noundef nonnull %3) #10
+  %23 = call i32 @pci_read_config_word(ptr noundef %22, i32 noundef 138, ptr noundef nonnull %3) #11
   %24 = load i16, ptr %3, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
   %25 = zext i16 %24 to i32
   %26 = getelementptr i8, ptr %0, i64 1396
   store i32 %25, ptr %26, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
   %27 = load ptr, ptr %0, align 8
-  %28 = call i32 @pci_read_config_word(ptr noundef %27, i32 noundef 128, ptr noundef nonnull %2) #10
+  %28 = call i32 @pci_read_config_word(ptr noundef %27, i32 noundef 128, ptr noundef nonnull %2) #11
   %29 = load i16, ptr %2, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %30 = zext i16 %29 to i32
   %31 = getelementptr i8, ptr %0, i64 1400
   store i32 %30, ptr %31, align 8
@@ -3009,27 +3003,27 @@ define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 
   %4 = load i32, ptr %3, align 8
   %5 = trunc i32 %4 to i16
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @pci_write_config_word(ptr noundef %6, i32 noundef 130, i16 noundef zeroext %5) #10
+  %7 = tail call i32 @pci_write_config_word(ptr noundef %6, i32 noundef 130, i16 noundef zeroext %5) #11
   %8 = getelementptr i8, ptr %0, i64 1388
   %9 = load i32, ptr %8, align 4
   %10 = trunc i32 %9 to i16
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call i32 @pci_write_config_word(ptr noundef %11, i32 noundef 132, i16 noundef zeroext %10) #10
+  %12 = tail call i32 @pci_write_config_word(ptr noundef %11, i32 noundef 132, i16 noundef zeroext %10) #11
   %13 = getelementptr i8, ptr %0, i64 1392
   %14 = load i32, ptr %13, align 8
   %15 = trunc i32 %14 to i16
   %16 = load ptr, ptr %0, align 8
-  %17 = tail call i32 @pci_write_config_word(ptr noundef %16, i32 noundef 136, i16 noundef zeroext %15) #10
+  %17 = tail call i32 @pci_write_config_word(ptr noundef %16, i32 noundef 136, i16 noundef zeroext %15) #11
   %18 = getelementptr i8, ptr %0, i64 1396
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i16
   %21 = load ptr, ptr %0, align 8
-  %22 = tail call i32 @pci_write_config_word(ptr noundef %21, i32 noundef 138, i16 noundef zeroext %20) #10
+  %22 = tail call i32 @pci_write_config_word(ptr noundef %21, i32 noundef 138, i16 noundef zeroext %20) #11
   %23 = getelementptr i8, ptr %0, i64 1400
   %24 = load i32, ptr %23, align 8
   %25 = trunc i32 %24 to i16
   %26 = load ptr, ptr %0, align 8
-  %27 = tail call i32 @pci_write_config_word(ptr noundef %26, i32 noundef 128, i16 noundef zeroext %25) #10
+  %27 = tail call i32 @pci_write_config_word(ptr noundef %26, i32 noundef 128, i16 noundef zeroext %25) #11
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 62
   %30 = load i16, ptr %29, align 2
@@ -3045,11 +3039,11 @@ define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
-  %36 = call i32 @pci_read_config_word(ptr noundef %28, i32 noundef 162, ptr noundef nonnull %2) #10
+  %36 = call i32 @pci_read_config_word(ptr noundef %28, i32 noundef 162, ptr noundef nonnull %2) #11
   %37 = load i16, ptr %2, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   %38 = and i16 %37, 2
   %39 = icmp ne i16 %38, 0
   %40 = load i8, ptr @disable_clkrun, align 1, !range !11
@@ -3060,7 +3054,7 @@ define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 
 43:                                               ; preds = %35
   %44 = or disjoint i16 %37, 2
   %45 = load ptr, ptr %0, align 8
-  %46 = call i32 @pci_write_config_word(ptr noundef %45, i32 noundef 162, i16 noundef zeroext %44) #10
+  %46 = call i32 @pci_write_config_word(ptr noundef %45, i32 noundef 162, i16 noundef zeroext %44) #11
   br label %47
 
 47:                                               ; preds = %43, %35, %31, %1
@@ -3070,25 +3064,25 @@ define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align 16 {
   %2 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #11
   store i16 0, ptr %2, align 2, !annotation !9
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 2110
-  %6 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5) #10, !srcloc !8
+  %6 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5) #11, !srcloc !8
   %7 = or i8 %6, 1
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr i8, ptr %8, i64 2110
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, ptr elementtype(i8) %9) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, ptr elementtype(i8) %9) #11, !srcloc !7
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 2110
-  %12 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11) #10, !srcloc !8
+  %12 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11) #11, !srcloc !8
   %13 = getelementptr inbounds i8, ptr %0, i64 1376
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, 3
   store i32 %15, ptr %13, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = call i32 @pci_read_config_word(ptr noundef %16, i32 noundef 62, ptr noundef nonnull %2) #10
+  %17 = call i32 @pci_read_config_word(ptr noundef %16, i32 noundef 62, ptr noundef nonnull %2) #11
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %33
 
@@ -3108,14 +3102,14 @@ define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align
 28:                                               ; preds = %24
   %29 = and i16 %25, -1025
   store i16 %29, ptr %2, align 2
-  %30 = call i32 @pci_write_config_word(ptr noundef %20, i32 noundef 62, i16 noundef zeroext %29) #10
+  %30 = call i32 @pci_write_config_word(ptr noundef %20, i32 noundef 62, i16 noundef zeroext %29) #11
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %32, ptr noundef nonnull @.str.32) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %32, ptr noundef nonnull @.str.32) #12
   br label %33
 
 33:                                               ; preds = %28, %24, %19, %1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #11
   ret i32 0
 }
 
@@ -3138,17 +3132,17 @@ define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0)
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
-  %10 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 148, ptr noundef nonnull %3) #10
+  %10 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 148, ptr noundef nonnull %3) #11
   %11 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef 212, ptr noundef nonnull %2) #10
+  %13 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef 212, ptr noundef nonnull %2) #11
   %14 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 62
   %17 = load i16, ptr %16, align 2
@@ -3190,7 +3184,7 @@ define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0)
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %15, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %32, ptr noundef nonnull @.str.36) #11
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %32, ptr noundef nonnull @.str.36) #12
   %.pre = load ptr, ptr %0, align 8
   br label %33
 
@@ -3201,26 +3195,26 @@ define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0)
 
 36:                                               ; preds = %.thread1, %33
   %37 = phi ptr [ %23, %.thread1 ], [ %35, %33 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %37, ptr noundef nonnull @.str.37) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %37, ptr noundef nonnull @.str.37) #12
   %38 = or i8 %11, 10
   %39 = load ptr, ptr %0, align 8
-  %40 = call i32 @pci_write_config_byte(ptr noundef %39, i32 noundef 148, i8 noundef zeroext %38) #10
+  %40 = call i32 @pci_write_config_byte(ptr noundef %39, i32 noundef 148, i8 noundef zeroext %38) #11
   %41 = or i8 %14, 10
   br label %48
 
 42:                                               ; preds = %.thread, %33
   %43 = phi ptr [ %27, %.thread ], [ %35, %33 ]
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %43, ptr noundef nonnull @.str.38) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %43, ptr noundef nonnull @.str.38) #12
   %44 = and i8 %11, -11
   %45 = load ptr, ptr %0, align 8
-  %46 = call i32 @pci_write_config_byte(ptr noundef %45, i32 noundef 148, i8 noundef zeroext %44) #10
+  %46 = call i32 @pci_write_config_byte(ptr noundef %45, i32 noundef 148, i8 noundef zeroext %44) #11
   %47 = and i8 %14, -11
   br label %48
 
 48:                                               ; preds = %42, %36
   %49 = phi i8 [ %41, %36 ], [ %47, %42 ]
   %50 = load ptr, ptr %0, align 8
-  %51 = call i32 @pci_write_config_byte(ptr noundef %50, i32 noundef 212, i8 noundef zeroext %49) #10
+  %51 = call i32 @pci_write_config_byte(ptr noundef %50, i32 noundef 212, i8 noundef zeroext %49) #11
   br label %52
 
 52:                                               ; preds = %48, %1
@@ -3238,12 +3232,12 @@ define internal noundef i32 @ene_override(ptr noundef %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   store ptr @ene_tune_bridge, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 0, ptr %2, align 1, !annotation !9
   %4 = load ptr, ptr %0, align 8
-  %5 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 147, ptr noundef nonnull %2) #10
+  %5 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 147, ptr noundef nonnull %2) #11
   %6 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %7 = and i8 %6, -97
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
@@ -3258,9 +3252,9 @@ define internal noundef i32 @ene_override(ptr noundef %0) #2 align 16 {
   %16 = zext i8 %12 to i32
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %18, ptr noundef nonnull @.str.31, i32 noundef %15, i32 noundef %16) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %18, ptr noundef nonnull @.str.31, i32 noundef %15, i32 noundef %16) #12
   %19 = load ptr, ptr %0, align 8
-  %20 = call i32 @pci_write_config_byte(ptr noundef %19, i32 noundef 147, i8 noundef zeroext %12) #10
+  %20 = call i32 @pci_write_config_byte(ptr noundef %19, i32 noundef 147, i8 noundef zeroext %12) #11
   br label %21
 
 21:                                               ; preds = %14, %1
@@ -3272,18 +3266,18 @@ define internal noundef i32 @ene_override(ptr noundef %0) #2 align 16 {
 define internal void @ti_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 145, ptr noundef nonnull %3) #10
+  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 145, ptr noundef nonnull %3) #11
   %7 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %8 = icmp eq i32 %1, 0
   %9 = and i8 %7, -65
   %10 = select i1 %8, i8 0, i8 64
   %11 = or disjoint i8 %9, %10
   %12 = load ptr, ptr %4, align 8
-  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 145, i8 noundef zeroext %11) #10
+  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 145, i8 noundef zeroext %11) #11
   ret void
 }
 
@@ -3292,24 +3286,24 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
   store i8 0, ptr %4, align 1, !annotation !9
   %6 = load ptr, ptr %5, align 8
-  %7 = call i32 @pci_read_config_byte(ptr noundef %6, i32 noundef 145, ptr noundef nonnull %4) #10
+  %7 = call i32 @pci_read_config_byte(ptr noundef %6, i32 noundef 145, ptr noundef nonnull %4) #11
   %8 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
   %9 = icmp eq i32 %1, 0
   %10 = and i8 %8, -65
   %11 = select i1 %9, i8 0, i8 64
   %12 = or disjoint i8 %10, %11
   %13 = load ptr, ptr %5, align 8
-  %14 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  %14 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %15 = load ptr, ptr %5, align 8
-  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 132, ptr noundef nonnull %3) #10
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 132, ptr noundef nonnull %3) #11
   %17 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 56
   %20 = load i32, ptr %19, align 8
@@ -3338,7 +3332,7 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
 
 38:                                               ; preds = %32, %27
   %39 = phi i8 [ %31, %27 ], [ %37, %32 ]
-  %40 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 132, i8 noundef zeroext %39) #10
+  %40 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 132, i8 noundef zeroext %39) #11
   ret void
 }
 
@@ -3349,25 +3343,25 @@ declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr nounde
 define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %3) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %3) #11, !srcloc !5
   %4 = load ptr, ptr %2, align 8
-  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #11, !srcloc !6
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %6, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %7) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %7) #11, !srcloc !5
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr i8, ptr %8, i64 4
-  %10 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9) #10, !srcloc !6
+  %10 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9) #11, !srcloc !6
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr i8, ptr %11, i64 2053
-  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #10, !srcloc !8
+  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #11, !srcloc !8
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr i8, ptr %14, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %15) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %15) #11, !srcloc !7
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr i8, ptr %16, i64 2053
-  %18 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17) #10, !srcloc !8
-  %19 = tail call i64 @probe_irq_on() #10
+  %18 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17) #11, !srcloc !8
+  %19 = tail call i64 @probe_irq_on() #11
   %20 = and i64 %19, 3832
   br label %21
 
@@ -3384,42 +3378,42 @@ define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr nocapture no
   %29 = or disjoint i8 %28, 1
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr i8, ptr %30, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %29, ptr elementtype(i8) %31) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %29, ptr elementtype(i8) %31) #11, !srcloc !7
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr i8, ptr %32, i64 2053
-  %34 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33) #10, !srcloc !8
+  %34 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33) #11, !srcloc !8
   %35 = load ptr, ptr %2, align 8
   %36 = getelementptr i8, ptr %35, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %36) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %36) #11, !srcloc !5
   %37 = load ptr, ptr %2, align 8
   %38 = getelementptr i8, ptr %37, i64 12
-  %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #10, !srcloc !6
-  tail call void @__const_udelay(i64 noundef 429500) #10
+  %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #11, !srcloc !6
+  tail call void @__const_udelay(i64 noundef 429500) #11
   %40 = load ptr, ptr %2, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %40) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %40) #11, !srcloc !5
   %41 = load ptr, ptr %2, align 8
-  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #10, !srcloc !6
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #11, !srcloc !6
   br label %43
 
 43:                                               ; preds = %26, %21
   %44 = add nuw nsw i64 %22, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %46, label %21, !llvm.loop !22
+  br i1 %45, label %46, label %21, !llvm.loop !21
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr i8, ptr %47, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %48) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %48) #11, !srcloc !5
   %49 = load ptr, ptr %2, align 8
   %50 = getelementptr i8, ptr %49, i64 4
-  %51 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #10, !srcloc !6
+  %51 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #11, !srcloc !6
   %52 = load ptr, ptr %2, align 8
   %53 = getelementptr i8, ptr %52, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, ptr elementtype(i8) %53) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, ptr elementtype(i8) %53) #11, !srcloc !7
   %54 = load ptr, ptr %2, align 8
   %55 = getelementptr i8, ptr %54, i64 2053
-  %56 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #10, !srcloc !8
-  %57 = tail call i32 @probe_irq_mask(i64 noundef %20) #10
+  %56 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #11, !srcloc !8
+  %57 = tail call i32 @probe_irq_mask(i64 noundef %20) #11
   %58 = and i32 %57, 65535
   ret i32 %58
 }
@@ -3445,24 +3439,24 @@ define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0
   br i1 %9, label %77, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
   store i8 0, ptr %6, align 1, !annotation !9
   %11 = load ptr, ptr %7, align 8
-  %12 = call i32 @pci_read_config_byte(ptr noundef %11, i32 noundef 146, ptr noundef nonnull %6) #10
+  %12 = call i32 @pci_read_config_byte(ptr noundef %11, i32 noundef 146, ptr noundef nonnull %6) #11
   %13 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4, !annotation !9
   %14 = load ptr, ptr %7, align 8
-  %15 = call i32 @pci_read_config_dword(ptr noundef %14, i32 noundef 128, ptr noundef nonnull %5) #10
+  %15 = call i32 @pci_read_config_dword(ptr noundef %14, i32 noundef 128, ptr noundef nonnull %5) #11
   %16 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !9
   %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @pci_read_config_dword(ptr noundef %17, i32 noundef 140, ptr noundef nonnull %4) #10
+  %18 = call i32 @pci_read_config_dword(ptr noundef %17, i32 noundef 140, ptr noundef nonnull %4) #11
   %19 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %20 = and i8 %13, 6
   %21 = icmp eq i8 %20, 6
   br i1 %21, label %22, label %28
@@ -3513,17 +3507,17 @@ define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0
   ]
 
 47:                                               ; preds = %43, %43, %43, %43
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
-  %48 = call i32 @pci_read_config_byte(ptr noundef %44, i32 noundef 139, ptr noundef nonnull %3) #10
+  %48 = call i32 @pci_read_config_byte(ptr noundef %44, i32 noundef 139, ptr noundef nonnull %3) #11
   %49 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %50 = icmp eq i32 %1, 1
   %51 = and i8 %49, 63
   %52 = or disjoint i8 %51, 64
   %53 = select i1 %50, i8 %52, i8 %51
   %54 = load ptr, ptr %7, align 8
-  %55 = call i32 @pci_write_config_byte(ptr noundef %54, i32 noundef 139, i8 noundef zeroext %53) #10
+  %55 = call i32 @pci_write_config_byte(ptr noundef %54, i32 noundef 139, i8 noundef zeroext %53) #11
   br label %77
 
 56:                                               ; preds = %43
@@ -3531,7 +3525,7 @@ define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0
   %58 = and i32 %19, -16
   %59 = or i32 %19, 2
   %60 = select i1 %57, i32 %58, i32 %59
-  %61 = call i32 @pci_write_config_dword(ptr noundef %44, i32 noundef 140, i32 noundef %60) #10
+  %61 = call i32 @pci_write_config_dword(ptr noundef %44, i32 noundef 140, i32 noundef %60) #11
   br label %77
 
 ._crit_edge:                                      ; preds = %40, %34
@@ -3549,7 +3543,7 @@ define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0
   %67 = and i32 %19, -16
   %68 = or i32 %19, 1
   %69 = select i1 %66, i32 %67, i32 %68
-  %70 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %69) #10
+  %70 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %69) #11
   br label %77
 
 71:                                               ; preds = %._crit_edge
@@ -3557,7 +3551,7 @@ define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0
   %73 = and i32 %19, -241
   %74 = or i32 %19, 32
   %75 = select i1 %72, i32 %73, i32 %74
-  %76 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %75) #10
+  %76 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %75) #11
   br label %77
 
 77:                                               ; preds = %71, %65, %56, %47, %25, %22, %2
@@ -3574,14 +3568,14 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1380
   store i32 0, ptr %6, align 4
-  %7 = tail call i32 @request_threaded_irq(i32 noundef %3, ptr noundef nonnull @yenta_probe_handler, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef %0) #10
+  %7 = tail call i32 @request_threaded_irq(i32 noundef %3, ptr noundef nonnull @yenta_probe_handler, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef %0) #11
   %8 = icmp eq i32 %7, 0
   %9 = load ptr, ptr %0, align 8
   br i1 %8, label %12, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %9, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str.27) #11
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str.27) #12
   br label %62
 
 12:                                               ; preds = %5
@@ -3594,7 +3588,7 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 2053
-  %20 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %19) #10, !srcloc !8
+  %20 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %19) #11, !srcloc !8
   br label %21
 
 21:                                               ; preds = %16, %12
@@ -3603,48 +3597,48 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %23, ptr elementtype(i8) %26) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %23, ptr elementtype(i8) %26) #11, !srcloc !7
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr i8, ptr %27, i64 2053
-  %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28) #10, !srcloc !8
+  %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28) #11, !srcloc !8
   %30 = load ptr, ptr %24, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %30) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %30) #11, !srcloc !5
   %31 = load ptr, ptr %24, align 8
-  %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #10, !srcloc !6
+  %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #11, !srcloc !6
   %33 = load ptr, ptr %24, align 8
   %34 = getelementptr i8, ptr %33, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %34) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %34) #11, !srcloc !5
   %35 = load ptr, ptr %24, align 8
   %36 = getelementptr i8, ptr %35, i64 4
-  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #10, !srcloc !6
+  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #11, !srcloc !6
   %38 = load ptr, ptr %24, align 8
   %39 = getelementptr i8, ptr %38, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %39) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %39) #11, !srcloc !5
   %40 = load ptr, ptr %24, align 8
   %41 = getelementptr i8, ptr %40, i64 12
-  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #10, !srcloc !6
-  tail call void @msleep(i32 noundef 100) #10
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #11, !srcloc !6
+  tail call void @msleep(i32 noundef 100) #11
   %43 = load ptr, ptr %24, align 8
   %44 = getelementptr i8, ptr %43, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %44) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %44) #11, !srcloc !5
   %45 = load ptr, ptr %24, align 8
   %46 = getelementptr i8, ptr %45, i64 4
-  %47 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46) #10, !srcloc !6
+  %47 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46) #11, !srcloc !6
   %48 = load ptr, ptr %24, align 8
   %49 = getelementptr i8, ptr %48, i64 2053
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %22, ptr elementtype(i8) %49) #10, !srcloc !7
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %22, ptr elementtype(i8) %49) #11, !srcloc !7
   %50 = load ptr, ptr %24, align 8
   %51 = getelementptr i8, ptr %50, i64 2053
-  %52 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51) #10, !srcloc !8
+  %52 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51) #11, !srcloc !8
   %53 = load ptr, ptr %24, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %53) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %53) #11, !srcloc !5
   %54 = load ptr, ptr %24, align 8
-  %55 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #10, !srcloc !6
+  %55 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #11, !srcloc !6
   %56 = load ptr, ptr %24, align 8
   %57 = getelementptr i8, ptr %56, i64 2052
-  %58 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %57) #10, !srcloc !8
+  %58 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %57) #11, !srcloc !8
   %59 = load i32, ptr %2, align 8
-  %60 = tail call ptr @free_irq(i32 noundef %59, ptr noundef %0) #10
+  %60 = tail call ptr @free_irq(i32 noundef %59, ptr noundef %0) #11
   %61 = load i32, ptr %6, align 4
   br label %62
 
@@ -3657,14 +3651,14 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
 define internal noundef range(i32 0, 2) i32 @yenta_probe_handler(i32 %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #11, !srcloc !6
   %6 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %6) #10, !srcloc !5
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %6) #11, !srcloc !5
   %7 = load ptr, ptr %3, align 8
-  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !6
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #11, !srcloc !6
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %9, i64 2052
-  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #11, !srcloc !8
   %12 = icmp ne i32 %5, 0
   %13 = icmp ne i8 %11, 0
   %14 = select i1 %12, i1 true, i1 %13
@@ -3689,12 +3683,12 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9
   %4 = load ptr, ptr %0, align 8
-  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #11
   %6 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   %7 = and i32 %6, 536870912
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %32
@@ -3706,7 +3700,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr no
   %13 = getelementptr inbounds i8, ptr %10, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, -8
-  %16 = call ptr @pci_get_slot(ptr noundef %12, i32 noundef %15) #10
+  %16 = call ptr @pci_get_slot(ptr noundef %12, i32 noundef %15) #11
   %17 = icmp eq ptr %16, null
   br i1 %17, label %32, label %18
 
@@ -3728,10 +3722,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr no
   store i32 %25, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %25, ptr %28, align 8
-  call void @pci_dev_put(ptr noundef nonnull %16) #10
+  call void @pci_dev_put(ptr noundef nonnull %16) #11
   %29 = or disjoint i32 %6, 536870912
   %30 = load ptr, ptr %0, align 8
-  %31 = call i32 @pci_write_config_dword(ptr noundef %30, i32 noundef 128, i32 noundef %29) #10
+  %31 = call i32 @pci_write_config_dword(ptr noundef %30, i32 noundef 128, i32 noundef %29) #11
   br label %32
 
 32:                                               ; preds = %23, %9, %2
@@ -3742,15 +3736,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ti12xx_untie_interrupts(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9
   %4 = load ptr, ptr %0, align 8
-  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #11
   %6 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   %7 = and i32 %6, -536870913
   %8 = load ptr, ptr %0, align 8
-  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 128, i32 noundef %7) #10
+  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 128, i32 noundef %7) #11
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 916
   store i32 %1, ptr %11, align 4
@@ -3795,11 +3789,11 @@ define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture 
   ]
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4, !annotation !9
-  %7 = call i32 @pci_read_config_dword(ptr noundef %3, i32 noundef 128, ptr noundef nonnull %2) #10
+  %7 = call i32 @pci_read_config_dword(ptr noundef %3, i32 noundef 128, ptr noundef nonnull %2) #11
   %8 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   %9 = and i32 %8, 268435456
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %._crit_edge, label %79
@@ -3819,7 +3813,7 @@ define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture 
   %19 = icmp eq i32 %18, 0
   %20 = zext i1 %19 to i32
   %21 = or disjoint i32 %15, %20
-  %22 = call ptr @pci_get_slot(ptr noundef %17, i32 noundef %21) #10
+  %22 = call ptr @pci_get_slot(ptr noundef %17, i32 noundef %21) #11
   %23 = icmp eq ptr %22, null
   br i1 %23, label %79, label %24
 
@@ -3842,7 +3836,7 @@ define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture 
   %36 = getelementptr i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 8
-  %39 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #10, !srcloc !6
+  %39 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #11, !srcloc !6
   %40 = and i32 %39, 15360
   %41 = icmp eq i32 %40, 0
   %42 = and i32 %39, 6
@@ -3870,13 +3864,13 @@ define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %36, align 8
   %60 = getelementptr i8, ptr %59, i64 2049
-  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #10, !srcloc !8
+  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #11, !srcloc !8
   %62 = and i8 %61, 12
   %63 = icmp eq i8 %62, 12
   %64 = select i1 %63, i32 128, i32 0
   %65 = load ptr, ptr %36, align 8
   %66 = getelementptr i8, ptr %65, i64 2051
-  %67 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66) #10, !srcloc !8
+  %67 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66) #11, !srcloc !8
   %68 = and i8 %67, 32
   %69 = icmp eq i8 %68, 0
   %70 = select i1 %69, i32 48, i32 1024
@@ -3893,7 +3887,7 @@ yenta_get_status.exit:                            ; preds = %48, %55, %58
 
 77:                                               ; preds = %yenta_get_status.exit, %31, %24
   %78 = phi i32 [ 1, %24 ], [ 1, %31 ], [ %76, %yenta_get_status.exit ]
-  call void @pci_dev_put(ptr noundef nonnull %22) #10
+  call void @pci_dev_put(ptr noundef nonnull %22) #11
   br label %79
 
 79:                                               ; preds = %77, %11, %6, %1
@@ -3905,18 +3899,18 @@ yenta_get_status.exit:                            ; preds = %48, %55, %58
 define internal void @ricoh_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %5 = load ptr, ptr %4, align 8
-  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 47, ptr noundef nonnull %3) #10
+  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 47, ptr noundef nonnull %3) #11
   %7 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %8 = icmp eq i32 %1, 0
   %9 = and i8 %7, -9
   %10 = select i1 %8, i8 0, i8 8
   %11 = or disjoint i8 %9, %10
   %12 = load ptr, ptr %4, align 8
-  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 47, i8 noundef zeroext %11) #10
+  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 47, i8 noundef zeroext %11) #11
   ret void
 }
 
@@ -3926,44 +3920,44 @@ define internal void @topic97_zoom_video(ptr nocapture noundef readonly %0, i32 
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr i8, ptr %0, i64 -64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   store i8 0, ptr %5, align 1, !annotation !9
   %7 = load ptr, ptr %6, align 8
-  %8 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 156, ptr noundef nonnull %5) #10
+  %8 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 156, ptr noundef nonnull %5) #11
   %9 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   %10 = icmp eq i32 %1, 0
   %11 = load ptr, ptr %6, align 8
   br i1 %10, label %19, label %12
 
 12:                                               ; preds = %2
   %13 = or i8 %9, 1
-  %14 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %13) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  %14 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %13) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
   store i8 0, ptr %4, align 1, !annotation !9
   %15 = load ptr, ptr %6, align 8
-  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 60, ptr noundef nonnull %4) #10
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 60, ptr noundef nonnull %4) #11
   %17 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
   %18 = or i8 %17, 3
   br label %26
 
 19:                                               ; preds = %2
   %20 = and i8 %9, -2
-  %21 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %20) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  %21 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %20) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %22 = load ptr, ptr %6, align 8
-  %23 = call i32 @pci_read_config_byte(ptr noundef %22, i32 noundef 60, ptr noundef nonnull %3) #10
+  %23 = call i32 @pci_read_config_byte(ptr noundef %22, i32 noundef 60, ptr noundef nonnull %3) #11
   %24 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %25 = and i8 %24, -4
   br label %26
 
 26:                                               ; preds = %19, %12
   %27 = phi i8 [ %25, %19 ], [ %18, %12 ]
   %28 = load ptr, ptr %6, align 8
-  %29 = call i32 @pci_write_config_byte(ptr noundef %28, i32 noundef 60, i8 noundef zeroext %27) #10
+  %29 = call i32 @pci_write_config_byte(ptr noundef %28, i32 noundef 60, i8 noundef zeroext %27) #11
   ret void
 }
 
@@ -3984,18 +3978,18 @@ define internal void @ene_tune_bridge(ptr nocapture noundef readonly %0, ptr nou
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ene_tune_tbl, ptr noundef %8) #10
+  %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ene_tune_tbl, ptr noundef %8) #11
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %6, label %13, !llvm.loop !23
+  br i1 %12, label %6, label %13, !llvm.loop !22
 
 13:                                               ; preds = %10, %6
   %14 = phi ptr [ %11, %10 ], [ null, %6 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 0, ptr %3, align 1, !annotation !9
   %15 = load ptr, ptr %4, align 8
-  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 201, ptr noundef nonnull %3) #10
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 201, ptr noundef nonnull %3) #11
   %17 = load i8, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %18 = icmp eq ptr %14, null
   br i1 %18, label %29, label %19
 
@@ -4022,9 +4016,9 @@ define internal void @ene_tune_bridge(ptr nocapture noundef readonly %0, ptr nou
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 184
   %35 = zext i8 %32 to i32
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.39, i32 noundef %.pre-phi, i32 noundef %35) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.39, i32 noundef %.pre-phi, i32 noundef %35) #12
   %36 = load ptr, ptr %4, align 8
-  %37 = call i32 @pci_write_config_byte(ptr noundef %36, i32 noundef 201, i8 noundef zeroext %32) #10
+  %37 = call i32 @pci_write_config_byte(ptr noundef %36, i32 noundef 201, i8 noundef zeroext %32) #11
   ret void
 }
 
@@ -4044,7 +4038,7 @@ declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #1
 define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44) #10
+  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44) #11
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   br label %8
 
@@ -4057,7 +4051,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
 
 13:                                               ; preds = %8
   %14 = trunc i64 %9 to i32
-  %15 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %10, ptr noundef nonnull @.str.45, i32 noundef %14) #10
+  %15 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %10, ptr noundef nonnull @.str.45, i32 noundef %14) #11
   %16 = add i32 %15, %10
   br label %17
 
@@ -4065,15 +4059,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   %18 = phi i32 [ %10, %8 ], [ %16, %13 ]
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr i8, ptr %19, i64 %9
-  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #10, !srcloc !6
-  %22 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %18, ptr noundef nonnull @.str.46, i32 noundef %21) #10
+  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #11, !srcloc !6
+  %22 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %18, ptr noundef nonnull @.str.46, i32 noundef %21) #11
   %23 = add i32 %22, %18
   %24 = add nuw nsw i64 %9, 4
   %25 = icmp ult i64 %9, 32
-  br i1 %25, label %8, label %26, !llvm.loop !24
+  br i1 %25, label %8, label %26, !llvm.loop !23
 
 26:                                               ; preds = %17
-  %27 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %23, ptr noundef nonnull @.str.47) #10
+  %27 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %23, ptr noundef nonnull @.str.47) #11
   %28 = add i32 %27, %23
   br label %29
 
@@ -4098,7 +4092,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
 
 41:                                               ; preds = %34
   %42 = trunc i64 %30 to i32
-  %43 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %31, ptr noundef nonnull @.str.45, i32 noundef %42) #10
+  %43 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %31, ptr noundef nonnull @.str.45, i32 noundef %42) #11
   %44 = add i32 %43, %31
   br label %45
 
@@ -4107,16 +4101,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   %47 = load ptr, ptr %7, align 8
   %48 = getelementptr i8, ptr %47, i64 2048
   %49 = getelementptr i8, ptr %48, i64 %30
-  %50 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %49) #10, !srcloc !8
+  %50 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %49) #11, !srcloc !8
   %51 = zext i8 %50 to i32
-  %52 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %46, ptr noundef nonnull @.str.49, i32 noundef %51) #10
+  %52 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %46, ptr noundef nonnull @.str.49, i32 noundef %51) #11
   %53 = add i32 %52, %46
   %54 = add nuw nsw i64 %30, 1
   %55 = icmp eq i64 %54, 69
-  br i1 %55, label %56, label %29, !llvm.loop !25
+  br i1 %55, label %56, label %29, !llvm.loop !24
 
 56:                                               ; preds = %45
-  %57 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %53, ptr noundef nonnull @.str.50) #10
+  %57 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %53, ptr noundef nonnull @.str.50) #11
   %58 = sext i32 %53 to i64
   ret i64 %58
 }
@@ -4154,16 +4148,16 @@ define internal noundef i32 @yenta_dev_suspend_noirq(ptr noundef %0) #2 align 16
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void %12(ptr noundef nonnull %4) #10
+  tail call void %12(ptr noundef nonnull %4) #11
   br label %15
 
 15:                                               ; preds = %14, %10, %6
-  %16 = tail call i32 @pci_save_state(ptr noundef %2) #10
+  %16 = tail call i32 @pci_save_state(ptr noundef %2) #11
   %17 = getelementptr inbounds i8, ptr %4, i64 1416
-  %18 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 64, ptr noundef %17) #10
+  %18 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 64, ptr noundef %17) #11
   %19 = getelementptr i8, ptr %4, i64 1420
-  %20 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 68, ptr noundef %19) #10
-  tail call void @pci_disable_device(ptr noundef %2) #10
+  %20 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 68, ptr noundef %19) #11
+  tail call void @pci_disable_device(ptr noundef %2) #11
   br label %21
 
 21:                                               ; preds = %15, %1
@@ -4181,16 +4175,16 @@ define internal i32 @yenta_dev_resume_noirq(ptr noundef %0) #2 align 16 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %4, i64 1416
   %8 = load i32, ptr %7, align 8
-  %9 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 64, i32 noundef %8) #10
+  %9 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 64, i32 noundef %8) #11
   %10 = getelementptr i8, ptr %4, i64 1420
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 68, i32 noundef %11) #10
-  %13 = tail call i32 @pci_enable_device(ptr noundef %2) #10
+  %12 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 68, i32 noundef %11) #11
+  %13 = tail call i32 @pci_enable_device(ptr noundef %2) #11
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %6
-  tail call void @pci_set_master(ptr noundef %2) #10
+  tail call void @pci_set_master(ptr noundef %2) #11
   %16 = getelementptr inbounds i8, ptr %4, i64 1368
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -4203,7 +4197,7 @@ define internal i32 @yenta_dev_resume_noirq(ptr noundef %0) #2 align 16 {
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %19
-  tail call void %21(ptr noundef nonnull %4) #10
+  tail call void %21(ptr noundef nonnull %4) #11
   br label %24
 
 24:                                               ; preds = %23, %19, %15, %6, %1
@@ -4223,6 +4217,9 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -4233,9 +4230,10 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind allocsize(2) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -4264,4 +4262,3 @@ attributes #12 = { nounwind allocsize(2) }
 !22 = distinct !{!22, !14, !15}
 !23 = distinct !{!23, !14, !15}
 !24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}

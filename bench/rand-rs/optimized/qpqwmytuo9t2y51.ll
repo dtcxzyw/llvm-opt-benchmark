@@ -11098,42 +11098,38 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %100 = add <8 x i32> %.sroa.21.0.lcssa, %10
   %101 = bitcast <8 x i32> %100 to <4 x i64>
   %102 = add <8 x i32> %.sroa.22.0.lcssa, %9
-  %103 = bitcast <8 x i32> %102 to <4 x i64>
-  %104 = add <8 x i32> %.sroa.30121.0.lcssa, %9
-  %105 = bitcast <8 x i32> %104 to <4 x i64>
-  %106 = bitcast <4 x i64> %.sroa.35.0.lcssa to <8 x i32>
-  %107 = bitcast <4 x i64> %.sroa.01027.16.vecblend to <8 x i32>
-  %108 = add <8 x i32> %106, %107
-  %109 = bitcast <8 x i32> %108 to <4 x i64>
-  %110 = bitcast <4 x i64> %.sroa.43.0.lcssa to <8 x i32>
-  %111 = bitcast <4 x i64> %.sroa.51029.48.vecblend to <8 x i32>
-  %112 = add <8 x i32> %110, %111
-  %113 = bitcast <8 x i32> %112 to <4 x i64>
-  %114 = shufflevector <4 x i64> %.lcssa, <4 x i64> %99, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %115 = shufflevector <4 x i64> %.lcssa, <4 x i64> %99, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %116 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %101, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %117 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %101, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %118 = shufflevector <4 x i64> %103, <4 x i64> %109, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %119 = shufflevector <4 x i64> %103, <4 x i64> %109, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %120 = shufflevector <4 x i64> %105, <4 x i64> %113, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %121 = shufflevector <4 x i64> %105, <4 x i64> %113, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  store <4 x i64> %114, ptr %2, align 4, !alias.scope !3022, !noalias !3026
+  %103 = add <8 x i32> %.sroa.30121.0.lcssa, %9
+  %104 = bitcast <4 x i64> %.sroa.35.0.lcssa to <8 x i32>
+  %105 = bitcast <4 x i64> %.sroa.01027.16.vecblend to <8 x i32>
+  %106 = add <8 x i32> %104, %105
+  %107 = bitcast <4 x i64> %.sroa.43.0.lcssa to <8 x i32>
+  %108 = bitcast <4 x i64> %.sroa.51029.48.vecblend to <8 x i32>
+  %109 = add <8 x i32> %107, %108
+  %110 = shufflevector <4 x i64> %.lcssa, <4 x i64> %99, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %111 = shufflevector <4 x i64> %.lcssa, <4 x i64> %99, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %112 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %101, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %113 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %101, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %114 = shufflevector <8 x i32> %102, <8 x i32> %106, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %115 = shufflevector <8 x i32> %102, <8 x i32> %106, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %116 = shufflevector <8 x i32> %103, <8 x i32> %109, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %117 = shufflevector <8 x i32> %103, <8 x i32> %109, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  store <4 x i64> %110, ptr %2, align 4, !alias.scope !3022, !noalias !3026
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
-  store <4 x i64> %118, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !3022, !noalias !3026
-  %122 = getelementptr inbounds i8, ptr %2, i64 64
-  store <4 x i64> %115, ptr %122, align 4, !alias.scope !3028, !noalias !3032
+  store <8 x i32> %114, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !3022, !noalias !3026
+  %118 = getelementptr inbounds i8, ptr %2, i64 64
+  store <4 x i64> %111, ptr %118, align 4, !alias.scope !3028, !noalias !3032
   %.sroa.41171.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 96
-  store <4 x i64> %119, ptr %.sroa.41171.0..sroa_idx, align 4, !alias.scope !3028, !noalias !3032
-  %123 = getelementptr inbounds i8, ptr %2, i64 128
-  store <4 x i64> %116, ptr %123, align 4, !alias.scope !3034, !noalias !3038
+  store <8 x i32> %115, ptr %.sroa.41171.0..sroa_idx, align 4, !alias.scope !3028, !noalias !3032
+  %119 = getelementptr inbounds i8, ptr %2, i64 128
+  store <4 x i64> %112, ptr %119, align 4, !alias.scope !3034, !noalias !3038
   %.sroa.41173.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 160
-  store <4 x i64> %120, ptr %.sroa.41173.0..sroa_idx, align 4, !alias.scope !3034, !noalias !3038
-  %124 = getelementptr inbounds i8, ptr %2, i64 192
-  store <4 x i64> %117, ptr %124, align 4, !alias.scope !3040, !noalias !3044
+  store <8 x i32> %116, ptr %.sroa.41173.0..sroa_idx, align 4, !alias.scope !3034, !noalias !3038
+  %120 = getelementptr inbounds i8, ptr %2, i64 192
+  store <4 x i64> %113, ptr %120, align 4, !alias.scope !3040, !noalias !3044
   %.sroa.41175.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 224
-  store <4 x i64> %121, ptr %.sroa.41175.0..sroa_idx, align 4, !alias.scope !3040, !noalias !3044
-  %125 = add <2 x i64> %.sroa.041.0.copyload, <i64 4, i64 0>
-  store <2 x i64> %125, ptr %5, align 16, !noalias !3017
+  store <8 x i32> %117, ptr %.sroa.41175.0..sroa_idx, align 4, !alias.scope !3040, !noalias !3044
+  %121 = add <2 x i64> %.sroa.041.0.copyload, <i64 4, i64 0>
+  store <2 x i64> %121, ptr %5, align 16, !noalias !3017
   tail call void @llvm.x86.avx.vzeroupper() #34
   ret void
 }

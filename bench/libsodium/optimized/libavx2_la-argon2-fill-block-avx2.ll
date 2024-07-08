@@ -602,13 +602,11 @@ do.body922.i:                                     ; preds = %do.body11.i, %do.bo
   %187 = shufflevector <4 x i64> %xor.i1721.i, <4 x i64> %xor.i1730.i, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
   %perm1250.i = shufflevector <4 x i64> %186, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %perm1254.i = shufflevector <4 x i64> %187, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %188 = bitcast <32 x i8> %171 to <8 x i32>
-  %189 = bitcast <32 x i8> %181 to <8 x i32>
-  %blend1276.i = shufflevector <8 x i32> %188, <8 x i32> %189, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %190 = bitcast <8 x i32> %blend1276.i to <4 x i64>
-  %blend1283.i = shufflevector <8 x i32> %189, <8 x i32> %188, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %191 = bitcast <8 x i32> %blend1283.i to <4 x i64>
-  %perm1284.i = shufflevector <4 x i64> %190, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %188 = shufflevector <32 x i8> %171, <32 x i8> %181, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %189 = bitcast <32 x i8> %188 to <4 x i64>
+  %190 = shufflevector <32 x i8> %181, <32 x i8> %171, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %191 = bitcast <32 x i8> %190 to <4 x i64>
+  %perm1284.i = shufflevector <4 x i64> %189, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %perm1288.i = shufflevector <4 x i64> %191, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %192 = and <4 x i64> %add.i1988.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
   %193 = and <4 x i64> %perm1254.i, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
@@ -696,13 +694,11 @@ do.body922.i:                                     ; preds = %do.body11.i, %do.bo
   store <4 x i64> %perm1628.i, ptr %arrayidx1002.i, align 32
   store <4 x i64> %add.i1880.i, ptr %arrayidx962.i, align 32
   store <4 x i64> %add.i1901.i, ptr %arrayidx1035.i, align 32
-  %234 = bitcast <32 x i8> %217 to <8 x i32>
-  %235 = bitcast <32 x i8> %227 to <8 x i32>
-  %blend1650.i = shufflevector <8 x i32> %235, <8 x i32> %234, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %236 = bitcast <8 x i32> %blend1650.i to <4 x i64>
-  %blend1657.i = shufflevector <8 x i32> %234, <8 x i32> %235, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %237 = bitcast <8 x i32> %blend1657.i to <4 x i64>
-  %perm1658.i = shufflevector <4 x i64> %236, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %234 = shufflevector <32 x i8> %227, <32 x i8> %217, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %235 = bitcast <32 x i8> %234 to <4 x i64>
+  %236 = shufflevector <32 x i8> %217, <32 x i8> %227, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %237 = bitcast <32 x i8> %236 to <4 x i64>
+  %perm1658.i = shufflevector <4 x i64> %235, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i64> %perm1658.i, ptr %arrayidx945.i, align 32
   %perm1662.i = shufflevector <4 x i64> %237, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i64> %perm1662.i, ptr %arrayidx1018.i, align 32
@@ -1086,13 +1082,11 @@ do.body929:                                       ; preds = %do.body18, %do.body
   %166 = shufflevector <4 x i64> %xor.i1728, <4 x i64> %xor.i1737, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
   %perm1257 = shufflevector <4 x i64> %165, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %perm1261 = shufflevector <4 x i64> %166, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %167 = bitcast <32 x i8> %149 to <8 x i32>
-  %168 = bitcast <32 x i8> %160 to <8 x i32>
-  %blend1283 = shufflevector <8 x i32> %167, <8 x i32> %168, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %169 = bitcast <8 x i32> %blend1283 to <4 x i64>
-  %blend1290 = shufflevector <8 x i32> %168, <8 x i32> %167, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %170 = bitcast <8 x i32> %blend1290 to <4 x i64>
-  %perm1291 = shufflevector <4 x i64> %169, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %167 = shufflevector <32 x i8> %149, <32 x i8> %160, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %168 = bitcast <32 x i8> %167 to <4 x i64>
+  %169 = shufflevector <32 x i8> %160, <32 x i8> %149, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %170 = bitcast <32 x i8> %169 to <4 x i64>
+  %perm1291 = shufflevector <4 x i64> %168, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %perm1295 = shufflevector <4 x i64> %170, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %171 = and <4 x i64> %add.i1999, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
   %172 = and <4 x i64> %perm1261, <i64 4294967295, i64 4294967295, i64 4294967295, i64 4294967295>
@@ -1182,13 +1176,11 @@ do.body929:                                       ; preds = %do.body18, %do.body
   store <4 x i64> %perm1635, ptr %arrayidx1009, align 32
   store <4 x i64> %add.i1891, ptr %arrayidx969, align 32
   store <4 x i64> %add.i1912, ptr %arrayidx1042, align 32
-  %215 = bitcast <32 x i8> %197 to <8 x i32>
-  %216 = bitcast <32 x i8> %208 to <8 x i32>
-  %blend1657 = shufflevector <8 x i32> %216, <8 x i32> %215, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %217 = bitcast <8 x i32> %blend1657 to <4 x i64>
-  %blend1664 = shufflevector <8 x i32> %215, <8 x i32> %216, <8 x i32> <i32 0, i32 1, i32 10, i32 11, i32 4, i32 5, i32 14, i32 15>
-  %218 = bitcast <8 x i32> %blend1664 to <4 x i64>
-  %perm1665 = shufflevector <4 x i64> %217, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %215 = shufflevector <32 x i8> %208, <32 x i8> %197, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %216 = bitcast <32 x i8> %215 to <4 x i64>
+  %217 = shufflevector <32 x i8> %197, <32 x i8> %208, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %218 = bitcast <32 x i8> %217 to <4 x i64>
+  %perm1665 = shufflevector <4 x i64> %216, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i64> %perm1665, ptr %arrayidx952, align 32
   %perm1669 = shufflevector <4 x i64> %218, <4 x i64> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   store <4 x i64> %perm1669, ptr %arrayidx1025, align 32

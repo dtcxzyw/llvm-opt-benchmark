@@ -81660,8 +81660,8 @@ _ZN3vcg6VolumeINS_7VoxelfcEfE6Bound1Eiii.exit:    ; preds = %96
   %105 = extractelement <4 x float> %88, i64 1
   %106 = extractelement <4 x float> %88, i64 3
   %107 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 2>
-  %108 = shufflevector <2 x float> %89, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
-  %109 = insertelement <4 x float> %108, float %106, i64 0
+  %108 = shufflevector <2 x float> %89, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %109 = shufflevector <4 x float> %88, <4 x float> %108, <4 x i32> <i32 3, i32 4, i32 5, i32 poison>
   %110 = insertelement <4 x float> %109, float %.sroa.12.0.copyload, i64 3
   br label %.preheader
 

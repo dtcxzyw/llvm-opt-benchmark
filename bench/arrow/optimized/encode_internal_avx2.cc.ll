@@ -334,15 +334,13 @@ for.end:                                          ; preds = %for.body17
   %6 = load <8 x i32>, ptr %buffer, align 16
   %7 = load <8 x i32>, ptr %add.ptr25, align 16
   %8 = shufflevector <8 x i32> %6, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %9 = bitcast <8 x i32> %8 to <4 x i64>
-  %10 = shufflevector <8 x i32> %7, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %11 = bitcast <8 x i32> %10 to <4 x i64>
-  %vperm = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %vperm30 = shufflevector <4 x i64> %9, <4 x i64> %11, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %9 = shufflevector <8 x i32> %7, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
+  %10 = shufflevector <8 x i32> %8, <8 x i32> %9, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %11 = shufflevector <8 x i32> %8, <8 x i32> %9, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %add.ptr32 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv24
-  store <4 x i64> %vperm, ptr %add.ptr32, align 1
+  store <8 x i32> %10, ptr %add.ptr32, align 1
   %add.ptr34 = getelementptr inbounds <4 x i64>, ptr %1, i64 %indvars.iv24
-  store <4 x i64> %vperm30, ptr %add.ptr34, align 1
+  store <8 x i32> %11, ptr %add.ptr34, align 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
   br i1 %exitcond28.not, label %for.end37, label %for.body, !llvm.loop !14
@@ -611,15 +609,13 @@ for.end:                                          ; preds = %for.body18
   %7 = load <8 x i32>, ptr %buffer, align 16
   %8 = load <8 x i32>, ptr %add.ptr25, align 16
   %9 = shufflevector <8 x i32> %7, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %10 = bitcast <8 x i32> %9 to <4 x i64>
-  %11 = shufflevector <8 x i32> %8, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
-  %12 = bitcast <8 x i32> %11 to <4 x i64>
-  %vperm = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %vperm30 = shufflevector <4 x i64> %10, <4 x i64> %12, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %10 = shufflevector <8 x i32> %8, <8 x i32> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 1, i32 3, i32 5, i32 7>
+  %11 = shufflevector <8 x i32> %9, <8 x i32> %10, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %12 = shufflevector <8 x i32> %9, <8 x i32> %10, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %add.ptr32 = getelementptr inbounds <4 x i64>, ptr %0, i64 %indvars.iv25
-  store <4 x i64> %vperm, ptr %add.ptr32, align 1
+  store <8 x i32> %11, ptr %add.ptr32, align 1
   %add.ptr34 = getelementptr inbounds <4 x i64>, ptr %1, i64 %indvars.iv25
-  store <4 x i64> %vperm30, ptr %add.ptr34, align 1
+  store <8 x i32> %12, ptr %add.ptr34, align 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
   br i1 %exitcond28.not, label %for.end37, label %for.body, !llvm.loop !21

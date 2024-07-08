@@ -3356,53 +3356,44 @@ for.end:                                          ; preds = %for.inc, %if.else, 
   %count.0.lcssa = phi i64 [ 0, %entry ], [ %count.042, %if.else ], [ %count.1, %for.inc ]
   %sub = add i64 %alphabet_size, -1
   %tobool9.not46 = icmp eq i64 %sub, 0
-  br i1 %tobool9.not46, label %while.end, label %while.body
-
-while.body:                                       ; preds = %for.end, %while.body
-  %max_bits_counter.048 = phi i64 [ %shr, %while.body ], [ %sub, %for.end ]
-  %max_bits.047 = phi i64 [ %inc10, %while.body ], [ 0, %for.end ]
-  %shr = lshr i64 %max_bits_counter.048, 1
-  %inc10 = add nuw nsw i64 %max_bits.047, 1
-  %tobool9.not = icmp ult i64 %max_bits_counter.048, 2
-  br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !63
-
-while.end:                                        ; preds = %while.body, %for.end
-  %max_bits.0.lcssa = phi i64 [ 0, %for.end ], [ %inc10, %while.body ]
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub, i1 true)
+  %2 = sub nuw nsw i64 64, %1
+  %max_bits.0.lcssa = select i1 %tobool9.not46, i64 0, i64 %2
   %cmp11 = icmp ult i64 %count.0.lcssa, 2
   br i1 %cmp11, label %if.then12, label %if.end18
 
-if.then12:                                        ; preds = %while.end
-  %1 = load i64, ptr %storage_ix, align 8
-  %shr.i29 = lshr i64 %1, 3
+if.then12:                                        ; preds = %for.end
+  %3 = load i64, ptr %storage_ix, align 8
+  %shr.i29 = lshr i64 %3, 3
   %arrayidx.i30 = getelementptr inbounds i8, ptr %storage, i64 %shr.i29
-  %2 = load i8, ptr %arrayidx.i30, align 1
-  %conv.i31 = zext i8 %2 to i64
-  %and.i32 = and i64 %1, 7
+  %4 = load i8, ptr %arrayidx.i30, align 1
+  %conv.i31 = zext i8 %4 to i64
+  %and.i32 = and i64 %3, 7
   %shl.i33 = shl nuw nsw i64 1, %and.i32
   %or.i34 = or i64 %shl.i33, %conv.i31
   store i64 %or.i34, ptr %arrayidx.i30, align 1
-  %3 = load i64, ptr %storage_ix, align 8
-  %add.i35 = add i64 %3, 4
+  %5 = load i64, ptr %storage_ix, align 8
+  %add.i35 = add i64 %5, 4
   store i64 %add.i35, ptr %storage_ix, align 8
-  %4 = load i64, ptr %s4, align 16
+  %6 = load i64, ptr %s4, align 16
   %shr.i = lshr i64 %add.i35, 3
   %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %5 to i64
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %7 to i64
   %and.i = and i64 %add.i35, 7
-  %shl.i = shl i64 %4, %and.i
+  %shl.i = shl i64 %6, %and.i
   %or.i = or i64 %shl.i, %conv.i
   store i64 %or.i, ptr %arrayidx.i, align 1
-  %6 = load i64, ptr %storage_ix, align 8
-  %add.i = add i64 %6, %max_bits.0.lcssa
+  %8 = load i64, ptr %storage_ix, align 8
+  %add.i = add i64 %8, %max_bits.0.lcssa
   store i64 %add.i, ptr %storage_ix, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %depth, i64 %4
+  %arrayidx15 = getelementptr inbounds i8, ptr %depth, i64 %6
   store i8 0, ptr %arrayidx15, align 1
-  %arrayidx17 = getelementptr inbounds i16, ptr %bits, i64 %4
+  %arrayidx17 = getelementptr inbounds i16, ptr %bits, i64 %6
   store i16 0, ptr %arrayidx17, align 2
   br label %if.end22
 
-if.end18:                                         ; preds = %while.end
+if.end18:                                         ; preds = %for.end
   tail call void @llvm.memset.p0.i64(ptr align 1 %depth, i8 0, i64 %histogram_length, i1 false)
   tail call void @BrotliCreateHuffmanTree(ptr noundef %histogram, i64 noundef %histogram_length, i32 noundef 15, ptr noundef %tree, ptr noundef %depth) #12
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef %depth, i64 noundef %histogram_length, ptr noundef %bits) #12
@@ -3410,35 +3401,35 @@ if.end18:                                         ; preds = %while.end
   br i1 %cmp19, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.end18
-  %7 = load i64, ptr %storage_ix, align 8
-  %shr.i177.i = lshr i64 %7, 3
+  %9 = load i64, ptr %storage_ix, align 8
+  %shr.i177.i = lshr i64 %9, 3
   %arrayidx.i178.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i177.i
-  %8 = load i8, ptr %arrayidx.i178.i, align 1
-  %conv.i179.i = zext i8 %8 to i64
-  %and.i180.i = and i64 %7, 7
+  %10 = load i8, ptr %arrayidx.i178.i, align 1
+  %conv.i179.i = zext i8 %10 to i64
+  %and.i180.i = and i64 %9, 7
   %shl.i181.i = shl nuw nsw i64 1, %and.i180.i
   %or.i182.i = or i64 %shl.i181.i, %conv.i179.i
   store i64 %or.i182.i, ptr %arrayidx.i178.i, align 1
-  %9 = load i64, ptr %storage_ix, align 8
-  %add.i183.i = add i64 %9, 2
+  %11 = load i64, ptr %storage_ix, align 8
+  %add.i183.i = add i64 %11, 2
   store i64 %add.i183.i, ptr %storage_ix, align 8
   %sub.i = add nsw i64 %count.0.lcssa, -1
   %shr.i164.i = lshr i64 %add.i183.i, 3
   %arrayidx.i165.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i164.i
-  %10 = load i8, ptr %arrayidx.i165.i, align 1
-  %conv.i166.i = zext i8 %10 to i64
+  %12 = load i8, ptr %arrayidx.i165.i, align 1
+  %conv.i166.i = zext i8 %12 to i64
   %and.i167.i = and i64 %add.i183.i, 7
   %shl.i168.i = shl nuw nsw i64 %sub.i, %and.i167.i
   %or.i169.i = or i64 %shl.i168.i, %conv.i166.i
   store i64 %or.i169.i, ptr %arrayidx.i165.i, align 1
-  %11 = load i64, ptr %storage_ix, align 8
-  %add.i170.i = add i64 %11, 2
+  %13 = load i64, ptr %storage_ix, align 8
+  %add.i170.i = add i64 %13, 2
   store i64 %add.i170.i, ptr %storage_ix, align 8
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i, %for.body.i
   %exitcond.not.i = icmp eq i64 %add.i39, %count.0.lcssa
-  br i1 %exitcond.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !63
 
 for.body.i:                                       ; preds = %if.then20, %for.cond.loopexit.i
   %i.0112.i = phi i64 [ %add.i39, %for.cond.loopexit.i ], [ 0, %if.then20 ]
@@ -3452,43 +3443,43 @@ for.body3.lr.ph.i:                                ; preds = %for.body.i
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.inc.i, %for.body3.lr.ph.i
-  %12 = phi i64 [ %.pre.i, %for.body3.lr.ph.i ], [ %16, %for.inc.i ]
+  %14 = phi i64 [ %.pre.i, %for.body3.lr.ph.i ], [ %18, %for.inc.i ]
   %j.0110.i = phi i64 [ %add.i39, %for.body3.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %arrayidx.i40 = getelementptr inbounds i64, ptr %s4, i64 %j.0110.i
-  %13 = load i64, ptr %arrayidx.i40, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %depth, i64 %13
-  %14 = load i8, ptr %arrayidx4.i, align 1
-  %arrayidx6.i = getelementptr inbounds i8, ptr %depth, i64 %12
-  %15 = load i8, ptr %arrayidx6.i, align 1
-  %cmp8.i = icmp ult i8 %14, %15
+  %15 = load i64, ptr %arrayidx.i40, align 8
+  %arrayidx4.i = getelementptr inbounds i8, ptr %depth, i64 %15
+  %16 = load i8, ptr %arrayidx4.i, align 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %depth, i64 %14
+  %17 = load i8, ptr %arrayidx6.i, align 1
+  %cmp8.i = icmp ult i8 %16, %17
   br i1 %cmp8.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body3.i
-  store i64 %12, ptr %arrayidx.i40, align 8
-  store i64 %13, ptr %arrayidx5.i, align 8
+  store i64 %14, ptr %arrayidx.i40, align 8
+  store i64 %15, ptr %arrayidx5.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body3.i
-  %16 = phi i64 [ %12, %for.body3.i ], [ %13, %if.then.i ]
+  %18 = phi i64 [ %14, %for.body3.i ], [ %15, %if.then.i ]
   %inc.i = add nuw nsw i64 %j.0110.i, 1
   %cmp2.i = icmp ult i64 %inc.i, %count.0.lcssa
-  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !65
+  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !64
 
 for.end16.i:                                      ; preds = %for.cond.loopexit.i
-  %17 = load i64, ptr %s4, align 16
+  %19 = load i64, ptr %s4, align 16
   %shr.i86.i = lshr i64 %add.i170.i, 3
   %arrayidx.i87.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i86.i
-  %18 = load i8, ptr %arrayidx.i87.i, align 1
-  %conv.i88.i = zext i8 %18 to i64
+  %20 = load i8, ptr %arrayidx.i87.i, align 1
+  %conv.i88.i = zext i8 %20 to i64
   %and.i89.i = and i64 %add.i170.i, 7
-  %shl.i90.i = shl i64 %17, %and.i89.i
+  %shl.i90.i = shl i64 %19, %and.i89.i
   %or.i91.i = or i64 %shl.i90.i, %conv.i88.i
   store i64 %or.i91.i, ptr %arrayidx.i87.i, align 1
-  %19 = load i64, ptr %storage_ix, align 8
-  %add.i92.i = add i64 %19, %max_bits.0.lcssa
+  %21 = load i64, ptr %storage_ix, align 8
+  %add.i92.i = add i64 %21, %max_bits.0.lcssa
   store i64 %add.i92.i, ptr %storage_ix, align 8
   %arrayidx30.i = getelementptr inbounds i8, ptr %s4, i64 8
-  %20 = load i64, ptr %arrayidx30.i, align 8
+  %22 = load i64, ptr %arrayidx30.i, align 8
   switch i64 %count.0.lcssa, label %if.else28.i [
     i64 2, label %StoreSimpleHuffmanTree.exit
     i64 3, label %if.then24.i
@@ -3497,77 +3488,77 @@ for.end16.i:                                      ; preds = %for.cond.loopexit.i
 if.then24.i:                                      ; preds = %for.end16.i
   %shr.i112.i = lshr i64 %add.i92.i, 3
   %arrayidx.i113.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i112.i
-  %21 = load i8, ptr %arrayidx.i113.i, align 1
-  %conv.i114.i = zext i8 %21 to i64
+  %23 = load i8, ptr %arrayidx.i113.i, align 1
+  %conv.i114.i = zext i8 %23 to i64
   %and.i115.i = and i64 %add.i92.i, 7
-  %shl.i116.i = shl i64 %20, %and.i115.i
+  %shl.i116.i = shl i64 %22, %and.i115.i
   %or.i117.i = or i64 %shl.i116.i, %conv.i114.i
   store i64 %or.i117.i, ptr %arrayidx.i113.i, align 1
-  %22 = load i64, ptr %storage_ix, align 8
-  %add.i118.i = add i64 %22, %max_bits.0.lcssa
+  %24 = load i64, ptr %storage_ix, align 8
+  %add.i118.i = add i64 %24, %max_bits.0.lcssa
   store i64 %add.i118.i, ptr %storage_ix, align 8
   %arrayidx27.i = getelementptr inbounds i8, ptr %s4, i64 16
-  %23 = load i64, ptr %arrayidx27.i, align 16
+  %25 = load i64, ptr %arrayidx27.i, align 16
   br label %StoreSimpleHuffmanTree.exit
 
 if.else28.i:                                      ; preds = %for.end16.i
   %shr.i73.i = lshr i64 %add.i92.i, 3
   %arrayidx.i74.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i73.i
-  %24 = load i8, ptr %arrayidx.i74.i, align 1
-  %conv.i75.i = zext i8 %24 to i64
+  %26 = load i8, ptr %arrayidx.i74.i, align 1
+  %conv.i75.i = zext i8 %26 to i64
   %and.i76.i = and i64 %add.i92.i, 7
-  %shl.i77.i = shl i64 %20, %and.i76.i
+  %shl.i77.i = shl i64 %22, %and.i76.i
   %or.i78.i = or i64 %shl.i77.i, %conv.i75.i
   store i64 %or.i78.i, ptr %arrayidx.i74.i, align 1
-  %25 = load i64, ptr %storage_ix, align 8
-  %add.i79.i = add i64 %25, %max_bits.0.lcssa
+  %27 = load i64, ptr %storage_ix, align 8
+  %add.i79.i = add i64 %27, %max_bits.0.lcssa
   store i64 %add.i79.i, ptr %storage_ix, align 8
   %arrayidx31.i = getelementptr inbounds i8, ptr %s4, i64 16
-  %26 = load i64, ptr %arrayidx31.i, align 16
+  %28 = load i64, ptr %arrayidx31.i, align 16
   %shr.i60.i = lshr i64 %add.i79.i, 3
   %arrayidx.i61.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i60.i
-  %27 = load i8, ptr %arrayidx.i61.i, align 1
-  %conv.i62.i = zext i8 %27 to i64
+  %29 = load i8, ptr %arrayidx.i61.i, align 1
+  %conv.i62.i = zext i8 %29 to i64
   %and.i63.i = and i64 %add.i79.i, 7
-  %shl.i64.i = shl i64 %26, %and.i63.i
+  %shl.i64.i = shl i64 %28, %and.i63.i
   %or.i65.i = or i64 %shl.i64.i, %conv.i62.i
   store i64 %or.i65.i, ptr %arrayidx.i61.i, align 1
-  %28 = load i64, ptr %storage_ix, align 8
-  %add.i66.i = add i64 %28, %max_bits.0.lcssa
+  %30 = load i64, ptr %storage_ix, align 8
+  %add.i66.i = add i64 %30, %max_bits.0.lcssa
   store i64 %add.i66.i, ptr %storage_ix, align 8
   %arrayidx32.i = getelementptr inbounds i8, ptr %s4, i64 24
-  %29 = load i64, ptr %arrayidx32.i, align 8
+  %31 = load i64, ptr %arrayidx32.i, align 8
   %shr.i47.i = lshr i64 %add.i66.i, 3
   %arrayidx.i48.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i47.i
-  %30 = load i8, ptr %arrayidx.i48.i, align 1
-  %conv.i49.i = zext i8 %30 to i64
+  %32 = load i8, ptr %arrayidx.i48.i, align 1
+  %conv.i49.i = zext i8 %32 to i64
   %and.i50.i = and i64 %add.i66.i, 7
-  %shl.i51.i = shl i64 %29, %and.i50.i
+  %shl.i51.i = shl i64 %31, %and.i50.i
   %or.i52.i = or i64 %shl.i51.i, %conv.i49.i
   store i64 %or.i52.i, ptr %arrayidx.i48.i, align 1
-  %31 = load i64, ptr %storage_ix, align 8
-  %add.i53.i = add i64 %31, %max_bits.0.lcssa
+  %33 = load i64, ptr %storage_ix, align 8
+  %add.i53.i = add i64 %33, %max_bits.0.lcssa
   store i64 %add.i53.i, ptr %storage_ix, align 8
-  %arrayidx34.i = getelementptr inbounds i8, ptr %depth, i64 %17
-  %32 = load i8, ptr %arrayidx34.i, align 1
-  %cmp36.i = icmp eq i8 %32, 1
+  %arrayidx34.i = getelementptr inbounds i8, ptr %depth, i64 %19
+  %34 = load i8, ptr %arrayidx34.i, align 1
+  %cmp36.i = icmp eq i8 %34, 1
   %conv38.i = zext i1 %cmp36.i to i64
   br label %StoreSimpleHuffmanTree.exit
 
 StoreSimpleHuffmanTree.exit:                      ; preds = %for.end16.i, %if.then24.i, %if.else28.i
   %add.i118.sink115.i = phi i64 [ %add.i118.i, %if.then24.i ], [ %add.i53.i, %if.else28.i ], [ %add.i92.i, %for.end16.i ]
-  %.sink.i = phi i64 [ %23, %if.then24.i ], [ %conv38.i, %if.else28.i ], [ %20, %for.end16.i ]
+  %.sink.i = phi i64 [ %25, %if.then24.i ], [ %conv38.i, %if.else28.i ], [ %22, %for.end16.i ]
   %max_bits.sink.i = phi i64 [ %max_bits.0.lcssa, %if.then24.i ], [ 1, %if.else28.i ], [ %max_bits.0.lcssa, %for.end16.i ]
   %shr.i99.i = lshr i64 %add.i118.sink115.i, 3
   %arrayidx.i100.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i99.i
-  %33 = load i8, ptr %arrayidx.i100.i, align 1
-  %conv.i101.i = zext i8 %33 to i64
+  %35 = load i8, ptr %arrayidx.i100.i, align 1
+  %conv.i101.i = zext i8 %35 to i64
   %and.i102.i = and i64 %add.i118.sink115.i, 7
   %shl.i103.i = shl i64 %.sink.i, %and.i102.i
   %or.i104.i = or i64 %shl.i103.i, %conv.i101.i
   store i64 %or.i104.i, ptr %arrayidx.i100.i, align 1
-  %34 = load i64, ptr %storage_ix, align 8
-  %add.i105.i = add i64 %34, %max_bits.sink.i
+  %36 = load i64, ptr %storage_ix, align 8
+  %add.i105.i = add i64 %36, %max_bits.sink.i
   store i64 %add.i105.i, ptr %storage_ix, align 8
   br label %if.end22
 
@@ -3772,7 +3763,7 @@ for.body9:                                        ; preds = %GetCopyLengthCode.e
   %inc = add i64 %pos.172, 1
   %dec = add nsw i64 %j.071, -1
   %cmp7.not = icmp eq i64 %dec, 0
-  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !66
+  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !65
 
 for.end:                                          ; preds = %for.body9, %GetCopyLengthCode.exit
   %21 = phi i64 [ %add.i.i, %GetCopyLengthCode.exit ], [ %add.i61, %for.body9 ]
@@ -3825,7 +3816,7 @@ for.inc33:                                        ; preds = %for.end, %if.then
   %28 = phi i64 [ %21, %for.end ], [ %add.i, %if.then ]
   %inc34 = add nuw i64 %i.074, 1
   %exitcond.not = icmp eq i64 %inc34, %n_commands
-  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !67
+  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !66
 
 for.end35:                                        ; preds = %for.inc33, %entry
   ret void
@@ -3960,7 +3951,7 @@ for.body9:                                        ; preds = %for.body, %for.body
   %inc12 = add i64 %pos.1117, 1
   %dec = add nsw i64 %j.0118, -1
   %cmp7.not = icmp eq i64 %dec, 0
-  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !68
+  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !67
 
 for.end:                                          ; preds = %for.body9, %for.body
   %pos.1.lcssa = phi i64 [ %pos.0120, %for.body ], [ %inc12, %for.body9 ]
@@ -3970,7 +3961,7 @@ for.end:                                          ; preds = %for.body9, %for.bod
   %add18 = add i64 %pos.1.lcssa, %conv17
   %inc20 = add nuw nsw i64 %i.0122, 1
   %exitcond.not = icmp eq i64 %inc20, %n_commands
-  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !69
+  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !68
 
 for.end21:                                        ; preds = %for.end, %if.then
   %num_literals.0.lcssa = phi i64 [ 0, %if.then ], [ %add15, %for.end ]
@@ -4266,6 +4257,9 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
@@ -4363,4 +4357,3 @@ attributes #12 = { nounwind }
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
 !68 = distinct !{!68, !5}
-!69 = distinct !{!69, !5}

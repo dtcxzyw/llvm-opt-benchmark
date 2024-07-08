@@ -1232,10 +1232,8 @@ entry:
   %xor.i1083 = xor <2 x i64> %add.i2283, %495
   %xor.i1080 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %xor.i1086, <2 x i64> %xor.i1086, <2 x i64> <i64 1, i64 1>)
   %xor.i1077 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %xor.i1083, <2 x i64> %xor.i1083, <2 x i64> <i64 1, i64 1>)
-  %502 = bitcast <2 x i64> %xor.i1080 to <16 x i8>
-  %503 = bitcast <2 x i64> %xor.i1077 to <16 x i8>
-  %palignr992 = shufflevector <16 x i8> %503, <16 x i8> %502, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %palignr993 = shufflevector <16 x i8> %502, <16 x i8> %503, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %502 = shufflevector <2 x i64> %xor.i1077, <2 x i64> %xor.i1080, <2 x i32> <i32 1, i32 2>
+  %503 = shufflevector <2 x i64> %xor.i1080, <2 x i64> %xor.i1077, <2 x i32> <i32 1, i32 2>
   %palignr994 = shufflevector <16 x i8> %500, <16 x i8> %497, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
   %palignr995 = shufflevector <16 x i8> %497, <16 x i8> %500, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
   %xor.i1074 = xor <2 x i64> %add.i2295, %16
@@ -1244,10 +1242,10 @@ entry:
   %504 = xor <2 x i64> %add.i2289, %17
   %xor.i1065 = xor <2 x i64> %504, %add.i2286
   store <2 x i64> %xor.i1065, ptr %arrayidx20, align 1
-  %xor.i10621811 = xor <16 x i8> %palignr992, %palignr995
-  %xor.i1062 = bitcast <16 x i8> %xor.i10621811 to <2 x i64>
-  %xor.i10591812 = xor <16 x i8> %palignr993, %palignr994
-  %xor.i1059 = bitcast <16 x i8> %xor.i10591812 to <2 x i64>
+  %505 = bitcast <16 x i8> %palignr995 to <2 x i64>
+  %xor.i1062 = xor <2 x i64> %502, %505
+  %506 = bitcast <16 x i8> %palignr994 to <2 x i64>
+  %xor.i1059 = xor <2 x i64> %503, %506
   %xor.i1056 = xor <2 x i64> %18, %xor.i1062
   store <2 x i64> %xor.i1056, ptr %arrayidx23, align 1
   %xor.i = xor <2 x i64> %19, %xor.i1059
