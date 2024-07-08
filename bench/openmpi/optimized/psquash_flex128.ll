@@ -278,16 +278,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.135.i = phi i64 [ %27, %26 ], [ %12, %23 ]
   %.033.i = phi i8 [ %29, %26 ], [ %14, %23 ]
   %.not47.i = icmp eq i8 %.033.i, 0
-  br i1 %.not47.i, label %flex_unpack_integer.exit, label %.lr.ph.preheader.i
+  br i1 %.not47.i, label %flex_unpack_integer.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %33
-  %34 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %.033.i, i1 true)
-  %35 = sub nuw nsw i8 8, %34
+.lr.ph.i:                                         ; preds = %33, %.lr.ph.i
+  %.049.i = phi i8 [ %35, %.lr.ph.i ], [ 0, %33 ]
+  %.148.i = phi i8 [ %34, %.lr.ph.i ], [ %.033.i, %33 ]
+  %34 = lshr i8 %.148.i, 1
+  %35 = add nuw nsw i8 %.049.i, 1
+  %.not.i = icmp ult i8 %.148.i, 2
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
+
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %36 = zext nneg i8 %35 to i64
   br label %flex_unpack_integer.exit
 
-flex_unpack_integer.exit:                         ; preds = %33, %.lr.ph.preheader.i
-  %.0.lcssa.i = phi i64 [ 0, %33 ], [ %36, %.lr.ph.preheader.i ]
+flex_unpack_integer.exit:                         ; preds = %33, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi i64 [ 0, %33 ], [ %36, %._crit_edge.loopexit.i ]
   %37 = add i64 %.0.lcssa.i, %.036.i
   %38 = lshr i64 %37, 3
   %39 = and i64 %37, 7
@@ -381,9 +387,6 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctlz.i8(i8, i1 immarg) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -402,3 +405,4 @@ attributes #5 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

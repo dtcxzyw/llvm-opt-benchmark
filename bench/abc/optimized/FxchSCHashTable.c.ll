@@ -13,14 +13,23 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [18 x i8] c"Memory Usage (MB)\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"%20d %18.2f\0A\00", align 1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Fxch_SCHashTableCreate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
   %4 = add nsw i32 %1, 1
   %5 = icmp ult i32 %4, 2
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
-  %7 = sub nuw nsw i32 32, %6
-  %.09.i = select i1 %5, i32 %4, i32 %7
+  br i1 %5, label %Abc_Base2Log.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %.013.i = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.0812.i = phi i32 [ %6, %.lr.ph.i ], [ %1, %2 ]
+  %6 = lshr i32 %.0812.i, 1
+  %7 = add nuw nsw i32 %.013.i, 1
+  %.not.i = icmp ult i32 %.0812.i, 2
+  br i1 %.not.i, label %Abc_Base2Log.exit, label %.lr.ph.i, !llvm.loop !4
+
+Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %2
+  %.09.i = phi i32 [ %4, %2 ], [ %7, %.lr.ph.i ]
   store ptr %0, ptr %3, align 8
   %8 = shl nuw i32 1, %.09.i
   %9 = add nsw i32 %8, -1
@@ -62,7 +71,7 @@ define void @Fxch_SCHashTableDelete(ptr nocapture noundef %0) local_unnamed_addr
   %13 = add i32 %.023, 1
   %14 = load i32, ptr %2, align 4
   %.not = icmp ugt i32 %13, %14
-  br i1 %.not, label %15, label %4, !llvm.loop !4
+  br i1 %.not, label %15, label %4, !llvm.loop !6
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 24
@@ -616,7 +625,7 @@ Vec_IntPush.exit134:                              ; preds = %.Vec_IntGrow.exit10
   %294 = add nuw nsw i32 %293, %291
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !7
 
 .lr.ph141:                                        ; preds = %.preheader, %.lr.ph141
   %.092140 = phi i32 [ %297, %.lr.ph141 ], [ 0, %.preheader ]
@@ -624,7 +633,7 @@ Vec_IntPush.exit134:                              ; preds = %.Vec_IntGrow.exit10
   %296 = tail call i32 @Fxch_DivAdd(ptr noundef %295, i32 noundef %86, i32 noundef 0, i32 noundef %264) #15
   %297 = add nuw i32 %.092140, 1
   %exitcond151.not = icmp eq i32 %297, %294
-  br i1 %exitcond151.not, label %._crit_edge.loopexit, label %.lr.ph141, !llvm.loop !7
+  br i1 %exitcond151.not, label %._crit_edge.loopexit, label %.lr.ph141, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph141
   %.pre155 = load ptr, ptr %0, align 8
@@ -653,7 +662,7 @@ Vec_IntPush.exit134:                              ; preds = %.Vec_IntGrow.exit10
   %310 = add nsw i32 %309, -1
   %311 = sext i32 %310 to i64
   %312 = icmp slt i64 %indvars.iv.next153, %311
-  br i1 %312, label %87, label %.loopexit, !llvm.loop !8
+  br i1 %312, label %87, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %307, %79, %48
   %.0 = phi i32 [ 0, %48 ], [ 0, %79 ], [ %.1, %307 ]
@@ -733,7 +742,7 @@ define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr noc
   %42 = icmp ult i64 %indvars.iv.next, %36
   %43 = icmp eq i32 %41, 0
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %43, label %Vec_IntEqual.exit, label %45
@@ -849,7 +858,7 @@ define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr noc
   %106 = load i32, ptr %47, align 4
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next.i, %107
-  br i1 %108, label %101, label %Vec_IntDrop.exit, !llvm.loop !10
+  br i1 %108, label %101, label %Vec_IntDrop.exit, !llvm.loop !11
 
 Vec_IntDrop.exit:                                 ; preds = %101, %90, %88
   %109 = load i32, ptr %83, align 4
@@ -884,7 +893,7 @@ Vec_IntDrop.exit:                                 ; preds = %101, %90, %88
   %125 = load i32, ptr %49, align 4
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next.i103, %126
-  br i1 %127, label %120, label %Vec_IntDrop.exit104, !llvm.loop !10
+  br i1 %127, label %120, label %Vec_IntDrop.exit104, !llvm.loop !11
 
 Vec_IntDrop.exit104:                              ; preds = %120, %110, %Vec_IntDrop.exit
   %128 = phi i32 [ %116, %110 ], [ %.pre, %Vec_IntDrop.exit ], [ %125, %120 ]
@@ -907,7 +916,7 @@ Vec_IntDrop.exit104:                              ; preds = %120, %110, %Vec_Int
 135:                                              ; preds = %136
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntEqual.exit, label %136, !llvm.loop !11
+  br i1 %exitcond.not.i, label %Vec_IntEqual.exit, label %136, !llvm.loop !12
 
 136:                                              ; preds = %135, %.lr.ph.i105
   %indvars.iv.i106 = phi i64 [ 0, %.lr.ph.i105 ], [ %indvars.iv.next.i107, %135 ]
@@ -1106,7 +1115,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
 41:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !13
 
 ._crit_edge.split.loop.exit174:                   ; preds = %37
   %42 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1233,7 +1242,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %116 = add nuw nsw i32 %115, %113
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.preheader, label %.lr.ph121, !llvm.loop !13
+  br i1 %exitcond152.not, label %.preheader, label %.lr.ph121, !llvm.loop !14
 
 .lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
   %.091123 = phi i32 [ %119, %.lr.ph124 ], [ 0, %.preheader ]
@@ -1241,7 +1250,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %118 = tail call i32 @Fxch_DivRemove(ptr noundef %117, i32 noundef %48, i32 noundef 0, i32 noundef %86) #15
   %119 = add nuw i32 %.091123, 1
   %exitcond153.not = icmp eq i32 %119, %116
-  br i1 %exitcond153.not, label %._crit_edge125.loopexit, label %.lr.ph124, !llvm.loop !14
+  br i1 %exitcond153.not, label %._crit_edge125.loopexit, label %.lr.ph124, !llvm.loop !15
 
 ._crit_edge125.loopexit:                          ; preds = %.lr.ph124
   %.pre160 = load ptr, ptr %0, align 8
@@ -1305,7 +1314,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %149 = load i32, ptr %126, align 4
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next.i, %150
-  br i1 %151, label %.lr.ph.i, label %Vec_IntDrop.exit, !llvm.loop !10
+  br i1 %151, label %.lr.ph.i, label %Vec_IntDrop.exit, !llvm.loop !11
 
 Vec_IntDrop.exit:                                 ; preds = %.lr.ph.i, %141
   %152 = phi i32 [ %142, %141 ], [ %149, %.lr.ph.i ]
@@ -1326,7 +1335,7 @@ Vec_IntDrop.exit:                                 ; preds = %.lr.ph.i, %141
   %160 = load i32, ptr %126, align 4
   %161 = sext i32 %160 to i64
   %162 = icmp slt i64 %indvars.iv.next.i110, %161
-  br i1 %162, label %.lr.ph.i108, label %Vec_IntDrop.exit111, !llvm.loop !10
+  br i1 %162, label %.lr.ph.i108, label %Vec_IntDrop.exit111, !llvm.loop !11
 
 Vec_IntDrop.exit111:                              ; preds = %.lr.ph.i108, %Vec_IntDrop.exit, %138
   %.val104 = phi i32 [ %153, %Vec_IntDrop.exit ], [ %.val104162, %138 ], [ %160, %.lr.ph.i108 ]
@@ -1334,7 +1343,7 @@ Vec_IntDrop.exit111:                              ; preds = %.lr.ph.i108, %Vec_I
   %163 = trunc i64 %indvars.iv.next155 to i32
   %164 = or disjoint i32 %163, 1
   %165 = icmp slt i32 %164, %.val104
-  br i1 %165, label %129, label %.critedge, !llvm.loop !15
+  br i1 %165, label %129, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Vec_IntDrop.exit111, %._crit_edge125
   %.val104.lcssa = phi i32 [ %.val104127, %._crit_edge125 ], [ %.val104, %Vec_IntDrop.exit111 ]
@@ -1368,7 +1377,7 @@ Vec_IntErase.exit:                                ; preds = %167, %170
   %175 = and i32 %174, 65535
   %176 = zext nneg i32 %175 to i64
   %177 = icmp ult i64 %indvars.iv.next158, %176
-  br i1 %177, label %49, label %._crit_edge138.loopexit, !llvm.loop !16
+  br i1 %177, label %49, label %._crit_edge138.loopexit, !llvm.loop !17
 
 ._crit_edge138.loopexit:                          ; preds = %173
   %.pre164 = load ptr, ptr %30, align 8
@@ -1528,7 +1537,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = sext i32 %.val to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %9, label %.critedge, !llvm.loop !17
+  br i1 %43, label %9, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %41, %3
   ret void
@@ -1618,7 +1627,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %3, align 4
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %7, label %.critedge, !llvm.loop !18
+  br i1 %39, label %7, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %2
   ret void
@@ -1633,10 +1642,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
-
-attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1676,3 +1682,4 @@ attributes #17 = { nounwind allocsize(0) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

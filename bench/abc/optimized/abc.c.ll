@@ -15913,58 +15913,58 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %4 = alloca [64 x i64], align 16
   %5 = alloca [8 x i32], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
-  br label %.outer292
+  br label %.outer285
 
-.outer292:                                        ; preds = %58, %3
+.outer285:                                        ; preds = %58, %3
   %.085.ph = phi i32 [ %59, %58 ], [ 0, %3 ]
-  %.083.ph = phi i32 [ %.083.ph294, %58 ], [ 0, %3 ]
-  %.080.ph = phi i32 [ %.080.ph302, %58 ], [ 0, %3 ]
-  %.078.ph = phi i32 [ %.078.ph309, %58 ], [ 0, %3 ]
-  %.075.ph = phi i32 [ %.075.ph315, %58 ], [ 1, %3 ]
-  %.073.ph = phi i32 [ %.073.ph320, %58 ], [ 400000, %3 ]
-  %.067.ph = phi i32 [ %.067.ph306, %58 ], [ 0, %3 ]
+  %.083.ph = phi i32 [ %.083.ph287, %58 ], [ 0, %3 ]
+  %.080.ph = phi i32 [ %.080.ph295, %58 ], [ 0, %3 ]
+  %.078.ph = phi i32 [ %.078.ph302, %58 ], [ 0, %3 ]
+  %.075.ph = phi i32 [ %.075.ph308, %58 ], [ 1, %3 ]
+  %.073.ph = phi i32 [ %.073.ph313, %58 ], [ 400000, %3 ]
+  %.067.ph = phi i32 [ %.067.ph299, %58 ], [ 0, %3 ]
   %.066.ph = phi i32 [ %.066, %58 ], [ -1, %3 ]
-  br label %.outer293
+  br label %.outer286
 
-.outer293:                                        ; preds = %.outer292, %60
-  %.083.ph294 = phi i32 [ %.083.ph, %.outer292 ], [ %61, %60 ]
-  %.080.ph295 = phi i32 [ %.080.ph, %.outer292 ], [ %.080.ph302, %60 ]
-  %.078.ph296 = phi i32 [ %.078.ph, %.outer292 ], [ %.078.ph309, %60 ]
-  %.075.ph297 = phi i32 [ %.075.ph, %.outer292 ], [ %.075.ph315, %60 ]
-  %.073.ph298 = phi i32 [ %.073.ph, %.outer292 ], [ %.073.ph320, %60 ]
-  %.067.ph299 = phi i32 [ %.067.ph, %.outer292 ], [ %.067.ph306, %60 ]
-  %.066.ph300 = phi i32 [ %.066.ph, %.outer292 ], [ %.066, %60 ]
+.outer286:                                        ; preds = %.outer285, %60
+  %.083.ph287 = phi i32 [ %.083.ph, %.outer285 ], [ %61, %60 ]
+  %.080.ph288 = phi i32 [ %.080.ph, %.outer285 ], [ %.080.ph295, %60 ]
+  %.078.ph289 = phi i32 [ %.078.ph, %.outer285 ], [ %.078.ph302, %60 ]
+  %.075.ph290 = phi i32 [ %.075.ph, %.outer285 ], [ %.075.ph308, %60 ]
+  %.073.ph291 = phi i32 [ %.073.ph, %.outer285 ], [ %.073.ph313, %60 ]
+  %.067.ph292 = phi i32 [ %.067.ph, %.outer285 ], [ %.067.ph299, %60 ]
+  %.066.ph293 = phi i32 [ %.066.ph, %.outer285 ], [ %.066, %60 ]
+  br label %.outer294
+
+.outer294:                                        ; preds = %.outer286, %32
+  %.080.ph295 = phi i32 [ %.080.ph288, %.outer286 ], [ %34, %32 ]
+  %.078.ph296 = phi i32 [ %.078.ph289, %.outer286 ], [ %.078.ph302, %32 ]
+  %.075.ph297 = phi i32 [ %.075.ph290, %.outer286 ], [ %.075.ph308, %32 ]
+  %.073.ph298 = phi i32 [ %.073.ph291, %.outer286 ], [ %.073.ph313, %32 ]
+  %.067.ph299 = phi i32 [ %.067.ph292, %.outer286 ], [ 1, %32 ]
+  %.066.ph300 = phi i32 [ %.066.ph293, %.outer286 ], [ %.066, %32 ]
   br label %.outer301
 
-.outer301:                                        ; preds = %.outer293, %32
-  %.080.ph302 = phi i32 [ %.080.ph295, %.outer293 ], [ %34, %32 ]
-  %.078.ph303 = phi i32 [ %.078.ph296, %.outer293 ], [ %.078.ph309, %32 ]
-  %.075.ph304 = phi i32 [ %.075.ph297, %.outer293 ], [ %.075.ph315, %32 ]
-  %.073.ph305 = phi i32 [ %.073.ph298, %.outer293 ], [ %.073.ph320, %32 ]
-  %.067.ph306 = phi i32 [ %.067.ph299, %.outer293 ], [ 1, %32 ]
-  %.066.ph307 = phi i32 [ %.066.ph300, %.outer293 ], [ %.066, %32 ]
-  br label %.outer308
+.outer301:                                        ; preds = %.outer294, %56
+  %.078.ph302 = phi i32 [ %.078.ph296, %.outer294 ], [ %57, %56 ]
+  %.075.ph303 = phi i32 [ %.075.ph297, %.outer294 ], [ %.075.ph308, %56 ]
+  %.073.ph304 = phi i32 [ %.073.ph298, %.outer294 ], [ %.073.ph313, %56 ]
+  %.066.ph306 = phi i32 [ %.066.ph300, %.outer294 ], [ %.066, %56 ]
+  br label %.outer307
 
-.outer308:                                        ; preds = %.outer301, %56
-  %.078.ph309 = phi i32 [ %.078.ph303, %.outer301 ], [ %57, %56 ]
-  %.075.ph310 = phi i32 [ %.075.ph304, %.outer301 ], [ %.075.ph315, %56 ]
-  %.073.ph311 = phi i32 [ %.073.ph305, %.outer301 ], [ %.073.ph320, %56 ]
-  %.066.ph313 = phi i32 [ %.066.ph307, %.outer301 ], [ %.066, %56 ]
-  br label %.outer314
+.outer307:                                        ; preds = %.outer301, %41
+  %.075.ph308 = phi i32 [ %.075.ph303, %.outer301 ], [ %45, %41 ]
+  %.073.ph309 = phi i32 [ %.073.ph304, %.outer301 ], [ %.073.ph313, %41 ]
+  %.066.ph311 = phi i32 [ %.066.ph306, %.outer301 ], [ %.066, %41 ]
+  br label %.outer312
 
-.outer314:                                        ; preds = %.outer308, %41
-  %.075.ph315 = phi i32 [ %.075.ph310, %.outer308 ], [ %45, %41 ]
-  %.073.ph316 = phi i32 [ %.073.ph311, %.outer308 ], [ %.073.ph320, %41 ]
-  %.066.ph318 = phi i32 [ %.066.ph313, %.outer308 ], [ %.066, %41 ]
-  br label %.outer319
-
-.outer319:                                        ; preds = %.outer314, %50
-  %.073.ph320 = phi i32 [ %.073.ph316, %.outer314 ], [ %54, %50 ]
-  %.066.ph322 = phi i32 [ %.066.ph318, %.outer314 ], [ %.066, %50 ]
+.outer312:                                        ; preds = %.outer307, %50
+  %.073.ph313 = phi i32 [ %.073.ph309, %.outer307 ], [ %54, %50 ]
+  %.066.ph315 = phi i32 [ %.066.ph311, %.outer307 ], [ %.066, %50 ]
   br label %6
 
-6:                                                ; preds = %.outer319, %10
-  %.066 = phi i32 [ %14, %10 ], [ %.066.ph322, %.outer319 ]
+6:                                                ; preds = %.outer312, %10
+  %.066 = phi i32 [ %14, %10 ], [ %.066.ph315, %.outer312 ]
   %7 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1250) #28
   switch i32 %7, label %.loopexit [
     i32 -1, label %62
@@ -16006,7 +16006,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   br label %.outer
 
 .outer:                                           ; preds = %26, %19
-  %.181.ph = phi i32 [ %28, %26 ], [ %.080.ph302, %19 ]
+  %.181.ph = phi i32 [ %28, %26 ], [ %.080.ph295, %19 ]
   %.069.ph = phi ptr [ %31, %26 ], [ %23, %19 ]
   br label %24
 
@@ -16035,7 +16035,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %35 = sext i32 %.181.ph to i64
   %36 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %35
   store i32 %33, ptr %36, align 4
-  br label %.outer301, !llvm.loop !85
+  br label %.outer294, !llvm.loop !85
 
 37:                                               ; preds = %24
   %38 = getelementptr inbounds i8, ptr %.069, i64 1
@@ -16054,7 +16054,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %46 = add nsw i32 %40, 1
   store i32 %46, ptr @globalUtilOptind, align 4
   %47 = icmp slt i32 %45, 1
-  br i1 %47, label %.loopexit, label %.outer314, !llvm.loop !85
+  br i1 %47, label %.loopexit, label %.outer307, !llvm.loop !85
 
 48:                                               ; preds = %6
   %49 = load i32, ptr @globalUtilOptind, align 4
@@ -16068,19 +16068,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %54 = tail call i32 @atoi(ptr nocapture noundef %53) #31
   %55 = add nsw i32 %49, 1
   store i32 %55, ptr @globalUtilOptind, align 4
-  br label %.outer319, !llvm.loop !85
+  br label %.outer312, !llvm.loop !85
 
 56:                                               ; preds = %6
-  %57 = xor i32 %.078.ph309, 1
-  br label %.outer308, !llvm.loop !85
+  %57 = xor i32 %.078.ph302, 1
+  br label %.outer301, !llvm.loop !85
 
 58:                                               ; preds = %6
   %59 = xor i32 %.085.ph, 1
-  br label %.outer292, !llvm.loop !85
+  br label %.outer285, !llvm.loop !85
 
 60:                                               ; preds = %6
-  %61 = xor i32 %.083.ph294, 1
-  br label %.outer293, !llvm.loop !85
+  %61 = xor i32 %.083.ph287, 1
+  br label %.outer286, !llvm.loop !85
 
 62:                                               ; preds = %6
   %.not100 = icmp eq i32 %.085.ph, 0
@@ -16088,9 +16088,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
 
 63:                                               ; preds = %62
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  tail call void @Abc_ExactTest(i32 noundef %.083.ph294) #28
-  tail call void @Abc_ExactStoreTest(i32 noundef %.083.ph294) #28
-  br label %175
+  tail call void @Abc_ExactTest(i32 noundef %.083.ph287) #28
+  tail call void @Abc_ExactStoreTest(i32 noundef %.083.ph287) #28
+  br label %174
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @globalUtilOptind, align 4
@@ -16108,20 +16108,20 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %wide.trip.count = zext i32 %70 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %162
-  %indvars.iv217 = phi i64 [ %69, %.lr.ph.preheader ], [ %indvars.iv.next218, %162 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %162 ]
-  %.4169 = phi i32 [ %.080.ph302, %.lr.ph.preheader ], [ %.5, %162 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %161
+  %indvars.iv210 = phi i64 [ %69, %.lr.ph.preheader ], [ %indvars.iv.next211, %161 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %161 ]
+  %.4162 = phi i32 [ %.080.ph295, %.lr.ph.preheader ], [ %.5, %161 ]
   %71 = icmp eq i64 %indvars.iv, 16
   br i1 %71, label %.loopexit.sink.split, label %72
 
 72:                                               ; preds = %.lr.ph
   %73 = shl i64 %indvars.iv, 2
   %74 = getelementptr inbounds [64 x i64], ptr %4, i64 0, i64 %73
-  %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
-  %75 = trunc nsw i64 %indvars.iv.next218 to i32
+  %indvars.iv.next211 = add nsw i64 %indvars.iv210, 1
+  %75 = trunc nsw i64 %indvars.iv.next211 to i32
   store i32 %75, ptr @globalUtilOptind, align 4
-  %76 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv217
+  %76 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv210
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 48
@@ -16140,16 +16140,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %85 = phi i8 [ %78, %72 ], [ %.pre.i, %80 ]
   %.038.i = phi ptr [ %77, %72 ], [ %spec.select.i, %80 ]
   %86 = add i8 %85, -58
-  %or.cond.i46.i = icmp ult i8 %86, -10
+  %or.cond.i49.i = icmp ult i8 %86, -10
   %87 = and i8 %85, -33
   %88 = add i8 %87, -71
   %89 = icmp ult i8 %88, -6
-  %narrow.i.not47.i = and i1 %or.cond.i46.i, %89
-  br i1 %narrow.i.not47.i, label %.thread, label %.lr.ph.i
+  %narrow.i.not50.i = and i1 %or.cond.i49.i, %89
+  br i1 %narrow.i.not50.i, label %.lr.ph54.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %84 ]
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = getelementptr inbounds i8, ptr %.038.i, i64 %indvars.iv.next.i
   %91 = load i8, ptr %90, align 1
   %92 = add i8 %91, -58
@@ -16162,13 +16162,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  switch i32 %indvars.i, label %.thread69.i [
+  switch i32 %indvars.i, label %.lr.ph.preheader.i.i [
     i32 1, label %96
-    i32 0, label %.thread
+    i32 0, label %.lr.ph54.preheader.i
   ]
 
 96:                                               ; preds = %._crit_edge.i
-  switch i8 %85, label %.preheader.i.thread117 [
+  switch i8 %85, label %.lr.ph54.preheader.i [
     i8 48, label %97
     i8 70, label %97
     i8 53, label %100
@@ -16185,209 +16185,212 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %102 = select i1 %101, i64 6148914691236517205, i64 -6148914691236517206
   br label %.sink.split.i
 
-.thread69.i:                                      ; preds = %._crit_edge.i
+.lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i
   %103 = add nsw i32 %indvars.i, -1
-  %104 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %103, i1 true)
-  %.fr81.i = freeze i32 %104
-  %105 = sub i32 34, %.fr81.i
-  %106 = icmp ult i32 %105, 7
-  br i1 %106, label %.preheader.i.thread117, label %.thread.i
+  br label %.lr.ph.i.i
 
-.thread.i:                                        ; preds = %.thread69.i
-  %107 = sub i32 28, %.fr81.i
-  %108 = shl nuw i32 1, %107
-  %.not82.i = icmp eq i32 %.fr81.i, -3
-  br i1 %.not82.i, label %.lr.ph53.preheader.i, label %.preheader.i.thread117
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.013.i.i = phi i32 [ %105, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.0812.i.i = phi i32 [ %104, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
+  %104 = lshr i32 %.0812.i.i, 1
+  %105 = add nuw nsw i32 %.013.i.i, 1
+  %.not.i.i = icmp ult i32 %.0812.i.i, 2
+  br i1 %.not.i.i, label %106, label %.lr.ph.i.i, !llvm.loop !87
 
-.preheader.i.thread117:                           ; preds = %.thread.i, %96, %.thread69.i
-  %.ph = phi i32 [ 1, %.thread69.i ], [ 1, %96 ], [ %108, %.thread.i ]
-  %.ph116 = phi i32 [ %105, %.thread69.i ], [ 2, %96 ], [ %105, %.thread.i ]
-  %109 = zext nneg i32 %.ph to i64
-  %110 = shl nuw nsw i64 %109, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %74, i8 0, i64 %110, i1 false)
-  br label %.lr.ph53.preheader.i
+106:                                              ; preds = %.lr.ph.i.i
+  %107 = add nuw nsw i32 %.013.i.i, 3
+  %108 = icmp ult i32 %.013.i.i, 4
+  br i1 %108, label %.lr.ph54.preheader.i, label %.thread.i
 
-.lr.ph53.preheader.i:                             ; preds = %.thread.i, %.preheader.i.thread117
-  %111 = phi i32 [ %.ph116, %.preheader.i.thread117 ], [ 37, %.thread.i ]
-  %sext = shl i64 %indvars.iv.next.i, 32
-  %112 = ashr exact i64 %sext, 32
-  %wide.trip.count.i = and i64 %indvars.iv.next.i, 4294967295
-  br label %.lr.ph53.i
+.thread.i:                                        ; preds = %106
+  %109 = add nsw i32 %.013.i.i, -3
+  %110 = shl nuw i32 1, %109
+  %.not74.i = icmp eq i32 %109, 31
+  br i1 %.not74.i, label %.preheader.i, label %.lr.ph54.preheader.i
 
-.lr.ph53.i:                                       ; preds = %Abc_TtReadHexDigit.exit.i, %.lr.ph53.preheader.i
-  %indvars.iv62.i = phi i64 [ 0, %.lr.ph53.preheader.i ], [ %indvars.iv.next63.i, %Abc_TtReadHexDigit.exit.i ]
-  %113 = xor i64 %indvars.iv62.i, -1
-  %114 = add nsw i64 %112, %113
-  %115 = getelementptr inbounds i8, ptr %.038.i, i64 %114
-  %116 = load i8, ptr %115, align 1
-  %117 = sext i8 %116 to i32
-  %118 = add i8 %116, -48
-  %or.cond.i42.i = icmp ult i8 %118, 10
-  br i1 %or.cond.i42.i, label %119, label %121
+.lr.ph54.preheader.i:                             ; preds = %.thread.i, %106, %96, %._crit_edge.i, %84
+  %111 = phi i32 [ %110, %.thread.i ], [ 1, %96 ], [ 1, %._crit_edge.i ], [ 1, %84 ], [ 1, %106 ]
+  %112 = phi i32 [ %107, %.thread.i ], [ 2, %96 ], [ 2, %._crit_edge.i ], [ 2, %84 ], [ %107, %106 ]
+  %.0.lcssa7073.i = phi i32 [ %indvars.i, %.thread.i ], [ 1, %96 ], [ %indvars.i, %._crit_edge.i ], [ 0, %84 ], [ %indvars.i, %106 ]
+  %113 = zext nneg i32 %111 to i64
+  %114 = shl nuw nsw i64 %113, 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %74, i8 0, i64 %114, i1 false)
+  br label %.preheader.i
 
-119:                                              ; preds = %.lr.ph53.i
-  %120 = add nsw i32 %117, -48
+.preheader.i:                                     ; preds = %.lr.ph54.preheader.i, %.thread.i
+  %115 = phi i32 [ %112, %.lr.ph54.preheader.i ], [ 37, %.thread.i ]
+  %.0.lcssa7072.i = phi i32 [ %.0.lcssa7073.i, %.lr.ph54.preheader.i ], [ %indvars.i, %.thread.i ]
+  %.not.i = icmp eq i32 %.0.lcssa7072.i, 0
+  br i1 %.not.i, label %._crit_edge57.i, label %.lr.ph56.preheader.i
+
+.lr.ph56.preheader.i:                             ; preds = %.preheader.i
+  %116 = sext i32 %.0.lcssa7072.i to i64
+  %wide.trip.count.i = zext i32 %.0.lcssa7072.i to i64
+  br label %.lr.ph56.i
+
+.lr.ph56.i:                                       ; preds = %Abc_TtReadHexDigit.exit.i, %.lr.ph56.preheader.i
+  %indvars.iv65.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %indvars.iv.next66.i, %Abc_TtReadHexDigit.exit.i ]
+  %117 = xor i64 %indvars.iv65.i, -1
+  %118 = add nsw i64 %117, %116
+  %119 = getelementptr inbounds i8, ptr %.038.i, i64 %118
+  %120 = load i8, ptr %119, align 1
+  %121 = sext i8 %120 to i32
+  %122 = add i8 %120, -48
+  %or.cond.i42.i = icmp ult i8 %122, 10
+  br i1 %or.cond.i42.i, label %123, label %125
+
+123:                                              ; preds = %.lr.ph56.i
+  %124 = add nsw i32 %121, -48
   br label %Abc_TtReadHexDigit.exit.i
 
-121:                                              ; preds = %.lr.ph53.i
-  %122 = add i8 %116, -65
-  %or.cond5.i.i = icmp ult i8 %122, 6
-  br i1 %or.cond5.i.i, label %123, label %125
+125:                                              ; preds = %.lr.ph56.i
+  %126 = add i8 %120, -65
+  %or.cond5.i.i = icmp ult i8 %126, 6
+  br i1 %or.cond5.i.i, label %127, label %129
 
-123:                                              ; preds = %121
-  %124 = add nsw i32 %117, -55
+127:                                              ; preds = %125
+  %128 = add nsw i32 %121, -55
   br label %Abc_TtReadHexDigit.exit.i
 
-125:                                              ; preds = %121
-  %126 = add i8 %116, -97
-  %or.cond8.i.i = icmp ult i8 %126, 6
-  %127 = add nsw i32 %117, -87
-  %spec.select.i.i = select i1 %or.cond8.i.i, i32 %127, i32 -1
+129:                                              ; preds = %125
+  %130 = add i8 %120, -97
+  %or.cond8.i.i = icmp ult i8 %130, 6
+  %131 = add nsw i32 %121, -87
+  %spec.select.i.i = select i1 %or.cond8.i.i, i32 %131, i32 -1
   br label %Abc_TtReadHexDigit.exit.i
 
-Abc_TtReadHexDigit.exit.i:                        ; preds = %125, %123, %119
-  %.0.i.i = phi i32 [ %120, %119 ], [ %124, %123 ], [ %spec.select.i.i, %125 ]
-  %128 = sext i32 %.0.i.i to i64
-  %129 = shl i64 %indvars.iv62.i, 2
-  %130 = and i64 %129, 60
-  %131 = shl i64 %128, %130
-  %132 = lshr i64 %indvars.iv62.i, 4
-  %133 = and i64 %132, 268435455
-  %134 = getelementptr inbounds i64, ptr %74, i64 %133
-  %135 = load i64, ptr %134, align 8
-  %136 = or i64 %131, %135
-  store i64 %136, ptr %134, align 8
-  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !87
+Abc_TtReadHexDigit.exit.i:                        ; preds = %129, %127, %123
+  %.0.i.i = phi i32 [ %124, %123 ], [ %128, %127 ], [ %spec.select.i.i, %129 ]
+  %132 = sext i32 %.0.i.i to i64
+  %133 = shl i64 %indvars.iv65.i, 2
+  %134 = and i64 %133, 60
+  %135 = shl i64 %132, %134
+  %136 = lshr i64 %indvars.iv65.i, 4
+  %137 = and i64 %136, 268435455
+  %138 = getelementptr inbounds i64, ptr %74, i64 %137
+  %139 = load i64, ptr %138, align 8
+  %140 = or i64 %135, %139
+  store i64 %140, ptr %138, align 8
+  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge57.i, label %.lr.ph56.i, !llvm.loop !88
 
-._crit_edge54.i:                                  ; preds = %Abc_TtReadHexDigit.exit.i
-  %137 = icmp slt i32 %111, 6
-  br i1 %137, label %138, label %Abc_TtReadHex.exit
+._crit_edge57.i:                                  ; preds = %Abc_TtReadHexDigit.exit.i, %.preheader.i
+  %141 = icmp slt i32 %115, 6
+  br i1 %141, label %142, label %Abc_TtReadHex.exit
 
-138:                                              ; preds = %._crit_edge54.i
-  %.pre = load i64, ptr %74, align 16
-  %139 = icmp ult i32 %111, 2
-  %140 = and i64 %.pre, 3
-  %141 = mul nuw nsw i64 %140, 5
-  %spec.select = select i1 %139, i64 %141, i64 %.pre
-  br label %.thread
-
-.thread:                                          ; preds = %138, %._crit_edge.i, %84
-  %142 = phi i32 [ 2, %84 ], [ 2, %._crit_edge.i ], [ %111, %138 ]
-  %143 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %.pre, %138 ]
-  %144 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %spec.select, %138 ]
-  %.1.i.i = tail call i32 @llvm.umax.i32(i32 %142, i32 2)
-  %145 = icmp ult i32 %142, 3
-  %146 = and i64 %144, 15
-  %147 = mul nuw nsw i64 %146, 17
-  %.227.i.i = select i1 %145, i64 %147, i64 %143
-  %.2.i.i = select i1 %145, i32 3, i32 %.1.i.i
-  %148 = icmp eq i32 %.2.i.i, 3
-  %149 = and i64 %.227.i.i, 255
-  %150 = mul nuw nsw i64 %149, 257
-  %.328.i.i = select i1 %148, i64 %150, i64 %.227.i.i
-  %.3.i.i = select i1 %148, i32 4, i32 %.2.i.i
-  %151 = icmp eq i32 %.3.i.i, 4
-  %152 = and i64 %.328.i.i, 65535
-  %153 = mul nuw nsw i64 %152, 65537
-  %.429.i.i = select i1 %151, i64 %153, i64 %.328.i.i
-  %154 = and i32 %.3.i.i, -2
-  %155 = icmp eq i32 %154, 4
-  %156 = and i64 %.429.i.i, 4294967295
-  %157 = mul nuw i64 %156, 4294967297
-  %.5.i.i = select i1 %155, i64 %157, i64 %.429.i.i
+142:                                              ; preds = %._crit_edge57.i
+  %143 = load i64, ptr %74, align 16
+  %144 = icmp ult i32 %115, 3
+  %145 = and i64 %143, 15
+  %146 = mul nuw nsw i64 %145, 17
+  %.227.i.i = select i1 %144, i64 %146, i64 %143
+  %.2.i.i = tail call i32 @llvm.umax.i32(i32 %115, i32 3)
+  %147 = icmp ult i32 %115, 4
+  %148 = and i64 %.227.i.i, 255
+  %149 = mul nuw nsw i64 %148, 257
+  %.328.i.i = select i1 %147, i64 %149, i64 %143
+  %.3.i.i = select i1 %147, i32 4, i32 %.2.i.i
+  %150 = icmp eq i32 %.3.i.i, 4
+  %151 = and i64 %.328.i.i, 65535
+  %152 = mul nuw nsw i64 %151, 65537
+  %.429.i.i = select i1 %150, i64 %152, i64 %.328.i.i
+  %153 = and i32 %.3.i.i, -2
+  %154 = icmp eq i32 %153, 4
+  %155 = and i64 %.429.i.i, 4294967295
+  %156 = mul nuw i64 %155, 4294967297
+  %.5.i.i = select i1 %154, i64 %156, i64 %.429.i.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread, %100, %97
-  %.5.i.sink.i = phi i64 [ %.5.i.i, %.thread ], [ %102, %100 ], [ %99, %97 ]
-  %.037.ph.i = phi i32 [ %142, %.thread ], [ 1, %100 ], [ 0, %97 ]
+.sink.split.i:                                    ; preds = %142, %100, %97
+  %.5.i.sink.i = phi i64 [ %.5.i.i, %142 ], [ %102, %100 ], [ %99, %97 ]
+  %.037.ph.i = phi i32 [ %115, %142 ], [ 1, %100 ], [ 0, %97 ]
   store i64 %.5.i.sink.i, ptr %74, align 16
   br label %Abc_TtReadHex.exit
 
-Abc_TtReadHex.exit:                               ; preds = %._crit_edge54.i, %.sink.split.i
-  %.037.i = phi i32 [ %111, %._crit_edge54.i ], [ %.037.ph.i, %.sink.split.i ]
+Abc_TtReadHex.exit:                               ; preds = %._crit_edge57.i, %.sink.split.i
+  %.037.i = phi i32 [ %115, %._crit_edge57.i ], [ %.037.ph.i, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %158 = icmp eq i32 %.4169, 0
-  br i1 %158, label %162, label %159
+  %157 = icmp eq i32 %.4162, 0
+  br i1 %157, label %161, label %158
 
-159:                                              ; preds = %Abc_TtReadHex.exit
-  %160 = icmp sgt i32 %.4169, 8
-  br i1 %160, label %.loopexit.sink.split, label %161
+158:                                              ; preds = %Abc_TtReadHex.exit
+  %159 = icmp sgt i32 %.4162, 8
+  br i1 %159, label %.loopexit.sink.split, label %160
 
-161:                                              ; preds = %159
-  %.not106 = icmp eq i32 %.4169, %.037.i
-  br i1 %.not106, label %162, label %.loopexit.sink.split
+160:                                              ; preds = %158
+  %.not106 = icmp eq i32 %.4162, %.037.i
+  br i1 %.not106, label %161, label %.loopexit.sink.split
 
-162:                                              ; preds = %Abc_TtReadHex.exit, %161
-  %.5 = phi i32 [ %.4169, %161 ], [ %.037.i, %Abc_TtReadHex.exit ]
+161:                                              ; preds = %Abc_TtReadHex.exit, %160
+  %.5 = phi i32 [ %.4162, %160 ], [ %.037.i, %Abc_TtReadHex.exit ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %162, %67
-  %.4.lcssa = phi i32 [ %.080.ph302, %67 ], [ %.5, %162 ]
-  %.077.lcssa = phi i32 [ 0, %67 ], [ %70, %162 ]
-  %.not101 = icmp eq i32 %.078.ph309, 0
-  %.not102 = icmp eq i32 %.067.ph306, 0
-  %163 = select i1 %.not102, ptr null, ptr %5
-  %164 = add nsw i32 %.075.ph315, -1
-  br i1 %.not101, label %169, label %165
+._crit_edge:                                      ; preds = %161, %67
+  %.4.lcssa = phi i32 [ %.080.ph295, %67 ], [ %.5, %161 ]
+  %.077.lcssa = phi i32 [ 0, %67 ], [ %70, %161 ]
+  %.not101 = icmp eq i32 %.078.ph302, 0
+  %.not102 = icmp eq i32 %.067.ph299, 0
+  %162 = select i1 %.not102, ptr null, ptr %5
+  %163 = add nsw i32 %.075.ph308, -1
+  br i1 %.not101, label %168, label %164
 
-165:                                              ; preds = %._crit_edge
-  %166 = call ptr @Gia_ManFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %163, i32 noundef %.073.ph320, i32 noundef %164, i32 noundef %.083.ph294) #28
-  %.not105 = icmp eq ptr %166, null
-  br i1 %.not105, label %168, label %167
+164:                                              ; preds = %._crit_edge
+  %165 = call ptr @Gia_ManFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %162, i32 noundef %.073.ph313, i32 noundef %163, i32 noundef %.083.ph287) #28
+  %.not105 = icmp eq ptr %165, null
+  br i1 %.not105, label %167, label %166
 
-167:                                              ; preds = %165
-  call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef nonnull %166)
-  br label %175
+166:                                              ; preds = %164
+  call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef nonnull %165)
+  br label %174
 
-168:                                              ; preds = %165
+167:                                              ; preds = %164
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.1255)
-  br label %175
+  br label %174
 
-169:                                              ; preds = %._crit_edge
-  %170 = call ptr @Abc_NtkFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %163, i32 noundef %.073.ph320, i32 noundef %164, i32 noundef %.083.ph294) #28
-  %.not103 = icmp eq ptr %170, null
-  br i1 %.not103, label %172, label %171
+168:                                              ; preds = %._crit_edge
+  %169 = call ptr @Abc_NtkFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %162, i32 noundef %.073.ph313, i32 noundef %163, i32 noundef %.083.ph287) #28
+  %.not103 = icmp eq ptr %169, null
+  br i1 %.not103, label %171, label %170
 
-171:                                              ; preds = %169
-  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %170) #28
+170:                                              ; preds = %168
+  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %169) #28
   call void @Abc_FrameClearVerifStatus(ptr noundef %0) #28
-  br label %175
+  br label %174
 
-172:                                              ; preds = %169
+171:                                              ; preds = %168
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.1256)
-  br label %175
+  br label %174
 
-.loopexit.sink.split:                             ; preds = %39, %8, %48, %17, %161, %159, %.lr.ph
-  %.str.1254.sink = phi ptr [ @.str.1252, %.lr.ph ], [ @.str.1253, %159 ], [ @.str.1254, %161 ], [ @.str.531, %8 ], [ @.str.512, %48 ], [ @.str.530, %39 ], [ @.str.1067, %17 ]
+.loopexit.sink.split:                             ; preds = %39, %8, %48, %17, %160, %158, %.lr.ph
+  %.str.1254.sink = phi ptr [ @.str.1252, %.lr.ph ], [ @.str.1253, %158 ], [ @.str.1254, %160 ], [ @.str.531, %8 ], [ @.str.512, %48 ], [ @.str.530, %39 ], [ @.str.1067, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1254.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %10, %41, %.loopexit.sink.split, %64
-  %.2 = phi i32 [ %.075.ph315, %64 ], [ %.075.ph315, %.loopexit.sink.split ], [ %.075.ph315, %6 ], [ %.075.ph315, %10 ], [ %45, %41 ]
+  %.2 = phi i32 [ %.075.ph308, %64 ], [ %.075.ph308, %.loopexit.sink.split ], [ %.075.ph308, %6 ], [ %.075.ph308, %10 ], [ %45, %41 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1257)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1258)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1259)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1260)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1261, i32 noundef %.2)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1262, i32 noundef %.073.ph320)
-  %.not111 = icmp eq i32 %.078.ph309, 0
-  %173 = select i1 %.not111, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1263, ptr noundef nonnull %173)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1262, i32 noundef %.073.ph313)
+  %.not111 = icmp eq i32 %.078.ph302, 0
+  %172 = select i1 %.not111, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1263, ptr noundef nonnull %172)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1264)
-  %.not112 = icmp eq i32 %.083.ph294, 0
-  %174 = select i1 %.not112, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1265, ptr noundef nonnull %174)
+  %.not112 = icmp eq i32 %.083.ph287, 0
+  %173 = select i1 %.not112, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1265, ptr noundef nonnull %173)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.730)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.881)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1266)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1267)
-  br label %175
+  br label %174
 
-175:                                              ; preds = %168, %167, %172, %171, %.loopexit, %63
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %63 ], [ 0, %171 ], [ 0, %172 ], [ 0, %167 ], [ 0, %168 ]
+174:                                              ; preds = %167, %166, %171, %170, %.loopexit, %63
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %63 ], [ 0, %170 ], [ 0, %171 ], [ 0, %166 ], [ 0, %167 ]
   ret i32 %.0
 }
 
@@ -16429,7 +16432,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrchestrate(ptr noundef %0, i32 
   %.064.be = phi i32 [ %.064, %42 ], [ %.064, %40 ], [ %.064, %38 ], [ %.064, %36 ], [ %35, %34 ], [ %.064, %27 ], [ %.064, %18 ], [ %.064, %9 ], [ %.064, %5 ]
   %.061.be = phi i32 [ %.061, %42 ], [ %41, %40 ], [ %.061, %38 ], [ %.061, %36 ], [ %.061, %34 ], [ %.061, %27 ], [ %.061, %18 ], [ %.061, %9 ], [ %.061, %5 ]
   %.0.be = phi i32 [ %43, %42 ], [ %.0, %40 ], [ %.0, %38 ], [ %.0, %36 ], [ %.0, %34 ], [ %.0, %27 ], [ %.0, %18 ], [ %.0, %9 ], [ %.0, %5 ]
-  br label %5, !llvm.loop !89
+  br label %5, !llvm.loop !90
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -16629,15 +16632,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAIGAugmentation(ptr noundef %0, 
     i32 90, label %13
     i32 100, label %15
     i32 115, label %22
-  ], !llvm.loop !90
+  ], !llvm.loop !91
 
 11:                                               ; preds = %9
   %12 = xor i32 %.056.ph91, 1
-  br label %.outer90, !llvm.loop !90
+  br label %.outer90, !llvm.loop !91
 
 13:                                               ; preds = %9
   %14 = xor i32 %.058.ph, 1
-  br label %.outer, !llvm.loop !90
+  br label %.outer, !llvm.loop !91
 
 15:                                               ; preds = %9
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -16650,7 +16653,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAIGAugmentation(ptr noundef %0, 
   %20 = load ptr, ptr %19, align 8
   %21 = add nsw i32 %16, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer97, !llvm.loop !90
+  br label %.outer97, !llvm.loop !91
 
 22:                                               ; preds = %9
   %23 = load i32, ptr @globalUtilOptind, align 4
@@ -16664,7 +16667,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAIGAugmentation(ptr noundef %0, 
   %28 = tail call i32 @atoi(ptr nocapture noundef %27) #31
   %29 = add nsw i32 %23, 1
   store i32 %29, ptr @globalUtilOptind, align 4
-  br label %.outer94, !llvm.loop !90
+  br label %.outer94, !llvm.loop !91
 
 30:                                               ; preds = %9
   %31 = icmp eq ptr %8, null
@@ -16779,7 +16782,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 -1, ptr %76, align 4
   %77 = add nuw nsw i32 %.076, 1
   %exitcond.not = icmp eq i32 %77, %.val71.val
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %38
   %78 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %8) #28
@@ -16872,19 +16875,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsStart(ptr nocapture readnone 
   %13 = tail call i32 @atoi(ptr nocapture noundef %12) #31
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
-  br label %4, !llvm.loop !92
+  br label %4, !llvm.loop !93
 
 15:                                               ; preds = %4
   %16 = xor i32 %.024.ph, 1
-  br label %.outer, !llvm.loop !92
+  br label %.outer, !llvm.loop !93
 
 17:                                               ; preds = %4
   %18 = xor i32 %.022.ph84, 1
-  br label %.outer83, !llvm.loop !92
+  br label %.outer83, !llvm.loop !93
 
 19:                                               ; preds = %4
   %20 = xor i32 %.020.ph88, 1
-  br label %.outer87, !llvm.loop !92
+  br label %.outer87, !llvm.loop !93
 
 21:                                               ; preds = %4
   %22 = load i32, ptr @globalUtilOptind, align 4
@@ -17102,7 +17105,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr nocapture readnone 
   %.042.be = phi i32 [ %.042, %41 ], [ %.042, %39 ], [ %38, %37 ], [ %.042, %35 ], [ %.042, %33 ], [ %.042, %26 ], [ %.042, %17 ], [ %.042, %8 ]
   %.040.be = phi i32 [ %.040, %41 ], [ %.040, %39 ], [ %.040, %37 ], [ %.040, %35 ], [ %.040, %33 ], [ %30, %26 ], [ %.040, %17 ], [ %.040, %8 ]
   %.0.be = phi i32 [ %42, %41 ], [ %.0, %39 ], [ %.0, %37 ], [ %.0, %35 ], [ %.0, %33 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !93
+  br label %4, !llvm.loop !94
 
 33:                                               ; preds = %4
   %34 = xor i32 %.048, 1
@@ -17324,7 +17327,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   %.be366 = phi i32 [ %82, %81 ], [ %31, %79 ], [ %31, %77 ], [ %31, %75 ], [ %31, %73 ], [ %31, %71 ], [ %31, %69 ], [ %31, %67 ], [ %31, %65 ], [ %31, %63 ], [ %31, %56 ], [ %31, %46 ], [ %31, %36 ]
   %.063.be = phi i32 [ %.063, %81 ], [ %.063, %79 ], [ %78, %77 ], [ %.063, %75 ], [ %.063, %73 ], [ %.063, %71 ], [ %.063, %69 ], [ %.063, %67 ], [ %.063, %65 ], [ %.063, %63 ], [ %.063, %56 ], [ %.063, %46 ], [ %.063, %36 ]
   %.062.be = phi i32 [ %.062, %81 ], [ %80, %79 ], [ %.062, %77 ], [ %.062, %75 ], [ %.062, %73 ], [ %.062, %71 ], [ %.062, %69 ], [ %.062, %67 ], [ %.062, %65 ], [ %.062, %63 ], [ %.062, %56 ], [ %.062, %46 ], [ %.062, %36 ]
-  br label %17, !llvm.loop !94
+  br label %17, !llvm.loop !95
 
 63:                                               ; preds = %17
   %64 = xor i32 %23, 1
@@ -17640,7 +17643,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
   %.be280 = phi i32 [ %22, %55 ], [ %22, %46 ], [ %22, %37 ], [ %32, %28 ], [ %22, %70 ], [ %22, %68 ], [ %22, %66 ], [ %22, %64 ], [ %22, %62 ]
   %.be281 = phi i32 [ %23, %55 ], [ %50, %46 ], [ %23, %37 ], [ %23, %28 ], [ %23, %70 ], [ %23, %68 ], [ %23, %66 ], [ %23, %64 ], [ %23, %62 ]
   %.be282 = phi i32 [ %24, %55 ], [ %24, %46 ], [ %24, %37 ], [ %24, %28 ], [ %71, %70 ], [ %24, %68 ], [ %24, %66 ], [ %24, %64 ], [ %24, %62 ]
-  br label %15, !llvm.loop !95
+  br label %15, !llvm.loop !96
 
 62:                                               ; preds = %15
   %63 = xor i32 %18, 1
@@ -17940,7 +17943,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone 
   %.be354 = phi i32 [ %27, %64 ], [ %27, %54 ], [ %48, %44 ], [ %27, %34 ], [ %27, %81 ], [ %27, %79 ], [ %27, %77 ], [ %27, %75 ], [ %27, %73 ], [ %27, %71 ]
   %.be355 = phi i32 [ %68, %64 ], [ %28, %54 ], [ %28, %44 ], [ %28, %34 ], [ %28, %81 ], [ %28, %79 ], [ %28, %77 ], [ %28, %75 ], [ %28, %73 ], [ %28, %71 ]
   %.be356 = phi i32 [ %29, %64 ], [ %29, %54 ], [ %29, %44 ], [ %29, %34 ], [ %82, %81 ], [ %29, %79 ], [ %29, %77 ], [ %29, %75 ], [ %29, %73 ], [ %29, %71 ]
-  br label %15, !llvm.loop !96
+  br label %15, !llvm.loop !97
 
 71:                                               ; preds = %15
   %72 = xor i32 %21, 1
@@ -18181,7 +18184,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestExact(ptr nocapture readnone
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !97
+  br label %4, !llvm.loop !98
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -18262,15 +18265,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajGen(ptr nocapture readnone %0
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !98
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !99
 
 16:                                               ; preds = %4
   %17 = xor i32 %.014.ph54, 1
-  br label %.outer53, !llvm.loop !98
+  br label %.outer53, !llvm.loop !99
 
 18:                                               ; preds = %4
   %19 = xor i32 %.0, 1
-  br label %4, !llvm.loop !98
+  br label %4, !llvm.loop !99
 
 20:                                               ; preds = %4
   %21 = tail call i32 @Gem_Enumerate(i32 noundef %.016.ph, i32 noundef %.014.ph54, i32 noundef %.0) #28
@@ -18379,11 +18382,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandComb(ptr noundef %0, i32 noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !99
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !100
 
 17:                                               ; preds = %5
   %18 = xor i32 %.026.ph, 1
-  br label %.outer, !llvm.loop !99
+  br label %.outer, !llvm.loop !100
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -18521,27 +18524,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandMiter(ptr noundef %0, i32 nounde
   %20 = add nsw i32 %13, 1
   store i32 %20, ptr @globalUtilOptind, align 4
   %21 = icmp slt i32 %19, 0
-  br i1 %21, label %.thread, label %.outer216, !llvm.loop !100
+  br i1 %21, label %.thread, label %.outer216, !llvm.loop !101
 
 22:                                               ; preds = %10
   %23 = xor i32 %.045.ph, 1
-  br label %.outer, !llvm.loop !100
+  br label %.outer, !llvm.loop !101
 
 24:                                               ; preds = %10
   %25 = xor i32 %.041.ph212, 1
-  br label %.outer211, !llvm.loop !100
+  br label %.outer211, !llvm.loop !101
 
 26:                                               ; preds = %10
   %27 = xor i32 %.043.ph206, 1
-  br label %.outer205, !llvm.loop !100
+  br label %.outer205, !llvm.loop !101
 
 28:                                               ; preds = %10
   %29 = xor i32 %.037.ph221, 1
-  br label %.outer220, !llvm.loop !100
+  br label %.outer220, !llvm.loop !101
 
 30:                                               ; preds = %10
   %31 = xor i32 %.0, 1
-  br label %10, !llvm.loop !100
+  br label %10, !llvm.loop !101
 
 32:                                               ; preds = %10
   %.not53 = icmp eq i32 %.037.ph221, 0
@@ -18701,7 +18704,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMiter2(ptr noundef %0, i32 nound
   switch i32 %6, label %25 [
     i32 -1, label %7
     i32 118, label %5
-  ], !llvm.loop !101
+  ], !llvm.loop !102
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -18784,11 +18787,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDemiter(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.015.ph, 1
-  br label %.outer, !llvm.loop !102
+  br label %.outer, !llvm.loop !103
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !102
+  br label %5, !llvm.loop !103
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -18881,15 +18884,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrPos(ptr noundef %0, i32 nounde
     i32 114, label %7
     i32 120, label %9
     i32 99, label %5
-  ], !llvm.loop !103
+  ], !llvm.loop !104
 
 7:                                                ; preds = %5
   %8 = xor i32 %.034.ph66, 1
-  br label %.outer65, !llvm.loop !103
+  br label %.outer65, !llvm.loop !104
 
 9:                                                ; preds = %5
   %10 = xor i32 %.037.ph, 1
-  br label %.outer, !llvm.loop !103
+  br label %.outer, !llvm.loop !104
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -19012,7 +19015,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAndPos(ptr noundef %0, i32 nound
   switch i32 %6, label %23 [
     i32 -1, label %7
     i32 99, label %5
-  ], !llvm.loop !104
+  ], !llvm.loop !105
 
 7:                                                ; preds = %5
   %8 = icmp eq ptr %4, null
@@ -19117,15 +19120,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandZeroPo(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !105
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !106
 
 17:                                               ; preds = %5
   %18 = xor i32 %.021.ph70, 1
-  br label %.outer69, !llvm.loop !105
+  br label %.outer69, !llvm.loop !106
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0, 1
-  br label %5, !llvm.loop !105
+  br label %5, !llvm.loop !106
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -19218,7 +19221,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSwapPos(ptr noundef %0, i32 noun
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !106
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !107
 
 17:                                               ; preds = %5
   %18 = icmp eq ptr %4, null
@@ -19313,11 +19316,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandRemovePo(ptr noundef %0, i32 nou
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !107
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !108
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0, 1
-  br label %5, !llvm.loop !107
+  br label %5, !llvm.loop !108
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -19398,11 +19401,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDropSat(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.024.ph, 1
-  br label %.outer, !llvm.loop !108
+  br label %.outer, !llvm.loop !109
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !108
+  br label %5, !llvm.loop !109
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -19537,7 +19540,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAppend(ptr noundef %0, i32 nound
   switch i32 %6, label %30 [
     i32 -1, label %7
     i32 99, label %5
-  ], !llvm.loop !109
+  ], !llvm.loop !110
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -19617,7 +19620,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   switch i32 %6, label %58 [
     i32 -1, label %7
     i32 99, label %5
-  ], !llvm.loop !110
+  ], !llvm.loop !111
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -19670,7 +19673,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   %.1 = phi ptr [ %23, %22 ], [ %.05281, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %.055.lcssa = phi ptr [ null, %.preheader ], [ %.1, %25 ]
@@ -19827,15 +19830,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandFrames(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 1
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !112
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !113
 
 17:                                               ; preds = %5
   %18 = xor i32 %.028.ph75, 1
-  br label %.outer74, !llvm.loop !112
+  br label %.outer74, !llvm.loop !113
 
 19:                                               ; preds = %5
   %20 = xor i32 %.027, 1
-  br label %5, !llvm.loop !112
+  br label %5, !llvm.loop !113
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -19940,7 +19943,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDFrames(ptr noundef %0, i32 noun
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 1
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !113
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !114
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -19955,15 +19958,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandDFrames(ptr noundef %0, i32 noun
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 1
-  br i1 %24, label %.loopexit, label %.outer111, !llvm.loop !113
+  br i1 %24, label %.loopexit, label %.outer111, !llvm.loop !114
 
 25:                                               ; preds = %5
   %26 = xor i32 %.038.ph116, 1
-  br label %.outer115, !llvm.loop !113
+  br label %.outer115, !llvm.loop !114
 
 27:                                               ; preds = %5
   %28 = xor i32 %.037, 1
-  br label %5, !llvm.loop !113
+  br label %5, !llvm.loop !114
 
 29:                                               ; preds = %5
   %30 = icmp eq ptr %4, null
@@ -20061,7 +20064,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSop(ptr noundef %0, i32 noundef 
     i32 115, label %17
     i32 100, label %.outer75.backedge
     i32 110, label %19
-  ], !llvm.loop !114
+  ], !llvm.loop !115
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -20080,18 +20083,18 @@ define internal range(i32 0, 2) i32 @Abc_CommandSop(ptr noundef %0, i32 noundef 
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !114
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !115
 
 17:                                               ; preds = %5
   %18 = xor i32 %.024.ph, 1
-  br label %.outer, !llvm.loop !114
+  br label %.outer, !llvm.loop !115
 
 19:                                               ; preds = %5
   br label %.outer75.backedge
 
 .outer75.backedge:                                ; preds = %5, %19
   %.022.ph76.be = phi i32 [ 0, %19 ], [ 1, %5 ]
-  br label %.outer75, !llvm.loop !114
+  br label %.outer75, !llvm.loop !115
 
 20:                                               ; preds = %5
   %21 = icmp eq ptr %4, null
@@ -20191,11 +20194,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandBdd(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %5
   %8 = xor i32 %.016.ph, 1
-  br label %.outer, !llvm.loop !115
+  br label %.outer, !llvm.loop !116
 
 9:                                                ; preds = %5
   %10 = xor i32 %.015, 1
-  br label %5, !llvm.loop !115
+  br label %5, !llvm.loop !116
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -20333,7 +20336,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReorder(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !116
+  br label %5, !llvm.loop !117
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -20392,7 +20395,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBidec(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !117
+  br label %5, !llvm.loop !118
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -20457,11 +20460,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrder(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %5
   %8 = xor i32 %.023.ph, 1
-  br label %.outer, !llvm.loop !118
+  br label %.outer, !llvm.loop !119
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !118
+  br label %5, !llvm.loop !119
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -20564,15 +20567,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandMuxes(ptr noundef %0, i32 nounde
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !119
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !120
 
 17:                                               ; preds = %5
   %18 = xor i32 %.025.ph, 1
-  br label %.outer, !llvm.loop !119
+  br label %.outer, !llvm.loop !120
 
 19:                                               ; preds = %5
   %20 = xor i32 %.023.ph75, 1
-  br label %.outer74, !llvm.loop !119
+  br label %.outer74, !llvm.loop !120
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -20659,7 +20662,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCubes(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !120
+  br label %5, !llvm.loop !121
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -20728,7 +20731,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExpand(ptr noundef %0, i32 nound
 
 7:                                                ; preds = %5
   %8 = xor i32 %.024, 1
-  br label %5, !llvm.loop !121
+  br label %5, !llvm.loop !122
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -20848,11 +20851,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSplitSop(ptr noundef %0, i32 nou
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !122
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !123
 
 17:                                               ; preds = %5
   %18 = xor i32 %.018.ph, 1
-  br label %.outer, !llvm.loop !122
+  br label %.outer, !llvm.loop !123
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -20923,7 +20926,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtSeqDcs(ptr noundef %0, i32 no
 
 8:                                                ; preds = %6
   %9 = xor i32 %.0, 1
-  br label %6, !llvm.loop !123
+  br label %6, !llvm.loop !124
 
 10:                                               ; preds = %6
   %11 = icmp eq ptr %5, null
@@ -21056,7 +21059,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReach(ptr noundef %0, i32 nounde
 
 .backedge:                                        ; preds = %35, %26, %17, %61, %58, %55, %52, %49, %44
   %.0.be = phi ptr [ %.0, %61 ], [ %.0, %58 ], [ %.0, %55 ], [ %.0, %52 ], [ %.0, %49 ], [ %47, %44 ], [ %.0, %35 ], [ %.0, %26 ], [ %.0, %17 ]
-  br label %13, !llvm.loop !124
+  br label %13, !llvm.loop !125
 
 42:                                               ; preds = %13
   %43 = load i32, ptr @globalUtilOptind, align 4
@@ -21267,7 +21270,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr noundef %0, i32 noundef
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer200, !llvm.loop !125
+  br i1 %15, label %.loopexit, label %.outer200, !llvm.loop !126
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -21282,19 +21285,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr noundef %0, i32 noundef
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %5, !llvm.loop !125
+  br i1 %24, label %.loopexit, label %5, !llvm.loop !126
 
 25:                                               ; preds = %5
   %26 = xor i32 %.064.ph192, 1
-  br label %.outer191, !llvm.loop !125
+  br label %.outer191, !llvm.loop !126
 
 27:                                               ; preds = %5
   %28 = xor i32 %.066.ph, 1
-  br label %.outer, !llvm.loop !125
+  br label %.outer, !llvm.loop !126
 
 29:                                               ; preds = %5
   %30 = xor i32 %.062.ph197, 1
-  br label %.outer196, !llvm.loop !125
+  br label %.outer196, !llvm.loop !126
 
 31:                                               ; preds = %5
   %32 = icmp eq ptr %4, null
@@ -21724,7 +21727,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTopmost(ptr noundef %0, i32 noun
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !126
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !127
 
 17:                                               ; preds = %5
   %18 = icmp eq ptr %4, null
@@ -21811,7 +21814,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBottommost(ptr noundef %0, i32 n
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !127
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !128
 
 17:                                               ; preds = %5
   %18 = icmp eq ptr %4, null
@@ -22070,7 +22073,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandShortNames(ptr noundef %0, i32 n
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !128
+  br label %5, !llvm.loop !129
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -22634,7 +22637,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
   %.be394 = phi i32 [ %44, %93 ], [ %44, %91 ], [ %90, %89 ], [ %44, %87 ], [ %44, %85 ], [ %44, %83 ], [ %44, %81 ], [ %44, %79 ], [ %44, %77 ], [ %44, %75 ], [ %44, %73 ], [ %44, %71 ], [ %44, %69 ], [ %44, %67 ], [ %44, %60 ], [ %44, %50 ]
   %.be395 = phi i32 [ %94, %93 ], [ %45, %91 ], [ %45, %89 ], [ %45, %87 ], [ %45, %85 ], [ %45, %83 ], [ %45, %81 ], [ %45, %79 ], [ %45, %77 ], [ %45, %75 ], [ %45, %73 ], [ %45, %71 ], [ %45, %69 ], [ %45, %67 ], [ %45, %60 ], [ %45, %50 ]
   %.0.be = phi i32 [ %.0, %93 ], [ %92, %91 ], [ %.0, %89 ], [ %.0, %87 ], [ %.0, %85 ], [ %.0, %83 ], [ %.0, %81 ], [ %.0, %79 ], [ %.0, %77 ], [ %.0, %75 ], [ %.0, %73 ], [ %.0, %71 ], [ %.0, %69 ], [ %.0, %67 ], [ %.0, %60 ], [ %.0, %50 ]
-  br label %21, !llvm.loop !129
+  br label %21, !llvm.loop !130
 
 67:                                               ; preds = %21
   %68 = xor i32 %33, 1
@@ -22997,7 +23000,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef 
   %.086.be = phi i32 [ %.086, %63 ], [ %.086, %61 ], [ %60, %59 ], [ %.086, %57 ], [ %.086, %55 ], [ %.086, %53 ], [ %.086, %51 ], [ %.086, %49 ], [ %.086, %47 ], [ %.086, %45 ], [ %.086, %43 ], [ %.086, %36 ], [ %.086, %27 ], [ %.086, %18 ], [ %.086, %9 ]
   %.084.be = phi i32 [ %.084, %63 ], [ %62, %61 ], [ %.084, %59 ], [ %.084, %57 ], [ %.084, %55 ], [ %.084, %53 ], [ %.084, %51 ], [ %.084, %49 ], [ %.084, %47 ], [ %.084, %45 ], [ %.084, %43 ], [ %.084, %36 ], [ %.084, %27 ], [ %.084, %18 ], [ %.084, %9 ]
   %.083.be = phi i32 [ %64, %63 ], [ %.083, %61 ], [ %.083, %59 ], [ %.083, %57 ], [ %.083, %55 ], [ %.083, %53 ], [ %.083, %51 ], [ %.083, %49 ], [ %.083, %47 ], [ %.083, %45 ], [ %.083, %43 ], [ %.083, %36 ], [ %.083, %27 ], [ %.083, %18 ], [ %.083, %9 ]
-  br label %5, !llvm.loop !130
+  br label %5, !llvm.loop !131
 
 43:                                               ; preds = %5
   %44 = xor i32 %.0102, 1
@@ -23287,7 +23290,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !131
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !132
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -23302,7 +23305,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer267, !llvm.loop !131
+  br i1 %23, label %.loopexit, label %.outer267, !llvm.loop !132
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -23317,7 +23320,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer274, !llvm.loop !131
+  br i1 %32, label %.loopexit, label %.outer274, !llvm.loop !132
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -23332,7 +23335,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer280, !llvm.loop !131
+  br i1 %41, label %.loopexit, label %.outer280, !llvm.loop !132
 
 42:                                               ; preds = %4
   %43 = load i32, ptr @globalUtilOptind, align 4
@@ -23347,7 +23350,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %49 = add nsw i32 %43, 1
   store i32 %49, ptr @globalUtilOptind, align 4
   %50 = icmp slt i32 %48, 0
-  br i1 %50, label %.loopexit, label %.outer285, !llvm.loop !131
+  br i1 %50, label %.loopexit, label %.outer285, !llvm.loop !132
 
 51:                                               ; preds = %4
   %52 = load i32, ptr @globalUtilOptind, align 4
@@ -23362,11 +23365,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0
   %58 = add nsw i32 %52, 1
   store i32 %58, ptr @globalUtilOptind, align 4
   %59 = icmp slt i32 %57, 0
-  br i1 %59, label %.loopexit, label %.outer289, !llvm.loop !131
+  br i1 %59, label %.loopexit, label %.outer289, !llvm.loop !132
 
 60:                                               ; preds = %4
   %61 = xor i32 %.050, 1
-  br label %4, !llvm.loop !131
+  br label %4, !llvm.loop !132
 
 62:                                               ; preds = %4
   %63 = load i32, ptr @globalUtilOptind, align 4
@@ -23492,7 +23495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCover(ptr noundef %0, i32 nounde
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer151, !llvm.loop !132
+  br i1 %15, label %.loopexit, label %.outer151, !llvm.loop !133
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -23507,23 +23510,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandCover(ptr noundef %0, i32 nounde
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %5, !llvm.loop !132
+  br i1 %24, label %.loopexit, label %5, !llvm.loop !133
 
 25:                                               ; preds = %5
   %26 = xor i32 %.038.ph137, 1
-  br label %.outer136, !llvm.loop !132
+  br label %.outer136, !llvm.loop !133
 
 27:                                               ; preds = %5
   %28 = xor i32 %.036.ph143, 1
-  br label %.outer142, !llvm.loop !132
+  br label %.outer142, !llvm.loop !133
 
 29:                                               ; preds = %5
   %30 = xor i32 %.034.ph148, 1
-  br label %.outer147, !llvm.loop !132
+  br label %.outer147, !llvm.loop !133
 
 31:                                               ; preds = %5
   %32 = xor i32 %.040.ph, 1
-  br label %.outer, !llvm.loop !132
+  br label %.outer, !llvm.loop !133
 
 33:                                               ; preds = %5
   %34 = icmp eq ptr %4, null
@@ -23620,11 +23623,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDouble(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !133
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !134
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !133
+  br label %.outer, !llvm.loop !134
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -23702,11 +23705,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
 
 11:                                               ; preds = %9
   %12 = xor i32 %.026.ph, 1
-  br label %.outer, !llvm.loop !134
+  br label %.outer, !llvm.loop !135
 
 13:                                               ; preds = %9
   %14 = xor i32 %.025, 1
-  br label %9, !llvm.loop !134
+  br label %9, !llvm.loop !135
 
 15:                                               ; preds = %9
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -23749,7 +23752,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
   %.val37.val = load i32, ptr %35, align 4
   %36 = sext i32 %.val37.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !135
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !136
 
 .critedge:                                        ; preds = %.lr.ph, %24, %22
   %.not31 = icmp eq i32 %.026.ph, 0
@@ -23860,11 +23863,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandBb2Wb(ptr nocapture readnone %0,
 
 6:                                                ; preds = %4
   %7 = xor i32 %.012.ph, 1
-  br label %.outer, !llvm.loop !136
+  br label %.outer, !llvm.loop !137
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !136
+  br label %4, !llvm.loop !137
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @globalUtilOptind, align 4
@@ -23943,7 +23946,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOutdec(ptr noundef %0, i32 nound
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = add i32 %14, -3
   %or.cond = icmp ult i32 %16, -2
-  br i1 %or.cond, label %17, label %.outer, !llvm.loop !137
+  br i1 %or.cond, label %17, label %.outer, !llvm.loop !138
 
 17:                                               ; preds = %10
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1722)
@@ -23951,7 +23954,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOutdec(ptr noundef %0, i32 nound
 
 18:                                               ; preds = %5
   %19 = xor i32 %.0, 1
-  br label %5, !llvm.loop !137
+  br label %5, !llvm.loop !138
 
 20:                                               ; preds = %5
   %21 = icmp eq ptr %4, null
@@ -24035,11 +24038,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandNodeDup(ptr noundef %0, i32 noun
   %14 = tail call i32 @atoi(ptr nocapture noundef %13) #31
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !138
+  br label %.outer, !llvm.loop !139
 
 16:                                               ; preds = %5
   %17 = xor i32 %.0, 1
-  br label %5, !llvm.loop !138
+  br label %5, !llvm.loop !139
 
 18:                                               ; preds = %5
   %19 = icmp eq ptr %4, null
@@ -24158,7 +24161,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, 
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.1732, ptr noundef nonnull %4) #28
   %36 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef nonnull %16)
   %.not19 = icmp eq ptr %36, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !139
+  br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !140
 
 .loopexit:                                        ; preds = %34, %10
   br i1 %18, label %.loopexit.thread, label %38
@@ -24306,7 +24309,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr nocapture readnone %0, 
   %.034.be = phi i32 [ %.034, %57 ], [ %.034, %55 ], [ %54, %53 ], [ %.034, %51 ], [ %.034, %44 ], [ %.034, %35 ], [ %.034, %26 ], [ %.034, %17 ], [ %.034, %8 ]
   %.032.be = phi i32 [ %.032, %57 ], [ %56, %55 ], [ %.032, %53 ], [ %.032, %51 ], [ %.032, %44 ], [ %.032, %35 ], [ %.032, %26 ], [ %.032, %17 ], [ %.032, %8 ]
   %.031.be = phi i32 [ %58, %57 ], [ %.031, %55 ], [ %.031, %53 ], [ %.031, %51 ], [ %.031, %44 ], [ %.031, %35 ], [ %.031, %26 ], [ %.031, %17 ], [ %.031, %8 ]
-  br label %4, !llvm.loop !140
+  br label %4, !llvm.loop !141
 
 51:                                               ; preds = %4
   %52 = xor i32 %.036, 1
@@ -24406,15 +24409,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandQuaVar(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !141
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !142
 
 17:                                               ; preds = %5
   %18 = xor i32 %.025.ph72, 1
-  br label %.outer71, !llvm.loop !141
+  br label %.outer71, !llvm.loop !142
 
 19:                                               ; preds = %5
   %20 = xor i32 %.024, 1
-  br label %5, !llvm.loop !141
+  br label %5, !llvm.loop !142
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -24511,15 +24514,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandQuaRel(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !142
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !143
 
 17:                                               ; preds = %5
   %18 = xor i32 %.026.ph, 1
-  br label %.outer, !llvm.loop !142
+  br label %.outer, !llvm.loop !143
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0.ph66, 1
-  br label %.outer65, !llvm.loop !142
+  br label %.outer65, !llvm.loop !143
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -24630,11 +24633,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandQuaReach(ptr noundef %0, i32 nou
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !143
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !144
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0, 1
-  br label %5, !llvm.loop !143
+  br label %5, !llvm.loop !144
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -24765,11 +24768,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSenseInput(ptr noundef %0, i32 n
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !144
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !145
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0, 1
-  br label %5, !llvm.loop !144
+  br label %5, !llvm.loop !145
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -24924,11 +24927,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSendAig(ptr nocapture noundef re
 
 6:                                                ; preds = %4
   %7 = xor i32 %.019, 1
-  br label %4, !llvm.loop !145
+  br label %4, !llvm.loop !146
 
 8:                                                ; preds = %4
   %9 = xor i32 %.020.ph, 1
-  br label %.outer, !llvm.loop !145
+  br label %.outer, !llvm.loop !146
 
 10:                                               ; preds = %4
   %11 = tail call i32 (...) @Abc_FrameIsBridgeMode() #28
@@ -25230,7 +25233,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandICut(ptr noundef %0, i32 noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !146
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !147
 
 17:                                               ; preds = %5
   %18 = icmp eq ptr %4, null
@@ -25305,7 +25308,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIRewrite(ptr noundef %0, i32 nou
   %.1 = phi i32 [ %14, %13 ], [ %.038, %11 ], [ %.038, %9 ]
   %16 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1781) #28
   %.not = icmp eq i32 %16, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %15, %3
   %.021.lcssa = phi i32 [ 1, %3 ], [ %.122, %15 ]
@@ -25462,7 +25465,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRewrite(ptr noundef %0, i32 nou
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %36, %27, %18
-  br label %14, !llvm.loop !148
+  br label %14, !llvm.loop !149
 
 50:                                               ; preds = %14
   %51 = load i32, ptr %9, align 4
@@ -25655,7 +25658,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRefactor(ptr noundef %0, i32 no
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %35, %26, %17
-  br label %13, !llvm.loop !149
+  br label %13, !llvm.loop !150
 
 48:                                               ; preds = %13
   %49 = icmp eq ptr %5, null
@@ -25792,7 +25795,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDc2(ptr noundef %0, i32 noundef 
   %.1 = phi i32 [ %.02554, %17 ], [ %16, %15 ], [ %.02554, %13 ], [ %.02554, %11 ], [ %.02554, %9 ]
   %20 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1801) #28
   %.not = icmp eq i32 %20, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !150
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %19, %3
   %.032.lcssa = phi i32 [ 0, %3 ], [ %.133, %19 ]
@@ -25922,7 +25925,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDChoice(ptr noundef %0, i32 noun
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer157, !llvm.loop !151
+  br i1 %15, label %.loopexit, label %.outer157, !llvm.loop !152
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -25937,23 +25940,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandDChoice(ptr noundef %0, i32 noun
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %5, !llvm.loop !151
+  br i1 %24, label %.loopexit, label %5, !llvm.loop !152
 
 25:                                               ; preds = %5
   %26 = xor i32 %.042.ph, 1
-  br label %.outer, !llvm.loop !151
+  br label %.outer, !llvm.loop !152
 
 27:                                               ; preds = %5
   %28 = xor i32 %.038.ph149, 1
-  br label %.outer148, !llvm.loop !151
+  br label %.outer148, !llvm.loop !152
 
 29:                                               ; preds = %5
   %30 = xor i32 %.036.ph154, 1
-  br label %.outer153, !llvm.loop !151
+  br label %.outer153, !llvm.loop !152
 
 31:                                               ; preds = %5
   %32 = xor i32 %.040.ph143, 1
-  br label %.outer142, !llvm.loop !151
+  br label %.outer142, !llvm.loop !152
 
 33:                                               ; preds = %5
   %34 = icmp eq ptr %4, null
@@ -26103,7 +26106,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDch(ptr noundef %0, i32 noundef 
   br i1 %45, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %39, %30, %21, %70, %67, %64, %61, %58, %55, %52, %49, %46
-  br label %17, !llvm.loop !152
+  br label %17, !llvm.loop !153
 
 46:                                               ; preds = %17
   %47 = load i32, ptr %14, align 4
@@ -26269,11 +26272,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDrwsat(ptr noundef %0, i32 nound
 
 7:                                                ; preds = %5
   %8 = xor i32 %.017.ph, 1
-  br label %.outer, !llvm.loop !153
+  br label %.outer, !llvm.loop !154
 
 9:                                                ; preds = %5
   %10 = xor i32 %.016, 1
-  br label %5, !llvm.loop !153
+  br label %5, !llvm.loop !154
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -26355,7 +26358,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIRewriteSeq(ptr noundef %0, i32 
   %.1 = phi i32 [ %12, %11 ], [ %.034, %9 ], [ %.034, %.lr.ph ]
   %14 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1781) #28
   %.not = icmp eq i32 %14, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %13, %3
   %.017.lcssa = phi i32 [ 0, %3 ], [ %.118, %13 ]
@@ -26428,11 +26431,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandIResyn(ptr noundef %0, i32 nound
 
 7:                                                ; preds = %5
   %8 = xor i32 %.016.ph, 1
-  br label %.outer, !llvm.loop !155
+  br label %.outer, !llvm.loop !156
 
 9:                                                ; preds = %5
   %10 = xor i32 %.0, 1
-  br label %5, !llvm.loop !155
+  br label %5, !llvm.loop !156
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -26503,7 +26506,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandISat(ptr noundef %0, i32 noundef
     i32 67, label %7
     i32 108, label %5
     i32 118, label %17
-  ], !llvm.loop !156
+  ], !llvm.loop !157
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @globalUtilOptind, align 4
@@ -26522,11 +26525,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandISat(ptr noundef %0, i32 noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer53, !llvm.loop !156
+  br i1 %16, label %.loopexit, label %.outer53, !llvm.loop !157
 
 17:                                               ; preds = %5
   %18 = xor i32 %.019.ph, 1
-  br label %.outer, !llvm.loop !156
+  br label %.outer, !llvm.loop !157
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -26641,7 +26644,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIFraig(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer182, !llvm.loop !157
+  br i1 %15, label %.loopexit, label %.outer182, !llvm.loop !158
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -26656,7 +26659,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIFraig(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer178, !llvm.loop !157
+  br i1 %24, label %.loopexit, label %.outer178, !llvm.loop !158
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -26671,19 +26674,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandIFraig(ptr noundef %0, i32 nound
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %5, !llvm.loop !157
+  br i1 %33, label %.loopexit, label %5, !llvm.loop !158
 
 34:                                               ; preds = %5
   %35 = xor i32 %.044.ph174, 1
-  br label %.outer173, !llvm.loop !157
+  br label %.outer173, !llvm.loop !158
 
 36:                                               ; preds = %5
   %37 = xor i32 %.048.ph, 1
-  br label %.outer, !llvm.loop !157
+  br label %.outer, !llvm.loop !158
 
 38:                                               ; preds = %5
   %39 = xor i32 %.046.ph168, 1
-  br label %.outer167, !llvm.loop !157
+  br label %.outer167, !llvm.loop !158
 
 40:                                               ; preds = %5
   %41 = icmp eq ptr %4, null
@@ -26829,27 +26832,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandDFraig(ptr noundef %0, i32 nound
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !158
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !159
 
 17:                                               ; preds = %5
   %18 = xor i32 %.036.ph123, 1
-  br label %.outer122, !llvm.loop !158
+  br label %.outer122, !llvm.loop !159
 
 19:                                               ; preds = %5
   %20 = xor i32 %.034.ph129, 1
-  br label %.outer128, !llvm.loop !158
+  br label %.outer128, !llvm.loop !159
 
 21:                                               ; preds = %5
   %22 = xor i32 %.032.ph134, 1
-  br label %.outer133, !llvm.loop !158
+  br label %.outer133, !llvm.loop !159
 
 23:                                               ; preds = %5
   %24 = xor i32 %.030.ph138, 1
-  br label %.outer137, !llvm.loop !158
+  br label %.outer137, !llvm.loop !159
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0, 1
-  br label %5, !llvm.loop !158
+  br label %5, !llvm.loop !159
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -26949,7 +26952,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCSweep(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !159
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !160
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -26964,11 +26967,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCSweep(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer83, !llvm.loop !159
+  br i1 %24, label %.loopexit, label %.outer83, !llvm.loop !160
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0, 1
-  br label %5, !llvm.loop !159
+  br label %5, !llvm.loop !160
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -27088,7 +27091,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandQbf(ptr noundef %0, i32 noundef 
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !160
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !161
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -27103,15 +27106,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandQbf(ptr noundef %0, i32 noundef 
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer114, !llvm.loop !160
+  br i1 %24, label %.loopexit, label %.outer114, !llvm.loop !161
 
 25:                                               ; preds = %5
   %26 = xor i32 %.035.ph119, 1
-  br label %.outer118, !llvm.loop !160
+  br label %.outer118, !llvm.loop !161
 
 27:                                               ; preds = %5
   %28 = xor i32 %.0, 1
-  br label %5, !llvm.loop !160
+  br label %5, !llvm.loop !161
 
 29:                                               ; preds = %5
   %30 = icmp eq ptr %4, null
@@ -27307,7 +27310,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraig(ptr noundef %0, i32 nounde
   %.081.be = phi i32 [ %.081, %69 ], [ %68, %67 ], [ %.081, %65 ], [ %.081, %63 ], [ %.081, %61 ], [ %.081, %59 ], [ %.081, %57 ], [ %.081, %55 ], [ %.081, %48 ], [ %.081, %39 ], [ %.081, %30 ]
   %.079.be = phi i32 [ %70, %69 ], [ %.079, %67 ], [ %.079, %65 ], [ %.079, %63 ], [ %.079, %61 ], [ %.079, %59 ], [ %.079, %57 ], [ %.079, %55 ], [ %.079, %48 ], [ %.079, %39 ], [ %.079, %30 ]
   %.0.be = phi i32 [ %.0, %69 ], [ %.0, %67 ], [ %66, %65 ], [ %.0, %63 ], [ %.0, %61 ], [ %.0, %59 ], [ %.0, %57 ], [ %.0, %55 ], [ %.0, %48 ], [ %.0, %39 ], [ %.0, %30 ]
-  br label %18, !llvm.loop !161
+  br label %18, !llvm.loop !162
 
 55:                                               ; preds = %18
   %56 = xor i32 %22, 1
@@ -27490,7 +27493,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigTrust(ptr noundef %0, i32 n
   switch i32 %6, label %15 [
     i32 -1, label %7
     i32 100, label %5
-  ], !llvm.loop !162
+  ], !llvm.loop !163
 
 7:                                                ; preds = %5
   %8 = icmp eq ptr %4, null
@@ -27535,7 +27538,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigStore(ptr noundef %0, i32 n
   switch i32 %6, label %13 [
     i32 -1, label %7
     i32 100, label %5
-  ], !llvm.loop !163
+  ], !llvm.loop !164
 
 7:                                                ; preds = %5
   %8 = icmp eq ptr %4, null
@@ -27605,7 +27608,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigRestore(ptr noundef %0, i32
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !164
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !165
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -27620,7 +27623,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigRestore(ptr noundef %0, i32
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer80, !llvm.loop !164
+  br i1 %24, label %.loopexit, label %.outer80, !llvm.loop !165
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -27635,7 +27638,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigRestore(ptr noundef %0, i32
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %5, !llvm.loop !164
+  br i1 %33, label %.loopexit, label %5, !llvm.loop !165
 
 34:                                               ; preds = %5
   %35 = icmp eq ptr %4, null
@@ -27688,7 +27691,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigClean(ptr nocapture readnon
   switch i32 %5, label %7 [
     i32 -1, label %6
     i32 100, label %4
-  ], !llvm.loop !165
+  ], !llvm.loop !166
 
 6:                                                ; preds = %4
   tail call void (...) @Abc_NtkFraigStoreClean() #28
@@ -27742,19 +27745,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigSweep(ptr noundef %0, i32 n
 
 7:                                                ; preds = %5
   %8 = xor i32 %.023.ph, 1
-  br label %.outer, !llvm.loop !166
+  br label %.outer, !llvm.loop !167
 
 9:                                                ; preds = %5
   %10 = xor i32 %.021.ph53, 1
-  br label %.outer52, !llvm.loop !166
+  br label %.outer52, !llvm.loop !167
 
 11:                                               ; preds = %5
   %12 = xor i32 %.019.ph57, 1
-  br label %.outer56, !llvm.loop !166
+  br label %.outer56, !llvm.loop !167
 
 13:                                               ; preds = %5
   %14 = xor i32 %.0, 1
-  br label %5, !llvm.loop !166
+  br label %5, !llvm.loop !167
 
 15:                                               ; preds = %5
   %16 = icmp eq ptr %4, null
@@ -27845,11 +27848,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigDress(ptr noundef %0, i32 n
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !167
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !168
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0, 1
-  br label %5, !llvm.loop !167
+  br label %5, !llvm.loop !168
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -27960,15 +27963,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr nocapture readnone
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !168
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !169
 
 16:                                               ; preds = %5
   %17 = xor i32 %.026.ph84, 1
-  br label %.outer83, !llvm.loop !168
+  br label %.outer83, !llvm.loop !169
 
 18:                                               ; preds = %5
   %19 = xor i32 %.0, 1
-  br label %5, !llvm.loop !168
+  br label %5, !llvm.loop !169
 
 20:                                               ; preds = %5
   %21 = load i32, ptr @globalUtilOptind, align 4
@@ -27998,7 +28001,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr nocapture readnone
 
 34:                                               ; preds = %29
   %35 = tail call i32 @Abc_NtkToAig(ptr noundef nonnull %32) #28
-  br i1 %30, label %29, label %36, !llvm.loop !169
+  br i1 %30, label %29, label %36, !llvm.loop !170
 
 36:                                               ; preds = %34
   call void @Abc_NtkDumpEquiv(ptr noundef nonnull %4, ptr noundef %28, i32 noundef %.028.ph, i32 noundef %.026.ph84, i32 noundef %.0) #28
@@ -28087,7 +28090,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr nocapture readnone
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 1
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !170
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !171
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -28102,15 +28105,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr nocapture readnone
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 1
-  br i1 %23, label %.loopexit, label %.outer120, !llvm.loop !170
+  br i1 %23, label %.loopexit, label %.outer120, !llvm.loop !171
 
 24:                                               ; preds = %4
   %25 = xor i32 %.039.ph125, 1
-  br label %.outer124, !llvm.loop !170
+  br label %.outer124, !llvm.loop !171
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !170
+  br label %4, !llvm.loop !171
 
 28:                                               ; preds = %4
   %29 = add nsw i32 %.043.ph, -3
@@ -28160,7 +28163,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr nocapture readnone
 
 45:                                               ; preds = %42, %44
   %46 = getelementptr inbounds i8, ptr %.048, i64 1
-  br label %42, !llvm.loop !171
+  br label %42, !llvm.loop !172
 
 47:                                               ; preds = %42
   %48 = tail call noalias ptr @fopen(ptr noundef %41, ptr noundef nonnull @.str.1494)
@@ -28270,7 +28273,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecPs3(ptr nocapture readnone %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !172
+  br label %4, !llvm.loop !173
 
 8:                                                ; preds = %4
   %9 = tail call i32 (...) @Abc_NtkRecIsRunning3() #28
@@ -28308,7 +28311,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecAdd3(ptr noundef %0, i32 noun
   switch i32 %6, label %13 [
     i32 -1, label %7
     i32 103, label %5
-  ], !llvm.loop !173
+  ], !llvm.loop !174
 
 7:                                                ; preds = %5
   %.val = load i32, ptr %4, align 8
@@ -28364,11 +28367,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecDump3(ptr nocapture readnone 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.020.ph, 1
-  br label %.outer, !llvm.loop !174
+  br label %.outer, !llvm.loop !175
 
 8:                                                ; preds = %4
   %9 = xor i32 %.019, 1
-  br label %4, !llvm.loop !174
+  br label %4, !llvm.loop !175
 
 10:                                               ; preds = %4
   %11 = tail call i32 (...) @Abc_NtkRecIsRunning3() #28
@@ -28498,7 +28501,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecMerge3(ptr nocapture readnone
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.020, i64 1
-  br label %16, !llvm.loop !175
+  br label %16, !llvm.loop !176
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -28717,7 +28720,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   %.097.be = phi i32 [ %.097, %92 ], [ %.097, %90 ], [ %89, %88 ], [ %.097, %86 ], [ %.097, %84 ], [ %.097, %82 ], [ %.097, %80 ], [ %.097, %78 ], [ %.097, %71 ], [ %.097, %61 ], [ %.097, %51 ], [ %.097, %41 ], [ %.097, %31 ], [ %.097, %21 ], [ %.097, %10 ]
   %.095.be = phi i32 [ %.095, %92 ], [ %91, %90 ], [ %.095, %88 ], [ %.095, %86 ], [ %.095, %84 ], [ %.095, %82 ], [ %.095, %80 ], [ %.095, %78 ], [ %.095, %71 ], [ %.095, %61 ], [ %.095, %51 ], [ %.095, %41 ], [ %.095, %31 ], [ %.095, %21 ], [ %.095, %10 ]
   %.094.be = phi i32 [ %93, %92 ], [ %.094, %90 ], [ %.094, %88 ], [ %.094, %86 ], [ %.094, %84 ], [ %.094, %82 ], [ %.094, %80 ], [ %.094, %78 ], [ %.094, %71 ], [ %.094, %61 ], [ %.094, %51 ], [ %.094, %41 ], [ %.094, %31 ], [ %.094, %21 ], [ %.094, %10 ]
-  br label %6, !llvm.loop !176
+  br label %6, !llvm.loop !177
 
 78:                                               ; preds = %6
   %79 = xor i32 %.0107, 1
@@ -28996,7 +28999,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
 
 .backedge:                                        ; preds = %45, %56, %36, %27, %18, %75, %73, %70, %67, %64
   %.063.be = phi i32 [ %.063, %75 ], [ %74, %73 ], [ %.063, %70 ], [ %.063, %67 ], [ %.063, %64 ], [ %.063, %56 ], [ %.063, %36 ], [ %.063, %27 ], [ %.063, %18 ], [ %.063, %45 ]
-  br label %14, !llvm.loop !177
+  br label %14, !llvm.loop !178
 
 54:                                               ; preds = %14
   %55 = load i32, ptr @globalUtilOptind, align 4
@@ -29180,7 +29183,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPhaseMap(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %5
   %8 = xor i32 %.010, 1
-  br label %5, !llvm.loop !178
+  br label %5, !llvm.loop !179
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -29406,7 +29409,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSuperChoiceLut(ptr noundef %0, i
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !179
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !180
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -29421,11 +29424,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSuperChoiceLut(ptr noundef %0, i
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer80, !llvm.loop !179
+  br i1 %24, label %.loopexit, label %.outer80, !llvm.loop !180
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0, 1
-  br label %5, !llvm.loop !179
+  br label %5, !llvm.loop !180
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -29522,11 +29525,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandTimeScale(ptr noundef %0, i32 no
   %16 = add nsw i32 %8, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = fcmp olt float %15, 0.000000e+00
-  br i1 %17, label %.loopexit, label %.outer, !llvm.loop !180
+  br i1 %17, label %.loopexit, label %.outer, !llvm.loop !181
 
 18:                                               ; preds = %5
   %19 = xor i32 %.0, 1
-  br label %5, !llvm.loop !180
+  br label %5, !llvm.loop !181
 
 20:                                               ; preds = %5
   %21 = icmp eq ptr %4, null
@@ -29921,7 +29924,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   br i1 %switch, label %.backedge, label %.loopexitthread-pre-split.sink.split
 
 .backedge:                                        ; preds = %185, %164, %145, %117, %175, %154, %135, %125, %108, %99, %89, %80, %71, %62, %261, %258, %255, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %59
-  br label %48, !llvm.loop !181
+  br label %48, !llvm.loop !182
 
 192:                                              ; preds = %48
   %193 = load i32, ptr %33, align 4
@@ -30834,7 +30837,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = fcmp olt float %23, 0.000000e+00
-  br i1 %25, label %.loopexit, label %.outer195, !llvm.loop !182
+  br i1 %25, label %.loopexit, label %.outer195, !llvm.loop !183
 
 26:                                               ; preds = %13
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -30849,19 +30852,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   %33 = add nsw i32 %27, 1
   store i32 %33, ptr @globalUtilOptind, align 4
   %34 = icmp slt i32 %32, 0
-  br i1 %34, label %.loopexit, label %.outer201, !llvm.loop !182
+  br i1 %34, label %.loopexit, label %.outer201, !llvm.loop !183
 
 35:                                               ; preds = %13
   %36 = xor i32 %.ph207, 1
-  br label %.outer206, !llvm.loop !182
+  br label %.outer206, !llvm.loop !183
 
 37:                                               ; preds = %13
   %38 = xor i32 %.ph211, 1
-  br label %.outer210, !llvm.loop !182
+  br label %.outer210, !llvm.loop !183
 
 39:                                               ; preds = %13
   %40 = xor i32 %14, 1
-  br label %13, !llvm.loop !182
+  br label %13, !llvm.loop !183
 
 41:                                               ; preds = %13
   store i32 %14, ptr %12, align 8
@@ -30949,7 +30952,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
 74:                                               ; preds = %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %75, label %67, label %._crit_edge, !llvm.loop !183
+  br i1 %75, label %67, label %._crit_edge, !llvm.loop !184
 
 .thread:                                          ; preds = %67
   %76 = fpext float %72 to double
@@ -30960,7 +30963,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   %.pre126 = sext i32 %.pre125 to i64
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv, 1
   %80 = icmp slt i64 %indvars.iv.next130, %.pre126
-  br i1 %80, label %.outer, label %._crit_edge.thread132, !llvm.loop !183
+  br i1 %80, label %.outer, label %._crit_edge.thread132, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %74
   br i1 %64, label %._crit_edge.thread, label %._crit_edge.thread132
@@ -31016,7 +31019,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdSave(ptr nocapture readnone %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !184
+  br label %4, !llvm.loop !185
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -31093,7 +31096,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdLoad(ptr nocapture readnone %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.026, 1
-  br label %4, !llvm.loop !185
+  br label %4, !llvm.loop !186
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -31125,7 +31128,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdLoad(ptr nocapture readnone %
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.027, i64 1
-  br label %16, !llvm.loop !186
+  br label %16, !llvm.loop !187
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -31201,7 +31204,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdFree(ptr nocapture readnone %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !187
+  br label %4, !llvm.loop !188
 
 8:                                                ; preds = %4
   %.not8 = icmp eq i32 %.0, 0
@@ -31313,7 +31316,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr nocapture readnone %0,
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !188
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !189
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -31328,23 +31331,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr nocapture readnone %0,
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer140, !llvm.loop !188
+  br i1 %23, label %.loopexit, label %.outer140, !llvm.loop !189
 
 24:                                               ; preds = %4
   %25 = xor i32 %.034.ph147, 1
-  br label %.outer146, !llvm.loop !188
+  br label %.outer146, !llvm.loop !189
 
 26:                                               ; preds = %4
   %27 = xor i32 %.032.ph152, 1
-  br label %.outer151, !llvm.loop !188
+  br label %.outer151, !llvm.loop !189
 
 28:                                               ; preds = %4
   %29 = xor i32 %.030.ph156, 1
-  br label %.outer155, !llvm.loop !188
+  br label %.outer155, !llvm.loop !189
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !188
+  br label %4, !llvm.loop !189
 
 32:                                               ; preds = %4
   %.not49 = icmp eq i32 %.030.ph156, 0
@@ -31466,7 +31469,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMatch(ptr nocapture readnone 
   %.052.be = phi i32 [ %.052, %53 ], [ %.052, %51 ], [ %.052, %49 ], [ %.052, %47 ], [ %.052, %42 ], [ %.052, %34 ], [ %30, %26 ], [ %.052, %18 ], [ %.052, %9 ]
   %.050.be = phi i32 [ %.050, %53 ], [ %.050, %51 ], [ %.050, %49 ], [ %.050, %47 ], [ %.050, %42 ], [ %38, %34 ], [ %.050, %26 ], [ %.050, %18 ], [ %.050, %9 ]
   %.049.be = phi ptr [ %.049, %53 ], [ %.049, %51 ], [ %.049, %49 ], [ %.049, %47 ], [ %45, %42 ], [ %.049, %34 ], [ %.049, %26 ], [ %.049, %18 ], [ %.049, %9 ]
-  br label %5, !llvm.loop !189
+  br label %5, !llvm.loop !190
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -31656,7 +31659,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMerge(ptr nocapture readnone 
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.020, i64 1
-  br label %16, !llvm.loop !190
+  br label %16, !llvm.loop !191
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -31797,7 +31800,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdFilter(ptr nocapture readnone
   %.047.be = phi i32 [ %.047, %35 ], [ %.047, %33 ], [ %32, %31 ], [ %.047, %29 ], [ %.047, %27 ], [ %.047, %25 ], [ %.047, %23 ], [ %.047, %17 ], [ %.047, %9 ]
   %.045.be = phi i32 [ %.045, %35 ], [ %34, %33 ], [ %.045, %31 ], [ %.045, %29 ], [ %.045, %27 ], [ %.045, %25 ], [ %.045, %23 ], [ %.045, %17 ], [ %.045, %9 ]
   %.0.be = phi i32 [ %36, %35 ], [ %.0, %33 ], [ %.0, %31 ], [ %.0, %29 ], [ %.0, %27 ], [ %.0, %25 ], [ %.0, %23 ], [ %.0, %17 ], [ %.0, %9 ]
-  br label %5, !llvm.loop !191
+  br label %5, !llvm.loop !192
 
 37:                                               ; preds = %5
   %38 = icmp eq ptr %4, null
@@ -31980,31 +31983,31 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %13 = load ptr, ptr %12, align 8
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
-  br label %5, !llvm.loop !192
+  br label %5, !llvm.loop !193
 
 15:                                               ; preds = %5
   %16 = xor i32 %.0119.ph, 1
-  br label %.outer, !llvm.loop !192
+  br label %.outer, !llvm.loop !193
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0117.ph321, 1
-  br label %.outer320, !llvm.loop !192
+  br label %.outer320, !llvm.loop !193
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0115.ph328, 1
-  br label %.outer327, !llvm.loop !192
+  br label %.outer327, !llvm.loop !193
 
 21:                                               ; preds = %5
   %22 = xor i32 %.0113.ph334, 1
-  br label %.outer333, !llvm.loop !192
+  br label %.outer333, !llvm.loop !193
 
 23:                                               ; preds = %5
   %24 = xor i32 %.0111.ph339, 1
-  br label %.outer338, !llvm.loop !192
+  br label %.outer338, !llvm.loop !193
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0109.ph343, 1
-  br label %.outer342, !llvm.loop !192
+  br label %.outer342, !llvm.loop !193
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -32086,7 +32089,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val152 = load i32, ptr %56, align 4
   %57 = sext i32 %.val152 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !193
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !194
 
 59:                                               ; preds = %33
   %.not127 = icmp eq i32 %.0119.ph, 0
@@ -32126,7 +32129,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val151 = load i32, ptr %74, align 4
   %75 = sext i32 %.val151 to i64
   %76 = icmp slt i64 %indvars.iv.next247, %75
-  br i1 %76, label %.lr.ph208, label %.critedge, !llvm.loop !194
+  br i1 %76, label %.lr.ph208, label %.critedge, !llvm.loop !195
 
 77:                                               ; preds = %59
   %.not128 = icmp eq i32 %.0117.ph321, 0
@@ -32166,7 +32169,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val150 = load i32, ptr %92, align 4
   %93 = sext i32 %.val150 to i64
   %94 = icmp slt i64 %indvars.iv.next250, %93
-  br i1 %94, label %.lr.ph211, label %.critedge, !llvm.loop !195
+  br i1 %94, label %.lr.ph211, label %.critedge, !llvm.loop !196
 
 95:                                               ; preds = %77
   %.not129 = icmp eq i32 %.0115.ph328, 0
@@ -32212,7 +32215,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val149 = load i32, ptr %114, align 4
   %115 = sext i32 %.val149 to i64
   %116 = icmp slt i64 %indvars.iv.next253, %115
-  br i1 %116, label %.lr.ph214, label %.critedge, !llvm.loop !196
+  br i1 %116, label %.lr.ph214, label %.critedge, !llvm.loop !197
 
 117:                                              ; preds = %95
   %.not130 = icmp eq i32 %.0113.ph334, 0
@@ -32252,7 +32255,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val148 = load i32, ptr %132, align 4
   %133 = sext i32 %.val148 to i64
   %134 = icmp slt i64 %indvars.iv.next256, %133
-  br i1 %134, label %.lr.ph217, label %.critedge, !llvm.loop !197
+  br i1 %134, label %.lr.ph217, label %.critedge, !llvm.loop !198
 
 135:                                              ; preds = %117
   %136 = icmp ne i32 %.0111.ph339, 0
@@ -32333,7 +32336,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   %.val = load i32, ptr %168, align 4
   %169 = sext i32 %.val to i64
   %170 = icmp slt i64 %indvars.iv.next259, %169
-  br i1 %170, label %156, label %.critedge13, !llvm.loop !198
+  br i1 %170, label %156, label %.critedge13, !llvm.loop !199
 
 .critedge13:                                      ; preds = %166, %147
   tail call fastcc void @Vec_IntFree(ptr noundef %150)
@@ -32448,7 +32451,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUndc(ptr noundef %0, i32 noundef
 
 7:                                                ; preds = %5
   %8 = xor i32 %.033, 1
-  br label %5, !llvm.loop !199
+  br label %5, !llvm.loop !200
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -32496,7 +32499,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUndc(ptr noundef %0, i32 noundef
   %29 = add nuw nsw i32 %.051, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !200
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.0.lcssa = phi i32 [ 0, %18 ], [ %29, %.lr.ph ]
@@ -32655,7 +32658,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPipe(ptr noundef %0, i32 noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %5, !llvm.loop !201
+  br i1 %16, label %.loopexit, label %5, !llvm.loop !202
 
 17:                                               ; preds = %5
   %18 = icmp eq ptr %4, null
@@ -32779,7 +32782,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer211, !llvm.loop !202
+  br i1 %15, label %.loopexit, label %.outer211, !llvm.loop !203
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -32794,27 +32797,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %5, !llvm.loop !202
+  br i1 %24, label %.loopexit, label %5, !llvm.loop !203
 
 25:                                               ; preds = %5
   %26 = xor i32 %.066.ph, 1
-  br label %.outer, !llvm.loop !202
+  br label %.outer, !llvm.loop !203
 
 27:                                               ; preds = %5
   %28 = xor i32 %.064.ph190, 1
-  br label %.outer189, !llvm.loop !202
+  br label %.outer189, !llvm.loop !203
 
 29:                                               ; preds = %5
   %30 = xor i32 %.062.ph197, 1
-  br label %.outer196, !llvm.loop !202
+  br label %.outer196, !llvm.loop !203
 
 31:                                               ; preds = %5
   %32 = xor i32 %.060.ph203, 1
-  br label %.outer202, !llvm.loop !202
+  br label %.outer202, !llvm.loop !203
 
 33:                                               ; preds = %5
   %34 = xor i32 %.058.ph208, 1
-  br label %.outer207, !llvm.loop !202
+  br label %.outer207, !llvm.loop !203
 
 35:                                               ; preds = %5
   %36 = icmp eq ptr %4, null
@@ -32998,7 +33001,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRetime(ptr noundef %0, i32 noun
   %.047.be = phi i32 [ %.047, %35 ], [ %34, %33 ], [ %.047, %31 ], [ %.047, %29 ], [ %.047, %27 ], [ %.047, %25 ], [ %.047, %18 ], [ %.047, %9 ]
   %.045.be = phi i32 [ %36, %35 ], [ %.045, %33 ], [ %.045, %31 ], [ %.045, %29 ], [ %.045, %27 ], [ %.045, %25 ], [ %.045, %18 ], [ %.045, %9 ]
   %.0.be = phi i32 [ %.0, %35 ], [ %.0, %33 ], [ %.0, %31 ], [ %.0, %29 ], [ %.0, %27 ], [ %.0, %25 ], [ %.0, %18 ], [ %13, %9 ]
-  br label %5, !llvm.loop !203
+  br label %5, !llvm.loop !204
 
 25:                                               ; preds = %5
   %26 = xor i32 %.058, 1
@@ -33188,7 +33191,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFlowRetime(ptr noundef %0, i32 n
   %.051.be = phi i32 [ %.051, %37 ], [ %36, %35 ], [ %.051, %33 ], [ %.051, %31 ], [ %.051, %29 ], [ %.051, %27 ], [ %.051, %25 ], [ %.051, %18 ], [ %.051, %9 ]
   %.049.be = phi i32 [ %.049, %37 ], [ %.049, %35 ], [ %.049, %33 ], [ %.049, %31 ], [ %.049, %29 ], [ %28, %27 ], [ %.049, %25 ], [ %.049, %18 ], [ %.049, %9 ]
   %.0.be = phi i32 [ %.0, %37 ], [ %.0, %35 ], [ %.0, %33 ], [ %.0, %31 ], [ %.0, %29 ], [ %.0, %27 ], [ %.0, %25 ], [ %22, %18 ], [ %.0, %9 ]
-  br label %5, !llvm.loop !204
+  br label %5, !llvm.loop !205
 
 25:                                               ; preds = %5
   %26 = xor i32 %.061, 1
@@ -33330,7 +33333,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCRetime(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !205
+  br label %5, !llvm.loop !206
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -33631,7 +33634,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep(ptr noundef %0, i32 nou
   %.be502 = phi i32 [ %36, %93 ], [ %36, %83 ], [ %36, %73 ], [ %36, %63 ], [ %36, %53 ], [ %36, %43 ], [ %36, %112 ], [ %36, %110 ], [ %109, %108 ], [ %36, %106 ], [ %36, %104 ], [ %36, %102 ], [ %36, %100 ]
   %.be503 = phi i32 [ %37, %93 ], [ %37, %83 ], [ %37, %73 ], [ %37, %63 ], [ %37, %53 ], [ %37, %43 ], [ %37, %112 ], [ %111, %110 ], [ %37, %108 ], [ %37, %106 ], [ %37, %104 ], [ %37, %102 ], [ %37, %100 ]
   %.be504 = phi i32 [ %38, %93 ], [ %38, %83 ], [ %38, %73 ], [ %38, %63 ], [ %38, %53 ], [ %38, %43 ], [ %113, %112 ], [ %38, %110 ], [ %38, %108 ], [ %38, %106 ], [ %38, %104 ], [ %38, %102 ], [ %38, %100 ]
-  br label %19, !llvm.loop !206
+  br label %19, !llvm.loop !207
 
 100:                                              ; preds = %19
   %101 = xor i32 %32, 1
@@ -34031,7 +34034,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep2(ptr noundef %0, i32 no
 
 .backedge:                                        ; preds = %122, %113, %104, %95, %86, %77, %68, %59, %50, %41, %32, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129
   %.0.be = phi i32 [ %.0, %165 ], [ %.0, %162 ], [ %.0, %159 ], [ %.0, %156 ], [ %.0, %153 ], [ %.0, %150 ], [ %.0, %147 ], [ %.0, %144 ], [ %.0, %141 ], [ %.0, %138 ], [ %.0, %135 ], [ %.0, %132 ], [ %.0, %129 ], [ %.0, %122 ], [ %117, %113 ], [ %.0, %104 ], [ %.0, %95 ], [ %.0, %86 ], [ %.0, %77 ], [ %.0, %68 ], [ %.0, %59 ], [ %.0, %50 ], [ %.0, %41 ], [ %.0, %32 ]
-  br label %28, !llvm.loop !207
+  br label %28, !llvm.loop !208
 
 129:                                              ; preds = %28
   %130 = load i32, ptr %18, align 4
@@ -34562,7 +34565,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr nocapture readn
   %.be483 = phi i32 [ %35, %92 ], [ %35, %82 ], [ %35, %72 ], [ %35, %62 ], [ %35, %52 ], [ %35, %42 ], [ %35, %111 ], [ %35, %109 ], [ %108, %107 ], [ %35, %105 ], [ %35, %103 ], [ %35, %101 ], [ %35, %99 ]
   %.be484 = phi i32 [ %36, %92 ], [ %36, %82 ], [ %36, %72 ], [ %36, %62 ], [ %36, %52 ], [ %36, %42 ], [ %36, %111 ], [ %110, %109 ], [ %36, %107 ], [ %36, %105 ], [ %36, %103 ], [ %36, %101 ], [ %36, %99 ]
   %.be485 = phi i32 [ %37, %92 ], [ %37, %82 ], [ %37, %72 ], [ %37, %62 ], [ %37, %52 ], [ %37, %42 ], [ %112, %111 ], [ %37, %109 ], [ %37, %107 ], [ %37, %105 ], [ %37, %103 ], [ %37, %101 ], [ %37, %99 ]
-  br label %18, !llvm.loop !208
+  br label %18, !llvm.loop !209
 
 99:                                               ; preds = %18
   %100 = xor i32 %31, 1
@@ -34749,7 +34752,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestScorr(ptr noundef %0, i32 no
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !209
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !210
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -34764,23 +34767,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestScorr(ptr noundef %0, i32 no
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer149, !llvm.loop !209
+  br i1 %23, label %.loopexit, label %.outer149, !llvm.loop !210
 
 24:                                               ; preds = %4
   %25 = xor i32 %.038.ph156, 1
-  br label %.outer155, !llvm.loop !209
+  br label %.outer155, !llvm.loop !210
 
 26:                                               ; preds = %4
   %27 = xor i32 %.036.ph161, 1
-  br label %.outer160, !llvm.loop !209
+  br label %.outer160, !llvm.loop !210
 
 28:                                               ; preds = %4
   %29 = xor i32 %.034.ph165, 1
-  br label %.outer164, !llvm.loop !209
+  br label %.outer164, !llvm.loop !210
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !209
+  br label %4, !llvm.loop !210
 
 32:                                               ; preds = %4
   %33 = load i32, ptr @globalUtilOptind, align 4
@@ -34914,7 +34917,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLcorr(ptr noundef %0, i32 nounde
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !210
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !211
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -34929,7 +34932,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLcorr(ptr noundef %0, i32 nounde
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer190, !llvm.loop !210
+  br i1 %24, label %.loopexit, label %.outer190, !llvm.loop !211
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -34944,7 +34947,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLcorr(ptr noundef %0, i32 nounde
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %.outer196, !llvm.loop !210
+  br i1 %33, label %.loopexit, label %.outer196, !llvm.loop !211
 
 34:                                               ; preds = %5
   %35 = load i32, ptr @globalUtilOptind, align 4
@@ -34959,15 +34962,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandLcorr(ptr noundef %0, i32 nounde
   %41 = add nsw i32 %35, 1
   store i32 %41, ptr @globalUtilOptind, align 4
   %42 = icmp slt i32 %40, 0
-  br i1 %42, label %.loopexit, label %.outer201, !llvm.loop !210
+  br i1 %42, label %.loopexit, label %.outer201, !llvm.loop !211
 
 43:                                               ; preds = %5
   %44 = xor i32 %.040.ph206, 1
-  br label %.outer205, !llvm.loop !210
+  br label %.outer205, !llvm.loop !211
 
 45:                                               ; preds = %5
   %46 = xor i32 %.0, 1
-  br label %5, !llvm.loop !210
+  br label %5, !llvm.loop !211
 
 47:                                               ; preds = %5
   %48 = icmp eq ptr %4, null
@@ -35134,7 +35137,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqCleanup(ptr noundef %0, i32 n
   %.041.be = phi i32 [ %.041, %35 ], [ %.041, %33 ], [ %30, %26 ], [ %.041, %17 ], [ %.041, %13 ], [ %.041, %11 ], [ %.041, %9 ], [ %.041, %7 ]
   %.039.be = phi i32 [ %.039, %35 ], [ %34, %33 ], [ %.039, %26 ], [ %.039, %17 ], [ %.039, %13 ], [ %.039, %11 ], [ %.039, %9 ], [ %.039, %7 ]
   %.0.be = phi i32 [ %36, %35 ], [ %.0, %33 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %13 ], [ %.0, %11 ], [ %.0, %9 ], [ %.0, %7 ]
-  br label %5, !llvm.loop !211
+  br label %5, !llvm.loop !212
 
 33:                                               ; preds = %5
   %34 = xor i32 %.039, 1
@@ -35267,15 +35270,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandCycle(ptr noundef %0, i32 nounde
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !212
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !213
 
 17:                                               ; preds = %5
   %18 = xor i32 %.029.ph86, 1
-  br label %.outer85, !llvm.loop !212
+  br label %.outer85, !llvm.loop !213
 
 19:                                               ; preds = %5
   %20 = xor i32 %.0, 1
-  br label %5, !llvm.loop !212
+  br label %5, !llvm.loop !213
 
 21:                                               ; preds = %5
   %22 = icmp eq ptr %4, null
@@ -35410,19 +35413,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandXsim(ptr noundef %0, i32 noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !213
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !214
 
 17:                                               ; preds = %5
   %18 = xor i32 %.024.ph86, 1
-  br label %.outer85, !llvm.loop !213
+  br label %.outer85, !llvm.loop !214
 
 19:                                               ; preds = %5
   %20 = xor i32 %.022.ph90, 1
-  br label %.outer89, !llvm.loop !213
+  br label %.outer89, !llvm.loop !214
 
 21:                                               ; preds = %5
   %22 = xor i32 %.0, 1
-  br label %5, !llvm.loop !213
+  br label %5, !llvm.loop !214
 
 23:                                               ; preds = %5
   %24 = icmp eq ptr %4, null
@@ -35559,7 +35562,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim(ptr noundef %0, i32 noundef 
   %.053.be = phi i32 [ %53, %52 ], [ %.053, %50 ], [ %.053, %48 ], [ %.053, %43 ], [ %.053, %36 ], [ %.053, %27 ], [ %.053, %18 ], [ %.053, %9 ]
   %.051.be = phi ptr [ %.051, %52 ], [ %.051, %50 ], [ %.051, %48 ], [ %.051, %43 ], [ %39, %36 ], [ %.051, %27 ], [ %.051, %18 ], [ %.051, %9 ]
   %.0.be = phi ptr [ %.0, %52 ], [ %.0, %50 ], [ %.0, %48 ], [ %46, %43 ], [ %.0, %36 ], [ %.0, %27 ], [ %.0, %18 ], [ %.0, %9 ]
-  br label %5, !llvm.loop !214
+  br label %5, !llvm.loop !215
 
 34:                                               ; preds = %5
   %35 = load i32, ptr @globalUtilOptind, align 4
@@ -35930,7 +35933,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef
 
 .backedge:                                        ; preds = %86, %77, %68, %59, %50, %41, %32, %23, %112, %109, %106, %103, %100, %95
   %.0108.be = phi ptr [ %.0108, %112 ], [ %.0108, %109 ], [ %.0108, %106 ], [ %.0108, %103 ], [ %.0108, %100 ], [ %98, %95 ], [ %.0108, %86 ], [ %.0108, %77 ], [ %.0108, %68 ], [ %.0108, %59 ], [ %.0108, %50 ], [ %.0108, %41 ], [ %.0108, %32 ], [ %.0108, %23 ]
-  br label %19, !llvm.loop !215
+  br label %19, !llvm.loop !216
 
 93:                                               ; preds = %19
   %94 = load i32, ptr @globalUtilOptind, align 4
@@ -36084,7 +36087,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef
   %.val153 = load i32, ptr %163, align 4
   %164 = sext i32 %.val153 to i64
   %165 = icmp slt i64 %indvars.iv.next, %164
-  br i1 %165, label %146, label %.critedge, !llvm.loop !216
+  br i1 %165, label %146, label %.critedge, !llvm.loop !217
 
 .critedge:                                        ; preds = %159, %139
   call fastcc void @Vec_IntFree(ptr noundef nonnull %138)
@@ -36293,7 +36296,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
   %15 = add nsw i32 %9, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %6, !llvm.loop !217
+  br i1 %16, label %.loopexit, label %6, !llvm.loop !218
 
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4
@@ -36308,23 +36311,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
   %24 = add nsw i32 %18, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer186, !llvm.loop !217
+  br i1 %25, label %.loopexit, label %.outer186, !llvm.loop !218
 
 26:                                               ; preds = %6
   %27 = xor i32 %.057.ph178, 1
-  br label %.outer177, !llvm.loop !217
+  br label %.outer177, !llvm.loop !218
 
 28:                                               ; preds = %6
   %29 = xor i32 %.061.ph, 1
-  br label %.outer, !llvm.loop !217
+  br label %.outer, !llvm.loop !218
 
 30:                                               ; preds = %6
   %31 = xor i32 %.059.ph172, 1
-  br label %.outer171, !llvm.loop !217
+  br label %.outer171, !llvm.loop !218
 
 32:                                               ; preds = %6
   %33 = xor i32 %.055.ph183, 1
-  br label %.outer182, !llvm.loop !217
+  br label %.outer182, !llvm.loop !218
 
 34:                                               ; preds = %6
   %35 = icmp eq ptr %5, null
@@ -36499,11 +36502,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSynch(ptr noundef %0, i32 nounde
   %19 = add nsw i32 %12, 1
   store i32 %19, ptr @globalUtilOptind, align 4
   %20 = icmp slt i32 %18, 1
-  br i1 %20, label %.loopexit, label %.outer, !llvm.loop !218
+  br i1 %20, label %.loopexit, label %.outer, !llvm.loop !219
 
 21:                                               ; preds = %9
   %22 = xor i32 %.0, 1
-  br label %9, !llvm.loop !218
+  br label %9, !llvm.loop !219
 
 23:                                               ; preds = %9
   %24 = load i32, ptr @globalUtilOptind, align 4
@@ -36771,7 +36774,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 no
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %63, %54, %45, %36, %27, %18
-  br label %14, !llvm.loop !219
+  br label %14, !llvm.loop !220
 
 74:                                               ; preds = %14
   %75 = icmp eq ptr %5, null
@@ -36911,7 +36914,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtWin(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 1
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !220
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !221
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -36926,11 +36929,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtWin(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 1
-  br i1 %24, label %.loopexit, label %.outer81, !llvm.loop !220
+  br i1 %24, label %.loopexit, label %.outer81, !llvm.loop !221
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0, 1
-  br label %5, !llvm.loop !220
+  br label %5, !llvm.loop !221
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -37034,7 +37037,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInsWin(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 1
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !221
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !222
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -37049,11 +37052,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandInsWin(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 1
-  br i1 %24, label %.loopexit, label %.outer94, !llvm.loop !221
+  br i1 %24, label %.loopexit, label %.outer94, !llvm.loop !222
 
 25:                                               ; preds = %5
   %26 = xor i32 %.032, 1
-  br label %5, !llvm.loop !221
+  br label %5, !llvm.loop !222
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -37180,11 +37183,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
   %13 = tail call i32 @atoi(ptr nocapture noundef %12) #31
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !222
+  br label %.outer, !llvm.loop !223
 
 15:                                               ; preds = %4
   %16 = xor i32 %.0, 1
-  br label %4, !llvm.loop !222
+  br label %4, !llvm.loop !223
 
 17:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -37234,7 +37237,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 35:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !223
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !224
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
@@ -37286,7 +37289,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 57:                                               ; preds = %._crit_edge.us.i, %48
   %58 = add nuw nsw i32 %.018.us.i, 1
   %exitcond26.not.i = icmp eq i32 %58, %smax25.i
-  br i1 %exitcond26.not.i, label %Abc_TtSymFunGenerate.exit, label %.preheader.us.i, !llvm.loop !224
+  br i1 %exitcond26.not.i, label %Abc_TtSymFunGenerate.exit, label %.preheader.us.i, !llvm.loop !225
 
 59:                                               ; preds = %59, %.preheader.us.i
   %.01417.us.i = phi i32 [ 0, %.preheader.us.i ], [ %62, %59 ]
@@ -37296,7 +37299,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
   %62 = add nuw nsw i32 %61, %.01417.us.i
   %63 = add nuw nsw i32 %.01516.us.i, 1
   %exitcond24.not.i = icmp eq i32 %63, %34
-  br i1 %exitcond24.not.i, label %._crit_edge.us.i, label %59, !llvm.loop !225
+  br i1 %exitcond24.not.i, label %._crit_edge.us.i, label %59, !llvm.loop !226
 
 ._crit_edge.us.i:                                 ; preds = %59
   %64 = zext nneg i32 %62 to i64
@@ -37327,7 +37330,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
   store i64 %77, ptr %75, align 8
   %78 = add nuw nsw i32 %.018.us21.i, 1
   %exitcond.not.i = icmp eq i32 %78, %smax.i
-  br i1 %exitcond.not.i, label %Abc_TtSymFunGenerate.exit, label %.preheader.us20.i, !llvm.loop !224
+  br i1 %exitcond.not.i, label %Abc_TtSymFunGenerate.exit, label %.preheader.us20.i, !llvm.loop !225
 
 Abc_TtSymFunGenerate.exit:                        ; preds = %.preheader.us20.i, %57, %.critedge, %.preheader.lr.ph.split.i
   %79 = icmp sgt i32 %34, 2
@@ -37492,7 +37495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPermute(ptr noundef %0, i32 noun
   %16 = add nsw i32 %9, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.loopexit, label %6, !llvm.loop !226
+  br i1 %17, label %.loopexit, label %6, !llvm.loop !227
 
 18:                                               ; preds = %6
   %19 = load i32, ptr @globalUtilOptind, align 4
@@ -37509,27 +37512,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandPermute(ptr noundef %0, i32 noun
   %24 = load ptr, ptr %23, align 8
   %25 = add nsw i32 %19, 1
   store i32 %25, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !226
+  br label %.outer, !llvm.loop !227
 
 26:                                               ; preds = %6
   %27 = xor i32 %.048.ph204, 1
-  br label %.outer203, !llvm.loop !226
+  br label %.outer203, !llvm.loop !227
 
 28:                                               ; preds = %6
   %29 = xor i32 %.046.ph211, 1
-  br label %.outer210, !llvm.loop !226
+  br label %.outer210, !llvm.loop !227
 
 30:                                               ; preds = %6
   %31 = xor i32 %.044.ph217, 1
-  br label %.outer216, !llvm.loop !226
+  br label %.outer216, !llvm.loop !227
 
 32:                                               ; preds = %6
   %33 = xor i32 %.042.ph222, 1
-  br label %.outer221, !llvm.loop !226
+  br label %.outer221, !llvm.loop !227
 
 34:                                               ; preds = %6
   %35 = xor i32 %.040.ph226, 1
-  br label %.outer225, !llvm.loop !226
+  br label %.outer225, !llvm.loop !227
 
 36:                                               ; preds = %6
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -37703,11 +37706,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCubeEnum(ptr nocapture readnone 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.08.ph, 1
-  br label %.outer, !llvm.loop !227
+  br label %.outer, !llvm.loop !228
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !227
+  br label %4, !llvm.loop !228
 
 10:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -37765,7 +37768,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPathEnum(ptr nocapture readnone 
     i32 122, label %4
     i32 118, label %16
     i32 104, label %.loopexit
-  ], !llvm.loop !228
+  ], !llvm.loop !229
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @globalUtilOptind, align 4
@@ -37784,11 +37787,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandPathEnum(ptr nocapture readnone 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !228
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !229
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0.ph51, 1
-  br label %.outer50, !llvm.loop !228
+  br label %.outer50, !llvm.loop !229
 
 18:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -37915,7 +37918,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr nocapture noundef %0
   %.066.be = phi i32 [ %.066, %49 ], [ %.066, %47 ], [ %46, %45 ], [ %.066, %43 ], [ %.066, %41 ], [ %.066, %39 ], [ %.066, %37 ], [ %.066, %30 ], [ %.066, %20 ], [ %.066, %10 ]
   %.064.be = phi i32 [ %.064, %49 ], [ %48, %47 ], [ %.064, %45 ], [ %.064, %43 ], [ %.064, %41 ], [ %.064, %39 ], [ %.064, %37 ], [ %.064, %30 ], [ %.064, %20 ], [ %.064, %10 ]
   %.063.be = phi i32 [ %50, %49 ], [ %.063, %47 ], [ %.063, %45 ], [ %.063, %43 ], [ %.063, %41 ], [ %.063, %39 ], [ %.063, %37 ], [ %.063, %30 ], [ %.063, %20 ], [ %.063, %10 ]
-  br label %5, !llvm.loop !229
+  br label %5, !llvm.loop !230
 
 37:                                               ; preds = %5
   %38 = xor i32 %.074, 1
@@ -38143,7 +38146,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCec(ptr noundef %0, i32 noundef 
   %.051.be = phi i32 [ %.051, %54 ], [ %.051, %52 ], [ %.051, %50 ], [ %.051, %48 ], [ %.051, %41 ], [ %36, %32 ], [ %.051, %23 ], [ %.051, %14 ]
   %.049.be = phi i32 [ %.049, %54 ], [ %.049, %52 ], [ %.049, %50 ], [ %49, %48 ], [ %.049, %41 ], [ %.049, %32 ], [ %.049, %23 ], [ %.049, %14 ]
   %.0.be = phi i32 [ %.0, %54 ], [ %53, %52 ], [ %.0, %50 ], [ %.0, %48 ], [ %.0, %41 ], [ %.0, %32 ], [ %.0, %23 ], [ %.0, %14 ]
-  br label %10, !llvm.loop !230
+  br label %10, !llvm.loop !231
 
 48:                                               ; preds = %10
   %49 = xor i32 %.049, 1
@@ -38414,7 +38417,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDCec(ptr noundef %0, i32 noundef
   %18 = add nsw i32 %12, 1
   store i32 %18, ptr @globalUtilOptind, align 4
   %19 = icmp slt i32 %17, 0
-  br i1 %19, label %.loopexit, label %.outer216, !llvm.loop !231
+  br i1 %19, label %.loopexit, label %.outer216, !llvm.loop !232
 
 20:                                               ; preds = %9
   %21 = load i32, ptr @globalUtilOptind, align 4
@@ -38429,7 +38432,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDCec(ptr noundef %0, i32 noundef
   %27 = add nsw i32 %21, 1
   store i32 %27, ptr @globalUtilOptind, align 4
   %28 = icmp slt i32 %26, 0
-  br i1 %28, label %.loopexit, label %.outer222, !llvm.loop !231
+  br i1 %28, label %.loopexit, label %.outer222, !llvm.loop !232
 
 29:                                               ; preds = %9
   %30 = load i32, ptr @globalUtilOptind, align 4
@@ -38444,23 +38447,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandDCec(ptr noundef %0, i32 noundef
   %36 = add nsw i32 %30, 1
   store i32 %36, ptr @globalUtilOptind, align 4
   %37 = icmp slt i32 %35, 0
-  br i1 %37, label %.loopexit, label %.outer227, !llvm.loop !231
+  br i1 %37, label %.loopexit, label %.outer227, !llvm.loop !232
 
 38:                                               ; preds = %9
   %39 = xor i32 %.047.ph232, 1
-  br label %.outer231, !llvm.loop !231
+  br label %.outer231, !llvm.loop !232
 
 40:                                               ; preds = %9
   %41 = xor i32 %.0, 1
-  br label %9, !llvm.loop !231
+  br label %9, !llvm.loop !232
 
 42:                                               ; preds = %9
   %43 = xor i32 %.059.ph, 1
-  br label %.outer, !llvm.loop !231
+  br label %.outer, !llvm.loop !232
 
 44:                                               ; preds = %9
   %45 = xor i32 %.057.ph210, 1
-  br label %.outer209, !llvm.loop !231
+  br label %.outer209, !llvm.loop !232
 
 46:                                               ; preds = %9
   %47 = icmp ne i32 %.0, 0
@@ -38702,7 +38705,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSec(ptr noundef %0, i32 noundef
 .backedge:                                        ; preds = %31, %22, %57, %54, %52, %50, %47, %44, %41, %38
   %.041.be = phi i32 [ %.041, %57 ], [ %.041, %54 ], [ %53, %52 ], [ %.041, %50 ], [ %.041, %47 ], [ %.041, %44 ], [ %.041, %41 ], [ %.041, %38 ], [ %.041, %31 ], [ %.041, %22 ]
   %.0.be = phi i32 [ %.0, %57 ], [ %.0, %54 ], [ %.0, %52 ], [ %51, %50 ], [ %.0, %47 ], [ %.0, %44 ], [ %.0, %41 ], [ %.0, %38 ], [ %.0, %31 ], [ %.0, %22 ]
-  br label %18, !llvm.loop !232
+  br label %18, !llvm.loop !233
 
 38:                                               ; preds = %18
   %39 = load i32, ptr %16, align 4
@@ -39150,7 +39153,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 nound
   %.0111.be = phi ptr [ %.0111, %166 ], [ %.0111, %163 ], [ %.0111, %160 ], [ %.0111, %157 ], [ %.0111, %154 ], [ %.0111, %151 ], [ %.0111, %148 ], [ %.0111, %145 ], [ %.0111, %142 ], [ %.0111, %139 ], [ %.0111, %136 ], [ %.0111, %133 ], [ %131, %128 ], [ %.0111, %119 ], [ %.0111, %110 ], [ %.0111, %101 ], [ %.0111, %92 ], [ %.0111, %83 ], [ %.0111, %74 ], [ %.0111, %65 ], [ %.0111, %56 ], [ %.0111, %47 ], [ %.0111, %38 ], [ %.0111, %33 ], [ %.0111, %30 ]
   %.0108.be = phi i32 [ %.0108, %166 ], [ %.0108, %163 ], [ %.0108, %160 ], [ %.0108, %157 ], [ %.0108, %154 ], [ %.0108, %151 ], [ %.0108, %148 ], [ %.0108, %145 ], [ %.0108, %142 ], [ %.0108, %139 ], [ %.0108, %136 ], [ %.0108, %133 ], [ %.0108, %128 ], [ %.0108, %119 ], [ %.0108, %110 ], [ %.0108, %101 ], [ %.0108, %92 ], [ %.0108, %83 ], [ %.0108, %74 ], [ %.0108, %65 ], [ %.0108, %56 ], [ %.0108, %47 ], [ %42, %38 ], [ %.0108, %33 ], [ %.0108, %30 ]
   %.0.be = phi i32 [ %.0, %166 ], [ %.0, %163 ], [ %.0, %160 ], [ %.0, %157 ], [ %.0, %154 ], [ %.0, %151 ], [ %.0, %148 ], [ %.0, %145 ], [ %.0, %142 ], [ %.0, %139 ], [ %.0, %136 ], [ %.0, %133 ], [ %.0, %128 ], [ %.0, %119 ], [ %.0, %110 ], [ %.0, %101 ], [ %.0, %92 ], [ %.0, %83 ], [ %.0, %74 ], [ %.0, %65 ], [ %.0, %56 ], [ %51, %47 ], [ %.0, %38 ], [ %.0, %33 ], [ %.0, %30 ]
-  br label %28, !llvm.loop !233
+  br label %28, !llvm.loop !234
 
 126:                                              ; preds = %28
   %127 = load i32, ptr @globalUtilOptind, align 4
@@ -39458,15 +39461,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbSec(ptr noundef %0, i32 nounde
   %19 = add nsw i32 %12, 1
   store i32 %19, ptr @globalUtilOptind, align 4
   %20 = icmp slt i32 %18, 0
-  br i1 %20, label %.loopexit, label %.outer82, !llvm.loop !234
+  br i1 %20, label %.loopexit, label %.outer82, !llvm.loop !235
 
 21:                                               ; preds = %9
   %22 = xor i32 %.032.ph, 1
-  br label %.outer, !llvm.loop !234
+  br label %.outer, !llvm.loop !235
 
 23:                                               ; preds = %9
   %24 = xor i32 %.029, 1
-  br label %9, !llvm.loop !234
+  br label %9, !llvm.loop !235
 
 25:                                               ; preds = %9
   %.not38 = icmp eq i32 %.032.ph, 0
@@ -39666,11 +39669,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSimSec(ptr noundef %0, i32 nound
   br i1 %34, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %28, %19, %43, %40, %37
-  br label %15, !llvm.loop !235
+  br label %15, !llvm.loop !236
 
 35:                                               ; preds = %15
   %36 = xor i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !235
+  br label %.outer, !llvm.loop !236
 
 37:                                               ; preds = %15
   %38 = load i32, ptr %10, align 8
@@ -39861,15 +39864,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandMatch(ptr noundef %0, i32 nounde
   %19 = add nsw i32 %12, 1
   store i32 %19, ptr @globalUtilOptind, align 4
   %20 = icmp slt i32 %18, 0
-  br i1 %20, label %.loopexit, label %.outer81, !llvm.loop !236
+  br i1 %20, label %.loopexit, label %.outer81, !llvm.loop !237
 
 21:                                               ; preds = %9
   %22 = xor i32 %.029.ph, 1
-  br label %.outer, !llvm.loop !236
+  br label %.outer, !llvm.loop !237
 
 23:                                               ; preds = %9
   %24 = xor i32 %.0, 1
-  br label %9, !llvm.loop !236
+  br label %9, !llvm.loop !237
 
 25:                                               ; preds = %9
   %.not37 = icmp eq i32 %.029.ph, 0
@@ -40034,7 +40037,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSat(ptr noundef %0, i32 noundef 
   %16 = add nsw i32 %10, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.loopexit, label %.outer103, !llvm.loop !237
+  br i1 %17, label %.loopexit, label %.outer103, !llvm.loop !238
 
 18:                                               ; preds = %7
   %19 = load i32, ptr @globalUtilOptind, align 4
@@ -40049,11 +40052,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSat(ptr noundef %0, i32 noundef 
   %25 = add nsw i32 %19, 1
   store i32 %25, ptr @globalUtilOptind, align 4
   %26 = icmp slt i32 %24, 0
-  br i1 %26, label %.loopexit, label %7, !llvm.loop !237
+  br i1 %26, label %.loopexit, label %7, !llvm.loop !238
 
 27:                                               ; preds = %7
   %28 = xor i32 %.042.ph, 1
-  br label %.outer, !llvm.loop !237
+  br label %.outer, !llvm.loop !238
 
 29:                                               ; preds = %7
   %30 = icmp eq ptr %6, null
@@ -40316,7 +40319,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
   %.091.be = phi i32 [ %.091, %63 ], [ %.091, %61 ], [ %.091, %59 ], [ %.091, %57 ], [ %.091, %55 ], [ %.091, %53 ], [ %.091, %46 ], [ %.091, %37 ], [ %.091, %28 ], [ %23, %19 ], [ %.091, %10 ]
   %.089.be = phi i32 [ %.089, %63 ], [ %.089, %61 ], [ %.089, %59 ], [ %.089, %57 ], [ %56, %55 ], [ %.089, %53 ], [ %.089, %46 ], [ %.089, %37 ], [ %.089, %28 ], [ %.089, %19 ], [ %.089, %10 ]
   %.088.be = phi i32 [ %.088, %63 ], [ %.088, %61 ], [ %.088, %59 ], [ %.088, %57 ], [ %.088, %55 ], [ %54, %53 ], [ %.088, %46 ], [ %.088, %37 ], [ %.088, %28 ], [ %.088, %19 ], [ %.088, %10 ]
-  br label %6, !llvm.loop !238
+  br label %6, !llvm.loop !239
 
 53:                                               ; preds = %6
   %54 = xor i32 %.088, 1
@@ -40618,7 +40621,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
   %16 = add nsw i32 %10, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.loopexit, label %.outer219, !llvm.loop !239
+  br i1 %17, label %.loopexit, label %.outer219, !llvm.loop !240
 
 18:                                               ; preds = %7
   %19 = load i32, ptr @globalUtilOptind, align 4
@@ -40633,7 +40636,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
   %25 = add nsw i32 %19, 1
   store i32 %25, ptr @globalUtilOptind, align 4
   %26 = icmp slt i32 %24, 0
-  br i1 %26, label %.loopexit, label %.outer, !llvm.loop !239
+  br i1 %26, label %.loopexit, label %.outer, !llvm.loop !240
 
 27:                                               ; preds = %7
   %28 = load i32, ptr @globalUtilOptind, align 4
@@ -40648,7 +40651,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
   %34 = add nsw i32 %28, 1
   store i32 %34, ptr @globalUtilOptind, align 4
   %35 = icmp slt i32 %33, 0
-  br i1 %35, label %.loopexit, label %.outer204, !llvm.loop !239
+  br i1 %35, label %.loopexit, label %.outer204, !llvm.loop !240
 
 36:                                               ; preds = %7
   %37 = load i32, ptr @globalUtilOptind, align 4
@@ -40663,7 +40666,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
   %43 = add nsw i32 %37, 1
   store i32 %43, ptr @globalUtilOptind, align 4
   %44 = icmp slt i32 %42, 0
-  br i1 %44, label %.loopexit, label %.outer210, !llvm.loop !239
+  br i1 %44, label %.loopexit, label %.outer210, !llvm.loop !240
 
 45:                                               ; preds = %7
   %46 = load i32, ptr @globalUtilOptind, align 4
@@ -40678,11 +40681,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, 
   %52 = add nsw i32 %46, 1
   store i32 %52, ptr @globalUtilOptind, align 4
   %53 = icmp slt i32 %51, 0
-  br i1 %53, label %.loopexit, label %.outer215, !llvm.loop !239
+  br i1 %53, label %.loopexit, label %.outer215, !llvm.loop !240
 
 54:                                               ; preds = %7
   %55 = xor i32 %.035, 1
-  br label %7, !llvm.loop !239
+  br label %7, !llvm.loop !240
 
 56:                                               ; preds = %7
   %57 = load i32, ptr @globalUtilOptind, align 4
@@ -40993,15 +40996,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr nocapture noundef
   br i1 %18, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %11, %23
-  br label %6, !llvm.loop !240
+  br label %6, !llvm.loop !241
 
 19:                                               ; preds = %6
   %20 = xor i32 %.015.ph, 1
-  br label %.outer, !llvm.loop !240
+  br label %.outer, !llvm.loop !241
 
 21:                                               ; preds = %6
   %22 = xor i32 %.0.ph50, 1
-  br label %.outer49, !llvm.loop !240
+  br label %.outer49, !llvm.loop !241
 
 23:                                               ; preds = %6
   %24 = load i8, ptr %5, align 4
@@ -41109,15 +41112,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat3(ptr nocapture noundef r
   br i1 %18, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %11, %23
-  br label %6, !llvm.loop !241
+  br label %6, !llvm.loop !242
 
 19:                                               ; preds = %6
   %20 = xor i32 %.012.ph, 1
-  br label %.outer, !llvm.loop !241
+  br label %.outer, !llvm.loop !242
 
 21:                                               ; preds = %6
   %22 = xor i32 %.0.ph47, 1
-  br label %.outer46, !llvm.loop !241
+  br label %.outer46, !llvm.loop !242
 
 23:                                               ; preds = %6
   %24 = load i8, ptr %5, align 4
@@ -41238,7 +41241,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kissat(ptr noundef %0, i32 n
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %4, !llvm.loop !242
+  br i1 %14, label %.loopexit, label %4, !llvm.loop !243
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -41253,7 +41256,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kissat(ptr noundef %0, i32 n
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer221, !llvm.loop !242
+  br i1 %23, label %.loopexit, label %.outer221, !llvm.loop !243
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -41266,23 +41269,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kissat(ptr noundef %0, i32 n
   %29 = load ptr, ptr %28, align 8
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr @globalUtilOptind, align 4
-  br label %.outer212, !llvm.loop !242
+  br label %.outer212, !llvm.loop !243
 
 31:                                               ; preds = %4
   %32 = xor i32 %.054.ph218, 1
-  br label %.outer217, !llvm.loop !242
+  br label %.outer217, !llvm.loop !243
 
 33:                                               ; preds = %4
   %34 = xor i32 %.062.ph, 1
-  br label %.outer, !llvm.loop !242
+  br label %.outer, !llvm.loop !243
 
 35:                                               ; preds = %4
   %36 = xor i32 %.060.ph200, 1
-  br label %.outer199, !llvm.loop !242
+  br label %.outer199, !llvm.loop !243
 
 37:                                               ; preds = %4
   %38 = xor i32 %.058.ph207, 1
-  br label %.outer206, !llvm.loop !242
+  br label %.outer206, !llvm.loop !243
 
 39:                                               ; preds = %4
   %40 = load i32, ptr @globalUtilOptind, align 4
@@ -41417,7 +41420,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer174, !llvm.loop !243
+  br i1 %15, label %.loopexit, label %.outer174, !llvm.loop !244
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -41432,7 +41435,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !243
+  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !244
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -41447,19 +41450,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %.outer180, !llvm.loop !243
+  br i1 %33, label %.loopexit, label %.outer180, !llvm.loop !244
 
 34:                                               ; preds = %5
   %35 = xor i32 %.046.ph186, 1
-  br label %.outer185, !llvm.loop !243
+  br label %.outer185, !llvm.loop !244
 
 36:                                               ; preds = %5
   %37 = xor i32 %.044.ph190, 1
-  br label %.outer189, !llvm.loop !243
+  br label %.outer189, !llvm.loop !244
 
 38:                                               ; preds = %5
   %39 = xor i32 %.043, 1
-  br label %5, !llvm.loop !243
+  br label %5, !llvm.loop !244
 
 40:                                               ; preds = %5
   %41 = icmp eq ptr %4, null
@@ -41704,7 +41707,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandProve(ptr noundef %0, i32 nounde
   br i1 %73, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %66, %57, %47, %38, %29, %20, %83, %80, %77, %74
-  br label %16, !llvm.loop !244
+  br label %16, !llvm.loop !245
 
 74:                                               ; preds = %16
   %75 = load i32, ptr %9, align 4
@@ -42004,7 +42007,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
 
 .backedge:                                        ; preds = %67, %58, %48, %39, %30, %21, %91, %88, %85, %82, %77
   %.086.be = phi ptr [ %.086, %91 ], [ %.086, %88 ], [ %.086, %85 ], [ %.086, %82 ], [ %80, %77 ], [ %.086, %67 ], [ %.086, %58 ], [ %.086, %48 ], [ %.086, %39 ], [ %.086, %30 ], [ %.086, %21 ]
-  br label %17, !llvm.loop !245
+  br label %17, !llvm.loop !246
 
 75:                                               ; preds = %17
   %76 = load i32, ptr @globalUtilOptind, align 4
@@ -42108,7 +42111,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
 121:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !246
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !247
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %122 = trunc nuw nsw i64 %indvars.iv to i32
@@ -42441,7 +42444,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc(ptr noundef %0, i32 noundef 
   %.061.be = phi i32 [ %67, %66 ], [ %.061, %64 ], [ %.061, %62 ], [ %.061, %60 ], [ %.061, %55 ], [ %.061, %46 ], [ %.061, %37 ], [ %.061, %28 ], [ %.061, %19 ], [ %.061, %10 ]
   %.059.be = phi i32 [ %.059, %66 ], [ %65, %64 ], [ %.059, %62 ], [ %.059, %60 ], [ %.059, %55 ], [ %.059, %46 ], [ %.059, %37 ], [ %.059, %28 ], [ %.059, %19 ], [ %.059, %10 ]
   %.0.be = phi ptr [ %.0, %66 ], [ %.0, %64 ], [ %.0, %62 ], [ %.0, %60 ], [ %58, %55 ], [ %.0, %46 ], [ %.0, %37 ], [ %.0, %28 ], [ %.0, %19 ], [ %.0, %10 ]
-  br label %6, !llvm.loop !247
+  br label %6, !llvm.loop !248
 
 53:                                               ; preds = %6
   %54 = load i32, ptr @globalUtilOptind, align 4
@@ -42727,7 +42730,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc2(ptr noundef %0, i32 noundef
   %.073.be = phi i32 [ %87, %86 ], [ %.073, %84 ], [ %.073, %82 ], [ %.073, %80 ], [ %.073, %78 ], [ %.073, %73 ], [ %.073, %64 ], [ %.073, %55 ], [ %.073, %46 ], [ %.073, %37 ], [ %.073, %28 ], [ %.073, %19 ], [ %.073, %10 ]
   %.071.be = phi i32 [ %.071, %86 ], [ %85, %84 ], [ %.071, %82 ], [ %.071, %80 ], [ %.071, %78 ], [ %.071, %73 ], [ %.071, %64 ], [ %.071, %55 ], [ %.071, %46 ], [ %.071, %37 ], [ %.071, %28 ], [ %.071, %19 ], [ %.071, %10 ]
   %.0.be = phi ptr [ %.0, %86 ], [ %.0, %84 ], [ %.0, %82 ], [ %.0, %80 ], [ %.0, %78 ], [ %76, %73 ], [ %.0, %64 ], [ %.0, %55 ], [ %.0, %46 ], [ %.0, %37 ], [ %.0, %28 ], [ %.0, %19 ], [ %.0, %10 ]
-  br label %6, !llvm.loop !248
+  br label %6, !llvm.loop !249
 
 71:                                               ; preds = %6
   %72 = load i32, ptr @globalUtilOptind, align 4
@@ -43123,7 +43126,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
 .backedge:                                        ; preds = %131, %122, %113, %104, %95, %86, %77, %68, %59, %50, %41, %32, %175, %172, %169, %166, %163, %161, %158, %155, %152, %147, %140
   %.0129.be = phi ptr [ %.0129, %175 ], [ %.0129, %172 ], [ %.0129, %169 ], [ %.0129, %166 ], [ %.0129, %163 ], [ %.0129, %161 ], [ %.0129, %158 ], [ %.0129, %155 ], [ %.0129, %152 ], [ %.0129, %147 ], [ %143, %140 ], [ %.0129, %131 ], [ %.0129, %122 ], [ %.0129, %113 ], [ %.0129, %104 ], [ %.0129, %95 ], [ %.0129, %86 ], [ %.0129, %77 ], [ %.0129, %68 ], [ %.0129, %59 ], [ %.0129, %50 ], [ %.0129, %41 ], [ %.0129, %32 ]
   %.0128.be = phi i32 [ %.0128, %175 ], [ %.0128, %172 ], [ %.0128, %169 ], [ %.0128, %166 ], [ %.0128, %163 ], [ %162, %161 ], [ %.0128, %158 ], [ %.0128, %155 ], [ %.0128, %152 ], [ %.0128, %147 ], [ %.0128, %140 ], [ %.0128, %131 ], [ %.0128, %122 ], [ %.0128, %113 ], [ %.0128, %104 ], [ %.0128, %95 ], [ %.0128, %86 ], [ %.0128, %77 ], [ %.0128, %68 ], [ %.0128, %59 ], [ %.0128, %50 ], [ %.0128, %41 ], [ %.0128, %32 ]
-  br label %28, !llvm.loop !249
+  br label %28, !llvm.loop !250
 
 138:                                              ; preds = %28
   %139 = load i32, ptr @globalUtilOptind, align 4
@@ -43546,7 +43549,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmcInter(ptr noundef %0, i32 nou
 
 .backedge:                                        ; preds = %55, %46, %37, %28, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %71, %64
   %.0107.be = phi ptr [ %.0107, %112 ], [ %.0107, %109 ], [ %.0107, %106 ], [ %.0107, %103 ], [ %.0107, %100 ], [ %.0107, %97 ], [ %.0107, %94 ], [ %.0107, %91 ], [ %.0107, %88 ], [ %.0107, %85 ], [ %.0107, %82 ], [ %.0107, %79 ], [ %.0107, %76 ], [ %.0107, %71 ], [ %67, %64 ], [ %.0107, %55 ], [ %.0107, %46 ], [ %.0107, %37 ], [ %.0107, %28 ]
-  br label %24, !llvm.loop !250
+  br label %24, !llvm.loop !251
 
 62:                                               ; preds = %24
   %63 = load i32, ptr @globalUtilOptind, align 4
@@ -44049,7 +44052,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIndcut(ptr noundef %0, i32 nound
   %.064.be = phi i32 [ %.064, %80 ], [ %.064, %78 ], [ %77, %76 ], [ %.064, %74 ], [ %.064, %72 ], [ %.064, %70 ], [ %.064, %63 ], [ %.064, %54 ], [ %.064, %45 ], [ %.064, %36 ], [ %.064, %27 ], [ %.064, %18 ], [ %.064, %9 ]
   %.062.be = phi i32 [ %.062, %80 ], [ %79, %78 ], [ %.062, %76 ], [ %.062, %74 ], [ %.062, %72 ], [ %.062, %70 ], [ %.062, %63 ], [ %.062, %54 ], [ %.062, %45 ], [ %.062, %36 ], [ %.062, %27 ], [ %.062, %18 ], [ %.062, %9 ]
   %.061.be = phi i32 [ %81, %80 ], [ %.061, %78 ], [ %.061, %76 ], [ %.061, %74 ], [ %.061, %72 ], [ %.061, %70 ], [ %.061, %63 ], [ %.061, %54 ], [ %.061, %45 ], [ %.061, %36 ], [ %.061, %27 ], [ %.061, %18 ], [ %.061, %9 ]
-  br label %5, !llvm.loop !251
+  br label %5, !llvm.loop !252
 
 70:                                               ; preds = %5
   %71 = xor i32 %.070, 1
@@ -44196,11 +44199,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandEnlarge(ptr noundef %0, i32 noun
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 1
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !252
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !253
 
 17:                                               ; preds = %5
   %18 = xor i32 %.019, 1
-  br label %5, !llvm.loop !252
+  br label %5, !llvm.loop !253
 
 19:                                               ; preds = %5
   %20 = icmp eq ptr %4, null
@@ -44341,7 +44344,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTempor(ptr noundef %0, i32 nound
   %.053.be = phi i32 [ %.053, %43 ], [ %.053, %41 ], [ %40, %39 ], [ %.053, %37 ], [ %.053, %35 ], [ %.053, %28 ], [ %.053, %19 ], [ %.053, %10 ]
   %.051.be = phi i32 [ %.051, %43 ], [ %42, %41 ], [ %.051, %39 ], [ %.051, %37 ], [ %.051, %35 ], [ %.051, %28 ], [ %.051, %19 ], [ %.051, %10 ]
   %.050.be = phi i32 [ %44, %43 ], [ %.050, %41 ], [ %.050, %39 ], [ %.050, %37 ], [ %.050, %35 ], [ %.050, %28 ], [ %.050, %19 ], [ %.050, %10 ]
-  br label %6, !llvm.loop !253
+  br label %6, !llvm.loop !254
 
 35:                                               ; preds = %6
   %36 = xor i32 %.057, 1
@@ -44570,7 +44573,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInduction(ptr noundef %0, i32 no
   %.049.be = phi i32 [ %.049, %42 ], [ %.049, %40 ], [ %39, %38 ], [ %.049, %36 ], [ %.049, %34 ], [ %.049, %27 ], [ %.049, %18 ], [ %.049, %9 ]
   %.047.be = phi i32 [ %.047, %42 ], [ %41, %40 ], [ %.047, %38 ], [ %.047, %36 ], [ %.047, %34 ], [ %.047, %27 ], [ %.047, %18 ], [ %.047, %9 ]
   %.046.be = phi i32 [ %43, %42 ], [ %.046, %40 ], [ %.046, %38 ], [ %.046, %36 ], [ %.046, %34 ], [ %.046, %27 ], [ %.046, %18 ], [ %.046, %9 ]
-  br label %5, !llvm.loop !254
+  br label %5, !llvm.loop !255
 
 34:                                               ; preds = %5
   %35 = xor i32 %.053, 1
@@ -44791,7 +44794,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandConstr(ptr noundef %0, i32 nound
   %.065.be = phi i32 [ %.065, %51 ], [ %50, %49 ], [ %.065, %47 ], [ %.065, %45 ], [ %.065, %43 ], [ %.065, %36 ], [ %.065, %27 ], [ %.065, %18 ], [ %.065, %9 ]
   %.063.be = phi i32 [ %52, %51 ], [ %.063, %49 ], [ %.063, %47 ], [ %.063, %45 ], [ %.063, %43 ], [ %.063, %36 ], [ %.063, %27 ], [ %.063, %18 ], [ %.063, %9 ]
   %.0.be = phi i32 [ %.0, %51 ], [ %.0, %49 ], [ %.0, %47 ], [ %.0, %45 ], [ %.0, %43 ], [ %40, %36 ], [ %.0, %27 ], [ %.0, %18 ], [ %.0, %9 ]
-  br label %5, !llvm.loop !255
+  br label %5, !llvm.loop !256
 
 43:                                               ; preds = %5
   %44 = xor i32 %.071, 1
@@ -45045,7 +45048,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold(ptr noundef %0, i32 nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %5, !llvm.loop !256
+  br i1 %15, label %.loopexit, label %5, !llvm.loop !257
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -45060,7 +45063,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold(ptr noundef %0, i32 nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !256
+  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !257
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -45075,19 +45078,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold(ptr noundef %0, i32 nound
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %.outer197, !llvm.loop !256
+  br i1 %33, label %.loopexit, label %.outer197, !llvm.loop !257
 
 34:                                               ; preds = %5
   %35 = xor i32 %.063.ph204, 1
-  br label %.outer203, !llvm.loop !256
+  br label %.outer203, !llvm.loop !257
 
 36:                                               ; preds = %5
   %37 = xor i32 %.061.ph209, 1
-  br label %.outer208, !llvm.loop !256
+  br label %.outer208, !llvm.loop !257
 
 38:                                               ; preds = %5
   %39 = xor i32 %.059.ph213, 1
-  br label %.outer212, !llvm.loop !256
+  br label %.outer212, !llvm.loop !257
 
 40:                                               ; preds = %5
   %41 = icmp eq ptr %4, null
@@ -45250,11 +45253,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandFold(ptr noundef %0, i32 noundef
 
 7:                                                ; preds = %5
   %8 = xor i32 %.021.ph, 1
-  br label %.outer, !llvm.loop !257
+  br label %.outer, !llvm.loop !258
 
 9:                                                ; preds = %5
   %10 = xor i32 %.020, 1
-  br label %5, !llvm.loop !257
+  br label %5, !llvm.loop !258
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %4, null
@@ -45376,7 +45379,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold2(ptr noundef %0, i32 noun
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer92, !llvm.loop !258
+  br i1 %15, label %.loopexit, label %.outer92, !llvm.loop !259
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -45391,11 +45394,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold2(ptr noundef %0, i32 noun
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !258
+  br i1 %24, label %.loopexit, label %.outer, !llvm.loop !259
 
 25:                                               ; preds = %5
   %26 = xor i32 %.031, 1
-  br label %5, !llvm.loop !258
+  br label %5, !llvm.loop !259
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %4, null
@@ -45498,7 +45501,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFold2(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %5
   %8 = xor i32 %.016, 1
-  br label %5, !llvm.loop !259
+  br label %5, !llvm.loop !260
 
 9:                                                ; preds = %5
   %10 = icmp eq ptr %4, null
@@ -45583,7 +45586,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm(ptr noundef %0, i32 noundef %
     i32 -1, label %14
     i32 104, label %.loopexit
     i32 80, label %11
-  ], !llvm.loop !260
+  ], !llvm.loop !261
 
 13:                                               ; preds = %11
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -45808,7 +45811,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   %.val.val = load i32, ptr %61, align 4
   %62 = sext i32 %.val.val to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %.critedge.preheader, !llvm.loop !261
+  br i1 %63, label %.lr.ph, label %.critedge.preheader, !llvm.loop !262
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %64 = load ptr, ptr %5, align 8
@@ -45842,7 +45845,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   %.val56.val = load i32, ptr %80, align 4
   %81 = sext i32 %.val56.val to i64
   %82 = icmp slt i64 %indvars.iv.next91, %81
-  br i1 %82, label %.critedge, label %.critedge2.preheader, !llvm.loop !262
+  br i1 %82, label %.critedge, label %.critedge2.preheader, !llvm.loop !263
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %83 = phi ptr [ %64, %.critedge2.preheader ], [ %97, %.critedge2 ]
@@ -45876,7 +45879,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   %.val55.val = load i32, ptr %99, align 4
   %100 = sext i32 %.val55.val to i64
   %101 = icmp slt i64 %indvars.iv.next94, %100
-  br i1 %101, label %.critedge2, label %.critedge4.preheader, !llvm.loop !263
+  br i1 %101, label %.critedge2, label %.critedge4.preheader, !llvm.loop !264
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.critedge4 ], [ 0, %.critedge4.preheader ]
@@ -45901,7 +45904,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   %.val57.val = load i32, ptr %114, align 4
   %115 = sext i32 %.val57.val to i64
   %116 = icmp slt i64 %indvars.iv.next97, %115
-  br i1 %116, label %.critedge4, label %.critedge6, !llvm.loop !264
+  br i1 %116, label %.critedge4, label %.critedge6, !llvm.loop !265
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %.lcssa = phi ptr [ %83, %.critedge4.preheader ], [ %112, %.critedge4 ]
@@ -46036,7 +46039,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSaucy(ptr noundef %0, i32 nounde
   %spec.select = xor i32 %.080.ph, %14
   %15 = add nsw i32 %7, 1
   store i32 %15, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !265
+  br label %.outer, !llvm.loop !266
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -46066,27 +46069,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandSaucy(ptr noundef %0, i32 nounde
 30:                                               ; preds = %19
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
-  br label %4, !llvm.loop !265
+  br label %4, !llvm.loop !266
 
 32:                                               ; preds = %4
   %33 = xor i32 %.078.ph278, 1
-  br label %.outer277, !llvm.loop !265
+  br label %.outer277, !llvm.loop !266
 
 34:                                               ; preds = %4
   %35 = xor i32 %.076.ph286, 1
-  br label %.outer285, !llvm.loop !265
+  br label %.outer285, !llvm.loop !266
 
 36:                                               ; preds = %4
   %37 = xor i32 %.074.ph293, 1
-  br label %.outer292, !llvm.loop !265
+  br label %.outer292, !llvm.loop !266
 
 38:                                               ; preds = %4
   %39 = xor i32 %.072.ph299, 1
-  br label %.outer298, !llvm.loop !265
+  br label %.outer298, !llvm.loop !266
 
 40:                                               ; preds = %4
   %41 = xor i32 %.070.ph304, 1
-  br label %.outer303, !llvm.loop !265
+  br label %.outer303, !llvm.loop !266
 
 42:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -46142,7 +46145,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSaucy(ptr noundef %0, i32 nounde
   %.val.val = load i32, ptr %61, align 4
   %62 = sext i32 %.val.val to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !266
+  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !267
 
 .critedge:                                        ; preds = %.lr.ph, %51
   %64 = tail call i32 @fclose(ptr noundef %52)
@@ -46167,7 +46170,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSaucy(ptr noundef %0, i32 nounde
   %.val95.val = load i32, ptr %70, align 4
   %71 = sext i32 %.val95.val to i64
   %72 = icmp slt i64 %indvars.iv.next191, %71
-  br i1 %72, label %.lr.ph147, label %.critedge2, !llvm.loop !267
+  br i1 %72, label %.lr.ph147, label %.critedge2, !llvm.loop !268
 
 .lr.ph147:                                        ; preds = %.preheader, %69
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %69 ], [ 0, %.preheader ]
@@ -46273,11 +46276,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestCex(ptr noundef %0, i32 noun
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !268
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !269
 
 16:                                               ; preds = %4
   %17 = xor i32 %.043.ph, 1
-  br label %.outer, !llvm.loop !268
+  br label %.outer, !llvm.loop !269
 
 18:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -46650,7 +46653,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdr(ptr noundef %0, i32 noundef 
 
 .backedge:                                        ; preds = %113, %104, %95, %86, %77, %68, %59, %50, %41, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %129, %122
   %.0137.be = phi ptr [ %.0137, %197 ], [ %.0137, %194 ], [ %.0137, %191 ], [ %.0137, %188 ], [ %.0137, %185 ], [ %.0137, %182 ], [ %.0137, %179 ], [ %.0137, %176 ], [ %.0137, %173 ], [ %.0137, %170 ], [ %.0137, %167 ], [ %.0137, %164 ], [ %.0137, %161 ], [ %.0137, %158 ], [ %.0137, %155 ], [ %.0137, %152 ], [ %.0137, %149 ], [ %.0137, %146 ], [ %.0137, %143 ], [ %.0137, %140 ], [ %.0137, %137 ], [ %.0137, %134 ], [ %.0137, %129 ], [ %125, %122 ], [ %.0137, %113 ], [ %.0137, %104 ], [ %.0137, %95 ], [ %.0137, %86 ], [ %.0137, %77 ], [ %.0137, %68 ], [ %.0137, %59 ], [ %.0137, %50 ], [ %.0137, %41 ]
-  br label %37, !llvm.loop !269
+  br label %37, !llvm.loop !270
 
 120:                                              ; preds = %37
   %121 = load i32, ptr @globalUtilOptind, align 4
@@ -47434,7 +47437,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexCut(ptr noundef %0, i32 nound
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !270
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !271
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -47453,23 +47456,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexCut(ptr noundef %0, i32 nound
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer, !llvm.loop !270
+  br i1 %25, label %.loopexit, label %.outer, !llvm.loop !271
 
 26:                                               ; preds = %4
   %27 = xor i32 %.048.ph182, 1
-  br label %.outer181, !llvm.loop !270
+  br label %.outer181, !llvm.loop !271
 
 28:                                               ; preds = %4
   %29 = xor i32 %.046.ph188, 1
-  br label %.outer187, !llvm.loop !270
+  br label %.outer187, !llvm.loop !271
 
 30:                                               ; preds = %4
   %31 = xor i32 %.044.ph193, 1
-  br label %.outer192, !llvm.loop !270
+  br label %.outer192, !llvm.loop !271
 
 32:                                               ; preds = %4
   %33 = xor i32 %.042.ph197, 1
-  br label %.outer196, !llvm.loop !270
+  br label %.outer196, !llvm.loop !271
 
 34:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -47609,7 +47612,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexMerge(ptr nocapture noundef %
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !271
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !272
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -47628,11 +47631,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexMerge(ptr nocapture noundef %
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer102, !llvm.loop !271
+  br i1 %25, label %.loopexit, label %.outer102, !llvm.loop !272
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !271
+  br label %4, !llvm.loop !272
 
 28:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -47768,7 +47771,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDualRail(ptr noundef %0, i32 nou
   %.043.be = phi i32 [ %.043, %28 ], [ %.043, %26 ], [ %25, %24 ], [ %.043, %22 ], [ %.043, %20 ], [ %.043, %18 ], [ %.043, %16 ], [ %.043, %9 ]
   %.041.be = phi i32 [ %.041, %28 ], [ %27, %26 ], [ %.041, %24 ], [ %.041, %22 ], [ %.041, %20 ], [ %.041, %18 ], [ %.041, %16 ], [ %.041, %9 ]
   %.0.be = phi i32 [ %29, %28 ], [ %.0, %26 ], [ %.0, %24 ], [ %.0, %22 ], [ %.0, %20 ], [ %.0, %18 ], [ %.0, %16 ], [ %.0, %9 ]
-  br label %4, !llvm.loop !272
+  br label %4, !llvm.loop !273
 
 16:                                               ; preds = %4
   %17 = xor i32 %.051, 1
@@ -47934,11 +47937,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlockPo(ptr noundef %0, i32 noun
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !273
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !274
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !273
+  br label %4, !llvm.loop !274
 
 18:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -48022,7 +48025,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIso(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !274
+  br label %5, !llvm.loop !275
 
 9:                                                ; preds = %5
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -48165,7 +48168,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbcSave(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !275
+  br label %4, !llvm.loop !276
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
@@ -48393,19 +48396,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Get(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.064.ph, 1
-  br label %.outer, !llvm.loop !276
+  br label %.outer, !llvm.loop !277
 
 8:                                                ; preds = %4
   %9 = xor i32 %.062.ph104, 1
-  br label %.outer103, !llvm.loop !276
+  br label %.outer103, !llvm.loop !277
 
 10:                                               ; preds = %4
   %11 = xor i32 %.060.ph108, 1
-  br label %.outer107, !llvm.loop !276
+  br label %.outer107, !llvm.loop !277
 
 12:                                               ; preds = %4
   %13 = xor i32 %.059, 1
-  br label %4, !llvm.loop !276
+  br label %4, !llvm.loop !277
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 48
@@ -48654,19 +48657,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Put(ptr noundef %0, i32 noun
 
 8:                                                ; preds = %6
   %9 = xor i32 %.0125, 1
-  br label %6, !llvm.loop !277
+  br label %6, !llvm.loop !278
 
 10:                                               ; preds = %6
   %11 = xor i32 %.0129.ph232, 1
-  br label %.outer231, !llvm.loop !277
+  br label %.outer231, !llvm.loop !278
 
 12:                                               ; preds = %6
   %13 = xor i32 %.0131.ph, 1
-  br label %.outer, !llvm.loop !277
+  br label %.outer, !llvm.loop !278
 
 14:                                               ; preds = %6
   %15 = xor i32 %.0127.ph236, 1
-  br label %.outer235, !llvm.loop !277
+  br label %.outer235, !llvm.loop !278
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %0, i64 288
@@ -48805,7 +48808,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Put(ptr noundef %0, i32 noun
   %.0124.val.val = load i32, ptr %86, align 4
   %87 = sext i32 %.0124.val.val to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %64, label %.critedge.loopexit, !llvm.loop !278
+  br i1 %88, label %64, label %.critedge.loopexit, !llvm.loop !279
 
 .critedge.loopexit:                               ; preds = %85
   %.pre = load ptr, ptr %17, align 8
@@ -48834,7 +48837,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Put(ptr noundef %0, i32 noun
   %96 = udiv i32 %.0812.i, 10
   %97 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !279
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !280
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
   %.09.i = phi i32 [ %.0124.val165, %92 ], [ %97, %.lr.ph.i ]
@@ -48913,7 +48916,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
   %.0124.val160.val = load i32, ptr %141, align 4
   %142 = sext i32 %.0124.val160.val to i64
   %143 = icmp slt i64 %indvars.iv.next209, %142
-  br i1 %143, label %104, label %.critedge2.loopexit, !llvm.loop !280
+  br i1 %143, label %104, label %.critedge2.loopexit, !llvm.loop !281
 
 .critedge2.loopexit:                              ; preds = %140
   %.pre219 = load ptr, ptr %17, align 8
@@ -49009,7 +49012,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
   %.0124.val159.val = load i32, ptr %186, align 4
   %187 = sext i32 %.0124.val159.val to i64
   %188 = icmp slt i64 %indvars.iv.next212, %187
-  br i1 %188, label %.lr.ph197, label %.critedge4.loopexit, !llvm.loop !281
+  br i1 %188, label %.lr.ph197, label %.critedge4.loopexit, !llvm.loop !282
 
 .critedge4.loopexit:                              ; preds = %.lr.ph197
   %.pre222 = load ptr, ptr %17, align 8
@@ -49053,7 +49056,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
   %.0124.val161.val = load i32, ptr %205, align 4
   %206 = sext i32 %.0124.val161.val to i64
   %207 = icmp slt i64 %indvars.iv.next215, %206
-  br i1 %207, label %.lr.ph202, label %.critedge6, !llvm.loop !282
+  br i1 %207, label %.lr.ph202, label %.critedge6, !llvm.loop !283
 
 .critedge6:                                       ; preds = %.lr.ph202, %.preheader, %.critedge4, %160
   call void @Abc_FrameReplaceCurrentNetwork(ptr noundef nonnull %0, ptr noundef %.0124) #28
@@ -49102,7 +49105,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr nocapture noun
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !283
+  br label %4, !llvm.loop !284
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
@@ -49303,7 +49306,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Save(ptr noundef %0, i32 nou
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !284
+  br label %4, !llvm.loop !285
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -49371,7 +49374,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Save2(ptr noundef %0, i32 no
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !285
+  br label %4, !llvm.loop !286
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -49445,11 +49448,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SaveAig(ptr noundef %0, i32 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.026.ph, 1
-  br label %.outer, !llvm.loop !286
+  br label %.outer, !llvm.loop !287
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !286
+  br label %4, !llvm.loop !287
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -49770,7 +49773,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Read(ptr nocapture noundef %
   %.056.be = phi i32 [ %.056, %20 ], [ %.056, %18 ], [ %.056, %16 ], [ %.056, %14 ], [ %.056, %12 ], [ %.056, %10 ], [ %9, %8 ], [ %.056, %6 ]
   %.054.be = phi i32 [ %.054, %20 ], [ %19, %18 ], [ %.054, %16 ], [ %.054, %14 ], [ %.054, %12 ], [ %.054, %10 ], [ %.054, %8 ], [ %.054, %6 ]
   %.053.be = phi i32 [ %.053, %20 ], [ %.053, %18 ], [ %.053, %16 ], [ %.053, %14 ], [ %.053, %12 ], [ %11, %10 ], [ %.053, %8 ], [ %.053, %6 ]
-  br label %4, !llvm.loop !287
+  br label %4, !llvm.loop !288
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @globalUtilOptind, align 4
@@ -49802,7 +49805,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Read(ptr nocapture noundef %
 
 33:                                               ; preds = %30, %32
   %34 = getelementptr inbounds i8, ptr %.069, i64 1
-  br label %30, !llvm.loop !288
+  br label %30, !llvm.loop !289
 
 35:                                               ; preds = %30
   %36 = tail call noalias ptr @fopen(ptr noundef %29, ptr noundef nonnull @.str.1494)
@@ -49927,7 +49930,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadBlif(ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !289
+  br label %4, !llvm.loop !290
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -49959,7 +49962,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadBlif(ptr nocapture nound
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.024, i64 1
-  br label %16, !llvm.loop !290
+  br label %16, !llvm.loop !291
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -50036,11 +50039,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadCBlif(ptr nocapture noun
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !291
+  br label %.outer, !llvm.loop !292
 
 14:                                               ; preds = %4
   %15 = xor i32 %.0, 1
-  br label %4, !llvm.loop !291
+  br label %4, !llvm.loop !292
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -50072,7 +50075,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadCBlif(ptr nocapture noun
 
 27:                                               ; preds = %24, %26
   %28 = getelementptr inbounds i8, ptr %.029, i64 1
-  br label %24, !llvm.loop !292
+  br label %24, !llvm.loop !293
 
 29:                                               ; preds = %24
   %30 = tail call noalias ptr @fopen(ptr noundef %23, ptr noundef nonnull @.str.1494)
@@ -50152,11 +50155,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadStg(ptr nocapture nounde
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = add i32 %13, -6
   %or.cond = icmp ult i32 %15, -5
-  br i1 %or.cond, label %.loopexit, label %.outer, !llvm.loop !293
+  br i1 %or.cond, label %.loopexit, label %.outer, !llvm.loop !294
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !293
+  br label %4, !llvm.loop !294
 
 18:                                               ; preds = %4
   %19 = load i32, ptr @globalUtilOptind, align 4
@@ -50218,7 +50221,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadVer(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !294
+  br label %4, !llvm.loop !295
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -50250,7 +50253,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadVer(ptr nocapture nounde
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.028, i64 1
-  br label %16, !llvm.loop !295
+  br label %16, !llvm.loop !296
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -50337,11 +50340,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteVer(ptr nocapture nound
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !296
+  br label %.outer, !llvm.loop !297
 
 14:                                               ; preds = %4
   %15 = xor i32 %.0, 1
-  br label %4, !llvm.loop !296
+  br label %4, !llvm.loop !297
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -50510,7 +50513,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Write(ptr nocapture noundef 
   %.063.be = phi i32 [ %.063, %30 ], [ %.063, %28 ], [ %27, %26 ], [ %.063, %24 ], [ %.063, %22 ], [ %.063, %20 ], [ %.063, %18 ], [ %.063, %16 ], [ %.063, %14 ], [ %.063, %12 ], [ %.063, %10 ], [ %.063, %8 ], [ %.063, %6 ]
   %.061.be = phi i32 [ %.061, %30 ], [ %29, %28 ], [ %.061, %26 ], [ %.061, %24 ], [ %.061, %22 ], [ %.061, %20 ], [ %.061, %18 ], [ %.061, %16 ], [ %.061, %14 ], [ %.061, %12 ], [ %.061, %10 ], [ %.061, %8 ], [ %.061, %6 ]
   %.060.be = phi i32 [ %31, %30 ], [ %.060, %28 ], [ %.060, %26 ], [ %.060, %24 ], [ %.060, %22 ], [ %.060, %20 ], [ %.060, %18 ], [ %.060, %16 ], [ %.060, %14 ], [ %.060, %12 ], [ %.060, %10 ], [ %.060, %8 ], [ %.060, %6 ]
-  br label %4, !llvm.loop !297
+  br label %4, !llvm.loop !298
 
 32:                                               ; preds = %4
   %33 = load i32, ptr @globalUtilOptind, align 4
@@ -50644,7 +50647,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteLut(ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !298
+  br label %4, !llvm.loop !299
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -50818,7 +50821,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr nocapture noundef rea
   %.be212 = phi ptr [ %25, %56 ], [ %54, %51 ], [ %25, %46 ], [ %25, %44 ], [ %25, %42 ], [ %25, %40 ], [ %25, %38 ], [ %25, %36 ], [ %25, %34 ], [ %25, %32 ], [ %25, %30 ], [ %25, %28 ]
   %.be213 = phi i32 [ %26, %56 ], [ %26, %51 ], [ %26, %46 ], [ %26, %44 ], [ %26, %42 ], [ %26, %40 ], [ %26, %38 ], [ %26, %36 ], [ %26, %34 ], [ %26, %32 ], [ %26, %30 ], [ %29, %28 ]
   %.0.be = phi i32 [ %57, %56 ], [ %.0, %51 ], [ %.0, %46 ], [ %.0, %44 ], [ %.0, %42 ], [ %.0, %40 ], [ %.0, %38 ], [ %.0, %36 ], [ %.0, %34 ], [ %.0, %32 ], [ %.0, %30 ], [ %.0, %28 ]
-  br label %15, !llvm.loop !299
+  br label %15, !llvm.loop !300
 
 58:                                               ; preds = %15
   store ptr %25, ptr %5, align 8
@@ -50938,7 +50941,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PFan(ptr nocapture noundef r
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !300
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !301
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 288
@@ -50982,7 +50985,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PSig(ptr nocapture noundef r
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !301
+  br label %4, !llvm.loop !302
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51114,23 +51117,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxProfile(ptr nocapture nou
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer117, !llvm.loop !302
+  br i1 %15, label %.loopexit, label %.outer117, !llvm.loop !303
 
 16:                                               ; preds = %4
   %17 = xor i32 %.035.ph, 1
-  br label %.outer, !llvm.loop !302
+  br label %.outer, !llvm.loop !303
 
 18:                                               ; preds = %4
   %19 = xor i32 %.033.ph109, 1
-  br label %.outer108, !llvm.loop !302
+  br label %.outer108, !llvm.loop !303
 
 20:                                               ; preds = %4
   %21 = xor i32 %.031.ph114, 1
-  br label %.outer113, !llvm.loop !302
+  br label %.outer113, !llvm.loop !303
 
 22:                                               ; preds = %4
   %23 = xor i32 %.0, 1
-  br label %4, !llvm.loop !302
+  br label %4, !llvm.loop !303
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51226,7 +51229,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxPos(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !303
+  br label %4, !llvm.loop !304
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51272,7 +51275,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxStr(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !304
+  br label %4, !llvm.loop !305
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51318,7 +51321,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxDec(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !305
+  br label %4, !llvm.loop !306
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51402,7 +51405,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr nocapture nou
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit51, label %.outer, !llvm.loop !306
+  br i1 %15, label %.loopexit51, label %.outer, !llvm.loop !307
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -51417,11 +51420,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr nocapture nou
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit51, label %.outer90, !llvm.loop !306
+  br i1 %24, label %.loopexit51, label %.outer90, !llvm.loop !307
 
 25:                                               ; preds = %5
   %26 = xor i32 %.0, 1
-  br label %5, !llvm.loop !306
+  br label %5, !llvm.loop !307
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51485,7 +51488,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr nocapture nou
   %putchar = call i32 @putchar(i32 10)
   %57 = add nuw nsw i32 %.03562, 1
   %58 = icmp slt i32 %57, %48
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !307
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !308
 
 .loopexit51.sink.split:                           ; preds = %7, %16
   %.str.513.sink = phi ptr [ @.str.513, %16 ], [ @.str.664, %7 ]
@@ -51530,11 +51533,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unate(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.011.ph, 1
-  br label %.outer, !llvm.loop !308
+  br label %.outer, !llvm.loop !309
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !308
+  br label %4, !llvm.loop !309
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51588,11 +51591,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rex2Gia(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.017.ph, 1
-  br label %.outer, !llvm.loop !309
+  br label %.outer, !llvm.loop !310
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !309
+  br label %4, !llvm.loop !310
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @globalUtilOptind, align 4
@@ -51679,7 +51682,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr nocapture nounde
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !310
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !311
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -51694,11 +51697,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr nocapture nounde
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer72, !llvm.loop !310
+  br i1 %23, label %.loopexit, label %.outer72, !llvm.loop !311
 
 24:                                               ; preds = %4
   %25 = xor i32 %.0, 1
-  br label %4, !llvm.loop !310
+  br label %4, !llvm.loop !311
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51765,15 +51768,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Show(ptr nocapture noundef r
 
 6:                                                ; preds = %4
   %7 = xor i32 %.025.ph, 1
-  br label %.outer, !llvm.loop !311
+  br label %.outer, !llvm.loop !312
 
 8:                                                ; preds = %4
   %9 = xor i32 %.023.ph64, 1
-  br label %.outer63, !llvm.loop !311
+  br label %.outer63, !llvm.loop !312
 
 10:                                               ; preds = %4
   %11 = xor i32 %.0, 1
-  br label %4, !llvm.loop !311
+  br label %4, !llvm.loop !312
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 288
@@ -51903,7 +51906,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %66, align 8
   %67 = sext i32 %.val to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !312
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !313
 
 .thread:                                          ; preds = %21, %20
   tail call void @Gia_ManShow(ptr noundef nonnull %14, ptr noundef null, i32 noundef %.025.ph, i32 noundef %.023.ph64, i32 noundef %.0) #28
@@ -51974,7 +51977,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SetRegNum(ptr nocapture noun
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !313
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !314
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 288
@@ -52094,7 +52097,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr nocapture noundef
   %.089.be = phi i32 [ %.089, %34 ], [ %.089, %32 ], [ %31, %30 ], [ %.089, %28 ], [ %.089, %26 ], [ %.089, %24 ], [ %.089, %17 ], [ %.089, %8 ]
   %.087.be = phi i32 [ %35, %34 ], [ %.087, %32 ], [ %.087, %30 ], [ %.087, %28 ], [ %.087, %26 ], [ %.087, %24 ], [ %.087, %17 ], [ %.087, %8 ]
   %.086.be = phi i32 [ %.086, %34 ], [ %33, %32 ], [ %.086, %30 ], [ %.086, %28 ], [ %.086, %26 ], [ %.086, %24 ], [ %.086, %17 ], [ %.086, %8 ]
-  br label %4, !llvm.loop !314
+  br label %4, !llvm.loop !315
 
 24:                                               ; preds = %4
   %25 = xor i32 %.095, 1
@@ -52395,7 +52398,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Topand(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !315
+  br label %4, !llvm.loop !316
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -52451,7 +52454,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Add1Hot(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !316
+  br label %4, !llvm.loop !317
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -52529,7 +52532,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr nocapture noundef %0
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer130, !llvm.loop !317
+  br i1 %14, label %.loopexit, label %.outer130, !llvm.loop !318
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -52544,7 +52547,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr nocapture noundef %0
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer134, !llvm.loop !317
+  br i1 %23, label %.loopexit, label %.outer134, !llvm.loop !318
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -52559,11 +52562,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr nocapture noundef %0
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %4, !llvm.loop !317
+  br i1 %32, label %.loopexit, label %4, !llvm.loop !318
 
 33:                                               ; preds = %4
   %34 = xor i32 %.043.ph, 1
-  br label %.outer, !llvm.loop !317
+  br label %.outer, !llvm.loop !318
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds i8, ptr %0, i64 288
@@ -52706,27 +52709,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trim(ptr nocapture noundef %
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !318
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !319
 
 16:                                               ; preds = %4
   %17 = xor i32 %.036.ph124, 1
-  br label %.outer123, !llvm.loop !318
+  br label %.outer123, !llvm.loop !319
 
 18:                                               ; preds = %4
   %19 = xor i32 %.034.ph130, 1
-  br label %.outer129, !llvm.loop !318
+  br label %.outer129, !llvm.loop !319
 
 20:                                               ; preds = %4
   %21 = xor i32 %.030.ph139, 1
-  br label %.outer138, !llvm.loop !318
+  br label %.outer138, !llvm.loop !319
 
 22:                                               ; preds = %4
   %23 = xor i32 %.0, 1
-  br label %4, !llvm.loop !318
+  br label %4, !llvm.loop !319
 
 24:                                               ; preds = %4
   %25 = xor i32 %.032.ph135, 1
-  br label %.outer134, !llvm.loop !318
+  br label %.outer134, !llvm.loop !319
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %0, i64 288
@@ -52835,23 +52838,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dfs(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.029.ph, 1
-  br label %.outer, !llvm.loop !319
+  br label %.outer, !llvm.loop !320
 
 8:                                                ; preds = %4
   %9 = xor i32 %.027.ph63, 1
-  br label %.outer62, !llvm.loop !319
+  br label %.outer62, !llvm.loop !320
 
 10:                                               ; preds = %4
   %11 = xor i32 %.025.ph68, 1
-  br label %.outer67, !llvm.loop !319
+  br label %.outer67, !llvm.loop !320
 
 12:                                               ; preds = %4
   %13 = xor i32 %.023.ph72, 1
-  br label %.outer71, !llvm.loop !319
+  br label %.outer71, !llvm.loop !320
 
 14:                                               ; preds = %4
   %15 = xor i32 %.0, 1
-  br label %4, !llvm.loop !319
+  br label %4, !llvm.loop !320
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 288
@@ -53020,7 +53023,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr nocapture noundef %0
   %55 = add nsw i32 %50, 1
   store i32 %55, ptr @globalUtilOptind, align 4
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %.loopexit, label %.outer, !llvm.loop !320
+  br i1 %56, label %.loopexit, label %.outer, !llvm.loop !321
 
 57:                                               ; preds = %11
   br label %.sink.split
@@ -53033,7 +53036,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr nocapture noundef %0
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %42, %33, %24, %15
-  br label %11, !llvm.loop !320
+  br label %11, !llvm.loop !321
 
 60:                                               ; preds = %11
   %61 = getelementptr inbounds i8, ptr %0, i64 288
@@ -53182,7 +53185,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
   %15 = add nsw i32 %9, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit119, label %.outer234, !llvm.loop !321
+  br i1 %16, label %.loopexit119, label %.outer234, !llvm.loop !322
 
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4
@@ -53197,7 +53200,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
   %24 = add nsw i32 %18, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit119, label %.outer239, !llvm.loop !321
+  br i1 %25, label %.loopexit119, label %.outer239, !llvm.loop !322
 
 26:                                               ; preds = %6
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -53212,7 +53215,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
   %33 = add nsw i32 %27, 1
   store i32 %33, ptr @globalUtilOptind, align 4
   %34 = icmp slt i32 %32, 0
-  br i1 %34, label %.loopexit119, label %.outer243, !llvm.loop !321
+  br i1 %34, label %.loopexit119, label %.outer243, !llvm.loop !322
 
 35:                                               ; preds = %6
   %36 = load i32, ptr @globalUtilOptind, align 4
@@ -53227,11 +53230,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
   %42 = add nsw i32 %36, 1
   store i32 %42, ptr @globalUtilOptind, align 4
   %43 = icmp slt i32 %41, 0
-  br i1 %43, label %.loopexit119, label %6, !llvm.loop !321
+  br i1 %43, label %.loopexit119, label %6, !llvm.loop !322
 
 44:                                               ; preds = %6
   %45 = xor i32 %.079.ph, 1
-  br label %.outer, !llvm.loop !321
+  br label %.outer, !llvm.loop !322
 
 46:                                               ; preds = %6
   %47 = load i32, ptr @globalUtilOptind, align 4
@@ -53255,7 +53258,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
   br label %58
 
 57:                                               ; preds = %74
-  br i1 %59, label %58, label %.loopexit.loopexit, !llvm.loop !322
+  br i1 %59, label %58, label %.loopexit.loopexit, !llvm.loop !323
 
 58:                                               ; preds = %55, %57
   %59 = phi i1 [ true, %55 ], [ false, %57 ]
@@ -53279,7 +53282,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
 
 64:                                               ; preds = %61, %63
   %65 = getelementptr inbounds i8, ptr %.068, i64 1
-  br label %61, !llvm.loop !323
+  br label %61, !llvm.loop !324
 
 66:                                               ; preds = %61
   %67 = tail call noalias ptr @fopen(ptr noundef %60, ptr noundef nonnull @.str.1494)
@@ -53360,7 +53363,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
 
 97:                                               ; preds = %94, %96
   %98 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %94, !llvm.loop !324
+  br label %94, !llvm.loop !325
 
 99:                                               ; preds = %94
   %100 = tail call noalias ptr @fopen(ptr noundef %.066, ptr noundef nonnull @.str.1494)
@@ -53637,7 +53640,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr nocapture noundef %
   br i1 %87, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %81, %72, %63, %54, %45, %36, %27, %18, %91, %88
-  br label %14, !llvm.loop !325
+  br label %14, !llvm.loop !326
 
 88:                                               ; preds = %14
   %89 = load i32, ptr %6, align 4
@@ -53827,7 +53830,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLGen(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !326
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !327
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -53842,15 +53845,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLGen(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %4, !llvm.loop !326
+  br i1 %23, label %.loopexit, label %4, !llvm.loop !327
 
 24:                                               ; preds = %4
   %25 = xor i32 %.040.ph111, 1
-  br label %.outer110, !llvm.loop !326
+  br label %.outer110, !llvm.loop !327
 
 26:                                               ; preds = %4
   %27 = xor i32 %.038.ph115, 1
-  br label %.outer114, !llvm.loop !326
+  br label %.outer114, !llvm.loop !327
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -54000,11 +54003,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLTest(ptr nocapture noundef
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !327
+  br label %.outer, !llvm.loop !328
 
 14:                                               ; preds = %4
   %15 = xor i32 %.016, 1
-  br label %4, !llvm.loop !327
+  br label %4, !llvm.loop !328
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 288
@@ -54121,11 +54124,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iwls21Test(ptr nocapture nou
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !328
+  br label %.outer, !llvm.loop !329
 
 14:                                               ; preds = %4
   %15 = xor i32 %.029, 1
-  br label %4, !llvm.loop !328
+  br label %4, !llvm.loop !329
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -54300,23 +54303,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr nocapture nounde
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !329
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !330
 
 16:                                               ; preds = %4
   %17 = xor i32 %.065.ph163, 1
-  br label %.outer162, !llvm.loop !329
+  br label %.outer162, !llvm.loop !330
 
 18:                                               ; preds = %4
   %19 = xor i32 %.063.ph168, 1
-  br label %.outer167, !llvm.loop !329
+  br label %.outer167, !llvm.loop !330
 
 20:                                               ; preds = %4
   %21 = xor i32 %.060, 1
-  br label %4, !llvm.loop !329
+  br label %4, !llvm.loop !330
 
 22:                                               ; preds = %4
   %23 = xor i32 %.061.ph172, 1
-  br label %.outer171, !llvm.loop !329
+  br label %.outer171, !llvm.loop !330
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %0, i64 288
@@ -54552,19 +54555,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = xor i32 %.082, 1
-  br label %4, !llvm.loop !330
+  br label %4, !llvm.loop !331
 
 8:                                                ; preds = %4
   %9 = xor i32 %.083.ph144, 1
-  br label %.outer143, !llvm.loop !330
+  br label %.outer143, !llvm.loop !331
 
 10:                                               ; preds = %4
   %11 = xor i32 %.085.ph140, 1
-  br label %.outer139, !llvm.loop !330
+  br label %.outer139, !llvm.loop !331
 
 12:                                               ; preds = %4
   %13 = xor i32 %.087.ph, 1
-  br label %.outer, !llvm.loop !330
+  br label %.outer, !llvm.loop !331
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 288
@@ -54803,7 +54806,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintSim(ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !331
+  br label %4, !llvm.loop !332
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -54909,7 +54912,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr nocapture noundef
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !332
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !333
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -54924,19 +54927,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr nocapture noundef
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer133, !llvm.loop !332
+  br i1 %23, label %.loopexit, label %.outer133, !llvm.loop !333
 
 24:                                               ; preds = %4
   %25 = xor i32 %.040.ph143, 1
-  br label %.outer142, !llvm.loop !332
+  br label %.outer142, !llvm.loop !333
 
 26:                                               ; preds = %4
   %27 = xor i32 %.042.ph139, 1
-  br label %.outer138, !llvm.loop !332
+  br label %.outer138, !llvm.loop !333
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !332
+  br label %4, !llvm.loop !333
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -55101,11 +55104,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SimRsb(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !333
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !334
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !333
+  br label %4, !llvm.loop !334
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -55207,7 +55210,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr nocapture noundef 
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %13
-  br label %8, !llvm.loop !334
+  br label %8, !llvm.loop !335
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds i8, ptr %0, i64 288
@@ -55311,7 +55314,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !335
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !336
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -55326,19 +55329,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer114, !llvm.loop !335
+  br i1 %23, label %.loopexit, label %.outer114, !llvm.loop !336
 
 24:                                               ; preds = %4
   %25 = xor i32 %.027.ph120, 1
-  br label %.outer119, !llvm.loop !335
+  br label %.outer119, !llvm.loop !336
 
 26:                                               ; preds = %4
   %27 = xor i32 %.025.ph124, 1
-  br label %.outer123, !llvm.loop !335
+  br label %.outer123, !llvm.loop !336
 
 28:                                               ; preds = %4
   %29 = xor i32 %.024, 1
-  br label %4, !llvm.loop !335
+  br label %4, !llvm.loop !336
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -55510,7 +55513,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr nocapture noundef 
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %53, %44, %35, %26, %17
-  br label %13, !llvm.loop !336
+  br label %13, !llvm.loop !337
 
 65:                                               ; preds = %13
   %66 = getelementptr inbounds i8, ptr %0, i64 288
@@ -55679,7 +55682,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr nocapture noundef
   %.051.be = phi i32 [ %.051, %55 ], [ %.051, %53 ], [ %52, %51 ], [ %.051, %44 ], [ %.051, %35 ], [ %.051, %26 ], [ %.051, %17 ], [ %.051, %8 ]
   %.049.be = phi i32 [ %.049, %55 ], [ %54, %53 ], [ %.049, %51 ], [ %.049, %44 ], [ %.049, %35 ], [ %.049, %26 ], [ %.049, %17 ], [ %.049, %8 ]
   %.048.be = phi i32 [ %56, %55 ], [ %.048, %53 ], [ %.048, %51 ], [ %.048, %44 ], [ %.048, %35 ], [ %.048, %26 ], [ %.048, %17 ], [ %.048, %8 ]
-  br label %4, !llvm.loop !337
+  br label %4, !llvm.loop !338
 
 51:                                               ; preds = %4
   %52 = xor i32 %.051, 1
@@ -55931,7 +55934,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr nocapture noundef
   br i1 %79, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %73, %64, %55, %46, %37, %28, %19, %89, %86, %83, %80
-  br label %15, !llvm.loop !338
+  br label %15, !llvm.loop !339
 
 80:                                               ; preds = %15
   %81 = load i32, ptr %8, align 8
@@ -56237,7 +56240,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr nocapture noundef r
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %72, %63, %54, %45, %36, %27, %18
-  br label %14, !llvm.loop !339
+  br label %14, !llvm.loop !340
 
 83:                                               ; preds = %14
   %84 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56331,11 +56334,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Times(ptr nocapture noundef 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !340
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !341
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !340
+  br label %4, !llvm.loop !341
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56431,7 +56434,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr nocapture noundef
   %.045.be = phi i32 [ %.045, %42 ], [ %.045, %40 ], [ %.045, %38 ], [ %.045, %35 ], [ %.045, %32 ], [ %.045, %29 ], [ %26, %22 ], [ %.045, %13 ]
   %.043.be = phi i32 [ %.043, %42 ], [ %41, %40 ], [ %.043, %38 ], [ %.043, %35 ], [ %.043, %32 ], [ %.043, %29 ], [ %.043, %22 ], [ %.043, %13 ]
   %.0.be = phi i32 [ %.0, %42 ], [ %.0, %40 ], [ %39, %38 ], [ %.0, %35 ], [ %.0, %32 ], [ %.0, %29 ], [ %.0, %22 ], [ %.0, %13 ]
-  br label %9, !llvm.loop !341
+  br label %9, !llvm.loop !342
 
 29:                                               ; preds = %9
   %30 = load i32, ptr %8, align 4
@@ -56600,11 +56603,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Retime(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !342
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !343
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !342
+  br label %4, !llvm.loop !343
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56668,11 +56671,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Enable(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !343
+  br label %.outer, !llvm.loop !344
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !343
+  br label %4, !llvm.loop !344
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56739,11 +56742,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dc2(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !344
+  br label %4, !llvm.loop !345
 
 8:                                                ; preds = %4
   %9 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !344
+  br label %.outer, !llvm.loop !345
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56792,11 +56795,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsd(ptr nocapture noundef %0
     i32 -1, label %8
     i32 108, label %4
     i32 118, label %6
-  ], !llvm.loop !345
+  ], !llvm.loop !346
 
 6:                                                ; preds = %4
   %7 = xor i32 %.011.ph, 1
-  br label %.outer, !llvm.loop !345
+  br label %.outer, !llvm.loop !346
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56842,11 +56845,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bidec(ptr nocapture noundef 
     i32 -1, label %8
     i32 108, label %4
     i32 118, label %6
-  ], !llvm.loop !346
+  ], !llvm.loop !347
 
 6:                                                ; preds = %4
   %7 = xor i32 %.012.ph, 1
-  br label %.outer, !llvm.loop !346
+  br label %.outer, !llvm.loop !347
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -56930,15 +56933,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !347
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !348
 
 16:                                               ; preds = %4
   %17 = xor i32 %.026.ph78, 1
-  br label %.outer77, !llvm.loop !347
+  br label %.outer77, !llvm.loop !348
 
 18:                                               ; preds = %4
   %19 = xor i32 %.028.ph, 1
-  br label %.outer, !llvm.loop !347
+  br label %.outer, !llvm.loop !348
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57067,7 +57070,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr nocapture noundef %0,
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !348
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !349
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -57082,19 +57085,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr nocapture noundef %0,
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer121, !llvm.loop !348
+  br i1 %23, label %.loopexit, label %.outer121, !llvm.loop !349
 
 24:                                               ; preds = %4
   %25 = xor i32 %.031.ph127, 1
-  br label %.outer126, !llvm.loop !348
+  br label %.outer126, !llvm.loop !349
 
 26:                                               ; preds = %4
   %27 = xor i32 %.028.ph131, 1
-  br label %.outer130, !llvm.loop !348
+  br label %.outer130, !llvm.loop !349
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !348
+  br label %4, !llvm.loop !349
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57201,15 +57204,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Extract(ptr nocapture nounde
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !349
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !350
 
 16:                                               ; preds = %4
   %17 = xor i32 %.018.ph64, 1
-  br label %.outer63, !llvm.loop !349
+  br label %.outer63, !llvm.loop !350
 
 18:                                               ; preds = %4
   %19 = xor i32 %.0, 1
-  br label %4, !llvm.loop !349
+  br label %4, !llvm.loop !350
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57300,7 +57303,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Balance(ptr nocapture nounde
     i32 108, label %4
     i32 118, label %22
     i32 119, label %24
-  ], !llvm.loop !350
+  ], !llvm.loop !351
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @globalUtilOptind, align 4
@@ -57319,27 +57322,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Balance(ptr nocapture nounde
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !350
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !351
 
 16:                                               ; preds = %4
   %17 = xor i32 %.040.ph126, 1
-  br label %.outer125, !llvm.loop !350
+  br label %.outer125, !llvm.loop !351
 
 18:                                               ; preds = %4
   %19 = xor i32 %.038.ph132, 1
-  br label %.outer131, !llvm.loop !350
+  br label %.outer131, !llvm.loop !351
 
 20:                                               ; preds = %4
   %21 = xor i32 %.036.ph137, 1
-  br label %.outer136, !llvm.loop !350
+  br label %.outer136, !llvm.loop !351
 
 22:                                               ; preds = %4
   %23 = xor i32 %.031.ph141, 1
-  br label %.outer140, !llvm.loop !350
+  br label %.outer140, !llvm.loop !351
 
 24:                                               ; preds = %4
   %25 = xor i32 %.0.ph144, 1
-  br label %.outer143, !llvm.loop !350
+  br label %.outer143, !llvm.loop !351
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57430,7 +57433,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BalanceLut(ptr nocapture nou
   %.040.be = phi i32 [ %.040, %32 ], [ %.040, %30 ], [ %29, %28 ], [ %.040, %26 ], [ %.040, %24 ], [ %.040, %17 ], [ %.040, %8 ], [ %.040, %4 ]
   %.038.be = phi i32 [ %.038, %32 ], [ %31, %30 ], [ %.038, %28 ], [ %.038, %26 ], [ %.038, %24 ], [ %.038, %17 ], [ %.038, %8 ], [ %.038, %4 ]
   %.035.be = phi i32 [ %33, %32 ], [ %.035, %30 ], [ %.035, %28 ], [ %.035, %26 ], [ %.035, %24 ], [ %.035, %17 ], [ %.035, %8 ], [ %.035, %4 ]
-  br label %4, !llvm.loop !351
+  br label %4, !llvm.loop !352
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @globalUtilOptind, align 4
@@ -57601,7 +57604,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !352
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !353
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -57620,7 +57623,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef 
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer144, !llvm.loop !352
+  br i1 %25, label %.loopexit, label %.outer144, !llvm.loop !353
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -57639,15 +57642,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef 
   %34 = add nsw i32 %27, 1
   store i32 %34, ptr @globalUtilOptind, align 4
   %35 = icmp slt i32 %33, 0
-  br i1 %35, label %.loopexit, label %.outer149, !llvm.loop !352
+  br i1 %35, label %.loopexit, label %.outer149, !llvm.loop !353
 
 36:                                               ; preds = %4
   %37 = xor i32 %.037.ph154, 1
-  br label %.outer153, !llvm.loop !352
+  br label %.outer153, !llvm.loop !353
 
 38:                                               ; preds = %4
   %39 = xor i32 %.0, 1
-  br label %4, !llvm.loop !352
+  br label %4, !llvm.loop !353
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
@@ -57737,19 +57740,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reshape(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.028.ph, 1
-  br label %.outer, !llvm.loop !353
+  br label %.outer, !llvm.loop !354
 
 8:                                                ; preds = %4
   %9 = xor i32 %.026.ph55, 1
-  br label %.outer54, !llvm.loop !353
+  br label %.outer54, !llvm.loop !354
 
 10:                                               ; preds = %4
   %11 = xor i32 %.023.ph59, 1
-  br label %.outer58, !llvm.loop !353
+  br label %.outer58, !llvm.loop !354
 
 12:                                               ; preds = %4
   %13 = xor i32 %.0, 1
-  br label %4, !llvm.loop !353
+  br label %4, !llvm.loop !354
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57882,31 +57885,31 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn2(ptr nocapture noundef %
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer135, !llvm.loop !354
+  br i1 %15, label %.loopexit, label %.outer135, !llvm.loop !355
 
 16:                                               ; preds = %4
   %17 = xor i32 %.043.ph118, 1
-  br label %.outer117, !llvm.loop !354
+  br label %.outer117, !llvm.loop !355
 
 18:                                               ; preds = %4
   %19 = xor i32 %.041.ph125, 1
-  br label %.outer124, !llvm.loop !354
+  br label %.outer124, !llvm.loop !355
 
 20:                                               ; preds = %4
   %21 = xor i32 %.039.ph131, 1
-  br label %.outer130, !llvm.loop !354
+  br label %.outer130, !llvm.loop !355
 
 22:                                               ; preds = %4
   %23 = xor i32 %.034.ph140, 1
-  br label %.outer139, !llvm.loop !354
+  br label %.outer139, !llvm.loop !355
 
 24:                                               ; preds = %4
   %25 = xor i32 %.045.ph, 1
-  br label %.outer, !llvm.loop !354
+  br label %.outer, !llvm.loop !355
 
 26:                                               ; preds = %4
   %27 = xor i32 %.033, 1
-  br label %4, !llvm.loop !354
+  br label %4, !llvm.loop !355
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -57995,11 +57998,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn3(ptr nocapture noundef %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !355
+  br label %.outer, !llvm.loop !356
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !355
+  br label %4, !llvm.loop !356
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -58054,11 +58057,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn4(ptr nocapture noundef %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !356
+  br label %.outer, !llvm.loop !357
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !356
+  br label %4, !llvm.loop !357
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -58206,7 +58209,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr nocapture noundef
 .backedge:                                        ; preds = %51, %41, %32, %23, %14, %64, %61, %58
   %.041.be = phi i32 [ %.041, %64 ], [ %.041, %61 ], [ %.041, %58 ], [ %.041, %51 ], [ %45, %41 ], [ %.041, %32 ], [ %.041, %23 ], [ %.041, %14 ]
   %.0.be = phi i32 [ %.0, %64 ], [ %.0, %61 ], [ %.0, %58 ], [ %55, %51 ], [ %.0, %41 ], [ %.0, %32 ], [ %.0, %23 ], [ %.0, %14 ]
-  br label %10, !llvm.loop !357
+  br label %10, !llvm.loop !358
 
 58:                                               ; preds = %10
   %59 = load i32, ptr %8, align 4
@@ -58326,7 +58329,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !358
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !359
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -58341,15 +58344,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer95, !llvm.loop !358
+  br i1 %23, label %.loopexit, label %.outer95, !llvm.loop !359
 
 24:                                               ; preds = %4
   %25 = xor i32 %.023.ph100, 1
-  br label %.outer99, !llvm.loop !358
+  br label %.outer99, !llvm.loop !359
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !358
+  br label %4, !llvm.loop !359
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -58453,7 +58456,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr nocapture noundef 
   %.080.be = phi i32 [ %.080, %32 ], [ %.080, %30 ], [ %29, %28 ], [ %.080, %26 ], [ %.080, %24 ], [ %.080, %22 ], [ %.080, %20 ], [ %.080, %18 ], [ %.080, %16 ], [ %.080, %9 ]
   %.078.be = phi i32 [ %.078, %32 ], [ %31, %30 ], [ %.078, %28 ], [ %.078, %26 ], [ %.078, %24 ], [ %.078, %22 ], [ %.078, %20 ], [ %.078, %18 ], [ %.078, %16 ], [ %.078, %9 ]
   %.0.be = phi i32 [ %33, %32 ], [ %.0, %30 ], [ %.0, %28 ], [ %.0, %26 ], [ %.0, %24 ], [ %.0, %22 ], [ %.0, %20 ], [ %.0, %18 ], [ %.0, %16 ], [ %.0, %9 ]
-  br label %4, !llvm.loop !359
+  br label %4, !llvm.loop !360
 
 16:                                               ; preds = %4
   %17 = xor i32 %.092, 1
@@ -58608,7 +58611,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr nocapture noundef 
 
 82:                                               ; preds = %79, %81
   %83 = getelementptr inbounds i8, ptr %.099, i64 1
-  br label %79, !llvm.loop !360
+  br label %79, !llvm.loop !361
 
 84:                                               ; preds = %79
   %85 = tail call noalias ptr @fopen(ptr noundef %78, ptr noundef nonnull @.str.1494)
@@ -58715,7 +58718,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !361
+  br label %4, !llvm.loop !362
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -58747,7 +58750,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.035, i64 1
-  br label %16, !llvm.loop !362
+  br label %16, !llvm.loop !363
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -58834,7 +58837,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Append(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !363
+  br label %4, !llvm.loop !364
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -58866,7 +58869,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Append(ptr nocapture noundef
 
 19:                                               ; preds = %16, %18
   %20 = getelementptr inbounds i8, ptr %.025, i64 1
-  br label %16, !llvm.loop !364
+  br label %16, !llvm.loop !365
 
 21:                                               ; preds = %16
   %22 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str.1494)
@@ -58955,19 +58958,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scl(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.033.ph, 1
-  br label %.outer, !llvm.loop !365
+  br label %.outer, !llvm.loop !366
 
 8:                                                ; preds = %4
   %9 = xor i32 %.031.ph61, 1
-  br label %.outer60, !llvm.loop !365
+  br label %.outer60, !llvm.loop !366
 
 10:                                               ; preds = %4
   %11 = xor i32 %.029.ph65, 1
-  br label %.outer64, !llvm.loop !365
+  br label %.outer64, !llvm.loop !366
 
 12:                                               ; preds = %4
   %13 = xor i32 %.0, 1
-  br label %4, !llvm.loop !365
+  br label %4, !llvm.loop !366
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 288
@@ -59141,7 +59144,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr nocapture noundef 
   br i1 %51, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %45, %36, %27, %18, %61, %58, %55, %52
-  br label %14, !llvm.loop !366
+  br label %14, !llvm.loop !367
 
 52:                                               ; preds = %14
   %53 = load i32, ptr %9, align 8
@@ -59405,7 +59408,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr nocapture noundef 
 .backedge:                                        ; preds = %67, %58, %49, %40, %31, %22, %96, %93, %91, %88, %85, %82, %79, %76, %74
   %.078.be = phi i32 [ %.078, %96 ], [ %.078, %93 ], [ %.078, %91 ], [ %.078, %88 ], [ %.078, %85 ], [ %.078, %82 ], [ %.078, %79 ], [ %.078, %76 ], [ %75, %74 ], [ %.078, %67 ], [ %.078, %58 ], [ %.078, %49 ], [ %.078, %40 ], [ %.078, %31 ], [ %.078, %22 ]
   %.077.be = phi i32 [ %.077, %96 ], [ %.077, %93 ], [ %92, %91 ], [ %.077, %88 ], [ %.077, %85 ], [ %.077, %82 ], [ %.077, %79 ], [ %.077, %76 ], [ %.077, %74 ], [ %.077, %67 ], [ %.077, %58 ], [ %.077, %49 ], [ %.077, %40 ], [ %.077, %31 ], [ %.077, %22 ]
-  br label %18, !llvm.loop !367
+  br label %18, !llvm.loop !368
 
 74:                                               ; preds = %18
   %75 = xor i32 %.078, 1
@@ -59653,7 +59656,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr nocapture noundef
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %13
-  br label %8, !llvm.loop !368
+  br label %8, !llvm.loop !369
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds i8, ptr %0, i64 288
@@ -59817,7 +59820,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat(ptr nocapture noundef %0
   %.083.be = phi i32 [ %.083, %81 ], [ %.083, %79 ], [ %.083, %77 ], [ %.083, %75 ], [ %74, %73 ], [ %.083, %70 ], [ %.083, %67 ], [ %.083, %64 ], [ %.083, %61 ], [ %.083, %54 ], [ %.083, %45 ], [ %.083, %36 ], [ %.083, %27 ], [ %.083, %18 ]
   %.081.be = phi i32 [ %.081, %81 ], [ %80, %79 ], [ %.081, %77 ], [ %.081, %75 ], [ %.081, %73 ], [ %.081, %70 ], [ %.081, %67 ], [ %.081, %64 ], [ %.081, %61 ], [ %.081, %54 ], [ %.081, %45 ], [ %.081, %36 ], [ %.081, %27 ], [ %.081, %18 ]
   %.080.be = phi i32 [ %.080, %81 ], [ %.080, %79 ], [ %.080, %77 ], [ %.080, %75 ], [ %.080, %73 ], [ %.080, %70 ], [ %.080, %67 ], [ %.080, %64 ], [ %.080, %61 ], [ %.080, %54 ], [ %.080, %45 ], [ %40, %36 ], [ %.080, %27 ], [ %.080, %18 ]
-  br label %14, !llvm.loop !369
+  br label %14, !llvm.loop !370
 
 61:                                               ; preds = %14
   %62 = load i32, ptr %10, align 4
@@ -60150,7 +60153,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr nocapture nounde
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !370
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !371
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -60165,11 +60168,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr nocapture nounde
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer72, !llvm.loop !370
+  br i1 %23, label %.loopexit, label %.outer72, !llvm.loop !371
 
 24:                                               ; preds = %4
   %25 = xor i32 %.0, 1
-  br label %4, !llvm.loop !370
+  br label %4, !llvm.loop !371
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %0, i64 288
@@ -60438,7 +60441,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr nocapture noundef 
   %.0125.be = phi i32 [ %.0125, %148 ], [ %.0125, %145 ], [ %.0125, %142 ], [ %.0125, %140 ], [ %.0125, %138 ], [ %.0125, %136 ], [ %.0125, %134 ], [ %.0125, %132 ], [ %131, %130 ], [ %.0125, %128 ], [ %.0125, %125 ], [ %.0125, %122 ], [ %.0125, %119 ], [ %.0125, %116 ], [ %.0125, %113 ], [ %.0125, %106 ], [ %.0125, %97 ], [ %.0125, %88 ], [ %.0125, %79 ], [ %.0125, %70 ], [ %.0125, %61 ], [ %.0125, %52 ], [ %.0125, %43 ], [ %.0125, %34 ], [ %.0125, %25 ]
   %.0123.be = phi i32 [ %.0123, %148 ], [ %.0123, %145 ], [ %.0123, %142 ], [ %.0123, %140 ], [ %.0123, %138 ], [ %.0123, %136 ], [ %.0123, %134 ], [ %.0123, %132 ], [ %.0123, %130 ], [ %129, %128 ], [ %.0123, %125 ], [ %.0123, %122 ], [ %.0123, %119 ], [ %.0123, %116 ], [ %.0123, %113 ], [ %.0123, %106 ], [ %.0123, %97 ], [ %.0123, %88 ], [ %.0123, %79 ], [ %.0123, %70 ], [ %.0123, %61 ], [ %.0123, %52 ], [ %.0123, %43 ], [ %.0123, %34 ], [ %.0123, %25 ]
   %.0.be = phi i32 [ %.0, %148 ], [ %.0, %145 ], [ %.0, %142 ], [ %.0, %140 ], [ %.0, %138 ], [ %.0, %136 ], [ %.0, %134 ], [ %.0, %132 ], [ %.0, %130 ], [ %.0, %128 ], [ %.0, %125 ], [ %.0, %122 ], [ %.0, %119 ], [ %.0, %116 ], [ %.0, %113 ], [ %110, %106 ], [ %.0, %97 ], [ %.0, %88 ], [ %.0, %79 ], [ %.0, %70 ], [ %.0, %61 ], [ %.0, %52 ], [ %.0, %43 ], [ %.0, %34 ], [ %.0, %25 ]
-  br label %21, !llvm.loop !371
+  br label %21, !llvm.loop !372
 
 113:                                              ; preds = %21
   %114 = load i32, ptr %12, align 4
@@ -60780,7 +60783,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr nocapture noundef
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %22, %13
-  br label %9, !llvm.loop !372
+  br label %9, !llvm.loop !373
 
 33:                                               ; preds = %9
   %34 = getelementptr inbounds i8, ptr %0, i64 288
@@ -60914,31 +60917,31 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr nocapture noundef %0
   %14 = load ptr, ptr %13, align 8
   %15 = add nsw i32 %9, 1
   store i32 %15, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !373
+  br label %.outer, !llvm.loop !374
 
 16:                                               ; preds = %6
   %17 = xor i32 %.052.ph186, 1
-  br label %.outer185, !llvm.loop !373
+  br label %.outer185, !llvm.loop !374
 
 18:                                               ; preds = %6
   %19 = xor i32 %.058.ph171, 1
-  br label %.outer170, !llvm.loop !373
+  br label %.outer170, !llvm.loop !374
 
 20:                                               ; preds = %6
   %21 = xor i32 %.056.ph177, 1
-  br label %.outer176, !llvm.loop !373
+  br label %.outer176, !llvm.loop !374
 
 22:                                               ; preds = %6
   %23 = xor i32 %.054.ph182, 1
-  br label %.outer181, !llvm.loop !373
+  br label %.outer181, !llvm.loop !374
 
 24:                                               ; preds = %6
   %25 = xor i32 %.051, 1
-  br label %6, !llvm.loop !373
+  br label %6, !llvm.loop !374
 
 26:                                               ; preds = %6
   %27 = xor i32 %.060.ph164, 1
-  br label %.outer163, !llvm.loop !373
+  br label %.outer163, !llvm.loop !374
 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61067,15 +61070,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr nocapture noundef r
 
 7:                                                ; preds = %5
   %8 = xor i32 %.043.ph, 1
-  br label %.outer, !llvm.loop !374
+  br label %.outer, !llvm.loop !375
 
 9:                                                ; preds = %5
   %10 = xor i32 %.041.ph70, 1
-  br label %.outer69, !llvm.loop !374
+  br label %.outer69, !llvm.loop !375
 
 11:                                               ; preds = %5
   %12 = xor i32 %.0, 1
-  br label %5, !llvm.loop !374
+  br label %5, !llvm.loop !375
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61220,19 +61223,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.033.ph, 1
-  br label %.outer, !llvm.loop !375
+  br label %.outer, !llvm.loop !376
 
 8:                                                ; preds = %4
   %9 = xor i32 %.031.ph64, 1
-  br label %.outer63, !llvm.loop !375
+  br label %.outer63, !llvm.loop !376
 
 10:                                               ; preds = %4
   %11 = xor i32 %.029.ph68, 1
-  br label %.outer67, !llvm.loop !375
+  br label %.outer67, !llvm.loop !376
 
 12:                                               ; preds = %4
   %13 = xor i32 %.0, 1
-  br label %4, !llvm.loop !375
+  br label %4, !llvm.loop !376
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61354,15 +61357,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reduce(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.021.ph46, 1
-  br label %.outer45, !llvm.loop !376
+  br label %.outer45, !llvm.loop !377
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !376
+  br label %4, !llvm.loop !377
 
 10:                                               ; preds = %4
   %11 = xor i32 %.023.ph, 1
-  br label %.outer, !llvm.loop !376
+  br label %.outer, !llvm.loop !377
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61434,11 +61437,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivMark(ptr nocapture noun
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !377
+  br label %4, !llvm.loop !378
 
 8:                                                ; preds = %4
   %9 = xor i32 %.014.ph, 1
-  br label %.outer, !llvm.loop !377
+  br label %.outer, !llvm.loop !378
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61504,7 +61507,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivFilter(ptr nocapture no
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !378
+  br label %4, !llvm.loop !379
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -61619,7 +61622,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr nocapture noundef %0
   %.0172.be = phi i32 [ %.0172, %53 ], [ %.0172, %50 ], [ %.0172, %48 ], [ %47, %46 ], [ %.0172, %44 ], [ %.0172, %41 ], [ %.0172, %39 ], [ %.0172, %37 ], [ %.0172, %35 ], [ %.0172, %32 ], [ %.0172, %25 ], [ %.0172, %16 ]
   %.0170.be = phi i32 [ %.0170, %53 ], [ %.0170, %50 ], [ %.0170, %48 ], [ %.0170, %46 ], [ %45, %44 ], [ %.0170, %41 ], [ %.0170, %39 ], [ %.0170, %37 ], [ %.0170, %35 ], [ %.0170, %32 ], [ %.0170, %25 ], [ %.0170, %16 ]
   %.0169.be = phi i32 [ %.0169, %53 ], [ %.0169, %50 ], [ %49, %48 ], [ %.0169, %46 ], [ %.0169, %44 ], [ %.0169, %41 ], [ %.0169, %39 ], [ %.0169, %37 ], [ %.0169, %35 ], [ %.0169, %32 ], [ %.0169, %25 ], [ %.0169, %16 ]
-  br label %12, !llvm.loop !379
+  br label %12, !llvm.loop !380
 
 32:                                               ; preds = %12
   %33 = load i32, ptr %10, align 4
@@ -61849,7 +61852,7 @@ Abc_Clock.exit:                                   ; preds = %82, %85
 134:                                              ; preds = %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %115, !llvm.loop !380
+  br i1 %exitcond.not, label %.critedge, label %115, !llvm.loop !381
 
 .critedge:                                        ; preds = %134, %106, %.lr.ph, %132
   %135 = phi ptr [ %108, %106 ], [ %108, %.lr.ph ], [ %.pre329, %132 ], [ %108, %134 ]
@@ -61959,7 +61962,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   br label %180
 
 179:                                              ; preds = %196
-  br i1 %181, label %180, label %.loopexit.loopexit, !llvm.loop !381
+  br i1 %181, label %180, label %.loopexit.loopexit, !llvm.loop !382
 
 180:                                              ; preds = %177, %179
   %181 = phi i1 [ true, %177 ], [ false, %179 ]
@@ -61983,7 +61986,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
 
 186:                                              ; preds = %183, %185
   %187 = getelementptr inbounds i8, ptr %.0179, i64 1
-  br label %183, !llvm.loop !382
+  br label %183, !llvm.loop !383
 
 188:                                              ; preds = %183
   %189 = call noalias ptr @fopen(ptr noundef %182, ptr noundef nonnull @.str.1494)
@@ -62064,7 +62067,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
 
 219:                                              ; preds = %216, %218
   %220 = getelementptr inbounds i8, ptr %.0176, i64 1
-  br label %216, !llvm.loop !383
+  br label %216, !llvm.loop !384
 
 221:                                              ; preds = %216
   %222 = call noalias ptr @fopen(ptr noundef %.0177, ptr noundef nonnull @.str.1494)
@@ -62125,7 +62128,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   call fastcc void @Gia_ManAppendCi(ptr noundef %239)
   %242 = add i32 %.0168291, 1
   %exitcond327.not = icmp eq i32 %242, 6
-  br i1 %exitcond327.not, label %._crit_edge, label %.lr.ph292, !llvm.loop !384
+  br i1 %exitcond327.not, label %._crit_edge, label %.lr.ph292, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %.lr.ph292, %237
   %.not209 = icmp eq i32 %.0170, 0
@@ -62419,15 +62422,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
   br i1 %28, label %.loopexit115, label %.backedge
 
 .backedge:                                        ; preds = %22, %13, %36, %33
-  br label %9, !llvm.loop !385
+  br label %9, !llvm.loop !386
 
 29:                                               ; preds = %9
   %30 = xor i32 %.084.ph172, 1
-  br label %.outer171, !llvm.loop !385
+  br label %.outer171, !llvm.loop !386
 
 31:                                               ; preds = %9
   %32 = xor i32 %.085.ph, 1
-  br label %.outer, !llvm.loop !385
+  br label %.outer, !llvm.loop !386
 
 33:                                               ; preds = %9
   %34 = load i32, ptr %7, align 4
@@ -62463,7 +62466,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
   br label %51
 
 50:                                               ; preds = %67
-  br i1 %52, label %51, label %.loopexit.loopexit, !llvm.loop !386
+  br i1 %52, label %51, label %.loopexit.loopexit, !llvm.loop !387
 
 51:                                               ; preds = %48, %50
   %52 = phi i1 [ true, %48 ], [ false, %50 ]
@@ -62487,7 +62490,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
 
 57:                                               ; preds = %54, %56
   %58 = getelementptr inbounds i8, ptr %.083, i64 1
-  br label %54, !llvm.loop !387
+  br label %54, !llvm.loop !388
 
 59:                                               ; preds = %54
   %60 = call noalias ptr @fopen(ptr noundef %53, ptr noundef nonnull @.str.1494)
@@ -62568,7 +62571,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
 
 90:                                               ; preds = %87, %89
   %91 = getelementptr inbounds i8, ptr %.080, i64 1
-  br label %87, !llvm.loop !388
+  br label %87, !llvm.loop !389
 
 92:                                               ; preds = %87
   %93 = call noalias ptr @fopen(ptr noundef %.081, ptr noundef nonnull @.str.1494)
@@ -62769,7 +62772,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr nocapture noundef
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !389
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !390
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -62784,19 +62787,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr nocapture noundef
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer118, !llvm.loop !389
+  br i1 %23, label %.loopexit, label %.outer118, !llvm.loop !390
 
 24:                                               ; preds = %4
   %25 = xor i32 %.030.ph124, 1
-  br label %.outer123, !llvm.loop !389
+  br label %.outer123, !llvm.loop !390
 
 26:                                               ; preds = %4
   %27 = xor i32 %.028.ph128, 1
-  br label %.outer127, !llvm.loop !389
+  br label %.outer127, !llvm.loop !390
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !389
+  br label %4, !llvm.loop !390
 
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
@@ -62930,7 +62933,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr nocapture noundef 
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %31, %22, %13
-  br label %9, !llvm.loop !390
+  br label %9, !llvm.loop !391
 
 41:                                               ; preds = %9
   %42 = getelementptr inbounds i8, ptr %0, i64 288
@@ -63051,15 +63054,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Force(ptr nocapture noundef 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !391
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !392
 
 16:                                               ; preds = %4
   %17 = xor i32 %.017.ph62, 1
-  br label %.outer61, !llvm.loop !391
+  br label %.outer61, !llvm.loop !392
 
 18:                                               ; preds = %4
   %19 = xor i32 %.016, 1
-  br label %4, !llvm.loop !391
+  br label %4, !llvm.loop !392
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %0, i64 288
@@ -63171,7 +63174,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr nocapture noundef 
   %.be183 = phi i32 [ %19, %34 ], [ %19, %25 ], [ %19, %51 ], [ %19, %49 ], [ %48, %47 ], [ %19, %45 ], [ %19, %43 ], [ %19, %41 ]
   %.be184 = phi i32 [ %20, %34 ], [ %20, %25 ], [ %20, %51 ], [ %50, %49 ], [ %20, %47 ], [ %20, %45 ], [ %20, %43 ], [ %20, %41 ]
   %.be185 = phi i32 [ %21, %34 ], [ %21, %25 ], [ %52, %51 ], [ %21, %49 ], [ %21, %47 ], [ %21, %45 ], [ %21, %43 ], [ %21, %41 ]
-  br label %13, !llvm.loop !392
+  br label %13, !llvm.loop !393
 
 41:                                               ; preds = %13
   %42 = xor i32 %16, 1
@@ -63314,7 +63317,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !393
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !394
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -63329,7 +63332,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer158, !llvm.loop !393
+  br i1 %23, label %.loopexit, label %.outer158, !llvm.loop !394
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -63344,7 +63347,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer163, !llvm.loop !393
+  br i1 %32, label %.loopexit, label %.outer163, !llvm.loop !394
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -63359,11 +63362,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer167, !llvm.loop !393
+  br i1 %41, label %.loopexit, label %.outer167, !llvm.loop !394
 
 42:                                               ; preds = %4
   %43 = xor i32 %.0, 1
-  br label %4, !llvm.loop !393
+  br label %4, !llvm.loop !394
 
 44:                                               ; preds = %4
   %45 = getelementptr inbounds i8, ptr %0, i64 288
@@ -63487,7 +63490,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !394
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !395
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -63502,7 +63505,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer209, !llvm.loop !394
+  br i1 %23, label %.loopexit, label %.outer209, !llvm.loop !395
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -63517,7 +63520,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer215, !llvm.loop !394
+  br i1 %32, label %.loopexit, label %.outer215, !llvm.loop !395
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -63532,7 +63535,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer220, !llvm.loop !394
+  br i1 %41, label %.loopexit, label %.outer220, !llvm.loop !395
 
 42:                                               ; preds = %4
   %43 = load i32, ptr @globalUtilOptind, align 4
@@ -63547,11 +63550,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
   %49 = add nsw i32 %43, 1
   store i32 %49, ptr @globalUtilOptind, align 4
   %50 = icmp slt i32 %48, 0
-  br i1 %50, label %.loopexit, label %.outer224, !llvm.loop !394
+  br i1 %50, label %.loopexit, label %.outer224, !llvm.loop !395
 
 51:                                               ; preds = %4
   %52 = xor i32 %.0, 1
-  br label %4, !llvm.loop !394
+  br label %4, !llvm.loop !395
 
 53:                                               ; preds = %4
   %54 = getelementptr inbounds i8, ptr %0, i64 288
@@ -63691,7 +63694,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr nocapture noundef r
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !395
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !396
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -63706,19 +63709,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr nocapture noundef r
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer116, !llvm.loop !395
+  br i1 %23, label %.loopexit, label %.outer116, !llvm.loop !396
 
 24:                                               ; preds = %4
   %25 = xor i32 %.029.ph122, 1
-  br label %.outer121, !llvm.loop !395
+  br label %.outer121, !llvm.loop !396
 
 26:                                               ; preds = %4
   %27 = xor i32 %.027.ph126, 1
-  br label %.outer125, !llvm.loop !395
+  br label %.outer125, !llvm.loop !396
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !395
+  br label %4, !llvm.loop !396
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -63847,7 +63850,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !396
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !397
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -63862,23 +63865,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer137, !llvm.loop !396
+  br i1 %23, label %.loopexit, label %.outer137, !llvm.loop !397
 
 24:                                               ; preds = %4
   %25 = xor i32 %.034.ph144, 1
-  br label %.outer143, !llvm.loop !396
+  br label %.outer143, !llvm.loop !397
 
 26:                                               ; preds = %4
   %27 = xor i32 %.032.ph149, 1
-  br label %.outer148, !llvm.loop !396
+  br label %.outer148, !llvm.loop !397
 
 28:                                               ; preds = %4
   %29 = xor i32 %.030.ph153, 1
-  br label %.outer152, !llvm.loop !396
+  br label %.outer152, !llvm.loop !397
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !396
+  br label %4, !llvm.loop !397
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds i8, ptr %0, i64 288
@@ -64021,7 +64024,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !397
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !398
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -64036,27 +64039,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer156, !llvm.loop !397
+  br i1 %23, label %.loopexit, label %.outer156, !llvm.loop !398
 
 24:                                               ; preds = %4
   %25 = xor i32 %.037.ph164, 1
-  br label %.outer163, !llvm.loop !397
+  br label %.outer163, !llvm.loop !398
 
 26:                                               ; preds = %4
   %27 = xor i32 %.035.ph170, 1
-  br label %.outer169, !llvm.loop !397
+  br label %.outer169, !llvm.loop !398
 
 28:                                               ; preds = %4
   %29 = xor i32 %.033.ph175, 1
-  br label %.outer174, !llvm.loop !397
+  br label %.outer174, !llvm.loop !398
 
 30:                                               ; preds = %4
   %31 = xor i32 %.031.ph179, 1
-  br label %.outer178, !llvm.loop !397
+  br label %.outer178, !llvm.loop !398
 
 32:                                               ; preds = %4
   %33 = xor i32 %.0, 1
-  br label %4, !llvm.loop !397
+  br label %4, !llvm.loop !398
 
 34:                                               ; preds = %4
   %35 = getelementptr inbounds i8, ptr %0, i64 288
@@ -64452,7 +64455,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   br i1 %switch, label %.backedge, label %.loopexit464thread-pre-split.sink.split
 
 .backedge:                                        ; preds = %172, %151, %113, %162, %141, %131, %121, %104, %94, %85, %76, %67, %254, %251, %248, %245, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %212, %209, %206, %203, %200, %197, %194, %191, %188, %185, %182, %179, %64
-  br label %53, !llvm.loop !398
+  br label %53, !llvm.loop !399
 
 179:                                              ; preds = %53
   %180 = load i32, ptr %40, align 4
@@ -65187,7 +65190,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   store float %490, ptr %488, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv474
-  br i1 %exitcond.not, label %491, label %484, !llvm.loop !399
+  br i1 %exitcond.not, label %491, label %484, !llvm.loop !400
 
 491:                                              ; preds = %484
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
@@ -65197,7 +65200,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   %495 = sext i32 %494 to i64
   %.not379.not = icmp slt i64 %indvars.iv476, %495
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
-  br i1 %.not379.not, label %.preheader461, label %.loopexit463.loopexit, !llvm.loop !400
+  br i1 %.not379.not, label %.preheader461, label %.loopexit463.loopexit, !llvm.loop !401
 
 .loopexit463.loopexit:                            ; preds = %491
   %.pre497 = load ptr, ptr %258, align 8
@@ -65235,7 +65238,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   store float %509, ptr %507, align 4
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
   %exitcond486.not = icmp eq i64 %indvars.iv.next482, %indvars.iv487
-  br i1 %exitcond486.not, label %510, label %503, !llvm.loop !401
+  br i1 %exitcond486.not, label %510, label %503, !llvm.loop !402
 
 510:                                              ; preds = %503
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
@@ -65245,7 +65248,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   %514 = sext i32 %513 to i64
   %.not381.not = icmp slt i64 %indvars.iv489, %514
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
-  br i1 %.not381.not, label %.preheader, label %.loopexit, !llvm.loop !402
+  br i1 %.not381.not, label %.preheader, label %.loopexit, !llvm.loop !403
 
 .loopexit:                                        ; preds = %510, %.preheader460, %.loopexit463
   %515 = icmp eq ptr %497, null
@@ -65454,7 +65457,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iff(ptr nocapture noundef re
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !403
+  br label %4, !llvm.loop !404
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -65569,7 +65572,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr nocapture noundef %
   %12 = tail call i32 @atoi(ptr nocapture noundef %11) #31
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !404
+  br label %.outer, !llvm.loop !405
 
 14:                                               ; preds = %4
   %15 = load i32, ptr @globalUtilOptind, align 4
@@ -65583,23 +65586,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr nocapture noundef %
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #31
   %21 = add nsw i32 %15, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer144, !llvm.loop !404
+  br label %.outer144, !llvm.loop !405
 
 22:                                               ; preds = %4
   %23 = xor i32 %.037.ph151, 1
-  br label %.outer150, !llvm.loop !404
+  br label %.outer150, !llvm.loop !405
 
 24:                                               ; preds = %4
   %25 = xor i32 %.035.ph156, 1
-  br label %.outer155, !llvm.loop !404
+  br label %.outer155, !llvm.loop !405
 
 26:                                               ; preds = %4
   %27 = xor i32 %.033.ph160, 1
-  br label %.outer159, !llvm.loop !404
+  br label %.outer159, !llvm.loop !405
 
 28:                                               ; preds = %4
   %29 = xor i32 %.031, 1
-  br label %4, !llvm.loop !404
+  br label %4, !llvm.loop !405
 
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
@@ -65772,7 +65775,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If2(ptr noundef %0, i32 noun
 
 .backedge:                                        ; preds = %43, %33, %22, %74, %71, %68, %65, %62, %59, %56, %53, %50
   %.0.be = phi i32 [ %.0, %74 ], [ %.0, %71 ], [ %.0, %68 ], [ %.0, %65 ], [ %.0, %62 ], [ %.0, %59 ], [ %.0, %56 ], [ %.0, %53 ], [ %.0, %50 ], [ %.0, %43 ], [ %.0, %33 ], [ %26, %22 ]
-  br label %17, !llvm.loop !405
+  br label %17, !llvm.loop !406
 
 50:                                               ; preds = %17
   %51 = load i32, ptr %14, align 8
@@ -66062,7 +66065,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr nocapture noundef %0
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = add i32 %13, -17
   %or.cond = icmp ult i32 %15, -15
-  br i1 %or.cond, label %16, label %.outer, !llvm.loop !406
+  br i1 %or.cond, label %16, label %.outer, !llvm.loop !407
 
 16:                                               ; preds = %9
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3812, i32 noundef %13)
@@ -66070,11 +66073,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr nocapture noundef %0
 
 17:                                               ; preds = %4
   %18 = xor i32 %.022.ph81, 1
-  br label %.outer80, !llvm.loop !406
+  br label %.outer80, !llvm.loop !407
 
 19:                                               ; preds = %4
   %20 = xor i32 %.0, 1
-  br label %4, !llvm.loop !406
+  br label %4, !llvm.loop !407
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds i8, ptr %0, i64 288
@@ -66206,7 +66209,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr nocapture noundef %0,
   br i1 %or.cond96, label %47, label %.backedge
 
 .backedge:                                        ; preds = %38, %25, %61, %51, %92, %89, %86, %83, %80, %77, %74, %71, %68
-  br label %20, !llvm.loop !407
+  br label %20, !llvm.loop !408
 
 47:                                               ; preds = %38
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3832, i32 noundef %42)
@@ -66542,7 +66545,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr nocapture noundef %0,
   br i1 %or.cond98, label %50, label %.backedge
 
 .backedge:                                        ; preds = %41, %28, %74, %64, %54, %111, %108, %105, %102, %99, %96, %93, %90, %87, %84, %81
-  br label %23, !llvm.loop !408
+  br label %23, !llvm.loop !409
 
 50:                                               ; preds = %41
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3832, i32 noundef %45)
@@ -67057,7 +67060,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr nocapture noundef %0,
   br i1 %or.cond151, label %138, label %.backedge
 
 .backedge:                                        ; preds = %129, %46, %33, %119, %109, %99, %89, %79, %69, %59, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139
-  br label %28, !llvm.loop !409
+  br label %28, !llvm.loop !410
 
 138:                                              ; preds = %129
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3812, i32 noundef %133)
@@ -67390,7 +67393,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr nocapture noundef %0,
   br i1 %or.cond122, label %52, label %.backedge
 
 .backedge:                                        ; preds = %43, %30, %116, %106, %96, %86, %76, %66, %56, %147, %144, %141, %138, %135, %132, %129, %126, %123
-  br label %25, !llvm.loop !410
+  br label %25, !llvm.loop !411
 
 52:                                               ; preds = %43
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3832, i32 noundef %47)
@@ -67809,7 +67812,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr nocapture noundef %0,
   br i1 %or.cond118, label %51, label %.backedge
 
 .backedge:                                        ; preds = %42, %29, %125, %115, %105, %95, %85, %75, %65, %55, %150, %147, %144, %141, %138, %135, %132
-  br label %24, !llvm.loop !411
+  br label %24, !llvm.loop !412
 
 51:                                               ; preds = %42
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3832, i32 noundef %46)
@@ -68229,7 +68232,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr nocapture noundef %0,
   br i1 %or.cond132, label %53, label %.backedge
 
 .backedge:                                        ; preds = %44, %31, %137, %127, %117, %107, %97, %87, %77, %67, %57, %165, %162, %159, %156, %153, %150, %147, %144
-  br label %26, !llvm.loop !412
+  br label %26, !llvm.loop !413
 
 53:                                               ; preds = %44
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3832, i32 noundef %48)
@@ -68630,7 +68633,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef r
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 2
-  br i1 %15, label %16, label %.outer, !llvm.loop !413
+  br i1 %15, label %16, label %.outer, !llvm.loop !414
 
 16:                                               ; preds = %9
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3890, i32 noundef %13)
@@ -68653,7 +68656,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef r
   %25 = add nsw i32 %18, 1
   store i32 %25, ptr @globalUtilOptind, align 4
   %26 = icmp slt i32 %24, 1
-  br i1 %26, label %27, label %.outer178, !llvm.loop !413
+  br i1 %26, label %27, label %.outer178, !llvm.loop !414
 
 27:                                               ; preds = %20
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3891, i32 noundef %24)
@@ -68676,7 +68679,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef r
   %36 = add nsw i32 %29, 1
   store i32 %36, ptr @globalUtilOptind, align 4
   %37 = icmp slt i32 %35, 1
-  br i1 %37, label %38, label %.outer182, !llvm.loop !413
+  br i1 %37, label %38, label %.outer182, !llvm.loop !414
 
 38:                                               ; preds = %31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3892, i32 noundef %.031.ph179)
@@ -68684,7 +68687,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef r
 
 39:                                               ; preds = %4
   %40 = xor i32 %.0, 1
-  br label %4, !llvm.loop !413
+  br label %4, !llvm.loop !414
 
 41:                                               ; preds = %4
   %42 = getelementptr inbounds i8, ptr %0, i64 288
@@ -68857,7 +68860,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Edge(ptr nocapture noundef r
   %.061.be = phi i32 [ %.061, %54 ], [ %.061, %52 ], [ %51, %50 ], [ %.061, %48 ], [ %.061, %46 ], [ %.061, %44 ], [ %.061, %36 ], [ %.061, %27 ], [ %.061, %18 ], [ %.061, %9 ]
   %.059.be = phi i32 [ %.059, %54 ], [ %53, %52 ], [ %.059, %50 ], [ %.059, %48 ], [ %.059, %46 ], [ %.059, %44 ], [ %.059, %36 ], [ %.059, %27 ], [ %.059, %18 ], [ %.059, %9 ]
   %.0.be = phi i32 [ %55, %54 ], [ %.0, %52 ], [ %.0, %50 ], [ %.0, %48 ], [ %.0, %46 ], [ %.0, %44 ], [ %.0, %36 ], [ %.0, %27 ], [ %.0, %18 ], [ %.0, %9 ]
-  br label %4, !llvm.loop !414
+  br label %4, !llvm.loop !415
 
 43:                                               ; preds = %36
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3902, i32 noundef %40)
@@ -69146,7 +69149,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatLut(ptr nocapture noundef
   %.044.be = phi i32 [ %.044, %54 ], [ %.044, %52 ], [ %51, %50 ], [ %.044, %48 ], [ %.044, %42 ], [ %.044, %34 ], [ %.044, %26 ], [ %.044, %18 ], [ %.044, %14 ]
   %.042.be = phi i32 [ %.042, %54 ], [ %53, %52 ], [ %.042, %50 ], [ %.042, %48 ], [ %.042, %42 ], [ %.042, %34 ], [ %.042, %26 ], [ %.042, %18 ], [ %.042, %14 ]
   %.0.be = phi i32 [ %55, %54 ], [ %.0, %52 ], [ %.0, %50 ], [ %.0, %48 ], [ %.0, %42 ], [ %.0, %34 ], [ %.0, %26 ], [ %.0, %18 ], [ %.0, %14 ]
-  br label %4, !llvm.loop !415
+  br label %4, !llvm.loop !416
 
 56:                                               ; preds = %4
   %57 = getelementptr inbounds i8, ptr %0, i64 288
@@ -69230,7 +69233,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = xor i32 %.015, 1
-  br label %4, !llvm.loop !416
+  br label %4, !llvm.loop !417
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @globalUtilOptind, align 4
@@ -69300,7 +69303,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetSim(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !417
+  br label %4, !llvm.loop !418
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -69382,11 +69385,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetEval(ptr nocapture nound
   %13 = tail call i32 @atoi(ptr nocapture noundef %12) #31
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !418
+  br label %.outer, !llvm.loop !419
 
 15:                                               ; preds = %4
   %16 = xor i32 %.0, 1
-  br label %4, !llvm.loop !418
+  br label %4, !llvm.loop !419
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 288
@@ -69489,7 +69492,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
   %12 = tail call i32 @atoi(ptr nocapture noundef %11) #31
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !419
+  br label %.outer, !llvm.loop !420
 
 14:                                               ; preds = %4
   %15 = load i32, ptr @globalUtilOptind, align 4
@@ -69503,7 +69506,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #31
   %21 = add nsw i32 %15, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer162, !llvm.loop !419
+  br label %.outer162, !llvm.loop !420
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @globalUtilOptind, align 4
@@ -69517,7 +69520,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
   %28 = tail call i32 @atoi(ptr nocapture noundef %27) #31
   %29 = add nsw i32 %23, 1
   store i32 %29, ptr @globalUtilOptind, align 4
-  br label %.outer167, !llvm.loop !419
+  br label %.outer167, !llvm.loop !420
 
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
@@ -69531,11 +69534,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
   %36 = tail call i32 @atoi(ptr nocapture noundef %35) #31
   %37 = add nsw i32 %31, 1
   store i32 %37, ptr @globalUtilOptind, align 4
-  br label %.outer171, !llvm.loop !419
+  br label %.outer171, !llvm.loop !420
 
 38:                                               ; preds = %4
   %39 = xor i32 %.034, 1
-  br label %4, !llvm.loop !419
+  br label %4, !llvm.loop !420
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
@@ -69668,7 +69671,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
   %12 = tail call i32 @atoi(ptr nocapture noundef %11) #31
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !420
+  br label %.outer, !llvm.loop !421
 
 14:                                               ; preds = %4
   %15 = load i32, ptr @globalUtilOptind, align 4
@@ -69682,7 +69685,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #31
   %21 = add nsw i32 %15, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer170, !llvm.loop !420
+  br label %.outer170, !llvm.loop !421
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @globalUtilOptind, align 4
@@ -69696,7 +69699,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
   %28 = tail call i32 @atoi(ptr nocapture noundef %27) #31
   %29 = add nsw i32 %23, 1
   store i32 %29, ptr @globalUtilOptind, align 4
-  br label %.outer175, !llvm.loop !420
+  br label %.outer175, !llvm.loop !421
 
 30:                                               ; preds = %4
   %31 = load i32, ptr @globalUtilOptind, align 4
@@ -69710,11 +69713,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
   %36 = tail call i32 @atoi(ptr nocapture noundef %35) #31
   %37 = add nsw i32 %31, 1
   store i32 %37, ptr @globalUtilOptind, align 4
-  br label %.outer179, !llvm.loop !420
+  br label %.outer179, !llvm.loop !421
 
 38:                                               ; preds = %4
   %39 = xor i32 %.038, 1
-  br label %4, !llvm.loop !420
+  br label %4, !llvm.loop !421
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @globalUtilOptind, align 4
@@ -69947,7 +69950,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr nocapture n
   %.072.be = phi i32 [ %.072, %60 ], [ %.072, %58 ], [ %.072, %56 ], [ %55, %54 ], [ %.072, %48 ], [ %.072, %40 ], [ %.072, %32 ], [ %.072, %24 ], [ %.072, %16 ], [ %.072, %8 ]
   %.070.be = phi i32 [ %.070, %60 ], [ %59, %58 ], [ %.070, %56 ], [ %.070, %54 ], [ %.070, %48 ], [ %.070, %40 ], [ %.070, %32 ], [ %.070, %24 ], [ %.070, %16 ], [ %.070, %8 ]
   %.069.be = phi i32 [ %.069, %60 ], [ %.069, %58 ], [ %.069, %56 ], [ %.069, %54 ], [ %52, %48 ], [ %.069, %40 ], [ %.069, %32 ], [ %.069, %24 ], [ %.069, %16 ], [ %.069, %8 ]
-  br label %4, !llvm.loop !421
+  br label %4, !llvm.loop !422
 
 62:                                               ; preds = %4
   %63 = load i32, ptr @globalUtilOptind, align 4
@@ -70251,7 +70254,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr nocapture noun
   %.068.be = phi i32 [ %63, %62 ], [ %.068, %60 ], [ %.068, %58 ], [ %.068, %56 ], [ %.068, %54 ], [ %.068, %52 ], [ %.068, %50 ], [ %.068, %48 ], [ %.068, %46 ], [ %.068, %40 ], [ %.068, %32 ], [ %.068, %24 ], [ %.068, %16 ], [ %.068, %8 ]
   %.066.be = phi i32 [ %.066, %62 ], [ %.066, %60 ], [ %.066, %58 ], [ %.066, %56 ], [ %.066, %54 ], [ %.066, %52 ], [ %.066, %50 ], [ %.066, %48 ], [ %.066, %46 ], [ %.066, %40 ], [ %36, %32 ], [ %.066, %24 ], [ %.066, %16 ], [ %.066, %8 ]
   %.065.be = phi i32 [ %.065, %62 ], [ %.065, %60 ], [ %.065, %58 ], [ %.065, %56 ], [ %.065, %54 ], [ %.065, %52 ], [ %.065, %50 ], [ %.065, %48 ], [ %.065, %46 ], [ %44, %40 ], [ %.065, %32 ], [ %.065, %24 ], [ %.065, %16 ], [ %.065, %8 ]
-  br label %4, !llvm.loop !422
+  br label %4, !llvm.loop !423
 
 64:                                               ; preds = %4
   %65 = load i32, ptr @globalUtilOptind, align 4
@@ -70424,7 +70427,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetMap(ptr noundef %0, i32 
   %12 = tail call i32 @atoi(ptr nocapture noundef %11) #31
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
-  br label %.outer122, !llvm.loop !423
+  br label %.outer122, !llvm.loop !424
 
 14:                                               ; preds = %4
   %15 = load i32, ptr @globalUtilOptind, align 4
@@ -70438,19 +70441,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetMap(ptr noundef %0, i32 
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #31
   %21 = add nsw i32 %15, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer127, !llvm.loop !423
+  br label %.outer127, !llvm.loop !424
 
 22:                                               ; preds = %4
   %23 = xor i32 %.030.ph132, 1
-  br label %.outer131, !llvm.loop !423
+  br label %.outer131, !llvm.loop !424
 
 24:                                               ; preds = %4
   %25 = xor i32 %.036.ph, 1
-  br label %.outer, !llvm.loop !423
+  br label %.outer, !llvm.loop !424
 
 26:                                               ; preds = %4
   %27 = xor i32 %.029, 1
-  br label %4, !llvm.loop !423
+  br label %4, !llvm.loop !424
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -70538,7 +70541,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unmap(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !424
+  br label %4, !llvm.loop !425
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -70718,7 +70721,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Struct(ptr nocapture noundef
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !425
+  br label %4, !llvm.loop !426
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -70789,11 +70792,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trace(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.014.ph, 1
-  br label %.outer, !llvm.loop !426
+  br label %.outer, !llvm.loop !427
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !426
+  br label %4, !llvm.loop !427
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -70906,7 +70909,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr nocapture nounde
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = add i32 %12, -101
   %or.cond = icmp ult i32 %14, -100
-  br i1 %or.cond, label %.loopexit, label %.outer124, !llvm.loop !427
+  br i1 %or.cond, label %.loopexit, label %.outer124, !llvm.loop !428
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -70922,19 +70925,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr nocapture nounde
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = add i32 %21, -6
   %or.cond3 = icmp ult i32 %23, -5
-  br i1 %or.cond3, label %.loopexit, label %.outer129, !llvm.loop !427
+  br i1 %or.cond3, label %.loopexit, label %.outer129, !llvm.loop !428
 
 24:                                               ; preds = %4
   %25 = xor i32 %.042.ph, 1
-  br label %.outer, !llvm.loop !427
+  br label %.outer, !llvm.loop !428
 
 26:                                               ; preds = %4
   %27 = xor i32 %.035.ph134, 1
-  br label %.outer133, !llvm.loop !427
+  br label %.outer133, !llvm.loop !428
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !427
+  br label %4, !llvm.loop !428
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71064,23 +71067,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr nocapture noundef %0
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !428
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !429
 
 16:                                               ; preds = %4
   %17 = xor i32 %.036.ph128, 1
-  br label %.outer127, !llvm.loop !428
+  br label %.outer127, !llvm.loop !429
 
 18:                                               ; preds = %4
   %19 = xor i32 %.040.ph119, 1
-  br label %.outer118, !llvm.loop !428
+  br label %.outer118, !llvm.loop !429
 
 20:                                               ; preds = %4
   %21 = xor i32 %.038.ph124, 1
-  br label %.outer123, !llvm.loop !428
+  br label %.outer123, !llvm.loop !429
 
 22:                                               ; preds = %4
   %23 = xor i32 %.042.ph, 1
-  br label %.outer, !llvm.loop !428
+  br label %.outer, !llvm.loop !429
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71320,7 +71323,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr nocapture noundef %0
 .backedge:                                        ; preds = %39, %30, %21, %77, %74, %71, %68, %65, %63, %61, %58, %55, %52, %49, %46
   %.062.be = phi i32 [ %.062, %77 ], [ %.062, %74 ], [ %.062, %71 ], [ %.062, %68 ], [ %.062, %65 ], [ %64, %63 ], [ %.062, %61 ], [ %.062, %58 ], [ %.062, %55 ], [ %.062, %52 ], [ %.062, %49 ], [ %.062, %46 ], [ %.062, %39 ], [ %.062, %30 ], [ %.062, %21 ]
   %.061.be = phi i32 [ %.061, %77 ], [ %.061, %74 ], [ %.061, %71 ], [ %.061, %68 ], [ %.061, %65 ], [ %.061, %63 ], [ %62, %61 ], [ %.061, %58 ], [ %.061, %55 ], [ %.061, %52 ], [ %.061, %49 ], [ %.061, %46 ], [ %.061, %39 ], [ %.061, %30 ], [ %.061, %21 ]
-  br label %17, !llvm.loop !429
+  br label %17, !llvm.loop !430
 
 46:                                               ; preds = %17
   %47 = load i32, ptr %14, align 4
@@ -71568,23 +71571,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rpm(ptr nocapture noundef %0
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !430
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !431
 
 16:                                               ; preds = %4
   %17 = xor i32 %.031.ph106, 1
-  br label %.outer105, !llvm.loop !430
+  br label %.outer105, !llvm.loop !431
 
 18:                                               ; preds = %4
   %19 = xor i32 %.029.ph111, 1
-  br label %.outer110, !llvm.loop !430
+  br label %.outer110, !llvm.loop !431
 
 20:                                               ; preds = %4
   %21 = xor i32 %.027.ph115, 1
-  br label %.outer114, !llvm.loop !430
+  br label %.outer114, !llvm.loop !431
 
 22:                                               ; preds = %4
   %23 = xor i32 %.0, 1
-  br label %4, !llvm.loop !430
+  br label %4, !llvm.loop !431
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71693,7 +71696,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr nocapture noun
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer112, !llvm.loop !431
+  br i1 %14, label %.loopexit, label %.outer112, !llvm.loop !432
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -71708,7 +71711,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr nocapture noun
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer116, !llvm.loop !431
+  br i1 %23, label %.loopexit, label %.outer116, !llvm.loop !432
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -71723,11 +71726,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr nocapture noun
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %4, !llvm.loop !431
+  br i1 %32, label %.loopexit, label %4, !llvm.loop !432
 
 33:                                               ; preds = %4
   %34 = xor i32 %.032.ph, 1
-  br label %.outer, !llvm.loop !431
+  br label %.outer, !llvm.loop !432
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71820,11 +71823,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Posplit(ptr nocapture nounde
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !432
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !433
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !432
+  br label %4, !llvm.loop !433
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71902,11 +71905,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr nocapture nounde
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !433
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !434
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !433
+  br label %4, !llvm.loop !434
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -71938,7 +71941,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr nocapture nounde
   %29 = tail call i32 @Abc_Random(i32 noundef 0) #28
   %30 = add nuw nsw i32 %.01933, 1
   %exitcond.not = icmp eq i32 %30, %.017.ph
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !434
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !435
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %31 = load ptr, ptr %19, align 8
@@ -72104,7 +72107,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr nocapture noundef
 
 .backedge:                                        ; preds = %68, %59, %50, %41, %32, %23, %106, %103, %100, %97, %94, %91, %88, %85, %82, %77
   %.071.be = phi ptr [ %.071, %106 ], [ %.071, %103 ], [ %.071, %100 ], [ %.071, %97 ], [ %.071, %94 ], [ %.071, %91 ], [ %.071, %88 ], [ %.071, %85 ], [ %.071, %82 ], [ %80, %77 ], [ %.071, %68 ], [ %.071, %59 ], [ %.071, %50 ], [ %.071, %41 ], [ %.071, %32 ], [ %.071, %23 ]
-  br label %19, !llvm.loop !435
+  br label %19, !llvm.loop !436
 
 75:                                               ; preds = %19
   %76 = load i32, ptr @globalUtilOptind, align 4
@@ -72394,7 +72397,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr nocapture noundef
 
 .backedge:                                        ; preds = %46, %37, %28, %19, %78, %75, %72, %69, %66, %63, %60, %55
   %.058.be = phi ptr [ %.058, %78 ], [ %.058, %75 ], [ %.058, %72 ], [ %.058, %69 ], [ %.058, %66 ], [ %.058, %63 ], [ %.058, %60 ], [ %58, %55 ], [ %.058, %46 ], [ %.058, %37 ], [ %.058, %28 ], [ %.058, %19 ]
-  br label %15, !llvm.loop !436
+  br label %15, !llvm.loop !437
 
 53:                                               ; preds = %15
   %54 = load i32, ptr @globalUtilOptind, align 4
@@ -72640,7 +72643,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr nocapture noundef
 
 .backedge:                                        ; preds = %34, %25, %16, %60, %57, %54, %51, %48, %43
   %.049.be = phi ptr [ %.049, %60 ], [ %.049, %57 ], [ %.049, %54 ], [ %.049, %51 ], [ %.049, %48 ], [ %46, %43 ], [ %.049, %34 ], [ %.049, %25 ], [ %.049, %16 ]
-  br label %12, !llvm.loop !437
+  br label %12, !llvm.loop !438
 
 41:                                               ; preds = %12
   %42 = load i32, ptr @globalUtilOptind, align 4
@@ -72952,7 +72955,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr nocapture noundef
 
 .backedge:                                        ; preds = %46, %37, %28, %19, %78, %75, %72, %69, %66, %63, %60, %55
   %.061.be = phi ptr [ %.061, %78 ], [ %.061, %75 ], [ %.061, %72 ], [ %.061, %69 ], [ %.061, %66 ], [ %.061, %63 ], [ %.061, %60 ], [ %58, %55 ], [ %.061, %46 ], [ %.061, %37 ], [ %.061, %28 ], [ %.061, %19 ]
-  br label %15, !llvm.loop !438
+  br label %15, !llvm.loop !439
 
 53:                                               ; preds = %15
   %54 = load i32, ptr @globalUtilOptind, align 4
@@ -73271,7 +73274,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr nocapture noundef r
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 3
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !439
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !440
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -73286,7 +73289,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr nocapture noundef r
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 3
-  br i1 %23, label %.loopexit, label %.outer145, !llvm.loop !439
+  br i1 %23, label %.loopexit, label %.outer145, !llvm.loop !440
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -73301,15 +73304,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr nocapture noundef r
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 2
-  br i1 %32, label %.loopexit, label %.outer150, !llvm.loop !439
+  br i1 %32, label %.loopexit, label %.outer150, !llvm.loop !440
 
 33:                                               ; preds = %4
   %34 = xor i32 %.038.ph155, 1
-  br label %.outer154, !llvm.loop !439
+  br label %.outer154, !llvm.loop !440
 
 35:                                               ; preds = %4
   %36 = xor i32 %.0, 1
-  br label %4, !llvm.loop !439
+  br label %4, !llvm.loop !440
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 288
@@ -73453,27 +73456,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iso(ptr nocapture noundef %0
 
 7:                                                ; preds = %5
   %8 = xor i32 %.041.ph, 1
-  br label %.outer, !llvm.loop !440
+  br label %.outer, !llvm.loop !441
 
 9:                                                ; preds = %5
   %10 = xor i32 %.039.ph80, 1
-  br label %.outer79, !llvm.loop !440
+  br label %.outer79, !llvm.loop !441
 
 11:                                               ; preds = %5
   %12 = xor i32 %.037.ph86, 1
-  br label %.outer85, !llvm.loop !440
+  br label %.outer85, !llvm.loop !441
 
 13:                                               ; preds = %5
   %14 = xor i32 %.035.ph91, 1
-  br label %.outer90, !llvm.loop !440
+  br label %.outer90, !llvm.loop !441
 
 15:                                               ; preds = %5
   %16 = xor i32 %.033.ph95, 1
-  br label %.outer94, !llvm.loop !440
+  br label %.outer94, !llvm.loop !441
 
 17:                                               ; preds = %5
   %18 = xor i32 %.0, 1
-  br label %5, !llvm.loop !440
+  br label %5, !llvm.loop !441
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds i8, ptr %0, i64 288
@@ -73634,7 +73637,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoNpn(ptr nocapture noundef
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !441
+  br label %5, !llvm.loop !442
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 288
@@ -73777,7 +73780,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoSt(ptr nocapture noundef 
 
 7:                                                ; preds = %5
   %8 = xor i32 %.0, 1
-  br label %5, !llvm.loop !442
+  br label %5, !llvm.loop !443
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 288
@@ -73925,11 +73928,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Compare(ptr nocapture readno
 
 6:                                                ; preds = %4
   %7 = xor i32 %.022.ph, 1
-  br label %.outer, !llvm.loop !443
+  br label %.outer, !llvm.loop !444
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !443
+  br label %4, !llvm.loop !444
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @globalUtilOptind, align 4
@@ -74028,11 +74031,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RevEng(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !444
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !445
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !444
+  br label %4, !llvm.loop !445
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74110,11 +74113,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Uif(ptr nocapture noundef %0
 
 6:                                                ; preds = %4
   %7 = xor i32 %.016.ph, 1
-  br label %.outer, !llvm.loop !445
+  br label %.outer, !llvm.loop !446
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !445
+  br label %4, !llvm.loop !446
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74189,11 +74192,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CexInfo(ptr nocapture nounde
     i32 -1, label %8
     i32 100, label %4
     i32 118, label %6
-  ], !llvm.loop !446
+  ], !llvm.loop !447
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !446
+  br label %.outer, !llvm.loop !447
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74276,15 +74279,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cycle(ptr nocapture noundef 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !447
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !448
 
 16:                                               ; preds = %4
   %17 = xor i32 %.018.ph65, 1
-  br label %.outer64, !llvm.loop !447
+  br label %.outer64, !llvm.loop !448
 
 18:                                               ; preds = %4
   %19 = xor i32 %.0, 1
-  br label %4, !llvm.loop !447
+  br label %4, !llvm.loop !448
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74446,7 +74449,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cone(ptr nocapture noundef %
   %.0101.be = phi i32 [ %59, %58 ], [ %.0101, %56 ], [ %.0101, %54 ], [ %.0101, %52 ], [ %.0101, %45 ], [ %.0101, %36 ], [ %.0101, %27 ], [ %.0101, %18 ], [ %.0101, %9 ]
   %.098.be = phi i32 [ %.098, %58 ], [ %.098, %56 ], [ %.098, %54 ], [ %.098, %52 ], [ %.098, %45 ], [ %.098, %36 ], [ %.098, %27 ], [ %22, %18 ], [ %.098, %9 ]
   %.096.be = phi i32 [ %.096, %58 ], [ %.096, %56 ], [ %.096, %54 ], [ %.096, %52 ], [ %.096, %45 ], [ %.096, %36 ], [ %.096, %27 ], [ %.096, %18 ], [ %13, %9 ]
-  br label %5, !llvm.loop !448
+  br label %5, !llvm.loop !449
 
 52:                                               ; preds = %5
   %53 = xor i32 %.0107, 1
@@ -74499,7 +74502,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cone(ptr nocapture noundef %
   %73 = udiv i32 %.0812.i, 10
   %74 = add nuw nsw i32 %.013.i, 1
   %.not.i = icmp ult i32 %.0812.i, 10
-  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !279
+  br i1 %.not.i, label %Abc_Base10Log.exit, label %.lr.ph.i, !llvm.loop !280
 
 Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %66
   %.09.i = phi i32 [ %70, %66 ], [ %74, %.lr.ph.i ]
@@ -74546,7 +74549,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %66
   %97 = sub nsw i32 %.val160.val, %.val159
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %77, label %.critedge, !llvm.loop !449
+  br i1 %99, label %77, label %.critedge, !llvm.loop !450
 
 .critedge:                                        ; preds = %77, %80, %Abc_Base10Log.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.30)
@@ -74749,11 +74752,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Slice(ptr nocapture noundef 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !450
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !451
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !450
+  br label %4, !llvm.loop !451
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74839,19 +74842,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoPart(ptr nocapture noundef
   %15 = add nsw i32 %8, 1
   store i32 %15, ptr @globalUtilOptind, align 4
   %16 = icmp slt i32 %14, 0
-  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !451
+  br i1 %16, label %.loopexit, label %.outer, !llvm.loop !452
 
 17:                                               ; preds = %5
   %18 = xor i32 %.025.ph86, 1
-  br label %.outer85, !llvm.loop !451
+  br label %.outer85, !llvm.loop !452
 
 19:                                               ; preds = %5
   %20 = xor i32 %.023.ph90, 1
-  br label %.outer89, !llvm.loop !451
+  br label %.outer89, !llvm.loop !452
 
 21:                                               ; preds = %5
   %22 = xor i32 %.0, 1
-  br label %5, !llvm.loop !451
+  br label %5, !llvm.loop !452
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds i8, ptr %0, i64 288
@@ -74995,7 +74998,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GroupProve(ptr nocapture nou
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 1
-  br i1 %14, label %.loopexit, label %4, !llvm.loop !452
+  br i1 %14, label %.loopexit, label %4, !llvm.loop !453
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -75013,7 +75016,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GroupProve(ptr nocapture nou
 .loopexit77:                                      ; preds = %4, %17
   %.124 = phi ptr [ %20, %17 ], [ %.023.ph, %4 ]
   %22 = xor i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !452
+  br label %.outer, !llvm.loop !453
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %0, i64 288
@@ -75197,7 +75200,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MultiProve(ptr nocapture nou
   %.be304 = phi i32 [ %20, %62 ], [ %20, %53 ], [ %48, %44 ], [ %20, %35 ], [ %20, %26 ], [ %20, %75 ], [ %20, %73 ], [ %20, %71 ], [ %20, %69 ]
   %.be305 = phi i32 [ %21, %62 ], [ %57, %53 ], [ %21, %44 ], [ %21, %35 ], [ %21, %26 ], [ %21, %75 ], [ %21, %73 ], [ %21, %71 ], [ %21, %69 ]
   %.be306 = phi i32 [ %66, %62 ], [ %22, %53 ], [ %22, %44 ], [ %22, %35 ], [ %22, %26 ], [ %22, %75 ], [ %22, %73 ], [ %22, %71 ], [ %22, %69 ]
-  br label %13, !llvm.loop !453
+  br label %13, !llvm.loop !454
 
 69:                                               ; preds = %13
   %70 = xor i32 %14, 1
@@ -75458,7 +75461,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 1
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !454
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !455
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -75477,7 +75480,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 1
-  br i1 %25, label %.loopexit, label %.outer258, !llvm.loop !454
+  br i1 %25, label %.loopexit, label %.outer258, !llvm.loop !455
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -75496,7 +75499,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
   %34 = add nsw i32 %27, 1
   store i32 %34, ptr @globalUtilOptind, align 4
   %35 = icmp slt i32 %33, 0
-  br i1 %35, label %.loopexit, label %.outer265, !llvm.loop !454
+  br i1 %35, label %.loopexit, label %.outer265, !llvm.loop !455
 
 36:                                               ; preds = %4
   %37 = load i32, ptr @globalUtilOptind, align 4
@@ -75516,7 +75519,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
   store i32 %44, ptr @globalUtilOptind, align 4
   %45 = add i32 %43, -101
   %or.cond = icmp ult i32 %45, -100
-  br i1 %or.cond, label %46, label %.outer271, !llvm.loop !454
+  br i1 %or.cond, label %46, label %.outer271, !llvm.loop !455
 
 46:                                               ; preds = %39
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4204, i32 noundef %43)
@@ -75524,15 +75527,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
 
 47:                                               ; preds = %4
   %48 = xor i32 %.0, 1
-  br label %4, !llvm.loop !454
+  br label %4, !llvm.loop !455
 
 49:                                               ; preds = %4
   %50 = xor i32 %.044.ph277, 1
-  br label %.outer276, !llvm.loop !454
+  br label %.outer276, !llvm.loop !455
 
 51:                                               ; preds = %4
   %52 = xor i32 %.042.ph281, 1
-  br label %.outer280, !llvm.loop !454
+  br label %.outer280, !llvm.loop !455
 
 53:                                               ; preds = %4
   %54 = getelementptr inbounds i8, ptr %0, i64 288
@@ -75671,7 +75674,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 1
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !455
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !456
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -75686,7 +75689,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 1
-  br i1 %23, label %.loopexit, label %.outer206, !llvm.loop !455
+  br i1 %23, label %.loopexit, label %.outer206, !llvm.loop !456
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -75701,7 +75704,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 1
-  br i1 %32, label %.loopexit, label %.outer213, !llvm.loop !455
+  br i1 %32, label %.loopexit, label %.outer213, !llvm.loop !456
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -75716,19 +75719,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 1
-  br i1 %41, label %.loopexit, label %.outer219, !llvm.loop !455
+  br i1 %41, label %.loopexit, label %.outer219, !llvm.loop !456
 
 42:                                               ; preds = %4
   %43 = xor i32 %.0, 1
-  br label %4, !llvm.loop !455
+  br label %4, !llvm.loop !456
 
 44:                                               ; preds = %4
   %45 = xor i32 %.040.ph225, 1
-  br label %.outer224, !llvm.loop !455
+  br label %.outer224, !llvm.loop !456
 
 46:                                               ; preds = %4
   %47 = xor i32 %.038.ph229, 1
-  br label %.outer228, !llvm.loop !455
+  br label %.outer228, !llvm.loop !456
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds i8, ptr %0, i64 288
@@ -76016,7 +76019,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr nocapture readn
   %.061.be = phi i32 [ %.061, %79 ], [ %.061, %77 ], [ %74, %70 ], [ %.061, %61 ], [ %.061, %52 ], [ %.061, %43 ], [ %.061, %35 ], [ %.061, %26 ], [ %.061, %17 ], [ %.061, %8 ]
   %.059.be = phi i32 [ %.059, %79 ], [ %78, %77 ], [ %.059, %70 ], [ %.059, %61 ], [ %.059, %52 ], [ %.059, %43 ], [ %.059, %35 ], [ %.059, %26 ], [ %.059, %17 ], [ %.059, %8 ]
   %.058.be = phi i32 [ %80, %79 ], [ %.058, %77 ], [ %.058, %70 ], [ %.058, %61 ], [ %.058, %52 ], [ %.058, %43 ], [ %.058, %35 ], [ %.058, %26 ], [ %.058, %17 ], [ %.058, %8 ]
-  br label %4, !llvm.loop !456
+  br label %4, !llvm.loop !457
 
 77:                                               ; preds = %4
   %78 = xor i32 %.059, 1
@@ -76271,7 +76274,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr nocapture noundef %0
   %.be369 = phi i32 [ %29, %76 ], [ %29, %66 ], [ %29, %56 ], [ %29, %46 ], [ %29, %36 ], [ %29, %91 ], [ %29, %89 ], [ %88, %87 ], [ %29, %85 ], [ %29, %83 ]
   %.be370 = phi i32 [ %30, %76 ], [ %30, %66 ], [ %30, %56 ], [ %30, %46 ], [ %30, %36 ], [ %30, %91 ], [ %90, %89 ], [ %30, %87 ], [ %30, %85 ], [ %30, %83 ]
   %.be371 = phi i32 [ %31, %76 ], [ %31, %66 ], [ %31, %56 ], [ %31, %46 ], [ %31, %36 ], [ %92, %91 ], [ %31, %89 ], [ %31, %87 ], [ %31, %85 ], [ %31, %83 ]
-  br label %18, !llvm.loop !457
+  br label %18, !llvm.loop !458
 
 83:                                               ; preds = %18
   %84 = xor i32 %27, 1
@@ -76614,7 +76617,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %
   %.be345 = phi i32 [ %29, %76 ], [ %29, %66 ], [ %29, %56 ], [ %29, %46 ], [ %29, %36 ], [ %29, %89 ], [ %29, %87 ], [ %86, %85 ], [ %29, %83 ]
   %.be346 = phi i32 [ %30, %76 ], [ %30, %66 ], [ %30, %56 ], [ %30, %46 ], [ %30, %36 ], [ %30, %89 ], [ %88, %87 ], [ %30, %85 ], [ %30, %83 ]
   %.be347 = phi i32 [ %31, %76 ], [ %31, %66 ], [ %31, %56 ], [ %31, %46 ], [ %31, %36 ], [ %90, %89 ], [ %31, %87 ], [ %31, %85 ], [ %31, %83 ]
-  br label %19, !llvm.loop !458
+  br label %19, !llvm.loop !459
 
 83:                                               ; preds = %19
   %84 = xor i32 %28, 1
@@ -76841,7 +76844,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !459
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !460
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -76856,15 +76859,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer97, !llvm.loop !459
+  br i1 %24, label %.loopexit, label %.outer97, !llvm.loop !460
 
 25:                                               ; preds = %5
   %26 = xor i32 %.023.ph102, 1
-  br label %.outer101, !llvm.loop !459
+  br label %.outer101, !llvm.loop !460
 
 27:                                               ; preds = %5
   %28 = xor i32 %.022, 1
-  br label %5, !llvm.loop !459
+  br label %5, !llvm.loop !460
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds i8, ptr %0, i64 288
@@ -77029,7 +77032,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !460
+  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !461
 
 24:                                               ; preds = %12
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -77044,7 +77047,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer175, !llvm.loop !460
+  br i1 %32, label %.loopexit, label %.outer175, !llvm.loop !461
 
 33:                                               ; preds = %12
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -77059,7 +77062,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer180, !llvm.loop !460
+  br i1 %41, label %.loopexit, label %.outer180, !llvm.loop !461
 
 42:                                               ; preds = %12
   %43 = load i32, ptr @globalUtilOptind, align 4
@@ -77072,11 +77075,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
   %47 = load ptr, ptr %46, align 8
   %48 = add nsw i32 %43, 1
   store i32 %48, ptr @globalUtilOptind, align 4
-  br label %.outer184, !llvm.loop !460
+  br label %.outer184, !llvm.loop !461
 
 49:                                               ; preds = %12
   %50 = xor i32 %13, 1
-  br label %12, !llvm.loop !460
+  br label %12, !llvm.loop !461
 
 51:                                               ; preds = %12
   store i32 %13, ptr %10, align 8
@@ -77241,7 +77244,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICheck(ptr nocapture noundef
   %.045.be = phi i32 [ %.045, %34 ], [ %.045, %32 ], [ %31, %30 ], [ %.045, %28 ], [ %.045, %26 ], [ %.045, %24 ], [ %.045, %17 ], [ %.045, %8 ]
   %.043.be = phi i32 [ %.043, %34 ], [ %33, %32 ], [ %.043, %30 ], [ %.043, %28 ], [ %.043, %26 ], [ %.043, %24 ], [ %.043, %17 ], [ %.043, %8 ]
   %.0.be = phi i32 [ %35, %34 ], [ %.0, %32 ], [ %.0, %30 ], [ %.0, %28 ], [ %.0, %26 ], [ %.0, %24 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !461
+  br label %4, !llvm.loop !462
 
 24:                                               ; preds = %4
   %25 = xor i32 %.051, 1
@@ -77396,11 +77399,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatTest(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.011.ph, 1
-  br label %.outer, !llvm.loop !462
+  br label %.outer, !llvm.loop !463
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !462
+  br label %4, !llvm.loop !463
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -77501,7 +77504,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr nocapture noundef
 .backedge:                                        ; preds = %25, %51, %42, %33, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %74, %67, %60
   %.0129.be = phi ptr [ %.0129, %106 ], [ %.0129, %103 ], [ %.0129, %100 ], [ %.0129, %97 ], [ %.0129, %94 ], [ %.0129, %91 ], [ %.0129, %88 ], [ %.0129, %85 ], [ %.0129, %82 ], [ %.0129, %79 ], [ %.0129, %74 ], [ %70, %67 ], [ %.0129, %60 ], [ %.0129, %51 ], [ %.0129, %42 ], [ %.0129, %33 ], [ %.0129, %25 ]
   %.0128.be = phi ptr [ %.0128, %106 ], [ %.0128, %103 ], [ %.0128, %100 ], [ %.0128, %97 ], [ %.0128, %94 ], [ %.0128, %91 ], [ %.0128, %88 ], [ %.0128, %85 ], [ %.0128, %82 ], [ %.0128, %79 ], [ %77, %74 ], [ %.0128, %67 ], [ %.0128, %60 ], [ %.0128, %51 ], [ %.0128, %42 ], [ %.0128, %33 ], [ %.0128, %25 ]
-  br label %21, !llvm.loop !463
+  br label %21, !llvm.loop !464
 
 31:                                               ; preds = %21
   %32 = load i32, ptr @globalUtilOptind, align 4
@@ -78102,7 +78105,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Qbf(ptr nocapture noundef re
   %.053.be = phi i32 [ %.053, %57 ], [ %.053, %55 ], [ %54, %53 ], [ %.053, %51 ], [ %.053, %44 ], [ %.053, %35 ], [ %.053, %26 ], [ %.053, %17 ], [ %.053, %8 ]
   %.051.be = phi i32 [ %.051, %57 ], [ %56, %55 ], [ %.051, %53 ], [ %.051, %51 ], [ %.051, %44 ], [ %.051, %35 ], [ %.051, %26 ], [ %.051, %17 ], [ %.051, %8 ]
   %.0.be = phi i32 [ %58, %57 ], [ %.0, %55 ], [ %.0, %53 ], [ %.0, %51 ], [ %.0, %44 ], [ %.0, %35 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !464
+  br label %4, !llvm.loop !465
 
 51:                                               ; preds = %4
   %52 = xor i32 %.055, 1
@@ -78277,19 +78280,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9QVar(ptr nocapture noundef %
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !465
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !466
 
 16:                                               ; preds = %4
   %17 = xor i32 %.026.ph88, 1
-  br label %.outer87, !llvm.loop !465
+  br label %.outer87, !llvm.loop !466
 
 18:                                               ; preds = %4
   %19 = xor i32 %.024.ph92, 1
-  br label %.outer91, !llvm.loop !465
+  br label %.outer91, !llvm.loop !466
 
 20:                                               ; preds = %4
   %21 = xor i32 %.0, 1
-  br label %4, !llvm.loop !465
+  br label %4, !llvm.loop !466
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %0, i64 288
@@ -78424,7 +78427,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !466
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !467
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -78443,7 +78446,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr nocapture noundef
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer236, !llvm.loop !466
+  br i1 %25, label %.loopexit, label %.outer236, !llvm.loop !467
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -78462,7 +78465,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr nocapture noundef
   %34 = add nsw i32 %27, 1
   store i32 %34, ptr @globalUtilOptind, align 4
   %35 = icmp slt i32 %33, 0
-  br i1 %35, label %.loopexit, label %.outer, !llvm.loop !466
+  br i1 %35, label %.loopexit, label %.outer, !llvm.loop !467
 
 36:                                               ; preds = %4
   %37 = load i32, ptr @globalUtilOptind, align 4
@@ -78493,15 +78496,15 @@ Abc_UtilStrsav.exit:                              ; preds = %39
   %48 = add nsw i32 %37, 1
   store i32 %48, ptr @globalUtilOptind, align 4
   %49 = icmp eq ptr %46, null
-  br i1 %49, label %.loopexit, label %.outer242, !llvm.loop !466
+  br i1 %49, label %.loopexit, label %.outer242, !llvm.loop !467
 
 50:                                               ; preds = %4
   %51 = xor i32 %.047.ph248, 1
-  br label %.outer247, !llvm.loop !466
+  br label %.outer247, !llvm.loop !467
 
 52:                                               ; preds = %4
   %53 = xor i32 %.045.ph252, 1
-  br label %.outer251, !llvm.loop !466
+  br label %.outer251, !llvm.loop !467
 
 54:                                               ; preds = %4
   %55 = getelementptr inbounds i8, ptr %0, i64 288
@@ -78614,7 +78617,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr nocapture nounde
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %4, !llvm.loop !467
+  br i1 %14, label %.loopexit, label %4, !llvm.loop !468
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -78629,11 +78632,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr nocapture nounde
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !467
+  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !468
 
 24:                                               ; preds = %4
   %25 = xor i32 %.018.ph71, 1
-  br label %.outer70, !llvm.loop !467
+  br label %.outer70, !llvm.loop !468
 
 26:                                               ; preds = %4
   %27 = tail call ptr @Gia_Gen2CreateMiter(i32 noundef %.017, i32 noundef %.020.ph) #28
@@ -78710,7 +78713,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !468
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !469
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -78725,15 +78728,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr nocapture noundef 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer94, !llvm.loop !468
+  br i1 %23, label %.loopexit, label %.outer94, !llvm.loop !469
 
 24:                                               ; preds = %4
   %25 = xor i32 %.021.ph99, 1
-  br label %.outer98, !llvm.loop !468
+  br label %.outer98, !llvm.loop !469
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !468
+  br label %4, !llvm.loop !469
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -78830,7 +78833,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatClp(ptr nocapture noundef
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %4, !llvm.loop !469
+  br i1 %14, label %.loopexit, label %4, !llvm.loop !470
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -78845,15 +78848,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatClp(ptr nocapture noundef
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !469
+  br i1 %23, label %.loopexit, label %.outer, !llvm.loop !470
 
 24:                                               ; preds = %4
   %25 = xor i32 %.026.ph96, 1
-  br label %.outer95, !llvm.loop !469
+  br label %.outer95, !llvm.loop !470
 
 26:                                               ; preds = %4
   %27 = xor i32 %.024.ph100, 1
-  br label %.outer99, !llvm.loop !469
+  br label %.outer99, !llvm.loop !470
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %0, i64 288
@@ -78964,7 +78967,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Inse(ptr nocapture noundef r
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !470
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !471
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -78979,7 +78982,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Inse(ptr nocapture noundef r
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer136, !llvm.loop !470
+  br i1 %23, label %.loopexit, label %.outer136, !llvm.loop !471
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -78994,15 +78997,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Inse(ptr nocapture noundef r
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer141, !llvm.loop !470
+  br i1 %32, label %.loopexit, label %.outer141, !llvm.loop !471
 
 33:                                               ; preds = %4
   %34 = xor i32 %.030.ph146, 1
-  br label %.outer145, !llvm.loop !470
+  br label %.outer145, !llvm.loop !471
 
 35:                                               ; preds = %4
   %36 = xor i32 %.0, 1
-  br label %4, !llvm.loop !470
+  br label %4, !llvm.loop !471
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 288
@@ -79151,7 +79154,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr nocapture noundef r
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !471
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !472
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -79166,7 +79169,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr nocapture noundef r
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer135, !llvm.loop !471
+  br i1 %23, label %.loopexit, label %.outer135, !llvm.loop !472
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -79181,15 +79184,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr nocapture noundef r
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer140, !llvm.loop !471
+  br i1 %32, label %.loopexit, label %.outer140, !llvm.loop !472
 
 33:                                               ; preds = %4
   %34 = xor i32 %.029.ph145, 1
-  br label %.outer144, !llvm.loop !471
+  br label %.outer144, !llvm.loop !472
 
 35:                                               ; preds = %4
   %36 = xor i32 %.0, 1
-  br label %4, !llvm.loop !471
+  br label %4, !llvm.loop !472
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 288
@@ -79319,7 +79322,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr nocapture noundef r
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !472
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !473
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -79334,7 +79337,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr nocapture noundef r
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer135, !llvm.loop !472
+  br i1 %23, label %.loopexit, label %.outer135, !llvm.loop !473
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -79349,15 +79352,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr nocapture noundef r
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer140, !llvm.loop !472
+  br i1 %32, label %.loopexit, label %.outer140, !llvm.loop !473
 
 33:                                               ; preds = %4
   %34 = xor i32 %.029.ph145, 1
-  br label %.outer144, !llvm.loop !472
+  br label %.outer144, !llvm.loop !473
 
 35:                                               ; preds = %4
   %36 = xor i32 %.0, 1
-  br label %4, !llvm.loop !472
+  br label %4, !llvm.loop !473
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 288
@@ -79457,11 +79460,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoXsim(ptr nocapture noundef
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !473
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !474
 
 16:                                               ; preds = %4
   %17 = xor i32 %.0, 1
-  br label %4, !llvm.loop !473
+  br label %4, !llvm.loop !474
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -79581,7 +79584,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr nocapture nounde
   %.1 = phi i32 [ %19, %18 ], [ %.068, %16 ], [ %.068, %14 ], [ %.068, %12 ]
   %21 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4403) #28
   %.not = icmp eq i32 %21, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !474
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !475
 
 ._crit_edge:                                      ; preds = %20
   %22 = icmp ne i32 %.138, 0
@@ -79865,7 +79868,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fadds(ptr nocapture noundef 
   %.061.be = phi i32 [ %.061, %61 ], [ %.061, %59 ], [ %.061, %57 ], [ %56, %55 ], [ %.061, %53 ], [ %.061, %51 ], [ %.061, %44 ], [ %.061, %35 ], [ %.061, %26 ], [ %.061, %17 ], [ %.061, %8 ]
   %.059.be = phi i32 [ %.059, %61 ], [ %.059, %59 ], [ %58, %57 ], [ %.059, %55 ], [ %.059, %53 ], [ %.059, %51 ], [ %.059, %44 ], [ %.059, %35 ], [ %.059, %26 ], [ %.059, %17 ], [ %.059, %8 ]
   %.0.be = phi i32 [ %.0, %61 ], [ %60, %59 ], [ %.0, %57 ], [ %.0, %55 ], [ %.0, %53 ], [ %.0, %51 ], [ %.0, %44 ], [ %.0, %35 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !475
+  br label %4, !llvm.loop !476
 
 51:                                               ; preds = %4
   %52 = xor i32 %.078, 1
@@ -80015,19 +80018,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ATree(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.022.ph, 1
-  br label %.outer, !llvm.loop !476
+  br label %.outer, !llvm.loop !477
 
 8:                                                ; preds = %4
   %9 = xor i32 %.020.ph48, 1
-  br label %.outer47, !llvm.loop !476
+  br label %.outer47, !llvm.loop !477
 
 10:                                               ; preds = %4
   %11 = xor i32 %.018.ph52, 1
-  br label %.outer51, !llvm.loop !476
+  br label %.outer51, !llvm.loop !477
 
 12:                                               ; preds = %4
   %13 = xor i32 %.0, 1
-  br label %4, !llvm.loop !476
+  br label %4, !llvm.loop !477
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80144,7 +80147,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Polyn(ptr nocapture noundef 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer164, !llvm.loop !477
+  br i1 %14, label %.loopexit, label %.outer164, !llvm.loop !478
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -80157,27 +80160,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Polyn(ptr nocapture noundef 
   %20 = load ptr, ptr %19, align 8
   %21 = add nsw i32 %16, 1
   store i32 %21, ptr @globalUtilOptind, align 4
-  br label %.outer, !llvm.loop !477
+  br label %.outer, !llvm.loop !478
 
 22:                                               ; preds = %4
   %23 = xor i32 %.043.ph172, 1
-  br label %.outer171, !llvm.loop !477
+  br label %.outer171, !llvm.loop !478
 
 24:                                               ; preds = %4
   %25 = xor i32 %.041.ph178, 1
-  br label %.outer177, !llvm.loop !477
+  br label %.outer177, !llvm.loop !478
 
 26:                                               ; preds = %4
   %27 = xor i32 %.039.ph183, 1
-  br label %.outer182, !llvm.loop !477
+  br label %.outer182, !llvm.loop !478
 
 28:                                               ; preds = %4
   %29 = xor i32 %.037.ph187, 1
-  br label %.outer186, !llvm.loop !477
+  br label %.outer186, !llvm.loop !478
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !477
+  br label %4, !llvm.loop !478
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80367,7 +80370,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %27, %18
-  br label %14, !llvm.loop !478
+  br label %14, !llvm.loop !479
 
 40:                                               ; preds = %14
   %41 = load i32, ptr %12, align 4
@@ -80552,7 +80555,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 
 127:                                              ; preds = %124, %126
   %128 = getelementptr inbounds i8, ptr %.0101, i64 1
-  br label %124, !llvm.loop !479
+  br label %124, !llvm.loop !480
 
 129:                                              ; preds = %124
   %130 = call noalias ptr @fopen(ptr noundef %123, ptr noundef nonnull @.str.1494)
@@ -80611,7 +80614,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   br label %154
 
 153:                                              ; preds = %170
-  br i1 %155, label %154, label %175, !llvm.loop !480
+  br i1 %155, label %154, label %175, !llvm.loop !481
 
 154:                                              ; preds = %151, %153
   %155 = phi i1 [ true, %151 ], [ false, %153 ]
@@ -80635,7 +80638,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 
 160:                                              ; preds = %157, %159
   %161 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %157, !llvm.loop !481
+  br label %157, !llvm.loop !482
 
 162:                                              ; preds = %157
   %163 = call noalias ptr @fopen(ptr noundef %156, ptr noundef nonnull @.str.1494)
@@ -80748,11 +80751,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Anorm(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !482
+  br label %.outer, !llvm.loop !483
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !482
+  br label %4, !llvm.loop !483
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80807,11 +80810,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Decla(ptr nocapture noundef 
 
 6:                                                ; preds = %4
   %7 = xor i32 %.013.ph, 1
-  br label %.outer, !llvm.loop !483
+  br label %.outer, !llvm.loop !484
 
 8:                                                ; preds = %4
   %9 = xor i32 %.0, 1
-  br label %4, !llvm.loop !483
+  br label %4, !llvm.loop !484
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80860,7 +80863,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Esop(ptr nocapture noundef %
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !484
+  br label %4, !llvm.loop !485
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80949,7 +80952,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !485
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !486
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -80964,7 +80967,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer173, !llvm.loop !485
+  br i1 %24, label %.loopexit, label %.outer173, !llvm.loop !486
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -80979,15 +80982,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %.outer178, !llvm.loop !485
+  br i1 %33, label %.loopexit, label %.outer178, !llvm.loop !486
 
 34:                                               ; preds = %5
   %35 = xor i32 %.046.ph183, 1
-  br label %.outer182, !llvm.loop !485
+  br label %.outer182, !llvm.loop !486
 
 36:                                               ; preds = %5
   %37 = xor i32 %.045, 1
-  br label %5, !llvm.loop !485
+  br label %5, !llvm.loop !486
 
 38:                                               ; preds = %5
   %39 = load i32, ptr @globalUtilOptind, align 4
@@ -81293,7 +81296,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr nocapture noundef %0
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %58, %75, %66, %49, %40, %31, %22
-  br label %18, !llvm.loop !486
+  br label %18, !llvm.loop !487
 
 90:                                               ; preds = %18
   %91 = getelementptr inbounds i8, ptr %0, i64 288
@@ -81608,7 +81611,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr nocapture noundef %
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %85, %76, %67, %58, %49, %40, %31, %22
-  br label %18, !llvm.loop !487
+  br label %18, !llvm.loop !488
 
 99:                                               ; preds = %18
   %100 = getelementptr inbounds i8, ptr %0, i64 288
@@ -81780,7 +81783,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !488
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !489
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -81795,7 +81798,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer227, !llvm.loop !488
+  br i1 %23, label %.loopexit, label %.outer227, !llvm.loop !489
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -81810,7 +81813,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer234, !llvm.loop !488
+  br i1 %32, label %.loopexit, label %.outer234, !llvm.loop !489
 
 33:                                               ; preds = %4
   %34 = load i32, ptr @globalUtilOptind, align 4
@@ -81825,7 +81828,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr @globalUtilOptind, align 4
   %41 = icmp slt i32 %39, 0
-  br i1 %41, label %.loopexit, label %.outer240, !llvm.loop !488
+  br i1 %41, label %.loopexit, label %.outer240, !llvm.loop !489
 
 42:                                               ; preds = %4
   %43 = load i32, ptr @globalUtilOptind, align 4
@@ -81840,15 +81843,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
   %49 = add nsw i32 %43, 1
   store i32 %49, ptr @globalUtilOptind, align 4
   %50 = icmp slt i32 %48, 0
-  br i1 %50, label %.loopexit, label %.outer245, !llvm.loop !488
+  br i1 %50, label %.loopexit, label %.outer245, !llvm.loop !489
 
 51:                                               ; preds = %4
   %52 = xor i32 %.038.ph250, 1
-  br label %.outer249, !llvm.loop !488
+  br label %.outer249, !llvm.loop !489
 
 53:                                               ; preds = %4
   %54 = xor i32 %.0, 1
-  br label %4, !llvm.loop !488
+  br label %4, !llvm.loop !489
 
 55:                                               ; preds = %4
   %56 = getelementptr inbounds i8, ptr %0, i64 288
@@ -81963,7 +81966,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr nocapture noundef
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !489
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !490
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -81978,7 +81981,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr nocapture noundef
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer157, !llvm.loop !489
+  br i1 %23, label %.loopexit, label %.outer157, !llvm.loop !490
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -81993,19 +81996,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr nocapture noundef
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer163, !llvm.loop !489
+  br i1 %32, label %.loopexit, label %.outer163, !llvm.loop !490
 
 33:                                               ; preds = %4
   %34 = xor i32 %.033.ph169, 1
-  br label %.outer168, !llvm.loop !489
+  br label %.outer168, !llvm.loop !490
 
 35:                                               ; preds = %4
   %36 = xor i32 %.031.ph173, 1
-  br label %.outer172, !llvm.loop !489
+  br label %.outer172, !llvm.loop !490
 
 37:                                               ; preds = %4
   %38 = xor i32 %.0, 1
-  br label %4, !llvm.loop !489
+  br label %4, !llvm.loop !490
 
 39:                                               ; preds = %4
   %40 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82123,7 +82126,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !490
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !491
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -82142,7 +82145,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer226, !llvm.loop !490
+  br i1 %25, label %.loopexit, label %.outer226, !llvm.loop !491
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @globalUtilOptind, align 4
@@ -82161,7 +82164,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
   %34 = add nsw i32 %27, 1
   store i32 %34, ptr @globalUtilOptind, align 4
   %35 = icmp slt i32 %33, 0
-  br i1 %35, label %.loopexit, label %.outer232, !llvm.loop !490
+  br i1 %35, label %.loopexit, label %.outer232, !llvm.loop !491
 
 36:                                               ; preds = %4
   %37 = load i32, ptr @globalUtilOptind, align 4
@@ -82180,7 +82183,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
   %44 = add nsw i32 %37, 1
   store i32 %44, ptr @globalUtilOptind, align 4
   %45 = icmp slt i32 %43, 0
-  br i1 %45, label %.loopexit, label %.outer237, !llvm.loop !490
+  br i1 %45, label %.loopexit, label %.outer237, !llvm.loop !491
 
 46:                                               ; preds = %4
   %47 = load i32, ptr @globalUtilOptind, align 4
@@ -82199,11 +82202,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
   %54 = add nsw i32 %47, 1
   store i32 %54, ptr @globalUtilOptind, align 4
   %55 = icmp slt i32 %53, 0
-  br i1 %55, label %.loopexit, label %.outer241, !llvm.loop !490
+  br i1 %55, label %.loopexit, label %.outer241, !llvm.loop !491
 
 56:                                               ; preds = %4
   %57 = xor i32 %.0, 1
-  br label %4, !llvm.loop !490
+  br label %4, !llvm.loop !491
 
 58:                                               ; preds = %4
   %59 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82289,7 +82292,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsCreate(ptr nocapture noun
 
 6:                                                ; preds = %4
   %7 = xor i32 %.017, 1
-  br label %4, !llvm.loop !491
+  br label %4, !llvm.loop !492
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82373,7 +82376,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
   store i32 1, ptr %44, align 4
   %45 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.4542) #28
   %.not23 = icmp eq ptr %45, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !492
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !493
 
 46:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4543)
@@ -82404,7 +82407,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsDerive(ptr nocapture noun
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !493
+  br label %4, !llvm.loop !494
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82506,19 +82509,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr nocapture noun
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !494
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !495
 
 16:                                               ; preds = %4
   %17 = xor i32 %.027.ph87, 1
-  br label %.outer86, !llvm.loop !494
+  br label %.outer86, !llvm.loop !495
 
 18:                                               ; preds = %4
   %19 = xor i32 %.025.ph91, 1
-  br label %.outer90, !llvm.loop !494
+  br label %.outer90, !llvm.loop !495
 
 20:                                               ; preds = %4
   %21 = xor i32 %.0, 1
-  br label %4, !llvm.loop !494
+  br label %4, !llvm.loop !495
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82657,7 +82660,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaDerive(ptr nocapture noun
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !495
+  br label %4, !llvm.loop !496
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82747,7 +82750,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
     i32 71, label %15
     i32 109, label %4
     i32 118, label %24
-  ], !llvm.loop !496
+  ], !llvm.loop !497
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @globalUtilOptind, align 4
@@ -82762,7 +82765,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !496
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !497
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -82777,11 +82780,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noun
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer82, !llvm.loop !496
+  br i1 %23, label %.loopexit, label %.outer82, !llvm.loop !497
 
 24:                                               ; preds = %4
   %25 = xor i32 %.0.ph86, 1
-  br label %.outer85, !llvm.loop !496
+  br label %.outer85, !llvm.loop !497
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %0, i64 288
@@ -82972,7 +82975,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr nocapture noun
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer147, !llvm.loop !497
+  br i1 %14, label %.loopexit, label %.outer147, !llvm.loop !498
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -82987,23 +82990,23 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr nocapture noun
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer151, !llvm.loop !497
+  br i1 %23, label %.loopexit, label %.outer151, !llvm.loop !498
 
 24:                                               ; preds = %4
   %25 = xor i32 %.038.ph, 1
-  br label %.outer, !llvm.loop !497
+  br label %.outer, !llvm.loop !498
 
 26:                                               ; preds = %4
   %27 = xor i32 %.036.ph137, 1
-  br label %.outer136, !llvm.loop !497
+  br label %.outer136, !llvm.loop !498
 
 28:                                               ; preds = %4
   %29 = xor i32 %.034.ph143, 1
-  br label %.outer142, !llvm.loop !497
+  br label %.outer142, !llvm.loop !498
 
 30:                                               ; preds = %4
   %31 = xor i32 %.0, 1
-  br label %4, !llvm.loop !497
+  br label %4, !llvm.loop !498
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds i8, ptr %0, i64 288
@@ -83310,7 +83313,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla(ptr nocapture noundef %0
 .backedge:                                        ; preds = %126, %117, %108, %99, %90, %81, %72, %63, %54, %45, %36, %188, %185, %182, %179, %176, %173, %170, %167, %165, %162, %159, %156, %153, %150, %147, %142, %135
   %.0148.be = phi ptr [ %.0148, %188 ], [ %.0148, %185 ], [ %.0148, %182 ], [ %.0148, %179 ], [ %.0148, %176 ], [ %.0148, %173 ], [ %.0148, %170 ], [ %.0148, %167 ], [ %.0148, %165 ], [ %.0148, %162 ], [ %.0148, %159 ], [ %.0148, %156 ], [ %.0148, %153 ], [ %.0148, %150 ], [ %.0148, %147 ], [ %145, %142 ], [ %.0148, %135 ], [ %.0148, %126 ], [ %.0148, %117 ], [ %.0148, %108 ], [ %.0148, %99 ], [ %.0148, %90 ], [ %.0148, %81 ], [ %.0148, %72 ], [ %.0148, %63 ], [ %.0148, %54 ], [ %.0148, %45 ], [ %.0148, %36 ]
   %.0147.be = phi i32 [ %.0147, %188 ], [ %.0147, %185 ], [ %.0147, %182 ], [ %.0147, %179 ], [ %.0147, %176 ], [ %.0147, %173 ], [ %.0147, %170 ], [ %.0147, %167 ], [ %166, %165 ], [ %.0147, %162 ], [ %.0147, %159 ], [ %.0147, %156 ], [ %.0147, %153 ], [ %.0147, %150 ], [ %.0147, %147 ], [ %.0147, %142 ], [ %.0147, %135 ], [ %.0147, %126 ], [ %.0147, %117 ], [ %.0147, %108 ], [ %.0147, %99 ], [ %.0147, %90 ], [ %.0147, %81 ], [ %.0147, %72 ], [ %.0147, %63 ], [ %.0147, %54 ], [ %.0147, %45 ], [ %.0147, %36 ]
-  br label %32, !llvm.loop !498
+  br label %32, !llvm.loop !499
 
 133:                                              ; preds = %32
   %134 = load i32, ptr @globalUtilOptind, align 4
@@ -83658,7 +83661,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %300 = sub nsw i32 %.val204.val, %.val203
   %301 = sext i32 %300 to i64
   %302 = icmp slt i64 %indvars.iv.next, %301
-  br i1 %302, label %241, label %.critedge, !llvm.loop !499
+  br i1 %302, label %241, label %.critedge, !llvm.loop !500
 
 .critedge:                                        ; preds = %241, %295, %227
   call void @Abc_FrameReplaceCexVec(ptr noundef nonnull %0, ptr noundef nonnull %5)
@@ -83951,7 +83954,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr nocapture noundef %0
   br i1 %101, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %95, %86, %77, %68, %59, %50, %41, %32, %23, %121, %118, %115, %112, %109, %104
-  br label %19, !llvm.loop !500
+  br label %19, !llvm.loop !501
 
 102:                                              ; preds = %19
   %103 = load i32, ptr @globalUtilOptind, align 4
@@ -84133,7 +84136,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta2Gla(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !501
+  br label %4, !llvm.loop !502
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -84269,11 +84272,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Vta(ptr nocapture nounde
   %16 = add nsw i32 %9, 1
   store i32 %16, ptr @globalUtilOptind, align 4
   %17 = icmp slt i32 %15, 0
-  br i1 %17, label %.loopexit, label %6, !llvm.loop !502
+  br i1 %17, label %.loopexit, label %6, !llvm.loop !503
 
 18:                                               ; preds = %6
   %19 = xor i32 %.020.ph, 1
-  br label %.outer, !llvm.loop !502
+  br label %.outer, !llvm.loop !503
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 288
@@ -84397,7 +84400,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fla2Gla(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !503
+  br label %4, !llvm.loop !504
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -84510,7 +84513,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Fla(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !504
+  br label %4, !llvm.loop !505
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -84762,7 +84765,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr nocapture noundef %0
   %.049.be = phi i32 [ %.049, %71 ], [ %.049, %69 ], [ %66, %62 ], [ %.049, %53 ], [ %.049, %44 ], [ %.049, %35 ], [ %.049, %26 ], [ %.049, %17 ], [ %.049, %8 ]
   %.047.be = phi i32 [ %.047, %71 ], [ %70, %69 ], [ %.047, %62 ], [ %.047, %53 ], [ %.047, %44 ], [ %.047, %35 ], [ %.047, %26 ], [ %.047, %17 ], [ %.047, %8 ]
   %.0.be = phi i32 [ %72, %71 ], [ %.0, %69 ], [ %.0, %62 ], [ %.0, %53 ], [ %.0, %44 ], [ %.0, %35 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !505
+  br label %4, !llvm.loop !506
 
 69:                                               ; preds = %4
   %70 = xor i32 %.047, 1
@@ -84928,7 +84931,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr nocapture noundef re
   %.045.be = phi i32 [ %.045, %58 ], [ %57, %56 ], [ %.045, %54 ], [ %.045, %52 ], [ %.045, %44 ], [ %.045, %35 ], [ %.045, %26 ], [ %.045, %17 ], [ %.045, %8 ]
   %.043.be = phi float [ %.043, %58 ], [ %.043, %56 ], [ %.043, %54 ], [ %.043, %52 ], [ %49, %44 ], [ %.043, %35 ], [ %.043, %26 ], [ %.043, %17 ], [ %.043, %8 ]
   %.0.be = phi i32 [ %59, %58 ], [ %.0, %56 ], [ %.0, %54 ], [ %.0, %52 ], [ %.0, %44 ], [ %.0, %35 ], [ %.0, %26 ], [ %.0, %17 ], [ %.0, %8 ]
-  br label %4, !llvm.loop !506
+  br label %4, !llvm.loop !507
 
 52:                                               ; preds = %4
   %53 = xor i32 %.049, 1
@@ -85065,7 +85068,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr nocapture readno
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !507
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !508
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -85080,7 +85083,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr nocapture readno
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer151, !llvm.loop !507
+  br i1 %23, label %.loopexit, label %.outer151, !llvm.loop !508
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -85095,19 +85098,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr nocapture readno
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer157, !llvm.loop !507
+  br i1 %32, label %.loopexit, label %.outer157, !llvm.loop !508
 
 33:                                               ; preds = %4
   %34 = xor i32 %.029.ph163, 1
-  br label %.outer162, !llvm.loop !507
+  br label %.outer162, !llvm.loop !508
 
 35:                                               ; preds = %4
   %36 = xor i32 %.027.ph167, 1
-  br label %.outer166, !llvm.loop !507
+  br label %.outer166, !llvm.loop !508
 
 37:                                               ; preds = %4
   %38 = xor i32 %.0, 1
-  br label %4, !llvm.loop !507
+  br label %4, !llvm.loop !508
 
 39:                                               ; preds = %4
   tail call void @Gia_ManProdAdderGen(i32 noundef %.036.ph, i32 noundef %.033.ph152, i32 noundef %.031.ph158, i32 noundef %.029.ph163, i32 noundef %.027.ph167) #28
@@ -85159,7 +85162,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AddFlop(ptr nocapture nounde
 
 6:                                                ; preds = %4
   %7 = xor i32 %.0, 1
-  br label %4, !llvm.loop !508
+  br label %4, !llvm.loop !509
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 288
@@ -85219,11 +85222,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BMiter(ptr nocapture noundef
 9:                                                ; preds = %6
   %10 = add nsw i32 %7, 1
   store i32 %10, ptr @globalUtilOptind, align 4
-  br label %4, !llvm.loop !509
+  br label %4, !llvm.loop !510
 
 11:                                               ; preds = %4
   %12 = xor i32 %.0.ph, 1
-  br label %.outer, !llvm.loop !509
+  br label %.outer, !llvm.loop !510
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 288
@@ -85334,11 +85337,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenHie(ptr nocapture readnon
   %11 = sext i32 %7 to i64
   %12 = getelementptr inbounds ptr, ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8
-  br label %4, !llvm.loop !510
+  br label %4, !llvm.loop !511
 
 14:                                               ; preds = %4
   %15 = xor i32 %.014.ph, 1
-  br label %.outer, !llvm.loop !510
+  br label %.outer, !llvm.loop !511
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -85394,7 +85397,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr nocapture nound
 
 9:                                                ; preds = %7
   %10 = xor i32 %.076, 1
-  br label %7, !llvm.loop !511
+  br label %7, !llvm.loop !512
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 288
@@ -85639,11 +85642,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr nocapture noundef
 
 9:                                                ; preds = %7
   %10 = xor i32 %.040.ph, 1
-  br label %.outer, !llvm.loop !512
+  br label %.outer, !llvm.loop !513
 
 11:                                               ; preds = %7
   %12 = xor i32 %.039, 1
-  br label %7, !llvm.loop !512
+  br label %7, !llvm.loop !513
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 288
@@ -85814,7 +85817,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr nocapture noundef %
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer119, !llvm.loop !513
+  br i1 %14, label %.loopexit, label %.outer119, !llvm.loop !514
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -85829,7 +85832,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr nocapture noundef %
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %4, !llvm.loop !513
+  br i1 %23, label %.loopexit, label %4, !llvm.loop !514
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -85844,15 +85847,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr nocapture noundef %
   %31 = add nsw i32 %25, 1
   store i32 %31, ptr @globalUtilOptind, align 4
   %32 = icmp slt i32 %30, 0
-  br i1 %32, label %.loopexit, label %.outer112, !llvm.loop !513
+  br i1 %32, label %.loopexit, label %.outer112, !llvm.loop !514
 
 33:                                               ; preds = %4
   %34 = xor i32 %.027.ph117, 1
-  br label %.outer116, !llvm.loop !513
+  br label %.outer116, !llvm.loop !514
 
 35:                                               ; preds = %4
   %36 = xor i32 %.032.ph, 1
-  br label %.outer, !llvm.loop !513
+  br label %.outer, !llvm.loop !514
 
 37:                                               ; preds = %4
   %38 = getelementptr inbounds i8, ptr %0, i64 288
@@ -86008,7 +86011,7 @@ define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, pt
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %4, !llvm.loop !514
+  br i1 %15, label %.loopexit, label %4, !llvm.loop !515
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -86027,11 +86030,11 @@ define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, pt
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer, !llvm.loop !514
+  br i1 %25, label %.loopexit, label %.outer, !llvm.loop !515
 
 26:                                               ; preds = %4
   %27 = xor i32 %.040.ph116, 1
-  br label %.outer115, !llvm.loop !514
+  br label %.outer115, !llvm.loop !515
 
 28:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -86222,7 +86225,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr nocapture noundef %0, i32
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !515
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !516
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -86237,7 +86240,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr nocapture noundef %0, i32
   %23 = add nsw i32 %17, 1
   store i32 %23, ptr @globalUtilOptind, align 4
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.loopexit, label %.outer181, !llvm.loop !515
+  br i1 %24, label %.loopexit, label %.outer181, !llvm.loop !516
 
 25:                                               ; preds = %5
   %26 = load i32, ptr @globalUtilOptind, align 4
@@ -86252,7 +86255,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr nocapture noundef %0, i32
   %32 = add nsw i32 %26, 1
   store i32 %32, ptr @globalUtilOptind, align 4
   %33 = icmp slt i32 %31, 0
-  br i1 %33, label %.loopexit, label %.outer187, !llvm.loop !515
+  br i1 %33, label %.loopexit, label %.outer187, !llvm.loop !516
 
 34:                                               ; preds = %5
   %35 = load i32, ptr @globalUtilOptind, align 4
@@ -86267,15 +86270,15 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr nocapture noundef %0, i32
   %41 = add nsw i32 %35, 1
   store i32 %41, ptr @globalUtilOptind, align 4
   %42 = icmp slt i32 %40, 0
-  br i1 %42, label %.loopexit, label %.outer192, !llvm.loop !515
+  br i1 %42, label %.loopexit, label %.outer192, !llvm.loop !516
 
 43:                                               ; preds = %5
   %44 = xor i32 %.035.ph197, 1
-  br label %.outer196, !llvm.loop !515
+  br label %.outer196, !llvm.loop !516
 
 45:                                               ; preds = %5
   %46 = xor i32 %.0, 1
-  br label %5, !llvm.loop !515
+  br label %5, !llvm.loop !516
 
 47:                                               ; preds = %5
   %48 = getelementptr inbounds i8, ptr %0, i64 288
@@ -86443,7 +86446,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr nocapture noundef %0, i3
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4
   %15 = icmp slt i32 %13, 0
-  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !516
+  br i1 %15, label %.loopexit, label %.outer, !llvm.loop !517
 
 16:                                               ; preds = %4
   %17 = load i32, ptr @globalUtilOptind, align 4
@@ -86462,11 +86465,11 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr nocapture noundef %0, i3
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer101, !llvm.loop !516
+  br i1 %25, label %.loopexit, label %.outer101, !llvm.loop !517
 
 26:                                               ; preds = %4
   %27 = xor i32 %.0, 1
-  br label %4, !llvm.loop !516
+  br label %4, !llvm.loop !517
 
 28:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.514)
@@ -86602,7 +86605,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr @globalUtilOptind, align 4
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !517
+  br i1 %14, label %.loopexit, label %.outer, !llvm.loop !518
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @globalUtilOptind, align 4
@@ -86617,19 +86620,19 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 
   %22 = add nsw i32 %16, 1
   store i32 %22, ptr @globalUtilOptind, align 4
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.loopexit, label %.outer120, !llvm.loop !517
+  br i1 %23, label %.loopexit, label %.outer120, !llvm.loop !518
 
 24:                                               ; preds = %4
   %25 = xor i32 %.031.ph126, 1
-  br label %.outer125, !llvm.loop !517
+  br label %.outer125, !llvm.loop !518
 
 26:                                               ; preds = %4
   %27 = xor i32 %.029.ph130, 1
-  br label %.outer129, !llvm.loop !517
+  br label %.outer129, !llvm.loop !518
 
 28:                                               ; preds = %4
   %29 = xor i32 %.0, 1
-  br label %4, !llvm.loop !517
+  br label %4, !llvm.loop !518
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -88195,12 +88198,12 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   store i32 %spec.select, ptr %32, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count67
-  br i1 %exitcond68.not, label %..loopexit30_crit_edge.us.us, label %29, !llvm.loop !518
+  br i1 %exitcond68.not, label %..loopexit30_crit_edge.us.us, label %29, !llvm.loop !519
 
 ..loopexit30_crit_edge.us.us:                     ; preds = %29, %33
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph36.split.us.split.us, !llvm.loop !519
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph36.split.us.split.us, !llvm.loop !520
 
 33:                                               ; preds = %.preheader.us.us, %33
   %indvars.iv69 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next70, %33 ]
@@ -88208,7 +88211,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   store i32 %36, ptr %34, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count73
-  br i1 %exitcond74.not, label %..loopexit30_crit_edge.us.us, label %33, !llvm.loop !520
+  br i1 %exitcond74.not, label %..loopexit30_crit_edge.us.us, label %33, !llvm.loop !521
 
 .preheader.us.us:                                 ; preds = %.lr.ph36.split.us.split.us
   %35 = getelementptr inbounds [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv75
@@ -88289,12 +88292,12 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   store i32 %spec.select, ptr %30, align 4
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count65
-  br i1 %exitcond66.not, label %..loopexit28_crit_edge.us.us, label %27, !llvm.loop !521
+  br i1 %exitcond66.not, label %..loopexit28_crit_edge.us.us, label %27, !llvm.loop !522
 
 ..loopexit28_crit_edge.us.us:                     ; preds = %27, %31
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph34.split.us.split.us, !llvm.loop !522
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph34.split.us.split.us, !llvm.loop !523
 
 31:                                               ; preds = %.preheader.us.us, %31
   %indvars.iv67 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next68, %31 ]
@@ -88302,7 +88305,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   store i32 %34, ptr %32, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
-  br i1 %exitcond72.not, label %..loopexit28_crit_edge.us.us, label %31, !llvm.loop !523
+  br i1 %exitcond72.not, label %..loopexit28_crit_edge.us.us, label %31, !llvm.loop !524
 
 .preheader.us.us:                                 ; preds = %.lr.ph34.split.us.split.us
   %33 = getelementptr inbounds [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73
@@ -88442,13 +88445,13 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 43:                                               ; preds = %Vec_WrdPush.exit, %13
   %.134 = phi i32 [ 0, %Vec_WrdPush.exit ], [ %.033.ph2, %13 ]
   %.1 = phi i64 [ 0, %Vec_WrdPush.exit ], [ %.032.ph3, %13 ]
-  br i1 %11, label %44, label %.outer, !llvm.loop !524
+  br i1 %11, label %44, label %.outer, !llvm.loop !525
 
 44:                                               ; preds = %43
   %.val = load i32, ptr %8, align 4
   %45 = icmp sgt i32 %.val, 0
   %spec.select = select i1 %45, i32 %.val, i32 -1
-  br label %.outer.outer, !llvm.loop !524
+  br label %.outer.outer, !llvm.loop !525
 
 46:                                               ; preds = %.backedge
   %47 = trunc i32 %12 to i8
@@ -88492,7 +88495,7 @@ Vec_WrdReadHexOne.exit:                           ; preds = %50, %54, %56
 .outer1.backedge:                                 ; preds = %Vec_WrdReadHexOne.exit, %Vec_WrdPush.exit49
   %.033.ph2.be = phi i32 [ 0, %Vec_WrdPush.exit49 ], [ %64, %Vec_WrdReadHexOne.exit ]
   %.032.ph3.be = phi i64 [ 0, %Vec_WrdPush.exit49 ], [ %63, %Vec_WrdReadHexOne.exit ]
-  br label %.outer1, !llvm.loop !524
+  br label %.outer1, !llvm.loop !525
 
 66:                                               ; preds = %Vec_WrdReadHexOne.exit
   %67 = load i32, ptr %8, align 4
@@ -88686,7 +88689,7 @@ Vec_WrdGrow.exit:                                 ; preds = %Vec_WrdGrow.exit.si
   store i64 0, ptr %39, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !525
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !526
 
 ._crit_edge:                                      ; preds = %37, %Vec_WrdGrow.exit
   store i32 %1, ptr %3, align 4
@@ -88742,13 +88745,13 @@ define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr nocapture nound
   %23 = and i32 %22, 1
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.1365, i32 noundef %23) #28
   %25 = icmp ugt i32 %.0.in15.i.us, 1
-  br i1 %25, label %.lr.ph.i.us, label %Vec_WrdDumpBoolOne.exit.loopexit.us, !llvm.loop !526
+  br i1 %25, label %.lr.ph.i.us, label %Vec_WrdDumpBoolOne.exit.loopexit.us, !llvm.loop !527
 
 Vec_WrdDumpBoolOne.exit.loopexit.us:              ; preds = %.lr.ph.i.us
   %fputc.i.us = tail call i32 @fputc(i32 10, ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !527
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !528
 
 26:                                               ; preds = %4
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.710, ptr noundef %0)
@@ -88759,7 +88762,7 @@ Vec_WrdDumpBoolOne.exit:                          ; preds = %.lr.ph, %Vec_WrdDum
   %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %7)
   %28 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %28, %6
-  br i1 %exitcond.not, label %._crit_edge, label %Vec_WrdDumpBoolOne.exit, !llvm.loop !527
+  br i1 %exitcond.not, label %._crit_edge, label %Vec_WrdDumpBoolOne.exit, !llvm.loop !528
 
 ._crit_edge:                                      ; preds = %Vec_WrdDumpBoolOne.exit, %Vec_WrdDumpBoolOne.exit.loopexit.us, %.preheader
   %29 = tail call i32 @fclose(ptr noundef nonnull %7)
@@ -88831,13 +88834,13 @@ define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr nocapture nounde
 30:                                               ; preds = %28, %26
   %31 = add nuw nsw i32 %.014.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %31, %smax.i
-  br i1 %exitcond.not.i.us, label %Vec_WrdDumpHexOne.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !528
+  br i1 %exitcond.not.i.us, label %Vec_WrdDumpHexOne.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !529
 
 Vec_WrdDumpHexOne.exit.loopexit.us:               ; preds = %30
   %fputc.i.us = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !529
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !530
 
 32:                                               ; preds = %3
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.710, ptr noundef %0)
@@ -88848,7 +88851,7 @@ Vec_WrdDumpHexOne.exit:                           ; preds = %.lr.ph, %Vec_WrdDum
   %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %6)
   %34 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %34, %5
-  br i1 %exitcond.not, label %._crit_edge, label %Vec_WrdDumpHexOne.exit, !llvm.loop !529
+  br i1 %exitcond.not, label %._crit_edge, label %Vec_WrdDumpHexOne.exit, !llvm.loop !530
 
 ._crit_edge:                                      ; preds = %Vec_WrdDumpHexOne.exit, %Vec_WrdDumpHexOne.exit.loopexit.us, %.preheader
   %35 = tail call i32 @fclose(ptr noundef nonnull %6)
@@ -88926,7 +88929,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %4
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !530
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !531
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_WrdStart.exit
   ret ptr %2
@@ -89641,7 +89644,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   store i32 %16, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !531
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !532
 
 ._crit_edge:                                      ; preds = %13, %Vec_IntAlloc.exit
   ret ptr %3
@@ -89781,7 +89784,7 @@ define internal fastcc void @Vec_WecFree(ptr nocapture noundef %0) unnamed_addr 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %16, label %5, label %._crit_edge.i, !llvm.loop !532
+  br i1 %16, label %5, label %._crit_edge.i, !llvm.loop !533
 
 ._crit_edge.i:                                    ; preds = %13, %1
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -89953,9 +89956,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -90527,3 +90527,4 @@ attributes #33 = { noreturn nounwind }
 !530 = distinct !{!530, !5}
 !531 = distinct !{!531, !5}
 !532 = distinct !{!532, !5}
+!533 = distinct !{!533, !5}

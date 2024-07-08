@@ -4456,7 +4456,7 @@ define internal fastcc ptr @ts_stat_sql(ptr noundef %0, ptr noundef %1, ptr noun
   %102 = getelementptr inbounds i8, ptr %95, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %._crit_edge.i
+  br i1 %104, label %105, label %107
 
 105:                                              ; preds = %101
   %.not35.i = icmp eq ptr %95, %94
@@ -4466,19 +4466,28 @@ define internal fastcc ptr @ts_stat_sql(ptr noundef %0, ptr noundef %1, ptr noun
   call void @pfree(ptr noundef nonnull %95) #14
   br label %ts_accum.exit
 
-._crit_edge.i:                                    ; preds = %101
-  %107 = add i32 %103, -1
-  %.not36.i = icmp eq i32 %107, 0
-  %108 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %107, i1 true)
-  %109 = sub nuw nsw i32 32, %108
-  %110 = shl nuw i32 1, %109
-  %111 = select i1 %.not36.i, i32 1, i32 %110
+107:                                              ; preds = %101
+  %108 = add i32 %103, -1
+  %.not36.i = icmp eq i32 %108, 0
+  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %107, %.lr.ph.i
+  %.02938.i = phi i32 [ %109, %.lr.ph.i ], [ 0, %107 ]
+  %.03037.i = phi i32 [ %110, %.lr.ph.i ], [ %108, %107 ]
+  %109 = add nuw nsw i32 %.02938.i, 1
+  %110 = lshr i32 %.03037.i, 1
+  %.not.i = icmp ult i32 %.03037.i, 2
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %107
+  %.029.lcssa.i = phi i32 [ 0, %107 ], [ %109, %.lr.ph.i ]
+  %111 = shl nuw i32 1, %.029.lcssa.i
   %112 = sub i32 %111, %103
   %113 = lshr i32 %112, 1
   %114 = lshr i32 %111, 1
   %115 = sub nsw i32 %114, %113
-  call fastcc void @insertStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef nonnull %95, i32 noundef %115)
-  call fastcc void @chooseNextStatEntry(ptr noundef %0, ptr noundef nonnull %.031.i, ptr noundef nonnull %95, i32 noundef 0, i32 noundef %111, i32 noundef %113)
+  call fastcc void @insertStatEntry(ptr noundef %0, ptr noundef %.031.i, ptr noundef nonnull %95, i32 noundef %115)
+  call fastcc void @chooseNextStatEntry(ptr noundef %0, ptr noundef %.031.i, ptr noundef nonnull %95, i32 noundef 0, i32 noundef %111, i32 noundef %113)
   br label %ts_accum.exit
 
 ts_accum.exit:                                    ; preds = %._crit_edge.i, %106, %105, %100, %.lr.ph
@@ -4490,7 +4499,7 @@ ts_accum.exit:                                    ; preds = %._crit_edge.i, %106
 
 .lr.ph.backedge:                                  ; preds = %ts_accum.exit, %._crit_edge
   %.04255.be = phi i64 [ %116, %ts_accum.exit ], [ 0, %._crit_edge ]
-  br label %.lr.ph, !llvm.loop !40
+  br label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %ts_accum.exit
   %119 = load ptr, ptr @SPI_tuptable, align 8
@@ -5123,7 +5132,7 @@ list_length.exit.thread:                          ; preds = %107, %list_length.e
   %194 = load i16, ptr %35, align 2
   %195 = sext i16 %194 to i64
   %196 = icmp slt i64 %indvars.iv.next, %195
-  br i1 %196, label %131, label %._crit_edge, !llvm.loop !41
+  br i1 %196, label %131, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %193, %123
   %.170.lcssa = phi i1 [ %.069, %123 ], [ %spec.select, %193 ]
@@ -5560,7 +5569,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
   %.14464.us.us = phi i32 [ %.144.us.us, %48 ], [ %.043.us.us80, %46 ], [ %45, %.thread100 ], [ %43, %42 ]
   %.14663.us.us = phi i32 [ %.146.us.us, %48 ], [ %47, %46 ], [ %44, %.thread100 ], [ %.045.us.us79, %42 ]
   %50 = icmp slt i32 %.14663.us.us, %17
-  br i1 %50, label %21, label %.split66.us, !llvm.loop !42
+  br i1 %50, label %21, label %.split66.us, !llvm.loop !43
 
 .split.us.split:                                  ; preds = %.split.us
   br i1 %.not50, label %.split.us.split.split.us.outer, label %.split.us.split.split
@@ -5623,7 +5632,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
 
 81:                                               ; preds = %66
   %82 = add i32 %.045.us.us69, 1
-  br label %.split.us.split.split.us, !llvm.loop !42
+  br label %.split.us.split.split.us, !llvm.loop !43
 
 83:                                               ; preds = %76, %78
   %.146.us.us73 = phi i32 [ %79, %78 ], [ %.045.us.us69, %76 ]
@@ -5635,7 +5644,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
 .split.us.split.split.us.outer.backedge:          ; preds = %83, %78
   %.045.us.us69.ph.be = phi i32 [ %79, %78 ], [ %.146.us.us73, %83 ]
   %.043.us.us70.ph.be = phi i32 [ %80, %78 ], [ %.144.us.us74, %83 ]
-  br label %.split.us.split.split.us.outer, !llvm.loop !42
+  br label %.split.us.split.split.us.outer, !llvm.loop !43
 
 .split.us.split.split:                            ; preds = %.split.us.split, %.split.us.split.split.backedge
   %.045.us = phi i32 [ %.045.us.be, %.split.us.split.split.backedge ], [ 0, %.split.us.split ]
@@ -5707,7 +5716,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
 .split.us.split.split.backedge:                   ; preds = %118, %113
   %.045.us.be = phi i32 [ %.146.us, %118 ], [ %114, %113 ]
   %.043.us.be = phi i32 [ %.144.us, %118 ], [ %115, %113 ]
-  br label %.split.us.split.split, !llvm.loop !42
+  br label %.split.us.split.split, !llvm.loop !43
 
 .split:                                           ; preds = %.split.outer, %151
   %.043 = phi i32 [ %152, %151 ], [ %.043.ph, %.split.outer ]
@@ -5773,7 +5782,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
 
 151:                                              ; preds = %146
   %152 = add i32 %.043, 1
-  br i1 %.not, label %.split, label %.loopexit120, !llvm.loop !42
+  br i1 %.not, label %.split, label %.loopexit120, !llvm.loop !43
 
 .loopexit120:                                     ; preds = %151, %.thread99, %148, %144
   %.146 = phi i32 [ %145, %144 ], [ %149, %148 ], [ %143, %.thread99 ], [ %.045.ph, %151 ]
@@ -5815,7 +5824,7 @@ define internal fastcc range(i32 0, 2) i32 @TS_phrase_output(ptr noundef %0, ptr
 .split.outer.backedge:                            ; preds = %162, %.loopexit120, %144, %148
   %.045.ph.be = phi i32 [ %149, %148 ], [ %145, %144 ], [ %.146, %.loopexit120 ], [ %.146, %162 ]
   %.043.ph.be = phi i32 [ %150, %148 ], [ %.043, %144 ], [ %.144, %.loopexit120 ], [ %.144, %162 ]
-  br label %.split.outer, !llvm.loop !42
+  br label %.split.outer, !llvm.loop !43
 
 .split66.us:                                      ; preds = %120, %133, %86, %63, %53, %29, %.thread.us.us
   br i1 %.not55, label %.split66.us.thread, label %169
@@ -5907,7 +5916,7 @@ define internal fastcc range(i32 0, 3) i32 @checkclass_str(ptr nocapture noundef
   %45 = zext i16 %43 to i64
   %46 = getelementptr i16, ptr %20, i64 %45
   %47 = icmp ult ptr %44, %46
-  br i1 %47, label %.lr.ph6, label %._crit_edge.loopexit, !llvm.loop !43
+  br i1 %47, label %.lr.ph6, label %._crit_edge.loopexit, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %42
   %.pre8 = load ptr, ptr %25, align 8
@@ -5947,7 +5956,7 @@ define internal fastcc range(i32 0, 3) i32 @checkclass_str(ptr nocapture noundef
 64:                                               ; preds = %.lr.ph
   %65 = getelementptr i8, ptr %.01, i64 2
   %66 = icmp ult ptr %65, %62
-  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !44
+  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %57, %64
   %.01 = phi ptr [ %65, %64 ], [ %58, %57 ]
@@ -6085,7 +6094,7 @@ define internal fastcc void @insertStatEntry(ptr noundef %0, ptr nocapture nound
   %51 = and i32 %50, 1
   %spec.select.i = add i32 %51, %.0143.i
   %.not17.i = icmp eq i32 %46, 0
-  br i1 %.not17.i, label %check_weight.exit, label %45, !llvm.loop !45
+  br i1 %.not17.i, label %check_weight.exit, label %45, !llvm.loop !46
 
 check_weight.exit:                                ; preds = %45, %15
   %.058 = phi i32 [ %28, %15 ], [ %spec.select.i, %45 ]
@@ -6126,7 +6135,7 @@ check_weight.exit:                                ; preds = %45, %15
   %72 = icmp eq i32 %71, 0
   %73 = icmp sgt i32 %71, 0
   %74 = select i1 %72, i1 %63, i1 %73
-  br i1 %74, label %tsCompareString.exit.thread.us, label %tsCompareString.exit.thread72, !llvm.loop !46
+  br i1 %74, label %tsCompareString.exit.thread.us, label %tsCompareString.exit.thread72, !llvm.loop !47
 
 tsCompareString.exit.thread.us:                   ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %75 = phi i1 [ %73, %.lr.ph.split.us ], [ %68, %.lr.ph.split.us.preheader ]
@@ -6137,7 +6146,7 @@ tsCompareString.exit.thread.us:                   ; preds = %.lr.ph.split.us.pre
   %77 = load ptr, ptr %.in.us, align 8
   %78 = add i32 %.077.us186, 1
   %.not65.us = icmp eq ptr %77, null
-  br i1 %.not65.us, label %tsCompareString.exit.thread72.loopexit.split.loop.exit170, label %.lr.ph.split.us, !llvm.loop !46
+  br i1 %.not65.us, label %tsCompareString.exit.thread72.loopexit.split.loop.exit170, label %.lr.ph.split.us, !llvm.loop !47
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %tsCompareString.exit.thread
   %.077 = phi i32 [ %94, %tsCompareString.exit.thread ], [ 1, %.lr.ph ]
@@ -6173,7 +6182,7 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split.split,
   %93 = load ptr, ptr %.in, align 8
   %94 = add i32 %.077, 1
   %.not65 = icmp eq ptr %93, null
-  br i1 %.not65, label %tsCompareString.exit.thread72, label %.lr.ph.split.split, !llvm.loop !46
+  br i1 %.not65, label %tsCompareString.exit.thread72, label %.lr.ph.split.split, !llvm.loop !47
 
 tsCompareString.exit.thread72.loopexit.split.loop.exit170: ; preds = %tsCompareString.exit.thread.us
   %95 = zext i1 %75 to i32
@@ -6355,9 +6364,6 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6425,3 +6431,4 @@ attributes #16 = { cold nounwind }
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}

@@ -65,31 +65,44 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr nocapture noundef readonly
   %endptr60 = getelementptr inbounds i8, ptr %16, i64 %strlen59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr60, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false)
   %21 = icmp ult i32 %4, 2
-  %22 = add i32 %4, -1
-  %23 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
-  %24 = sub nuw nsw i32 32, %23
-  %.09.i = select i1 %21, i32 %4, i32 %24
-  %.not83 = icmp eq i32 %.09.i, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %21, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader:                                 ; preds = %8
-  %wide.trip.count = zext nneg i32 %.09.i to i64
+.lr.ph.preheader.i:                               ; preds = %8
+  %22 = add i32 %4, -1
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.013.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0812.i = phi i32 [ %23, %.lr.ph.i ], [ %22, %.lr.ph.preheader.i ]
+  %23 = lshr i32 %.0812.i, 1
+  %24 = add nuw nsw i32 %.013.i, 1
+  %.not.i = icmp ult i32 %.0812.i, 2
+  br i1 %.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !4
+
+Abc_Base2Log.exit:                                ; preds = %8
+  %25 = icmp eq i32 %4, 1
+  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i, %Abc_Base2Log.exit
+  %.09.i102 = phi i32 [ 1, %Abc_Base2Log.exit ], [ %24, %.lr.ph.i ]
+  %wide.trip.count = zext nneg i32 %.09.i102 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = call ptr @Cudd_bddNewVarAtLevel(ptr noundef %1, i32 noundef %25) #14
-  %27 = getelementptr inbounds [1024 x ptr], ptr %13, i64 0, i64 %indvars.iv
-  store ptr %26, ptr %27, align 8
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
+  %27 = call ptr @Cudd_bddNewVarAtLevel(ptr noundef %1, i32 noundef %26) #14
+  %28 = getelementptr inbounds [1024 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %28 = add i32 %.09.i, %3
-  %29 = icmp sgt i32 %3, 0
-  br i1 %29, label %.lr.ph77.preheader, label %.preheader
+._crit_edge:                                      ; preds = %.lr.ph, %Abc_Base2Log.exit
+  %.09.i101 = phi i32 [ 0, %Abc_Base2Log.exit ], [ %.09.i102, %.lr.ph ]
+  %29 = add i32 %.09.i101, %3
+  %30 = icmp sgt i32 %3, 0
+  br i1 %30, label %.lr.ph77.preheader, label %.preheader
 
 .lr.ph77.preheader:                               ; preds = %._crit_edge
   %wide.trip.count88 = zext nneg i32 %3 to i64
@@ -97,144 +110,144 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr nocapture noundef readonly
 
 .preheader:                                       ; preds = %.lr.ph77, %._crit_edge
   %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ %3, %.lr.ph77 ]
-  %30 = icmp slt i32 %.1.lcssa, %28
-  br i1 %30, label %.lr.ph79.preheader, label %Abc_Clock.exit
+  %31 = icmp slt i32 %.1.lcssa, %29
+  br i1 %31, label %.lr.ph79.preheader, label %Abc_Clock.exit
 
 .lr.ph79.preheader:                               ; preds = %.preheader
-  %31 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count93 = zext i32 %28 to i64
+  %32 = zext nneg i32 %.1.lcssa to i64
+  %wide.trip.count93 = zext i32 %29 to i64
   br label %.lr.ph79
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
   %indvars.iv85 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next86, %.lr.ph77 ]
-  %32 = trunc nuw nsw i64 %indvars.iv85 to i32
-  %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %32) #14
-  %34 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %17) #14
-  %35 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv85
-  store ptr %34, ptr %35, align 8
+  %33 = trunc nuw nsw i64 %indvars.iv85 to i32
+  %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %33) #14
+  %35 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %17) #14
+  %36 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv85
+  store ptr %35, ptr %36, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %.preheader, label %.lr.ph77, !llvm.loop !6
+  br i1 %exitcond89.not, label %.preheader, label %.lr.ph77, !llvm.loop !7
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
-  %indvars.iv90 = phi i64 [ %31, %.lr.ph79.preheader ], [ %indvars.iv.next91, %.lr.ph79 ]
-  %36 = trunc i64 %indvars.iv90 to i32
-  %37 = sub i32 %36, %3
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %37) #14
-  %39 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %17) #14
-  %40 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv90
-  store ptr %39, ptr %40, align 8
+  %indvars.iv90 = phi i64 [ %32, %.lr.ph79.preheader ], [ %indvars.iv.next91, %.lr.ph79 ]
+  %37 = trunc i64 %indvars.iv90 to i32
+  %38 = sub i32 %37, %3
+  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %38) #14
+  %40 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %17) #14
+  %41 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv90
+  store ptr %40, ptr %41, align 8
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %Abc_Clock.exit, label %.lr.ph79, !llvm.loop !7
+  br i1 %exitcond94.not, label %Abc_Clock.exit, label %.lr.ph79, !llvm.loop !8
 
 Abc_Clock.exit:                                   ; preds = %.lr.ph79, %.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #14
+  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %42 = call ptr @GetSingleOutputFunction(ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %13, i32 noundef %.09.i, i32 noundef %7)
-  call void @Cudd_Ref(ptr noundef %42) #14
+  %43 = call ptr @GetSingleOutputFunction(ptr noundef %1, ptr noundef %2, i32 noundef %4, ptr noundef nonnull %13, i32 noundef %.09.i101, i32 noundef %7)
+  call void @Cudd_Ref(ptr noundef %43) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %43 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #14
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %Abc_Clock.exit65, label %45
+  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #14
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %Abc_Clock.exit65, label %46
 
-45:                                               ; preds = %Abc_Clock.exit
-  %46 = load i64, ptr %11, align 8
-  %.neg72 = mul i64 %46, -1000000
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
-  %48 = load i64, ptr %47, align 8
-  %.neg = sdiv i64 %48, -1000
+46:                                               ; preds = %Abc_Clock.exit
+  %47 = load i64, ptr %11, align 8
+  %.neg72 = mul i64 %47, -1000000
+  %48 = getelementptr inbounds i8, ptr %11, i64 8
+  %49 = load i64, ptr %48, align 8
+  %.neg = sdiv i64 %49, -1000
   %.neg73 = add i64 %.neg, %.neg72
   br label %Abc_Clock.exit65
 
-Abc_Clock.exit65:                                 ; preds = %Abc_Clock.exit, %45
-  %.0.i64.neg = phi i64 [ %.neg73, %45 ], [ 1, %Abc_Clock.exit ]
+Abc_Clock.exit65:                                 ; preds = %Abc_Clock.exit, %46
+  %.0.i64.neg = phi i64 [ %.neg73, %46 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %49 = call i32 @Cudd_ReduceHeap(ptr noundef %1, i32 noundef 6, i32 noundef 1) #14
   %50 = call i32 @Cudd_ReduceHeap(ptr noundef %1, i32 noundef 6, i32 noundef 1) #14
+  %51 = call i32 @Cudd_ReduceHeap(ptr noundef %1, i32 noundef 6, i32 noundef 1) #14
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.critedge, label %51
+  br i1 %.not, label %.critedge, label %52
 
-51:                                               ; preds = %Abc_Clock.exit65
-  %52 = call i32 @Cudd_DagSize(ptr noundef %42) #14
-  %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %52)
+52:                                               ; preds = %Abc_Clock.exit65
+  %53 = call i32 @Cudd_DagSize(ptr noundef %43) #14
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %53)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %54 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #14
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %Abc_Clock.exit67, label %56
+  %55 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #14
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %Abc_Clock.exit67, label %57
 
-56:                                               ; preds = %51
-  %57 = load i64, ptr %10, align 8
-  %58 = mul nsw i64 %57, 1000000
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = sdiv i64 %60, 1000
-  %62 = add nsw i64 %61, %58
+57:                                               ; preds = %52
+  %58 = load i64, ptr %10, align 8
+  %59 = mul nsw i64 %58, 1000000
+  %60 = getelementptr inbounds i8, ptr %10, i64 8
+  %61 = load i64, ptr %60, align 8
+  %62 = sdiv i64 %61, 1000
+  %63 = add nsw i64 %62, %59
   br label %Abc_Clock.exit67
 
-Abc_Clock.exit67:                                 ; preds = %51, %56
-  %.0.i66 = phi i64 [ %62, %56 ], [ -1, %51 ]
+Abc_Clock.exit67:                                 ; preds = %52, %57
+  %.0.i66 = phi i64 [ %63, %57 ], [ -1, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %63 = add i64 %.0.i66, %.0.i64.neg
-  %64 = sitofp i64 %63 to float
-  %65 = fdiv float %64, 1.000000e+06
-  %66 = fpext float %65 to double
-  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %66)
+  %64 = add i64 %.0.i66, %.0.i64.neg
+  %65 = sitofp i64 %64 to float
+  %66 = fdiv float %65, 1.000000e+06
+  %67 = fpext float %66 to double
+  %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %67)
   br label %.critedge
 
 .critedge:                                        ; preds = %Abc_Clock.exit65, %Abc_Clock.exit67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %68 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #14
+  %69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %.not61 = icmp eq i32 %6, 0
-  br i1 %.not61, label %69, label %.thread
+  br i1 %.not61, label %70, label %.thread
 
-69:                                               ; preds = %.critedge
-  %70 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %16, i32 noundef %5, i32 noundef 0, i32 noundef %7) #14
-  %.not62 = icmp eq i32 %70, 0
-  br i1 %.not62, label %.loopexit, label %76
+70:                                               ; preds = %.critedge
+  %71 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %43, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %16, i32 noundef %5, i32 noundef 0, i32 noundef %7) #14
+  %.not62 = icmp eq i32 %71, 0
+  br i1 %.not62, label %.loopexit, label %77
 
 .thread:                                          ; preds = %.critedge
-  call void @WriteSingleOutputFunctionBlif(ptr poison, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %15)
-  %71 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %16, i32 noundef %5, i32 noundef %6, i32 noundef %7) #14
-  %.not6270 = icmp eq i32 %71, 0
-  br i1 %.not6270, label %.loopexit, label %72
+  call void @WriteSingleOutputFunctionBlif(ptr poison, ptr noundef %43, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %15)
+  %72 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %43, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %16, i32 noundef %5, i32 noundef %6, i32 noundef %7) #14
+  %.not6270 = icmp eq i32 %72, 0
+  br i1 %.not6270, label %.loopexit, label %73
 
-72:                                               ; preds = %.thread
-  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %15, ptr noundef nonnull %16) #14
-  %74 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
-  %75 = call i32 @Cmd_CommandExecute(ptr noundef %74, ptr noundef nonnull %18) #14
-  br label %76
+73:                                               ; preds = %.thread
+  %74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %15, ptr noundef nonnull %16) #14
+  %75 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %76 = call i32 @Cmd_CommandExecute(ptr noundef %75, ptr noundef nonnull %18) #14
+  br label %77
 
-76:                                               ; preds = %69, %72
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %42) #14
-  %77 = icmp sgt i32 %28, 0
-  br i1 %77, label %.lr.ph82.preheader, label %.loopexit
+77:                                               ; preds = %70, %73
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %43) #14
+  %78 = icmp sgt i32 %29, 0
+  br i1 %78, label %.lr.ph82.preheader, label %.loopexit
 
-.lr.ph82.preheader:                               ; preds = %76
-  %wide.trip.count98 = zext nneg i32 %28 to i64
+.lr.ph82.preheader:                               ; preds = %77
+  %wide.trip.count98 = zext nneg i32 %29 to i64
   br label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %81
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next96, %81 ]
-  %78 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv95
-  %79 = load ptr, ptr %78, align 8
-  %.not63 = icmp eq ptr %79, null
-  br i1 %.not63, label %81, label %80
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %82
+  %indvars.iv95 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next96, %82 ]
+  %79 = getelementptr inbounds [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv95
+  %80 = load ptr, ptr %79, align 8
+  %.not63 = icmp eq ptr %80, null
+  br i1 %.not63, label %82, label %81
 
-80:                                               ; preds = %.lr.ph82
-  call void @free(ptr noundef nonnull %79) #14
-  store ptr null, ptr %78, align 8
-  br label %81
+81:                                               ; preds = %.lr.ph82
+  call void @free(ptr noundef nonnull %80) #14
+  store ptr null, ptr %79, align 8
+  br label %82
 
-81:                                               ; preds = %80, %.lr.ph82
+82:                                               ; preds = %81, %.lr.ph82
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph82, !llvm.loop !8
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph82, !llvm.loop !9
 
-.loopexit:                                        ; preds = %81, %76, %.thread, %69
-  %.0 = phi i32 [ 0, %69 ], [ 0, %.thread ], [ 1, %76 ], [ 1, %81 ]
+.loopexit:                                        ; preds = %82, %77, %.thread, %70
+  %.0 = phi i32 [ 0, %70 ], [ 0, %.thread ], [ 1, %77 ], [ 1, %82 ]
   ret i32 %.0
 }
 
@@ -270,7 +283,7 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr nocapture nounde
   store i32 %14, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %15 = sext i32 %2 to i64
@@ -307,7 +320,7 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr nocapture nounde
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %28) #14
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !10
+  br i1 %exitcond58.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !11
 
 ._crit_edge52:                                    ; preds = %.lr.ph51, %._crit_edge
   %.045.lcssa = phi ptr [ %20, %._crit_edge ], [ %29, %.lr.ph51 ]
@@ -363,7 +376,7 @@ define void @WriteSingleOutputFunctionBlif(ptr nocapture readnone %0, ptr nounde
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.12, ptr noundef %11) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %fputc = tail call i32 @fputc(i32 10, ptr %6)
@@ -460,7 +473,7 @@ define noundef ptr @GetSingleOutputFunctionRemapped(ptr noundef %0, ptr nocaptur
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %18, %19
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %20 = load ptr, ptr %9, align 8
@@ -471,7 +484,7 @@ define noundef ptr @GetSingleOutputFunctionRemapped(ptr noundef %0, ptr nocaptur
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %11) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge46, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge46, label %8, !llvm.loop !14
 
 ._crit_edge46:                                    ; preds = %._crit_edge, %5
   %23 = tail call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef nonnull @GetSingleOutputFunctionRemapped.pRemapped, i32 noundef %2, ptr noundef %3, i32 noundef %4) #14
@@ -492,7 +505,7 @@ define noundef ptr @GetSingleOutputFunctionRemapped(ptr noundef %0, ptr nocaptur
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %26) #14
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !14
+  br i1 %exitcond56.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !15
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %._crit_edge46
   tail call void @Cudd_Deref(ptr noundef %24) #14
@@ -510,41 +523,41 @@ declare ptr @Extra_bddEncodingBinary(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph79, label %._crit_edge80
+  br i1 %5, label %.lr.ph80, label %._crit_edge81
 
-.lr.ph79:                                         ; preds = %4
+.lr.ph80:                                         ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph79, %._crit_edge
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next98, %._crit_edge ]
-  %.077 = phi i32 [ 0, %.lr.ph79 ], [ %spec.select, %._crit_edge ]
+8:                                                ; preds = %.lr.ph80, %._crit_edge
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next98, %._crit_edge ]
+  %.078 = phi i32 [ 0, %.lr.ph80 ], [ %spec.select, %._crit_edge ]
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv97
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %10) #14
   tail call void @Cudd_Ref(ptr noundef %11) #14
   %12 = load ptr, ptr %6, align 8
-  %.not73 = icmp eq ptr %11, %12
-  br i1 %.not73, label %._crit_edge, label %.lr.ph
+  %.not74 = icmp eq ptr %11, %12
+  br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %.06475 = phi ptr [ %20, %.lr.ph ], [ %11, %8 ]
+  %.06476 = phi ptr [ %20, %.lr.ph ], [ %11, %8 ]
   %13 = load ptr, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = load i32, ptr %.06475, align 8
+  %16 = load i32, ptr %.06476, align 8
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %17
   store i32 %15, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %.06475, i64 16
+  %19 = getelementptr inbounds i8, ptr %.06476, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %20, %21
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %22 = trunc nuw i64 %indvars.iv.next to i32
@@ -558,66 +571,79 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
   store ptr %24, ptr %25, align 8
   tail call void @Cudd_Ref(ptr noundef %24) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %11) #14
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.077, i32 %.069.lcssa)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.078, i32 %.069.lcssa)
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge80, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge81, label %8, !llvm.loop !17
 
-._crit_edge80:                                    ; preds = %._crit_edge, %4
+._crit_edge81:                                    ; preds = %._crit_edge, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %spec.select, %._crit_edge ]
   %26 = icmp ult i32 %2, 2
-  %27 = add i32 %2, -1
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
-  %29 = sub nuw nsw i32 32, %28
-  %.09.i = select i1 %26, i32 %2, i32 %29
-  %.not95 = icmp eq i32 %.09.i, 0
-  br i1 %.not95, label %._crit_edge85, label %.lr.ph84.preheader
+  br i1 %26, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
 
-.lr.ph84.preheader:                               ; preds = %._crit_edge80
-  %wide.trip.count103 = zext nneg i32 %.09.i to i64
+.lr.ph.preheader.i:                               ; preds = %._crit_edge81
+  %27 = add i32 %2, -1
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.013.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0812.i = phi i32 [ %28, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
+  %28 = lshr i32 %.0812.i, 1
+  %29 = add nuw nsw i32 %.013.i, 1
+  %.not.i = icmp ult i32 %.0812.i, 2
+  br i1 %.not.i, label %.lr.ph84.preheader, label %.lr.ph.i, !llvm.loop !4
+
+Abc_Base2Log.exit:                                ; preds = %._crit_edge81
+  %30 = icmp eq i32 %2, 1
+  br i1 %30, label %.lr.ph84.preheader, label %._crit_edge85
+
+.lr.ph84.preheader:                               ; preds = %.lr.ph.i, %Abc_Base2Log.exit
+  %.09.i117 = phi i32 [ 1, %Abc_Base2Log.exit ], [ %29, %.lr.ph.i ]
+  %wide.trip.count103 = zext nneg i32 %.09.i117 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv100 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next101, %.lr.ph84 ]
-  %30 = trunc nuw nsw i64 %indvars.iv100 to i32
-  %31 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %30) #14
-  %32 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i64 0, i64 %indvars.iv100
-  store ptr %31, ptr %32, align 8
+  %31 = trunc nuw nsw i64 %indvars.iv100 to i32
+  %32 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %31) #14
+  %33 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i64 0, i64 %indvars.iv100
+  store ptr %32, ptr %33, align 8
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge85, label %.lr.ph84, !llvm.loop !17
+  br i1 %exitcond104.not, label %._crit_edge85, label %.lr.ph84, !llvm.loop !18
 
-._crit_edge85:                                    ; preds = %.lr.ph84, %._crit_edge80
-  %33 = tail call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pRemapped, i32 noundef %2, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i32 noundef %.09.i) #14
-  tail call void @Cudd_Ref(ptr noundef %33) #14
-  %34 = add nsw i32 %.0.lcssa, %.09.i
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph88, label %._crit_edge89
+._crit_edge85:                                    ; preds = %.lr.ph84, %Abc_Base2Log.exit
+  %.09.i116 = phi i32 [ 0, %Abc_Base2Log.exit ], [ %.09.i117, %.lr.ph84 ]
+  %34 = tail call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pRemapped, i32 noundef %2, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i32 noundef %.09.i116) #14
+  tail call void @Cudd_Ref(ptr noundef %34) #14
+  %35 = add nsw i32 %.09.i116, %.0.lcssa
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.lr.ph88, label %._crit_edge89
 
 .lr.ph88:                                         ; preds = %._crit_edge85
-  %36 = getelementptr inbounds i8, ptr %0, i64 328
-  %wide.trip.count108 = zext nneg i32 %34 to i64
-  br label %37
+  %37 = getelementptr inbounds i8, ptr %0, i64 328
+  %wide.trip.count108 = zext nneg i32 %35 to i64
+  br label %38
 
-37:                                               ; preds = %.lr.ph88, %37
-  %indvars.iv105 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next106, %37 ]
-  %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv105
-  %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %41
-  %43 = trunc nuw nsw i64 %indvars.iv105 to i32
-  store i32 %43, ptr %42, align 4
+38:                                               ; preds = %.lr.ph88, %38
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next106, %38 ]
+  %39 = load ptr, ptr %37, align 8
+  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv105
+  %41 = load i32, ptr %40, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %42
+  %44 = trunc nuw nsw i64 %indvars.iv105 to i32
+  store i32 %44, ptr %43, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %._crit_edge89, label %37, !llvm.loop !18
+  br i1 %exitcond109.not, label %._crit_edge89, label %38, !llvm.loop !19
 
-._crit_edge89:                                    ; preds = %37, %._crit_edge85
-  %44 = tail call ptr @Cudd_Init(i32 noundef %34, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
+._crit_edge89:                                    ; preds = %38, %._crit_edge85
+  %45 = tail call ptr @Cudd_Init(i32 noundef %35, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
   tail call void @Cudd_AutodynEnable(ptr noundef %0, i32 noundef 6) #14
-  %45 = tail call ptr @Cudd_bddTransferPermute(ptr poison, ptr noundef %44, ptr noundef %33, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute)
-  tail call void @Cudd_Ref(ptr noundef %45) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %33) #14
+  %46 = tail call ptr @Cudd_bddTransferPermute(ptr poison, ptr noundef %45, ptr noundef %34, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute)
+  tail call void @Cudd_Ref(ptr noundef %46) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %34) #14
   br i1 %5, label %.lr.ph93.preheader, label %._crit_edge94
 
 .lr.ph93.preheader:                               ; preds = %._crit_edge89
@@ -626,20 +652,20 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv110 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next111, %.lr.ph93 ]
-  %46 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv110
-  %47 = load ptr, ptr %46, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %47) #14
+  %47 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv110
+  %48 = load ptr, ptr %47, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %48) #14
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !19
+  br i1 %exitcond114.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !20
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge89
-  %48 = tail call ptr @Cudd_BddToAdd(ptr noundef %44, ptr noundef %45) #14
-  tail call void @Cudd_Ref(ptr noundef %48) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %44, ptr noundef %45) #14
-  store ptr %44, ptr %3, align 8
-  tail call void @Cudd_Deref(ptr noundef %48) #14
-  ret ptr %48
+  %49 = tail call ptr @Cudd_BddToAdd(ptr noundef %45, ptr noundef %46) #14
+  tail call void @Cudd_Ref(ptr noundef %49) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %46) #14
+  store ptr %45, ptr %3, align 8
+  tail call void @Cudd_Deref(ptr noundef %49) #14
+  ret ptr %49
 }
 
 declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -691,7 +717,7 @@ define ptr @Cudd_bddTransferPermute(ptr %0, ptr noundef %1, ptr noundef %2, ptr 
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %23) #14
   %24 = call i32 @st__gen(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   %.not27.i = icmp eq i32 %24, 0
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %20) #14
@@ -718,7 +744,7 @@ cuddBddTransferPermute.exit:                      ; preds = %8, %._crit_edge.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %33 = load i32, ptr %7, align 8
   %34 = icmp eq i32 %33, 1
-  br i1 %34, label %8, label %35, !llvm.loop !21
+  br i1 %34, label %8, label %35, !llvm.loop !22
 
 35:                                               ; preds = %cuddBddTransferPermute.exit
   ret ptr %.022.i
@@ -752,7 +778,7 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %18 = or i64 %17, %.06475
   %19 = call i32 @st__gen(ptr noundef %13, ptr noundef nonnull %6, ptr noundef null) #14
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.064.lcssa = phi i64 [ 0, %5 ], [ %18, %.lr.ph ]
@@ -768,7 +794,7 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %23 = add nuw nsw i32 %.076, 4
   %24 = icmp ult i32 %.076, 60
   %or.cond = and i1 %.not70, %24
-  br i1 %or.cond, label %20, label %25, !llvm.loop !23
+  br i1 %or.cond, label %20, label %25, !llvm.loop !24
 
 25:                                               ; preds = %20
   %26 = trunc i64 %9 to i32
@@ -807,7 +833,7 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
 .backedge:                                        ; preds = %69, %80, %37, %73
   %48 = call i32 @st__gen(ptr noundef %32, ptr noundef nonnull %6, ptr noundef null) #14
   %.not72 = icmp eq i32 %48, 0
-  br i1 %.not72, label %._crit_edge80, label %.lr.ph79, !llvm.loop !24
+  br i1 %.not72, label %._crit_edge80, label %.lr.ph79, !llvm.loop !25
 
 49:                                               ; preds = %.lr.ph79
   %50 = getelementptr inbounds i8, ptr %34, i64 16
@@ -926,7 +952,7 @@ Abc_Clock.exit:                                   ; preds = %11, %6
   %34 = or i64 %33, %.06978
   %35 = call i32 @st__gen(ptr noundef %29, ptr noundef nonnull %8, ptr noundef null) #14
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Abc_Clock.exit
   %.069.lcssa = phi i64 [ 0, %Abc_Clock.exit ], [ %34, %.lr.ph ]
@@ -942,7 +968,7 @@ Abc_Clock.exit:                                   ; preds = %11, %6
   %39 = add nuw nsw i32 %.079, 4
   %40 = icmp ult i32 %.079, 60
   %or.cond = and i1 %.not74, %40
-  br i1 %or.cond, label %36, label %41, !llvm.loop !26
+  br i1 %or.cond, label %36, label %41, !llvm.loop !27
 
 41:                                               ; preds = %36
   %42 = trunc i64 %25 to i32
@@ -981,7 +1007,7 @@ Abc_Clock.exit:                                   ; preds = %11, %6
 .backedge:                                        ; preds = %85, %89, %53
   %64 = call i32 @st__gen(ptr noundef %48, ptr noundef nonnull %8, ptr noundef null) #14
   %.not76 = icmp eq i32 %64, 0
-  br i1 %.not76, label %._crit_edge83, label %.lr.ph82, !llvm.loop !27
+  br i1 %.not76, label %._crit_edge83, label %.lr.ph82, !llvm.loop !28
 
 65:                                               ; preds = %.lr.ph82
   %66 = getelementptr inbounds i8, ptr %50, i64 16
@@ -1174,17 +1200,14 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1198,8 +1221,8 @@ attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
@@ -1232,3 +1255,4 @@ attributes #14 = { nounwind }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
