@@ -8178,41 +8178,41 @@ if.end:                                           ; preds = %if.then, %entry
   %8 = insertelement <2 x float> poison, float %dsdy, i64 0
   %9 = insertelement <2 x float> %8, float %dtdy, i64 1
   %10 = fmul <2 x float> %4, %9
-  %11 = extractelement <2 x float> %7, i64 1
-  %12 = extractelement <2 x float> %10, i64 0
-  %13 = shufflevector <2 x float> %10, <2 x float> %7, <2 x i32> <i32 1, i32 3>
-  %14 = fmul <2 x float> %13, %13
-  %15 = shufflevector <2 x float> %10, <2 x float> %7, <2 x i32> <i32 0, i32 2>
-  %16 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %15, <2 x float> %14)
-  %17 = fcmp olt <2 x float> %16, <float 0x3C9CD2B2A0000000, float 0x3C9CD2B2A0000000>
-  %18 = extractelement <2 x i1> %17, i64 1
-  br i1 %18, label %if.then.i, label %if.else12.i
+  %11 = shufflevector <2 x float> %10, <2 x float> %7, <2 x i32> <i32 1, i32 3>
+  %12 = fmul <2 x float> %11, %11
+  %13 = shufflevector <2 x float> %10, <2 x float> %7, <2 x i32> <i32 0, i32 2>
+  %14 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %13, <2 x float> %13, <2 x float> %12)
+  %15 = fcmp olt <2 x float> %14, <float 0x3C9CD2B2A0000000, float 0x3C9CD2B2A0000000>
+  %16 = extractelement <2 x i1> %15, i64 1
+  br i1 %16, label %if.then.i, label %if.else12.i
 
 if.then.i:                                        ; preds = %if.end
-  %19 = extractelement <2 x i1> %17, i64 0
-  br i1 %19, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit, label %if.else.i
+  %17 = extractelement <2 x i1> %15, i64 0
+  br i1 %17, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %20 = extractelement <2 x float> %16, i64 0
-  %21 = tail call float @llvm.sqrt.f32(float %20)
-  %div.i = fdiv float 0x3E45798EE0000000, %21
-  %fneg.i = fneg float %12
-  %22 = insertelement <2 x float> poison, float %div.i, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %25 = insertelement <2 x float> %24, float %fneg.i, i64 1
-  %26 = fmul <2 x float> %23, %25
+  %18 = extractelement <2 x float> %14, i64 0
+  %19 = tail call float @llvm.sqrt.f32(float %18)
+  %div.i = fdiv float 0x3E45798EE0000000, %19
+  %20 = extractelement <2 x float> %10, i64 0
+  %fneg.i = fneg float %20
+  %21 = insertelement <2 x float> poison, float %div.i, i64 0
+  %22 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> zeroinitializer
+  %23 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %24 = insertelement <2 x float> %23, float %fneg.i, i64 1
+  %25 = fmul <2 x float> %22, %24
   br label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
 
 if.else12.i:                                      ; preds = %if.end
-  %27 = extractelement <2 x i1> %17, i64 0
-  br i1 %27, label %if.then14.i, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
+  %26 = extractelement <2 x i1> %15, i64 0
+  br i1 %26, label %if.then14.i, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
 
 if.then14.i:                                      ; preds = %if.else12.i
-  %28 = extractelement <2 x float> %16, i64 1
-  %29 = tail call float @llvm.sqrt.f32(float %28)
-  %div16.i = fdiv float 0x3E45798EE0000000, %29
-  %fneg17.i = fneg float %11
+  %27 = extractelement <2 x float> %14, i64 1
+  %28 = tail call float @llvm.sqrt.f32(float %27)
+  %div16.i = fdiv float 0x3E45798EE0000000, %28
+  %29 = extractelement <2 x float> %7, i64 1
+  %fneg17.i = fneg float %29
   %30 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %31 = insertelement <2 x float> %30, float %fneg17.i, i64 0
   %32 = insertelement <2 x float> poison, float %div16.i, i64 0
@@ -8221,7 +8221,7 @@ if.then14.i:                                      ; preds = %if.else12.i
   br label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
 
 _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit: ; preds = %if.then.i, %if.else.i, %if.else12.i, %if.then14.i
-  %35 = phi <2 x float> [ %26, %if.else.i ], [ %7, %if.then14.i ], [ %7, %if.else12.i ], [ <float 0x3E45798EE0000000, float 0.000000e+00>, %if.then.i ]
+  %35 = phi <2 x float> [ %25, %if.else.i ], [ %7, %if.then14.i ], [ %7, %if.else12.i ], [ <float 0x3E45798EE0000000, float 0.000000e+00>, %if.then.i ]
   %36 = phi <2 x float> [ %10, %if.else.i ], [ %34, %if.then14.i ], [ %10, %if.else12.i ], [ <float 0.000000e+00, float 0x3E45798EE0000000>, %if.then.i ]
   store i64 -1, ptr %miplevel, align 8
   store i64 0, ptr %levelweight, align 8

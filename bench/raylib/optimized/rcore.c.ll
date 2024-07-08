@@ -18762,9 +18762,9 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %85 = getelementptr inbounds i8, ptr %0, i64 16
   br label %86
 
-86:                                               ; preds = %72, %353
-  %87 = phi i1 [ true, %72 ], [ false, %353 ]
-  %indvars.iv229 = phi i64 [ 0, %72 ], [ 1, %353 ]
+86:                                               ; preds = %72, %352
+  %87 = phi i1 [ true, %72 ], [ false, %352 ]
+  %indvars.iv229 = phi i64 [ 0, %72 ], [ 1, %352 ]
   br i1 %78, label %88, label %146
 
 88:                                               ; preds = %86
@@ -18867,7 +18867,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
 146:                                              ; preds = %88, %86
   %147 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %149, label %348
+  br i1 %148, label %149, label %347
 
 149:                                              ; preds = %146
   %150 = load ptr, ptr @glad_glUseProgram, align 8
@@ -18897,328 +18897,326 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.sroa.7191.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
   %.sroa.8192.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 100), align 4
   %.sroa.9193.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 104), align 8
-  %.sroa.10194.0.copyload = load float, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
-  %161 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
-  %162 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
-  %163 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
-  %164 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
-  %165 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  %166 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
-  %167 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
-  %168 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
-  %169 = insertelement <4 x float> %154, float %.sroa.8208.0.copyload, i64 1
-  %170 = insertelement <4 x float> %169, float %.sroa.7191.0.copyload, i64 2
-  %171 = insertelement <4 x float> %170, float %.sroa.16216.0.copyload, i64 3
-  %172 = insertelement <4 x float> poison, float %.sroa.7191.0.copyload, i64 0
-  %173 = insertelement <4 x float> %172, float %.sroa.12212.0.copyload, i64 1
-  %174 = shufflevector <4 x float> %173, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %175 = fmul <4 x float> %171, %174
-  %176 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> zeroinitializer
-  %177 = insertelement <4 x float> %152, float %.sroa.7207.0.copyload, i64 1
-  %178 = insertelement <4 x float> %177, float %.sroa.11211.0.copyload, i64 2
-  %179 = insertelement <4 x float> %178, float %.sroa.15215.0.copyload, i64 3
-  %180 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %176, <4 x float> %179, <4 x float> %175)
-  %181 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> zeroinitializer
-  %182 = insertelement <4 x float> %155, float %.sroa.9209.0.copyload, i64 1
-  %183 = insertelement <4 x float> %182, float %.sroa.13213.0.copyload, i64 2
-  %184 = insertelement <4 x float> %183, float %.sroa.17217.0.copyload, i64 3
-  %185 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %181, <4 x float> %184, <4 x float> %180)
-  %186 = shufflevector <4 x float> %165, <4 x float> poison, <4 x i32> zeroinitializer
-  %187 = insertelement <4 x float> %156, float %.sroa.10210.0.copyload, i64 1
-  %188 = insertelement <4 x float> %187, float %.sroa.14214.0.copyload, i64 2
-  %189 = insertelement <4 x float> %188, float %.sroa.18218.0.copyload, i64 3
-  %190 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %186, <4 x float> %189, <4 x float> %185)
-  store <4 x float> %190, ptr %3, align 16
-  %191 = insertelement <4 x float> %169, float %.sroa.8192.0.copyload, i64 2
-  %192 = insertelement <4 x float> %191, float %.sroa.16216.0.copyload, i64 3
-  %193 = insertelement <4 x float> poison, float %.sroa.8192.0.copyload, i64 0
-  %194 = insertelement <4 x float> %193, float %.sroa.12212.0.copyload, i64 1
-  %195 = shufflevector <4 x float> %194, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %196 = fmul <4 x float> %192, %195
-  %197 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> zeroinitializer
-  %198 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %197, <4 x float> %179, <4 x float> %196)
-  %199 = shufflevector <4 x float> %162, <4 x float> poison, <4 x i32> zeroinitializer
-  %200 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %199, <4 x float> %184, <4 x float> %198)
-  %201 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> zeroinitializer
-  %202 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %201, <4 x float> %189, <4 x float> %200)
-  store <4 x float> %202, ptr %79, align 16
-  %203 = insertelement <4 x float> %169, float %.sroa.9193.0.copyload, i64 2
-  %204 = insertelement <4 x float> %203, float %.sroa.16216.0.copyload, i64 3
-  %205 = insertelement <4 x float> poison, float %.sroa.9193.0.copyload, i64 0
-  %206 = insertelement <4 x float> %205, float %.sroa.12212.0.copyload, i64 1
-  %207 = shufflevector <4 x float> %206, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %208 = fmul <4 x float> %204, %207
-  %209 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> zeroinitializer
-  %210 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %209, <4 x float> %179, <4 x float> %208)
-  %211 = shufflevector <4 x float> %163, <4 x float> poison, <4 x i32> zeroinitializer
-  %212 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %211, <4 x float> %184, <4 x float> %210)
-  %213 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> zeroinitializer
-  %214 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %213, <4 x float> %189, <4 x float> %212)
-  store <4 x float> %214, ptr %80, align 16
-  %215 = insertelement <4 x float> %169, float %.sroa.10194.0.copyload, i64 2
-  %216 = insertelement <4 x float> %215, float %.sroa.16216.0.copyload, i64 3
-  %217 = insertelement <4 x float> poison, float %.sroa.10194.0.copyload, i64 0
-  %218 = insertelement <4 x float> %217, float %.sroa.12212.0.copyload, i64 1
-  %219 = shufflevector <4 x float> %218, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %220 = fmul <4 x float> %216, %219
-  %221 = shufflevector <4 x float> %160, <4 x float> poison, <4 x i32> zeroinitializer
-  %222 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %221, <4 x float> %179, <4 x float> %220)
-  %223 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> zeroinitializer
-  %224 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %223, <4 x float> %184, <4 x float> %222)
-  %225 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> zeroinitializer
-  %226 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %225, <4 x float> %189, <4 x float> %224)
-  store <4 x float> %226, ptr %81, align 16
-  %227 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 24
-  %230 = load i32, ptr %229, align 4
-  call void %227(i32 noundef %230, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
-  %231 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
-  %232 = trunc i8 %231 to i1
-  %233 = load ptr, ptr %82, align 8
-  %234 = load i32, ptr %83, align 4
-  %235 = sext i32 %234 to i64
-  br i1 %232, label %236, label %240
+  %161 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 108), align 4
+  %162 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
+  %163 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 116), align 4
+  %164 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 120), align 8
+  %165 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 124), align 4
+  %166 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
+  %167 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 132), align 4
+  %168 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 136), align 8
+  %169 = load <4 x float>, ptr getelementptr inbounds (i8, ptr @RLGL, i64 140), align 4
+  %170 = insertelement <4 x float> %154, float %.sroa.8208.0.copyload, i64 1
+  %171 = insertelement <4 x float> %170, float %.sroa.7191.0.copyload, i64 2
+  %172 = insertelement <4 x float> %171, float %.sroa.16216.0.copyload, i64 3
+  %173 = insertelement <4 x float> poison, float %.sroa.7191.0.copyload, i64 0
+  %174 = insertelement <4 x float> %173, float %.sroa.12212.0.copyload, i64 1
+  %175 = shufflevector <4 x float> %174, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
+  %176 = fmul <4 x float> %172, %175
+  %177 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> zeroinitializer
+  %178 = insertelement <4 x float> %152, float %.sroa.7207.0.copyload, i64 1
+  %179 = insertelement <4 x float> %178, float %.sroa.11211.0.copyload, i64 2
+  %180 = insertelement <4 x float> %179, float %.sroa.15215.0.copyload, i64 3
+  %181 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %177, <4 x float> %180, <4 x float> %176)
+  %182 = shufflevector <4 x float> %162, <4 x float> poison, <4 x i32> zeroinitializer
+  %183 = insertelement <4 x float> %155, float %.sroa.9209.0.copyload, i64 1
+  %184 = insertelement <4 x float> %183, float %.sroa.13213.0.copyload, i64 2
+  %185 = insertelement <4 x float> %184, float %.sroa.17217.0.copyload, i64 3
+  %186 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %182, <4 x float> %185, <4 x float> %181)
+  %187 = shufflevector <4 x float> %166, <4 x float> poison, <4 x i32> zeroinitializer
+  %188 = insertelement <4 x float> %156, float %.sroa.10210.0.copyload, i64 1
+  %189 = insertelement <4 x float> %188, float %.sroa.14214.0.copyload, i64 2
+  %190 = insertelement <4 x float> %189, float %.sroa.18218.0.copyload, i64 3
+  %191 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %187, <4 x float> %190, <4 x float> %186)
+  store <4 x float> %191, ptr %3, align 16
+  %192 = insertelement <4 x float> %170, float %.sroa.8192.0.copyload, i64 2
+  %193 = insertelement <4 x float> %192, float %.sroa.16216.0.copyload, i64 3
+  %194 = insertelement <4 x float> poison, float %.sroa.8192.0.copyload, i64 0
+  %195 = insertelement <4 x float> %194, float %.sroa.12212.0.copyload, i64 1
+  %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
+  %197 = fmul <4 x float> %193, %196
+  %198 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> zeroinitializer
+  %199 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %198, <4 x float> %180, <4 x float> %197)
+  %200 = shufflevector <4 x float> %163, <4 x float> poison, <4 x i32> zeroinitializer
+  %201 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %200, <4 x float> %185, <4 x float> %199)
+  %202 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> zeroinitializer
+  %203 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %202, <4 x float> %190, <4 x float> %201)
+  store <4 x float> %203, ptr %79, align 16
+  %204 = insertelement <4 x float> %170, float %.sroa.9193.0.copyload, i64 2
+  %205 = insertelement <4 x float> %204, float %.sroa.16216.0.copyload, i64 3
+  %206 = insertelement <4 x float> poison, float %.sroa.9193.0.copyload, i64 0
+  %207 = insertelement <4 x float> %206, float %.sroa.12212.0.copyload, i64 1
+  %208 = shufflevector <4 x float> %207, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
+  %209 = fmul <4 x float> %205, %208
+  %210 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> zeroinitializer
+  %211 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %210, <4 x float> %180, <4 x float> %209)
+  %212 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> zeroinitializer
+  %213 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %212, <4 x float> %185, <4 x float> %211)
+  %214 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> zeroinitializer
+  %215 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %214, <4 x float> %190, <4 x float> %213)
+  store <4 x float> %215, ptr %80, align 16
+  %216 = insertelement <4 x float> %170, float %.sroa.12212.0.copyload, i64 2
+  %217 = insertelement <4 x float> %216, float %.sroa.16216.0.copyload, i64 3
+  %218 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> zeroinitializer
+  %219 = fmul <4 x float> %217, %218
+  %220 = shufflevector <4 x float> %160, <4 x float> poison, <4 x i32> zeroinitializer
+  %221 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %220, <4 x float> %180, <4 x float> %219)
+  %222 = shufflevector <4 x float> %165, <4 x float> poison, <4 x i32> zeroinitializer
+  %223 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %222, <4 x float> %185, <4 x float> %221)
+  %224 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> zeroinitializer
+  %225 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %224, <4 x float> %190, <4 x float> %223)
+  store <4 x float> %225, ptr %81, align 16
+  %226 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
+  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 24
+  %229 = load i32, ptr %228, align 4
+  call void %226(i32 noundef %229, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
+  %230 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %231 = trunc i8 %230 to i1
+  %232 = load ptr, ptr %82, align 8
+  %233 = load i32, ptr %83, align 4
+  %234 = sext i32 %233 to i64
+  br i1 %231, label %235, label %239
 
-236:                                              ; preds = %149
-  %237 = load ptr, ptr @glad_glBindVertexArray, align 8
-  %238 = getelementptr inbounds %struct.rlVertexBuffer, ptr %233, i64 %235, i32 5
-  %239 = load i32, ptr %238, align 8
-  call void %237(i32 noundef %239) #55
-  br label %284
+235:                                              ; preds = %149
+  %236 = load ptr, ptr @glad_glBindVertexArray, align 8
+  %237 = getelementptr inbounds %struct.rlVertexBuffer, ptr %232, i64 %234, i32 5
+  %238 = load i32, ptr %237, align 8
+  call void %236(i32 noundef %238) #55
+  br label %283
 
-240:                                              ; preds = %149
-  %241 = load ptr, ptr @glad_glBindBuffer, align 8
-  %242 = getelementptr inbounds %struct.rlVertexBuffer, ptr %233, i64 %235, i32 6
-  %243 = load i32, ptr %242, align 4
-  call void %241(i32 noundef 34962, i32 noundef %243) #55
-  %244 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %245 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %246 = load i32, ptr %245, align 4
-  call void %244(i32 noundef %246, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
-  %247 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %249 = load i32, ptr %248, align 4
-  call void %247(i32 noundef %249) #55
-  %250 = load ptr, ptr @glad_glBindBuffer, align 8
-  %251 = load ptr, ptr %82, align 8
-  %252 = load i32, ptr %83, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds %struct.rlVertexBuffer, ptr %251, i64 %253, i32 6, i64 1
-  %255 = load i32, ptr %254, align 4
-  call void %250(i32 noundef 34962, i32 noundef %255) #55
-  %256 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 4
-  %259 = load i32, ptr %258, align 4
-  call void %256(i32 noundef %259, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
-  %260 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 4
-  %263 = load i32, ptr %262, align 4
-  call void %260(i32 noundef %263) #55
-  %264 = load ptr, ptr @glad_glBindBuffer, align 8
-  %265 = load ptr, ptr %82, align 8
-  %266 = load i32, ptr %83, align 4
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds %struct.rlVertexBuffer, ptr %265, i64 %267, i32 6, i64 2
-  %269 = load i32, ptr %268, align 4
-  call void %264(i32 noundef 34962, i32 noundef %269) #55
-  %270 = load ptr, ptr @glad_glVertexAttribPointer, align 8
-  %271 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 20
-  %273 = load i32, ptr %272, align 4
-  call void %270(i32 noundef %273, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #55
-  %274 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
-  %275 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 20
-  %277 = load i32, ptr %276, align 4
-  call void %274(i32 noundef %277) #55
-  %278 = load ptr, ptr @glad_glBindBuffer, align 8
-  %279 = load ptr, ptr %82, align 8
-  %280 = load i32, ptr %83, align 4
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds %struct.rlVertexBuffer, ptr %279, i64 %281, i32 6, i64 3
-  %283 = load i32, ptr %282, align 4
-  call void %278(i32 noundef 34963, i32 noundef %283) #55
-  br label %284
+239:                                              ; preds = %149
+  %240 = load ptr, ptr @glad_glBindBuffer, align 8
+  %241 = getelementptr inbounds %struct.rlVertexBuffer, ptr %232, i64 %234, i32 6
+  %242 = load i32, ptr %241, align 4
+  call void %240(i32 noundef 34962, i32 noundef %242) #55
+  %243 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %244 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %245 = load i32, ptr %244, align 4
+  call void %243(i32 noundef %245, i32 noundef 3, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
+  %246 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %248 = load i32, ptr %247, align 4
+  call void %246(i32 noundef %248) #55
+  %249 = load ptr, ptr @glad_glBindBuffer, align 8
+  %250 = load ptr, ptr %82, align 8
+  %251 = load i32, ptr %83, align 4
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds %struct.rlVertexBuffer, ptr %250, i64 %252, i32 6, i64 1
+  %254 = load i32, ptr %253, align 4
+  call void %249(i32 noundef 34962, i32 noundef %254) #55
+  %255 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 4
+  %258 = load i32, ptr %257, align 4
+  call void %255(i32 noundef %258, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #55
+  %259 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 4
+  %262 = load i32, ptr %261, align 4
+  call void %259(i32 noundef %262) #55
+  %263 = load ptr, ptr @glad_glBindBuffer, align 8
+  %264 = load ptr, ptr %82, align 8
+  %265 = load i32, ptr %83, align 4
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds %struct.rlVertexBuffer, ptr %264, i64 %266, i32 6, i64 2
+  %268 = load i32, ptr %267, align 4
+  call void %263(i32 noundef 34962, i32 noundef %268) #55
+  %269 = load ptr, ptr @glad_glVertexAttribPointer, align 8
+  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 20
+  %272 = load i32, ptr %271, align 4
+  call void %269(i32 noundef %272, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 0, ptr noundef null) #55
+  %273 = load ptr, ptr @glad_glEnableVertexAttribArray, align 8
+  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 20
+  %276 = load i32, ptr %275, align 4
+  call void %273(i32 noundef %276) #55
+  %277 = load ptr, ptr @glad_glBindBuffer, align 8
+  %278 = load ptr, ptr %82, align 8
+  %279 = load i32, ptr %83, align 4
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds %struct.rlVertexBuffer, ptr %278, i64 %280, i32 6, i64 3
+  %282 = load i32, ptr %281, align 4
+  call void %277(i32 noundef 34963, i32 noundef %282) #55
+  br label %283
 
-284:                                              ; preds = %240, %236
-  %285 = load ptr, ptr @glad_glUniform4f, align 8
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 48
-  %288 = load i32, ptr %287, align 4
-  call void %285(i32 noundef %288, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #55
-  %289 = load ptr, ptr @glad_glUniform1i, align 8
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 60
-  %292 = load i32, ptr %291, align 4
-  call void %289(i32 noundef %292, i32 noundef 0) #55
-  br label %293
+283:                                              ; preds = %239, %235
+  %284 = load ptr, ptr @glad_glUniform4f, align 8
+  %285 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %286 = getelementptr inbounds i8, ptr %285, i64 48
+  %287 = load i32, ptr %286, align 4
+  call void %284(i32 noundef %287, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #55
+  %288 = load ptr, ptr @glad_glUniform1i, align 8
+  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2376), align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 60
+  %291 = load i32, ptr %290, align 4
+  call void %288(i32 noundef %291, i32 noundef 0) #55
+  br label %292
 
-293:                                              ; preds = %284, %302
-  %indvars.iv = phi i64 [ 0, %284 ], [ %indvars.iv.next, %302 ]
-  %294 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
-  %295 = load i32, ptr %294, align 4
-  %.not81 = icmp eq i32 %295, 0
-  br i1 %.not81, label %302, label %296
+292:                                              ; preds = %283, %301
+  %indvars.iv = phi i64 [ 0, %283 ], [ %indvars.iv.next, %301 ]
+  %293 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @RLGL, i64 2332), i64 0, i64 %indvars.iv
+  %294 = load i32, ptr %293, align 4
+  %.not81 = icmp eq i32 %294, 0
+  br i1 %.not81, label %301, label %295
 
-296:                                              ; preds = %293
-  %297 = load ptr, ptr @glad_glActiveTexture, align 8
-  %298 = trunc i64 %indvars.iv to i32
-  %299 = add i32 %298, 33985
-  call void %297(i32 noundef %299) #55
-  %300 = load ptr, ptr @glad_glBindTexture, align 8
-  %301 = load i32, ptr %294, align 4
-  call void %300(i32 noundef 3553, i32 noundef %301) #55
-  br label %302
+295:                                              ; preds = %292
+  %296 = load ptr, ptr @glad_glActiveTexture, align 8
+  %297 = trunc i64 %indvars.iv to i32
+  %298 = add i32 %297, 33985
+  call void %296(i32 noundef %298) #55
+  %299 = load ptr, ptr @glad_glBindTexture, align 8
+  %300 = load i32, ptr %293, align 4
+  call void %299(i32 noundef 3553, i32 noundef %300) #55
+  br label %301
 
-302:                                              ; preds = %293, %296
+301:                                              ; preds = %292, %295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %303, label %293
+  br i1 %exitcond.not, label %302, label %292
 
-303:                                              ; preds = %302
-  %304 = load ptr, ptr @glad_glActiveTexture, align 8
-  call void %304(i32 noundef 33984) #55
-  %305 = load i32, ptr %84, align 8
-  %306 = icmp sgt i32 %305, 0
-  br i1 %306, label %.lr.ph.preheader, label %._crit_edge
+302:                                              ; preds = %301
+  %303 = load ptr, ptr @glad_glActiveTexture, align 8
+  call void %303(i32 noundef 33984) #55
+  %304 = load i32, ptr %84, align 8
+  %305 = icmp sgt i32 %304, 0
+  br i1 %305, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %303
+.lr.ph.preheader:                                 ; preds = %302
   %.pre = load ptr, ptr %85, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %329
-  %307 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %330, %329 ]
-  %indvars.iv226 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next227, %329 ]
-  %.076221 = phi i32 [ 0, %.lr.ph.preheader ], [ %337, %329 ]
-  %308 = load ptr, ptr @glad_glBindTexture, align 8
-  %309 = getelementptr inbounds %struct.rlDrawCall, ptr %307, i64 %indvars.iv226, i32 3
-  %310 = load i32, ptr %309, align 4
-  call void %308(i32 noundef 3553, i32 noundef %310) #55
-  %311 = load ptr, ptr %85, align 8
-  %312 = getelementptr inbounds %struct.rlDrawCall, ptr %311, i64 %indvars.iv226
-  %313 = load i32, ptr %312, align 4
-  switch i32 %313, label %318 [
-    i32 1, label %314
-    i32 4, label %314
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %328
+  %306 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %329, %328 ]
+  %indvars.iv226 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next227, %328 ]
+  %.076221 = phi i32 [ 0, %.lr.ph.preheader ], [ %336, %328 ]
+  %307 = load ptr, ptr @glad_glBindTexture, align 8
+  %308 = getelementptr inbounds %struct.rlDrawCall, ptr %306, i64 %indvars.iv226, i32 3
+  %309 = load i32, ptr %308, align 4
+  call void %307(i32 noundef 3553, i32 noundef %309) #55
+  %310 = load ptr, ptr %85, align 8
+  %311 = getelementptr inbounds %struct.rlDrawCall, ptr %310, i64 %indvars.iv226
+  %312 = load i32, ptr %311, align 4
+  switch i32 %312, label %317 [
+    i32 1, label %313
+    i32 4, label %313
   ]
 
-314:                                              ; preds = %.lr.ph, %.lr.ph
-  %315 = load ptr, ptr @glad_glDrawArrays, align 8
-  %316 = getelementptr inbounds i8, ptr %312, i64 4
-  %317 = load i32, ptr %316, align 4
-  call void %315(i32 noundef %313, i32 noundef %.076221, i32 noundef %317) #55
-  br label %329
+313:                                              ; preds = %.lr.ph, %.lr.ph
+  %314 = load ptr, ptr @glad_glDrawArrays, align 8
+  %315 = getelementptr inbounds i8, ptr %311, i64 4
+  %316 = load i32, ptr %315, align 4
+  call void %314(i32 noundef %312, i32 noundef %.076221, i32 noundef %316) #55
+  br label %328
 
-318:                                              ; preds = %.lr.ph
-  %319 = load ptr, ptr @glad_glDrawElements, align 8
-  %320 = getelementptr inbounds i8, ptr %312, i64 4
-  %321 = load i32, ptr %320, align 4
-  %322 = sdiv i32 %321, 4
-  %323 = mul nsw i32 %322, 6
-  %324 = sdiv i32 %.076221, 4
-  %325 = mul nsw i32 %324, 6
-  %326 = sext i32 %325 to i64
-  %327 = shl nsw i64 %326, 2
-  %328 = inttoptr i64 %327 to ptr
-  call void %319(i32 noundef 4, i32 noundef %323, i32 noundef 5125, ptr noundef %328) #55
-  br label %329
+317:                                              ; preds = %.lr.ph
+  %318 = load ptr, ptr @glad_glDrawElements, align 8
+  %319 = getelementptr inbounds i8, ptr %311, i64 4
+  %320 = load i32, ptr %319, align 4
+  %321 = sdiv i32 %320, 4
+  %322 = mul nsw i32 %321, 6
+  %323 = sdiv i32 %.076221, 4
+  %324 = mul nsw i32 %323, 6
+  %325 = sext i32 %324 to i64
+  %326 = shl nsw i64 %325, 2
+  %327 = inttoptr i64 %326 to ptr
+  call void %318(i32 noundef 4, i32 noundef %322, i32 noundef 5125, ptr noundef %327) #55
+  br label %328
 
-329:                                              ; preds = %318, %314
-  %330 = load ptr, ptr %85, align 8
-  %331 = getelementptr inbounds %struct.rlDrawCall, ptr %330, i64 %indvars.iv226
-  %332 = getelementptr inbounds i8, ptr %331, i64 4
-  %333 = load i32, ptr %332, align 4
-  %334 = getelementptr inbounds i8, ptr %331, i64 8
-  %335 = load i32, ptr %334, align 4
-  %336 = add i32 %333, %.076221
-  %337 = add i32 %336, %335
+328:                                              ; preds = %317, %313
+  %329 = load ptr, ptr %85, align 8
+  %330 = getelementptr inbounds %struct.rlDrawCall, ptr %329, i64 %indvars.iv226
+  %331 = getelementptr inbounds i8, ptr %330, i64 4
+  %332 = load i32, ptr %331, align 4
+  %333 = getelementptr inbounds i8, ptr %330, i64 8
+  %334 = load i32, ptr %333, align 4
+  %335 = add i32 %332, %.076221
+  %336 = add i32 %335, %334
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %338 = load i32, ptr %84, align 8
-  %339 = sext i32 %338 to i64
-  %340 = icmp slt i64 %indvars.iv.next227, %339
-  br i1 %340, label %.lr.ph, label %._crit_edge
+  %337 = load i32, ptr %84, align 8
+  %338 = sext i32 %337 to i64
+  %339 = icmp slt i64 %indvars.iv.next227, %338
+  br i1 %339, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %329, %303
-  %341 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
-  %342 = trunc i8 %341 to i1
-  br i1 %342, label %346, label %343
+._crit_edge:                                      ; preds = %328, %302
+  %340 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %341 = trunc i8 %340 to i1
+  br i1 %341, label %345, label %342
 
-343:                                              ; preds = %._crit_edge
+342:                                              ; preds = %._crit_edge
+  %343 = load ptr, ptr @glad_glBindBuffer, align 8
+  call void %343(i32 noundef 34962, i32 noundef 0) #55
   %344 = load ptr, ptr @glad_glBindBuffer, align 8
-  call void %344(i32 noundef 34962, i32 noundef 0) #55
-  %345 = load ptr, ptr @glad_glBindBuffer, align 8
-  call void %345(i32 noundef 34963, i32 noundef 0) #55
-  br label %346
+  call void %344(i32 noundef 34963, i32 noundef 0) #55
+  br label %345
 
-346:                                              ; preds = %343, %._crit_edge
-  %347 = load ptr, ptr @glad_glBindTexture, align 8
-  call void %347(i32 noundef 3553, i32 noundef 0) #55
-  br label %348
+345:                                              ; preds = %342, %._crit_edge
+  %346 = load ptr, ptr @glad_glBindTexture, align 8
+  call void %346(i32 noundef 3553, i32 noundef 0) #55
+  br label %347
 
-348:                                              ; preds = %346, %146
-  %349 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
-  %350 = trunc i8 %349 to i1
-  br i1 %350, label %351, label %353
+347:                                              ; preds = %345, %146
+  %348 = load i8, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2696), align 8
+  %349 = trunc i8 %348 to i1
+  br i1 %349, label %350, label %352
 
-351:                                              ; preds = %348
-  %352 = load ptr, ptr @glad_glBindVertexArray, align 8
-  call void %352(i32 noundef 0) #55
-  br label %353
+350:                                              ; preds = %347
+  %351 = load ptr, ptr @glad_glBindVertexArray, align 8
+  call void %351(i32 noundef 0) #55
+  br label %352
 
-353:                                              ; preds = %351, %348
-  %354 = load ptr, ptr @glad_glUseProgram, align 8
-  call void %354(i32 noundef 0) #55
-  %355 = and i1 %87, %78
-  br i1 %355, label %86, label %356
+352:                                              ; preds = %350, %347
+  %353 = load ptr, ptr @glad_glUseProgram, align 8
+  call void %353(i32 noundef 0) #55
+  %354 = and i1 %87, %78
+  br i1 %354, label %86, label %355
 
-356:                                              ; preds = %353
-  br i1 %78, label %357, label %361
+355:                                              ; preds = %352
+  br i1 %78, label %356, label %360
 
-357:                                              ; preds = %356
-  %358 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
-  %359 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
-  %360 = load ptr, ptr @glad_glViewport, align 8
-  call void %360(i32 noundef 0, i32 noundef 0, i32 noundef %358, i32 noundef %359) #55
-  br label %361
+356:                                              ; preds = %355
+  %357 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2688), align 8
+  %358 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2692), align 4
+  %359 = load ptr, ptr @glad_glViewport, align 8
+  call void %359(i32 noundef 0, i32 noundef 0, i32 noundef %357, i32 noundef %358) #55
+  br label %360
 
-361:                                              ; preds = %357, %356
+360:                                              ; preds = %356, %355
   store i32 0, ptr getelementptr inbounds (i8, ptr @RLGL, i64 40), align 8
-  %362 = getelementptr inbounds i8, ptr %0, i64 28
-  store float -1.000000e+00, ptr %362, align 4
+  %361 = getelementptr inbounds i8, ptr %0, i64 28
+  store float -1.000000e+00, ptr %361, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   store <4 x float> %73, ptr getelementptr inbounds (i8, ptr @RLGL, i64 80), align 8
   store <4 x float> %74, ptr getelementptr inbounds (i8, ptr @RLGL, i64 96), align 8
   store <4 x float> %75, ptr getelementptr inbounds (i8, ptr @RLGL, i64 112), align 8
   store <4 x float> %76, ptr getelementptr inbounds (i8, ptr @RLGL, i64 128), align 8
-  br label %363
+  br label %362
 
-363:                                              ; preds = %361, %363
-  %indvars.iv232 = phi i64 [ 0, %361 ], [ %indvars.iv.next233, %363 ]
-  %364 = load ptr, ptr %85, align 8
-  %365 = getelementptr inbounds %struct.rlDrawCall, ptr %364, i64 %indvars.iv232
-  store i32 7, ptr %365, align 4
-  %366 = load ptr, ptr %85, align 8
-  %367 = getelementptr inbounds %struct.rlDrawCall, ptr %366, i64 %indvars.iv232, i32 1
-  store i32 0, ptr %367, align 4
-  %368 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
-  %369 = load ptr, ptr %85, align 8
-  %370 = getelementptr inbounds %struct.rlDrawCall, ptr %369, i64 %indvars.iv232, i32 3
-  store i32 %368, ptr %370, align 4
+362:                                              ; preds = %360, %362
+  %indvars.iv232 = phi i64 [ 0, %360 ], [ %indvars.iv.next233, %362 ]
+  %363 = load ptr, ptr %85, align 8
+  %364 = getelementptr inbounds %struct.rlDrawCall, ptr %363, i64 %indvars.iv232
+  store i32 7, ptr %364, align 4
+  %365 = load ptr, ptr %85, align 8
+  %366 = getelementptr inbounds %struct.rlDrawCall, ptr %365, i64 %indvars.iv232, i32 1
+  store i32 0, ptr %366, align 4
+  %367 = load i32, ptr getelementptr inbounds (i8, ptr @RLGL, i64 2328), align 8
+  %368 = load ptr, ptr %85, align 8
+  %369 = getelementptr inbounds %struct.rlDrawCall, ptr %368, i64 %indvars.iv232, i32 3
+  store i32 %367, ptr %369, align 4
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 256
-  br i1 %exitcond235.not, label %.preheader.preheader, label %363
+  br i1 %exitcond235.not, label %.preheader.preheader, label %362
 
-.preheader.preheader:                             ; preds = %363
+.preheader.preheader:                             ; preds = %362
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 2332), i8 0, i64 16, i1 false)
   store i32 1, ptr %84, align 8
-  %371 = load i32, ptr %83, align 4
-  %372 = add nsw i32 %371, 1
-  %373 = load i32, ptr %0, align 8
-  %.not = icmp slt i32 %372, %373
-  %spec.store.select82 = select i1 %.not, i32 %372, i32 0
+  %370 = load i32, ptr %83, align 4
+  %371 = add nsw i32 %370, 1
+  %372 = load i32, ptr %0, align 8
+  %.not = icmp slt i32 %371, %372
+  %spec.store.select82 = select i1 %.not, i32 %371, i32 0
   store i32 %spec.store.select82, ptr %83, align 4
   ret void
 }

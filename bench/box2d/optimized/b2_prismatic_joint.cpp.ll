@@ -397,8 +397,8 @@ entry:
 
 if.then104:                                       ; preds = %entry
   %83 = extractelement <2 x float> %47, i64 1
-  %84 = extractelement <2 x float> %47, i64 0
   %mul3.i = fmul float %sub3.i67, %83
+  %84 = extractelement <2 x float> %47, i64 0
   %85 = tail call noundef float @llvm.fmuladd.f32(float %84, float %sub.i64, float %mul3.i)
   br label %if.end107
 

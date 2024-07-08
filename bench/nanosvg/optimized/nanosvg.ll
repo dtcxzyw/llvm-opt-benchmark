@@ -13161,108 +13161,112 @@ nsvg__findGradientData.exit141:                   ; preds = %.lr.ph.i136, %23, %
   %40 = getelementptr inbounds i8, ptr %.013.i, i64 173
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 1
-  br i1 %42, label %43, label %48
+  br i1 %42, label %43, label %50
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %2, i64 8
   %45 = load <2 x float>, ptr %2, align 4
   %46 = load <2 x float>, ptr %44, align 4
   %47 = fsub <2 x float> %46, %45
-  br label %53
+  %48 = extractelement <2 x float> %45, i64 0
+  %49 = extractelement <2 x float> %45, i64 1
+  br label %55
 
-48:                                               ; preds = %39
-  %49 = getelementptr i8, ptr %0, i64 39992
-  %50 = load <2 x float>, ptr %49, align 8
-  %51 = getelementptr i8, ptr %0, i64 40000
-  %52 = load <2 x float>, ptr %51, align 8
-  br label %53
+50:                                               ; preds = %39
+  %51 = getelementptr i8, ptr %0, i64 39992
+  %.val = load float, ptr %51, align 8
+  %52 = getelementptr i8, ptr %0, i64 39996
+  %.val130 = load float, ptr %52, align 4
+  %53 = getelementptr i8, ptr %0, i64 40000
+  %54 = load <2 x float>, ptr %53, align 8
+  br label %55
 
-53:                                               ; preds = %48, %43
-  %54 = phi <2 x float> [ %47, %43 ], [ %52, %48 ]
-  %55 = phi <2 x float> [ %45, %43 ], [ %50, %48 ]
-  %56 = getelementptr inbounds i8, ptr %.013.i, i64 128
-  %57 = load i8, ptr %56, align 8
-  %58 = icmp eq i8 %57, 2
-  br i1 %58, label %59, label %235
+55:                                               ; preds = %50, %43
+  %.0120 = phi float [ %49, %43 ], [ %.val130, %50 ]
+  %.0119 = phi float [ %48, %43 ], [ %.val, %50 ]
+  %56 = phi <2 x float> [ %47, %43 ], [ %54, %50 ]
+  %57 = getelementptr inbounds i8, ptr %.013.i, i64 128
+  %58 = load i8, ptr %57, align 8
+  %59 = icmp eq i8 %58, 2
+  br i1 %59, label %60, label %232
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %.013.i, i64 132
-  %61 = load i64, ptr %60, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %61 to i32
-  %62 = bitcast i32 %.sroa.0.0.extract.trunc.i to float
-  %.sroa.12.0.extract.shift.i = lshr i64 %61, 32
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %.013.i, i64 132
+  %62 = load i64, ptr %61, align 4
+  %.sroa.0.0.extract.trunc.i = trunc i64 %62 to i32
+  %63 = bitcast i32 %.sroa.0.0.extract.trunc.i to float
+  %.sroa.12.0.extract.shift.i = lshr i64 %62, 32
   %.sroa.12.0.extract.trunc.i = trunc nuw i64 %.sroa.12.0.extract.shift.i to i32
-  %63 = getelementptr inbounds i8, ptr %0, i64 39936
-  %64 = load i32, ptr %63, align 8
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [128 x %struct.NSVGattrib], ptr %0, i64 0, i64 %65
+  %64 = getelementptr inbounds i8, ptr %0, i64 39936
+  %65 = load i32, ptr %64, align 8
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds [128 x %struct.NSVGattrib], ptr %0, i64 0, i64 %66
   switch i32 %.sroa.12.0.extract.trunc.i, label %nsvg__convertToPixels.exit [
-    i32 7, label %100
-    i32 9, label %95
-    i32 2, label %67
-    i32 3, label %72
-    i32 4, label %77
-    i32 5, label %82
-    i32 6, label %87
-    i32 8, label %91
+    i32 7, label %101
+    i32 9, label %96
+    i32 2, label %68
+    i32 3, label %73
+    i32 4, label %78
+    i32 5, label %83
+    i32 6, label %88
+    i32 8, label %92
   ]
 
-67:                                               ; preds = %59
-  %68 = fdiv float %62, 7.200000e+01
-  %69 = getelementptr inbounds i8, ptr %0, i64 40020
-  %70 = load float, ptr %69, align 4
-  %71 = fmul float %68, %70
+68:                                               ; preds = %60
+  %69 = fdiv float %63, 7.200000e+01
+  %70 = getelementptr inbounds i8, ptr %0, i64 40020
+  %71 = load float, ptr %70, align 4
+  %72 = fmul float %69, %71
   br label %nsvg__convertToPixels.exit
 
-72:                                               ; preds = %59
-  %73 = fdiv float %62, 6.000000e+00
-  %74 = getelementptr inbounds i8, ptr %0, i64 40020
-  %75 = load float, ptr %74, align 4
-  %76 = fmul float %73, %75
+73:                                               ; preds = %60
+  %74 = fdiv float %63, 6.000000e+00
+  %75 = getelementptr inbounds i8, ptr %0, i64 40020
+  %76 = load float, ptr %75, align 4
+  %77 = fmul float %74, %76
   br label %nsvg__convertToPixels.exit
 
-77:                                               ; preds = %59
-  %78 = fdiv float %62, 0x4039666660000000
-  %79 = getelementptr inbounds i8, ptr %0, i64 40020
-  %80 = load float, ptr %79, align 4
-  %81 = fmul float %78, %80
+78:                                               ; preds = %60
+  %79 = fdiv float %63, 0x4039666660000000
+  %80 = getelementptr inbounds i8, ptr %0, i64 40020
+  %81 = load float, ptr %80, align 4
+  %82 = fmul float %79, %81
   br label %nsvg__convertToPixels.exit
 
-82:                                               ; preds = %59
-  %83 = fdiv float %62, 0x400451EB80000000
-  %84 = getelementptr inbounds i8, ptr %0, i64 40020
-  %85 = load float, ptr %84, align 4
-  %86 = fmul float %83, %85
+83:                                               ; preds = %60
+  %84 = fdiv float %63, 0x400451EB80000000
+  %85 = getelementptr inbounds i8, ptr %0, i64 40020
+  %86 = load float, ptr %85, align 4
+  %87 = fmul float %84, %86
   br label %nsvg__convertToPixels.exit
 
-87:                                               ; preds = %59
-  %88 = getelementptr inbounds i8, ptr %0, i64 40020
-  %89 = load float, ptr %88, align 4
-  %90 = fmul float %89, %62
+88:                                               ; preds = %60
+  %89 = getelementptr inbounds i8, ptr %0, i64 40020
+  %90 = load float, ptr %89, align 4
+  %91 = fmul float %90, %63
   br label %nsvg__convertToPixels.exit
 
-91:                                               ; preds = %59
-  %92 = getelementptr inbounds i8, ptr %66, i64 292
-  %93 = load float, ptr %92, align 4
-  %94 = fmul float %93, %62
+92:                                               ; preds = %60
+  %93 = getelementptr inbounds i8, ptr %67, i64 292
+  %94 = load float, ptr %93, align 4
+  %95 = fmul float %94, %63
   br label %nsvg__convertToPixels.exit
 
-95:                                               ; preds = %59
-  %96 = getelementptr inbounds i8, ptr %66, i64 292
-  %97 = load float, ptr %96, align 4
-  %98 = fmul float %97, %62
-  %99 = fmul float %98, 0x3FE0A3D700000000
+96:                                               ; preds = %60
+  %97 = getelementptr inbounds i8, ptr %67, i64 292
+  %98 = load float, ptr %97, align 4
+  %99 = fmul float %98, %63
+  %100 = fmul float %99, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit
 
-100:                                              ; preds = %59
-  %101 = fdiv float %62, 1.000000e+02
-  %102 = extractelement <2 x float> %54, i64 0
-  %103 = extractelement <2 x float> %55, i64 0
-  %104 = tail call float @llvm.fmuladd.f32(float %101, float %102, float %103)
+101:                                              ; preds = %60
+  %102 = fdiv float %63, 1.000000e+02
+  %103 = extractelement <2 x float> %56, i64 0
+  %104 = tail call float @llvm.fmuladd.f32(float %102, float %103, float %.0119)
   br label %nsvg__convertToPixels.exit
 
-nsvg__convertToPixels.exit:                       ; preds = %59, %67, %72, %77, %82, %87, %91, %95, %100
-  %.0.i142 = phi float [ %104, %100 ], [ %99, %95 ], [ %94, %91 ], [ %90, %87 ], [ %86, %82 ], [ %81, %77 ], [ %76, %72 ], [ %71, %67 ], [ %62, %59 ]
+nsvg__convertToPixels.exit:                       ; preds = %60, %68, %73, %78, %83, %88, %92, %96, %101
+  %.0.i142 = phi float [ %104, %101 ], [ %100, %96 ], [ %95, %92 ], [ %91, %88 ], [ %87, %83 ], [ %82, %78 ], [ %77, %73 ], [ %72, %68 ], [ %63, %60 ]
   %105 = getelementptr inbounds i8, ptr %.013.i, i64 140
   %106 = load i64, ptr %105, align 4
   %.sroa.0.0.extract.trunc.i143 = trunc i64 %106 to i32
@@ -13315,13 +13319,13 @@ nsvg__convertToPixels.exit:                       ; preds = %59, %67, %72, %77, 
   br label %nsvg__convertToPixels.exit147
 
 132:                                              ; preds = %nsvg__convertToPixels.exit
-  %133 = getelementptr inbounds i8, ptr %66, i64 292
+  %133 = getelementptr inbounds i8, ptr %67, i64 292
   %134 = load float, ptr %133, align 4
   %135 = fmul float %134, %107
   br label %nsvg__convertToPixels.exit147
 
 136:                                              ; preds = %nsvg__convertToPixels.exit
-  %137 = getelementptr inbounds i8, ptr %66, i64 292
+  %137 = getelementptr inbounds i8, ptr %67, i64 292
   %138 = load float, ptr %137, align 4
   %139 = fmul float %138, %107
   %140 = fmul float %139, 0x3FE0A3D700000000
@@ -13329,621 +13333,614 @@ nsvg__convertToPixels.exit:                       ; preds = %59, %67, %72, %77, 
 
 141:                                              ; preds = %nsvg__convertToPixels.exit
   %142 = fdiv float %107, 1.000000e+02
-  %143 = extractelement <2 x float> %54, i64 1
-  %144 = extractelement <2 x float> %55, i64 1
-  %145 = tail call float @llvm.fmuladd.f32(float %142, float %143, float %144)
+  %143 = extractelement <2 x float> %56, i64 1
+  %144 = tail call float @llvm.fmuladd.f32(float %142, float %143, float %.0120)
   br label %nsvg__convertToPixels.exit147
 
 nsvg__convertToPixels.exit147:                    ; preds = %nsvg__convertToPixels.exit, %108, %113, %118, %123, %128, %132, %136, %141
-  %.0.i146 = phi float [ %145, %141 ], [ %140, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %107, %nsvg__convertToPixels.exit ]
-  %146 = getelementptr inbounds i8, ptr %.013.i, i64 148
-  %147 = load i64, ptr %146, align 4
-  %.sroa.0.0.extract.trunc.i148 = trunc i64 %147 to i32
-  %148 = bitcast i32 %.sroa.0.0.extract.trunc.i148 to float
-  %.sroa.12.0.extract.shift.i149 = lshr i64 %147, 32
+  %.0.i146 = phi float [ %144, %141 ], [ %140, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %107, %nsvg__convertToPixels.exit ]
+  %145 = getelementptr inbounds i8, ptr %.013.i, i64 148
+  %146 = load i64, ptr %145, align 4
+  %.sroa.0.0.extract.trunc.i148 = trunc i64 %146 to i32
+  %147 = bitcast i32 %.sroa.0.0.extract.trunc.i148 to float
+  %.sroa.12.0.extract.shift.i149 = lshr i64 %146, 32
   %.sroa.12.0.extract.trunc.i150 = trunc nuw i64 %.sroa.12.0.extract.shift.i149 to i32
   switch i32 %.sroa.12.0.extract.trunc.i150, label %nsvg__convertToPixels.exit152 [
-    i32 7, label %182
-    i32 9, label %177
-    i32 2, label %149
-    i32 3, label %154
-    i32 4, label %159
-    i32 5, label %164
-    i32 6, label %169
-    i32 8, label %173
+    i32 7, label %181
+    i32 9, label %176
+    i32 2, label %148
+    i32 3, label %153
+    i32 4, label %158
+    i32 5, label %163
+    i32 6, label %168
+    i32 8, label %172
   ]
 
-149:                                              ; preds = %nsvg__convertToPixels.exit147
-  %150 = fdiv float %148, 7.200000e+01
-  %151 = getelementptr inbounds i8, ptr %0, i64 40020
-  %152 = load float, ptr %151, align 4
-  %153 = fmul float %150, %152
+148:                                              ; preds = %nsvg__convertToPixels.exit147
+  %149 = fdiv float %147, 7.200000e+01
+  %150 = getelementptr inbounds i8, ptr %0, i64 40020
+  %151 = load float, ptr %150, align 4
+  %152 = fmul float %149, %151
   br label %nsvg__convertToPixels.exit152
 
-154:                                              ; preds = %nsvg__convertToPixels.exit147
-  %155 = fdiv float %148, 6.000000e+00
-  %156 = getelementptr inbounds i8, ptr %0, i64 40020
-  %157 = load float, ptr %156, align 4
-  %158 = fmul float %155, %157
+153:                                              ; preds = %nsvg__convertToPixels.exit147
+  %154 = fdiv float %147, 6.000000e+00
+  %155 = getelementptr inbounds i8, ptr %0, i64 40020
+  %156 = load float, ptr %155, align 4
+  %157 = fmul float %154, %156
   br label %nsvg__convertToPixels.exit152
 
-159:                                              ; preds = %nsvg__convertToPixels.exit147
-  %160 = fdiv float %148, 0x4039666660000000
-  %161 = getelementptr inbounds i8, ptr %0, i64 40020
-  %162 = load float, ptr %161, align 4
-  %163 = fmul float %160, %162
+158:                                              ; preds = %nsvg__convertToPixels.exit147
+  %159 = fdiv float %147, 0x4039666660000000
+  %160 = getelementptr inbounds i8, ptr %0, i64 40020
+  %161 = load float, ptr %160, align 4
+  %162 = fmul float %159, %161
   br label %nsvg__convertToPixels.exit152
 
-164:                                              ; preds = %nsvg__convertToPixels.exit147
-  %165 = fdiv float %148, 0x400451EB80000000
-  %166 = getelementptr inbounds i8, ptr %0, i64 40020
-  %167 = load float, ptr %166, align 4
-  %168 = fmul float %165, %167
+163:                                              ; preds = %nsvg__convertToPixels.exit147
+  %164 = fdiv float %147, 0x400451EB80000000
+  %165 = getelementptr inbounds i8, ptr %0, i64 40020
+  %166 = load float, ptr %165, align 4
+  %167 = fmul float %164, %166
   br label %nsvg__convertToPixels.exit152
 
-169:                                              ; preds = %nsvg__convertToPixels.exit147
-  %170 = getelementptr inbounds i8, ptr %0, i64 40020
-  %171 = load float, ptr %170, align 4
-  %172 = fmul float %171, %148
+168:                                              ; preds = %nsvg__convertToPixels.exit147
+  %169 = getelementptr inbounds i8, ptr %0, i64 40020
+  %170 = load float, ptr %169, align 4
+  %171 = fmul float %170, %147
   br label %nsvg__convertToPixels.exit152
 
-173:                                              ; preds = %nsvg__convertToPixels.exit147
-  %174 = getelementptr inbounds i8, ptr %66, i64 292
-  %175 = load float, ptr %174, align 4
-  %176 = fmul float %175, %148
+172:                                              ; preds = %nsvg__convertToPixels.exit147
+  %173 = getelementptr inbounds i8, ptr %67, i64 292
+  %174 = load float, ptr %173, align 4
+  %175 = fmul float %174, %147
   br label %nsvg__convertToPixels.exit152
 
-177:                                              ; preds = %nsvg__convertToPixels.exit147
-  %178 = getelementptr inbounds i8, ptr %66, i64 292
-  %179 = load float, ptr %178, align 4
-  %180 = fmul float %179, %148
-  %181 = fmul float %180, 0x3FE0A3D700000000
+176:                                              ; preds = %nsvg__convertToPixels.exit147
+  %177 = getelementptr inbounds i8, ptr %67, i64 292
+  %178 = load float, ptr %177, align 4
+  %179 = fmul float %178, %147
+  %180 = fmul float %179, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit152
 
-182:                                              ; preds = %nsvg__convertToPixels.exit147
-  %183 = fdiv float %148, 1.000000e+02
-  %184 = extractelement <2 x float> %54, i64 0
-  %185 = extractelement <2 x float> %55, i64 0
-  %186 = tail call float @llvm.fmuladd.f32(float %183, float %184, float %185)
+181:                                              ; preds = %nsvg__convertToPixels.exit147
+  %182 = fdiv float %147, 1.000000e+02
+  %183 = extractelement <2 x float> %56, i64 0
+  %184 = tail call float @llvm.fmuladd.f32(float %182, float %183, float %.0119)
   br label %nsvg__convertToPixels.exit152
 
-nsvg__convertToPixels.exit152:                    ; preds = %nsvg__convertToPixels.exit147, %149, %154, %159, %164, %169, %173, %177, %182
-  %.0.i151 = phi float [ %186, %182 ], [ %181, %177 ], [ %176, %173 ], [ %172, %169 ], [ %168, %164 ], [ %163, %159 ], [ %158, %154 ], [ %153, %149 ], [ %148, %nsvg__convertToPixels.exit147 ]
-  %187 = getelementptr inbounds i8, ptr %.013.i, i64 156
-  %188 = load i64, ptr %187, align 4
-  %.sroa.0.0.extract.trunc.i153 = trunc i64 %188 to i32
-  %189 = bitcast i32 %.sroa.0.0.extract.trunc.i153 to float
-  %.sroa.12.0.extract.shift.i154 = lshr i64 %188, 32
+nsvg__convertToPixels.exit152:                    ; preds = %nsvg__convertToPixels.exit147, %148, %153, %158, %163, %168, %172, %176, %181
+  %.0.i151 = phi float [ %184, %181 ], [ %180, %176 ], [ %175, %172 ], [ %171, %168 ], [ %167, %163 ], [ %162, %158 ], [ %157, %153 ], [ %152, %148 ], [ %147, %nsvg__convertToPixels.exit147 ]
+  %185 = getelementptr inbounds i8, ptr %.013.i, i64 156
+  %186 = load i64, ptr %185, align 4
+  %.sroa.0.0.extract.trunc.i153 = trunc i64 %186 to i32
+  %187 = bitcast i32 %.sroa.0.0.extract.trunc.i153 to float
+  %.sroa.12.0.extract.shift.i154 = lshr i64 %186, 32
   %.sroa.12.0.extract.trunc.i155 = trunc nuw i64 %.sroa.12.0.extract.shift.i154 to i32
   switch i32 %.sroa.12.0.extract.trunc.i155, label %nsvg__convertToPixels.exit157 [
-    i32 7, label %223
-    i32 9, label %218
-    i32 2, label %190
-    i32 3, label %195
-    i32 4, label %200
-    i32 5, label %205
-    i32 6, label %210
-    i32 8, label %214
+    i32 7, label %221
+    i32 9, label %216
+    i32 2, label %188
+    i32 3, label %193
+    i32 4, label %198
+    i32 5, label %203
+    i32 6, label %208
+    i32 8, label %212
   ]
 
-190:                                              ; preds = %nsvg__convertToPixels.exit152
-  %191 = fdiv float %189, 7.200000e+01
-  %192 = getelementptr inbounds i8, ptr %0, i64 40020
-  %193 = load float, ptr %192, align 4
-  %194 = fmul float %191, %193
+188:                                              ; preds = %nsvg__convertToPixels.exit152
+  %189 = fdiv float %187, 7.200000e+01
+  %190 = getelementptr inbounds i8, ptr %0, i64 40020
+  %191 = load float, ptr %190, align 4
+  %192 = fmul float %189, %191
   br label %nsvg__convertToPixels.exit157
 
-195:                                              ; preds = %nsvg__convertToPixels.exit152
-  %196 = fdiv float %189, 6.000000e+00
-  %197 = getelementptr inbounds i8, ptr %0, i64 40020
-  %198 = load float, ptr %197, align 4
-  %199 = fmul float %196, %198
+193:                                              ; preds = %nsvg__convertToPixels.exit152
+  %194 = fdiv float %187, 6.000000e+00
+  %195 = getelementptr inbounds i8, ptr %0, i64 40020
+  %196 = load float, ptr %195, align 4
+  %197 = fmul float %194, %196
   br label %nsvg__convertToPixels.exit157
 
-200:                                              ; preds = %nsvg__convertToPixels.exit152
-  %201 = fdiv float %189, 0x4039666660000000
-  %202 = getelementptr inbounds i8, ptr %0, i64 40020
-  %203 = load float, ptr %202, align 4
-  %204 = fmul float %201, %203
+198:                                              ; preds = %nsvg__convertToPixels.exit152
+  %199 = fdiv float %187, 0x4039666660000000
+  %200 = getelementptr inbounds i8, ptr %0, i64 40020
+  %201 = load float, ptr %200, align 4
+  %202 = fmul float %199, %201
   br label %nsvg__convertToPixels.exit157
 
-205:                                              ; preds = %nsvg__convertToPixels.exit152
-  %206 = fdiv float %189, 0x400451EB80000000
-  %207 = getelementptr inbounds i8, ptr %0, i64 40020
-  %208 = load float, ptr %207, align 4
-  %209 = fmul float %206, %208
+203:                                              ; preds = %nsvg__convertToPixels.exit152
+  %204 = fdiv float %187, 0x400451EB80000000
+  %205 = getelementptr inbounds i8, ptr %0, i64 40020
+  %206 = load float, ptr %205, align 4
+  %207 = fmul float %204, %206
   br label %nsvg__convertToPixels.exit157
 
-210:                                              ; preds = %nsvg__convertToPixels.exit152
-  %211 = getelementptr inbounds i8, ptr %0, i64 40020
-  %212 = load float, ptr %211, align 4
-  %213 = fmul float %212, %189
+208:                                              ; preds = %nsvg__convertToPixels.exit152
+  %209 = getelementptr inbounds i8, ptr %0, i64 40020
+  %210 = load float, ptr %209, align 4
+  %211 = fmul float %210, %187
   br label %nsvg__convertToPixels.exit157
 
-214:                                              ; preds = %nsvg__convertToPixels.exit152
-  %215 = getelementptr inbounds i8, ptr %66, i64 292
-  %216 = load float, ptr %215, align 4
-  %217 = fmul float %216, %189
+212:                                              ; preds = %nsvg__convertToPixels.exit152
+  %213 = getelementptr inbounds i8, ptr %67, i64 292
+  %214 = load float, ptr %213, align 4
+  %215 = fmul float %214, %187
   br label %nsvg__convertToPixels.exit157
 
-218:                                              ; preds = %nsvg__convertToPixels.exit152
-  %219 = getelementptr inbounds i8, ptr %66, i64 292
-  %220 = load float, ptr %219, align 4
-  %221 = fmul float %220, %189
-  %222 = fmul float %221, 0x3FE0A3D700000000
+216:                                              ; preds = %nsvg__convertToPixels.exit152
+  %217 = getelementptr inbounds i8, ptr %67, i64 292
+  %218 = load float, ptr %217, align 4
+  %219 = fmul float %218, %187
+  %220 = fmul float %219, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit157
 
-223:                                              ; preds = %nsvg__convertToPixels.exit152
-  %224 = fdiv float %189, 1.000000e+02
-  %225 = extractelement <2 x float> %54, i64 1
-  %226 = extractelement <2 x float> %55, i64 1
-  %227 = tail call float @llvm.fmuladd.f32(float %224, float %225, float %226)
+221:                                              ; preds = %nsvg__convertToPixels.exit152
+  %222 = fdiv float %187, 1.000000e+02
+  %223 = extractelement <2 x float> %56, i64 1
+  %224 = tail call float @llvm.fmuladd.f32(float %222, float %223, float %.0120)
   br label %nsvg__convertToPixels.exit157
 
-nsvg__convertToPixels.exit157:                    ; preds = %nsvg__convertToPixels.exit152, %190, %195, %200, %205, %210, %214, %218, %223
-  %.0.i156 = phi float [ %227, %223 ], [ %222, %218 ], [ %217, %214 ], [ %213, %210 ], [ %209, %205 ], [ %204, %200 ], [ %199, %195 ], [ %194, %190 ], [ %189, %nsvg__convertToPixels.exit152 ]
-  %228 = insertelement <2 x float> poison, float %.0.i151, i64 0
-  %229 = insertelement <2 x float> %228, float %.0.i156, i64 1
-  %230 = insertelement <2 x float> poison, float %.0.i142, i64 0
-  %231 = insertelement <2 x float> %230, float %.0.i146, i64 1
-  %232 = fsub <2 x float> %229, %231
-  %233 = extractelement <2 x float> %232, i64 0
-  %234 = fneg float %233
-  br label %451
+nsvg__convertToPixels.exit157:                    ; preds = %nsvg__convertToPixels.exit152, %188, %193, %198, %203, %208, %212, %216, %221
+  %.0.i156 = phi float [ %224, %221 ], [ %220, %216 ], [ %215, %212 ], [ %211, %208 ], [ %207, %203 ], [ %202, %198 ], [ %197, %193 ], [ %192, %188 ], [ %187, %nsvg__convertToPixels.exit152 ]
+  %225 = insertelement <2 x float> poison, float %.0.i151, i64 0
+  %226 = insertelement <2 x float> %225, float %.0.i156, i64 1
+  %227 = insertelement <2 x float> poison, float %.0.i142, i64 0
+  %228 = insertelement <2 x float> %227, float %.0.i146, i64 1
+  %229 = fsub <2 x float> %226, %228
+  %230 = extractelement <2 x float> %229, i64 0
+  %231 = fneg float %230
+  br label %444
 
-235:                                              ; preds = %53
-  %236 = extractelement <2 x float> %54, i64 1
-  %237 = fmul float %236, %236
-  %238 = extractelement <2 x float> %54, i64 0
-  %239 = tail call float @llvm.fmuladd.f32(float %238, float %238, float %237)
-  %sqrt = tail call float @llvm.sqrt.f32(float %239)
-  %240 = fdiv float %sqrt, 0x3FF6A09E60000000
-  %241 = getelementptr inbounds i8, ptr %.013.i, i64 132
-  %242 = load i64, ptr %241, align 4
-  %.sroa.0.0.extract.trunc.i158 = trunc i64 %242 to i32
-  %243 = bitcast i32 %.sroa.0.0.extract.trunc.i158 to float
-  %.sroa.12.0.extract.shift.i159 = lshr i64 %242, 32
+232:                                              ; preds = %55
+  %233 = extractelement <2 x float> %56, i64 1
+  %234 = fmul float %233, %233
+  %235 = extractelement <2 x float> %56, i64 0
+  %236 = tail call float @llvm.fmuladd.f32(float %235, float %235, float %234)
+  %sqrt = tail call float @llvm.sqrt.f32(float %236)
+  %237 = fdiv float %sqrt, 0x3FF6A09E60000000
+  %238 = getelementptr inbounds i8, ptr %.013.i, i64 132
+  %239 = load i64, ptr %238, align 4
+  %.sroa.0.0.extract.trunc.i158 = trunc i64 %239 to i32
+  %240 = bitcast i32 %.sroa.0.0.extract.trunc.i158 to float
+  %.sroa.12.0.extract.shift.i159 = lshr i64 %239, 32
   %.sroa.12.0.extract.trunc.i160 = trunc nuw i64 %.sroa.12.0.extract.shift.i159 to i32
-  %244 = getelementptr inbounds i8, ptr %0, i64 39936
-  %245 = load i32, ptr %244, align 8
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds [128 x %struct.NSVGattrib], ptr %0, i64 0, i64 %246
+  %241 = getelementptr inbounds i8, ptr %0, i64 39936
+  %242 = load i32, ptr %241, align 8
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [128 x %struct.NSVGattrib], ptr %0, i64 0, i64 %243
   switch i32 %.sroa.12.0.extract.trunc.i160, label %nsvg__convertToPixels.exit162 [
-    i32 7, label %281
-    i32 9, label %276
-    i32 2, label %248
-    i32 3, label %253
-    i32 4, label %258
-    i32 5, label %263
-    i32 6, label %268
-    i32 8, label %272
+    i32 7, label %278
+    i32 9, label %273
+    i32 2, label %245
+    i32 3, label %250
+    i32 4, label %255
+    i32 5, label %260
+    i32 6, label %265
+    i32 8, label %269
   ]
 
-248:                                              ; preds = %235
-  %249 = fdiv float %243, 7.200000e+01
-  %250 = getelementptr inbounds i8, ptr %0, i64 40020
-  %251 = load float, ptr %250, align 4
-  %252 = fmul float %249, %251
+245:                                              ; preds = %232
+  %246 = fdiv float %240, 7.200000e+01
+  %247 = getelementptr inbounds i8, ptr %0, i64 40020
+  %248 = load float, ptr %247, align 4
+  %249 = fmul float %246, %248
   br label %nsvg__convertToPixels.exit162
 
-253:                                              ; preds = %235
-  %254 = fdiv float %243, 6.000000e+00
-  %255 = getelementptr inbounds i8, ptr %0, i64 40020
-  %256 = load float, ptr %255, align 4
-  %257 = fmul float %254, %256
+250:                                              ; preds = %232
+  %251 = fdiv float %240, 6.000000e+00
+  %252 = getelementptr inbounds i8, ptr %0, i64 40020
+  %253 = load float, ptr %252, align 4
+  %254 = fmul float %251, %253
   br label %nsvg__convertToPixels.exit162
 
-258:                                              ; preds = %235
-  %259 = fdiv float %243, 0x4039666660000000
-  %260 = getelementptr inbounds i8, ptr %0, i64 40020
-  %261 = load float, ptr %260, align 4
-  %262 = fmul float %259, %261
+255:                                              ; preds = %232
+  %256 = fdiv float %240, 0x4039666660000000
+  %257 = getelementptr inbounds i8, ptr %0, i64 40020
+  %258 = load float, ptr %257, align 4
+  %259 = fmul float %256, %258
   br label %nsvg__convertToPixels.exit162
 
-263:                                              ; preds = %235
-  %264 = fdiv float %243, 0x400451EB80000000
-  %265 = getelementptr inbounds i8, ptr %0, i64 40020
-  %266 = load float, ptr %265, align 4
-  %267 = fmul float %264, %266
+260:                                              ; preds = %232
+  %261 = fdiv float %240, 0x400451EB80000000
+  %262 = getelementptr inbounds i8, ptr %0, i64 40020
+  %263 = load float, ptr %262, align 4
+  %264 = fmul float %261, %263
   br label %nsvg__convertToPixels.exit162
 
-268:                                              ; preds = %235
-  %269 = getelementptr inbounds i8, ptr %0, i64 40020
-  %270 = load float, ptr %269, align 4
-  %271 = fmul float %270, %243
+265:                                              ; preds = %232
+  %266 = getelementptr inbounds i8, ptr %0, i64 40020
+  %267 = load float, ptr %266, align 4
+  %268 = fmul float %267, %240
   br label %nsvg__convertToPixels.exit162
 
-272:                                              ; preds = %235
-  %273 = getelementptr inbounds i8, ptr %247, i64 292
-  %274 = load float, ptr %273, align 4
-  %275 = fmul float %274, %243
+269:                                              ; preds = %232
+  %270 = getelementptr inbounds i8, ptr %244, i64 292
+  %271 = load float, ptr %270, align 4
+  %272 = fmul float %271, %240
   br label %nsvg__convertToPixels.exit162
 
-276:                                              ; preds = %235
-  %277 = getelementptr inbounds i8, ptr %247, i64 292
-  %278 = load float, ptr %277, align 4
-  %279 = fmul float %278, %243
-  %280 = fmul float %279, 0x3FE0A3D700000000
+273:                                              ; preds = %232
+  %274 = getelementptr inbounds i8, ptr %244, i64 292
+  %275 = load float, ptr %274, align 4
+  %276 = fmul float %275, %240
+  %277 = fmul float %276, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit162
 
-281:                                              ; preds = %235
-  %282 = fdiv float %243, 1.000000e+02
-  %283 = extractelement <2 x float> %55, i64 0
-  %284 = tail call float @llvm.fmuladd.f32(float %282, float %238, float %283)
+278:                                              ; preds = %232
+  %279 = fdiv float %240, 1.000000e+02
+  %280 = tail call float @llvm.fmuladd.f32(float %279, float %235, float %.0119)
   br label %nsvg__convertToPixels.exit162
 
-nsvg__convertToPixels.exit162:                    ; preds = %235, %248, %253, %258, %263, %268, %272, %276, %281
-  %.0.i161 = phi float [ %284, %281 ], [ %280, %276 ], [ %275, %272 ], [ %271, %268 ], [ %267, %263 ], [ %262, %258 ], [ %257, %253 ], [ %252, %248 ], [ %243, %235 ]
-  %285 = getelementptr inbounds i8, ptr %.013.i, i64 140
-  %286 = load i64, ptr %285, align 4
-  %.sroa.0.0.extract.trunc.i163 = trunc i64 %286 to i32
-  %287 = bitcast i32 %.sroa.0.0.extract.trunc.i163 to float
-  %.sroa.12.0.extract.shift.i164 = lshr i64 %286, 32
+nsvg__convertToPixels.exit162:                    ; preds = %232, %245, %250, %255, %260, %265, %269, %273, %278
+  %.0.i161 = phi float [ %280, %278 ], [ %277, %273 ], [ %272, %269 ], [ %268, %265 ], [ %264, %260 ], [ %259, %255 ], [ %254, %250 ], [ %249, %245 ], [ %240, %232 ]
+  %281 = getelementptr inbounds i8, ptr %.013.i, i64 140
+  %282 = load i64, ptr %281, align 4
+  %.sroa.0.0.extract.trunc.i163 = trunc i64 %282 to i32
+  %283 = bitcast i32 %.sroa.0.0.extract.trunc.i163 to float
+  %.sroa.12.0.extract.shift.i164 = lshr i64 %282, 32
   %.sroa.12.0.extract.trunc.i165 = trunc nuw i64 %.sroa.12.0.extract.shift.i164 to i32
   switch i32 %.sroa.12.0.extract.trunc.i165, label %nsvg__convertToPixels.exit167 [
-    i32 7, label %321
-    i32 9, label %316
-    i32 2, label %288
-    i32 3, label %293
-    i32 4, label %298
-    i32 5, label %303
-    i32 6, label %308
-    i32 8, label %312
+    i32 7, label %317
+    i32 9, label %312
+    i32 2, label %284
+    i32 3, label %289
+    i32 4, label %294
+    i32 5, label %299
+    i32 6, label %304
+    i32 8, label %308
   ]
 
-288:                                              ; preds = %nsvg__convertToPixels.exit162
-  %289 = fdiv float %287, 7.200000e+01
-  %290 = getelementptr inbounds i8, ptr %0, i64 40020
-  %291 = load float, ptr %290, align 4
-  %292 = fmul float %289, %291
+284:                                              ; preds = %nsvg__convertToPixels.exit162
+  %285 = fdiv float %283, 7.200000e+01
+  %286 = getelementptr inbounds i8, ptr %0, i64 40020
+  %287 = load float, ptr %286, align 4
+  %288 = fmul float %285, %287
   br label %nsvg__convertToPixels.exit167
 
-293:                                              ; preds = %nsvg__convertToPixels.exit162
-  %294 = fdiv float %287, 6.000000e+00
-  %295 = getelementptr inbounds i8, ptr %0, i64 40020
-  %296 = load float, ptr %295, align 4
-  %297 = fmul float %294, %296
+289:                                              ; preds = %nsvg__convertToPixels.exit162
+  %290 = fdiv float %283, 6.000000e+00
+  %291 = getelementptr inbounds i8, ptr %0, i64 40020
+  %292 = load float, ptr %291, align 4
+  %293 = fmul float %290, %292
   br label %nsvg__convertToPixels.exit167
 
-298:                                              ; preds = %nsvg__convertToPixels.exit162
-  %299 = fdiv float %287, 0x4039666660000000
-  %300 = getelementptr inbounds i8, ptr %0, i64 40020
-  %301 = load float, ptr %300, align 4
-  %302 = fmul float %299, %301
+294:                                              ; preds = %nsvg__convertToPixels.exit162
+  %295 = fdiv float %283, 0x4039666660000000
+  %296 = getelementptr inbounds i8, ptr %0, i64 40020
+  %297 = load float, ptr %296, align 4
+  %298 = fmul float %295, %297
   br label %nsvg__convertToPixels.exit167
 
-303:                                              ; preds = %nsvg__convertToPixels.exit162
-  %304 = fdiv float %287, 0x400451EB80000000
+299:                                              ; preds = %nsvg__convertToPixels.exit162
+  %300 = fdiv float %283, 0x400451EB80000000
+  %301 = getelementptr inbounds i8, ptr %0, i64 40020
+  %302 = load float, ptr %301, align 4
+  %303 = fmul float %300, %302
+  br label %nsvg__convertToPixels.exit167
+
+304:                                              ; preds = %nsvg__convertToPixels.exit162
   %305 = getelementptr inbounds i8, ptr %0, i64 40020
   %306 = load float, ptr %305, align 4
-  %307 = fmul float %304, %306
+  %307 = fmul float %306, %283
   br label %nsvg__convertToPixels.exit167
 
 308:                                              ; preds = %nsvg__convertToPixels.exit162
-  %309 = getelementptr inbounds i8, ptr %0, i64 40020
+  %309 = getelementptr inbounds i8, ptr %244, i64 292
   %310 = load float, ptr %309, align 4
-  %311 = fmul float %310, %287
+  %311 = fmul float %310, %283
   br label %nsvg__convertToPixels.exit167
 
 312:                                              ; preds = %nsvg__convertToPixels.exit162
-  %313 = getelementptr inbounds i8, ptr %247, i64 292
+  %313 = getelementptr inbounds i8, ptr %244, i64 292
   %314 = load float, ptr %313, align 4
-  %315 = fmul float %314, %287
+  %315 = fmul float %314, %283
+  %316 = fmul float %315, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit167
 
-316:                                              ; preds = %nsvg__convertToPixels.exit162
-  %317 = getelementptr inbounds i8, ptr %247, i64 292
-  %318 = load float, ptr %317, align 4
-  %319 = fmul float %318, %287
-  %320 = fmul float %319, 0x3FE0A3D700000000
+317:                                              ; preds = %nsvg__convertToPixels.exit162
+  %318 = fdiv float %283, 1.000000e+02
+  %319 = tail call float @llvm.fmuladd.f32(float %318, float %233, float %.0120)
   br label %nsvg__convertToPixels.exit167
 
-321:                                              ; preds = %nsvg__convertToPixels.exit162
-  %322 = fdiv float %287, 1.000000e+02
-  %323 = extractelement <2 x float> %55, i64 1
-  %324 = tail call float @llvm.fmuladd.f32(float %322, float %236, float %323)
-  br label %nsvg__convertToPixels.exit167
-
-nsvg__convertToPixels.exit167:                    ; preds = %nsvg__convertToPixels.exit162, %288, %293, %298, %303, %308, %312, %316, %321
-  %.0.i166 = phi float [ %324, %321 ], [ %320, %316 ], [ %315, %312 ], [ %311, %308 ], [ %307, %303 ], [ %302, %298 ], [ %297, %293 ], [ %292, %288 ], [ %287, %nsvg__convertToPixels.exit162 ]
-  %325 = getelementptr inbounds i8, ptr %.013.i, i64 156
-  %326 = load i64, ptr %325, align 4
-  %.sroa.0.0.extract.trunc.i168 = trunc i64 %326 to i32
-  %327 = bitcast i32 %.sroa.0.0.extract.trunc.i168 to float
-  %.sroa.12.0.extract.shift.i169 = lshr i64 %326, 32
+nsvg__convertToPixels.exit167:                    ; preds = %nsvg__convertToPixels.exit162, %284, %289, %294, %299, %304, %308, %312, %317
+  %.0.i166 = phi float [ %319, %317 ], [ %316, %312 ], [ %311, %308 ], [ %307, %304 ], [ %303, %299 ], [ %298, %294 ], [ %293, %289 ], [ %288, %284 ], [ %283, %nsvg__convertToPixels.exit162 ]
+  %320 = getelementptr inbounds i8, ptr %.013.i, i64 156
+  %321 = load i64, ptr %320, align 4
+  %.sroa.0.0.extract.trunc.i168 = trunc i64 %321 to i32
+  %322 = bitcast i32 %.sroa.0.0.extract.trunc.i168 to float
+  %.sroa.12.0.extract.shift.i169 = lshr i64 %321, 32
   %.sroa.12.0.extract.trunc.i170 = trunc nuw i64 %.sroa.12.0.extract.shift.i169 to i32
   switch i32 %.sroa.12.0.extract.trunc.i170, label %nsvg__convertToPixels.exit172 [
-    i32 7, label %361
-    i32 9, label %356
-    i32 2, label %328
-    i32 3, label %333
-    i32 4, label %338
-    i32 5, label %343
-    i32 6, label %348
-    i32 8, label %352
+    i32 7, label %356
+    i32 9, label %351
+    i32 2, label %323
+    i32 3, label %328
+    i32 4, label %333
+    i32 5, label %338
+    i32 6, label %343
+    i32 8, label %347
   ]
 
+323:                                              ; preds = %nsvg__convertToPixels.exit167
+  %324 = fdiv float %322, 7.200000e+01
+  %325 = getelementptr inbounds i8, ptr %0, i64 40020
+  %326 = load float, ptr %325, align 4
+  %327 = fmul float %324, %326
+  br label %nsvg__convertToPixels.exit172
+
 328:                                              ; preds = %nsvg__convertToPixels.exit167
-  %329 = fdiv float %327, 7.200000e+01
+  %329 = fdiv float %322, 6.000000e+00
   %330 = getelementptr inbounds i8, ptr %0, i64 40020
   %331 = load float, ptr %330, align 4
   %332 = fmul float %329, %331
   br label %nsvg__convertToPixels.exit172
 
 333:                                              ; preds = %nsvg__convertToPixels.exit167
-  %334 = fdiv float %327, 6.000000e+00
+  %334 = fdiv float %322, 0x4039666660000000
   %335 = getelementptr inbounds i8, ptr %0, i64 40020
   %336 = load float, ptr %335, align 4
   %337 = fmul float %334, %336
   br label %nsvg__convertToPixels.exit172
 
 338:                                              ; preds = %nsvg__convertToPixels.exit167
-  %339 = fdiv float %327, 0x4039666660000000
+  %339 = fdiv float %322, 0x400451EB80000000
   %340 = getelementptr inbounds i8, ptr %0, i64 40020
   %341 = load float, ptr %340, align 4
   %342 = fmul float %339, %341
   br label %nsvg__convertToPixels.exit172
 
 343:                                              ; preds = %nsvg__convertToPixels.exit167
-  %344 = fdiv float %327, 0x400451EB80000000
-  %345 = getelementptr inbounds i8, ptr %0, i64 40020
-  %346 = load float, ptr %345, align 4
-  %347 = fmul float %344, %346
+  %344 = getelementptr inbounds i8, ptr %0, i64 40020
+  %345 = load float, ptr %344, align 4
+  %346 = fmul float %345, %322
   br label %nsvg__convertToPixels.exit172
 
-348:                                              ; preds = %nsvg__convertToPixels.exit167
-  %349 = getelementptr inbounds i8, ptr %0, i64 40020
-  %350 = load float, ptr %349, align 4
-  %351 = fmul float %350, %327
+347:                                              ; preds = %nsvg__convertToPixels.exit167
+  %348 = getelementptr inbounds i8, ptr %244, i64 292
+  %349 = load float, ptr %348, align 4
+  %350 = fmul float %349, %322
   br label %nsvg__convertToPixels.exit172
 
-352:                                              ; preds = %nsvg__convertToPixels.exit167
-  %353 = getelementptr inbounds i8, ptr %247, i64 292
-  %354 = load float, ptr %353, align 4
-  %355 = fmul float %354, %327
+351:                                              ; preds = %nsvg__convertToPixels.exit167
+  %352 = getelementptr inbounds i8, ptr %244, i64 292
+  %353 = load float, ptr %352, align 4
+  %354 = fmul float %353, %322
+  %355 = fmul float %354, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit172
 
 356:                                              ; preds = %nsvg__convertToPixels.exit167
-  %357 = getelementptr inbounds i8, ptr %247, i64 292
-  %358 = load float, ptr %357, align 4
-  %359 = fmul float %358, %327
-  %360 = fmul float %359, 0x3FE0A3D700000000
+  %357 = fdiv float %322, 1.000000e+02
+  %358 = tail call float @llvm.fmuladd.f32(float %357, float %235, float %.0119)
   br label %nsvg__convertToPixels.exit172
 
-361:                                              ; preds = %nsvg__convertToPixels.exit167
-  %362 = fdiv float %327, 1.000000e+02
-  %363 = extractelement <2 x float> %55, i64 0
-  %364 = tail call float @llvm.fmuladd.f32(float %362, float %238, float %363)
-  br label %nsvg__convertToPixels.exit172
-
-nsvg__convertToPixels.exit172:                    ; preds = %nsvg__convertToPixels.exit167, %328, %333, %338, %343, %348, %352, %356, %361
-  %.0.i171 = phi float [ %364, %361 ], [ %360, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %343 ], [ %342, %338 ], [ %337, %333 ], [ %332, %328 ], [ %327, %nsvg__convertToPixels.exit167 ]
-  %365 = getelementptr inbounds i8, ptr %.013.i, i64 164
-  %366 = load i64, ptr %365, align 4
-  %.sroa.0.0.extract.trunc.i173 = trunc i64 %366 to i32
-  %367 = bitcast i32 %.sroa.0.0.extract.trunc.i173 to float
-  %.sroa.12.0.extract.shift.i174 = lshr i64 %366, 32
+nsvg__convertToPixels.exit172:                    ; preds = %nsvg__convertToPixels.exit167, %323, %328, %333, %338, %343, %347, %351, %356
+  %.0.i171 = phi float [ %358, %356 ], [ %355, %351 ], [ %350, %347 ], [ %346, %343 ], [ %342, %338 ], [ %337, %333 ], [ %332, %328 ], [ %327, %323 ], [ %322, %nsvg__convertToPixels.exit167 ]
+  %359 = getelementptr inbounds i8, ptr %.013.i, i64 164
+  %360 = load i64, ptr %359, align 4
+  %.sroa.0.0.extract.trunc.i173 = trunc i64 %360 to i32
+  %361 = bitcast i32 %.sroa.0.0.extract.trunc.i173 to float
+  %.sroa.12.0.extract.shift.i174 = lshr i64 %360, 32
   %.sroa.12.0.extract.trunc.i175 = trunc nuw i64 %.sroa.12.0.extract.shift.i174 to i32
   switch i32 %.sroa.12.0.extract.trunc.i175, label %nsvg__convertToPixels.exit177 [
-    i32 7, label %401
-    i32 9, label %396
-    i32 2, label %368
-    i32 3, label %373
-    i32 4, label %378
-    i32 5, label %383
-    i32 6, label %388
-    i32 8, label %392
+    i32 7, label %395
+    i32 9, label %390
+    i32 2, label %362
+    i32 3, label %367
+    i32 4, label %372
+    i32 5, label %377
+    i32 6, label %382
+    i32 8, label %386
   ]
 
-368:                                              ; preds = %nsvg__convertToPixels.exit172
-  %369 = fdiv float %367, 7.200000e+01
-  %370 = getelementptr inbounds i8, ptr %0, i64 40020
-  %371 = load float, ptr %370, align 4
-  %372 = fmul float %369, %371
+362:                                              ; preds = %nsvg__convertToPixels.exit172
+  %363 = fdiv float %361, 7.200000e+01
+  %364 = getelementptr inbounds i8, ptr %0, i64 40020
+  %365 = load float, ptr %364, align 4
+  %366 = fmul float %363, %365
   br label %nsvg__convertToPixels.exit177
 
-373:                                              ; preds = %nsvg__convertToPixels.exit172
-  %374 = fdiv float %367, 6.000000e+00
-  %375 = getelementptr inbounds i8, ptr %0, i64 40020
-  %376 = load float, ptr %375, align 4
-  %377 = fmul float %374, %376
+367:                                              ; preds = %nsvg__convertToPixels.exit172
+  %368 = fdiv float %361, 6.000000e+00
+  %369 = getelementptr inbounds i8, ptr %0, i64 40020
+  %370 = load float, ptr %369, align 4
+  %371 = fmul float %368, %370
   br label %nsvg__convertToPixels.exit177
 
-378:                                              ; preds = %nsvg__convertToPixels.exit172
-  %379 = fdiv float %367, 0x4039666660000000
-  %380 = getelementptr inbounds i8, ptr %0, i64 40020
-  %381 = load float, ptr %380, align 4
-  %382 = fmul float %379, %381
+372:                                              ; preds = %nsvg__convertToPixels.exit172
+  %373 = fdiv float %361, 0x4039666660000000
+  %374 = getelementptr inbounds i8, ptr %0, i64 40020
+  %375 = load float, ptr %374, align 4
+  %376 = fmul float %373, %375
   br label %nsvg__convertToPixels.exit177
 
-383:                                              ; preds = %nsvg__convertToPixels.exit172
-  %384 = fdiv float %367, 0x400451EB80000000
-  %385 = getelementptr inbounds i8, ptr %0, i64 40020
-  %386 = load float, ptr %385, align 4
-  %387 = fmul float %384, %386
+377:                                              ; preds = %nsvg__convertToPixels.exit172
+  %378 = fdiv float %361, 0x400451EB80000000
+  %379 = getelementptr inbounds i8, ptr %0, i64 40020
+  %380 = load float, ptr %379, align 4
+  %381 = fmul float %378, %380
   br label %nsvg__convertToPixels.exit177
 
-388:                                              ; preds = %nsvg__convertToPixels.exit172
-  %389 = getelementptr inbounds i8, ptr %0, i64 40020
-  %390 = load float, ptr %389, align 4
-  %391 = fmul float %390, %367
+382:                                              ; preds = %nsvg__convertToPixels.exit172
+  %383 = getelementptr inbounds i8, ptr %0, i64 40020
+  %384 = load float, ptr %383, align 4
+  %385 = fmul float %384, %361
   br label %nsvg__convertToPixels.exit177
 
-392:                                              ; preds = %nsvg__convertToPixels.exit172
-  %393 = getelementptr inbounds i8, ptr %247, i64 292
-  %394 = load float, ptr %393, align 4
-  %395 = fmul float %394, %367
+386:                                              ; preds = %nsvg__convertToPixels.exit172
+  %387 = getelementptr inbounds i8, ptr %244, i64 292
+  %388 = load float, ptr %387, align 4
+  %389 = fmul float %388, %361
   br label %nsvg__convertToPixels.exit177
 
-396:                                              ; preds = %nsvg__convertToPixels.exit172
-  %397 = getelementptr inbounds i8, ptr %247, i64 292
-  %398 = load float, ptr %397, align 4
-  %399 = fmul float %398, %367
-  %400 = fmul float %399, 0x3FE0A3D700000000
+390:                                              ; preds = %nsvg__convertToPixels.exit172
+  %391 = getelementptr inbounds i8, ptr %244, i64 292
+  %392 = load float, ptr %391, align 4
+  %393 = fmul float %392, %361
+  %394 = fmul float %393, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit177
 
-401:                                              ; preds = %nsvg__convertToPixels.exit172
-  %402 = fdiv float %367, 1.000000e+02
-  %403 = extractelement <2 x float> %55, i64 1
-  %404 = tail call float @llvm.fmuladd.f32(float %402, float %236, float %403)
+395:                                              ; preds = %nsvg__convertToPixels.exit172
+  %396 = fdiv float %361, 1.000000e+02
+  %397 = tail call float @llvm.fmuladd.f32(float %396, float %233, float %.0120)
   br label %nsvg__convertToPixels.exit177
 
-nsvg__convertToPixels.exit177:                    ; preds = %nsvg__convertToPixels.exit172, %368, %373, %378, %383, %388, %392, %396, %401
-  %.0.i176 = phi float [ %404, %401 ], [ %400, %396 ], [ %395, %392 ], [ %391, %388 ], [ %387, %383 ], [ %382, %378 ], [ %377, %373 ], [ %372, %368 ], [ %367, %nsvg__convertToPixels.exit172 ]
-  %405 = getelementptr inbounds i8, ptr %.013.i, i64 148
-  %406 = load i64, ptr %405, align 4
-  %.sroa.0.0.extract.trunc.i178 = trunc i64 %406 to i32
-  %407 = bitcast i32 %.sroa.0.0.extract.trunc.i178 to float
-  %.sroa.12.0.extract.shift.i179 = lshr i64 %406, 32
+nsvg__convertToPixels.exit177:                    ; preds = %nsvg__convertToPixels.exit172, %362, %367, %372, %377, %382, %386, %390, %395
+  %.0.i176 = phi float [ %397, %395 ], [ %394, %390 ], [ %389, %386 ], [ %385, %382 ], [ %381, %377 ], [ %376, %372 ], [ %371, %367 ], [ %366, %362 ], [ %361, %nsvg__convertToPixels.exit172 ]
+  %398 = getelementptr inbounds i8, ptr %.013.i, i64 148
+  %399 = load i64, ptr %398, align 4
+  %.sroa.0.0.extract.trunc.i178 = trunc i64 %399 to i32
+  %400 = bitcast i32 %.sroa.0.0.extract.trunc.i178 to float
+  %.sroa.12.0.extract.shift.i179 = lshr i64 %399, 32
   %.sroa.12.0.extract.trunc.i180 = trunc nuw i64 %.sroa.12.0.extract.shift.i179 to i32
   switch i32 %.sroa.12.0.extract.trunc.i180, label %nsvg__convertToPixels.exit182 [
-    i32 7, label %441
-    i32 9, label %436
-    i32 2, label %408
-    i32 3, label %413
-    i32 4, label %418
-    i32 5, label %423
-    i32 6, label %428
-    i32 8, label %432
+    i32 7, label %434
+    i32 9, label %429
+    i32 2, label %401
+    i32 3, label %406
+    i32 4, label %411
+    i32 5, label %416
+    i32 6, label %421
+    i32 8, label %425
   ]
 
-408:                                              ; preds = %nsvg__convertToPixels.exit177
-  %409 = fdiv float %407, 7.200000e+01
-  %410 = getelementptr inbounds i8, ptr %0, i64 40020
-  %411 = load float, ptr %410, align 4
-  %412 = fmul float %409, %411
+401:                                              ; preds = %nsvg__convertToPixels.exit177
+  %402 = fdiv float %400, 7.200000e+01
+  %403 = getelementptr inbounds i8, ptr %0, i64 40020
+  %404 = load float, ptr %403, align 4
+  %405 = fmul float %402, %404
   br label %nsvg__convertToPixels.exit182
 
-413:                                              ; preds = %nsvg__convertToPixels.exit177
-  %414 = fdiv float %407, 6.000000e+00
-  %415 = getelementptr inbounds i8, ptr %0, i64 40020
-  %416 = load float, ptr %415, align 4
-  %417 = fmul float %414, %416
+406:                                              ; preds = %nsvg__convertToPixels.exit177
+  %407 = fdiv float %400, 6.000000e+00
+  %408 = getelementptr inbounds i8, ptr %0, i64 40020
+  %409 = load float, ptr %408, align 4
+  %410 = fmul float %407, %409
   br label %nsvg__convertToPixels.exit182
 
-418:                                              ; preds = %nsvg__convertToPixels.exit177
-  %419 = fdiv float %407, 0x4039666660000000
-  %420 = getelementptr inbounds i8, ptr %0, i64 40020
-  %421 = load float, ptr %420, align 4
-  %422 = fmul float %419, %421
+411:                                              ; preds = %nsvg__convertToPixels.exit177
+  %412 = fdiv float %400, 0x4039666660000000
+  %413 = getelementptr inbounds i8, ptr %0, i64 40020
+  %414 = load float, ptr %413, align 4
+  %415 = fmul float %412, %414
   br label %nsvg__convertToPixels.exit182
 
-423:                                              ; preds = %nsvg__convertToPixels.exit177
-  %424 = fdiv float %407, 0x400451EB80000000
-  %425 = getelementptr inbounds i8, ptr %0, i64 40020
-  %426 = load float, ptr %425, align 4
-  %427 = fmul float %424, %426
+416:                                              ; preds = %nsvg__convertToPixels.exit177
+  %417 = fdiv float %400, 0x400451EB80000000
+  %418 = getelementptr inbounds i8, ptr %0, i64 40020
+  %419 = load float, ptr %418, align 4
+  %420 = fmul float %417, %419
   br label %nsvg__convertToPixels.exit182
 
-428:                                              ; preds = %nsvg__convertToPixels.exit177
-  %429 = getelementptr inbounds i8, ptr %0, i64 40020
-  %430 = load float, ptr %429, align 4
-  %431 = fmul float %430, %407
+421:                                              ; preds = %nsvg__convertToPixels.exit177
+  %422 = getelementptr inbounds i8, ptr %0, i64 40020
+  %423 = load float, ptr %422, align 4
+  %424 = fmul float %423, %400
   br label %nsvg__convertToPixels.exit182
 
-432:                                              ; preds = %nsvg__convertToPixels.exit177
-  %433 = getelementptr inbounds i8, ptr %247, i64 292
-  %434 = load float, ptr %433, align 4
-  %435 = fmul float %434, %407
+425:                                              ; preds = %nsvg__convertToPixels.exit177
+  %426 = getelementptr inbounds i8, ptr %244, i64 292
+  %427 = load float, ptr %426, align 4
+  %428 = fmul float %427, %400
   br label %nsvg__convertToPixels.exit182
 
-436:                                              ; preds = %nsvg__convertToPixels.exit177
-  %437 = getelementptr inbounds i8, ptr %247, i64 292
-  %438 = load float, ptr %437, align 4
-  %439 = fmul float %438, %407
-  %440 = fmul float %439, 0x3FE0A3D700000000
+429:                                              ; preds = %nsvg__convertToPixels.exit177
+  %430 = getelementptr inbounds i8, ptr %244, i64 292
+  %431 = load float, ptr %430, align 4
+  %432 = fmul float %431, %400
+  %433 = fmul float %432, 0x3FE0A3D700000000
   br label %nsvg__convertToPixels.exit182
 
-441:                                              ; preds = %nsvg__convertToPixels.exit177
-  %442 = fdiv float %407, 1.000000e+02
-  %443 = tail call float @llvm.fmuladd.f32(float %442, float %240, float 0.000000e+00)
+434:                                              ; preds = %nsvg__convertToPixels.exit177
+  %435 = fdiv float %400, 1.000000e+02
+  %436 = tail call float @llvm.fmuladd.f32(float %435, float %237, float 0.000000e+00)
   br label %nsvg__convertToPixels.exit182
 
-nsvg__convertToPixels.exit182:                    ; preds = %nsvg__convertToPixels.exit177, %408, %413, %418, %423, %428, %432, %436, %441
-  %.0.i181 = phi float [ %443, %441 ], [ %440, %436 ], [ %435, %432 ], [ %431, %428 ], [ %427, %423 ], [ %422, %418 ], [ %417, %413 ], [ %412, %408 ], [ %407, %nsvg__convertToPixels.exit177 ]
-  %444 = insertelement <2 x float> poison, float %.0.i171, i64 0
-  %445 = insertelement <2 x float> %444, float %.0.i176, i64 1
-  %446 = insertelement <2 x float> poison, float %.0.i181, i64 0
-  %447 = shufflevector <2 x float> %446, <2 x float> poison, <2 x i32> zeroinitializer
-  %448 = fdiv <2 x float> %445, %447
-  %449 = getelementptr inbounds i8, ptr %37, i64 28
-  store <2 x float> %448, ptr %449, align 4
-  %450 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %.0.i181, i64 1
-  br label %451
+nsvg__convertToPixels.exit182:                    ; preds = %nsvg__convertToPixels.exit177, %401, %406, %411, %416, %421, %425, %429, %434
+  %.0.i181 = phi float [ %436, %434 ], [ %433, %429 ], [ %428, %425 ], [ %424, %421 ], [ %420, %416 ], [ %415, %411 ], [ %410, %406 ], [ %405, %401 ], [ %400, %nsvg__convertToPixels.exit177 ]
+  %437 = insertelement <2 x float> poison, float %.0.i171, i64 0
+  %438 = insertelement <2 x float> %437, float %.0.i176, i64 1
+  %439 = insertelement <2 x float> poison, float %.0.i181, i64 0
+  %440 = shufflevector <2 x float> %439, <2 x float> poison, <2 x i32> zeroinitializer
+  %441 = fdiv <2 x float> %438, %440
+  %442 = getelementptr inbounds i8, ptr %37, i64 28
+  store <2 x float> %441, ptr %442, align 4
+  %443 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %.0.i181, i64 1
+  br label %444
 
-451:                                              ; preds = %nsvg__convertToPixels.exit182, %nsvg__convertToPixels.exit157
-  %452 = phi float [ %.0.i166, %nsvg__convertToPixels.exit182 ], [ %.0.i146, %nsvg__convertToPixels.exit157 ]
-  %453 = phi float [ %.0.i161, %nsvg__convertToPixels.exit182 ], [ %.0.i142, %nsvg__convertToPixels.exit157 ]
-  %454 = phi float [ 0.000000e+00, %nsvg__convertToPixels.exit182 ], [ %234, %nsvg__convertToPixels.exit157 ]
-  %455 = phi <2 x float> [ %450, %nsvg__convertToPixels.exit182 ], [ %232, %nsvg__convertToPixels.exit157 ]
-  %456 = getelementptr inbounds i8, ptr %.013.i, i64 176
+444:                                              ; preds = %nsvg__convertToPixels.exit182, %nsvg__convertToPixels.exit157
+  %445 = phi float [ %.0.i166, %nsvg__convertToPixels.exit182 ], [ %.0.i146, %nsvg__convertToPixels.exit157 ]
+  %446 = phi float [ %.0.i161, %nsvg__convertToPixels.exit182 ], [ %.0.i142, %nsvg__convertToPixels.exit157 ]
+  %447 = phi float [ 0.000000e+00, %nsvg__convertToPixels.exit182 ], [ %231, %nsvg__convertToPixels.exit157 ]
+  %448 = phi <2 x float> [ %443, %nsvg__convertToPixels.exit182 ], [ %229, %nsvg__convertToPixels.exit157 ]
+  %449 = getelementptr inbounds i8, ptr %.013.i, i64 176
+  %450 = load float, ptr %449, align 4
+  %451 = getelementptr inbounds i8, ptr %.013.i, i64 184
+  %452 = load float, ptr %451, align 4
+  %453 = getelementptr inbounds i8, ptr %37, i64 16
+  %454 = fmul float %452, %445
+  %455 = tail call float @llvm.fmuladd.f32(float %446, float %450, float %454)
+  %456 = getelementptr inbounds i8, ptr %.013.i, i64 192
   %457 = load float, ptr %456, align 4
-  %458 = getelementptr inbounds i8, ptr %.013.i, i64 184
-  %459 = load float, ptr %458, align 4
-  %460 = getelementptr inbounds i8, ptr %37, i64 16
-  %461 = fmul float %459, %452
-  %462 = tail call float @llvm.fmuladd.f32(float %453, float %457, float %461)
-  %463 = getelementptr inbounds i8, ptr %.013.i, i64 192
-  %464 = load float, ptr %463, align 4
-  %465 = fadd float %464, %462
-  %466 = getelementptr inbounds i8, ptr %.013.i, i64 180
-  %467 = load float, ptr %466, align 4
-  %468 = getelementptr inbounds i8, ptr %.013.i, i64 188
-  %469 = load float, ptr %468, align 4
-  %470 = fmul float %452, %469
-  %471 = tail call float @llvm.fmuladd.f32(float %453, float %467, float %470)
-  %472 = getelementptr inbounds i8, ptr %.013.i, i64 196
-  %473 = load float, ptr %472, align 4
-  %474 = fadd float %473, %471
-  %475 = getelementptr inbounds i8, ptr %3, i64 8
-  %476 = getelementptr inbounds i8, ptr %3, i64 16
-  %477 = load <2 x float>, ptr %475, align 4
-  %478 = shufflevector <2 x float> %477, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %479 = load <2 x float>, ptr %3, align 4
-  %480 = shufflevector <2 x float> %479, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %481 = insertelement <2 x float> poison, float %474, i64 0
-  %482 = shufflevector <2 x float> %481, <2 x float> poison, <2 x i32> zeroinitializer
-  %483 = fmul <2 x float> %482, %477
-  %484 = insertelement <2 x float> poison, float %465, i64 0
+  %458 = fadd float %457, %455
+  %459 = getelementptr inbounds i8, ptr %.013.i, i64 180
+  %460 = load float, ptr %459, align 4
+  %461 = getelementptr inbounds i8, ptr %.013.i, i64 188
+  %462 = load float, ptr %461, align 4
+  %463 = fmul float %445, %462
+  %464 = tail call float @llvm.fmuladd.f32(float %446, float %460, float %463)
+  %465 = getelementptr inbounds i8, ptr %.013.i, i64 196
+  %466 = load float, ptr %465, align 4
+  %467 = fadd float %466, %464
+  %468 = getelementptr inbounds i8, ptr %3, i64 8
+  %469 = getelementptr inbounds i8, ptr %3, i64 16
+  %470 = load <2 x float>, ptr %468, align 4
+  %471 = shufflevector <2 x float> %470, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %472 = load <2 x float>, ptr %3, align 4
+  %473 = shufflevector <2 x float> %472, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %474 = insertelement <2 x float> poison, float %467, i64 0
+  %475 = shufflevector <2 x float> %474, <2 x float> poison, <2 x i32> zeroinitializer
+  %476 = fmul <2 x float> %475, %470
+  %477 = insertelement <2 x float> poison, float %458, i64 0
+  %478 = shufflevector <2 x float> %477, <2 x float> poison, <2 x i32> zeroinitializer
+  %479 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %478, <2 x float> %472, <2 x float> %476)
+  %480 = load <2 x float>, ptr %469, align 4
+  %481 = fadd <2 x float> %480, %479
+  %482 = shufflevector <2 x float> %448, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %483 = insertelement <2 x float> %482, float %447, i64 1
+  %484 = insertelement <2 x float> poison, float %452, i64 0
   %485 = shufflevector <2 x float> %484, <2 x float> poison, <2 x i32> zeroinitializer
-  %486 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %485, <2 x float> %479, <2 x float> %483)
-  %487 = load <2 x float>, ptr %476, align 4
-  %488 = fadd <2 x float> %487, %486
-  %489 = shufflevector <2 x float> %455, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %490 = insertelement <2 x float> %489, float %454, i64 1
-  %491 = insertelement <2 x float> poison, float %459, i64 0
+  %486 = fmul <2 x float> %483, %485
+  %487 = insertelement <2 x float> poison, float %450, i64 0
+  %488 = shufflevector <2 x float> %487, <2 x float> poison, <2 x i32> zeroinitializer
+  %489 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %448, <2 x float> %488, <2 x float> %486)
+  %490 = shufflevector <2 x float> %489, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 0, i32 0>
+  %491 = insertelement <2 x float> poison, float %462, i64 0
   %492 = shufflevector <2 x float> %491, <2 x float> poison, <2 x i32> zeroinitializer
-  %493 = fmul <2 x float> %490, %492
-  %494 = insertelement <2 x float> poison, float %457, i64 0
+  %493 = fmul <2 x float> %483, %492
+  %494 = insertelement <2 x float> poison, float %460, i64 0
   %495 = shufflevector <2 x float> %494, <2 x float> poison, <2 x i32> zeroinitializer
-  %496 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %455, <2 x float> %495, <2 x float> %493)
+  %496 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %448, <2 x float> %495, <2 x float> %493)
   %497 = shufflevector <2 x float> %496, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 0, i32 0>
-  %498 = insertelement <2 x float> poison, float %469, i64 0
-  %499 = shufflevector <2 x float> %498, <2 x float> poison, <2 x i32> zeroinitializer
-  %500 = fmul <2 x float> %490, %499
-  %501 = insertelement <2 x float> poison, float %467, i64 0
-  %502 = shufflevector <2 x float> %501, <2 x float> poison, <2 x i32> zeroinitializer
-  %503 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %455, <2 x float> %502, <2 x float> %500)
-  %504 = shufflevector <2 x float> %503, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 0, i32 0>
-  %505 = fmul <4 x float> %504, %478
-  %506 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %497, <4 x float> %480, <4 x float> %505)
-  store <4 x float> %506, ptr %37, align 4
-  store <2 x float> %488, ptr %460, align 4
-  %507 = getelementptr inbounds i8, ptr %.013.i, i64 172
-  %508 = load i8, ptr %507, align 4
-  %509 = getelementptr inbounds i8, ptr %37, i64 24
-  store i8 %508, ptr %509, align 4
-  %510 = getelementptr inbounds i8, ptr %37, i64 40
-  %511 = sext i32 %32 to i64
-  %512 = shl nsw i64 %511, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %510, ptr nonnull align 4 %16, i64 %512, i1 false)
-  %513 = getelementptr inbounds i8, ptr %37, i64 36
-  store i32 %32, ptr %513, align 4
-  store i8 %57, ptr %4, align 1
+  %498 = fmul <4 x float> %497, %471
+  %499 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %490, <4 x float> %473, <4 x float> %498)
+  store <4 x float> %499, ptr %37, align 4
+  store <2 x float> %481, ptr %453, align 4
+  %500 = getelementptr inbounds i8, ptr %.013.i, i64 172
+  %501 = load i8, ptr %500, align 4
+  %502 = getelementptr inbounds i8, ptr %37, i64 24
+  store i8 %501, ptr %502, align 4
+  %503 = getelementptr inbounds i8, ptr %37, i64 40
+  %504 = sext i32 %32 to i64
+  %505 = shl nsw i64 %504, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %503, ptr nonnull align 4 %16, i64 %505, i1 false)
+  %506 = getelementptr inbounds i8, ptr %37, i64 36
+  store i32 %32, ptr %506, align 4
+  store i8 %58, ptr %4, align 1
   br label %nsvg__findGradientData.exit.thread
 
-nsvg__findGradientData.exit.thread:               ; preds = %13, %26, %nsvg__findGradientData.exit141, %.preheader.i, %5, %7, %30, %451
-  %.0 = phi ptr [ %37, %451 ], [ null, %30 ], [ null, %7 ], [ null, %5 ], [ null, %.preheader.i ], [ null, %nsvg__findGradientData.exit141 ], [ null, %26 ], [ null, %13 ]
+nsvg__findGradientData.exit.thread:               ; preds = %13, %26, %nsvg__findGradientData.exit141, %.preheader.i, %5, %7, %30, %444
+  %.0 = phi ptr [ %37, %444 ], [ null, %30 ], [ null, %7 ], [ null, %5 ], [ null, %.preheader.i ], [ null, %nsvg__findGradientData.exit141 ], [ null, %26 ], [ null, %13 ]
   ret ptr %.0
 }
 

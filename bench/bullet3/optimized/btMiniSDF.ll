@@ -1574,129 +1574,129 @@ entry:
   %78 = fpext <2 x float> %77 to <2 x double>
   store <2 x double> %78, ptr %arrayidx.i432, align 8
   %conv160 = fmul float %conv61, 1.406250e-01
-  %79 = extractelement <2 x float> %31, i64 1
   %arrayidx.i434 = getelementptr inbounds i8, ptr %agg.result, i64 192
-  %80 = insertelement <2 x double> poison, double %conv12, i64 0
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %81, <2 x double> <double -3.000000e+00, double 3.000000e+00>, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
-  %83 = fptrunc <2 x double> %82 to <2 x float>
-  %84 = insertelement <2 x float> poison, float %conv160, i64 0
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
-  %86 = fmul <2 x float> %85, %83
-  %87 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %88 = fmul <2 x float> %87, %86
-  %89 = fpext <2 x float> %88 to <2 x double>
-  store <2 x double> %89, ptr %arrayidx.i434, align 8
-  %90 = extractelement <2 x float> %23, i64 1
+  %79 = insertelement <2 x double> poison, double %conv12, i64 0
+  %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> zeroinitializer
+  %81 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %80, <2 x double> <double -3.000000e+00, double 3.000000e+00>, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
+  %82 = fptrunc <2 x double> %81 to <2 x float>
+  %83 = insertelement <2 x float> poison, float %conv160, i64 0
+  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = fmul <2 x float> %84, %82
+  %86 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %87 = fmul <2 x float> %86, %85
+  %88 = fpext <2 x float> %87 to <2 x double>
+  store <2 x double> %88, ptr %arrayidx.i434, align 8
   %arrayidx.i436 = getelementptr inbounds i8, ptr %agg.result, i64 208
-  %91 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %92 = fmul <2 x float> %91, %86
-  %93 = fpext <2 x float> %92 to <2 x double>
-  store <2 x double> %93, ptr %arrayidx.i436, align 8
+  %89 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %90 = fmul <2 x float> %89, %85
+  %91 = fpext <2 x float> %90 to <2 x double>
+  store <2 x double> %91, ptr %arrayidx.i436, align 8
   %arrayidx.i438 = getelementptr inbounds i8, ptr %agg.result, i64 224
-  %94 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
-  %95 = fmul <2 x float> %94, %86
-  %96 = fpext <2 x float> %95 to <2 x double>
-  store <2 x double> %96, ptr %arrayidx.i438, align 8
-  %97 = extractelement <2 x float> %31, i64 0
+  %92 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
+  %93 = fmul <2 x float> %92, %85
+  %94 = fpext <2 x float> %93 to <2 x double>
+  store <2 x double> %94, ptr %arrayidx.i438, align 8
   %arrayidx.i440 = getelementptr inbounds i8, ptr %agg.result, i64 240
-  %98 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %99 = fmul <2 x float> %98, %86
-  %100 = fpext <2 x float> %99 to <2 x double>
-  store <2 x double> %100, ptr %arrayidx.i440, align 8
+  %95 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
+  %96 = fmul <2 x float> %95, %85
+  %97 = fpext <2 x float> %96 to <2 x double>
+  store <2 x double> %97, ptr %arrayidx.i440, align 8
   %tobool.not = icmp eq ptr %gradient, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %101 = extractelement <2 x float> %23, i64 0
   %conv59 = fpext float %mul7 to double
-  %102 = fpext <2 x float> %7 to <2 x double>
+  %98 = fpext <2 x float> %7 to <2 x double>
   %conv202 = fpext float %add62 to double
-  %103 = tail call double @llvm.fmuladd.f64(double %conv59, double 3.000000e+00, double %conv202)
-  %104 = tail call double @llvm.fmuladd.f64(double %103, double 9.000000e+00, double -1.900000e+01)
-  %conv206 = fptrunc double %104 to float
+  %99 = tail call double @llvm.fmuladd.f64(double %conv59, double 3.000000e+00, double %conv202)
+  %100 = tail call double @llvm.fmuladd.f64(double %99, double 9.000000e+00, double -1.900000e+01)
+  %conv206 = fptrunc double %100 to float
   %conv215 = fmul float %0, 1.800000e+01
-  %105 = extractelement <2 x double> %102, i64 0
-  %106 = tail call double @llvm.fmuladd.f64(double %105, double -9.000000e+00, double 3.000000e+00)
-  %107 = extractelement <2 x double> %102, i64 1
-  %108 = tail call double @llvm.fmuladd.f64(double %107, double -9.000000e+00, double 3.000000e+00)
-  %109 = tail call double @llvm.fmuladd.f64(double %conv59, double -9.000000e+00, double 3.000000e+00)
-  %conv224 = fptrunc double %109 to float
+  %101 = extractelement <2 x double> %98, i64 0
+  %102 = tail call double @llvm.fmuladd.f64(double %101, double -9.000000e+00, double 3.000000e+00)
+  %103 = extractelement <2 x double> %98, i64 1
+  %104 = tail call double @llvm.fmuladd.f64(double %103, double -9.000000e+00, double 3.000000e+00)
+  %105 = tail call double @llvm.fmuladd.f64(double %conv59, double -9.000000e+00, double 3.000000e+00)
+  %conv224 = fptrunc double %105 to float
   %conv230 = fmul float %3, 2.000000e+00
   %sub238 = fsub float %conv215, %conv206
   %add239 = fadd float %conv215, %conv206
-  %110 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %111 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> <double 3.000000e+00, double 3.000000e+00>, <2 x double> %110)
-  %112 = insertelement <2 x double> poison, double %conv59, i64 0
-  %113 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> zeroinitializer
-  %114 = fadd <2 x double> %111, %113
-  %115 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %114, <2 x double> <double 9.000000e+00, double 9.000000e+00>, <2 x double> <double -1.900000e+01, double -1.900000e+01>)
-  %116 = fptrunc <2 x double> %115 to <2 x float>
-  %117 = fmul <2 x float> %1, <float 1.800000e+01, float 1.800000e+01>
-  %118 = fsub <2 x float> %117, %116
-  %119 = fmul <2 x float> %11, %118
-  store <2 x float> %119, ptr %gradient, align 4
-  %mul244 = fmul float %79, %sub238
+  %106 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %107 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %98, <2 x double> <double 3.000000e+00, double 3.000000e+00>, <2 x double> %106)
+  %108 = insertelement <2 x double> poison, double %conv59, i64 0
+  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> zeroinitializer
+  %110 = fadd <2 x double> %107, %109
+  %111 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %110, <2 x double> <double 9.000000e+00, double 9.000000e+00>, <2 x double> <double -1.900000e+01, double -1.900000e+01>)
+  %112 = fptrunc <2 x double> %111 to <2 x float>
+  %113 = fmul <2 x float> %1, <float 1.800000e+01, float 1.800000e+01>
+  %114 = fsub <2 x float> %113, %112
+  %115 = fmul <2 x float> %11, %114
+  store <2 x float> %115, ptr %gradient, align 4
+  %116 = extractelement <2 x float> %31, i64 1
+  %mul244 = fmul float %116, %sub238
   %arrayidx3.i445 = getelementptr inbounds i8, ptr %gradient, i64 8
   store float %mul244, ptr %arrayidx3.i445, align 4
   %arrayidx.i446 = getelementptr inbounds i8, ptr %gradient, i64 16
-  %120 = fmul <2 x float> %17, %118
-  %mul248 = extractelement <2 x float> %120, i64 1
+  %117 = fmul <2 x float> %17, %114
+  %mul248 = extractelement <2 x float> %117, i64 1
   %arrayidx3.i449 = getelementptr inbounds i8, ptr %gradient, i64 20
   store float %mul248, ptr %arrayidx3.i449, align 4
-  %mul250 = fmul float %101, %sub238
+  %118 = extractelement <2 x float> %23, i64 0
+  %mul250 = fmul float %118, %sub238
   %arrayidx3.i451 = getelementptr inbounds i8, ptr %gradient, i64 24
   store float %mul250, ptr %arrayidx3.i451, align 4
   %arrayidx.i452 = getelementptr inbounds i8, ptr %gradient, i64 32
-  %121 = shufflevector <2 x float> %118, <2 x float> %11, <2 x i32> <i32 0, i32 3>
-  %mul256 = fmul float %90, %sub238
+  %119 = shufflevector <2 x float> %114, <2 x float> %11, <2 x i32> <i32 0, i32 3>
+  %120 = extractelement <2 x float> %23, i64 1
+  %mul256 = fmul float %120, %sub238
   %arrayidx3.i457 = getelementptr inbounds i8, ptr %gradient, i64 40
   store float %mul256, ptr %arrayidx3.i457, align 4
   %arrayidx.i458 = getelementptr inbounds i8, ptr %gradient, i64 48
-  %122 = fadd <2 x float> %117, %116
-  %123 = fmul <2 x float> %11, %122
-  %mul246 = extractelement <2 x float> %123, i64 0
+  %121 = fadd <2 x float> %113, %112
+  %122 = fmul <2 x float> %11, %121
+  %mul246 = extractelement <2 x float> %122, i64 0
   store float %mul246, ptr %arrayidx.i446, align 4
-  %124 = shufflevector <2 x float> %17, <2 x float> %122, <2 x i32> <i32 0, i32 3>
-  %125 = fmul <2 x float> %124, %121
-  store <2 x float> %125, ptr %arrayidx.i452, align 4
-  %126 = fmul <2 x float> %17, %122
-  store <2 x float> %126, ptr %arrayidx.i458, align 4
-  %mul262 = fmul float %97, %sub238
+  %123 = shufflevector <2 x float> %17, <2 x float> %121, <2 x i32> <i32 0, i32 3>
+  %124 = fmul <2 x float> %123, %119
+  store <2 x float> %124, ptr %arrayidx.i452, align 4
+  %125 = fmul <2 x float> %17, %121
+  store <2 x float> %125, ptr %arrayidx.i458, align 4
+  %126 = extractelement <2 x float> %31, i64 0
+  %mul262 = fmul float %126, %sub238
   %arrayidx3.i463 = getelementptr inbounds i8, ptr %gradient, i64 56
   store float %mul262, ptr %arrayidx3.i463, align 4
   %arrayidx.i464 = getelementptr inbounds i8, ptr %gradient, i64 64
-  %127 = fmul <2 x float> %15, %118
+  %127 = fmul <2 x float> %15, %114
   store <2 x float> %127, ptr %arrayidx.i464, align 4
-  %mul268 = fmul float %79, %add239
+  %mul268 = fmul float %116, %add239
   %arrayidx3.i469 = getelementptr inbounds i8, ptr %gradient, i64 72
   store float %mul268, ptr %arrayidx3.i469, align 4
-  %128 = fmul <2 x float> %15, %122
+  %128 = fmul <2 x float> %15, %121
   %mul270 = extractelement <2 x float> %128, i64 0
   %arrayidx.i470 = getelementptr inbounds i8, ptr %gradient, i64 80
   store float %mul270, ptr %arrayidx.i470, align 4
-  %129 = fmul <2 x float> %19, %118
+  %129 = fmul <2 x float> %19, %114
   %mul272 = extractelement <2 x float> %129, i64 1
   %arrayidx3.i473 = getelementptr inbounds i8, ptr %gradient, i64 84
   store float %mul272, ptr %arrayidx3.i473, align 4
-  %mul274 = fmul float %101, %add239
+  %mul274 = fmul float %118, %add239
   %arrayidx3.i475 = getelementptr inbounds i8, ptr %gradient, i64 88
   store float %mul274, ptr %arrayidx3.i475, align 4
-  %130 = fmul <2 x float> %19, %118
+  %130 = fmul <2 x float> %19, %114
   %mul276 = extractelement <2 x float> %130, i64 0
   %arrayidx.i476 = getelementptr inbounds i8, ptr %gradient, i64 96
   store float %mul276, ptr %arrayidx.i476, align 4
-  %131 = fmul <2 x float> %15, %122
+  %131 = fmul <2 x float> %15, %121
   %mul278 = extractelement <2 x float> %131, i64 1
   %arrayidx3.i479 = getelementptr inbounds i8, ptr %gradient, i64 100
   store float %mul278, ptr %arrayidx3.i479, align 4
-  %mul280 = fmul float %90, %add239
+  %mul280 = fmul float %120, %add239
   %arrayidx3.i481 = getelementptr inbounds i8, ptr %gradient, i64 104
   store float %mul280, ptr %arrayidx3.i481, align 4
   %arrayidx.i482 = getelementptr inbounds i8, ptr %gradient, i64 112
-  %132 = fmul <2 x float> %19, %122
+  %132 = fmul <2 x float> %19, %121
   store <2 x float> %132, ptr %arrayidx.i482, align 4
-  %mul286 = fmul float %97, %add239
+  %mul286 = fmul float %126, %add239
   %arrayidx3.i487 = getelementptr inbounds i8, ptr %gradient, i64 120
   store float %mul286, ptr %arrayidx3.i487, align 4
   br label %for.body.i
@@ -1716,8 +1716,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %_ZN16btShapeGradients13topRowsDivideEid.exit, label %for.body.i, !llvm.loop !27
 
 _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
-  %conv218 = fptrunc double %106 to float
-  %conv221 = fptrunc double %108 to float
+  %conv218 = fptrunc double %102 to float
+  %conv221 = fptrunc double %104 to float
   %conv227 = fmul float %2, 2.000000e+00
   %conv233 = fmul float %0, 2.000000e+00
   %fneg = fneg float %conv218
@@ -1863,9 +1863,9 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %fneg409 = fneg float %conv224
   %sub410 = fsub float %fneg409, %conv233
   %sub411 = fsub float %conv224, %conv233
-  %182 = extractelement <2 x float> %83, i64 0
+  %182 = extractelement <2 x float> %82, i64 0
   %mul412 = fmul float %conv61, %182
-  %183 = extractelement <2 x float> %83, i64 1
+  %183 = extractelement <2 x float> %82, i64 1
   %mul413 = fmul float %conv61, %183
   %fneg414 = fneg float %mul412
   %arrayidx.i585 = getelementptr inbounds i8, ptr %gradient, i64 384
@@ -1874,7 +1874,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %186 = fmul <2 x float> %4, %185
   %187 = shufflevector <2 x float> %186, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %187, ptr %arrayidx.i585, align 4
-  %mul420 = fmul float %79, %sub410
+  %mul420 = fmul float %116, %sub410
   %arrayidx3.i590 = getelementptr inbounds i8, ptr %gradient, i64 392
   store float %mul420, ptr %arrayidx3.i590, align 4
   %fneg422 = fneg float %mul413
@@ -1884,7 +1884,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %190 = fmul <2 x float> %4, %189
   %191 = shufflevector <2 x float> %190, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %191, ptr %arrayidx.i591, align 4
-  %mul428 = fmul float %79, %sub411
+  %mul428 = fmul float %116, %sub411
   %arrayidx3.i596 = getelementptr inbounds i8, ptr %gradient, i64 408
   store float %mul428, ptr %arrayidx3.i596, align 4
   %mul431 = fmul float %152, %fneg414
@@ -1893,7 +1893,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %mul433 = fmul float %164, %mul412
   %arrayidx3.i600 = getelementptr inbounds i8, ptr %gradient, i64 420
   store float %mul433, ptr %arrayidx3.i600, align 4
-  %mul435 = fmul float %90, %sub410
+  %mul435 = fmul float %120, %sub410
   %arrayidx3.i602 = getelementptr inbounds i8, ptr %gradient, i64 424
   store float %mul435, ptr %arrayidx3.i602, align 4
   %mul438 = fmul float %152, %fneg422
@@ -1902,7 +1902,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %mul440 = fmul float %164, %mul413
   %arrayidx3.i606 = getelementptr inbounds i8, ptr %gradient, i64 436
   store float %mul440, ptr %arrayidx3.i606, align 4
-  %mul442 = fmul float %90, %sub411
+  %mul442 = fmul float %120, %sub411
   %arrayidx3.i608 = getelementptr inbounds i8, ptr %gradient, i64 440
   store float %mul442, ptr %arrayidx3.i608, align 4
   %mul444 = fmul float %142, %mul412
@@ -1926,7 +1926,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %199 = fmul <2 x float> %5, %198
   %200 = shufflevector <2 x float> %199, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %200, ptr %arrayidx.i621, align 4
-  %mul462 = fmul float %97, %sub410
+  %mul462 = fmul float %126, %sub410
   %arrayidx3.i626 = getelementptr inbounds i8, ptr %gradient, i64 488
   store float %mul462, ptr %arrayidx3.i626, align 4
   %arrayidx.i627 = getelementptr inbounds i8, ptr %gradient, i64 496
@@ -1935,7 +1935,7 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %for.body.i
   %203 = fmul <2 x float> %5, %202
   %204 = shufflevector <2 x float> %203, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %204, ptr %arrayidx.i627, align 4
-  %mul468 = fmul float %97, %sub411
+  %mul468 = fmul float %126, %sub411
   %arrayidx3.i632 = getelementptr inbounds i8, ptr %gradient, i64 504
   store float %mul468, ptr %arrayidx3.i632, align 4
   br label %for.body.i633

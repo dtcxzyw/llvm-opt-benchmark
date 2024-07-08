@@ -26396,12 +26396,12 @@ if.end.i136:                                      ; preds = %if.then.i134, %if.t
 
 if.then.i.i146:                                   ; preds = %if.end.i136
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %b.i.i, i64 12
-  %409 = extractelement <2 x float> %345, i64 0
-  %410 = extractelement <2 x float> %345, i64 1
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %b.i.i, i64 4
   %sub.i.i.i.i.i = fsub float %329, %330
-  %sub4.i.i11.i.i.i = fsub float %410, %332
-  %sub.i.i8.i.i.i = fsub float %409, %330
+  %409 = extractelement <2 x float> %345, i64 1
+  %sub4.i.i11.i.i.i = fsub float %409, %332
+  %410 = extractelement <2 x float> %345, i64 0
+  %sub.i.i8.i.i.i = fsub float %410, %330
   %sub4.i.i.i.i.i = fsub float %331, %332
   %411 = fneg float %sub4.i.i.i.i.i
   %neg17.i.i.i.i.i.i = fmul float %sub.i.i8.i.i.i, %411
