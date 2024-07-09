@@ -924,8 +924,8 @@ entry:
   %tmp2 = alloca [2500 x i8], align 16
   store ptr null, ptr %s, align 8
   store ptr null, ptr %v, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %pass, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %user, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %user, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %pass, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %salt, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %verifier, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -1192,8 +1192,8 @@ define range(i32 0, 2) i32 @SRP_create_verifier_BN_ex(ptr noundef %user, ptr nou
 entry:
   %tmp2 = alloca [2500 x i8], align 16
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %libctx) #7
-  %0 = insertelement <4 x ptr> poison, ptr %pass, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %user, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %user, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %pass, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %verifier, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %N, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

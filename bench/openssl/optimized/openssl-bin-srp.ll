@@ -696,8 +696,8 @@ if.end258:                                        ; preds = %cond.end251
   store ptr %call263, ptr %arrayidx264, align 16
   %63 = load ptr, ptr %arrayidx260, align 8
   %64 = load <2 x ptr>, ptr %row239, align 16
-  %65 = insertelement <4 x ptr> poison, ptr %call263, i64 0
-  %66 = insertelement <4 x ptr> %65, ptr %63, i64 1
+  %65 = insertelement <4 x ptr> poison, ptr %63, i64 0
+  %66 = insertelement <4 x ptr> %65, ptr %call263, i64 1
   %67 = shufflevector <2 x ptr> %64, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %68 = shufflevector <4 x ptr> %66, <4 x ptr> %67, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %.fr = freeze <4 x ptr> %68

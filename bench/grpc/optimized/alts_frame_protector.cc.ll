@@ -259,8 +259,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define internal noundef i32 @_ZL12alts_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %self, ptr noundef readonly %unprotected_bytes, ptr noundef %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr noundef %protected_output_frames_size) #0 {
 entry:
   %still_pending_size = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %unprotected_bytes, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %self, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %unprotected_bytes, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %unprotected_bytes_size, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %protected_output_frames, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -340,8 +340,8 @@ entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8
   %written_frame_bytes = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %protected_output_frames, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %self, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %protected_output_frames, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %protected_output_frames_size, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %still_pending_size, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -445,8 +445,8 @@ entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8
   %read_frames_bytes_size = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %protected_frames_bytes, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %self, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %protected_frames_bytes, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %protected_frames_bytes_size, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %unprotected_bytes, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

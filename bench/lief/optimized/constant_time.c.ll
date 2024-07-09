@@ -168,11 +168,11 @@ define hidden signext i8 @mbedtls_ct_base64_dec_value(i8 noundef zeroext %0) loc
   %2 = zext i8 %0 to i32
   %3 = insertelement <4 x i8> poison, i8 %0, i64 0
   %4 = shufflevector <4 x i8> %3, <4 x i8> poison, <4 x i32> zeroinitializer
-  %5 = add <4 x i8> %4, <i8 -64, i8 -70, i8 5, i8 20>
+  %5 = add <4 x i8> %4, <i8 -70, i8 -64, i8 5, i8 20>
   %6 = insertelement <4 x i32> poison, i32 %2, i64 0
   %7 = shufflevector <4 x i32> %6, <4 x i32> poison, <4 x i32> zeroinitializer
-  %8 = add nuw nsw <4 x i32> %7, <i32 65471, i32 65439, i32 65488, i32 65493>
-  %9 = sub nsw <4 x i32> <i32 90, i32 122, i32 57, i32 43>, %7
+  %8 = add nuw nsw <4 x i32> %7, <i32 65439, i32 65471, i32 65488, i32 65493>
+  %9 = sub nsw <4 x i32> <i32 122, i32 90, i32 57, i32 43>, %7
   %10 = or <4 x i32> %8, %9
   %11 = lshr <4 x i32> %10, <i32 8, i32 8, i32 8, i32 8>
   %12 = trunc <4 x i32> %11 to <4 x i8>

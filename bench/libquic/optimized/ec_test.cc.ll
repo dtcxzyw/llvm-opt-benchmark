@@ -1011,8 +1011,8 @@ invoke.cont25.i:                                  ; preds = %invoke.cont22.i
   br i1 %cmp.i15.not.i, label %cleanup236.i, label %lor.lhs.false28.i
 
 lor.lhs.false28.i:                                ; preds = %invoke.cont25.i
-  %79 = insertelement <4 x ptr> poison, ptr %call11.i, i64 0
-  %80 = insertelement <4 x ptr> %79, ptr %call8.i, i64 1
+  %79 = insertelement <4 x ptr> poison, ptr %call8.i, i64 0
+  %80 = insertelement <4 x ptr> %79, ptr %call11.i, i64 1
   %81 = insertelement <4 x ptr> %80, ptr %call14.i, i64 2
   %82 = insertelement <4 x ptr> %81, ptr %call17.i, i64 3
   %.fr = freeze <4 x ptr> %82
@@ -1155,8 +1155,8 @@ invoke.cont99.i:                                  ; preds = %invoke.cont96.i
   %101 = load ptr, ptr %key2.i, align 8
   %102 = load ptr, ptr %point.i, align 8
   %103 = load ptr, ptr %x.i71, align 8
-  %104 = insertelement <4 x ptr> poison, ptr %102, i64 0
-  %105 = insertelement <4 x ptr> %104, ptr %101, i64 1
+  %104 = insertelement <4 x ptr> poison, ptr %101, i64 0
+  %105 = insertelement <4 x ptr> %104, ptr %102, i64 1
   %106 = insertelement <4 x ptr> %105, ptr %103, i64 2
   %107 = insertelement <4 x ptr> %106, ptr %call100.i, i64 3
   %.fr117 = freeze <4 x ptr> %107

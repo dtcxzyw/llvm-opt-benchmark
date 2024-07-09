@@ -2966,8 +2966,8 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
-  %9 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <4 x ptr> %9, ptr %0, i64 1
+  %9 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %10 = insertelement <4 x ptr> %9, ptr %1, i64 1
   %11 = insertelement <4 x ptr> %10, ptr %2, i64 2
   %12 = insertelement <4 x ptr> %11, ptr %3, i64 3
   %13 = icmp eq <4 x ptr> %12, zeroinitializer

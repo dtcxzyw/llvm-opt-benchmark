@@ -5396,8 +5396,8 @@ define internal fastcc void @emit_node(ptr noundef %0, ptr noundef %1) unnamed_a
   %16 = load <2 x double>, ptr %15, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %.val, i64 80
   %17 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %18 = shufflevector <2 x double> %14, <2 x double> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %19 = shufflevector <2 x double> %16, <2 x double> %13, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %18 = shufflevector <2 x double> %17, <2 x double> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %19 = shufflevector <2 x double> %13, <2 x double> %16, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %20 = fcmp oge <4 x double> %18, %19
   %21 = freeze <4 x i1> %20
   %22 = bitcast <4 x i1> %21 to i4

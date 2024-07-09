@@ -747,8 +747,8 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %16 = alloca ptr, align 8
   %17 = alloca i64, align 8
   %18 = alloca [60 x i8], align 16
-  %19 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %20 = insertelement <4 x ptr> %19, ptr %0, i64 1
+  %19 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %20 = insertelement <4 x ptr> %19, ptr %2, i64 1
   %21 = insertelement <4 x ptr> %20, ptr %7, i64 2
   %22 = insertelement <4 x ptr> %21, ptr %8, i64 3
   %23 = icmp eq <4 x ptr> %22, zeroinitializer
@@ -2271,8 +2271,8 @@ declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %3, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %4, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
   %12 = icmp eq <4 x ptr> %11, zeroinitializer

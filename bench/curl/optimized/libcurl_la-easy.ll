@@ -101,8 +101,8 @@ global_init.exit:                                 ; preds = %curl_simple_lock_lo
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @curl_global_init_mem(i64 noundef %flags, ptr noundef %m, ptr noundef %f, ptr noundef %r, ptr noundef %s, ptr noundef %c) local_unnamed_addr #5 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %f, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %m, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %m, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %f, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %r, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %s, i64 3
   %tobool7 = icmp ne ptr %c, null

@@ -14261,8 +14261,8 @@ if.then:                                          ; preds = %_Z15makeUpperBidiag
 
 if.end:                                           ; preds = %if.then, %_Z15makeUpperBidiagR11btMatrix3x3S0_S0_.exit
   %tol.addr.0 = phi float [ %mul34, %if.then ], [ %tol, %_Z15makeUpperBidiagR11btMatrix3x3S0_S0_.exit ]
-  %35 = insertelement <4 x float> poison, float %27, i64 0
-  %36 = insertelement <4 x float> %35, float %30, i64 1
+  %35 = insertelement <4 x float> poison, float %30, i64 0
+  %36 = insertelement <4 x float> %35, float %27, i64 1
   %37 = insertelement <4 x float> %36, float %26, i64 2
   %38 = insertelement <4 x float> %37, float %28, i64 3
   %39 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %38)
@@ -14275,7 +14275,7 @@ if.end:                                           ; preds = %if.then, %_Z15makeU
   %45 = bitcast <4 x i1> %44 to i4
   %46 = icmp eq i4 %45, -1
   %op.rdx = select i1 %46, i1 %cmp47487, i1 false
-  %47 = extractelement <4 x float> %39, i64 1
+  %47 = extractelement <4 x float> %39, i64 0
   br i1 %op.rdx, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end
@@ -14403,8 +14403,8 @@ invoke.cont58:                                    ; preds = %for.body.i115
   %96 = load float, ptr %arrayidx17, align 4
   %97 = load float, ptr %arrayidx22, align 4
   %inc = add nuw nsw i32 %count.0467488, 1
-  %98 = insertelement <4 x float> poison, float %94, i64 0
-  %99 = insertelement <4 x float> %98, float %97, i64 1
+  %98 = insertelement <4 x float> poison, float %97, i64 0
+  %99 = insertelement <4 x float> %98, float %94, i64 1
   %100 = insertelement <4 x float> %99, float %93, i64 2
   %101 = insertelement <4 x float> %100, float %95, i64 3
   %102 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %101)
@@ -14415,7 +14415,7 @@ invoke.cont58:                                    ; preds = %for.body.i115
   br i1 %106, label %land.lhs.true45, label %while.end.loopexit, !llvm.loop !164
 
 while.end.loopexit:                               ; preds = %invoke.cont58, %land.lhs.true45
-  %107 = extractelement <4 x float> %102, i64 1
+  %107 = extractelement <4 x float> %102, i64 0
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end
@@ -52136,26 +52136,26 @@ entry:
   %45 = insertelement <2 x float> poison, float %4, i64 0
   %46 = insertelement <2 x float> %45, float %sub14.i.i.i, i64 1
   %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> %46, <2 x float> %43)
-  %48 = insertelement <4 x float> poison, float %sub8.i.i.i, i64 0
-  %49 = insertelement <4 x float> %48, float %2, i64 1
+  %48 = insertelement <4 x float> poison, float %2, i64 0
+  %49 = insertelement <4 x float> %48, float %sub8.i.i.i, i64 1
   %50 = insertelement <4 x float> %49, float %3, i64 2
   %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %52 = fmul <4 x float> %51, %29
-  %53 = insertelement <4 x float> poison, float %sub.i.i.i, i64 0
-  %54 = insertelement <4 x float> %53, float %0, i64 1
+  %53 = insertelement <4 x float> poison, float %0, i64 0
+  %54 = insertelement <4 x float> %53, float %sub.i.i.i, i64 1
   %55 = insertelement <4 x float> %54, float %1, i64 2
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %57 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %23, <4 x float> %56, <4 x float> %52)
-  %58 = insertelement <4 x float> poison, float %sub14.i.i.i, i64 0
-  %59 = insertelement <4 x float> %58, float %4, i64 1
+  %58 = insertelement <4 x float> poison, float %4, i64 0
+  %59 = insertelement <4 x float> %58, float %sub14.i.i.i, i64 1
   %60 = insertelement <4 x float> %59, float %5, i64 2
   %61 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %62 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %35, <4 x float> %61, <4 x float> %57)
-  %63 = shufflevector <2 x float> %47, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
-  %64 = shufflevector <4 x float> %63, <4 x float> <float poison, float 3.000000e+00, float poison, float 3.000000e+00>, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %65 = fadd <4 x float> %62, %64
-  %66 = fmul <4 x float> %62, %64
-  %67 = shufflevector <4 x float> %65, <4 x float> %66, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
+  %63 = shufflevector <2 x float> %47, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %64 = shufflevector <4 x float> <float 3.000000e+00, float poison, float poison, float 3.000000e+00>, <4 x float> %63, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
+  %65 = fmul <4 x float> %62, %64
+  %66 = fadd <4 x float> %62, %64
+  %67 = shufflevector <4 x float> %65, <4 x float> %66, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
   %68 = insertelement <4 x float> poison, float %mrg.0.val, i64 0
   %69 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> zeroinitializer
   %70 = fcmp ule <4 x float> %67, %69

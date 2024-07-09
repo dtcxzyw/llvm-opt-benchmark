@@ -421,8 +421,8 @@ lpad.i114.i:                                      ; preds = %call1.i112.noexc.i
 
 invoke.cont12.i:                                  ; preds = %if.then.i.i117.i, %invoke.cont.i115.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i109.i)
-  %24 = insertelement <4 x ptr> poison, ptr %call3.i36.i, i64 0
-  %25 = insertelement <4 x ptr> %24, ptr %call3.i.i, i64 1
+  %24 = insertelement <4 x ptr> poison, ptr %call3.i.i, i64 0
+  %25 = insertelement <4 x ptr> %24, ptr %call3.i36.i, i64 1
   %26 = insertelement <4 x ptr> %25, ptr %call3.i48.i, i64 2
   %27 = insertelement <4 x ptr> %26, ptr %call3.i61.i, i64 3
   %.fr = freeze <4 x ptr> %27

@@ -101764,7 +101764,7 @@ if.end:                                           ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.end
   %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %6 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  %7 = shufflevector <2 x float> %6, <2 x float> %5, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %7 = shufflevector <2 x float> %6, <2 x float> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -101784,7 +101784,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call3 = tail call { <2 x float>, <2 x float> } @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %i.09)
   %12 = extractvalue { <2 x float>, <2 x float> } %call3, 0
   %13 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  %14 = shufflevector <2 x float> %12, <2 x float> %13, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %14 = shufflevector <2 x float> %12, <2 x float> %13, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %15 = fcmp oeq <4 x float> %14, %7
   %16 = freeze <4 x i1> %15
   %17 = bitcast <4 x i1> %16 to i4

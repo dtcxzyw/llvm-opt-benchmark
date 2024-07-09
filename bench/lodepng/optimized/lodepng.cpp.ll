@@ -427,8 +427,8 @@ _ZL12bpmnode_sortP7BPMNodem.exit:                 ; preds = %for.end46.i, %for.b
   %call.i60 = tail call noalias noundef ptr @malloc(i64 noundef %mul46) #30
   %chains1 = getelementptr inbounds i8, ptr %lists, i64 48
   store ptr %call.i60, ptr %chains1, align 8
-  %5 = insertelement <4 x ptr> poison, ptr %call.i58, i64 0
-  %6 = insertelement <4 x ptr> %5, ptr %call.i57, i64 1
+  %5 = insertelement <4 x ptr> poison, ptr %call.i57, i64 0
+  %6 = insertelement <4 x ptr> %5, ptr %call.i58, i64 1
   %7 = insertelement <4 x ptr> %6, ptr %call.i59, i64 2
   %8 = insertelement <4 x ptr> %7, ptr %call.i60, i64 3
   %9 = icmp eq <4 x ptr> %8, zeroinitializer

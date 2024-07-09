@@ -29,8 +29,8 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -9999, 1) i32 @SUNDIALSGetVersionNumber(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %7 = insertelement <4 x ptr> %6, ptr %0, i64 1
+  %6 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %7 = insertelement <4 x ptr> %6, ptr %1, i64 1
   %8 = insertelement <4 x ptr> %7, ptr %2, i64 2
   %9 = insertelement <4 x ptr> %8, ptr %3, i64 3
   %10 = icmp eq <4 x ptr> %9, zeroinitializer

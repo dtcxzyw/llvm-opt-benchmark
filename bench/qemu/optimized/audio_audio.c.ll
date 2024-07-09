@@ -559,8 +559,8 @@ if.end4:                                          ; preds = %audio_close_out.exi
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @AUD_open_out(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #3 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %name, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %card, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %card, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %name, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %callback_fn, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %as, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -1535,8 +1535,8 @@ if.end4:                                          ; preds = %audio_close_in.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @AUD_open_in(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #3 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %name, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %card, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %card, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %name, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %callback_fn, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %as, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

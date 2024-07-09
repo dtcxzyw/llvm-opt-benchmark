@@ -1282,8 +1282,8 @@ define i32 @FT_Bitmap_Blend(ptr noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr 
   %.sroa.3.0.extract.shift = lshr i32 %6, 16
   %.sroa.4.0.extract.shift = lshr i32 %6, 24
   store i32 0, ptr %8, align 4
-  %10 = insertelement <4 x ptr> poison, ptr %4, i64 0
-  %11 = insertelement <4 x ptr> %10, ptr %0, i64 1
+  %10 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %11 = insertelement <4 x ptr> %10, ptr %4, i64 1
   %12 = insertelement <4 x ptr> %11, ptr %1, i64 2
   %13 = insertelement <4 x ptr> %12, ptr %5, i64 3
   %14 = icmp eq <4 x ptr> %13, zeroinitializer

@@ -3015,8 +3015,8 @@ list_length.exit1028:                             ; preds = %1378, %1381
 
 1453:                                             ; preds = %1444, %1446, %1449
   %1454 = phi ptr [ %1452, %1449 ], [ null, %1446 ], [ null, %1444 ]
-  %1455 = insertelement <4 x ptr> poison, ptr %1427, i64 0
-  %1456 = insertelement <4 x ptr> %1455, ptr %1418, i64 1
+  %1455 = insertelement <4 x ptr> poison, ptr %1418, i64 0
+  %1456 = insertelement <4 x ptr> %1455, ptr %1427, i64 1
   %1457 = insertelement <4 x ptr> %1456, ptr %1436, i64 2
   %1458 = insertelement <4 x ptr> %1457, ptr %1445, i64 3
   %.fr = freeze <4 x ptr> %1458

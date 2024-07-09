@@ -18799,8 +18799,8 @@ return:                                           ; preds = %if.then16, %SetASNI
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -2147483648, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef writeonly %out, ptr noundef %outLen, ptr noundef readonly %r, i32 noundef %rLen, ptr noundef readonly %s, i32 noundef %sLen) local_unnamed_addr #1 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %outLen, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %out, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %out, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %outLen, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %r, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %s, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

@@ -1194,8 +1194,8 @@ define internal fastcc range(i32 0, 2) i32 @can_export_rsaprivatekey(i64 noundef
   %24 = load ptr, ptr %7, align 8
   %25 = load ptr, ptr %8, align 8
   %26 = load ptr, ptr %9, align 8
-  %27 = insertelement <8 x ptr> poison, ptr %20, i64 0
-  %28 = insertelement <8 x ptr> %27, ptr %19, i64 1
+  %27 = insertelement <8 x ptr> poison, ptr %19, i64 0
+  %28 = insertelement <8 x ptr> %27, ptr %20, i64 1
   %29 = insertelement <8 x ptr> %28, ptr %21, i64 2
   %30 = insertelement <8 x ptr> %29, ptr %22, i64 3
   %31 = insertelement <8 x ptr> %30, ptr %23, i64 4

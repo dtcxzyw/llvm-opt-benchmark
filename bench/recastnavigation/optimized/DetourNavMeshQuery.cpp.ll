@@ -327,8 +327,8 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
   br label %13
 
 13:                                               ; preds = %12, %5
-  %14 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %15 = insertelement <4 x ptr> %14, ptr %1, i64 1
+  %14 = insertelement <4 x ptr> poison, ptr %1, i64 0
+  %15 = insertelement <4 x ptr> %14, ptr %2, i64 1
   %16 = insertelement <4 x ptr> %15, ptr %3, i64 2
   %17 = insertelement <4 x ptr> %16, ptr %4, i64 3
   %18 = icmp eq <4 x ptr> %17, zeroinitializer

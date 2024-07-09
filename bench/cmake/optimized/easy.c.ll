@@ -71,8 +71,8 @@ global_init.exit:                                 ; preds = %1, %6, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @curl_global_init_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
-  %7 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %8 = insertelement <4 x ptr> %7, ptr %1, i64 1
+  %7 = insertelement <4 x ptr> poison, ptr %1, i64 0
+  %8 = insertelement <4 x ptr> %7, ptr %2, i64 1
   %9 = insertelement <4 x ptr> %8, ptr %3, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %4, i64 3
   %11 = icmp ne ptr %5, null

@@ -145,8 +145,8 @@ declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_mul(ptr noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %r, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %group, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %group, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %a, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %b, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

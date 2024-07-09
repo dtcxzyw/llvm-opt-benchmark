@@ -3382,8 +3382,8 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit253.i: ; preds = 
 
 _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit260.i: ; preds = %1338, %1333, %.noexc217
   %.0.i258.i = phi float [ %1337, %1333 ], [ -4.092030e+05, %.noexc217 ], [ -4.092030e+05, %1338 ]
-  %1340 = insertelement <4 x float> poison, float %.0.i244.i, i64 0
-  %1341 = insertelement <4 x float> %1340, float %.0.i238.i, i64 1
+  %1340 = insertelement <4 x float> poison, float %.0.i238.i, i64 0
+  %1341 = insertelement <4 x float> %1340, float %.0.i244.i, i64 1
   %1342 = insertelement <4 x float> %1341, float %.0.i251.i, i64 2
   %1343 = insertelement <4 x float> %1342, float %.0.i258.i, i64 3
   %1344 = fcmp oeq <4 x float> %1343, <float -4.092030e+05, float -4.092030e+05, float -4.092030e+05, float -4.092030e+05>
@@ -3960,8 +3960,8 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit167.i: ; preds = 
 
 _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit174.i: ; preds = %1633, %1628, %.noexc260
   %.0.i172.i = phi float [ %1632, %1628 ], [ -4.092030e+05, %.noexc260 ], [ -4.092030e+05, %1633 ]
-  %1635 = insertelement <8 x float> poison, float %.0.i123.i, i64 0
-  %1636 = insertelement <8 x float> %1635, float %.0.i.i229, i64 1
+  %1635 = insertelement <8 x float> poison, float %.0.i.i229, i64 0
+  %1636 = insertelement <8 x float> %1635, float %.0.i123.i, i64 1
   %1637 = insertelement <8 x float> %1636, float %.0.i132.i, i64 2
   %1638 = insertelement <8 x float> %1637, float %.0.i141.i, i64 3
   %1639 = insertelement <8 x float> %1638, float %.0.i145.i, i64 4
@@ -4481,8 +4481,8 @@ _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit101.i: ; preds = 
 
 _ZL9get_angleN3gmx8ArrayRefIK22VsiteBondedInteractionEEiii.exit108.i: ; preds = %1894, %1889, %.noexc303
   %.0.i106.i = phi float [ %1893, %1889 ], [ -4.092030e+05, %.noexc303 ], [ -4.092030e+05, %1894 ]
-  %1896 = insertelement <4 x float> poison, float %.0.i71.i, i64 0
-  %1897 = insertelement <4 x float> %1896, float %.0.i.i275, i64 1
+  %1896 = insertelement <4 x float> poison, float %.0.i.i275, i64 0
+  %1897 = insertelement <4 x float> %1896, float %.0.i71.i, i64 1
   %1898 = insertelement <4 x float> %1897, float %.0.i80.i, i64 2
   %1899 = insertelement <4 x float> %1898, float %.0.i89.i, i64 3
   %.fr = freeze <4 x float> %1899

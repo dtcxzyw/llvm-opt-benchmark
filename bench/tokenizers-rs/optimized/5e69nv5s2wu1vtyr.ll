@@ -2298,8 +2298,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h8bdb10dd159968
   %.sroa.0.15 = phi ptr [ %38, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit" ], [ %12, %25 ], [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i" ], [ %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i" ]
   %49 = insertelement <4 x i32> poison, i32 %48, i64 0
   %50 = shufflevector <4 x i32> %49, <4 x i32> poison, <4 x i32> zeroinitializer
-  %51 = add nsw <4 x i32> %50, <i32 -13312, i32 -19968, i32 -131072, i32 -173824>
-  %52 = icmp ult <4 x i32> %51, <i32 6592, i32 20992, i32 42720, i32 4384>
+  %51 = add nsw <4 x i32> %50, <i32 -19968, i32 -13312, i32 -131072, i32 -173824>
+  %52 = icmp ult <4 x i32> %51, <i32 20992, i32 6592, i32 42720, i32 4384>
   %53 = add nsw i32 %48, -178464
   %or.cond5.i.i.i = icmp ult i32 %53, 5520
   %54 = add nsw i32 %48, -63744
@@ -2505,8 +2505,8 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %4 = insertelement <4 x i32> poison, i32 %1, i64 0
   %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  %6 = add <4 x i32> %5, <i32 -13312, i32 -19968, i32 -131072, i32 -173824>
-  %7 = icmp ult <4 x i32> %6, <i32 6592, i32 20992, i32 42720, i32 4384>
+  %6 = add <4 x i32> %5, <i32 -19968, i32 -13312, i32 -131072, i32 -173824>
+  %7 = icmp ult <4 x i32> %6, <i32 20992, i32 6592, i32 42720, i32 4384>
   %8 = add i32 %1, -178464
   %or.cond5.i.i = icmp ult i32 %8, 5520
   %9 = add i32 %1, -63744
@@ -7278,8 +7278,8 @@ define hidden void @"_ZN10tokenizers11normalizers4bert14BertNormalizer23do_handl
   %3 = alloca { [3 x { [2 x i64] }], { i64, i64 } }, align 8
   %4 = insertelement <4 x i32> poison, i32 %1, i64 0
   %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  %6 = add <4 x i32> %5, <i32 -13312, i32 -19968, i32 -131072, i32 -173824>
-  %7 = icmp ult <4 x i32> %6, <i32 6592, i32 20992, i32 42720, i32 4384>
+  %6 = add <4 x i32> %5, <i32 -19968, i32 -13312, i32 -131072, i32 -173824>
+  %7 = icmp ult <4 x i32> %6, <i32 20992, i32 6592, i32 42720, i32 4384>
   %8 = add i32 %1, -178464
   %or.cond5.i = icmp ult i32 %8, 5520
   %9 = add i32 %1, -63744

@@ -481,8 +481,8 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_cipher_context_t, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %3, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
   %12 = icmp eq <4 x ptr> %11, zeroinitializer

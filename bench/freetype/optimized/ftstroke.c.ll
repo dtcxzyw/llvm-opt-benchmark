@@ -1320,8 +1320,8 @@ define i32 @FT_Stroker_CubicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   %9 = alloca %struct.FT_Vector_, align 16
   %10 = alloca %struct.FT_Vector_, align 16
   %11 = alloca %struct.FT_Vector_, align 16
-  %12 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %0, i64 1
+  %12 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %13 = insertelement <4 x ptr> %12, ptr %1, i64 1
   %14 = insertelement <4 x ptr> %13, ptr %2, i64 2
   %15 = insertelement <4 x ptr> %14, ptr %3, i64 3
   %16 = icmp eq <4 x ptr> %15, zeroinitializer

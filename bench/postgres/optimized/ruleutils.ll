@@ -17879,8 +17879,8 @@ define internal fastcc void @get_tablefunc(ptr nocapture noundef readonly %0, pt
 
 115:                                              ; preds = %106, %108, %111
   %116 = phi ptr [ %114, %111 ], [ null, %108 ], [ null, %106 ]
-  %117 = insertelement <4 x ptr> poison, ptr %89, i64 0
-  %118 = insertelement <4 x ptr> %117, ptr %80, i64 1
+  %117 = insertelement <4 x ptr> poison, ptr %80, i64 0
+  %118 = insertelement <4 x ptr> %117, ptr %89, i64 1
   %119 = insertelement <4 x ptr> %118, ptr %98, i64 2
   %120 = insertelement <4 x ptr> %119, ptr %107, i64 3
   %.fr = freeze <4 x ptr> %120
@@ -22285,8 +22285,8 @@ define internal fastcc void @get_from_clause_coldeflist(ptr nocapture noundef re
 
 55:                                               ; preds = %46, %48, %51
   %56 = phi ptr [ %54, %51 ], [ null, %48 ], [ null, %46 ]
-  %57 = insertelement <4 x ptr> poison, ptr %38, i64 0
-  %58 = insertelement <4 x ptr> %57, ptr %29, i64 1
+  %57 = insertelement <4 x ptr> poison, ptr %29, i64 0
+  %58 = insertelement <4 x ptr> %57, ptr %38, i64 1
   %59 = insertelement <4 x ptr> %58, ptr %47, i64 2
   %60 = insertelement <4 x ptr> %59, ptr %56, i64 3
   %.fr = freeze <4 x ptr> %60

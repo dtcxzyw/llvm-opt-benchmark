@@ -373,8 +373,8 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %realloc_func, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %malloc_func, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %malloc_func, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %realloc_func, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %calloc_func, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %free_func, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

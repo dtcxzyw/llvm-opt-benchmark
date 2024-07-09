@@ -879,8 +879,8 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = load i32, ptr %0, align 4, !range !162, !noundef !13
   %3 = insertelement <4 x i32> poison, i32 %2, i64 0
   %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> zeroinitializer
-  %5 = add nsw <4 x i32> %4, <i32 -58, i32 -33, i32 -91, i32 -123>
-  %6 = icmp ult <4 x i32> %5, <i32 7, i32 15, i32 6, i32 4>
+  %5 = add nsw <4 x i32> %4, <i32 -33, i32 -58, i32 -91, i32 -123>
+  %6 = icmp ult <4 x i32> %5, <i32 15, i32 7, i32 6, i32 4>
   %7 = bitcast <4 x i1> %6 to i4
   %8 = icmp ne i4 %7, 0
   ret i1 %8

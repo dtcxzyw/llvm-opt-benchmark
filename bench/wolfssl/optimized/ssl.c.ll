@@ -10477,8 +10477,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef %name, ptr noundef %cipherSuite0, ptr noundef %cipherSuite, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %cipherSuite0, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %name, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %name, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %cipherSuite0, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %cipherSuite, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %flags, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

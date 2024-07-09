@@ -5906,8 +5906,8 @@ _ZN5Ipopt8SmartPtrINS_3NLPEED2Ev.exit:            ; preds = %109, %115
   br i1 %.not257, label %150, label %125
 
 125:                                              ; preds = %120
-  %126 = insertelement <4 x ptr> poison, ptr %6, i64 0
-  %127 = insertelement <4 x ptr> %126, ptr %5, i64 1
+  %126 = insertelement <4 x ptr> poison, ptr %5, i64 0
+  %127 = insertelement <4 x ptr> %126, ptr %6, i64 1
   %128 = insertelement <4 x ptr> %127, ptr %7, i64 2
   %129 = insertelement <4 x ptr> %128, ptr %8, i64 3
   %130 = icmp ne <4 x ptr> %129, zeroinitializer

@@ -109,9 +109,9 @@ define range(i32 0, 2) i32 @SharpYuvConvertWithOptions(ptr noundef readonly %0, 
   %39 = bitcast <4 x i1> %36 to i4
   %40 = icmp ne i4 %39, 0
   %op.rdx124 = or i1 %40, %37
-  %op.rdx125 = or i1 %38, %31
+  %op.rdx125 = or i1 %38, %29
   %op.rdx126 = or i1 %op.rdx124, %op.rdx125
-  %op.rdx127 = or i1 %op.rdx126, %29
+  %op.rdx127 = or i1 %op.rdx126, %31
   br i1 %op.rdx127, label %607, label %41
 
 41:                                               ; preds = %16
@@ -272,8 +272,8 @@ SharpYuvInit.exit:                                ; preds = %54, %.sink.split.i
   %138 = uitofp nneg i32 %110 to double
   %139 = fmul double %137, %138
   %140 = fptoui double %139 to i64
-  %141 = insertelement <4 x ptr> poison, ptr %132, i64 0
-  %142 = insertelement <4 x ptr> %141, ptr %123, i64 1
+  %141 = insertelement <4 x ptr> poison, ptr %123, i64 0
+  %142 = insertelement <4 x ptr> %141, ptr %132, i64 1
   %143 = insertelement <4 x ptr> %142, ptr %124, i64 2
   %144 = insertelement <4 x ptr> %143, ptr %133, i64 3
   %145 = icmp eq <4 x ptr> %144, zeroinitializer

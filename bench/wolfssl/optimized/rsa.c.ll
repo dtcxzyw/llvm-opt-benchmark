@@ -1235,8 +1235,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef %checkSmallCt) unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %in, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %outLen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2220,8 +2220,8 @@ declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %e, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %e, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %eSz, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %n, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2269,8 +2269,8 @@ declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz, ptr noundef %d, ptr noundef %dSz, ptr noundef %p, ptr noundef %pSz, ptr noundef %q, ptr noundef %qSz) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <8 x ptr> poison, ptr %e, i64 0
-  %1 = insertelement <8 x ptr> %0, ptr %key, i64 1
+  %0 = insertelement <8 x ptr> poison, ptr %key, i64 0
+  %1 = insertelement <8 x ptr> %0, ptr %e, i64 1
   %2 = insertelement <8 x ptr> %1, ptr %eSz, i64 2
   %3 = insertelement <8 x ptr> %2, ptr %n, i64 3
   %4 = insertelement <8 x ptr> %3, ptr %nSz, i64 4

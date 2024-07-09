@@ -2328,8 +2328,8 @@ sw.default:                                       ; preds = %if.end137
   %226 = insertelement <4 x i16> poison, i16 %retval.0.i.i, i64 0
   %227 = shufflevector <4 x i16> %226, <4 x i16> poison, <4 x i32> zeroinitializer
   %.fr1097 = freeze <4 x i16> %227
-  %228 = add <4 x i16> %.fr1097, <i16 -48, i16 -127, i16 -65, i16 -97>
-  %229 = icmp ult <4 x i16> %228, <i16 10, i16 -94, i16 26, i16 26>
+  %228 = add <4 x i16> %.fr1097, <i16 -127, i16 -48, i16 -65, i16 -97>
+  %229 = icmp ult <4 x i16> %228, <i16 -94, i16 10, i16 26, i16 26>
   %230 = bitcast <4 x i1> %229 to i4
   %.not = icmp eq i4 %230, 0
   br i1 %.not, label %if.then492, label %if.end495

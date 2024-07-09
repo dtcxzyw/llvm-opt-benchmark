@@ -15,8 +15,8 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %9 = alloca [2 x float], align 8
   %10 = alloca [2 x float], align 8
   %11 = alloca [2 x float], align 8
-  %12 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %0, i64 1
+  %12 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %13 = insertelement <4 x ptr> %12, ptr %1, i64 1
   %14 = insertelement <4 x ptr> %13, ptr %3, i64 2
   %15 = insertelement <4 x ptr> %14, ptr %4, i64 3
   %16 = icmp eq <4 x ptr> %15, zeroinitializer
@@ -189,8 +189,8 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %9 = alloca [2 x float], align 8
   %10 = alloca [2 x float], align 8
   %11 = alloca [2 x float], align 8
-  %12 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %0, i64 1
+  %12 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %13 = insertelement <4 x ptr> %12, ptr %1, i64 1
   %14 = insertelement <4 x ptr> %13, ptr %3, i64 2
   %15 = insertelement <4 x ptr> %14, ptr %4, i64 3
   %16 = icmp eq <4 x ptr> %15, zeroinitializer

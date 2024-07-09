@@ -1361,8 +1361,8 @@ lor.lhs.false86:                                  ; preds = %land.lhs.true76, %i
   %54 = insertelement <4 x i32> poison, i32 %c, i64 0
   %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> zeroinitializer
   %.fr251 = freeze <4 x i32> %55
-  %56 = add <4 x i32> %.fr251, <i32 -48, i32 -127, i32 -65, i32 -97>
-  %57 = icmp ult <4 x i32> %56, <i32 10, i32 -94, i32 26, i32 26>
+  %56 = add <4 x i32> %.fr251, <i32 -127, i32 -48, i32 -65, i32 -97>
+  %57 = icmp ult <4 x i32> %56, <i32 -94, i32 10, i32 26, i32 26>
   %58 = bitcast <4 x i1> %57 to i4
   %.not = icmp eq i4 %58, 0
   br i1 %.not, label %if.then105, label %lor.lhs.false102

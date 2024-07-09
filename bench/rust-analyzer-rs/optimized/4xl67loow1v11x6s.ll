@@ -1926,13 +1926,13 @@ define hidden void @_ZN6object4read8FileKind8parse_at17ha12e8154051f82d8E(ptr no
   store ptr @anon.ced7cb14528d243819e0f1d745e7b7af.41, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 25, ptr %13, align 8
-  br label %83
+  br label %89
 
 14:                                               ; preds = %9
   store ptr @anon.ced7cb14528d243819e0f1d745e7b7af.54, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %15, align 8
-  br label %83
+  br label %89
 
 16:                                               ; preds = %9
   %17 = load i8, ptr %8, align 1, !noundef !7
@@ -1941,238 +1941,244 @@ define hidden void @_ZN6object4read8FileKind8parse_at17ha12e8154051f82d8E(ptr no
   %20 = getelementptr inbounds i8, ptr %8, i64 2
   %21 = load i8, ptr %20, align 1, !noundef !7
   %22 = getelementptr inbounds i8, ptr %8, i64 3
-  %23 = load i8, ptr %22, align 1, !noundef !7
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
-  %25 = load <4 x i8>, ptr %24, align 1
+  %23 = load <4 x i8>, ptr %22, align 1
+  %24 = getelementptr inbounds i8, ptr %8, i64 7
+  %25 = load i8, ptr %24, align 1, !noundef !7
   switch i8 %17, label %26 [
     i8 100, label %28
     i8 127, label %29
-    i8 -2, label %33
-    i8 -50, label %36
-    i8 -49, label %40
-    i8 -54, label %44
-    i8 77, label %47
-    i8 -60, label %50
-    i8 65, label %52
-    i8 76, label %54
-    i8 0, label %56
+    i8 -2, label %34
+    i8 -50, label %37
+    i8 -49, label %42
+    i8 -54, label %47
+    i8 77, label %50
+    i8 -60, label %53
+    i8 65, label %55
+    i8 76, label %57
+    i8 0, label %59
   ]
 
-26:                                               ; preds = %89, %86, %84, %71, %69, %66, %60, %56, %54, %52, %50, %47, %44, %40, %36, %33, %29, %28, %16
+26:                                               ; preds = %95, %92, %90, %76, %73, %70, %64, %59, %57, %55, %53, %50, %47, %42, %37, %34, %29, %28, %16
   store ptr @anon.ced7cb14528d243819e0f1d745e7b7af.53, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %27, align 8
-  br label %83
+  br label %89
 
 28:                                               ; preds = %16
   switch i8 %19, label %26 [
-    i8 121, label %60
-    i8 -86, label %64
-    i8 -122, label %64
+    i8 121, label %64
+    i8 -86, label %68
+    i8 -122, label %68
   ]
 
 29:                                               ; preds = %16
   %30 = icmp eq i8 %19, 69
   %31 = icmp eq i8 %21, 76
   %or.cond5 = and i1 %30, %31
-  %32 = icmp eq i8 %23, 70
-  %or.cond6 = and i1 %or.cond5, %32
-  br i1 %or.cond6, label %66, label %26
+  %32 = extractelement <4 x i8> %23, i64 0
+  %33 = icmp eq i8 %32, 70
+  %or.cond6 = and i1 %or.cond5, %33
+  br i1 %or.cond6, label %70, label %26
 
-33:                                               ; preds = %16
-  %34 = icmp eq i8 %19, -19
-  %35 = icmp eq i8 %21, -6
-  %or.cond7 = and i1 %34, %35
-  br i1 %or.cond7, label %69, label %26
+34:                                               ; preds = %16
+  %35 = icmp eq i8 %19, -19
+  %36 = icmp eq i8 %21, -6
+  %or.cond7 = and i1 %35, %36
+  br i1 %or.cond7, label %73, label %26
 
-36:                                               ; preds = %16
-  %37 = icmp eq i8 %19, -6
-  %38 = icmp eq i8 %21, -19
-  %or.cond8 = and i1 %37, %38
-  %39 = icmp eq i8 %23, -2
-  %or.cond9 = and i1 %or.cond8, %39
-  br i1 %or.cond9, label %64, label %26
+37:                                               ; preds = %16
+  %38 = icmp eq i8 %19, -6
+  %39 = icmp eq i8 %21, -19
+  %or.cond8 = and i1 %38, %39
+  %40 = extractelement <4 x i8> %23, i64 0
+  %41 = icmp eq i8 %40, -2
+  %or.cond9 = and i1 %or.cond8, %41
+  br i1 %or.cond9, label %68, label %26
 
-40:                                               ; preds = %16
-  %41 = icmp eq i8 %19, -6
-  %42 = icmp eq i8 %21, -19
-  %or.cond10 = and i1 %41, %42
-  %43 = icmp eq i8 %23, -2
-  %or.cond11 = and i1 %or.cond10, %43
-  br i1 %or.cond11, label %70, label %26
-
-44:                                               ; preds = %16
-  %45 = icmp eq i8 %19, -2
-  %46 = icmp eq i8 %21, -70
-  %or.cond12 = and i1 %45, %46
-  br i1 %or.cond12, label %71, label %26
+42:                                               ; preds = %16
+  %43 = icmp eq i8 %19, -6
+  %44 = icmp eq i8 %21, -19
+  %or.cond10 = and i1 %43, %44
+  %45 = extractelement <4 x i8> %23, i64 0
+  %46 = icmp eq i8 %45, -2
+  %or.cond11 = and i1 %or.cond10, %46
+  br i1 %or.cond11, label %75, label %26
 
 47:                                               ; preds = %16
-  %48 = icmp eq i8 %19, 90
-  %49 = icmp eq i64 %3, 0
-  %or.cond79 = and i1 %49, %48
-  br i1 %or.cond79, label %73, label %26
+  %48 = icmp eq i8 %19, -2
+  %49 = icmp eq i8 %21, -70
+  %or.cond12 = and i1 %48, %49
+  br i1 %or.cond12, label %76, label %26
 
 50:                                               ; preds = %16
-  %51 = icmp eq i8 %19, 1
-  br i1 %51, label %64, label %26
+  %51 = icmp eq i8 %19, 90
+  %52 = icmp eq i64 %3, 0
+  %or.cond79 = and i1 %52, %51
+  br i1 %or.cond79, label %79, label %26
 
-52:                                               ; preds = %16
-  %53 = icmp eq i8 %19, -90
-  br i1 %53, label %64, label %26
+53:                                               ; preds = %16
+  %54 = icmp eq i8 %19, 1
+  br i1 %54, label %68, label %26
 
-54:                                               ; preds = %16
-  %55 = icmp eq i8 %19, 1
-  br i1 %55, label %64, label %26
+55:                                               ; preds = %16
+  %56 = icmp eq i8 %19, -90
+  br i1 %56, label %68, label %26
 
-56:                                               ; preds = %16
-  %57 = icmp eq i8 %19, 0
-  %58 = and i8 %23, %21
-  %59 = icmp eq i8 %58, -1
-  %or.cond14 = and i1 %57, %59
-  br i1 %or.cond14, label %84, label %26
+57:                                               ; preds = %16
+  %58 = icmp eq i8 %19, 1
+  br i1 %58, label %68, label %26
 
-60:                                               ; preds = %28
-  %61 = icmp eq i8 %21, 108
-  %62 = icmp eq i8 %23, 100
-  %.scalar = bitcast <4 x i8> %25 to i32
-  %63 = icmp eq i32 %.scalar, 540112479
-  %op.rdx = and i1 %63, %62
-  %op.rdx108 = and i1 %op.rdx, %61
-  br i1 %op.rdx108, label %64, label %26
+59:                                               ; preds = %16
+  %60 = icmp eq i8 %19, 0
+  %61 = extractelement <4 x i8> %23, i64 0
+  %62 = and i8 %61, %21
+  %63 = icmp eq i8 %62, -1
+  %or.cond14 = and i1 %60, %63
+  br i1 %or.cond14, label %90, label %26
 
-64:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit, %86, %71, %69, %36, %66, %60, %28, %28, %50, %52, %54, %82, %72, %70, %68
-  %.0 = phi i8 [ %.1, %82 ], [ 9, %72 ], [ 7, %70 ], [ 5, %68 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %28 ], [ 0, %28 ], [ 3, %60 ], [ 4, %66 ], [ 6, %36 ], [ 6, %69 ], [ 8, %71 ], [ 2, %86 ], [ 1, %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.0, ptr %65, align 8
+64:                                               ; preds = %28
+  %65 = icmp eq i8 %21, 108
+  %66 = icmp eq i8 %25, 32
+  %.scalar = bitcast <4 x i8> %23 to i32
+  %67 = icmp eq i32 %.scalar, 829841252
+  %op.rdx = and i1 %67, %65
+  %op.rdx108 = and i1 %op.rdx, %66
+  br i1 %op.rdx108, label %68, label %26
+
+68:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit, %92, %76, %73, %37, %70, %64, %28, %28, %53, %55, %57, %88, %78, %75, %72
+  %.0 = phi i8 [ %.1, %88 ], [ 9, %78 ], [ 7, %75 ], [ 5, %72 ], [ 0, %57 ], [ 0, %55 ], [ 0, %53 ], [ 0, %28 ], [ 0, %28 ], [ 3, %64 ], [ 4, %70 ], [ 6, %37 ], [ 6, %73 ], [ 8, %76 ], [ 2, %92 ], [ 1, %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit ]
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.0, ptr %69, align 8
   store ptr null, ptr %0, align 8
-  br label %83
+  br label %89
 
-66:                                               ; preds = %29
-  %67 = extractelement <4 x i8> %25, i64 0
-  switch i8 %67, label %26 [
-    i8 1, label %64
-    i8 2, label %68
+70:                                               ; preds = %29
+  %71 = extractelement <4 x i8> %23, i64 1
+  switch i8 %71, label %26 [
+    i8 1, label %68
+    i8 2, label %72
   ]
 
-68:                                               ; preds = %66
-  br label %64
+72:                                               ; preds = %70
+  br label %68
 
-69:                                               ; preds = %33
-  switch i8 %23, label %26 [
-    i8 -50, label %64
-    i8 -49, label %70
+73:                                               ; preds = %34
+  %74 = extractelement <4 x i8> %23, i64 0
+  switch i8 %74, label %26 [
+    i8 -50, label %68
+    i8 -49, label %75
   ]
 
-70:                                               ; preds = %40, %69
-  br label %64
+75:                                               ; preds = %42, %73
+  br label %68
 
-71:                                               ; preds = %44
-  switch i8 %23, label %26 [
-    i8 -66, label %64
-    i8 -65, label %72
+76:                                               ; preds = %47
+  %77 = extractelement <4 x i8> %23, i64 0
+  switch i8 %77, label %26 [
+    i8 -66, label %68
+    i8 -65, label %78
   ]
 
-72:                                               ; preds = %71
-  br label %64
+78:                                               ; preds = %76
+  br label %68
 
-73:                                               ; preds = %47
+79:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN6object4read2pe4file21optional_header_magic17h07a3bdbf94e3e49cE(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %74 = load ptr, ptr %6, align 8, !noundef !7
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %79
+  %80 = load ptr, ptr %6, align 8, !noundef !7
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %85
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %6, i64 8
-  %78 = load i16, ptr %77, align 8, !noundef !7
-  switch i16 %78, label %79 [
-    i16 267, label %82
-    i16 523, label %81
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %6, i64 8
+  %84 = load i16, ptr %83, align 8, !noundef !7
+  switch i16 %84, label %85 [
+    i16 267, label %88
+    i16 523, label %87
   ]
 
-79:                                               ; preds = %76, %73
+85:                                               ; preds = %82, %79
   store ptr @anon.ced7cb14528d243819e0f1d745e7b7af.51, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 19, ptr %80, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 19, ptr %86, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %83
+  br label %89
 
-81:                                               ; preds = %76
-  br label %82
+87:                                               ; preds = %82
+  br label %88
 
-82:                                               ; preds = %76, %81
-  %.1 = phi i8 [ 11, %81 ], [ 10, %76 ]
+88:                                               ; preds = %82, %87
+  %.1 = phi i8 [ 11, %87 ], [ 10, %82 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %64
+  br label %68
 
-83:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread, %79, %64, %26, %14, %12
+89:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread, %85, %68, %26, %14, %12
   ret void
 
-84:                                               ; preds = %56
-  %85 = extractelement <4 x i8> %25, i64 0
-  switch i8 %85, label %26 [
-    i8 0, label %86
-    i8 2, label %89
+90:                                               ; preds = %59
+  %91 = extractelement <4 x i8> %23, i64 1
+  switch i8 %91, label %26 [
+    i8 0, label %92
+    i8 2, label %95
   ]
 
-86:                                               ; preds = %84
-  %87 = extractelement <4 x i8> %25, i64 1
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %64, label %26
+92:                                               ; preds = %90
+  %93 = extractelement <4 x i8> %23, i64 2
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %68, label %26
 
-89:                                               ; preds = %84
-  %90 = extractelement <4 x i8> %25, i64 1
-  %91 = icmp eq i8 %90, 0
-  %92 = icmp eq i64 %3, 0
-  %or.cond80 = and i1 %92, %91
-  br i1 %or.cond80, label %93, label %26
+95:                                               ; preds = %90
+  %96 = extractelement <4 x i8> %23, i64 2
+  %97 = icmp eq i8 %96, 0
+  %98 = icmp eq i64 %3, 0
+  %or.cond80 = and i1 %98, %97
+  br i1 %or.cond80, label %99, label %26
 
-93:                                               ; preds = %89
+99:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !322
   store i64 0, ptr %5, align 8, !noalias !326
-  %94 = call noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !329
+  %100 = call noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !329
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !322
-  %.not.i.not = icmp eq ptr %94, null
+  %.not.i.not = icmp eq ptr %100, null
   br i1 %.not.i.not, label %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread, label %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit
 
-_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit: ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 12
-  %.sroa.10.1..sroa_idx = getelementptr inbounds i8, ptr %94, i64 16
+_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit: ; preds = %99
+  %101 = getelementptr inbounds i8, ptr %100, i64 12
+  %.sroa.10.1..sroa_idx = getelementptr inbounds i8, ptr %100, i64 16
   %.sroa.10.1.copyload = load i8, ptr %.sroa.10.1..sroa_idx, align 4
-  %.sroa.11.1..sroa_idx = getelementptr inbounds i8, ptr %94, i64 17
+  %.sroa.11.1..sroa_idx = getelementptr inbounds i8, ptr %100, i64 17
   %.sroa.11.1.copyload = load i8, ptr %.sroa.11.1..sroa_idx, align 1
-  %.sroa.12.1..sroa_idx = getelementptr inbounds i8, ptr %94, i64 18
+  %.sroa.12.1..sroa_idx = getelementptr inbounds i8, ptr %100, i64 18
   %.sroa.12.1.copyload = load i8, ptr %.sroa.12.1..sroa_idx, align 2
-  %.sroa.13.1..sroa_idx = getelementptr inbounds i8, ptr %94, i64 19
+  %.sroa.13.1..sroa_idx = getelementptr inbounds i8, ptr %100, i64 19
   %.sroa.13.1.copyload = load ptr, ptr %.sroa.13.1..sroa_idx, align 1
-  %.sroa.22.1..sroa_idx = getelementptr inbounds i8, ptr %94, i64 27
+  %.sroa.22.1..sroa_idx = getelementptr inbounds i8, ptr %100, i64 27
   %.sroa.22.1.copyload = load i8, ptr %.sroa.22.1..sroa_idx, align 1
-  %96 = load <4 x i8>, ptr %95, align 4
-  %.fr = freeze <4 x i8> %96
+  %102 = load <4 x i8>, ptr %101, align 4
+  %.fr = freeze <4 x i8> %102
   %.sroa.10.1.copyload.fr = freeze i8 %.sroa.10.1.copyload
-  %97 = icmp eq i8 %.sroa.10.1.copyload.fr, -18
+  %103 = icmp eq i8 %.sroa.10.1.copyload.fr, -18
   %.sroa.11.1.copyload.fr = freeze i8 %.sroa.11.1.copyload
-  %98 = icmp eq i8 %.sroa.11.1.copyload.fr, -70
+  %104 = icmp eq i8 %.sroa.11.1.copyload.fr, -70
   %.sroa.12.1.copyload.fr = freeze i8 %.sroa.12.1.copyload
-  %99 = icmp eq i8 %.sroa.12.1.copyload.fr, -87
+  %105 = icmp eq i8 %.sroa.12.1.copyload.fr, -87
   %.sroa.22.1.copyload.fr = freeze i8 %.sroa.22.1.copyload
-  %100 = icmp eq i8 %.sroa.22.1.copyload.fr, -72
-  %101 = icmp eq ptr %.sroa.13.1.copyload, inttoptr (i64 -2547793880193913013 to ptr)
+  %106 = icmp eq i8 %.sroa.22.1.copyload.fr, -72
+  %107 = icmp eq ptr %.sroa.13.1.copyload, inttoptr (i64 -2547793880193913013 to ptr)
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %102 = icmp eq i32 %.fr.scalar, -776298041
-  %op.rdx109 = and i1 %102, %97
-  %103 = and i1 %op.rdx109, %98
-  %op.rdx112 = and i1 %103, %99
-  %104 = and i1 %op.rdx112, %100
-  %op.rdx113 = select i1 %104, i1 %101, i1 false
-  br i1 %op.rdx113, label %64, label %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread
+  %108 = icmp eq i32 %.fr.scalar, -776298041
+  %op.rdx109 = and i1 %108, %103
+  %109 = and i1 %op.rdx109, %104
+  %op.rdx112 = and i1 %109, %105
+  %110 = and i1 %op.rdx112, %106
+  %op.rdx113 = select i1 %110, i1 %107, i1 false
+  br i1 %op.rdx113, label %68, label %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread
 
-_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread: ; preds = %93, %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit
+_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit.thread: ; preds = %99, %_ZN6object4read4coff4file20anon_object_class_id17h77fc454e52cce94aE.exit
   store ptr @anon.ced7cb14528d243819e0f1d745e7b7af.52, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 24, ptr %105, align 8
-  br label %83
+  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 24, ptr %111, align 8
+  br label %89
 }
 
 ; Function Attrs: nonlazybind uwtable

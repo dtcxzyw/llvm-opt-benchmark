@@ -8329,8 +8329,8 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
 96:                                               ; preds = %48, %51, %54, %57, %88
   %.092 = phi float [ %87, %57 ], [ %95, %88 ], [ %44, %54 ], [ %44, %51 ], [ %44, %48 ]
   %.0 = phi float [ %85, %57 ], [ %92, %88 ], [ %40, %54 ], [ %40, %51 ], [ %40, %48 ]
-  %97 = insertelement <4 x float> poison, float %.092, i64 0
-  %98 = insertelement <4 x float> %97, float %40, i64 1
+  %97 = insertelement <4 x float> poison, float %40, i64 0
+  %98 = insertelement <4 x float> %97, float %.092, i64 1
   %99 = insertelement <4 x float> %98, float %.0, i64 2
   %100 = insertelement <4 x float> %99, float %44, i64 3
   %101 = fcmp olt <4 x float> %100, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>

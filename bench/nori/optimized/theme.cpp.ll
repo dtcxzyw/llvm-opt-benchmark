@@ -2507,73 +2507,71 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i623:         ; preds = %_ZN7nanogui5ArrayIf
   store i32 61560, ptr %884, align 4
   %885 = load i32, ptr @roboto_regular_ttf_size, align 4
   %886 = invoke i32 @nvgCreateFontMem(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @roboto_regular_ttf, i32 noundef %885, i32 noundef 0)
-          to label %887 unwind label %911
+          to label %887 unwind label %910
 
 887:                                              ; preds = %880
   %888 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %886, ptr %888, align 4
   %889 = load i32, ptr @roboto_bold_ttf_size, align 4
   %890 = invoke i32 @nvgCreateFontMem(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @roboto_bold_ttf, i32 noundef %889, i32 noundef 0)
-          to label %891 unwind label %911
+          to label %891 unwind label %910
 
 891:                                              ; preds = %887
   %892 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %890, ptr %892, align 8
   %893 = load i32, ptr @fontawesome_solid_ttf_size, align 4
   %894 = invoke i32 @nvgCreateFontMem(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @fontawesome_solid_ttf, i32 noundef %893, i32 noundef 0)
-          to label %895 unwind label %911
+          to label %895 unwind label %910
 
 895:                                              ; preds = %891
   %896 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %894, ptr %896, align 4
   %897 = load i32, ptr @inconsolata_regular_ttf_size, align 4
   %898 = invoke i32 @nvgCreateFontMem(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @inconsolata_regular_ttf, i32 noundef %897, i32 noundef 0)
-          to label %899 unwind label %911
+          to label %899 unwind label %910
 
 899:                                              ; preds = %895
   %900 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %898, ptr %900, align 8
-  %901 = load i32, ptr %888, align 4
-  %902 = icmp eq i32 %901, -1
-  %903 = load i32, ptr %892, align 8
-  %904 = icmp eq i32 %903, -1
-  %or.cond = select i1 %902, i1 true, i1 %904
-  %905 = load i32, ptr %896, align 4
-  %906 = icmp eq i32 %905, -1
-  %or.cond10 = select i1 %or.cond, i1 true, i1 %906
-  %907 = icmp eq i32 %898, -1
-  %or.cond11 = select i1 %or.cond10, i1 true, i1 %907
-  br i1 %or.cond11, label %908, label %915
+  %901 = load <4 x i32>, ptr %888, align 4
+  %902 = load <4 x i32>, ptr %892, align 8
+  %903 = shufflevector <4 x i32> %901, <4 x i32> %902, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %904 = insertelement <4 x i32> %903, i32 %898, i64 3
+  %.fr = freeze <4 x i32> %904
+  %905 = icmp eq <4 x i32> %.fr, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %906 = bitcast <4 x i1> %905 to i4
+  %.not = icmp eq i4 %906, 0
+  br i1 %.not, label %914, label %907
 
-908:                                              ; preds = %899
-  %909 = tail call ptr @__cxa_allocate_exception(i64 16) #8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %909, ptr noundef nonnull @.str.4)
-          to label %910 unwind label %913
+907:                                              ; preds = %899
+  %908 = tail call ptr @__cxa_allocate_exception(i64 16) #8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %908, ptr noundef nonnull @.str.4)
+          to label %909 unwind label %912
 
-910:                                              ; preds = %908
-  invoke void @__cxa_throw(ptr nonnull %909, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
-          to label %917 unwind label %911
+909:                                              ; preds = %907
+  invoke void @__cxa_throw(ptr nonnull %908, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #9
+          to label %916 unwind label %910
 
-911:                                              ; preds = %910, %895, %891, %887, %880
-  %912 = landingpad { ptr, i32 }
+910:                                              ; preds = %909, %895, %891, %887, %880
+  %911 = landingpad { ptr, i32 }
           cleanup
-  br label %916
+  br label %915
 
-913:                                              ; preds = %908
-  %914 = landingpad { ptr, i32 }
+912:                                              ; preds = %907
+  %913 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %909) #8
-  br label %916
+  tail call void @__cxa_free_exception(ptr %908) #8
+  br label %915
 
-915:                                              ; preds = %899
+914:                                              ; preds = %899
   ret void
 
-916:                                              ; preds = %913, %911
-  %.pn = phi { ptr, i32 } [ %912, %911 ], [ %914, %913 ]
+915:                                              ; preds = %912, %910
+  %.pn = phi { ptr, i32 } [ %911, %910 ], [ %913, %912 ]
   tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #8
   resume { ptr, i32 } %.pn
 
-917:                                              ; preds = %910
+916:                                              ; preds = %909
   unreachable
 }
 

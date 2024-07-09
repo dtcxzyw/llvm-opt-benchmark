@@ -99,8 +99,8 @@ define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %
   %10 = alloca [1024 x i8], align 16
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
   %12 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %5) #7
-  %13 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %0, i64 1
+  %13 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %14 = insertelement <4 x ptr> %13, ptr %2, i64 1
   %15 = insertelement <4 x ptr> %14, ptr %3, i64 2
   %16 = insertelement <4 x ptr> %15, ptr %6, i64 3
   %17 = icmp eq <4 x ptr> %16, zeroinitializer
@@ -179,8 +179,8 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   %16 = udiv i32 %14, %15
   %.tr = trunc i64 %7 to i16
   %17 = shl i16 %.tr, 3
-  %18 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %19 = insertelement <4 x ptr> %18, ptr %0, i64 1
+  %18 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %19 = insertelement <4 x ptr> %18, ptr %2, i64 1
   %20 = insertelement <4 x ptr> %19, ptr %3, i64 2
   %21 = insertelement <4 x ptr> %20, ptr %6, i64 3
   %22 = icmp eq <4 x ptr> %21, zeroinitializer
@@ -244,8 +244,8 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %16 = alloca [32 x i8], align 16
   %17 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %8) #7
   %18 = load i16, ptr %4, align 2
-  %19 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %20 = insertelement <4 x ptr> %19, ptr %0, i64 1
+  %19 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %20 = insertelement <4 x ptr> %19, ptr %2, i64 1
   %21 = insertelement <4 x ptr> %20, ptr %5, i64 2
   %22 = insertelement <4 x ptr> %21, ptr %7, i64 3
   %23 = icmp ne ptr %9, null
@@ -331,8 +331,8 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef %0, i64
   %10 = alloca ptr, align 8
   %11 = alloca [34 x i8], align 16
   %12 = alloca [32 x i8], align 16
-  %13 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %0, i64 1
+  %13 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %14 = insertelement <4 x ptr> %13, ptr %2, i64 1
   %15 = insertelement <4 x ptr> %14, ptr %3, i64 2
   %16 = insertelement <4 x ptr> %15, ptr %4, i64 3
   %17 = icmp ne ptr %6, null

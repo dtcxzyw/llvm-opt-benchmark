@@ -81,8 +81,8 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %unprotected_bytes, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %unprotected_bytes, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %unprotected_bytes_size, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %protected_output_frames, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -114,8 +114,8 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %protected_output_frames, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %protected_output_frames, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %protected_output_frames_size, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %still_pending_size, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -146,8 +146,8 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %protected_frames_bytes, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %protected_frames_bytes, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %protected_frames_bytes_size, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %unprotected_bytes, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer

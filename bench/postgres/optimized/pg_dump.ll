@@ -6211,8 +6211,8 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   ]
 
 2281:                                             ; preds = %2279
-  %2282 = insertelement <4 x ptr> poison, ptr %.1191.i, i64 0
-  %2283 = insertelement <4 x ptr> %2282, ptr %.1.i306, i64 1
+  %2282 = insertelement <4 x ptr> poison, ptr %.1.i306, i64 0
+  %2283 = insertelement <4 x ptr> %2282, ptr %.1191.i, i64 1
   %2284 = insertelement <4 x ptr> %2283, ptr %.0189.i, i64 2
   %2285 = insertelement <4 x ptr> %2284, ptr %.0188.i, i64 3
   %.fr = freeze <4 x ptr> %2285

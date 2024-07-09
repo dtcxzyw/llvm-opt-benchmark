@@ -48,8 +48,8 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
 26:                                               ; preds = %14, %24
   %27 = phi ptr [ %25, %24 ], [ null, %14 ]
   %28 = phi ptr [ %25, %24 ], [ %0, %14 ]
-  %29 = insertelement <4 x ptr> poison, ptr %19, i64 0
-  %30 = insertelement <4 x ptr> %29, ptr %17, i64 1
+  %29 = insertelement <4 x ptr> poison, ptr %17, i64 0
+  %30 = insertelement <4 x ptr> %29, ptr %19, i64 1
   %31 = insertelement <4 x ptr> %30, ptr %20, i64 2
   %32 = insertelement <4 x ptr> %31, ptr %28, i64 3
   %.fr = freeze <4 x ptr> %32

@@ -21,8 +21,8 @@ entry:
   br i1 %cmp, label %if.end184, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %in, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %out, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %ivec, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -226,8 +226,8 @@ entry:
   %tmp2 = alloca [16 x i8], align 16
   %tmp3 = alloca [16 x i8], align 16
   %prev = alloca [16 x i8], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %in, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %out, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %ivec, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

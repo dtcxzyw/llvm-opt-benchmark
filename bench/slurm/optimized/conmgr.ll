@@ -4291,8 +4291,8 @@ define void @conmgr_add_signal_work(i32 noundef %0, ptr noundef %1, ptr noundef 
 define i32 @conmgr_get_fd_auth_creds(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ucred, align 4
   %6 = alloca i32, align 4
-  %7 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %8 = insertelement <4 x ptr> %7, ptr %0, i64 1
+  %7 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %8 = insertelement <4 x ptr> %7, ptr %1, i64 1
   %9 = insertelement <4 x ptr> %8, ptr %2, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %3, i64 3
   %11 = icmp eq <4 x ptr> %10, zeroinitializer

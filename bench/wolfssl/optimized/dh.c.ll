@@ -508,8 +508,8 @@ entry:
   %tmpQ.i.i.i = alloca [1 x %struct.sp_int], align 16
   %tmpX.i.i.i = alloca [1 x %struct.sp_int], align 16
   %cBuf.i.i.i = alloca [4104 x i8], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %rng, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %rng, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %priv, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %privSz, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -803,8 +803,8 @@ entry:
   %y.i = alloca [1 x %struct.sp_int], align 16
   %x.i = alloca [1 x %struct.sp_int], align 16
   %z.i = alloca [1 x %struct.sp_int], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %agree, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %agree, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %agreeSz, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %priv, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

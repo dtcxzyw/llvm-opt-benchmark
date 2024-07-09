@@ -740,8 +740,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = insertelement <4 x ptr> poison, ptr %rep, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %trans, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %trans, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %rep, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %repFunc, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %limit, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -790,8 +790,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = insertelement <4 x ptr> poison, ptr %rep, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %trans, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %trans, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %rep, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %repFunc, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %pos, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer

@@ -88,8 +88,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %18, %ompi_comm_inva
   br i1 %.not, label %.loopexit, label %39
 
 39:                                               ; preds = %38
-  %40 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %41 = insertelement <4 x ptr> %40, ptr %2, i64 1
+  %40 = insertelement <4 x ptr> poison, ptr %2, i64 0
+  %41 = insertelement <4 x ptr> %40, ptr %3, i64 1
   %42 = insertelement <4 x ptr> %41, ptr %4, i64 2
   %43 = insertelement <4 x ptr> %42, ptr %5, i64 3
   %44 = icmp eq <4 x ptr> %43, zeroinitializer

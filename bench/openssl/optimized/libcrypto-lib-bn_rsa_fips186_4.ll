@@ -56,8 +56,8 @@ cond.false17:                                     ; preds = %cond.end13
 
 cond.end19:                                       ; preds = %cond.end13, %cond.false17
   %cond20 = phi ptr [ %call18, %cond.false17 ], [ %Xp2, %cond.end13 ]
-  %0 = insertelement <4 x ptr> poison, ptr %cond8, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %cond, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %cond, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %cond8, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %cond14, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %cond20, i64 3
   %.fr = freeze <4 x ptr> %3

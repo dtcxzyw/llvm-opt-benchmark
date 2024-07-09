@@ -8594,10 +8594,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt2v96detail12is_printableEj
 84:                                               ; preds = %42
   %85 = insertelement <4 x i32> poison, i32 %0, i64 0
   %86 = shufflevector <4 x i32> %85, <4 x i32> poison, <4 x i32> zeroinitializer
-  %87 = add <4 x i32> %86, <i32 -177973, i32 -173790, i32 -183970, i32 -191457>
+  %87 = add <4 x i32> %86, <i32 -173790, i32 -177973, i32 -183970, i32 -191457>
   %88 = and i32 %0, -2
   %or.cond5 = icmp ne i32 %88, 178206
-  %89 = icmp ult <4 x i32> %87, <i32 11, i32 34, i32 14, i32 3103>
+  %89 = icmp ult <4 x i32> %87, <i32 34, i32 11, i32 14, i32 3103>
   %90 = add i32 %0, -196608
   %or.cond11 = icmp ult i32 %90, -1506
   %91 = add i32 %0, -917760

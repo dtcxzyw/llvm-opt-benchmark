@@ -463,7 +463,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 define dso_local zeroext i1 @launch_common_step_retry_errno(i32 noundef %0) local_unnamed_addr #0 {
   %2 = insertelement <4 x i32> poison, i32 %0, i64 0
   %3 = shufflevector <4 x i32> %2, <4 x i32> poison, <4 x i32> zeroinitializer
-  %4 = icmp eq <4 x i32> %3, <i32 2037, i32 11, i32 2079, i32 2016>
+  %4 = icmp eq <4 x i32> %3, <i32 11, i32 2037, i32 2079, i32 2016>
   %5 = icmp eq i32 %0, 2059
   %6 = icmp eq i32 %0, 5004
   %7 = bitcast <4 x i1> %4 to i4

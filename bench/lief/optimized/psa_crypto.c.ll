@@ -979,7 +979,7 @@ define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noun
   %8 = insertelement <4 x i16> poison, i16 %7, i64 0
   %9 = shufflevector <4 x i16> %8, <4 x i16> poison, <4 x i32> zeroinitializer
   %10 = and <4 x i16> %9, <i16 28672, i16 28672, i16 -12289, i16 -12544>
-  %11 = icmp eq <4 x i16> %10, <i16 8192, i16 4096, i16 16385, i16 16640>
+  %11 = icmp eq <4 x i16> %10, <i16 4096, i16 8192, i16 16385, i16 16640>
   %12 = bitcast <4 x i1> %11 to i4
   %.not = icmp eq i4 %12, 0
   br i1 %.not, label %psa_export_key_buffer_internal.exit, label %13

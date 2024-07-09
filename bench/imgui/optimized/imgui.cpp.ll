@@ -10458,8 +10458,8 @@ cond.end:                                         ; preds = %if.end6, %cond.fals
 if.then11:                                        ; preds = %cond.end
   %14 = fadd <4 x float> %11, <float -4.000000e+00, float -4.000000e+00, float 4.000000e+00, float 4.000000e+00>
   store <4 x float> %14, ptr %display_rect, align 16
-  %15 = shufflevector <4 x float> %14, <4 x float> %7, <4 x i32> <i32 2, i32 3, i32 5, i32 4>
-  %16 = shufflevector <4 x float> %7, <4 x float> %14, <4 x i32> <i32 2, i32 3, i32 5, i32 4>
+  %15 = shufflevector <4 x float> %14, <4 x float> %7, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %16 = shufflevector <4 x float> %7, <4 x float> %14, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %17 = fcmp ole <4 x float> %15, %16
   %18 = freeze <4 x i1> %17
   %19 = bitcast <4 x i1> %18 to i4

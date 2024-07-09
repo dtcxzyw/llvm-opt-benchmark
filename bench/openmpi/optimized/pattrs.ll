@@ -483,8 +483,8 @@ pmix_cmd_line_is_taken.exit266:                   ; preds = %pmix_cmd_line_get_n
   br i1 %brmerge198, label %158, label %168
 
 158:                                              ; preds = %pmix_cmd_line_is_taken.exit266
-  %159 = insertelement <4 x ptr> poison, ptr %.0.i206, i64 0
-  %160 = insertelement <4 x ptr> %159, ptr %.0.i, i64 1
+  %159 = insertelement <4 x ptr> poison, ptr %.0.i, i64 0
+  %160 = insertelement <4 x ptr> %159, ptr %.0.i206, i64 1
   %161 = insertelement <4 x ptr> %160, ptr %.0.i215, i64 2
   %162 = insertelement <4 x ptr> %161, ptr %.0.i224, i64 3
   %.fr = freeze <4 x ptr> %162

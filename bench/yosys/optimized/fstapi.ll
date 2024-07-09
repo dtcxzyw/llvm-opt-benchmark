@@ -5243,8 +5243,8 @@ define void @fstWriterSetAttrEnd(ptr noundef %0) local_unnamed_addr #13 {
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
-  %8 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %4, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
   %12 = icmp ne i32 %2, 0

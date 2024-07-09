@@ -263,8 +263,8 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   store ptr null, ptr %15, align 8
   store i64 0, ptr %16, align 8
   store i64 0, ptr %17, align 8
-  %41 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %42 = insertelement <4 x ptr> %41, ptr %1, i64 1
+  %41 = insertelement <4 x ptr> poison, ptr %1, i64 0
+  %42 = insertelement <4 x ptr> %41, ptr %3, i64 1
   %43 = insertelement <4 x ptr> %42, ptr %5, i64 2
   %44 = insertelement <4 x ptr> %43, ptr %6, i64 3
   %45 = icmp eq <4 x ptr> %44, zeroinitializer

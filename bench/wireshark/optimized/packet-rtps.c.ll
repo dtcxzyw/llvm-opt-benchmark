@@ -6163,14 +6163,16 @@ define internal fastcc range(i32 0, 2) i32 @rtps_util_add_entity_id(ptr noundef 
 28:                                               ; preds = %23, %14
   %29 = and i32 %10, 192
   %30 = icmp eq i32 %29, 192
-  %31 = insertelement <4 x i32> poison, i32 %10, i64 0
-  %32 = shufflevector <4 x i32> %31, <4 x i32> poison, <4 x i32> zeroinitializer
-  %33 = icmp eq <4 x i32> %32, <i32 131202, i32 131207, i32 131458, i32 131463>
-  %34 = bitcast <4 x i1> %33 to i4
-  %35 = icmp ne i4 %34, 0
-  %op.rdx = or i1 %35, %30
-  %36 = zext i1 %op.rdx to i32
-  ret i32 %36
+  %31 = icmp eq i32 %10, 131202
+  %or.cond = or i1 %31, %30
+  %32 = icmp eq i32 %10, 131207
+  %or.cond3 = or i1 %32, %or.cond
+  %33 = icmp eq i32 %10, 131458
+  %or.cond5 = or i1 %33, %or.cond3
+  %34 = icmp eq i32 %10, 131463
+  %narrow = or i1 %34, %or.cond5
+  %35 = zext i1 %narrow to i32
+  ret i32 %35
 }
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

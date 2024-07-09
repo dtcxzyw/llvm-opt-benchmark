@@ -1535,8 +1535,8 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1237 = and i1 %1235, %1236
   %1238 = bitcast <16 x i1> %1186 to i16
   %1239 = icmp ne i16 %1238, 0
-  %op.rdx = or i1 %1239, %1147
-  %op.rdx476 = or i1 %1144, %1189
+  %op.rdx = or i1 %1239, %1144
+  %op.rdx476 = or i1 %1147, %1189
   %op.rdx477 = or i1 %1192, %1195
   %op.rdx478 = or i1 %1198, %1201
   %op.rdx479 = or i1 %1204, %1207

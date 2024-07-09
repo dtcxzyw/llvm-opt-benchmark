@@ -3679,8 +3679,8 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %2, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %3, i64 3
   %12 = icmp eq <4 x ptr> %11, zeroinitializer

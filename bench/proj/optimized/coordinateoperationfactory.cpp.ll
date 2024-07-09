@@ -75158,8 +75158,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMot
 
 683:                                              ; preds = %676, %681
   %684 = phi ptr [ %682, %681 ], [ null, %676 ]
-  %685 = insertelement <4 x ptr> poison, ptr %671, i64 0
-  %686 = insertelement <4 x ptr> %685, ptr %664, i64 1
+  %685 = insertelement <4 x ptr> poison, ptr %664, i64 0
+  %686 = insertelement <4 x ptr> %685, ptr %671, i64 1
   %687 = insertelement <4 x ptr> %686, ptr %677, i64 2
   %688 = insertelement <4 x ptr> %687, ptr %684, i64 3
   %.fr = freeze <4 x ptr> %688

@@ -2057,9 +2057,9 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4mul_ERKS3_.exit.critedge: ; p
   %104 = fmul contract <2 x float> %101, %103
   %105 = shufflevector <2 x float> %104, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %106 = load <4 x float>, ptr %100, align 16
-  %107 = fcmp contract oge <4 x float> %105, %106
-  %108 = fcmp contract ole <4 x float> %105, %106
-  %109 = shufflevector <4 x i1> %107, <4 x i1> %108, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %107 = fcmp contract ole <4 x float> %105, %106
+  %108 = fcmp contract oge <4 x float> %105, %106
+  %109 = shufflevector <4 x i1> %108, <4 x i1> %107, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %110 = freeze <4 x i1> %109
   %111 = bitcast <4 x i1> %110 to i4
   %112 = icmp eq i4 %111, -1
@@ -2159,9 +2159,9 @@ define weak_odr noundef float @_ZNK7mitsuba17PerspectiveCameraIfN5drjit6MatrixIN
   %11 = fmul contract <2 x float> %10, %8
   %12 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %13 = load <4 x float>, ptr %7, align 16
-  %14 = fcmp contract oge <4 x float> %12, %13
-  %15 = fcmp contract ole <4 x float> %12, %13
-  %16 = shufflevector <4 x i1> %14, <4 x i1> %15, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %14 = fcmp contract ole <4 x float> %12, %13
+  %15 = fcmp contract oge <4 x float> %12, %13
+  %16 = shufflevector <4 x i1> %15, <4 x i1> %14, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %17 = freeze <4 x i1> %16
   %18 = bitcast <4 x i1> %17 to i4
   %19 = icmp eq i4 %18, -1

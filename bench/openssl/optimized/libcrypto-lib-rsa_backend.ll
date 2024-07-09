@@ -291,8 +291,8 @@ entry:
   %call.i = tail call ptr @OPENSSL_sk_new_null() #4
   %call.i25 = tail call ptr @OPENSSL_sk_new_null() #4
   %call.i26 = tail call ptr @OPENSSL_sk_new_null() #4
-  %0 = insertelement <4 x ptr> poison, ptr %call.i, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %rsa, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %rsa, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call.i, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call.i25, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call.i26, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -495,8 +495,8 @@ if.end10:                                         ; preds = %if.then6, %if.then8
   br i1 %tobool.not, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %if.end10
-  %3 = insertelement <4 x ptr> poison, ptr %call2, i64 0
-  %4 = insertelement <4 x ptr> %3, ptr %call1, i64 1
+  %3 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %4 = insertelement <4 x ptr> %3, ptr %call2, i64 1
   %5 = insertelement <4 x ptr> %4, ptr %call3, i64 2
   %6 = insertelement <4 x ptr> %5, ptr %call4, i64 3
   %.fr = freeze <4 x ptr> %6

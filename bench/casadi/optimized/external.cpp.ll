@@ -1057,7 +1057,7 @@ define noundef zeroext i1 @_ZNK6casadi8External16any_symbol_foundEv(ptr nocaptur
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1328
   %7 = load ptr, ptr %6, align 8
-  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %9 = insertelement <4 x ptr> %8, ptr %5, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %7, i64 3
   %.fr = freeze <4 x ptr> %10
@@ -1682,7 +1682,7 @@ define noundef zeroext i1 @_ZNK6casadi15GenericExternal16any_symbol_foundEv(ptr 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1328
   %7 = load ptr, ptr %6, align 8
-  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %9 = insertelement <4 x ptr> %8, ptr %5, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %7, i64 3
   %.fr = freeze <4 x ptr> %10

@@ -955,7 +955,7 @@ Vec_IntPush.exit162:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %226, ptr %297, align 4
   %298 = insertelement <4 x i32> poison, i32 %spec.select, i64 0
   %299 = shufflevector <4 x i32> %298, <4 x i32> poison, <4 x i32> zeroinitializer
-  %300 = icmp eq <4 x i32> %299, <i32 34, i32 17, i32 68, i32 119>
+  %300 = icmp eq <4 x i32> %299, <i32 17, i32 34, i32 68, i32 119>
   %301 = bitcast <4 x i1> %300 to i4
   %302 = icmp ne i4 %301, 0
   %op.rdx = or i1 %302, %228

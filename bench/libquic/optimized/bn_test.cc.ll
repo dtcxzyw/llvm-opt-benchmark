@@ -2867,8 +2867,8 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont12
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -3233,8 +3233,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -3893,8 +3893,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -4175,8 +4175,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -4590,8 +4590,8 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont18
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -5057,8 +5057,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3
@@ -5442,8 +5442,8 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
   %.fr = freeze <4 x ptr> %3

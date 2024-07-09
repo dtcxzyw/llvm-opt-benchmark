@@ -1165,8 +1165,8 @@ entry:
   %number = alloca i32, align 4
   %bagSz = alloca i32, align 4
   store ptr null, ptr %certList, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %psw, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %pkcs12, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %pkcs12, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %psw, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %cert, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %certSz, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2766,8 +2766,8 @@ entry:
   %curveOID = alloca ptr, align 8
   %oidSz = alloca i32, align 4
   %algoID = alloca i32, align 4
-  %0 = insertelement <4 x ptr> poison, ptr %outSz, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %rng, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %rng, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %outSz, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %pass, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

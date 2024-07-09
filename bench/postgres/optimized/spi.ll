@@ -2870,8 +2870,8 @@ declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
-  %7 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %8 = insertelement <4 x ptr> %7, ptr %0, i64 1
+  %7 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %8 = insertelement <4 x ptr> %7, ptr %1, i64 1
   %9 = insertelement <4 x ptr> %8, ptr %3, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %4, i64 3
   %11 = icmp eq <4 x ptr> %10, zeroinitializer

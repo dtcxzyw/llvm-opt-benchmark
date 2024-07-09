@@ -925,8 +925,8 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
   br i1 %or.cond18.i, label %if.end71, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %15 = insertelement <4 x double> poison, double %5, i64 0
-  %16 = insertelement <4 x double> %15, double %4, i64 1
+  %15 = insertelement <4 x double> poison, double %4, i64 0
+  %16 = insertelement <4 x double> %15, double %5, i64 1
   %17 = insertelement <4 x double> %16, double %7, i64 2
   %18 = insertelement <4 x double> %17, double %8, i64 3
   %.fr51 = freeze <4 x double> %18

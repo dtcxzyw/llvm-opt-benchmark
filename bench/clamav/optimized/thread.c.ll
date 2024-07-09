@@ -450,8 +450,8 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.stat) align 8 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.fanotify_response, align 4
-  %9 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %10 = insertelement <4 x ptr> %9, ptr %1, i64 1
+  %9 = insertelement <4 x ptr> poison, ptr %1, i64 0
+  %10 = insertelement <4 x ptr> %9, ptr %3, i64 1
   %11 = insertelement <4 x ptr> %10, ptr %4, i64 2
   %12 = insertelement <4 x ptr> %11, ptr %5, i64 3
   %13 = icmp eq <4 x ptr> %12, zeroinitializer

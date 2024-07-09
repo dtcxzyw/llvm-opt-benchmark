@@ -899,8 +899,8 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noun
   %29 = load <2 x double>, ptr %11, align 16
   %30 = load <2 x double>, ptr %12, align 16
   %31 = load <2 x double>, ptr %13, align 16
-  %32 = shufflevector <2 x double> %30, <2 x double> %28, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %33 = shufflevector <2 x double> %29, <2 x double> %31, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %32 = shufflevector <2 x double> %28, <2 x double> %30, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %33 = shufflevector <2 x double> %31, <2 x double> %29, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %34 = fcmp ugt <4 x double> %32, %33
   %35 = freeze <4 x i1> %34
   %36 = bitcast <4 x i1> %35 to i4

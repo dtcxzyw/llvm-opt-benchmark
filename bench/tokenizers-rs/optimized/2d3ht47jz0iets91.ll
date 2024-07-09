@@ -18840,8 +18840,8 @@ define hidden noundef zeroext i1 @_ZN10tokenizers11normalizers4bert10is_control1
 define hidden noundef zeroext i1 @_ZN10tokenizers11normalizers4bert15is_chinese_char17hb4883a3a8162749aE(i32 noundef %0) unnamed_addr #5 {
   %2 = insertelement <4 x i32> poison, i32 %0, i64 0
   %3 = shufflevector <4 x i32> %2, <4 x i32> poison, <4 x i32> zeroinitializer
-  %4 = add <4 x i32> %3, <i32 -13312, i32 -19968, i32 -131072, i32 -173824>
-  %5 = icmp ult <4 x i32> %4, <i32 6592, i32 20992, i32 42720, i32 4384>
+  %4 = add <4 x i32> %3, <i32 -19968, i32 -13312, i32 -131072, i32 -173824>
+  %5 = icmp ult <4 x i32> %4, <i32 20992, i32 6592, i32 42720, i32 4384>
   %6 = add i32 %0, -178464
   %or.cond5 = icmp ult i32 %6, 5520
   %7 = add i32 %0, -63744

@@ -21176,8 +21176,8 @@ define dso_local void @nvgRoundedRect(ptr nocapture noundef %0, float noundef %1
 define dso_local void @nvgRoundedRectVarying(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #3 {
   %10 = alloca [13 x float], align 16
   %11 = alloca [44 x float], align 16
-  %12 = insertelement <4 x float> poison, float %6, i64 0
-  %13 = insertelement <4 x float> %12, float %5, i64 1
+  %12 = insertelement <4 x float> poison, float %5, i64 0
+  %13 = insertelement <4 x float> %12, float %6, i64 1
   %14 = insertelement <4 x float> %13, float %7, i64 2
   %15 = insertelement <4 x float> %14, float %8, i64 3
   %16 = fcmp uge <4 x float> %15, <float 0x3FB99999A0000000, float 0x3FB99999A0000000, float 0x3FB99999A0000000, float 0x3FB99999A0000000>
@@ -22195,9 +22195,9 @@ define internal fastcc void @nvg__expandFill(ptr nocapture noundef readonly %0, 
   %19 = add nsw i32 %18, %15
   %20 = shl i32 %19, 1
   %op.rdx = add i32 %15, 3
-  %op.rdx8 = add i32 %17, %20
+  %op.rdx8 = add i32 %17, %.0163184.us
   %op.rdx9 = add i32 %op.rdx, %op.rdx8
-  %op.rdx10 = add i32 %op.rdx9, %.0163184.us
+  %op.rdx10 = add i32 %op.rdx9, %20
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !110

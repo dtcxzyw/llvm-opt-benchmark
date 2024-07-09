@@ -4981,8 +4981,8 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 79:                                               ; preds = %59
   %80 = insertelement <4 x i8> poison, i8 %26, i64 0
   %81 = shufflevector <4 x i8> %80, <4 x i8> poison, <4 x i32> zeroinitializer
-  %82 = add <4 x i8> %81, <i8 -29, i8 -4, i8 -33, i8 -42>
-  %83 = icmp ult <4 x i8> %82, <i8 2, i8 19, i8 8, i8 25>
+  %82 = add <4 x i8> %81, <i8 -4, i8 -29, i8 -33, i8 -42>
+  %83 = icmp ult <4 x i8> %82, <i8 19, i8 2, i8 8, i8 25>
   %84 = and i8 %26, -4
   %or.cond110.i.i = icmp eq i8 %84, 68
   %85 = bitcast <4 x i1> %83 to i4

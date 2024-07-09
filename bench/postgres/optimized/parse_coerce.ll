@@ -296,7 +296,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 16:                                               ; preds = %15
   %17 = insertelement <4 x i32> poison, i32 %3, i64 0
   %18 = shufflevector <4 x i32> %17, <4 x i32> poison, <4 x i32> zeroinitializer
-  %19 = icmp eq <4 x i32> %18, <i32 3500, i32 2277, i32 3831, i32 4537>
+  %19 = icmp eq <4 x i32> %18, <i32 2277, i32 3500, i32 3831, i32 4537>
   %20 = icmp eq i32 %3, 5078
   %21 = icmp eq i32 %3, 5080
   %22 = icmp eq i32 %3, 4538

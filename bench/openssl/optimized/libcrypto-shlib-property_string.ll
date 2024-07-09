@@ -89,8 +89,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %0 = insertelement <4 x ptr> poison, ptr %call5, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call5, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call.i, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call.i13, i64 3
   %.fr = freeze <4 x ptr> %3

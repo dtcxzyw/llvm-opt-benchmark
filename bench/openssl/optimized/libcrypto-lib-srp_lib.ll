@@ -114,8 +114,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_server_key(ptr noundef %A, ptr noundef %v, ptr noundef %u, ptr noundef %b, ptr noundef %N) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %u, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %A, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %A, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %u, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %v, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %b, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -188,8 +188,8 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_B_ex(ptr noundef %b, ptr noundef %N, ptr noundef %g, ptr noundef %v, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %N, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %N, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %g, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %v, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -447,8 +447,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_client_key_ex(ptr noundef %N, ptr noundef %B, ptr noundef %g, ptr noundef %x, ptr noundef %a, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %u, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %B, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %B, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %u, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %N, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %g, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

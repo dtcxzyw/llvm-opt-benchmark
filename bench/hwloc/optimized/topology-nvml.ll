@@ -115,8 +115,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %44 = zext i32 %43 to i64
   %45 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #13
   %46 = call noalias ptr @calloc(i64 noundef %41, i64 noundef 4) #13
-  %47 = insertelement <4 x ptr> poison, ptr %42, i64 0
-  %48 = insertelement <4 x ptr> %47, ptr %39, i64 1
+  %47 = insertelement <4 x ptr> poison, ptr %39, i64 0
+  %48 = insertelement <4 x ptr> %47, ptr %42, i64 1
   %49 = insertelement <4 x ptr> %48, ptr %45, i64 2
   %50 = insertelement <4 x ptr> %49, ptr %46, i64 3
   %51 = icmp eq <4 x ptr> %50, zeroinitializer

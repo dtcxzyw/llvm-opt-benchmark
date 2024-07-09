@@ -466,8 +466,8 @@ declare i32 @OSSL_CMP_SRV_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %cert_req, i32 %certReqId, ptr noundef %crm, ptr nocapture readnone %p10cr, ptr noundef %certOut, ptr noundef %chainOut, ptr noundef %caPubs) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %call, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %cert_req, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %cert_req, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %certOut, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %chainOut, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -745,8 +745,8 @@ return:                                           ; preds = %if.end14, %if.then1
 define internal range(i32 0, 2) i32 @process_genm(ptr noundef %srv_ctx, ptr noundef %genm, ptr noundef %in, ptr noundef %out) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %call, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %genm, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %genm, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %in, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %out, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -973,8 +973,8 @@ return:                                           ; preds = %return.sink.split, 
 define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %srv_ctx, ptr noundef %pollReq, i32 %certReqId, ptr noundef writeonly %certReq, ptr noundef writeonly %check_after) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %call, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %pollReq, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %pollReq, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %certReq, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %check_after, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

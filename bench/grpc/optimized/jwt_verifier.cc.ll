@@ -1452,8 +1452,8 @@ entry:
   %ref.tmp47 = alloca %struct.grpc_slice, align 8
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %jwt, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %verifier, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %verifier, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %jwt, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %audience, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %cb, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

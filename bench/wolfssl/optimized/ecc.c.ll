@@ -193,8 +193,8 @@ return:                                           ; preds = %for.inc, %for.inc.u
 ; Function Attrs: nounwind uwtable
 define i32 @ecc_projective_add_point(ptr noundef %P, ptr noundef %Q, ptr noundef %R, ptr nocapture noundef readnone %a, ptr noundef %modulus, i64 noundef %mp) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %Q, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %P, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %P, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %Q, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %R, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %modulus, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -975,8 +975,8 @@ entry:
   %M = alloca [3 x ptr], align 16
   %mp = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %M, i8 0, i64 24, i1 false)
-  %0 = insertelement <4 x ptr> poison, ptr %G, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %k, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %k, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %G, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %R, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %modulus, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -1509,8 +1509,8 @@ define i32 @wc_ecc_mulmod_ex2(ptr noundef %k, ptr noundef %G, ptr noundef %R, pt
 entry:
   %M = alloca [3 x ptr], align 16
   %mp = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %G, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %k, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %k, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %G, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %R, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %modulus, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2051,8 +2051,8 @@ return:                                           ; preds = %for.inc.i, %entry, 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_get_curve_id_from_params(i32 noundef %fieldSize, ptr noundef %prime, i32 noundef %primeSz, ptr noundef %Af, i32 noundef %AfSz, ptr noundef %Bf, i32 noundef %BfSz, ptr noundef %order, i32 noundef %orderSz, ptr noundef %Gx, i32 noundef %GxSz, ptr noundef %Gy, i32 noundef %GySz, i32 noundef %cofactor) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %Af, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %prime, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %prime, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %Af, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %Bf, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %order, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2413,8 +2413,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret(ptr noundef %private_key, ptr noundef %public_key, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %public_key, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %private_key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %private_key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %public_key, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %outlen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2475,8 +2475,8 @@ return:                                           ; preds = %if.end, %if.end22, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret_ex(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %point, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %private_key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %private_key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %point, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %outlen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -3766,8 +3766,8 @@ cond.end70:                                       ; preds = %lor.lhs.false53.thr
   %vla7387 = phi ptr [ %vla7293, %cond.false58 ], [ %vla91, %cond.end40.thread ], [ %vla7293, %cond.end40 ], [ %vla8097107, %lor.lhs.false53.thread ]
   %cond71 = phi i64 [ %15, %cond.false58 ], [ 160, %cond.end40.thread ], [ 16, %cond.end40 ], [ 160, %lor.lhs.false53.thread ]
   %vla75 = alloca i8, i64 %cond71, align 16
-  %16 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %17 = insertelement <4 x ptr> %16, ptr %in, i64 1
+  %16 = insertelement <4 x ptr> poison, ptr %in, i64 0
+  %17 = insertelement <4 x ptr> %16, ptr %out, i64 1
   %18 = insertelement <4 x ptr> %17, ptr %outlen, i64 2
   %19 = insertelement <4 x ptr> %18, ptr %rng, i64 3
   %20 = icmp eq <4 x ptr> %19, zeroinitializer
@@ -3899,8 +3899,8 @@ cond.end25:                                       ; preds = %lor.lhs.false, %con
   store ptr %spec_ints, ptr %spec_ints29, align 8
   %spec_count = getelementptr inbounds i8, ptr %curve_lcl, i64 56
   store i32 1, ptr %spec_count, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %r, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %in, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %in, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %r, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %s, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %rng, i64 3
   %12 = icmp eq <4 x ptr> %11, zeroinitializer
@@ -4439,8 +4439,8 @@ entry:
   %first = alloca i32, align 4
   %mp = alloca i64, align 8
   store i64 0, ptr %mp, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %kA, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %A, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %A, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %kA, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %B, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %kB, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -5189,8 +5189,8 @@ entry:
   store ptr %spec_ints, ptr %spec_ints1, align 8
   %spec_count = getelementptr inbounds i8, ptr %curve_lcl, i64 56
   store i32 5, ptr %spec_count, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %s, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %r, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %s, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %hash, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %res, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -5885,8 +5885,8 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_is_point(ptr noundef %ecp, ptr noundef readnone %a, ptr noundef %b, ptr noundef %prime) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %ecp, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %ecp, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %a, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %b, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %prime, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -6474,8 +6474,8 @@ return:                                           ; preds = %if.end14.i, %lor.lh
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_export_public_raw(ptr noundef %key, ptr noundef %qx, ptr noundef %qxLen, ptr noundef %qy, ptr noundef %qyLen) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %qxLen, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %qx, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %qx, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %qxLen, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %qy, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %qyLen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -6664,8 +6664,8 @@ define i32 @wc_ecc_rs_to_sig(ptr noundef %r, ptr noundef %s, ptr noundef %out, p
 entry:
   %rtmp = alloca [1 x %struct.sp_int], align 16
   %stmp = alloca [1 x %struct.sp_int], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %s, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %r, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %s, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %outlen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -6716,8 +6716,8 @@ declare i32 @sp_read_radix(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_rs_raw_to_sig(ptr noundef %r, i32 noundef %rSz, ptr noundef %s, i32 noundef %sSz, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %s, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %r, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %s, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %outlen, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -6739,8 +6739,8 @@ declare i32 @StoreECC_DSA_Sig_Bin(ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_sig_to_rs(ptr noundef %sig, i32 noundef %sigLen, ptr noundef %r, ptr noundef %rLen, ptr noundef %s, ptr noundef %sLen) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %r, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %sig, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %sig, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %rLen, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %s, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -6950,8 +6950,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @wc_ecc_import_raw(ptr noundef %key, ptr noundef %qx, ptr noundef %qy, ptr noundef %d, ptr noundef readonly %curveName) local_unnamed_addr #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %qx, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %qx, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %qy, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %curveName, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

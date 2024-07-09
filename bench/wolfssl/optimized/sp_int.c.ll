@@ -2383,8 +2383,8 @@ if.end14:                                         ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nofree norecurse nounwind uwtable
 define range(i32 -3, 1) i32 @sp_addmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %a, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %m, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -2457,8 +2457,8 @@ do.end34:                                         ; preds = %entry, %if.then8.i,
 ; Function Attrs: nofree norecurse nounwind uwtable
 define range(i32 -3, 1) i32 @sp_submod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %a, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %m, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -5018,8 +5018,8 @@ for.end78:                                        ; preds = %for.end78.loopexit,
 ; Function Attrs: nofree norecurse nounwind uwtable
 define i32 @sp_mulmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %a, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %m, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -8589,8 +8589,8 @@ do.end166:                                        ; preds = %_sp_copy.exit83, %d
 ; Function Attrs: nofree norecurse nounwind uwtable
 define i32 @sp_exptmod(ptr noundef %b, ptr noundef %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %e, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %e, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %m, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer
@@ -8612,8 +8612,8 @@ do.end10:                                         ; preds = %if.then7, %entry
 define i32 @sp_exptmod_nct(ptr noundef %b, ptr noundef readonly %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #13 {
 entry:
   %t.i = alloca [34 x ptr], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %e, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %e, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %m, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

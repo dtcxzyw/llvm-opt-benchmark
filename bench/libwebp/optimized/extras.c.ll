@@ -464,7 +464,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %21 = bitcast <4 x i1> %20 to i4
   %22 = icmp eq i4 %21, 0
   %op.rdx = and i1 %22, %19
-  %op.rdx56 = and i1 %14, %12
+  %op.rdx56 = and i1 %12, %14
   %op.rdx57 = and i1 %op.rdx, %op.rdx56
   %op.rdx58 = and i1 %op.rdx57, %.not
   br i1 %op.rdx58, label %23, label %DoEstimateRisk.exit

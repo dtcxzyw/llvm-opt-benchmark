@@ -2597,8 +2597,8 @@ define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly %sui
 entry:
   %fakepriv = alloca ptr, align 8
   store ptr null, ptr %fakepriv, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %enclen, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %enc, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %enc, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %enclen, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %ct, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %suite, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

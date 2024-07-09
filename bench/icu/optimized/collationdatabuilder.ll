@@ -2849,8 +2849,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %36 = load i16, ptr %arrayidx.i.i157, align 2
   %37 = insertelement <4 x i16> poison, i16 %36, i64 0
   %38 = shufflevector <4 x i16> %37, <4 x i16> poison, <4 x i32> zeroinitializer
-  %39 = add <4 x i16> %38, <i16 -4449, i16 -4352, i16 -4519, i16 21504>
-  %40 = icmp ult <4 x i16> %39, <i16 21, i16 19, i16 28, i16 11172>
+  %39 = add <4 x i16> %38, <i16 -4352, i16 -4449, i16 -4519, i16 21504>
+  %40 = icmp ult <4 x i16> %39, <i16 19, i16 21, i16 28, i16 11172>
   %41 = bitcast <4 x i1> %40 to i4
   %.not = icmp eq i4 %41, 0
   br i1 %.not, label %invoke.cont100, label %if.then129

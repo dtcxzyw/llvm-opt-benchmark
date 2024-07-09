@@ -1160,8 +1160,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %918 = icmp ult ptr %917, %916
   %919 = getelementptr i8, ptr %55, i64 %903
   %920 = icmp ult ptr %919, %55
-  %op.rdx80 = or i1 %904, %912
-  %op.rdx81 = or i1 %906, %909
+  %op.rdx80 = or i1 %904, %909
+  %op.rdx81 = or i1 %906, %912
   %op.rdx82 = or i1 %915, %918
   %op.rdx83 = or i1 %op.rdx80, %op.rdx81
   %op.rdx84 = or i1 %op.rdx82, %920
@@ -1383,8 +1383,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1087 = icmp ult ptr %1086, %1073
   %1088 = getelementptr i8, ptr %1071, i64 %1038
   %1089 = icmp ult ptr %1088, %1071
-  %op.rdx = or i1 %1039, %1083
-  %op.rdx75 = or i1 %1079, %1081
+  %op.rdx = or i1 %1039, %1081
+  %op.rdx75 = or i1 %1079, %1083
   %op.rdx76 = or i1 %1085, %1087
   %op.rdx77 = or i1 %op.rdx, %op.rdx75
   %op.rdx78 = or i1 %op.rdx76, %1089

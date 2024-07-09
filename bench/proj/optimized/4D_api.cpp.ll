@@ -821,7 +821,7 @@ proj_errno_reset.exit:                            ; preds = %66, %69
   %102 = extractvalue { ptr, i32 } %101, 0
   %103 = extractvalue { ptr, i32 } %101, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #33
-  br label %371
+  br label %373
 
 104:                                              ; preds = %96, %93
   %105 = landingpad { ptr, i32 }
@@ -829,7 +829,7 @@ proj_errno_reset.exit:                            ; preds = %66, %69
   %106 = extractvalue { ptr, i32 } %105, 0
   %107 = extractvalue { ptr, i32 } %105, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  br label %371
+  br label %373
 
 108:                                              ; preds = %99, %88
   store i32 %65, ptr %59, align 8
@@ -1355,7 +1355,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.087 = phi ptr [ %257, %256 ], [ %298, %296 ], [ %294, %292 ], [ %239, %237 ]
   %.085 = phi i32 [ %258, %256 ], [ %299, %296 ], [ %295, %292 ], [ %240, %237 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #33
-  br label %371
+  br label %373
 
 350:                                              ; preds = %31
   %351 = getelementptr inbounds i8, ptr %1, i64 840
@@ -1379,50 +1379,48 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 359:                                              ; preds = %._crit_edge135, %355
   %.sroa.4.0.copyload = phi double [ %.sroa.4.0.copyload.pre, %._crit_edge135 ], [ %357, %355 ]
-  %.sroa.0.0.copyload = load double, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
+  %360 = load <2 x double>, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %360 = fcmp uno double %.sroa.0.0.copyload, 0.000000e+00
-  %361 = fcmp uno double %.sroa.2.0.copyload, 0.000000e+00
-  %or.cond.i = select i1 %360, i1 true, i1 %361
-  %362 = fcmp uno double %.sroa.3.0.copyload, 0.000000e+00
-  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %362
-  %363 = fcmp uno double %.sroa.4.0.copyload, 0.000000e+00
-  %or.cond110 = select i1 %or.cond5.i, i1 true, i1 %363
-  br i1 %or.cond110, label %_ZL14coord_has_nans8PJ_COORD.exit.thread, label %364
+  %361 = shufflevector <2 x double> %360, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %362 = insertelement <4 x double> %361, double %.sroa.3.0.copyload, i64 2
+  %363 = insertelement <4 x double> %362, double %.sroa.4.0.copyload, i64 3
+  %.fr = freeze <4 x double> %363
+  %364 = fcmp uno <4 x double> %.fr, zeroinitializer
+  %365 = bitcast <4 x i1> %364 to i4
+  %.not153 = icmp eq i4 %365, 0
+  br i1 %.not153, label %366, label %_ZL14coord_has_nans8PJ_COORD.exit.thread
 
 _ZL14coord_has_nans8PJ_COORD.exit.thread:         ; preds = %359
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %.sroa.3.0..sroa_idx, align 8
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %3, align 8
-  br label %370
+  br label %372
 
-364:                                              ; preds = %359
-  %365 = icmp eq i32 %spec.select, 1
-  br i1 %365, label %366, label %368
+366:                                              ; preds = %359
+  %367 = icmp eq i32 %spec.select, 1
+  br i1 %367, label %368, label %370
 
-366:                                              ; preds = %364
-  %367 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1)
-  br label %370
+368:                                              ; preds = %366
+  %369 = call noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1)
+  br label %372
 
-368:                                              ; preds = %364
-  %369 = call noundef zeroext i1 @_Z8pj_inv4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1)
-  br label %370
+370:                                              ; preds = %366
+  %371 = call noundef zeroext i1 @_Z8pj_inv4dR8PJ_COORDP8PJconsts(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1)
+  br label %372
 
-370:                                              ; preds = %366, %368, %_ZL14coord_has_nans8PJ_COORD.exit.thread
+372:                                              ; preds = %368, %370, %_ZL14coord_has_nans8PJ_COORD.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
 
-_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %344, %331, %312, %370, %148, %137, %133, %27, %16
+_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %344, %331, %312, %372, %148, %137, %133, %27, %16
   ret void
 
-371:                                              ; preds = %349, %104, %100
+373:                                              ; preds = %349, %104, %100
   %.188 = phi ptr [ %.087, %349 ], [ %106, %104 ], [ %102, %100 ]
   %.186 = phi i32 [ %.085, %349 ], [ %107, %104 ], [ %103, %100 ]
-  %372 = insertvalue { ptr, i32 } poison, ptr %.188, 0
-  %373 = insertvalue { ptr, i32 } %372, i32 %.186, 1
-  resume { ptr, i32 } %373
+  %374 = insertvalue { ptr, i32 } poison, ptr %.188, 0
+  %375 = insertvalue { ptr, i32 } %374, i32 %.186, 1
+  resume { ptr, i32 } %375
 }
 
 ; Function Attrs: mustprogress uwtable

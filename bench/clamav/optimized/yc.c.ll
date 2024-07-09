@@ -76,7 +76,7 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %48 = insertelement <8 x i32> poison, i32 %44, i64 0
   %49 = shufflevector <8 x i32> %48, <8 x i32> poison, <8 x i32> zeroinitializer
   %.fr = freeze <8 x i32> %49
-  %50 = icmp eq <8 x i32> %.fr, <i32 1920168494, i32 1668445042, i32 1869374834, i32 1818587694, i32 1633969454, i32 1633972782, i32 1633970478, i32 1936487470>
+  %50 = icmp eq <8 x i32> %.fr, <i32 1668445042, i32 1920168494, i32 1869374834, i32 1818587694, i32 1633969454, i32 1633972782, i32 1633970478, i32 1936487470>
   %51 = and i32 %44, 65535
   %52 = icmp eq i32 %51, 17273
   %53 = bitcast <8 x i1> %50 to i8

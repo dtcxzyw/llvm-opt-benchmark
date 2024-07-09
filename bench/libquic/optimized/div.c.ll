@@ -110,8 +110,8 @@ if.then41:                                        ; preds = %if.end36
 
 if.end43:                                         ; preds = %if.end36, %if.then41
   %res.0 = phi ptr [ %call42, %if.then41 ], [ %dv, %if.end36 ]
-  %12 = insertelement <4 x ptr> poison, ptr %res.0, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %call39, i64 1
+  %12 = insertelement <4 x ptr> poison, ptr %call39, i64 0
+  %13 = insertelement <4 x ptr> %12, ptr %res.0, i64 1
   %14 = insertelement <4 x ptr> %13, ptr %call37, i64 2
   %15 = insertelement <4 x ptr> %14, ptr %call38, i64 3
   %.fr = freeze <4 x ptr> %15

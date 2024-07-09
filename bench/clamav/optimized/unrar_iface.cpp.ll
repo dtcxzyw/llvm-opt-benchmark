@@ -67,8 +67,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %7 = insertelement <4 x ptr> %6, ptr %0, i64 1
+  %6 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %7 = insertelement <4 x ptr> %6, ptr %1, i64 1
   %8 = insertelement <4 x ptr> %7, ptr %2, i64 2
   %9 = insertelement <4 x ptr> %8, ptr %3, i64 3
   %10 = icmp eq <4 x ptr> %9, zeroinitializer

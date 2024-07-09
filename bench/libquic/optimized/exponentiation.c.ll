@@ -2463,8 +2463,8 @@ if.end6:                                          ; preds = %if.end
   store ptr %call10, ptr %val1, align 16
   %call12 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
   store ptr %call12, ptr %val2, align 16
-  %2 = insertelement <4 x ptr> poison, ptr %call9, i64 0
-  %3 = insertelement <4 x ptr> %2, ptr %call8, i64 1
+  %2 = insertelement <4 x ptr> poison, ptr %call8, i64 0
+  %3 = insertelement <4 x ptr> %2, ptr %call9, i64 1
   %4 = insertelement <4 x ptr> %3, ptr %call10, i64 2
   %5 = insertelement <4 x ptr> %4, ptr %call12, i64 3
   %.fr = freeze <4 x ptr> %5
@@ -2860,8 +2860,8 @@ if.else5.i:                                       ; preds = %if.end14
 
 if.end7.i:                                        ; preds = %if.else5.i, %if.end14
   %r.0.i = phi ptr [ %call6.i, %if.else5.i ], [ %r, %if.end14 ]
-  %0 = insertelement <4 x ptr> poison, ptr %call1.i, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call.i, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call.i, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call1.i, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call2.i, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %r.0.i, i64 3
   %.fr = freeze <4 x ptr> %3

@@ -10765,8 +10765,8 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @nk_draw_list_setup(ptr noundef writeonly %canvas, ptr noundef readonly %config, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, i32 noundef %line_aa, i32 noundef %shape_aa) local_unnamed_addr #20 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %config, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %canvas, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %canvas, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %config, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %cmds, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %vertices, i64 3
   %tobool7 = icmp ne ptr %elements, null
@@ -14362,8 +14362,8 @@ while.end:                                        ; preds = %for.inc.i.i, %nk_ut
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 16) i32 @nk_convert(ptr noundef %ctx, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, ptr noundef readonly %config) local_unnamed_addr #22 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %cmds, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %ctx, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %ctx, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %cmds, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %vertices, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %elements, i64 3
   %tobool7 = icmp ne ptr %config, null
@@ -42977,8 +42977,8 @@ entry:
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
   %0 = getelementptr inbounds i8, ptr %bounds, i64 8
   store <2 x float> %bounds.coerce1, ptr %0, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %style, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %out, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %out, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %style, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %font, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %string, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -43407,8 +43407,8 @@ entry:
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
   %1 = getelementptr inbounds i8, ptr %bounds, i64 8
   store <2 x float> %bounds.coerce1, ptr %1, align 8
-  %2 = insertelement <4 x ptr> poison, ptr %font, i64 0
-  %3 = insertelement <4 x ptr> %2, ptr %out, i64 1
+  %2 = insertelement <4 x ptr> poison, ptr %out, i64 0
+  %3 = insertelement <4 x ptr> %2, ptr %font, i64 1
   %4 = insertelement <4 x ptr> %3, ptr %style, i64 2
   %5 = insertelement <4 x ptr> %4, ptr %str, i64 3
   %6 = icmp eq <4 x ptr> %5, zeroinitializer
@@ -44881,8 +44881,8 @@ entry:
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
   %0 = getelementptr inbounds i8, ptr %bounds, i64 8
   store <2 x float> %bounds.coerce1, ptr %0, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %style, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %out, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %out, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %style, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %font, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %state, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -53655,8 +53655,8 @@ return:                                           ; preds = %if.end, %entry, %lo
 define internal fastcc void @nk_do_toggle(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %active, ptr noundef %str, i32 noundef %len, i32 noundef %type, ptr noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
 entry:
   %0 = extractelement <2 x float> %r.coerce0, i64 0
-  %1 = insertelement <4 x ptr> poison, ptr %style, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %out, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %out, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %style, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %font, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %active, i64 3
   %5 = icmp eq <4 x ptr> %4, zeroinitializer
@@ -55228,8 +55228,8 @@ entry:
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
   %3 = getelementptr inbounds i8, ptr %bounds, i64 8
   store <2 x float> %bounds.coerce1, ptr %3, align 8
-  %4 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %5 = insertelement <4 x ptr> %4, ptr %state, i64 1
+  %4 = insertelement <4 x ptr> poison, ptr %state, i64 0
+  %5 = insertelement <4 x ptr> %4, ptr %out, i64 1
   %6 = insertelement <4 x ptr> %5, ptr %str, i64 2
   %7 = insertelement <4 x ptr> %6, ptr %value, i64 3
   %tobool5 = icmp ne i32 %len, 0

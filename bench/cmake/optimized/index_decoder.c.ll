@@ -179,8 +179,8 @@ declare void @lzma_end(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.lzma_index_coder, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %3, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %4, i64 3
   %12 = icmp eq <4 x ptr> %11, zeroinitializer

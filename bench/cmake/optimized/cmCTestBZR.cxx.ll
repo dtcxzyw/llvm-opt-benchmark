@@ -5892,8 +5892,8 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
   %89 = icmp eq i8 %64, 42
   %90 = bitcast <4 x i1> %88 to i4
   %91 = icmp ne i4 %90, 0
-  %op.rdx = or i1 %91, %85
-  %op.rdx16 = or i1 %83, %89
+  %op.rdx = or i1 %91, %83
+  %op.rdx16 = or i1 %85, %89
   %op.rdx17 = or i1 %op.rdx, %op.rdx16
   br i1 %op.rdx17, label %.sink.split.i, label %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 

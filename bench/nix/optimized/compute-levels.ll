@@ -99,11 +99,12 @@ define void @_ZN3nix13computeLevelsB5cxx11Ev(ptr dead_on_unwind noalias writable
   %33 = getelementptr inbounds i8, ptr %6, i64 84
   %34 = getelementptr inbounds i8, ptr %6, i64 98
   %35 = load i8, ptr %34, align 2
-  %36 = icmp ne i8 %35, 0
+  %.fr132 = freeze i8 %35
+  %36 = icmp ne i8 %.fr132, 0
   %37 = getelementptr inbounds i8, ptr %6, i64 92
   %38 = load i8, ptr %37, align 4
-  %.fr131 = freeze i8 %38
-  %39 = icmp ne i8 %.fr131, 0
+  %.fr130 = freeze i8 %38
+  %39 = icmp ne i8 %.fr130, 0
   %40 = load i8, ptr %33, align 4
   %41 = icmp ne i8 %40, 0
   %42 = getelementptr inbounds i8, ptr %6, i64 105
@@ -112,8 +113,8 @@ define void @_ZN3nix13computeLevelsB5cxx11Ev(ptr dead_on_unwind noalias writable
   %44 = icmp eq <4 x i8> %.fr, zeroinitializer
   %45 = bitcast <4 x i1> %44 to i4
   %46 = icmp eq i4 %45, 0
-  %op.rdx = and i1 %46, %39
-  %47 = select i1 %op.rdx, i1 %36, i1 false
+  %op.rdx = and i1 %36, %46
+  %47 = and i1 %op.rdx, %39
   %op.rdx129 = select i1 %47, i1 %41, i1 false
   br i1 %op.rdx129, label %48, label %168
 

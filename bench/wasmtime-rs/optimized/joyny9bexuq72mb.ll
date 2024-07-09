@@ -1784,8 +1784,8 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ6module1_89_$LT
   %.val32 = load i64, ptr %5, align 8, !noundef !16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val35 = load i64, ptr %6, align 8, !noundef !16
-  %op.rdx = add i64 %.val32, 28
-  %op.rdx37 = add i64 %.val35, %4
+  %op.rdx = add i64 %.val35, 28
+  %op.rdx37 = add i64 %.val32, %4
   %op.rdx38 = add i64 %op.rdx, %op.rdx37
   store i64 %op.rdx38, ptr %3, align 8, !alias.scope !862
   ret ptr null
@@ -1799,8 +1799,8 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ6module1_89_$LT
   %.val32 = load i64, ptr %5, align 8, !noundef !16
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %.val35 = load i64, ptr %6, align 8, !noundef !16
-  %op.rdx = add i64 %.val32, 28
-  %op.rdx37 = add i64 %.val35, %4
+  %op.rdx = add i64 %.val35, 28
+  %op.rdx37 = add i64 %.val32, %4
   %op.rdx38 = add i64 %op.rdx, %op.rdx37
   store i64 %op.rdx38, ptr %3, align 8, !alias.scope !870
   ret ptr null

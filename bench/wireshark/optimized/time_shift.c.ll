@@ -31,8 +31,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noundef ptr @time_string_parse(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = insertelement <4 x ptr> poison, ptr %5, i64 0
-  %10 = insertelement <4 x ptr> %9, ptr %0, i64 1
+  %9 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %10 = insertelement <4 x ptr> %9, ptr %5, i64 1
   %11 = insertelement <4 x ptr> %10, ptr %6, i64 2
   %12 = insertelement <4 x ptr> %11, ptr %7, i64 3
   %13 = icmp eq <4 x ptr> %12, zeroinitializer

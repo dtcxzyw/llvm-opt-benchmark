@@ -396,13 +396,13 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter31PostprocessHelper_El
 entry:
   %0 = insertelement <4 x i32> poison, i32 %pType, i64 0
   %1 = shufflevector <4 x i32> %0, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2 = add <4 x i32> %1, <i32 -15, i32 -7, i32 -19, i32 -11>
+  %2 = add <4 x i32> %1, <i32 -7, i32 -15, i32 -19, i32 -11>
   %3 = and i32 %pType, -4
   %4 = icmp eq i32 %3, 24
   %5 = and i32 %pType, -3
   %6 = icmp eq i32 %5, 28
   %7 = icmp eq <4 x i32> %1, <i32 29, i32 18, i32 14, i32 33>
-  %8 = icmp ult <4 x i32> %2, <i32 3, i32 4, i32 2, i32 3>
+  %8 = icmp ult <4 x i32> %2, <i32 4, i32 3, i32 2, i32 3>
   %9 = add i32 %pType, -31
   %10 = icmp ult i32 %9, 2
   %11 = or <4 x i1> %7, %8

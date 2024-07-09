@@ -560,8 +560,8 @@ entry:
   br i1 %tobool.not, label %if.end21, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = insertelement <4 x ptr> poison, ptr %opaque, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %fd_can_read, i64 1
+  %1 = insertelement <4 x ptr> poison, ptr %fd_can_read, i64 0
+  %2 = insertelement <4 x ptr> %1, ptr %opaque, i64 1
   %3 = insertelement <4 x ptr> %2, ptr %fd_read, i64 2
   %4 = insertelement <4 x ptr> %3, ptr %fd_event, i64 3
   %5 = icmp ne <4 x ptr> %4, zeroinitializer

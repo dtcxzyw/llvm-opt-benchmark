@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @cs_tdfs(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %8 = insertelement <4 x ptr> %7, ptr %2, i64 1
+  %7 = insertelement <4 x ptr> poison, ptr %2, i64 0
+  %8 = insertelement <4 x ptr> %7, ptr %3, i64 1
   %9 = insertelement <4 x ptr> %8, ptr %4, i64 2
   %10 = insertelement <4 x ptr> %9, ptr %5, i64 3
   %11 = icmp eq <4 x ptr> %10, zeroinitializer

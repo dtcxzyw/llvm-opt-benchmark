@@ -361,8 +361,8 @@ uv__realloc.exit:                                 ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
-  %5 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %6 = insertelement <4 x ptr> %5, ptr %0, i64 1
+  %5 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %6 = insertelement <4 x ptr> %5, ptr %1, i64 1
   %7 = insertelement <4 x ptr> %6, ptr %2, i64 2
   %8 = insertelement <4 x ptr> %7, ptr %3, i64 3
   %9 = icmp eq <4 x ptr> %8, zeroinitializer

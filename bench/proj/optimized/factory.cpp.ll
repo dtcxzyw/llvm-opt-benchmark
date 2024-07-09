@@ -106138,8 +106138,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   %1968 = load ptr, ptr %81, align 8
   %1969 = load ptr, ptr %82, align 8
   %1970 = load ptr, ptr %83, align 8
-  %1971 = insertelement <4 x ptr> poison, ptr %1968, i64 0
-  %1972 = insertelement <4 x ptr> %1971, ptr %1967, i64 1
+  %1971 = insertelement <4 x ptr> poison, ptr %1967, i64 0
+  %1972 = insertelement <4 x ptr> %1971, ptr %1968, i64 1
   %1973 = insertelement <4 x ptr> %1972, ptr %1969, i64 2
   %1974 = insertelement <4 x ptr> %1973, ptr %1970, i64 3
   %.fr = freeze <4 x ptr> %1974

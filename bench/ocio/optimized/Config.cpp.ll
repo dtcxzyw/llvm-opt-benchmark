@@ -26285,11 +26285,11 @@ invoke.cont18:                                    ; preds = %invoke.cont15
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
+  %3 = load <4 x float>, ptr %call5.i.i.i.i2.i.i53, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i53, i64 12
-  %3 = load <2 x float>, ptr %call5.i.i.i.i2.i.i53, align 4
+  %add.ptr.i54 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i53, i64 4
   %4 = load <2 x float>, ptr %add.ptr.i, align 4
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i53, i64 8
-  %5 = load float, ptr %add.ptr.i61, align 4
+  %5 = load <2 x float>, ptr %add.ptr.i54, align 4
   %add.ptr.i62 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i53, i64 20
   %6 = load float, ptr %add.ptr.i62, align 4
   %add.ptr.i68 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i53, i64 24
@@ -26464,42 +26464,43 @@ if.end8.sink.split.i.i.i.i153:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit168
 
 _ZNSt6vectorIfSaIfEED2Ev.exit168:                 ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i140, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i150, %if.end8.sink.split.i.i.i.i153
-  %41 = shufflevector <2 x float> %3, <2 x float> poison, <8 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %42 = insertelement <8 x float> %41, float %5, i64 2
-  %43 = insertelement <8 x float> %42, float %7, i64 3
-  %44 = shufflevector <2 x float> %9, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %45 = shufflevector <8 x float> %43, <8 x float> %44, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %46 = shufflevector <2 x float> %11, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %47 = shufflevector <8 x float> %45, <8 x float> %46, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %48 = fmul <8 x float> %47, <float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01>
-  %49 = shufflevector <2 x float> %4, <2 x float> poison, <8 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %50 = insertelement <8 x float> %49, float %6, i64 2
-  %51 = insertelement <8 x float> %50, float %8, i64 3
-  %52 = shufflevector <2 x float> %10, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %53 = shufflevector <8 x float> %51, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %54 = shufflevector <2 x float> %12, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %55 = shufflevector <8 x float> %53, <8 x float> %54, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %56 = fcmp ogt <8 x float> %48, %55
-  %57 = fsub <8 x float> %48, %55
-  %58 = fsub <8 x float> %55, %48
-  %59 = select <8 x i1> %56, <8 x float> %57, <8 x float> %58
-  %60 = insertelement <4 x float> %13, float %15, i64 1
-  %61 = shufflevector <4 x float> %60, <4 x float> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %62 = fmul <4 x float> %61, <float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01>
-  %63 = insertelement <4 x float> %14, float %16, i64 1
-  %64 = shufflevector <2 x float> %18, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %65 = shufflevector <4 x float> %63, <4 x float> %64, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %66 = fcmp ogt <4 x float> %62, %65
-  %67 = fsub <4 x float> %62, %65
-  %68 = fsub <4 x float> %65, %62
-  %69 = select <4 x i1> %66, <4 x float> %67, <4 x float> %68
-  %70 = fcmp ugt <8 x float> %59, <float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000>
-  %71 = bitcast <8 x i1> %70 to i8
-  %72 = icmp eq i8 %71, 0
-  %73 = fcmp ugt <4 x float> %69, <float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000>
-  %74 = bitcast <4 x i1> %73 to i4
-  %75 = icmp eq i4 %74, 0
-  %op.rdx = and i1 %72, %75
+  %41 = shufflevector <4 x float> %3, <4 x float> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %42 = shufflevector <2 x float> %5, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %43 = shufflevector <8 x float> %41, <8 x float> %42, <8 x i32> <i32 0, i32 8, i32 9, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %44 = insertelement <8 x float> %43, float %7, i64 3
+  %45 = shufflevector <2 x float> %9, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %46 = shufflevector <8 x float> %44, <8 x float> %45, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
+  %47 = shufflevector <2 x float> %11, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %48 = shufflevector <8 x float> %46, <8 x float> %47, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
+  %49 = fmul <8 x float> %48, <float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01>
+  %50 = shufflevector <2 x float> %4, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %51 = insertelement <8 x float> %50, float %6, i64 2
+  %52 = insertelement <8 x float> %51, float %8, i64 3
+  %53 = shufflevector <2 x float> %10, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %54 = shufflevector <8 x float> %52, <8 x float> %53, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
+  %55 = shufflevector <2 x float> %12, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %56 = shufflevector <8 x float> %54, <8 x float> %55, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
+  %57 = fcmp ogt <8 x float> %49, %56
+  %58 = fsub <8 x float> %49, %56
+  %59 = fsub <8 x float> %56, %49
+  %60 = select <8 x i1> %57, <8 x float> %58, <8 x float> %59
+  %61 = insertelement <4 x float> %13, float %15, i64 1
+  %62 = shufflevector <4 x float> %61, <4 x float> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %63 = fmul <4 x float> %62, <float 6.400000e+01, float 6.400000e+01, float 6.400000e+01, float 6.400000e+01>
+  %64 = insertelement <4 x float> %14, float %16, i64 1
+  %65 = shufflevector <2 x float> %18, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %66 = shufflevector <4 x float> %64, <4 x float> %65, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %67 = fcmp ogt <4 x float> %63, %66
+  %68 = fsub <4 x float> %63, %66
+  %69 = fsub <4 x float> %66, %63
+  %70 = select <4 x i1> %67, <4 x float> %68, <4 x float> %69
+  %71 = fcmp ugt <8 x float> %60, <float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000>
+  %72 = bitcast <8 x i1> %71 to i8
+  %73 = icmp eq i8 %72, 0
+  %74 = fcmp ugt <4 x float> %70, <float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000, float 0x3EE4F8B580000000>
+  %75 = bitcast <4 x i1> %74 to i4
+  %76 = icmp eq i4 %75, 0
+  %op.rdx = and i1 %73, %76
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %descDst) #27
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %desc) #27
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i53) #30
@@ -26507,58 +26508,58 @@ _ZNSt6vectorIfSaIfEED2Ev.exit168:                 ; preds = %_ZNSt10shared_ptrIK
   ret i1 %op.rdx
 
 lpad5:                                            ; preds = %entry
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit176
 
 lpad8:                                            ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit172
 
 lpad11:                                           ; preds = %invoke.cont9
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
 lpad14:                                           ; preds = %invoke.cont12
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup150
 
 lpad17:                                           ; preds = %invoke.cont15
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad20:                                           ; preds = %invoke.cont18
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %optCPUProc) #27
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20, %lpad17
-  %.pn = phi { ptr, i32 } [ %81, %lpad20 ], [ %80, %lpad17 ]
+  %.pn = phi { ptr, i32 } [ %82, %lpad20 ], [ %81, %lpad17 ]
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9ProcessorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %procToReference) #27
   br label %ehcleanup150
 
 ehcleanup150:                                     ; preds = %ehcleanup, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %79, %lpad14 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %80, %lpad14 ]
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %descDst) #27
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %ehcleanup150, %lpad11
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup150 ], [ %78, %lpad11 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup150 ], [ %79, %lpad11 ]
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %desc) #27
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit172
 
 _ZNSt6vectorIfSaIfEED2Ev.exit172:                 ; preds = %ehcleanup151, %lpad8
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup151 ], [ %77, %lpad8 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup151 ], [ %78, %lpad8 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i53) #30
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit176
 
 _ZNSt6vectorIfSaIfEED2Ev.exit176:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit172, %lpad5
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit172 ], [ %76, %lpad5 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit172 ], [ %77, %lpad5 ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #30
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }

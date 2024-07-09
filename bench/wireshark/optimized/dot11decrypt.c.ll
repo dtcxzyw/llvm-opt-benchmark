@@ -3712,8 +3712,8 @@ switch.lookup:                                    ; preds = %12
 
 Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   %.0.i = phi i32 [ -1, %12 ], [ %switch.load, %switch.lookup ]
-  %22 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %23 = insertelement <4 x ptr> %22, ptr %2, i64 1
+  %22 = insertelement <4 x ptr> poison, ptr %2, i64 0
+  %23 = insertelement <4 x ptr> %22, ptr %3, i64 1
   %24 = insertelement <4 x ptr> %23, ptr %4, i64 2
   %25 = insertelement <4 x ptr> %24, ptr %5, i64 3
   %26 = icmp ne ptr %7, null

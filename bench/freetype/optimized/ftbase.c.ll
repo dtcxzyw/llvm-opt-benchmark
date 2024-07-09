@@ -11143,8 +11143,8 @@ FT_Done_GlyphSlot.exit:                           ; preds = %.lr.ph119, %.lr.ph1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @FT_Get_Color_Glyph_Layer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %7 = insertelement <4 x ptr> %6, ptr %0, i64 1
+  %6 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %7 = insertelement <4 x ptr> %6, ptr %2, i64 1
   %8 = insertelement <4 x ptr> %7, ptr %3, i64 2
   %9 = insertelement <4 x ptr> %8, ptr %4, i64 3
   %10 = icmp eq <4 x ptr> %9, zeroinitializer

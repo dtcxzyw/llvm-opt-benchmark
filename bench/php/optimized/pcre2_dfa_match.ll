@@ -47,8 +47,8 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not, label %18, label %.loopexit
 
 18:                                               ; preds = %9
-  %19 = insertelement <4 x ptr> poison, ptr %spec.store.select, i64 0
-  %20 = insertelement <4 x ptr> %19, ptr %0, i64 1
+  %19 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %20 = insertelement <4 x ptr> %19, ptr %spec.store.select, i64 1
   %21 = insertelement <4 x ptr> %20, ptr %7, i64 2
   %22 = insertelement <4 x ptr> %21, ptr %5, i64 3
   %23 = icmp eq <4 x ptr> %22, zeroinitializer

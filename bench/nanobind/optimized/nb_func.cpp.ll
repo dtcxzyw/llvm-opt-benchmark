@@ -2468,8 +2468,8 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %24, %27
 
 38:                                               ; preds = %35, %32
   %.065 = phi ptr [ %34, %32 ], [ @_Py_NoneStruct, %35 ]
-  %39 = insertelement <4 x ptr> poison, ptr %31, i64 0
-  %40 = insertelement <4 x ptr> %39, ptr %.063, i64 1
+  %39 = insertelement <4 x ptr> poison, ptr %.063, i64 0
+  %40 = insertelement <4 x ptr> %39, ptr %31, i64 1
   %41 = insertelement <4 x ptr> %40, ptr %29, i64 2
   %42 = insertelement <4 x ptr> %41, ptr %.065, i64 3
   %.fr = freeze <4 x ptr> %42

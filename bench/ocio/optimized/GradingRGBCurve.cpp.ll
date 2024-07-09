@@ -928,8 +928,8 @@ entry:
   %1 = load ptr, ptr %green, align 8
   %2 = load ptr, ptr %blue, align 8
   %3 = load ptr, ptr %master, align 8
-  %4 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %5 = insertelement <4 x ptr> %4, ptr %0, i64 1
+  %4 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %5 = insertelement <4 x ptr> %4, ptr %1, i64 1
   %6 = insertelement <4 x ptr> %5, ptr %2, i64 2
   %7 = insertelement <4 x ptr> %6, ptr %3, i64 3
   %.fr = freeze <4 x ptr> %7

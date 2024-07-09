@@ -220,8 +220,8 @@ declare void @cli_events_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @cli_pcre_addpatt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  %10 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %11 = insertelement <4 x ptr> %10, ptr %0, i64 1
+  %10 = insertelement <4 x ptr> poison, ptr %0, i64 0
+  %11 = insertelement <4 x ptr> %10, ptr %2, i64 1
   %12 = insertelement <4 x ptr> %11, ptr %3, i64 2
   %13 = insertelement <4 x ptr> %12, ptr %5, i64 3
   %14 = icmp eq <4 x ptr> %13, zeroinitializer

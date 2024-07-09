@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @cs_leaf(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
-  %8 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %2, i64 1
+  %8 = insertelement <4 x ptr> poison, ptr %2, i64 0
+  %9 = insertelement <4 x ptr> %8, ptr %3, i64 1
   %10 = insertelement <4 x ptr> %9, ptr %4, i64 2
   %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
   %12 = icmp ne ptr %6, null

@@ -29303,7 +29303,7 @@ _ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit: ; preds 
   %7 = load <4 x ptr>, ptr %privateIdent_, align 8
   %8 = insertelement <8 x ptr> poison, ptr %3, i64 0
   %9 = shufflevector <8 x ptr> %8, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %10 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <8 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %10 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %11 = insertelement <8 x ptr> %10, ptr %5, i64 2
   %12 = insertelement <8 x ptr> %11, ptr %6, i64 3
   %13 = shufflevector <4 x ptr> %7, <4 x ptr> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>

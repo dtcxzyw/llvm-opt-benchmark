@@ -1497,8 +1497,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_export(ptr noundef readonly %decoder_inst, ptr noundef %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %reference, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %decoder_inst, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %decoder_inst, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %reference, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %export_cb, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %export_cbarg, i64 3
   %4 = icmp eq <4 x ptr> %3, zeroinitializer

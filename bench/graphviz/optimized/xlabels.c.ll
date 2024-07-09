@@ -300,13 +300,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.44142.0..sroa_idx177.i = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.55.0..sroa_idx234.i = getelementptr inbounds i8, ptr %14, i64 16
   %149 = getelementptr inbounds i8, ptr %6, i64 48
-  %150 = getelementptr inbounds i8, ptr %6, i64 56
-  %151 = getelementptr inbounds i8, ptr %6, i64 64
-  %152 = getelementptr inbounds i8, ptr %6, i64 24
+  %150 = getelementptr inbounds i8, ptr %6, i64 64
+  %151 = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.44142.0..sroa_idx183.i = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.55.0..sroa_idx237.i = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.44142.0..sroa_idx189.i = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.55.0..sroa_idx240.i = getelementptr inbounds i8, ptr %16, i64 16
+  %152 = getelementptr inbounds i8, ptr %6, i64 16
   %153 = getelementptr inbounds i8, ptr %6, i64 8
   %154 = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.44142.0..sroa_idx195.i = getelementptr inbounds i8, ptr %17, i64 8
@@ -483,170 +483,170 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.26.6.i = select i1 %237, double %.sroa.44142.0.copyload178.i, double %.sroa.26.5.i
   %.sroa.0249.6.i = select i1 %237, i32 %.sroa.0.0.copyload63.i, i32 %.sroa.0249.5.i
   %239 = select i1 %237, <2 x double> %238, <2 x double> %231
-  %240 = load ptr, ptr %149, align 16, !noalias !4
-  %241 = icmp ne ptr %240, null
-  %242 = load ptr, ptr %150, align 8, !noalias !4
-  %243 = icmp ne ptr %242, null
-  %or.cond.i = select i1 %241, i1 true, i1 %243
-  %244 = load ptr, ptr %151, align 16, !noalias !4
-  %245 = icmp ne ptr %244, null
-  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %245
-  %246 = load ptr, ptr %152, align 8, !noalias !4
-  %247 = icmp ne ptr %246, null
-  %or.cond8.i = select i1 %or.cond5.i, i1 true, i1 %247
-  %248 = load ptr, ptr %6, align 16, !noalias !4
-  %249 = icmp ne ptr %248, null
-  %or.cond11.i = select i1 %or.cond8.i, i1 true, i1 %249
-  br i1 %or.cond11.i, label %250, label %..loopexit382_crit_edge.i
+  %240 = load <2 x ptr>, ptr %149, align 16, !noalias !4
+  %241 = load ptr, ptr %150, align 16, !noalias !4
+  %242 = load ptr, ptr %151, align 8, !noalias !4
+  %243 = shufflevector <2 x ptr> %240, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %244 = insertelement <4 x ptr> %243, ptr %241, i64 2
+  %245 = insertelement <4 x ptr> %244, ptr %242, i64 3
+  %.fr = freeze <4 x ptr> %245
+  %246 = icmp ne <4 x ptr> %.fr, zeroinitializer
+  %247 = load ptr, ptr %6, align 16, !noalias !4
+  %248 = icmp ne ptr %247, null
+  %249 = bitcast <4 x i1> %246 to i4
+  %250 = icmp ne i4 %249, 0
+  %op.rdx = select i1 %250, i1 true, i1 %248
+  br i1 %op.rdx, label %251, label %..loopexit382_crit_edge.i
 
 ..loopexit382_crit_edge.i:                        ; preds = %236
   %.pre431.i = load double, ptr %167, align 8, !noalias !4
   br label %.loopexit382.i
 
-250:                                              ; preds = %236
-  %or.cond14.i = select i1 %243, i1 true, i1 %245
-  br i1 %or.cond14.i, label %.loopexit383.i, label %251
+251:                                              ; preds = %236
+  %252 = extractelement <4 x i1> %246, i64 1
+  %253 = extractelement <4 x i1> %246, i64 2
+  %or.cond14.i = or i1 %252, %253
+  br i1 %or.cond14.i, label %.loopexit383.i, label %254
 
-251:                                              ; preds = %250
-  %252 = load double, ptr %157, align 8, !noalias !4
-  %253 = load double, ptr %159, align 8, !noalias !4
-  %254 = fsub double %252, %253
-  store double %254, ptr %175, align 8, !noalias !4
-  %255 = load double, ptr %176, align 8, !noalias !4
-  %256 = load double, ptr %169, align 8, !noalias !4
-  %257 = fadd double %255, %256
-  store double %257, ptr %180, align 8, !noalias !4
-  %258 = load double, ptr %157, align 8, !noalias !4
-  %259 = load double, ptr %163, align 8, !noalias !4
+254:                                              ; preds = %251
+  %255 = load double, ptr %157, align 8, !noalias !4
+  %256 = load double, ptr %159, align 8, !noalias !4
+  %257 = fsub double %255, %256
+  store double %257, ptr %175, align 8, !noalias !4
+  %258 = load double, ptr %176, align 8, !noalias !4
+  %259 = load double, ptr %169, align 8, !noalias !4
   %260 = fadd double %258, %259
-  %261 = fcmp ugt double %254, %260
-  br i1 %261, label %.loopexit383.i, label %.lr.ph.i
+  store double %260, ptr %180, align 8, !noalias !4
+  %261 = load double, ptr %157, align 8, !noalias !4
+  %262 = load double, ptr %163, align 8, !noalias !4
+  %263 = fadd double %261, %262
+  %264 = fcmp ugt double %257, %263
+  br i1 %264, label %.loopexit383.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %251, %264
-  %.sroa.0249.7398.i = phi i32 [ %.sroa.0249.8.i, %264 ], [ %.sroa.0249.6.i, %251 ]
-  %.sroa.26.7396.i = phi double [ %.sroa.26.8.i, %264 ], [ %.sroa.26.6.i, %251 ]
-  %262 = phi <2 x double> [ %267, %264 ], [ %239, %251 ]
+.lr.ph.i:                                         ; preds = %254, %267
+  %.sroa.0249.7398.i = phi i32 [ %.sroa.0249.8.i, %267 ], [ %.sroa.0249.6.i, %254 ]
+  %.sroa.26.7396.i = phi double [ %.sroa.26.8.i, %267 ], [ %.sroa.26.6.i, %254 ]
+  %265 = phi <2 x double> [ %270, %267 ], [ %239, %254 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull %157, ptr noundef nonnull %6), !noalias !4
   %.sroa.0.0.copyload66.i = load i32, ptr %15, align 8, !noalias !4
   %.sroa.44142.0.copyload184.i = load double, ptr %.sroa.44142.0..sroa_idx183.i, align 8, !noalias !4
-  %263 = icmp eq i32 %.sroa.0.0.copyload66.i, 0
-  br i1 %263, label %xladjust.exit.thread, label %264
+  %266 = icmp eq i32 %.sroa.0.0.copyload66.i, 0
+  br i1 %266, label %xladjust.exit.thread, label %267
 
-264:                                              ; preds = %.lr.ph.i
-  %265 = fcmp olt double %.sroa.44142.0.copyload184.i, %.sroa.26.7396.i
-  %266 = load <2 x double>, ptr %.sroa.55.0..sroa_idx237.i, align 8
-  %.sroa.26.8.i = select i1 %265, double %.sroa.44142.0.copyload184.i, double %.sroa.26.7396.i
-  %.sroa.0249.8.i = select i1 %265, i32 %.sroa.0.0.copyload66.i, i32 %.sroa.0249.7398.i
-  %267 = select i1 %265, <2 x double> %266, <2 x double> %262
-  %268 = load double, ptr %175, align 8, !noalias !4
-  %269 = fadd double %166, %268
-  store double %269, ptr %175, align 8, !noalias !4
-  %270 = load double, ptr %157, align 8, !noalias !4
-  %271 = load double, ptr %163, align 8, !noalias !4
-  %272 = fadd double %270, %271
-  %273 = fcmp ugt double %269, %272
-  br i1 %273, label %.loopexit383.loopexit.i, label %.lr.ph.i
+267:                                              ; preds = %.lr.ph.i
+  %268 = fcmp olt double %.sroa.44142.0.copyload184.i, %.sroa.26.7396.i
+  %269 = load <2 x double>, ptr %.sroa.55.0..sroa_idx237.i, align 8
+  %.sroa.26.8.i = select i1 %268, double %.sroa.44142.0.copyload184.i, double %.sroa.26.7396.i
+  %.sroa.0249.8.i = select i1 %268, i32 %.sroa.0.0.copyload66.i, i32 %.sroa.0249.7398.i
+  %270 = select i1 %268, <2 x double> %269, <2 x double> %265
+  %271 = load double, ptr %175, align 8, !noalias !4
+  %272 = fadd double %166, %271
+  store double %272, ptr %175, align 8, !noalias !4
+  %273 = load double, ptr %157, align 8, !noalias !4
+  %274 = load double, ptr %163, align 8, !noalias !4
+  %275 = fadd double %273, %274
+  %276 = fcmp ugt double %272, %275
+  br i1 %276, label %.loopexit383.loopexit.i, label %.lr.ph.i
 
-.loopexit383.loopexit.i:                          ; preds = %264
-  %.pre.i = load ptr, ptr %152, align 8, !noalias !4
+.loopexit383.loopexit.i:                          ; preds = %267
+  %.pre.i = load ptr, ptr %151, align 8, !noalias !4
   %.pre430.i = load ptr, ptr %6, align 16, !noalias !4
   br label %.loopexit383.i
 
-.loopexit383.i:                                   ; preds = %.loopexit383.loopexit.i, %251, %250
-  %274 = phi ptr [ %248, %250 ], [ %248, %251 ], [ %.pre430.i, %.loopexit383.loopexit.i ]
-  %275 = phi ptr [ %246, %250 ], [ %246, %251 ], [ %.pre.i, %.loopexit383.loopexit.i ]
-  %.sroa.26.9.i = phi double [ %.sroa.26.6.i, %250 ], [ %.sroa.26.6.i, %251 ], [ %.sroa.26.8.i, %.loopexit383.loopexit.i ]
-  %.sroa.0249.9.i = phi i32 [ %.sroa.0249.6.i, %250 ], [ %.sroa.0249.6.i, %251 ], [ %.sroa.0249.8.i, %.loopexit383.loopexit.i ]
-  %276 = phi <2 x double> [ %239, %250 ], [ %239, %251 ], [ %267, %.loopexit383.loopexit.i ]
-  %277 = icmp ne ptr %275, null
-  %278 = icmp ne ptr %274, null
-  %or.cond17.i = select i1 %277, i1 true, i1 %278
+.loopexit383.i:                                   ; preds = %.loopexit383.loopexit.i, %254, %251
+  %277 = phi ptr [ %247, %251 ], [ %247, %254 ], [ %.pre430.i, %.loopexit383.loopexit.i ]
+  %278 = phi ptr [ %242, %251 ], [ %242, %254 ], [ %.pre.i, %.loopexit383.loopexit.i ]
+  %.sroa.26.9.i = phi double [ %.sroa.26.6.i, %251 ], [ %.sroa.26.6.i, %254 ], [ %.sroa.26.8.i, %.loopexit383.loopexit.i ]
+  %.sroa.0249.9.i = phi i32 [ %.sroa.0249.6.i, %251 ], [ %.sroa.0249.6.i, %254 ], [ %.sroa.0249.8.i, %.loopexit383.loopexit.i ]
+  %279 = phi <2 x double> [ %239, %251 ], [ %239, %254 ], [ %270, %.loopexit383.loopexit.i ]
+  %280 = icmp ne ptr %278, null
+  %281 = icmp ne ptr %277, null
+  %or.cond17.i = select i1 %280, i1 true, i1 %281
   %.pre432.i = load double, ptr %167, align 8, !noalias !4
-  br i1 %or.cond17.i, label %.loopexit382.i, label %279
+  br i1 %or.cond17.i, label %.loopexit382.i, label %282
 
-279:                                              ; preds = %.loopexit383.i
-  %280 = load double, ptr %157, align 8, !noalias !4
-  %281 = load double, ptr %159, align 8, !noalias !4
-  %282 = fsub double %280, %281
-  store double %282, ptr %175, align 8, !noalias !4
-  %283 = load double, ptr %176, align 8, !noalias !4
-  %284 = load double, ptr %169, align 8, !noalias !4
-  %285 = fadd double %283, %284
-  store double %285, ptr %180, align 8, !noalias !4
+282:                                              ; preds = %.loopexit383.i
+  %283 = load double, ptr %157, align 8, !noalias !4
+  %284 = load double, ptr %159, align 8, !noalias !4
+  %285 = fsub double %283, %284
+  store double %285, ptr %175, align 8, !noalias !4
   %286 = load double, ptr %176, align 8, !noalias !4
-  %287 = fsub double %286, %.pre432.i
-  %288 = fcmp ult double %285, %287
-  br i1 %288, label %.loopexit382.i, label %.lr.ph404.i
+  %287 = load double, ptr %169, align 8, !noalias !4
+  %288 = fadd double %286, %287
+  store double %288, ptr %180, align 8, !noalias !4
+  %289 = load double, ptr %176, align 8, !noalias !4
+  %290 = fsub double %289, %.pre432.i
+  %291 = fcmp ult double %288, %290
+  br i1 %291, label %.loopexit382.i, label %.lr.ph404.i
 
-.lr.ph404.i:                                      ; preds = %279, %291
-  %.sroa.0249.10403.i = phi i32 [ %.sroa.0249.11.i, %291 ], [ %.sroa.0249.9.i, %279 ]
-  %.sroa.26.10401.i = phi double [ %.sroa.26.11.i, %291 ], [ %.sroa.26.9.i, %279 ]
-  %289 = phi <2 x double> [ %294, %291 ], [ %276, %279 ]
+.lr.ph404.i:                                      ; preds = %282, %294
+  %.sroa.0249.10403.i = phi i32 [ %.sroa.0249.11.i, %294 ], [ %.sroa.0249.9.i, %282 ]
+  %.sroa.26.10401.i = phi double [ %.sroa.26.11.i, %294 ], [ %.sroa.26.9.i, %282 ]
+  %292 = phi <2 x double> [ %297, %294 ], [ %279, %282 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull %157, ptr noundef nonnull %6), !noalias !4
   %.sroa.0.0.copyload69.i = load i32, ptr %16, align 8, !noalias !4
   %.sroa.44142.0.copyload190.i = load double, ptr %.sroa.44142.0..sroa_idx189.i, align 8, !noalias !4
-  %290 = icmp eq i32 %.sroa.0.0.copyload69.i, 0
-  br i1 %290, label %xladjust.exit.thread, label %291
+  %293 = icmp eq i32 %.sroa.0.0.copyload69.i, 0
+  br i1 %293, label %xladjust.exit.thread, label %294
 
-291:                                              ; preds = %.lr.ph404.i
-  %292 = fcmp olt double %.sroa.44142.0.copyload190.i, %.sroa.26.10401.i
-  %293 = load <2 x double>, ptr %.sroa.55.0..sroa_idx240.i, align 8
-  %.sroa.26.11.i = select i1 %292, double %.sroa.44142.0.copyload190.i, double %.sroa.26.10401.i
-  %.sroa.0249.11.i = select i1 %292, i32 %.sroa.0.0.copyload69.i, i32 %.sroa.0249.10403.i
-  %294 = select i1 %292, <2 x double> %293, <2 x double> %289
-  %295 = load double, ptr %180, align 8, !noalias !4
-  %296 = fsub double %295, %172
-  store double %296, ptr %180, align 8, !noalias !4
-  %297 = load double, ptr %176, align 8, !noalias !4
-  %298 = load double, ptr %167, align 8, !noalias !4
-  %299 = fsub double %297, %298
-  %300 = fcmp ult double %296, %299
-  br i1 %300, label %.loopexit382.loopexit.i, label %.lr.ph404.i
+294:                                              ; preds = %.lr.ph404.i
+  %295 = fcmp olt double %.sroa.44142.0.copyload190.i, %.sroa.26.10401.i
+  %296 = load <2 x double>, ptr %.sroa.55.0..sroa_idx240.i, align 8
+  %.sroa.26.11.i = select i1 %295, double %.sroa.44142.0.copyload190.i, double %.sroa.26.10401.i
+  %.sroa.0249.11.i = select i1 %295, i32 %.sroa.0.0.copyload69.i, i32 %.sroa.0249.10403.i
+  %297 = select i1 %295, <2 x double> %296, <2 x double> %292
+  %298 = load double, ptr %180, align 8, !noalias !4
+  %299 = fsub double %298, %172
+  store double %299, ptr %180, align 8, !noalias !4
+  %300 = load double, ptr %176, align 8, !noalias !4
+  %301 = load double, ptr %167, align 8, !noalias !4
+  %302 = fsub double %300, %301
+  %303 = fcmp ult double %299, %302
+  br i1 %303, label %.loopexit382.loopexit.i, label %.lr.ph404.i
 
-.loopexit382.loopexit.i:                          ; preds = %291
+.loopexit382.loopexit.i:                          ; preds = %294
   %.pre433.i = load ptr, ptr %6, align 16, !noalias !4
   br label %.loopexit382.i
 
-.loopexit382.i:                                   ; preds = %.loopexit382.loopexit.i, %279, %.loopexit383.i, %..loopexit382_crit_edge.i
-  %301 = phi ptr [ %274, %.loopexit383.i ], [ null, %279 ], [ %.pre433.i, %.loopexit382.loopexit.i ], [ null, %..loopexit382_crit_edge.i ]
-  %302 = phi double [ %.pre432.i, %.loopexit383.i ], [ %.pre432.i, %279 ], [ %298, %.loopexit382.loopexit.i ], [ %.pre431.i, %..loopexit382_crit_edge.i ]
-  %.sroa.26.12.i = phi double [ %.sroa.26.9.i, %.loopexit383.i ], [ %.sroa.26.9.i, %279 ], [ %.sroa.26.11.i, %.loopexit382.loopexit.i ], [ %.sroa.26.6.i, %..loopexit382_crit_edge.i ]
-  %.sroa.0249.12.i = phi i32 [ %.sroa.0249.9.i, %.loopexit383.i ], [ %.sroa.0249.9.i, %279 ], [ %.sroa.0249.11.i, %.loopexit382.loopexit.i ], [ %.sroa.0249.6.i, %..loopexit382_crit_edge.i ]
-  %303 = phi <2 x double> [ %276, %.loopexit383.i ], [ %276, %279 ], [ %294, %.loopexit382.loopexit.i ], [ %239, %..loopexit382_crit_edge.i ]
-  %304 = load double, ptr %157, align 8, !noalias !4
-  %305 = load double, ptr %163, align 8, !noalias !4
-  %306 = fadd double %304, %305
-  store double %306, ptr %175, align 8, !noalias !4
-  %307 = load double, ptr %176, align 8, !noalias !4
-  %308 = fsub double %307, %302
-  store double %308, ptr %180, align 8, !noalias !4
-  %309 = load <2 x ptr>, ptr %153, align 8, !noalias !4
-  %310 = load ptr, ptr %154, align 8, !noalias !4
-  %311 = shufflevector <2 x ptr> %309, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %312 = insertelement <4 x ptr> %311, ptr %301, i64 2
-  %313 = insertelement <4 x ptr> %312, ptr %310, i64 3
-  %.fr = freeze <4 x ptr> %313
-  %314 = icmp ne <4 x ptr> %.fr, zeroinitializer
-  %315 = load ptr, ptr %151, align 16, !noalias !4
-  %316 = icmp ne ptr %315, null
-  %317 = bitcast <4 x i1> %314 to i4
-  %318 = icmp ne i4 %317, 0
-  %op.rdx = select i1 %318, i1 true, i1 %316
-  br i1 %op.rdx, label %319, label %xladjust.exit
+.loopexit382.i:                                   ; preds = %.loopexit382.loopexit.i, %282, %.loopexit383.i, %..loopexit382_crit_edge.i
+  %304 = phi ptr [ %277, %.loopexit383.i ], [ null, %282 ], [ %.pre433.i, %.loopexit382.loopexit.i ], [ null, %..loopexit382_crit_edge.i ]
+  %305 = phi double [ %.pre432.i, %.loopexit383.i ], [ %.pre432.i, %282 ], [ %301, %.loopexit382.loopexit.i ], [ %.pre431.i, %..loopexit382_crit_edge.i ]
+  %.sroa.26.12.i = phi double [ %.sroa.26.9.i, %.loopexit383.i ], [ %.sroa.26.9.i, %282 ], [ %.sroa.26.11.i, %.loopexit382.loopexit.i ], [ %.sroa.26.6.i, %..loopexit382_crit_edge.i ]
+  %.sroa.0249.12.i = phi i32 [ %.sroa.0249.9.i, %.loopexit383.i ], [ %.sroa.0249.9.i, %282 ], [ %.sroa.0249.11.i, %.loopexit382.loopexit.i ], [ %.sroa.0249.6.i, %..loopexit382_crit_edge.i ]
+  %306 = phi <2 x double> [ %279, %.loopexit383.i ], [ %279, %282 ], [ %297, %.loopexit382.loopexit.i ], [ %239, %..loopexit382_crit_edge.i ]
+  %307 = load double, ptr %157, align 8, !noalias !4
+  %308 = load double, ptr %163, align 8, !noalias !4
+  %309 = fadd double %307, %308
+  store double %309, ptr %175, align 8, !noalias !4
+  %310 = load double, ptr %176, align 8, !noalias !4
+  %311 = fsub double %310, %305
+  store double %311, ptr %180, align 8, !noalias !4
+  %312 = load ptr, ptr %152, align 16, !noalias !4
+  %313 = icmp ne ptr %312, null
+  %314 = load ptr, ptr %153, align 8, !noalias !4
+  %315 = icmp ne ptr %314, null
+  %or.cond20.i = select i1 %313, i1 true, i1 %315
+  %316 = icmp ne ptr %304, null
+  %or.cond23.i = select i1 %or.cond20.i, i1 true, i1 %316
+  %317 = load ptr, ptr %154, align 8, !noalias !4
+  %318 = icmp ne ptr %317, null
+  %or.cond26.i = select i1 %or.cond23.i, i1 true, i1 %318
+  %319 = load ptr, ptr %150, align 16, !noalias !4
+  %320 = icmp ne ptr %319, null
+  %or.cond29.i = select i1 %or.cond26.i, i1 true, i1 %320
+  br i1 %or.cond29.i, label %321, label %xladjust.exit
 
-319:                                              ; preds = %.loopexit382.i
-  %320 = extractelement <4 x i1> %314, i64 0
-  %321 = extractelement <4 x i1> %314, i64 2
-  %or.cond32.i = or i1 %320, %321
+321:                                              ; preds = %.loopexit382.i
+  %or.cond32.i = select i1 %315, i1 true, i1 %316
   br i1 %or.cond32.i, label %.loopexit381.i, label %322
 
-322:                                              ; preds = %319
+322:                                              ; preds = %321
   %323 = load double, ptr %157, align 8, !noalias !4
   %324 = load double, ptr %163, align 8, !noalias !4
   %325 = fadd double %323, %324
   store double %325, ptr %175, align 8, !noalias !4
   %326 = load double, ptr %176, align 8, !noalias !4
-  %327 = fsub double %326, %302
+  %327 = fsub double %326, %305
   store double %327, ptr %180, align 8, !noalias !4
   %328 = load double, ptr %157, align 8, !noalias !4
   %329 = load double, ptr %159, align 8, !noalias !4
@@ -657,7 +657,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
 .lr.ph411.i:                                      ; preds = %322, %334
   %.sroa.0249.13410.i = phi i32 [ %.sroa.0249.14.i, %334 ], [ %.sroa.0249.12.i, %322 ]
   %.sroa.26.13408.i = phi double [ %.sroa.26.14.i, %334 ], [ %.sroa.26.12.i, %322 ]
-  %332 = phi <2 x double> [ %337, %334 ], [ %303, %322 ]
+  %332 = phi <2 x double> [ %337, %334 ], [ %306, %322 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull %157, ptr noundef nonnull %6), !noalias !4
   %.sroa.0.0.copyload72.i = load i32, ptr %17, align 8, !noalias !4
   %.sroa.44142.0.copyload196.i = load double, ptr %.sroa.44142.0..sroa_idx195.i, align 8, !noalias !4
@@ -681,15 +681,15 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
 
 .loopexit381.loopexit.i:                          ; preds = %334
   %.pre434.i = load ptr, ptr %154, align 8, !noalias !4
-  %.pre435.i = load ptr, ptr %151, align 16, !noalias !4
+  %.pre435.i = load ptr, ptr %150, align 16, !noalias !4
   br label %.loopexit381.i
 
-.loopexit381.i:                                   ; preds = %.loopexit381.loopexit.i, %322, %319
-  %344 = phi ptr [ %315, %319 ], [ %315, %322 ], [ %.pre435.i, %.loopexit381.loopexit.i ]
-  %345 = phi ptr [ %310, %319 ], [ %310, %322 ], [ %.pre434.i, %.loopexit381.loopexit.i ]
-  %.sroa.26.15.i = phi double [ %.sroa.26.12.i, %319 ], [ %.sroa.26.12.i, %322 ], [ %.sroa.26.14.i, %.loopexit381.loopexit.i ]
-  %.sroa.0249.15.i = phi i32 [ %.sroa.0249.12.i, %319 ], [ %.sroa.0249.12.i, %322 ], [ %.sroa.0249.14.i, %.loopexit381.loopexit.i ]
-  %346 = phi <2 x double> [ %303, %319 ], [ %303, %322 ], [ %337, %.loopexit381.loopexit.i ]
+.loopexit381.i:                                   ; preds = %.loopexit381.loopexit.i, %322, %321
+  %344 = phi ptr [ %319, %321 ], [ %319, %322 ], [ %.pre435.i, %.loopexit381.loopexit.i ]
+  %345 = phi ptr [ %317, %321 ], [ %317, %322 ], [ %.pre434.i, %.loopexit381.loopexit.i ]
+  %.sroa.26.15.i = phi double [ %.sroa.26.12.i, %321 ], [ %.sroa.26.12.i, %322 ], [ %.sroa.26.14.i, %.loopexit381.loopexit.i ]
+  %.sroa.0249.15.i = phi i32 [ %.sroa.0249.12.i, %321 ], [ %.sroa.0249.12.i, %322 ], [ %.sroa.0249.14.i, %.loopexit381.loopexit.i ]
+  %346 = phi <2 x double> [ %306, %321 ], [ %306, %322 ], [ %337, %.loopexit381.loopexit.i ]
   %347 = icmp ne ptr %345, null
   %348 = icmp ne ptr %344, null
   %or.cond35.i = select i1 %347, i1 true, i1 %348
@@ -754,7 +754,7 @@ xladjust.exit.thread:                             ; preds = %.lr.ph.i, %.lr.ph40
 xladjust.exit:                                    ; preds = %362, %.loopexit382.i, %.loopexit381.i, %349
   %.sroa.27.0 = phi double [ %.sroa.26.15.i, %.loopexit381.i ], [ %.sroa.26.15.i, %349 ], [ %.sroa.26.12.i, %.loopexit382.i ], [ %.sroa.26.17.i, %362 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0249.15.i, %.loopexit381.i ], [ %.sroa.0249.15.i, %349 ], [ %.sroa.0249.12.i, %.loopexit382.i ], [ %.sroa.0249.17.i, %362 ]
-  %372 = phi <2 x double> [ %346, %.loopexit381.i ], [ %346, %349 ], [ %303, %.loopexit382.i ], [ %365, %362 ]
+  %372 = phi <2 x double> [ %346, %.loopexit381.i ], [ %346, %349 ], [ %306, %.loopexit382.i ], [ %365, %362 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)

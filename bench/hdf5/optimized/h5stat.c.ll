@@ -3243,96 +3243,101 @@ print_freespace_info.exit.i:                      ; preds = %._crit_edge42.i.i, 
   %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %474, ptr noundef nonnull @.str.200, i64 noundef %476) #16
   %puts.i60.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   %478 = getelementptr inbounds i8, ptr %1, i64 656
-  %479 = load <2 x i64>, ptr %478, align 8
-  %480 = getelementptr inbounds i8, ptr %1, i64 672
+  %479 = load i64, ptr %478, align 8
+  %480 = getelementptr inbounds i8, ptr %1, i64 664
   %481 = load i64, ptr %480, align 8
-  %482 = getelementptr inbounds i8, ptr %1, i64 96
+  %482 = getelementptr inbounds i8, ptr %1, i64 672
   %483 = load i64, ptr %482, align 8
-  %484 = getelementptr inbounds i8, ptr %1, i64 552
+  %484 = getelementptr inbounds i8, ptr %1, i64 96
   %485 = load i64, ptr %484, align 8
-  %486 = getelementptr inbounds i8, ptr %1, i64 584
+  %486 = getelementptr inbounds i8, ptr %1, i64 552
   %487 = load i64, ptr %486, align 8
-  %488 = getelementptr inbounds i8, ptr %1, i64 600
-  %489 = load <4 x i64>, ptr %488, align 8
-  %490 = getelementptr inbounds i8, ptr %1, i64 816
-  %491 = load <2 x i64>, ptr %490, align 8
-  %492 = getelementptr inbounds i8, ptr %1, i64 632
+  %488 = getelementptr inbounds i8, ptr %1, i64 584
+  %489 = load i64, ptr %488, align 8
+  %490 = getelementptr inbounds i8, ptr %1, i64 600
+  %491 = load <4 x i64>, ptr %490, align 8
+  %492 = getelementptr inbounds i8, ptr %1, i64 816
   %493 = load <2 x i64>, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %1, i64 648
+  %494 = getelementptr inbounds i8, ptr %1, i64 632
   %495 = load i64, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %1, i64 712
+  %496 = getelementptr inbounds i8, ptr %1, i64 640
   %497 = load i64, ptr %496, align 8
-  %498 = shufflevector <2 x i64> %479, <2 x i64> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %499 = insertelement <16 x i64> %498, i64 %481, i64 2
-  %500 = insertelement <16 x i64> %499, i64 %483, i64 3
-  %501 = insertelement <16 x i64> %500, i64 %485, i64 4
-  %502 = insertelement <16 x i64> %501, i64 %487, i64 5
-  %503 = shufflevector <4 x i64> %489, <4 x i64> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %504 = shufflevector <16 x i64> %502, <16 x i64> %503, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %505 = shufflevector <2 x i64> %491, <2 x i64> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %506 = shufflevector <16 x i64> %504, <16 x i64> %505, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %507 = shufflevector <2 x i64> %493, <2 x i64> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %508 = shufflevector <16 x i64> %506, <16 x i64> %507, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 16, i32 17, i32 poison, i32 poison>
-  %509 = insertelement <16 x i64> %508, i64 %495, i64 14
-  %510 = insertelement <16 x i64> %509, i64 %497, i64 15
-  %511 = call i64 @llvm.vector.reduce.add.v16i64(<16 x i64> %510)
-  %512 = load ptr, ptr @stdout, align 8
-  %513 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %512, ptr noundef nonnull @.str.202, i64 noundef %511) #16
-  %514 = load ptr, ptr @stdout, align 8
-  %515 = getelementptr inbounds i8, ptr %1, i64 568
+  %498 = getelementptr inbounds i8, ptr %1, i64 648
+  %499 = load i64, ptr %498, align 8
+  %500 = getelementptr inbounds i8, ptr %1, i64 712
+  %501 = load i64, ptr %500, align 8
+  %502 = insertelement <8 x i64> poison, i64 %487, i64 0
+  %503 = insertelement <8 x i64> %502, i64 %489, i64 1
+  %504 = shufflevector <4 x i64> %491, <4 x i64> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %505 = shufflevector <8 x i64> %503, <8 x i64> %504, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison>
+  %506 = shufflevector <2 x i64> %493, <2 x i64> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %507 = shufflevector <8 x i64> %505, <8 x i64> %506, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
+  %508 = call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %507)
+  %op.rdx = add i64 %508, %481
+  %op.rdx2 = add i64 %479, %483
+  %op.rdx3 = add i64 %485, %495
+  %op.rdx4 = add i64 %497, %499
+  %op.rdx5 = add i64 %op.rdx, %op.rdx2
+  %op.rdx6 = add i64 %op.rdx3, %op.rdx4
+  %op.rdx7 = add i64 %op.rdx5, %op.rdx6
+  %op.rdx8 = add i64 %op.rdx7, %501
+  %509 = load ptr, ptr @stdout, align 8
+  %510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %509, ptr noundef nonnull @.str.202, i64 noundef %op.rdx8) #16
+  %511 = load ptr, ptr @stdout, align 8
+  %512 = getelementptr inbounds i8, ptr %1, i64 568
+  %513 = load i64, ptr %512, align 8
+  %514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %511, ptr noundef nonnull @.str.203, i64 noundef %513) #16
+  %515 = getelementptr inbounds i8, ptr %1, i64 704
   %516 = load i64, ptr %515, align 8
-  %517 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.203, i64 noundef %516) #16
-  %518 = getelementptr inbounds i8, ptr %1, i64 704
+  %517 = uitofp i64 %516 to double
+  %518 = getelementptr inbounds i8, ptr %1, i64 8
   %519 = load i64, ptr %518, align 8
   %520 = uitofp i64 %519 to double
-  %521 = getelementptr inbounds i8, ptr %1, i64 8
-  %522 = load i64, ptr %521, align 8
-  %523 = uitofp i64 %522 to double
-  %524 = fdiv double %520, %523
-  %525 = fmul double %524, 1.000000e+02
-  %526 = load ptr, ptr @stdout, align 8
-  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.204, i64 noundef %519, double noundef %525) #16
-  %528 = load i64, ptr %521, align 8
-  %529 = load i64, ptr %515, align 8
-  %530 = add i64 %529, %511
-  %531 = load i64, ptr %518, align 8
-  %532 = add i64 %530, %531
-  %533 = icmp ult i64 %528, %532
-  %534 = load ptr, ptr @stdout, align 8
-  br i1 %533, label %535, label %538
+  %521 = fdiv double %517, %520
+  %522 = fmul double %521, 1.000000e+02
+  %523 = load ptr, ptr @stdout, align 8
+  %524 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %523, ptr noundef nonnull @.str.204, i64 noundef %516, double noundef %522) #16
+  %525 = load i64, ptr %518, align 8
+  %526 = load i64, ptr %512, align 8
+  %527 = add i64 %526, %op.rdx8
+  %528 = load i64, ptr %515, align 8
+  %529 = add i64 %527, %528
+  %530 = icmp ult i64 %525, %529
+  %531 = load ptr, ptr @stdout, align 8
+  br i1 %530, label %532, label %535
+
+532:                                              ; preds = %466
+  %533 = sub i64 %529, %525
+  %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.205, i64 noundef %533) #16
+  br label %538
 
 535:                                              ; preds = %466
-  %536 = sub i64 %532, %528
-  %537 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.205, i64 noundef %536) #16
-  br label %541
+  %536 = sub i64 %525, %529
+  %537 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.206, i64 noundef %536) #16
+  br label %538
 
-538:                                              ; preds = %466
-  %539 = sub i64 %528, %532
-  %540 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.206, i64 noundef %539) #16
-  br label %541
+538:                                              ; preds = %535, %532
+  %.0.i.i = phi i64 [ %533, %532 ], [ %536, %535 ]
+  %539 = load ptr, ptr @stdout, align 8
+  %540 = load i64, ptr %512, align 8
+  %541 = load i64, ptr %515, align 8
+  %542 = add i64 %.0.i.i, %op.rdx8
+  %543 = add i64 %542, %540
+  %544 = add i64 %543, %541
+  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %539, ptr noundef nonnull @.str.207, i64 noundef %544) #16
+  %546 = getelementptr inbounds i8, ptr %1, i64 832
+  %547 = load i64, ptr %546, align 8
+  %.not.i61.i = icmp eq i64 %547, 0
+  br i1 %.not.i61.i, label %print_file_statistics.exit, label %548
 
-541:                                              ; preds = %538, %535
-  %.0.i.i = phi i64 [ %536, %535 ], [ %539, %538 ]
-  %542 = load ptr, ptr @stdout, align 8
-  %543 = load i64, ptr %515, align 8
-  %544 = load i64, ptr %518, align 8
-  %545 = add i64 %.0.i.i, %511
-  %546 = add i64 %545, %543
-  %547 = add i64 %546, %544
-  %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %542, ptr noundef nonnull @.str.207, i64 noundef %547) #16
-  %549 = getelementptr inbounds i8, ptr %1, i64 832
-  %550 = load i64, ptr %549, align 8
-  %.not.i61.i = icmp eq i64 %550, 0
-  br i1 %.not.i61.i, label %print_file_statistics.exit, label %551
-
-551:                                              ; preds = %541
-  %552 = load ptr, ptr @stdout, align 8
-  %553 = getelementptr inbounds i8, ptr %1, i64 576
-  %554 = load i64, ptr %553, align 8
-  %555 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %552, ptr noundef nonnull @.str.208, i64 noundef %554) #16
+548:                                              ; preds = %538
+  %549 = load ptr, ptr @stdout, align 8
+  %550 = getelementptr inbounds i8, ptr %1, i64 576
+  %551 = load i64, ptr %550, align 8
+  %552 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %549, ptr noundef nonnull @.str.208, i64 noundef %551) #16
   br label %print_file_statistics.exit
 
-print_file_statistics.exit:                       ; preds = %551, %541, %465, %4
+print_file_statistics.exit:                       ; preds = %548, %538, %465, %4
   ret void
 }
 
@@ -3512,7 +3517,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v16i64(<16 x i64>) #15
+declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #15
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

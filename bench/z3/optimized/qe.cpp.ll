@@ -16027,8 +16027,8 @@ entry:
   %arrayidx.i16 = getelementptr inbounds i8, ptr %a, i64 48
   %3 = load ptr, ptr %arrayidx.i16, align 8
   %call9 = tail call noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %3, i1 noundef zeroext %p)
-  %4 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %5 = insertelement <4 x ptr> %4, ptr %call2, i64 1
+  %4 = insertelement <4 x ptr> poison, ptr %call2, i64 0
+  %5 = insertelement <4 x ptr> %4, ptr %call4, i64 1
   %6 = insertelement <4 x ptr> %5, ptr %call6, i64 2
   %7 = insertelement <4 x ptr> %6, ptr %call9, i64 3
   %8 = icmp eq <4 x ptr> %7, zeroinitializer
@@ -16264,8 +16264,8 @@ entry:
   %call4 = tail call noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %0, i1 noundef zeroext false)
   %call5 = tail call noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %1, i1 noundef zeroext true)
   %call6 = tail call noundef ptr @_ZN2qe3nnf6lookupEP4exprb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %1, i1 noundef zeroext false)
-  %2 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %3 = insertelement <4 x ptr> %2, ptr %call3, i64 1
+  %2 = insertelement <4 x ptr> poison, ptr %call3, i64 0
+  %3 = insertelement <4 x ptr> %2, ptr %call4, i64 1
   %4 = insertelement <4 x ptr> %3, ptr %call5, i64 2
   %5 = insertelement <4 x ptr> %4, ptr %call6, i64 3
   %6 = icmp eq <4 x ptr> %5, zeroinitializer

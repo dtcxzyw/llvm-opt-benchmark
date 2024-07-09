@@ -11,8 +11,8 @@ define i32 @FT_OpenType_Validate(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %7
-  %9 = insertelement <4 x ptr> poison, ptr %3, i64 0
-  %10 = insertelement <4 x ptr> %9, ptr %2, i64 1
+  %9 = insertelement <4 x ptr> poison, ptr %2, i64 0
+  %10 = insertelement <4 x ptr> %9, ptr %3, i64 1
   %11 = insertelement <4 x ptr> %10, ptr %4, i64 2
   %12 = insertelement <4 x ptr> %11, ptr %5, i64 3
   %13 = icmp ne ptr %6, null

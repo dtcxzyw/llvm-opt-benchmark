@@ -3077,8 +3077,8 @@ list_length.exit:                                 ; preds = %.critedge2, %71
 
 129:                                              ; preds = %120, %122, %125
   %130 = phi ptr [ %128, %125 ], [ null, %122 ], [ null, %120 ]
-  %131 = insertelement <4 x ptr> poison, ptr %112, i64 0
-  %132 = insertelement <4 x ptr> %131, ptr %103, i64 1
+  %131 = insertelement <4 x ptr> poison, ptr %103, i64 0
+  %132 = insertelement <4 x ptr> %131, ptr %112, i64 1
   %133 = insertelement <4 x ptr> %132, ptr %121, i64 2
   %134 = insertelement <4 x ptr> %133, ptr %130, i64 3
   %.fr = freeze <4 x ptr> %134

@@ -1124,8 +1124,8 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr no
 
 52:                                               ; preds = %43, %45, %48
   %53 = phi ptr [ %51, %48 ], [ null, %45 ], [ null, %43 ]
-  %54 = insertelement <4 x ptr> poison, ptr %35, i64 0
-  %55 = insertelement <4 x ptr> %54, ptr %26, i64 1
+  %54 = insertelement <4 x ptr> poison, ptr %26, i64 0
+  %55 = insertelement <4 x ptr> %54, ptr %35, i64 1
   %56 = insertelement <4 x ptr> %55, ptr %44, i64 2
   %57 = insertelement <4 x ptr> %56, ptr %53, i64 3
   %.fr = freeze <4 x ptr> %57

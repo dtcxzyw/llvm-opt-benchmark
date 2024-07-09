@@ -1183,8 +1183,8 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   %10 = alloca %struct.WebPDecParams, align 8
   %11 = alloca %struct.WebPDecBuffer, align 8
   %12 = alloca %struct.WebPDecBuffer, align 8
-  %13 = insertelement <4 x ptr> poison, ptr %5, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %4, i64 1
+  %13 = insertelement <4 x ptr> poison, ptr %4, i64 0
+  %14 = insertelement <4 x ptr> %13, ptr %5, i64 1
   %15 = insertelement <4 x ptr> %14, ptr %6, i64 2
   %16 = insertelement <4 x ptr> %15, ptr %7, i64 3
   %17 = icmp eq <4 x ptr> %16, zeroinitializer

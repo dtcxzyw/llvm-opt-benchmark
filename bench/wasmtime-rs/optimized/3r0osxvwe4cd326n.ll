@@ -14751,7 +14751,7 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %.sroa.5.0.i16 = phi i64 [ 16, %_ZN6object4read5macho7section7Section12segment_name17h9eac5a6bf8aa70ecE.exit ], [ %17, %16 ]
   switch i64 %.sroa.5.0.i, label %66 [
     i64 6, label %20
-    i64 7, label %347
+    i64 7, label %344
   ]
 
 20:                                               ; preds = %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit
@@ -14761,11 +14761,11 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
     i64 9, label %131
     i64 10, label %151
     i64 11, label %198
-    i64 16, label %216
-    i64 5, label %240
-    i64 8, label %255
-    i64 13, label %281
-    i64 12, label %326
+    i64 16, label %215
+    i64 5, label %238
+    i64 8, label %253
+    i64 13, label %279
+    i64 12, label %324
   ]
 
 21:                                               ; preds = %20
@@ -14791,21 +14791,21 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %33 = icmp eq i8 %32, 69
   %34 = getelementptr inbounds i8, ptr %3, i64 20
   %35 = load i8, ptr %34, align 4
-  %.fr581 = freeze i8 %35
-  %36 = icmp eq i8 %.fr581, 88
+  %.fr577 = freeze i8 %35
+  %36 = icmp eq i8 %.fr577, 88
   %37 = getelementptr inbounds i8, ptr %3, i64 21
   %38 = load i8, ptr %37, align 1
-  %.fr583 = freeze i8 %38
-  %39 = icmp eq i8 %.fr583, 84
+  %.fr579 = freeze i8 %38
+  %39 = icmp eq i8 %.fr579, 84
   %40 = load <4 x i8>, ptr %3, align 8
-  %.fr579 = freeze <4 x i8> %40
+  %.fr576 = freeze <4 x i8> %40
   %41 = getelementptr inbounds i8, ptr %3, i64 4
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 120
-  %.fr579.scalar = bitcast <4 x i8> %.fr579 to i32
-  %44 = icmp eq i32 %.fr579.scalar, 1702125407
-  %op.rdx = and i1 %44, %36
-  %45 = and i1 %op.rdx, %33
+  %.fr576.scalar = bitcast <4 x i8> %.fr576 to i32
+  %44 = icmp eq i32 %.fr576.scalar, 1702125407
+  %op.rdx = and i1 %33, %44
+  %45 = and i1 %op.rdx, %36
   %op.rdx470 = and i1 %45, %39
   %op.rdx471 = select i1 %op.rdx470, i1 %43, i1 false
   br i1 %op.rdx471, label %62, label %66
@@ -14816,21 +14816,21 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %49 = icmp eq i8 %48, 65
   %50 = getelementptr inbounds i8, ptr %3, i64 20
   %51 = load i8, ptr %50, align 4
-  %.fr576 = freeze i8 %51
-  %52 = icmp eq i8 %.fr576, 84
+  %.fr573 = freeze i8 %51
+  %52 = icmp eq i8 %.fr573, 84
   %53 = getelementptr inbounds i8, ptr %3, i64 21
   %54 = load i8, ptr %53, align 1
-  %.fr578 = freeze i8 %54
-  %55 = icmp eq i8 %.fr578, 65
+  %.fr575 = freeze i8 %54
+  %55 = icmp eq i8 %.fr575, 65
   %56 = load <4 x i8>, ptr %3, align 8
-  %.fr574 = freeze <4 x i8> %56
+  %.fr572 = freeze <4 x i8> %56
   %57 = getelementptr inbounds i8, ptr %3, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = icmp eq i8 %58, 116
-  %.fr574.scalar = bitcast <4 x i8> %.fr574 to i32
-  %60 = icmp eq i32 %.fr574.scalar, 1633967967
-  %op.rdx472 = and i1 %60, %52
-  %61 = and i1 %op.rdx472, %49
+  %.fr572.scalar = bitcast <4 x i8> %.fr572 to i32
+  %60 = icmp eq i32 %.fr572.scalar, 1633967967
+  %op.rdx472 = and i1 %49, %60
+  %61 = and i1 %op.rdx472, %52
   %op.rdx474 = and i1 %61, %55
   %op.rdx475 = select i1 %op.rdx474, i1 %59, i1 false
   br i1 %op.rdx475, label %70, label %66
@@ -14842,8 +14842,8 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %spec.select = zext i1 %65 to i32
   br label %66
 
-66:                                               ; preds = %356, %343, %322, %318, %277, %251, %236, %212, %194, %147, %127, %123, %70, %62, %189, %21, %27, %30, %46, %74, %80, %83, %103, %131, %151, %166, %169, %179, %198, %216, %240, %255, %281, %301, %304, %311, %326, %347, %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit, %20
-  %.sroa.0.0 = phi i32 [ 0, %20 ], [ 0, %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit ], [ 0, %347 ], [ 0, %326 ], [ 0, %311 ], [ 0, %304 ], [ 0, %301 ], [ 0, %281 ], [ 0, %255 ], [ 0, %240 ], [ 0, %216 ], [ 0, %198 ], [ 0, %179 ], [ 0, %169 ], [ 0, %166 ], [ 0, %151 ], [ 0, %131 ], [ 0, %103 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ %spec.select, %62 ], [ %spec.select1, %70 ], [ %spec.select2, %123 ], [ %spec.select3, %127 ], [ %spec.select4, %147 ], [ %193, %189 ], [ %spec.select5, %194 ], [ %spec.select6, %212 ], [ %spec.select7, %236 ], [ %spec.select8, %251 ], [ %spec.select9, %277 ], [ %spec.select10, %318 ], [ %spec.select11, %322 ], [ %spec.select12, %343 ], [ %spec.select13, %356 ]
+66:                                               ; preds = %353, %340, %320, %316, %275, %249, %234, %211, %194, %147, %127, %123, %70, %62, %189, %21, %27, %30, %46, %74, %80, %83, %103, %131, %151, %166, %169, %179, %198, %215, %238, %253, %279, %299, %302, %309, %324, %344, %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit, %20
+  %.sroa.0.0 = phi i32 [ 0, %20 ], [ 0, %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit ], [ 0, %344 ], [ 0, %324 ], [ 0, %309 ], [ 0, %302 ], [ 0, %299 ], [ 0, %279 ], [ 0, %253 ], [ 0, %238 ], [ 0, %215 ], [ 0, %198 ], [ 0, %179 ], [ 0, %169 ], [ 0, %166 ], [ 0, %151 ], [ 0, %131 ], [ 0, %103 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ %spec.select, %62 ], [ %spec.select1, %70 ], [ %spec.select2, %123 ], [ %spec.select3, %127 ], [ %spec.select4, %147 ], [ %193, %189 ], [ %spec.select5, %194 ], [ %spec.select6, %211 ], [ %spec.select7, %234 ], [ %spec.select8, %249 ], [ %spec.select9, %275 ], [ %spec.select10, %316 ], [ %spec.select11, %320 ], [ %spec.select12, %340 ], [ %spec.select13, %353 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14883,14 +14883,14 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %86 = icmp eq i8 %85, 69
   %87 = getelementptr inbounds i8, ptr %3, i64 20
   %88 = load i8, ptr %87, align 4
-  %.fr571 = freeze i8 %88
-  %89 = icmp eq i8 %.fr571, 88
+  %.fr568 = freeze i8 %88
+  %89 = icmp eq i8 %.fr568, 88
   %90 = getelementptr inbounds i8, ptr %3, i64 21
   %91 = load i8, ptr %90, align 1
-  %.fr573 = freeze i8 %91
-  %92 = icmp eq i8 %.fr573, 84
+  %.fr571 = freeze i8 %91
+  %92 = icmp eq i8 %.fr571, 84
   %93 = load <4 x i8>, ptr %3, align 8
-  %.fr568 = freeze <4 x i8> %93
+  %.fr567 = freeze <4 x i8> %93
   %94 = getelementptr inbounds i8, ptr %3, i64 4
   %95 = load i8, ptr %94, align 4
   %.fr569 = freeze i8 %95
@@ -14898,10 +14898,10 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %97 = getelementptr inbounds i8, ptr %3, i64 5
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 115
-  %.fr568.scalar = bitcast <4 x i8> %.fr568 to i32
-  %100 = icmp eq i32 %.fr568.scalar, 1868783455
-  %op.rdx476 = and i1 %100, %89
-  %101 = and i1 %op.rdx476, %86
+  %.fr567.scalar = bitcast <4 x i8> %.fr567 to i32
+  %100 = icmp eq i32 %.fr567.scalar, 1868783455
+  %op.rdx476 = and i1 %86, %100
+  %101 = and i1 %op.rdx476, %89
   %op.rdx479 = and i1 %101, %92
   %102 = and i1 %op.rdx479, %96
   %op.rdx480 = select i1 %102, i1 %99, i1 false
@@ -14913,25 +14913,25 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %106 = icmp eq i8 %105, 65
   %107 = getelementptr inbounds i8, ptr %3, i64 20
   %108 = load i8, ptr %107, align 4
-  %.fr565 = freeze i8 %108
-  %109 = icmp eq i8 %.fr565, 84
+  %.fr563 = freeze i8 %108
+  %109 = icmp eq i8 %.fr563, 84
   %110 = getelementptr inbounds i8, ptr %3, i64 21
   %111 = load i8, ptr %110, align 1
-  %.fr567 = freeze i8 %111
-  %112 = icmp eq i8 %.fr567, 65
+  %.fr566 = freeze i8 %111
+  %112 = icmp eq i8 %.fr566, 65
   %113 = load <4 x i8>, ptr %3, align 8
   %.fr562 = freeze <4 x i8> %113
   %114 = getelementptr inbounds i8, ptr %3, i64 4
   %115 = load i8, ptr %114, align 4
-  %.fr563 = freeze i8 %115
-  %116 = icmp eq i8 %.fr563, 110
+  %.fr564 = freeze i8 %115
+  %116 = icmp eq i8 %.fr564, 110
   %117 = getelementptr inbounds i8, ptr %3, i64 5
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 115
   %.fr562.scalar = bitcast <4 x i8> %.fr562 to i32
   %120 = icmp eq i32 %.fr562.scalar, 1868783455
-  %op.rdx481 = and i1 %120, %109
-  %121 = and i1 %op.rdx481, %106
+  %op.rdx481 = and i1 %106, %120
+  %121 = and i1 %op.rdx481, %109
   %op.rdx484 = and i1 %121, %112
   %122 = and i1 %op.rdx484, %116
   %op.rdx485 = select i1 %122, i1 %119, i1 false
@@ -14966,9 +14966,9 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   %.fr557 = freeze <8 x i8> %140
   %.fr557.scalar = bitcast <8 x i8> %.fr557 to i64
   %141 = icmp eq i64 %.fr557.scalar, 7956016061204356959
-  %142 = extractelement <4 x i1> %133, i64 1
-  %op.rdx486 = and i1 %141, %142
-  %143 = extractelement <4 x i1> %133, i64 0
+  %142 = extractelement <4 x i1> %133, i64 0
+  %op.rdx486 = and i1 %142, %141
+  %143 = extractelement <4 x i1> %133, i64 1
   %144 = extractelement <4 x i1> %133, i64 2
   %op.rdx487 = and i1 %143, %144
   %145 = extractelement <4 x i1> %133, i64 3
@@ -15069,257 +15069,254 @@ _ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit: ; preds = %
   br label %66
 
 198:                                              ; preds = %20
-  %199 = load <2 x i8>, ptr %5, align 8
+  %199 = load <16 x i8>, ptr %5, align 8
   %200 = getelementptr inbounds i8, ptr %3, i64 18
   %201 = load <16 x i8>, ptr %200, align 2
   %202 = load <16 x i8>, ptr %3, align 8
   %203 = getelementptr inbounds i8, ptr %3, i64 2
   %204 = load <16 x i8>, ptr %203, align 2
-  %205 = shufflevector <2 x i8> %199, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %206 = shufflevector <16 x i8> %205, <16 x i8> %201, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %207 = shufflevector <16 x i8> %206, <16 x i8> %202, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %208 = shufflevector <16 x i8> %207, <16 x i8> %204, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr544 = freeze <16 x i8> %208
-  %209 = icmp ne <16 x i8> %.fr544, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 108, i8 105, i8 116, i8 101, i8 114, i8 97, i8 108, i8 49>
-  %210 = bitcast <16 x i1> %209 to i16
-  %211 = icmp eq i16 %210, 0
-  br i1 %211, label %212, label %66
+  %205 = shufflevector <16 x i8> %199, <16 x i8> %201, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %206 = shufflevector <16 x i8> %205, <16 x i8> %202, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %207 = shufflevector <16 x i8> %206, <16 x i8> %204, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr544 = freeze <16 x i8> %207
+  %208 = icmp ne <16 x i8> %.fr544, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 108, i8 105, i8 116, i8 101, i8 114, i8 97, i8 108, i8 49>
+  %209 = bitcast <16 x i1> %208 to i16
+  %210 = icmp eq i16 %209, 0
+  br i1 %210, label %211, label %66
 
-212:                                              ; preds = %198
-  %213 = getelementptr inbounds i8, ptr %3, i64 10
-  %214 = load i8, ptr %213, align 2, !noundef !9
-  %215 = icmp eq i8 %214, 54
-  %spec.select6 = select i1 %215, i32 3, i32 0
+211:                                              ; preds = %198
+  %212 = getelementptr inbounds i8, ptr %3, i64 10
+  %213 = load i8, ptr %212, align 2, !noundef !9
+  %214 = icmp eq i8 %213, 54
+  %spec.select6 = select i1 %214, i32 3, i32 0
   br label %66
 
-216:                                              ; preds = %20
-  %217 = load <2 x i8>, ptr %5, align 8
-  %218 = getelementptr inbounds i8, ptr %3, i64 18
-  %219 = load <16 x i8>, ptr %218, align 2
-  %220 = load <16 x i8>, ptr %3, align 8
-  %221 = getelementptr inbounds i8, ptr %3, i64 2
-  %222 = load <16 x i8>, ptr %221, align 2
-  %223 = shufflevector <2 x i8> %217, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %224 = shufflevector <16 x i8> %223, <16 x i8> %219, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %225 = shufflevector <16 x i8> %224, <16 x i8> %220, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %226 = shufflevector <16 x i8> %225, <16 x i8> %222, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr542 = freeze <16 x i8> %226
-  %227 = getelementptr inbounds i8, ptr %3, i64 10
-  %228 = load <4 x i8>, ptr %227, align 2
-  %.fr543 = freeze <4 x i8> %228
-  %229 = getelementptr inbounds i8, ptr %3, i64 14
-  %230 = load i8, ptr %229, align 2
-  %231 = icmp eq i8 %230, 97
-  %232 = icmp ne <16 x i8> %.fr542, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 103, i8 99, i8 99, i8 95, i8 101, i8 120, i8 99, i8 101>
-  %233 = bitcast <16 x i1> %232 to i16
-  %234 = icmp eq i16 %233, 0
+215:                                              ; preds = %20
+  %216 = load <16 x i8>, ptr %5, align 8
+  %217 = getelementptr inbounds i8, ptr %3, i64 18
+  %218 = load <16 x i8>, ptr %217, align 2
+  %219 = load <16 x i8>, ptr %3, align 8
+  %220 = getelementptr inbounds i8, ptr %3, i64 2
+  %221 = load <16 x i8>, ptr %220, align 2
+  %222 = shufflevector <16 x i8> %216, <16 x i8> %218, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %223 = shufflevector <16 x i8> %222, <16 x i8> %219, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %224 = shufflevector <16 x i8> %223, <16 x i8> %221, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr542 = freeze <16 x i8> %224
+  %225 = getelementptr inbounds i8, ptr %3, i64 10
+  %226 = load <4 x i8>, ptr %225, align 2
+  %.fr543 = freeze <4 x i8> %226
+  %227 = getelementptr inbounds i8, ptr %3, i64 14
+  %228 = load i8, ptr %227, align 2
+  %229 = icmp eq i8 %228, 97
+  %230 = icmp ne <16 x i8> %.fr542, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 103, i8 99, i8 99, i8 95, i8 101, i8 120, i8 99, i8 101>
+  %231 = bitcast <16 x i1> %230 to i16
+  %232 = icmp eq i16 %231, 0
   %.fr543.scalar = bitcast <4 x i8> %.fr543 to i32
-  %235 = icmp eq i32 %.fr543.scalar, 1952412784
-  %op.rdx500 = and i1 %234, %235
-  %op.rdx501 = select i1 %op.rdx500, i1 %231, i1 false
-  br i1 %op.rdx501, label %236, label %66
+  %233 = icmp eq i32 %.fr543.scalar, 1952412784
+  %op.rdx500 = and i1 %232, %233
+  %op.rdx501 = select i1 %op.rdx500, i1 %229, i1 false
+  br i1 %op.rdx501, label %234, label %66
 
-236:                                              ; preds = %216
-  %237 = getelementptr inbounds i8, ptr %3, i64 15
-  %238 = load i8, ptr %237, align 1, !noundef !9
-  %239 = icmp eq i8 %238, 98
-  %spec.select7 = select i1 %239, i32 3, i32 0
+234:                                              ; preds = %215
+  %235 = getelementptr inbounds i8, ptr %3, i64 15
+  %236 = load i8, ptr %235, align 1, !noundef !9
+  %237 = icmp eq i8 %236, 98
+  %spec.select7 = select i1 %237, i32 3, i32 0
   br label %66
 
-240:                                              ; preds = %20
-  %241 = load <4 x i8>, ptr %5, align 8
-  %.fr538 = freeze <4 x i8> %241
-  %242 = getelementptr inbounds i8, ptr %3, i64 20
-  %243 = load i8, ptr %242, align 4
-  %.fr541 = freeze i8 %243
-  %244 = icmp eq i8 %.fr541, 84
-  %245 = getelementptr inbounds i8, ptr %3, i64 21
-  %246 = load i8, ptr %245, align 1
-  %247 = icmp eq i8 %246, 65
-  %248 = load <4 x i8>, ptr %3, align 8
-  %.fr539 = freeze <4 x i8> %248
+238:                                              ; preds = %20
+  %239 = load <4 x i8>, ptr %5, align 8
+  %.fr538 = freeze <4 x i8> %239
+  %240 = getelementptr inbounds i8, ptr %3, i64 20
+  %241 = load i8, ptr %240, align 4
+  %.fr541 = freeze i8 %241
+  %242 = icmp eq i8 %.fr541, 84
+  %243 = getelementptr inbounds i8, ptr %3, i64 21
+  %244 = load i8, ptr %243, align 1
+  %245 = icmp eq i8 %244, 65
+  %246 = load <4 x i8>, ptr %3, align 8
+  %.fr539 = freeze <4 x i8> %246
   %.fr538.scalar = bitcast <4 x i8> %.fr538 to i32
-  %249 = icmp eq i32 %.fr538.scalar, 1094999903
+  %247 = icmp eq i32 %.fr538.scalar, 1094999903
   %.fr539.scalar = bitcast <4 x i8> %.fr539 to i32
-  %250 = icmp eq i32 %.fr539.scalar, 1935826783
-  %op.rdx502 = and i1 %249, %250
-  %op.rdx503 = and i1 %op.rdx502, %244
-  %op.rdx504 = select i1 %op.rdx503, i1 %247, i1 false
-  br i1 %op.rdx504, label %251, label %66
+  %248 = icmp eq i32 %.fr539.scalar, 1935826783
+  %op.rdx502 = and i1 %247, %248
+  %op.rdx503 = and i1 %op.rdx502, %242
+  %op.rdx504 = select i1 %op.rdx503, i1 %245, i1 false
+  br i1 %op.rdx504, label %249, label %66
 
-251:                                              ; preds = %240
-  %252 = getelementptr inbounds i8, ptr %3, i64 4
-  %253 = load i8, ptr %252, align 4, !noundef !9
-  %254 = icmp eq i8 %253, 115
-  %spec.select8 = select i1 %254, i32 6, i32 0
+249:                                              ; preds = %238
+  %250 = getelementptr inbounds i8, ptr %3, i64 4
+  %251 = load i8, ptr %250, align 4, !noundef !9
+  %252 = icmp eq i8 %251, 115
+  %spec.select8 = select i1 %252, i32 6, i32 0
   br label %66
 
-255:                                              ; preds = %20
-  %256 = load <4 x i8>, ptr %5, align 8
-  %.fr530 = freeze <4 x i8> %256
-  %257 = getelementptr inbounds i8, ptr %3, i64 20
-  %258 = load i8, ptr %257, align 4
-  %.fr535 = freeze i8 %258
-  %259 = icmp eq i8 %.fr535, 84
-  %260 = getelementptr inbounds i8, ptr %3, i64 21
-  %261 = load i8, ptr %260, align 1
-  %.fr532 = freeze i8 %261
-  %262 = icmp eq i8 %.fr532, 65
-  %263 = load <4 x i8>, ptr %3, align 8
-  %.fr531 = freeze <4 x i8> %263
-  %264 = getelementptr inbounds i8, ptr %3, i64 4
-  %265 = load i8, ptr %264, align 4
-  %.fr537 = freeze i8 %265
-  %266 = icmp eq i8 %.fr537, 109
-  %267 = getelementptr inbounds i8, ptr %3, i64 5
-  %268 = load i8, ptr %267, align 1
-  %.fr533 = freeze i8 %268
-  %269 = icmp eq i8 %.fr533, 109
-  %270 = getelementptr inbounds i8, ptr %3, i64 6
-  %271 = load i8, ptr %270, align 2
-  %272 = icmp eq i8 %271, 111
+253:                                              ; preds = %20
+  %254 = load <4 x i8>, ptr %5, align 8
+  %.fr530 = freeze <4 x i8> %254
+  %255 = getelementptr inbounds i8, ptr %3, i64 20
+  %256 = load i8, ptr %255, align 4
+  %.fr535 = freeze i8 %256
+  %257 = icmp eq i8 %.fr535, 84
+  %258 = getelementptr inbounds i8, ptr %3, i64 21
+  %259 = load i8, ptr %258, align 1
+  %.fr532 = freeze i8 %259
+  %260 = icmp eq i8 %.fr532, 65
+  %261 = load <4 x i8>, ptr %3, align 8
+  %.fr531 = freeze <4 x i8> %261
+  %262 = getelementptr inbounds i8, ptr %3, i64 4
+  %263 = load i8, ptr %262, align 4
+  %.fr537 = freeze i8 %263
+  %264 = icmp eq i8 %.fr537, 109
+  %265 = getelementptr inbounds i8, ptr %3, i64 5
+  %266 = load i8, ptr %265, align 1
+  %.fr533 = freeze i8 %266
+  %267 = icmp eq i8 %.fr533, 109
+  %268 = getelementptr inbounds i8, ptr %3, i64 6
+  %269 = load i8, ptr %268, align 2
+  %270 = icmp eq i8 %269, 111
   %.fr530.scalar = bitcast <4 x i8> %.fr530 to i32
-  %273 = icmp eq i32 %.fr530.scalar, 1094999903
+  %271 = icmp eq i32 %.fr530.scalar, 1094999903
   %.fr531.scalar = bitcast <4 x i8> %.fr531 to i32
-  %274 = icmp eq i32 %.fr531.scalar, 1868783455
-  %op.rdx505 = and i1 %273, %274
-  %op.rdx506 = and i1 %op.rdx505, %259
-  %275 = and i1 %op.rdx506, %262
-  %op.rdx509 = and i1 %275, %266
-  %276 = and i1 %op.rdx509, %269
-  %op.rdx510 = select i1 %276, i1 %272, i1 false
-  br i1 %op.rdx510, label %277, label %66
+  %272 = icmp eq i32 %.fr531.scalar, 1868783455
+  %op.rdx505 = and i1 %271, %272
+  %op.rdx506 = and i1 %op.rdx505, %257
+  %273 = and i1 %op.rdx506, %260
+  %op.rdx509 = and i1 %273, %264
+  %274 = and i1 %op.rdx509, %267
+  %op.rdx510 = select i1 %274, i1 %270, i1 false
+  br i1 %op.rdx510, label %275, label %66
 
-277:                                              ; preds = %255
-  %278 = getelementptr inbounds i8, ptr %3, i64 7
-  %279 = load i8, ptr %278, align 1, !noundef !9
-  %280 = icmp eq i8 %279, 110
-  %spec.select9 = select i1 %280, i32 7, i32 0
+275:                                              ; preds = %253
+  %276 = getelementptr inbounds i8, ptr %3, i64 7
+  %277 = load i8, ptr %276, align 1, !noundef !9
+  %278 = icmp eq i8 %277, 110
+  %spec.select9 = select i1 %278, i32 7, i32 0
   br label %66
 
-281:                                              ; preds = %20
-  %282 = load <4 x i8>, ptr %5, align 8
-  %.fr526 = freeze <4 x i8> %282
-  %283 = icmp eq <4 x i8> %.fr526, <i8 95, i8 95, i8 68, i8 65>
-  %284 = getelementptr inbounds i8, ptr %3, i64 20
-  %285 = load i8, ptr %284, align 4
-  %.fr529 = freeze i8 %285
-  %286 = icmp eq i8 %.fr529, 84
-  %287 = getelementptr inbounds i8, ptr %3, i64 21
-  %288 = load i8, ptr %287, align 1
-  %.fr527 = freeze i8 %288
-  %289 = icmp eq i8 %.fr527, 65
-  %290 = load <8 x i8>, ptr %3, align 8
-  %.fr524 = freeze <8 x i8> %290
-  %291 = getelementptr inbounds i8, ptr %3, i64 8
-  %292 = load i8, ptr %291, align 8
-  %293 = icmp eq i8 %292, 95
+279:                                              ; preds = %20
+  %280 = load <4 x i8>, ptr %5, align 8
+  %.fr526 = freeze <4 x i8> %280
+  %281 = icmp eq <4 x i8> %.fr526, <i8 95, i8 95, i8 68, i8 65>
+  %282 = getelementptr inbounds i8, ptr %3, i64 20
+  %283 = load i8, ptr %282, align 4
+  %.fr529 = freeze i8 %283
+  %284 = icmp eq i8 %.fr529, 84
+  %285 = getelementptr inbounds i8, ptr %3, i64 21
+  %286 = load i8, ptr %285, align 1
+  %.fr527 = freeze i8 %286
+  %287 = icmp eq i8 %.fr527, 65
+  %288 = load <8 x i8>, ptr %3, align 8
+  %.fr524 = freeze <8 x i8> %288
+  %289 = getelementptr inbounds i8, ptr %3, i64 8
+  %290 = load i8, ptr %289, align 8
+  %291 = icmp eq i8 %290, 95
   %.fr524.scalar = bitcast <8 x i8> %.fr524 to i64
-  %294 = icmp eq i64 %.fr524.scalar, 7233174018586861407
-  %295 = extractelement <4 x i1> %283, i64 1
-  %op.rdx511 = and i1 %294, %295
-  %296 = extractelement <4 x i1> %283, i64 0
-  %297 = extractelement <4 x i1> %283, i64 2
-  %op.rdx512 = and i1 %296, %297
-  %298 = extractelement <4 x i1> %283, i64 3
-  %op.rdx513 = and i1 %298, %286
+  %292 = icmp eq i64 %.fr524.scalar, 7233174018586861407
+  %293 = extractelement <4 x i1> %281, i64 0
+  %op.rdx511 = and i1 %293, %292
+  %294 = extractelement <4 x i1> %281, i64 1
+  %295 = extractelement <4 x i1> %281, i64 2
+  %op.rdx512 = and i1 %294, %295
+  %296 = extractelement <4 x i1> %281, i64 3
+  %op.rdx513 = and i1 %296, %284
   %op.rdx515 = and i1 %op.rdx511, %op.rdx512
-  %299 = and i1 %op.rdx513, %289
-  %300 = and i1 %op.rdx515, %299
-  %op.rdx517 = select i1 %300, i1 %293, i1 false
-  br i1 %op.rdx517, label %301, label %66
+  %297 = and i1 %op.rdx513, %287
+  %298 = and i1 %op.rdx515, %297
+  %op.rdx517 = select i1 %298, i1 %291, i1 false
+  br i1 %op.rdx517, label %299, label %66
 
-301:                                              ; preds = %281
-  %302 = getelementptr inbounds i8, ptr %3, i64 9
-  %303 = load i8, ptr %302, align 1, !noundef !9
-  switch i8 %303, label %66 [
-    i8 100, label %304
-    i8 118, label %311
+299:                                              ; preds = %279
+  %300 = getelementptr inbounds i8, ptr %3, i64 9
+  %301 = load i8, ptr %300, align 1, !noundef !9
+  switch i8 %301, label %66 [
+    i8 100, label %302
+    i8 118, label %309
   ]
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %3, i64 10
-  %306 = load i8, ptr %305, align 2, !noundef !9
-  %307 = icmp eq i8 %306, 97
-  %308 = getelementptr inbounds i8, ptr %3, i64 11
-  %309 = load i8, ptr %308, align 1
-  %310 = icmp eq i8 %309, 116
-  %or.cond403 = select i1 %307, i1 %310, i1 false
-  br i1 %or.cond403, label %318, label %66
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds i8, ptr %3, i64 10
+  %304 = load i8, ptr %303, align 2, !noundef !9
+  %305 = icmp eq i8 %304, 97
+  %306 = getelementptr inbounds i8, ptr %3, i64 11
+  %307 = load i8, ptr %306, align 1
+  %308 = icmp eq i8 %307, 116
+  %or.cond403 = select i1 %305, i1 %308, i1 false
+  br i1 %or.cond403, label %316, label %66
 
-311:                                              ; preds = %301
-  %312 = getelementptr inbounds i8, ptr %3, i64 10
-  %313 = load i8, ptr %312, align 2, !noundef !9
-  %314 = icmp eq i8 %313, 97
-  %315 = getelementptr inbounds i8, ptr %3, i64 11
-  %316 = load i8, ptr %315, align 1
-  %317 = icmp eq i8 %316, 114
-  %or.cond406 = select i1 %314, i1 %317, i1 false
-  br i1 %or.cond406, label %322, label %66
+309:                                              ; preds = %299
+  %310 = getelementptr inbounds i8, ptr %3, i64 10
+  %311 = load i8, ptr %310, align 2, !noundef !9
+  %312 = icmp eq i8 %311, 97
+  %313 = getelementptr inbounds i8, ptr %3, i64 11
+  %314 = load i8, ptr %313, align 1
+  %315 = icmp eq i8 %314, 114
+  %or.cond406 = select i1 %312, i1 %315, i1 false
+  br i1 %or.cond406, label %320, label %66
 
-318:                                              ; preds = %304
-  %319 = getelementptr inbounds i8, ptr %3, i64 12
-  %320 = load i8, ptr %319, align 4, !noundef !9
-  %321 = icmp eq i8 %320, 97
-  %spec.select10 = select i1 %321, i32 8, i32 0
+316:                                              ; preds = %302
+  %317 = getelementptr inbounds i8, ptr %3, i64 12
+  %318 = load i8, ptr %317, align 4, !noundef !9
+  %319 = icmp eq i8 %318, 97
+  %spec.select10 = select i1 %319, i32 8, i32 0
   br label %66
 
-322:                                              ; preds = %311
-  %323 = getelementptr inbounds i8, ptr %3, i64 12
-  %324 = load i8, ptr %323, align 4, !noundef !9
-  %325 = icmp eq i8 %324, 115
-  %spec.select11 = select i1 %325, i32 10, i32 0
+320:                                              ; preds = %309
+  %321 = getelementptr inbounds i8, ptr %3, i64 12
+  %322 = load i8, ptr %321, align 4, !noundef !9
+  %323 = icmp eq i8 %322, 115
+  %spec.select11 = select i1 %323, i32 10, i32 0
   br label %66
 
-326:                                              ; preds = %20
-  %327 = load <2 x i8>, ptr %5, align 8
-  %328 = getelementptr inbounds i8, ptr %3, i64 18
-  %329 = load <16 x i8>, ptr %328, align 2
-  %330 = load <16 x i8>, ptr %3, align 8
-  %331 = getelementptr inbounds i8, ptr %3, i64 2
-  %332 = load <16 x i8>, ptr %331, align 2
-  %333 = shufflevector <2 x i8> %327, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %334 = shufflevector <16 x i8> %333, <16 x i8> %329, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %335 = shufflevector <16 x i8> %334, <16 x i8> %330, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %336 = shufflevector <16 x i8> %335, <16 x i8> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr523 = freeze <16 x i8> %336
-  %337 = getelementptr inbounds i8, ptr %3, i64 10
-  %338 = load i8, ptr %337, align 2
-  %339 = icmp eq i8 %338, 115
-  %340 = icmp ne <16 x i8> %.fr523, <i8 95, i8 95, i8 68, i8 65, i8 84, i8 65, i8 95, i8 95, i8 116, i8 104, i8 114, i8 101, i8 97, i8 100, i8 95, i8 98>
-  %341 = bitcast <16 x i1> %340 to i16
-  %342 = icmp eq i16 %341, 0
-  %op.rdx518 = select i1 %342, i1 %339, i1 false
-  br i1 %op.rdx518, label %343, label %66
+324:                                              ; preds = %20
+  %325 = load <16 x i8>, ptr %5, align 8
+  %326 = getelementptr inbounds i8, ptr %3, i64 18
+  %327 = load <16 x i8>, ptr %326, align 2
+  %328 = load <16 x i8>, ptr %3, align 8
+  %329 = getelementptr inbounds i8, ptr %3, i64 2
+  %330 = load <16 x i8>, ptr %329, align 2
+  %331 = shufflevector <16 x i8> %325, <16 x i8> %327, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %332 = shufflevector <16 x i8> %331, <16 x i8> %328, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %333 = shufflevector <16 x i8> %332, <16 x i8> %330, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr523 = freeze <16 x i8> %333
+  %334 = getelementptr inbounds i8, ptr %3, i64 10
+  %335 = load i8, ptr %334, align 2
+  %336 = icmp eq i8 %335, 115
+  %337 = icmp ne <16 x i8> %.fr523, <i8 95, i8 95, i8 68, i8 65, i8 84, i8 65, i8 95, i8 95, i8 116, i8 104, i8 114, i8 101, i8 97, i8 100, i8 95, i8 98>
+  %338 = bitcast <16 x i1> %337 to i16
+  %339 = icmp eq i16 %338, 0
+  %op.rdx518 = select i1 %339, i1 %336, i1 false
+  br i1 %op.rdx518, label %340, label %66
 
-343:                                              ; preds = %326
-  %344 = getelementptr inbounds i8, ptr %3, i64 11
-  %345 = load i8, ptr %344, align 1, !noundef !9
-  %346 = icmp eq i8 %345, 115
-  %spec.select12 = select i1 %346, i32 9, i32 0
+340:                                              ; preds = %324
+  %341 = getelementptr inbounds i8, ptr %3, i64 11
+  %342 = load i8, ptr %341, align 1, !noundef !9
+  %343 = icmp eq i8 %342, 115
+  %spec.select12 = select i1 %343, i32 9, i32 0
   br label %66
 
-347:                                              ; preds = %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit
-  %348 = load <4 x i8>, ptr %5, align 8
-  %.fr = freeze <4 x i8> %348
-  %349 = getelementptr inbounds i8, ptr %3, i64 20
-  %350 = load i8, ptr %349, align 4
-  %.fr522 = freeze i8 %350
-  %351 = icmp eq i8 %.fr522, 65
-  %352 = getelementptr inbounds i8, ptr %3, i64 21
-  %353 = load i8, ptr %352, align 1
-  %354 = icmp eq i8 %353, 82
+344:                                              ; preds = %_ZN6object4read5macho7section7Section4name17heb4695a6fa4f732aE.exit
+  %345 = load <4 x i8>, ptr %5, align 8
+  %.fr = freeze <4 x i8> %345
+  %346 = getelementptr inbounds i8, ptr %3, i64 20
+  %347 = load i8, ptr %346, align 4
+  %.fr522 = freeze i8 %347
+  %348 = icmp eq i8 %.fr522, 65
+  %349 = getelementptr inbounds i8, ptr %3, i64 21
+  %350 = load i8, ptr %349, align 1
+  %351 = icmp eq i8 %350, 82
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %355 = icmp eq i32 %.fr.scalar, 1464098655
-  %op.rdx519 = and i1 %355, %351
-  %op.rdx520 = select i1 %op.rdx519, i1 %354, i1 false
-  br i1 %op.rdx520, label %356, label %66
+  %352 = icmp eq i32 %.fr.scalar, 1464098655
+  %op.rdx519 = and i1 %352, %348
+  %op.rdx520 = select i1 %op.rdx519, i1 %351, i1 false
+  br i1 %op.rdx520, label %353, label %66
 
-356:                                              ; preds = %347
-  %357 = getelementptr inbounds i8, ptr %3, i64 22
-  %358 = load i8, ptr %357, align 2, !noundef !9
-  %359 = icmp eq i8 %358, 70
-  %spec.select13 = select i1 %359, i32 13, i32 0
+353:                                              ; preds = %344
+  %354 = getelementptr inbounds i8, ptr %3, i64 22
+  %355 = load i8, ptr %354, align 2, !noundef !9
+  %356 = icmp eq i8 %355, 70
+  %spec.select13 = select i1 %356, i32 13, i32 0
   br label %66
 }
 
@@ -15364,7 +15361,7 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %.sroa.5.0.i16 = phi i64 [ 16, %_ZN6object4read5macho7section7Section12segment_name17h6b691f64674078a2E.exit ], [ %17, %16 ]
   switch i64 %.sroa.5.0.i, label %66 [
     i64 6, label %20
-    i64 7, label %347
+    i64 7, label %344
   ]
 
 20:                                               ; preds = %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit
@@ -15374,11 +15371,11 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
     i64 9, label %131
     i64 10, label %151
     i64 11, label %198
-    i64 16, label %216
-    i64 5, label %240
-    i64 8, label %255
-    i64 13, label %281
-    i64 12, label %326
+    i64 16, label %215
+    i64 5, label %238
+    i64 8, label %253
+    i64 13, label %279
+    i64 12, label %324
   ]
 
 21:                                               ; preds = %20
@@ -15404,21 +15401,21 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %33 = icmp eq i8 %32, 69
   %34 = getelementptr inbounds i8, ptr %3, i64 20
   %35 = load i8, ptr %34, align 4
-  %.fr581 = freeze i8 %35
-  %36 = icmp eq i8 %.fr581, 88
+  %.fr577 = freeze i8 %35
+  %36 = icmp eq i8 %.fr577, 88
   %37 = getelementptr inbounds i8, ptr %3, i64 21
   %38 = load i8, ptr %37, align 1
-  %.fr583 = freeze i8 %38
-  %39 = icmp eq i8 %.fr583, 84
+  %.fr579 = freeze i8 %38
+  %39 = icmp eq i8 %.fr579, 84
   %40 = load <4 x i8>, ptr %3, align 4
-  %.fr579 = freeze <4 x i8> %40
+  %.fr576 = freeze <4 x i8> %40
   %41 = getelementptr inbounds i8, ptr %3, i64 4
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 120
-  %.fr579.scalar = bitcast <4 x i8> %.fr579 to i32
-  %44 = icmp eq i32 %.fr579.scalar, 1702125407
-  %op.rdx = and i1 %44, %36
-  %45 = and i1 %op.rdx, %33
+  %.fr576.scalar = bitcast <4 x i8> %.fr576 to i32
+  %44 = icmp eq i32 %.fr576.scalar, 1702125407
+  %op.rdx = and i1 %33, %44
+  %45 = and i1 %op.rdx, %36
   %op.rdx470 = and i1 %45, %39
   %op.rdx471 = select i1 %op.rdx470, i1 %43, i1 false
   br i1 %op.rdx471, label %62, label %66
@@ -15429,21 +15426,21 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %49 = icmp eq i8 %48, 65
   %50 = getelementptr inbounds i8, ptr %3, i64 20
   %51 = load i8, ptr %50, align 4
-  %.fr576 = freeze i8 %51
-  %52 = icmp eq i8 %.fr576, 84
+  %.fr573 = freeze i8 %51
+  %52 = icmp eq i8 %.fr573, 84
   %53 = getelementptr inbounds i8, ptr %3, i64 21
   %54 = load i8, ptr %53, align 1
-  %.fr578 = freeze i8 %54
-  %55 = icmp eq i8 %.fr578, 65
+  %.fr575 = freeze i8 %54
+  %55 = icmp eq i8 %.fr575, 65
   %56 = load <4 x i8>, ptr %3, align 4
-  %.fr574 = freeze <4 x i8> %56
+  %.fr572 = freeze <4 x i8> %56
   %57 = getelementptr inbounds i8, ptr %3, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = icmp eq i8 %58, 116
-  %.fr574.scalar = bitcast <4 x i8> %.fr574 to i32
-  %60 = icmp eq i32 %.fr574.scalar, 1633967967
-  %op.rdx472 = and i1 %60, %52
-  %61 = and i1 %op.rdx472, %49
+  %.fr572.scalar = bitcast <4 x i8> %.fr572 to i32
+  %60 = icmp eq i32 %.fr572.scalar, 1633967967
+  %op.rdx472 = and i1 %49, %60
+  %61 = and i1 %op.rdx472, %52
   %op.rdx474 = and i1 %61, %55
   %op.rdx475 = select i1 %op.rdx474, i1 %59, i1 false
   br i1 %op.rdx475, label %70, label %66
@@ -15455,8 +15452,8 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %spec.select = zext i1 %65 to i32
   br label %66
 
-66:                                               ; preds = %356, %343, %322, %318, %277, %251, %236, %212, %194, %147, %127, %123, %70, %62, %189, %21, %27, %30, %46, %74, %80, %83, %103, %131, %151, %166, %169, %179, %198, %216, %240, %255, %281, %301, %304, %311, %326, %347, %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit, %20
-  %.sroa.0.0 = phi i32 [ 0, %20 ], [ 0, %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit ], [ 0, %347 ], [ 0, %326 ], [ 0, %311 ], [ 0, %304 ], [ 0, %301 ], [ 0, %281 ], [ 0, %255 ], [ 0, %240 ], [ 0, %216 ], [ 0, %198 ], [ 0, %179 ], [ 0, %169 ], [ 0, %166 ], [ 0, %151 ], [ 0, %131 ], [ 0, %103 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ %spec.select, %62 ], [ %spec.select1, %70 ], [ %spec.select2, %123 ], [ %spec.select3, %127 ], [ %spec.select4, %147 ], [ %193, %189 ], [ %spec.select5, %194 ], [ %spec.select6, %212 ], [ %spec.select7, %236 ], [ %spec.select8, %251 ], [ %spec.select9, %277 ], [ %spec.select10, %318 ], [ %spec.select11, %322 ], [ %spec.select12, %343 ], [ %spec.select13, %356 ]
+66:                                               ; preds = %353, %340, %320, %316, %275, %249, %234, %211, %194, %147, %127, %123, %70, %62, %189, %21, %27, %30, %46, %74, %80, %83, %103, %131, %151, %166, %169, %179, %198, %215, %238, %253, %279, %299, %302, %309, %324, %344, %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit, %20
+  %.sroa.0.0 = phi i32 [ 0, %20 ], [ 0, %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit ], [ 0, %344 ], [ 0, %324 ], [ 0, %309 ], [ 0, %302 ], [ 0, %299 ], [ 0, %279 ], [ 0, %253 ], [ 0, %238 ], [ 0, %215 ], [ 0, %198 ], [ 0, %179 ], [ 0, %169 ], [ 0, %166 ], [ 0, %151 ], [ 0, %131 ], [ 0, %103 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ %spec.select, %62 ], [ %spec.select1, %70 ], [ %spec.select2, %123 ], [ %spec.select3, %127 ], [ %spec.select4, %147 ], [ %193, %189 ], [ %spec.select5, %194 ], [ %spec.select6, %211 ], [ %spec.select7, %234 ], [ %spec.select8, %249 ], [ %spec.select9, %275 ], [ %spec.select10, %316 ], [ %spec.select11, %320 ], [ %spec.select12, %340 ], [ %spec.select13, %353 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15496,14 +15493,14 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %86 = icmp eq i8 %85, 69
   %87 = getelementptr inbounds i8, ptr %3, i64 20
   %88 = load i8, ptr %87, align 4
-  %.fr571 = freeze i8 %88
-  %89 = icmp eq i8 %.fr571, 88
+  %.fr568 = freeze i8 %88
+  %89 = icmp eq i8 %.fr568, 88
   %90 = getelementptr inbounds i8, ptr %3, i64 21
   %91 = load i8, ptr %90, align 1
-  %.fr573 = freeze i8 %91
-  %92 = icmp eq i8 %.fr573, 84
+  %.fr571 = freeze i8 %91
+  %92 = icmp eq i8 %.fr571, 84
   %93 = load <4 x i8>, ptr %3, align 4
-  %.fr568 = freeze <4 x i8> %93
+  %.fr567 = freeze <4 x i8> %93
   %94 = getelementptr inbounds i8, ptr %3, i64 4
   %95 = load i8, ptr %94, align 4
   %.fr569 = freeze i8 %95
@@ -15511,10 +15508,10 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %97 = getelementptr inbounds i8, ptr %3, i64 5
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 115
-  %.fr568.scalar = bitcast <4 x i8> %.fr568 to i32
-  %100 = icmp eq i32 %.fr568.scalar, 1868783455
-  %op.rdx476 = and i1 %100, %89
-  %101 = and i1 %op.rdx476, %86
+  %.fr567.scalar = bitcast <4 x i8> %.fr567 to i32
+  %100 = icmp eq i32 %.fr567.scalar, 1868783455
+  %op.rdx476 = and i1 %86, %100
+  %101 = and i1 %op.rdx476, %89
   %op.rdx479 = and i1 %101, %92
   %102 = and i1 %op.rdx479, %96
   %op.rdx480 = select i1 %102, i1 %99, i1 false
@@ -15526,25 +15523,25 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %106 = icmp eq i8 %105, 65
   %107 = getelementptr inbounds i8, ptr %3, i64 20
   %108 = load i8, ptr %107, align 4
-  %.fr565 = freeze i8 %108
-  %109 = icmp eq i8 %.fr565, 84
+  %.fr563 = freeze i8 %108
+  %109 = icmp eq i8 %.fr563, 84
   %110 = getelementptr inbounds i8, ptr %3, i64 21
   %111 = load i8, ptr %110, align 1
-  %.fr567 = freeze i8 %111
-  %112 = icmp eq i8 %.fr567, 65
+  %.fr566 = freeze i8 %111
+  %112 = icmp eq i8 %.fr566, 65
   %113 = load <4 x i8>, ptr %3, align 4
   %.fr562 = freeze <4 x i8> %113
   %114 = getelementptr inbounds i8, ptr %3, i64 4
   %115 = load i8, ptr %114, align 4
-  %.fr563 = freeze i8 %115
-  %116 = icmp eq i8 %.fr563, 110
+  %.fr564 = freeze i8 %115
+  %116 = icmp eq i8 %.fr564, 110
   %117 = getelementptr inbounds i8, ptr %3, i64 5
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 115
   %.fr562.scalar = bitcast <4 x i8> %.fr562 to i32
   %120 = icmp eq i32 %.fr562.scalar, 1868783455
-  %op.rdx481 = and i1 %120, %109
-  %121 = and i1 %op.rdx481, %106
+  %op.rdx481 = and i1 %106, %120
+  %121 = and i1 %op.rdx481, %109
   %op.rdx484 = and i1 %121, %112
   %122 = and i1 %op.rdx484, %116
   %op.rdx485 = select i1 %122, i1 %119, i1 false
@@ -15579,9 +15576,9 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   %.fr557 = freeze <8 x i8> %140
   %.fr557.scalar = bitcast <8 x i8> %.fr557 to i64
   %141 = icmp eq i64 %.fr557.scalar, 7956016061204356959
-  %142 = extractelement <4 x i1> %133, i64 1
-  %op.rdx486 = and i1 %141, %142
-  %143 = extractelement <4 x i1> %133, i64 0
+  %142 = extractelement <4 x i1> %133, i64 0
+  %op.rdx486 = and i1 %142, %141
+  %143 = extractelement <4 x i1> %133, i64 1
   %144 = extractelement <4 x i1> %133, i64 2
   %op.rdx487 = and i1 %143, %144
   %145 = extractelement <4 x i1> %133, i64 3
@@ -15682,257 +15679,254 @@ _ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit: ; preds = %
   br label %66
 
 198:                                              ; preds = %20
-  %199 = load <2 x i8>, ptr %5, align 4
+  %199 = load <16 x i8>, ptr %5, align 4
   %200 = getelementptr inbounds i8, ptr %3, i64 18
   %201 = load <16 x i8>, ptr %200, align 2
   %202 = load <16 x i8>, ptr %3, align 4
   %203 = getelementptr inbounds i8, ptr %3, i64 2
   %204 = load <16 x i8>, ptr %203, align 2
-  %205 = shufflevector <2 x i8> %199, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %206 = shufflevector <16 x i8> %205, <16 x i8> %201, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %207 = shufflevector <16 x i8> %206, <16 x i8> %202, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %208 = shufflevector <16 x i8> %207, <16 x i8> %204, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr544 = freeze <16 x i8> %208
-  %209 = icmp ne <16 x i8> %.fr544, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 108, i8 105, i8 116, i8 101, i8 114, i8 97, i8 108, i8 49>
-  %210 = bitcast <16 x i1> %209 to i16
-  %211 = icmp eq i16 %210, 0
-  br i1 %211, label %212, label %66
+  %205 = shufflevector <16 x i8> %199, <16 x i8> %201, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %206 = shufflevector <16 x i8> %205, <16 x i8> %202, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %207 = shufflevector <16 x i8> %206, <16 x i8> %204, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr544 = freeze <16 x i8> %207
+  %208 = icmp ne <16 x i8> %.fr544, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 108, i8 105, i8 116, i8 101, i8 114, i8 97, i8 108, i8 49>
+  %209 = bitcast <16 x i1> %208 to i16
+  %210 = icmp eq i16 %209, 0
+  br i1 %210, label %211, label %66
 
-212:                                              ; preds = %198
-  %213 = getelementptr inbounds i8, ptr %3, i64 10
-  %214 = load i8, ptr %213, align 2, !noundef !9
-  %215 = icmp eq i8 %214, 54
-  %spec.select6 = select i1 %215, i32 3, i32 0
+211:                                              ; preds = %198
+  %212 = getelementptr inbounds i8, ptr %3, i64 10
+  %213 = load i8, ptr %212, align 2, !noundef !9
+  %214 = icmp eq i8 %213, 54
+  %spec.select6 = select i1 %214, i32 3, i32 0
   br label %66
 
-216:                                              ; preds = %20
-  %217 = load <2 x i8>, ptr %5, align 4
-  %218 = getelementptr inbounds i8, ptr %3, i64 18
-  %219 = load <16 x i8>, ptr %218, align 2
-  %220 = load <16 x i8>, ptr %3, align 4
-  %221 = getelementptr inbounds i8, ptr %3, i64 2
-  %222 = load <16 x i8>, ptr %221, align 2
-  %223 = shufflevector <2 x i8> %217, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %224 = shufflevector <16 x i8> %223, <16 x i8> %219, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %225 = shufflevector <16 x i8> %224, <16 x i8> %220, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %226 = shufflevector <16 x i8> %225, <16 x i8> %222, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr542 = freeze <16 x i8> %226
-  %227 = getelementptr inbounds i8, ptr %3, i64 10
-  %228 = load <4 x i8>, ptr %227, align 2
-  %.fr543 = freeze <4 x i8> %228
-  %229 = getelementptr inbounds i8, ptr %3, i64 14
-  %230 = load i8, ptr %229, align 2
-  %231 = icmp eq i8 %230, 97
-  %232 = icmp ne <16 x i8> %.fr542, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 103, i8 99, i8 99, i8 95, i8 101, i8 120, i8 99, i8 101>
-  %233 = bitcast <16 x i1> %232 to i16
-  %234 = icmp eq i16 %233, 0
+215:                                              ; preds = %20
+  %216 = load <16 x i8>, ptr %5, align 4
+  %217 = getelementptr inbounds i8, ptr %3, i64 18
+  %218 = load <16 x i8>, ptr %217, align 2
+  %219 = load <16 x i8>, ptr %3, align 4
+  %220 = getelementptr inbounds i8, ptr %3, i64 2
+  %221 = load <16 x i8>, ptr %220, align 2
+  %222 = shufflevector <16 x i8> %216, <16 x i8> %218, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %223 = shufflevector <16 x i8> %222, <16 x i8> %219, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %224 = shufflevector <16 x i8> %223, <16 x i8> %221, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr542 = freeze <16 x i8> %224
+  %225 = getelementptr inbounds i8, ptr %3, i64 10
+  %226 = load <4 x i8>, ptr %225, align 2
+  %.fr543 = freeze <4 x i8> %226
+  %227 = getelementptr inbounds i8, ptr %3, i64 14
+  %228 = load i8, ptr %227, align 2
+  %229 = icmp eq i8 %228, 97
+  %230 = icmp ne <16 x i8> %.fr542, <i8 95, i8 95, i8 84, i8 69, i8 88, i8 84, i8 95, i8 95, i8 103, i8 99, i8 99, i8 95, i8 101, i8 120, i8 99, i8 101>
+  %231 = bitcast <16 x i1> %230 to i16
+  %232 = icmp eq i16 %231, 0
   %.fr543.scalar = bitcast <4 x i8> %.fr543 to i32
-  %235 = icmp eq i32 %.fr543.scalar, 1952412784
-  %op.rdx500 = and i1 %234, %235
-  %op.rdx501 = select i1 %op.rdx500, i1 %231, i1 false
-  br i1 %op.rdx501, label %236, label %66
+  %233 = icmp eq i32 %.fr543.scalar, 1952412784
+  %op.rdx500 = and i1 %232, %233
+  %op.rdx501 = select i1 %op.rdx500, i1 %229, i1 false
+  br i1 %op.rdx501, label %234, label %66
 
-236:                                              ; preds = %216
-  %237 = getelementptr inbounds i8, ptr %3, i64 15
-  %238 = load i8, ptr %237, align 1, !noundef !9
-  %239 = icmp eq i8 %238, 98
-  %spec.select7 = select i1 %239, i32 3, i32 0
+234:                                              ; preds = %215
+  %235 = getelementptr inbounds i8, ptr %3, i64 15
+  %236 = load i8, ptr %235, align 1, !noundef !9
+  %237 = icmp eq i8 %236, 98
+  %spec.select7 = select i1 %237, i32 3, i32 0
   br label %66
 
-240:                                              ; preds = %20
-  %241 = load <4 x i8>, ptr %5, align 4
-  %.fr538 = freeze <4 x i8> %241
-  %242 = getelementptr inbounds i8, ptr %3, i64 20
-  %243 = load i8, ptr %242, align 4
-  %.fr541 = freeze i8 %243
-  %244 = icmp eq i8 %.fr541, 84
-  %245 = getelementptr inbounds i8, ptr %3, i64 21
-  %246 = load i8, ptr %245, align 1
-  %247 = icmp eq i8 %246, 65
-  %248 = load <4 x i8>, ptr %3, align 4
-  %.fr539 = freeze <4 x i8> %248
+238:                                              ; preds = %20
+  %239 = load <4 x i8>, ptr %5, align 4
+  %.fr538 = freeze <4 x i8> %239
+  %240 = getelementptr inbounds i8, ptr %3, i64 20
+  %241 = load i8, ptr %240, align 4
+  %.fr541 = freeze i8 %241
+  %242 = icmp eq i8 %.fr541, 84
+  %243 = getelementptr inbounds i8, ptr %3, i64 21
+  %244 = load i8, ptr %243, align 1
+  %245 = icmp eq i8 %244, 65
+  %246 = load <4 x i8>, ptr %3, align 4
+  %.fr539 = freeze <4 x i8> %246
   %.fr538.scalar = bitcast <4 x i8> %.fr538 to i32
-  %249 = icmp eq i32 %.fr538.scalar, 1094999903
+  %247 = icmp eq i32 %.fr538.scalar, 1094999903
   %.fr539.scalar = bitcast <4 x i8> %.fr539 to i32
-  %250 = icmp eq i32 %.fr539.scalar, 1935826783
-  %op.rdx502 = and i1 %249, %250
-  %op.rdx503 = and i1 %op.rdx502, %244
-  %op.rdx504 = select i1 %op.rdx503, i1 %247, i1 false
-  br i1 %op.rdx504, label %251, label %66
+  %248 = icmp eq i32 %.fr539.scalar, 1935826783
+  %op.rdx502 = and i1 %247, %248
+  %op.rdx503 = and i1 %op.rdx502, %242
+  %op.rdx504 = select i1 %op.rdx503, i1 %245, i1 false
+  br i1 %op.rdx504, label %249, label %66
 
-251:                                              ; preds = %240
-  %252 = getelementptr inbounds i8, ptr %3, i64 4
-  %253 = load i8, ptr %252, align 4, !noundef !9
-  %254 = icmp eq i8 %253, 115
-  %spec.select8 = select i1 %254, i32 6, i32 0
+249:                                              ; preds = %238
+  %250 = getelementptr inbounds i8, ptr %3, i64 4
+  %251 = load i8, ptr %250, align 4, !noundef !9
+  %252 = icmp eq i8 %251, 115
+  %spec.select8 = select i1 %252, i32 6, i32 0
   br label %66
 
-255:                                              ; preds = %20
-  %256 = load <4 x i8>, ptr %5, align 4
-  %.fr530 = freeze <4 x i8> %256
-  %257 = getelementptr inbounds i8, ptr %3, i64 20
-  %258 = load i8, ptr %257, align 4
-  %.fr535 = freeze i8 %258
-  %259 = icmp eq i8 %.fr535, 84
-  %260 = getelementptr inbounds i8, ptr %3, i64 21
-  %261 = load i8, ptr %260, align 1
-  %.fr532 = freeze i8 %261
-  %262 = icmp eq i8 %.fr532, 65
-  %263 = load <4 x i8>, ptr %3, align 4
-  %.fr531 = freeze <4 x i8> %263
-  %264 = getelementptr inbounds i8, ptr %3, i64 4
-  %265 = load i8, ptr %264, align 4
-  %.fr537 = freeze i8 %265
-  %266 = icmp eq i8 %.fr537, 109
-  %267 = getelementptr inbounds i8, ptr %3, i64 5
-  %268 = load i8, ptr %267, align 1
-  %.fr533 = freeze i8 %268
-  %269 = icmp eq i8 %.fr533, 109
-  %270 = getelementptr inbounds i8, ptr %3, i64 6
-  %271 = load i8, ptr %270, align 2
-  %272 = icmp eq i8 %271, 111
+253:                                              ; preds = %20
+  %254 = load <4 x i8>, ptr %5, align 4
+  %.fr530 = freeze <4 x i8> %254
+  %255 = getelementptr inbounds i8, ptr %3, i64 20
+  %256 = load i8, ptr %255, align 4
+  %.fr535 = freeze i8 %256
+  %257 = icmp eq i8 %.fr535, 84
+  %258 = getelementptr inbounds i8, ptr %3, i64 21
+  %259 = load i8, ptr %258, align 1
+  %.fr532 = freeze i8 %259
+  %260 = icmp eq i8 %.fr532, 65
+  %261 = load <4 x i8>, ptr %3, align 4
+  %.fr531 = freeze <4 x i8> %261
+  %262 = getelementptr inbounds i8, ptr %3, i64 4
+  %263 = load i8, ptr %262, align 4
+  %.fr537 = freeze i8 %263
+  %264 = icmp eq i8 %.fr537, 109
+  %265 = getelementptr inbounds i8, ptr %3, i64 5
+  %266 = load i8, ptr %265, align 1
+  %.fr533 = freeze i8 %266
+  %267 = icmp eq i8 %.fr533, 109
+  %268 = getelementptr inbounds i8, ptr %3, i64 6
+  %269 = load i8, ptr %268, align 2
+  %270 = icmp eq i8 %269, 111
   %.fr530.scalar = bitcast <4 x i8> %.fr530 to i32
-  %273 = icmp eq i32 %.fr530.scalar, 1094999903
+  %271 = icmp eq i32 %.fr530.scalar, 1094999903
   %.fr531.scalar = bitcast <4 x i8> %.fr531 to i32
-  %274 = icmp eq i32 %.fr531.scalar, 1868783455
-  %op.rdx505 = and i1 %273, %274
-  %op.rdx506 = and i1 %op.rdx505, %259
-  %275 = and i1 %op.rdx506, %262
-  %op.rdx509 = and i1 %275, %266
-  %276 = and i1 %op.rdx509, %269
-  %op.rdx510 = select i1 %276, i1 %272, i1 false
-  br i1 %op.rdx510, label %277, label %66
+  %272 = icmp eq i32 %.fr531.scalar, 1868783455
+  %op.rdx505 = and i1 %271, %272
+  %op.rdx506 = and i1 %op.rdx505, %257
+  %273 = and i1 %op.rdx506, %260
+  %op.rdx509 = and i1 %273, %264
+  %274 = and i1 %op.rdx509, %267
+  %op.rdx510 = select i1 %274, i1 %270, i1 false
+  br i1 %op.rdx510, label %275, label %66
 
-277:                                              ; preds = %255
-  %278 = getelementptr inbounds i8, ptr %3, i64 7
-  %279 = load i8, ptr %278, align 1, !noundef !9
-  %280 = icmp eq i8 %279, 110
-  %spec.select9 = select i1 %280, i32 7, i32 0
+275:                                              ; preds = %253
+  %276 = getelementptr inbounds i8, ptr %3, i64 7
+  %277 = load i8, ptr %276, align 1, !noundef !9
+  %278 = icmp eq i8 %277, 110
+  %spec.select9 = select i1 %278, i32 7, i32 0
   br label %66
 
-281:                                              ; preds = %20
-  %282 = load <4 x i8>, ptr %5, align 4
-  %.fr526 = freeze <4 x i8> %282
-  %283 = icmp eq <4 x i8> %.fr526, <i8 95, i8 95, i8 68, i8 65>
-  %284 = getelementptr inbounds i8, ptr %3, i64 20
-  %285 = load i8, ptr %284, align 4
-  %.fr529 = freeze i8 %285
-  %286 = icmp eq i8 %.fr529, 84
-  %287 = getelementptr inbounds i8, ptr %3, i64 21
-  %288 = load i8, ptr %287, align 1
-  %.fr527 = freeze i8 %288
-  %289 = icmp eq i8 %.fr527, 65
-  %290 = load <8 x i8>, ptr %3, align 4
-  %.fr524 = freeze <8 x i8> %290
-  %291 = getelementptr inbounds i8, ptr %3, i64 8
-  %292 = load i8, ptr %291, align 4
-  %293 = icmp eq i8 %292, 95
+279:                                              ; preds = %20
+  %280 = load <4 x i8>, ptr %5, align 4
+  %.fr526 = freeze <4 x i8> %280
+  %281 = icmp eq <4 x i8> %.fr526, <i8 95, i8 95, i8 68, i8 65>
+  %282 = getelementptr inbounds i8, ptr %3, i64 20
+  %283 = load i8, ptr %282, align 4
+  %.fr529 = freeze i8 %283
+  %284 = icmp eq i8 %.fr529, 84
+  %285 = getelementptr inbounds i8, ptr %3, i64 21
+  %286 = load i8, ptr %285, align 1
+  %.fr527 = freeze i8 %286
+  %287 = icmp eq i8 %.fr527, 65
+  %288 = load <8 x i8>, ptr %3, align 4
+  %.fr524 = freeze <8 x i8> %288
+  %289 = getelementptr inbounds i8, ptr %3, i64 8
+  %290 = load i8, ptr %289, align 4
+  %291 = icmp eq i8 %290, 95
   %.fr524.scalar = bitcast <8 x i8> %.fr524 to i64
-  %294 = icmp eq i64 %.fr524.scalar, 7233174018586861407
-  %295 = extractelement <4 x i1> %283, i64 1
-  %op.rdx511 = and i1 %294, %295
-  %296 = extractelement <4 x i1> %283, i64 0
-  %297 = extractelement <4 x i1> %283, i64 2
-  %op.rdx512 = and i1 %296, %297
-  %298 = extractelement <4 x i1> %283, i64 3
-  %op.rdx513 = and i1 %298, %286
+  %292 = icmp eq i64 %.fr524.scalar, 7233174018586861407
+  %293 = extractelement <4 x i1> %281, i64 0
+  %op.rdx511 = and i1 %293, %292
+  %294 = extractelement <4 x i1> %281, i64 1
+  %295 = extractelement <4 x i1> %281, i64 2
+  %op.rdx512 = and i1 %294, %295
+  %296 = extractelement <4 x i1> %281, i64 3
+  %op.rdx513 = and i1 %296, %284
   %op.rdx515 = and i1 %op.rdx511, %op.rdx512
-  %299 = and i1 %op.rdx513, %289
-  %300 = and i1 %op.rdx515, %299
-  %op.rdx517 = select i1 %300, i1 %293, i1 false
-  br i1 %op.rdx517, label %301, label %66
+  %297 = and i1 %op.rdx513, %287
+  %298 = and i1 %op.rdx515, %297
+  %op.rdx517 = select i1 %298, i1 %291, i1 false
+  br i1 %op.rdx517, label %299, label %66
 
-301:                                              ; preds = %281
-  %302 = getelementptr inbounds i8, ptr %3, i64 9
-  %303 = load i8, ptr %302, align 1, !noundef !9
-  switch i8 %303, label %66 [
-    i8 100, label %304
-    i8 118, label %311
+299:                                              ; preds = %279
+  %300 = getelementptr inbounds i8, ptr %3, i64 9
+  %301 = load i8, ptr %300, align 1, !noundef !9
+  switch i8 %301, label %66 [
+    i8 100, label %302
+    i8 118, label %309
   ]
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %3, i64 10
-  %306 = load i8, ptr %305, align 2, !noundef !9
-  %307 = icmp eq i8 %306, 97
-  %308 = getelementptr inbounds i8, ptr %3, i64 11
-  %309 = load i8, ptr %308, align 1
-  %310 = icmp eq i8 %309, 116
-  %or.cond403 = select i1 %307, i1 %310, i1 false
-  br i1 %or.cond403, label %318, label %66
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds i8, ptr %3, i64 10
+  %304 = load i8, ptr %303, align 2, !noundef !9
+  %305 = icmp eq i8 %304, 97
+  %306 = getelementptr inbounds i8, ptr %3, i64 11
+  %307 = load i8, ptr %306, align 1
+  %308 = icmp eq i8 %307, 116
+  %or.cond403 = select i1 %305, i1 %308, i1 false
+  br i1 %or.cond403, label %316, label %66
 
-311:                                              ; preds = %301
-  %312 = getelementptr inbounds i8, ptr %3, i64 10
-  %313 = load i8, ptr %312, align 2, !noundef !9
-  %314 = icmp eq i8 %313, 97
-  %315 = getelementptr inbounds i8, ptr %3, i64 11
-  %316 = load i8, ptr %315, align 1
-  %317 = icmp eq i8 %316, 114
-  %or.cond406 = select i1 %314, i1 %317, i1 false
-  br i1 %or.cond406, label %322, label %66
+309:                                              ; preds = %299
+  %310 = getelementptr inbounds i8, ptr %3, i64 10
+  %311 = load i8, ptr %310, align 2, !noundef !9
+  %312 = icmp eq i8 %311, 97
+  %313 = getelementptr inbounds i8, ptr %3, i64 11
+  %314 = load i8, ptr %313, align 1
+  %315 = icmp eq i8 %314, 114
+  %or.cond406 = select i1 %312, i1 %315, i1 false
+  br i1 %or.cond406, label %320, label %66
 
-318:                                              ; preds = %304
-  %319 = getelementptr inbounds i8, ptr %3, i64 12
-  %320 = load i8, ptr %319, align 4, !noundef !9
-  %321 = icmp eq i8 %320, 97
-  %spec.select10 = select i1 %321, i32 8, i32 0
+316:                                              ; preds = %302
+  %317 = getelementptr inbounds i8, ptr %3, i64 12
+  %318 = load i8, ptr %317, align 4, !noundef !9
+  %319 = icmp eq i8 %318, 97
+  %spec.select10 = select i1 %319, i32 8, i32 0
   br label %66
 
-322:                                              ; preds = %311
-  %323 = getelementptr inbounds i8, ptr %3, i64 12
-  %324 = load i8, ptr %323, align 4, !noundef !9
-  %325 = icmp eq i8 %324, 115
-  %spec.select11 = select i1 %325, i32 10, i32 0
+320:                                              ; preds = %309
+  %321 = getelementptr inbounds i8, ptr %3, i64 12
+  %322 = load i8, ptr %321, align 4, !noundef !9
+  %323 = icmp eq i8 %322, 115
+  %spec.select11 = select i1 %323, i32 10, i32 0
   br label %66
 
-326:                                              ; preds = %20
-  %327 = load <2 x i8>, ptr %5, align 4
-  %328 = getelementptr inbounds i8, ptr %3, i64 18
-  %329 = load <16 x i8>, ptr %328, align 2
-  %330 = load <16 x i8>, ptr %3, align 4
-  %331 = getelementptr inbounds i8, ptr %3, i64 2
-  %332 = load <16 x i8>, ptr %331, align 2
-  %333 = shufflevector <2 x i8> %327, <2 x i8> poison, <16 x i32> <i32 1, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %334 = shufflevector <16 x i8> %333, <16 x i8> %329, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %335 = shufflevector <16 x i8> %334, <16 x i8> %330, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %336 = shufflevector <16 x i8> %335, <16 x i8> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %.fr523 = freeze <16 x i8> %336
-  %337 = getelementptr inbounds i8, ptr %3, i64 10
-  %338 = load i8, ptr %337, align 2
-  %339 = icmp eq i8 %338, 115
-  %340 = icmp ne <16 x i8> %.fr523, <i8 95, i8 95, i8 68, i8 65, i8 84, i8 65, i8 95, i8 95, i8 116, i8 104, i8 114, i8 101, i8 97, i8 100, i8 95, i8 98>
-  %341 = bitcast <16 x i1> %340 to i16
-  %342 = icmp eq i16 %341, 0
-  %op.rdx518 = select i1 %342, i1 %339, i1 false
-  br i1 %op.rdx518, label %343, label %66
+324:                                              ; preds = %20
+  %325 = load <16 x i8>, ptr %5, align 4
+  %326 = getelementptr inbounds i8, ptr %3, i64 18
+  %327 = load <16 x i8>, ptr %326, align 2
+  %328 = load <16 x i8>, ptr %3, align 4
+  %329 = getelementptr inbounds i8, ptr %3, i64 2
+  %330 = load <16 x i8>, ptr %329, align 2
+  %331 = shufflevector <16 x i8> %325, <16 x i8> %327, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %332 = shufflevector <16 x i8> %331, <16 x i8> %328, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %333 = shufflevector <16 x i8> %332, <16 x i8> %330, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %.fr523 = freeze <16 x i8> %333
+  %334 = getelementptr inbounds i8, ptr %3, i64 10
+  %335 = load i8, ptr %334, align 2
+  %336 = icmp eq i8 %335, 115
+  %337 = icmp ne <16 x i8> %.fr523, <i8 95, i8 95, i8 68, i8 65, i8 84, i8 65, i8 95, i8 95, i8 116, i8 104, i8 114, i8 101, i8 97, i8 100, i8 95, i8 98>
+  %338 = bitcast <16 x i1> %337 to i16
+  %339 = icmp eq i16 %338, 0
+  %op.rdx518 = select i1 %339, i1 %336, i1 false
+  br i1 %op.rdx518, label %340, label %66
 
-343:                                              ; preds = %326
-  %344 = getelementptr inbounds i8, ptr %3, i64 11
-  %345 = load i8, ptr %344, align 1, !noundef !9
-  %346 = icmp eq i8 %345, 115
-  %spec.select12 = select i1 %346, i32 9, i32 0
+340:                                              ; preds = %324
+  %341 = getelementptr inbounds i8, ptr %3, i64 11
+  %342 = load i8, ptr %341, align 1, !noundef !9
+  %343 = icmp eq i8 %342, 115
+  %spec.select12 = select i1 %343, i32 9, i32 0
   br label %66
 
-347:                                              ; preds = %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit
-  %348 = load <4 x i8>, ptr %5, align 4
-  %.fr = freeze <4 x i8> %348
-  %349 = getelementptr inbounds i8, ptr %3, i64 20
-  %350 = load i8, ptr %349, align 4
-  %.fr522 = freeze i8 %350
-  %351 = icmp eq i8 %.fr522, 65
-  %352 = getelementptr inbounds i8, ptr %3, i64 21
-  %353 = load i8, ptr %352, align 1
-  %354 = icmp eq i8 %353, 82
+344:                                              ; preds = %_ZN6object4read5macho7section7Section4name17h4fb0e326e7b22e69E.exit
+  %345 = load <4 x i8>, ptr %5, align 4
+  %.fr = freeze <4 x i8> %345
+  %346 = getelementptr inbounds i8, ptr %3, i64 20
+  %347 = load i8, ptr %346, align 4
+  %.fr522 = freeze i8 %347
+  %348 = icmp eq i8 %.fr522, 65
+  %349 = getelementptr inbounds i8, ptr %3, i64 21
+  %350 = load i8, ptr %349, align 1
+  %351 = icmp eq i8 %350, 82
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %355 = icmp eq i32 %.fr.scalar, 1464098655
-  %op.rdx519 = and i1 %355, %351
-  %op.rdx520 = select i1 %op.rdx519, i1 %354, i1 false
-  br i1 %op.rdx520, label %356, label %66
+  %352 = icmp eq i32 %.fr.scalar, 1464098655
+  %op.rdx519 = and i1 %352, %348
+  %op.rdx520 = select i1 %op.rdx519, i1 %351, i1 false
+  br i1 %op.rdx520, label %353, label %66
 
-356:                                              ; preds = %347
-  %357 = getelementptr inbounds i8, ptr %3, i64 22
-  %358 = load i8, ptr %357, align 2, !noundef !9
-  %359 = icmp eq i8 %358, 70
-  %spec.select13 = select i1 %359, i32 13, i32 0
+353:                                              ; preds = %344
+  %354 = getelementptr inbounds i8, ptr %3, i64 22
+  %355 = load i8, ptr %354, align 2, !noundef !9
+  %356 = icmp eq i8 %355, 70
+  %spec.select13 = select i1 %356, i32 13, i32 0
   br label %66
 }
 
@@ -16064,13 +16058,13 @@ define hidden void @_ZN6object4read8FileKind8parse_at17h8210b3f0a35c864fE(ptr no
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.367, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 25, ptr %13, align 8
-  br label %84
+  br label %90
 
 14:                                               ; preds = %9
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.380, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %15, align 8
-  br label %84
+  br label %90
 
 16:                                               ; preds = %9
   %17 = load i8, ptr %8, align 1, !noundef !9
@@ -16079,248 +16073,254 @@ define hidden void @_ZN6object4read8FileKind8parse_at17h8210b3f0a35c864fE(ptr no
   %20 = getelementptr inbounds i8, ptr %8, i64 2
   %21 = load i8, ptr %20, align 1, !noundef !9
   %22 = getelementptr inbounds i8, ptr %8, i64 3
-  %23 = load i8, ptr %22, align 1, !noundef !9
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
-  %25 = load <4 x i8>, ptr %24, align 1
+  %23 = load <4 x i8>, ptr %22, align 1
+  %24 = getelementptr inbounds i8, ptr %8, i64 7
+  %25 = load i8, ptr %24, align 1, !noundef !9
   switch i8 %17, label %26 [
     i8 100, label %28
     i8 127, label %29
-    i8 -2, label %33
-    i8 -50, label %36
-    i8 -49, label %40
-    i8 -54, label %44
-    i8 77, label %47
-    i8 -60, label %50
-    i8 65, label %52
-    i8 76, label %54
-    i8 0, label %56
-    i8 1, label %60
+    i8 -2, label %34
+    i8 -50, label %37
+    i8 -49, label %42
+    i8 -54, label %47
+    i8 77, label %50
+    i8 -60, label %53
+    i8 65, label %55
+    i8 76, label %57
+    i8 0, label %59
+    i8 1, label %64
   ]
 
-26:                                               ; preds = %90, %87, %85, %72, %70, %67, %61, %60, %56, %54, %52, %50, %47, %44, %40, %36, %33, %29, %28, %16
+26:                                               ; preds = %96, %93, %91, %77, %74, %71, %65, %64, %59, %57, %55, %53, %50, %47, %42, %37, %34, %29, %28, %16
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.379, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %27, align 8
-  br label %84
+  br label %90
 
 28:                                               ; preds = %16
   switch i8 %19, label %26 [
-    i8 121, label %61
-    i8 -86, label %65
-    i8 -122, label %65
+    i8 121, label %65
+    i8 -86, label %69
+    i8 -122, label %69
   ]
 
 29:                                               ; preds = %16
   %30 = icmp eq i8 %19, 69
   %31 = icmp eq i8 %21, 76
   %or.cond5 = and i1 %30, %31
-  %32 = icmp eq i8 %23, 70
-  %or.cond6 = and i1 %or.cond5, %32
-  br i1 %or.cond6, label %67, label %26
+  %32 = extractelement <4 x i8> %23, i64 0
+  %33 = icmp eq i8 %32, 70
+  %or.cond6 = and i1 %or.cond5, %33
+  br i1 %or.cond6, label %71, label %26
 
-33:                                               ; preds = %16
-  %34 = icmp eq i8 %19, -19
-  %35 = icmp eq i8 %21, -6
-  %or.cond7 = and i1 %34, %35
-  br i1 %or.cond7, label %70, label %26
+34:                                               ; preds = %16
+  %35 = icmp eq i8 %19, -19
+  %36 = icmp eq i8 %21, -6
+  %or.cond7 = and i1 %35, %36
+  br i1 %or.cond7, label %74, label %26
 
-36:                                               ; preds = %16
-  %37 = icmp eq i8 %19, -6
-  %38 = icmp eq i8 %21, -19
-  %or.cond8 = and i1 %37, %38
-  %39 = icmp eq i8 %23, -2
-  %or.cond9 = and i1 %or.cond8, %39
-  br i1 %or.cond9, label %65, label %26
+37:                                               ; preds = %16
+  %38 = icmp eq i8 %19, -6
+  %39 = icmp eq i8 %21, -19
+  %or.cond8 = and i1 %38, %39
+  %40 = extractelement <4 x i8> %23, i64 0
+  %41 = icmp eq i8 %40, -2
+  %or.cond9 = and i1 %or.cond8, %41
+  br i1 %or.cond9, label %69, label %26
 
-40:                                               ; preds = %16
-  %41 = icmp eq i8 %19, -6
-  %42 = icmp eq i8 %21, -19
-  %or.cond10 = and i1 %41, %42
-  %43 = icmp eq i8 %23, -2
-  %or.cond11 = and i1 %or.cond10, %43
-  br i1 %or.cond11, label %71, label %26
-
-44:                                               ; preds = %16
-  %45 = icmp eq i8 %19, -2
-  %46 = icmp eq i8 %21, -70
-  %or.cond12 = and i1 %45, %46
-  br i1 %or.cond12, label %72, label %26
+42:                                               ; preds = %16
+  %43 = icmp eq i8 %19, -6
+  %44 = icmp eq i8 %21, -19
+  %or.cond10 = and i1 %43, %44
+  %45 = extractelement <4 x i8> %23, i64 0
+  %46 = icmp eq i8 %45, -2
+  %or.cond11 = and i1 %or.cond10, %46
+  br i1 %or.cond11, label %76, label %26
 
 47:                                               ; preds = %16
-  %48 = icmp eq i8 %19, 90
-  %49 = icmp eq i64 %3, 0
-  %or.cond79 = and i1 %49, %48
-  br i1 %or.cond79, label %74, label %26
+  %48 = icmp eq i8 %19, -2
+  %49 = icmp eq i8 %21, -70
+  %or.cond12 = and i1 %48, %49
+  br i1 %or.cond12, label %77, label %26
 
 50:                                               ; preds = %16
-  %51 = icmp eq i8 %19, 1
-  br i1 %51, label %65, label %26
+  %51 = icmp eq i8 %19, 90
+  %52 = icmp eq i64 %3, 0
+  %or.cond79 = and i1 %52, %51
+  br i1 %or.cond79, label %80, label %26
 
-52:                                               ; preds = %16
-  %53 = icmp eq i8 %19, -90
-  br i1 %53, label %65, label %26
+53:                                               ; preds = %16
+  %54 = icmp eq i8 %19, 1
+  br i1 %54, label %69, label %26
 
-54:                                               ; preds = %16
-  %55 = icmp eq i8 %19, 1
-  br i1 %55, label %65, label %26
+55:                                               ; preds = %16
+  %56 = icmp eq i8 %19, -90
+  br i1 %56, label %69, label %26
 
-56:                                               ; preds = %16
-  %57 = icmp eq i8 %19, 0
-  %58 = and i8 %23, %21
-  %59 = icmp eq i8 %58, -1
-  %or.cond14 = and i1 %57, %59
-  br i1 %or.cond14, label %85, label %26
+57:                                               ; preds = %16
+  %58 = icmp eq i8 %19, 1
+  br i1 %58, label %69, label %26
 
-60:                                               ; preds = %16
+59:                                               ; preds = %16
+  %60 = icmp eq i8 %19, 0
+  %61 = extractelement <4 x i8> %23, i64 0
+  %62 = and i8 %61, %21
+  %63 = icmp eq i8 %62, -1
+  %or.cond14 = and i1 %60, %63
+  br i1 %or.cond14, label %91, label %26
+
+64:                                               ; preds = %16
   switch i8 %19, label %26 [
-    i8 -33, label %65
-    i8 -9, label %107
+    i8 -33, label %69
+    i8 -9, label %113
   ]
 
-61:                                               ; preds = %28
-  %62 = icmp eq i8 %21, 108
-  %63 = icmp eq i8 %23, 100
-  %.scalar = bitcast <4 x i8> %25 to i32
-  %64 = icmp eq i32 %.scalar, 540112479
-  %op.rdx = and i1 %64, %63
-  %op.rdx108 = and i1 %op.rdx, %62
-  br i1 %op.rdx108, label %65, label %26
+65:                                               ; preds = %28
+  %66 = icmp eq i8 %21, 108
+  %67 = icmp eq i8 %25, 32
+  %.scalar = bitcast <4 x i8> %23 to i32
+  %68 = icmp eq i32 %.scalar, 829841252
+  %op.rdx = and i1 %68, %66
+  %op.rdx108 = and i1 %op.rdx, %67
+  br i1 %op.rdx108, label %69, label %26
 
-65:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit, %60, %87, %72, %70, %36, %67, %61, %28, %28, %50, %52, %54, %107, %83, %73, %71, %69
-  %.0 = phi i8 [ 13, %107 ], [ %.1, %83 ], [ 9, %73 ], [ 7, %71 ], [ 5, %69 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %28 ], [ 0, %28 ], [ 3, %61 ], [ 4, %67 ], [ 6, %36 ], [ 6, %70 ], [ 8, %72 ], [ 2, %87 ], [ 12, %60 ], [ 1, %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.0, ptr %66, align 8
+69:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit, %64, %93, %77, %74, %37, %71, %65, %28, %28, %53, %55, %57, %113, %89, %79, %76, %73
+  %.0 = phi i8 [ 13, %113 ], [ %.1, %89 ], [ 9, %79 ], [ 7, %76 ], [ 5, %73 ], [ 0, %57 ], [ 0, %55 ], [ 0, %53 ], [ 0, %28 ], [ 0, %28 ], [ 3, %65 ], [ 4, %71 ], [ 6, %37 ], [ 6, %74 ], [ 8, %77 ], [ 2, %93 ], [ 12, %64 ], [ 1, %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.0, ptr %70, align 8
   store ptr null, ptr %0, align 8
-  br label %84
+  br label %90
 
-67:                                               ; preds = %29
-  %68 = extractelement <4 x i8> %25, i64 0
-  switch i8 %68, label %26 [
-    i8 1, label %65
-    i8 2, label %69
+71:                                               ; preds = %29
+  %72 = extractelement <4 x i8> %23, i64 1
+  switch i8 %72, label %26 [
+    i8 1, label %69
+    i8 2, label %73
   ]
 
-69:                                               ; preds = %67
-  br label %65
+73:                                               ; preds = %71
+  br label %69
 
-70:                                               ; preds = %33
-  switch i8 %23, label %26 [
-    i8 -50, label %65
-    i8 -49, label %71
+74:                                               ; preds = %34
+  %75 = extractelement <4 x i8> %23, i64 0
+  switch i8 %75, label %26 [
+    i8 -50, label %69
+    i8 -49, label %76
   ]
 
-71:                                               ; preds = %40, %70
-  br label %65
+76:                                               ; preds = %42, %74
+  br label %69
 
-72:                                               ; preds = %44
-  switch i8 %23, label %26 [
-    i8 -66, label %65
-    i8 -65, label %73
+77:                                               ; preds = %47
+  %78 = extractelement <4 x i8> %23, i64 0
+  switch i8 %78, label %26 [
+    i8 -66, label %69
+    i8 -65, label %79
   ]
 
-73:                                               ; preds = %72
-  br label %65
+79:                                               ; preds = %77
+  br label %69
 
-74:                                               ; preds = %47
+80:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN6object4read2pe4file21optional_header_magic17he75fe331329f0597E(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %75 = load ptr, ptr %6, align 8, !noundef !9
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %80
+  %81 = load ptr, ptr %6, align 8, !noundef !9
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %86
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
-  %79 = load i16, ptr %78, align 8, !noundef !9
-  switch i16 %79, label %80 [
-    i16 267, label %83
-    i16 523, label %82
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %6, i64 8
+  %85 = load i16, ptr %84, align 8, !noundef !9
+  switch i16 %85, label %86 [
+    i16 267, label %89
+    i16 523, label %88
   ]
 
-80:                                               ; preds = %77, %74
+86:                                               ; preds = %83, %80
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.377, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 19, ptr %81, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 19, ptr %87, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %84
+  br label %90
 
-82:                                               ; preds = %77
-  br label %83
+88:                                               ; preds = %83
+  br label %89
 
-83:                                               ; preds = %77, %82
-  %.1 = phi i8 [ 11, %82 ], [ 10, %77 ]
+89:                                               ; preds = %83, %88
+  %.1 = phi i8 [ 11, %88 ], [ 10, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %65
+  br label %69
 
-84:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread, %80, %65, %26, %14, %12
+90:                                               ; preds = %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread, %86, %69, %26, %14, %12
   ret void
 
-85:                                               ; preds = %56
-  %86 = extractelement <4 x i8> %25, i64 0
-  switch i8 %86, label %26 [
-    i8 0, label %87
-    i8 2, label %90
+91:                                               ; preds = %59
+  %92 = extractelement <4 x i8> %23, i64 1
+  switch i8 %92, label %26 [
+    i8 0, label %93
+    i8 2, label %96
   ]
 
-87:                                               ; preds = %85
-  %88 = extractelement <4 x i8> %25, i64 1
-  %89 = icmp eq i8 %88, 0
-  br i1 %89, label %65, label %26
+93:                                               ; preds = %91
+  %94 = extractelement <4 x i8> %23, i64 2
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %69, label %26
 
-90:                                               ; preds = %85
-  %91 = extractelement <4 x i8> %25, i64 1
-  %92 = icmp eq i8 %91, 0
-  %93 = icmp eq i64 %3, 0
-  %or.cond80 = and i1 %93, %92
-  br i1 %or.cond80, label %94, label %26
+96:                                               ; preds = %91
+  %97 = extractelement <4 x i8> %23, i64 2
+  %98 = icmp eq i8 %97, 0
+  %99 = icmp eq i64 %3, 0
+  %or.cond80 = and i1 %99, %98
+  br i1 %or.cond80, label %100, label %26
 
-94:                                               ; preds = %90
+100:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2209
   store i64 0, ptr %5, align 8, !noalias !2213
-  %95 = call noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17ha40b7018b8e63686E.llvm.5281577753466666573(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !2216
+  %101 = call noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17ha40b7018b8e63686E.llvm.5281577753466666573(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !2216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !2209
-  %.not.i.not = icmp eq ptr %95, null
+  %.not.i.not = icmp eq ptr %101, null
   br i1 %.not.i.not, label %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread, label %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit
 
-_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit: ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %95, i64 12
-  %.sroa.10.1..sroa_idx = getelementptr inbounds i8, ptr %95, i64 16
+_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit: ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %101, i64 12
+  %.sroa.10.1..sroa_idx = getelementptr inbounds i8, ptr %101, i64 16
   %.sroa.10.1.copyload = load i8, ptr %.sroa.10.1..sroa_idx, align 4
-  %.sroa.11.1..sroa_idx = getelementptr inbounds i8, ptr %95, i64 17
+  %.sroa.11.1..sroa_idx = getelementptr inbounds i8, ptr %101, i64 17
   %.sroa.11.1.copyload = load i8, ptr %.sroa.11.1..sroa_idx, align 1
-  %.sroa.12.1..sroa_idx = getelementptr inbounds i8, ptr %95, i64 18
+  %.sroa.12.1..sroa_idx = getelementptr inbounds i8, ptr %101, i64 18
   %.sroa.12.1.copyload = load i8, ptr %.sroa.12.1..sroa_idx, align 2
-  %.sroa.13.1..sroa_idx = getelementptr inbounds i8, ptr %95, i64 19
+  %.sroa.13.1..sroa_idx = getelementptr inbounds i8, ptr %101, i64 19
   %.sroa.13.1.copyload = load ptr, ptr %.sroa.13.1..sroa_idx, align 1
-  %.sroa.22.1..sroa_idx = getelementptr inbounds i8, ptr %95, i64 27
+  %.sroa.22.1..sroa_idx = getelementptr inbounds i8, ptr %101, i64 27
   %.sroa.22.1.copyload = load i8, ptr %.sroa.22.1..sroa_idx, align 1
-  %97 = load <4 x i8>, ptr %96, align 4
-  %.fr = freeze <4 x i8> %97
+  %103 = load <4 x i8>, ptr %102, align 4
+  %.fr = freeze <4 x i8> %103
   %.sroa.10.1.copyload.fr = freeze i8 %.sroa.10.1.copyload
-  %98 = icmp eq i8 %.sroa.10.1.copyload.fr, -18
+  %104 = icmp eq i8 %.sroa.10.1.copyload.fr, -18
   %.sroa.11.1.copyload.fr = freeze i8 %.sroa.11.1.copyload
-  %99 = icmp eq i8 %.sroa.11.1.copyload.fr, -70
+  %105 = icmp eq i8 %.sroa.11.1.copyload.fr, -70
   %.sroa.12.1.copyload.fr = freeze i8 %.sroa.12.1.copyload
-  %100 = icmp eq i8 %.sroa.12.1.copyload.fr, -87
+  %106 = icmp eq i8 %.sroa.12.1.copyload.fr, -87
   %.sroa.22.1.copyload.fr = freeze i8 %.sroa.22.1.copyload
-  %101 = icmp eq i8 %.sroa.22.1.copyload.fr, -72
-  %102 = icmp eq ptr %.sroa.13.1.copyload, inttoptr (i64 -2547793880193913013 to ptr)
+  %107 = icmp eq i8 %.sroa.22.1.copyload.fr, -72
+  %108 = icmp eq ptr %.sroa.13.1.copyload, inttoptr (i64 -2547793880193913013 to ptr)
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %103 = icmp eq i32 %.fr.scalar, -776298041
-  %op.rdx109 = and i1 %103, %98
-  %104 = and i1 %op.rdx109, %99
-  %op.rdx112 = and i1 %104, %100
-  %105 = and i1 %op.rdx112, %101
-  %op.rdx113 = select i1 %105, i1 %102, i1 false
-  br i1 %op.rdx113, label %65, label %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread
+  %109 = icmp eq i32 %.fr.scalar, -776298041
+  %op.rdx109 = and i1 %109, %104
+  %110 = and i1 %op.rdx109, %105
+  %op.rdx112 = and i1 %110, %106
+  %111 = and i1 %op.rdx112, %107
+  %op.rdx113 = select i1 %111, i1 %108, i1 false
+  br i1 %op.rdx113, label %69, label %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread
 
-_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread: ; preds = %94, %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit
+_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit.thread: ; preds = %100, %_ZN6object4read4coff4file20anon_object_class_id17h3c8d0cb7f68775baE.exit
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.378, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 24, ptr %106, align 8
-  br label %84
+  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 24, ptr %112, align 8
+  br label %90
 
-107:                                              ; preds = %60
-  br label %65
+113:                                              ; preds = %64
+  br label %69
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

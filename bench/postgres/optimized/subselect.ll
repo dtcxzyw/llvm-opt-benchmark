@@ -1310,8 +1310,8 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
 
 275:                                              ; preds = %271, %268, %266
   %276 = phi ptr [ %274, %271 ], [ null, %268 ], [ null, %266 ]
-  %277 = insertelement <4 x ptr> poison, ptr %258, i64 0
-  %278 = insertelement <4 x ptr> %277, ptr %249, i64 1
+  %277 = insertelement <4 x ptr> poison, ptr %249, i64 0
+  %278 = insertelement <4 x ptr> %277, ptr %258, i64 1
   %279 = insertelement <4 x ptr> %278, ptr %267, i64 2
   %280 = insertelement <4 x ptr> %279, ptr %276, i64 3
   %.fr = freeze <4 x ptr> %280

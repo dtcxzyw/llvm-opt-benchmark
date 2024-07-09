@@ -580,9 +580,9 @@ define void @Abc_InfoRandomBytes(ptr nocapture noundef writeonly %0, i32 noundef
   %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %7 = insertelement <4 x i32> poison, i32 %5, i64 0
   %8 = shufflevector <4 x i32> %7, <4 x i32> poison, <4 x i32> zeroinitializer
-  %9 = and <4 x i32> %8, <i32 2, i32 1, i32 4, i32 8>
+  %9 = and <4 x i32> %8, <i32 1, i32 2, i32 4, i32 8>
   %10 = icmp eq <4 x i32> %9, zeroinitializer
-  %11 = select <4 x i1> %10, <4 x i32> zeroinitializer, <4 x i32> <i32 16711680, i32 -16777216, i32 65280, i32 255>
+  %11 = select <4 x i1> %10, <4 x i32> zeroinitializer, <4 x i32> <i32 -16777216, i32 16711680, i32 65280, i32 255>
   %12 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %11)
   store i32 %12, ptr %6, align 4
   %13 = icmp ugt i64 %indvars.iv, 1
@@ -647,9 +647,9 @@ define void @Res_SimSetRandomBytes(ptr nocapture noundef readonly %0) local_unna
   %28 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next.i
   %29 = insertelement <4 x i32> poison, i32 %27, i64 0
   %30 = shufflevector <4 x i32> %29, <4 x i32> poison, <4 x i32> zeroinitializer
-  %31 = and <4 x i32> %30, <i32 2, i32 1, i32 4, i32 8>
+  %31 = and <4 x i32> %30, <i32 1, i32 2, i32 4, i32 8>
   %32 = icmp eq <4 x i32> %31, zeroinitializer
-  %33 = select <4 x i1> %32, <4 x i32> zeroinitializer, <4 x i32> <i32 16711680, i32 -16777216, i32 65280, i32 255>
+  %33 = select <4 x i1> %32, <4 x i32> zeroinitializer, <4 x i32> <i32 -16777216, i32 16711680, i32 65280, i32 255>
   %34 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %33)
   store i32 %34, ptr %28, align 4
   %35 = icmp ugt i64 %indvars.iv.i, 1
@@ -751,9 +751,9 @@ define void @Res_SimSetDerivedBytes(ptr nocapture noundef readonly %0, i32 nound
   %31 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.next.i.us
   %32 = insertelement <4 x i32> poison, i32 %30, i64 0
   %33 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> zeroinitializer
-  %34 = and <4 x i32> %33, <i32 2, i32 1, i32 4, i32 8>
+  %34 = and <4 x i32> %33, <i32 1, i32 2, i32 4, i32 8>
   %35 = icmp eq <4 x i32> %34, zeroinitializer
-  %36 = select <4 x i1> %35, <4 x i32> zeroinitializer, <4 x i32> <i32 16711680, i32 -16777216, i32 65280, i32 255>
+  %36 = select <4 x i1> %35, <4 x i32> zeroinitializer, <4 x i32> <i32 -16777216, i32 16711680, i32 65280, i32 255>
   %37 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %36)
   store i32 %37, ptr %31, align 4
   %38 = icmp ugt i64 %indvars.iv.i.us, 1

@@ -15,8 +15,8 @@ entry:
   %call1.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
   %call2.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
   %call3.i = tail call ptr @BN_new() #3
-  %0 = insertelement <4 x ptr> poison, ptr %call2.i, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call1.i, i64 1
+  %0 = insertelement <4 x ptr> poison, ptr %call1.i, i64 0
+  %1 = insertelement <4 x ptr> %0, ptr %call2.i, i64 1
   %2 = insertelement <4 x ptr> %1, ptr %call.i, i64 2
   %3 = insertelement <4 x ptr> %2, ptr %call3.i, i64 3
   %.fr = freeze <4 x ptr> %3
