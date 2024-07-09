@@ -3579,215 +3579,201 @@ _Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit: ; preds = %7, %8
   %indvars.iv.i.lcssa = phi i64 [ %wide.trip.count.i, %7 ], [ %indvars.iv.i, %8 ]
   %14 = sext i32 %6 to i64
   %.not = icmp slt i64 %indvars.iv.i.lcssa, %14
-  br i1 %.not, label %16, label %15
+  br i1 %.not, label %.lr.ph.i, label %15
 
 15:                                               ; preds = %_Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit
   tail call void @_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
 
-16:                                               ; preds = %_Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit
-  %17 = sext i32 %5 to i64
-  %18 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 360, i64 noundef %17, i64 noundef 4)
-  %19 = icmp sgt i32 %5, 0
-  br i1 %19, label %.lr.ph.i, label %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread
+.lr.ph.i:                                         ; preds = %_Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit
+  %16 = sext i32 %5 to i64
+  %17 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 360, i64 noundef %16, i64 noundef 4)
+  %18 = load ptr, ptr %4, align 8
+  %19 = zext i32 %5 to i64
+  %20 = shl nuw nsw i64 %19, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %18, i64 %20, i1 false)
+  %21 = getelementptr inbounds i32, ptr %17, i64 %16
+  tail call void @_ZSt6__sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef %17, ptr noundef nonnull %21)
+  %umax = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
+  br label %22
 
-_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread: ; preds = %16
-  %20 = getelementptr inbounds i32, ptr %18, i64 %17
-  tail call void @_ZSt6__sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef %18, ptr noundef %20)
-  %.pre.i1025 = load i32, ptr %1, align 8
-  br label %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
+22:                                               ; preds = %34, %.lr.ph.i
+  %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i9, %34 ]
+  %.01415.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %34 ]
+  %23 = icmp eq i64 %indvars.iv.i7, 0
+  br i1 %23, label %._crit_edge18.i, label %24
 
-.lr.ph.i:                                         ; preds = %16
-  %21 = load ptr, ptr %4, align 8
-  %22 = zext nneg i32 %5 to i64
-  %23 = shl nuw nsw i64 %22, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %21, i64 %23, i1 false)
-  %24 = getelementptr inbounds i32, ptr %18, i64 %17
-  tail call void @_ZSt6__sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef %18, ptr noundef nonnull %24)
-  br label %25
+._crit_edge18.i:                                  ; preds = %22
+  %.pre19.i = load i32, ptr %17, align 4
+  br label %29
 
-25:                                               ; preds = %37, %.lr.ph.i
-  %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i9, %37 ]
-  %.01415.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %37 ]
-  %26 = icmp eq i64 %indvars.iv.i7, 0
-  br i1 %26, label %._crit_edge18.i, label %27
+24:                                               ; preds = %22
+  %25 = getelementptr i32, ptr %17, i64 %indvars.iv.i7
+  %26 = getelementptr i8, ptr %25, i64 -4
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %25, align 4
+  %.not.i8 = icmp eq i32 %27, %28
+  br i1 %.not.i8, label %34, label %29
 
-._crit_edge18.i:                                  ; preds = %25
-  %.pre19.i = load i32, ptr %18, align 4
-  br label %32
+29:                                               ; preds = %24, %._crit_edge18.i
+  %30 = phi i32 [ %.pre19.i, %._crit_edge18.i ], [ %28, %24 ]
+  %31 = sext i32 %.01415.i to i64
+  %32 = getelementptr inbounds i32, ptr %17, i64 %31
+  store i32 %30, ptr %32, align 4
+  %33 = add nsw i32 %.01415.i, 1
+  br label %34
 
-27:                                               ; preds = %25
-  %28 = getelementptr i32, ptr %18, i64 %indvars.iv.i7
-  %29 = getelementptr i8, ptr %28, i64 -4
-  %30 = load i32, ptr %29, align 4
-  %31 = load i32, ptr %28, align 4
-  %.not.i8 = icmp eq i32 %30, %31
-  br i1 %.not.i8, label %37, label %32
-
-32:                                               ; preds = %27, %._crit_edge18.i
-  %33 = phi i32 [ %.pre19.i, %._crit_edge18.i ], [ %31, %27 ]
-  %34 = sext i32 %.01415.i to i64
-  %35 = getelementptr inbounds i32, ptr %18, i64 %34
-  store i32 %33, ptr %35, align 4
-  %36 = add nsw i32 %.01415.i, 1
-  br label %37
-
-37:                                               ; preds = %32, %27
-  %.1.i = phi i32 [ %36, %32 ], [ %.01415.i, %27 ]
+34:                                               ; preds = %29, %24
+  %.1.i = phi i32 [ %33, %29 ], [ %.01415.i, %24 ]
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i7, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i9, %22
-  br i1 %exitcond.not, label %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit, label %25, !llvm.loop !35
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i9, %umax
+  br i1 %exitcond.not, label %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit, label %22, !llvm.loop !35
 
-_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit: ; preds = %37
-  %38 = icmp sgt i32 %.1.i, 0
+_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit: ; preds = %34
+  %35 = icmp sgt i32 %.1.i, 0
   %.pre.i10 = load i32, ptr %1, align 8
-  br i1 %38, label %.preheader.lr.ph.i.i, label %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
+  br i1 %35, label %.preheader.lr.ph.i.i, label %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
 
 .preheader.lr.ph.i.i:                             ; preds = %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = sext i32 %.pre.i10 to i64
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = sext i32 %.pre.i10 to i64
   %wide.trip.count.i.i = zext nneg i32 %.1.i to i64
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %61, %.preheader.lr.ph.i.i
-  %indvars.iv30.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next31.i.i, %61 ]
-  %.027.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.1.i.i, %61 ]
-  %.01726.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.118.lcssa36.i.i, %61 ]
-  %41 = icmp slt i32 %.01726.i.i, %.pre.i10
-  br i1 %41, label %.lr.ph.i.i, label %.critedge.i.i
+.preheader.i.i:                                   ; preds = %58, %.preheader.lr.ph.i.i
+  %indvars.iv30.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next31.i.i, %58 ]
+  %.027.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.1.i.i, %58 ]
+  %.01726.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.118.lcssa36.i.i, %58 ]
+  %38 = icmp slt i32 %.01726.i.i, %.pre.i10
+  br i1 %38, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv30.i.i
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %.01726.i.i to i64
-  br label %46
+  %39 = load ptr, ptr %36, align 8
+  %40 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv30.i.i
+  %41 = load i32, ptr %40, align 4
+  %42 = sext i32 %.01726.i.i to i64
+  br label %43
 
-46:                                               ; preds = %50, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %50 ]
-  %47 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.i.i
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp slt i32 %48, %44
-  br i1 %49, label %50, label %.critedge.loopexit.i.i
+43:                                               ; preds = %47, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
+  %44 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i.i
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp slt i32 %45, %41
+  br i1 %46, label %47, label %.critedge.loopexit.i.i
 
-50:                                               ; preds = %46
+47:                                               ; preds = %43
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %40
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %46, !llvm.loop !43
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %37
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %43, !llvm.loop !43
 
-.critedge.loopexit.i.i:                           ; preds = %46
-  %51 = trunc nsw i64 %indvars.iv.i.i to i32
+.critedge.loopexit.i.i:                           ; preds = %43
+  %48 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.loopexit.i.i, %.preheader.i.i
-  %.118.lcssa.i.i = phi i32 [ %.01726.i.i, %.preheader.i.i ], [ %51, %.critedge.loopexit.i.i ]
-  %52 = icmp eq i32 %.118.lcssa.i.i, %.pre.i10
-  br i1 %52, label %.critedge.thread.i.i, label %53
+  %.118.lcssa.i.i = phi i32 [ %.01726.i.i, %.preheader.i.i ], [ %48, %.critedge.loopexit.i.i ]
+  %49 = icmp eq i32 %.118.lcssa.i.i, %.pre.i10
+  br i1 %49, label %.critedge.thread.i.i, label %50
 
-53:                                               ; preds = %.critedge.i.i
-  %54 = load ptr, ptr %39, align 8
-  %55 = sext i32 %.118.lcssa.i.i to i64
-  %56 = getelementptr inbounds i32, ptr %54, i64 %55
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv30.i.i
-  %59 = load i32, ptr %58, align 4
-  %.not.i.i = icmp eq i32 %57, %59
-  br i1 %.not.i.i, label %61, label %.critedge.thread.i.i
+50:                                               ; preds = %.critedge.i.i
+  %51 = load ptr, ptr %36, align 8
+  %52 = sext i32 %.118.lcssa.i.i to i64
+  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv30.i.i
+  %56 = load i32, ptr %55, align 4
+  %.not.i.i = icmp eq i32 %54, %56
+  br i1 %.not.i.i, label %58, label %.critedge.thread.i.i
 
-.critedge.thread.i.i:                             ; preds = %50, %53, %.critedge.i.i
-  %.118.lcssa35.i.i = phi i32 [ %.118.lcssa.i.i, %53 ], [ %.pre.i10, %.critedge.i.i ], [ %.pre.i10, %50 ]
-  %60 = add nsw i32 %.027.i.i, 1
-  br label %61
+.critedge.thread.i.i:                             ; preds = %47, %50, %.critedge.i.i
+  %.118.lcssa35.i.i = phi i32 [ %.118.lcssa.i.i, %50 ], [ %.pre.i10, %.critedge.i.i ], [ %.pre.i10, %47 ]
+  %57 = add nsw i32 %.027.i.i, 1
+  br label %58
 
-61:                                               ; preds = %.critedge.thread.i.i, %53
-  %.118.lcssa36.i.i = phi i32 [ %.118.lcssa35.i.i, %.critedge.thread.i.i ], [ %.118.lcssa.i.i, %53 ]
-  %.1.i.i = phi i32 [ %60, %.critedge.thread.i.i ], [ %.027.i.i, %53 ]
+58:                                               ; preds = %.critedge.thread.i.i, %50
+  %.118.lcssa36.i.i = phi i32 [ %.118.lcssa35.i.i, %.critedge.thread.i.i ], [ %.118.lcssa.i.i, %50 ]
+  %.1.i.i = phi i32 [ %57, %.critedge.thread.i.i ], [ %.027.i.i, %50 ]
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i.i
   br i1 %exitcond33.not.i.i, label %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i, label %.preheader.i.i, !llvm.loop !44
 
-_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i: ; preds = %61, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit
-  %.pre.i1027 = phi i32 [ %.pre.i10, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit ], [ %.pre.i1025, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread ], [ %.pre.i10, %61 ]
-  %.014.lcssa.i26 = phi i32 [ %.1.i, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit ], [ 0, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread ], [ %.1.i, %61 ]
-  %.0.lcssa.i.i = phi i32 [ 0, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit ], [ 0, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit.thread ], [ %.1.i.i, %61 ]
-  %62 = add nsw i32 %.0.lcssa.i.i, %.pre.i1027
-  store i32 %62, ptr %0, align 8
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph.i11, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit
+_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i: ; preds = %58, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit
+  %.0.lcssa.i.i = phi i32 [ 0, %_Z31gmx_ana_index_remove_duplicatesP15gmx_ana_index_t.exit ], [ %.1.i.i, %58 ]
+  %59 = add nsw i32 %.0.lcssa.i.i, %.pre.i10
+  store i32 %59, ptr %0, align 8
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph.i11, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit
 
 .lr.ph.i11:                                       ; preds = %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
-  %64 = add nsw i32 %.014.lcssa.i26, -1
-  %65 = add nsw i32 %.pre.i1027, -1
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
-  %68 = zext nneg i32 %62 to i64
-  br label %69
+  %61 = add nsw i32 %.1.i, -1
+  %62 = add nsw i32 %.pre.i10, -1
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = zext nneg i32 %59 to i64
+  br label %66
 
-69:                                               ; preds = %87, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ %68, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %87 ]
-  %.02935.i = phi i32 [ %64, %.lr.ph.i11 ], [ %.2.i, %87 ]
-  %.03034.i = phi i32 [ %65, %.lr.ph.i11 ], [ %.131.i, %87 ]
+66:                                               ; preds = %84, %.lr.ph.i11
+  %indvars.iv.i12 = phi i64 [ %65, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %84 ]
+  %.02935.i = phi i32 [ %61, %.lr.ph.i11 ], [ %.2.i, %84 ]
+  %.03034.i = phi i32 [ %62, %.lr.ph.i11 ], [ %.131.i, %84 ]
   %indvars.iv.next.i13 = add nsw i64 %indvars.iv.i12, -1
-  %70 = icmp slt i32 %.03034.i, 0
-  br i1 %70, label %.._crit_edge42.i_crit_edge, label %71
+  %67 = icmp slt i32 %.03034.i, 0
+  br i1 %67, label %.._crit_edge42.i_crit_edge, label %68
 
-.._crit_edge42.i_crit_edge:                       ; preds = %69
+.._crit_edge42.i_crit_edge:                       ; preds = %66
   %.phi.trans.insert = sext i32 %.02935.i to i64
-  %.phi.trans.insert30 = getelementptr inbounds i32, ptr %18, i64 %.phi.trans.insert
+  %.phi.trans.insert30 = getelementptr inbounds i32, ptr %17, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert30, align 4
   br label %._crit_edge42.i
 
-71:                                               ; preds = %69
-  %72 = icmp sgt i32 %.02935.i, -1
-  %.pre39.i = load ptr, ptr %66, align 8
-  %73 = zext nneg i32 %.03034.i to i64
-  %74 = getelementptr inbounds i32, ptr %.pre39.i, i64 %73
-  %75 = load i32, ptr %74, align 4
-  br i1 %72, label %76, label %.critedge.i
+68:                                               ; preds = %66
+  %69 = icmp sgt i32 %.02935.i, -1
+  %.pre39.i = load ptr, ptr %63, align 8
+  %70 = zext nneg i32 %.03034.i to i64
+  %71 = getelementptr inbounds i32, ptr %.pre39.i, i64 %70
+  %72 = load i32, ptr %71, align 4
+  br i1 %69, label %73, label %.critedge.i
 
-76:                                               ; preds = %71
-  %77 = zext nneg i32 %.02935.i to i64
-  %78 = getelementptr inbounds i32, ptr %18, i64 %77
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp slt i32 %75, %79
-  br i1 %80, label %._crit_edge42.i, label %83
+73:                                               ; preds = %68
+  %74 = zext nneg i32 %.02935.i to i64
+  %75 = getelementptr inbounds i32, ptr %17, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp slt i32 %72, %76
+  br i1 %77, label %._crit_edge42.i, label %80
 
-._crit_edge42.i:                                  ; preds = %76, %.._crit_edge42.i_crit_edge
-  %81 = phi i32 [ %.pre, %.._crit_edge42.i_crit_edge ], [ %79, %76 ]
-  %82 = add nsw i32 %.02935.i, -1
-  br label %87
+._crit_edge42.i:                                  ; preds = %73, %.._crit_edge42.i_crit_edge
+  %78 = phi i32 [ %.pre, %.._crit_edge42.i_crit_edge ], [ %76, %73 ]
+  %79 = add nsw i32 %.02935.i, -1
+  br label %84
 
-83:                                               ; preds = %76
-  %84 = icmp eq i32 %75, %79
-  %85 = sext i1 %84 to i32
-  %spec.select.i = add nsw i32 %.02935.i, %85
+80:                                               ; preds = %73
+  %81 = icmp eq i32 %72, %76
+  %82 = sext i1 %81 to i32
+  %spec.select.i = add nsw i32 %.02935.i, %82
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %83, %71
-  %.1.i14 = phi i32 [ %spec.select.i, %83 ], [ %.02935.i, %71 ]
-  %86 = add nsw i32 %.03034.i, -1
-  br label %87
+.critedge.i:                                      ; preds = %80, %68
+  %.1.i14 = phi i32 [ %spec.select.i, %80 ], [ %.02935.i, %68 ]
+  %83 = add nsw i32 %.03034.i, -1
+  br label %84
 
-87:                                               ; preds = %.critedge.i, %._crit_edge42.i
-  %.sink.i = phi i32 [ %81, %._crit_edge42.i ], [ %75, %.critedge.i ]
-  %.131.i = phi i32 [ %.03034.i, %._crit_edge42.i ], [ %86, %.critedge.i ]
-  %.2.i = phi i32 [ %82, %._crit_edge42.i ], [ %.1.i14, %.critedge.i ]
-  %88 = load ptr, ptr %67, align 8
-  %89 = and i64 %indvars.iv.next.i13, 4294967295
-  %90 = getelementptr inbounds i32, ptr %88, i64 %89
-  store i32 %.sink.i, ptr %90, align 4
-  %91 = trunc nuw i64 %indvars.iv.i12 to i32
-  %92 = icmp sgt i32 %91, 1
-  br i1 %92, label %69, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, !llvm.loop !48
+84:                                               ; preds = %.critedge.i, %._crit_edge42.i
+  %.sink.i = phi i32 [ %78, %._crit_edge42.i ], [ %72, %.critedge.i ]
+  %.131.i = phi i32 [ %.03034.i, %._crit_edge42.i ], [ %83, %.critedge.i ]
+  %.2.i = phi i32 [ %79, %._crit_edge42.i ], [ %.1.i14, %.critedge.i ]
+  %85 = load ptr, ptr %64, align 8
+  %86 = and i64 %indvars.iv.next.i13, 4294967295
+  %87 = getelementptr inbounds i32, ptr %85, i64 %86
+  store i32 %.sink.i, ptr %87, align 4
+  %88 = trunc nuw i64 %indvars.iv.i12 to i32
+  %89 = icmp sgt i32 %88, 1
+  br i1 %89, label %66, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, !llvm.loop !48
 
-_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit: ; preds = %87, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
-  br i1 %19, label %93, label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
-
-93:                                               ; preds = %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 344, ptr noundef %18)
+_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit: ; preds = %84, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 344, ptr noundef %17)
   br label %_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit
 
-_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit:  ; preds = %93, %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, %15
+_Z20gmx_ana_index_deinitP15gmx_ana_index_t.exit:  ; preds = %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, %15
   ret void
 }
 
