@@ -648,7 +648,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV6Decompressor13decompr
   %104 = insertelement <2 x i32> poison, i32 %94, i64 0
   %105 = shufflevector <2 x i32> %104, <2 x i32> poison, <2 x i32> zeroinitializer
   %106 = lshr <2 x i32> %105, <i32 20, i32 18>
-  %107 = trunc nuw <2 x i32> %106 to <2 x i16>
+  %107 = trunc nuw nsw <2 x i32> %106 to <2 x i16>
   %108 = shufflevector <2 x i16> %107, <2 x i16> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %109 = insertelement <4 x i16> %108, i16 %102, i64 2
   %110 = insertelement <4 x i16> %109, i16 %101, i64 3

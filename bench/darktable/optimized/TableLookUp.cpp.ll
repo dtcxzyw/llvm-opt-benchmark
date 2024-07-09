@@ -302,7 +302,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %128 = lshr <16 x i32> %127, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
   %129 = sub nsw <16 x i32> %98, %128
   %130 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %129, <16 x i32> zeroinitializer)
-  %131 = trunc <16 x i32> %130 to <16 x i16>
+  %131 = trunc nuw <16 x i32> %130 to <16 x i16>
   %132 = icmp ult <16 x i64> %94, <i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536>
   %133 = extractelement <16 x i1> %132, i64 0
   tail call void @llvm.assume(i1 %133)
