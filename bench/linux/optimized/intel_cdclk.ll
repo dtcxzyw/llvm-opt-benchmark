@@ -2629,15 +2629,15 @@ define dso_local i32 @intel_read_rawclk(ptr noundef %0) local_unnamed_addr #0 al
   %7 = getelementptr inbounds i8, ptr %0, i64 7544
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %6, i32 811524, i32 noundef 270864384, i1 noundef zeroext true) #15
-  br label %56
+  br label %53
 
 9:                                                ; preds = %1
   %10 = icmp sgt i32 %3, 8
-  br i1 %10, label %56, label %11
+  br i1 %10, label %53, label %11
 
 11:                                               ; preds = %9
   %12 = icmp sgt i32 %3, 4
-  br i1 %12, label %13, label %34
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 7368
@@ -2647,65 +2647,60 @@ define dso_local i32 @intel_read_rawclk(ptr noundef %0) local_unnamed_addr #0 al
   %18 = and i32 %17, 256
   %19 = icmp eq i32 %18, 0
   %20 = select i1 %19, i32 19000, i32 24000
-  %.lhs.trunc = trunc nuw nsw i32 %20 to i16
-  %21 = udiv i16 %.lhs.trunc, 1000
-  %.zext = zext nneg i16 %21 to i32
-  %22 = shl nuw nsw i32 %.zext, 16
-  br i1 %19, label %23, label %28
+  br i1 %19, label %21, label %25
 
-23:                                               ; preds = %13
-  %24 = load i32, ptr %2, align 8
-  %25 = icmp sgt i32 %24, 5
-  %26 = select i1 %25, i32 268437504, i32 268435456
-  %27 = or disjoint i32 %26, %22
-  br label %28
+21:                                               ; preds = %13
+  %22 = load i32, ptr %2, align 8
+  %23 = icmp sgt i32 %22, 5
+  %24 = select i1 %23, i32 269682688, i32 269680640
+  br label %25
 
-28:                                               ; preds = %23, %13
-  %29 = phi i32 [ 200, %23 ], [ 0, %13 ]
-  %30 = phi i32 [ %27, %23 ], [ %22, %13 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 7544
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef %14, i32 811524, i32 noundef %30, i1 noundef zeroext true) #15
-  %33 = add nuw nsw i32 %29, %20
-  br label %56
+25:                                               ; preds = %21, %13
+  %26 = phi i32 [ 200, %21 ], [ 0, %13 ]
+  %27 = phi i32 [ %24, %21 ], [ 1572864, %13 ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 7544
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef %14, i32 811524, i32 noundef %27, i1 noundef zeroext true) #15
+  %30 = add nuw nsw i32 %26, %20
+  br label %53
 
-34:                                               ; preds = %11
-  %35 = icmp eq i32 %3, 0
-  br i1 %35, label %43, label %36
+31:                                               ; preds = %11
+  %32 = icmp eq i32 %3, 0
+  br i1 %32, label %40, label %33
 
-36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 7368
-  %38 = getelementptr inbounds i8, ptr %0, i64 7512
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef %37, i32 811524, i1 noundef zeroext true) #15
-  %41 = and i32 %40, 1023
-  %42 = mul nuw nsw i32 %41, 1000
-  br label %56
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 7368
+  %35 = getelementptr inbounds i8, ptr %0, i64 7512
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call i32 %36(ptr noundef %34, i32 811524, i1 noundef zeroext true) #15
+  %38 = and i32 %37, 1023
+  %39 = mul nuw nsw i32 %38, 1000
+  br label %53
 
-43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %0, i64 7184
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 18874368
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %50, label %48
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds i8, ptr %0, i64 7184
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 18874368
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %47, label %45
 
-48:                                               ; preds = %43
-  %49 = tail call i32 @vlv_get_cck_clock_hpll(ptr noundef %0, ptr noundef nonnull @.str.46, i32 noundef 108) #15
-  br label %56
+45:                                               ; preds = %40
+  %46 = tail call i32 @vlv_get_cck_clock_hpll(ptr noundef %0, ptr noundef nonnull @.str.46, i32 noundef 108) #15
+  br label %53
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 2632
-  %52 = load i16, ptr %51, align 8
-  %53 = icmp ugt i16 %52, 2
-  br i1 %53, label %54, label %56
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds i8, ptr %0, i64 2632
+  %49 = load i16, ptr %48, align 8
+  %50 = icmp ugt i16 %49, 2
+  br i1 %50, label %51, label %53
 
-54:                                               ; preds = %50
-  %55 = tail call fastcc i32 @i9xx_hrawclk(ptr noundef %0), !range !61
-  br label %56
+51:                                               ; preds = %47
+  %52 = tail call fastcc i32 @i9xx_hrawclk(ptr noundef %0), !range !61
+  br label %53
 
-56:                                               ; preds = %54, %50, %48, %36, %28, %9, %5
-  %57 = phi i32 [ 0, %50 ], [ 38400, %5 ], [ %33, %28 ], [ %42, %36 ], [ %49, %48 ], [ %55, %54 ], [ 38400, %9 ]
-  ret i32 %57
+53:                                               ; preds = %51, %47, %45, %33, %25, %9, %5
+  %54 = phi i32 [ 0, %47 ], [ 38400, %5 ], [ %30, %25 ], [ %39, %33 ], [ %46, %45 ], [ %52, %51 ], [ 38400, %9 ]
+  ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

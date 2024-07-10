@@ -27535,9 +27535,9 @@ _ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit: ; preds = %.preheader
 
 349:                                              ; preds = %346
   %.not.i208 = icmp eq i32 %2, 0
-  %350 = select i1 %.not.i208, i32 48, i32 12288
-  %351 = or i32 %350, %2
-  %352 = add i32 %351, 16777216
+  %350 = or i32 %2, 12288
+  %351 = add i32 %350, 16777216
+  %352 = select i1 %.not.i208, i32 16777264, i32 %351
   br label %_ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit._crit_edge
 
 _ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit._crit_edge: ; preds = %_ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit, %349, %346
@@ -30243,9 +30243,9 @@ _ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit: ; preds = %.preheader
 
 359:                                              ; preds = %356
   %.not.i231 = icmp eq i32 %.sroa.28.0.copyload, 0
-  %360 = select i1 %.not.i231, i32 48, i32 12288
-  %361 = or i32 %360, %.sroa.28.0.copyload
-  %362 = add i32 %361, 16777216
+  %360 = or i32 %.sroa.28.0.copyload, 12288
+  %361 = add i32 %360, 16777216
+  %362 = select i1 %.not.i231, i32 16777264, i32 %361
   br label %_ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit._crit_edge
 
 _ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit._crit_edge: ; preds = %_ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit, %359, %356

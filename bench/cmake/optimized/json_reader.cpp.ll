@@ -4221,100 +4221,103 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader12decodeNumberERNS0_5TokenER
   %spec.select = select i1 %11, i64 -9223372036854775808, i64 -1
   %spec.select47.idx = zext i1 %11 to i64
   %spec.select47 = getelementptr inbounds i8, ptr %9, i64 %spec.select47.idx
-  %12 = udiv i64 %spec.select, 10
-  %13 = urem i64 %spec.select, 10
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ult ptr %spec.select47, %15
-  br i1 %16, label %.lr.ph, label %.thread
+  %12 = select i1 %11, i64 922337203685477580, i64 1844674407370955161
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ult ptr %spec.select47, %14
+  br i1 %15, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %3, %31
-  %.158 = phi ptr [ %17, %31 ], [ %spec.select47, %3 ]
-  %.04257 = phi i64 [ %33, %31 ], [ 0, %3 ]
-  %17 = getelementptr inbounds i8, ptr %.158, i64 1
-  %18 = load i8, ptr %.158, align 1
-  %19 = add i8 %18, -58
-  %or.cond = icmp ult i8 %19, -10
-  br i1 %or.cond, label %20, label %22
+.lr.ph:                                           ; preds = %3
+  %16 = select i1 %11, i64 8, i64 5
+  br label %17
 
-20:                                               ; preds = %.lr.ph
-  %21 = tail call noundef zeroext i1 @_ZN4Json6Reader12decodeDoubleERNS0_5TokenERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %47
+17:                                               ; preds = %.lr.ph, %32
+  %.158 = phi ptr [ %spec.select47, %.lr.ph ], [ %18, %32 ]
+  %.04257 = phi i64 [ 0, %.lr.ph ], [ %34, %32 ]
+  %18 = getelementptr inbounds i8, ptr %.158, i64 1
+  %19 = load i8, ptr %.158, align 1
+  %20 = add i8 %19, -58
+  %or.cond = icmp ult i8 %20, -10
+  br i1 %or.cond, label %21, label %23
 
-22:                                               ; preds = %.lr.ph
-  %23 = zext nneg i8 %18 to i32
-  %24 = add nsw i32 %23, -48
+21:                                               ; preds = %17
+  %22 = tail call noundef zeroext i1 @_ZN4Json6Reader12decodeDoubleERNS0_5TokenERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  br label %48
+
+23:                                               ; preds = %17
+  %24 = zext nneg i8 %19 to i32
+  %25 = add nsw i32 %24, -48
   %.not = icmp ult i64 %.04257, %12
-  br i1 %.not, label %._crit_edge59, label %25
+  br i1 %.not, label %._crit_edge59, label %26
 
-._crit_edge59:                                    ; preds = %22
-  %.pre = zext nneg i32 %24 to i64
-  br label %31
+._crit_edge59:                                    ; preds = %23
+  %.pre = zext nneg i32 %25 to i64
+  br label %32
 
-25:                                               ; preds = %22
-  %26 = icmp ugt i64 %.04257, %12
-  %.not46 = icmp ne ptr %17, %15
-  %or.cond48.not54 = select i1 %26, i1 true, i1 %.not46
-  %27 = zext nneg i32 %24 to i64
-  %28 = icmp ult i64 %13, %27
-  %or.cond51 = select i1 %or.cond48.not54, i1 true, i1 %28
-  br i1 %or.cond51, label %29, label %31
+26:                                               ; preds = %23
+  %27 = icmp ugt i64 %.04257, %12
+  %.not46 = icmp ne ptr %18, %14
+  %or.cond48.not54 = select i1 %27, i1 true, i1 %.not46
+  %28 = zext nneg i32 %25 to i64
+  %29 = icmp ult i64 %16, %28
+  %or.cond51 = select i1 %or.cond48.not54, i1 true, i1 %29
+  br i1 %or.cond51, label %30, label %32
 
-29:                                               ; preds = %25
-  %30 = tail call noundef zeroext i1 @_ZN4Json6Reader12decodeDoubleERNS0_5TokenERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %47
+30:                                               ; preds = %26
+  %31 = tail call noundef zeroext i1 @_ZN4Json6Reader12decodeDoubleERNS0_5TokenERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  br label %48
 
-31:                                               ; preds = %._crit_edge59, %25
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge59 ], [ %27, %25 ]
-  %32 = mul i64 %.04257, 10
-  %33 = add i64 %32, %.pre-phi
-  %34 = icmp ult ptr %17, %15
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !123
+32:                                               ; preds = %._crit_edge59, %26
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge59 ], [ %28, %26 ]
+  %33 = mul i64 %.04257, 10
+  %34 = add i64 %33, %.pre-phi
+  %35 = icmp ult ptr %18, %14
+  br i1 %35, label %17, label %._crit_edge, !llvm.loop !123
 
-._crit_edge:                                      ; preds = %31
-  %35 = icmp eq i64 %33, %spec.select
-  %or.cond52 = select i1 %11, i1 %35, i1 false
-  br i1 %or.cond52, label %36, label %38
+._crit_edge:                                      ; preds = %32
+  %36 = icmp eq i64 %34, %spec.select
+  %or.cond52 = select i1 %11, i1 %36, i1 false
+  br i1 %or.cond52, label %37, label %39
 
-36:                                               ; preds = %._crit_edge
+37:                                               ; preds = %._crit_edge
   call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef -9223372036854775808)
-  %37 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #24
+  %38 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
-  br label %47
+  br label %48
 
-38:                                               ; preds = %._crit_edge
-  br i1 %11, label %39, label %42
+39:                                               ; preds = %._crit_edge
+  br i1 %11, label %40, label %43
 
 .thread:                                          ; preds = %3
-  br i1 %11, label %39, label %.thread66
+  br i1 %11, label %40, label %.thread66
 
-39:                                               ; preds = %.thread, %38
-  %.042.lcssa6265 = phi i64 [ 0, %.thread ], [ %33, %38 ]
-  %40 = sub nsw i64 0, %.042.lcssa6265
-  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %40)
-  %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %5) #24
+40:                                               ; preds = %.thread, %39
+  %.042.lcssa6265 = phi i64 [ 0, %.thread ], [ %34, %39 ]
+  %41 = sub nsw i64 0, %.042.lcssa6265
+  call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %41)
+  %42 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
-  br label %47
+  br label %48
 
-42:                                               ; preds = %38
-  %43 = icmp ult i64 %33, 2147483648
-  br i1 %43, label %.thread66, label %45
+43:                                               ; preds = %39
+  %44 = icmp ult i64 %34, 2147483648
+  br i1 %44, label %.thread66, label %46
 
-.thread66:                                        ; preds = %.thread, %42
-  %.042.lcssa626468 = phi i64 [ %33, %42 ], [ 0, %.thread ]
+.thread66:                                        ; preds = %.thread, %43
+  %.042.lcssa626468 = phi i64 [ %34, %43 ], [ 0, %.thread ]
   call void @_ZN4Json5ValueC1El(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 noundef %.042.lcssa626468)
-  %44 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %6) #24
+  %45 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %6) #24
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
-  br label %47
+  br label %48
 
-45:                                               ; preds = %42
-  call void @_ZN4Json5ValueC1Em(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %33)
-  %46 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %7) #24
+46:                                               ; preds = %43
+  call void @_ZN4Json5ValueC1Em(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %34)
+  %47 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %7) #24
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #24
-  br label %47
+  br label %48
 
-47:                                               ; preds = %36, %.thread66, %45, %39, %29, %20
-  %.0 = phi i1 [ %21, %20 ], [ %30, %29 ], [ true, %39 ], [ true, %45 ], [ true, %.thread66 ], [ true, %36 ]
+48:                                               ; preds = %37, %.thread66, %46, %40, %30, %21
+  %.0 = phi i1 [ %22, %21 ], [ %31, %30 ], [ true, %40 ], [ true, %46 ], [ true, %.thread66 ], [ true, %37 ]
   ret i1 %.0
 }
 

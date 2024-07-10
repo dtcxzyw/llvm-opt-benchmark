@@ -164,60 +164,54 @@ define dso_local void @arch_pick_mmap_layout(ptr nocapture noundef writeonly %0,
   %63 = xor i64 %62, -1
   %64 = and i64 %60, %63
   %65 = shl i64 %64, 12
-  %.pre6 = load i32, ptr @sysctl_legacy_va_layout, align 4
+  %.pre4 = load i32, ptr @sysctl_legacy_va_layout, align 4
   br label %66
 
 66:                                               ; preds = %58, %52
-  %67 = phi i32 [ %.pre6, %58 ], [ %29, %52 ]
+  %67 = phi i32 [ %.pre4, %58 ], [ %29, %52 ]
   %68 = phi i64 [ %65, %58 ], [ 0, %52 ]
   %69 = load i32, ptr %5, align 8
   %70 = and i32 %69, 134217728
   %71 = icmp eq i32 %70, 0
-  %72 = select i1 %71, i64 4294959104, i64 3221225472
-  %.lhs.trunc = trunc nuw i64 %72 to i32
-  %73 = udiv i32 %.lhs.trunc, 3
-  %narrow = add nuw nsw i32 %73, 4095
-  %74 = and i32 %narrow, 2147479552
-  %75 = zext nneg i32 %74 to i64
-  %76 = add i64 %68, %75
-  store i64 %76, ptr %54, align 8
-  %77 = load i32, ptr %5, align 8
-  %78 = and i32 %77, 2097152
-  %79 = icmp eq i32 %78, 0
-  %80 = icmp eq i32 %67, 0
-  %81 = select i1 %79, i1 %80, i1 false
-  br i1 %81, label %82, label %105
+  %72 = select i1 %71, i64 1431654400, i64 1073741824
+  %73 = add i64 %72, %68
+  store i64 %73, ptr %54, align 8
+  %74 = load i32, ptr %5, align 8
+  %75 = and i32 %74, 2097152
+  %76 = icmp eq i32 %75, 0
+  %77 = icmp eq i32 %67, 0
+  %78 = select i1 %76, i1 %77, i1 false
+  br i1 %78, label %79, label %102
 
-82:                                               ; preds = %66
-  %83 = load i64, ptr %1, align 8
-  %84 = load i32, ptr %16, align 4
-  %85 = and i32 %84, 4194304
-  %86 = icmp eq i32 %85, 0
-  %87 = and i32 %77, 134217728
-  %88 = icmp ne i32 %87, 0
-  %89 = xor i1 %71, %88
-  %90 = select i1 %89, i64 8384512, i64 17179865088
-  %91 = select i1 %86, i64 0, i64 %90
-  %92 = load i64, ptr @stack_guard_gap, align 8
-  %93 = add i64 %92, %83
-  %94 = add i64 %93, %91
-  %95 = tail call i64 @llvm.umax.i64(i64 %94, i64 %83)
-  %96 = udiv i32 %.lhs.trunc, 6
-  %.zext2 = zext nneg i32 %96 to i64
-  %97 = mul nuw nsw i64 %.zext2, 5
-  %98 = icmp ult i64 %95, 134217728
-  %99 = tail call i64 @llvm.umin.i64(i64 %95, i64 %97)
-  %100 = select i1 %98, i64 134217728, i64 %99
-  %101 = sub i64 %72, %68
-  %102 = or disjoint i64 %101, 4095
-  %103 = sub i64 %102, %100
-  %104 = and i64 %103, -4096
-  br label %105
+79:                                               ; preds = %66
+  %80 = select i1 %71, i64 4294959104, i64 3221225472
+  %81 = load i64, ptr %1, align 8
+  %82 = load i32, ptr %16, align 4
+  %83 = and i32 %82, 4194304
+  %84 = icmp eq i32 %83, 0
+  %85 = and i32 %74, 134217728
+  %86 = icmp ne i32 %85, 0
+  %87 = xor i1 %71, %86
+  %88 = select i1 %87, i64 8384512, i64 17179865088
+  %89 = select i1 %84, i64 0, i64 %88
+  %90 = load i64, ptr @stack_guard_gap, align 8
+  %91 = add i64 %90, %81
+  %92 = add i64 %91, %89
+  %93 = tail call i64 @llvm.umax.i64(i64 %92, i64 %81)
+  %94 = select i1 %71, i64 3579132585, i64 2684354560
+  %95 = icmp ult i64 %93, 134217728
+  %96 = tail call i64 @llvm.umin.i64(i64 %93, i64 %94)
+  %97 = select i1 %95, i64 134217728, i64 %96
+  %98 = sub i64 %80, %68
+  %99 = or disjoint i64 %98, 4095
+  %100 = sub i64 %99, %97
+  %101 = and i64 %100, -4096
+  br label %102
 
-105:                                              ; preds = %82, %66
-  %106 = phi i64 [ %104, %82 ], [ %76, %66 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
-  store i64 %106, ptr %107, align 8
+102:                                              ; preds = %79, %66
+  %103 = phi i64 [ %101, %79 ], [ %73, %66 ]
+  %104 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 %103, ptr %104, align 8
   ret void
 }
 

@@ -64897,11 +64897,11 @@ sqlite3_malloc64.exit.i:                          ; preds = %218
   %267 = load ptr, ptr %237, align 8
   %268 = getelementptr inbounds ptr, ptr %267, i64 %265
   store ptr %258, ptr %268, align 8
-  %269 = select i1 %256, i64 136, i64 0
-  %270 = getelementptr inbounds i8, ptr %258, i64 %269
-  %271 = getelementptr inbounds i8, ptr %227, i64 %269
-  %272 = sub nuw nsw i64 32768, %269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %270, ptr noundef nonnull align 4 dereferenceable(1) %271, i64 %272, i1 false)
+  %269 = select i1 %256, i64 34, i64 0
+  %270 = getelementptr inbounds i32, ptr %258, i64 %269
+  %271 = getelementptr inbounds i32, ptr %227, i64 %269
+  %272 = select i1 %256, i64 32632, i64 32768
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32632) %270, ptr noundef nonnull align 4 dereferenceable(32632) %271, i64 %272, i1 false)
   br label %244
 
 .lr.ph.preheader.i:                               ; preds = %260
@@ -64927,11 +64927,11 @@ sqlite3_malloc64.exit.i:                          ; preds = %218
   %283 = load ptr, ptr %237, align 8
   %284 = getelementptr inbounds ptr, ptr %283, i64 %265
   store ptr %258, ptr %284, align 8
-  %285 = select i1 %256, i64 136, i64 0
-  %286 = getelementptr inbounds i8, ptr %258, i64 %285
-  %287 = getelementptr inbounds i8, ptr %227, i64 %285
-  %288 = sub nuw nsw i64 32768, %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %286, ptr noundef nonnull align 4 dereferenceable(1) %287, i64 %288, i1 false)
+  %285 = select i1 %256, i64 34, i64 0
+  %286 = getelementptr inbounds i32, ptr %258, i64 %285
+  %287 = getelementptr inbounds i32, ptr %227, i64 %285
+  %288 = select i1 %256, i64 32632, i64 32768
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32632) %286, ptr noundef nonnull align 4 dereferenceable(32632) %287, i64 %288, i1 false)
   call void @sqlite3_free(ptr noundef nonnull %223)
   br label %sqlite3_malloc64.exit.thread.i
 
@@ -64987,11 +64987,11 @@ sqlite3_malloc64.exit.i:                          ; preds = %218
   %308 = load ptr, ptr %237, align 8
   %309 = getelementptr inbounds ptr, ptr %308, i64 %265
   store ptr %258, ptr %309, align 8
-  %310 = select i1 %256, i64 136, i64 0
-  %311 = getelementptr inbounds i8, ptr %258, i64 %310
-  %312 = getelementptr inbounds i8, ptr %227, i64 %310
-  %313 = sub nuw nsw i64 32768, %310
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %311, ptr noundef nonnull align 4 dereferenceable(1) %312, i64 %313, i1 false)
+  %310 = select i1 %256, i64 34, i64 0
+  %311 = getelementptr inbounds i32, ptr %258, i64 %310
+  %312 = getelementptr inbounds i32, ptr %227, i64 %310
+  %313 = select i1 %256, i64 32632, i64 32768
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32632) %311, ptr noundef nonnull align 4 dereferenceable(32632) %312, i64 %313, i1 false)
   br i1 %.not144.lcssa.i, label %244, label %314
 
 314:                                              ; preds = %._crit_edge.i, %247, %244

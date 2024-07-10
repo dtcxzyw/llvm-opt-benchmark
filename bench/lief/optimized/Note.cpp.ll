@@ -1325,7 +1325,7 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
 
 12:                                               ; preds = %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit
   %13 = load i32, ptr %5, align 8
-  br label %28
+  br label %30
 
 14:                                               ; preds = %.noexc7, %.noexc6, %.noexc5, %.noexc4, %.noexc3, %.noexc, %18
   %15 = landingpad { ptr, i32 }
@@ -1372,22 +1372,26 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
 _ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit: ; preds = %.noexc7
   %27 = and i64 %25, 4294967296
   %.not.i.i = icmp eq i64 %27, 0
-  %.sroa.010.0.extract.trunc = select i1 %.not.i.i, i32 1, i32 %26
+  %28 = zext i32 %26 to i64
+  %29 = or disjoint i64 %27, %28
+  %.sroa.03.0.insert.insert.i.i = select i1 %.not.i.i, i64 1, i64 %29
+  %.sroa.010.0.extract.trunc = trunc i64 %.sroa.03.0.insert.insert.i.i to i32
+  %.sroa.3.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i.i, 4294967296
   %.pre = load i8, ptr %9, align 8
-  br label %28
+  br label %30
 
-28:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit, %12
-  %29 = phi i8 [ %.pre, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %10, %12 ]
-  %.sroa.3.0 = phi i64 [ %27, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ 0, %12 ]
+30:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit, %12
+  %31 = phi i8 [ %.pre, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %10, %12 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.extract.shift, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ 0, %12 ]
   %.sroa.010.0 = phi i32 [ %.sroa.010.0.extract.trunc, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %13, %12 ]
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
 
-31:                                               ; preds = %28
+33:                                               ; preds = %30
   call void @_ZN4LIEF10SpanStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #20
   br label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
 
-_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9: ; preds = %28, %31
+_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9: ; preds = %30, %33
   %.sroa.010.0.insert.ext = zext i32 %.sroa.010.0 to i64
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.010.0.insert.ext
   ret i64 %.sroa.010.0.insert.insert
@@ -1431,7 +1435,7 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
 
 12:                                               ; preds = %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit
   %13 = load i32, ptr %5, align 8
-  br label %28
+  br label %30
 
 14:                                               ; preds = %.noexc7, %.noexc6, %.noexc5, %.noexc4, %.noexc3, %.noexc, %18
   %15 = landingpad { ptr, i32 }
@@ -1478,22 +1482,26 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
 _ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit: ; preds = %.noexc7
   %27 = and i64 %25, 4294967296
   %.not.i.i = icmp eq i64 %27, 0
-  %.sroa.010.0.extract.trunc = select i1 %.not.i.i, i32 1, i32 %26
+  %28 = zext i32 %26 to i64
+  %29 = or disjoint i64 %27, %28
+  %.sroa.03.0.insert.insert.i.i = select i1 %.not.i.i, i64 1, i64 %29
+  %.sroa.010.0.extract.trunc = trunc i64 %.sroa.03.0.insert.insert.i.i to i32
+  %.sroa.3.0.extract.shift = and i64 %.sroa.03.0.insert.insert.i.i, 4294967296
   %.pre = load i8, ptr %9, align 8
-  br label %28
+  br label %30
 
-28:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit, %12
-  %29 = phi i8 [ %.pre, %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %10, %12 ]
-  %.sroa.3.0 = phi i64 [ %27, %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ 0, %12 ]
+30:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit, %12
+  %31 = phi i8 [ %.pre, %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %10, %12 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.extract.shift, %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ 0, %12 ]
   %.sroa.010.0 = phi i32 [ %.sroa.010.0.extract.trunc, %_ZNK4LIEF12BinaryStream4peekIiEEN2tl8expectedIT_11lief_errorsEEm.exit ], [ %13, %12 ]
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
 
-31:                                               ; preds = %28
+33:                                               ; preds = %30
   call void @_ZN4LIEF10SpanStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #20
   br label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9
 
-_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9: ; preds = %28, %31
+_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit9: ; preds = %30, %33
   %.sroa.010.0.insert.ext = zext i32 %.sroa.010.0 to i64
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.010.0.insert.ext
   ret i64 %.sroa.010.0.insert.insert
@@ -31659,9 +31667,9 @@ _ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit: ; preds = %.preheader
 
 349:                                              ; preds = %346
   %.not.i208 = icmp eq i32 %2, 0
-  %350 = select i1 %.not.i208, i32 48, i32 12288
-  %351 = or i32 %350, %2
-  %352 = add i32 %351, 16777216
+  %350 = or i32 %2, 12288
+  %351 = add i32 %350, 16777216
+  %352 = select i1 %.not.i208, i32 16777264, i32 %351
   br label %_ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit._crit_edge
 
 _ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit._crit_edge: ; preds = %_ZN3fmt2v96detail12count_digitsILi3EmEEiT0_.exit, %349, %346
@@ -34367,9 +34375,9 @@ _ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit: ; preds = %.preheader
 
 359:                                              ; preds = %356
   %.not.i231 = icmp eq i32 %.sroa.28.0.copyload, 0
-  %360 = select i1 %.not.i231, i32 48, i32 12288
-  %361 = or i32 %360, %.sroa.28.0.copyload
-  %362 = add i32 %361, 16777216
+  %360 = or i32 %.sroa.28.0.copyload, 12288
+  %361 = add i32 %360, 16777216
+  %362 = select i1 %.not.i231, i32 16777264, i32 %361
   br label %_ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit._crit_edge
 
 _ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit._crit_edge: ; preds = %_ZN3fmt2v96detail12count_digitsILi3EoEEiT0_.exit, %359, %356
