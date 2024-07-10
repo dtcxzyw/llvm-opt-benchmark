@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/evp_ctx.c\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"algorithm %d\00", align 1
-@evp_methods = internal unnamed_addr constant [2 x ptr] [ptr @rsa_pkey_meth, ptr @ec_pkey_meth], align 16
 @rsa_pkey_meth = external constant %struct.evp_pkey_method_st, align 8
 @ec_pkey_meth = external constant %struct.evp_pkey_method_st, align 8
 
@@ -42,24 +41,23 @@ if.end4:                                          ; preds = %if.end, %entry
   %id.addr.0 = phi i32 [ %1, %if.end ], [ %id, %entry ]
   br label %for.body.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  br i1 %cmp.i, label %for.body.i, label %if.then6, !llvm.loop !7
+for.body.i:                                       ; preds = %for.body.i, %if.end4
+  %2 = phi i1 [ true, %if.end4 ], [ false, %for.body.i ]
+  %3 = select i1 %2, ptr @rsa_pkey_meth, ptr @ec_pkey_meth
+  %4 = load i32, ptr %3, align 8
+  %cmp2.i = icmp ne i32 %4, %id.addr.0
+  %brmerge.not.i = and i1 %2, %cmp2.i
+  br i1 %brmerge.not.i, label %for.body.i, label %evp_pkey_meth_find.exit
 
-for.body.i:                                       ; preds = %for.cond.i, %if.end4
-  %cmp.i = phi i1 [ true, %if.end4 ], [ false, %for.cond.i ]
-  %indvars.iv.i = phi i64 [ 0, %if.end4 ], [ 1, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr @evp_methods, i64 0, i64 %indvars.iv.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  %3 = load i32, ptr %2, align 8
-  %cmp2.i = icmp eq i32 %3, %id.addr.0
-  br i1 %cmp2.i, label %if.end7, label %for.cond.i
+evp_pkey_meth_find.exit:                          ; preds = %for.body.i
+  br i1 %cmp2.i, label %if.then6, label %if.end7
 
-if.then6:                                         ; preds = %for.cond.i
+if.then6:                                         ; preds = %evp_pkey_meth_find.exit
   tail call void @ERR_put_error(i32 noundef 6, i32 noundef 0, i32 noundef 128, ptr noundef nonnull @.str, i32 noundef 98) #5
   tail call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %id.addr.0) #5
   br label %return
 
-if.end7:                                          ; preds = %for.body.i
+if.end7:                                          ; preds = %evp_pkey_meth_find.exit
   %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
   %tobool9.not = icmp eq ptr %calloc, null
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -71,7 +69,7 @@ if.then10:                                        ; preds = %if.end7
 if.end11:                                         ; preds = %if.end7
   %engine = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %e, ptr %engine, align 8
-  store ptr %2, ptr %calloc, align 8
+  store ptr %3, ptr %calloc, align 8
   %tobool13.not = icmp eq ptr %pkey, null
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
@@ -82,20 +80,21 @@ if.then14:                                        ; preds = %if.end11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end11
-  %init = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = load ptr, ptr %init, align 8
-  %tobool18.not = icmp eq ptr %4, null
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @rsa_pkey_meth, i64 8), align 8
+  %.val20 = load ptr, ptr getelementptr inbounds (i8, ptr @ec_pkey_meth, i64 8), align 8
+  %5 = select i1 %2, ptr %.val, ptr %.val20
+  %tobool18.not = icmp eq ptr %5, null
   br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %call21 = tail call i32 %4(ptr noundef nonnull %calloc) #5
+  %call21 = tail call i32 %5(ptr noundef nonnull %calloc) #5
   %cmp22 = icmp slt i32 %call21, 1
   br i1 %cmp22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.then19
   %pkey24 = getelementptr inbounds i8, ptr %calloc, i64 16
-  %5 = load ptr, ptr %pkey24, align 8
-  tail call void @EVP_PKEY_free(ptr noundef %5) #5
+  %6 = load ptr, ptr %pkey24, align 8
+  tail call void @EVP_PKEY_free(ptr noundef %6) #5
   tail call void @free(ptr noundef nonnull %calloc) #5
   br label %return
 
@@ -994,5 +993,3 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}

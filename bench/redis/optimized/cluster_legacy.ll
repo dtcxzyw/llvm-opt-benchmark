@@ -243,7 +243,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.196 = private unnamed_addr constant [6 x i8] c"slots\00", align 1
 @.str.197 = private unnamed_addr constant [36 x i8] c"(n->slot_info_pairs_count % 2) == 0\00", align 1
 @.str.198 = private unnamed_addr constant [6 x i8] c"nodes\00", align 1
-@__const.genClusterInfoString.statestr = private unnamed_addr constant [2 x ptr] [ptr @.str.140, ptr @.str.22], align 16
 @.str.199 = private unnamed_addr constant [207 x i8] c"cluster_state:%s\0D\0Acluster_slots_assigned:%d\0D\0Acluster_slots_ok:%d\0D\0Acluster_slots_pfail:%d\0D\0Acluster_slots_fail:%d\0D\0Acluster_known_nodes:%lu\0D\0Acluster_size:%d\0D\0Acluster_current_epoch:%llu\0D\0Acluster_my_epoch:%llu\0D\0A\00", align 1
 @.str.200 = private unnamed_addr constant [38 x i8] c"cluster_stats_messages_%s_sent:%lld\0D\0A\00", align 1
 @.str.201 = private unnamed_addr constant [35 x i8] c"cluster_stats_messages_sent:%lld\0D\0A\00", align 1
@@ -16417,47 +16416,46 @@ cond.end:                                         ; preds = %land.lhs.true, %con
   %cond = load i64, ptr %cond.in, align 8
   %state = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %state, align 8
-  %idxprom20 = sext i32 %6 to i64
-  %arrayidx21 = getelementptr inbounds [2 x ptr], ptr @__const.genClusterInfoString.statestr, i64 0, i64 %idxprom20
-  %7 = load ptr, ptr %arrayidx21, align 8
+  %7 = icmp eq i32 %6, 0
+  %8 = select i1 %7, ptr @.str.140, ptr @.str.22
   %nodes = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load ptr, ptr %nodes, align 8
-  %ht_used = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load i64, ptr %ht_used, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %8, i64 32
-  %10 = load i64, ptr %arrayidx25, align 8
-  %add = add i64 %10, %9
+  %9 = load ptr, ptr %nodes, align 8
+  %ht_used = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = load i64, ptr %ht_used, align 8
+  %arrayidx25 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = load i64, ptr %arrayidx25, align 8
+  %add = add i64 %11, %10
   %size = getelementptr inbounds i8, ptr %0, i64 20
-  %11 = load i32, ptr %size, align 4
+  %12 = load i32, ptr %size, align 4
   %currentEpoch = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i64, ptr %currentEpoch, align 8
-  %call26 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.199, ptr noundef %7, i32 noundef %slots_assigned.1, i32 noundef %slots_ok.1, i32 noundef %slots_pfail.1, i32 noundef %slots_fail.1, i64 noundef %add, i32 noundef %11, i64 noundef %12, i64 noundef %cond) #32
+  %13 = load i64, ptr %currentEpoch, align 8
+  %call26 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.199, ptr noundef nonnull %8, i32 noundef %slots_assigned.1, i32 noundef %slots_ok.1, i32 noundef %slots_pfail.1, i32 noundef %slots_fail.1, i64 noundef %add, i32 noundef %12, i64 noundef %13, i64 noundef %cond) #32
   %.pre68 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   br label %for.body29
 
 for.body29:                                       ; preds = %cond.end, %for.inc44
-  %13 = phi ptr [ %.pre68, %cond.end ], [ %16, %for.inc44 ]
+  %14 = phi ptr [ %.pre68, %cond.end ], [ %17, %for.inc44 ]
   %indvars.iv60 = phi i64 [ 0, %cond.end ], [ %indvars.iv.next61, %for.inc44 ]
   %tot_msg_sent.054 = phi i64 [ 0, %cond.end ], [ %tot_msg_sent.1, %for.inc44 ]
   %info.053 = phi ptr [ %call26, %cond.end ], [ %info.1, %for.inc44 ]
-  %stats_bus_messages_sent = getelementptr inbounds i8, ptr %13, i64 393360
+  %stats_bus_messages_sent = getelementptr inbounds i8, ptr %14, i64 393360
   %arrayidx31 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_sent, i64 0, i64 %indvars.iv60
-  %14 = load i64, ptr %arrayidx31, align 8
-  %cmp32 = icmp eq i64 %14, 0
+  %15 = load i64, ptr %arrayidx31, align 8
+  %cmp32 = icmp eq i64 %15, 0
   br i1 %cmp32, label %for.inc44, label %if.end34
 
 if.end34:                                         ; preds = %for.body29
-  %add38 = add nsw i64 %14, %tot_msg_sent.054
+  %add38 = add nsw i64 %15, %tot_msg_sent.054
   %sext = shl i64 %indvars.iv60, 32
-  %15 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %15
+  %16 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call43 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.053, ptr noundef nonnull @.str.200, ptr noundef nonnull %switch.load, i64 noundef %14) #32
+  %call43 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.053, ptr noundef nonnull @.str.200, ptr noundef nonnull %switch.load, i64 noundef %15) #32
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   br label %for.inc44
 
 for.inc44:                                        ; preds = %for.body29, %if.end34
-  %16 = phi ptr [ %13, %for.body29 ], [ %.pre, %if.end34 ]
+  %17 = phi ptr [ %14, %for.body29 ], [ %.pre, %if.end34 ]
   %info.1 = phi ptr [ %info.053, %for.body29 ], [ %call43, %if.end34 ]
   %tot_msg_sent.1 = phi i64 [ %tot_msg_sent.054, %for.body29 ], [ %add38, %if.end34 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -16470,28 +16468,28 @@ for.end46:                                        ; preds = %for.inc44
   br label %for.body51
 
 for.body51:                                       ; preds = %for.end46, %for.inc66
-  %17 = phi ptr [ %.pre70, %for.end46 ], [ %20, %for.inc66 ]
+  %18 = phi ptr [ %.pre70, %for.end46 ], [ %21, %for.inc66 ]
   %indvars.iv64 = phi i64 [ 0, %for.end46 ], [ %indvars.iv.next65, %for.inc66 ]
   %tot_msg_received.057 = phi i64 [ 0, %for.end46 ], [ %tot_msg_received.1, %for.inc66 ]
   %info.256 = phi ptr [ %call47, %for.end46 ], [ %info.3, %for.inc66 ]
-  %stats_bus_messages_received = getelementptr inbounds i8, ptr %17, i64 393448
+  %stats_bus_messages_received = getelementptr inbounds i8, ptr %18, i64 393448
   %arrayidx53 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_received, i64 0, i64 %indvars.iv64
-  %18 = load i64, ptr %arrayidx53, align 8
-  %cmp54 = icmp eq i64 %18, 0
+  %19 = load i64, ptr %arrayidx53, align 8
+  %cmp54 = icmp eq i64 %19, 0
   br i1 %cmp54, label %for.inc66, label %if.end56
 
 if.end56:                                         ; preds = %for.body51
-  %add60 = add nsw i64 %18, %tot_msg_received.057
+  %add60 = add nsw i64 %19, %tot_msg_received.057
   %sext73 = shl i64 %indvars.iv64, 32
-  %19 = ashr exact i64 %sext73, 32
-  %switch.gep71 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %19
+  %20 = ashr exact i64 %sext73, 32
+  %switch.gep71 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %20
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
-  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.256, ptr noundef nonnull @.str.202, ptr noundef nonnull %switch.load72, i64 noundef %18) #32
+  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.256, ptr noundef nonnull @.str.202, ptr noundef nonnull %switch.load72, i64 noundef %19) #32
   %.pre69 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
   br label %for.inc66
 
 for.inc66:                                        ; preds = %for.body51, %if.end56
-  %20 = phi ptr [ %17, %for.body51 ], [ %.pre69, %if.end56 ]
+  %21 = phi ptr [ %18, %for.body51 ], [ %.pre69, %if.end56 ]
   %info.3 = phi ptr [ %info.256, %for.body51 ], [ %call65, %if.end56 ]
   %tot_msg_received.1 = phi i64 [ %tot_msg_received.057, %for.body51 ], [ %add60, %if.end56 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -16500,10 +16498,10 @@ for.inc66:                                        ; preds = %for.body51, %if.end
 
 for.end68:                                        ; preds = %for.inc66
   %call69 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.3, ptr noundef nonnull @.str.203, i64 noundef %tot_msg_received.1) #32
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
-  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %21, i64 393544
-  %22 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
-  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %22) #32
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5208), align 8
+  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %22, i64 393544
+  %23 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
+  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %23) #32
   ret ptr %call70
 }
 

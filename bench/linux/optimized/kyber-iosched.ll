@@ -164,7 +164,6 @@ module asm ".previous\09\09\09\09\09"
 @__per_cpu_offset = external dso_local local_unnamed_addr global [64 x i64], align 16
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
 @kyber_domain_names = internal unnamed_addr constant [4 x ptr] [ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23], align 16
-@kyber_latency_type_names = internal unnamed_addr constant [2 x ptr] [ptr @.str.24, ptr @.str.25], align 16
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 @trace_kyber_latency.__UNIQUE_ID___addressable___SCK__tp_func_kyber_latency740 = internal global ptr @__SCK__tp_func_kyber_latency, section ".discard.addressable", align 8
 @trace_kyber_latency.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace741 = internal global ptr @__SCK__preempt_schedule_notrace, section ".discard.addressable", align 8
@@ -1924,8 +1923,8 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr [4 x ptr], ptr @kyber_domain_names, i64 0, i64 %6
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr [2 x ptr], ptr @kyber_latency_type_names, i64 0, i64 %7
-  %57 = load ptr, ptr %56, align 8
+  %56 = icmp eq i32 %2, 0
+  %57 = select i1 %56, ptr @.str.24, ptr @.str.25
   %58 = add nuw nsw i32 %51, 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_kyber_latency, i64 8), i32 2) #18
           to label %79 [label %59], !srcloc !27
@@ -1949,7 +1948,7 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 @__SCT__tp_func_kyber_latency(ptr noundef %70, i32 noundef %53, ptr noundef %55, ptr noundef %57, i32 noundef %3, i32 noundef %58, i32 noundef 4, i32 noundef %14) #18
+  %71 = tail call i32 @__SCT__tp_func_kyber_latency(ptr noundef %70, i32 noundef %53, ptr noundef %55, ptr noundef nonnull %57, i32 noundef %3, i32 noundef %58, i32 noundef 4, i32 noundef %14) #18
   br label %72
 
 72:                                               ; preds = %68, %65

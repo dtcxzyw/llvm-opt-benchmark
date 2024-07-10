@@ -34121,7 +34121,6 @@ target triple = "x86_64-pc-linux-gnu"
 @STAG_ToAddMod_r11_sequence = internal constant [3 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_lte_rrc_stag_Id_r11, i32 1, i32 0, ptr @dissect_lte_rrc_STAG_Id_r11 }, %struct._per_sequence_t { ptr @hf_lte_rrc_timeAlignmentTimerSTAG_r11, i32 1, i32 0, ptr @dissect_lte_rrc_TimeAlignmentTimer }, %struct._per_sequence_t zeroinitializer], align 16
 @DRX_Config_v1130_sequence = internal constant [4 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_lte_rrc_drx_RetransmissionTimer_v1130, i32 0, i32 4, ptr @dissect_lte_rrc_T_drx_RetransmissionTimer_v1130 }, %struct._per_sequence_t { ptr @hf_lte_rrc_longDRX_CycleStartOffset_v1130, i32 0, i32 4, ptr @dissect_lte_rrc_T_longDRX_CycleStartOffset_v1130 }, %struct._per_sequence_t { ptr @hf_lte_rrc_shortDRX_Cycle_v1130, i32 0, i32 4, ptr @dissect_lte_rrc_T_shortDRX_Cycle_v1130 }, %struct._per_sequence_t zeroinitializer], align 16
 @T_longDRX_CycleStartOffset_v1130_choice = internal constant [3 x %struct._per_choice_t] [%struct._per_choice_t { i32 0, ptr @hf_lte_rrc_sf60_v1130, i32 0, ptr @dissect_lte_rrc_T_sf60_v1130 }, %struct._per_choice_t { i32 1, ptr @hf_lte_rrc_sf70_v1130, i32 0, ptr @dissect_lte_rrc_T_sf70_v1130 }, %struct._per_choice_t zeroinitializer], align 16
-@drx_lookup_longCycle_v1130.vals = internal unnamed_addr constant [2 x i32] [i32 60, i32 70], align 4
 @MAC_MainConfig_eag_4_sequence = internal constant [4 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_lte_rrc_e_HARQ_Pattern_r12, i32 0, i32 4, ptr @dissect_lte_rrc_BOOLEAN }, %struct._per_sequence_t { ptr @hf_lte_rrc_dualConnectivityPHR, i32 0, i32 4, ptr @dissect_lte_rrc_T_dualConnectivityPHR }, %struct._per_sequence_t { ptr @hf_lte_rrc_logicalChannelSR_Config_r12, i32 0, i32 4, ptr @dissect_lte_rrc_T_logicalChannelSR_Config_r12 }, %struct._per_sequence_t zeroinitializer], align 16
 @T_dualConnectivityPHR_choice = internal constant [3 x %struct._per_choice_t] [%struct._per_choice_t { i32 0, ptr @hf_lte_rrc_release, i32 0, ptr @dissect_lte_rrc_NULL }, %struct._per_choice_t { i32 1, ptr @hf_lte_rrc_mAC_MainConfig_eag_4_dualConnectivityPHR_setup, i32 0, ptr @dissect_lte_rrc_T_mAC_MainConfig_eag_4_dualConnectivityPHR_setup }, %struct._per_choice_t zeroinitializer], align 16
 @T_mAC_MainConfig_eag_4_dualConnectivityPHR_setup_sequence = internal constant [2 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_lte_rrc_phr_ModeOtherCG_r12, i32 0, i32 0, ptr @dissect_lte_rrc_T_phr_ModeOtherCG_r12 }, %struct._per_sequence_t zeroinitializer], align 16
@@ -51342,19 +51341,12 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %15 = load i32, ptr @ett_lte_rrc_T_longDRX_CycleStartOffset_v1130, align 4
   %16 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %15, ptr noundef nonnull @T_longDRX_CycleStartOffset_v1130_choice, ptr noundef nonnull %6) #11
   %17 = load i32, ptr %6, align 4
-  %18 = icmp ult i32 %17, 2
-  br i1 %18, label %19, label %drx_lookup_longCycle_v1130.exit
-
-19:                                               ; preds = %private_data_get_drx_config.exit
-  %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr [2 x i32], ptr @drx_lookup_longCycle_v1130.vals, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  br label %drx_lookup_longCycle_v1130.exit
-
-drx_lookup_longCycle_v1130.exit:                  ; preds = %private_data_get_drx_config.exit, %19
-  %.0.i = phi i32 [ %22, %19 ], [ 1, %private_data_get_drx_config.exit ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 92
-  store i32 %.0.i, ptr %23, align 4
+  %18 = icmp eq i32 %17, 0
+  %19 = select i1 %18, i32 60, i32 70
+  %.inv.i = icmp ugt i32 %17, 1
+  %.0.i = select i1 %.inv.i, i32 1, i32 %19
+  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 92
+  store i32 %.0.i, ptr %20, align 4
   ret i32 %16
 }
 

@@ -14059,7 +14059,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9094 = private unnamed_addr constant [17 x i8] c"PE Disambiguity \00", align 1
 @.str.9095 = private unnamed_addr constant [19 x i8] c"no PE Disambiguity\00", align 1
 @global_he_trigger_bw = internal unnamed_addr global i8 0, align 1
-@he_trigger_ru_allocation_region_values = internal unnamed_addr constant [2 x ptr] [ptr @.str.9097, ptr @.str.9098], align 16
 @.str.9096 = private unnamed_addr constant [29 x i8] c"Not used for 20, 40 or 80MHz\00", align 1
 @.str.9097 = private unnamed_addr constant [43 x i8] c"primary 80MHz channel for 80+80 and 160MHz\00", align 1
 @.str.9098 = private unnamed_addr constant [45 x i8] c"secondary 80MHz channel for 80+80 and 160MHz\00", align 1
@@ -23207,21 +23206,20 @@ define internal void @target_rssi_base_custom(ptr nocapture noundef writeonly %0
 define internal void @he_trigger_ru_allocation_region_custom(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
   %3 = load i8, ptr @global_he_trigger_bw, align 1
   %4 = icmp eq i8 %3, 3
-  br i1 %4, label %5, label %11
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = and i32 %1, 1
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [2 x ptr], ptr @he_trigger_ru_allocation_region_values, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.8631, ptr noundef %9) #22
-  br label %12
+  %7 = icmp eq i32 %6, 0
+  %8 = select i1 %7, ptr @.str.9097, ptr @.str.9098
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.8631, ptr noundef nonnull %8) #22
+  br label %11
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %0, ptr noundef nonnull align 1 dereferenceable(29) @.str.9096, i64 29, i1 false)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %5
+11:                                               ; preds = %10, %5
   ret void
 }
 

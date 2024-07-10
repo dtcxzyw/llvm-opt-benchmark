@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [31 x i8] c"%s: %pJ has NULL partition ptr\00", align 1
 @.str.11 = private unnamed_addr constant [34 x i8] c"%s: partition %s node_bitmap=NULL\00", align 1
 @job_list = external local_unnamed_addr global ptr, align 8
-@slurm_job_preempt_mode.preempt_modes = internal unnamed_addr constant [2 x i16] [i16 1, i16 2], align 2
 @preempt_send_user_signal = external local_unnamed_addr global i8, align 1
 @.str.12 = private unnamed_addr constant [59 x i8] c"preempted %pJ has been killed to reclaim resources for %pJ\00", align 1
 @.str.13 = private unnamed_addr constant [61 x i8] c"preempted %pJ has been requeued to reclaim resources for %pJ\00", align 1
@@ -409,7 +408,7 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   %4 = alloca i16, align 2
   %5 = load i32, ptr @plugin_inited, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %22, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 384
@@ -422,25 +421,23 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %.preheader, label %._crit_edge
 
 10:                                               ; preds = %.preheader
-  br i1 %11, label %.preheader, label %16, !llvm.loop !6
+  br i1 %11, label %.preheader, label %15, !llvm.loop !6
 
 .preheader:                                       ; preds = %7, %10
   %11 = phi i1 [ false, %10 ], [ true, %7 ]
-  %indvars.iv = phi i64 [ 1, %10 ], [ 0, %7 ]
-  %12 = getelementptr inbounds [2 x i16], ptr @slurm_job_preempt_mode.preempt_modes, i64 0, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 2
-  store i16 %13, ptr %4, align 2
-  %14 = load ptr, ptr %8, align 8
-  %15 = call ptr @list_find_first(ptr noundef %14, ptr noundef nonnull @_find_job_by_preempt_mode, ptr noundef nonnull %4) #8
-  store ptr %15, ptr %.phi.trans.insert, align 8
-  %.not15 = icmp eq ptr %15, null
+  %12 = select i1 %11, i16 1, i16 2
+  store i16 %12, ptr %4, align 2
+  %13 = load ptr, ptr %8, align 8
+  %14 = call ptr @list_find_first(ptr noundef %13, ptr noundef nonnull @_find_job_by_preempt_mode, ptr noundef nonnull %4) #8
+  store ptr %14, ptr %.phi.trans.insert, align 8
+  %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %10, label %.thread
 
-16:                                               ; preds = %10
+15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   store i16 0, ptr %3, align 2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
-  %18 = call i32 %17(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
+  %17 = call i32 %16(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #8
   %.0.i = load i16, ptr %3, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   store i16 %.0.i, ptr %4, align 2
@@ -451,19 +448,19 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   %. = select i1 %.not17, ptr %0, ptr %.pre
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
   store i16 0, ptr %2, align 2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
-  %20 = call i32 %19(ptr noundef %., i32 noundef 1, ptr noundef nonnull %2) #8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
+  %19 = call i32 %18(ptr noundef %., i32 noundef 1, ptr noundef nonnull %2) #8
   %.0.i18 = load i16, ptr %2, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
   store i16 %.0.i18, ptr %4, align 2
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %16, %._crit_edge
-  %21 = load i16, ptr %4, align 2
-  br label %22
+.thread:                                          ; preds = %.preheader, %15, %._crit_edge
+  %20 = load i16, ptr %4, align 2
+  br label %21
 
-22:                                               ; preds = %1, %.thread
-  %.012 = phi i16 [ %21, %.thread ], [ 0, %1 ]
+21:                                               ; preds = %1, %.thread
+  %.012 = phi i16 [ %20, %.thread ], [ 0, %1 ]
   ret i16 %.012
 }
 

@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [38 x i8] c"failed to find appropriate JoinDomain\00", align 1
 @__func__.find_join_domain = private unnamed_addr constant [17 x i8] c"find_join_domain\00", align 1
-@switch.table.eclass_useful_for_merging = private unnamed_addr constant [4 x i64] [i64 360, i64 360, i64 8, i64 360], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @process_equivalence(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4859,65 +4858,58 @@ list_length.exit:                                 ; preds = %7
   %15 = load i32, ptr %14, align 4
   %switch.tableidx = add i32 %15, -2
   %16 = icmp ult i32 %switch.tableidx, 4
-  br i1 %16, label %switch.lookup, label %18
+  %17 = icmp eq i32 %switch.tableidx, 2
+  %switch.load = select i1 %17, i64 8, i64 360
+  %.sink = select i1 %16, i64 %switch.load, i64 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 %.sink
+  %.019 = load ptr, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call zeroext i1 @bms_is_subset(ptr noundef %20, ptr noundef %.019) #8
+  br i1 %21, label %list_length.exit.thread, label %22
 
-switch.lookup:                                    ; preds = %13
-  %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.eclass_useful_for_merging, i64 0, i64 %17
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %18
-
-18:                                               ; preds = %13, %switch.lookup
-  %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 8, %13 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 %.sink
-  %.019 = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @bms_is_subset(ptr noundef %21, ptr noundef %.019) #8
-  br i1 %22, label %list_length.exit.thread, label %23
-
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  %.not = icmp eq ptr %24, null
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %.not = icmp eq ptr %23, null
   br i1 %.not, label %list_length.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = load i32, ptr %25, align 4
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph34, label %list_length.exit.thread
+.lr.ph:                                           ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = load i32, ptr %24, align 4
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph34, label %list_length.exit.thread
 
-.lr.ph34:                                         ; preds = %.lr.ph, %40
-  %29 = phi i32 [ %41, %40 ], [ %27, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
-  %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 25
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %40, label %36
+.lr.ph34:                                         ; preds = %.lr.ph, %39
+  %28 = phi i32 [ %40, %39 ], [ %26, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph ]
+  %29 = load ptr, ptr %25, align 8
+  %30 = getelementptr %union.ListCell, ptr %29, i64 %indvars.iv
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 25
+  %33 = load i8, ptr %32, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %39, label %35
 
-36:                                               ; preds = %.lr.ph34
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 @bms_overlap(ptr noundef %38, ptr noundef %.019) #8
-  br i1 %39, label %._crit_edge, label %list_length.exit.thread
+35:                                               ; preds = %.lr.ph34
+  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call zeroext i1 @bms_overlap(ptr noundef %37, ptr noundef %.019) #8
+  br i1 %38, label %._crit_edge, label %list_length.exit.thread
 
-._crit_edge:                                      ; preds = %36
-  %.pre = load i32, ptr %25, align 4
-  br label %40
+._crit_edge:                                      ; preds = %35
+  %.pre = load i32, ptr %24, align 4
+  br label %39
 
-40:                                               ; preds = %._crit_edge, %.lr.ph34
-  %41 = phi i32 [ %.pre, %._crit_edge ], [ %29, %.lr.ph34 ]
+39:                                               ; preds = %._crit_edge, %.lr.ph34
+  %40 = phi i32 [ %.pre, %._crit_edge ], [ %28, %.lr.ph34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph34, label %list_length.exit.thread
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next, %41
+  br i1 %42, label %.lr.ph34, label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %36, %40, %23, %.lr.ph, %7, %18, %3, %list_length.exit
-  %.0 = phi i1 [ false, %list_length.exit ], [ false, %3 ], [ false, %18 ], [ false, %7 ], [ false, %23 ], [ false, %.lr.ph ], [ true, %36 ], [ false, %40 ]
+list_length.exit.thread:                          ; preds = %35, %39, %22, %.lr.ph, %7, %13, %3, %list_length.exit
+  %.0 = phi i1 [ false, %list_length.exit ], [ false, %3 ], [ false, %13 ], [ false, %7 ], [ false, %22 ], [ false, %.lr.ph ], [ true, %35 ], [ false, %39 ]
   ret i1 %.0
 }
 

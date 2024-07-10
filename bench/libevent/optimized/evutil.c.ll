@@ -49,11 +49,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @EVUTIL_ISALPHA_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 0, i32 134217726, i32 134217726, i32 0, i32 0, i32 0, i32 0], align 16
 @EVUTIL_ISALNUM_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 67043328, i32 134217726, i32 134217726, i32 0, i32 0, i32 0, i32 0], align 16
 @EVUTIL_ISSPACE_TABLE = internal unnamed_addr constant [8 x i32] [i32 15872, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 16
-@EVUTIL_ISDIGIT_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 67043328, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 16
 @EVUTIL_ISXDIGIT_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 67043328, i32 126, i32 126, i32 0, i32 0, i32 0, i32 0], align 16
 @EVUTIL_ISPRINT_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 -1, i32 -1, i32 2147483647, i32 0, i32 0, i32 0, i32 0], align 16
-@EVUTIL_ISLOWER_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 0, i32 0, i32 134217726, i32 0, i32 0, i32 0, i32 0], align 16
-@EVUTIL_ISUPPER_TABLE = internal unnamed_addr constant [8 x i32] [i32 0, i32 0, i32 134217726, i32 0, i32 0, i32 0, i32 0, i32 0], align 16
 @EVUTIL_TOLOWER_TABLE = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 @EVUTIL_TOUPPER_TABLE = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 @evutil_memset_volatile_ = dso_local global ptr @memset, align 8
@@ -1391,14 +1388,13 @@ for.cond:                                         ; preds = %if.else25, %land.rh
 land.rhs:                                         ; preds = %for.cond
   %4 = load i8, ptr %eow.0, align 1
   %conv.i = zext i8 %4 to i32
-  %shr.i = lshr i32 %conv.i, 5
-  %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISDIGIT_TABLE, i64 0, i64 %idxprom.i
-  %5 = load i32, ptr %arrayidx.i, align 4
+  %shr.mask.i = and i32 %conv.i, 224
+  %5 = icmp eq i32 %shr.mask.i, 32
+  %6 = select i1 %5, i32 67043328, i32 0
   %and2.i = and i32 %conv.i, 31
-  %6 = shl nuw i32 1, %and2.i
-  %7 = and i32 %6, %5
-  %tobool33.not = icmp eq i32 %7, 0
+  %7 = shl nuw i32 1, %and2.i
+  %8 = and i32 %6, %7
+  %tobool33.not = icmp eq i32 %8, 0
   br i1 %tobool33.not, label %for.end, label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond, %land.rhs
@@ -1407,27 +1403,27 @@ for.end:                                          ; preds = %for.cond, %land.rhs
   br i1 %cmp36.not, label %if.end38, label %return
 
 if.end38:                                         ; preds = %for.end
-  %8 = load i32, ptr %byte1, align 4
-  %cmp39 = icmp ugt i32 %8, 255
-  %9 = load i32, ptr %byte2, align 4
-  %cmp40 = icmp ugt i32 %9, 255
+  %9 = load i32, ptr %byte1, align 4
+  %cmp39 = icmp ugt i32 %9, 255
+  %10 = load i32, ptr %byte2, align 4
+  %cmp40 = icmp ugt i32 %10, 255
   %or.cond = select i1 %cmp39, i1 true, i1 %cmp40
-  %10 = load i32, ptr %byte3, align 4
-  %cmp42 = icmp ugt i32 %10, 255
+  %11 = load i32, ptr %byte3, align 4
+  %cmp42 = icmp ugt i32 %11, 255
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp42
-  %11 = load i32, ptr %byte4, align 4
-  %cmp44 = icmp ugt i32 %11, 255
+  %12 = load i32, ptr %byte4, align 4
+  %cmp44 = icmp ugt i32 %12, 255
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp44
   br i1 %or.cond2, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end38
-  %shl47 = shl nuw nsw i32 %8, 8
-  %or48 = or disjoint i32 %shl47, %9
+  %shl47 = shl nuw nsw i32 %9, 8
+  %or48 = or disjoint i32 %shl47, %10
   %conv = trunc nuw i32 %or48 to i16
   %arrayidx = getelementptr inbounds i8, ptr %words, i64 12
   store i16 %conv, ptr %arrayidx, align 4
-  %shl49 = shl nuw nsw i32 %10, 8
-  %or50 = or disjoint i32 %shl49, %11
+  %shl49 = shl nuw nsw i32 %11, 8
+  %or50 = or disjoint i32 %shl49, %12
   %conv51 = trunc nuw i32 %or50 to i16
   %arrayidx52 = getelementptr inbounds i8, ptr %words, i64 14
   store i16 %conv51, ptr %arrayidx52, align 2
@@ -1436,36 +1432,36 @@ if.end46:                                         ; preds = %if.end38
 if.end54:                                         ; preds = %if.then26, %if.end46
   %setWords.0 = phi i32 [ 2, %if.end46 ], [ 0, %if.then26 ]
   %eow.1 = phi ptr [ %call22.pn, %if.end46 ], [ %add.ptr, %if.then26 ]
-  %cmp5587 = icmp ugt ptr %eow.1, %src
-  br i1 %cmp5587, label %while.body, label %return
+  %cmp5584 = icmp ugt ptr %eow.1, %src
+  br i1 %cmp5584, label %while.body, label %return
 
 while.body:                                       ; preds = %if.end54, %if.end124
-  %src.addr.091 = phi ptr [ %src.addr.1, %if.end124 ], [ %src, %if.end54 ]
-  %gapPos.090 = phi i32 [ %gapPos.1, %if.end124 ], [ -1, %if.end54 ]
-  %i.089 = phi i32 [ %i.1, %if.end124 ], [ 0, %if.end54 ]
-  %setWords.188 = phi i32 [ %setWords.2, %if.end124 ], [ %setWords.0, %if.end54 ]
-  %cmp57 = icmp sgt i32 %i.089, 7
+  %src.addr.088 = phi ptr [ %src.addr.1, %if.end124 ], [ %src, %if.end54 ]
+  %gapPos.087 = phi i32 [ %gapPos.1, %if.end124 ], [ -1, %if.end54 ]
+  %i.086 = phi i32 [ %i.1, %if.end124 ], [ 0, %if.end54 ]
+  %setWords.185 = phi i32 [ %setWords.2, %if.end124 ], [ %setWords.0, %if.end54 ]
+  %cmp57 = icmp sgt i32 %i.086, 7
   br i1 %cmp57, label %return, label %if.end60
 
 if.end60:                                         ; preds = %while.body
-  %12 = load i8, ptr %src.addr.091, align 1
-  %conv.i78 = zext i8 %12 to i32
-  %shr.i79 = lshr i32 %conv.i78, 5
-  %idxprom.i80 = zext nneg i32 %shr.i79 to i64
-  %arrayidx.i81 = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISXDIGIT_TABLE, i64 0, i64 %idxprom.i80
-  %13 = load i32, ptr %arrayidx.i81, align 4
-  %and2.i82 = and i32 %conv.i78, 31
-  %14 = shl nuw i32 1, %and2.i82
-  %15 = and i32 %14, %13
-  %tobool62.not = icmp eq i32 %15, 0
+  %13 = load i8, ptr %src.addr.088, align 1
+  %conv.i78 = zext i8 %13 to i32
+  %shr.i = lshr i32 %conv.i78, 5
+  %idxprom.i = zext nneg i32 %shr.i to i64
+  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISXDIGIT_TABLE, i64 0, i64 %idxprom.i
+  %14 = load i32, ptr %arrayidx.i, align 4
+  %and2.i79 = and i32 %conv.i78, 31
+  %15 = shl nuw i32 1, %and2.i79
+  %16 = and i32 %15, %14
+  %tobool62.not = icmp eq i32 %16, 0
   br i1 %tobool62.not, label %if.else92, label %if.then63
 
 if.then63:                                        ; preds = %if.end60
-  %call64 = call i64 @strtol(ptr noundef nonnull %src.addr.091, ptr noundef nonnull %next, i32 noundef 16) #30
-  %16 = load ptr, ptr %next, align 8
-  %add.ptr65 = getelementptr inbounds i8, ptr %src.addr.091, i64 4
-  %cmp66 = icmp ugt ptr %16, %add.ptr65
-  %cmp70 = icmp eq ptr %16, %src.addr.091
+  %call64 = call i64 @strtol(ptr noundef nonnull %src.addr.088, ptr noundef nonnull %next, i32 noundef 16) #30
+  %17 = load ptr, ptr %next, align 8
+  %add.ptr65 = getelementptr inbounds i8, ptr %src.addr.088, i64 4
+  %cmp66 = icmp ugt ptr %17, %add.ptr65
+  %cmp70 = icmp eq ptr %17, %src.addr.088
   %or.cond76 = or i1 %cmp66, %cmp70
   %or.cond3 = icmp ugt i64 %call64, 65536
   %or.cond77 = select i1 %or.cond76, i1 true, i1 %or.cond3
@@ -1473,53 +1469,53 @@ if.then63:                                        ; preds = %if.end60
 
 if.end80:                                         ; preds = %if.then63
   %conv81 = trunc i64 %call64 to i16
-  %idxprom = sext i32 %i.089 to i64
+  %idxprom = sext i32 %i.086 to i64
   %arrayidx82 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %idxprom
   store i16 %conv81, ptr %arrayidx82, align 2
-  %17 = load i8, ptr %16, align 1
-  %cmp85.not = icmp eq i8 %17, 58
-  %cmp87.not = icmp eq ptr %16, %eow.1
+  %18 = load i8, ptr %17, align 1
+  %cmp85.not = icmp eq i8 %18, 58
+  %cmp87.not = icmp eq ptr %17, %eow.1
   %or.cond75 = or i1 %cmp87.not, %cmp85.not
   br i1 %or.cond75, label %if.end90, label %return
 
 if.end90:                                         ; preds = %if.end80
-  %inc83 = add nsw i32 %setWords.188, 1
-  %inc = add nsw i32 %i.089, 1
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %16, i64 1
+  %inc83 = add nsw i32 %setWords.185, 1
+  %inc = add nsw i32 %i.086, 1
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %17, i64 1
   br label %if.end124
 
 if.else92:                                        ; preds = %if.end60
-  %cmp94 = icmp eq i8 %12, 58
-  %cmp97 = icmp sgt i32 %i.089, 0
+  %cmp94 = icmp eq i8 %13, 58
+  %cmp97 = icmp sgt i32 %i.086, 0
   %or.cond4 = and i1 %cmp94, %cmp97
-  %cmp100 = icmp eq i32 %gapPos.090, -1
+  %cmp100 = icmp eq i32 %gapPos.087, -1
   %or.cond5 = select i1 %or.cond4, i1 %cmp100, i1 false
   br i1 %or.cond5, label %if.then102, label %if.else104
 
 if.then102:                                       ; preds = %if.else92
-  %incdec.ptr103 = getelementptr inbounds i8, ptr %src.addr.091, i64 1
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %src.addr.088, i64 1
   br label %if.end124
 
 if.else104:                                       ; preds = %if.else92
-  %cmp109 = icmp eq i32 %i.089, 0
+  %cmp109 = icmp eq i32 %i.086, 0
   %or.cond6 = and i1 %cmp94, %cmp109
   br i1 %or.cond6, label %land.lhs.true111, label %return
 
 land.lhs.true111:                                 ; preds = %if.else104
-  %arrayidx112 = getelementptr inbounds i8, ptr %src.addr.091, i64 1
-  %18 = load i8, ptr %arrayidx112, align 1
-  %cmp114 = icmp eq i8 %18, 58
+  %arrayidx112 = getelementptr inbounds i8, ptr %src.addr.088, i64 1
+  %19 = load i8, ptr %arrayidx112, align 1
+  %cmp114 = icmp eq i8 %19, 58
   %or.cond7 = select i1 %cmp114, i1 %cmp100, i1 false
   br i1 %or.cond7, label %if.then119, label %return
 
 if.then119:                                       ; preds = %land.lhs.true111
-  %add.ptr120 = getelementptr inbounds i8, ptr %src.addr.091, i64 2
+  %add.ptr120 = getelementptr inbounds i8, ptr %src.addr.088, i64 2
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then102, %if.then119, %if.end90
-  %setWords.2 = phi i32 [ %inc83, %if.end90 ], [ %setWords.188, %if.then102 ], [ %setWords.188, %if.then119 ]
-  %i.1 = phi i32 [ %inc, %if.end90 ], [ %i.089, %if.then102 ], [ 0, %if.then119 ]
-  %gapPos.1 = phi i32 [ %gapPos.090, %if.end90 ], [ %i.089, %if.then102 ], [ 0, %if.then119 ]
+  %setWords.2 = phi i32 [ %inc83, %if.end90 ], [ %setWords.185, %if.then102 ], [ %setWords.185, %if.then119 ]
+  %i.1 = phi i32 [ %inc, %if.end90 ], [ %i.086, %if.then102 ], [ 0, %if.then119 ]
+  %gapPos.1 = phi i32 [ %gapPos.087, %if.end90 ], [ %i.086, %if.then102 ], [ 0, %if.then119 ]
   %src.addr.1 = phi ptr [ %incdec.ptr91, %if.end90 ], [ %incdec.ptr103, %if.then102 ], [ %add.ptr120, %if.then119 ]
   %cmp55 = icmp ult ptr %src.addr.1, %eow.1
   br i1 %cmp55, label %while.body, label %while.end, !llvm.loop !10
@@ -1558,8 +1554,8 @@ if.end150:                                        ; preds = %if.then143
   %arrayidx153 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %idxprom152
   %idxprom154 = zext nneg i32 %gapPos.1 to i64
   %arrayidx155 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %idxprom154
-  %19 = shl nuw i32 %sub145, 1
-  %mul = zext i32 %19 to i64
+  %20 = shl nuw i32 %sub145, 1
+  %mul = zext i32 %20 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %arrayidx153, ptr nonnull align 2 %arrayidx155, i64 %mul, i1 false)
   %conv159 = zext nneg i32 %sub146 to i64
   %mul160 = shl nuw nsw i64 %conv159, 1
@@ -1572,15 +1568,15 @@ for.body165.preheader:                            ; preds = %if.end150, %if.end1
 for.body165:                                      ; preds = %for.body165.preheader, %for.body165
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body165 ], [ 0, %for.body165.preheader ]
   %arrayidx167 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %indvars.iv
-  %20 = load i16, ptr %arrayidx167, align 2
-  %21 = lshr i16 %20, 8
-  %conv169 = trunc nuw i16 %21 to i8
-  %22 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx172 = getelementptr inbounds [16 x i8], ptr %dst, i64 0, i64 %22
+  %21 = load i16, ptr %arrayidx167, align 2
+  %22 = lshr i16 %21, 8
+  %conv169 = trunc nuw i16 %22 to i8
+  %23 = shl nuw nsw i64 %indvars.iv, 1
+  %arrayidx172 = getelementptr inbounds [16 x i8], ptr %dst, i64 0, i64 %23
   store i8 %conv169, ptr %arrayidx172, align 1
-  %conv176 = trunc i16 %20 to i8
-  %23 = or disjoint i64 %22, 1
-  %arrayidx181 = getelementptr inbounds [16 x i8], ptr %dst, i64 0, i64 %23
+  %conv176 = trunc i16 %21 to i8
+  %24 = or disjoint i64 %23, 1
+  %arrayidx181 = getelementptr inbounds [16 x i8], ptr %dst, i64 0, i64 %24
   store i8 %conv176, ptr %arrayidx181, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2649,13 +2645,12 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 define dso_local range(i32 0, 2) i32 @EVUTIL_ISDIGIT_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
-  %shr = lshr i32 %conv, 5
-  %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISDIGIT_TABLE, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
+  %shr.mask = and i32 %conv, 224
+  %0 = icmp eq i32 %shr.mask, 32
+  %1 = select i1 %0, i32 67043328, i32 0
   %and2 = and i32 %conv, 31
-  %1 = lshr i32 %0, %and2
-  %lnot.ext = and i32 %1, 1
+  %2 = lshr i32 %1, %and2
+  %lnot.ext = and i32 %2, 1
   ret i32 %lnot.ext
 }
 
@@ -3061,13 +3056,12 @@ entry:
 define dso_local range(i32 0, 2) i32 @EVUTIL_ISLOWER_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
-  %shr = lshr i32 %conv, 5
-  %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISLOWER_TABLE, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
+  %shr.mask = and i32 %conv, 224
+  %0 = icmp eq i32 %shr.mask, 96
+  %1 = select i1 %0, i32 134217726, i32 0
   %and2 = and i32 %conv, 31
-  %1 = lshr i32 %0, %and2
-  %lnot.ext = and i32 %1, 1
+  %2 = lshr i32 %1, %and2
+  %lnot.ext = and i32 %2, 1
   ret i32 %lnot.ext
 }
 
@@ -3075,13 +3069,12 @@ entry:
 define dso_local range(i32 0, 2) i32 @EVUTIL_ISUPPER_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
-  %shr = lshr i32 %conv, 5
-  %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @EVUTIL_ISUPPER_TABLE, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
+  %shr.mask = and i32 %conv, 224
+  %0 = icmp eq i32 %shr.mask, 64
+  %1 = select i1 %0, i32 134217726, i32 0
   %and2 = and i32 %conv, 31
-  %1 = lshr i32 %0, %and2
-  %lnot.ext = and i32 %1, 1
+  %2 = lshr i32 %1, %and2
+  %lnot.ext = and i32 %2, 1
   ret i32 %lnot.ext
 }
 

@@ -229,7 +229,6 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mpls_pm_dissect_timestamp.7 = private unnamed_addr constant [4 x ptr] [ptr @hf_mpls_pm_timestamp2_r_null, ptr @hf_mpls_pm_timestamp2_r_seq, ptr @hf_mpls_pm_timestamp2_r_ntp, ptr @hf_mpls_pm_timestamp2_r_ptp], align 8
 @switch.table.mpls_pm_dissect_timestamp.9 = private unnamed_addr constant [4 x ptr] [ptr @hf_mpls_pm_timestamp3_r_null, ptr @hf_mpls_pm_timestamp3_r_seq, ptr @hf_mpls_pm_timestamp3_r_ntp, ptr @hf_mpls_pm_timestamp3_r_ptp], align 8
 @switch.table.mpls_pm_dissect_timestamp.11 = private unnamed_addr constant [4 x ptr] [ptr @hf_mpls_pm_timestamp4_r_null, ptr @hf_mpls_pm_timestamp4_r_seq, ptr @hf_mpls_pm_timestamp4_r_ntp, ptr @hf_mpls_pm_timestamp4_r_ptp], align 8
-@switch.table.mpls_pm_dissect_timestamp.12 = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 2, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_mpls_pm() local_unnamed_addr #0 {
@@ -467,9 +466,8 @@ switch.lookup:                                    ; preds = %59
   %61 = zext nneg i8 %49 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_mpls_pm_loss, i64 0, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %62 = zext nneg i8 %49 to i64
-  %switch.gep100 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %62
-  %switch.load101 = load i32, ptr %switch.gep100, align 4
+  %62 = icmp eq i8 %49, 2
+  %switch.load101 = select i1 %62, i32 2, i32 0
   br label %63
 
 63:                                               ; preds = %59, %switch.lookup
@@ -688,54 +686,48 @@ switch.lookup:                                    ; preds = %9
   %23 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp, i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %24 = zext nneg i8 %3 to i64
-  %switch.gep105 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %24
-  %switch.load106 = load i32, ptr %switch.gep105, align 4
+  %24 = icmp eq i8 %3, 2
+  %switch.load106 = select i1 %24, i32 2, i32 0
   br label %.sink.split
 
 switch.lookup107:                                 ; preds = %11
   %25 = zext nneg i8 %3 to i64
   %switch.gep108 = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp.3, i64 0, i64 %25
   %switch.load109 = load ptr, ptr %switch.gep108, align 8
-  %26 = zext nneg i8 %3 to i64
-  %switch.gep110 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %26
-  %switch.load111 = load i32, ptr %switch.gep110, align 4
+  %26 = icmp eq i8 %3, 2
+  %switch.load111 = select i1 %26, i32 2, i32 0
   br label %.sink.split
 
 switch.lookup112:                                 ; preds = %15
   %27 = zext nneg i8 %4 to i64
   %switch.gep113 = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp.5, i64 0, i64 %27
   %switch.load114 = load ptr, ptr %switch.gep113, align 8
-  %28 = zext nneg i8 %4 to i64
-  %switch.gep115 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %28
-  %switch.load116 = load i32, ptr %switch.gep115, align 4
+  %28 = icmp eq i8 %4, 2
+  %switch.load116 = select i1 %28, i32 2, i32 0
   br label %.sink.split
 
 switch.lookup117:                                 ; preds = %17
   %29 = zext nneg i8 %4 to i64
   %switch.gep118 = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp.7, i64 0, i64 %29
   %switch.load119 = load ptr, ptr %switch.gep118, align 8
-  %30 = zext nneg i8 %4 to i64
-  %switch.gep120 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %30
-  %switch.load121 = load i32, ptr %switch.gep120, align 4
+  %30 = icmp eq i8 %4, 2
+  %switch.load121 = select i1 %30, i32 2, i32 0
   br label %.sink.split
 
 switch.lookup122:                                 ; preds = %19
   %31 = zext nneg i8 %4 to i64
   %switch.gep123 = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp.9, i64 0, i64 %31
   %switch.load124 = load ptr, ptr %switch.gep123, align 8
-  %32 = zext nneg i8 %4 to i64
-  %switch.gep125 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %32
-  %switch.load126 = load i32, ptr %switch.gep125, align 4
+  %32 = icmp eq i8 %4, 2
+  %switch.load126 = select i1 %32, i32 2, i32 0
   br label %.sink.split
 
 switch.lookup127:                                 ; preds = %21
   %33 = zext nneg i8 %4 to i64
   %switch.gep128 = getelementptr inbounds [4 x ptr], ptr @switch.table.mpls_pm_dissect_timestamp.11, i64 0, i64 %33
   %switch.load129 = load ptr, ptr %switch.gep128, align 8
-  %34 = zext nneg i8 %4 to i64
-  %switch.gep130 = getelementptr inbounds [4 x i32], ptr @switch.table.mpls_pm_dissect_timestamp.12, i64 0, i64 %34
-  %switch.load131 = load i32, ptr %switch.gep130, align 4
+  %34 = icmp eq i8 %4, 2
+  %switch.load131 = select i1 %34, i32 2, i32 0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %switch.lookup127, %19, %switch.lookup122, %17, %switch.lookup117, %15, %switch.lookup112, %11, %switch.lookup107, %9, %switch.lookup, %8, %13

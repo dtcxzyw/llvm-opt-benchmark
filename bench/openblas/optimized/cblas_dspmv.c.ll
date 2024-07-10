@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DSPMV \00", align 1
-@spmv = internal unnamed_addr constant [2 x ptr] [ptr @dspmv_U, ptr @dspmv_L], align 16
 
 ; Function Attrs: nounwind uwtable
 define void @cblas_dspmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, double noundef %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
@@ -62,11 +61,11 @@ define void @cblas_dspmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, double 
 
 40:                                               ; preds = %.thread6, %.thread4, %36
   %41 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %11, i32 noundef 7) #4
-  br label %75
+  br label %74
 
 42:                                               ; preds = %36
   %43 = icmp eq i32 %2, 0
-  br i1 %43, label %75, label %44
+  br i1 %43, label %74, label %44
 
 44:                                               ; preds = %42
   %45 = fcmp une double %7, 1.000000e+00
@@ -81,7 +80,7 @@ define void @cblas_dspmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, double 
 
 51:                                               ; preds = %46, %44
   %52 = fcmp oeq double %3, 0.000000e+00
-  br i1 %52, label %75, label %53
+  br i1 %52, label %74, label %53
 
 53:                                               ; preds = %51
   %54 = icmp slt i32 %6, 0
@@ -98,17 +97,16 @@ define void @cblas_dspmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, double 
   %65 = select i1 %61, i64 %64, i64 0
   %66 = getelementptr inbounds double, ptr %8, i64 %65
   %67 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
-  %68 = sext i32 %38 to i64
-  %69 = getelementptr inbounds [2 x ptr], ptr @spmv, i64 0, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !3
-  %71 = sext i32 %2 to i64
-  %72 = sext i32 %6 to i64
-  %73 = sext i32 %9 to i64
-  %74 = tail call i32 %70(i64 noundef %71, double noundef %3, ptr noundef %4, ptr noundef %60, i64 noundef %72, ptr noundef %66, i64 noundef %73, ptr noundef %67) #4
+  %68 = icmp eq i32 %38, 0
+  %69 = select i1 %68, ptr @dspmv_U, ptr @dspmv_L
+  %70 = sext i32 %2 to i64
+  %71 = sext i32 %6 to i64
+  %72 = sext i32 %9 to i64
+  %73 = tail call i32 %69(i64 noundef %70, double noundef %3, ptr noundef %4, ptr noundef %60, i64 noundef %71, ptr noundef %66, i64 noundef %72, ptr noundef %67) #4
   tail call void @blas_memory_free(ptr noundef %67) #4
-  br label %75
+  br label %74
 
-75:                                               ; preds = %53, %51, %42, %40
+74:                                               ; preds = %53, %51, %42, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
   ret void
 }
@@ -130,9 +128,9 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare i32 @dspmv_U(i64 noundef, double noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dspmv_U(i64 noundef, double noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dspmv_L(i64 noundef, double noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dspmv_L(i64 noundef, double noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -145,7 +143,3 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}

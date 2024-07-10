@@ -21,7 +21,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_color_lu
 @__UNIQUE_ID___addressable_drm_mode_crtc_set_gamma_size369 = internal global ptr @drm_mode_crtc_set_gamma_size, section ".discard.addressable", align 8
 @.str.1 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @color_encoding_name = internal unnamed_addr constant [3 x ptr] [ptr @.str.8, ptr @.str.9, ptr @.str.10], align 16
-@color_range_name = internal unnamed_addr constant [2 x ptr] [ptr @.str.11, ptr @.str.12], align 16
 @.str.2 = private unnamed_addr constant [15 x i8] c"COLOR_ENCODING\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"COLOR_RANGE\00", align 1
 @__UNIQUE_ID___addressable_drm_plane_create_color_properties380 = internal global ptr @drm_plane_create_color_properties, section ".discard.addressable", align 8
@@ -634,7 +633,7 @@ define dso_local ptr @drm_get_color_encoding_name(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i32 %0, 1
   br i1 %2, label %3, label %4, !prof !5
 
@@ -642,17 +641,16 @@ define dso_local ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_add
   tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #6, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 507, i32 2305, i64 12) #6, !srcloc !24
   tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #6, !srcloc !25
-  br label %8
+  br label %7
 
 4:                                                ; preds = %1
-  %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr [2 x ptr], ptr @color_range_name, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
-  br label %8
+  %5 = icmp eq i32 %0, 0
+  %6 = select i1 %5, ptr @.str.11, ptr @.str.12
+  br label %7
 
-8:                                                ; preds = %4, %3
-  %9 = phi ptr [ %7, %4 ], [ @.str.1, %3 ]
-  ret ptr %9
+7:                                                ; preds = %4, %3
+  %8 = phi ptr [ %6, %4 ], [ @.str.1, %3 ]
+  ret ptr %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -676,7 +674,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
   tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #6, !srcloc !26
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 541, i32 2305, i64 12) #6, !srcloc !27
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_end\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #6, !srcloc !28
-  br label %81
+  br label %80
 
 17:                                               ; preds = %10
   %18 = add i32 %2, -1
@@ -699,7 +697,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
   tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 546, i32 2305, i64 12) #6, !srcloc !30
   tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #6, !srcloc !31
-  br label %81
+  br label %80
 
 .preheader:                                       ; preds = %.preheader.preheader, %40
   %27 = phi i64 [ %42, %40 ], [ 0, %.preheader.preheader ]
@@ -730,7 +728,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 44:                                               ; preds = %40
   %45 = call ptr @drm_property_create_enum(ptr noundef %7, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %6, i32 noundef %41) #6
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %81, label %47
+  br i1 %46, label %80, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %0, i64 1280
@@ -750,53 +748,52 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 .preheader9:                                      ; preds = %53, %47
   br label %55
 
-55:                                               ; preds = %.preheader9, %70
-  %56 = phi i1 [ false, %70 ], [ true, %.preheader9 ]
-  %57 = phi i64 [ 1, %70 ], [ 0, %.preheader9 ]
-  %58 = phi i32 [ %71, %70 ], [ 0, %.preheader9 ]
-  %59 = shl nuw nsw i64 1, %57
-  %60 = and i64 %59, %21
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %70, label %62
+55:                                               ; preds = %.preheader9, %69
+  %56 = phi ptr [ @.str.12, %69 ], [ @.str.11, %.preheader9 ]
+  %57 = phi i1 [ false, %69 ], [ true, %.preheader9 ]
+  %58 = phi i64 [ 1, %69 ], [ 0, %.preheader9 ]
+  %59 = phi i32 [ %70, %69 ], [ 0, %.preheader9 ]
+  %60 = shl nuw nsw i64 1, %58
+  %61 = and i64 %60, %21
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %69, label %63
 
-62:                                               ; preds = %55
-  %63 = sext i32 %58 to i64
-  %64 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %63
-  %65 = trunc nuw nsw i64 %57 to i32
-  store i32 %65, ptr %64, align 16
-  %66 = getelementptr [2 x ptr], ptr @color_range_name, i64 0, i64 %57
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
-  store ptr %67, ptr %68, align 8
-  %69 = add i32 %58, 1
-  br label %70
+63:                                               ; preds = %55
+  %64 = sext i32 %59 to i64
+  %65 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %64
+  %66 = trunc nuw nsw i64 %58 to i32
+  store i32 %66, ptr %65, align 16
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %56, ptr %67, align 8
+  %68 = add i32 %59, 1
+  br label %69
 
-70:                                               ; preds = %62, %55
-  %71 = phi i32 [ %58, %55 ], [ %69, %62 ]
-  br i1 %56, label %55, label %72, !llvm.loop !33
+69:                                               ; preds = %63, %55
+  %70 = phi i32 [ %59, %55 ], [ %68, %63 ]
+  br i1 %57, label %55, label %71, !llvm.loop !33
 
-72:                                               ; preds = %70
-  %73 = call ptr @drm_property_create_enum(ptr noundef %7, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, i32 noundef %71) #6
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %81, label %75
+71:                                               ; preds = %69
+  %72 = call ptr @drm_property_create_enum(ptr noundef %7, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %6, i32 noundef %70) #6
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %80, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 1288
-  store ptr %73, ptr %76, align 8
-  call void @drm_object_attach_property(ptr noundef %49, ptr noundef nonnull %73, i64 noundef %22) #6
-  %77 = load ptr, ptr %50, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %81, label %79
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %0, i64 1288
+  store ptr %72, ptr %75, align 8
+  call void @drm_object_attach_property(ptr noundef %49, ptr noundef nonnull %72, i64 noundef %22) #6
+  %76 = load ptr, ptr %50, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %80, label %78
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %77, i64 92
-  store i32 %4, ptr %80, align 4
-  br label %81
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %76, i64 92
+  store i32 %4, ptr %79, align 4
+  br label %80
 
-81:                                               ; preds = %79, %75, %72, %44, %26, %16
-  %82 = phi i32 [ -22, %16 ], [ -22, %26 ], [ -12, %44 ], [ -12, %72 ], [ 0, %79 ], [ 0, %75 ]
+80:                                               ; preds = %78, %74, %71, %44, %26, %16
+  %81 = phi i32 [ -22, %16 ], [ -22, %26 ], [ -12, %44 ], [ -12, %71 ], [ 0, %78 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #6
-  ret i32 %82
+  ret i32 %81
 }
 
 ; Function Attrs: null_pointer_is_valid

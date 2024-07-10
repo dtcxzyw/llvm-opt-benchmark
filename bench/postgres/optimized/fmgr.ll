@@ -104,7 +104,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [10 x i8] c"CFuncHash\00", align 1
 @__func__.fmgr_info_other_lang = private unnamed_addr constant [21 x i8] c"fmgr_info_other_lang\00", align 1
 @fmgr_nbuiltins = external local_unnamed_addr constant i32, align 4
-@switch.table.get_call_expr_arg_stable = private unnamed_addr constant [8 x i64] [i64 24, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fmgr_info(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
@@ -3193,9 +3192,8 @@ switch.hole_check:                                ; preds = %6
   br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_argtype.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %9 = icmp eq i32 %switch.tableidx, 0
+  %switch.load = select i1 %9, i64 24, i64 32
   %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
   %.023.i = load ptr, ptr %10, align 8
   %11 = icmp slt i32 %1, 0
@@ -3255,9 +3253,8 @@ switch.hole_check:                                ; preds = %4
   br i1 %switch.lobit, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %7 = icmp eq i32 %switch.tableidx, 0
+  %switch.load = select i1 %7, i64 24, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   %.023 = load ptr, ptr %8, align 8
   %9 = icmp slt i32 %1, 0
@@ -3325,9 +3322,8 @@ switch.hole_check:                                ; preds = %6
   br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_arg_stable.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %9 = icmp eq i32 %switch.tableidx, 0
+  %switch.load = select i1 %9, i64 24, i64 32
   %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
   %.021.i = load ptr, ptr %10, align 8
   %11 = icmp slt i32 %1, 0
@@ -3391,9 +3387,8 @@ switch.hole_check:                                ; preds = %4
   br i1 %switch.lobit, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %7 = icmp eq i32 %switch.tableidx, 0
+  %switch.load = select i1 %7, i64 24, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   %.021 = load ptr, ptr %8, align 8
   %9 = icmp slt i32 %1, 0

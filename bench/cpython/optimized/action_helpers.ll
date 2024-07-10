@@ -879,7 +879,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [3 x i8] c"!=\00", align 1
 @.str.7 = private unnamed_addr constant [6 x i8] c"print\00", align 1
 @.str.8 = private unnamed_addr constant [5 x i8] c"exec\00", align 1
-@__const._PyPegen_check_legacy_stmt.candidates = private unnamed_addr constant [2 x ptr] [ptr @.str.7, ptr @.str.8], align 16
 @.str.9 = private unnamed_addr constant [71 x i8] c"f-string: conversion type must come right after the exclamanation mark\00", align 1
 @PyUnicode_Type = external global %struct._typeobject, align 8
 @.str.10 = private unnamed_addr constant [10 x i8] c"attribute\00", align 1
@@ -3363,18 +3362,17 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.cond.preheader
-  %cmp1.not = phi i1 [ false, %for.cond.preheader ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %for.body ]
-  %1 = load ptr, ptr %v, align 8
-  %arrayidx = getelementptr [2 x ptr], ptr @__const._PyPegen_check_legacy_stmt.candidates, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %1, ptr noundef %2) #8
-  %cmp2 = icmp eq i32 %call, 0
-  %brmerge = or i1 %cmp2, %cmp1.not
-  br i1 %brmerge, label %return.loopexit, label %for.body
+  %1 = phi i1 [ true, %for.cond.preheader ], [ false, %for.body ]
+  %2 = load ptr, ptr %v, align 8
+  %3 = select i1 %1, ptr @.str.7, ptr @.str.8
+  %call = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %2, ptr noundef nonnull %3) #8
+  %cmp2 = icmp ne i32 %call, 0
+  %brmerge.not = and i1 %cmp2, %1
+  br i1 %brmerge.not, label %for.body, label %return.loopexit
 
 return.loopexit:                                  ; preds = %for.body
-  %.mux = zext i1 %cmp2 to i32
+  %not.cmp2 = xor i1 %cmp2, true
+  %.mux = zext i1 %not.cmp2 to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %entry

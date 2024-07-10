@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DSYR2 \00", align 1
-@syr2 = internal unnamed_addr constant [2 x ptr] [ptr @dsyr2_U, ptr @dsyr2_L], align 16
-@syr2_thread = internal unnamed_addr constant [2 x ptr] [ptr @dsyr2_thread_U, ptr @dsyr2_thread_L], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -158,30 +156,28 @@ define void @cblas_dsyr2(i32 noundef %0, i32 noundef %1, i32 noundef %2, double 
   %113 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
   %114 = load i32, ptr @blas_cpu_number, align 4, !tbaa !11
   %115 = icmp eq i32 %114, 1
-  %116 = sext i32 %44 to i64
-  %117 = sext i32 %2 to i64
-  %118 = sext i32 %5 to i64
-  %119 = sext i32 %7 to i64
-  %120 = sext i32 %9 to i64
-  br i1 %115, label %121, label %125
+  %116 = sext i32 %2 to i64
+  %117 = sext i32 %5 to i64
+  %118 = sext i32 %7 to i64
+  %119 = sext i32 %9 to i64
+  %120 = icmp eq i32 %44, 0
+  br i1 %115, label %121, label %124
 
 121:                                              ; preds = %99
-  %122 = getelementptr inbounds [2 x ptr], ptr @syr2, i64 0, i64 %116
-  %123 = load ptr, ptr %122, align 8, !tbaa !13
-  %124 = tail call i32 %123(i64 noundef %117, double noundef %3, ptr noundef %106, i64 noundef %118, ptr noundef %112, i64 noundef %119, ptr noundef %8, i64 noundef %120, ptr noundef %113) #4
-  br label %129
+  %122 = select i1 %120, ptr @dsyr2_U, ptr @dsyr2_L
+  %123 = tail call i32 %122(i64 noundef %116, double noundef %3, ptr noundef %106, i64 noundef %117, ptr noundef %112, i64 noundef %118, ptr noundef %8, i64 noundef %119, ptr noundef %113) #4
+  br label %127
 
-125:                                              ; preds = %99
-  %126 = getelementptr inbounds [2 x ptr], ptr @syr2_thread, i64 0, i64 %116
-  %127 = load ptr, ptr %126, align 8, !tbaa !13
-  %128 = tail call i32 %127(i64 noundef %117, double noundef %3, ptr noundef %106, i64 noundef %118, ptr noundef %112, i64 noundef %119, ptr noundef %8, i64 noundef %120, ptr noundef %113, i32 noundef %114) #4
-  br label %129
+124:                                              ; preds = %99
+  %125 = select i1 %120, ptr @dsyr2_thread_U, ptr @dsyr2_thread_L
+  %126 = tail call i32 %125(i64 noundef %116, double noundef %3, ptr noundef %106, i64 noundef %117, ptr noundef %112, i64 noundef %118, ptr noundef %8, i64 noundef %119, ptr noundef %113, i32 noundef %114) #4
+  br label %127
 
-129:                                              ; preds = %125, %121
+127:                                              ; preds = %124, %121
   tail call void @blas_memory_free(ptr noundef %113) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %84, %70, %129, %66, %61, %48, %46
+.loopexit:                                        ; preds = %84, %70, %127, %66, %61, %48, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
   ret void
 }
@@ -200,13 +196,13 @@ declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #2
 
 declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @dsyr2_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsyr2_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dsyr2_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsyr2_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dsyr2_thread_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dsyr2_thread_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dsyr2_thread_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dsyr2_thread_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
@@ -232,5 +228,3 @@ attributes #4 = { nounwind }
 !10 = distinct !{!10, !8, !9}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}

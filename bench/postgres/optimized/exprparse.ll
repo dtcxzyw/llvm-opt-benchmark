@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"!or\00", align 1
 @.str.17 = private unnamed_addr constant [4 x i8] c"!is\00", align 1
 @yyr1 = internal unnamed_addr constant [48 x i8] c"\00*+,,,-------------------------------------..//0", align 16
-@yypgoto = internal unnamed_addr constant [7 x i8] c"\DF\DF\DF\F9\DF\DF\DF", align 1
 @yydefgoto = internal unnamed_addr constant [7 x i8] c"\00\0DJ\0E\13\0F\10", align 1
 @.str.18 = private unnamed_addr constant [13 x i8] c"syntax error\00", align 1
 @.str.21 = private unnamed_addr constant [17 x i8] c"memory exhausted\00", align 1
@@ -74,11 +73,11 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   store i64 0, ptr %2, align 8
   br label %7
 
-5:                                                ; preds = %578, %73
-  %.0275 = phi ptr [ %556, %578 ], [ %.2277, %73 ]
-  %.0266 = phi ptr [ %557, %578 ], [ %74, %73 ]
-  %.0249 = phi i32 [ %579, %578 ], [ %67, %73 ]
-  %.0 = phi i32 [ %.5, %578 ], [ -2, %73 ]
+5:                                                ; preds = %577, %73
+  %.0275 = phi ptr [ %556, %577 ], [ %.2277, %73 ]
+  %.0266 = phi ptr [ %557, %577 ], [ %74, %73 ]
+  %.0249 = phi i32 [ %578, %577 ], [ %67, %73 ]
+  %.0 = phi i32 [ %.5, %577 ], [ -2, %73 ]
   %6 = getelementptr i8, ptr %.0275, i64 1
   br label %7
 
@@ -103,7 +102,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   %14 = sub i64 %12, %13
   %15 = add i64 %14, 1
   %16 = icmp sgt i64 %.0255, 9999
-  br i1 %16, label %580, label %17
+  br i1 %16, label %579, label %17
 
 17:                                               ; preds = %11
   %18 = shl i64 %.0255, 1
@@ -112,7 +111,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   %20 = add i64 %19, 7
   %21 = call noalias ptr @malloc(i64 noundef %20) #8
   %.not294 = icmp eq ptr %21, null
-  br i1 %.not294, label %580, label %22
+  br i1 %.not294, label %579, label %22
 
 22:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %.0257, i64 %15, i1 false)
@@ -1139,56 +1138,55 @@ find_func.exit:                                   ; preds = %543
   %559 = load i8, ptr %558, align 1
   %560 = sext i8 %559 to i64
   %561 = add nsw i64 %560, -42
-  %562 = getelementptr [7 x i8], ptr @yypgoto, i64 0, i64 %561
-  %563 = load i8, ptr %562, align 1
-  %564 = sext i8 %563 to i32
-  %565 = load i8, ptr %556, align 1
-  %566 = sext i8 %565 to i32
-  %567 = add nsw i32 %566, %564
-  %568 = icmp sgt i32 %567, -1
-  br i1 %568, label %569, label %576
+  %562 = icmp eq i64 %561, 3
+  %563 = select i1 %562, i32 -7, i32 -33
+  %564 = load i8, ptr %556, align 1
+  %565 = sext i8 %564 to i32
+  %566 = add nsw i32 %563, %565
+  %567 = icmp sgt i32 %566, -1
+  br i1 %567, label %568, label %575
 
-569:                                              ; preds = %553
-  %570 = zext nneg i32 %567 to i64
-  %571 = getelementptr [321 x i8], ptr @yycheck, i64 0, i64 %570
-  %572 = load i8, ptr %571, align 1
-  %573 = icmp eq i8 %572, %565
-  br i1 %573, label %574, label %576
+568:                                              ; preds = %553
+  %569 = zext nneg i32 %566 to i64
+  %570 = getelementptr [321 x i8], ptr @yycheck, i64 0, i64 %569
+  %571 = load i8, ptr %570, align 1
+  %572 = icmp eq i8 %571, %564
+  br i1 %572, label %573, label %575
 
-574:                                              ; preds = %569
-  %575 = getelementptr [321 x i8], ptr @yytable, i64 0, i64 %570
-  br label %578
+573:                                              ; preds = %568
+  %574 = getelementptr [321 x i8], ptr @yytable, i64 0, i64 %569
+  br label %577
 
-576:                                              ; preds = %569, %553
-  %577 = getelementptr [7 x i8], ptr @yydefgoto, i64 0, i64 %561
-  br label %578
+575:                                              ; preds = %568, %553
+  %576 = getelementptr [7 x i8], ptr @yydefgoto, i64 0, i64 %561
+  br label %577
 
-578:                                              ; preds = %576, %574
-  %.in.in = phi ptr [ %575, %574 ], [ %577, %576 ]
+577:                                              ; preds = %575, %573
+  %.in.in = phi ptr [ %574, %573 ], [ %576, %575 ]
   %.in = load i8, ptr %.in.in, align 1
-  %579 = sext i8 %.in to i32
+  %578 = sext i8 %.in to i32
   br label %5
 
 .thread:                                          ; preds = %76, %69
   call void @expr_yyerror(ptr noundef %0, ptr noundef nonnull @.str.18) #10
   unreachable
 
-580:                                              ; preds = %17, %11
+579:                                              ; preds = %17, %11
   call void @expr_yyerror(ptr noundef %0, ptr noundef nonnull @.str.21) #10
   unreachable
 
 .thread366:                                       ; preds = %34, %48
   %.0264362 = phi i32 [ 1, %48 ], [ 0, %34 ]
   %.not302 = icmp eq ptr %.1258, %3
-  br i1 %.not302, label %581, label %.thread366.thread
+  br i1 %.not302, label %580, label %.thread366.thread
 
 .thread366.thread:                                ; preds = %28, %.thread366
   %.0264362473 = phi i32 [ %.0264362, %.thread366 ], [ 1, %28 ]
   %.3260364472 = phi ptr [ %.1258, %.thread366 ], [ %21, %28 ]
   call void @free(ptr noundef %.3260364472) #9
-  br label %581
+  br label %580
 
-581:                                              ; preds = %.thread366.thread, %.thread366
+580:                                              ; preds = %.thread366.thread, %.thread366
   %.0264362474 = phi i32 [ %.0264362473, %.thread366.thread ], [ %.0264362, %.thread366 ]
   ret i32 %.0264362474
 }

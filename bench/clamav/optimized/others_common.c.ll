@@ -775,10 +775,11 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define noundef nonnull ptr @cli_gettmpdir() local_unnamed_addr #16 {
-  %1 = tail call ptr @getenv(ptr noundef nonnull @.str.28) #22
-  %.not7 = icmp eq ptr %1, null
-  %spec.select = select i1 %.not7, ptr @.str.29, ptr %1
-  ret ptr %spec.select
+.critedge:
+  %0 = tail call ptr @getenv(ptr noundef nonnull @.str.28) #22
+  %.not = icmp eq ptr %0, null
+  %.04 = select i1 %.not, ptr @.str.29, ptr %0
+  ret ptr %.04
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -1914,12 +1915,12 @@ define noalias noundef ptr @cli_newfilepath(ptr noundef %0, ptr noundef %1) loca
 
 3:                                                ; preds = %2
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.28) #22
-  %.not7.i = icmp eq ptr %4, null
-  %spec.select.i = select i1 %.not7.i, ptr @.str.29, ptr %4
+  %.not.i = icmp eq ptr %4, null
+  %.04.i = select i1 %.not.i, ptr @.str.29, ptr %4
   br label %5
 
 5:                                                ; preds = %2, %3
-  %6 = phi ptr [ %spec.select.i, %3 ], [ %0, %2 ]
+  %6 = phi ptr [ %.04.i, %3 ], [ %0, %2 ]
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %9
 
@@ -1942,8 +1943,8 @@ define noalias noundef ptr @cli_newfilepath(ptr noundef %0, ptr noundef %1) loca
 
 17:                                               ; preds = %9
   %18 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 1) #26
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %19, label %cli_max_calloc.exit
+  %.not.i17 = icmp eq ptr %18, null
+  br i1 %.not.i17, label %19, label %cli_max_calloc.exit
 
 19:                                               ; preds = %17
   tail call void @perror(ptr noundef nonnull @.str.8) #25
@@ -2015,12 +2016,12 @@ define noalias noundef ptr @cli_gentemp_with_prefix(ptr noundef %0, ptr noundef 
 
 3:                                                ; preds = %2
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.28) #22
-  %.not7.i = icmp eq ptr %4, null
-  %spec.select.i = select i1 %.not7.i, ptr @.str.29, ptr %4
+  %.not.i = icmp eq ptr %4, null
+  %.04.i = select i1 %.not.i, ptr @.str.29, ptr %4
   br label %5
 
 5:                                                ; preds = %2, %3
-  %6 = phi ptr [ %spec.select.i, %3 ], [ %0, %2 ]
+  %6 = phi ptr [ %.04.i, %3 ], [ %0, %2 ]
   %7 = tail call ptr @cli_genfname(ptr noundef %1)
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %8, label %9
@@ -2044,8 +2045,8 @@ define noalias noundef ptr @cli_gentemp_with_prefix(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %9
   %18 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 1) #26
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %19, label %cli_max_calloc.exit
+  %.not.i22 = icmp eq ptr %18, null
+  br i1 %.not.i22, label %19, label %cli_max_calloc.exit
 
 19:                                               ; preds = %17
   tail call void @perror(ptr noundef nonnull @.str.8) #25

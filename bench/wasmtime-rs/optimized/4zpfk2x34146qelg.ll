@@ -23,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1ebe03cf8da41ec25042ed3876485d5d.20 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1ebe03cf8da41ec25042ed3876485d5d.11.llvm.1704480944486436820, [16 x i8] c"\1B\00\00\00\00\00\00\00d\01\00\00\14\00\00\00" }>, align 8
 @anon.1ebe03cf8da41ec25042ed3876485d5d.21.llvm.1704480944486436820 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1ebe03cf8da41ec25042ed3876485d5d.11.llvm.1704480944486436820, [16 x i8] c"\1B\00\00\00\00\00\00\00k\01\00\00\18\00\00\00" }>, align 8
 @anon.1ebe03cf8da41ec25042ed3876485d5d.23 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1ebe03cf8da41ec25042ed3876485d5d.11.llvm.1704480944486436820, [16 x i8] c"\1B\00\00\00\00\00\00\00\A3\01\00\00!\00\00\00" }>, align 8
-@switch.table._ZN14cranelift_wasm5state17ControlStackFrame14following_code17h8717e99265c74fc1E = private unnamed_addr constant [3 x i64] [i64 32, i64 24, i64 24], align 8
 @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E = private unnamed_addr constant [3 x i64] [i64 32, i64 24, i64 28], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -102,13 +101,9 @@ switch.lookup:
   %1 = getelementptr inbounds i8, ptr %0, i64 36
   %2 = load i32, ptr %1, align 4, !range !5, !noundef !4
   %.not = icmp ult i32 %2, 2
-  %3 = zext nneg i32 %2 to i64
-  %4 = add nsw i64 %3, -1
-  %5 = select i1 %.not, i64 0, i64 %4
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14following_code17h8717e99265c74fc1E, i64 0, i64 %5
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.0 = load i32, ptr %6, align 8, !noundef !4
+  %switch.load = select i1 %.not, i64 32, i64 24
+  %3 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %.0 = load i32, ptr %3, align 8, !noundef !4
   ret i32 %.0
 }
 

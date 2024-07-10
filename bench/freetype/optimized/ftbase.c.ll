@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [11 x i8] c"sfnt-table\00", align 1
 @.str.7 = private unnamed_addr constant [9 x i8] c"tt-cmaps\00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c"type42\00", align 1
-@__const.FT_Done_Library.driver_name = private unnamed_addr constant [2 x ptr] [ptr @.str.8, ptr null], align 16
 @.str.9 = private unnamed_addr constant [9 x i8] c"truetype\00", align 1
 @.str.10 = private unnamed_addr constant [16 x i8] c"truetype-engine\00", align 1
 @.str.11 = private unnamed_addr constant [21 x i8] c"darkening-parameters\00", align 1
@@ -12144,7 +12143,7 @@ define void @FT_Library_Version(ptr noundef readonly %0, ptr noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 34) i32 @FT_Done_Library(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %80, label %2
+  br i1 %.not, label %77, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 392
@@ -12152,166 +12151,159 @@ define range(i32 0, 34) i32 @FT_Done_Library(ptr noundef %0) local_unnamed_addr 
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8
   %6 = icmp sgt i32 %4, 1
-  br i1 %6, label %80, label %7
+  br i1 %6, label %77, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 20
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i32, ptr %9, align 4
-  %.not46 = icmp eq i32 %11, 0
-  br i1 %.not46, label %ft_mem_free.exit, label %.preheader38
+  %.not45 = icmp eq i32 %11, 0
+  br i1 %.not45, label %ft_mem_free.exit, label %.preheader37
 
-.preheader38:                                     ; preds = %7, %._crit_edge
-  %12 = phi i32 [ %69, %._crit_edge ], [ %11, %7 ]
-  %13 = phi i32 [ %70, %._crit_edge ], [ 1, %7 ]
-  %.not34 = phi i1 [ true, %._crit_edge ], [ false, %7 ]
+.preheader37:                                     ; preds = %7, %._crit_edge
+  %12 = phi i32 [ %66, %._crit_edge ], [ %11, %7 ]
+  %13 = phi i32 [ %67, %._crit_edge ], [ 1, %7 ]
   %14 = phi i1 [ false, %._crit_edge ], [ true, %7 ]
-  %indvars.iv51 = phi i64 [ 1, %._crit_edge ], [ 0, %7 ]
-  %.not47 = icmp eq i32 %13, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph42
-
-.lr.ph42:                                         ; preds = %.preheader38
-  %15 = getelementptr inbounds [2 x ptr], ptr @__const.FT_Done_Library.driver_name, i64 0, i64 %indvars.iv51
-  br label %16
+  %.not46 = icmp eq i32 %13, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph41
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not3344 = icmp eq i32 %69, 0
-  br i1 %.not3344, label %ft_mem_free.exit, label %.lr.ph45
+  %.not3343 = icmp eq i32 %66, 0
+  br i1 %.not3343, label %ft_mem_free.exit, label %.lr.ph44
 
-16:                                               ; preds = %.lr.ph42, %.loopexit
-  %17 = phi i32 [ %12, %.lr.ph42 ], [ %66, %.loopexit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %.loopexit ]
-  %18 = getelementptr inbounds [32 x ptr], ptr %10, i64 0, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  %.pre = load ptr, ptr %19, align 8
-  br i1 %.not34, label %25, label %20
+.lr.ph41:                                         ; preds = %.preheader37, %.loopexit
+  %15 = phi i32 [ %63, %.loopexit ], [ %12, %.preheader37 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader37 ]
+  %16 = getelementptr inbounds [32 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
+  %.pre = load ptr, ptr %17, align 8
+  br i1 %14, label %18, label %22
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %21) #35
-  %.not35 = icmp eq i32 %24, 0
-  br i1 %.not35, label %25, label %.loopexit
+18:                                               ; preds = %.lr.ph41
+  %19 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(7) @.str.8) #35
+  %.not34 = icmp eq i32 %21, 0
+  br i1 %.not34, label %22, label %.loopexit
 
-25:                                               ; preds = %20, %16
-  %26 = load i64, ptr %.pre, align 8
-  %27 = and i64 %26, 1
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit, label %29
+22:                                               ; preds = %18, %.lr.ph41
+  %23 = load i64, ptr %.pre, align 8
+  %24 = and i64 %23, 1
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %.loopexit, label %26
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %19, i64 32
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %17, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %.not3539 = icmp eq ptr %28, null
+  br i1 %.not3539, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %26, %FT_Done_Face.exit
+  %29 = phi ptr [ %62, %FT_Done_Face.exit ], [ %28, %26 ]
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %.not3640 = icmp eq ptr %31, null
-  br i1 %.not3640, label %.loopexit, label %.lr.ph
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %FT_Done_Face.exit, label %32
 
-.lr.ph:                                           ; preds = %29, %FT_Done_Face.exit
-  %32 = phi ptr [ %65, %FT_Done_Face.exit ], [ %31, %29 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+32:                                               ; preds = %.lr.ph
+  %33 = getelementptr inbounds i8, ptr %31, i64 176
   %34 = load ptr, ptr %33, align 8
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %FT_Done_Face.exit, label %35
+  %.not18.i = icmp eq ptr %34, null
+  br i1 %.not18.i, label %FT_Done_Face.exit, label %35
 
-35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %34, i64 176
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %31, i64 240
   %37 = load ptr, ptr %36, align 8
-  %.not18.i = icmp eq ptr %37, null
-  br i1 %.not18.i, label %FT_Done_Face.exit, label %38
+  %38 = getelementptr inbounds i8, ptr %37, i64 120
+  %39 = load i32, ptr %38, align 8
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %38, align 8
+  %41 = load ptr, ptr %36, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 120
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %FT_Done_Face.exit, label %45
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %34, i64 240
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 120
-  %42 = load i32, ptr %41, align 8
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %41, align 8
-  %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 120
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %FT_Done_Face.exit, label %48
-
-48:                                               ; preds = %38
-  %49 = load ptr, ptr %36, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 32
-  %.011.i.i = load ptr, ptr %52, align 8
+45:                                               ; preds = %35
+  %46 = load ptr, ptr %33, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 32
+  %.011.i.i = load ptr, ptr %49, align 8
   %.not1012.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not1012.i.i, label %FT_Done_Face.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %48, %56
-  %.013.i.i = phi ptr [ %.0.i.i, %56 ], [ %.011.i.i, %48 ]
-  %53 = getelementptr inbounds i8, ptr %.013.i.i, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, %34
-  br i1 %55, label %ft_mem_free.exit.i, label %56
+.lr.ph.i.i:                                       ; preds = %45, %53
+  %.013.i.i = phi ptr [ %.0.i.i, %53 ], [ %.011.i.i, %45 ]
+  %50 = getelementptr inbounds i8, ptr %.013.i.i, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, %31
+  br i1 %52, label %ft_mem_free.exit.i, label %53
 
-56:                                               ; preds = %.lr.ph.i.i
-  %57 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
-  %.0.i.i = load ptr, ptr %57, align 8
+53:                                               ; preds = %.lr.ph.i.i
+  %54 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %.0.i.i = load ptr, ptr %54, align 8
   %.not10.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not10.i.i, label %FT_Done_Face.exit, label %.lr.ph.i.i, !llvm.loop !29
 
 ft_mem_free.exit.i:                               ; preds = %.lr.ph.i.i
-  %58 = load ptr, ptr %.013.i.i, align 8
-  %59 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %.not.i.i = icmp eq ptr %58, null
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  %.sink.i.i = select i1 %.not.i.i, ptr %52, ptr %61
-  store ptr %60, ptr %.sink.i.i, align 8
-  %.not18.i.i = icmp eq ptr %60, null
-  %62 = getelementptr inbounds i8, ptr %49, i64 40
-  %.sink19.i.i = select i1 %.not18.i.i, ptr %62, ptr %60
-  store ptr %58, ptr %.sink19.i.i, align 8
-  %63 = getelementptr inbounds i8, ptr %51, i64 16
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef %51, ptr noundef nonnull %.013.i.i) #34
-  tail call fastcc void @destroy_face(ptr noundef %51, ptr noundef nonnull %34, ptr noundef %49)
+  %55 = load ptr, ptr %.013.i.i, align 8
+  %56 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %.not.i.i = icmp eq ptr %55, null
+  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %.sink.i.i = select i1 %.not.i.i, ptr %49, ptr %58
+  store ptr %57, ptr %.sink.i.i, align 8
+  %.not18.i.i = icmp eq ptr %57, null
+  %59 = getelementptr inbounds i8, ptr %46, i64 40
+  %.sink19.i.i = select i1 %.not18.i.i, ptr %59, ptr %57
+  store ptr %55, ptr %.sink19.i.i, align 8
+  %60 = getelementptr inbounds i8, ptr %48, i64 16
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef %48, ptr noundef nonnull %.013.i.i) #34
+  tail call fastcc void @destroy_face(ptr noundef %48, ptr noundef nonnull %31, ptr noundef %46)
   br label %FT_Done_Face.exit
 
-FT_Done_Face.exit:                                ; preds = %56, %.lr.ph, %35, %38, %48, %ft_mem_free.exit.i
-  %65 = load ptr, ptr %30, align 8
-  %.not36 = icmp eq ptr %65, null
-  br i1 %.not36, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !52
+FT_Done_Face.exit:                                ; preds = %53, %.lr.ph, %32, %35, %45, %ft_mem_free.exit.i
+  %62 = load ptr, ptr %27, align 8
+  %.not35 = icmp eq ptr %62, null
+  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit.loopexit:                               ; preds = %FT_Done_Face.exit
-  %.pre54 = load i32, ptr %9, align 4
+  %.pre50 = load i32, ptr %9, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %29, %25, %20
-  %66 = phi i32 [ %.pre54, %.loopexit.loopexit ], [ %17, %29 ], [ %17, %25 ], [ %17, %20 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %26, %22, %18
+  %63 = phi i32 [ %.pre50, %.loopexit.loopexit ], [ %15, %26 ], [ %15, %22 ], [ %15, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %indvars.iv.next, %67
-  br i1 %68, label %16, label %._crit_edge, !llvm.loop !53
+  %64 = zext i32 %63 to i64
+  %65 = icmp ult i64 %indvars.iv.next, %64
+  br i1 %65, label %.lr.ph41, label %._crit_edge, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader38
-  %69 = phi i32 [ %12, %.preheader38 ], [ %66, %.loopexit ]
-  %70 = phi i32 [ 0, %.preheader38 ], [ %66, %.loopexit ]
-  br i1 %14, label %.preheader38, label %.preheader, !llvm.loop !54
+._crit_edge:                                      ; preds = %.loopexit, %.preheader37
+  %66 = phi i32 [ %12, %.preheader37 ], [ %63, %.loopexit ]
+  %67 = phi i32 [ 0, %.preheader37 ], [ %63, %.loopexit ]
+  br i1 %14, label %.preheader37, label %.preheader, !llvm.loop !54
 
-.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
-  %71 = phi i32 [ %77, %.lr.ph45 ], [ %69, %.preheader ]
-  %72 = add i32 %71, -1
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds [32 x ptr], ptr %10, i64 0, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 @FT_Remove_Module(ptr noundef nonnull %0, ptr noundef %75)
-  %77 = load i32, ptr %9, align 4
-  %.not33 = icmp eq i32 %77, 0
-  br i1 %.not33, label %ft_mem_free.exit, label %.lr.ph45, !llvm.loop !56
+.lr.ph44:                                         ; preds = %.preheader, %.lr.ph44
+  %68 = phi i32 [ %74, %.lr.ph44 ], [ %66, %.preheader ]
+  %69 = add i32 %68, -1
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds [32 x ptr], ptr %10, i64 0, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call i32 @FT_Remove_Module(ptr noundef nonnull %0, ptr noundef %72)
+  %74 = load i32, ptr %9, align 4
+  %.not33 = icmp eq i32 %74, 0
+  br i1 %.not33, label %ft_mem_free.exit, label %.lr.ph44, !llvm.loop !56
 
-ft_mem_free.exit:                                 ; preds = %.lr.ph45, %7, %.preheader
-  %78 = getelementptr inbounds i8, ptr %8, i64 16
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef %8, ptr noundef nonnull %0) #34
-  br label %80
+ft_mem_free.exit:                                 ; preds = %.lr.ph44, %7, %.preheader
+  %75 = getelementptr inbounds i8, ptr %8, i64 16
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef %8, ptr noundef nonnull %0) #34
+  br label %77
 
-80:                                               ; preds = %ft_mem_free.exit, %2, %1
+77:                                               ; preds = %ft_mem_free.exit, %2, %1
   %.0 = phi i32 [ 33, %1 ], [ 0, %2 ], [ 0, %ft_mem_free.exit ]
   ret i32 %.0
 }

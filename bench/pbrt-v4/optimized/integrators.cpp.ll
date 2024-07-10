@@ -1506,7 +1506,6 @@ $_ZTSN4pbrt7SamplerE = comdat any
 @.str.151 = private unnamed_addr constant [111 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/pbrt-v4/pbrt-v4/src/pbrt/bssrdf.h\00", align 1
 @.str.152 = private unnamed_addr constant [46 x i8] c"rhoIndex >= 0 && rhoIndex < rhoSamples.size()\00", align 1
 @.str.153 = private unnamed_addr constant [55 x i8] c"radiusIndex >= 0 && radiusIndex < radiusSamples.size()\00", align 1
-@__const._ZNK4pbrt15TabulatedBSSRDF6PDF_SpENS_6Point3IfEENS_7Normal3IfEE.axisProb = private unnamed_addr constant [3 x float] [float 2.500000e-01, float 2.500000e-01, float 5.000000e-01], align 4
 @.str.154 = private unnamed_addr constant [22 x i8] c"IsMediumInteraction()\00", align 1
 @.str.155 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/pbrt-v4/pbrt-v4/src/pbrt/util/spectrum.h\00", align 1
 @.str.156 = private unnamed_addr constant [11 x i8] c"!IsNaN(Le)\00", align 1
@@ -61394,8 +61393,8 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %for.body.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.load.i = load <2 x float>, ptr %ref.tmp28.sroa.2.0.retval.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  %arrayidx38 = getelementptr inbounds [3 x float], ptr @__const._ZNK4pbrt15TabulatedBSSRDF6PDF_SpENS_6Point3IfEENS_7Normal3IfEE.axisProb, i64 0, i64 %indvars.iv
-  %52 = load float, ptr %arrayidx38, align 4
+  %52 = icmp eq i64 %indvars.iv, 2
+  %53 = select i1 %52, float 5.000000e-01, float 2.500000e-01
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i51)
   store <2 x float> %.fca.0.load.i, ptr %retval.i51, align 8
   store <2 x float> %.fca.1.load.i, ptr %ref.tmp27.sroa.2.0.retval.i51.sroa_idx, align 8
@@ -61404,8 +61403,8 @@ _ZNK4pbrt15SampledSpectrummlEf.exit:              ; preds = %for.body.i
 for.body.i52:                                     ; preds = %for.body.i52, %_ZNK4pbrt15SampledSpectrummlEf.exit
   %indvars.iv.i53 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ], [ %indvars.iv.next.i56, %for.body.i52 ]
   %arrayidx.i.i54 = getelementptr inbounds [4 x float], ptr %retval.i51, i64 0, i64 %indvars.iv.i53
-  %53 = load float, ptr %arrayidx.i.i54, align 4
-  %mul.i55 = fmul float %52, %53
+  %54 = load float, ptr %arrayidx.i.i54, align 4
+  %mul.i55 = fmul float %53, %54
   store float %mul.i55, ptr %arrayidx.i.i54, align 4
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 4
@@ -61422,10 +61421,10 @@ _ZNK4pbrt15SampledSpectrummlEf.exit63:            ; preds = %for.body.i52
 for.body.i64:                                     ; preds = %for.body.i64, %_ZNK4pbrt15SampledSpectrummlEf.exit63
   %indvars.iv.i65 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit63 ], [ %indvars.iv.next.i67, %for.body.i64 ]
   %arrayidx.i.i66 = getelementptr inbounds [4 x float], ptr %ref.tmp, i64 0, i64 %indvars.iv.i65
-  %54 = load float, ptr %arrayidx.i.i66, align 4
+  %55 = load float, ptr %arrayidx.i.i66, align 4
   %arrayidx.i4.i = getelementptr inbounds [4 x float], ptr %retval, i64 0, i64 %indvars.iv.i65
-  %55 = load float, ptr %arrayidx.i4.i, align 4
-  %add.i = fadd float %54, %55
+  %56 = load float, ptr %arrayidx.i4.i, align 4
+  %add.i = fadd float %55, %56
   store float %add.i, ptr %arrayidx.i4.i, align 4
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, 4

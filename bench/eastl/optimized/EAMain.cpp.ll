@@ -10,7 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [21 x i8] c"PrintServerIPAddress\00", align 1
 @_ZN2EA6EAMain16gpReportFunctionE = dso_local local_unnamed_addr global ptr @_ZN2EA6EAMain8InternalL13ReportDefaultEPKc, align 8
 @_ZN2EA6EAMain10gVerbosityE = dso_local local_unnamed_addr global i32 0, align 4
-@__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs = private unnamed_addr constant [2 x i8] c"-/", align 1
 @_ZZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_icE12sEmptyString = internal constant [1 x i8] zeroinitializer, align 1
 @.str.3 = private unnamed_addr constant [6 x i8] c"-help\00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
@@ -92,17 +91,16 @@ if.then2:                                         ; preds = %entry
 
 if.end3:                                          ; preds = %if.then2, %entry
   %0 = load i8, ptr %pSwitch, align 1
+  %conv = sext i8 %0 to i32
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %1, label %for.body, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end3, %for.cond
-  %cmp4 = phi i1 [ true, %if.end3 ], [ false, %for.cond ]
-  %indvars.iv = phi i64 [ 0, %if.end3 ], [ 1, %for.cond ]
-  %arrayidx = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv
-  %1 = load i8, ptr %arrayidx, align 1
-  %cmp6 = icmp eq i8 %0, %1
+  %1 = phi i1 [ true, %if.end3 ], [ false, %for.cond ]
+  %conv5 = select i1 %1, i32 45, i32 47
+  %cmp6 = icmp eq i32 %conv5, %conv
   br i1 %cmp6, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
@@ -122,26 +120,24 @@ for.cond14.preheader:                             ; preds = %for.end
   %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %mArgv, align 8
   %4 = zext nneg i32 %spec.store.select to i64
-  %wide.trip.count75 = zext i32 %2 to i64
+  %wide.trip.count66 = zext i32 %2 to i64
   br i1 %bCaseSensitive, label %for.body17.us, label %for.body17
 
 for.body17.us:                                    ; preds = %for.cond14.preheader, %for.inc70.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.inc70.us ], [ %4, %for.cond14.preheader ]
-  %arrayidx19.us = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv72
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc70.us ], [ %4, %for.cond14.preheader ]
+  %arrayidx19.us = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv63
   %5 = load ptr, ptr %arrayidx19.us, align 8
   %call20.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %cmp21.us = icmp ugt i64 %call20.us, 1
   br i1 %cmp21.us, label %for.cond23.preheader.us, label %for.inc70.us
 
 for.cond23.us:                                    ; preds = %for.body25.us
-  br i1 %cmp24.us, label %for.body25.us, label %for.inc70.us, !llvm.loop !7
+  br i1 %6, label %for.body25.us, label %for.inc70.us, !llvm.loop !7
 
 for.body25.us:                                    ; preds = %for.cond23.preheader.us, %for.cond23.us
-  %cmp24.us = phi i1 [ true, %for.cond23.preheader.us ], [ false, %for.cond23.us ]
-  %indvars.iv69 = phi i64 [ 0, %for.cond23.preheader.us ], [ 1, %for.cond23.us ]
-  %arrayidx29.us = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv69
-  %6 = load i8, ptr %arrayidx29.us, align 1
-  %cmp31.us = icmp eq i8 %8, %6
+  %6 = phi i1 [ true, %for.cond23.preheader.us ], [ false, %for.cond23.us ]
+  %conv30.us = select i1 %6, i32 45, i32 47
+  %cmp31.us = icmp eq i32 %conv30.us, %conv27.us
   br i1 %cmp31.us, label %if.then38.us, label %for.cond23.us
 
 if.then38.us:                                     ; preds = %for.body25.us
@@ -159,17 +155,18 @@ if.then45.us:                                     ; preds = %if.then38.us
   br i1 %or.cond31.us, label %if.then53, label %for.inc70.us
 
 for.inc70.us:                                     ; preds = %for.cond23.us, %if.then45.us, %if.then38.us, %for.body17.us
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %return, label %for.body17.us, !llvm.loop !8
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %return, label %for.body17.us, !llvm.loop !8
 
 for.cond23.preheader.us:                          ; preds = %for.body17.us
   %8 = load i8, ptr %5, align 1
+  %conv27.us = sext i8 %8 to i32
   br label %for.body25.us
 
 for.body17:                                       ; preds = %for.cond14.preheader, %for.inc70
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %for.inc70 ], [ %4, %for.cond14.preheader ]
-  %arrayidx19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc70 ], [ %4, %for.cond14.preheader ]
+  %arrayidx19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %cmp21 = icmp ugt i64 %call20, 1
@@ -177,17 +174,16 @@ for.body17:                                       ; preds = %for.cond14.preheade
 
 for.cond23.preheader:                             ; preds = %for.body17
   %10 = load i8, ptr %9, align 1
+  %conv27 = sext i8 %10 to i32
   br label %for.body25
 
 for.cond23:                                       ; preds = %for.body25
-  br i1 %cmp24, label %for.body25, label %for.inc70, !llvm.loop !7
+  br i1 %11, label %for.body25, label %for.inc70, !llvm.loop !7
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.cond23
-  %cmp24 = phi i1 [ true, %for.cond23.preheader ], [ false, %for.cond23 ]
-  %indvars.iv63 = phi i64 [ 0, %for.cond23.preheader ], [ 1, %for.cond23 ]
-  %arrayidx29 = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv63
-  %11 = load i8, ptr %arrayidx29, align 1
-  %cmp31 = icmp eq i8 %10, %11
+  %11 = phi i1 [ true, %for.cond23.preheader ], [ false, %for.cond23 ]
+  %conv30 = select i1 %11, i32 45, i32 47
+  %cmp31 = icmp eq i32 %conv30, %conv27
   br i1 %cmp31, label %if.then38, label %for.cond23
 
 if.then38:                                        ; preds = %for.body25
@@ -258,7 +254,7 @@ if.then45:                                        ; preds = %if.then38, %cond.en
 if.then53:                                        ; preds = %if.then45, %if.then45.us
   %.us-phi = phi ptr [ %call40.us, %if.then45.us ], [ %cond39, %if.then45 ]
   %.us-phi48 = phi i1 [ %cmp52.us, %if.then45.us ], [ %cmp52, %if.then45 ]
-  %.us-phi49.in = phi i64 [ %indvars.iv72, %if.then45.us ], [ %indvars.iv66, %if.then45 ]
+  %.us-phi49.in = phi i64 [ %indvars.iv63, %if.then45.us ], [ %indvars.iv, %if.then45 ]
   %.us-phi49 = trunc i64 %.us-phi49.in to i32
   br i1 %.us-phi48, label %if.then57, label %return
 
@@ -275,8 +271,8 @@ if.then62:                                        ; preds = %if.then57
   br label %return
 
 for.inc70:                                        ; preds = %for.cond23, %if.end12.i, %while.cond.preheader.i, %if.then45, %for.body17, %cond.end
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count75
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count66
   br i1 %exitcond.not, label %return, label %for.body17, !llvm.loop !8
 
 return:                                           ; preds = %for.inc70, %for.inc70.us, %if.then53, %if.then62, %if.then57, %for.end

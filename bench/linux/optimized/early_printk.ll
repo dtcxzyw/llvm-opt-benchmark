@@ -42,7 +42,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"dbgp\00", align 1
 @early_dbgp_console = external dso_local global %struct.console, align 8
 @early_serial_base = internal unnamed_addr global i64 1016, align 8
-@early_serial_init.bases = internal unnamed_addr constant [2 x i32] [i32 1016, i32 760], section ".init.rodata", align 4
 @.str.8 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @serial_in = internal unnamed_addr global ptr @io_serial_in, align 8
 @serial_out = internal unnamed_addr global ptr @io_serial_out, align 8
@@ -209,7 +208,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
 
 11:                                               ; preds = %.tail
   %12 = call i64 @simple_strtoul(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 16) #6
-  br label %28
+  br label %27
 
 .tail.thread:                                     ; preds = %1, %.tail
   %13 = tail call i32 @strncmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #6
@@ -223,42 +222,41 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
   %21 = icmp eq ptr %16, %20
   %22 = select i1 %19, i1 true, i1 %21
   %23 = and i64 %17, 1
-  %24 = select i1 %22, i64 0, i64 %23
-  %25 = getelementptr [2 x i32], ptr @early_serial_init.bases, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4
-  %27 = sext i32 %26 to i64
-  br label %28
+  %24 = icmp eq i64 %23, 0
+  %25 = select i1 %22, i1 true, i1 %24
+  %26 = select i1 %25, i64 1016, i64 760
+  br label %27
 
-28:                                               ; preds = %11, %.tail.thread
-  %29 = phi i64 [ %12, %11 ], [ %27, %.tail.thread ]
-  %30 = phi ptr [ %6, %11 ], [ %16, %.tail.thread ]
-  store i64 %29, ptr @early_serial_base, align 8
-  %31 = call i64 @strcspn(ptr noundef %30, ptr noundef nonnull @.str.8)
-  %32 = getelementptr i8, ptr %30, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, 44
-  %35 = zext i1 %34 to i64
-  %36 = getelementptr i8, ptr %32, i64 %35
-  %.pr = load i8, ptr %36, align 1
-  %37 = icmp eq i8 %.pr, 0
-  br i1 %37, label %.thread, label %38
+27:                                               ; preds = %11, %.tail.thread
+  %28 = phi i64 [ %12, %11 ], [ %26, %.tail.thread ]
+  %29 = phi ptr [ %6, %11 ], [ %16, %.tail.thread ]
+  store i64 %28, ptr @early_serial_base, align 8
+  %30 = call i64 @strcspn(ptr noundef %29, ptr noundef nonnull @.str.8)
+  %31 = getelementptr i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 44
+  %34 = zext i1 %33 to i64
+  %35 = getelementptr i8, ptr %31, i64 %34
+  %.pr = load i8, ptr %35, align 1
+  %36 = icmp eq i8 %.pr, 0
+  br i1 %36, label %.thread, label %37
 
-38:                                               ; preds = %28
-  %39 = call i64 @simple_strtoull(ptr noundef %36, ptr noundef nonnull %2, i32 noundef 0) #6
-  %40 = icmp eq i64 %39, 0
-  %41 = load ptr, ptr %2, align 8
-  %42 = icmp eq ptr %36, %41
-  %43 = select i1 %40, i1 true, i1 %42
-  %44 = select i1 %43, i64 9600, i64 %39
+37:                                               ; preds = %27
+  %38 = call i64 @simple_strtoull(ptr noundef %35, ptr noundef nonnull %2, i32 noundef 0) #6
+  %39 = icmp eq i64 %38, 0
+  %40 = load ptr, ptr %2, align 8
+  %41 = icmp eq ptr %35, %40
+  %42 = select i1 %39, i1 true, i1 %41
+  %43 = select i1 %42, i64 9600, i64 %38
   br label %.thread
 
-.thread:                                          ; preds = %1, %38, %28
-  %45 = phi i64 [ 9600, %28 ], [ %44, %38 ], [ 9600, %1 ]
-  %46 = udiv i64 115200, %45
-  %47 = trunc nuw nsw i64 %46 to i32
+.thread:                                          ; preds = %1, %37, %27
+  %44 = phi i64 [ 9600, %27 ], [ %43, %37 ], [ 9600, %1 ]
+  %45 = udiv i64 115200, %44
+  %46 = trunc nuw nsw i64 %45 to i32
   store ptr @io_serial_in, ptr @serial_in, align 8
   store ptr @io_serial_out, ptr @serial_out, align 8
-  call fastcc void @early_serial_hw_init(i32 noundef %47) #7
+  call fastcc void @early_serial_hw_init(i32 noundef %46) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret void
 }

@@ -533,11 +533,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN4just5thunk5Thunk4name17h6eaa8d2afa9a41c7E = private unnamed_addr constant [6 x i64] [i64 16, i64 24, i64 32, i64 32, i64 16, i64 40], align 8
 @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 2, i64 2, i64 -1, i64 3], align 8
 @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.60" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 1, i64 2, i64 2, i64 3], align 8
-@"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E" = private unnamed_addr constant [3 x i64] [i64 5, i64 7, i64 5], align 8
 @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.440, ptr @anon.33818b486a90266c1f1c95bf072e35a3.441, ptr @anon.33818b486a90266c1f1c95bf072e35a3.442], align 8
-@"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E" = private unnamed_addr constant [3 x i64] [i64 8, i64 4, i64 4], align 8
 @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.62" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.479, ptr @anon.33818b486a90266c1f1c95bf072e35a3.480, ptr @anon.33818b486a90266c1f1c95bf072e35a3.481], align 8
-@"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E" = private unnamed_addr constant [3 x i64] [i64 8, i64 11, i64 11], align 8
 @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.63" = private unnamed_addr constant [3 x ptr] [ptr @anon.33818b486a90266c1f1c95bf072e35a3.445, ptr @anon.33818b486a90266c1f1c95bf072e35a3.501, ptr @anon.33818b486a90266c1f1c95bf072e35a3.502], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -1745,9 +1742,8 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !211, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   %3 = load i8, ptr %2, align 1, !range !333, !alias.scope !330, !noalias !334, !noundef !9
-  %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E", i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = icmp eq i8 %3, 1
+  %switch.load = select i1 %4, i64 7, i64 5
   %5 = zext nneg i8 %3 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -14774,9 +14770,8 @@ define hidden noundef align 8 ptr @"_ZN4just7binding1_83_$LT$impl$u20$serde..ser
 define internal noundef zeroext i1 @"_ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !333, !noundef !9
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 1
+  %switch.load = select i1 %3, i64 7, i64 5
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN63_$LT$just..delimiter..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h90b0c09bfbd85a10E.61", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
@@ -15575,9 +15570,8 @@ define hidden noundef align 8 ptr @"_ZN4just9parameter1_78_$LT$impl$u20$serde..s
 define internal noundef zeroext i1 @"_ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !333, !noundef !9
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 0
+  %switch.load = select i1 %3, i64 8, i64 4
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN72_$LT$just..parameter_kind..ParameterKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f4cfce783495292E.62", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
@@ -15687,9 +15681,8 @@ define internal noundef zeroext i1 @"_ZN66_$LT$just..string_kind..StringKind$u20
 define internal noundef zeroext i1 @"_ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !333, !noundef !9
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 0
+  %switch.load = select i1 %3, i64 8, i64 11
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN71_$LT$just..string_kind..StringDelimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17h19a74b042145c9a7E.63", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8

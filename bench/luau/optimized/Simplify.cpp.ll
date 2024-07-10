@@ -311,10 +311,6 @@ $_ZTIN4Luau23RecursionLimitExceptionE = comdat any
 
 $_ZTVN4Luau23RecursionLimitExceptionE = comdat any
 
-$_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE = comdat any
-
-$_ZZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_E5table = comdat any
-
 $_ZN4Luau6FValueIiE4listE = comdat any
 
 $_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE = comdat any
@@ -433,8 +429,6 @@ $_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_1
 @.str.53 = private unnamed_addr constant [42 x i8] c"Internal recursion counter limit exceeded\00", align 1
 @_ZTVN4Luau23RecursionLimitExceptionE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN4Luau23RecursionLimitExceptionE, ptr @_ZN4Luau23RecursionLimitExceptionD2Ev, ptr @_ZN4Luau23RecursionLimitExceptionD0Ev, ptr @_ZNK4Luau21InternalCompilerError4whatEv] }, comdat, align 8
 @_ZTVN4Luau21InternalCompilerErrorE = external unnamed_addr constant { [5 x ptr] }, align 8
-@_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv], comdat, align 16
-@_ZZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_E5table = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS1_EEbPKvS6_, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS2_EEbPKvS6_], comdat, align 16
 @_ZN4Luau6FValueIiE4listE = linkonce_odr dso_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTISt20bad_array_new_length = external constant ptr
 @_ZTVSt20bad_array_new_length = external unnamed_addr constant { [5 x ptr] }, align 8
@@ -1535,18 +1529,18 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %61
   %66 = getelementptr inbounds i8, ptr %59, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %._crit_edge.i, label %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i
+  br i1 %68, label %.thread115.i, label %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i
 
-._crit_edge.i:                                    ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i
+.thread115.i:                                     ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i
   %69 = getelementptr inbounds i8, ptr %59, i64 16
   %70 = load i8, ptr %69, align 1
   %71 = and i8 %70, 1
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %73, label %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i
 
-73:                                               ; preds = %._crit_edge.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i
-  %.031.i = phi i1 [ true, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %._crit_edge.i ]
-  %.028.i = phi i1 [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ true, %._crit_edge.i ]
+73:                                               ; preds = %.thread115.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i
+  %.031.i = phi i1 [ true, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %.thread115.i ]
+  %.028.i = phi i1 [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ true, %.thread115.i ]
   %74 = load i64, ptr %18, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %_ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i.i, label %.lr.ph.i.i.i
@@ -1827,8 +1821,8 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit84.i: ; preds = %214, %211
   %spec.select.i = and i1 %219, %.0.i.i.i
   br label %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i
 
-_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i: ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit84.i, %._crit_edge113.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit70.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit68.i, %145, %144, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit59.i, %._crit_edge.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i, %61, %60, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i
-  %.027.i = phi i1 [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i ], [ false, %._crit_edge.i ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit59.i ], [ false, %._crit_edge113.i ], [ %spec.select.i, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit84.i ], [ false, %60 ], [ false, %144 ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit68.i ], [ false, %61 ], [ false, %145 ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit70.i ]
+_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit.thread97.i: ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit84.i, %._crit_edge113.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit70.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit68.i, %145, %144, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit59.i, %.thread115.i, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i, %61, %60, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i
+  %.027.i = phi i1 [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit.i ], [ false, %.thread115.i ], [ false, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit59.i ], [ false, %._crit_edge113.i ], [ %spec.select.i, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit84.i ], [ false, %60 ], [ false, %144 ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit68.i ], [ false, %61 ], [ false, %145 ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i ], [ false, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit70.i ]
   %220 = getelementptr inbounds i8, ptr %2, i64 32
   %221 = load ptr, ptr %220, align 8
   %.not.i.i.i85.i = icmp eq ptr %221, null
@@ -3089,13 +3083,12 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218: ; preds = %_ZN4Luau3g
   br i1 %188, label %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit: ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218
-  %189 = sext i32 %186 to i64
-  %190 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_E5table, i64 0, i64 %189
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %7, i64 16
-  %193 = getelementptr inbounds i8, ptr %8, i64 16
-  %194 = call noundef zeroext i1 %191(ptr noundef nonnull %192, ptr noundef nonnull %193)
-  %spec.select424 = zext i1 %194 to i32
+  %189 = icmp eq i32 %186, 0
+  %190 = select i1 %189, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS1_EEbPKvS6_, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS2_EEbPKvS6_
+  %191 = getelementptr inbounds i8, ptr %7, i64 16
+  %192 = getelementptr inbounds i8, ptr %8, i64 16
+  %193 = call noundef zeroext i1 %190(ptr noundef nonnull %191, ptr noundef nonnull %192)
+  %spec.select424 = zext i1 %193 to i32
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220: ; preds = %144
@@ -3103,14 +3096,14 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220: ; preds = %144
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413: ; preds = %.thread402, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220
   %.pre438 = load i32, ptr %8, align 8
-  %195 = icmp eq i32 %.pre438, 4
-  br i1 %195, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
+  %194 = icmp eq i32 %.pre438, 4
+  br i1 %194, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413
-  %196 = getelementptr inbounds i8, ptr %8, i64 8
-  %197 = load i32, ptr %196, align 8
-  %198 = icmp eq i32 %197, 5
-  %.136 = select i1 %198, i32 3, i32 0
+  %195 = getelementptr inbounds i8, ptr %8, i64 8
+  %196 = load i32, ptr %195, align 8
+  %197 = icmp eq i32 %196, 5
+  %.136 = select i1 %197, i32 3, i32 0
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224: ; preds = %144
@@ -3124,68 +3117,68 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419: ; preds = %.thre
   ]
 
 _ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit226: ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419
-  %199 = getelementptr inbounds i8, ptr %8, i64 8
-  %200 = load i32, ptr %199, align 8
-  %201 = icmp eq i32 %200, 6
-  %.137 = select i1 %201, i32 3, i32 0
+  %198 = getelementptr inbounds i8, ptr %8, i64 8
+  %199 = load i32, ptr %198, align 8
+  %200 = icmp eq i32 %199, 6
+  %.137 = select i1 %200, i32 3, i32 0
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit228: ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419
-  %202 = getelementptr inbounds i8, ptr %8, i64 48
-  %203 = load i64, ptr %202, align 8
-  %204 = icmp eq i64 %203, 1
-  br i1 %204, label %205, label %211
+  %201 = getelementptr inbounds i8, ptr %8, i64 48
+  %202 = load i64, ptr %201, align 8
+  %203 = icmp eq i64 %202, 1
+  br i1 %203, label %204, label %210
 
-205:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit228
-  %206 = call noundef i32 @_ZN4Luau12relateTablesEPKNS_4TypeES2_RNS_3SetISt4pairIS2_S2_ENS_12TypePairHashEEE(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %207 = getelementptr inbounds i8, ptr %7, i64 48
-  %208 = load i64, ptr %207, align 8
-  %209 = icmp ugt i64 %208, 1
-  %210 = icmp eq i32 %206, 4
-  %or.cond3 = and i1 %210, %209
-  %.138 = select i1 %or.cond3, i32 2, i32 %206
+204:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit228
+  %205 = call noundef i32 @_ZN4Luau12relateTablesEPKNS_4TypeES2_RNS_3SetISt4pairIS2_S2_ENS_12TypePairHashEEE(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %206 = getelementptr inbounds i8, ptr %7, i64 48
+  %207 = load i64, ptr %206, align 8
+  %208 = icmp ugt i64 %207, 1
+  %209 = icmp eq i32 %205, 4
+  %or.cond3 = and i1 %209, %208
+  %.138 = select i1 %or.cond3, i32 2, i32 %205
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
-211:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit228
-  %212 = getelementptr inbounds i8, ptr %7, i64 48
-  %213 = load i64, ptr %212, align 8
-  %214 = icmp eq i64 %213, 1
-  br i1 %214, label %215, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
+210:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit228
+  %211 = getelementptr inbounds i8, ptr %7, i64 48
+  %212 = load i64, ptr %211, align 8
+  %213 = icmp eq i64 %212, 1
+  br i1 %213, label %214, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
-215:                                              ; preds = %211
-  %216 = call noundef i32 @_ZN4Luau6relateEPKNS_4TypeES2_RNS_3SetISt4pairIS2_S2_ENS_12TypePairHashEEE(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  switch i32 %216, label %218 [
+214:                                              ; preds = %210
+  %215 = call noundef i32 @_ZN4Luau6relateEPKNS_4TypeES2_RNS_3SetISt4pairIS2_S2_ENS_12TypePairHashEEE(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  switch i32 %215, label %217 [
     i32 3, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
-    i32 4, label %217
+    i32 4, label %216
   ]
 
-217:                                              ; preds = %215
+216:                                              ; preds = %214
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
-218:                                              ; preds = %215
+217:                                              ; preds = %214
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 thread-pre-split422:                              ; preds = %.thread402, %144
-  %219 = phi i32 [ %145, %144 ], [ %.pr, %.thread402 ]
-  %220 = icmp ne i32 %219, 11
-  %221 = getelementptr inbounds i8, ptr %7, i64 8
-  %brmerge = or i1 %.not.i.i144, %220
-  %.mux = select i1 %220, i32 2, i32 0
-  br i1 %brmerge, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit, label %222
+  %218 = phi i32 [ %145, %144 ], [ %.pr, %.thread402 ]
+  %219 = icmp ne i32 %218, 11
+  %220 = getelementptr inbounds i8, ptr %7, i64 8
+  %brmerge = or i1 %.not.i.i144, %219
+  %.mux = select i1 %219, i32 2, i32 0
+  br i1 %brmerge, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit, label %221
 
-222:                                              ; preds = %thread-pre-split422
-  %223 = load i32, ptr %8, align 8
-  %224 = icmp eq i32 %223, 11
-  %225 = getelementptr inbounds i8, ptr %8, i64 8
-  br i1 %224, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
+221:                                              ; preds = %thread-pre-split422
+  %222 = load i32, ptr %8, align 8
+  %223 = icmp eq i32 %222, 11
+  %224 = getelementptr inbounds i8, ptr %8, i64 8
+  br i1 %223, label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
-_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234: ; preds = %222
-  %226 = call noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef nonnull %221, ptr noundef nonnull %225)
-  br i1 %226, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit, label %227
+_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234: ; preds = %221
+  %225 = call noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef nonnull %220, ptr noundef nonnull %224)
+  br i1 %225, label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit, label %226
 
-227:                                              ; preds = %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234
-  %228 = call noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef nonnull %225, ptr noundef nonnull %221)
-  %.139 = select i1 %228, i32 4, i32 0
+226:                                              ; preds = %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234
+  %227 = call noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef nonnull %224, ptr noundef nonnull %220)
+  %.139 = select i1 %227, i32 4, i32 0
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
 _ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split: ; preds = %22
@@ -3194,8 +3187,8 @@ _ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.s
 _ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split448: ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405
   br label %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit
 
-_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit: ; preds = %177, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split448, %22, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204, %176, %173, %172, %169, %168, %139, %138, %71, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %58, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit159, %37, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit147, %24, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit, %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit, %thread-pre-split422, %.thread337, %222, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188.thread, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218, %218, %217, %215, %183, %182, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit214, %148, %147, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188, %90, %86, %82, %80, %79, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit172, %66, %65, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit165, %55, %46, %45, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit151, %32, %31, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit145, %10, %227, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234, %211, %205, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit226, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222, %164, %162, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit193, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit157, %3, %.thread349, %143, %142, %_ZNSt6vectorIN4Luau8RelationESaIS1_EED2Ev.exit
-  %.2 = phi i32 [ %spec.select, %_ZNSt6vectorIN4Luau8RelationESaIS1_EED2Ev.exit ], [ 0, %.thread349 ], [ 2, %143 ], [ 2, %142 ], [ 1, %3 ], [ 2, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit157 ], [ 2, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit ], [ %.132, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit193 ], [ 4, %162 ], [ 4, %164 ], [ %.136, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222 ], [ %.137, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit226 ], [ %.138, %205 ], [ 2, %211 ], [ 3, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234 ], [ %.139, %227 ], [ 1, %10 ], [ 3, %22 ], [ %30, %32 ], [ 3, %31 ], [ 4, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit145 ], [ %44, %46 ], [ 3, %45 ], [ 4, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit151 ], [ 1, %55 ], [ %64, %66 ], [ 3, %65 ], [ 4, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit165 ], [ %78, %80 ], [ 3, %79 ], [ 4, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit172 ], [ 2, %82 ], [ 2, %86 ], [ 2, %90 ], [ %146, %148 ], [ 3, %147 ], [ 4, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ %181, %183 ], [ 3, %182 ], [ 4, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit214 ], [ %216, %218 ], [ 3, %217 ], [ 4, %215 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218 ], [ 2, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413 ], [ 2, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224 ], [ %.mux, %thread-pre-split422 ], [ 2, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188.thread ], [ 0, %222 ], [ 2, %.thread337 ], [ %spec.select424, %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit ], [ %25, %24 ], [ 4, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit ], [ %39, %37 ], [ 4, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit147 ], [ %59, %58 ], [ 0, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit159 ], [ %73, %71 ], [ 3, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ], [ %141, %139 ], [ 3, %138 ], [ %171, %169 ], [ 0, %168 ], [ %175, %173 ], [ 0, %172 ], [ 2, %176 ], [ 2, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204 ], [ 1, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 2, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split448 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419 ], [ %spec.select449, %177 ]
+_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit: ; preds = %177, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split448, %22, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204, %176, %173, %172, %169, %168, %139, %138, %71, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %58, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit159, %37, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit147, %24, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit, %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit, %thread-pre-split422, %.thread337, %221, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188.thread, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218, %217, %216, %214, %183, %182, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit214, %148, %147, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188, %90, %86, %82, %80, %79, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit172, %66, %65, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit165, %55, %46, %45, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit151, %32, %31, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit145, %10, %226, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234, %210, %204, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit226, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222, %164, %162, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit193, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit157, %3, %.thread349, %143, %142, %_ZNSt6vectorIN4Luau8RelationESaIS1_EED2Ev.exit
+  %.2 = phi i32 [ %spec.select, %_ZNSt6vectorIN4Luau8RelationESaIS1_EED2Ev.exit ], [ 0, %.thread349 ], [ 2, %143 ], [ 2, %142 ], [ 1, %3 ], [ 2, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit157 ], [ 2, %_ZN4LuauL14isTypeVariableEPKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit ], [ %.132, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit193 ], [ 4, %162 ], [ 4, %164 ], [ %.136, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit222 ], [ %.137, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit226 ], [ %.138, %204 ], [ 2, %210 ], [ 3, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit234 ], [ %.139, %226 ], [ 1, %10 ], [ 3, %22 ], [ %30, %32 ], [ 3, %31 ], [ 4, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit145 ], [ %44, %46 ], [ 3, %45 ], [ 4, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit151 ], [ 1, %55 ], [ %64, %66 ], [ 3, %65 ], [ 4, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit165 ], [ %78, %80 ], [ 3, %79 ], [ 4, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit172 ], [ 2, %82 ], [ 2, %86 ], [ 2, %90 ], [ %146, %148 ], [ 3, %147 ], [ 4, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ %181, %183 ], [ 3, %182 ], [ 4, %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit214 ], [ %215, %217 ], [ 3, %216 ], [ 4, %214 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit218 ], [ 2, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220.thread413 ], [ 2, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit220 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224 ], [ %.mux, %thread-pre-split422 ], [ 2, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit188.thread ], [ 0, %221 ], [ 2, %.thread337 ], [ %spec.select424, %_ZNK4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEeqERKS3_.exit ], [ %25, %24 ], [ 4, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit ], [ %39, %37 ], [ 4, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit147 ], [ %59, %58 ], [ 0, %_ZN4Luau3getINS_9Unifiable5ErrorEEEPKT_PKNS_4TypeE.exit159 ], [ %73, %71 ], [ 3, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ], [ %141, %139 ], [ 3, %138 ], [ %171, %169 ], [ 0, %168 ], [ %175, %173 ], [ 0, %172 ], [ 2, %176 ], [ 2, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204 ], [ 1, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 0, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit204.thread405 ], [ 2, %_ZN4Luau3SetISt4pairIPKNS_4TypeES4_ENS_12TypePairHashEE6insertERKS5_.exit.fold.split448 ], [ 0, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit224.thread419 ], [ %spec.select449, %177 ]
   ret i32 %.2
 }
 
@@ -11764,18 +11757,18 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv(ptr noundef %0) #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv(ptr noundef %0) local_unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv(ptr noundef %0) #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv(ptr noundef %0) local_unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS1_EEbPKvS6_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS1_EEbPKvS6_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
   %5 = xor i8 %4, %3
@@ -11785,7 +11778,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_16Boolean
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS2_EEbPKvS6_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE8fnPredEqIS2_EEbPKvS6_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %5 = icmp eq i64 %3, %4
@@ -12646,18 +12639,17 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnDtorISB_EEvPv(ptr noundef %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
-  %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void %5(ptr noundef nonnull %6)
-          to label %_ZN4Luau13SingletonTypeD2Ev.exit unwind label %7
+  %3 = icmp eq i32 %2, 0
+  %4 = select i1 %3, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void %4(ptr noundef nonnull %5)
+          to label %_ZN4Luau13SingletonTypeD2Ev.exit unwind label %6
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #19
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 
 _ZN4Luau13SingletonTypeD2Ev.exit:                 ; preds = %1

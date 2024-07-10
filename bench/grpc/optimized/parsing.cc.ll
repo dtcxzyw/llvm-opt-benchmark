@@ -94,7 +94,6 @@ $_ZN4absl12lts_202308029BitGenRef6ImplFnINS0_15random_internal17NonsecureURBGBas
 @.str.8 = private unnamed_addr constant [24 x i8] c"return absl::OkStatus()\00", align 1
 @.str.9 = private unnamed_addr constant [12 x i8] c"skip_parser\00", align 1
 @.str.10 = private unnamed_addr constant [24 x i8] c"Too many trailer frames\00", align 1
-@_ZL20maybe_complete_funcs = internal unnamed_addr constant [2 x ptr] [ptr @_Z48grpc_chttp2_maybe_complete_recv_initial_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream, ptr @_Z49grpc_chttp2_maybe_complete_recv_trailing_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream], align 16
 @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
 @.str.12 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
@@ -3161,14 +3160,14 @@ if.end25:                                         ; preds = %if.then16
   %idxprom = zext i8 %9 to i64
   %arrayidx27 = getelementptr inbounds [2 x i32], ptr %published_metadata, i64 0, i64 %idxprom
   store i32 2, ptr %arrayidx27, align 4
-  %arrayidx30 = getelementptr inbounds [2 x ptr], ptr @_ZL20maybe_complete_funcs, i64 0, i64 %idxprom
-  %17 = load ptr, ptr %arrayidx30, align 8
-  invoke void %17(ptr noundef %t, ptr noundef nonnull %s)
+  %17 = icmp eq i8 %9, 0
+  %18 = select i1 %17, ptr @_Z48grpc_chttp2_maybe_complete_recv_initial_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream, ptr @_Z49grpc_chttp2_maybe_complete_recv_trailing_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream
+  invoke void %18(ptr noundef %t, ptr noundef nonnull %s)
           to label %if.end33 unwind label %lpad
 
 if.end33:                                         ; preds = %if.end25
-  %18 = load i8, ptr %header_frames_received, align 1
-  %inc = add i8 %18, 1
+  %19 = load i8, ptr %header_frames_received, align 1
+  %inc = add i8 %19, 1
   store i8 %inc, ptr %header_frames_received, align 1
   %.pr = load i8, ptr %boundary_.i, align 8
   %cmp.i29 = icmp eq i8 %.pr, 2
@@ -3176,14 +3175,14 @@ if.end33:                                         ; preds = %if.end25
 
 if.then36:                                        ; preds = %if.end33
   %is_client = getelementptr inbounds i8, ptr %t, i64 3376
-  %19 = load i8, ptr %is_client, align 8
-  %tobool37 = trunc i8 %19 to i1
+  %20 = load i8, ptr %is_client, align 8
+  %tobool37 = trunc i8 %20 to i1
   br i1 %tobool37, label %land.lhs.true, label %invoke.cont49
 
 land.lhs.true:                                    ; preds = %if.then36
   %write_closed = getelementptr inbounds i8, ptr %s, i64 368
-  %20 = load i8, ptr %write_closed, align 8
-  %tobool38 = trunc i8 %20 to i1
+  %21 = load i8, ptr %write_closed, align 8
+  %tobool38 = trunc i8 %21 to i1
   br i1 %tobool38, label %invoke.cont49, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true
@@ -3192,7 +3191,7 @@ if.then39:                                        ; preds = %land.lhs.true
 
 invoke.cont40:                                    ; preds = %if.then39
   %combiner = getelementptr inbounds i8, ptr %t, i64 160
-  %21 = load ptr, ptr %combiner, align 8
+  %22 = load ptr, ptr %combiner, align 8
   %call.i30 = invoke ptr @gpr_malloc(i64 noundef 48)
           to label %invoke.cont44 unwind label %lpad
 
@@ -3208,7 +3207,7 @@ invoke.cont44:                                    ; preds = %invoke.cont40
   %error_data.i.i = getelementptr inbounds i8, ptr %call.i30, i64 40
   store i64 0, ptr %error_data.i.i, align 8
   store i64 0, ptr %agg.tmp43, align 8, !alias.scope !105
-  invoke void @_ZN9grpc_core8Combiner10FinallyRunEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(184) %21, ptr noundef nonnull %wrapper.i, ptr noundef nonnull %agg.tmp43)
+  invoke void @_ZN9grpc_core8Combiner10FinallyRunEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(184) %22, ptr noundef nonnull %wrapper.i, ptr noundef nonnull %agg.tmp43)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
@@ -3216,7 +3215,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
   br label %invoke.cont49
 
 lpad45:                                           ; preds = %invoke.cont44
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp43) #20
   br label %ehcleanup
@@ -3227,44 +3226,44 @@ invoke.cont49:                                    ; preds = %if.then36, %land.lh
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
-  %23 = load ptr, ptr %agg.tmp.ensured, align 8
-  %cmp.i.not.i = icmp eq ptr %23, null
+  %24 = load ptr, ptr %agg.tmp.ensured, align 8
+  %cmp.i.not.i = icmp eq ptr %24, null
   br i1 %cmp.i.not.i, label %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont51
-  %extra_streams.i = getelementptr inbounds i8, ptr %23, i64 592
-  %24 = load i64, ptr %extra_streams.i, align 8
-  %dec.i = add i64 %24, -1
+  %extra_streams.i = getelementptr inbounds i8, ptr %24, i64 592
+  %25 = load i64, ptr %extra_streams.i, align 8
+  %dec.i = add i64 %25, -1
   store i64 %dec.i, ptr %extra_streams.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = atomicrmw sub ptr %add.ptr.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i = icmp eq i64 %25, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = atomicrmw sub ptr %add.ptr.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i = icmp eq i64 %26, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i32, label %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit
 
 if.then.i.i.i32:                                  ; preds = %if.then.i.i
-  call void @_ZN21grpc_chttp2_transportD1Ev(ptr noundef nonnull align 8 dereferenceable(3384) %23) #20
-  call void @_ZdlPv(ptr noundef nonnull %23) #22
+  call void @_ZN21grpc_chttp2_transportD1Ev(ptr noundef nonnull align 8 dereferenceable(3384) %24) #20
+  call void @_ZdlPv(ptr noundef nonnull %24) #22
   br label %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit
 
 _ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit: ; preds = %invoke.cont51, %if.then.i.i, %if.then.i.i.i32
-  %26 = load i64, ptr %agg.tmp48, align 8
-  %and.i.i.i = and i64 %26, 1
+  %27 = load i64, ptr %agg.tmp48, align 8
+  %and.i.i.i = and i64 %27, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.end53, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %_ZN21grpc_chttp2_transport19RemovedStreamHandleD2Ev.exit
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %26)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %27)
           to label %if.end53 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i33
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #21
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #21
   unreachable
 
 lpad50:                                           ; preds = %invoke.cont49
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp48) #20
   br label %ehcleanup
@@ -3278,27 +3277,27 @@ if.end55:                                         ; preds = %if.end53, %if.end9
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i, %invoke.cont.i, %if.end55, %if.then8
-  %30 = load i64, ptr %error, align 8
-  %and.i.i.i35 = and i64 %30, 1
+  %31 = load i64, ptr %error, align 8
+  %and.i.i.i35 = and i64 %31, 1
   %cmp.i.i.i36 = icmp eq i64 %and.i.i.i35, 0
   br i1 %cmp.i.i.i36, label %_ZN4absl12lts_202308026StatusD2Ev.exit40, label %if.then.i.i37
 
 if.then.i.i37:                                    ; preds = %cleanup
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %30)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %31)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit40 unwind label %terminate.lpad.i38
 
 terminate.lpad.i38:                               ; preds = %if.then.i.i37
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #21
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #21
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit40:         ; preds = %cleanup, %if.then.i.i37
   ret void
 
 ehcleanup:                                        ; preds = %lpad50, %lpad45, %lpad23, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad23 ], [ %7, %lpad ], [ %29, %lpad50 ], [ %22, %lpad45 ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad23 ], [ %7, %lpad ], [ %30, %lpad50 ], [ %23, %lpad45 ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %error) #20
   resume { ptr, i32 } %.pn
 }
@@ -4953,9 +4952,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
-declare void @_Z48grpc_chttp2_maybe_complete_recv_initial_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef, ptr noundef) #0
+declare void @_Z48grpc_chttp2_maybe_complete_recv_initial_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-declare void @_Z49grpc_chttp2_maybe_complete_recv_trailing_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef, ptr noundef) #0
+declare void @_Z49grpc_chttp2_maybe_complete_recv_trailing_metadataP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 

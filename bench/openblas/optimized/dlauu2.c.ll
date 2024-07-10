@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.blas_arg_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"DLAUU2\00", align 1
-@lauu2 = internal unnamed_addr constant [2 x ptr] [ptr @dlauu2_U, ptr @dlauu2_L], align 16
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @dlauu2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
@@ -28,54 +27,50 @@ define noundef i32 @dlauu2_(ptr nocapture noundef readonly %0, ptr nocapture nou
   %16 = icmp sgt i8 %8, 96
   %17 = add nsw i32 %9, -32
   %18 = select i1 %16, i32 %17, i32 %9
-  %19 = icmp ne i32 %18, 85
-  %20 = sext i1 %19 to i64
-  %21 = icmp eq i32 %18, 76
-  %22 = select i1 %21, i64 1, i64 %20
-  %23 = tail call i64 @llvm.smax.i64(i64 %11, i64 1)
-  %24 = icmp sgt i64 %23, %14
-  %25 = select i1 %24, i32 4, i32 0
-  %26 = icmp slt i32 %10, 0
-  %27 = select i1 %26, i32 2, i32 %25
-  store i32 %27, ptr %7, align 4
+  %.not = icmp eq i32 %18, 85
+  %19 = tail call i64 @llvm.smax.i64(i64 %11, i64 1)
+  %20 = icmp sgt i64 %19, %14
+  %21 = select i1 %20, i32 4, i32 0
+  %22 = icmp slt i32 %10, 0
+  %23 = select i1 %22, i32 2, i32 %21
+  store i32 %23, ptr %7, align 4
   switch i32 %18, label %.thread [
-    i32 85, label %28
-    i32 76, label %28
+    i32 85, label %24
+    i32 76, label %24
   ]
 
 .thread:                                          ; preds = %5
   store i32 1, ptr %7, align 4, !tbaa !6
-  br label %30
+  br label %26
 
-28:                                               ; preds = %5, %5
-  %29 = icmp eq i32 %27, 0
-  br i1 %29, label %34, label %30
+24:                                               ; preds = %5, %5
+  %25 = icmp eq i32 %23, 0
+  br i1 %25, label %30, label %26
 
-30:                                               ; preds = %.thread, %28
-  %31 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 6) #4
-  %32 = load i32, ptr %7, align 4, !tbaa !6
-  %33 = sub nsw i32 0, %32
-  store i32 %33, ptr %4, align 4, !tbaa !6
-  br label %44
+26:                                               ; preds = %.thread, %24
+  %27 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 6) #4
+  %28 = load i32, ptr %7, align 4, !tbaa !6
+  %29 = sub nsw i32 0, %28
+  store i32 %29, ptr %4, align 4, !tbaa !6
+  br label %39
 
-34:                                               ; preds = %28
+30:                                               ; preds = %24
   store i32 0, ptr %4, align 4, !tbaa !6
-  %35 = icmp slt i32 %10, 1
-  br i1 %35, label %44, label %36
+  %31 = icmp slt i32 %10, 1
+  br i1 %31, label %39, label %32
 
-36:                                               ; preds = %34
-  %37 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
-  %38 = ptrtoint ptr %37 to i64
-  %39 = add nsw i64 %38, 589824
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds [2 x ptr], ptr @lauu2, i64 0, i64 %22
-  %42 = load ptr, ptr %41, align 8, !tbaa !14
-  %43 = call i32 %42(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef %37, ptr noundef %40, i64 noundef 0) #4
-  store i32 %43, ptr %4, align 4, !tbaa !6
-  call void @blas_memory_free(ptr noundef %37) #4
-  br label %44
+32:                                               ; preds = %30
+  %33 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
+  %34 = ptrtoint ptr %33 to i64
+  %35 = add nsw i64 %34, 589824
+  %36 = inttoptr i64 %35 to ptr
+  %37 = select i1 %.not, ptr @dlauu2_U, ptr @dlauu2_L
+  %38 = call i32 %37(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef %33, ptr noundef %36, i64 noundef 0) #4
+  store i32 %38, ptr %4, align 4, !tbaa !6
+  call void @blas_memory_free(ptr noundef %33) #4
+  br label %39
 
-44:                                               ; preds = %36, %34, %30
+39:                                               ; preds = %32, %30, %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #4
   ret i32 0
@@ -93,9 +88,9 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare i32 @dlauu2_U(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @dlauu2_U(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @dlauu2_L(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @dlauu2_L(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3
@@ -122,4 +117,3 @@ attributes #4 = { nounwind }
 !11 = !{!"long", !4, i64 0}
 !12 = !{!9, !10, i64 0}
 !13 = !{!9, !11, i64 72}
-!14 = !{!10, !10, i64 0}

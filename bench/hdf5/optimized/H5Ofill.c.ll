@@ -688,20 +688,19 @@ define internal range(i32 -1, 1) i32 @H5O__fill_pre_copy_file(ptr nocapture read
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @H5F_get_high_bound(ptr noundef %9) #8
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp ugt i32 %7, %13
-  br i1 %14, label %15, label %19
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, i32 1, i32 3
+  %13 = icmp ugt i32 %7, %12
+  br i1 %13, label %14, label %18
 
-15:                                               ; preds = %5
-  %16 = load i64, ptr @H5E_OHDR_g, align 8
-  %17 = load i64, ptr @H5E_BADRANGE_g, align 8
-  %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_pre_copy_file, i32 noundef 824, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.59) #8
-  br label %19
+14:                                               ; preds = %5
+  %15 = load i64, ptr @H5E_OHDR_g, align 8
+  %16 = load i64, ptr @H5E_BADRANGE_g, align 8
+  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__fill_pre_copy_file, i32 noundef 824, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.59) #8
+  br label %18
 
-19:                                               ; preds = %5, %15
-  %.0 = phi i32 [ -1, %15 ], [ 0, %5 ]
+18:                                               ; preds = %5, %14
+  %.0 = phi i32 [ -1, %14 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1664,36 +1663,37 @@ define range(i32 -1, 1) i32 @H5O_fill_set_version(ptr noundef %0, ptr nocapture 
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #8
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp ugt i32 %4, %8
-  br i1 %9, label %14, label %10
+  %6 = icmp eq i32 %5, 0
+  %7 = select i1 %6, i32 1, i32 3
+  %8 = icmp ugt i32 %4, %7
+  br i1 %8, label %9, label %11
 
-10:                                               ; preds = %2
-  %11 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #8
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %12
-  br label %14
+9:                                                ; preds = %2
+  %10 = load i32, ptr %3, align 8
+  br label %15
 
-14:                                               ; preds = %2, %10
-  %.in = phi ptr [ %13, %10 ], [ %3, %2 ]
-  %15 = load i32, ptr %.in, align 4
-  %16 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #8
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [6 x i32], ptr @H5O_fill_ver_bounds, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ugt i32 %15, %19
+11:                                               ; preds = %2
+  %12 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #8
+  %13 = icmp eq i32 %12, 0
+  %14 = select i1 %13, i32 1, i32 3
+  br label %15
+
+15:                                               ; preds = %11, %9
+  %16 = phi i32 [ %10, %9 ], [ %14, %11 ]
+  %17 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #8
+  %18 = icmp eq i32 %17, 0
+  %19 = select i1 %18, i32 1, i32 3
+  %20 = icmp ugt i32 %16, %19
   br i1 %20, label %21, label %25
 
-21:                                               ; preds = %14
+21:                                               ; preds = %15
   %22 = load i64, ptr @H5E_OHDR_g, align 8
   %23 = load i64, ptr @H5E_BADRANGE_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O_fill_set_version, i32 noundef 1039, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.9) #8
   br label %26
 
-25:                                               ; preds = %14
-  store i32 %15, ptr %3, align 8
+25:                                               ; preds = %15
+  store i32 %16, ptr %3, align 8
   br label %26
 
 26:                                               ; preds = %25, %21

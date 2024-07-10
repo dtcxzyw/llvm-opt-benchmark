@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [53 x i8] c"RSA_generate_multi_prime_key(rsa, 500, 2, ebn, NULL)\00", align 1
 @.str.9 = private unnamed_addr constant [54 x i8] c"RSA_generate_multi_prime_key(rsa, 1024, 1, ebn, NULL)\00", align 1
 @test_rsa_mp.ptext_ex = internal global [9 x i8] c"T\85\9B4,I\EA*\00", align 1
-@test_rsa_mp.param_set = internal unnamed_addr constant [2 x ptr] [ptr @key2048p3_v1, ptr @key2048p3_v2], align 16
 @.str.10 = private unnamed_addr constant [4 x i8] c"key\00", align 1
 @.str.11 = private unnamed_addr constant [26 x i8] c"(clen = key2048_key(key))\00", align 1
 @.str.12 = private unnamed_addr constant [4 x i8] c"256\00", align 1
@@ -153,10 +152,9 @@ key2048_key.exit:                                 ; preds = %if.end, %if.end.i
   br i1 %tobool4.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %key2048_key.exit
-  %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @test_rsa_mp.param_set, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
-  %call5 = tail call i32 %0(ptr noundef %call) #2
+  %0 = icmp eq i32 %i, 0
+  %1 = select i1 %0, ptr @key2048p3_v1, ptr @key2048p3_v2
+  %call5 = tail call i32 %1(ptr noundef %call) #2
   %call6 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 271, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %call5, i32 noundef 256) #2
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %err, label %if.end9
@@ -208,7 +206,7 @@ declare void @BN_free(ptr noundef) #1
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key2048p3_v1(ptr noundef %key) #0 {
+define internal i32 @key2048p3_v1(ptr noundef %key) unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %key) #2
   %call1 = tail call ptr @BN_bin2bn(ptr noundef nonnull @p, i32 noundef 86, ptr noundef null) #2
@@ -321,7 +319,7 @@ return:                                           ; preds = %if.end, %ret
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key2048p3_v2(ptr noundef %key) #0 {
+define internal i32 @key2048p3_v2(ptr noundef %key) unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %key) #2
   %call.i = tail call ptr @OPENSSL_sk_new_null() #2

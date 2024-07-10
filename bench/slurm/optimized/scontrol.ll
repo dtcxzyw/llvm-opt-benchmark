@@ -187,7 +187,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.137 = private unnamed_addr constant [14 x i8] c"PartitionName\00", align 1
 @.str.138 = private unnamed_addr constant [16 x i8] c"ReservationName\00", align 1
 @.str.139 = private unnamed_addr constant [28 x i8] c"Invalid creation entity: %s\00", align 1
-@_print_ping.state = internal unnamed_addr constant [2 x ptr] [ptr @.str.48, ptr @.str.140], align 16
 @.str.140 = private unnamed_addr constant [3 x i8] c"UP\00", align 1
 @.str.142 = private unnamed_addr constant [7 x i8] c"backup\00", align 1
 @.str.143 = private unnamed_addr constant [9 x i8] c"backup%d\00", align 1
@@ -2943,7 +2942,7 @@ define internal fastcc void @_print_ping(i32 noundef %0, ptr noundef %1) unnamed
   call void @free_openapi_resp_meta(ptr noundef %30) #17
   store ptr null, ptr %5, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  br label %68
+  br label %67
 
 31:                                               ; preds = %2
   store i32 1, ptr @exit_code, align 4
@@ -2956,9 +2955,9 @@ define internal fastcc void @_print_ping(i32 noundef %0, ptr noundef %1) unnamed
   br i1 %.not2842, label %.critedge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %33 = phi ptr [ %57, %.lr.ph ], [ %32, %.lr.ph.preheader ]
+  %33 = phi ptr [ %56, %.lr.ph ], [ %32, %.lr.ph.preheader ]
   %.0213544 = phi i1 [ %.1, %.lr.ph ], [ false, %.lr.ph.preheader ]
-  %.03643 = phi ptr [ %56, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.03643 = phi ptr [ %55, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %34 = getelementptr inbounds i8, ptr %.03643, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
@@ -3001,42 +3000,41 @@ define internal fastcc void @_print_ping(i32 noundef %0, ptr noundef %1) unnamed
   %49 = phi ptr [ %33, %45 ], [ %.pre, %46 ], [ %33, %41 ]
   %50 = load ptr, ptr @stdout, align 8
   %51 = and i8 %48, 1
-  %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds [2 x ptr], ptr @_print_ping.state, i64 0, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.144, ptr noundef nonnull %3, ptr noundef %49, ptr noundef %54) #17
-  %56 = getelementptr inbounds i8, ptr %.03643, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %.not28 = icmp eq ptr %57, null
+  %52 = icmp eq i8 %51, 0
+  %53 = select i1 %52, ptr @.str.48, ptr @.str.140
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.144, ptr noundef nonnull %3, ptr noundef %49, ptr noundef nonnull %53) #17
+  %55 = getelementptr inbounds i8, ptr %.03643, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %.not28 = icmp eq ptr %56, null
   br i1 %.not28, label %.critedge, label %.lr.ph45
 
 .critedge:                                        ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  br i1 %.1, label %58, label %68
+  br i1 %.1, label %57, label %67
 
-58:                                               ; preds = %.critedge
-  %59 = call i32 @getuid() #17
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %68
+57:                                               ; preds = %.critedge
+  %58 = call i32 @getuid() #17
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %67
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr @stdout, align 8
-  %63 = call i64 @fwrite(ptr nonnull @.str.145, i64 42, i64 1, ptr %62)
-  %64 = load ptr, ptr @stdout, align 8
-  %65 = call i64 @fwrite(ptr nonnull @.str.146, i64 42, i64 1, ptr %64)
-  %66 = load ptr, ptr @stdout, align 8
-  %67 = call i64 @fwrite(ptr nonnull @.str.145, i64 42, i64 1, ptr %66)
-  br label %68
+60:                                               ; preds = %57
+  %61 = load ptr, ptr @stdout, align 8
+  %62 = call i64 @fwrite(ptr nonnull @.str.145, i64 42, i64 1, ptr %61)
+  %63 = load ptr, ptr @stdout, align 8
+  %64 = call i64 @fwrite(ptr nonnull @.str.146, i64 42, i64 1, ptr %63)
+  %65 = load ptr, ptr @stdout, align 8
+  %66 = call i64 @fwrite(ptr nonnull @.str.145, i64 42, i64 1, ptr %65)
+  br label %67
 
 .critedge39:                                      ; preds = %31
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  br label %68
+  br label %67
 
 .critedge46:                                      ; preds = %.lr.ph.preheader
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  br label %68
+  br label %67
 
-68:                                               ; preds = %.critedge46, %.critedge39, %61, %58, %.critedge, %29
+67:                                               ; preds = %.critedge46, %.critedge39, %60, %57, %.critedge, %29
   ret void
 }
 

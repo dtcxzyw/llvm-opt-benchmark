@@ -1199,13 +1199,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h11c851c327b5c01aE.319" = private unnamed_addr constant [5 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.741, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.742, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.743, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.744, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.745], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h125de4badddfaaa2E" = private unnamed_addr constant [4 x i64] [i64 4, i64 12, i64 15, i64 2], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h125de4badddfaaa2E.320" = private unnamed_addr constant [4 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.354, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.754, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.755, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.756], align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb133426108e4a23cE" = private unnamed_addr constant [3 x i64] [i64 4, i64 3, i64 4], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb133426108e4a23cE.322" = private unnamed_addr constant [3 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.354, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.544, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.545], align 8
 @"switch.table._ZN65_$LT$sqlparser..ast..JsonOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17h78d11273ea8505beE" = private unnamed_addr constant [10 x i64] [i64 5, i64 9, i64 9, i64 13, i64 5, i64 7, i64 7, i64 9, i64 10, i64 4], align 8
 @"switch.table._ZN65_$LT$sqlparser..ast..JsonOperator$u20$as$u20$core..fmt..Debug$GT$3fmt17h78d11273ea8505beE.323" = private unnamed_addr constant [10 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.308, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.309, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.310, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.311, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.312, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.313, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.314, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.315, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.316, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.317], align 8
 @"switch.table._ZN69_$LT$arrow_schema..datatype..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f27cae8b431cfb3E" = private unnamed_addr constant [4 x i64] [i64 6, i64 11, i64 11, i64 10], align 8
 @"switch.table._ZN69_$LT$arrow_schema..datatype..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f27cae8b431cfb3E.324" = private unnamed_addr constant [4 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.480, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.481, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.482, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.483], align 8
-@"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E" = private unnamed_addr constant [3 x i64] [i64 6, i64 9, i64 9], align 8
 @"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E.325" = private unnamed_addr constant [3 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.486, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.487, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.488], align 8
 @"switch.table._ZN73_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..fmt..Debug$GT$3fmt17h4db498e5a9390f19E" = private unnamed_addr constant [35 x i64] [i64 4, i64 5, i64 4, i64 3, i64 9, i64 9, i64 4, i64 4, i64 6, i64 6, i64 7, i64 6, i64 3, i64 3, i64 5, i64 6, i64 7, i64 7, i64 6, i64 11, i64 12, i64 9, i64 10, i64 11, i64 12, i64 10, i64 11, i64 7, i64 4, i64 8, i64 12, i64 12, i64 14, i64 14, i64 10], align 8
 @"switch.table._ZN73_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..fmt..Debug$GT$3fmt17h4db498e5a9390f19E.326" = private unnamed_addr constant [35 x ptr] [ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.692, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.693, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.694, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.695, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.696, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.697, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.643, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.698, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.699, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.480, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.700, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.701, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.702, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.703, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.704, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.705, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.706, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.707, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.708, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.482, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.709, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.710, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.711, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.481, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.712, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.483, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.713, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.714, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.644, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.715, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.716, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.717, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.718, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.719, ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.720], align 8
@@ -20341,9 +20339,8 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !1699, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2295)
   %3 = load i8, ptr %2, align 1, !range !25, !alias.scope !2295, !noalias !2298, !noundef !5
-  %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E", i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = icmp eq i8 %3, 0
+  %switch.load = select i1 %4, i64 6, i64 9
   %5 = zext nneg i8 %3 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E.325", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -20556,9 +20553,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !1699, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !25, !noundef !5
-  %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb133426108e4a23cE", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %.val, 1
+  %switch.load = select i1 %3, i64 3, i64 4
   %4 = zext nneg i8 %.val to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb133426108e4a23cE.322", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -74523,9 +74519,8 @@ define internal noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..dcl..ResetConfig$
 define internal noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !25, !noundef !5
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 0
+  %switch.load = select i1 %3, i64 6, i64 9
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$sqlparser..ast..ddl..GeneratedAs$u20$as$u20$core..fmt..Debug$GT$3fmt17h937852b2ce1ea2c3E.325", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8

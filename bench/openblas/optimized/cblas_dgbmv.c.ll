@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DGBMV \00", align 1
-@gbmv = internal unnamed_addr constant [2 x ptr] [ptr @dgbmv_n, ptr @dgbmv_t], align 16
-@gbmv_thread = internal unnamed_addr constant [2 x ptr] [ptr @dgbmv_thread_n, ptr @dgbmv_thread_t], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -91,13 +89,13 @@ define void @cblas_dgbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 .thread5:                                         ; preds = %42, %71
   %79 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef 7) #4
-  br label %130
+  br label %127
 
 80:                                               ; preds = %71
   %81 = icmp eq i32 %77, 0
   %82 = icmp eq i32 %75, 0
   %83 = or i1 %82, %81
-  br i1 %83, label %130, label %84
+  br i1 %83, label %127, label %84
 
 84:                                               ; preds = %80
   %85 = icmp eq i32 %76, 0
@@ -115,7 +113,7 @@ define void @cblas_dgbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 94:                                               ; preds = %89, %84
   %95 = fcmp oeq double %6, 0.000000e+00
-  br i1 %95, label %130, label %96
+  br i1 %95, label %127, label %96
 
 96:                                               ; preds = %94
   %97 = icmp slt i32 %10, 0
@@ -135,33 +133,30 @@ define void @cblas_dgbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %111 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
   %112 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
   %113 = icmp eq i32 %112, 1
-  %114 = sext i32 %76 to i64
-  %115 = sext i32 %77 to i64
-  %116 = sext i32 %75 to i64
-  %117 = sext i32 %73 to i64
-  %118 = sext i32 %74 to i64
-  %119 = sext i32 %8 to i64
-  %120 = sext i32 %10 to i64
-  %121 = sext i32 %13 to i64
-  br i1 %113, label %122, label %125
+  %114 = sext i32 %77 to i64
+  %115 = sext i32 %75 to i64
+  %116 = sext i32 %73 to i64
+  %117 = sext i32 %74 to i64
+  %118 = sext i32 %8 to i64
+  %119 = sext i32 %10 to i64
+  %120 = sext i32 %13 to i64
+  br i1 %113, label %121, label %123
 
-122:                                              ; preds = %96
-  %123 = getelementptr inbounds [2 x ptr], ptr @gbmv, i64 0, i64 %114
-  %124 = load ptr, ptr %123, align 8, !tbaa !7
-  tail call void %124(i64 noundef %115, i64 noundef %116, i64 noundef %117, i64 noundef %118, double noundef %6, ptr noundef %7, i64 noundef %119, ptr noundef %103, i64 noundef %120, ptr noundef %110, i64 noundef %121, ptr noundef %111) #4
-  br label %129
+121:                                              ; preds = %96
+  %122 = select i1 %85, ptr @dgbmv_n, ptr @dgbmv_t
+  tail call void %122(i64 noundef %114, i64 noundef %115, i64 noundef %116, i64 noundef %117, double noundef %6, ptr noundef %7, i64 noundef %118, ptr noundef %103, i64 noundef %119, ptr noundef %110, i64 noundef %120, ptr noundef %111) #4
+  br label %126
 
-125:                                              ; preds = %96
-  %126 = getelementptr inbounds [2 x ptr], ptr @gbmv_thread, i64 0, i64 %114
-  %127 = load ptr, ptr %126, align 8, !tbaa !7
-  %128 = tail call i32 %127(i64 noundef %115, i64 noundef %116, i64 noundef %117, i64 noundef %118, double noundef %6, ptr noundef %7, i64 noundef %119, ptr noundef %103, i64 noundef %120, ptr noundef %110, i64 noundef %121, ptr noundef %111, i32 noundef %112) #4
-  br label %129
+123:                                              ; preds = %96
+  %124 = select i1 %85, ptr @dgbmv_thread_n, ptr @dgbmv_thread_t
+  %125 = tail call i32 %124(i64 noundef %114, i64 noundef %115, i64 noundef %116, i64 noundef %117, double noundef %6, ptr noundef %7, i64 noundef %118, ptr noundef %103, i64 noundef %119, ptr noundef %110, i64 noundef %120, ptr noundef %111, i32 noundef %112) #4
+  br label %126
 
-129:                                              ; preds = %125, %122
+126:                                              ; preds = %123, %121
   tail call void @blas_memory_free(ptr noundef %111) #4
-  br label %130
+  br label %127
 
-130:                                              ; preds = %129, %94, %80, %.thread5
+127:                                              ; preds = %126, %94, %80, %.thread5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
   ret void
 }
@@ -183,13 +178,13 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare void @dgbmv_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare void @dgbmv_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dgbmv_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare void @dgbmv_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dgbmv_thread_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgbmv_thread_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dgbmv_thread_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgbmv_thread_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -206,5 +201,3 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}

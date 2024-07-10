@@ -113,8 +113,6 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 
 $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
 
-@_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE = internal unnamed_addr constant [2 x i32] [i32 31536000, i32 31622400], align 4
-@_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE = internal unnamed_addr constant [2 x i32] [i32 365, i32 366], align 4
 @constinit = private unnamed_addr constant [12 x i64] [i64 -576460752303423488, i64 1420070400, i64 1451606400, i64 1483228800, i64 1514764800, i64 1546300800, i64 1577836800, i64 1609459200, i64 1640995200, i64 1672531200, i64 1704067200, i64 1735689600], align 8
 @.str = private unnamed_addr constant [5 x i8] c"TZif\00", align 1
 @_ZN4absl13time_internal14cctz_extension24zone_info_source_factoryB5cxx11E = external local_unnamed_addr global ptr, align 8
@@ -586,7 +584,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %invoke.cont
 for.cond:                                         ; preds = %land.end, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit
   %jan1_weekday.0 = phi i32 [ %spec.select, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %rem, %land.end ]
   %jan1_time.0 = phi i64 [ %call45, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %add96, %land.end ]
-  %leap_year.0.in = phi i1 [ %35, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %83, %land.end ]
+  %leap_year.0.in = phi i1 [ %35, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %82, %land.end ]
   %41 = load i32, ptr %dst_start.i, align 8
   switch i32 %41, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_111TransOffsetEbiRKNS1_15PosixTransitionE.exit [
     i32 0, label %sw.bb.i
@@ -893,18 +891,14 @@ if.end89:                                         ; preds = %_ZNSt6vectorIN4absl
   br i1 %cmp91, label %cleanup, label %if.end93
 
 if.end93:                                         ; preds = %if.end89
-  %idxprom = zext i1 %leap_year.0.in to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kSecsPerYearE, i64 0, i64 %idxprom
-  %80 = load i32, ptr %arrayidx, align 4
-  %conv95 = sext i32 %80 to i64
-  %add96 = add nsw i64 %jan1_time.0, %conv95
-  %arrayidx99 = getelementptr inbounds [2 x i32], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_112kDaysPerYearE, i64 0, i64 %idxprom
-  %81 = load i32, ptr %arrayidx99, align 4
-  %add100 = add nsw i32 %81, %jan1_weekday.0
-  %rem = srem i32 %add100, 7
+  %conv95 = select i1 %leap_year.0.in, i64 31622400, i64 31536000
+  %add96 = add nsw i64 %conv95, %jan1_time.0
+  %80 = select i1 %leap_year.0.in, i32 366, i32 365
+  %add100 = add nuw nsw i32 %80, %jan1_weekday.0
+  %rem = urem i32 %add100, 7
   %.pre160 = add nsw i64 %79, 1
-  %82 = and i64 %.pre160, 3
-  %cmp.i140 = icmp ne i64 %82, 0
+  %81 = and i64 %.pre160, 3
+  %cmp.i140 = icmp ne i64 %81, 0
   %or.cond.not = select i1 %leap_year.0.in, i1 true, i1 %cmp.i140
   br i1 %or.cond.not, label %land.end, label %land.rhs.i141
 
@@ -919,7 +913,7 @@ lor.rhs.i144:                                     ; preds = %land.rhs.i141
   br label %land.end
 
 land.end:                                         ; preds = %if.end93, %lor.rhs.i144, %land.rhs.i141
-  %83 = phi i1 [ %cmp4.i146, %lor.rhs.i144 ], [ true, %land.rhs.i141 ], [ false, %if.end93 ]
+  %82 = phi i1 [ %cmp4.i146, %lor.rhs.i144 ], [ true, %land.rhs.i141 ], [ false, %if.end93 ]
   store i64 %.pre160, ptr %last_year_, align 8
   br label %for.cond, !llvm.loop !16
 

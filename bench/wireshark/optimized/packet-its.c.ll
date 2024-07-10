@@ -6520,7 +6520,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_register_its.its_da = internal global %struct.decode_as_s { ptr @.str.3659, ptr @.str.3662, i32 1, i32 0, ptr @proto_register_its.its_da_values, ptr null, ptr null, ptr @decode_as_default_populate_list, ptr @decode_as_default_reset, ptr @decode_as_default_change, ptr null }, align 8
 @.str.3733 = private unnamed_addr constant [10 x i8] c"btpa.port\00", align 1
 @.str.3734 = private unnamed_addr constant [10 x i8] c"btpb.port\00", align 1
-@__const.proto_reg_handoff_its.subdissector = private unnamed_addr constant [2 x ptr] [ptr @.str.3733, ptr @.str.3734], align 16
 @__const.proto_reg_handoff_its.ports = private unnamed_addr constant [12 x i16] [i16 2002, i16 2001, i16 2010, i16 2012, i16 2006, i16 2011, i16 2008, i16 2013, i16 2007, i16 2003, i16 2004, i16 2009], align 16
 @.str.3735 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.3736 = private unnamed_addr constant [17 x i8] c"ieee1609dot2.ssp\00", align 1
@@ -9047,152 +9046,150 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #2
 define hidden void @proto_reg_handoff_its() local_unnamed_addr #0 {
   br label %.preheader
 
-.preheader:                                       ; preds = %0, %9
-  %1 = phi i1 [ true, %0 ], [ false, %9 ]
-  %indvars.iv10 = phi i64 [ 0, %0 ], [ 1, %9 ]
-  %2 = getelementptr [2 x ptr], ptr @__const.proto_reg_handoff_its.subdissector, i64 0, i64 %indvars.iv10
-  %3 = load ptr, ptr %2, align 8
-  br label %4
+.preheader:                                       ; preds = %0, %8
+  %1 = phi i1 [ true, %0 ], [ false, %8 ]
+  %2 = select i1 %1, ptr @.str.3733, ptr @.str.3734
+  br label %3
 
-4:                                                ; preds = %.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr [12 x i16], ptr @__const.proto_reg_handoff_its.ports, i64 0, i64 %indvars.iv
-  %6 = load i16, ptr %5, align 2
-  %7 = zext i16 %6 to i32
-  %8 = load ptr, ptr @its_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef %3, i32 noundef %7, ptr noundef %8) #7
+3:                                                ; preds = %.preheader, %3
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
+  %4 = getelementptr [12 x i16], ptr @__const.proto_reg_handoff_its.ports, i64 0, i64 %indvars.iv
+  %5 = load i16, ptr %4, align 2
+  %6 = zext i16 %5 to i32
+  %7 = load ptr, ptr @its_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %7) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !4
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !4
 
-9:                                                ; preds = %4
-  br i1 %1, label %.preheader, label %10, !llvm.loop !6
+8:                                                ; preds = %3
+  br i1 %1, label %.preheader, label %9, !llvm.loop !6
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr @its_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.3735, ptr noundef %11) #7
-  %12 = load i32, ptr @proto_its_denm, align 4
-  %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denm_DenmPayload_PDU, i32 noundef %12) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131073, ptr noundef %13) #7
-  %14 = load i32, ptr @proto_its_denmv1, align 4
-  %15 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmv1_DecentralizedEnvironmentalNotificationMessageV1_PDU, i32 noundef %14) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65537, ptr noundef %15) #7
-  %16 = load i32, ptr @proto_its_cam, align 4
-  %17 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cam_CamPayload_PDU, i32 noundef %16) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131074, ptr noundef %17) #7
-  %18 = load i32, ptr @proto_its_camv1, align 4
-  %19 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camv1_CoopAwarenessV1_PDU, i32 noundef %18) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65538, ptr noundef %19) #7
-  %20 = load i32, ptr @proto_its_spatemv1, align 4
-  %21 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SPAT_PDU, i32 noundef %20) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65540, ptr noundef %21) #7
-  %22 = load i32, ptr @proto_its_spatem, align 4
-  %23 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SPAT_PDU, i32 noundef %22) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131076, ptr noundef %23) #7
-  %24 = load i32, ptr @proto_its_mapemv1, align 4
-  %25 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_MapData_PDU, i32 noundef %24) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65541, ptr noundef %25) #7
-  %26 = load i32, ptr @proto_its_mapem, align 4
-  %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_MapData_PDU, i32 noundef %26) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131077, ptr noundef %27) #7
-  %28 = load i32, ptr @proto_its_ivimv1, align 4
-  %29 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_ivi_IviStructure_PDU, i32 noundef %28) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65542, ptr noundef %29) #7
-  %30 = load i32, ptr @proto_its_ivim, align 4
-  %31 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_ivi_IviStructure_PDU, i32 noundef %30) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131078, ptr noundef %31) #7
-  %32 = load i32, ptr @proto_its_evrsr, align 4
-  %33 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_evrsr_EV_RSR_MessageBody_PDU, i32 noundef %32) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 7, ptr noundef %33) #7
-  %34 = load i32, ptr @proto_its_srem, align 4
-  %35 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SignalRequestMessage_PDU, i32 noundef %34) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131081, ptr noundef %35) #7
-  %36 = load i32, ptr @proto_its_ssem, align 4
-  %37 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SignalStatusMessage_PDU, i32 noundef %36) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131082, ptr noundef %37) #7
-  %38 = load i32, ptr @proto_its_rtcmemv1, align 4
-  %39 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_RTCMcorrections_PDU, i32 noundef %38) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65549, ptr noundef %39) #7
-  %40 = load i32, ptr @proto_its_rtcmem, align 4
-  %41 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_RTCMcorrections_PDU, i32 noundef %40) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131085, ptr noundef %41) #7
-  %42 = load i32, ptr @proto_its_evcsn, align 4
-  %43 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_evcsn_EVChargingSpotNotificationPOIMessage_PDU, i32 noundef %42) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 11, ptr noundef %43) #7
-  %44 = load i32, ptr @proto_its_tistpg, align 4
-  %45 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_tistpg_TisTpgTransaction_PDU, i32 noundef %44) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65544, ptr noundef %45) #7
-  %46 = load i32, ptr @proto_its_cpm, align 4
-  %47 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_CollectivePerceptionMessage_PDU, i32 noundef %46) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131086, ptr noundef %47) #7
-  %48 = load i32, ptr @proto_its_imzm, align 4
-  %49 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_imzm_InterferenceManagementZoneMessage_PDU, i32 noundef %48) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131087, ptr noundef %49) #7
-  %50 = load i32, ptr @proto_its_vam, align 4
-  %51 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_vam_VruAwareness_PDU, i32 noundef %50) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131088, ptr noundef %51) #7
-  %52 = load i32, ptr @proto_addgrpc, align 4
-  %53 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU, i32 noundef %52) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196610, ptr noundef %53) #7
-  %54 = load i32, ptr @proto_addgrpc, align 4
-  %55 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_ConnectionTrajectory_addGrpC_PDU, i32 noundef %54) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196611, ptr noundef %55) #7
-  %56 = load i32, ptr @proto_addgrpc, align 4
-  %57 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_NodeAttributeSet_addGrpC_PDU, i32 noundef %56) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196620, ptr noundef %57) #7
-  %58 = load i32, ptr @proto_addgrpc, align 4
-  %59 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_IntersectionState_addGrpC_PDU, i32 noundef %58) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196613, ptr noundef %59) #7
-  %60 = load i32, ptr @proto_addgrpc, align 4
-  %61 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_MapData_addGrpC_PDU, i32 noundef %60) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196616, ptr noundef %61) #7
-  %62 = load i32, ptr @proto_addgrpc, align 4
-  %63 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_Position3D_addGrpC_PDU, i32 noundef %62) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196623, ptr noundef %63) #7
-  %64 = load i32, ptr @proto_addgrpc, align 4
-  %65 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_RestrictionUserType_addGrpC_PDU, i32 noundef %64) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196626, ptr noundef %65) #7
-  %66 = load i32, ptr @proto_addgrpc, align 4
-  %67 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_SignalStatusPackage_addGrpC_PDU, i32 noundef %66) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196634, ptr noundef %67) #7
-  %68 = load i32, ptr @proto_addgrpc, align 4
-  %69 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_LaneAttributes_addGrpC_PDU, i32 noundef %68) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196614, ptr noundef %69) #7
-  %70 = load i32, ptr @proto_addgrpc, align 4
-  %71 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_MovementEvent_addGrpC_PDU, i32 noundef %70) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196617, ptr noundef %71) #7
-  %72 = load i32, ptr @proto_addgrpc, align 4
-  %73 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_RequestorDescription_addGrpC_PDU, i32 noundef %72) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196624, ptr noundef %73) #7
-  %74 = load i32, ptr @proto_its_denm, align 4
-  %75 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmssp_pdu, i32 noundef %74) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3736, i32 noundef 37, ptr noundef %75) #7
-  %76 = load i32, ptr @proto_its_cam, align 4
-  %77 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camssp_pdu, i32 noundef %76) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3736, i32 noundef 36, ptr noundef %77) #7
-  %78 = load i32, ptr @proto_its_denm, align 4
-  %79 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmssp_pdu, i32 noundef %78) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3737, i32 noundef 37, ptr noundef %79) #7
-  %80 = load i32, ptr @proto_its_cam, align 4
-  %81 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camssp_pdu, i32 noundef %80) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3737, i32 noundef 36, ptr noundef %81) #7
-  %82 = load i32, ptr @proto_its_cpm, align 4
-  %83 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_OriginatingVehicleContainer_PDU, i32 noundef %82) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 1, ptr noundef %83) #7
-  %84 = load i32, ptr @proto_its_cpm, align 4
-  %85 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_OriginatingRsuContainer_PDU, i32 noundef %84) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 2, ptr noundef %85) #7
-  %86 = load i32, ptr @proto_its_cpm, align 4
-  %87 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_SensorInformationContainer_PDU, i32 noundef %86) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 3, ptr noundef %87) #7
-  %88 = load i32, ptr @proto_its_cpm, align 4
-  %89 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_PerceptionRegionContainer_PDU, i32 noundef %88) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 4, ptr noundef %89) #7
-  %90 = load i32, ptr @proto_its_cpm, align 4
-  %91 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_PerceivedObjectContainer_PDU, i32 noundef %90) #7
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 5, ptr noundef %91) #7
-  %92 = tail call i32 @register_tap(ptr noundef nonnull @.str.3659) #7
-  store i32 %92, ptr @its_tap, align 4
+9:                                                ; preds = %8
+  %10 = load ptr, ptr @its_handle, align 8
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.3735, ptr noundef %10) #7
+  %11 = load i32, ptr @proto_its_denm, align 4
+  %12 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denm_DenmPayload_PDU, i32 noundef %11) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131073, ptr noundef %12) #7
+  %13 = load i32, ptr @proto_its_denmv1, align 4
+  %14 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmv1_DecentralizedEnvironmentalNotificationMessageV1_PDU, i32 noundef %13) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65537, ptr noundef %14) #7
+  %15 = load i32, ptr @proto_its_cam, align 4
+  %16 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cam_CamPayload_PDU, i32 noundef %15) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131074, ptr noundef %16) #7
+  %17 = load i32, ptr @proto_its_camv1, align 4
+  %18 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camv1_CoopAwarenessV1_PDU, i32 noundef %17) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65538, ptr noundef %18) #7
+  %19 = load i32, ptr @proto_its_spatemv1, align 4
+  %20 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SPAT_PDU, i32 noundef %19) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65540, ptr noundef %20) #7
+  %21 = load i32, ptr @proto_its_spatem, align 4
+  %22 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SPAT_PDU, i32 noundef %21) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131076, ptr noundef %22) #7
+  %23 = load i32, ptr @proto_its_mapemv1, align 4
+  %24 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_MapData_PDU, i32 noundef %23) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65541, ptr noundef %24) #7
+  %25 = load i32, ptr @proto_its_mapem, align 4
+  %26 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_MapData_PDU, i32 noundef %25) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131077, ptr noundef %26) #7
+  %27 = load i32, ptr @proto_its_ivimv1, align 4
+  %28 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_ivi_IviStructure_PDU, i32 noundef %27) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65542, ptr noundef %28) #7
+  %29 = load i32, ptr @proto_its_ivim, align 4
+  %30 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_ivi_IviStructure_PDU, i32 noundef %29) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131078, ptr noundef %30) #7
+  %31 = load i32, ptr @proto_its_evrsr, align 4
+  %32 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_evrsr_EV_RSR_MessageBody_PDU, i32 noundef %31) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 7, ptr noundef %32) #7
+  %33 = load i32, ptr @proto_its_srem, align 4
+  %34 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SignalRequestMessage_PDU, i32 noundef %33) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131081, ptr noundef %34) #7
+  %35 = load i32, ptr @proto_its_ssem, align 4
+  %36 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_SignalStatusMessage_PDU, i32 noundef %35) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131082, ptr noundef %36) #7
+  %37 = load i32, ptr @proto_its_rtcmemv1, align 4
+  %38 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_RTCMcorrections_PDU, i32 noundef %37) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65549, ptr noundef %38) #7
+  %39 = load i32, ptr @proto_its_rtcmem, align 4
+  %40 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dsrc_RTCMcorrections_PDU, i32 noundef %39) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131085, ptr noundef %40) #7
+  %41 = load i32, ptr @proto_its_evcsn, align 4
+  %42 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_evcsn_EVChargingSpotNotificationPOIMessage_PDU, i32 noundef %41) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 11, ptr noundef %42) #7
+  %43 = load i32, ptr @proto_its_tistpg, align 4
+  %44 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_tistpg_TisTpgTransaction_PDU, i32 noundef %43) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 65544, ptr noundef %44) #7
+  %45 = load i32, ptr @proto_its_cpm, align 4
+  %46 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_CollectivePerceptionMessage_PDU, i32 noundef %45) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131086, ptr noundef %46) #7
+  %47 = load i32, ptr @proto_its_imzm, align 4
+  %48 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_imzm_InterferenceManagementZoneMessage_PDU, i32 noundef %47) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131087, ptr noundef %48) #7
+  %49 = load i32, ptr @proto_its_vam, align 4
+  %50 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_vam_VruAwareness_PDU, i32 noundef %49) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3662, i32 noundef 131088, ptr noundef %50) #7
+  %51 = load i32, ptr @proto_addgrpc, align 4
+  %52 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_ConnectionManeuverAssist_addGrpC_PDU, i32 noundef %51) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196610, ptr noundef %52) #7
+  %53 = load i32, ptr @proto_addgrpc, align 4
+  %54 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_ConnectionTrajectory_addGrpC_PDU, i32 noundef %53) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196611, ptr noundef %54) #7
+  %55 = load i32, ptr @proto_addgrpc, align 4
+  %56 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_NodeAttributeSet_addGrpC_PDU, i32 noundef %55) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196620, ptr noundef %56) #7
+  %57 = load i32, ptr @proto_addgrpc, align 4
+  %58 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_IntersectionState_addGrpC_PDU, i32 noundef %57) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196613, ptr noundef %58) #7
+  %59 = load i32, ptr @proto_addgrpc, align 4
+  %60 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_MapData_addGrpC_PDU, i32 noundef %59) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196616, ptr noundef %60) #7
+  %61 = load i32, ptr @proto_addgrpc, align 4
+  %62 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_Position3D_addGrpC_PDU, i32 noundef %61) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196623, ptr noundef %62) #7
+  %63 = load i32, ptr @proto_addgrpc, align 4
+  %64 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_RestrictionUserType_addGrpC_PDU, i32 noundef %63) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196626, ptr noundef %64) #7
+  %65 = load i32, ptr @proto_addgrpc, align 4
+  %66 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_SignalStatusPackage_addGrpC_PDU, i32 noundef %65) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196634, ptr noundef %66) #7
+  %67 = load i32, ptr @proto_addgrpc, align 4
+  %68 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_LaneAttributes_addGrpC_PDU, i32 noundef %67) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196614, ptr noundef %68) #7
+  %69 = load i32, ptr @proto_addgrpc, align 4
+  %70 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_MovementEvent_addGrpC_PDU, i32 noundef %69) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196617, ptr noundef %70) #7
+  %71 = load i32, ptr @proto_addgrpc, align 4
+  %72 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_AddGrpC_RequestorDescription_addGrpC_PDU, i32 noundef %71) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3664, i32 noundef 196624, ptr noundef %72) #7
+  %73 = load i32, ptr @proto_its_denm, align 4
+  %74 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmssp_pdu, i32 noundef %73) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3736, i32 noundef 37, ptr noundef %74) #7
+  %75 = load i32, ptr @proto_its_cam, align 4
+  %76 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camssp_pdu, i32 noundef %75) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3736, i32 noundef 36, ptr noundef %76) #7
+  %77 = load i32, ptr @proto_its_denm, align 4
+  %78 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_denmssp_pdu, i32 noundef %77) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3737, i32 noundef 37, ptr noundef %78) #7
+  %79 = load i32, ptr @proto_its_cam, align 4
+  %80 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_camssp_pdu, i32 noundef %79) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3737, i32 noundef 36, ptr noundef %80) #7
+  %81 = load i32, ptr @proto_its_cpm, align 4
+  %82 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_OriginatingVehicleContainer_PDU, i32 noundef %81) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 1, ptr noundef %82) #7
+  %83 = load i32, ptr @proto_its_cpm, align 4
+  %84 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_OriginatingRsuContainer_PDU, i32 noundef %83) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 2, ptr noundef %84) #7
+  %85 = load i32, ptr @proto_its_cpm, align 4
+  %86 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_SensorInformationContainer_PDU, i32 noundef %85) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 3, ptr noundef %86) #7
+  %87 = load i32, ptr @proto_its_cpm, align 4
+  %88 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_PerceptionRegionContainer_PDU, i32 noundef %87) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 4, ptr noundef %88) #7
+  %89 = load i32, ptr @proto_its_cpm, align 4
+  %90 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_cpm_PerceivedObjectContainer_PDU, i32 noundef %89) #7
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3666, i32 noundef 5, ptr noundef %90) #7
+  %91 = tail call i32 @register_tap(ptr noundef nonnull @.str.3659) #7
+  store i32 %91, ptr @its_tap, align 4
   ret void
 }
 

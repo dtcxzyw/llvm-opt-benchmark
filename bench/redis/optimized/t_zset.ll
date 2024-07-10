@@ -99,7 +99,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.66 = private unnamed_addr constant [18 x i8] c"zsetDel(zobj,ele)\00", align 1
 @.str.67 = private unnamed_addr constant [8 x i8] c"zpopmin\00", align 1
 @.str.68 = private unnamed_addr constant [8 x i8] c"zpopmax\00", align 1
-@__const.genericZpopCommand.events = private unnamed_addr constant [2 x ptr] [ptr @.str.67, ptr @.str.68], align 16
 @.str.69 = private unnamed_addr constant [62 x i8] c"lpRandomPairsUnique(zsetobj->ptr, count, keys, vals) == count\00", align 1
 @sdsReplyDictType = external global %struct.dictType, align 8
 @.str.70 = private unnamed_addr constant [3 x i8] c"de\00", align 1
@@ -13682,8 +13681,8 @@ if.end44:                                         ; preds = %if.then29, %if.else
   %ptr87 = getelementptr inbounds i8, ptr %call, i64 8
   %cmp89 = icmp eq i32 %where, 1
   %cond48 = select i1 %cmp89, i64 -2, i64 0
-  %idxprom128 = sext i32 %where to i64
-  %arrayidx129 = getelementptr inbounds [2 x ptr], ptr @__const.genericZpopCommand.events, i64 0, i64 %idxprom128
+  %9 = icmp eq i32 %where, 0
+  %10 = select i1 %9, ptr @.str.67, ptr @.str.68
   br label %do.body
 
 do.body:                                          ; preds = %sdslen.exit, %if.end44
@@ -13698,8 +13697,8 @@ do.body:                                          ; preds = %sdslen.exit, %if.en
   ]
 
 if.then46:                                        ; preds = %do.body
-  %9 = load ptr, ptr %ptr87, align 8
-  %call49 = call ptr @lpSeek(ptr noundef %9, i64 noundef %cond48) #19
+  %11 = load ptr, ptr %ptr87, align 8
+  %call49 = call ptr @lpSeek(ptr noundef %11, i64 noundef %cond48) #19
   %cmp50.not = icmp eq ptr %call49, null
   br i1 %cmp50.not, label %cond.false56, label %cond.end57
 
@@ -13714,19 +13713,19 @@ cond.end57:                                       ; preds = %if.then46
   br i1 %cmp59, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %cond.end57
-  %10 = load i64, ptr %vlong, align 8
-  %call62 = call ptr @sdsfromlonglong(i64 noundef %10) #19
+  %12 = load i64, ptr %vlong, align 8
+  %call62 = call ptr @sdsfromlonglong(i64 noundef %12) #19
   br label %if.end66
 
 if.else63:                                        ; preds = %cond.end57
-  %11 = load i32, ptr %vlen, align 4
-  %conv64 = zext i32 %11 to i64
+  %13 = load i32, ptr %vlen, align 4
+  %conv64 = zext i32 %13 to i64
   %call65 = call ptr @sdsnewlen(ptr noundef nonnull %call58, i64 noundef %conv64) #19
   br label %if.end66
 
 if.end66:                                         ; preds = %if.else63, %if.then61
   %ele.0 = phi ptr [ %call62, %if.then61 ], [ %call65, %if.else63 ]
-  %call67 = call ptr @lpNext(ptr noundef %9, ptr noundef nonnull %call49) #19
+  %call67 = call ptr @lpNext(ptr noundef %11, ptr noundef nonnull %call49) #19
   %cmp68.not = icmp eq ptr %call67, null
   br i1 %cmp68.not, label %cond.false77, label %cond.end.i
 
@@ -13743,9 +13742,9 @@ cond.end.i:                                       ; preds = %if.end66
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i88
 
 if.then.i88:                                      ; preds = %cond.end.i
-  %12 = load i32, ptr %vlen.i, align 4
+  %14 = load i32, ptr %vlen.i, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
-  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %12, i32 127)
+  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %14, i32 127)
   %conv2.i.i = zext nneg i32 %spec.store.select.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i.i, ptr nonnull readonly align 1 %call.i, i64 %conv2.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds [128 x i8], ptr %buf.i.i, i64 0, i64 %conv2.i.i
@@ -13755,8 +13754,8 @@ if.then.i88:                                      ; preds = %cond.end.i
   br label %zzlGetScore.exit
 
 if.else.i:                                        ; preds = %cond.end.i
-  %13 = load i64, ptr %vlong.i, align 8
-  %conv4.i = sitofp i64 %13 to double
+  %15 = load i64, ptr %vlong.i, align 8
+  %conv4.i = sitofp i64 %15 to double
   br label %zzlGetScore.exit
 
 zzlGetScore.exit:                                 ; preds = %if.then.i88, %if.else.i
@@ -13766,18 +13765,18 @@ zzlGetScore.exit:                                 ; preds = %if.then.i88, %if.el
   br label %if.end112
 
 if.then86:                                        ; preds = %do.body
-  %14 = load ptr, ptr %ptr87, align 8
-  %zsl88 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %zsl88, align 8
+  %16 = load ptr, ptr %ptr87, align 8
+  %zsl88 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %zsl88, align 8
   br i1 %cmp89, label %cond.true91, label %cond.false92
 
 cond.true91:                                      ; preds = %if.then86
-  %tail = getelementptr inbounds i8, ptr %15, i64 8
+  %tail = getelementptr inbounds i8, ptr %17, i64 8
   br label %cond.end94
 
 cond.false92:                                     ; preds = %if.then86
-  %16 = load ptr, ptr %15, align 8
-  %level = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %level = getelementptr inbounds i8, ptr %18, i64 24
   br label %cond.end94
 
 cond.end94:                                       ; preds = %cond.false92, %cond.true91
@@ -13792,10 +13791,10 @@ cond.false105:                                    ; preds = %cond.end94
   unreachable
 
 cond.end106:                                      ; preds = %cond.end94
-  %17 = load ptr, ptr %cond95, align 8
-  %call108 = call ptr @sdsdup(ptr noundef %17) #19
+  %19 = load ptr, ptr %cond95, align 8
+  %call108 = call ptr @sdsdup(ptr noundef %19) #19
   %score109 = getelementptr inbounds i8, ptr %cond95, i64 8
-  %18 = load double, ptr %score109, align 8
+  %20 = load double, ptr %score109, align 8
   br label %if.end112
 
 if.else110:                                       ; preds = %do.body
@@ -13804,7 +13803,7 @@ if.else110:                                       ; preds = %do.body
   unreachable
 
 if.end112:                                        ; preds = %cond.end106, %zzlGetScore.exit
-  %score.0 = phi double [ %score.0.i, %zzlGetScore.exit ], [ %18, %cond.end106 ]
+  %score.0 = phi double [ %score.0.i, %zzlGetScore.exit ], [ %20, %cond.end106 ]
   %ele.1 = phi ptr [ %ele.0, %zzlGetScore.exit ], [ %call108, %cond.end106 ]
   %call113 = call i32 @zsetDel(ptr noundef nonnull %call, ptr noundef %ele.1)
   %tobool114.not = icmp eq i32 %call113, 0
@@ -13816,18 +13815,17 @@ cond.false122:                                    ; preds = %if.end112
   unreachable
 
 cond.end123:                                      ; preds = %if.end112
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %inc124 = add nsw i64 %19, 1
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %inc124 = add nsw i64 %21, 1
   store i64 %inc124, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %cmp125 = icmp eq i64 %result_count.0, 0
   br i1 %cmp125, label %if.then127, label %if.end131
 
 if.then127:                                       ; preds = %cond.end123
-  %20 = load ptr, ptr %arrayidx129, align 8
-  %21 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %21, i64 48
-  %22 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef %20, ptr noundef %0, i32 noundef %22) #19
+  %22 = load ptr, ptr %db, align 8
+  %id = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %10, ptr noundef %0, i32 noundef %23) #19
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then127, %cond.end123
@@ -13839,8 +13837,8 @@ if.then133:                                       ; preds = %if.end131
 
 if.end134:                                        ; preds = %if.then133, %if.end131
   %arrayidx.i = getelementptr inbounds i8, ptr %ele.1, i64 -1
-  %23 = load i8, ptr %arrayidx.i, align 1
-  %conv.i90 = zext i8 %23 to i32
+  %24 = load i8, ptr %arrayidx.i, align 1
+  %conv.i90 = zext i8 %24 to i32
   %and.i = and i32 %conv.i90, 7
   switch i32 %and.i, label %sdslen.exit [
     i32 0, label %sw.bb.i
@@ -13857,29 +13855,29 @@ sw.bb.i:                                          ; preds = %if.end134
 
 sw.bb3.i:                                         ; preds = %if.end134
   %add.ptr.i = getelementptr inbounds i8, ptr %ele.1, i64 -3
-  %24 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i91 = zext i8 %24 to i64
+  %25 = load i8, ptr %add.ptr.i, align 1
+  %conv4.i91 = zext i8 %25 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %if.end134
   %add.ptr6.i = getelementptr inbounds i8, ptr %ele.1, i64 -5
-  %25 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %25 to i64
+  %26 = load i16, ptr %add.ptr6.i, align 1
+  %conv8.i = zext i16 %26 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %if.end134
   %add.ptr10.i = getelementptr inbounds i8, ptr %ele.1, i64 -9
-  %26 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %26 to i64
+  %27 = load i32, ptr %add.ptr10.i, align 1
+  %conv12.i = zext i32 %27 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %if.end134
   %add.ptr14.i = getelementptr inbounds i8, ptr %ele.1, i64 -17
-  %27 = load i64, ptr %add.ptr14.i, align 1
+  %28 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %if.end134, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %27, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i91, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end134 ]
+  %retval.0.i = phi i64 [ %28, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i91, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end134 ]
   call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %ele.1, i64 noundef %retval.0.i) #19
   call void @addReplyDouble(ptr noundef %c, double noundef %score.0) #19
   call void @sdsfree(ptr noundef nonnull %ele.1) #19
@@ -13898,18 +13896,18 @@ do.end:                                           ; preds = %sdslen.exit
   ]
 
 if.then.i100:                                     ; preds = %do.end
-  %28 = load ptr, ptr %ptr87, align 8
-  %call.i.i102 = call i64 @lpLength(ptr noundef %28) #19
+  %29 = load ptr, ptr %ptr87, align 8
+  %call.i.i102 = call i64 @lpLength(ptr noundef %29) #19
   %div1.i.i103 = lshr i64 %call.i.i102, 1
   %conv.i104 = and i64 %div1.i.i103, 4294967295
   br label %zsetLength.exit106
 
 if.then6.i95:                                     ; preds = %do.end
-  %29 = load ptr, ptr %ptr87, align 8
-  %zsl.i97 = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load ptr, ptr %zsl.i97, align 8
-  %length8.i98 = getelementptr inbounds i8, ptr %30, i64 16
-  %31 = load i64, ptr %length8.i98, align 8
+  %30 = load ptr, ptr %ptr87, align 8
+  %zsl.i97 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load ptr, ptr %zsl.i97, align 8
+  %length8.i98 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = load i64, ptr %length8.i98, align 8
   br label %zsetLength.exit106
 
 if.else9.i105:                                    ; preds = %do.end
@@ -13918,7 +13916,7 @@ if.else9.i105:                                    ; preds = %do.end
   unreachable
 
 zsetLength.exit106:                               ; preds = %if.then.i100, %if.then6.i95
-  %length.0.i99 = phi i64 [ %conv.i104, %if.then.i100 ], [ %31, %if.then6.i95 ]
+  %length.0.i99 = phi i64 [ %conv.i104, %if.then.i100 ], [ %32, %if.then6.i95 ]
   %cmp139 = icmp eq i64 %length.0.i99, 0
   br i1 %cmp139, label %if.then141, label %if.end149
 
@@ -13930,29 +13928,29 @@ if.then143:                                       ; preds = %if.then141
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then143, %if.then141
-  %32 = load ptr, ptr %db, align 8
-  %call146 = call i32 @dbDelete(ptr noundef %32, ptr noundef %0) #19
   %33 = load ptr, ptr %db, align 8
-  %id148 = getelementptr inbounds i8, ptr %33, i64 48
-  %34 = load i32, ptr %id148, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %0, i32 noundef %34) #19
+  %call146 = call i32 @dbDelete(ptr noundef %33, ptr noundef %0) #19
+  %34 = load ptr, ptr %db, align 8
+  %id148 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = load i32, ptr %id148, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef %0, i32 noundef %35) #19
   br label %if.end149
 
 if.end149:                                        ; preds = %if.end144, %zsetLength.exit106
-  %35 = load ptr, ptr %db, align 8
-  call void @signalModifiedKey(ptr noundef %c, ptr noundef %35, ptr noundef %0) #19
+  %36 = load ptr, ptr %db, align 8
+  call void @signalModifiedKey(ptr noundef %c, ptr noundef %36, ptr noundef %0) #19
   %cmd = getelementptr inbounds i8, ptr %c, i64 128
-  %36 = load ptr, ptr %cmd, align 8
-  %proc = getelementptr inbounds i8, ptr %36, i64 96
-  %37 = load ptr, ptr %proc, align 8
-  %cmp151 = icmp eq ptr %37, @zmpopCommand
+  %37 = load ptr, ptr %cmd, align 8
+  %proc = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = load ptr, ptr %proc, align 8
+  %cmp151 = icmp eq ptr %38, @zmpopCommand
   br i1 %cmp151, label %if.then153, label %if.end167
 
 if.then153:                                       ; preds = %if.end149
   %call160 = call ptr @createStringObjectFromLongLong(i64 noundef %cond) #19
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 464), align 8
-  %cond166 = select i1 %cmp89, ptr %38, ptr %39
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 472), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 464), align 8
+  %cond166 = select i1 %cmp89, ptr %39, ptr %40
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %cond166, ptr noundef %0, ptr noundef %call160) #19
   call void @decrRefCount(ptr noundef %call160) #19
   br label %if.end167

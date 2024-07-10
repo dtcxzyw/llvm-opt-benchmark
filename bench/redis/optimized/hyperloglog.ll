@@ -38,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [9 x i8] c"encoding\00", align 1
 @.str.21 = private unnamed_addr constant [6 x i8] c"dense\00", align 1
 @.str.22 = private unnamed_addr constant [7 x i8] c"sparse\00", align 1
-@__const.pfdebugCommand.encodingstr = private unnamed_addr constant [2 x ptr] [ptr @.str.21, ptr @.str.22], align 16
 @.str.23 = private unnamed_addr constant [8 x i8] c"todense\00", align 1
 @.str.24 = private unnamed_addr constant [32 x i8] c"Unknown PFDEBUG subcommand '%s'\00", align 1
 @.str.25 = private unnamed_addr constant [50 x i8] c"Wrong number of arguments for the '%s' subcommand\00", align 1
@@ -3464,10 +3463,9 @@ if.then102:                                       ; preds = %if.else99
 if.end107:                                        ; preds = %if.then102
   %encoding108 = getelementptr inbounds i8, ptr %8, i64 4
   %27 = load i8, ptr %encoding108, align 1
-  %idxprom = zext i8 %27 to i64
-  %arrayidx109 = getelementptr inbounds [2 x ptr], ptr @__const.pfdebugCommand.encodingstr, i64 0, i64 %idxprom
-  %28 = load ptr, ptr %arrayidx109, align 8
-  tail call void @addReplyStatus(ptr noundef nonnull %c, ptr noundef %28) #18
+  %28 = icmp eq i8 %27, 0
+  %29 = select i1 %28, ptr @.str.21, ptr @.str.22
+  tail call void @addReplyStatus(ptr noundef nonnull %c, ptr noundef nonnull %29) #18
   br label %return
 
 if.else110:                                       ; preds = %if.else99
@@ -3477,14 +3475,14 @@ if.else110:                                       ; preds = %if.else99
 
 if.then113:                                       ; preds = %if.else110
   %argc115 = getelementptr inbounds i8, ptr %c, i64 88
-  %29 = load i32, ptr %argc115, align 8
-  %cmp116.not = icmp eq i32 %29, 3
+  %30 = load i32, ptr %argc115, align 8
+  %cmp116.not = icmp eq i32 %30, 3
   br i1 %cmp116.not, label %if.end119, label %arityerr
 
 if.end119:                                        ; preds = %if.then113
   %encoding120 = getelementptr inbounds i8, ptr %8, i64 4
-  %30 = load i8, ptr %encoding120, align 1
-  %cmp122.not = icmp eq i8 %30, 1
+  %31 = load i8, ptr %encoding120, align 1
+  %cmp122.not = icmp eq i8 %31, 1
   br i1 %cmp122.not, label %if.then124, label %if.end131
 
 if.then124:                                       ; preds = %if.end119
@@ -3497,15 +3495,15 @@ if.then128:                                       ; preds = %if.then124
   br label %return
 
 if.end129:                                        ; preds = %if.then124
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %inc130 = add nsw i64 %31, 1
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %inc130 = add nsw i64 %32, 1
   store i64 %inc130, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end129, %if.end119
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
-  %cond = select i1 %cmp122.not, ptr %32, ptr %33
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %cond = select i1 %cmp122.not, ptr %33, ptr %34
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %cond) #18
   br label %return
 

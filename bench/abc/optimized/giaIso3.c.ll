@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [28 x i8] c"Printing %d shared levels:\0A\00", align 1
 @.str.5 = private unnamed_addr constant [51 x i8] c"Level = %3d. One = %6d. Two = %6d.  Common = %6d.\0A\00", align 1
 @Iso_Nodes = internal unnamed_addr constant [6 x i32] [i32 76099286, i32 -1034797699, i32 -600388306, i32 -220502792, i32 -567204165, i32 -558112784], align 16
-@Iso_Compl = internal unnamed_addr constant [2 x i32] [i32 -1952039344, i32 349732610], align 4
 @Vec_IntUniqueHashKey.s_BigPrimes = internal unnamed_addr constant [16 x i32] [i32 -1739887911, i32 413593299, i32 -1794944030, i32 1646458603, i32 -541139641, i32 -284192733, i32 -1399641562, i32 1494134613, i32 -1747935180, i32 -600388306, i32 577989431, i32 -594516304, i32 783481227, i32 1570536367, i32 -2055963490, i32 -1966469035], align 16
 @Vec_IntUniqueHashKey.s_BigPrimes2 = internal unnamed_addr constant [16 x i32] [i32 -1920311618, i32 510268892, i32 427641307, i32 1537973385, i32 1263918759, i32 1440669257, i32 -1704296320, i32 -437972939, i32 -515320232, i32 -1978143941, i32 -500282568, i32 -440522086, i32 -1097626437, i32 999821417, i32 2140933262, i32 -145301744], align 16
 @.str.6 = private unnamed_addr constant [5 x i8] c"%s =\00", align 1
@@ -110,95 +109,93 @@ define void @Gia_Iso3Compute(ptr nocapture noundef readonly %0, ptr nocapture no
 12:                                               ; preds = %10
   %13 = sub nsw i64 0, %11
   %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %9, i64 %13
-  %15 = lshr i64 %.val21, 29
-  %16 = and i64 %15, 1
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %.val to i64
-  %19 = sub i64 %17, %18
-  %20 = sdiv exact i64 %19, 12
+  %15 = ptrtoint ptr %14 to i64
+  %16 = ptrtoint ptr %.val to i64
+  %17 = sub i64 %15, %16
+  %18 = sdiv exact i64 %17, 12
   %.val10.i = load ptr, ptr %7, align 8
-  %sext.i = shl i64 %20, 32
-  %21 = ashr exact i64 %sext.i, 30
-  %22 = getelementptr inbounds i8, ptr %.val10.i, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds [2 x i32], ptr @Iso_Compl, i64 0, i64 %16
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %23, -2057379633
-  %29 = add i32 %28, %25
-  %30 = add i32 %29, %27
-  store i32 %30, ptr %26, align 4
+  %sext.i = shl i64 %18, 32
+  %19 = ashr exact i64 %sext.i, 30
+  %20 = getelementptr inbounds i8, ptr %.val10.i, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = and i64 %.val21, 536870912
+  %23 = icmp eq i64 %22, 0
+  %24 = select i1 %23, i32 -1952039344, i32 349732610
+  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = load i32, ptr %25, align 4
+  %27 = add i32 %24, -2057379633
+  %28 = add i32 %27, %21
+  %29 = add i32 %28, %26
+  store i32 %29, ptr %25, align 4
   %.val9.i = load ptr, ptr %3, align 8
-  %31 = ptrtoint ptr %9 to i64
-  %32 = ptrtoint ptr %.val9.i to i64
-  %33 = sub i64 %31, %32
-  %34 = sdiv exact i64 %33, 12
+  %30 = ptrtoint ptr %9 to i64
+  %31 = ptrtoint ptr %.val9.i to i64
+  %32 = sub i64 %30, %31
+  %33 = sdiv exact i64 %32, 12
   %.val11.i = load ptr, ptr %7, align 8
-  %sext12.i = shl i64 %34, 32
-  %35 = ashr exact i64 %sext12.i, 30
-  %36 = getelementptr inbounds i8, ptr %.val11.i, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %25, -1804723361
-  %41 = add i32 %40, %37
-  %42 = add i32 %41, %39
-  store i32 %42, ptr %38, align 4
-  %43 = and i64 %.val21, 2147483648
-  %.not.i28 = icmp ne i64 %43, 0
+  %sext12.i = shl i64 %33, 32
+  %34 = ashr exact i64 %sext12.i, 30
+  %35 = getelementptr inbounds i8, ptr %.val11.i, i64 %34
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = load i32, ptr %37, align 4
+  %39 = add i32 %24, -1804723361
+  %40 = add i32 %39, %36
+  %41 = add i32 %40, %38
+  store i32 %41, ptr %37, align 4
+  %42 = and i64 %.val21, 2147483648
+  %.not.i28 = icmp ne i64 %42, 0
   %narrow.i29.not = or i1 %.not.i28, %.not39
-  br i1 %narrow.i29.not, label %.thread, label %44
+  br i1 %narrow.i29.not, label %.thread, label %43
 
-44:                                               ; preds = %12
-  %45 = lshr i64 %.val21, 32
-  %46 = and i64 %45, 536870911
-  %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %9, i64 %47
-  %49 = lshr i64 %.val21, 61
-  %50 = and i64 %49, 1
+43:                                               ; preds = %12
+  %44 = lshr i64 %.val21, 32
+  %45 = and i64 %44, 536870911
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %9, i64 %46
   %.val.i30 = load ptr, ptr %3, align 8
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %.val.i30 to i64
-  %53 = sub i64 %51, %52
-  %54 = sdiv exact i64 %53, 12
+  %48 = ptrtoint ptr %47 to i64
+  %49 = ptrtoint ptr %.val.i30 to i64
+  %50 = sub i64 %48, %49
+  %51 = sdiv exact i64 %50, 12
   %.val10.i31 = load ptr, ptr %7, align 8
-  %sext.i32 = shl i64 %54, 32
-  %55 = ashr exact i64 %sext.i32, 30
-  %56 = getelementptr inbounds i8, ptr %.val10.i31, i64 %55
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds [2 x i32], ptr @Iso_Compl, i64 0, i64 %50
+  %sext.i32 = shl i64 %51, 32
+  %52 = ashr exact i64 %sext.i32, 30
+  %53 = getelementptr inbounds i8, ptr %.val10.i31, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = and i64 %.val21, 2305843009213693952
+  %56 = icmp eq i64 %55, 0
+  %57 = select i1 %56, i32 -1952039344, i32 349732610
+  %58 = getelementptr inbounds i8, ptr %9, i64 8
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %9, i64 8
-  %61 = load i32, ptr %60, align 4
-  %62 = add i32 %57, -2057379633
-  %63 = add i32 %62, %59
-  %64 = add i32 %63, %61
-  store i32 %64, ptr %60, align 4
+  %60 = add i32 %57, -2057379633
+  %61 = add i32 %60, %54
+  %62 = add i32 %61, %59
+  store i32 %62, ptr %58, align 4
   %.val9.i33 = load ptr, ptr %3, align 8
-  %65 = ptrtoint ptr %9 to i64
-  %66 = ptrtoint ptr %.val9.i33 to i64
-  %67 = sub i64 %65, %66
-  %68 = sdiv exact i64 %67, 12
+  %63 = ptrtoint ptr %9 to i64
+  %64 = ptrtoint ptr %.val9.i33 to i64
+  %65 = sub i64 %63, %64
+  %66 = sdiv exact i64 %65, 12
   %.val11.i34 = load ptr, ptr %7, align 8
-  %sext12.i35 = shl i64 %68, 32
-  %69 = ashr exact i64 %sext12.i35, 30
-  %70 = getelementptr inbounds i8, ptr %.val11.i34, i64 %69
+  %sext12.i35 = shl i64 %66, 32
+  %67 = ashr exact i64 %sext12.i35, 30
+  %68 = getelementptr inbounds i8, ptr %.val11.i34, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %47, i64 8
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %48, i64 8
-  %73 = load i32, ptr %72, align 4
-  %74 = add i32 %59, -1804723361
-  %75 = add i32 %74, %71
-  %76 = add i32 %75, %73
-  store i32 %76, ptr %72, align 4
+  %72 = add i32 %57, -1804723361
+  %73 = add i32 %72, %69
+  %74 = add i32 %73, %71
+  store i32 %74, ptr %70, align 4
   br label %.thread
 
-.thread:                                          ; preds = %10, %12, %44
+.thread:                                          ; preds = %10, %12, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %4, align 8
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %8, label %.critedge, !llvm.loop !6
+  %75 = load i32, ptr %4, align 8
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %8, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %8, %.thread, %2
   ret void

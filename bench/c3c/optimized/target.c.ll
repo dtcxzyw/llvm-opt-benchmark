@@ -364,10 +364,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.326 = private unnamed_addr constant [8 x i8] c"%d.%d.0\00", align 1
 @str = private unnamed_addr constant [45 x i8] c"WARNING! This architecture is not supported.\00", align 1
 @switch.table.arch_to_linker_arch = private unnamed_addr constant [51 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str, ptr @.str, ptr @.str.8, ptr @.str.9, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str, ptr @.str.14, ptr @.str.15, ptr @.str, ptr @.str], align 8
-@switch.table.llvm_target_machine_create = private unnamed_addr constant [5 x i32] [i32 3, i32 2, i32 2, i32 2, i32 2], align 4
 @switch.table.target_setup = private unnamed_addr constant [36 x i8] c"\00\00\00\00\00\01\00\01\00\01\00\01\01\01\00\01\00\00\00\00\00\00\00\00\00\00\00\01\01\00\00\00\00\00\01\00", align 1
 @switch.table.target_setup.4 = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 4, i32 8], align 4
-@switch.table.target_setup.5 = private unnamed_addr constant [4 x i32] [i32 3, i32 0, i32 3, i32 3], align 4
 @switch.table.os_target_c_type_bits = private unnamed_addr constant [4 x i32] [i32 16, i32 16, i32 32, i32 64], align 4
 @switch.table.os_target_c_type_bits.6 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 32, i32 64], align 4
 @switch.table.os_target_c_type_bits.7 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 64, i32 64], align 4
@@ -509,9 +507,8 @@ define dso_local noundef ptr @llvm_target_machine_create() local_unnamed_addr #2
   unreachable
 
 switch.lookup:                                    ; preds = %10
-  %14 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.llvm_target_machine_create, i64 0, i64 %14
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %14 = icmp eq i32 %11, 0
+  %switch.load = select i1 %14, i32 3, i32 2
   %15 = load i8, ptr @debug_log, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %21
@@ -3148,9 +3145,8 @@ arch_os_reloc_default.exit.thread239:             ; preds = %767
   unreachable
 
 switch.lookup303:                                 ; preds = %775
-  %779 = zext nneg i32 %switch.tableidx304 to i64
-  %switch.gep305 = getelementptr inbounds [4 x i32], ptr @switch.table.target_setup.5, i64 0, i64 %779
-  %switch.load306 = load i32, ptr %switch.gep305, align 4
+  %779 = icmp eq i32 %switch.tableidx304, 1
+  %switch.load306 = select i1 %779, i32 0, i32 3
   br label %arch_os_reloc_default.exit.thread
 
 arch_os_reloc_default.exit.thread:                ; preds = %775, %switch.lookup303, %767

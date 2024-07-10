@@ -1456,7 +1456,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN69_$LT$citationberg..DisambiguationRule$u20$as$u20$core..fmt..Debug$GT$3fmt17h27cc098c3ae5bdd5E.971" = private unnamed_addr constant [5 x ptr] [ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.488, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.489, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.490, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.491, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.492], align 8
 @"switch.table._ZN76_$LT$citationberg..DemoteNonDroppingParticle$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc854ca3237ede4dE" = private unnamed_addr constant [3 x i64] [i64 5, i64 8, i64 14], align 8
 @"switch.table._ZN76_$LT$citationberg..DemoteNonDroppingParticle$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc854ca3237ede4dE.972" = private unnamed_addr constant [3 x ptr] [ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.525, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.526, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.527], align 8
-@"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.975" = private unnamed_addr constant [3 x i64] [i64 4, i64 4, i64 8], align 8
 @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.976" = private unnamed_addr constant [3 x ptr] [ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.701.llvm.12850028421071809815, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.702.llvm.12850028421071809815, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.703.llvm.12850028421071809815], align 8
 @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E" = private unnamed_addr constant [7 x ptr] [ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1159, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1160, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1161, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1162, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1163, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1164, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1165], align 8
 @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E.978" = private unnamed_addr constant [7 x i64] [i64 5, i64 6, i64 6, i64 11, i64 7, i64 8, i64 5], align 8
@@ -96695,9 +96694,8 @@ switch.lookup:
   %2 = load i8, ptr %1, align 1, !range !192, !noundef !9
   %3 = add nsw i8 %2, -1
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 2)
-  %4 = zext nneg i8 %narrow to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.975", i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = icmp ugt i8 %3, 1
+  %switch.load = select i1 %4, i64 8, i64 4
   %5 = zext nneg i8 %narrow to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.976", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -98224,9 +98222,8 @@ switch.lookup:                                    ; preds = %21, %19, %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %27 = add nsw i8 %16, -1
   %narrow.i = tail call i8 @llvm.umin.i8(i8 %27, i8 2)
-  %28 = zext nneg i8 %narrow.i to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.975", i64 0, i64 %28
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %28 = icmp ugt i8 %27, 1
+  %switch.load = select i1 %28, i64 8, i64 4
   %29 = zext nneg i8 %narrow.i to i64
   %switch.gep28 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.976", i64 0, i64 %29
   %switch.load29 = load ptr, ptr %switch.gep28, align 8
@@ -98234,9 +98231,8 @@ switch.lookup:                                    ; preds = %21, %19, %17
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %switch.load, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %31 = zext nneg i8 %narrow to i64
-  %switch.gep31 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.975", i64 0, i64 %31
-  %switch.load32 = load i64, ptr %switch.gep31, align 8
+  %31 = icmp ugt i8 %14, 1
+  %switch.load32 = select i1 %31, i64 8, i64 4
   %32 = zext nneg i8 %narrow to i64
   %switch.gep33 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..ops..arith..Sub$GT$3sub17h34a38859c15f3d2aE.976", i64 0, i64 %32
   %switch.load34 = load ptr, ptr %switch.gep33, align 8

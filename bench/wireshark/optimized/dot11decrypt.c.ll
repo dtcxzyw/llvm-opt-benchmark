@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [85 x i8] c"WPA SSID entered is %u characters after percent-decoding and must be no more than %u\00", align 1
 @.str.24 = private unnamed_addr constant [41 x i8] c"WPA PSK/PMK must be a hexadecimal string\00", align 1
 @.str.25 = private unnamed_addr constant [80 x i8] c"WPA Pre-Master Key/Pairwise Master Key entered is %u bytes and must be %u or %u\00", align 1
-@parse_key_string.allowed_key_lengths = internal unnamed_addr constant [2 x i8] c"\10 ", align 1
 @.str.26 = private unnamed_addr constant [42 x i8] c"Temporal Key must be a hexadecimal string\00", align 1
 @.str.27 = private unnamed_addr constant [26 x i8] c"Temporal Keys entered is \00", align 1
 @.str.28 = private unnamed_addr constant [22 x i8] c"%u bytes and must be \00", align 1
@@ -3891,22 +3890,22 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 7:                                                ; preds = %5, %3
   %.not169 = icmp eq ptr %2, null
-  br i1 %.not169, label %169, label %8
+  br i1 %.not169, label %166, label %8
 
 8:                                                ; preds = %7
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.15) #14
   store ptr %9, ptr %2, align 8
-  br label %169
+  br label %166
 
 10:                                               ; preds = %5
-  switch i8 %1, label %166 [
+  switch i8 %1, label %163 [
     i8 0, label %11
     i8 1, label %11
     i8 2, label %11
     i8 3, label %35
     i8 4, label %89
     i8 6, label %112
-    i8 7, label %142
+    i8 7, label %139
   ]
 
 11:                                               ; preds = %10, %10, %10
@@ -3926,7 +3925,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 17:                                               ; preds = %15, %14
   %18 = tail call ptr @g_byte_array_free(ptr noundef %12, i32 noundef 1) #14
-  br label %169
+  br label %166
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %12, i64 8
@@ -3946,7 +3945,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   store i32 %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr null, ptr %29, align 8
-  br label %169
+  br label %166
 
 30:                                               ; preds = %19
   %.not167 = icmp eq ptr %2, null
@@ -3959,7 +3958,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 33:                                               ; preds = %31, %30
   %34 = tail call ptr @g_byte_array_free(ptr noundef nonnull %12, i32 noundef 1) #14
-  br label %169
+  br label %166
 
 35:                                               ; preds = %10
   %36 = tail call ptr @g_strsplit(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i32 noundef 3) #14
@@ -3979,7 +3978,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 42:                                               ; preds = %40, %39
   tail call void @g_strfreev(ptr noundef %36) #14
-  br label %169
+  br label %166
 
 43:                                               ; preds = %35
   %44 = tail call ptr @g_byte_array_new() #14
@@ -4000,7 +3999,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 50:                                               ; preds = %48, %47
   %51 = tail call ptr @g_byte_array_free(ptr noundef %44, i32 noundef 1) #14
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
-  br label %169
+  br label %166
 
 52:                                               ; preds = %43
   %53 = getelementptr inbounds i8, ptr %44, i64 8
@@ -4021,7 +4020,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 59:                                               ; preds = %57, %56
   %60 = tail call ptr @g_byte_array_free(ptr noundef nonnull %44, i32 noundef 1) #14
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
-  br label %169
+  br label %166
 
 61:                                               ; preds = %52
   %62 = icmp ugt i32 %37, 1
@@ -4048,7 +4047,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   %72 = tail call ptr @g_byte_array_free(ptr noundef nonnull %44, i32 noundef 1) #14
   %73 = tail call ptr @g_byte_array_free(ptr noundef %64, i32 noundef 1) #14
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
-  br label %169
+  br label %166
 
 74:                                               ; preds = %63
   %75 = getelementptr inbounds i8, ptr %64, i64 8
@@ -4069,7 +4068,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   %82 = tail call ptr @g_byte_array_free(ptr noundef nonnull %44, i32 noundef 1) #14
   %83 = tail call ptr @g_byte_array_free(ptr noundef nonnull %64, i32 noundef 1) #14
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
-  br label %169
+  br label %166
 
 84:                                               ; preds = %74, %61
   %.0137 = phi ptr [ %64, %74 ], [ null, %61 ]
@@ -4082,7 +4081,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   %88 = getelementptr inbounds i8, ptr %85, i64 8
   store ptr %.0137, ptr %88, align 8
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
-  br label %169
+  br label %166
 
 89:                                               ; preds = %10
   %90 = tail call ptr @g_byte_array_new() #14
@@ -4101,7 +4100,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 95:                                               ; preds = %93, %92
   %96 = tail call ptr @g_byte_array_free(ptr noundef %90, i32 noundef 1) #14
-  br label %169
+  br label %166
 
 97:                                               ; preds = %89
   %98 = getelementptr inbounds i8, ptr %90, i64 8
@@ -4122,7 +4121,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 103:                                              ; preds = %101, %100
   %104 = tail call ptr @g_byte_array_free(ptr noundef nonnull %90, i32 noundef 1) #14
-  br label %169
+  br label %166
 
 105:                                              ; preds = %97, %97
   %106 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
@@ -4135,7 +4134,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   store i32 %109, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %106, i64 8
   store ptr null, ptr %111, align 8
-  br label %169
+  br label %166
 
 112:                                              ; preds = %10
   %113 = tail call ptr @g_byte_array_new() #14
@@ -4159,114 +4158,111 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 120:                                              ; preds = %118, %117
   %121 = tail call ptr @g_byte_array_free(ptr noundef %113, i32 noundef 1) #14
-  br label %169
+  br label %166
 
 122:                                              ; preds = %123
   br i1 %124, label %123, label %.critedge, !llvm.loop !18
 
 123:                                              ; preds = %.preheader, %122
   %124 = phi i1 [ true, %.preheader ], [ false, %122 ]
-  %.0135173 = phi i64 [ 0, %.preheader ], [ 1, %122 ]
-  %125 = getelementptr [2 x i8], ptr @parse_key_string.allowed_key_lengths, i64 0, i64 %.0135173
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %126 to i32
-  %128 = icmp eq i32 %116, %127
-  br i1 %128, label %135, label %122
+  %125 = select i1 %124, i32 16, i32 32
+  %126 = icmp eq i32 %116, %125
+  br i1 %126, label %132, label %122
 
 .critedge:                                        ; preds = %122
   %.not151 = icmp eq ptr %2, null
-  br i1 %.not151, label %133, label %129
+  br i1 %.not151, label %130, label %.critedge173
 
-129:                                              ; preds = %.critedge
-  %130 = tail call ptr @g_string_new(ptr noundef nonnull @.str.27) #14
-  %131 = load i32, ptr %115, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %130, ptr noundef nonnull @.str.28, i32 noundef %131) #14
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %130, ptr noundef nonnull @.str.29, i32 noundef 16) #14
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %130, ptr noundef nonnull @.str.30, i32 noundef 32) #14
-  %132 = tail call ptr @g_string_free(ptr noundef %130, i32 noundef 0) #14
-  store ptr %132, ptr %2, align 8
-  br label %133
+.critedge173:                                     ; preds = %.critedge
+  %127 = tail call ptr @g_string_new(ptr noundef nonnull @.str.27) #14
+  %128 = load i32, ptr %115, align 8
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %127, ptr noundef nonnull @.str.28, i32 noundef %128) #14
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %127, ptr noundef nonnull @.str.29, i32 noundef 16) #14
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %127, ptr noundef nonnull @.str.30, i32 noundef 32) #14
+  %129 = tail call ptr @g_string_free(ptr noundef %127, i32 noundef 0) #14
+  store ptr %129, ptr %2, align 8
+  br label %130
 
-133:                                              ; preds = %129, %.critedge
-  %134 = tail call ptr @g_byte_array_free(ptr noundef %113, i32 noundef 1) #14
-  br label %169
+130:                                              ; preds = %.critedge173, %.critedge
+  %131 = tail call ptr @g_byte_array_free(ptr noundef %113, i32 noundef 1) #14
+  br label %166
 
-135:                                              ; preds = %123
-  %136 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %137 = getelementptr inbounds i8, ptr %136, i64 20
-  store i32 6, ptr %137, align 4
-  store ptr %113, ptr %136, align 8
-  %138 = load i32, ptr %115, align 8
-  %139 = shl i32 %138, 3
-  %140 = getelementptr inbounds i8, ptr %136, i64 16
-  store i32 %139, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %136, i64 8
-  store ptr null, ptr %141, align 8
-  br label %169
+132:                                              ; preds = %123
+  %133 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
+  %134 = getelementptr inbounds i8, ptr %133, i64 20
+  store i32 6, ptr %134, align 4
+  store ptr %113, ptr %133, align 8
+  %135 = load i32, ptr %115, align 8
+  %136 = shl i32 %135, 3
+  %137 = getelementptr inbounds i8, ptr %133, i64 16
+  store i32 %136, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %133, i64 8
+  store ptr null, ptr %138, align 8
+  br label %166
 
-142:                                              ; preds = %10
-  %143 = tail call ptr @g_byte_array_new() #14
-  %144 = tail call i32 @hex_str_to_bytes(ptr noundef nonnull %0, ptr noundef %143, i32 noundef 0) #14
-  %.not = icmp eq i32 %144, 0
-  br i1 %.not, label %145, label %150
+139:                                              ; preds = %10
+  %140 = tail call ptr @g_byte_array_new() #14
+  %141 = tail call i32 @hex_str_to_bytes(ptr noundef nonnull %0, ptr noundef %140, i32 noundef 0) #14
+  %.not = icmp eq i32 %141, 0
+  br i1 %.not, label %142, label %147
 
-145:                                              ; preds = %142
+142:                                              ; preds = %139
   %.not147 = icmp eq ptr %2, null
-  br i1 %.not147, label %148, label %146
+  br i1 %.not147, label %145, label %143
 
-146:                                              ; preds = %145
-  %147 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.31) #14
-  store ptr %147, ptr %2, align 8
-  br label %148
+143:                                              ; preds = %142
+  %144 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.31) #14
+  store ptr %144, ptr %2, align 8
+  br label %145
 
-148:                                              ; preds = %146, %145
-  %149 = tail call ptr @g_byte_array_free(ptr noundef %143, i32 noundef 1) #14
-  br label %169
+145:                                              ; preds = %143, %142
+  %146 = tail call ptr @g_byte_array_free(ptr noundef %140, i32 noundef 1) #14
+  br label %166
 
-150:                                              ; preds = %142
-  %151 = getelementptr inbounds i8, ptr %143, i64 8
-  %152 = load i32, ptr %151, align 8
-  %153 = add i32 %152, -129
-  %or.cond172 = icmp ult i32 %153, -65
-  br i1 %or.cond172, label %154, label %159
+147:                                              ; preds = %139
+  %148 = getelementptr inbounds i8, ptr %140, i64 8
+  %149 = load i32, ptr %148, align 8
+  %150 = add i32 %149, -129
+  %or.cond174 = icmp ult i32 %150, -65
+  br i1 %or.cond174, label %151, label %156
 
-154:                                              ; preds = %150
+151:                                              ; preds = %147
   %.not148 = icmp eq ptr %2, null
-  br i1 %.not148, label %157, label %155
+  br i1 %.not148, label %154, label %152
 
-155:                                              ; preds = %154
-  %156 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef %152, i32 noundef 64, i32 noundef 128) #14
-  store ptr %156, ptr %2, align 8
-  br label %157
+152:                                              ; preds = %151
+  %153 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef %149, i32 noundef 64, i32 noundef 128) #14
+  store ptr %153, ptr %2, align 8
+  br label %154
 
-157:                                              ; preds = %155, %154
-  %158 = tail call ptr @g_byte_array_free(ptr noundef nonnull %143, i32 noundef 1) #14
-  br label %169
+154:                                              ; preds = %152, %151
+  %155 = tail call ptr @g_byte_array_free(ptr noundef nonnull %140, i32 noundef 1) #14
+  br label %166
 
-159:                                              ; preds = %150
-  %160 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %161 = getelementptr inbounds i8, ptr %160, i64 20
-  store i32 7, ptr %161, align 4
-  store ptr %143, ptr %160, align 8
-  %162 = load i32, ptr %151, align 8
-  %163 = shl i32 %162, 3
-  %164 = getelementptr inbounds i8, ptr %160, i64 16
-  store i32 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %160, i64 8
-  store ptr null, ptr %165, align 8
-  br label %169
+156:                                              ; preds = %147
+  %157 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
+  %158 = getelementptr inbounds i8, ptr %157, i64 20
+  store i32 7, ptr %158, align 4
+  store ptr %140, ptr %157, align 8
+  %159 = load i32, ptr %148, align 8
+  %160 = shl i32 %159, 3
+  %161 = getelementptr inbounds i8, ptr %157, i64 16
+  store i32 %160, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %157, i64 8
+  store ptr null, ptr %162, align 8
+  br label %166
 
-166:                                              ; preds = %10
+163:                                              ; preds = %10
   %.not168 = icmp eq ptr %2, null
-  br i1 %.not168, label %169, label %167
+  br i1 %.not168, label %166, label %164
 
-167:                                              ; preds = %166
-  %168 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.33) #14
-  store ptr %168, ptr %2, align 8
-  br label %169
+164:                                              ; preds = %163
+  %165 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.33) #14
+  store ptr %165, ptr %2, align 8
+  br label %166
 
-169:                                              ; preds = %166, %167, %7, %8, %159, %157, %148, %135, %133, %120, %105, %103, %95, %84, %81, %71, %59, %50, %42, %33, %23, %17
-  %.0134 = phi ptr [ null, %157 ], [ %160, %159 ], [ null, %148 ], [ %136, %135 ], [ null, %133 ], [ null, %120 ], [ null, %103 ], [ %106, %105 ], [ null, %95 ], [ null, %42 ], [ null, %59 ], [ null, %81 ], [ %85, %84 ], [ null, %71 ], [ null, %50 ], [ %24, %23 ], [ null, %33 ], [ null, %17 ], [ null, %8 ], [ null, %7 ], [ null, %167 ], [ null, %166 ]
+166:                                              ; preds = %163, %164, %7, %8, %156, %154, %145, %132, %130, %120, %105, %103, %95, %84, %81, %71, %59, %50, %42, %33, %23, %17
+  %.0134 = phi ptr [ null, %154 ], [ %157, %156 ], [ null, %145 ], [ %133, %132 ], [ null, %130 ], [ null, %120 ], [ null, %103 ], [ %106, %105 ], [ null, %95 ], [ null, %42 ], [ null, %59 ], [ null, %81 ], [ %85, %84 ], [ null, %71 ], [ null, %50 ], [ %24, %23 ], [ null, %33 ], [ null, %17 ], [ null, %8 ], [ null, %7 ], [ null, %164 ], [ null, %163 ]
   ret ptr %.0134
 }
 

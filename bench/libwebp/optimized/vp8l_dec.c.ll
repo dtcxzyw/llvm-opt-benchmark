@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @kTableSize = internal unnamed_addr constant [12 x i16] [i16 2954, i16 2956, i16 2958, i16 2962, i16 2970, i16 2986, i16 3018, i16 3082, i16 3212, i16 3468, i16 3980, i16 5004], align 16
 @kCodeLengthCodeOrder = internal unnamed_addr constant [19 x i8] c"\11\12\00\01\02\03\04\05\10\06\07\08\09\0A\0B\0C\0D\0E\0F", align 16
 @kCodeLengthExtraBits = internal unnamed_addr constant [3 x i8] c"\02\03\07", align 1
-@kCodeLengthRepeatOffsets = internal unnamed_addr constant [3 x i8] c"\03\03\0B", align 1
 @WebPUnfilters = external local_unnamed_addr global [4 x ptr], align 16
 @kCodeToPlane = internal unnamed_addr constant [120 x i8] c"\18\07\17\19(\06')\16\1A&*8\0579\15\1B6:%+H\04GI\14\1C5;FJ$,XEK4<\03WY\13\1DVZ#-DLU[3=h\02gi\12\1Efj\22.T\\CMek2>x\01wyS]\11\1FdlBNvz!/u{1?cmR^\00t|AO\10 bn0s}Q_@r~aoPq\7F`p", align 16
 @WebPExtractGreen = external local_unnamed_addr global ptr, align 8
@@ -486,14 +485,14 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   %18 = getelementptr inbounds i32, ptr %2, i64 %17
   store i32 1, ptr %18, align 4
   %19 = icmp eq i32 %12, 1
-  br i1 %19, label %20, label %99
+  br i1 %19, label %20, label %98
 
 20:                                               ; preds = %11
   %21 = tail call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef 8) #7
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %2, i64 %22
   store i32 1, ptr %23, align 4
-  br label %99
+  br label %98
 
 24:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %6, i8 0, i64 76, i1 false)
@@ -606,90 +605,89 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
   %77 = getelementptr inbounds [3 x i8], ptr @kCodeLengthExtraBits, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = getelementptr inbounds [3 x i8], ptr @kCodeLengthRepeatOffsets, i64 0, i64 %76
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i32
-  %83 = call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef %79) #7
-  %84 = add i32 %83, %82
-  %85 = add nsw i32 %84, %.04563.i
-  %86 = icmp sgt i32 %85, %0
-  br i1 %86, label %.critedge.i, label %87
+  %80 = icmp eq i32 %75, 2
+  %81 = select i1 %80, i32 11, i32 3
+  %82 = call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef %79) #7
+  %83 = add i32 %82, %81
+  %84 = add nsw i32 %83, %.04563.i
+  %85 = icmp sgt i32 %84, %0
+  br i1 %85, label %.critedge.i, label %86
 
-87:                                               ; preds = %74
-  %88 = icmp eq i16 %67, 16
-  %89 = select i1 %88, i32 %.04861.i, i32 0
-  %90 = icmp sgt i32 %84, 0
-  br i1 %90, label %.lr.ph.preheader.i, label %.loopexit.i
+86:                                               ; preds = %74
+  %87 = icmp eq i16 %67, 16
+  %88 = select i1 %87, i32 %.04861.i, i32 0
+  %89 = icmp sgt i32 %83, 0
+  br i1 %89, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %87
-  %91 = sext i32 %.04563.i to i64
+.lr.ph.preheader.i:                               ; preds = %86
+  %90 = sext i32 %.04563.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %91, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.04360.i = phi i32 [ %84, %.lr.ph.preheader.i ], [ %92, %.lr.ph.i ]
-  %92 = add nsw i32 %.04360.i, -1
+  %indvars.iv.i = phi i64 [ %90, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.04360.i = phi i32 [ %83, %.lr.ph.preheader.i ], [ %91, %.lr.ph.i ]
+  %91 = add nsw i32 %.04360.i, -1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %93 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
-  store i32 %89, ptr %93, align 4
-  %94 = icmp ugt i32 %.04360.i, 1
-  br i1 %94, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !11
+  %92 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  store i32 %88, ptr %92, align 4
+  %93 = icmp ugt i32 %.04360.i, 1
+  br i1 %93, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !11
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
-  %95 = trunc nsw i64 %indvars.iv.next.i to i32
+  %94 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %87, %70
-  %.149.i = phi i32 [ %spec.select.i, %70 ], [ %.04861.i, %87 ], [ %.04861.i, %.loopexit.loopexit.i ]
-  %.2.i = phi i32 [ %71, %70 ], [ %.04563.i, %87 ], [ %95, %.loopexit.loopexit.i ]
-  %96 = icmp slt i32 %.2.i, %0
-  br i1 %96, label %49, label %ReadHuffmanCodeLengths.exit, !llvm.loop !12
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %86, %70
+  %.149.i = phi i32 [ %spec.select.i, %70 ], [ %.04861.i, %86 ], [ %.04861.i, %.loopexit.loopexit.i ]
+  %.2.i = phi i32 [ %71, %70 ], [ %.04563.i, %86 ], [ %94, %.loopexit.loopexit.i ]
+  %95 = icmp slt i32 %.2.i, %0
+  br i1 %95, label %49, label %ReadHuffmanCodeLengths.exit, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %74, %38, %34, %._crit_edge
   call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %5) #7
-  %97 = load i32, ptr %1, align 8
-  switch i32 %97, label %.thread [
-    i32 0, label %98
-    i32 5, label %98
+  %96 = load i32, ptr %1, align 8
+  switch i32 %96, label %.thread [
+    i32 0, label %97
+    i32 5, label %97
   ]
 
-98:                                               ; preds = %.critedge.i, %.critedge.i
+97:                                               ; preds = %.critedge.i, %.critedge.i
   store i32 3, ptr %1, align 8
   br label %.thread
 
-.thread:                                          ; preds = %98, %.critedge.i
+.thread:                                          ; preds = %97, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %.thread42
 
 ReadHuffmanCodeLengths.exit:                      ; preds = %49, %.loopexit.i, %45
   call void @VP8LHuffmanTablesDeallocate(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %99
+  br label %98
 
-99:                                               ; preds = %11, %20, %ReadHuffmanCodeLengths.exit
-  %100 = getelementptr inbounds i8, ptr %1, i64 76
-  %101 = load i32, ptr %100, align 4
-  %.not39 = icmp eq i32 %101, 0
-  br i1 %.not39, label %102, label %.thread42
+98:                                               ; preds = %11, %20, %ReadHuffmanCodeLengths.exit
+  %99 = getelementptr inbounds i8, ptr %1, i64 76
+  %100 = load i32, ptr %99, align 4
+  %.not39 = icmp eq i32 %100, 0
+  br i1 %.not39, label %101, label %.thread42
 
-102:                                              ; preds = %99
-  %103 = call i32 @VP8LBuildHuffmanTable(ptr noundef %3, i32 noundef 8, ptr noundef %2, i32 noundef %0) #7
-  %.not45 = icmp eq i32 %103, 0
+101:                                              ; preds = %98
+  %102 = call i32 @VP8LBuildHuffmanTable(ptr noundef %3, i32 noundef 8, ptr noundef %2, i32 noundef %0) #7
+  %.not45 = icmp eq i32 %102, 0
   br i1 %.not45, label %.thread42, label %VP8LSetError.exit
 
-.thread42:                                        ; preds = %.thread, %99, %102
-  %104 = load i32, ptr %1, align 8
-  switch i32 %104, label %VP8LSetError.exit [
-    i32 0, label %105
-    i32 5, label %105
+.thread42:                                        ; preds = %.thread, %98, %101
+  %103 = load i32, ptr %1, align 8
+  switch i32 %103, label %VP8LSetError.exit [
+    i32 0, label %104
+    i32 5, label %104
   ]
 
-105:                                              ; preds = %.thread42, %.thread42
+104:                                              ; preds = %.thread42, %.thread42
   store i32 3, ptr %1, align 8
   br label %VP8LSetError.exit
 
-VP8LSetError.exit:                                ; preds = %105, %.thread42, %102
-  %.0 = phi i32 [ %103, %102 ], [ 0, %.thread42 ], [ 0, %105 ]
+VP8LSetError.exit:                                ; preds = %104, %.thread42, %101
+  %.0 = phi i32 [ %102, %101 ], [ 0, %.thread42 ], [ 0, %104 ]
   ret i32 %.0
 }
 

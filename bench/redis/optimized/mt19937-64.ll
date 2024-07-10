@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @mt = internal unnamed_addr global [312 x i64] zeroinitializer, align 16
 @mti = internal unnamed_addr global i32 313, align 4
-@genrand64_int64.mag01 = internal unnamed_addr constant [2 x i64] [i64 0, i64 -5403634167711393303], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @init_genrand64(i64 noundef %seed) local_unnamed_addr #0 {
@@ -186,61 +185,61 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx9 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %5
   %6 = load i64, ptr %arrayidx9, align 8
   %shr = lshr exact i64 %or, 1
+  %xor = xor i64 %shr, %6
   %conv = and i64 %4, 1
-  %arrayidx12 = getelementptr inbounds [2 x i64], ptr @genrand64_int64.mag01, i64 0, i64 %conv
-  %7 = load i64, ptr %arrayidx12, align 8
-  %xor = xor i64 %7, %6
-  %xor13 = xor i64 %xor, %shr
+  %7 = icmp eq i64 %conv, 0
+  %8 = select i1 %7, i64 0, i64 -5403634167711393303
+  %xor13 = xor i64 %xor, %8
   store i64 %xor13, ptr %arrayidx, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 156
   br i1 %exitcond.not, label %for.body19.preheader, label %for.body, !llvm.loop !9
 
 for.body19:                                       ; preds = %for.body19.preheader, %for.body19
-  %8 = phi i64 [ %.pre36, %for.body19.preheader ], [ %9, %for.body19 ]
+  %9 = phi i64 [ %.pre36, %for.body19.preheader ], [ %10, %for.body19 ]
   %indvars.iv31 = phi i64 [ 156, %for.body19.preheader ], [ %indvars.iv.next32, %for.body19 ]
   %arrayidx21 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %indvars.iv31
-  %and22 = and i64 %8, -2147483648
+  %and22 = and i64 %9, -2147483648
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %arrayidx25 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %indvars.iv.next32
-  %9 = load i64, ptr %arrayidx25, align 8
-  %and26 = and i64 %9, 2147483646
+  %10 = load i64, ptr %arrayidx25, align 8
+  %and26 = and i64 %10, 2147483646
   %or27 = or disjoint i64 %and26, %and22
-  %10 = add nsw i64 %indvars.iv31, -156
-  %arrayidx30 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %10
-  %11 = load i64, ptr %arrayidx30, align 8
+  %11 = add nsw i64 %indvars.iv31, -156
+  %arrayidx30 = getelementptr inbounds [312 x i64], ptr @mt, i64 0, i64 %11
+  %12 = load i64, ptr %arrayidx30, align 8
   %shr31 = lshr exact i64 %or27, 1
-  %conv34 = and i64 %9, 1
-  %arrayidx36 = getelementptr inbounds [2 x i64], ptr @genrand64_int64.mag01, i64 0, i64 %conv34
-  %12 = load i64, ptr %arrayidx36, align 8
-  %xor32 = xor i64 %12, %11
-  %xor37 = xor i64 %xor32, %shr31
+  %xor32 = xor i64 %shr31, %12
+  %conv34 = and i64 %10, 1
+  %13 = icmp eq i64 %conv34, 0
+  %14 = select i1 %13, i64 0, i64 -5403634167711393303
+  %xor37 = xor i64 %xor32, %14
   store i64 %xor37, ptr %arrayidx21, align 8
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, 311
   br i1 %exitcond35.not, label %for.end42, label %for.body19, !llvm.loop !10
 
 for.end42:                                        ; preds = %for.body19
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
-  %and43 = and i64 %13, -2147483648
-  %14 = load i64, ptr @mt, align 16
-  %and44 = and i64 %14, 2147483646
+  %15 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
+  %and43 = and i64 %15, -2147483648
+  %16 = load i64, ptr @mt, align 16
+  %and44 = and i64 %16, 2147483646
   %or45 = or disjoint i64 %and44, %and43
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1240), align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 1240), align 8
   %shr46 = lshr exact i64 %or45, 1
-  %conv49 = and i64 %14, 1
-  %arrayidx51 = getelementptr inbounds [2 x i64], ptr @genrand64_int64.mag01, i64 0, i64 %conv49
-  %16 = load i64, ptr %arrayidx51, align 8
-  %xor47 = xor i64 %16, %15
-  %xor52 = xor i64 %xor47, %shr46
+  %xor47 = xor i64 %shr46, %17
+  %conv49 = and i64 %16, 1
+  %18 = icmp eq i64 %conv49, 0
+  %19 = select i1 %18, i64 0, i64 -5403634167711393303
+  %xor52 = xor i64 %xor47, %19
   store i64 %xor52, ptr getelementptr inbounds (i8, ptr @mt, i64 2488), align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %entry.if.end53_crit_edge, %for.end42
-  %17 = phi i64 [ %14, %for.end42 ], [ %.pre37, %entry.if.end53_crit_edge ]
+  %20 = phi i64 [ %16, %for.end42 ], [ %.pre37, %entry.if.end53_crit_edge ]
   %inc54 = phi i32 [ 1, %for.end42 ], [ %1, %entry.if.end53_crit_edge ]
   store i32 %inc54, ptr @mti, align 4
-  %shr57 = lshr i64 %17, 29
+  %shr57 = lshr i64 %20, 29
   %and58 = and i64 %shr57, 22906492245
-  %xor59 = xor i64 %and58, %17
+  %xor59 = xor i64 %and58, %20
   %shl = shl i64 %xor59, 17
   %and60 = and i64 %shl, 8202884508482404352
   %xor61 = xor i64 %and60, %xor59

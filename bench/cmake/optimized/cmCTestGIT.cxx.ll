@@ -5282,11 +5282,10 @@ _ZN10cmCTestGIT10DiffParserC2EPS_PKc.exit:        ; preds = %3
   %22 = getelementptr inbounds i8, ptr %0, i64 376
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   %23 = load i32, ptr %14, align 8
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds [3 x i8], ptr @_ZN10cmCTestGIT12CommitParser10SectionSepE, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 %26, ptr %27, align 8
+  %24 = icmp eq i32 %23, 2
+  %25 = select i1 %24, i8 0, i8 10
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 %25, ptr %26, align 8
   ret void
 }
 
@@ -6921,83 +6920,82 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParser11NextSectionEv
   %5 = add nsw i32 %4, 1
   %6 = srem i32 %5, 3
   store i32 %6, ptr %3, align 8
-  %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds [3 x i8], ptr @_ZN10cmCTestGIT12CommitParser10SectionSepE, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 %9, ptr %10, align 8
-  %11 = icmp eq i32 %6, 0
-  br i1 %11, label %12, label %_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit
+  %7 = icmp eq i32 %6, 2
+  %8 = select i1 %7, i8 0, i8 10
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 %8, ptr %9, align 8
+  %10 = icmp eq i32 %6, 0
+  br i1 %10, label %11, label %_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 152
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(784) %14, ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(784) %13, ptr noundef nonnull align 8 dereferenceable(256) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
+  %20 = getelementptr inbounds i8, ptr %2, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
+  %21 = getelementptr inbounds i8, ptr %2, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %22 = getelementptr inbounds i8, ptr %2, i64 96
+  %22 = getelementptr inbounds i8, ptr %2, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds i8, ptr %2, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
-  %24 = getelementptr inbounds i8, ptr %2, i64 160
+  %24 = getelementptr inbounds i8, ptr %2, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
-  %25 = getelementptr inbounds i8, ptr %2, i64 192
+  %25 = getelementptr inbounds i8, ptr %2, i64 224
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #19
-  %26 = getelementptr inbounds i8, ptr %2, i64 224
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #19
-  %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
-  %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
-  %30 = getelementptr inbounds i8, ptr %0, i64 216
-  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %32 = getelementptr inbounds i8, ptr %0, i64 248
-  %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %22) #19
-  %34 = getelementptr inbounds i8, ptr %0, i64 280
-  %35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %23) #19
-  %36 = getelementptr inbounds i8, ptr %0, i64 312
-  %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %24) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 344
-  %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %25) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 376
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %26) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #19
+  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  %27 = getelementptr inbounds i8, ptr %0, i64 184
+  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %19) #19
+  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %20) #19
+  %31 = getelementptr inbounds i8, ptr %0, i64 248
+  %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %33 = getelementptr inbounds i8, ptr %0, i64 280
+  %34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %22) #19
+  %35 = getelementptr inbounds i8, ptr %0, i64 312
+  %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %23) #19
+  %37 = getelementptr inbounds i8, ptr %0, i64 344
+  %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %24) #19
+  %39 = getelementptr inbounds i8, ptr %0, i64 376
+  %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %25) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 0, ptr %42, align 8
-  %43 = load ptr, ptr %16, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
-  %45 = load ptr, ptr %44, align 8
-  %.not.i.i.i = icmp eq ptr %45, %43
+  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %41, align 8
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = load ptr, ptr %43, align 8
+  %.not.i.i.i = icmp eq ptr %44, %42
   br i1 %.not.i.i.i, label %_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %12, %.lr.ph.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i ], [ %43, %12 ]
-  %46 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #19
-  %47 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i = icmp eq ptr %47, %45
+.lr.ph.i.i.i.i.i.i:                               ; preds = %11, %.lr.ph.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i ], [ %42, %11 ]
+  %45 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #19
+  %46 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i = icmp eq ptr %46, %44
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN15cmCTestGlobalVC6ChangeES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPN15cmCTestGlobalVC6ChangeES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  store ptr %43, ptr %44, align 8
+  store ptr %42, ptr %43, align 8
   br label %_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit
 
-_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit:     ; preds = %_ZSt8_DestroyIPN15cmCTestGlobalVC6ChangeES1_EvT_S3_RSaIT0_E.exit.i.i.i, %12, %1
+_ZN10cmCTestGIT10DiffParser9DiffResetEv.exit:     ; preds = %_ZSt8_DestroyIPN15cmCTestGlobalVC6ChangeES1_EvT_S3_RSaIT0_E.exit.i.i.i, %11, %1
   ret void
 }
 

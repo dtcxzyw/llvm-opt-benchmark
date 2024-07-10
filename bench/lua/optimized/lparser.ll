@@ -41,8 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [12 x i8] c"%s expected\00", align 1
 @.str.19 = private unnamed_addr constant [21 x i8] c"'=' or 'in' expected\00", align 1
 @.str.20 = private unnamed_addr constant [12 x i8] c"(for state)\00", align 1
-@forbody.forprep = internal unnamed_addr constant [2 x i32] [i32 74, i32 75], align 4
-@forbody.forloop = internal unnamed_addr constant [2 x i32] [i32 73, i32 77], align 4
 @.str.21 = private unnamed_addr constant [27 x i8] c"control structure too long\00", align 1
 @.str.22 = private unnamed_addr constant [41 x i8] c"attempt to assign to const variable '%s'\00", align 1
 @.str.23 = private unnamed_addr constant [46 x i8] c"multiple to-be-closed variables in local list\00", align 1
@@ -5349,89 +5347,88 @@ if.then.i.i:                                      ; preds = %entry
 
 checknext.exit:                                   ; preds = %entry
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  %idxprom = zext nneg i32 %isgen to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @forbody.forprep, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %call = tail call i32 @luaK_codeABx(ptr noundef %0, i32 noundef %2, i32 noundef %base, i32 noundef 0) #11
+  %2 = icmp eq i32 %isgen, 0
+  %3 = select i1 %2, i32 74, i32 75
+  %call = tail call i32 @luaK_codeABx(ptr noundef %0, i32 noundef %3, i32 noundef %base, i32 noundef 0) #11
   %isloop1.i = getelementptr inbounds i8, ptr %bl, i64 18
   store i8 0, ptr %isloop1.i, align 2
   %nactvar.i = getelementptr inbounds i8, ptr %0, i64 66
-  %3 = load i8, ptr %nactvar.i, align 2
+  %4 = load i8, ptr %nactvar.i, align 2
   %nactvar2.i = getelementptr inbounds i8, ptr %bl, i64 16
-  store i8 %3, ptr %nactvar2.i, align 8
+  store i8 %4, ptr %nactvar2.i, align 8
   %ls.i = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load ptr, ptr %ls.i, align 8
-  %dyd.i = getelementptr inbounds i8, ptr %4, i64 88
-  %5 = load ptr, ptr %dyd.i, align 8
-  %n.i = getelementptr inbounds i8, ptr %5, i64 40
-  %6 = load i32, ptr %n.i, align 8
+  %5 = load ptr, ptr %ls.i, align 8
+  %dyd.i = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = load ptr, ptr %dyd.i, align 8
+  %n.i = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = load i32, ptr %n.i, align 8
   %firstlabel.i = getelementptr inbounds i8, ptr %bl, i64 8
-  store i32 %6, ptr %firstlabel.i, align 8
-  %n5.i = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load i32, ptr %n5.i, align 8
+  store i32 %7, ptr %firstlabel.i, align 8
+  %n5.i = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load i32, ptr %n5.i, align 8
   %firstgoto.i = getelementptr inbounds i8, ptr %bl, i64 12
-  store i32 %7, ptr %firstgoto.i, align 4
+  store i32 %8, ptr %firstgoto.i, align 4
   %upval.i = getelementptr inbounds i8, ptr %bl, i64 17
   store i8 0, ptr %upval.i, align 1
   %bl6.i = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load ptr, ptr %bl6.i, align 8
-  %cmp.not.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %bl6.i, align 8
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %enterblock.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %checknext.exit
-  %insidetbc.i = getelementptr inbounds i8, ptr %8, i64 19
-  %9 = load i8, ptr %insidetbc.i, align 1
-  %tobool.i = icmp ne i8 %9, 0
-  %10 = zext i1 %tobool.i to i8
+  %insidetbc.i = getelementptr inbounds i8, ptr %9, i64 19
+  %10 = load i8, ptr %insidetbc.i, align 1
+  %tobool.i = icmp ne i8 %10, 0
+  %11 = zext i1 %tobool.i to i8
   br label %enterblock.exit
 
 enterblock.exit:                                  ; preds = %checknext.exit, %land.rhs.i
-  %conv8.i = phi i8 [ 0, %checknext.exit ], [ %10, %land.rhs.i ]
+  %conv8.i = phi i8 [ 0, %checknext.exit ], [ %11, %land.rhs.i ]
   %insidetbc9.i = getelementptr inbounds i8, ptr %bl, i64 19
   store i8 %conv8.i, ptr %insidetbc9.i, align 1
-  store ptr %8, ptr %bl, align 8
+  store ptr %9, ptr %bl, align 8
   store ptr %bl, ptr %bl6.i, align 8
   call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nvars)
   call void @luaK_reserveregs(ptr noundef nonnull %0, i32 noundef %nvars) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bl.i)
-  %11 = load ptr, ptr %fs1, align 8
+  %12 = load ptr, ptr %fs1, align 8
   %isloop1.i37 = getelementptr inbounds i8, ptr %bl.i, i64 18
   store i8 0, ptr %isloop1.i37, align 2
-  %nactvar.i38 = getelementptr inbounds i8, ptr %11, i64 66
-  %12 = load i8, ptr %nactvar.i38, align 2
+  %nactvar.i38 = getelementptr inbounds i8, ptr %12, i64 66
+  %13 = load i8, ptr %nactvar.i38, align 2
   %nactvar2.i39 = getelementptr inbounds i8, ptr %bl.i, i64 16
-  store i8 %12, ptr %nactvar2.i39, align 8
-  %ls.i40 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load ptr, ptr %ls.i40, align 8
-  %dyd.i41 = getelementptr inbounds i8, ptr %13, i64 88
-  %14 = load ptr, ptr %dyd.i41, align 8
-  %n.i42 = getelementptr inbounds i8, ptr %14, i64 40
-  %15 = load i32, ptr %n.i42, align 8
+  store i8 %13, ptr %nactvar2.i39, align 8
+  %ls.i40 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load ptr, ptr %ls.i40, align 8
+  %dyd.i41 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = load ptr, ptr %dyd.i41, align 8
+  %n.i42 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = load i32, ptr %n.i42, align 8
   %firstlabel.i43 = getelementptr inbounds i8, ptr %bl.i, i64 8
-  store i32 %15, ptr %firstlabel.i43, align 8
-  %n5.i45 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = load i32, ptr %n5.i45, align 8
+  store i32 %16, ptr %firstlabel.i43, align 8
+  %n5.i45 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = load i32, ptr %n5.i45, align 8
   %firstgoto.i46 = getelementptr inbounds i8, ptr %bl.i, i64 12
-  store i32 %16, ptr %firstgoto.i46, align 4
+  store i32 %17, ptr %firstgoto.i46, align 4
   %upval.i47 = getelementptr inbounds i8, ptr %bl.i, i64 17
   store i8 0, ptr %upval.i47, align 1
-  %bl6.i48 = getelementptr inbounds i8, ptr %11, i64 24
-  %17 = load ptr, ptr %bl6.i48, align 8
-  %cmp.not.i49 = icmp eq ptr %17, null
+  %bl6.i48 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = load ptr, ptr %bl6.i48, align 8
+  %cmp.not.i49 = icmp eq ptr %18, null
   br i1 %cmp.not.i49, label %enterblock.exit55, label %land.rhs.i50
 
 land.rhs.i50:                                     ; preds = %enterblock.exit
-  %insidetbc.i51 = getelementptr inbounds i8, ptr %17, i64 19
-  %18 = load i8, ptr %insidetbc.i51, align 1
-  %tobool.i52 = icmp ne i8 %18, 0
-  %19 = zext i1 %tobool.i52 to i8
+  %insidetbc.i51 = getelementptr inbounds i8, ptr %18, i64 19
+  %19 = load i8, ptr %insidetbc.i51, align 1
+  %tobool.i52 = icmp ne i8 %19, 0
+  %20 = zext i1 %tobool.i52 to i8
   br label %enterblock.exit55
 
 enterblock.exit55:                                ; preds = %enterblock.exit, %land.rhs.i50
-  %conv8.i53 = phi i8 [ 0, %enterblock.exit ], [ %19, %land.rhs.i50 ]
+  %conv8.i53 = phi i8 [ 0, %enterblock.exit ], [ %20, %land.rhs.i50 ]
   %insidetbc9.i54 = getelementptr inbounds i8, ptr %bl.i, i64 19
   store i8 %conv8.i53, ptr %insidetbc9.i54, align 1
-  store ptr %17, ptr %bl.i, align 8
+  store ptr %18, ptr %bl.i, align 8
   store ptr %bl.i, ptr %bl6.i48, align 8
   br label %while.cond.i
 
@@ -5455,7 +5452,7 @@ if.end.i:                                         ; preds = %while.cond.i
   br label %while.cond.i, !llvm.loop !8
 
 statlist.exit:                                    ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %if.then.i
-  call fastcc void @leaveblock(ptr noundef %11)
+  call fastcc void @leaveblock(ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bl.i)
   call fastcc void @leaveblock(ptr noundef %0)
   %call2 = call i32 @luaK_getlabel(ptr noundef %0) #11
@@ -5465,23 +5462,22 @@ statlist.exit:                                    ; preds = %while.cond.i, %whil
   br i1 %cmp.i, label %if.then6.i, label %fixforjump.exit
 
 if.then6.i:                                       ; preds = %statlist.exit
-  %20 = load ptr, ptr %ls.i, align 8
-  call void @luaX_syntaxerror(ptr noundef %20, ptr noundef nonnull @.str.21) #13
+  %21 = load ptr, ptr %ls.i, align 8
+  call void @luaX_syntaxerror(ptr noundef %21, ptr noundef nonnull @.str.21) #13
   unreachable
 
 fixforjump.exit:                                  ; preds = %statlist.exit
-  %21 = load ptr, ptr %0, align 8
-  %code.i = getelementptr inbounds i8, ptr %21, i64 64
-  %22 = load ptr, ptr %code.i, align 8
+  %22 = load ptr, ptr %0, align 8
+  %code.i = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = load ptr, ptr %code.i, align 8
   %idxprom.i = sext i32 %call to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %22, i64 %idxprom.i
-  %23 = load i32, ptr %arrayidx.i, align 4
-  %and.i = and i32 %23, 32767
+  %arrayidx.i = getelementptr inbounds i32, ptr %23, i64 %idxprom.i
+  %24 = load i32, ptr %arrayidx.i, align 4
+  %and.i = and i32 %24, 32767
   %shl.i = shl i32 %sub.i, 15
   %or.i = or disjoint i32 %and.i, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
-  %tobool.not = icmp eq i32 %isgen, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %fixforjump.exit
   %call3 = call i32 @luaK_codeABCk(ptr noundef nonnull %0, i32 noundef 76, i32 noundef %base, i32 noundef 0, i32 noundef %nvars, i32 noundef 0) #11
@@ -5489,26 +5485,25 @@ if.then:                                          ; preds = %fixforjump.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %fixforjump.exit
-  %arrayidx5 = getelementptr inbounds [2 x i32], ptr @forbody.forloop, i64 0, i64 %idxprom
-  %24 = load i32, ptr %arrayidx5, align 4
-  %call6 = call i32 @luaK_codeABx(ptr noundef nonnull %0, i32 noundef %24, i32 noundef %base, i32 noundef 0) #11
+  %25 = phi i32 [ 77, %if.then ], [ 73, %fixforjump.exit ]
+  %call6 = call i32 @luaK_codeABx(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %base, i32 noundef 0) #11
   %sub.i24.neg = sub i32 %call6, %call
   %cmp.i26 = icmp sgt i32 %sub.i24.neg, 131071
   br i1 %cmp.i26, label %if.then6.i33, label %fixforjump.exit35
 
 if.then6.i33:                                     ; preds = %if.end
-  %25 = load ptr, ptr %ls.i, align 8
-  call void @luaX_syntaxerror(ptr noundef %25, ptr noundef nonnull @.str.21) #13
+  %26 = load ptr, ptr %ls.i, align 8
+  call void @luaX_syntaxerror(ptr noundef %26, ptr noundef nonnull @.str.21) #13
   unreachable
 
 fixforjump.exit35:                                ; preds = %if.end
-  %26 = load ptr, ptr %0, align 8
-  %code.i27 = getelementptr inbounds i8, ptr %26, i64 64
-  %27 = load ptr, ptr %code.i27, align 8
+  %27 = load ptr, ptr %0, align 8
+  %code.i27 = getelementptr inbounds i8, ptr %27, i64 64
+  %28 = load ptr, ptr %code.i27, align 8
   %idxprom.i28 = sext i32 %call6 to i64
-  %arrayidx.i29 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i28
-  %28 = load i32, ptr %arrayidx.i29, align 4
-  %and.i30 = and i32 %28, 32767
+  %arrayidx.i29 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i28
+  %29 = load i32, ptr %arrayidx.i29, align 4
+  %and.i30 = and i32 %29, 32767
   %shl.i31 = shl i32 %sub.i24.neg, 15
   %or.i32 = or disjoint i32 %and.i30, %shl.i31
   store i32 %or.i32, ptr %arrayidx.i29, align 4

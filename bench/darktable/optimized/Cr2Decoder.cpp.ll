@@ -213,8 +213,6 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 @_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = linkonce_odr hidden thread_local global %"struct.std::array.140" zeroinitializer, comdat, align 1
 @_ZTIN8rawspeed19RawDecoderExceptionE = external constant ptr
 @_ZTVN8rawspeed19RawDecoderExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
-@switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv = private unnamed_addr constant [3 x i64] [i64 4294967296, i64 8589934592, i64 4294967296], align 8
-@switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv.46 = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 2], align 8
 @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv = private unnamed_addr constant [8 x i32] [i32 25, i32 34, i32 63, i32 63, i32 71, i32 63, i32 63, i32 63], align 4
 
 ; Function Attrs: mustprogress uwtable
@@ -1496,7 +1494,7 @@ define hidden i64 @_ZNK8rawspeed10Cr2Decoder14getSubSamplingEv(ptr nocapture nou
   %13 = getelementptr inbounds i8, ptr %4, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !77
   %15 = icmp ult i32 %14, 47
-  br i1 %15, label %28, label %16
+  br i1 %15, label %27, label %16
 
 16:                                               ; preds = %12
   %17 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %4, i32 noundef 46)
@@ -1509,17 +1507,16 @@ define hidden i64 @_ZNK8rawspeed10Cr2Decoder14getSubSamplingEv(ptr nocapture nou
   unreachable
 
 21:                                               ; preds = %16
-  %22 = zext nneg i16 %17 to i64
-  %23 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv, i64 0, i64 %22
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv.46, i64 0, i64 %22
-  %26 = load i64, ptr %25, align 8
-  %27 = or disjoint i64 %26, %24
-  br label %28
+  %22 = icmp eq i16 %17, 1
+  %23 = select i1 %22, i64 8589934592, i64 4294967296
+  %24 = icmp eq i16 %17, 0
+  %25 = select i1 %24, i64 1, i64 2
+  %26 = or disjoint i64 %25, %23
+  br label %27
 
-28:                                               ; preds = %21, %12
-  %29 = phi i64 [ 4294967297, %12 ], [ %27, %21 ]
-  ret i64 %29
+27:                                               ; preds = %21, %12
+  %28 = phi i64 [ 4294967297, %12 ], [ %26, %21 ]
+  ret i64 %28
 }
 
 declare noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #2

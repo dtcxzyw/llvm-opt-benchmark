@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [13 x i8] c"user defined\00", align 1
 @.str.6 = private unnamed_addr constant [5 x i8] c"SZIP\00", align 1
 @.str.7 = private unnamed_addr constant [66 x i8] c"Warning: dataset <%s> cannot be read, %s filter is not available\0A\00", align 1
-@switch.table.h5tools_can_encode = private unnamed_addr constant [6 x i32] [i32 1, i32 1, i32 1, i32 0, i32 1, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -205,16 +204,9 @@ declare i32 @H5Zfilter_avail(i32 noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @h5tools_can_encode(i32 noundef %0) local_unnamed_addr #3 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 6
-  br i1 %2, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.h5tools_can_encode, i64 0, i64 %3
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
-
-4:                                                ; preds = %1, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
+  %3 = icmp ne i32 %switch.tableidx, 3
+  %switch.load = zext i1 %3 to i32
+  %.0 = select i1 %2, i32 %switch.load, i32 0
   ret i32 %.0
 }
 

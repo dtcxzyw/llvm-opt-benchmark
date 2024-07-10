@@ -865,7 +865,6 @@ $_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = comdat any
 @_ZTSN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = linkonce_odr constant [60 x i8] c"N3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE\00", comdat, align 1
 @_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, ptr @_ZTIN3vcg18SimpleTempDataBaseE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_fractal.cpp, ptr null }]
-@switch.table._ZThn16_NK13FilterFractal8getClassEPK7QAction = private unnamed_addr constant [3 x i32] [i32 64, i32 128, i32 128], align 4
 @switch.table._ZThn16_NK13FilterFractal11filterArityEPK7QAction = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 3], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -25553,36 +25552,23 @@ define noundef range(i32 0, 129) i32 @_ZNK13FilterFractal8getClassEPK7QAction(pt
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %8 = icmp ult i32 %7, 3
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_NK13FilterFractal8getClassEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
+  %9 = icmp eq i32 %7, 0
+  %switch.load = select i1 %9, i32 64, i32 128
+  %.0 = select i1 %8, i32 %switch.load, i32 0
   ret i32 %.0
 }
 
 ; Function Attrs: uwtable
 define noundef range(i32 0, 129) i32 @_ZThn16_NK13FilterFractal8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 3
-  br i1 %7, label %switch.lookup, label %_ZNK13FilterFractal8getClassEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZThn16_NK13FilterFractal8getClassEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK13FilterFractal8getClassEPK7QAction.exit
-
-_ZNK13FilterFractal8getClassEPK7QAction.exit:     ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
+_ZNK13FilterFractal8getClassEPK7QAction.exit:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
+  %6 = icmp ult i32 %5, 3
+  %7 = icmp eq i32 %5, 0
+  %switch.load = select i1 %7, i32 64, i32 128
+  %.0.i = select i1 %6, i32 %switch.load, i32 0
   ret i32 %.0.i
 }
 

@@ -247,7 +247,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.163 = private unnamed_addr constant [6 x i8] c"/.git\00", align 1
 @.str.164 = private unnamed_addr constant [10 x i8] c".git/.git\00", align 1
 @.str.165 = private unnamed_addr constant [5 x i8] c".git\00", align 1
-@get_repo_path_1.bundle_suffix = internal unnamed_addr constant [2 x ptr] [ptr @.str.166, ptr @.str.162], align 16
 @.str.166 = private unnamed_addr constant [8 x i8] c".bundle\00", align 1
 @.str.167 = private unnamed_addr constant [9 x i8] c"gitdir: \00", align 1
 @.str.168 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -3046,10 +3045,9 @@ for.inc.i:                                        ; preds = %if.end33.i, %lor.lh
   br i1 %exitcond.not.i, label %for.body45.i, label %for.body.i, !llvm.loop !15
 
 for.body45.i:                                     ; preds = %for.inc.i, %for.inc59.i
-  %cmp43.i = phi i1 [ false, %for.inc59.i ], [ true, %for.inc.i ]
-  %indvars.iv42.i = phi i64 [ 1, %for.inc59.i ], [ 0, %for.inc.i ]
-  %11 = load i64, ptr %path, align 8
-  %spec.select.i23.i = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
+  %11 = phi i1 [ false, %for.inc59.i ], [ true, %for.inc.i ]
+  %12 = load i64, ptr %path, align 8
+  %spec.select.i23.i = call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
   %cmp.i24.i = icmp ult i64 %spec.select.i23.i, %0
   br i1 %cmp.i24.i, label %if.then.i31.i, label %if.end.i25.i
 
@@ -3059,33 +3057,32 @@ if.then.i31.i:                                    ; preds = %for.body45.i
 
 if.end.i25.i:                                     ; preds = %for.body45.i
   store i64 %0, ptr %len.i, align 8
-  %12 = load ptr, ptr %buf.i.i, align 8
-  %cmp3.not.i28.i = icmp eq ptr %12, @strbuf_slopbuf
+  %13 = load ptr, ptr %buf.i.i, align 8
+  %cmp3.not.i28.i = icmp eq ptr %13, @strbuf_slopbuf
   br i1 %cmp3.not.i28.i, label %strbuf_setlen.exit32.i, label %if.then4.i29.i
 
 if.then4.i29.i:                                   ; preds = %if.end.i25.i
-  %arrayidx.i30.i = getelementptr inbounds i8, ptr %12, i64 %0
+  %arrayidx.i30.i = getelementptr inbounds i8, ptr %13, i64 %0
   store i8 0, ptr %arrayidx.i30.i, align 1
   br label %strbuf_setlen.exit32.i
 
 strbuf_setlen.exit32.i:                           ; preds = %if.then4.i29.i, %if.end.i25.i
-  %arrayidx47.i = getelementptr inbounds [2 x ptr], ptr @get_repo_path_1.bundle_suffix, i64 0, i64 %indvars.iv42.i
-  %13 = load ptr, ptr %arrayidx47.i, align 8
-  %call.i33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #19
-  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %13, i64 noundef %call.i33.i) #17
-  %14 = load ptr, ptr %buf.i.i, align 8
-  %call49.i = call i32 @stat64(ptr noundef %14, ptr noundef nonnull %st.i) #17
+  %14 = select i1 %11, ptr @.str.166, ptr @.str.162
+  %call.i33.i = select i1 %11, i64 7, i64 0
+  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %14, i64 noundef %call.i33.i) #17
+  %15 = load ptr, ptr %buf.i.i, align 8
+  %call49.i = call i32 @stat64(ptr noundef %15, ptr noundef nonnull %st.i) #17
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %land.lhs.true51.i, label %for.inc59.i
 
 land.lhs.true51.i:                                ; preds = %strbuf_setlen.exit32.i
-  %15 = load i32, ptr %st_mode.i, align 8
-  %and53.i = and i32 %15, 61440
+  %16 = load i32, ptr %st_mode.i, align 8
+  %and53.i = and i32 %16, 61440
   %cmp54.i = icmp eq i32 %and53.i, 32768
   br i1 %cmp54.i, label %get_repo_path_1.exit, label %for.inc59.i
 
 for.inc59.i:                                      ; preds = %land.lhs.true51.i, %strbuf_setlen.exit32.i
-  br i1 %cmp43.i, label %for.body45.i, label %get_repo_path_1.exit.thread, !llvm.loop !16
+  br i1 %11, label %for.body45.i, label %get_repo_path_1.exit.thread, !llvm.loop !16
 
 get_repo_path_1.exit.thread:                      ; preds = %for.inc59.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
@@ -3095,14 +3092,14 @@ get_repo_path_1.exit.thread:                      ; preds = %for.inc59.i
 get_repo_path_1.exit:                             ; preds = %land.lhs.true.i, %land.lhs.true51.i
   %.sink = phi i32 [ 1, %land.lhs.true51.i ], [ 0, %land.lhs.true.i ]
   store i32 %.sink, ptr %is_bundle, align 4
-  %16 = load ptr, ptr %buf.i.i, align 8
+  %17 = load ptr, ptr %buf.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %signature.i)
-  %tobool.not = icmp eq ptr %16, null
+  %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %get_repo_path_1.exit.thread5, %get_repo_path_1.exit
-  %retval.0.i8 = phi ptr [ %call35.i, %get_repo_path_1.exit.thread5 ], [ %16, %get_repo_path_1.exit ]
+  %retval.0.i8 = phi ptr [ %call35.i, %get_repo_path_1.exit.thread5 ], [ %17, %get_repo_path_1.exit ]
   %call1 = call ptr @absolute_pathdup(ptr noundef nonnull %retval.0.i8) #17
   br label %cond.end
 

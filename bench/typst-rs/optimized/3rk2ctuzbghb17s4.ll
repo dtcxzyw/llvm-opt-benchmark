@@ -933,7 +933,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN79_$LT$typst..introspection..counter.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h00e973848b180829E" = private unnamed_addr constant [3 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.445, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.446, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.447], align 8
 @"switch.table._ZN79_$LT$typst..introspection..counter.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h00e973848b180829E.694" = private unnamed_addr constant [3 x i64] [i64 7, i64 9, i64 4], align 8
 @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE" = private unnamed_addr constant [3 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.507, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.508, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.498], align 8
-@"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE.696" = private unnamed_addr constant [3 x i64] [i64 2, i64 2, i64 4], align 8
 @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2525346758aa7054E" = private unnamed_addr constant [4 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.518, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.519, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.520, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.498], align 8
 @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h2525346758aa7054E.698" = private unnamed_addr constant [4 x i64] [i64 5, i64 6, i64 6, i64 4], align 8
 @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha6345d25321a5870E" = private unnamed_addr constant [5 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.531, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.532, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.519, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.520, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.498], align 8
@@ -954,7 +953,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN84_$LT$typst..math..style..MathSize$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17he2f3a423132067ebE" = private unnamed_addr constant [4 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.778, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.673, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.582, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.665], align 8
 @"switch.table._ZN84_$LT$typst..math..style..MathSize$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17he2f3a423132067ebE.714" = private unnamed_addr constant [4 x i64] [i64 13, i64 6, i64 4, i64 7], align 8
 @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E" = private unnamed_addr constant [3 x ptr] [ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.900.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.902.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.904.llvm.11057974413330164255], align 8
-@"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E.715" = private unnamed_addr constant [3 x i64] [i64 4, i64 6, i64 4], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb8eb5043b8655f0aE.llvm.11057974413330164255"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
@@ -6624,9 +6622,8 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h24bb29028
   br i1 %2, label %switch.lookup, label %"_ZN5typst6layout9transform1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..transform..MoveElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h38bb0deba756bc37E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE.696", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %0, 2
+  %switch.load = select i1 %3, i64 4, i64 2
   %4 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -12525,9 +12522,8 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h9c54fc9b4
   br i1 %2, label %switch.lookup, label %"_ZN5typst4math6accent1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..math..accent..AccentElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h1245db3e241e4cf7E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E.715", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %0, 1
+  %switch.load = select i1 %3, i64 6, i64 4
   %4 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..accent.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83482f8301b679fdE", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -114808,9 +114804,8 @@ switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE.696", i64 0, i64 %2
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %2 = icmp eq i8 %0, 2
+  %switch.load2 = select i1 %2, i64 4, i64 2
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
   ret { ptr, i64 } %4
@@ -114860,9 +114855,8 @@ switch.lookup:
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN74_$LT$typst..layout..transform.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h72f2619b766ee9ceE.696", i64 0, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %4 = icmp eq i8 %2, 2
+  %switch.load2 = select i1 %4, i64 4, i64 2
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter3pad17h30c2f03657f00711E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret i1 %5
 }
@@ -122591,9 +122585,8 @@ switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..accent.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83482f8301b679fdE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E.715", i64 0, i64 %2
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %2 = icmp eq i8 %0, 1
+  %switch.load2 = select i1 %2, i64 6, i64 4
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
   ret { ptr, i64 } %4
@@ -122643,9 +122636,8 @@ switch.lookup:
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..accent.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h83482f8301b679fdE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E.715", i64 0, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %4 = icmp eq i8 %2, 1
+  %switch.load2 = select i1 %4, i64 6, i64 4
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter3pad17h30c2f03657f00711E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret i1 %5
 }
@@ -167537,9 +167529,8 @@ switch.lookup:
   %3 = sext i8 %1 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN77_$LT$typst..eval..EvalMode$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h15a47f6251b0b7d8E.715", i64 0, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %4 = icmp eq i8 %1, 1
+  %switch.load2 = select i1 %4, i64 6, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42552)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2), !noalias !42555
   call void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.llvm.7889846851399105414(ptr noalias nocapture noundef nonnull sret({ i8, [16 x i8] }) align 1 dereferenceable(17) %2, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2), !noalias !42563

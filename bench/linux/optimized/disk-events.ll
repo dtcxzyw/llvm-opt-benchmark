@@ -40,12 +40,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_disk_force_m
 @disk_events_mutex = internal global %struct.mutex { %struct.atomic64_t zeroinitializer, %struct.raw_spinlock zeroinitializer, %struct.optimistic_spin_queue zeroinitializer, %struct.list_head { ptr getelementptr (i8, ptr @disk_events_mutex, i64 16), ptr getelementptr (i8, ptr @disk_events_mutex, i64 16) } }, align 8
 @disk_events = internal global %struct.list_head { ptr @disk_events, ptr @disk_events }, align 8
 @.str.6 = private unnamed_addr constant [20 x i8] c"block/disk-events.c\00", align 1
-@disk_uevents = internal unnamed_addr constant [2 x ptr] [ptr @.str.7, ptr @.str.8], align 16
 @.str.7 = private unnamed_addr constant [20 x i8] c"DISK_MEDIA_CHANGE=1\00", align 1
 @.str.8 = private unnamed_addr constant [21 x i8] c"DISK_EJECT_REQUEST=1\00", align 1
 @.str.9 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
-@disk_events_strs = internal unnamed_addr constant [2 x ptr] [ptr @.str.13, ptr @.str.14], align 16
 @.str.11 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.13 = private unnamed_addr constant [13 x i8] c"media_change\00", align 1
 @.str.14 = private unnamed_addr constant [14 x i8] c"eject_request\00", align 1
@@ -362,7 +360,7 @@ define internal range(i64 2, 1) i64 @disk_events_show(ptr nocapture noundef read
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 2
   %9 = icmp eq i16 %8, 0
-  br i1 %9, label %38, label %10
+  br i1 %9, label %36, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 44
@@ -370,44 +368,42 @@ define internal range(i64 2, 1) i64 @disk_events_show(ptr nocapture noundef read
   %13 = zext i16 %12 to i32
   br label %14
 
-14:                                               ; preds = %30, %10
-  %15 = phi i1 [ true, %10 ], [ false, %30 ]
-  %16 = phi i64 [ 0, %10 ], [ 1, %30 ]
-  %17 = phi i64 [ 0, %10 ], [ %32, %30 ]
-  %18 = phi ptr [ @.str.9, %10 ], [ %31, %30 ]
-  %19 = trunc nuw nsw i64 %16 to i32
-  %20 = shl nuw nsw i32 1, %19
+14:                                               ; preds = %28, %10
+  %15 = phi ptr [ @.str.13, %10 ], [ @.str.14, %28 ]
+  %16 = phi i1 [ true, %10 ], [ false, %28 ]
+  %17 = phi i32 [ 0, %10 ], [ 1, %28 ]
+  %18 = phi i64 [ 0, %10 ], [ %30, %28 ]
+  %19 = phi ptr [ @.str.9, %10 ], [ %29, %28 ]
+  %20 = shl nuw nsw i32 1, %17
   %21 = and i32 %20, %13
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %30, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %14
-  %24 = getelementptr i8, ptr %2, i64 %17
-  %25 = getelementptr [2 x ptr], ptr @disk_events_strs, i64 0, i64 %16
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %24, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %18, ptr noundef %26) #9
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %17, %28
-  br label %30
+  %24 = getelementptr i8, ptr %2, i64 %18
+  %25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %24, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %19, ptr noundef nonnull %15) #9
+  %26 = sext i32 %25 to i64
+  %27 = add i64 %18, %26
+  br label %28
 
-30:                                               ; preds = %23, %14
-  %31 = phi ptr [ @.str.11, %23 ], [ %18, %14 ]
-  %32 = phi i64 [ %29, %23 ], [ %17, %14 ]
-  br i1 %15, label %14, label %33, !llvm.loop !17
+28:                                               ; preds = %23, %14
+  %29 = phi ptr [ @.str.11, %23 ], [ %19, %14 ]
+  %30 = phi i64 [ %27, %23 ], [ %18, %14 ]
+  br i1 %16, label %14, label %31, !llvm.loop !17
 
-33:                                               ; preds = %30
-  %34 = icmp eq i64 %32, 0
-  br i1 %34, label %38, label %35
+31:                                               ; preds = %28
+  %32 = icmp eq i64 %30, 0
+  br i1 %32, label %36, label %33
 
-35:                                               ; preds = %33
-  %36 = getelementptr i8, ptr %2, i64 %32
-  store i16 10, ptr %36, align 1
-  %37 = add i64 %32, 1
-  br label %38
+33:                                               ; preds = %31
+  %34 = getelementptr i8, ptr %2, i64 %30
+  store i16 10, ptr %34, align 1
+  %35 = add i64 %30, 1
+  br label %36
 
-38:                                               ; preds = %35, %33, %3
-  %39 = phi i64 [ 0, %3 ], [ %37, %35 ], [ 0, %33 ]
-  ret i64 %39
+36:                                               ; preds = %33, %31, %3
+  %37 = phi i64 [ 0, %3 ], [ %35, %33 ], [ 0, %31 ]
+  ret i64 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -764,7 +760,7 @@ define internal fastcc void @disk_check_events(ptr noundef %0, ptr nocapture nou
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 2
   %54 = icmp eq i16 %53, 0
-  br i1 %54, label %84, label %55
+  br i1 %54, label %82, label %55
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
@@ -774,46 +770,44 @@ define internal fastcc void @disk_check_events(ptr noundef %0, ptr nocapture nou
   %58 = zext i16 %57 to i32
   br label %59
 
-59:                                               ; preds = %74, %55
-  %60 = phi i1 [ true, %55 ], [ false, %74 ]
-  %61 = phi i64 [ 0, %55 ], [ 1, %74 ]
-  %62 = phi i32 [ 0, %55 ], [ %75, %74 ]
-  %63 = trunc nuw nsw i64 %61 to i32
-  %64 = shl nuw nsw i32 1, %63
+59:                                               ; preds = %72, %55
+  %60 = phi ptr [ @.str.7, %55 ], [ @.str.8, %72 ]
+  %61 = phi i1 [ true, %55 ], [ false, %72 ]
+  %62 = phi i32 [ 0, %55 ], [ 1, %72 ]
+  %63 = phi i32 [ 0, %55 ], [ %73, %72 ]
+  %64 = shl nuw nsw i32 1, %62
   %65 = and i32 %64, %58
   %66 = and i32 %65, %16
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %74, label %68
+  br i1 %67, label %72, label %68
 
 68:                                               ; preds = %59
-  %69 = getelementptr [2 x ptr], ptr @disk_uevents, i64 0, i64 %61
-  %70 = load ptr, ptr %69, align 8
-  %71 = add i32 %62, 1
-  %72 = sext i32 %62 to i64
-  %73 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %72
-  store ptr %70, ptr %73, align 8
-  br label %74
+  %69 = add i32 %63, 1
+  %70 = sext i32 %63 to i64
+  %71 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %70
+  store ptr %60, ptr %71, align 8
+  br label %72
 
-74:                                               ; preds = %68, %59
-  %75 = phi i32 [ %71, %68 ], [ %62, %59 ]
-  br i1 %60, label %59, label %76, !llvm.loop !14
+72:                                               ; preds = %68, %59
+  %73 = phi i32 [ %69, %68 ], [ %63, %59 ]
+  br i1 %61, label %59, label %74, !llvm.loop !14
+
+74:                                               ; preds = %72
+  %75 = icmp eq i32 %73, 0
+  br i1 %75, label %81, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp eq i32 %75, 0
-  br i1 %77, label %83, label %78
+  %77 = getelementptr inbounds i8, ptr %5, i64 64
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 200
+  %80 = call i32 @kobject_uevent_env(ptr noundef %79, i32 noundef 2, ptr noundef nonnull %3) #9
+  br label %81
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %5, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 200
-  %82 = call i32 @kobject_uevent_env(ptr noundef %81, i32 noundef 2, ptr noundef nonnull %3) #9
-  br label %83
-
-83:                                               ; preds = %78, %76
+81:                                               ; preds = %76, %74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
-  br label %84
+  br label %82
 
-84:                                               ; preds = %83, %50
+82:                                               ; preds = %81, %50
   ret void
 }
 

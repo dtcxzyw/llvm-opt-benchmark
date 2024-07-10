@@ -17,11 +17,11 @@ define dso_local i64 @i915_ioc32_compat_ioctl(ptr noundef %0, i32 noundef %1, i6
 
 9:                                                ; preds = %3
   %10 = tail call i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
-  br label %29
+  br label %30
 
 11:                                               ; preds = %3
   %.not = icmp eq i32 %6, 70
-  br i1 %.not, label %12, label %.thread
+  br i1 %.not, label %12, label %25
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
@@ -49,21 +49,21 @@ compat_i915_getparam.exit:                        ; preds = %12, %16
   %24 = phi i64 [ %23, %16 ], [ -14, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %11
-  %25 = tail call i64 @drm_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
-  br label %26
+25:                                               ; preds = %11
+  %26 = tail call i64 @drm_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #3
+  br label %27
 
-26:                                               ; preds = %.thread, %compat_i915_getparam.exit
-  %27 = phi i64 [ %24, %compat_i915_getparam.exit ], [ %25, %.thread ]
-  %sext = shl i64 %27, 32
-  %28 = ashr exact i64 %sext, 32
-  br label %29
+27:                                               ; preds = %25, %compat_i915_getparam.exit
+  %28 = phi i64 [ %24, %compat_i915_getparam.exit ], [ %26, %25 ]
+  %sext = shl i64 %28, 32
+  %29 = ashr exact i64 %sext, 32
+  br label %30
 
-29:                                               ; preds = %26, %9
-  %30 = phi i64 [ %10, %9 ], [ %28, %26 ]
-  ret i64 %30
+30:                                               ; preds = %27, %9
+  %31 = phi i64 [ %10, %9 ], [ %29, %27 ]
+  ret i64 %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

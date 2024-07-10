@@ -1510,10 +1510,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN61_$LT$typst..text.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha4226ae2f3d6779cE" = private unnamed_addr constant [38 x ptr] [ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1027, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1028, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.651, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1029, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1030, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.783, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1031, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1032, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1033, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1034, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1035, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1036.llvm.7325118056162354838, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1037, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1038, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1039, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1040, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1041, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1042, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1043, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1044, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1045, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1046, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1047, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1048, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1049, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1050, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1051, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1052, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1053, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1054, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1055, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1024.llvm.7325118056162354838, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1056, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1057, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.945, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1058, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1059, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1060], align 8
 @"switch.table._ZN61_$LT$typst..text.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha4226ae2f3d6779cE.566" = private unnamed_addr constant [38 x i64] [i64 4, i64 8, i64 5, i64 6, i64 7, i64 4, i64 4, i64 6, i64 8, i64 7, i64 17, i64 8, i64 8, i64 8, i64 11, i64 4, i64 6, i64 6, i64 3, i64 9, i64 7, i64 10, i64 13, i64 9, i64 23, i64 20, i64 11, i64 12, i64 12, i64 9, i64 8, i64 4, i64 11, i64 5, i64 4, i64 4, i64 4, i64 9], align 8
 @"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E" = private unnamed_addr constant [3 x ptr] [ptr @anon.a2b023d1a4e2834952d16152dce23780.1007.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1009.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1011.llvm.7889846851399105414], align 8
-@"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E.572" = private unnamed_addr constant [3 x i64] [i64 6, i64 6, i64 7], align 8
 @"switch.table._ZN72_$LT$typst..visualize..color..ColorSpace$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf08edbc87eca1e4E.llvm.7325118056162354838" = private unnamed_addr constant [8 x i64] [i64 5, i64 5, i64 4, i64 7, i64 9, i64 3, i64 3, i64 4], align 8
 @"switch.table._ZN72_$LT$typst..visualize..color..ColorSpace$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf08edbc87eca1e4E.llvm.7325118056162354838.577" = private unnamed_addr constant [8 x ptr] [ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1107, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1108, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1109, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1110, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1111, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1112, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1113, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1114], align 8
-@"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E" = private unnamed_addr constant [3 x i64] [i64 5, i64 7, i64 7], align 8
 @"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E.578" = private unnamed_addr constant [3 x ptr] [ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1180, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1181, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.1182], align 8
 @switch.table._ZN5typst9visualize8gradient8Gradient6linear17h571dacd212c3d8b3E = private unnamed_addr constant [5 x double] [double 0.000000e+00, double 0x400921FB54442D18, double 0x3FF921FB54442D18, double 0x4012D97C7F3321D2, double 0.000000e+00], align 8
 @switch.table._ZN5typst9visualize8gradient8Gradient8relative17hcd713c43233d5ebdE = private unnamed_addr constant [3 x i64] [i64 49, i64 89, i64 65], align 8
@@ -6751,9 +6749,8 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !1066, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1067)
   %3 = load i8, ptr %2, align 1, !range !1070, !alias.scope !1067, !noalias !1071, !noundef !4
-  %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E", i64 0, i64 %4
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %4 = icmp eq i8 %3, 0
+  %switch.load = select i1 %4, i64 5, i64 7
   %5 = zext nneg i8 %3 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E.578", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
@@ -146832,9 +146829,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h66ca3e6cd51261ddE.exit: ; preds 
   %110 = zext nneg i8 %109 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E", i64 0, i64 %110
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %111 = zext nneg i8 %109 to i64
-  %switch.gep541 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E.572", i64 0, i64 %111
-  %switch.load542 = load i64, ptr %switch.gep541, align 8
+  %111 = icmp eq i8 %109, 2
+  %switch.load542 = select i1 %111, i64 7, i64 6
   br label %112
 
 default.unreachable:                              ; preds = %189
@@ -149320,9 +149316,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h66ca3e6cd51261ddE.exit: ; preds 
   %109 = zext nneg i8 %108 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E", i64 0, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %110 = zext nneg i8 %108 to i64
-  %switch.gep533 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN5typst4text1_87_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..text..TextElem$GT$17field_from_styles17h9631f90b7213c632E.572", i64 0, i64 %110
-  %switch.load534 = load i64, ptr %switch.gep533, align 8
+  %110 = icmp eq i8 %108, 2
+  %switch.load534 = select i1 %110, i64 7, i64 6
   br label %111
 
 default.unreachable:                              ; preds = %188
@@ -161075,9 +161070,8 @@ _ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i: ; preds = %_ZN4core4hash
 define internal noundef zeroext i1 @"_ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1070, !noundef !4
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 0
+  %switch.load = select i1 %3, i64 5, i64 7
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN70_$LT$typst..visualize..image..ImageFit$u20$as$u20$core..fmt..Debug$GT$3fmt17h4cc959dbf864f988E.578", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8

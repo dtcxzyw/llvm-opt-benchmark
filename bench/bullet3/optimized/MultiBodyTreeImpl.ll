@@ -93,9 +93,6 @@ $_ZN20b3AlignedObjectArrayIPvE7reserveEi = comdat any
 @.str.38 = private unnamed_addr constant [44 x i8] c"b3AlignedObjectArray reserve out-of-memory\0A\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 1, i32 6, i32 3], align 4
-@switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7 = private unnamed_addr constant [3 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00], align 4
-@switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8 = private unnamed_addr constant [3 x float] [float 0.000000e+00, float 1.000000e+00, float 0.000000e+00], align 4
-@switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9 = private unnamed_addr constant [3 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], align 4
 @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc = private unnamed_addr constant [5 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
 
 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC1Eii = dso_local unnamed_addr alias void (ptr, i32, i32), ptr @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC2Eii
@@ -5903,15 +5900,12 @@ if.then256:                                       ; preds = %if.end253
   br i1 %648, label %switch.lookup, label %if.end258
 
 switch.lookup:                                    ; preds = %if.then256
-  %649 = zext nneg i32 %sub257 to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %649
-  %switch.load = load float, ptr %switch.gep, align 4
-  %650 = zext nneg i32 %sub257 to i64
-  %switch.gep1237 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %650
-  %switch.load1238 = load float, ptr %switch.gep1237, align 4
-  %651 = zext nneg i32 %sub257 to i64
-  %switch.gep1239 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %651
-  %switch.load1240 = load float, ptr %switch.gep1239, align 4
+  %649 = icmp eq i32 %col.01195, %644
+  %switch.load = select i1 %649, float 1.000000e+00, float 0.000000e+00
+  %650 = icmp eq i32 %sub257, 1
+  %switch.load1238 = select i1 %650, float 1.000000e+00, float 0.000000e+00
+  %651 = icmp eq i32 %sub257, 2
+  %switch.load1240 = select i1 %651, float 1.000000e+00, float 0.000000e+00
   store float %switch.load, ptr %Jac_JR, align 16
   store float %switch.load1238, ptr %arrayidx.i28.i, align 4
   store float %switch.load1240, ptr %arrayidx.i29.i, align 8
@@ -6033,15 +6027,12 @@ if.then290:                                       ; preds = %for.body287
   br i1 %729, label %switch.lookup1241, label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit854
 
 switch.lookup1241:                                ; preds = %if.then290
-  %730 = zext nneg i32 %sub291 to i64
-  %switch.gep1242 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %730
-  %switch.load1243 = load float, ptr %switch.gep1242, align 4
-  %731 = zext nneg i32 %sub291 to i64
-  %switch.gep1244 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %731
-  %switch.load1245 = load float, ptr %switch.gep1244, align 4
-  %732 = zext nneg i32 %sub291 to i64
-  %switch.gep1246 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %732
-  %switch.load1247 = load float, ptr %switch.gep1246, align 4
+  %730 = icmp eq i32 %row.01180, %644
+  %switch.load1243 = select i1 %730, float 1.000000e+00, float 0.000000e+00
+  %731 = icmp eq i32 %sub291, 1
+  %switch.load1245 = select i1 %731, float 1.000000e+00, float 0.000000e+00
+  %732 = icmp eq i32 %sub291, 2
+  %switch.load1247 = select i1 %732, float 1.000000e+00, float 0.000000e+00
   store float %switch.load1243, ptr %Jac_JR, align 16
   store float %switch.load1245, ptr %arrayidx.i28.i, align 4
   store float %switch.load1247, ptr %arrayidx.i29.i, align 8
@@ -6307,15 +6298,12 @@ if.then347:                                       ; preds = %for.body344
   br i1 %824, label %switch.lookup1248, label %if.end354
 
 switch.lookup1248:                                ; preds = %if.then347
-  %825 = zext nneg i32 %sub348 to i64
-  %switch.gep1249 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %825
-  %switch.load1250 = load float, ptr %switch.gep1249, align 4
-  %826 = zext nneg i32 %sub348 to i64
-  %switch.gep1251 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %826
-  %switch.load1252 = load float, ptr %switch.gep1251, align 4
-  %827 = zext nneg i32 %sub348 to i64
-  %switch.gep1253 = getelementptr inbounds [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %827
-  %switch.load1254 = load float, ptr %switch.gep1253, align 4
+  %825 = icmp eq i32 %row341.01183, %817
+  %switch.load1250 = select i1 %825, float 1.000000e+00, float 0.000000e+00
+  %826 = icmp eq i32 %sub348, 1
+  %switch.load1252 = select i1 %826, float 1.000000e+00, float 0.000000e+00
+  %827 = icmp eq i32 %sub348, 2
+  %switch.load1254 = select i1 %827, float 1.000000e+00, float 0.000000e+00
   store float %switch.load1250, ptr %Jac_JR337, align 16
   store float %switch.load1252, ptr %arrayidx.i16.i1008, align 4
   store float %switch.load1254, ptr %arrayidx.i17.i1009, align 8

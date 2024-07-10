@@ -97,7 +97,6 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_75L14gSystemVPrefixE = internal constant [8 x i16] [i16 83, i16 121, i16 115, i16 116, i16 101, i16 109, i16 86, i16 47], align 16
 @_ZN6icu_75L8gRiyadh8E = internal constant [7 x i16] [i16 82, i16 105, i16 121, i16 97, i16 100, i16 104, i16 56], align 2
 @_ZTVN6icu_759TZDBNamesE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN6icu_759TZDBNamesE, ptr @_ZN6icu_759TZDBNamesD1Ev, ptr @_ZN6icu_759TZDBNamesD0Ev] }, align 8
-@_ZN6icu_75L14TZDBNAMES_KEYSE = internal unnamed_addr constant [2 x ptr] [ptr @.str.5, ptr @.str.6], align 16
 @.str.1 = private unnamed_addr constant [13 x i8] c"parseRegions\00", align 1
 @_ZTVN6icu_7521TZDBNameSearchHandlerE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_7521TZDBNameSearchHandlerE, ptr @_ZN6icu_7521TZDBNameSearchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode, ptr @_ZN6icu_7521TZDBNameSearchHandlerD1Ev, ptr @_ZN6icu_7521TZDBNameSearchHandlerD0Ev] }, align 8
 @_ZTVN6icu_7517TZDBTimeZoneNamesE = unnamed_addr constant { [18 x ptr] } { [18 x ptr] [ptr null, ptr @_ZTIN6icu_7517TZDBTimeZoneNamesE, ptr @_ZN6icu_7517TZDBTimeZoneNamesD1Ev, ptr @_ZN6icu_7517TZDBTimeZoneNamesD0Ev, ptr @_ZNK6icu_757UObject17getDynamicClassIDEv, ptr @_ZNK6icu_7517TZDBTimeZoneNameseqERKNS_13TimeZoneNamesE, ptr @_ZNK6icu_7517TZDBTimeZoneNames5cloneEv, ptr @_ZNK6icu_7517TZDBTimeZoneNames23getAvailableMetaZoneIDsER10UErrorCode, ptr @_ZNK6icu_7517TZDBTimeZoneNames23getAvailableMetaZoneIDsERKNS_13UnicodeStringER10UErrorCode, ptr @_ZNK6icu_7517TZDBTimeZoneNames13getMetaZoneIDERKNS_13UnicodeStringEdRS1_, ptr @_ZNK6icu_7517TZDBTimeZoneNames18getReferenceZoneIDERKNS_13UnicodeStringEPKcRS1_, ptr @_ZNK6icu_7517TZDBTimeZoneNames22getMetaZoneDisplayNameERKNS_13UnicodeStringE17UTimeZoneNameTypeRS1_, ptr @_ZNK6icu_7517TZDBTimeZoneNames22getTimeZoneDisplayNameERKNS_13UnicodeStringE17UTimeZoneNameTypeRS1_, ptr @_ZNK6icu_7513TimeZoneNames23getExemplarLocationNameERKNS_13UnicodeStringERS1_, ptr @_ZNK6icu_7513TimeZoneNames14getDisplayNameERKNS_13UnicodeStringE17UTimeZoneNameTypedRS1_, ptr @_ZN6icu_7513TimeZoneNames19loadAllDisplayNamesER10UErrorCode, ptr @_ZNK6icu_7513TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode, ptr @_ZNK6icu_7517TZDBTimeZoneNames4findERKNS_13UnicodeStringEijR10UErrorCode] }, align 8
@@ -5426,33 +5425,32 @@ for.body.outer:                                   ; preds = %if.end6, %for.inc.t
 for.body:                                         ; preds = %for.body.outer, %for.inc
   %indvars.iv = phi i64 [ 1, %for.inc ], [ %indvars.iv.ph, %for.body.outer ]
   store i32 0, ptr %status, align 4
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @_ZN6icu_75L14TZDBNAMES_KEYSE, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx, align 8
-  %call11 = call ptr @ures_getStringByKey_75(ptr noundef %call, ptr noundef %2, ptr noundef nonnull %len, ptr noundef nonnull %status)
-  %3 = load i32, ptr %status, align 4
-  %cmp.i43 = icmp sgt i32 %3, 0
-  %4 = load i32, ptr %len, align 4
-  %cmp15 = icmp eq i32 %4, 0
+  %2 = icmp eq i64 %indvars.iv, 0
+  %3 = select i1 %2, ptr @.str.5, ptr @.str.6
+  %call11 = call ptr @ures_getStringByKey_75(ptr noundef %call, ptr noundef nonnull %3, ptr noundef nonnull %len, ptr noundef nonnull %status)
+  %4 = load i32, ptr %status, align 4
+  %cmp.i43 = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %len, align 4
+  %cmp15 = icmp eq i32 %5, 0
   %or.cond1 = select i1 %cmp.i43, i1 true, i1 %cmp15
-  %5 = getelementptr inbounds ptr, ptr %call7, i64 %indvars.iv
-  %cmp10 = icmp eq i64 %indvars.iv, 0
+  %6 = getelementptr inbounds ptr, ptr %call7, i64 %indvars.iv
   br i1 %or.cond1, label %for.inc, label %for.inc.thread
 
 for.inc:                                          ; preds = %for.body
-  store ptr null, ptr %5, align 8
-  br i1 %cmp10, label %for.body, label %if.end22, !llvm.loop !32
+  store ptr null, ptr %6, align 8
+  br i1 %2, label %for.body, label %if.end22, !llvm.loop !32
 
 for.inc.thread:                                   ; preds = %for.body
-  store ptr %call11, ptr %5, align 8
-  br i1 %cmp10, label %for.body.outer, label %if.end28, !llvm.loop !32
+  store ptr %call11, ptr %6, align 8
+  br i1 %2, label %for.body.outer, label %if.end28, !llvm.loop !32
 
 if.end22:                                         ; preds = %for.inc
   br i1 %tobool23.not, label %if.end28, label %return.sink.split
 
 if.end28:                                         ; preds = %for.inc.thread, %if.end22
   %call29 = call ptr @ures_getByKey_75(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull %status)
-  %6 = load i32, ptr %status, align 4
-  %cmp.i45 = icmp sgt i32 %6, 0
+  %7 = load i32, ptr %status, align 4
+  %cmp.i45 = icmp sgt i32 %7, 0
   br i1 %cmp.i45, label %if.end70, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
@@ -5476,13 +5474,13 @@ for.body50:                                       ; preds = %for.body50.preheade
   %pRegion.157 = phi ptr [ %incdec.ptr66, %if.end61 ], [ %call37, %for.body50.preheader ]
   store i32 0, ptr %status, align 4
   %call51 = call ptr @ures_getStringByIndex_75(ptr noundef %call29, i32 noundef %i47.058, ptr noundef nonnull %len, ptr noundef nonnull %status)
-  %7 = load i32, ptr %status, align 4
-  %cmp.i47 = icmp slt i32 %7, 1
+  %8 = load i32, ptr %status, align 4
+  %cmp.i47 = icmp slt i32 %8, 1
   br i1 %cmp.i47, label %if.end55, label %if.end70
 
 if.end55:                                         ; preds = %for.body50
-  %8 = load i32, ptr %len, align 4
-  %add = add nsw i32 %8, 1
+  %9 = load i32, ptr %len, align 4
+  %add = add nsw i32 %9, 1
   %conv56 = sext i32 %add to i64
   %call58 = call noalias ptr @uprv_malloc_75(i64 noundef %conv56) #21
   store ptr %call58, ptr %pRegion.157, align 8
@@ -5490,12 +5488,12 @@ if.end55:                                         ; preds = %for.body50
   br i1 %cmp59, label %if.end70, label %if.end61
 
 if.end61:                                         ; preds = %if.end55
-  %9 = load i32, ptr %len, align 4
-  call void @u_UCharsToChars_75(ptr noundef %call51, ptr noundef nonnull %call58, i32 noundef %9)
-  %10 = load ptr, ptr %pRegion.157, align 8
-  %11 = load i32, ptr %len, align 4
-  %idxprom62 = sext i32 %11 to i64
-  %arrayidx63 = getelementptr inbounds i8, ptr %10, i64 %idxprom62
+  %10 = load i32, ptr %len, align 4
+  call void @u_UCharsToChars_75(ptr noundef %call51, ptr noundef nonnull %call58, i32 noundef %10)
+  %11 = load ptr, ptr %pRegion.157, align 8
+  %12 = load i32, ptr %len, align 4
+  %idxprom62 = sext i32 %12 to i64
+  %arrayidx63 = getelementptr inbounds i8, ptr %11, i64 %idxprom62
   store i8 0, ptr %arrayidx63, align 1
   %inc65 = add nuw nsw i32 %i47.058, 1
   %incdec.ptr66 = getelementptr inbounds i8, ptr %pRegion.157, i64 8
@@ -5522,8 +5520,8 @@ for.cond79.preheader:                             ; preds = %if.then74
 for.body81:                                       ; preds = %for.cond79.preheader, %for.body81
   %i78.063 = phi i32 [ %inc84, %for.body81 ], [ 0, %for.cond79.preheader ]
   %p.062 = phi ptr [ %incdec.ptr83, %for.body81 ], [ %regions.0, %for.cond79.preheader ]
-  %12 = load ptr, ptr %p.062, align 8
-  call void @uprv_free_75(ptr noundef %12)
+  %13 = load ptr, ptr %p.062, align 8
+  call void @uprv_free_75(ptr noundef %13)
   %incdec.ptr83 = getelementptr inbounds i8, ptr %p.062, i64 8
   %inc84 = add nuw nsw i32 %i78.063, 1
   %exitcond64.not = icmp eq i32 %inc84, %numRegions.0
@@ -5539,10 +5537,10 @@ new.notnull:                                      ; preds = %if.end87
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %new.notnull
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call88) #20
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 
 return.sink.split:                                ; preds = %for.body81, %for.cond79.preheader, %if.end22
   %regions.0.sink = phi ptr [ %call7, %if.end22 ], [ %regions.0, %for.cond79.preheader ], [ %regions.0, %for.body81 ]

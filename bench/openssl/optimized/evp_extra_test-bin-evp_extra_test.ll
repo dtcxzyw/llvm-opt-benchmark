@@ -282,7 +282,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.245 = private unnamed_addr constant [36 x i8] c"EVP_PKEY_CTX_set1_id(sctx, NULL, 0)\00", align 1
 @.str.246 = private unnamed_addr constant [4 x i8] c"SM3\00", align 1
 @.str.247 = private unnamed_addr constant [9 x i8] c"SHA2-256\00", align 1
-@__const.test_EVP_SM2.mdnames = private unnamed_addr constant [2 x ptr] [ptr @.str.246, ptr @.str.247], align 16
 @.str.248 = private unnamed_addr constant [60 x i8] c"cctx = EVP_PKEY_CTX_new_from_pkey(testctx, pkey, testpropq)\00", align 1
 @.str.249 = private unnamed_addr constant [28 x i8] c"EVP_PKEY_encrypt_init(cctx)\00", align 1
 @.str.250 = private unnamed_addr constant [39 x i8] c"EVP_PKEY_CTX_set_params(cctx, sparams)\00", align 1
@@ -615,7 +614,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.531 = private unnamed_addr constant [7 x i8] c"bf-cbc\00", align 1
 @.str.532 = private unnamed_addr constant [7 x i8] c"bf-cfb\00", align 1
 @.str.533 = private unnamed_addr constant [7 x i8] c"bf-ofb\00", align 1
-@__const.test_evp_bf_default_keylen.ivlen = private unnamed_addr constant [4 x i32] [i32 0, i32 8, i32 8, i32 8], align 16
 @.str.534 = private unnamed_addr constant [58 x i8] c"cipher = EVP_CIPHER_fetch(testctx, algos[idx], testpropq)\00", align 1
 @.str.535 = private unnamed_addr constant [34 x i8] c"EVP_CIPHER_get_key_length(cipher)\00", align 1
 @.str.536 = private unnamed_addr constant [3 x i8] c"16\00", align 1
@@ -2964,18 +2962,16 @@ if.end144:                                        ; preds = %if.end139
   br label %for.body
 
 for.body:                                         ; preds = %if.end238, %if.end144
-  %cmp146.not = phi i1 [ false, %if.end144 ], [ true, %if.end238 ]
-  %indvars.iv = phi i64 [ 0, %if.end144 ], [ 1, %if.end238 ]
+  %12 = phi i1 [ true, %if.end144 ], [ false, %if.end238 ]
   %check_md.045 = phi ptr [ %call53, %if.end144 ], [ %call214, %if.end238 ]
   %cctx.044 = phi ptr [ null, %if.end144 ], [ %call157, %if.end238 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %cctx.044) #8
-  %arrayidx148 = getelementptr inbounds [2 x ptr], ptr @__const.test_EVP_SM2.mdnames, i64 0, i64 %indvars.iv
-  %12 = load ptr, ptr %arrayidx148, align 8
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp154, ptr noundef nonnull @.str.144, ptr noundef %12, i64 noundef 0) #8
+  %13 = select i1 %12, ptr @.str.246, ptr @.str.247
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp154, ptr noundef nonnull @.str.144, ptr noundef nonnull %13, i64 noundef 0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %sparams, ptr noundef nonnull align 8 dereferenceable(40) %tmp154, i64 40, i1 false)
-  %13 = load ptr, ptr @testctx, align 8
-  %14 = load ptr, ptr %pkey, align 8
-  %call157 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %13, ptr noundef %14, ptr noundef null) #8
+  %14 = load ptr, ptr @testctx, align 8
+  %15 = load ptr, ptr %pkey, align 8
+  %call157 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %14, ptr noundef %15, ptr noundef null) #8
   %call158 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 2272, ptr noundef nonnull @.str.248, ptr noundef %call157) #8
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %done, label %if.end161
@@ -3019,8 +3015,8 @@ if.end189:                                        ; preds = %if.end184
   br i1 %tobool195.not, label %done, label %if.end197
 
 if.end197:                                        ; preds = %if.end189
-  %15 = load i64, ptr %ctext_len, align 8
-  %call200 = call i32 @EVP_PKEY_decrypt(ptr noundef %call157, ptr noundef nonnull %plaintext, ptr noundef nonnull %ptext_len, ptr noundef nonnull %ciphertext, i64 noundef %15) #8
+  %16 = load i64, ptr %ctext_len, align 8
+  %call200 = call i32 @EVP_PKEY_decrypt(ptr noundef %call157, ptr noundef nonnull %plaintext, ptr noundef nonnull %ptext_len, ptr noundef nonnull %ciphertext, i64 noundef %16) #8
   %call201 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 2292, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.99, i32 noundef %call200, i32 noundef 0) #8
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %done, label %if.end204
@@ -3035,14 +3031,14 @@ if.end204:                                        ; preds = %if.end197
 
 if.end212:                                        ; preds = %if.end204
   call void @EVP_MD_free(ptr noundef %check_md.045) #8
-  %16 = load ptr, ptr @testctx, align 8
-  %call214 = call ptr @EVP_MD_fetch(ptr noundef %16, ptr noundef nonnull %mdname, ptr noundef null) #8
+  %17 = load ptr, ptr @testctx, align 8
+  %call214 = call ptr @EVP_MD_fetch(ptr noundef %17, ptr noundef nonnull %mdname, ptr noundef null) #8
   %call215 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 2304, ptr noundef nonnull @.str.255, ptr noundef %call214) #8
   %tobool216.not = icmp eq i32 %call215, 0
   br i1 %tobool216.not, label %done, label %if.end218
 
 if.end218:                                        ; preds = %if.end212
-  %call221 = call i32 @EVP_MD_is_a(ptr noundef %call214, ptr noundef %12) #8
+  %call221 = call i32 @EVP_MD_is_a(ptr noundef %call214, ptr noundef nonnull %13) #8
   %cmp222 = icmp ne i32 %call221, 0
   %conv223 = zext i1 %cmp222 to i32
   %call224 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2306, ptr noundef nonnull @.str.256, i32 noundef %conv223) #8
@@ -3050,12 +3046,12 @@ if.end218:                                        ; preds = %if.end212
   br i1 %tobool225.not, label %if.then226, label %if.end230
 
 if.then226:                                       ; preds = %if.end218
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.16, i32 noundef 2307, ptr noundef nonnull @.str.257, ptr noundef nonnull %mdname, ptr noundef %12) #8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.16, i32 noundef 2307, ptr noundef nonnull @.str.257, ptr noundef nonnull %mdname, ptr noundef nonnull %13) #8
   br label %done
 
 if.end230:                                        ; preds = %if.end218
-  %17 = load i64, ptr %ptext_len, align 8
-  %cmp231 = icmp eq i64 %17, 4
+  %18 = load i64, ptr %ptext_len, align 8
+  %cmp231 = icmp eq i64 %18, 4
   %conv232 = zext i1 %cmp231 to i32
   %call235 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2311, ptr noundef nonnull @.str.258, i32 noundef %conv232) #8
   %tobool236.not = icmp eq i32 %call235, 0
@@ -3066,13 +3062,12 @@ if.end238:                                        ; preds = %if.end230
   %cmp241 = icmp eq i32 %bcmp, 0
   %conv242 = zext i1 %cmp241 to i32
   %call245 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 2314, ptr noundef nonnull @.str.259, i32 noundef %conv242) #8
-  %tobool246.not = icmp eq i32 %call245, 0
-  %brmerge = or i1 %tobool246.not, %cmp146.not
-  br i1 %brmerge, label %done.loopexit.split.loop.exit, label %for.body
+  %tobool246.not = icmp ne i32 %call245, 0
+  %brmerge.not = and i1 %tobool246.not, %12
+  br i1 %brmerge.not, label %for.body, label %done.loopexit.split.loop.exit
 
 done.loopexit.split.loop.exit:                    ; preds = %if.end238
-  %not.tobool246.not.le = xor i1 %tobool246.not, true
-  %.mux.le = zext i1 %not.tobool246.not.le to i32
+  %.mux.le = zext i1 %tobool246.not to i32
   br label %done
 
 done:                                             ; preds = %done.loopexit.split.loop.exit, %for.body, %if.end161, %if.end168, %if.end176, %if.end184, %if.end189, %if.end197, %if.end204, %if.end212, %if.end230, %if.end139, %if.end132, %if.end127, %if.end120, %if.end115, %if.end108, %if.end102, %if.end95, %if.end88, %if.end83, %if.end76, %if.end69, %if.end64, %if.end57, %if.end52, %if.end47, %if.end42, %if.end37, %if.end30, %if.end25, %if.end20, %if.end13, %if.end8, %if.end, %entry, %if.then226
@@ -3088,10 +3083,10 @@ done:                                             ; preds = %done.loopexit.split
   call void @EVP_PKEY_CTX_free(ptr noundef %kctx.0) #8
   call void @EVP_PKEY_CTX_free(ptr noundef %sctx.0) #8
   call void @EVP_PKEY_CTX_free(ptr noundef %cctx.2) #8
-  %18 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %18) #8
-  %19 = load ptr, ptr %pkeyparams, align 8
+  %19 = load ptr, ptr %pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %19) #8
+  %20 = load ptr, ptr %pkeyparams, align 8
+  call void @EVP_PKEY_free(ptr noundef %20) #8
   call void @EVP_MD_CTX_free(ptr noundef %md_ctx.0) #8
   call void @EVP_MD_CTX_free(ptr noundef %md_ctx_verify.0) #8
   call void @EVP_MD_free(ptr noundef %check_md.2) #8
@@ -5806,9 +5801,9 @@ lor.lhs.false:                                    ; preds = %if.end
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %call7 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %call1) #8
-  %arrayidx9 = getelementptr inbounds [4 x i32], ptr @__const.test_evp_bf_default_keylen.ivlen, i64 0, i64 %idxprom
-  %3 = load i32, ptr %arrayidx9, align 4
-  %call10 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 3637, ptr noundef nonnull @.str.537, ptr noundef nonnull @.str.538, i32 noundef %call7, i32 noundef %3) #8
+  %3 = icmp eq i32 %idx, 0
+  %4 = select i1 %3, i32 0, i32 8
+  %call10 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 3637, ptr noundef nonnull @.str.537, ptr noundef nonnull @.str.538, i32 noundef %call7, i32 noundef %4) #8
   %tobool11.not = icmp ne i32 %call10, 0
   %spec.select = zext i1 %tobool11.not to i32
   br label %err

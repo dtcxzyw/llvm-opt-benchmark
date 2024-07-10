@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [20 x i8] c"  ChaCha20 test %u \00", align 1
 @test_keys = internal unnamed_addr constant [2 x [32 x i8]] [[32 x i8] zeroinitializer, [32 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01"], align 16
 @test_nonces = internal unnamed_addr constant [2 x [12 x i8]] [[12 x i8] zeroinitializer, [12 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\02"], align 16
-@test_counters = internal unnamed_addr constant [2 x i32] [i32 0, i32 1], align 4
-@test_lengths = internal unnamed_addr constant [2 x i64] [i64 64, i64 375], align 16
 @test_input = internal constant [2 x [375 x i8]] [[375 x i8] zeroinitializer, [375 x i8] c"Any submission to the IETF intended by the Contributor for publication as all or part of an IETF Internet-Draft or RFC and any statement made within the context of an IETF activity is considered an \22IETF Contribution\22. Such statements include oral statements in IETF sessions, as well as written and electronic communications made at any time or place, which are addressed to"], align 16
 @test_output = internal constant <{ <{ [64 x i8], [311 x i8] }>, [375 x i8] }> <{ <{ [64 x i8], [311 x i8] }> <{ [64 x i8] c"v\B8\E0\AD\A0\F1=\90@]j\E5S\86\BD(\BD\D2\19\B8\A0\8D\ED\1A\A86\EF\CC\8Bw\0D\C7\DAAY|QWH\8Dw$\E0?\B8\D8J7jC\B8\F4\15\18\A1\1C\C3\87\B6i\B2\EEe\86", [311 x i8] zeroinitializer }>, [375 x i8] c"\A3\FB\F0}\F3\FA/\DEO7l\A2>\82spA`]\9FOOW\BD\8C\FF,\1DKyU\EC*\97\94\8B\D3r)\15\C8\F3\D37\F7\D3p\05\0E\9E\96\D6G\B7\C3\9FV\E01\CA^\B6%\0D@B\E0'\85\EC\EC\FAKK\B5\E8\EA\D0D\0E \B6\E8\DB\09\D8\81\A7\C6\13/B\0ERyPB\BD\FAws\D8\A9\05\14G\B3)\1C\E1A\1Ch\04eU*\A6\C4\05\B7vM^\87\BE\A8Z\D0\0F\84I\ED\8Fr\D0\D6b\AB\05&\91\CAfBK\C8m-\F8\0E\A4\1FC\AB\F97\D3%\9D\C4\B2\D0\DF\B4\8Al\919\DD\D7\F7if\E9(\E65U;\A7l\\\87\9D{5\D4\9E\B2\E6+\08q\CD\ACc\899\E2^\8A\1E\0E\F9\D5(\0F\A8\CA2\8B5\1C<vY\89\CB\CF=\AA\8Bl\CC:\AF\9F9y\C9+7 \FC\88\DC\95\ED\84\A1\BE\05\9Cd\99\B9\FD\A26\E7\E8\18\B0K\0B\C3\9C\1E\87k\19;\FEUiu?\88\12\8C\C0\8A\AA\9Bc\D1\A1o\80\EF%T\D7\18\9CA\1FXi\CAR\C5\B8?\A3o\F2\16\B9\C1\D3\00b\BE\BC\FD-\C5\BC\E0\91\194\FD\A7\9A\86\F6\E6\98\CE\D7Y\C3\FF\9Bdw3\8F=\A4\F9\CD\85\14\EA\99\82\CC\AF\B3A\B28M\D9\02\F3\D1\ABz\C6\1D\D2\9Co!\BA[\86/70\E3|\FD\C4\FD\80l\22\F2!" }>, align 16
 @str = private unnamed_addr constant [16 x i8] c"failed (output)\00", align 1
@@ -550,19 +548,16 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %12 = phi i1 [ true, %1 ], [ false, %.backedge.backedge ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %.backedge.backedge ]
-  br i1 %.not20, label %16, label %13
+  %.pre = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %.not20, label %._crit_edge, label %13
 
 13:                                               ; preds = %.backedge
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
-  br label %16
+  %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre)
+  br label %._crit_edge
 
-16:                                               ; preds = %13, %.backedge
-  %17 = getelementptr inbounds [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
+._crit_edge:                                      ; preds = %.backedge, %13
+  %15 = select i1 %12, i64 64, i64 375
+  %16 = getelementptr inbounds [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -570,50 +565,50 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %2, align 16
   %gep = getelementptr inbounds [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %6, i8 0, i64 28, i1 false)
-  %22 = load i32, ptr %gep, align 4
-  store i32 %22, ptr %7, align 4
-  store i32 %18, ptr %8, align 16
+  %17 = load i32, ptr %gep, align 4
+  store i32 %17, ptr %7, align 4
+  store i32 %.pre, ptr %8, align 16
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 8
   %gep22 = getelementptr inbounds [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
-  %23 = load i32, ptr %gep22, align 4
-  store i32 %23, ptr %11, align 4
+  %18 = load i32, ptr %gep22, align 4
+  store i32 %18, ptr %11, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
   store i64 64, ptr %5, align 16
-  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull readonly %21, ptr noundef nonnull %3)
+  %19 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %15, ptr noundef nonnull readonly %16, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
-  %25 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
-  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %25, i64 %20)
-  %26 = icmp eq i32 %bcmp, 0
-  br i1 %26, label %29, label %27
+  %20 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %3, ptr noundef nonnull dereferenceable(64) %20, i64 %15)
+  %21 = icmp eq i32 %bcmp, 0
+  br i1 %21, label %24, label %22
 
-27:                                               ; preds = %16
-  br i1 %.not20, label %.loopexit, label %28
+22:                                               ; preds = %._crit_edge
+  br i1 %.not20, label %.loopexit, label %23
 
-28:                                               ; preds = %27
+23:                                               ; preds = %22
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-29:                                               ; preds = %16
-  br i1 %.not20, label %30, label %.thread
+24:                                               ; preds = %._crit_edge
+  br i1 %.not20, label %25, label %.thread
 
-30:                                               ; preds = %29
+25:                                               ; preds = %24
   br i1 %12, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %30, %.thread
+.backedge.backedge:                               ; preds = %25, %.thread
   br label %.backedge, !llvm.loop !11
 
-.thread:                                          ; preds = %29
+.thread:                                          ; preds = %24
   %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br i1 %12, label %.backedge.backedge, label %31
+  br i1 %12, label %.backedge.backedge, label %26
 
-31:                                               ; preds = %.thread
+26:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %31, %27, %28
-  %.018 = phi i32 [ -1, %28 ], [ -1, %27 ], [ 0, %31 ], [ 0, %30 ]
+.loopexit:                                        ; preds = %25, %26, %22, %23
+  %.018 = phi i32 [ -1, %23 ], [ -1, %22 ], [ 0, %26 ], [ 0, %25 ]
   ret i32 %.018
 }
 

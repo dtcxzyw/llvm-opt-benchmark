@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_regexp_options_t = type { [24 x i8] }
 %struct.pm_string_t = type { ptr, i64, i32 }
 
-@switch.table.pm_regexp_parse_quantifier = private unnamed_addr constant [14 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
-
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @pm_regexp_named_capture_group_names(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pm_regexp_parser_t, align 8
@@ -598,9 +596,8 @@ switch.hole_check:                                ; preds = %13
   br i1 %switch.lobit, label %switch.lookup, label %.sink.split
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.pm_regexp_parse_quantifier, i64 0, i64 %23
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %23 = icmp eq i8 %switch.tableidx, 0
+  %switch.load = select i1 %23, i32 3, i32 1
   br label %24
 
 24:                                               ; preds = %switch.lookup, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %19, %16, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15

@@ -98,9 +98,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.72 = private unnamed_addr constant [67 x i8] c"PKCS12_parse(p12_parsed, \22pass\22, &pkey_parsed, &cert_parsed, NULL)\00", align 1
 @.str.73 = private unnamed_addr constant [9 x i8] c"new_pass\00", align 1
 @.str.74 = private unnamed_addr constant [14 x i8] c"p12_recreated\00", align 1
-@passwords = internal unnamed_addr constant [2 x ptr] [ptr @.str.47, ptr @.str.75], align 16
 @.str.75 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@iters = internal unnamed_addr constant [2 x i32] [i32 1, i32 1000], align 4
 @.str.76 = private unnamed_addr constant [14 x i8] c"1keyattrs.p12\00", align 1
 @mac_nids = internal unnamed_addr constant [6 x i32] [i32 64, i32 4, i32 672, i32 674, i32 1097, i32 1099], align 16
 @.str.77 = private unnamed_addr constant [25 x i8] c"1cert_mac-%s_iter-%d.p12\00", align 1
@@ -524,11 +522,10 @@ define internal i32 @test_single_key_enc_pass(i32 noundef %z) #1 {
 entry:
   %enc = alloca %struct.pkcs12_enc, align 8
   store i32 146, ptr %enc, align 8
-  %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
+  %0 = icmp eq i32 %z, 0
+  %1 = select i1 %0, ptr @.str.47, ptr @.str.75
   %pass = getelementptr inbounds i8, ptr %enc, i64 8
-  store ptr %0, ptr %pass, align 8
+  store ptr %1, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
@@ -542,11 +539,10 @@ entry:
   store i32 146, ptr %enc, align 8
   %pass = getelementptr inbounds i8, ptr %enc, i64 8
   store ptr @.str.47, ptr %pass, align 8
-  %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
+  %0 = icmp eq i32 %z, 0
+  %1 = select i1 %0, i32 1, i32 1000
   %iter = getelementptr inbounds i8, ptr %enc, i64 16
-  store i32 %0, ptr %iter, align 8
+  store i32 %1, ptr %iter, align 8
   %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
   ret i32 %call
 }
@@ -590,11 +586,10 @@ define internal i32 @test_single_cert_mac_pass(i32 noundef %z) #1 {
 entry:
   %mac = alloca %struct.pkcs12_enc, align 8
   store i32 64, ptr %mac, align 8
-  %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
+  %0 = icmp eq i32 %z, 0
+  %1 = select i1 %0, ptr @.str.47, ptr @.str.75
   %pass = getelementptr inbounds i8, ptr %mac, i64 8
-  store ptr %0, ptr %pass, align 8
+  store ptr %1, ptr %pass, align 8
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
@@ -608,11 +603,10 @@ entry:
   store i32 64, ptr %mac, align 8
   %pass = getelementptr inbounds i8, ptr %mac, i64 8
   store ptr @.str.47, ptr %pass, align 8
-  %idxprom = sext i32 %z to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
+  %0 = icmp eq i32 %z, 0
+  %1 = select i1 %0, i32 1, i32 1000
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
-  store i32 %0, ptr %iter, align 8
+  store i32 %1, ptr %iter, align 8
   %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
   ret i32 %call
 }

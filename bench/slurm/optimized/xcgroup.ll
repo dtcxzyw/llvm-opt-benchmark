@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.xcgroup_get_uint64_param = private unnamed_addr constant [25 x i8] c"xcgroup_get_uint64_param\00", align 1
 @.str.21 = private unnamed_addr constant [12 x i8] c"cpuset.cpus\00", align 1
 @.str.22 = private unnamed_addr constant [12 x i8] c"cpuset.mems\00", align 1
-@__const.xcgroup_cpuset_init.cpuset_metafiles = private unnamed_addr constant [2 x ptr] [ptr @.str.21, ptr @.str.22], align 16
 @.str.23 = private unnamed_addr constant [68 x i8] c"%s: %s: CGROUP: unable to get ancestor path for cpuset cg '%s' : %m\00", align 1
 @__func__.xcgroup_cpuset_init = private unnamed_addr constant [20 x i8] c"xcgroup_cpuset_init\00", align 1
 @.str.24 = private unnamed_addr constant [64 x i8] c"%s: %s: CGROUP: unable to load ancestor for cpuset cg '%s' : %m\00", align 1
@@ -776,7 +775,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
 
 19:                                               ; preds = %10, %13, %16
   call void @slurm_xfree(ptr noundef nonnull %5) #6
-  br label %71
+  br label %70
 
 20:                                               ; preds = %1
   store i8 0, ptr %9, align 1
@@ -804,93 +803,91 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
 
 32:                                               ; preds = %23, %26, %29
   call void @slurm_xfree(ptr noundef nonnull %5) #6
-  br label %71
+  br label %70
 
 33:                                               ; preds = %20
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %34
 
-34:                                               ; preds = %33, %69
-  %35 = phi i1 [ true, %33 ], [ false, %69 ]
-  %indvars.iv = phi i64 [ 0, %33 ], [ 1, %69 ]
-  %36 = getelementptr inbounds [2 x ptr], ptr @__const.xcgroup_cpuset_init.cpuset_metafiles, i64 0, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @common_cgroup_get_param(ptr noundef nonnull %4, ptr noundef %37, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %.not22 = icmp eq i32 %38, 0
-  br i1 %.not22, label %49, label %39
+34:                                               ; preds = %33, %68
+  %35 = phi i1 [ true, %33 ], [ false, %68 ]
+  %36 = select i1 %35, ptr @.str.21, ptr @.str.22
+  %37 = call i32 @common_cgroup_get_param(ptr noundef nonnull %4, ptr noundef nonnull %36, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %.not22 = icmp eq i32 %37, 0
+  br i1 %.not22, label %48, label %38
 
-39:                                               ; preds = %34
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %41 = and i64 %40, 36028797018963968
-  %.not26 = icmp eq i64 %41, 0
-  br i1 %.not26, label %48, label %42
+38:                                               ; preds = %34
+  %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %40 = and i64 %39, 36028797018963968
+  %.not26 = icmp eq i64 %40, 0
+  br i1 %.not26, label %47, label %41
 
-42:                                               ; preds = %39
-  %43 = call i32 @get_log_level() #6
-  %44 = icmp sgt i32 %43, 3
-  br i1 %44, label %45, label %48
+41:                                               ; preds = %38
+  %42 = call i32 @get_log_level() #6
+  %43 = icmp sgt i32 %42, 3
+  br i1 %43, label %44, label %47
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
-  %47 = load ptr, ptr %46, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %47) #6
-  br label %48
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %46 = load ptr, ptr %45, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %46) #6
+  br label %47
 
-48:                                               ; preds = %39, %42, %45
+47:                                               ; preds = %38, %41, %44
   call void @common_cgroup_destroy(ptr noundef nonnull %4) #6
-  br label %71
+  br label %70
 
-49:                                               ; preds = %34
-  %50 = load i64, ptr %3, align 8
-  %.not23 = icmp eq i64 %50, 0
-  br i1 %.not23, label %55, label %51
+48:                                               ; preds = %34
+  %49 = load i64, ptr %3, align 8
+  %.not23 = icmp eq i64 %49, 0
+  br i1 %.not23, label %54, label %50
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr i8, ptr %52, i64 %50
-  %54 = getelementptr i8, ptr %53, i64 -1
-  store i8 0, ptr %54, align 1
-  br label %55
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %2, align 8
+  %52 = getelementptr i8, ptr %51, i64 %49
+  %53 = getelementptr i8, ptr %52, i64 -1
+  store i8 0, ptr %53, align 1
+  br label %54
 
-55:                                               ; preds = %51, %49
-  %56 = load ptr, ptr %2, align 8
-  %57 = call i32 @common_cgroup_set_param(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %56) #6
-  %.not24 = icmp eq i32 %57, 0
-  br i1 %.not24, label %69, label %58
+54:                                               ; preds = %50, %48
+  %55 = load ptr, ptr %2, align 8
+  %56 = call i32 @common_cgroup_set_param(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %55) #6
+  %.not24 = icmp eq i32 %56, 0
+  br i1 %.not24, label %68, label %57
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %60 = and i64 %59, 36028797018963968
-  %.not25 = icmp eq i64 %60, 0
-  br i1 %.not25, label %68, label %61
+57:                                               ; preds = %54
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %59 = and i64 %58, 36028797018963968
+  %.not25 = icmp eq i64 %59, 0
+  br i1 %.not25, label %67, label %60
 
-61:                                               ; preds = %58
-  %62 = call i32 @get_log_level() #6
-  %63 = icmp sgt i32 %62, 3
-  br i1 %63, label %64, label %68
+60:                                               ; preds = %57
+  %61 = call i32 @get_log_level() #6
+  %62 = icmp sgt i32 %61, 3
+  br i1 %62, label %63, label %67
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
-  %67 = load ptr, ptr %66, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %37, ptr noundef %65, ptr noundef %67) #6
-  br label %68
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef nonnull %36, ptr noundef %64, ptr noundef %66) #6
+  br label %67
 
-68:                                               ; preds = %58, %61, %64
+67:                                               ; preds = %57, %60, %63
   call void @common_cgroup_destroy(ptr noundef nonnull %4) #6
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  br label %71
+  br label %70
 
-69:                                               ; preds = %55
+68:                                               ; preds = %54
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  br i1 %35, label %34, label %70, !llvm.loop !11
+  br i1 %35, label %34, label %69, !llvm.loop !11
 
-70:                                               ; preds = %69
+69:                                               ; preds = %68
   call void @common_cgroup_destroy(ptr noundef nonnull %4) #6
-  br label %71
+  br label %70
 
-71:                                               ; preds = %70, %68, %48, %32, %19
-  %.017 = phi i32 [ -1, %32 ], [ -1, %48 ], [ -1, %68 ], [ 0, %70 ], [ -1, %19 ]
+70:                                               ; preds = %69, %67, %47, %32, %19
+  %.017 = phi i32 [ -1, %32 ], [ -1, %47 ], [ -1, %67 ], [ 0, %69 ], [ -1, %19 ]
   ret i32 %.017
 }
 

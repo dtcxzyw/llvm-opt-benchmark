@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 @ossl_evp_pkey_type = constant %struct.rb_data_type_struct { ptr @.str, %struct.anon { ptr null, ptr @ossl_evp_pkey_free, ptr null, ptr null, [1 x ptr] zeroinitializer }, ptr null, ptr null, i64 33 }, align 8
 @.str.1 = private unnamed_addr constant [4 x i8] c"DER\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"PEM\00", align 1
-@__const.ossl_pkey_read_generic.input_types = private unnamed_addr constant [2 x ptr] [ptr @.str.1, ptr @.str.2], align 16
 @__const.ossl_pkey_read_generic.selections = private unnamed_addr constant [3 x i32] [i32 135, i32 132, i32 134], align 4
 @ePKeyError = local_unnamed_addr global i64 0, align 8
 @.str.3 = private unnamed_addr constant [19 x i8] c"parameters missing\00", align 1
@@ -200,73 +199,71 @@ define ptr @ossl_pkey_read_generic(ptr noundef %0, i64 noundef %1) local_unnamed
   %4 = inttoptr i64 %1 to ptr
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %28
-  %5 = phi i1 [ true, %2 ], [ false, %28 ]
-  %indvars.iv21 = phi i64 [ 0, %2 ], [ 1, %28 ]
-  %6 = getelementptr inbounds [2 x ptr], ptr @__const.ossl_pkey_read_generic.input_types, i64 0, i64 %indvars.iv21
-  %7 = load ptr, ptr %6, align 8
-  br label %9
+.preheader:                                       ; preds = %2, %27
+  %5 = phi i1 [ true, %2 ], [ false, %27 ]
+  %6 = select i1 %5, ptr @.str.1, ptr @.str.2
+  br label %8
 
-8:                                                ; preds = %ossl_pkey_read.exit
+7:                                                ; preds = %ossl_pkey_read.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %9, !llvm.loop !6
+  br i1 %exitcond.not, label %27, label %8, !llvm.loop !6
 
-9:                                                ; preds = %.preheader, %8
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds [3 x i32], ptr @__const.ossl_pkey_read_generic.selections, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4
+8:                                                ; preds = %.preheader, %7
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
+  %9 = getelementptr inbounds [3 x i32], ptr @__const.ossl_pkey_read_generic.selections, i64 0, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %12 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %3, ptr noundef %7, ptr noundef null, ptr noundef null, i32 noundef %11, ptr noundef null, ptr noundef null) #8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %ossl_pkey_read.exit, label %13
+  %11 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef %10, ptr noundef null, ptr noundef null) #8
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %ossl_pkey_read.exit, label %12
 
-13:                                               ; preds = %9
-  %14 = call i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef nonnull %12, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %4) #8
-  %.not17.i = icmp eq i32 %14, 1
+12:                                               ; preds = %8
+  %13 = call i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef nonnull %11, ptr noundef nonnull @ossl_pem_passwd_cb, ptr noundef %4) #8
+  %.not17.i = icmp eq i32 %13, 1
   br i1 %.not17.i, label %.preheader.i, label %ossl_pkey_read.exit
 
-.preheader.i:                                     ; preds = %13
-  %15 = call i32 @OSSL_DECODER_from_bio(ptr noundef nonnull %12, ptr noundef %0) #8
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %ossl_pkey_read.exit, label %.lr.ph.i
+.preheader.i:                                     ; preds = %12
+  %14 = call i32 @OSSL_DECODER_from_bio(ptr noundef nonnull %11, ptr noundef %0) #8
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %ossl_pkey_read.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %23
-  %.020.i = phi i32 [ %21, %23 ], [ 0, %.preheader.i ]
-  %17 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
-  %18 = and i64 %17, 4294967295
-  %.not18.i = icmp eq i64 %18, 0
-  br i1 %.not18.i, label %19, label %ossl_pkey_read.exit
+.lr.ph.i:                                         ; preds = %.preheader.i, %22
+  %.020.i = phi i32 [ %20, %22 ], [ 0, %.preheader.i ]
+  %16 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
+  %17 = and i64 %16, 4294967295
+  %.not18.i = icmp eq i64 %17, 0
+  br i1 %.not18.i, label %18, label %ossl_pkey_read.exit
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 133, i64 noundef 0, ptr noundef null) #8
-  %21 = trunc i64 %20 to i32
-  %22 = icmp sgt i32 %21, -1
-  %.not19.i = icmp slt i32 %.020.i, %21
-  %or.cond.i = and i1 %22, %.not19.i
-  br i1 %or.cond.i, label %23, label %ossl_pkey_read.exit
+18:                                               ; preds = %.lr.ph.i
+  %19 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 133, i64 noundef 0, ptr noundef null) #8
+  %20 = trunc i64 %19 to i32
+  %21 = icmp sgt i32 %20, -1
+  %.not19.i = icmp slt i32 %.020.i, %20
+  %or.cond.i = and i1 %21, %.not19.i
+  br i1 %or.cond.i, label %22, label %ossl_pkey_read.exit
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   call void @ossl_clear_error() #8
-  %24 = call i32 @OSSL_DECODER_from_bio(ptr noundef nonnull %12, ptr noundef %0) #8
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %ossl_pkey_read.exit, label %.lr.ph.i
+  %23 = call i32 @OSSL_DECODER_from_bio(ptr noundef nonnull %11, ptr noundef %0) #8
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %ossl_pkey_read.exit, label %.lr.ph.i
 
-ossl_pkey_read.exit:                              ; preds = %.lr.ph.i, %19, %23, %9, %13, %.preheader.i
-  %26 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
+ossl_pkey_read.exit:                              ; preds = %.lr.ph.i, %18, %22, %8, %12, %.preheader.i
+  %25 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
   call void @ossl_clear_error() #8
-  call void @OSSL_DECODER_CTX_free(ptr noundef %12) #8
-  %27 = load ptr, ptr %3, align 8
+  call void @OSSL_DECODER_CTX_free(ptr noundef %11) #8
+  %26 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %8, label %.loopexit
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %7, label %.loopexit
 
-28:                                               ; preds = %8
+27:                                               ; preds = %7
   br i1 %5, label %.preheader, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %28, %ossl_pkey_read.exit
-  ret ptr %27
+.loopexit:                                        ; preds = %27, %ossl_pkey_read.exit
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable

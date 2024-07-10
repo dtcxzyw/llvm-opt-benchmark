@@ -709,8 +709,6 @@ $_ZTISt4pairIfS_ISt10shared_ptrIN5Eigen14SimplicialLDLTINS1_12SparseMatrixIdLi0E
 @.str.54 = private unnamed_addr constant [11 x i8] c"Euler Step\00", align 1
 @.str.55 = private unnamed_addr constant [86 x i8] c"Multiplier used in backward Euler timestep. Changing this value will reset the cache.\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_geodesic.cpp, ptr null }]
-@switch.table._ZThn16_N14FilterGeodesic15getRequirementsEPK7QAction = private unnamed_addr constant [4 x i32] [i32 64, i32 64, i32 64, i32 262208], align 4
-@switch.table._ZThn16_NK14FilterGeodesic13postConditionEPK7QAction = private unnamed_addr constant [4 x i32] [i32 24, i32 24, i32 24, i32 65560], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -2188,36 +2186,23 @@ define noundef range(i32 0, 262209) i32 @_ZN14FilterGeodesic15getRequirementsEPK
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %8 = icmp ult i32 %7, 4
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_N14FilterGeodesic15getRequirementsEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
+  %9 = icmp eq i32 %7, 3
+  %switch.load = select i1 %9, i32 262208, i32 64
+  %.0 = select i1 %8, i32 %switch.load, i32 0
   ret i32 %.0
 }
 
 ; Function Attrs: uwtable
 define noundef range(i32 0, 262209) i32 @_ZThn16_N14FilterGeodesic15getRequirementsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 4
-  br i1 %7, label %switch.lookup, label %_ZN14FilterGeodesic15getRequirementsEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_N14FilterGeodesic15getRequirementsEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN14FilterGeodesic15getRequirementsEPK7QAction.exit
-
-_ZN14FilterGeodesic15getRequirementsEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
+_ZN14FilterGeodesic15getRequirementsEPK7QAction.exit:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
+  %6 = icmp ult i32 %5, 4
+  %7 = icmp eq i32 %5, 3
+  %switch.load = select i1 %7, i32 262208, i32 64
+  %.0.i = select i1 %6, i32 %switch.load, i32 0
   ret i32 %.0.i
 }
 
@@ -29196,36 +29181,23 @@ define noundef range(i32 -1, 65561) i32 @_ZNK14FilterGeodesic13postConditionEPK7
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %8 = icmp ult i32 %7, 4
-  br i1 %8, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_NK14FilterGeodesic13postConditionEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
-
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ -1, %2 ]
+  %9 = icmp eq i32 %7, 3
+  %switch.load = select i1 %9, i32 65560, i32 24
+  %.0 = select i1 %8, i32 %switch.load, i32 -1
   ret i32 %.0
 }
 
 ; Function Attrs: uwtable
 define noundef range(i32 -1, 65561) i32 @_ZThn16_NK14FilterGeodesic13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 4
-  br i1 %7, label %switch.lookup, label %_ZNK14FilterGeodesic13postConditionEPK7QAction.exit
-
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZThn16_NK14FilterGeodesic13postConditionEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK14FilterGeodesic13postConditionEPK7QAction.exit
-
-_ZNK14FilterGeodesic13postConditionEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %2 ]
+_ZNK14FilterGeodesic13postConditionEPK7QAction.exit:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
+  %6 = icmp ult i32 %5, 4
+  %7 = icmp eq i32 %5, 3
+  %switch.load = select i1 %7, i32 65560, i32 24
+  %.0.i = select i1 %6, i32 %switch.load, i32 -1
   ret i32 %.0.i
 }
 

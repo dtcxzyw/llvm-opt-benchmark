@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/reoApi.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@switch.table.Extra_ReorderSetMinimizationType = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 0], align 4
-@switch.table.Extra_ReorderSetMinimizationType.1 = private unnamed_addr constant [3 x i32] [i32 0, i32 0, i32 1], align 4
-
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Extra_ReorderInit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(288) ptr @calloc(i64 1, i64 288)
@@ -181,12 +178,10 @@ define void @Extra_ReorderSetMinimizationType(ptr nocapture noundef writeonly %0
   br i1 %3, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Extra_ReorderSetMinimizationType, i64 0, i64 %4
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [3 x i32], ptr @switch.table.Extra_ReorderSetMinimizationType.1, i64 0, i64 %5
-  %switch.load11 = load i32, ptr %switch.gep10, align 4
+  %4 = icmp eq i32 %1, 1
+  %switch.load = zext i1 %4 to i32
+  %5 = icmp eq i32 %1, 2
+  %switch.load11 = zext i1 %5 to i32
   store i32 %switch.load, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %switch.load11, ptr %6, align 4

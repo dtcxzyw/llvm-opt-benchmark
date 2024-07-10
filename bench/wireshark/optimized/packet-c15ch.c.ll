@@ -3899,8 +3899,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2939 = private unnamed_addr constant [11 x i8] c"Type: ISUP\00", align 1
 @.str.2940 = private unnamed_addr constant [16 x i8] c", Local SSN: %s\00", align 1
 @.str.2941 = private unnamed_addr constant [15 x i8] c"Type: CLLI, %s\00", align 1
-@switch.table.dissect_c15ch_echo_cancel.2 = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 1], align 4
-@switch.table.dissect_c15ch_echo_cancel.3 = private unnamed_addr constant [3 x i32] [i32 1, i32 1, i32 0], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_c15ch_hbeat() local_unnamed_addr #0 {
@@ -6270,101 +6268,85 @@ define internal i32 @dissect_c15ch_echo_cancel(ptr noundef %0, ptr nocapture nou
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #3
   %7 = icmp ult i8 %5, 3
-  br i1 %7, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %4
-  %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = zext nneg i8 %5 to i64
-  %switch.gep63 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %9
-  %switch.load64 = load i32, ptr %switch.gep63, align 4
-  br label %10
-
-10:                                               ; preds = %4, %switch.lookup
-  %.060 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %4 ]
-  %.058 = phi i32 [ %switch.load64, %switch.lookup ], [ 2, %4 ]
-  %11 = icmp ult i8 %6, 3
-  br i1 %11, label %switch.lookup65, label %14
-
-switch.lookup65:                                  ; preds = %10
-  %12 = zext nneg i8 %6 to i64
-  %switch.gep66 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 0, i64 %12
-  %switch.load67 = load i32, ptr %switch.gep66, align 4
-  %13 = zext nneg i8 %6 to i64
-  %switch.gep68 = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 0, i64 %13
-  %switch.load69 = load i32, ptr %switch.gep68, align 4
-  br label %14
-
-14:                                               ; preds = %10, %switch.lookup65
-  %.059 = phi i32 [ %switch.load67, %switch.lookup65 ], [ 2, %10 ]
-  %.0 = phi i32 [ %switch.load69, %switch.lookup65 ], [ 2, %10 ]
+  %8 = icmp ne i8 %5, 0
+  %switch.load = zext i1 %8 to i32
+  %9 = icmp ne i8 %5, 2
+  %switch.load64 = zext i1 %9 to i32
+  %.060 = select i1 %7, i32 %switch.load, i32 2
+  %.058 = select i1 %7, i32 %switch.load64, i32 2
+  %10 = icmp ult i8 %6, 3
+  %11 = icmp ne i8 %6, 0
+  %switch.load67 = zext i1 %11 to i32
+  %12 = icmp ne i8 %6, 2
+  %switch.load69 = zext i1 %12 to i32
+  %.059 = select i1 %10, i32 %switch.load67, i32 2
+  %.0 = select i1 %10, i32 %switch.load69, i32 2
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %68, label %15
+  br i1 %.not, label %66, label %13
 
-15:                                               ; preds = %14
-  %16 = load i32, ptr @hf_c15ch_echo_cancel, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 31, i32 noundef 0) #3
-  %18 = load i32, ptr @ett_c15ch_second_level, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
-  %20 = load i32, ptr @hf_c15ch_echo_cancel_ni_tn, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #3
-  %22 = load i32, ptr @ett_c15ch_second_level_sub1, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #3
-  %24 = load i32, ptr @hf_c15ch_echo_cancel_ni, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
-  %26 = load i32, ptr @hf_c15ch_echo_cancel_tn, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #3
-  %.not62 = icmp eq i8 %28, 0
-  br i1 %.not62, label %32, label %29
+13:                                               ; preds = %4
+  %14 = load i32, ptr @hf_c15ch_echo_cancel, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 31, i32 noundef 0) #3
+  %16 = load i32, ptr @ett_c15ch_second_level, align 4
+  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
+  %18 = load i32, ptr @hf_c15ch_echo_cancel_ni_tn, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #3
+  %20 = load i32, ptr @ett_c15ch_second_level_sub1, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #3
+  %22 = load i32, ptr @hf_c15ch_echo_cancel_ni, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
+  %24 = load i32, ptr @hf_c15ch_echo_cancel_tn, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
+  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #3
+  %.not62 = icmp eq i8 %26, 0
+  br i1 %.not62, label %30, label %27
 
-29:                                               ; preds = %15
-  %30 = load i32, ptr @hf_c15ch_echo_cancel_tone_id, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %30, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #3
-  br label %32
+27:                                               ; preds = %13
+  %28 = load i32, ptr @hf_c15ch_echo_cancel_tone_id, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %28, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef 0) #3
+  br label %30
 
-32:                                               ; preds = %29, %15
-  %33 = load i32, ptr @hf_c15ch_echo_cancel_old_l2_mode, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %33, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #3
-  %35 = load i32, ptr @ett_c15ch_second_level_sub2, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #3
-  %37 = load i32, ptr @hf_c15ch_echo_cancel_old_channel_mode, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.060) #3
-  %39 = load i32, ptr @hf_c15ch_echo_cancel_old_ecan_mode, align 4
-  %40 = tail call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.058) #3
-  %41 = load i32, ptr @hf_c15ch_echo_cancel_new_l2_mode, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %41, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #3
-  %43 = load i32, ptr @ett_c15ch_second_level_sub3, align 4
-  %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #3
-  %45 = load i32, ptr @hf_c15ch_echo_cancel_new_channel_mode, align 4
-  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %.059) #3
-  %47 = load i32, ptr @hf_c15ch_echo_cancel_new_ecan_mode, align 4
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %44, i32 noundef %47, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %.0) #3
-  %49 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 15) #3
-  %50 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 19) #3
-  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 23) #3
-  %52 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 27) #3
-  %53 = getelementptr inbounds i8, ptr %1, i64 408
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %54, ptr noundef nonnull @.str.2924, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52) #3
-  %56 = load i32, ptr @hf_c15ch_echo_cancel_location, align 4
-  %57 = tail call ptr @proto_tree_add_string(ptr noundef %19, i32 noundef %56, ptr noundef %0, i32 noundef 15, i32 noundef 17, ptr noundef %55) #3
-  %58 = load i32, ptr @ett_c15ch_second_level_sub4, align 4
-  %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #3
-  %60 = load i32, ptr @hf_c15ch_echo_cancel_pm, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef 0) #3
-  %62 = load i32, ptr @hf_c15ch_echo_cancel_pc, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %62, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0) #3
-  %64 = load i32, ptr @hf_c15ch_echo_cancel_loop, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %64, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #3
-  %66 = load i32, ptr @hf_c15ch_echo_cancel_slot, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %66, ptr noundef %0, i32 noundef 27, i32 noundef 4, i32 noundef 0) #3
-  br label %68
+30:                                               ; preds = %27, %13
+  %31 = load i32, ptr @hf_c15ch_echo_cancel_old_l2_mode, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %31, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #3
+  %33 = load i32, ptr @ett_c15ch_second_level_sub2, align 4
+  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #3
+  %35 = load i32, ptr @hf_c15ch_echo_cancel_old_channel_mode, align 4
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.060) #3
+  %37 = load i32, ptr @hf_c15ch_echo_cancel_old_ecan_mode, align 4
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %37, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.058) #3
+  %39 = load i32, ptr @hf_c15ch_echo_cancel_new_l2_mode, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %39, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #3
+  %41 = load i32, ptr @ett_c15ch_second_level_sub3, align 4
+  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #3
+  %43 = load i32, ptr @hf_c15ch_echo_cancel_new_channel_mode, align 4
+  %44 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %.059) #3
+  %45 = load i32, ptr @hf_c15ch_echo_cancel_new_ecan_mode, align 4
+  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %.0) #3
+  %47 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 15) #3
+  %48 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 19) #3
+  %49 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 23) #3
+  %50 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 27) #3
+  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.2924, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %50) #3
+  %54 = load i32, ptr @hf_c15ch_echo_cancel_location, align 4
+  %55 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %54, ptr noundef %0, i32 noundef 15, i32 noundef 17, ptr noundef %53) #3
+  %56 = load i32, ptr @ett_c15ch_second_level_sub4, align 4
+  %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56) #3
+  %58 = load i32, ptr @hf_c15ch_echo_cancel_pm, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef 0) #3
+  %60 = load i32, ptr @hf_c15ch_echo_cancel_pc, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0) #3
+  %62 = load i32, ptr @hf_c15ch_echo_cancel_loop, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %62, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #3
+  %64 = load i32, ptr @hf_c15ch_echo_cancel_slot, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %64, ptr noundef %0, i32 noundef 27, i32 noundef 4, i32 noundef 0) #3
+  br label %66
 
-68:                                               ; preds = %32, %14
-  %69 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  ret i32 %69
+66:                                               ; preds = %30, %4
+  %67 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable

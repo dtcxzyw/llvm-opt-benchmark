@@ -656,10 +656,6 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 
 $_ZZN4Luau5visitIZNS_15TypeStringifier9stringifyEPKNS_4TypeEEUlOT_E_JNS_9Unifiable5BoundIS4_EENS8_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaS6_RKNS_7VariantIJDpT0_EEEE10tableVisit = comdat any
 
-$_ZZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEC1ERKS3_E5table = comdat any
-
-$_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE = comdat any
-
 $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 
 $_ZN4Luau6FValueIiE4listE = comdat any
@@ -893,8 +889,6 @@ $_ZTVN4Luau23RecursionLimitExceptionE = comdat any
 @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit" = internal unnamed_addr constant [20 x ptr] [ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"], align 16
 @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit" = internal unnamed_addr constant [8 x ptr] [ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_4TypeERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"], align 16
 @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0JNS_9Unifiable5BoundIPKNS_4TypeEEENS7_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit" = internal unnamed_addr constant [20 x ptr] [ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5BoundIPKNS_4TypeEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8FreeTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11GenericTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13PrimitiveTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13SingletonTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11BlockedTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_20PendingExpansionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12FunctionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9TableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_13MetatableTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9ClassTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_7AnyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9UnionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_16IntersectionTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_8LazyTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_11UnknownTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_9NeverTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_12NegationTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_0KNS_22TypeFamilyInstanceTypeEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"], align 16
-@_ZZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEC1ERKS3_E5table = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS1_EEvPvPKv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS2_EEvPvPKv], comdat, align 16
-@_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv], comdat, align 16
 @"_ZZN4Luau5visitIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1JNS_9Unifiable5BoundIS3_EENS7_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit" = internal unnamed_addr constant [8 x ptr] [ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5BoundIS3_EEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_9Unifiable5ErrorEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_12FreeTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15GenericTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_8TypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_16VariadicTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_15BlockedTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE", ptr @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEE3$_1KNS_26TypeFamilyInstanceTypePackEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"], align 16
 @_ZZN4LuauL11dumpOptionsEvE4opts = internal global %"struct.Luau::ToStringOptions" zeroinitializer, align 8
 @_ZGVZN4LuauL11dumpOptionsEvE4opts = internal global i64 0, align 8
@@ -20198,55 +20192,52 @@ define internal void @"_ZN4LuauL8fnVisitVIZNS_16toStringDetailedEPKNS_11TypePack
   %3 = alloca %"struct.Luau::SingletonType", align 8
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEEC1ERKS3_E5table, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  call void %7(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %5 = icmp eq i32 %4, 0
+  %6 = select i1 %5, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS1_EEvPvPKv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS2_EEvPvPKv
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  call void %6(ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.val = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val3 = load ptr, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val3 = load ptr, ptr %9, align 8
   invoke void @_ZN4Luau15TypeStringifierclEPKNS_4TypeERKNS_13SingletonTypeE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef %.val3, ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %"_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit" unwind label %18
+          to label %"_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit" unwind label %16
 
 "_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit": ; preds = %2
-  %11 = load i32, ptr %3, align 8
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr noundef nonnull %8)
-          to label %_ZN4Luau13SingletonTypeD2Ev.exit unwind label %15
+  %10 = load i32, ptr %3, align 8
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv
+  invoke void %12(ptr noundef nonnull %7)
+          to label %_ZN4Luau13SingletonTypeD2Ev.exit unwind label %13
 
-15:                                               ; preds = %"_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit"
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %"_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit"
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #24
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #24
   unreachable
 
 _ZN4Luau13SingletonTypeD2Ev.exit:                 ; preds = %"_ZZN4Luau16toStringDetailedEPKNS_11TypePackVarERNS_15ToStringOptionsEENK3$_0clINS_13SingletonTypeEEEDaT_.exit"
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %20 = load i32, ptr %3, align 8
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull %8)
-          to label %_ZN4Luau13SingletonTypeD2Ev.exit4 unwind label %24
+  %18 = load i32, ptr %3, align 8
+  %19 = icmp eq i32 %18, 0
+  %20 = select i1 %19, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv, ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv
+  invoke void %20(ptr noundef nonnull %7)
+          to label %_ZN4Luau13SingletonTypeD2Ev.exit4 unwind label %21
 
-24:                                               ; preds = %18
-  %25 = landingpad { ptr, i32 }
+21:                                               ; preds = %16
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #24
   unreachable
 
-_ZN4Luau13SingletonTypeD2Ev.exit4:                ; preds = %18
-  resume { ptr, i32 } %19
+_ZN4Luau13SingletonTypeD2Ev.exit4:                ; preds = %16
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20907,25 +20898,25 @@ _ZN4Luau22TypeFamilyInstanceTypeD2Ev.exit:        ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS1_EEvPvPKv(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS1_EEvPvPKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS2_EEvPvPKv(ptr noundef %0, ptr noundef %1) #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnCopyIS2_EEvPvPKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv(ptr noundef %0) #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS1_EEvPv(ptr noundef %0) local_unnamed_addr #2 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv(ptr noundef %0) #2 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE6fnDtorIS2_EEvPv(ptr noundef %0) local_unnamed_addr #2 comdat align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   ret void
 }

@@ -182,7 +182,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.116 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.117 = private unnamed_addr constant [2 x i8] c"*\00", align 1
 @.str.118 = private unnamed_addr constant [5 x i8] c"-::*\00", align 1
-@__const.rewriteConfigBindOption.default_bindaddr = private unnamed_addr constant [2 x ptr] [ptr @.str.117, ptr @.str.118], align 16
 @.str.119 = private unnamed_addr constant [3 x i8] c"\22\22\00", align 1
 @modules = external local_unnamed_addr global ptr, align 8
 @.str.120 = private unnamed_addr constant [12 x i8] c"loadmodule \00", align 1
@@ -4083,24 +4082,23 @@ entry:
   br i1 %cmp, label %for.body, label %if.end8
 
 for.cond:                                         ; preds = %for.body
-  br i1 %cmp1, label %for.body, label %if.then7.critedge, !llvm.loop !34
+  br i1 %1, label %for.body, label %if.then7.critedge, !llvm.loop !34
 
 for.body:                                         ; preds = %entry, %for.cond
-  %cmp1 = phi i1 [ false, %for.cond ], [ true, %entry ]
+  %1 = phi i1 [ false, %for.cond ], [ true, %entry ]
   %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds [16 x ptr], ptr getelementptr inbounds (i8, ptr @server, i64 328), i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [2 x ptr], ptr @__const.rewriteConfigBindOption.default_bindaddr, i64 0, i64 %indvars.iv
-  %2 = load ptr, ptr %arrayidx3, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #23
+  %2 = load ptr, ptr %arrayidx, align 8
+  %3 = select i1 %1, ptr @.str.117, ptr @.str.118
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #23
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %for.cond, label %if.end8
 
 if.then7.critedge:                                ; preds = %for.cond
   %call.i = tail call ptr @sdsnew(ptr noundef %name) #24
   %rewritten.i = getelementptr inbounds i8, ptr %state, i64 8
-  %3 = load ptr, ptr %rewritten.i, align 8
-  %call1.i = tail call i32 @dictAdd(ptr noundef %3, ptr noundef %call.i, ptr noundef null) #24
+  %4 = load ptr, ptr %rewritten.i, align 8
+  %call1.i = tail call i32 @dictAdd(ptr noundef %4, ptr noundef %call.i, ptr noundef null) #24
   %cmp.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.not.i, label %return, label %if.then.i
 

@@ -18,7 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"FTP response timeout\00", align 1
 @.str.3 = private unnamed_addr constant [50 x i8] c"FTP response aborted due to select/poll error: %d\00", align 1
 @.str.4 = private unnamed_addr constant [23 x i8] c"We got a 421 - timeout\00", align 1
-@ftp_statemachine.ftpauth = internal unnamed_addr constant [2 x ptr] [ptr @.str.5, ptr @.str.6], align 16
 @.str.5 = private unnamed_addr constant [4 x i8] c"SSL\00", align 1
 @.str.6 = private unnamed_addr constant [4 x i8] c"TLS\00", align 1
 @.str.7 = private unnamed_addr constant [53 x i8] c"Got a %03d ftp-server response when 220 was expected\00", align 1
@@ -155,10 +154,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.130 = private unnamed_addr constant [5 x i8] c"QUIT\00", align 1
 @.str.131 = private unnamed_addr constant [33 x i8] c"Failure sending QUIT command: %s\00", align 1
 @.str.132 = private unnamed_addr constant [7 x i8] c";type=\00", align 1
-@switch.table.ftp_statemachine = private unnamed_addr constant [3 x i32] [i32 1, i32 1, i32 -1], align 4
-@switch.table.ftp_statemachine.4 = private unnamed_addr constant [3 x i32] [i32 0, i32 0, i32 1], align 4
-@switch.table.ftp_statemachine.5 = private unnamed_addr constant [3 x i64] [i64 0, i64 0, i64 1], align 8
-@switch.table.ftp_state_quote = private unnamed_addr constant [3 x i64] [i64 1800, i64 1800, i64 1792], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 28) i32 @ftp_setup_connection(ptr nocapture noundef %data, ptr nocapture noundef %conn) #0 {
@@ -2316,28 +2311,23 @@ sw.default:                                       ; preds = %if.then32
   br label %return
 
 switch.lookup:                                    ; preds = %if.then32
-  %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.ftp_statemachine, i64 0, i64 %12
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %13 = zext nneg i8 %10 to i64
-  %switch.gep274 = getelementptr inbounds [3 x i32], ptr @switch.table.ftp_statemachine.4, i64 0, i64 %13
-  %switch.load275 = load i32, ptr %switch.gep274, align 4
-  %14 = zext nneg i8 %10 to i64
-  %switch.gep276 = getelementptr inbounds [3 x i64], ptr @switch.table.ftp_statemachine.5, i64 0, i64 %14
-  %switch.load277 = load i64, ptr %switch.gep276, align 8
+  %12 = icmp eq i8 %10, 2
+  %switch.load = select i1 %12, i32 -1, i32 1
+  %13 = icmp eq i8 %10, 2
+  %switch.load275 = zext i1 %13 to i32
+  %14 = icmp eq i8 %10, 2
+  %switch.load277 = select i1 %14, ptr @.str.6, ptr @.str.5
   %count237 = getelementptr inbounds i8, ptr %conn, i64 1092
   store i32 %switch.load, ptr %count237, align 4
   %count138 = getelementptr inbounds i8, ptr %conn, i64 1088
   store i32 %switch.load275, ptr %count138, align 8
-  %arrayidx44 = getelementptr inbounds [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %switch.load277
-  %15 = load ptr, ptr %arrayidx44, align 8
-  %call45 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.9, ptr noundef %15) #10
+  %call45 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load277) #10
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then47, label %return
 
 if.then47:                                        ; preds = %switch.lookup
-  %16 = getelementptr i8, ptr %data, i64 32
-  %data.val215 = load ptr, ptr %16, align 8
+  %15 = getelementptr i8, ptr %data, i64 32
+  %data.val215 = load ptr, ptr %15, align 8
   %state.i = getelementptr inbounds i8, ptr %data.val215, i64 1102
   store i8 2, ptr %state.i, align 2
   br label %return
@@ -2348,8 +2338,8 @@ if.else49:                                        ; preds = %land.lhs.true, %if.
 
 sw.bb52:                                          ; preds = %if.then8
   %cache_size = getelementptr inbounds i8, ptr %conn, i64 864
-  %17 = load i64, ptr %cache_size, align 8
-  %tobool53.not = icmp eq i64 %17, 0
+  %16 = load i64, ptr %cache_size, align 8
+  %tobool53.not = icmp eq i64 %16, 0
   br i1 %tobool53.not, label %if.end55, label %return
 
 if.end55:                                         ; preds = %sw.bb52
@@ -2383,23 +2373,22 @@ if.then71:                                        ; preds = %if.end68
 
 if.else81:                                        ; preds = %if.end55
   %count382 = getelementptr inbounds i8, ptr %conn, i64 1096
-  %18 = load i32, ptr %count382, align 8
-  %cmp83 = icmp slt i32 %18, 1
+  %17 = load i32, ptr %count382, align 8
+  %cmp83 = icmp slt i32 %17, 1
   br i1 %cmp83, label %if.then85, label %if.else94
 
 if.then85:                                        ; preds = %if.else81
-  %inc = add nsw i32 %18, 1
+  %inc = add nsw i32 %17, 1
   store i32 %inc, ptr %count382, align 8
   %count287 = getelementptr inbounds i8, ptr %conn, i64 1092
-  %19 = load i32, ptr %count287, align 4
+  %18 = load i32, ptr %count287, align 4
   %count188 = getelementptr inbounds i8, ptr %conn, i64 1088
-  %20 = load i32, ptr %count188, align 8
-  %add = add nsw i32 %20, %19
+  %19 = load i32, ptr %count188, align 8
+  %add = add nsw i32 %19, %18
   store i32 %add, ptr %count188, align 8
-  %idxprom91 = sext i32 %add to i64
-  %arrayidx92 = getelementptr inbounds [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %idxprom91
-  %21 = load ptr, ptr %arrayidx92, align 8
-  %call93 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.9, ptr noundef %21) #10
+  %20 = icmp eq i32 %add, 0
+  %21 = select i1 %20, ptr @.str.5, ptr @.str.6
+  %call93 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.9, ptr noundef nonnull %21) #10
   br label %return
 
 if.else94:                                        ; preds = %if.else81
@@ -3243,29 +3232,22 @@ entry:
   %proto = getelementptr inbounds i8, ptr %1, i64 856
   %switch.tableidx = add i8 %instate, -13
   %2 = icmp ult i8 %switch.tableidx, 3
-  br i1 %2, label %switch.lookup, label %sw.epilog
-
-switch.lookup:                                    ; preds = %entry
-  %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.ftp_state_quote, i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %switch.lookup, %entry
-  %.sink93 = phi i64 [ 1784, %entry ], [ %switch.load, %switch.lookup ]
+  %3 = icmp eq i8 %switch.tableidx, 2
+  %switch.load = select i1 %3, i64 1792, i64 1800
+  %.sink93 = select i1 %2, i64 %switch.load, i64 1784
   %postquote = getelementptr inbounds i8, ptr %data, i64 %.sink93
   %item.0 = load ptr, ptr %postquote, align 8
   %count1 = getelementptr inbounds i8, ptr %1, i64 1088
   br i1 %init, label %if.end.thread, label %if.end
 
-if.end:                                           ; preds = %sw.epilog
+if.end:                                           ; preds = %entry
   %4 = load i32, ptr %count1, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %count1, align 8
   %tobool8.not = icmp eq ptr %item.0, null
   br i1 %tobool8.not, label %if.then30, label %while.cond.preheader
 
-if.end.thread:                                    ; preds = %sw.epilog
+if.end.thread:                                    ; preds = %entry
   store i32 0, ptr %count1, align 8
   %tobool8.not88 = icmp eq ptr %item.0, null
   br i1 %tobool8.not88, label %if.then30, label %if.then15

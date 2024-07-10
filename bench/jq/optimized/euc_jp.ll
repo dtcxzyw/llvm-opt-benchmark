@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 @EncLen_EUCJP = internal unnamed_addr constant [256 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1], align 16
 @OnigEncAsciiToLowerCaseTable = external local_unnamed_addr constant [0 x i8], align 1
 @OnigEncAsciiCtypeTable = external local_unnamed_addr constant [0 x i16], align 2
-@PropertyList = internal unnamed_addr constant [2 x ptr] [ptr @CR_Hiragana, ptr @CR_Katakana], align 16
 @CR_Hiragana = internal constant [3 x i32] [i32 1, i32 42145, i32 42227], align 4
 @CR_Katakana = internal constant [7 x i32] [i32 3, i32 42401, i32 42486, i32 43686, i32 43695, i32 43697, i32 43741], align 16
 
@@ -296,36 +295,34 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   br i1 %38, label %code_to_mbclen.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds [2 x ptr], ptr @PropertyList, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @onig_is_in_code_range(ptr noundef %42, i32 noundef %0) #7
+  %40 = icmp eq i32 %37, 0
+  %41 = select i1 %40, ptr @CR_Hiragana, ptr @CR_Katakana
+  %42 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull %41, i32 noundef %0) #7
   br label %code_to_mbclen.exit
 
 code_to_mbclen.exit:                              ; preds = %35, %30, %21, %17, %13, %36, %39, %6
-  %.0 = phi i32 [ %12, %6 ], [ %43, %39 ], [ -6, %36 ], [ 0, %13 ], [ 0, %35 ], [ 1, %21 ], [ 0, %30 ], [ 1, %17 ]
+  %.0 = phi i32 [ %12, %6 ], [ %42, %39 ], [ -6, %36 ], [ 0, %13 ], [ 0, %35 ], [ 1, %21 ], [ 0, %30 ], [ 1, %17 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = icmp ult i32 %0, 15
-  br i1 %4, label %12, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
   store i32 128, ptr %1, align 4
   %6 = add i32 %0, -15
   %7 = icmp ugt i32 %6, 1
-  br i1 %7, label %12, label %8
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds [2 x ptr], ptr @PropertyList, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %2, align 8
-  br label %12
+  %9 = icmp eq i32 %6, 0
+  %10 = select i1 %9, ptr @CR_Hiragana, ptr @CR_Katakana
+  store ptr %10, ptr %2, align 8
+  br label %11
 
-12:                                               ; preds = %5, %3, %8
+11:                                               ; preds = %5, %3, %8
   %.0 = phi i32 [ 0, %8 ], [ -2, %3 ], [ -6, %5 ]
   ret i32 %.0
 }

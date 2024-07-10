@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [79 x i8] c"|           | Clauses Literals |   Limit Clauses Literals  Lit/Cl |          |\00", align 1
 @str.4 = private unnamed_addr constant [79 x i8] c"==============================================================================\00", align 1
 @str.5 = private unnamed_addr constant [65 x i8] c"sat_solver_solve_lexsat(): A satisfying assignment should exist.\00", align 1
-@switch.table.sat_solver_setnvars = private unnamed_addr constant [3 x i64] [i64 1024, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @sat_solver_get_var_value(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1816,9 +1815,8 @@ define void @sat_solver_setnvars(ptr nocapture noundef %0, i32 noundef %1) local
   br i1 %208, label %switch.lookup, label %212
 
 switch.lookup:                                    ; preds = %206
-  %209 = zext nneg i32 %207 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sat_solver_setnvars, i64 0, i64 %209
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %209 = icmp eq i32 %207, 0
+  %switch.load = select i1 %209, i64 1024, i64 0
   %210 = load ptr, ptr %171, align 8
   %211 = getelementptr inbounds i64, ptr %210, i64 %indvars.iv
   store i64 %switch.load, ptr %211, align 8

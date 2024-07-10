@@ -120,7 +120,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.106 = private unnamed_addr constant [66 x i8] c"3mfLe0scas7owSt4AEFuj2SPvcE7yvdOXbu+IEv21cEJUVExJAbhvIweHXh6yRW+\0A\00", align 1
 @.str.107 = private unnamed_addr constant [66 x i8] c"7VVeiNzdIjkZjyTmAzoXGha4+wbxXyBRbfH+XWcO/H+8nwyG8Gktdu2QB9S9nnIp\0A\00", align 1
 @.str.108 = private unnamed_addr constant [22 x i8] c"o/1TpfOMSGhMyMoyPrk=\0A\00", align 1
-@unknown_critical_crls = internal unnamed_addr constant [2 x ptr] [ptr @kUnknownCriticalCRL, ptr @kUnknownCriticalCRL2], align 16
 @.str.109 = private unnamed_addr constant [21 x i8] c"unknown_critical_crl\00", align 1
 @.str.110 = private unnamed_addr constant [96 x i8] c"verify(test_leaf, test_root, make_CRL_stack(unknown_critical_crl, NULL), X509_V_FLAG_CRL_CHECK)\00", align 1
 @.str.111 = private unnamed_addr constant [44 x i8] c"X509_V_ERR_UNHANDLED_CRITICAL_CRL_EXTENSION\00", align 1
@@ -432,14 +431,13 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_unknown_critical_crl(i32 noundef %n) #0 {
 entry:
   %s.i.i = alloca i64, align 8
-  %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @unknown_critical_crls, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
+  %0 = icmp eq i32 %n, 0
+  %1 = select i1 %0, ptr @kUnknownCriticalCRL, ptr @kUnknownCriticalCRL2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i)
   store i64 0, ptr %s.i.i, align 8
-  %call.i.i = call ptr @glue_strings(ptr noundef %0, ptr noundef nonnull %s.i.i) #3
-  %1 = load i64, ptr %s.i.i, align 8
-  %conv.i.i = trunc i64 %1 to i32
+  %call.i.i = call ptr @glue_strings(ptr noundef nonnull %1, ptr noundef nonnull %s.i.i) #3
+  %2 = load i64, ptr %s.i.i, align 8
+  %conv.i.i = trunc i64 %2 to i32
   %call1.i.i = call ptr @BIO_new_mem_buf(ptr noundef %call.i.i, i32 noundef %conv.i.i) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.i.i)
   %cmp.i = icmp eq ptr %call1.i.i, null
@@ -462,19 +460,19 @@ CRL_from_strings.exit:                            ; preds = %if.then.i, %if.end.
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %CRL_from_strings.exit
-  %2 = load ptr, ptr @test_leaf, align 8
-  %3 = load ptr, ptr @test_root, align 8
+  %3 = load ptr, ptr @test_leaf, align 8
+  %4 = load ptr, ptr @test_root, align 8
   %call.i = call ptr @OPENSSL_sk_new_null() #3
   %call3.i = call i32 @OPENSSL_sk_push(ptr noundef %call.i, ptr noundef %retval.0.i) #3
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %retval.0.i) #3
-  %call3 = call fastcc i32 @verify(ptr noundef %2, ptr noundef %3, ptr noundef %call.i)
+  %call3 = call fastcc i32 @verify(ptr noundef %3, ptr noundef %4, ptr noundef %call.i)
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef %call3, i32 noundef 36) #3
   %tobool5 = icmp ne i32 %call4, 0
-  %4 = zext i1 %tobool5 to i32
+  %5 = zext i1 %tobool5 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %CRL_from_strings.exit
-  %land.ext = phi i32 [ 0, %CRL_from_strings.exit ], [ %4, %land.rhs ]
+  %land.ext = phi i32 [ 0, %CRL_from_strings.exit ], [ %5, %land.rhs ]
   call void @X509_CRL_free(ptr noundef %retval.0.i) #3
   ret i32 %land.ext
 }

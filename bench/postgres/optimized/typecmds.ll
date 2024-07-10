@@ -137,10 +137,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.93 = private unnamed_addr constant [22 x i8] c"%s is not a base type\00", align 1
 @.str.94 = private unnamed_addr constant [18 x i8] c"%s is not an enum\00", align 1
 @__func__.checkEnumOwner = private unnamed_addr constant [15 x i8] c"checkEnumOwner\00", align 1
-@makeRangeConstructors.prosrc = internal unnamed_addr constant [2 x ptr] [ptr @.str.95, ptr @.str.96], align 16
 @.str.95 = private unnamed_addr constant [19 x i8] c"range_constructor2\00", align 1
 @.str.96 = private unnamed_addr constant [19 x i8] c"range_constructor3\00", align 1
-@makeRangeConstructors.pronargs = internal unnamed_addr constant [2 x i32] [i32 2, i32 3], align 4
 @.str.97 = private unnamed_addr constant [24 x i8] c"multirange_constructor0\00", align 1
 @.str.98 = private unnamed_addr constant [24 x i8] c"multirange_constructor1\00", align 1
 @.str.99 = private unnamed_addr constant [24 x i8] c"multirange_constructor2\00", align 1
@@ -2691,16 +2689,16 @@ findRangeSubtypeDiffFunction.exit:                ; preds = %204, %207
   %222 = zext i32 %.0139248.lcssa to i64
   %223 = call i32 @GetSysCacheOid(i32 noundef 79, i16 noundef signext 1, i64 noundef %221, i64 noundef %222, i64 noundef 0, i64 noundef 0) #8
   %.not170 = icmp eq i32 %223, 0
-  br i1 %.not170, label %237, label %224
+  br i1 %.not170, label %makeRangeConstructors.exit.critedge, label %224
 
 224:                                              ; preds = %220
   %225 = call zeroext i1 @get_typisdefined(i32 noundef %223) #8
-  br i1 %225, label %226, label %237
+  br i1 %225, label %226, label %makeRangeConstructors.exit.critedge
 
 226:                                              ; preds = %224
   %227 = load ptr, ptr %15, align 8
   %228 = call zeroext i1 @moveArrayTypeName(i32 noundef %223, ptr noundef %227, i32 noundef %.0139248.lcssa) #8
-  br i1 %228, label %237, label %229
+  br i1 %228, label %makeRangeConstructors.exit.critedge, label %229
 
 229:                                              ; preds = %226
   %230 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2715,64 +2713,59 @@ findRangeSubtypeDiffFunction.exit:                ; preds = %204, %207
   %235 = load ptr, ptr %14, align 8
   %236 = call ptr @makeMultirangeTypeName(ptr noundef %235, i32 noundef %21) #8
   store ptr %236, ptr %15, align 8
-  br label %237
+  br label %makeRangeConstructors.exit.critedge
 
-237:                                              ; preds = %220, %224, %226, %234
+makeRangeConstructors.exit.critedge:              ; preds = %220, %224, %226, %234
   %.2 = phi i32 [ %.0139248.lcssa, %226 ], [ %.0139248.lcssa, %224 ], [ %.0139248.lcssa, %220 ], [ %21, %234 ]
   %.fca.0.extract24 = extractvalue { i64, i32 } %218, 0
   %.sroa.2138.0.extract.shift = lshr i64 %.fca.0.extract24, 32
   %.sroa.2138.0.extract.trunc = trunc nuw i64 %.sroa.2138.0.extract.shift to i32
-  %238 = load ptr, ptr %15, align 8
-  %239 = call i32 @GetUserId() #8
-  %240 = call { i64, i32 } @TypeCreate(i32 noundef %214, ptr noundef %238, i32 noundef %.2, i32 noundef 0, i8 noundef signext 0, i32 noundef %239, i16 noundef signext -1, i8 noundef signext 109, i8 noundef signext 82, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 4231, i32 noundef 4232, i32 noundef 4233, i32 noundef 4234, i32 noundef 0, i32 noundef 0, i32 noundef 4242, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %215, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
+  %237 = load ptr, ptr %15, align 8
+  %238 = call i32 @GetUserId() #8
+  %239 = call { i64, i32 } @TypeCreate(i32 noundef %214, ptr noundef %237, i32 noundef %.2, i32 noundef 0, i8 noundef signext 0, i32 noundef %238, i16 noundef signext -1, i8 noundef signext 109, i8 noundef signext 82, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 4231, i32 noundef 4232, i32 noundef 4233, i32 noundef 4234, i32 noundef 0, i32 noundef 0, i32 noundef 4242, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %215, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
   call void @RangeCreate(i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef %.0140247.lcssa, i32 noundef %.0150, i32 noundef %.0.i, i32 noundef %.0151, i32 noundef %.0152, i32 noundef %214) #8
-  %241 = load ptr, ptr %14, align 8
-  %242 = call ptr @makeArrayTypeName(ptr noundef %241, i32 noundef %21) #8
-  %243 = call i32 @GetUserId() #8
-  %244 = call { i64, i32 } @TypeCreate(i32 noundef %213, ptr noundef %242, i32 noundef %21, i32 noundef 0, i8 noundef signext 0, i32 noundef %243, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2138.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
-  call void @pfree(ptr noundef %242) #8
-  %245 = load ptr, ptr %15, align 8
-  %246 = call ptr @makeArrayTypeName(ptr noundef %245, i32 noundef %21) #8
-  %247 = call i32 @GetUserId() #8
-  %248 = call { i64, i32 } @TypeCreate(i32 noundef %215, ptr noundef %246, i32 noundef %.2, i32 noundef 0, i8 noundef signext 0, i32 noundef %247, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %214, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
-  %249 = load ptr, ptr %14, align 8
+  %240 = load ptr, ptr %14, align 8
+  %241 = call ptr @makeArrayTypeName(ptr noundef %240, i32 noundef %21) #8
+  %242 = call i32 @GetUserId() #8
+  %243 = call { i64, i32 } @TypeCreate(i32 noundef %213, ptr noundef %241, i32 noundef %21, i32 noundef 0, i8 noundef signext 0, i32 noundef %242, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2138.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
+  call void @pfree(ptr noundef %241) #8
+  %244 = load ptr, ptr %15, align 8
+  %245 = call ptr @makeArrayTypeName(ptr noundef %244, i32 noundef %21) #8
+  %246 = call i32 @GetUserId() #8
+  %247 = call { i64, i32 } @TypeCreate(i32 noundef %215, ptr noundef %245, i32 noundef %.2, i32 noundef 0, i8 noundef signext 0, i32 noundef %246, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %214, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %212, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #8
+  %248 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   store i32 %.0140247.lcssa, ptr %9, align 4
-  %250 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.0140247.lcssa, ptr %250, align 4
-  %251 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 25, ptr %251, align 4
+  %249 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.0140247.lcssa, ptr %249, align 4
+  %250 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 25, ptr %250, align 4
   store i32 1247, ptr %11, align 4
-  %252 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %.sroa.2138.0.extract.trunc, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 0, ptr %253, align 4
+  %251 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %.sroa.2138.0.extract.trunc, ptr %251, align 4
+  %252 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 0, ptr %252, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
-  br label %254
-
-254:                                              ; preds = %254, %237
-  %255 = phi i1 [ true, %237 ], [ false, %254 ]
-  %indvars.iv.i = phi i64 [ 0, %237 ], [ 1, %254 ]
-  %256 = getelementptr [2 x i32], ptr @makeRangeConstructors.pronargs, i64 0, i64 %indvars.iv.i
-  %257 = load i32, ptr %256, align 4
-  %258 = call ptr @buildoidvector(ptr noundef nonnull %9, i32 noundef %257) #8
-  %259 = getelementptr [2 x ptr], ptr @makeRangeConstructors.prosrc, i64 0, i64 %indvars.iv.i
-  %260 = load ptr, ptr %259, align 8
-  %261 = call { i64, i32 } @ProcedureCreate(ptr noundef %249, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef %260, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %258, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
-  %.fca.0.extract.i = extractvalue { i64, i32 } %261, 0
-  %.fca.1.extract.i = extractvalue { i64, i32 } %261, 1
+  %253 = call ptr @buildoidvector(ptr noundef nonnull %9, i32 noundef 2) #8
+  %254 = call { i64, i32 } @ProcedureCreate(ptr noundef %248, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.95, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %253, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %.fca.0.extract.i = extractvalue { i64, i32 } %254, 0
+  %.fca.1.extract.i = extractvalue { i64, i32 } %254, 1
   store i64 %.fca.0.extract.i, ptr %10, align 8
   store i32 %.fca.1.extract.i, ptr %.sroa.22.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 105) #8
-  br i1 %255, label %254, label %makeRangeConstructors.exit, !llvm.loop !7
-
-makeRangeConstructors.exit:                       ; preds = %254
+  %255 = call ptr @buildoidvector(ptr noundef nonnull %9, i32 noundef 3) #8
+  %256 = call { i64, i32 } @ProcedureCreate(ptr noundef %248, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.96, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %255, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %.fca.0.extract.i.c = extractvalue { i64, i32 } %256, 0
+  %.fca.1.extract.i.c = extractvalue { i64, i32 } %256, 1
+  store i64 %.fca.0.extract.i.c, ptr %10, align 8
+  store i32 %.fca.1.extract.i.c, ptr %.sroa.22.0..sroa_idx.i, align 8
+  call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 105) #8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  %262 = load ptr, ptr %15, align 8
+  %257 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
@@ -2782,55 +2775,55 @@ makeRangeConstructors.exit:                       ; preds = %254
   store i32 %.sroa.2138.0.extract.trunc, ptr %3, align 4
   store i32 %213, ptr %4, align 4
   store i32 1247, ptr %6, align 4
-  %263 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %214, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 0, ptr %264, align 4
-  %265 = call ptr @buildoidvector(ptr noundef null, i32 noundef 0) #8
-  %266 = call { i64, i32 } @ProcedureCreate(ptr noundef %262, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %265, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
-  %.fca.0.extract9.i = extractvalue { i64, i32 } %266, 0
-  %.fca.1.extract10.i = extractvalue { i64, i32 } %266, 1
+  %258 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %214, ptr %258, align 4
+  %259 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 0, ptr %259, align 4
+  %260 = call ptr @buildoidvector(ptr noundef null, i32 noundef 0) #8
+  %261 = call { i64, i32 } @ProcedureCreate(ptr noundef %257, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %260, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %.fca.0.extract9.i = extractvalue { i64, i32 } %261, 0
+  %.fca.1.extract10.i = extractvalue { i64, i32 } %261, 1
   store i64 %.fca.0.extract9.i, ptr %5, align 8
   %.sroa.214.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.fca.1.extract10.i, ptr %.sroa.214.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 105) #8
-  call void @pfree(ptr noundef %265) #8
-  %267 = call ptr @buildoidvector(ptr noundef nonnull %3, i32 noundef 1) #8
-  %268 = call { i64, i32 } @ProcedureCreate(ptr noundef %262, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %267, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
-  %.fca.0.extract3.i = extractvalue { i64, i32 } %268, 0
-  %.fca.1.extract4.i = extractvalue { i64, i32 } %268, 1
+  call void @pfree(ptr noundef %260) #8
+  %262 = call ptr @buildoidvector(ptr noundef nonnull %3, i32 noundef 1) #8
+  %263 = call { i64, i32 } @ProcedureCreate(ptr noundef %257, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %262, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %.fca.0.extract3.i = extractvalue { i64, i32 } %263, 0
+  %.fca.1.extract4.i = extractvalue { i64, i32 } %263, 1
   store i64 %.fca.0.extract3.i, ptr %5, align 8
   store i32 %.fca.1.extract4.i, ptr %.sroa.214.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 105) #8
-  call void @pfree(ptr noundef %267) #8
-  %269 = getelementptr inbounds i8, ptr %5, i64 4
-  %270 = load i32, ptr %269, align 4
-  %271 = call ptr @buildoidvector(ptr noundef nonnull %4, i32 noundef 1) #8
-  %272 = load i32, ptr %4, align 4
-  %273 = zext i32 %272 to i64
-  store i64 %273, ptr %7, align 8
-  %274 = call ptr @construct_array_builtin(ptr noundef nonnull %7, i32 noundef 1, i32 noundef 26) #8
+  call void @pfree(ptr noundef %262) #8
+  %264 = getelementptr inbounds i8, ptr %5, i64 4
+  %265 = load i32, ptr %264, align 4
+  %266 = call ptr @buildoidvector(ptr noundef nonnull %4, i32 noundef 1) #8
+  %267 = load i32, ptr %4, align 4
+  %268 = zext i32 %267 to i64
+  store i64 %268, ptr %7, align 8
+  %269 = call ptr @construct_array_builtin(ptr noundef nonnull %7, i32 noundef 1, i32 noundef 26) #8
   store i64 118, ptr %8, align 8
-  %275 = call ptr @construct_array_builtin(ptr noundef nonnull %8, i32 noundef 1, i32 noundef 18) #8
-  %276 = ptrtoint ptr %274 to i64
-  %277 = ptrtoint ptr %275 to i64
-  %278 = call { i64, i32 } @ProcedureCreate(ptr noundef %262, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.99, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %271, i64 noundef %276, i64 noundef %277, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
-  %.fca.0.extract.i182 = extractvalue { i64, i32 } %278, 0
-  %.fca.1.extract.i183 = extractvalue { i64, i32 } %278, 1
+  %270 = call ptr @construct_array_builtin(ptr noundef nonnull %8, i32 noundef 1, i32 noundef 18) #8
+  %271 = ptrtoint ptr %269 to i64
+  %272 = ptrtoint ptr %270 to i64
+  %273 = call { i64, i32 } @ProcedureCreate(ptr noundef %257, i32 noundef %21, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %214, i32 noundef 10, i32 noundef 12, i32 noundef 2246, ptr noundef nonnull @.str.99, ptr noundef null, ptr noundef null, i8 noundef signext 102, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i8 noundef signext 105, i8 noundef signext 115, ptr noundef %266, i64 noundef %271, i64 noundef %272, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %.fca.0.extract.i182 = extractvalue { i64, i32 } %273, 0
+  %.fca.1.extract.i183 = extractvalue { i64, i32 } %273, 1
   store i64 %.fca.0.extract.i182, ptr %5, align 8
   store i32 %.fca.1.extract.i183, ptr %.sroa.214.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 105) #8
-  call void @pfree(ptr noundef %271) #8
-  call void @pfree(ptr noundef %274) #8
-  call void @pfree(ptr noundef %275) #8
+  call void @pfree(ptr noundef %266) #8
+  call void @pfree(ptr noundef %269) #8
+  call void @pfree(ptr noundef %270) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %279 = call { i64, i32 } @CastCreate(i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef %214, i32 noundef %270, i32 noundef 0, i32 noundef 0, i8 noundef signext 101, i8 noundef signext 102, i32 noundef 105) #8
-  call void @pfree(ptr noundef %246) #8
+  %274 = call { i64, i32 } @CastCreate(i32 noundef %.sroa.2138.0.extract.trunc, i32 noundef %214, i32 noundef %265, i32 noundef 0, i32 noundef 0, i8 noundef signext 101, i8 noundef signext 102, i32 noundef 105) #8
+  call void @pfree(ptr noundef %245) #8
   ret { i64, i32 } %218
 }
 
@@ -3253,7 +3246,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph109
   %63 = load i8, ptr @bsysscan, align 1
   %64 = trunc i8 %63 to i1
   %.not5.i = select i1 %62, i1 true, i1 %64
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !llvm.loop !8
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph109, %.loopexit
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3281,7 +3274,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %76 = load i32, ptr %54, align 8
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %75
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.preheader ]
@@ -3422,7 +3415,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %.0.ph.be = phi ptr [ %.2, %.critedge ], [ %.2, %.loopexit.split ], [ %29, %27 ], [ %.0.ph110, %30 ], [ %.2, %95 ], [ %.2, %85 ]
   %31 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not99 = icmp eq ptr %31, null
-  br i1 %.not99, label %.outer._crit_edge, label %.lr.ph100, !llvm.loop !10
+  br i1 %.not99, label %.outer._crit_edge, label %.lr.ph100, !llvm.loop !9
 
 32:                                               ; preds = %12
   %33 = getelementptr inbounds i8, ptr %19, i64 8
@@ -3448,7 +3441,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 .backedge:                                        ; preds = %32, %12, %62
   %41 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %.outer._crit_edge, label %12, !llvm.loop !10
+  br i1 %.not, label %.outer._crit_edge, label %12, !llvm.loop !9
 
 42:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3573,7 +3566,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   store i32 %108, ptr %106, align 4
   %112 = add nsw i32 %.066103, -1
   %113 = icmp sgt i32 %.066103, 1
-  br i1 %113, label %.lr.ph105, label %.critedge, !llvm.loop !11
+  br i1 %113, label %.lr.ph105, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph105, %111, %98
   %.066.lcssa = phi i32 [ %100, %98 ], [ 0, %111 ], [ %.066103, %.lr.ph105 ]
@@ -3922,7 +3915,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %60 = load i32, ptr %44, align 8
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.preheader ]
@@ -3989,7 +3982,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   %101 = load i8, ptr @bsysscan, align 1
   %102 = trunc i8 %101 to i1
   %.not5.i = select i1 %100, i1 true, i1 %102
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge58, !llvm.loop !13
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge58, !llvm.loop !12
 
 103:                                              ; preds = %table_scan_getnextslot.exit
   call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %35) #8
@@ -5635,7 +5628,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 .backedge:                                        ; preds = %140, %.lr.ph
   %142 = call ptr @systable_getnext(ptr noundef %129) #8
   %.not62 = icmp eq ptr %142, null
-  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.backedge, %127
   call void @systable_endscan(ptr noundef %129) #8
@@ -5799,4 +5792,3 @@ attributes #11 = { noreturn nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

@@ -51,12 +51,10 @@ module asm ".previous\09\09\09\09\09"
 @amd_init_one.__print_once = internal unnamed_addr global i1 false, align 1
 @amd_sht = internal constant %struct.scsi_host_template { i32 0, ptr @ata_scsi_queuecmd, ptr null, ptr null, ptr @.str.1, ptr null, ptr @ata_scsi_ioctl, ptr @ata_scsi_ioctl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_scsi_slave_alloc, ptr @ata_scsi_slave_config, ptr @ata_scsi_slave_destroy, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_scsi_dma_need_drain, ptr @ata_std_bios_param, ptr @ata_scsi_unlock_native_capacity, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @.str.1, i32 1, i32 -1, i16 128, i16 0, i32 65535, i32 0, i64 65535, i64 0, i16 0, i32 1, i8 8, i32 0, ptr null, ptr @ata_common_sdev_groups, i64 0, i32 0 }, align 8
 @amd_base_port_ops = internal constant %struct.ata_port_operations { ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @amd_pre_reset, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_bmdma32_port_ops }, align 8
-@amd_fifo_setup.fifobit = internal unnamed_addr constant [2 x i8] c"\C00", align 1
 @timing_setup.amd_cyc2udma = internal unnamed_addr constant [16 x i8] c"\06\06\05\04\00\01\01\02\02\03\03\03\03\03\03\07", align 16
 @.str.3 = private unnamed_addr constant [17 x i8] c"unknown mode %d\0A\00", align 1
 @ata_bmdma32_port_ops = external dso_local constant %struct.ata_port_operations, align 8
 @amd_pre_reset.amd_enable_bits = internal constant [2 x %struct.pci_bits] [%struct.pci_bits { i32 64, i32 1, i64 2, i64 2 }, %struct.pci_bits { i32 64, i32 1, i64 1, i64 1 }], align 16
-@amd_cable_detect.bitmask = internal unnamed_addr constant [2 x i32] [i32 3, i32 12], align 4
 @nv_base_port_ops = internal constant %struct.ata_port_operations { ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_cable_ignore, ptr @nv_mode_filter, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @nv_pre_reset, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @nv_host_stop, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_bmdma_port_ops }, align 8
 @ata_bmdma_port_ops = external dso_local constant %struct.ata_port_operations, align 8
 @nv_mode_filter.udma_mask_map = internal unnamed_addr constant [8 x i32] [i32 7, i32 3, i32 1, i32 0, i32 15, i32 31, i32 63, i32 127], align 16
@@ -315,45 +313,42 @@ define internal fastcc void @amd_fifo_setup(ptr noundef %0) unnamed_addr #2 alig
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr [2 x i8], ptr @amd_fifo_setup.fifobit, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %9 = icmp eq i32 %8, 0
+  %10 = select i1 %9, i8 -64, i8 48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8256
-  %13 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %12, i32 noundef 0) #8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %.preheader
+  %11 = getelementptr inbounds i8, ptr %0, i64 8256
+  %12 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %11, i32 noundef 0) #8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %15 = phi i8 [ %20, %.preheader ], [ %11, %1 ]
-  %16 = phi ptr [ %21, %.preheader ], [ %13, %1 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 800
-  %18 = load i32, ptr %17, align 32
-  %19 = icmp eq i32 %18, 3
-  %20 = select i1 %19, i8 0, i8 %15
-  %21 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef %12, i32 noundef 0) #8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !6
+  %14 = phi i8 [ %19, %.preheader ], [ %10, %1 ]
+  %15 = phi ptr [ %20, %.preheader ], [ %12, %1 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 800
+  %17 = load i32, ptr %16, align 32
+  %18 = icmp eq i32 %17, 3
+  %19 = select i1 %18, i8 0, i8 %14
+  %20 = tail call ptr @ata_dev_next(ptr noundef nonnull %15, ptr noundef %11, i32 noundef 0) #8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %23 = phi i8 [ %11, %1 ], [ %20, %.preheader ]
+  %22 = phi i8 [ %10, %1 ], [ %19, %.preheader ]
   store i8 0, ptr %2, align 1, !annotation !5
-  %24 = getelementptr i8, ptr %6, i64 -122
-  %25 = load i16, ptr %24, align 2
-  %26 = icmp eq i16 %25, 29713
-  %27 = select i1 %26, i8 0, i8 %23
-  %28 = getelementptr i8, ptr %6, i64 -184
-  %29 = call i32 @pci_read_config_byte(ptr noundef %28, i32 noundef 65, ptr noundef nonnull %2) #8
-  %30 = load i32, ptr %7, align 4
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr [2 x i8], ptr @amd_fifo_setup.fifobit, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = xor i8 %33, -1
-  %35 = load i8, ptr %2, align 1
-  %36 = and i8 %35, %34
-  %37 = or i8 %36, %27
-  store i8 %37, ptr %2, align 1
-  %38 = call i32 @pci_write_config_byte(ptr noundef %28, i32 noundef 65, i8 noundef zeroext %37) #8
+  %23 = getelementptr i8, ptr %6, i64 -122
+  %24 = load i16, ptr %23, align 2
+  %25 = icmp eq i16 %24, 29713
+  %26 = select i1 %25, i8 0, i8 %22
+  %27 = getelementptr i8, ptr %6, i64 -184
+  %28 = call i32 @pci_read_config_byte(ptr noundef %27, i32 noundef 65, ptr noundef nonnull %2) #8
+  %29 = load i32, ptr %7, align 4
+  %30 = icmp eq i32 %29, 0
+  %31 = select i1 %30, i8 63, i8 -49
+  %32 = load i8, ptr %2, align 1
+  %33 = and i8 %31, %32
+  %34 = or i8 %33, %26
+  store i8 %34, ptr %2, align 1
+  %35 = call i32 @pci_write_config_byte(ptr noundef %27, i32 noundef 65, i8 noundef zeroext %34) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
   ret void
 }
@@ -713,14 +708,13 @@ define internal range(i32 1, 3) i32 @amd_cable_detect(ptr nocapture noundef read
   %10 = zext i8 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr [2 x i32], ptr @amd_cable_detect.bitmask, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, %10
-  %17 = icmp eq i32 %16, 0
-  %18 = select i1 %17, i32 1, i32 2
+  %13 = icmp eq i32 %12, 0
+  %14 = select i1 %13, i32 3, i32 12
+  %15 = and i32 %14, %10
+  %16 = icmp eq i32 %15, 0
+  %17 = select i1 %16, i32 1, i32 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
-  ret i32 %18
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

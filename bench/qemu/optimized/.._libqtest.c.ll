@@ -38,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [4 x i8] c"kvm\00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c"i386-softmmu\00", align 1
 @.str.22 = private unnamed_addr constant [15 x i8] c"x86_64-softmmu\00", align 1
-@__const.qtest_has_accel.targets = private unnamed_addr constant [2 x ptr] [ptr @.str.21, ptr @.str.22], align 16
 @.str.23 = private unnamed_addr constant [9 x i8] c"/dev/kvm\00", align 1
 @__func__.qtest_has_accel = private unnamed_addr constant [16 x i8] c"qtest_has_accel\00", align 1
 @.str.24 = private unnamed_addr constant [19 x i8] c"module_load %s %s\0A\00", align 1
@@ -1416,24 +1415,22 @@ if.then3:                                         ; preds = %if.else
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %if.then3
-  %cmp = phi i1 [ true, %if.then3 ], [ false, %for.body.backedge ]
-  %indvars.iv = phi i64 [ 0, %if.then3 ], [ 1, %for.body.backedge ]
-  %arrayidx = getelementptr [2 x ptr], ptr @__const.qtest_has_accel.targets, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
+  %0 = phi i1 [ true, %if.then3 ], [ false, %for.body.backedge ]
+  %1 = select i1 %0, ptr @.str.21, ptr @.str.22
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #24
-  %call7 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %call4, i64 noundef %call6) #24
+  %call7 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %call4, i64 noundef %call6) #24
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body
   %call10 = tail call i32 @access(ptr noundef nonnull @.str.23, i32 noundef 6) #20
   %tobool11.not = icmp eq i32 %call10, 0
-  %cmp.not = xor i1 %cmp, true
-  %brmerge = or i1 %tobool11.not, %cmp.not
+  %.not = xor i1 %0, true
+  %brmerge = or i1 %tobool11.not, %.not
   br i1 %brmerge, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %for.body
-  br i1 %cmp, label %for.body.backedge, label %return
+  br i1 %0, label %for.body.backedge, label %return
 
 for.body.backedge:                                ; preds = %for.inc, %if.then9
   br label %for.body, !llvm.loop !12

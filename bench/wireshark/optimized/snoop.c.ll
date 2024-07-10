@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.shomiti_wireless_header = type { [4 x i8], [2 x i8], i8, i8, i8, i8, i8, i8 }
 
 @snoop_open.snoop_encap = internal unnamed_addr constant [27 x i32] [i32 1, i32 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0, i32 6, i32 15, i32 0, i32 0, i32 0, i32 0, i32 15, i32 0, i32 18, i32 0, i32 13, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 137], align 16
-@snoop_open.snoop_private_encap = internal unnamed_addr constant [8 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 124, i32 0, i32 0], align 16
 @snoop_open.shomiti_encap = internal unnamed_addr constant [20 x i32] [i32 1, i32 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0, i32 6, i32 0, i32 1, i32 2, i32 1, i32 2, i32 2, i32 0, i32 0, i32 0, i32 22, i32 1], align 16
 @snoop_magic = internal constant [8 x i8] c"snoop\00\00\00", align 1
 @.str = private unnamed_addr constant [30 x i8] c"snoop: version %u unsupported\00", align 1
@@ -55,18 +54,18 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %10 = load i32, ptr %1, align 4
   %.not46 = icmp ne i32 %10, -12
   %. = sext i1 %.not46 to i32
-  br label %87
+  br label %88
 
 11:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) @snoop_magic, i64 8)
   %.not47 = icmp eq i32 %bcmp, 0
-  br i1 %.not47, label %12, label %87
+  br i1 %.not47, label %12, label %88
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr %0, align 8
   %14 = call i32 @wtap_read_bytes(ptr noundef %13, ptr noundef nonnull %5, i32 noundef 8, ptr noundef %1, ptr noundef %2) #7
   %.not48 = icmp eq i32 %14, 0
-  br i1 %.not48, label %87, label %15
+  br i1 %.not48, label %88, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %5, align 4
@@ -80,7 +79,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   store i32 -4, ptr %1, align 4
   %19 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %17) #7
   store ptr %19, ptr %2, align 8
-  br label %87
+  br label %88
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8
@@ -93,7 +92,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 25:                                               ; preds = %20
   %26 = load i32, ptr %1, align 4
   %.not50 = icmp eq i32 %26, 0
-  br i1 %.not50, label %42, label %87
+  br i1 %.not50, label %42, label %88
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %6, i64 8
@@ -120,7 +119,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %43 = load ptr, ptr %0, align 8
   %44 = call i64 @file_seek(ptr noundef %43, i64 noundef %22, i32 noundef 0, ptr noundef %1) #7
   %45 = icmp eq i64 %44, -1
-  br i1 %45, label %87, label %46
+  br i1 %45, label %88, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %5, i64 4
@@ -145,11 +144,11 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   store i32 -4, ptr %1, align 4
   %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %49) #7
   store ptr %57, ptr %2, align 8
-  br label %87
+  br label %88
 
 58:                                               ; preds = %52
   %59 = getelementptr [20 x i32], ptr @snoop_open.shomiti_encap, i64 0, i64 %53
-  br label %75
+  br label %.sink.split
 
 60:                                               ; preds = %46
   %.not52 = icmp sgt i32 %49, -1
@@ -158,13 +157,13 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
 61:                                               ; preds = %60
   %62 = and i32 %49, 2147483647
   %.not54 = icmp eq i32 %62, 5
-  br i1 %.not54, label %75, label %63
+  br i1 %.not54, label %76, label %63
 
 63:                                               ; preds = %61
   store i32 -4, ptr %1, align 4
   %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %49) #7
   store ptr %64, ptr %2, align 8
-  br label %87
+  br label %88
 
 65:                                               ; preds = %60
   %66 = icmp ugt i32 %49, 26
@@ -181,39 +180,43 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   store i32 -4, ptr %1, align 4
   %72 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %49) #7
   store ptr %72, ptr %2, align 8
-  br label %87
+  br label %88
 
 73:                                               ; preds = %67
   %74 = getelementptr [27 x i32], ptr @snoop_open.snoop_encap, i64 0, i64 %68
-  br label %75
+  br label %.sink.split
 
-75:                                               ; preds = %61, %73, %58
-  %.039.in = phi ptr [ %59, %58 ], [ %74, %73 ], [ getelementptr inbounds (i8, ptr @snoop_open.snoop_private_encap, i64 20), %61 ]
-  %.039 = load i32, ptr %.039.in, align 4
-  %76 = load i32, ptr @shomiti_file_type_subtype, align 4
-  %77 = load i32, ptr @snoop_file_type_subtype, align 4
-  %78 = select i1 %.not51, i32 %77, i32 %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %78, ptr %79, align 4
-  %80 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #8
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @snoop_read, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @snoop_seek_read, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %.039, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %86, align 4
-  store i32 %.038, ptr %80, align 4
+.sink.split:                                      ; preds = %58, %73
+  %.sink = phi ptr [ %74, %73 ], [ %59, %58 ]
+  %75 = load i32, ptr %.sink, align 4
+  br label %76
+
+76:                                               ; preds = %.sink.split, %61
+  %.039 = phi i32 [ 124, %61 ], [ %75, %.sink.split ]
+  %77 = load i32, ptr @shomiti_file_type_subtype, align 4
+  %78 = load i32, ptr @snoop_file_type_subtype, align 4
+  %79 = select i1 %.not51, i32 %78, i32 %77
+  %80 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %79, ptr %80, align 4
+  %81 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #8
+  %82 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @snoop_read, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @snoop_seek_read, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %.039, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %87, align 4
+  store i32 %.038, ptr %81, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
-  br label %87
+  br label %88
 
-87:                                               ; preds = %42, %25, %12, %11, %9, %75, %71, %63, %56, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %56 ], [ 1, %75 ], [ -1, %63 ], [ -1, %71 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %25 ], [ -1, %42 ]
+88:                                               ; preds = %42, %25, %12, %11, %9, %76, %71, %63, %56, %18
+  %.0 = phi i32 [ -1, %18 ], [ -1, %56 ], [ 1, %76 ], [ -1, %63 ], [ -1, %71 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %25 ], [ -1, %42 ]
   ret i32 %.0
 }
 

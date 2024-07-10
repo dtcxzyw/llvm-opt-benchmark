@@ -1591,7 +1591,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1100 = private unnamed_addr constant [13 x i8] c"Event Status\00", align 1
 @rs2d.byte2 = internal constant [4 x ptr] [ptr @hf_ipmi_se_2b_fl_evm, ptr @hf_ipmi_se_2b_fl_scan, ptr @hf_ipmi_se_2b_fl_unavail, ptr null], align 16
 @rs2d.bsel = internal unnamed_addr constant [2 x [8 x ptr]] [[8 x ptr] [ptr @hf_ipmi_se_2d_b1_0, ptr @hf_ipmi_se_2d_b1_1, ptr @hf_ipmi_se_2d_b1_2, ptr @hf_ipmi_se_2d_b1_3, ptr @hf_ipmi_se_2d_b1_4, ptr @hf_ipmi_se_2d_b1_5, ptr @hf_ipmi_se_2d_b1_6, ptr @hf_ipmi_se_2d_b1_7], [8 x ptr] [ptr @hf_ipmi_se_2d_b2_0, ptr @hf_ipmi_se_2d_b2_1, ptr @hf_ipmi_se_2d_b2_2, ptr @hf_ipmi_se_2d_b2_3, ptr @hf_ipmi_se_2d_b2_4, ptr @hf_ipmi_se_2d_b2_5, ptr @hf_ipmi_se_2d_b2_6, ptr null]], align 16
-@rs2d.tsel = internal unnamed_addr constant [2 x ptr] [ptr @ett_ipmi_se_2d_b1, ptr @ett_ipmi_se_2d_b2], align 16
 @.str.1101 = private unnamed_addr constant [43 x i8] c"Threshold comparisons/assertions (byte %d)\00", align 1
 @.str.1102 = private unnamed_addr constant [51 x i8] c"Attempt to change not-settable reading/status bits\00", align 1
 @.str.1103 = private unnamed_addr constant [39 x i8] c"Setting Event Data Bytes not supported\00", align 1
@@ -2259,41 +2258,42 @@ define internal void @rs2d(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
   %wide.trip.count = select i1 %.not30, i64 1, i64 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %25 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %24 ]
   %indvars29 = trunc i64 %indvars.iv27 to i32
   %11 = or disjoint i32 %indvars29, 2
-  %12 = getelementptr [2 x ptr], ptr @rs2d.tsel, i64 0, i64 %indvars.iv27
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.1101, i32 noundef %indvars29) #2
-  %16 = trunc i64 %indvars.iv27 to i32
-  %17 = or i32 %16, 2
-  br label %18
+  %12 = icmp eq i64 %indvars.iv27, 0
+  %ett_ipmi_se_2d_b1.val = load i32, ptr @ett_ipmi_se_2d_b1, align 4
+  %ett_ipmi_se_2d_b2.val = load i32, ptr @ett_ipmi_se_2d_b2, align 4
+  %13 = select i1 %12, i32 %ett_ipmi_se_2d_b1.val, i32 %ett_ipmi_se_2d_b2.val
+  %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.1101, i32 noundef %indvars29) #2
+  %15 = trunc i64 %indvars.iv27 to i32
+  %16 = or i32 %15, 2
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %19 = getelementptr [2 x [8 x ptr]], ptr @rs2d.bsel, i64 0, i64 %indvars.iv27, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %24, label %21
+17:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %18 = getelementptr [2 x [8 x ptr]], ptr @rs2d.bsel, i64 0, i64 %indvars.iv27, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %23, label %20
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %20, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #2
-  br label %24
+20:                                               ; preds = %17
+  %21 = load i32, ptr %19, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %23
 
-24:                                               ; preds = %18, %21
+23:                                               ; preds = %17, %20
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not31 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not31, label %25, label %18, !llvm.loop !4
+  br i1 %.not31, label %24, label %17, !llvm.loop !4
 
-25:                                               ; preds = %24
+24:                                               ; preds = %23
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %25, %3
+._crit_edge:                                      ; preds = %24, %3
   ret void
 }
 

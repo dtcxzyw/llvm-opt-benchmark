@@ -142,7 +142,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_l1tf_vmx_mit
 @.str.31 = private unnamed_addr constant [6 x i8] c"force\00", align 1
 @spectre_v1_mitigation = internal unnamed_addr global i1 false, section ".data..ro_after_init", align 4
 @.str.32 = private unnamed_addr constant [19 x i8] c"\016Spectre V1 : %s\0A\00", align 1
-@spectre_v1_strings = internal unnamed_addr constant [2 x ptr] [ptr @.str.33, ptr @.str.34], align 16
 @.str.33 = private unnamed_addr constant [87 x i8] c"Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers\00", align 1
 @.str.34 = private unnamed_addr constant [69 x i8] c"Mitigation: usercopy/swapgs barriers and __user pointer sanitization\00", align 1
 @retbleed_cmd = internal unnamed_addr global i32 1, section ".data..ro_after_init", align 4
@@ -397,11 +396,11 @@ define internal fastcc void @spectre_v1_select_mitigation() unnamed_addr #4 sect
 
 6:                                                ; preds = %4, %0
   store i1 true, ptr @spectre_v1_mitigation, align 4
-  br label %38
+  br label %35
 
 7:                                                ; preds = %4
   %8 = load i1, ptr @spectre_v1_mitigation, align 4
-  br i1 %8, label %33, label %9
+  br i1 %8, label %32, label %9
 
 9:                                                ; preds = %7
   %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
@@ -419,7 +418,7 @@ define internal fastcc void @spectre_v1_select_mitigation() unnamed_addr #4 sect
   %18 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
   %19 = and i64 %18, 70368744177664
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %33, label %21
+  br i1 %20, label %32, label %21
 
 21:                                               ; preds = %17, %13, %9
   %22 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 120), align 8
@@ -442,18 +441,15 @@ define internal fastcc void @spectre_v1_select_mitigation() unnamed_addr #4 sect
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 84), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 84)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 44), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 44)) #15, !srcloc !12
   %.pre = load i1, ptr @spectre_v1_mitigation, align 4
-  %31 = xor i1 %.pre, true
-  %32 = zext i1 %31 to i64
-  br label %33
+  %31 = select i1 %.pre, ptr @.str.33, ptr @.str.34
+  br label %32
 
-33:                                               ; preds = %30, %17, %7
-  %34 = phi i64 [ %32, %30 ], [ 1, %17 ], [ 0, %7 ]
-  %35 = getelementptr [2 x ptr], ptr @spectre_v1_strings, i64 0, i64 %34
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef %36) #17
-  br label %38
+32:                                               ; preds = %30, %17, %7
+  %33 = phi ptr [ %31, %30 ], [ @.str.34, %17 ], [ @.str.33, %7 ]
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef nonnull %33) #17
+  br label %35
 
-38:                                               ; preds = %33, %6
+35:                                               ; preds = %32, %6
   ret void
 }
 
@@ -3080,21 +3076,18 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_spectre_v1(ptr
 
 7:                                                ; preds = %3
   %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.127) #15
-  br label %16
+  br label %13
 
 9:                                                ; preds = %3
   %10 = load i1, ptr @spectre_v1_mitigation, align 4
-  %11 = xor i1 %10, true
-  %12 = zext i1 %11 to i64
-  %13 = getelementptr [2 x ptr], ptr @spectre_v1_strings, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %14) #15
-  br label %16
+  %11 = select i1 %10, ptr @.str.33, ptr @.str.34
+  %12 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef nonnull %11) #15
+  br label %13
 
-16:                                               ; preds = %9, %7
-  %17 = phi i32 [ %15, %9 ], [ %8, %7 ]
-  %18 = sext i32 %17 to i64
-  ret i64 %18
+13:                                               ; preds = %9, %7
+  %14 = phi i32 [ %12, %9 ], [ %8, %7 ]
+  %15 = sext i32 %14 to i64
+  ret i64 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

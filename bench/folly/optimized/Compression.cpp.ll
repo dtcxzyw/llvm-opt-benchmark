@@ -345,12 +345,9 @@ $_ZTVN5folly17BadExpectedAccessIvEE = comdat any
 @.str.101 = private unnamed_addr constant [48 x i8] c"AutomaticCodec error: compress() not supported.\00", align 1
 @.str.102 = private unnamed_addr constant [46 x i8] c"AutomaticCodec error: Unknown compressed data\00", align 1
 @.str.103 = private unnamed_addr constant [59 x i8] c"AutomaticCodec error: maxCompressedLength() not supported.\00", align 1
-@switch.table._ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE = private unnamed_addr constant [3 x i32] [i32 9, i32 9, i32 1], align 4
 @switch.table._ZN5folly2io12_GLOBAL__N_115lz4ConvertLevelEi = private unnamed_addr constant [6 x i32] [i32 2, i32 1, i32 1, i32 1, i32 1, i32 2], align 4
 @switch.table._ZSt11make_uniqueIN5folly2io12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = private unnamed_addr constant [3 x i32] [i32 9, i32 6, i32 0], align 4
 @switch.table._ZN5folly2io12_GLOBAL__N_116LZMA2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS3_IPhEENS0_11StreamCodec7FlushOpE = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 3], align 4
-@switch.table._ZN5folly2io12_GLOBAL__N_116zstdConvertLevelEi = private unnamed_addr constant [3 x i32] [i32 19, i32 1, i32 1], align 4
-@switch.table._ZN5folly2io12_GLOBAL__N_120zstdFastConvertLevelEi = private unnamed_addr constant [3 x i32] [i32 -1, i32 -1, i32 -5], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly2io5CodecD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
@@ -3799,10 +3796,8 @@ lpad.body.i:                                      ; preds = %cleanup.action34.i.
   resume { ptr, i32 } %eh.lpad-body.i
 
 switch.lookup:                                    ; preds = %entry
-  %switch.tableidx = add nsw i32 %level, 3
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE, i64 0, i64 %7
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %7 = icmp eq i32 %level, -1
+  %switch.load = select i1 %7, i32 1, i32 9
   br label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_116Bzip2StreamCodecESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_116Bzip2StreamCodecESt14default_deleteIS3_EED2Ev.exit: ; preds = %switch.lookup, %sw.epilog.i.i
@@ -8916,10 +8911,8 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %eh.resume
 
 switch.lookup:                                    ; preds = %entry
-  %switch.tableidx = add nsw i32 %level, 3
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_116zstdConvertLevelEi, i64 0, i64 %6
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %6 = icmp eq i32 %level, -3
+  %switch.load = select i1 %6, i32 19, i32 1
   br label %return
 
 return:                                           ; preds = %switch.lookup, %lor.lhs.false
@@ -11268,10 +11261,8 @@ if.end:                                           ; preds = %sw.epilog
   br label %return
 
 switch.lookup:                                    ; preds = %entry
-  %switch.tableidx = add nsw i32 %level, 3
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5folly2io12_GLOBAL__N_120zstdFastConvertLevelEi, i64 0, i64 %6
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %6 = icmp eq i32 %level, -1
+  %switch.load = select i1 %6, i32 -5, i32 -1
   br label %return
 
 return:                                           ; preds = %switch.lookup, %if.end

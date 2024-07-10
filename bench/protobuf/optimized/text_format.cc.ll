@@ -620,7 +620,6 @@ $_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPoli
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
 @_ZN4absl12lts_2023080216numbers_internal9kHexTableE = external local_unnamed_addr constant [513 x i8], align 16
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_text_format.cc, ptr null }]
-@switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE = private unnamed_addr constant [4 x i32] [i32 2147483646, i32 2147483647, i32 2147483646, i32 2147483646], align 4
 
 @_ZN6google8protobuf10TextFormat6FinderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf10TextFormat6FinderD2Ev
 @_ZN6google8protobuf10TextFormat6ParserC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf10TextFormat6ParserC2Ev
@@ -21109,16 +21108,9 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.then, %if.then.
   %18 = load i8, ptr %type_.i, align 2
   %switch.tableidx = add i8 %18, -9
   %19 = icmp ult i8 %switch.tableidx, 4
-  br i1 %19, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
-
-switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %20
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
-
-_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %switch.lookup
-  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
+  %20 = icmp eq i8 %switch.tableidx, 1
+  %switch.load = select i1 %20, i32 2147483647, i32 2147483646
+  %.sink.i = select i1 %19, i32 %switch.load, i32 2147483647
   %and6.i = and i32 %.sink.i, %12
   br label %return
 
@@ -21126,8 +21118,8 @@ if.else:                                          ; preds = %entry, %_ZNK6google
   %call9 = tail call noundef i32 @_ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %field)
   br label %return
 
-return:                                           ; preds = %if.else, %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
-  %retval.0 = phi i32 [ %and6.i, %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit ], [ %call9, %if.else ]
+return:                                           ; preds = %if.else, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
+  %retval.0 = phi i32 [ %and6.i, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ %call9, %if.else ]
   ret i32 %retval.0
 }
 
@@ -21210,16 +21202,9 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZNK6google8protob
   %13 = load i8, ptr %type_.i, align 2
   %switch.tableidx = add i8 %13, -9
   %14 = icmp ult i8 %switch.tableidx, 4
-  br i1 %14, label %switch.lookup, label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
-
-switch.lookup:                                    ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK6google8protobuf8internal16ReflectionSchema22GetFieldOffsetNonOneofEPKNS0_15FieldDescriptorE, i64 0, i64 %15
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit
-
-_ZN6google8protobuf8internal16ReflectionSchema11OffsetValueEjNS1_19FieldDescriptorLite4TypeE.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %switch.lookup
-  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
+  %15 = icmp eq i8 %switch.tableidx, 1
+  %switch.load = select i1 %15, i32 2147483647, i32 2147483646
+  %.sink.i = select i1 %14, i32 %switch.load, i32 2147483647
   %and6.i = and i32 %.sink.i, %7
   ret i32 %and6.i
 }

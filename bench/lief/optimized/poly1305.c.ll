@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [20 x i8] c"  Poly1305 test %u \00", align 1
 @test_keys = internal constant [2 x [32 x i8]] [[32 x i8] c"\85\D6\BExWUm3\7FDR\FEB\D5\06\A8\01\03\80\8A\FB\0D\B2\FDJ\BF\F6\AFAI\F5\1B", [32 x i8] c"\1C\92@\A5\EBU\D3\8A\F33\88\86\04\F6\B5\F0G9\17\C1@+\80\09\9D\CA\\\BC pu\C0"], align 16
-@test_data_len = internal unnamed_addr constant [2 x i64] [i64 34, i64 127], align 16
 @test_mac = internal constant [2 x [16 x i8]] [[16 x i8] c"\A8\06\1D\C10Q6\C6\C2+\8B\AF\0C\01'\A9", [16 x i8] c"EAf\9A~\AA\EEa\E7\08\DC|\BC\C5\EBb"], align 16
 @test_data = internal constant <{ <{ [34 x i8], [93 x i8] }>, [127 x i8] }> <{ <{ [34 x i8], [93 x i8] }> <{ [34 x i8] c"Cryptographic Forum Research Group", [93 x i8] zeroinitializer }>, [127 x i8] c"'Twas brillig, and the slithy toves\0ADid gyre and gimble in the wabe:\0AAll mimsy were the borogoves,\0AAnd the mome raths outgrabe." }>, align 16
 @str = private unnamed_addr constant [13 x i8] c"failed (mac)\00", align 1
@@ -626,54 +625,52 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %1, %11
-  %3 = phi i1 [ false, %11 ], [ true, %1 ]
-  %indvars.iv26 = phi i64 [ 1, %11 ], [ 0, %1 ]
+.split.us:                                        ; preds = %1, %10
+  %3 = phi i1 [ false, %10 ], [ true, %1 ]
+  %indvars.iv26 = phi i64 [ 1, %10 ], [ 0, %1 ]
   %4 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv26
   %5 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv26
-  %6 = getelementptr inbounds [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv26
-  %7 = load i64, ptr %6, align 8
-  %8 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %2)
-  %9 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv26
-  %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %9, i64 16)
-  %10 = icmp eq i32 %bcmp.us, 0
-  br i1 %10, label %11, label %.critedge
+  %6 = select i1 %3, i64 34, i64 127
+  %7 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %2)
+  %8 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv26
+  %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %8, i64 16)
+  %9 = icmp eq i32 %bcmp.us, 0
+  br i1 %9, label %10, label %.critedge
 
-11:                                               ; preds = %.split.us
+10:                                               ; preds = %.split.us
   br i1 %3, label %.split.us, label %.split23.us, !llvm.loop !6
 
-.split:                                           ; preds = %1, %22
-  %12 = phi i1 [ false, %22 ], [ true, %1 ]
-  %indvars.iv = phi i64 [ 1, %22 ], [ 0, %1 ]
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13)
-  %15 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv
-  %17 = getelementptr inbounds [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8
-  %19 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %18, ptr noundef nonnull %2)
-  %20 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %20, i64 16)
-  %21 = icmp eq i32 %bcmp, 0
-  br i1 %21, label %22, label %.split21.us
+.split:                                           ; preds = %1, %20
+  %11 = phi i1 [ false, %20 ], [ true, %1 ]
+  %indvars.iv = phi i64 [ 1, %20 ], [ 0, %1 ]
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %12)
+  %14 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv
+  %16 = select i1 %11, i64 34, i64 127
+  %17 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %16, ptr noundef nonnull %2)
+  %18 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %18, i64 16)
+  %19 = icmp eq i32 %bcmp, 0
+  br i1 %19, label %20, label %.split21.us
 
 .split21.us:                                      ; preds = %.split
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.critedge
 
-22:                                               ; preds = %.split
+20:                                               ; preds = %.split
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br i1 %12, label %.split, label %.split23.us, !llvm.loop !6
+  br i1 %11, label %.split, label %.split23.us, !llvm.loop !6
 
-.split23.us:                                      ; preds = %22, %11
-  br i1 %.not17, label %.critedge, label %23
+.split23.us:                                      ; preds = %20, %10
+  br i1 %.not17, label %.critedge, label %21
 
-23:                                               ; preds = %.split23.us
+21:                                               ; preds = %.split23.us
   %putchar = tail call i32 @putchar(i32 10)
   br label %.critedge
 
-.critedge:                                        ; preds = %.split.us, %.split23.us, %23, %.split21.us
-  %.015 = phi i32 [ -1, %.split21.us ], [ 0, %23 ], [ 0, %.split23.us ], [ -1, %.split.us ]
+.critedge:                                        ; preds = %.split.us, %.split23.us, %21, %.split21.us
+  %.015 = phi i32 [ -1, %.split21.us ], [ 0, %21 ], [ 0, %.split23.us ], [ -1, %.split.us ]
   ret i32 %.015
 }
 

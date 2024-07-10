@@ -1011,30 +1011,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.66 = private unnamed_addr constant [5 x i32] [i32 33554432, i32 33882112, i32 33816576, i32 33619968, i32 33554432], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.67 = private unnamed_addr constant [5 x i32] [i32 242, i32 247, i32 247, i32 247, i32 245], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.68 = private unnamed_addr constant [5 x i32] [i32 4029, i32 4028, i32 4029, i32 4028, i32 4024], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.71 = private unnamed_addr constant [4 x i32] [i32 246, i32 247, i32 247, i32 247], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.72 = private unnamed_addr constant [5 x i32] [i32 4022, i32 4022, i32 4023, i32 4023, i32 139], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.74 = private unnamed_addr constant [5 x i32] [i32 4030, i32 4030, i32 4031, i32 4031, i32 99], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.75 = private unnamed_addr constant [5 x i64] [i64 2, i64 2, i64 2, i64 2, i64 1], align 8
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.76 = private unnamed_addr constant [4 x i32] [i32 198, i32 199, i32 199, i32 199], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.77 = private unnamed_addr constant [4 x i32] [i32 192, i32 193, i32 193, i32 193], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.78 = private unnamed_addr constant [8 x i32] [i32 3953, i32 3954, i32 3955, i32 3953, i32 3954, i32 3953, i32 3954, i32 3955], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.79 = private unnamed_addr constant [8 x i32] [i32 4081, i32 4082, i32 4083, i32 4065, i32 4066, i32 4049, i32 4050, i32 4051], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.80 = private unnamed_addr constant [4 x i32] [i32 50397184, i32 16842752, i32 50397184, i32 50397184], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.81 = private unnamed_addr constant [4 x i32] [i32 32, i32 196, i32 34, i32 34], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.82 = private unnamed_addr constant [3 x i32] [i32 75, i32 74, i32 76], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.83 = private unnamed_addr constant [5 x i32] [i32 17104896, i32 17039360, i32 16777216, i32 16842752, i32 17104896], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.84 = private unnamed_addr constant [5 x i32] [i32 17, i32 17, i32 17, i32 17, i32 127], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.86 = private unnamed_addr constant [4 x i32] [i32 20, i32 21, i32 22, i32 22], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.87 = private unnamed_addr constant [5 x i32] [i32 16842752, i32 16842752, i32 16777216, i32 16842752, i32 16842752], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.88 = private unnamed_addr constant [5 x i32] [i32 126, i32 126, i32 80, i32 80, i32 215], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.89 = private unnamed_addr constant [3 x i32] [i32 0, i32 65536, i32 65536], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.90 = private unnamed_addr constant [3 x i32] [i32 16777216, i32 16777216, i32 33554432], align 4
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.91 = private unnamed_addr constant [3 x i32] [i32 46, i32 46, i32 23], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.92 = private unnamed_addr constant [13 x i8] c"\00\01\00\00\05\00\00\00\00\05\04\00\01", align 1
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.93 = private unnamed_addr constant [13 x i32] [i32 3881, i32 3881, i32 3881, i32 3881, i32 3967, i32 3881, i32 3881, i32 3881, i32 3881, i32 3857, i32 3857, i32 3857, i32 3857], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.94 = private unnamed_addr constant [4 x i32] [i32 997908, i32 997909, i32 997910, i32 997910], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.95 = private unnamed_addr constant [4 x i64] [i64 4638707616191610880, i64 4674736413210574848, i64 4746794007248502784, i64 4890909195324358656], align 8
-@switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.96 = private unnamed_addr constant [4 x i32] [i32 4016, i32 4017, i32 4017, i32 4017], align 4
 @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645 = private unnamed_addr constant [16 x i64] [i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 3, i64 3, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4], align 8
 @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.97 = private unnamed_addr constant [16 x ptr] [ptr @anon.1a7877b4d25764724cd66411c116da83.694, ptr @anon.1a7877b4d25764724cd66411c116da83.696, ptr @anon.1a7877b4d25764724cd66411c116da83.697, ptr @anon.1a7877b4d25764724cd66411c116da83.695, ptr @anon.1a7877b4d25764724cd66411c116da83.701, ptr @anon.1a7877b4d25764724cd66411c116da83.700, ptr @anon.1a7877b4d25764724cd66411c116da83.698, ptr @anon.1a7877b4d25764724cd66411c116da83.699, ptr @anon.1a7877b4d25764724cd66411c116da83.702, ptr @anon.1a7877b4d25764724cd66411c116da83.703, ptr @anon.1a7877b4d25764724cd66411c116da83.704, ptr @anon.1a7877b4d25764724cd66411c116da83.705, ptr @anon.1a7877b4d25764724cd66411c116da83.706, ptr @anon.1a7877b4d25764724cd66411c116da83.707, ptr @anon.1a7877b4d25764724cd66411c116da83.708, ptr @anon.1a7877b4d25764724cd66411c116da83.709], align 8
 @switch.table._ZN17cranelift_codegen3isa3x644inst4regs12realreg_name17h9e19fdf70217ea00E.llvm.6092180546091225645.98 = private unnamed_addr constant [16 x i64] [i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 5, i64 6, i64 6, i64 6, i64 6, i64 6, i64 6], align 8
@@ -27346,7 +27335,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b832
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %4773, %.invoke4624, %.invoke4622, %710, %.invoke4306, %.invoke4305, %.invoke4274, %.invoke4273, %.invoke4272, %.invoke4271, %.invoke4269, %.invoke4268, %.invoke4267, %.invoke4266, %.invoke4265, %.invoke4261, %.invoke4260, %.invoke, %626, %630, %651, %659, %663, %667, %690, %697, %723, %728, %735, %742, %750, %1361, %1368, %1372, %1393, %1398, %1403, %1409, %1412, %1413, %1419, %1421, %1433, %1437, %1444, %1455, %1459, %1478, %1483, %1487, %1496, %1501, %1514, %1518, %1540, %1542, %1543, %1545, %1546, %1548, %1562, %1566, %1577, %1585, %1599, %1603, %1614, %1621, %1626, %1630, %1645, %1650, %1654, %1673, %1675, %1682, %1686, %1689, %1696, %1700, %.thread3525, %1714, %1715, %1717, %1721, %1723, %1731, %1735, %1745, %1759, %1760, %1764, %1766, %1772, %1783, %1789, %.noexc1866.thread, %1798, %1800, %1806, %1817, %1823, %1826, %1828, %1830, %1844, %1853, %1856, %1857, %1858, %1861, %1867, %1873, %1877, %1880, %1885, %1887, %1890, %1894, %1896, %1934, %1936, %1941, %1947, %1949, %1953, %1955, %1973, %1978, %1979, %1985, %1987, %1993, %1998, %2002, %2005, %2007, %2012, %2015, %2027, %2029, %2034, %2039, %2041, %2043, %2055, %2057, %2073, %2075, %2077, %2083, %2084, %2086, %2090, %2092, %2093, %2095, %2100, %2102, %2118, %2127, %2137, %2144, %2147, %2148, %2164, %2166, %2168, %2174, %2175, %2177, %switch.lookup4684, %2182, %2186, %2191, %2193, %2194, %2197, %2201, %2208, %2215, %2226, %switch.lookup4704, %2236, %2242, %2256, %2263, %2270, %2272, %2273, %2274, %2275, %2279, %2284, %2294, %2296, %2304, %2306, %2307, %2316, %_ZN17cranelift_codegen3isa3x644inst4args11OperandSize8to_bytes17h079ecdf3acdfd038E.exit2476, %2320, %2332, %2337, %_ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04de998E.exit, %2356, %2363, %2382, %2384, %2385, %2387, %2388, %2391, %2398, %2402, %2405, %2407, %2409, %2416, %2424, %634, %2433, %2445, %2448, %2457, %2458, %2459, %2462, %2475, %2488, %2498, %2554, %2560, %2570, %2572, %2578, %2589, %2700, %2703, %2705, %2709, %2716, %2720, %2730, %2738, %2741, %2743, %2747, %2753, %2757, %2760, %2777, %2909, %2934, %2942, %2949, %2960, %2964, %2984, %2992, %2999, %3010, %3014, %3032, %3040, %3047, %3051, %3061, %3065, %3097, %3102, %3109, %3120, %3124, %3133, %3145, %3153, %3166, %3170, %3209, %3214, %3228, %3232, %3256, %3267, %3272, %3274, %3281, %3286, %3292, %3294, %3300, %3307, %3313, %3325, %3333, %3347, %3351, %3366, %3373, %3379, %3397, %3405, %3418, %3422, %3438, %3448, %3462, %3466, %3506, %3518, %3526, %3537, %3541, %3550, %3597, %3612, %3623, %3625, %3638, %3675, %3678, %3680, %3684, %3698, %3710, %3713, %3714, %3717, %3722, %3735, %3739, %3783, %3794, %3799, %switch.lookup4780, %3806, %3810, %3816, %switch.lookup4787, %3822, %3824, %3830, %3836, %3847, %3853, %3859, %3868, %3871, %3877, %3891, %3899, %3902, %3904, %3908, %3915, %3934, %3943, %3946, %3948, %3952, %3959, %3970, %3974, %3993, %4000, %4007, %4011, %4014, %4025, %4028, %4030, %4096, %4098, %4107, %4111, %4114, %4120, %4122, %4292, %4294, %4304, %4308, %4311, %4314, %4323, %switch.lookup4795, %4332, %4513, %4515, %4522, %4526, %4529, %4531, %4533, %4543, %4589, %4591, %4604, %4612, %4615, %4617, %4620, %4624, %4645, %4646, %4650, %4661, %.thread3630, %4663, %4664, %4669, %4687, %4688, %4691, %4695, %4699, %4700, %4706, %4708, %4709, %4711, %4719, %4721, %4724, %4726, %4736, %4741, %4753, %4757, %4771, %4777, %4778, %4781, %4782, %4789, %4791, %4792, %4794, %4798, %4801, %4803, %4864, %4880, %4881, %4885, %4887, %4898, %4907, %4909, %4911, %4912, %4914, %4916, %4923, %4929, %.thread3648, %4939, %4945, %4946, %4955, %4961, %4964, %4967, %4975, %4976, %4980, %4982, %4991, %4993, %4994, %4998, %5000, %5001, %5006, %5010, %5013, %switch.lookup4803, %5020, %5022, %5023, %5025, %5029, %5032, %5033, %5034, %5062, %5140, %5142, %5147, %5152, %5154, %5155, %5156, %5157, %5158, %5159, %5160, %5161, %5162, %5163, %5168, %5170, %5171, %5172, %5173, %5174, %5175, %5180, %5184, %5186, %5187, %5188, %5189, %5190, %5191, %5192, %5193, %5194, %2350
+.loopexit.split-lp:                               ; preds = %4773, %.invoke4624, %.invoke4622, %710, %.invoke4306, %.invoke4305, %.invoke4274, %.invoke4273, %.invoke4272, %.invoke4271, %.invoke4269, %.invoke4268, %.invoke4267, %.invoke4266, %.invoke4265, %.invoke4261, %.invoke4260, %.invoke, %626, %630, %651, %659, %663, %667, %690, %697, %723, %728, %735, %742, %750, %1361, %1368, %1372, %1393, %1398, %1403, %1409, %1412, %1413, %1419, %1421, %1433, %1437, %1444, %1455, %1459, %1478, %1483, %1487, %1496, %1501, %1514, %1518, %1540, %1542, %1543, %1545, %1546, %1548, %1562, %1566, %1577, %1585, %1599, %1603, %1614, %1621, %1626, %1630, %1645, %1650, %1654, %1673, %1675, %1682, %1686, %1689, %1696, %1700, %.thread3525, %1714, %1715, %1717, %1721, %1723, %1731, %1735, %1745, %1759, %1760, %1764, %1766, %1772, %1783, %1789, %.noexc1866.thread, %1798, %1800, %1806, %1817, %1823, %1826, %1828, %1830, %1844, %1853, %1856, %1857, %1858, %1861, %1867, %1873, %1877, %1880, %1885, %1887, %1890, %1894, %1896, %1934, %1936, %1941, %1947, %1949, %1953, %1955, %1973, %1978, %1979, %1985, %1987, %1993, %1998, %2002, %2005, %2007, %2012, %2015, %2027, %2029, %2034, %2039, %2041, %2043, %2055, %2057, %2073, %2075, %2077, %2083, %2084, %2086, %2090, %2092, %2093, %2095, %2100, %2102, %2118, %2127, %2137, %2144, %2147, %2148, %2164, %2166, %2168, %2174, %2175, %2177, %switch.lookup4684, %2182, %2186, %2191, %2193, %2194, %2197, %2201, %2208, %2215, %2226, %switch.lookup4704, %2236, %2242, %2256, %2263, %2270, %2272, %2273, %2274, %2275, %2279, %2284, %2294, %2296, %2304, %2306, %2307, %2316, %_ZN17cranelift_codegen3isa3x644inst4args11OperandSize8to_bytes17h079ecdf3acdfd038E.exit2476, %2320, %2332, %2337, %_ZN17cranelift_codegen3isa3x648encoding3rex8RexFlags11emit_one_op17hbc1911c3c04de998E.exit, %2356, %2363, %2382, %2384, %2385, %2387, %2388, %2391, %2398, %2402, %2405, %2407, %2409, %2416, %2424, %634, %2433, %2445, %2448, %2457, %2458, %2459, %2462, %2475, %2488, %2498, %2554, %2560, %2570, %2572, %2578, %2589, %2700, %2703, %2705, %2709, %2716, %2720, %2730, %2738, %2741, %2743, %2747, %2753, %2757, %2760, %2777, %2909, %2934, %2942, %2949, %2960, %2964, %2984, %2992, %2999, %3010, %3014, %3032, %3040, %3047, %3051, %3061, %3065, %3097, %3102, %3109, %3120, %3124, %3133, %3145, %3153, %3166, %3170, %3209, %3214, %3228, %3232, %3256, %3267, %3272, %3274, %3280, %3286, %3292, %3294, %3300, %3307, %3313, %3325, %3333, %3347, %3351, %3366, %3373, %3379, %3397, %3405, %3418, %3422, %3435, %3448, %3462, %3466, %3506, %3518, %3526, %3537, %3541, %3550, %3597, %3612, %3623, %3625, %3638, %3675, %3678, %3680, %3684, %3698, %3710, %3713, %3714, %3717, %3722, %3735, %3739, %3783, %3794, %3799, %switch.lookup4780, %3806, %3810, %3816, %switch.lookup4787, %3822, %3824, %3830, %3836, %3847, %3853, %3859, %3868, %3871, %3877, %3891, %3899, %3902, %3904, %3908, %3915, %3934, %3943, %3946, %3948, %3952, %3959, %3970, %3974, %3993, %4000, %4007, %4011, %4014, %4025, %4028, %4030, %4096, %4098, %4107, %4111, %4114, %4120, %4122, %4292, %4294, %4304, %4308, %4311, %4314, %4323, %switch.lookup4795, %4332, %4513, %4515, %4522, %4526, %4529, %4531, %4533, %4543, %4589, %4591, %4604, %4612, %4615, %4617, %4620, %4624, %4645, %4646, %4650, %4661, %.thread3630, %4663, %4664, %4669, %4687, %4688, %4691, %4695, %4699, %4700, %4706, %4708, %4709, %4711, %4719, %4721, %4724, %4726, %4736, %4741, %4753, %4757, %4771, %4777, %4778, %4781, %4782, %4789, %4791, %4792, %4794, %4798, %4801, %4803, %4864, %4880, %4881, %4885, %4887, %4898, %4907, %4909, %4911, %4912, %4914, %4916, %4923, %4929, %.thread3648, %4939, %4945, %4946, %4955, %4961, %4964, %4967, %4975, %4976, %4980, %4982, %4991, %4993, %4994, %4998, %5000, %5001, %5006, %5010, %5013, %switch.lookup4803, %5020, %5022, %5023, %5025, %5029, %5032, %5033, %5034, %5062, %5140, %5142, %5147, %5152, %5154, %5155, %5156, %5157, %5158, %5159, %5160, %5161, %5162, %5163, %5168, %5170, %5171, %5172, %5173, %5174, %5175, %5180, %5184, %5186, %5187, %5188, %5189, %5190, %5191, %5192, %5193, %5194, %2350
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -30308,9 +30297,8 @@ switch.lookup4641:                                ; preds = %1630
   %switch.shiftamt4645 = zext nneg i8 %1635 to i32
   %switch.downshift4646 = lshr i32 256, %switch.shiftamt4645
   %switch.masked4647 = trunc i32 %switch.downshift4646 to i8
-  %1636 = zext nneg i8 %1631 to i64
-  %switch.gep4642 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.71, i64 0, i64 %1636
-  %switch.load4643 = load i32, ptr %switch.gep4642, align 4
+  %1636 = icmp eq i8 %1631, 0
+  %switch.load4643 = select i1 %1636, i32 246, i32 247
   %1637 = trunc i32 %1629 to i8
   %1638 = lshr i8 %1637, 2
   br label %.invoke4265
@@ -30352,9 +30340,8 @@ switch.lookup4648:                                ; preds = %1654
   %switch.shiftamt4652 = zext nneg i8 %1659 to i32
   %switch.downshift4653 = lshr i32 256, %switch.shiftamt4652
   %switch.masked4654 = trunc i32 %switch.downshift4653 to i8
-  %1660 = zext nneg i8 %1655 to i64
-  %switch.gep4649 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.71, i64 0, i64 %1660
-  %switch.load4650 = load i32, ptr %switch.gep4649, align 4
+  %1660 = icmp eq i8 %1655, 0
+  %switch.load4650 = select i1 %1660, i32 246, i32 247
   %1661 = trunc i32 %1653 to i8
   %1662 = lshr i8 %1661, 2
   br label %.invoke4265
@@ -30442,9 +30429,8 @@ switch.lookup4655:                                ; preds = %1689
   %switch.shiftamt4657 = zext nneg i8 %1693 to i32
   %switch.downshift4658 = lshr i32 65793, %switch.shiftamt4657
   %switch.masked4659 = trunc i32 %switch.downshift4658 to i8
-  %1694 = zext nneg i8 %1692 to i64
-  %switch.gep4660 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.71, i64 0, i64 %1694
-  %switch.load4661 = load i32, ptr %switch.gep4660, align 4
+  %1694 = icmp eq i8 %1692, 0
+  %switch.load4661 = select i1 %1694, i32 246, i32 247
   %1695 = shl nuw nsw i8 %1692, 3
   %switch.shiftamt4663 = zext nneg i8 %1695 to i32
   %switch.downshift4664 = lshr i32 256, %switch.shiftamt4663
@@ -31421,9 +31407,8 @@ switch.lookup4666:                                ; preds = %2057
   %2064 = zext nneg i8 %2063 to i64
   %switch.gep4667 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.72, i64 0, i64 %2064
   %switch.load4668 = load i32, ptr %switch.gep4667, align 4
-  %2065 = zext nneg i8 %2063 to i64
-  %switch.gep4669 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.75, i64 0, i64 %2065
-  %switch.load4670 = load i64, ptr %switch.gep4669, align 8
+  %2065 = icmp eq i8 %2063, 4
+  %switch.load4670 = select i1 %2065, i64 1, i64 2
   %2066 = shl nuw nsw i8 %2063, 3
   %switch.shiftamt4672 = zext nneg i8 %2066 to i40
   %switch.downshift4673 = lshr i40 4295032833, %switch.shiftamt4672
@@ -31691,9 +31676,8 @@ switch.lookup4675:                                ; preds = %2148
   %2155 = zext nneg i8 %2154 to i64
   %switch.gep4676 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.74, i64 0, i64 %2155
   %switch.load4677 = load i32, ptr %switch.gep4676, align 4
-  %2156 = zext nneg i8 %2154 to i64
-  %switch.gep4678 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.75, i64 0, i64 %2156
-  %switch.load4679 = load i64, ptr %switch.gep4678, align 8
+  %2156 = icmp eq i8 %2154, 4
+  %switch.load4679 = select i1 %2156, i64 1, i64 2
   %2157 = shl nuw nsw i8 %2154, 3
   %switch.shiftamt4681 = zext nneg i8 %2157 to i40
   %switch.downshift4682 = lshr i40 65537, %switch.shiftamt4681
@@ -31786,9 +31770,8 @@ switch.lookup4675:                                ; preds = %2148
 switch.lookup4684:                                ; preds = %2177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %502)
   %2178 = load i8, ptr %631, align 1, !range !510, !noundef !4
-  %2179 = zext nneg i8 %2178 to i64
-  %switch.gep4689 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.76, i64 0, i64 %2179
-  %switch.load4690 = load i32, ptr %switch.gep4689, align 4
+  %2179 = icmp eq i8 %2178, 0
+  %switch.load4690 = select i1 %2179, i32 198, i32 199
   %2180 = shl nuw nsw i8 %2178, 3
   %switch.shiftamt4692 = zext nneg i8 %2180 to i32
   %switch.downshift4693 = lshr i32 65793, %switch.shiftamt4692
@@ -31888,9 +31871,8 @@ switch.lookup4699:                                ; preds = %2208
 switch.lookup4704:                                ; preds = %2220
   %2222 = getelementptr inbounds i8, ptr %0, i64 13
   %2223 = load i8, ptr %2222, align 1, !noundef !4
-  %2224 = zext nneg i8 %2218 to i64
-  %switch.gep4705 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.77, i64 0, i64 %2224
-  %switch.load4706 = load i32, ptr %switch.gep4705, align 4
+  %2224 = icmp eq i8 %2218, 0
+  %switch.load4706 = select i1 %2224, i32 192, i32 193
   %2225 = shl nuw nsw i8 %2218, 3
   %switch.shiftamt4708 = zext nneg i8 %2225 to i32
   %switch.downshift4709 = lshr i32 256, %switch.shiftamt4708
@@ -34577,9 +34559,8 @@ switch.lookup4727:                                ; preds = %3022
   %switch.shiftamt4730 = zext nneg i8 %3026 to i32
   %switch.downshift4731 = lshr exact i32 16777216, %switch.shiftamt4730
   %switch.masked4732 = trunc i32 %switch.downshift4731 to i8
-  %3027 = zext nneg i8 %switch.tableidx4728 to i64
-  %switch.gep4733 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.80, i64 0, i64 %3027
-  %switch.load4734 = load i32, ptr %switch.gep4733, align 4
+  %3027 = icmp eq i8 %switch.tableidx4728, 1
+  %switch.load4734 = select i1 %3027, i32 16842752, i32 50397184
   %3028 = zext nneg i8 %switch.tableidx4728 to i64
   %switch.gep4735 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.81, i64 0, i64 %3028
   %switch.load4736 = load i32, ptr %switch.gep4735, align 4
@@ -35464,14 +35445,13 @@ switch.lookup4741:                                ; preds = %3275
   %3278 = zext nneg i8 %switch.tableidx4742 to i64
   %switch.gep4743 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.83, i64 0, i64 %3278
   %switch.load4744 = load i32, ptr %switch.gep4743, align 4
-  %3279 = zext nneg i8 %switch.tableidx4742 to i64
-  %switch.gep4745 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.84, i64 0, i64 %3279
-  %switch.load4746 = load i32, ptr %switch.gep4745, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %325)
-  %3280 = icmp ugt i32 %3271, 767
-  br i1 %3280, label %.invoke4261, label %3281
+  %3279 = icmp ugt i32 %3271, 767
+  br i1 %3279, label %.invoke4261, label %3280
 
-3281:                                             ; preds = %switch.lookup4741
+3280:                                             ; preds = %switch.lookup4741
+  %3281 = icmp eq i8 %switch.tableidx4742, 4
+  %switch.load4746 = select i1 %3281, i32 127, i32 17
   %.sroa.53466.0..sroa_idx = getelementptr inbounds i8, ptr %324, i64 2
   %.sroa.43465.0..sroa_idx = getelementptr inbounds i8, ptr %324, i64 1
   %.sroa.43465.0.copyload = load i8, ptr %.sroa.43465.0..sroa_idx, align 1, !alias.scope !4954
@@ -35498,7 +35478,7 @@ switch.lookup4741:                                ; preds = %3275
   invoke void @_ZN17cranelift_codegen3isa3x648encoding3vex14VexInstruction6encode17h550c9312dedff670E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %325, ptr noalias noundef nonnull align 8 dereferenceable(4856) %2)
           to label %3283 unwind label %.loopexit.split-lp
 
-3283:                                             ; preds = %3281
+3283:                                             ; preds = %3280
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %325)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %329)
   br label %.loopexit
@@ -35835,9 +35815,8 @@ switch.lookup4755:                                ; preds = %3317
   br i1 %3385, label %switch.lookup4763, label %3403
 
 switch.lookup4763:                                ; preds = %3383
-  %3386 = zext nneg i8 %switch.tableidx4764 to i64
-  %switch.gep4765 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.87, i64 0, i64 %3386
-  %switch.load4766 = load i32, ptr %switch.gep4765, align 4
+  %3386 = icmp eq i8 %switch.tableidx4764, 2
+  %switch.load4766 = select i1 %3386, i32 16777216, i32 16842752
   %3387 = zext nneg i8 %switch.tableidx4764 to i64
   %switch.gep4767 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.88, i64 0, i64 %3387
   %switch.load4768 = load i32, ptr %switch.gep4767, align 4
@@ -36002,20 +35981,17 @@ switch.lookup4763:                                ; preds = %3383
   br label %3430
 
 switch.lookup4769:                                ; preds = %3430
-  %3434 = zext nneg i8 %switch.tableidx4770 to i64
-  %switch.gep4771 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.89, i64 0, i64 %3434
-  %switch.load4772 = load i32, ptr %switch.gep4771, align 4
-  %3435 = zext nneg i8 %switch.tableidx4770 to i64
-  %switch.gep4773 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.90, i64 0, i64 %3435
-  %switch.load4774 = load i32, ptr %switch.gep4773, align 4
-  %3436 = zext nneg i8 %switch.tableidx4770 to i64
-  %switch.gep4775 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.91, i64 0, i64 %3436
-  %switch.load4776 = load i32, ptr %switch.gep4775, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %294)
-  %3437 = icmp ugt i32 %3410, 767
-  br i1 %3437, label %.invoke4261, label %3438
+  %3434 = icmp ugt i32 %3410, 767
+  br i1 %3434, label %.invoke4261, label %3435
 
-3438:                                             ; preds = %switch.lookup4769
+3435:                                             ; preds = %switch.lookup4769
+  %3436 = icmp eq i8 %switch.tableidx4770, 2
+  %switch.load4776 = select i1 %3436, i32 23, i32 46
+  %3437 = icmp eq i8 %switch.tableidx4770, 2
+  %switch.load4774 = select i1 %3437, i32 33554432, i32 16777216
+  %3438 = icmp eq i8 %switch.tableidx4770, 0
+  %switch.load4772 = select i1 %3438, i32 0, i32 65536
   store i8 %.sroa.0437.0, ptr %294, align 4
   %.sroa.33274.0..sroa_idx = getelementptr inbounds i8, ptr %294, i64 1
   store i8 %.sroa.3439.0, ptr %.sroa.33274.0..sroa_idx, align 1
@@ -36039,7 +36015,7 @@ switch.lookup4769:                                ; preds = %3430
   invoke void @_ZN17cranelift_codegen3isa3x648encoding3vex14VexInstruction6encode17h550c9312dedff670E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %294, ptr noalias noundef nonnull align 8 dereferenceable(4856) %2)
           to label %3440 unwind label %.loopexit.split-lp
 
-3440:                                             ; preds = %3438
+3440:                                             ; preds = %3435
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %294)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %301)
   br label %.loopexit
@@ -41053,9 +41029,8 @@ switch.lookup4803:                                ; preds = %5014
   %switch.shiftamt4806 = zext nneg i16 %5017 to i32
   %switch.downshift4807 = lshr i32 33686274, %switch.shiftamt4806
   %switch.masked4808 = trunc i32 %switch.downshift4807 to i8
-  %5018 = zext nneg i16 %switch.tableidx4804 to i64
-  %switch.gep4809 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x644inst4emit4emit17h4e0f6c46b83282ccE.96, i64 0, i64 %5018
-  %switch.load4810 = load i32, ptr %switch.gep4809, align 4
+  %5018 = icmp eq i16 %switch.tableidx4804, 0
+  %switch.load4810 = select i1 %5018, i32 4016, i32 4017
   %5019 = invoke noundef i8 @_ZN17cranelift_codegen3isa3x644inst4args11OperandSize7from_ty17ha9426046c4f320a6E(i16 noundef %5015)
           to label %5020 unwind label %.loopexit.split-lp, !range !510
 

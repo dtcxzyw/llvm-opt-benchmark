@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.peektagged_section_header = type { [4 x i8], i32, i32 }
 
-@peektagged_open.peektagged_encap = internal unnamed_addr constant [4 x i32] [i32 1, i32 22, i32 22, i32 22], align 16
 @.str.1 = private unnamed_addr constant [14 x i8] c"<FileVersion>\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"peektagged: version %u unsupported\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"<MediaType>\00", align 1
@@ -54,12 +53,12 @@ define hidden range(i32 -1, 2) i32 @peektagged_open(ptr noundef %0, ptr noundef 
   %12 = load i32, ptr %1, align 4
   %.not75 = icmp ne i32 %12, -12
   %. = sext i1 %.not75 to i32
-  br label %88
+  br label %87
 
 13:                                               ; preds = %3
   %lhsv = load i32, ptr %6, align 4
   %.not76 = icmp eq i32 %lhsv, 1919252095
-  br i1 %.not76, label %.lr.ph.i, label %88
+  br i1 %.not76, label %.lr.ph.i, label %87
 
 .lr.ph.i:                                         ; preds = %13, %17
   %.024.i = phi ptr [ %.1.i, %17 ], [ @.str.1, %13 ]
@@ -89,7 +88,7 @@ wtap_file_read_pattern.exit:                      ; preds = %.lr.ph.i
   %switch.selectcmp.case2.i = icmp ne i32 %25, -12
   %switch.selectcmp.not.i.not.not = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   %spec.select = sext i1 %switch.selectcmp.not.i.not.not to i32
-  br label %88
+  br label %87
 
 wtap_file_read_pattern.exit.thread:               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -152,10 +151,10 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %switch93 = icmp eq i32 %.019.i.i, -1
-  br i1 %switch93, label %88, label %wtap_file_read_number.exit.thread85
+  br i1 %switch93, label %87, label %wtap_file_read_number.exit.thread85
 
 wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i, %wtap_file_read_number.exit
-  br label %88
+  br label %87
 
 45:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
   %.not77 = icmp eq i64 %41, 9
@@ -166,12 +165,12 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -4, ptr %1, align 4
   %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %46) #7
   store ptr %47, ptr %2, align 8
-  br label %88
+  br label %87
 
 48:                                               ; preds = %45
   %49 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2)
   switch i32 %49, label %52 [
-    i32 -1, label %88
+    i32 -1, label %87
     i32 0, label %50
   ]
 
@@ -179,12 +178,12 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -13, ptr %1, align 4
   %51 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #7
   store ptr %51, ptr %2, align 8
-  br label %88
+  br label %87
 
 52:                                               ; preds = %48
   %53 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
   switch i32 %53, label %56 [
-    i32 -1, label %88
+    i32 -1, label %87
     i32 0, label %54
   ]
 
@@ -192,12 +191,12 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -13, ptr %1, align 4
   %55 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.5) #7
   store ptr %55, ptr %2, align 8
-  br label %88
+  br label %87
 
 56:                                               ; preds = %52
   %57 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2)
   switch i32 %57, label %60 [
-    i32 -1, label %88
+    i32 -1, label %87
     i32 0, label %58
   ]
 
@@ -205,12 +204,12 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -13, ptr %1, align 4
   %59 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #7
   store ptr %59, ptr %2, align 8
-  br label %88
+  br label %87
 
 60:                                               ; preds = %56
   %61 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2)
   switch i32 %61, label %64 [
-    i32 -1, label %88
+    i32 -1, label %87
     i32 0, label %62
   ]
 
@@ -218,7 +217,7 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -13, ptr %1, align 4
   %63 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #7
   store ptr %63, ptr %2, align 8
-  br label %88
+  br label %87
 
 64:                                               ; preds = %60
   %65 = load i32, ptr %8, align 4
@@ -229,52 +228,51 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   store i32 -4, ptr %1, align 4
   %68 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %65) #7
   store ptr %68, ptr %2, align 8
-  br label %88
+  br label %87
 
 69:                                               ; preds = %64
   %70 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %1, ptr noundef %2)
   switch i32 %70, label %72 [
-    i32 -1, label %88
+    i32 -1, label %87
     i32 0, label %71
   ]
 
 71:                                               ; preds = %69
   store i32 -12, ptr %1, align 4
-  br label %88
+  br label %87
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %0, align 8
   %74 = call i32 @wtap_read_bytes(ptr noundef %73, ptr noundef null, i32 noundef 8, ptr noundef %1, ptr noundef %2) #7
   %.not78 = icmp eq i32 %74, 0
-  br i1 %.not78, label %88, label %75
+  br i1 %.not78, label %87, label %75
 
 75:                                               ; preds = %72
-  %76 = zext nneg i32 %65 to i64
-  %77 = getelementptr [4 x i32], ptr @peektagged_open.peektagged_encap, i64 0, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %79 = load i32, ptr @peektagged_file_type_subtype, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %78, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @peektagged_read, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @peektagged_seek_read, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 9, ptr %84, align 4
-  %85 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %85, ptr %86, align 8
+  %76 = icmp eq i32 %65, 0
+  %77 = select i1 %76, i32 1, i32 22
+  %78 = load i32, ptr @peektagged_file_type_subtype, align 4
+  %79 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %78, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %77, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @peektagged_read, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @peektagged_seek_read, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 9, ptr %83, align 4
+  %84 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
+  %85 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %84, ptr %85, align 8
   %switch94.not = icmp eq i32 %65, 3
   %.95 = zext i1 %switch94.not to i32
-  store i32 %.95, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %87, align 8
+  store i32 %.95, ptr %84, align 4
+  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %86, align 8
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
-  br label %88
+  br label %87
 
-88:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit, %72, %69, %60, %56, %52, %48, %13, %11, %75, %71, %67, %62, %58, %54, %50, %.thread, %wtap_file_read_number.exit.thread85
+87:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit, %72, %69, %60, %56, %52, %48, %13, %11, %75, %71, %67, %62, %58, %54, %50, %.thread, %wtap_file_read_number.exit.thread85
   %.0 = phi i32 [ 0, %wtap_file_read_number.exit.thread85 ], [ -1, %.thread ], [ -1, %50 ], [ -1, %54 ], [ -1, %58 ], [ -1, %62 ], [ -1, %67 ], [ -1, %71 ], [ 1, %75 ], [ %., %11 ], [ 0, %13 ], [ -1, %wtap_file_read_number.exit ], [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %61, %60 ], [ %70, %69 ], [ -1, %72 ], [ %spec.select, %wtap_file_read_pattern.exit ]
   ret i32 %.0
 }

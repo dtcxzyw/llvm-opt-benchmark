@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.QCryptoBlockDriver = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
-@qcrypto_block_drivers = internal unnamed_addr constant [2 x ptr] [ptr @qcrypto_block_driver_qcow, ptr @qcrypto_block_driver_luks], align 16
 @.str = private unnamed_addr constant [23 x i8] c"../qemu/crypto/block.c\00", align 1
 @__func__.qcrypto_block_open = private unnamed_addr constant [19 x i8] c"qcrypto_block_open\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Unsupported block driver %s\00", align 1
@@ -40,11 +39,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = zext nneg i32 %format to i64
-  %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %has_format = getelementptr inbounds i8, ptr %0, i64 56
-  %1 = load ptr, ptr %has_format, align 8
+  %0 = icmp eq i32 %format, 0
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @qcrypto_block_driver_qcow, i64 56), align 8
+  %.val3 = load ptr, ptr getelementptr inbounds (i8, ptr @qcrypto_block_driver_luks, i64 56), align 8
+  %1 = select i1 %0, ptr %.val, ptr %.val3
   %call = tail call zeroext i1 %1(ptr noundef %buf, i64 noundef %len) #9
   br label %return
 
@@ -69,13 +67,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
-  %1 = load ptr, ptr %arrayidx, align 8
+  %1 = icmp eq i32 %0, 0
+  %2 = select i1 %1, ptr @qcrypto_block_driver_qcow, ptr @qcrypto_block_driver_luks
   %driver = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %1, ptr %driver, align 8
-  %2 = load ptr, ptr %1, align 8
-  %call11 = tail call i32 %2(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #9
+  store ptr %2, ptr %driver, align 8
+  %3 = load ptr, ptr %2, align 8
+  %call11 = tail call i32 %3(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #9
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end15
 
@@ -120,14 +117,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
-  %1 = load ptr, ptr %arrayidx, align 8
+  %1 = icmp eq i32 %0, 0
+  %2 = select i1 %1, ptr @qcrypto_block_driver_qcow, ptr @qcrypto_block_driver_luks
   %driver = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %1, ptr %driver, align 8
-  %create = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load ptr, ptr %create, align 8
-  %call11 = tail call i32 %2(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %initfunc, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp) #9
+  store ptr %2, ptr %driver, align 8
+  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @qcrypto_block_driver_qcow, i64 8), align 8
+  %.val14 = load ptr, ptr getelementptr inbounds (i8, ptr @qcrypto_block_driver_luks, i64 8), align 8
+  %3 = select i1 %1, ptr %.val, ptr %.val14
+  %call11 = tail call i32 %3(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %initfunc, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp) #9
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end15
 

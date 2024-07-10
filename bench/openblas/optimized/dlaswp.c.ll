@@ -3,7 +3,6 @@ source_filename = "bench/openblas/original/dlaswp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@laswp = internal unnamed_addr constant [2 x ptr] [ptr @dlaswp_plus, ptr @dlaswp_minus], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -19,39 +18,36 @@ define noundef i32 @dlaswp_(ptr nocapture noundef readonly %0, ptr noundef %1, p
   %14 = icmp eq i32 %13, 0
   %15 = icmp slt i32 %9, 1
   %16 = select i1 %14, i1 true, i1 %15
-  br i1 %16, label %41, label %17
+  br i1 %16, label %38, label %17
 
 17:                                               ; preds = %7
-  %18 = lshr i32 %13, 31
-  %19 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
-  %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %31
+  %18 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %20, label %29
 
-21:                                               ; preds = %17
-  %22 = zext nneg i32 %18 to i64
-  %23 = getelementptr inbounds [2 x ptr], ptr @laswp, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !7
-  %25 = zext nneg i32 %9 to i64
-  %26 = sext i32 %11 to i64
-  %27 = sext i32 %12 to i64
-  %28 = sext i32 %10 to i64
-  %29 = sext i32 %13 to i64
-  %30 = tail call i32 %24(i64 noundef %25, i64 noundef %26, i64 noundef %27, double noundef 0.000000e+00, ptr noundef %1, i64 noundef %28, ptr noundef null, i64 noundef 0, ptr noundef %5, i64 noundef %29) #4
-  br label %41
+20:                                               ; preds = %17
+  %21 = icmp sgt i32 %13, -1
+  %22 = select i1 %21, ptr @dlaswp_plus, ptr @dlaswp_minus
+  %23 = zext nneg i32 %9 to i64
+  %24 = sext i32 %11 to i64
+  %25 = sext i32 %12 to i64
+  %26 = sext i32 %10 to i64
+  %27 = sext i32 %13 to i64
+  %28 = tail call i32 %22(i64 noundef %23, i64 noundef %24, i64 noundef %25, double noundef 0.000000e+00, ptr noundef %1, i64 noundef %26, ptr noundef null, i64 noundef 0, ptr noundef %5, i64 noundef %27) #4
+  br label %38
 
-31:                                               ; preds = %17
-  %32 = zext nneg i32 %9 to i64
-  %33 = sext i32 %11 to i64
-  %34 = sext i32 %12 to i64
-  %35 = sext i32 %10 to i64
-  %36 = sext i32 %13 to i64
-  %37 = zext nneg i32 %18 to i64
-  %38 = getelementptr inbounds [2 x ptr], ptr @laswp, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !7
-  %40 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %32, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %8, ptr noundef %1, i64 noundef %35, ptr noundef null, i64 noundef 0, ptr noundef %5, i64 noundef %36, ptr noundef %39, i32 noundef %19) #4
-  br label %41
+29:                                               ; preds = %17
+  %30 = zext nneg i32 %9 to i64
+  %31 = sext i32 %11 to i64
+  %32 = sext i32 %12 to i64
+  %33 = sext i32 %10 to i64
+  %34 = sext i32 %13 to i64
+  %35 = icmp sgt i32 %13, -1
+  %36 = select i1 %35, ptr @dlaswp_plus, ptr @dlaswp_minus
+  %37 = call i32 @blas_level1_thread(i32 noundef 3, i64 noundef %30, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %8, ptr noundef %1, i64 noundef %33, ptr noundef null, i64 noundef 0, ptr noundef %5, i64 noundef %34, ptr noundef nonnull %36, i32 noundef %18) #4
+  br label %38
 
-41:                                               ; preds = %31, %21, %7
+38:                                               ; preds = %29, %20, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
   ret i32 0
 }
@@ -86,5 +82,3 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"any pointer", !5, i64 0}

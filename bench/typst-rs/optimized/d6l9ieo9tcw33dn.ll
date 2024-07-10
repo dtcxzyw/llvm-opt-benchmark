@@ -1386,9 +1386,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN75_$LT$typst..visualize..polygon.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0d67ed5b291cc107E" = private unnamed_addr constant [3 x ptr] [ptr @anon.a2b023d1a4e2834952d16152dce23780.730, ptr @anon.a2b023d1a4e2834952d16152dce23780.690, ptr @anon.a2b023d1a4e2834952d16152dce23780.769], align 8
 @"switch.table._ZN91_$LT$typst..visualize..color..ColorSpace$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hc7a60c44e8317284E" = private unnamed_addr constant [8 x ptr] [ptr @_ZN5typst9visualize5color5Color10oklab_data4DATA17hd7e1d35622449382E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color10oklch_data4DATA17h9bd2d3722803d4f3E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color8rgb_data4DATA17ha7733e8ae3e14a27E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color9luma_data4DATA17h8fd3f4bf3e930069E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color15linear_rgb_data4DATA17h6c33083c2a4bfaf6E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color8hsl_data4DATA17h8001d479d42f00b5E.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color8hsv_data4DATA17h1ab966b1f229efdeE.llvm.7889846851399105414, ptr @_ZN5typst9visualize5color5Color9cmyk_data4DATA17hc0d4578f97ae30f4E.llvm.7889846851399105414], align 8
 @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE" = private unnamed_addr constant [3 x ptr] [ptr @anon.a2b023d1a4e2834952d16152dce23780.1007.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1009.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1011.llvm.7889846851399105414], align 8
-@"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE.790" = private unnamed_addr constant [3 x i64] [i64 6, i64 6, i64 7], align 8
 @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE" = private unnamed_addr constant [5 x ptr] [ptr @anon.a2b023d1a4e2834952d16152dce23780.1022.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.26.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.27.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1026.llvm.7889846851399105414, ptr @anon.a2b023d1a4e2834952d16152dce23780.1028.llvm.7889846851399105414], align 8
-@"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE.791" = private unnamed_addr constant [5 x i64] [i64 1, i64 1, i64 1, i64 1, i64 2], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Graphemes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha855d08304dab412E"(ptr noalias noundef align 8 dereferenceable(160) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -141535,9 +141533,8 @@ define noundef zeroext i1 @"_ZN185_$LT$typst..text..font..variant.._..$LT$impl$u
 define internal noundef zeroext i1 @"_ZN74_$LT$typst..text..font..variant..FontStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17hf433f5c9441656a4E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4862, !noundef !4
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE.790", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = icmp eq i8 %2, 2
+  %switch.load = select i1 %3, i64 7, i64 6
   %4 = zext nneg i8 %2 to i64
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN74_$LT$typst..text..font..variant..FontStyle$u20$as$u20$core..fmt..Debug$GT$3fmt17hf433f5c9441656a4E.787", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
@@ -160825,25 +160822,25 @@ switch.lookup:
   %3 = sext i8 %1 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN93_$LT$typst..text..font..variant..FontStyle$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hbb6d3c84dacf724eE.790", i64 0, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %4 = icmp eq i8 %1, 2
+  %switch.load2 = select i1 %4, i64 7, i64 6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36095)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
   %5 = xor i64 %switch.load2, 15
-  %6 = getelementptr i8, ptr %2, i64 %switch.load2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, i8 0, i64 %5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load, i64 %switch.load2, i1 false), !noalias !36098
+  %switch.load2.sroa.sel.v = select i1 %4, i64 7, i64 6
+  %switch.load2.sroa.sel = getelementptr inbounds i8, ptr %2, i64 %switch.load2.sroa.sel.v
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %switch.load2.sroa.sel, i8 0, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, ptr noundef nonnull readonly align 1 dereferenceable(6) %switch.load, i64 %switch.load2, i1 false), !noalias !36098
   %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i = load ptr, ptr %2, align 8, !noalias !36103
   %.8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..sroa_idx, align 8, !noalias !36103
-  %7 = zext i56 %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i to i64
+  %6 = zext i56 %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i to i64
   %.sroa.5.15.insert.ext.i.i = shl nuw nsw i64 %switch.load2, 56
-  %.sroa.5.15.insert.shift.i.i = or disjoint i64 %.sroa.5.15.insert.ext.i.i, %7
+  %.sroa.5.15.insert.shift.i.i = or disjoint i64 %.sroa.5.15.insert.ext.i.i, %6
   %.sroa.5.15.insert.insert.i.i = or disjoint i64 %.sroa.5.15.insert.shift.i.i, -9223372036854775808
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i, ptr %8, align 8, !alias.scope !36095, !noalias !36107
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i, ptr %7, align 8, !alias.scope !36095, !noalias !36107
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.15.insert.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !36095, !noalias !36107
   store i8 15, ptr %0, align 8, !alias.scope !36095, !noalias !36107
@@ -163568,25 +163565,25 @@ switch.lookup:
   %3 = sext i8 %1 to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN86_$LT$typst..math..matrix..Delimiter$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h42edd9e578570f2dE.791", i64 0, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+  %4 = icmp eq i8 %1, 4
+  %switch.load2 = select i1 %4, i64 2, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36552)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
   %5 = xor i64 %switch.load2, 15
-  %6 = getelementptr i8, ptr %2, i64 %switch.load2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, i8 0, i64 %5, i1 false)
+  %switch.load2.sroa.sel.v = select i1 %4, i64 2, i64 1
+  %switch.load2.sroa.sel = getelementptr inbounds i8, ptr %2, i64 %switch.load2.sroa.sel.v
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %switch.load2.sroa.sel, i8 0, i64 %5, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %switch.load, i64 %switch.load2, i1 false), !noalias !36555
   %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i = load ptr, ptr %2, align 8, !noalias !36560
   %.8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i = load i56, ptr %.8..8..8..8..8..8..sroa_idx, align 8, !noalias !36560
-  %7 = zext i56 %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i to i64
+  %6 = zext i56 %.8..8..8..8..8..8..sroa.5.0.copyload3.pre.i.i to i64
   %.sroa.5.15.insert.ext.i.i = shl nuw nsw i64 %switch.load2, 56
-  %.sroa.5.15.insert.shift.i.i = or disjoint i64 %.sroa.5.15.insert.ext.i.i, %7
+  %.sroa.5.15.insert.shift.i.i = or disjoint i64 %.sroa.5.15.insert.ext.i.i, %6
   %.sroa.5.15.insert.insert.i.i = or disjoint i64 %.sroa.5.15.insert.shift.i.i, -9223372036854775808
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i, ptr %8, align 8, !alias.scope !36552, !noalias !36564
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.0..0..0..0..0..0..sroa.01.0.copyload2.pre.i.i, ptr %7, align 8, !alias.scope !36552, !noalias !36564
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.15.insert.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !36552, !noalias !36564
   store i8 15, ptr %0, align 8, !alias.scope !36552, !noalias !36564

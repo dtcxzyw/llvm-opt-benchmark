@@ -167,7 +167,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.95 = private unnamed_addr constant [7 x i8] c"%2u%% \00", align 1
 @.str.96 = private unnamed_addr constant [8 x i8] c"0x%02x \00", align 1
 @.str.97 = private unnamed_addr constant [5 x i8] c"%3u \00", align 1
-@dissect_dmx_chan.string_format = internal unnamed_addr constant [2 x ptr] [ptr @.str.98, ptr @.str.99], align 16
 @.str.98 = private unnamed_addr constant [11 x i8] c"0x%03x: %s\00", align 1
 @.str.99 = private unnamed_addr constant [8 x i8] c"%3u: %s\00", align 1
 @.str.100 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -352,38 +351,37 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
   %61 = load i32, ptr @hf_dmx_chan_output_dmx_data, align 4
   %62 = mul i32 %.lcssa, %indvars.iv
   %63 = load i32, ptr @global_disp_chan_nr_type, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr [2 x ptr], ptr @dissect_dmx_chan.string_format, i64 0, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = add i32 %62, 1
-  %68 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #2
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef %.lcssa53, ptr noundef %66, i32 noundef %67, ptr noundef %68) #2
+  %64 = icmp eq i32 %63, 0
+  %65 = select i1 %64, ptr @.str.98, ptr @.str.99
+  %66 = add i32 %62, 1
+  %67 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #2
+  %68 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef %.lcssa53, ptr noundef nonnull %65, i32 noundef %66, ptr noundef %67) #2
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge, %8
-  %70 = load i32, ptr @hf_dmx_chan_output_data_filter, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef %17, i32 noundef 0) #2
-  %.not.i = icmp eq ptr %71, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %72
+  %69 = load i32, ptr @hf_dmx_chan_output_data_filter, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef %17, i32 noundef 0) #2
+  %.not.i = icmp eq ptr %70, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %71
 
-72:                                               ; preds = %._crit_edge
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %.not5.i = icmp eq ptr %74, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %75
+71:                                               ; preds = %._crit_edge
+  %72 = getelementptr inbounds i8, ptr %70, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %.not5.i = icmp eq ptr %73, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
-  %77 = load i32, ptr %76, align 4
-  %78 = or i32 %77, 1
-  store i32 %78, ptr %76, align 4
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %73, i64 28
+  %76 = load i32, ptr %75, align 4
+  %77 = or i32 %76, 1
+  store i32 %77, ptr %75, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %75, %72, %._crit_edge, %4
-  %79 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %79
+proto_item_set_hidden.exit:                       ; preds = %74, %71, %._crit_edge, %4
+  %78 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %78
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1

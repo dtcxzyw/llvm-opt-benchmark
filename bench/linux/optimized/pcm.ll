@@ -124,7 +124,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.73 = private unnamed_addr constant [22 x i8] c"subdevices_count: %d\0A\00", align 1
 @.str.74 = private unnamed_addr constant [22 x i8] c"subdevices_avail: %d\0A\00", align 1
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
-@snd_pcm_stream_names = internal unnamed_addr constant [2 x ptr] [ptr @.str.76, ptr @.str.77], align 16
 @.str.76 = private unnamed_addr constant [9 x i8] c"PLAYBACK\00", align 1
 @.str.77 = private unnamed_addr constant [8 x i8] c"CAPTURE\00", align 1
 @.str.78 = private unnamed_addr constant [6 x i8] c"sub%i\00", align 1
@@ -159,7 +158,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.105 = private unnamed_addr constant [24 x i8] c"silence_threshold: %lu\0A\00", align 1
 @.str.106 = private unnamed_addr constant [19 x i8] c"silence_size: %lu\0A\00", align 1
 @.str.107 = private unnamed_addr constant [15 x i8] c"boundary: %lu\0A\00", align 1
-@snd_pcm_tstamp_mode_names = internal unnamed_addr constant [2 x ptr] [ptr @.str.108, ptr @.str.109], align 16
 @.str.108 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
 @.str.109 = private unnamed_addr constant [7 x i8] c"ENABLE\00", align 1
 @.str.110 = private unnamed_addr constant [11 x i8] c"state: %s\0A\00", align 1
@@ -1311,13 +1309,13 @@ define internal void @snd_pcm_stream_proc_info_read(ptr nocapture noundef readon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %46, label %4
+  br i1 %3, label %45, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 288) #15
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %46, label %8
+  br i1 %7, label %45, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @snd_pcm_info(ptr noundef nonnull %0, ptr noundef nonnull %6) #13
@@ -1327,7 +1325,7 @@ define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr nocaptur
 
 12:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %11, ptr noundef nonnull @.str.63, i32 noundef %9) #13
-  br label %45
+  br label %44
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %6, i64 12
@@ -1343,42 +1341,41 @@ define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr nocaptur
   %21 = load ptr, ptr %1, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr [2 x ptr], ptr @snd_pcm_stream_names, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %21, ptr noundef nonnull @.str.67, ptr noundef %26) #13
-  %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %27, ptr noundef nonnull @.str.68, ptr noundef %28) #13
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 80
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %29, ptr noundef nonnull @.str.69, ptr noundef %30) #13
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 160
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %31, ptr noundef nonnull @.str.70, ptr noundef %32) #13
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 192
-  %35 = load i32, ptr %34, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %33, ptr noundef nonnull @.str.71, i32 noundef %35) #13
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 196
-  %38 = load i32, ptr %37, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %36, ptr noundef nonnull @.str.72, i32 noundef %38) #13
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 200
-  %41 = load i32, ptr %40, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %39, ptr noundef nonnull @.str.73, i32 noundef %41) #13
-  %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 204
-  %44 = load i32, ptr %43, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %42, ptr noundef nonnull @.str.74, i32 noundef %44) #13
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, ptr @.str.76, ptr @.str.77
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %21, ptr noundef nonnull @.str.67, ptr noundef nonnull %25) #13
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %26, ptr noundef nonnull @.str.68, ptr noundef %27) #13
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %6, i64 80
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %28, ptr noundef nonnull @.str.69, ptr noundef %29) #13
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds i8, ptr %6, i64 160
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %30, ptr noundef nonnull @.str.70, ptr noundef %31) #13
+  %32 = load ptr, ptr %1, align 8
+  %33 = getelementptr inbounds i8, ptr %6, i64 192
+  %34 = load i32, ptr %33, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %32, ptr noundef nonnull @.str.71, i32 noundef %34) #13
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds i8, ptr %6, i64 196
+  %37 = load i32, ptr %36, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %35, ptr noundef nonnull @.str.72, i32 noundef %37) #13
+  %38 = load ptr, ptr %1, align 8
+  %39 = getelementptr inbounds i8, ptr %6, i64 200
+  %40 = load i32, ptr %39, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %38, ptr noundef nonnull @.str.73, i32 noundef %40) #13
+  %41 = load ptr, ptr %1, align 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 204
+  %43 = load i32, ptr %42, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %41, ptr noundef nonnull @.str.74, i32 noundef %43) #13
+  br label %44
+
+44:                                               ; preds = %13, %12
+  tail call void @kfree(ptr noundef nonnull %6) #13
   br label %45
 
-45:                                               ; preds = %13, %12
-  tail call void @kfree(ptr noundef nonnull %6) #13
-  br label %46
-
-46:                                               ; preds = %45, %4, %2
+45:                                               ; preds = %44, %4, %2
   ret void
 }
 
@@ -1499,7 +1496,7 @@ define internal void @snd_pcm_substream_proc_sw_params_read(ptr nocapture nounde
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %11, ptr noundef nonnull @.str.82) #13
-  br label %46
+  br label %45
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %8, align 8
@@ -1509,51 +1506,50 @@ define internal void @snd_pcm_substream_proc_sw_params_read(ptr nocapture nounde
 
 16:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %15, ptr noundef nonnull @.str.83) #13
-  br label %46
+  br label %45
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %8, i64 184
   %19 = load i32, ptr %18, align 8
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr [2 x ptr], ptr @snd_pcm_tstamp_mode_names, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %15, ptr noundef nonnull @.str.100, ptr noundef %22) #13
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 188
-  %25 = load i32, ptr %24, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %23, ptr noundef nonnull @.str.101, i32 noundef %25) #13
-  %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 272
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load i64, ptr %29, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %26, ptr noundef nonnull @.str.102, i64 noundef %30) #13
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 192
-  %33 = load i64, ptr %32, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %31, ptr noundef nonnull @.str.103, i64 noundef %33) #13
-  %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 200
-  %36 = load i64, ptr %35, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %34, ptr noundef nonnull @.str.104, i64 noundef %36) #13
-  %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 208
-  %39 = load i64, ptr %38, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %37, ptr noundef nonnull @.str.105, i64 noundef %39) #13
-  %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 216
-  %42 = load i64, ptr %41, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %40, ptr noundef nonnull @.str.106, i64 noundef %42) #13
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 224
-  %45 = load i64, ptr %44, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %43, ptr noundef nonnull @.str.107, i64 noundef %45) #13
-  br label %46
+  %20 = icmp eq i32 %19, 0
+  %21 = select i1 %20, ptr @.str.108, ptr @.str.109
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %15, ptr noundef nonnull @.str.100, ptr noundef nonnull %21) #13
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 188
+  %24 = load i32, ptr %23, align 4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %22, ptr noundef nonnull @.str.101, i32 noundef %24) #13
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %8, i64 272
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load i64, ptr %28, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %25, ptr noundef nonnull @.str.102, i64 noundef %29) #13
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds i8, ptr %8, i64 192
+  %32 = load i64, ptr %31, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %30, ptr noundef nonnull @.str.103, i64 noundef %32) #13
+  %33 = load ptr, ptr %1, align 8
+  %34 = getelementptr inbounds i8, ptr %8, i64 200
+  %35 = load i64, ptr %34, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %33, ptr noundef nonnull @.str.104, i64 noundef %35) #13
+  %36 = load ptr, ptr %1, align 8
+  %37 = getelementptr inbounds i8, ptr %8, i64 208
+  %38 = load i64, ptr %37, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %36, ptr noundef nonnull @.str.105, i64 noundef %38) #13
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %8, i64 216
+  %41 = load i64, ptr %40, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %39, ptr noundef nonnull @.str.106, i64 noundef %41) #13
+  %42 = load ptr, ptr %1, align 8
+  %43 = getelementptr inbounds i8, ptr %8, i64 224
+  %44 = load i64, ptr %43, align 8
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %42, ptr noundef nonnull @.str.107, i64 noundef %44) #13
+  br label %45
 
-46:                                               ; preds = %17, %16, %10
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 296
-  tail call void @mutex_unlock(ptr noundef %48) #13
+45:                                               ; preds = %17, %16, %10
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 296
+  tail call void @mutex_unlock(ptr noundef %47) #13
   ret void
 }
 

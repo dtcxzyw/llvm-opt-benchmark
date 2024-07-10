@@ -31,60 +31,60 @@ define noalias ptr @pdf_convert_utf(ptr nocapture noundef readonly %0, i64 nound
   %8 = add i64 %1, 1
   %9 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #14
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %30, label %10
+  br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %0, i64 %1, i1 false)
   %11 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %8) #14
   %.not34 = icmp eq ptr %11, null
-  br i1 %.not34, label %14, label %.preheader.preheader
+  br i1 %.not34, label %12, label %13
 
-.preheader.preheader:                             ; preds = %10
+12:                                               ; preds = %10
+  tail call void @free(ptr noundef nonnull %9) #14
+  br label %31
+
+13:                                               ; preds = %10
   store ptr %9, ptr %3, align 8
   store ptr %11, ptr %4, align 8
   store i64 %1, ptr %6, align 8
   store i64 %1, ptr %5, align 8
-  %12 = tail call ptr @iconv_open(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #14
-  %13 = icmp eq ptr %12, inttoptr (i64 -1 to ptr)
-  br i1 %13, label %15, label %19
+  %14 = tail call ptr @iconv_open(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #14
+  %15 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
+  br i1 %15, label %16, label %20
 
-14:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %9) #14
-  br label %30
-
-15:                                               ; preds = %.preheader.preheader
-  %16 = tail call ptr @__errno_location() #15
-  %17 = load i32, ptr %16, align 4
-  %18 = call ptr @cli_strerror(i32 noundef %17, ptr noundef nonnull %7, i64 noundef 128) #14
+16:                                               ; preds = %13
+  %17 = tail call ptr @__errno_location() #15
+  %18 = load i32, ptr %17, align 4
+  %19 = call ptr @cli_strerror(i32 noundef %18, ptr noundef nonnull %7, i64 noundef 128) #14
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, ptr noundef nonnull %7) #14
-  br label %.loopexit
+  br label %.critedge
 
-19:                                               ; preds = %.preheader.preheader
-  %20 = call i64 @iconv(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #14
-  %21 = load i64, ptr %6, align 8
-  %22 = icmp eq i64 %21, %1
-  br i1 %22, label %23, label %25
+20:                                               ; preds = %13
+  %21 = call i64 @iconv(ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #14
+  %22 = load i64, ptr %6, align 8
+  %23 = icmp eq i64 %22, %1
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %19
-  %24 = call i32 @iconv_close(ptr noundef %12) #14
-  br label %.loopexit
+24:                                               ; preds = %20
+  %25 = call i32 @iconv_close(ptr noundef %14) #14
+  br label %.critedge
 
-25:                                               ; preds = %19
-  %26 = sub i64 %1, %21
-  %27 = getelementptr inbounds i8, ptr %11, i64 %26
-  store i8 0, ptr %27, align 1
-  %28 = call noalias ptr @strdup(ptr noundef nonnull %11) #14
-  %29 = call i32 @iconv_close(ptr noundef %12) #14
-  br label %.loopexit
+26:                                               ; preds = %20
+  %27 = sub i64 %1, %22
+  %28 = getelementptr inbounds i8, ptr %11, i64 %27
+  store i8 0, ptr %28, align 1
+  %29 = call noalias ptr @strdup(ptr noundef nonnull %11) #14
+  %30 = call i32 @iconv_close(ptr noundef %14) #14
+  br label %.critedge
 
-.loopexit:                                        ; preds = %15, %23, %25
-  %.028 = phi ptr [ %28, %25 ], [ null, %23 ], [ null, %15 ]
+.critedge:                                        ; preds = %16, %24, %26
+  %.028 = phi ptr [ %29, %26 ], [ null, %24 ], [ null, %16 ]
   call void @free(ptr noundef nonnull %9) #14
   call void @free(ptr noundef nonnull %11) #14
-  br label %30
+  br label %31
 
-30:                                               ; preds = %2, %.loopexit, %14
-  %.0 = phi ptr [ %.028, %.loopexit ], [ null, %14 ], [ null, %2 ]
+31:                                               ; preds = %2, %.critedge, %12
+  %.0 = phi ptr [ %.028, %.critedge ], [ null, %12 ], [ null, %2 ]
   ret ptr %.0
 }
 

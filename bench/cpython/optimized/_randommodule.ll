@@ -34,7 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_random_Random_setstate__doc__ = internal constant [82 x i8] c"setstate($self, state, /)\0A--\0A\0Asetstate(state) -> None.  Restores generator state.\00", align 16
 @.str.7 = private unnamed_addr constant [12 x i8] c"getrandbits\00", align 1
 @_random_Random_getrandbits__doc__ = internal constant [88 x i8] c"getrandbits($self, k, /)\0A--\0A\0Agetrandbits(k) -> x.  Generates an int with k random bits.\00", align 16
-@genrand_uint32.mag01 = internal unnamed_addr constant [2 x i32] [i32 0, i32 -1727483681], align 4
 @_Py_NoneStruct = external global %struct._object, align 8
 @PyLong_Type = external global %struct._typeobject, align 8
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
@@ -585,67 +584,64 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 1588
   %3 = load i32, ptr %arrayidx7, align 4
   %shr = lshr exact i32 %or, 1
+  %xor = xor i32 %shr, %3
   %and8 = and i32 %2, 1
-  %idxprom9 = zext nneg i32 %and8 to i64
-  %arrayidx10 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %idxprom9
-  %4 = load i32, ptr %arrayidx10, align 4
-  %xor = xor i32 %4, %3
-  %xor11 = xor i32 %xor, %shr
+  %4 = icmp eq i32 %and8, 0
+  %5 = select i1 %4, i32 0, i32 -1727483681
+  %xor11 = xor i32 %xor, %5
   store i32 %xor11, ptr %arrayidx, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 227
   br i1 %exitcond.not, label %for.body16.preheader, label %for.body, !llvm.loop !7
 
 for.body16:                                       ; preds = %for.body16.preheader, %for.body16
-  %5 = phi i32 [ %.pre49, %for.body16.preheader ], [ %6, %for.body16 ]
+  %6 = phi i32 [ %.pre49, %for.body16.preheader ], [ %7, %for.body16 ]
   %indvars.iv45 = phi i64 [ 227, %for.body16.preheader ], [ %indvars.iv.next46, %for.body16 ]
   %arrayidx18 = getelementptr i32, ptr %state, i64 %indvars.iv45
-  %and19 = and i32 %5, -2147483648
+  %and19 = and i32 %6, -2147483648
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %arrayidx22 = getelementptr i32, ptr %state, i64 %indvars.iv.next46
-  %6 = load i32, ptr %arrayidx22, align 4
-  %and23 = and i32 %6, 2147483646
+  %7 = load i32, ptr %arrayidx22, align 4
+  %and23 = and i32 %7, 2147483646
   %or24 = or disjoint i32 %and23, %and19
   %arrayidx27 = getelementptr i8, ptr %arrayidx18, i64 -908
-  %7 = load i32, ptr %arrayidx27, align 4
+  %8 = load i32, ptr %arrayidx27, align 4
   %shr28 = lshr exact i32 %or24, 1
-  %and30 = and i32 %6, 1
-  %idxprom31 = zext nneg i32 %and30 to i64
-  %arrayidx32 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %idxprom31
-  %8 = load i32, ptr %arrayidx32, align 4
-  %xor29 = xor i32 %8, %7
-  %xor33 = xor i32 %xor29, %shr28
+  %xor29 = xor i32 %shr28, %8
+  %and30 = and i32 %7, 1
+  %9 = icmp eq i32 %and30, 0
+  %10 = select i1 %9, i32 0, i32 -1727483681
+  %xor33 = xor i32 %xor29, %10
   store i32 %xor33, ptr %arrayidx18, align 4
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 623
   br i1 %exitcond48.not, label %for.end38, label %for.body16, !llvm.loop !8
 
 for.end38:                                        ; preds = %for.body16
   %arrayidx39 = getelementptr i8, ptr %self, i64 2512
-  %9 = load i32, ptr %arrayidx39, align 4
-  %and40 = and i32 %9, -2147483648
-  %10 = load i32, ptr %state, align 4
-  %and42 = and i32 %10, 2147483646
+  %11 = load i32, ptr %arrayidx39, align 4
+  %and40 = and i32 %11, -2147483648
+  %12 = load i32, ptr %state, align 4
+  %and42 = and i32 %12, 2147483646
   %or43 = or disjoint i32 %and42, %and40
   %arrayidx44 = getelementptr i8, ptr %self, i64 1604
-  %11 = load i32, ptr %arrayidx44, align 4
+  %13 = load i32, ptr %arrayidx44, align 4
   %shr45 = lshr exact i32 %or43, 1
-  %and47 = and i32 %10, 1
-  %idxprom48 = zext nneg i32 %and47 to i64
-  %arrayidx49 = getelementptr [2 x i32], ptr @genrand_uint32.mag01, i64 0, i64 %idxprom48
-  %12 = load i32, ptr %arrayidx49, align 4
-  %xor46 = xor i32 %12, %11
-  %xor50 = xor i32 %xor46, %shr45
+  %xor46 = xor i32 %shr45, %13
+  %and47 = and i32 %12, 1
+  %14 = icmp eq i32 %and47, 0
+  %15 = select i1 %14, i32 0, i32 -1727483681
+  %xor50 = xor i32 %xor46, %15
   store i32 %xor50, ptr %arrayidx39, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.end38, %entry
-  %13 = phi i32 [ 0, %for.end38 ], [ %0, %entry ]
-  %inc54 = add nsw i32 %13, 1
+  %16 = phi i32 [ 0, %for.end38 ], [ %0, %entry ]
+  %inc54 = add nsw i32 %16, 1
   store i32 %inc54, ptr %index, align 8
-  %idxprom55 = sext i32 %13 to i64
+  %idxprom55 = sext i32 %16 to i64
   %arrayidx56 = getelementptr i32, ptr %state, i64 %idxprom55
-  %14 = load i32, ptr %arrayidx56, align 4
-  %shr57 = lshr i32 %14, 11
-  %xor58 = xor i32 %shr57, %14
+  %17 = load i32, ptr %arrayidx56, align 4
+  %shr57 = lshr i32 %17, 11
+  %xor58 = xor i32 %shr57, %17
   %shl = shl i32 %xor58, 7
   %and59 = and i32 %shl, -1658038656
   %xor60 = xor i32 %and59, %xor58

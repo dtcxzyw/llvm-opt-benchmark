@@ -162,8 +162,6 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gn
 @_ZTSSt23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN5folly10symbolizer8ElfCache5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.20 = private unnamed_addr constant [3 x i32] [i32 2, i32 1, i32 1], align 4
-@switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.21 = private unnamed_addr constant [3 x i32] [i32 1, i32 1, i32 0], align 4
 
 @_ZN5folly10symbolizer18SignalSafeElfCache4PathC1EPKcmRKNS_19reentrant_allocatorIcEE = unnamed_addr alias void (ptr, ptr, i64, ptr), ptr @_ZN5folly10symbolizer18SignalSafeElfCache4PathC2EPKcmRKNS_19reentrant_allocatorIcEE
 
@@ -2906,39 +2904,38 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE11rota
   br i1 %10, label %switch.lookup, label %cleanup56
 
 switch.lookup:                                    ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i
-  %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.20, i64 0, i64 %11
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep175 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.21, i64 0, i64 %11
-  %switch.load176 = load i32, ptr %switch.gep175, align 4
+  %11 = icmp eq i32 %9, 0
+  %switch.load = select i1 %11, i32 2, i32 1
+  %12 = icmp ne i32 %9, 2
+  %switch.load176 = zext i1 %12 to i32
   store i32 %switch.load, ptr %balance_.i88, align 8, !tbaa !194
   store i32 %switch.load176, ptr %balance_.i90, align 8, !tbaa !194
   br label %cleanup56
 
 if.else27:                                        ; preds = %if.else19
-  %12 = load ptr, ptr %0, align 8, !tbaa !15
-  %left_.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load ptr, ptr %left_.i.i.i, align 8, !tbaa !57
+  %13 = load ptr, ptr %0, align 8, !tbaa !15
+  %left_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %left_.i.i.i, align 8, !tbaa !57
   %left_.i.i.i.i91 = getelementptr inbounds i8, ptr %x.addr.0147, i64 8
-  %14 = load ptr, ptr %left_.i.i.i.i91, align 8, !tbaa !57
+  %15 = load ptr, ptr %left_.i.i.i.i91, align 8, !tbaa !57
   %right_.i.i.i.i92 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %14, ptr %right_.i.i.i.i92, align 8, !tbaa !58
-  %tobool.not.i.i.i93 = icmp eq ptr %14, null
+  store ptr %15, ptr %right_.i.i.i.i92, align 8, !tbaa !58
+  %tobool.not.i.i.i93 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i93, label %_ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE15avl_rotate_leftEPNS0_12avltree_nodeIS3_EES8_S8_.exit, label %if.then.i.i.i94
 
 if.then.i.i.i94:                                  ; preds = %if.else27
-  store ptr %0, ptr %14, align 8, !tbaa !15
+  store ptr %0, ptr %15, align 8, !tbaa !15
   br label %_ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE15avl_rotate_leftEPNS0_12avltree_nodeIS3_EES8_S8_.exit
 
 _ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE15avl_rotate_leftEPNS0_12avltree_nodeIS3_EES8_S8_.exit: ; preds = %if.then.i.i.i94, %if.else27
-  %cmp.i.i96 = icmp eq ptr %13, %0
+  %cmp.i.i96 = icmp eq ptr %14, %0
   store ptr %0, ptr %left_.i.i.i.i91, align 8, !tbaa !57
   store ptr %x.addr.0147, ptr %0, align 8, !tbaa !15
-  store ptr %12, ptr %x.addr.0147, align 8, !tbaa !15
-  %cmp.i.i.i97 = icmp eq ptr %12, %header
-  %right_.i.i6.i.i98 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %13, ptr %x.addr.0147, align 8, !tbaa !15
+  %cmp.i.i.i97 = icmp eq ptr %13, %header
+  %right_.i.i6.i.i98 = getelementptr inbounds i8, ptr %13, i64 16
   %spec.select.i.i99 = select i1 %cmp.i.i96, ptr %left_.i.i.i, ptr %right_.i.i6.i.i98
-  %left_.i.sink.i.i.i100 = select i1 %cmp.i.i.i97, ptr %12, ptr %spec.select.i.i99
+  %left_.i.sink.i.i.i100 = select i1 %cmp.i.i.i97, ptr %13, ptr %spec.select.i.i99
   store ptr %x.addr.0147, ptr %left_.i.sink.i.i.i100, align 8, !tbaa !25
   %cmp.i = icmp eq i32 %3, 2
   %spec.select.i = select i1 %cmp.i, i32 1, i32 2
@@ -2953,90 +2950,89 @@ if.then33:                                        ; preds = %for.body
 
 if.then35:                                        ; preds = %if.then33
   %balance_.i89 = getelementptr inbounds i8, ptr %x.addr.0147, i64 24
-  %15 = load i32, ptr %balance_.i89, align 8, !tbaa !194
-  %cmp40 = icmp eq i32 %15, 2
+  %16 = load i32, ptr %balance_.i89, align 8, !tbaa !194
+  %cmp40 = icmp eq i32 %16, 2
   br i1 %cmp40, label %if.then41, label %if.else43
 
 if.then41:                                        ; preds = %if.then35
   %right_.i.i = getelementptr inbounds i8, ptr %x.addr.0147, i64 16
-  %16 = load ptr, ptr %right_.i.i, align 8, !tbaa !58
-  %left_.i.i.i101 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load ptr, ptr %left_.i.i.i101, align 8, !tbaa !57
-  store ptr %17, ptr %right_.i.i, align 8, !tbaa !58
-  %tobool.not.i.i102 = icmp eq ptr %17, null
+  %17 = load ptr, ptr %right_.i.i, align 8, !tbaa !58
+  %left_.i.i.i101 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %left_.i.i.i101, align 8, !tbaa !57
+  store ptr %18, ptr %right_.i.i, align 8, !tbaa !58
+  %tobool.not.i.i102 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i102, label %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_12avltree_nodeIS3_EES8_.exit.i, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %if.then41
-  store ptr %x.addr.0147, ptr %17, align 8, !tbaa !15
+  store ptr %x.addr.0147, ptr %18, align 8, !tbaa !15
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_12avltree_nodeIS3_EES8_.exit.i
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_12avltree_nodeIS3_EES8_.exit.i: ; preds = %if.then.i.i103, %if.then41
   store ptr %x.addr.0147, ptr %left_.i.i.i101, align 8, !tbaa !57
-  store ptr %16, ptr %x.addr.0147, align 8, !tbaa !15
-  %18 = load ptr, ptr %0, align 8, !tbaa !15
-  %left_.i.i9.i104 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %left_.i.i9.i104, align 8, !tbaa !57
-  %right_.i.i.i.i105 = getelementptr inbounds i8, ptr %16, i64 16
-  %20 = load ptr, ptr %right_.i.i.i.i105, align 8, !tbaa !58
-  store ptr %20, ptr %left_.i.le, align 8, !tbaa !57
-  %tobool.not.i.i.i107 = icmp eq ptr %20, null
+  store ptr %17, ptr %x.addr.0147, align 8, !tbaa !15
+  %19 = load ptr, ptr %0, align 8, !tbaa !15
+  %left_.i.i9.i104 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %left_.i.i9.i104, align 8, !tbaa !57
+  %right_.i.i.i.i105 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = load ptr, ptr %right_.i.i.i.i105, align 8, !tbaa !58
+  store ptr %21, ptr %left_.i.le, align 8, !tbaa !57
+  %tobool.not.i.i.i107 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i107, label %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i, label %if.then.i.i.i108
 
 if.then.i.i.i108:                                 ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_12avltree_nodeIS3_EES8_.exit.i
-  store ptr %0, ptr %20, align 8, !tbaa !15
+  store ptr %0, ptr %21, align 8, !tbaa !15
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i: ; preds = %if.then.i.i.i108, %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rotate_left_no_parent_fixEPNS0_12avltree_nodeIS3_EES8_.exit.i
-  %cmp.i.i109 = icmp eq ptr %19, %0
+  %cmp.i.i109 = icmp eq ptr %20, %0
   store ptr %0, ptr %right_.i.i.i.i105, align 8, !tbaa !58
-  store ptr %16, ptr %0, align 8, !tbaa !15
-  store ptr %18, ptr %16, align 8, !tbaa !15
-  %cmp.i.i.i110 = icmp eq ptr %18, %header
-  %right_.i.i6.i.i111 = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr %17, ptr %0, align 8, !tbaa !15
+  store ptr %19, ptr %17, align 8, !tbaa !15
+  %cmp.i.i.i110 = icmp eq ptr %19, %header
+  %right_.i.i6.i.i111 = getelementptr inbounds i8, ptr %19, i64 16
   %spec.select.i.i112 = select i1 %cmp.i.i109, ptr %left_.i.i9.i104, ptr %right_.i.i6.i.i111
-  %left_.i.sink.i.i.i113 = select i1 %cmp.i.i.i110, ptr %18, ptr %spec.select.i.i112
-  store ptr %16, ptr %left_.i.sink.i.i.i113, align 8, !tbaa !25
-  %balance_.i32.i.i114 = getelementptr inbounds i8, ptr %16, i64 24
-  %21 = load i32, ptr %balance_.i32.i.i114, align 8, !tbaa !194
+  %left_.i.sink.i.i.i113 = select i1 %cmp.i.i.i110, ptr %19, ptr %spec.select.i.i112
+  store ptr %17, ptr %left_.i.sink.i.i.i113, align 8, !tbaa !25
+  %balance_.i32.i.i114 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = load i32, ptr %balance_.i32.i.i114, align 8, !tbaa !194
   store i32 1, ptr %balance_.i32.i.i114, align 8, !tbaa !194
-  %22 = icmp ult i32 %21, 3
-  br i1 %22, label %switch.lookup177, label %cleanup56
+  %23 = icmp ult i32 %22, 3
+  br i1 %23, label %switch.lookup177, label %cleanup56
 
 switch.lookup177:                                 ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i
-  %23 = zext nneg i32 %21 to i64
-  %switch.gep178 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.20, i64 0, i64 %23
-  %switch.load179 = load i32, ptr %switch.gep178, align 4
-  %switch.gep180 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.21, i64 0, i64 %23
-  %switch.load181 = load i32, ptr %switch.gep180, align 4
+  %24 = icmp eq i32 %22, 0
+  %switch.load179 = select i1 %24, i32 2, i32 1
+  %25 = icmp ne i32 %22, 2
+  %switch.load181 = zext i1 %25 to i32
   store i32 %switch.load179, ptr %balance_.i90, align 8, !tbaa !194
   store i32 %switch.load181, ptr %balance_.i89, align 8, !tbaa !194
   br label %cleanup56
 
 if.else43:                                        ; preds = %if.then35
-  %24 = load ptr, ptr %0, align 8, !tbaa !15
-  %left_.i.i.i122 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %left_.i.i.i122, align 8, !tbaa !57
+  %26 = load ptr, ptr %0, align 8, !tbaa !15
+  %left_.i.i.i122 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load ptr, ptr %left_.i.i.i122, align 8, !tbaa !57
   %right_.i.i.i.i123 = getelementptr inbounds i8, ptr %x.addr.0147, i64 16
-  %26 = load ptr, ptr %right_.i.i.i.i123, align 8, !tbaa !58
-  store ptr %26, ptr %left_.i.le, align 8, !tbaa !57
-  %tobool.not.i.i.i125 = icmp eq ptr %26, null
+  %28 = load ptr, ptr %right_.i.i.i.i123, align 8, !tbaa !58
+  store ptr %28, ptr %left_.i.le, align 8, !tbaa !57
+  %tobool.not.i.i.i125 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i125, label %_ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE16avl_rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_.exit, label %if.then.i.i.i126
 
 if.then.i.i.i126:                                 ; preds = %if.else43
-  store ptr %0, ptr %26, align 8, !tbaa !15
+  store ptr %0, ptr %28, align 8, !tbaa !15
   br label %_ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE16avl_rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_.exit
 
 _ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE16avl_rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_.exit: ; preds = %if.then.i.i.i126, %if.else43
-  %cmp.i.i128 = icmp eq ptr %25, %0
+  %cmp.i.i128 = icmp eq ptr %27, %0
   store ptr %0, ptr %right_.i.i.i.i123, align 8, !tbaa !58
   store ptr %x.addr.0147, ptr %0, align 8, !tbaa !15
-  store ptr %24, ptr %x.addr.0147, align 8, !tbaa !15
-  %cmp.i.i.i129 = icmp eq ptr %24, %header
-  %right_.i.i6.i.i130 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %26, ptr %x.addr.0147, align 8, !tbaa !15
+  %cmp.i.i.i129 = icmp eq ptr %26, %header
+  %right_.i.i6.i.i130 = getelementptr inbounds i8, ptr %26, i64 16
   %spec.select.i.i131 = select i1 %cmp.i.i128, ptr %left_.i.i.i122, ptr %right_.i.i6.i.i130
-  %left_.i.sink.i.i.i132 = select i1 %cmp.i.i.i129, ptr %24, ptr %spec.select.i.i131
+  %left_.i.sink.i.i.i132 = select i1 %cmp.i.i.i129, ptr %26, ptr %spec.select.i.i131
   store ptr %x.addr.0147, ptr %left_.i.sink.i.i.i132, align 8, !tbaa !25
-  %cmp.i134 = icmp eq i32 %15, 0
+  %cmp.i134 = icmp eq i32 %16, 0
   %spec.select.i135 = zext i1 %cmp.i134 to i32
   %spec.select17.i136 = select i1 %cmp.i134, i32 1, i32 2
   store i32 %spec.select.i135, ptr %balance_.i90, align 8

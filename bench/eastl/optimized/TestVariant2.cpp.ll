@@ -14,14 +14,14 @@ entry:
   store volatile i32 0, ptr %b38.sroa.1, align 8
   %a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.8. = load volatile i32, ptr %a37.sroa.1, align 8
   %b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.8. = load volatile i32, ptr %b38.sroa.1, align 8
-  %cmp.i.i.i.i56 = icmp ne i32 %a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.8., %b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.8.
-  %0 = zext i1 %cmp.i.i.i.i56 to i32
+  %cmp.i.i.i.i54 = icmp ne i32 %a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.0.a37.sroa.1.8., %b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.0.b38.sroa.1.8.
+  %0 = zext i1 %cmp.i.i.i.i54 to i32
   store volatile i32 0, ptr %a46.sroa.1, align 8
   store volatile i32 0, ptr %b47.sroa.1, align 8
   %a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.8. = load volatile i32, ptr %a46.sroa.1, align 8
   %b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.8. = load volatile i32, ptr %b47.sroa.1, align 8
-  %cmp.i.i.i.i59 = icmp ne i32 %a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.8., %b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.8.
-  %1 = zext i1 %cmp.i.i.i.i59 to i32
+  %cmp.i.i.i.i57 = icmp ne i32 %a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.0.a46.sroa.1.8., %b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.0.b47.sroa.1.8.
+  %1 = zext i1 %cmp.i.i.i.i57 to i32
   %add54 = add nuw nsw i32 %1, %0
   ret i32 %add54
 }

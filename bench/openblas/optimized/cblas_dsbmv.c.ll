@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DSBMV \00", align 1
-@sbmv = internal unnamed_addr constant [2 x ptr] [ptr @dsbmv_U, ptr @dsbmv_L], align 16
 
 ; Function Attrs: nounwind uwtable
 define void @cblas_dsbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, double noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #0 {
@@ -70,11 +69,11 @@ define void @cblas_dsbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 50:                                               ; preds = %.thread6, %.thread4, %46
   %51 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 7) #4
-  br label %87
+  br label %86
 
 52:                                               ; preds = %46
   %53 = icmp eq i32 %2, 0
-  br i1 %53, label %87, label %54
+  br i1 %53, label %86, label %54
 
 54:                                               ; preds = %52
   %55 = fcmp une double %9, 1.000000e+00
@@ -89,7 +88,7 @@ define void @cblas_dsbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 61:                                               ; preds = %56, %54
   %62 = fcmp oeq double %4, 0.000000e+00
-  br i1 %62, label %87, label %63
+  br i1 %62, label %86, label %63
 
 63:                                               ; preds = %61
   %64 = icmp slt i32 %8, 0
@@ -106,19 +105,18 @@ define void @cblas_dsbmv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %75 = select i1 %71, i64 %74, i64 0
   %76 = getelementptr inbounds double, ptr %10, i64 %75
   %77 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
-  %78 = sext i32 %48 to i64
-  %79 = getelementptr inbounds [2 x ptr], ptr @sbmv, i64 0, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !3
-  %81 = sext i32 %2 to i64
-  %82 = sext i32 %3 to i64
-  %83 = sext i32 %6 to i64
-  %84 = sext i32 %8 to i64
-  %85 = sext i32 %11 to i64
-  %86 = tail call i32 %80(i64 noundef %81, i64 noundef %82, double noundef %4, ptr noundef %5, i64 noundef %83, ptr noundef %70, i64 noundef %84, ptr noundef %76, i64 noundef %85, ptr noundef %77) #4
+  %78 = icmp eq i32 %48, 0
+  %79 = select i1 %78, ptr @dsbmv_U, ptr @dsbmv_L
+  %80 = sext i32 %2 to i64
+  %81 = sext i32 %3 to i64
+  %82 = sext i32 %6 to i64
+  %83 = sext i32 %8 to i64
+  %84 = sext i32 %11 to i64
+  %85 = tail call i32 %79(i64 noundef %80, i64 noundef %81, double noundef %4, ptr noundef %5, i64 noundef %82, ptr noundef %70, i64 noundef %83, ptr noundef %76, i64 noundef %84, ptr noundef %77) #4
   tail call void @blas_memory_free(ptr noundef %77) #4
-  br label %87
+  br label %86
 
-87:                                               ; preds = %63, %61, %52, %50
+86:                                               ; preds = %63, %61, %52, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
   ret void
 }
@@ -140,9 +138,9 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare i32 @dsbmv_U(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsbmv_U(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dsbmv_L(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsbmv_L(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -155,7 +153,3 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !4, i64 0}
-!4 = !{!"any pointer", !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}

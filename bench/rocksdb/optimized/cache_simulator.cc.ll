@@ -206,7 +206,6 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN
 @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb28HybridRowBlockCacheSimulatorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @.str.8 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_cache_simulator.cc, ptr null }]
-@switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1 = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 1, i32 0], align 4
 
 @_ZN7rocksdb10GhostCacheC1ESt10shared_ptrINS_5CacheEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN7rocksdb10GhostCacheC2ESt10shared_ptrINS_5CacheEE
 @_ZN7rocksdb14CacheSimulatorC1EOSt10unique_ptrINS_10GhostCacheESt14default_deleteIS2_EESt10shared_ptrINS_5CacheEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN7rocksdb14CacheSimulatorC2EOSt10unique_ptrINS_10GhostCacheESt14default_deleteIS2_EESt10shared_ptrINS_5CacheEE
@@ -693,16 +692,9 @@ entry:
   %0 = load i8, ptr %block_type, align 8
   %switch.tableidx = add i8 %0, -7
   %1 = icmp ult i8 %switch.tableidx, 4
-  br i1 %1, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %entry
-  %2 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %2
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %return
-
-return:                                           ; preds = %entry, %switch.lookup
-  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %entry ]
+  %2 = icmp eq i8 %switch.tableidx, 2
+  %switch.load = zext i1 %2 to i32
+  %retval.0 = select i1 %1, i32 %switch.load, i32 1
   ret i32 %retval.0
 }
 
@@ -852,16 +844,9 @@ entry:
   %1 = load i8, ptr %block_type.i, align 8
   %switch.tableidx = add i8 %1, -7
   %2 = icmp ult i8 %switch.tableidx, 4
-  br i1 %2, label %switch.lookup, label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit
-
-switch.lookup:                                    ; preds = %entry
-  %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %3
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit
-
-_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit: ; preds = %entry, %switch.lookup
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %entry ]
+  %3 = icmp eq i8 %switch.tableidx, 2
+  %switch.load = zext i1 %3 to i32
+  %retval.0.i = select i1 %2, i32 %switch.load, i32 1
   %no_insert = getelementptr inbounds i8, ptr %access, i64 114
   %4 = load i8, ptr %no_insert, align 2
   %tobool = trunc i8 %4 to i1
@@ -1023,7 +1008,7 @@ _ZN7rocksdb14MissRatioStats13UpdateMetricsEmbb.exit: ; preds = %_ZNSt3mapImmSt4l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timestamp_in_seconds.i)
   br label %cleanup
 
-lpad:                                             ; preds = %if.then.i83, %if.then32, %if.then.i50, %if.then4, %if.then.i, %if.then52, %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit, %if.end37, %invoke.cont17, %if.then14
+lpad:                                             ; preds = %if.then.i83, %if.then32, %if.then.i50, %if.then4, %if.then.i, %if.then52, %invoke.cont39, %if.end37, %invoke.cont17, %if.then14
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1196,16 +1181,9 @@ invoke.cont39:                                    ; preds = %if.end37
   %38 = load i8, ptr %block_type.i, align 8
   %switch.tableidx = add i8 %38, -7
   %39 = icmp ult i8 %switch.tableidx, 4
-  br i1 %39, label %switch.lookup, label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit
-
-switch.lookup:                                    ; preds = %invoke.cont39
-  %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %40
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit
-
-_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit: ; preds = %invoke.cont39, %switch.lookup
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %invoke.cont39 ]
+  %40 = icmp eq i8 %switch.tableidx, 2
+  %switch.load = zext i1 %40 to i32
+  %retval.0.i = select i1 %39, i32 %switch.load, i32 1
   %insert_blocks_upon_row_kvpair_miss_ = getelementptr inbounds i8, ptr %this, i64 208
   %41 = load i8, ptr %insert_blocks_upon_row_kvpair_miss_, align 8
   %tobool44 = trunc i8 %41 to i1
@@ -1217,7 +1195,7 @@ _ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheT
   invoke void @_ZN7rocksdb25PrioritizedCacheSimulator12AccessKVPairERKNS_5SliceEmNS_5Cache8PriorityERKNS_21BlockCacheTraceRecordEbbPbS9_b(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41, i64 noundef %37, i32 noundef %retval.0.i, ptr noundef nonnull align 8 dereferenceable(185) %access, i1 noundef zeroext %43, i1 noundef zeroext true, ptr noundef nonnull %is_cache_miss, ptr noundef nonnull %admitted, i1 noundef zeroext true)
           to label %invoke.cont46 unwind label %lpad
 
-invoke.cont46:                                    ; preds = %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit
+invoke.cont46:                                    ; preds = %invoke.cont39
   %referenced_data_size47 = getelementptr inbounds i8, ptr %access, i64 168
   %44 = load i64, ptr %referenced_data_size47, align 8
   %cmp48 = icmp ne i64 %44, 0
@@ -1300,16 +1278,9 @@ if.end66:                                         ; preds = %land.lhs.true, %ent
   %52 = load i8, ptr %block_type.i102, align 8
   %switch.tableidx110 = add i8 %52, -7
   %53 = icmp ult i8 %switch.tableidx110, 4
-  br i1 %53, label %switch.lookup109, label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105
-
-switch.lookup109:                                 ; preds = %if.end66
-  %54 = zext nneg i8 %switch.tableidx110 to i64
-  %switch.gep111 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN7rocksdb28HybridRowBlockCacheSimulator6AccessERKNS_21BlockCacheTraceRecordE.1, i64 0, i64 %54
-  %switch.load112 = load i32, ptr %switch.gep111, align 4
-  br label %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105
-
-_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105: ; preds = %if.end66, %switch.lookup109
-  %retval.0.i103 = phi i32 [ %switch.load112, %switch.lookup109 ], [ 1, %if.end66 ]
+  %54 = icmp eq i8 %switch.tableidx110, 2
+  %switch.load112 = zext i1 %54 to i32
+  %retval.0.i103 = select i1 %53, i32 %switch.load112, i32 1
   %no_insert71 = getelementptr inbounds i8, ptr %access, i64 114
   %55 = load i8, ptr %no_insert71, align 2
   %tobool72 = trunc i8 %55 to i1
@@ -1318,7 +1289,7 @@ _ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheT
   call void @_ZN7rocksdb25PrioritizedCacheSimulator12AccessKVPairERKNS_5SliceEmNS_5Cache8PriorityERKNS_21BlockCacheTraceRecordEbbPbS9_b(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67, i64 noundef %51, i32 noundef %retval.0.i103, ptr noundef nonnull align 8 dereferenceable(185) %access, i1 noundef zeroext %tobool72, i1 noundef zeroext %call74, ptr noundef nonnull %is_cache_miss, ptr noundef nonnull %admitted, i1 noundef zeroext true)
   br label %return
 
-return:                                           ; preds = %_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE.exit105, %cleanup
+return:                                           ; preds = %if.end66, %cleanup
   ret void
 }
 

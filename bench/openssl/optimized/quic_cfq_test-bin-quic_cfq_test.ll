@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [123 x i8] c"item = ossl_quic_cfq_add_frame(cfq, ref_priority[i], ref_pn_space[i], ref_frame_type[i], 0, ref_buf + i, 1, free_cb, NULL)\00", align 1
 @ref_priority = internal unnamed_addr constant [10 x i32] [i32 90, i32 80, i32 70, i32 60, i32 95, i32 40, i32 94, i32 20, i32 10, i32 0], align 16
 @ref_pn_space = internal unnamed_addr constant [10 x i32] [i32 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 2], align 16
-@ref_frame_type = internal unnamed_addr constant [10 x i64] [i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 25], align 16
 @ref_buf = internal constant [10 x i8] c"\10\11\12\13\14\15\16\17\18\19", align 1
 @.str.4 = private unnamed_addr constant [35 x i8] c"ossl_quic_cfq_item_get_state(item)\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"QUIC_CFQ_STATE_NEW\00", align 1
@@ -56,10 +55,10 @@ for.body:                                         ; preds = %entry, %for.cond
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx2 = getelementptr inbounds [10 x i32], ptr @ref_pn_space, i64 0, i64 %i.053
   %1 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds [10 x i64], ptr @ref_frame_type, i64 0, i64 %i.053
-  %2 = load i64, ptr %arrayidx3, align 8
+  %2 = icmp eq i64 %i.053, 9
+  %3 = select i1 %2, i64 25, i64 24
   %add.ptr = getelementptr inbounds i8, ptr @ref_buf, i64 %i.053
-  %call4 = tail call ptr @ossl_quic_cfq_add_frame(ptr noundef %call, i32 noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %add.ptr, i64 noundef 1, ptr noundef nonnull @free_cb, ptr noundef null) #3
+  %call4 = tail call ptr @ossl_quic_cfq_add_frame(ptr noundef %call, i32 noundef %0, i32 noundef %1, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %add.ptr, i64 noundef 1, ptr noundef nonnull @free_cb, ptr noundef null) #3
   %call5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 121, ptr noundef nonnull @.str.3, ptr noundef %call4) #3
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %err, label %lor.lhs.false
@@ -78,7 +77,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false10
   %call16 = tail call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef %call4) #3
-  %call18 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %call16, i64 noundef %2) #3
+  %call18 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %call16, i64 noundef %3) #3
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %lor.lhs.false20
 
@@ -136,12 +135,12 @@ for.cond62.preheader:                             ; preds = %for.cond48, %for.in
 for.body64:                                       ; preds = %for.cond62.preheader, %for.inc73
   %i.158 = phi i64 [ 0, %for.cond62.preheader ], [ %inc74, %for.inc73 ]
   %arrayidx66 = getelementptr inbounds [3 x [10 x ptr]], ptr @items, i64 0, i64 %indvars.iv, i64 %i.158
-  %3 = load ptr, ptr %arrayidx66, align 8
-  %cmp67.not = icmp eq ptr %3, null
+  %4 = load ptr, ptr %arrayidx66, align 8
+  %cmp67.not = icmp eq ptr %4, null
   br i1 %cmp67.not, label %for.inc73, label %if.then68
 
 if.then68:                                        ; preds = %for.body64
-  tail call void @ossl_quic_cfq_mark_lost(ptr noundef %call, ptr noundef nonnull %3, i32 noundef -1) #3
+  tail call void @ossl_quic_cfq_mark_lost(ptr noundef %call, ptr noundef nonnull %4, i32 noundef -1) #3
   br label %for.inc73
 
 for.inc73:                                        ; preds = %for.body64, %if.then68
@@ -166,12 +165,12 @@ for.cond86.preheader:                             ; preds = %for.end78, %for.inc
 for.body88:                                       ; preds = %for.cond86.preheader, %for.inc98
   %i.260 = phi i64 [ 0, %for.cond86.preheader ], [ %inc99, %for.inc98 ]
   %arrayidx91 = getelementptr inbounds [3 x [10 x ptr]], ptr @items, i64 0, i64 %indvars.iv71, i64 %i.260
-  %4 = load ptr, ptr %arrayidx91, align 8
-  %cmp92.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %arrayidx91, align 8
+  %cmp92.not = icmp eq ptr %5, null
   br i1 %cmp92.not, label %for.inc98, label %if.then93
 
 if.then93:                                        ; preds = %for.body88
-  tail call void @ossl_quic_cfq_release(ptr noundef %call, ptr noundef nonnull %4) #3
+  tail call void @ossl_quic_cfq_release(ptr noundef %call, ptr noundef nonnull %5) #3
   br label %for.inc98
 
 for.inc98:                                        ; preds = %for.body88, %if.then93

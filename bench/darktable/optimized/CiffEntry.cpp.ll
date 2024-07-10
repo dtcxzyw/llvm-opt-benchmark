@@ -78,7 +78,6 @@ $_ZZN8rawspeed14ThrowExceptionINS_19CiffParserExceptionEEEvPKczE3buf = comdat an
 @_ZZN8rawspeed14ThrowExceptionINS_19CiffParserExceptionEEEvPKczE3buf = linkonce_odr hidden thread_local global %"struct.std::array" zeroinitializer, comdat, align 1
 @_ZTIN8rawspeed19CiffParserExceptionE = external constant ptr
 @_ZTVN8rawspeed19CiffParserExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
-@switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 2, i32 2, i32 2], align 4
 @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 4, i32 4, i32 4, i32 4], align 4
 
 @_ZN8rawspeed9CiffEntryC1ENS_10ByteStreamENS_7CiffTagENS_12CiffDataTypeEj = hidden unnamed_addr alias void (ptr, ptr, i32, i32, i32), ptr @_ZN8rawspeed9CiffEntryC2ENS_10ByteStreamENS_7CiffTagENS_12CiffDataTypeEj
@@ -261,26 +260,18 @@ define hidden void @_ZN8rawspeed9CiffEntry6CreateEPNS_11NORangesSetINS_6BufferEE
   call void @llvm.assume(i1 %99)
   %103 = add nsw i32 %102, -4096
   %104 = icmp ult i32 %103, 10240
-  br i1 %104, label %105, label %110
-
-105:                                              ; preds = %98
-  %106 = lshr exact i32 %103, 11
-  %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 0, i64 %107
-  %109 = load i32, ptr %108, align 4
-  br label %110
-
-110:                                              ; preds = %105, %98
-  %111 = phi i32 [ %109, %105 ], [ 0, %98 ]
-  %112 = and i32 %101, 16383
-  %113 = lshr i32 %100, %111
+  %105 = icmp eq i32 %103, 0
+  %106 = select i1 %105, i32 1, i32 2
+  %107 = select i1 %104, i32 %106, i32 0
+  %108 = and i32 %101, 16383
+  %109 = lshr i32 %100, %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %112, ptr %114, align 8, !tbaa !6
-  %115 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %102, ptr %115, align 4, !tbaa !18
-  %116 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %113, ptr %116, align 8, !tbaa !19
+  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %108, ptr %110, align 8, !tbaa !6
+  %111 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %102, ptr %111, align 4, !tbaa !18
+  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %109, ptr %112, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
   ret void
 }
@@ -324,17 +315,10 @@ define hidden noundef i32 @_ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffData
   %2 = add i32 %0, -4096
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 21)
   %4 = icmp ult i32 %3, 5
-  br i1 %4, label %5, label %9
-
-5:                                                ; preds = %1
-  %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4
-  br label %9
-
-9:                                                ; preds = %5, %1
-  %10 = phi i32 [ %8, %5 ], [ 0, %1 ]
-  ret i32 %10
+  %5 = icmp eq i32 %2, 0
+  %6 = select i1 %5, i32 1, i32 2
+  %7 = select i1 %4, i32 %6, i32 0
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

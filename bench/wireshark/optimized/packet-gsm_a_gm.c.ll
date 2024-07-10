@@ -1620,7 +1620,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1062 = private unnamed_addr constant [74 x i8] c"NSAPI %u for Multimedia Broadcast/Multicast Service (MBMS) Multicast mode\00", align 1
 @.str.1063 = private unnamed_addr constant [100 x i8] c"Reserved for use by lower layers in the p2p radio bearer allocation message for MBMS Broadcast mode\00", align 1
 @.str.1064 = private unnamed_addr constant [18 x i8] c"NSAPI %d: %s (%u)\00", align 1
-@pdp_str = internal unnamed_addr constant [2 x ptr] [ptr @.str.1065, ptr @.str.1066], align 16
 @.str.1065 = private unnamed_addr constant [13 x i8] c"PDP-INACTIVE\00", align 1
 @.str.1066 = private unnamed_addr constant [11 x i8] c"PDP-ACTIVE\00", align 1
 @.str.1067 = private unnamed_addr constant [9 x i8] c"%u %s %s\00", align 1
@@ -10245,7 +10244,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
 9:                                                ; preds = %7, %14
   %indvars.iv = phi i32 [ 0, %7 ], [ %indvars.iv.next, %14 ]
   %.041 = phi i32 [ %3, %7 ], [ %.1, %14 ]
-  %.03439 = phi i8 [ %8, %7 ], [ %22, %14 ]
+  %.03439 = phi i8 [ %8, %7 ], [ %21, %14 ]
   %10 = icmp eq i32 %indvars.iv, 8
   br i1 %10, label %11, label %14
 
@@ -10260,32 +10259,31 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
   %15 = load i32, ptr @hf_gsm_a_gm_nsapi, align 4
   %16 = and i8 %.135, 1
   %17 = zext nneg i8 %16 to i32
-  %18 = zext nneg i8 %16 to i64
-  %19 = getelementptr [2 x ptr], ptr @pdp_str, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %17, ptr noundef nonnull @.str.1064, i32 noundef %indvars.iv, ptr noundef %20, i32 noundef %17) #5
-  %22 = lshr i8 %.135, 1
+  %18 = icmp eq i8 %16, 0
+  %19 = select i1 %18, ptr @.str.1065, ptr @.str.1066
+  %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %17, ptr noundef nonnull @.str.1064, i32 noundef %indvars.iv, ptr noundef nonnull %19, i32 noundef %17) #5
+  %21 = lshr i8 %.135, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %22, label %9, !llvm.loop !15
 
-23:                                               ; preds = %14
-  %24 = add i32 %.1, 1
-  %25 = sub i32 %24, %3
-  %26 = icmp ult i32 %25, %4
-  br i1 %26, label %27, label %31
+22:                                               ; preds = %14
+  %23 = add i32 %.1, 1
+  %24 = sub i32 %23, %3
+  %25 = icmp ult i32 %24, %4
+  br i1 %25, label %26, label %30
 
-27:                                               ; preds = %23
-  %28 = sub i32 %4, %25
-  %29 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %24, i32 noundef %28) #5
-  %30 = add i32 %28, %24
-  %.pre = sub i32 %30, %3
-  br label %31
+26:                                               ; preds = %22
+  %27 = sub i32 %4, %24
+  %28 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %23, i32 noundef %27) #5
+  %29 = add i32 %27, %23
+  %.pre = sub i32 %29, %3
+  br label %30
 
-31:                                               ; preds = %27, %23
-  %.pre-phi = phi i32 [ %.pre, %27 ], [ %25, %23 ]
-  %32 = trunc i32 %.pre-phi to i16
-  ret i16 %32
+30:                                               ; preds = %26, %22
+  %.pre-phi = phi i32 [ %.pre, %26 ], [ %24, %22 ]
+  %31 = trunc i32 %.pre-phi to i16
+  ret i16 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10354,9 +10352,9 @@ define internal noundef zeroext i16 @de_gc_mbms_context_stat(ptr noundef %0, ptr
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %21
-  %.01926 = phi i32 [ %23, %21 ], [ 0, %7 ]
-  %.02025 = phi i32 [ %22, %21 ], [ %3, %7 ]
+.lr.ph:                                           ; preds = %7, %20
+  %.01926 = phi i32 [ %22, %20 ], [ 0, %7 ]
+  %.02025 = phi i32 [ %21, %20 ], [ %3, %7 ]
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02025) #5
   %9 = shl i32 %.01926, 3
   %10 = add i32 %9, 128
@@ -10364,29 +10362,28 @@ define internal noundef zeroext i16 @de_gc_mbms_context_stat(ptr noundef %0, ptr
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.01823 = phi i8 [ %8, %.lr.ph ], [ %20, %11 ]
+  %.01823 = phi i8 [ %8, %.lr.ph ], [ %19, %11 ]
   %12 = load i32, ptr @hf_gsm_a_gm_nsapi, align 4
   %13 = and i8 %.01823, 1
   %14 = zext nneg i8 %13 to i32
   %15 = add nuw nsw i32 %10, %indvars.iv
-  %16 = zext nneg i8 %13 to i64
-  %17 = getelementptr [2 x ptr], ptr @pdp_str, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.02025, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.1064, i32 noundef %15, ptr noundef %18, i32 noundef %14) #5
-  %20 = lshr i8 %.01823, 1
+  %16 = icmp eq i8 %13, 0
+  %17 = select i1 %16, ptr @.str.1065, ptr @.str.1066
+  %18 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.02025, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.1064, i32 noundef %15, ptr noundef nonnull %17, i32 noundef %14) #5
+  %19 = lshr i8 %.01823, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !16
 
-21:                                               ; preds = %11
-  %22 = add i32 %.02025, 1
-  %23 = add nuw i32 %.01926, 1
-  %exitcond28.not = icmp eq i32 %23, %4
+20:                                               ; preds = %11
+  %21 = add i32 %.02025, 1
+  %22 = add nuw i32 %.01926, 1
+  %exitcond28.not = icmp eq i32 %22, %4
   br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %21, %7
-  %24 = trunc i32 %4 to i16
-  ret i16 %24
+._crit_edge:                                      ; preds = %20, %7
+  %23 = trunc i32 %4 to i16
+  ret i16 %23
 }
 
 ; Function Attrs: nounwind uwtable

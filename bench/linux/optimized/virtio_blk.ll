@@ -2761,12 +2761,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
 
 27:                                               ; preds = %.thread, %19
   %28 = phi i8 [ %18, %.thread ], [ %24, %19 ]
-  %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr [2 x ptr], ptr @virtblk_cache_types, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %31) #13
-  %33 = sext i32 %32 to i64
-  ret i64 %33
+  %29 = icmp eq i8 %28, 0
+  %30 = select i1 %29, ptr @.str.26, ptr @.str.27
+  %31 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %30) #13
+  %32 = sext i32 %31 to i64
+  ret i64 %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

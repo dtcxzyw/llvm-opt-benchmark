@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DSPR  \00", align 1
-@spr = internal unnamed_addr constant [2 x ptr] [ptr @dspr_U, ptr @dspr_L], align 16
-@spr_thread = internal unnamed_addr constant [2 x ptr] [ptr @dspr_thread_U, ptr @dspr_thread_L], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -143,28 +141,26 @@ define void @cblas_dspr(i32 noundef %0, i32 noundef %1, i32 noundef %2, double n
   %85 = tail call ptr @blas_memory_alloc(i32 noundef 1) #3
   %86 = load i32, ptr @blas_cpu_number, align 4, !tbaa !11
   %87 = icmp eq i32 %86, 1
-  %88 = sext i32 %31 to i64
-  %89 = sext i32 %2 to i64
-  %90 = sext i32 %5 to i64
-  br i1 %87, label %91, label %95
+  %88 = sext i32 %2 to i64
+  %89 = sext i32 %5 to i64
+  %90 = icmp eq i32 %31, 0
+  br i1 %87, label %91, label %94
 
 91:                                               ; preds = %77
-  %92 = getelementptr inbounds [2 x ptr], ptr @spr, i64 0, i64 %88
-  %93 = load ptr, ptr %92, align 8, !tbaa !13
-  %94 = tail call i32 %93(i64 noundef %89, double noundef %3, ptr noundef %84, i64 noundef %90, ptr noundef %6, ptr noundef %85) #3
-  br label %99
+  %92 = select i1 %90, ptr @dspr_U, ptr @dspr_L
+  %93 = tail call i32 %92(i64 noundef %88, double noundef %3, ptr noundef %84, i64 noundef %89, ptr noundef %6, ptr noundef %85) #3
+  br label %97
 
-95:                                               ; preds = %77
-  %96 = getelementptr inbounds [2 x ptr], ptr @spr_thread, i64 0, i64 %88
-  %97 = load ptr, ptr %96, align 8, !tbaa !13
-  %98 = tail call i32 %97(i64 noundef %89, double noundef %3, ptr noundef %84, i64 noundef %90, ptr noundef %6, ptr noundef %85, i32 noundef %86) #3
-  br label %99
+94:                                               ; preds = %77
+  %95 = select i1 %90, ptr @dspr_thread_U, ptr @dspr_thread_L
+  %96 = tail call i32 %95(i64 noundef %88, double noundef %3, ptr noundef %84, i64 noundef %89, ptr noundef %6, ptr noundef %85, i32 noundef %86) #3
+  br label %97
 
-99:                                               ; preds = %95, %91
+97:                                               ; preds = %94, %91
   tail call void @blas_memory_free(ptr noundef %85) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge13, %99, %49, %46, %35, %33
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge13, %97, %49, %46, %35, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   ret void
 }
@@ -183,13 +179,13 @@ declare ptr @blas_memory_alloc(i32 noundef) local_unnamed_addr #2
 
 declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @dspr_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @dspr_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dspr_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @dspr_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dspr_thread_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dspr_thread_U(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dspr_thread_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @dspr_thread_L(i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -211,5 +207,3 @@ attributes #3 = { nounwind }
 !10 = distinct !{!10, !8, !9}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}

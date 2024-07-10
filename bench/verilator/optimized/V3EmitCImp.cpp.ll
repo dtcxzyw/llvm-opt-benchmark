@@ -1759,10 +1759,6 @@ $_ZTS10EmitCTrace = comdat any
 
 $_ZTI10EmitCTrace = comdat any
 
-$_ZZNK11TraceFormat10sourceNameB5cxx11EvE5names = comdat any
-
-$_ZZNK11TraceFormat9classBaseB5cxx11EvE5names = comdat any
-
 $_ZZNK8VVarType12traceSigKindEvE3lut = comdat any
 
 $_ZZNK14VBasicDTypeKwd12traceSigTypeEvE3lut = comdat any
@@ -2667,7 +2663,6 @@ $_ZZNK16VTracePrefixType5asciiEvE5names = comdat any
 @.str.786 = private unnamed_addr constant [68 x i8] c"// DESCRIPTION: Verilator output: Tracing implementation internals\0A\00", align 1
 @.str.787 = private unnamed_addr constant [4 x i8] c"_sc\00", align 1
 @.str.788 = private unnamed_addr constant [3 x i8] c"_c\00", align 1
-@_ZZNK11TraceFormat10sourceNameB5cxx11EvE5names = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @.str.789, ptr @.str.790], comdat, align 16
 @.str.789 = private unnamed_addr constant [14 x i8] c"verilated_vcd\00", align 1
 @.str.790 = private unnamed_addr constant [14 x i8] c"verilated_fst\00", align 1
 @.str.791 = private unnamed_addr constant [38 x i8] c"Declarations output file already open\00", align 1
@@ -2676,7 +2671,6 @@ $_ZZNK16VTracePrefixType5asciiEvE5names = comdat any
 @.str.794 = private unnamed_addr constant [56 x i8] c"// DESCRIPTION: Verilator output: Tracing declarations\0A\00", align 1
 @.str.795 = private unnamed_addr constant [18 x i8] c"traceDeclTypesSub\00", align 1
 @.str.796 = private unnamed_addr constant [13 x i8] c"* tracep) {\0A\00", align 1
-@_ZZNK11TraceFormat9classBaseB5cxx11EvE5names = linkonce_odr dso_local local_unnamed_addr constant [2 x ptr] [ptr @.str.797, ptr @.str.798], comdat, align 16
 @.str.797 = private unnamed_addr constant [13 x i8] c"VerilatedVcd\00", align 1
 @.str.798 = private unnamed_addr constant [13 x i8] c"VerilatedFst\00", align 1
 @.str.799 = private unnamed_addr constant [12 x i8] c"* tracep);\0A\00", align 1
@@ -58490,16 +58484,20 @@ _ZNSt5dequeIP8AstCFileSaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %4
 define linkonce_odr dso_local void @_ZNK11TraceFormat10sourceNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = load i8, ptr %1, align 1
-  %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr @_ZZNK11TraceFormat10sourceNameB5cxx11EvE5names, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
+  %5 = icmp eq i8 %4, 0
+  %6 = select i1 %5, ptr @.str.789, ptr @.str.790
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
-  %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %13
+  %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc2 unwind label %13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %.noexc2 unwind label %11
+
+.noexc2:                                          ; preds = %.noexc
+  %8 = select i1 %5, ptr getelementptr inbounds (i8, ptr @.str.789, i64 13), ptr getelementptr inbounds (i8, ptr @.str.790, i64 13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull %8)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
 
 9:                                                ; preds = %.noexc2
   %10 = landingpad { ptr, i32 }
@@ -58507,23 +58505,17 @@ define linkonce_odr dso_local void @_ZNK11TraceFormat10sourceNameB5cxx11Ev(ptr d
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #30
   br label %.body
 
-.noexc2:                                          ; preds = %.noexc
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
-  %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull %12)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
-
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   ret void
 
-13:                                               ; preds = %.noexc, %2
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %.noexc, %2
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %9, %13
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %10, %9 ]
+.body:                                            ; preds = %9, %11
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -58546,16 +58538,20 @@ define linkonce_odr dso_local void @_ZNK9V3Options14traceClassBaseB5cxx11Ev(ptr 
 define linkonce_odr dso_local void @_ZNK11TraceFormat9classBaseB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = load i8, ptr %1, align 1
-  %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr @_ZZNK11TraceFormat9classBaseB5cxx11EvE5names, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8
+  %5 = icmp eq i8 %4, 0
+  %6 = select i1 %5, ptr @.str.797, ptr @.str.798
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
-  %8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %13
+  %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc2 unwind label %13
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %.noexc2 unwind label %11
+
+.noexc2:                                          ; preds = %.noexc
+  %8 = select i1 %5, ptr getelementptr inbounds (i8, ptr @.str.797, i64 12), ptr getelementptr inbounds (i8, ptr @.str.798, i64 12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull %8)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
 
 9:                                                ; preds = %.noexc2
   %10 = landingpad { ptr, i32 }
@@ -58563,23 +58559,17 @@ define linkonce_odr dso_local void @_ZNK11TraceFormat9classBaseB5cxx11Ev(ptr dea
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #30
   br label %.body
 
-.noexc2:                                          ; preds = %.noexc
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
-  %12 = getelementptr inbounds i8, ptr %7, i64 %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull %12)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
-
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   ret void
 
-13:                                               ; preds = %.noexc, %2
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %.noexc, %2
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %9, %13
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %10, %9 ]
+.body:                                            ; preds = %9, %11
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   resume { ptr, i32 } %eh.lpad-body
 }

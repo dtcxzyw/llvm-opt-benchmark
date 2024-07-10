@@ -583,7 +583,6 @@ $_ZTI11ServerError = comdat any
 @.str.127 = private unnamed_addr constant [34 x i8] c"Enabling trace level debug output\00", align 1
 @socket_enable_debug_output = external local_unnamed_addr global i8, align 1
 @_ZN7porting9path_userB5cxx11E = external global %"class.std::__cxx11::basic_string", align 8
-@_ZN12_GLOBAL__N_113debuggerNamesE = internal unnamed_addr constant [2 x ptr] [ptr @.str.135, ptr @.str.136], align 16
 @.str.128 = private unnamed_addr constant [61 x i8] c"Couldn't find a debugger to use. Try installing gdb or lldb.\00", align 1
 @.str.129 = private unnamed_addr constant [129 x i8] c"It looks like your Minetest executable was built without debug symbols (BUILD_TYPE=Release), so you won't get useful backtraces.\00", align 1
 @.str.130 = private unnamed_addr constant [11 x i8] c"--debugger\00", align 1
@@ -3954,10 +3953,8 @@ if.end.i730:                                      ; preds = %call.i729.noexc
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i730
   %trunc.not.i = phi i1 [ true, %if.end.i730 ], [ false, %for.inc.i ]
-  %indvars.iv.i = phi i64 [ 0, %if.end.i730 ], [ 1, %for.inc.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i728) #31
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr @_ZN12_GLOBAL__N_113debuggerNamesE, i64 0, i64 %indvars.iv.i
-  %280 = load ptr, ptr %arrayidx.i, align 8, !tbaa !49
+  %280 = select i1 %trunc.not.i, ptr @.str.135, ptr @.str.136
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %call.i.i733 = call ptr @getenv(ptr noundef nonnull @.str.133) #31, !noalias !180
   %tobool.not.i.i734 = icmp eq ptr %call.i.i733, null
@@ -4036,6 +4033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i740: ; preds =
   store ptr %272, ptr %checkpath.i.i, align 8, !tbaa !4, !noalias !180
   store i64 0, ptr %_M_string_length.i.i.i60.i.i, align 8, !tbaa !14, !noalias !180
   store i8 0, ptr %272, align 8, !tbaa !13, !noalias !180
+  %call.i.i78.i.i = select i1 %trunc.not.i, i64 3, i64 4
   br label %invoke.cont10.i.i
 
 invoke.cont10.i.i:                                ; preds = %invoke.cont21.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i740
@@ -4149,7 +4147,6 @@ lpad9.i.i787:                                     ; preds = %lpad9.loopexit.spli
 
 if.end18.i.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i, %land.lhs.true.i.i, %invoke.cont12.i.i788
   %301 = phi i64 [ %.pre.i.i793, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i ], [ %289, %land.lhs.true.i.i ], [ 0, %invoke.cont12.i.i788 ]
-  %call.i.i78.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %280) #31, !noalias !180
   %sub3.i.i.i.i = sub i64 4611686018427387903, %301
   %cmp.i.i80.i.i = icmp ult i64 %sub3.i.i.i.i, %call.i.i78.i.i
   br i1 %cmp.i.i80.i.i, label %if.then.i.i81.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
@@ -4162,7 +4159,7 @@ if.then.i.i81.i.i:                                ; preds = %if.end18.i.i
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i: ; preds = %if.end18.i.i
-  %call2.i83.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %checkpath.i.i, ptr noundef %280, i64 noundef %call.i.i78.i.i)
+  %call2.i83.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %checkpath.i.i, ptr noundef nonnull %280, i64 noundef %call.i.i78.i.i)
           to label %invoke.cont19.i.i unwind label %lpad9.loopexit.i.i, !noalias !180
 
 invoke.cont19.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i

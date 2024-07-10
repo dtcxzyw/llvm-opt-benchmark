@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @mca_coll_han_component = external local_unnamed_addr global %struct.mca_coll_han_component_t, align 8
 @mca_coll_task_t_class = external global %struct.opal_class_t, align 8
-@__const.mca_coll_han_allreduce_reproducible_decision.fallbacks = private unnamed_addr constant [2 x i32] [i32 3, i32 1], align 4
 @.str = private unnamed_addr constant [49 x i8] c"coll:han:allreduce_reproducible: fallback on %s\0A\00", align 1
 @ompi_coll_han_available_components = external local_unnamed_addr global [7 x %struct.ompi_coll_han_components], align 16
 @.str.1 = private unnamed_addr constant [68 x i8] c"coll:han:allreduce_reproducible_decision: no reproducible fallback\0A\00", align 1
@@ -2645,71 +2644,68 @@ define noundef i32 @mca_coll_han_allreduce_reproducible_decision(ptr noundef %0,
   %5 = getelementptr inbounds i8, ptr %1, i64 816
   br label %6
 
-6:                                                ; preds = %2, %26
-  %7 = phi i1 [ true, %2 ], [ false, %26 ]
-  %indvars.iv = phi i64 [ 0, %2 ], [ 1, %26 ]
-  %8 = getelementptr inbounds [2 x i32], ptr @__const.mca_coll_han_allreduce_reproducible_decision.fallbacks, i64 0, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %5, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %26, label %13
+6:                                                ; preds = %2, %24
+  %7 = phi i1 [ true, %2 ], [ false, %24 ]
+  %8 = select i1 %7, i64 3, i64 1
+  %9 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %5, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %24, label %11
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %.not24 = icmp eq ptr %15, null
-  br i1 %.not24, label %26, label %16
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %.not24 = icmp eq ptr %13, null
+  br i1 %.not24, label %24, label %14
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
-  %18 = icmp eq i32 %.val, 0
-  br i1 %18, label %19, label %38
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = icmp eq i32 %.val, 0
+  br i1 %16, label %17, label %36
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %21 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 30, i32 noundef %20) #4
-  br i1 %21, label %22, label %38
+17:                                               ; preds = %14
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %19 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 30, i32 noundef %18) #4
+  br i1 %19, label %20, label %36
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %24 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %10, i32 1
-  %25 = load ptr, ptr %24, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %23, ptr noundef nonnull @.str, ptr noundef %25) #4
-  br label %38
+20:                                               ; preds = %17
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %22 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %8, i32 1
+  %23 = load ptr, ptr %22, align 16
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %21, ptr noundef nonnull @.str, ptr noundef %23) #4
+  br label %36
 
-26:                                               ; preds = %6, %13
-  br i1 %7, label %6, label %27, !llvm.loop !8
+24:                                               ; preds = %6, %11
+  br i1 %7, label %6, label %25, !llvm.loop !8
 
-27:                                               ; preds = %26
-  %28 = icmp eq i32 %.val, 0
-  br i1 %28, label %29, label %34
+25:                                               ; preds = %24
+  %26 = icmp eq i32 %.val, 0
+  br i1 %26, label %27, label %32
 
-29:                                               ; preds = %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %31 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %30) #4
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %25
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %28) #4
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %33, ptr noundef nonnull @.str.1) #4
-  br label %34
+30:                                               ; preds = %27
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str.1) #4
+  br label %32
 
-34:                                               ; preds = %32, %29, %27
-  %35 = getelementptr inbounds i8, ptr %1, i64 680
-  %36 = getelementptr inbounds i8, ptr %1, i64 688
-  %37 = load ptr, ptr %36, align 8
-  br label %38
+32:                                               ; preds = %30, %27, %25
+  %33 = getelementptr inbounds i8, ptr %1, i64 680
+  %34 = getelementptr inbounds i8, ptr %1, i64 688
+  %35 = load ptr, ptr %34, align 8
+  br label %36
 
-38:                                               ; preds = %16, %19, %22, %34
-  %.sink = phi ptr [ %37, %34 ], [ %12, %22 ], [ %12, %19 ], [ %12, %16 ]
-  %.sink39 = phi ptr [ %35, %34 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 800
-  store ptr %.sink, ptr %39, align 8
-  %40 = load ptr, ptr %.sink39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 792
-  store ptr %40, ptr %41, align 8
+36:                                               ; preds = %14, %17, %20, %32
+  %.sink = phi ptr [ %35, %32 ], [ %10, %20 ], [ %10, %17 ], [ %10, %14 ]
+  %.sink38 = phi ptr [ %33, %32 ], [ %15, %20 ], [ %15, %17 ], [ %15, %14 ]
+  %37 = getelementptr inbounds i8, ptr %1, i64 800
+  store ptr %.sink, ptr %37, align 8
+  %38 = load ptr, ptr %.sink38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 792
+  store ptr %38, ptr %39, align 8
   ret i32 0
 }
 

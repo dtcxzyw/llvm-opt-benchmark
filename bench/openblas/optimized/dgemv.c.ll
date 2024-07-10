@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DGEMV \00", align 1
-@gemv_thread = internal unnamed_addr constant [2 x ptr] [ptr @dgemv_thread_n, ptr @dgemv_thread_t], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -144,25 +143,25 @@ define void @dgemv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %106 = load i32, ptr @blas_cpu_number, align 4
   %107 = icmp eq i32 %106, 1
   %108 = select i1 %105, i1 true, i1 %107
-  %109 = sext i32 %35 to i64
-  %110 = sext i32 %19 to i64
-  %111 = sext i32 %20 to i64
-  %112 = sext i32 %21 to i64
-  br i1 %108, label %113, label %117
+  %109 = sext i32 %19 to i64
+  %110 = sext i32 %20 to i64
+  %111 = sext i32 %21 to i64
+  br i1 %108, label %112, label %117
 
-113:                                              ; preds = %100
-  %114 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %109
+112:                                              ; preds = %100
+  %113 = sext i32 %35 to i64
+  %114 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !10
-  %116 = call i32 %115(i64 noundef %102, i64 noundef %103, i64 noundef 0, double noundef %22, ptr noundef %4, i64 noundef %110, ptr noundef %76, i64 noundef %111, ptr noundef %83, i64 noundef %112, ptr noundef %101) #5
+  %116 = call i32 %115(i64 noundef %102, i64 noundef %103, i64 noundef 0, double noundef %22, ptr noundef %4, i64 noundef %109, ptr noundef %76, i64 noundef %110, ptr noundef %83, i64 noundef %111, ptr noundef %101) #5
   br label %121
 
 117:                                              ; preds = %100
-  %118 = getelementptr inbounds [2 x ptr], ptr @gemv_thread, i64 0, i64 %109
-  %119 = load ptr, ptr %118, align 8, !tbaa !10
-  %120 = call i32 %119(i64 noundef %102, i64 noundef %103, double noundef %22, ptr noundef %4, i64 noundef %110, ptr noundef %76, i64 noundef %111, ptr noundef %83, i64 noundef %112, ptr noundef %101, i32 noundef %106) #5
+  %118 = icmp eq i32 %35, 0
+  %119 = select i1 %118, ptr @dgemv_thread_n, ptr @dgemv_thread_t
+  %120 = call i32 %119(i64 noundef %102, i64 noundef %103, double noundef %22, ptr noundef %4, i64 noundef %109, ptr noundef %76, i64 noundef %110, ptr noundef %83, i64 noundef %111, ptr noundef %101, i32 noundef %106) #5
   br label %121
 
-121:                                              ; preds = %117, %113
+121:                                              ; preds = %117, %112
   %.0..0..0..0.4 = load volatile i32, ptr %14, align 4, !tbaa !6
   %122 = icmp eq i32 %.0..0..0..0.4, 0
   br i1 %122, label %123, label %124
@@ -210,9 +209,9 @@ declare void @llvm.stackrestore.p0(ptr) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare i32 @dgemv_thread_n(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgemv_thread_n(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dgemv_thread_t(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgemv_thread_t(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

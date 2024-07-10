@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DGBMV \00", align 1
-@gbmv = internal unnamed_addr constant [2 x ptr] [ptr @dgbmv_n, ptr @dgbmv_t], align 16
-@gbmv_thread = internal unnamed_addr constant [2 x ptr] [ptr @dgbmv_thread_n, ptr @dgbmv_thread_t], align 16
 @blas_cpu_number = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -56,13 +54,13 @@ define void @dgbmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 54:                                               ; preds = %13
   %55 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %14, i32 noundef 7) #4
-  br label %107
+  br label %105
 
 56:                                               ; preds = %13
   %57 = icmp eq i32 %16, 0
   %58 = icmp eq i32 %17, 0
   %59 = select i1 %57, i1 true, i1 %58
-  br i1 %59, label %107, label %60
+  br i1 %59, label %105, label %60
 
 60:                                               ; preds = %56
   %61 = and i32 %35, 255
@@ -81,7 +79,7 @@ define void @dgbmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 71:                                               ; preds = %66, %60
   %72 = fcmp oeq double %23, 0.000000e+00
-  br i1 %72, label %107, label %73
+  br i1 %72, label %105, label %73
 
 73:                                               ; preds = %71
   %74 = icmp slt i32 %21, 0
@@ -101,33 +99,31 @@ define void @dgbmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %88 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
   %89 = load i32, ptr @blas_cpu_number, align 4, !tbaa !6
   %90 = icmp eq i32 %89, 1
-  %91 = sext i32 %35 to i64
-  %92 = sext i32 %16 to i64
-  %93 = sext i32 %17 to i64
-  %94 = sext i32 %19 to i64
-  %95 = sext i32 %18 to i64
-  %96 = sext i32 %20 to i64
-  %97 = sext i32 %21 to i64
-  %98 = sext i32 %22 to i64
-  br i1 %90, label %99, label %102
+  %91 = sext i32 %16 to i64
+  %92 = sext i32 %17 to i64
+  %93 = sext i32 %19 to i64
+  %94 = sext i32 %18 to i64
+  %95 = sext i32 %20 to i64
+  %96 = sext i32 %21 to i64
+  %97 = sext i32 %22 to i64
+  %98 = icmp eq i32 %35, 0
+  br i1 %90, label %99, label %101
 
 99:                                               ; preds = %73
-  %100 = getelementptr inbounds [2 x ptr], ptr @gbmv, i64 0, i64 %91
-  %101 = load ptr, ptr %100, align 8, !tbaa !10
-  tail call void %101(i64 noundef %92, i64 noundef %93, i64 noundef %94, i64 noundef %95, double noundef %23, ptr noundef %6, i64 noundef %96, ptr noundef %80, i64 noundef %97, ptr noundef %87, i64 noundef %98, ptr noundef %88) #4
-  br label %106
+  %100 = select i1 %98, ptr @dgbmv_n, ptr @dgbmv_t
+  tail call void %100(i64 noundef %91, i64 noundef %92, i64 noundef %93, i64 noundef %94, double noundef %23, ptr noundef %6, i64 noundef %95, ptr noundef %80, i64 noundef %96, ptr noundef %87, i64 noundef %97, ptr noundef %88) #4
+  br label %104
 
-102:                                              ; preds = %73
-  %103 = getelementptr inbounds [2 x ptr], ptr @gbmv_thread, i64 0, i64 %91
-  %104 = load ptr, ptr %103, align 8, !tbaa !10
-  %105 = tail call i32 %104(i64 noundef %92, i64 noundef %93, i64 noundef %94, i64 noundef %95, double noundef %23, ptr noundef %6, i64 noundef %96, ptr noundef %80, i64 noundef %97, ptr noundef %87, i64 noundef %98, ptr noundef %88, i32 noundef %89) #4
-  br label %106
+101:                                              ; preds = %73
+  %102 = select i1 %98, ptr @dgbmv_thread_n, ptr @dgbmv_thread_t
+  %103 = tail call i32 %102(i64 noundef %91, i64 noundef %92, i64 noundef %93, i64 noundef %94, double noundef %23, ptr noundef %6, i64 noundef %95, ptr noundef %80, i64 noundef %96, ptr noundef %87, i64 noundef %97, ptr noundef %88, i32 noundef %89) #4
+  br label %104
 
-106:                                              ; preds = %102, %99
+104:                                              ; preds = %101, %99
   tail call void @blas_memory_free(ptr noundef %88) #4
-  br label %107
+  br label %105
 
-107:                                              ; preds = %106, %71, %56, %54
+105:                                              ; preds = %104, %71, %56, %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
   ret void
 }
@@ -149,13 +145,13 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare void @dgbmv_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare void @dgbmv_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dgbmv_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare void @dgbmv_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dgbmv_thread_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgbmv_thread_n(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dgbmv_thread_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @dgbmv_thread_t(i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -175,5 +171,3 @@ attributes #4 = { nounwind }
 !7 = !{!"int", !4, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}

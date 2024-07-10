@@ -1264,7 +1264,6 @@ $_ZTIN19OpenColorIO_v2_4dev14RangeTransformE = comdat any
 @.str.19 = private unnamed_addr constant [36 x i8] c" where supported versions start at \00", align 1
 @.str.20 = private unnamed_addr constant [13 x i8] c" and end at \00", align 1
 @.str.21 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125LastSupportedMinorVersionE = internal unnamed_addr constant [2 x i32] [i32 0, i32 3], align 4
 @.str.22 = private unnamed_addr constant [19 x i8] c"The minor version \00", align 1
 @.str.23 = private unnamed_addr constant [37 x i8] c" is not supported for major version \00", align 1
 @.str.24 = private unnamed_addr constant [28 x i8] c". Maximum minor version is \00", align 1
@@ -1798,7 +1797,6 @@ $_ZTIN19OpenColorIO_v2_4dev14RangeTransformE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Config.cpp, ptr null }]
 @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE = private unnamed_addr constant [3 x i64] [i64 760, i64 784, i64 736], align 8
 @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.5 = private unnamed_addr constant [3 x i64] [i64 768, i64 792, i64 744], align 8
-@switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6 = private unnamed_addr constant [3 x i64] [i64 5, i64 5, i64 4], align 8
 
 @_ZN19OpenColorIO_v2_4dev6ConfigC1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev6ConfigC2Ev
 @_ZN19OpenColorIO_v2_4dev6ConfigD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev6ConfigD2Ev
@@ -6171,15 +6169,13 @@ ehcleanup20:                                      ; preds = %ehcleanup, %cleanup
 if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %this, align 8
   store i32 %version, ptr %5, align 8
-  %sub = add nsw i32 %version, -1
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125LastSupportedMinorVersionE, i64 0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  %7 = load ptr, ptr %this, align 8
-  %m_minorVersion = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %6, ptr %m_minorVersion, align 4
+  %6 = icmp eq i32 %version, 1
+  %7 = select i1 %6, i32 0, i32 3
   %8 = load ptr, ptr %this, align 8
-  %m_cacheidMutex = getelementptr inbounds i8, ptr %8, i64 872
+  %m_minorVersion = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %7, ptr %m_minorVersion, align 4
+  %9 = load ptr, ptr %this, align 8
+  %m_cacheidMutex = getelementptr inbounds i8, ptr %9, i64 872
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_cacheidMutex) #27
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -6189,8 +6185,8 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end
-  %9 = load ptr, ptr %this, align 8
-  invoke void @_ZN19OpenColorIO_v2_4dev6Config4Impl13resetCacheIDsEv(ptr noundef nonnull align 8 dereferenceable(1120) %9)
+  %10 = load ptr, ptr %this, align 8
+  invoke void @_ZN19OpenColorIO_v2_4dev6Config4Impl13resetCacheIDsEv(ptr noundef nonnull align 8 dereferenceable(1120) %10)
           to label %invoke.cont26 unwind label %lpad23
 
 invoke.cont26:                                    ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -6198,13 +6194,13 @@ invoke.cont26:                                    ; preds = %_ZNSt10lock_guardIS
   ret void
 
 lpad23:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i9 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_cacheidMutex) #27
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad23, %ehcleanup20
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup20 ], [ %10, %lpad23 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup20 ], [ %11, %lpad23 ]
   resume { ptr, i32 } %.pn.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -6306,11 +6302,9 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 8
-  %sub = add i32 %1, -1
-  %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [2 x i32], ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125LastSupportedMinorVersionE, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %cmp = icmp ult i32 %2, %version
+  %2 = icmp eq i32 %1, 1
+  %3 = select i1 %2, i32 0, i32 3
+  %cmp = icmp ult i32 %3, %version
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6327,9 +6321,9 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %3 = load ptr, ptr %this, align 8
-  %4 = load i32, ptr %3, align 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %4)
+  %4 = load ptr, ptr %this, align 8
+  %5 = load i32, ptr %4, align 8
+  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %5)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -6337,7 +6331,7 @@ invoke.cont8:                                     ; preds = %invoke.cont4
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call11, i32 noundef %2)
+  %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call11, i32 noundef %3)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -6355,7 +6349,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
           to label %invoke.cont20 unwind label %ehcleanup.thread9
 
 ehcleanup.thread9:                                ; preds = %invoke.cont17
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   br label %cleanup.action
@@ -6365,28 +6359,28 @@ invoke.cont20:                                    ; preds = %invoke.cont17
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont4, %invoke.cont2, %invoke.cont, %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21
 
 ehcleanup.thread:                                 ; preds = %invoke.cont14
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont20
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   br label %ehcleanup21
 
 cleanup.action:                                   ; preds = %ehcleanup.thread9, %ehcleanup.thread
-  %.pn8 = phi { ptr, i32 } [ %7, %ehcleanup.thread ], [ %5, %ehcleanup.thread9 ]
+  %.pn8 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %6, %ehcleanup.thread9 ]
   call void @__cxa_free_exception(ptr %exception) #27
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn8, %cleanup.action ], [ %8, %ehcleanup ], [ %6, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn8, %cleanup.action ], [ %9, %ehcleanup ], [ %7, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #27
   resume { ptr, i32 } %.pn.pn
 
@@ -27520,9 +27514,8 @@ switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %visibility to i64
   %switch.gep17 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.5, i64 0, i64 %2
   %switch.load18 = load i64, ptr %switch.gep17, align 8
-  %3 = zext nneg i32 %visibility to i64
-  %switch.gep19 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev6Config21getNumNamedTransformsENS_24NamedTransformVisibilityE.6, i64 0, i64 %3
-  %switch.load20 = load i64, ptr %switch.gep19, align 8
+  %3 = icmp eq i32 %visibility, 2
+  %switch.load20 = select i1 %3, i64 4, i64 5
   %4 = load ptr, ptr %this, align 8
   %m_inactiveNamedTransformNames = getelementptr inbounds i8, ptr %4, i64 %switch.load
   %_M_finish.i6 = getelementptr inbounds i8, ptr %4, i64 %switch.load18

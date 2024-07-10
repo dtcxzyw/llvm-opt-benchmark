@@ -1170,7 +1170,6 @@ $_ZTIN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHo
 @str = private unnamed_addr constant [32 x i8] c"Global test environment set-up.\00", align 1
 @str.1 = private unnamed_addr constant [34 x i8] c"Global test environment tear-down\00", align 1
 @str.2 = private unnamed_addr constant [106 x i8] c"\0AThis test program did NOT call ::testing::InitGoogleTest before calling RUN_ALL_TESTS().  Please fix it.\00", align 1
-@switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE = private unnamed_addr constant [3 x ptr] [ptr @.str.327, ptr @.str.355, ptr @.str.355], align 8
 @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz = private unnamed_addr constant [3 x ptr] [ptr @.str.121, ptr @.str.122, ptr @.str.123], align 8
 
 @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_ = unnamed_addr alias void (ptr, i32, ptr, i32, ptr), ptr @_ZN7testing8internal12AssertHelperC2ENS_14TestPartResult4TypeEPKciS5_
@@ -17192,16 +17191,9 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i5)
   %5 = load i32, ptr %test_part_result, align 8
   %6 = icmp ult i32 %5, 3
-  br i1 %6, label %switch.lookup, label %cond.true.i.split.i.i.i
-
-switch.lookup:                                    ; preds = %invoke.cont8
-  %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 0, i64 %7
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %cond.true.i.split.i.i.i
-
-cond.true.i.split.i.i.i:                          ; preds = %invoke.cont8, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.356, %invoke.cont8 ]
+  %7 = icmp eq i32 %5, 0
+  %switch.load = select i1 %7, ptr @.str.327, ptr @.str.355
+  %retval.0.i = select i1 %6, ptr %switch.load, ptr @.str.356
   %8 = load ptr, ptr %ref.tmp, align 8
   %add.ptr.i14 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i13)
@@ -17216,7 +17208,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont8, %swit
   %cmp.i.i.not.i.i19 = icmp eq i64 %call.i.i.i.i18, 0
   br i1 %cmp.i.i.not.i.i19, label %invoke.cont14, label %if.then.i.i.i.i20
 
-if.then.i.i.i.i20:                                ; preds = %cond.true.i.split.i.i.i
+if.then.i.i.i.i20:                                ; preds = %invoke.cont8
   %call3.i.i2.i.i21 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i13, ptr noundef nonnull %retval.0.i, i64 noundef %call.i.i.i.i18)
           to label %invoke.cont14 unwind label %lpad.i.i22
 
@@ -17226,7 +17218,7 @@ lpad.i.i22:                                       ; preds = %if.then.i.i.i.i20
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i13) #47
   br label %lpad5.body
 
-invoke.cont14:                                    ; preds = %if.then.i.i.i.i20, %cond.true.i.split.i.i.i
+invoke.cont14:                                    ; preds = %if.then.i.i.i.i20, %invoke.cont8
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i13) #47
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i13)
   %message_.i = getelementptr inbounds i8, ptr %test_part_result, i64 80

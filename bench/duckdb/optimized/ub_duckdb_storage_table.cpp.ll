@@ -1688,7 +1688,6 @@ $_ZTIN6duckdb27StructColumnCheckpointStateE = comdat any
 @_ZTSN6duckdb27StructColumnCheckpointStateE = linkonce_odr constant [39 x i8] c"N6duckdb27StructColumnCheckpointStateE\00", comdat, align 1
 @_ZTIN6duckdb27StructColumnCheckpointStateE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6duckdb27StructColumnCheckpointStateE, ptr @_ZTIN6duckdb21ColumnCheckpointStateE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ub_duckdb_storage_table.cpp, ptr null }]
-@switch.table._ZN6duckdb13UpdateSegmentC2ERNS_10ColumnDataE = private unnamed_addr constant [3 x ptr] [ptr @_ZN6duckdb32TemplatedUpdateNumericStatisticsIaEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, ptr @_ZN6duckdb32TemplatedUpdateNumericStatisticsIhEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, ptr @_ZN6duckdb32TemplatedUpdateNumericStatisticsIaEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE], align 8
 
 @_ZN6duckdb17ChunkConstantInfoC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN6duckdb17ChunkConstantInfoC2Em
 @_ZN6duckdb15ChunkVectorInfoC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN6duckdb15ChunkVectorInfoC2Em
@@ -47397,210 +47396,66 @@ invoke.cont14:                                    ; preds = %invoke.cont9
 invoke.cont16.thread:                             ; preds = %invoke.cont14
   %initialize_update_function293 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL24InitializeUpdateValidityEPNS_10UpdateInfoERNS_6VectorES1_S3_RKNS_15SelectionVectorE, ptr %initialize_update_function293, align 8, !tbaa !763
-  %fetch_update_function331 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL19UpdateMergeValidityEmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function331, align 8, !tbaa !582
-  %fetch_committed_function369 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL22FetchCommittedValidityEPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function369, align 8, !tbaa !609
-  %fetch_committed_range407 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL27FetchCommittedRangeValidityEPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range407, align 8, !tbaa !637
-  %fetch_row_function445 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL16FetchRowValidityEmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function445, align 8, !tbaa !707
-  %merge_update_function483 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL17MergeValidityLoopEPNS_10UpdateInfoERNS_6VectorES1_S3_PlmRKNS_15SelectionVectorE, ptr %merge_update_function483, align 8, !tbaa !740
-  %rollback_update_function521 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIbEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function521, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread294:                          ; preds = %invoke.cont14
   %initialize_update_function296 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIsEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function296, align 8, !tbaa !763
-  %fetch_update_function334 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIsEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function334, align 8, !tbaa !582
-  %fetch_committed_function372 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIsEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function372, align 8, !tbaa !609
-  %fetch_committed_range410 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIsEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range410, align 8, !tbaa !637
-  %fetch_row_function448 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIsEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function448, align 8, !tbaa !707
-  %merge_update_function486 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIsEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function486, align 8, !tbaa !740
-  %rollback_update_function524 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIsEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function524, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread297:                          ; preds = %invoke.cont14
   %initialize_update_function299 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIiEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function299, align 8, !tbaa !763
-  %fetch_update_function337 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIiEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function337, align 8, !tbaa !582
-  %fetch_committed_function375 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIiEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function375, align 8, !tbaa !609
-  %fetch_committed_range413 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIiEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range413, align 8, !tbaa !637
-  %fetch_row_function451 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIiEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function451, align 8, !tbaa !707
-  %merge_update_function489 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIiEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function489, align 8, !tbaa !740
-  %rollback_update_function527 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIiEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function527, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread300:                          ; preds = %invoke.cont14
   %initialize_update_function302 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIlEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function302, align 8, !tbaa !763
-  %fetch_update_function340 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIlEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function340, align 8, !tbaa !582
-  %fetch_committed_function378 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIlEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function378, align 8, !tbaa !609
-  %fetch_committed_range416 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIlEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range416, align 8, !tbaa !637
-  %fetch_row_function454 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIlEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function454, align 8, !tbaa !707
-  %merge_update_function492 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIlEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function492, align 8, !tbaa !740
-  %rollback_update_function530 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIlEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function530, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread303:                          ; preds = %invoke.cont14
   %initialize_update_function305 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIhEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function305, align 8, !tbaa !763
-  br label %invoke.cont18.thread341
+  br label %invoke.cont30
 
 invoke.cont16.thread306:                          ; preds = %invoke.cont14
   %initialize_update_function308 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataItEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function308, align 8, !tbaa !763
-  %fetch_update_function346 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchItEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function346, align 8, !tbaa !582
-  %fetch_committed_function384 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedItEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function384, align 8, !tbaa !609
-  %fetch_committed_range422 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeItEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range422, align 8, !tbaa !637
-  %fetch_row_function460 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowItEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function460, align 8, !tbaa !707
-  %merge_update_function498 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopItEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function498, align 8, !tbaa !740
-  %rollback_update_function536 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateItEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function536, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread309:                          ; preds = %invoke.cont14
   %initialize_update_function311 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIjEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function311, align 8, !tbaa !763
-  %fetch_update_function349 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIjEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function349, align 8, !tbaa !582
-  %fetch_committed_function387 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIjEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function387, align 8, !tbaa !609
-  %fetch_committed_range425 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIjEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range425, align 8, !tbaa !637
-  %fetch_row_function463 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIjEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function463, align 8, !tbaa !707
-  %merge_update_function501 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIjEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function501, align 8, !tbaa !740
-  %rollback_update_function539 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIjEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function539, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread312:                          ; preds = %invoke.cont14
   %initialize_update_function314 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataImEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function314, align 8, !tbaa !763
-  %fetch_update_function352 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchImEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function352, align 8, !tbaa !582
-  %fetch_committed_function390 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedImEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function390, align 8, !tbaa !609
-  %fetch_committed_range428 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeImEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range428, align 8, !tbaa !637
-  %fetch_row_function466 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowImEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function466, align 8, !tbaa !707
-  %merge_update_function504 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopImEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function504, align 8, !tbaa !740
-  %rollback_update_function542 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateImEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function542, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread315:                          ; preds = %invoke.cont14
   %initialize_update_function317 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataINS_9hugeint_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_RKNS_15SelectionVectorE, ptr %initialize_update_function317, align 8, !tbaa !763
-  %fetch_update_function355 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchINS_9hugeint_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function355, align 8, !tbaa !582
-  %fetch_committed_function393 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedINS_9hugeint_tEEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function393, align 8, !tbaa !609
-  %fetch_committed_range431 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_9hugeint_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range431, align 8, !tbaa !637
-  %fetch_row_function469 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowINS_9hugeint_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function469, align 8, !tbaa !707
-  %merge_update_function507 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopINS_9hugeint_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, ptr %merge_update_function507, align 8, !tbaa !740
-  %rollback_update_function545 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateINS_9hugeint_tEEEvRNS_10UpdateInfoES3_, ptr %rollback_update_function545, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread318:                          ; preds = %invoke.cont14
   %initialize_update_function320 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIfEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function320, align 8, !tbaa !763
-  %fetch_update_function358 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIfEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function358, align 8, !tbaa !582
-  %fetch_committed_function396 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIfEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function396, align 8, !tbaa !609
-  %fetch_committed_range434 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIfEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range434, align 8, !tbaa !637
-  %fetch_row_function472 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIfEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function472, align 8, !tbaa !707
-  %merge_update_function510 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIfEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function510, align 8, !tbaa !740
-  %rollback_update_function548 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIfEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function548, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread321:                          ; preds = %invoke.cont14
   %initialize_update_function323 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIdEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function323, align 8, !tbaa !763
-  %fetch_update_function361 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIdEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function361, align 8, !tbaa !582
-  %fetch_committed_function399 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIdEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function399, align 8, !tbaa !609
-  %fetch_committed_range437 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIdEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range437, align 8, !tbaa !637
-  %fetch_row_function475 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIdEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function475, align 8, !tbaa !707
-  %merge_update_function513 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIdEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function513, align 8, !tbaa !740
-  %rollback_update_function551 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIdEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function551, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread324:                          ; preds = %invoke.cont14
   %initialize_update_function326 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataINS_10interval_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_RKNS_15SelectionVectorE, ptr %initialize_update_function326, align 8, !tbaa !763
-  %fetch_update_function364 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchINS_10interval_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function364, align 8, !tbaa !582
-  %fetch_committed_function402 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedINS_10interval_tEEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function402, align 8, !tbaa !609
-  %fetch_committed_range440 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_10interval_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range440, align 8, !tbaa !637
-  %fetch_row_function478 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowINS_10interval_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function478, align 8, !tbaa !707
-  %merge_update_function516 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopINS_10interval_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, ptr %merge_update_function516, align 8, !tbaa !740
-  %rollback_update_function554 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateINS_10interval_tEEEvRNS_10UpdateInfoES3_, ptr %rollback_update_function554, align 8, !tbaa !1164
   br label %invoke.cont30
 
 invoke.cont16.thread327:                          ; preds = %invoke.cont14
   %initialize_update_function329 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataINS_8string_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_RKNS_15SelectionVectorE, ptr %initialize_update_function329, align 8, !tbaa !763
-  %fetch_update_function367 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchINS_8string_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function367, align 8, !tbaa !582
-  %fetch_committed_function405 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedINS_8string_tEEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function405, align 8, !tbaa !609
-  %fetch_committed_range443 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_8string_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range443, align 8, !tbaa !637
-  %fetch_row_function481 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowINS_8string_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function481, align 8, !tbaa !707
-  %merge_update_function519 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopINS_8string_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, ptr %merge_update_function519, align 8, !tbaa !740
-  %rollback_update_function557 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateINS_8string_tEEEvRNS_10UpdateInfoES3_, ptr %rollback_update_function557, align 8, !tbaa !1164
   br label %invoke.cont30
 
 sw.default.i:                                     ; preds = %invoke.cont14
@@ -47661,81 +47516,68 @@ invoke.cont16:                                    ; preds = %invoke.cont14, %inv
   %initialize_update_function = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @_ZN6duckdbL20InitializeUpdateDataIaEEvPNS_10UpdateInfoERNS_6VectorES2_S4_RKNS_15SelectionVectorE, ptr %initialize_update_function, align 8, !tbaa !763
   %switch = icmp eq i8 %3, 2
-  br i1 %switch, label %invoke.cont18.thread341, label %invoke.cont18
-
-invoke.cont18.thread341:                          ; preds = %invoke.cont16, %invoke.cont16.thread303
-  %fetch_update_function343 = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIhEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function343, align 8, !tbaa !582
-  %fetch_committed_function381 = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIhEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function381, align 8, !tbaa !609
-  %fetch_committed_range419 = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIhEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range419, align 8, !tbaa !637
-  %fetch_row_function457 = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIhEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function457, align 8, !tbaa !707
-  %merge_update_function495 = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIhEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function495, align 8, !tbaa !740
-  %rollback_update_function533 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIhEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function533, align 8, !tbaa !1164
-  br label %invoke.cont30
+  br i1 %switch, label %invoke.cont30, label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %fetch_update_function = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr @_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_update_function, align 8, !tbaa !582
-  %fetch_committed_function = getelementptr inbounds i8, ptr %this, i64 288
-  store ptr @_ZN6duckdbL23TemplatedFetchCommittedIaEEvPNS_10UpdateInfoERNS_6VectorE, ptr %fetch_committed_function, align 8, !tbaa !609
-  %fetch_committed_range = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr @_ZN6duckdbL28TemplatedFetchCommittedRangeIaEEvPNS_10UpdateInfoEmmmRNS_6VectorE, ptr %fetch_committed_range, align 8, !tbaa !637
-  %fetch_row_function = getelementptr inbounds i8, ptr %this, i64 304
-  store ptr @_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, ptr %fetch_row_function, align 8, !tbaa !707
-  %merge_update_function = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr @_ZN6duckdbL15MergeUpdateLoopIaEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, ptr %merge_update_function, align 8, !tbaa !740
-  %rollback_update_function8 = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr @_ZN6duckdbL14RollbackUpdateIaEEvRNS_10UpdateInfoES2_, ptr %rollback_update_function8, align 8, !tbaa !1164
-  %switch.tableidx9 = add nsw i8 %3, -1
-  %9 = zext nneg i8 %switch.tableidx9 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6duckdb13UpdateSegmentC2ERNS_10ColumnDataE, i64 0, i64 %9
-  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %invoke.cont18, %invoke.cont18.thread341, %invoke.cont16.thread327, %invoke.cont16.thread324, %invoke.cont16.thread321, %invoke.cont16.thread318, %invoke.cont16.thread315, %invoke.cont16.thread312, %invoke.cont16.thread309, %invoke.cont16.thread306, %invoke.cont16.thread300, %invoke.cont16.thread297, %invoke.cont16.thread294, %invoke.cont16.thread
-  %retval.0.i260 = phi ptr [ @_ZN6duckdb22UpdateStringStatisticsEPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsINS_10interval_tEEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIdEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIfEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsINS_9hugeint_tEEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsImEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIjEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsItEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIhEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont18.thread341 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIlEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIiEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIsEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdb24UpdateValidityStatisticsEPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread ], [ %switch.load, %invoke.cont18 ]
+invoke.cont30:                                    ; preds = %invoke.cont16.thread303, %invoke.cont16, %invoke.cont18, %invoke.cont16.thread327, %invoke.cont16.thread324, %invoke.cont16.thread321, %invoke.cont16.thread318, %invoke.cont16.thread315, %invoke.cont16.thread312, %invoke.cont16.thread309, %invoke.cont16.thread306, %invoke.cont16.thread300, %invoke.cont16.thread297, %invoke.cont16.thread294, %invoke.cont16.thread
+  %_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE.sink = phi ptr [ @_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont18 ], [ @_ZN6duckdbL16UpdateMergeFetchINS_8string_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdbL16UpdateMergeFetchINS_10interval_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdbL16UpdateMergeFetchIdEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdbL16UpdateMergeFetchIfEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdbL16UpdateMergeFetchINS_9hugeint_tEEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdbL16UpdateMergeFetchImEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdbL16UpdateMergeFetchIjEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdbL16UpdateMergeFetchItEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdbL16UpdateMergeFetchIlEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdbL16UpdateMergeFetchIiEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdbL16UpdateMergeFetchIsEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdbL19UpdateMergeValidityEmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread ], [ @_ZN6duckdbL16UpdateMergeFetchIhEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16 ], [ @_ZN6duckdbL16UpdateMergeFetchIhEEvmmPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread303 ]
+  %_ZN6duckdbL23TemplatedFetchCommittedIaEEvPNS_10UpdateInfoERNS_6VectorE.sink = phi ptr [ @_ZN6duckdbL23TemplatedFetchCommittedIaEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont18 ], [ @_ZN6duckdbL23TemplatedFetchCommittedINS_8string_tEEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdbL23TemplatedFetchCommittedINS_10interval_tEEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIdEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIfEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdbL23TemplatedFetchCommittedINS_9hugeint_tEEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdbL23TemplatedFetchCommittedImEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIjEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdbL23TemplatedFetchCommittedItEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIlEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIiEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIsEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdbL22FetchCommittedValidityEPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread ], [ @_ZN6duckdbL23TemplatedFetchCommittedIhEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16 ], [ @_ZN6duckdbL23TemplatedFetchCommittedIhEEvPNS_10UpdateInfoERNS_6VectorE, %invoke.cont16.thread303 ]
+  %_ZN6duckdbL28TemplatedFetchCommittedRangeIaEEvPNS_10UpdateInfoEmmmRNS_6VectorE.sink = phi ptr [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIaEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont18 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_8string_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_10interval_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIdEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIfEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeINS_9hugeint_tEEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeImEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIjEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeItEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIlEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIiEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIsEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdbL27FetchCommittedRangeValidityEPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIhEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16 ], [ @_ZN6duckdbL28TemplatedFetchCommittedRangeIhEEvPNS_10UpdateInfoEmmmRNS_6VectorE, %invoke.cont16.thread303 ]
+  %_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm.sink = phi ptr [ @_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont18 ], [ @_ZN6duckdbL17TemplatedFetchRowINS_8string_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread327 ], [ @_ZN6duckdbL17TemplatedFetchRowINS_10interval_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread324 ], [ @_ZN6duckdbL17TemplatedFetchRowIdEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread321 ], [ @_ZN6duckdbL17TemplatedFetchRowIfEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread318 ], [ @_ZN6duckdbL17TemplatedFetchRowINS_9hugeint_tEEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread315 ], [ @_ZN6duckdbL17TemplatedFetchRowImEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread312 ], [ @_ZN6duckdbL17TemplatedFetchRowIjEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread309 ], [ @_ZN6duckdbL17TemplatedFetchRowItEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread306 ], [ @_ZN6duckdbL17TemplatedFetchRowIlEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread300 ], [ @_ZN6duckdbL17TemplatedFetchRowIiEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread297 ], [ @_ZN6duckdbL17TemplatedFetchRowIsEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread294 ], [ @_ZN6duckdbL16FetchRowValidityEmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread ], [ @_ZN6duckdbL17TemplatedFetchRowIhEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16 ], [ @_ZN6duckdbL17TemplatedFetchRowIhEEvmmPNS_10UpdateInfoEmRNS_6VectorEm, %invoke.cont16.thread303 ]
+  %_ZN6duckdbL15MergeUpdateLoopIaEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE.sink = phi ptr [ @_ZN6duckdbL15MergeUpdateLoopIaEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont18 ], [ @_ZN6duckdbL15MergeUpdateLoopINS_8string_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdbL15MergeUpdateLoopINS_10interval_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdbL15MergeUpdateLoopIdEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdbL15MergeUpdateLoopIfEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdbL15MergeUpdateLoopINS_9hugeint_tEEEvPNS_10UpdateInfoERNS_6VectorES3_S5_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdbL15MergeUpdateLoopImEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdbL15MergeUpdateLoopIjEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdbL15MergeUpdateLoopItEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdbL15MergeUpdateLoopIlEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdbL15MergeUpdateLoopIiEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdbL15MergeUpdateLoopIsEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdbL17MergeValidityLoopEPNS_10UpdateInfoERNS_6VectorES1_S3_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread ], [ @_ZN6duckdbL15MergeUpdateLoopIhEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16 ], [ @_ZN6duckdbL15MergeUpdateLoopIhEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE, %invoke.cont16.thread303 ]
+  %_ZN6duckdbL14RollbackUpdateIaEEvRNS_10UpdateInfoES2_.sink = phi ptr [ @_ZN6duckdbL14RollbackUpdateIaEEvRNS_10UpdateInfoES2_, %invoke.cont18 ], [ @_ZN6duckdbL14RollbackUpdateINS_8string_tEEEvRNS_10UpdateInfoES3_, %invoke.cont16.thread327 ], [ @_ZN6duckdbL14RollbackUpdateINS_10interval_tEEEvRNS_10UpdateInfoES3_, %invoke.cont16.thread324 ], [ @_ZN6duckdbL14RollbackUpdateIdEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread321 ], [ @_ZN6duckdbL14RollbackUpdateIfEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread318 ], [ @_ZN6duckdbL14RollbackUpdateINS_9hugeint_tEEEvRNS_10UpdateInfoES3_, %invoke.cont16.thread315 ], [ @_ZN6duckdbL14RollbackUpdateImEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread312 ], [ @_ZN6duckdbL14RollbackUpdateIjEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread309 ], [ @_ZN6duckdbL14RollbackUpdateItEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread306 ], [ @_ZN6duckdbL14RollbackUpdateIlEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread300 ], [ @_ZN6duckdbL14RollbackUpdateIiEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread297 ], [ @_ZN6duckdbL14RollbackUpdateIsEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread294 ], [ @_ZN6duckdbL14RollbackUpdateIbEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread ], [ @_ZN6duckdbL14RollbackUpdateIhEEvRNS_10UpdateInfoES2_, %invoke.cont16 ], [ @_ZN6duckdbL14RollbackUpdateIhEEvRNS_10UpdateInfoES2_, %invoke.cont16.thread303 ]
+  %retval.0.i260 = phi ptr [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIaEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont18 ], [ @_ZN6duckdb22UpdateStringStatisticsEPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread327 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsINS_10interval_tEEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread324 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIdEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread321 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIfEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread318 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsINS_9hugeint_tEEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread315 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsImEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread312 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIjEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread309 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsItEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread306 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIlEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread300 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIiEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread297 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIsEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread294 ], [ @_ZN6duckdb24UpdateValidityStatisticsEPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIhEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16 ], [ @_ZN6duckdb32TemplatedUpdateNumericStatisticsIhEEmPNS_13UpdateSegmentERNS_17SegmentStatisticsERNS_6VectorEmRNS_15SelectionVectorE, %invoke.cont16.thread303 ]
+  %fetch_update_function = getelementptr inbounds i8, ptr %this, i64 280
+  store ptr %_ZN6duckdbL16UpdateMergeFetchIaEEvmmPNS_10UpdateInfoERNS_6VectorE.sink, ptr %fetch_update_function, align 8, !tbaa !582
+  %fetch_committed_function = getelementptr inbounds i8, ptr %this, i64 288
+  store ptr %_ZN6duckdbL23TemplatedFetchCommittedIaEEvPNS_10UpdateInfoERNS_6VectorE.sink, ptr %fetch_committed_function, align 8, !tbaa !609
+  %fetch_committed_range = getelementptr inbounds i8, ptr %this, i64 296
+  store ptr %_ZN6duckdbL28TemplatedFetchCommittedRangeIaEEvPNS_10UpdateInfoEmmmRNS_6VectorE.sink, ptr %fetch_committed_range, align 8, !tbaa !637
+  %fetch_row_function = getelementptr inbounds i8, ptr %this, i64 304
+  store ptr %_ZN6duckdbL17TemplatedFetchRowIaEEvmmPNS_10UpdateInfoEmRNS_6VectorEm.sink, ptr %fetch_row_function, align 8, !tbaa !707
+  %merge_update_function = getelementptr inbounds i8, ptr %this, i64 272
+  store ptr %_ZN6duckdbL15MergeUpdateLoopIaEEvPNS_10UpdateInfoERNS_6VectorES2_S4_PlmRKNS_15SelectionVectorE.sink, ptr %merge_update_function, align 8, !tbaa !740
+  %rollback_update_function8 = getelementptr inbounds i8, ptr %this, i64 312
+  store ptr %_ZN6duckdbL14RollbackUpdateIaEEvRNS_10UpdateInfoES2_.sink, ptr %rollback_update_function8, align 8, !tbaa !1164
   %statistics_update_function = getelementptr inbounds i8, ptr %this, i64 320
   store ptr %retval.0.i260, ptr %statistics_update_function, align 8, !tbaa !711
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup32
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #38
   br label %ehcleanup32
 
 lpad5:                                            ; preds = %invoke.cont7, %invoke.cont6
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont9
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad11.body
 
 lpad11.body:                                      ; preds = %lpad11, %cleanup.action.i, %ehcleanup.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %ehcleanup.i ], [ %.pn25.i, %cleanup.action.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %13, %lpad11 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %ehcleanup.i ], [ %.pn25.i, %cleanup.action.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %12, %lpad11 ]
   call void @_ZN6duckdb14ArenaAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %heap) #38
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11.body, %lpad5
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad11.body ], [ %12, %lpad5 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad11.body ], [ %11, %lpad5 ]
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %stats) #38
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup, %lpad3, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad3 ], [ %10, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad3 ], [ %9, %lpad ]
   call void @_ZNSt10unique_ptrIN6duckdb10UpdateNodeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %root) #38
   resume { ptr, i32 } %.pn.pn
 }

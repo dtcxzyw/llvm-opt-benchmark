@@ -41,10 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [25 x i8] c"GradingTone s-contrast '\00", align 1
 @.str.20 = private unnamed_addr constant [25 x i8] c"' is above upper bound (\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_GradingTone.cpp, ptr null }]
-@switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_ = private unnamed_addr constant [3 x float] [float 1.000000e+00, float 7.500000e+00, float 1.000000e+00], align 4
-@switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4 = private unnamed_addr constant [3 x float] [float 1.000000e+00, float 6.500000e+00, float 1.000000e+00], align 4
-@switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5 = private unnamed_addr constant [3 x float] [float 0.000000e+00, float -5.500000e+00, float 0.000000e+00], align 4
-@switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6 = private unnamed_addr constant [3 x float] [float 0x3FD99999A0000000, float 0.000000e+00, float 0x3FD99999A0000000], align 4
 
 @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC1ENS_12GradingStyleE = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE
 
@@ -1946,18 +1942,14 @@ switch.lookup:                                    ; preds = %if.then
   %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
   %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
   %m_top = getelementptr inbounds i8, ptr %this, i64 912
-  %2 = zext nneg i32 %style to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %2
-  %switch.load = load float, ptr %switch.gep, align 4
-  %3 = zext nneg i32 %style to i64
-  %switch.gep3 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %3
-  %switch.load4 = load float, ptr %switch.gep3, align 4
-  %4 = zext nneg i32 %style to i64
-  %switch.gep5 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %4
-  %switch.load6 = load float, ptr %switch.gep5, align 4
-  %5 = zext nneg i32 %style to i64
-  %switch.gep7 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %5
-  %switch.load8 = load float, ptr %switch.gep7, align 4
+  %2 = icmp eq i32 %style, 1
+  %switch.load = select i1 %2, float 7.500000e+00, float 1.000000e+00
+  %3 = icmp eq i32 %style, 1
+  %switch.load4 = select i1 %3, float 6.500000e+00, float 1.000000e+00
+  %4 = icmp eq i32 %style, 1
+  %switch.load6 = select i1 %4, float -5.500000e+00, float 0.000000e+00
+  %5 = icmp eq i32 %style, 1
+  %switch.load8 = select i1 %5, float 0.000000e+00, float 0x3FD99999A0000000
   store float %switch.load, ptr %m_top, align 8
   store float %switch.load4, ptr %m_topSC, align 4
   store float %switch.load6, ptr %m_bottom, align 8
@@ -1975,18 +1967,14 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %style to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %1
-  %switch.load = load float, ptr %switch.gep, align 4
-  %2 = zext nneg i32 %style to i64
-  %switch.gep12 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %2
-  %switch.load13 = load float, ptr %switch.gep12, align 4
-  %3 = zext nneg i32 %style to i64
-  %switch.gep14 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %3
-  %switch.load15 = load float, ptr %switch.gep14, align 4
-  %4 = zext nneg i32 %style to i64
-  %switch.gep16 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %4
-  %switch.load17 = load float, ptr %switch.gep16, align 4
+  %1 = icmp eq i32 %style, 1
+  %switch.load = select i1 %1, float 7.500000e+00, float 1.000000e+00
+  %2 = icmp eq i32 %style, 1
+  %switch.load13 = select i1 %2, float 6.500000e+00, float 1.000000e+00
+  %3 = icmp eq i32 %style, 1
+  %switch.load15 = select i1 %3, float -5.500000e+00, float 0.000000e+00
+  %4 = icmp eq i32 %style, 1
+  %switch.load17 = select i1 %4, float 0.000000e+00, float 0x3FD99999A0000000
   store float %switch.load, ptr %top, align 4
   store float %switch.load13, ptr %topSC, align 4
   store float %switch.load15, ptr %bottom, align 4

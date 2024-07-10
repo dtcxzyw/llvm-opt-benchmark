@@ -150,7 +150,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
-@switch.table._ZN4llvh3sys2fs12is_directoryERKNS_5TwineERb = private unnamed_addr constant [12 x i8] c"\00\00\00\01\00\00\00\00\00\00\00\00", align 1
 @switch.table._ZN4llvh3sys2fs8is_otherERKNS_5TwineERb = private unnamed_addr constant [12 x i8] c"\01\01\01\00\01\01\01\00\01\01\01\01", align 1
 @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv = private unnamed_addr constant [12 x i32] [i32 7, i32 6, i32 9, i32 3, i32 9, i32 5, i32 9, i32 2, i32 9, i32 4, i32 9, i32 8], align 4
 
@@ -5514,30 +5513,22 @@ if.end6.i:                                        ; preds = %entry
   %and.i15.i = and i32 %2, 61440
   %3 = add nsw i32 %and.i15.i, -4096
   %4 = icmp ult i32 %3, 49152
-  br i1 %4, label %switch.lookup, label %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
-
-switch.lookup:                                    ; preds = %if.end6.i
-  %5 = lshr exact i32 %3, 12
-  %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @switch.table._ZN4llvh3sys2fs12is_directoryERKNS_5TwineERb, i64 0, i64 %6
-  %switch.load = load i8, ptr %switch.gep, align 1
-  br label %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
-
-_ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %if.end6.i, %switch.lookup
-  %7 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %if.end6.i ]
+  %5 = icmp eq i32 %3, 12288
+  %switch.load = zext i1 %5 to i8
+  %6 = select i1 %4, i8 %switch.load, i8 0
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
-_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %if.then.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
-  %st.sroa.8.0 = phi i8 [ %7, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
-  %retval.sroa.0.0.i = phi i32 [ 0, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %1, %if.then.i ]
-  %retval.sroa.4.0.i = phi ptr [ %call.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %call1.i, %if.then.i ]
-  %8 = load ptr, ptr %PathStorage.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i.i
+_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %if.then.i, %if.end6.i
+  %st.sroa.8.0 = phi i8 [ %6, %if.end6.i ], [ 0, %if.then.i ]
+  %retval.sroa.0.0.i = phi i32 [ 0, %if.end6.i ], [ %1, %if.then.i ]
+  %retval.sroa.4.0.i = phi ptr [ %call.i.i, %if.end6.i ], [ %call1.i, %if.then.i ]
+  %7 = load ptr, ptr %PathStorage.i, align 8
+  %cmp.i.i.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
-  call void @free(ptr noundef %8) #29
+  call void @free(ptr noundef %7) #29
   br label %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
 
 _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit, %if.then.i.i.i.i

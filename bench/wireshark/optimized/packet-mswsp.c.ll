@@ -1493,7 +1493,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.963 = private unnamed_addr constant [12 x i8] c"%s (0x%08x)\00", align 1
 @.str.964 = private unnamed_addr constant [8 x i8] c" Id: %s\00", align 1
 @.str.965 = private unnamed_addr constant [6 x i8] c"colid\00", align 1
-@parse_CDbColId.KIND = internal unnamed_addr constant [2 x ptr] [ptr @.str.966, ptr @.str.967], align 16
 @.str.966 = private unnamed_addr constant [17 x i8] c"DBKIND_GUID_NAME\00", align 1
 @.str.967 = private unnamed_addr constant [19 x i8] c"DBKIND_GUID_PROPID\00", align 1
 @.str.968 = private unnamed_addr constant [8 x i8] c"%s (%u)\00", align 1
@@ -3694,63 +3693,56 @@ define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 n
   %40 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %0, i32 noundef %38, i32 noundef 0, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.965) #10
   %41 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %38) #10
   %42 = icmp ult i32 %41, 2
-  br i1 %42, label %43, label %47
-
-43:                                               ; preds = %16
-  %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr [2 x ptr], ptr @parse_CDbColId.KIND, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  br label %47
-
-47:                                               ; preds = %43, %16
-  %48 = phi ptr [ %46, %43 ], [ @.str.496, %16 ]
-  %49 = load i32, ptr @hf_mswsp_cdbcolid_ekind, align 4
-  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %40, i32 noundef %49, ptr noundef %0, i32 noundef %38, i32 noundef 4, ptr noundef %48, ptr noundef nonnull @.str.968, ptr noundef %48, i32 noundef %41) #10
-  %51 = add i32 %2, 16
-  %52 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %51, i32 noundef 8, ptr noundef %4, ptr noundef nonnull @.str.969)
-  %53 = call fastcc i32 @parse_guid(ptr noundef %0, i32 noundef %52, ptr noundef %40, ptr noundef nonnull %8, ptr noundef nonnull @.str.970)
-  %54 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %53) #10
-  %55 = load i32, ptr @hf_mswsp_cdbcolid_ulid, align 4
-  %56 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %54) #10
-  %57 = add i32 %53, 4
-  switch i32 %41, label %67 [
-    i32 0, label %58
-    i32 1, label %65
+  %43 = icmp eq i32 %41, 0
+  %44 = select i1 %43, ptr @.str.966, ptr @.str.967
+  %45 = select i1 %42, ptr %44, ptr @.str.496
+  %46 = load i32, ptr @hf_mswsp_cdbcolid_ekind, align 4
+  %47 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %40, i32 noundef %46, ptr noundef %0, i32 noundef %38, i32 noundef 4, ptr noundef nonnull %45, ptr noundef nonnull @.str.968, ptr noundef nonnull %45, i32 noundef %41) #10
+  %48 = add i32 %2, 16
+  %49 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %48, i32 noundef 8, ptr noundef %4, ptr noundef nonnull @.str.969)
+  %50 = call fastcc i32 @parse_guid(ptr noundef %0, i32 noundef %49, ptr noundef %40, ptr noundef nonnull %8, ptr noundef nonnull @.str.970)
+  %51 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %50) #10
+  %52 = load i32, ptr @hf_mswsp_cdbcolid_ulid, align 4
+  %53 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %52, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef %51) #10
+  %54 = add i32 %50, 4
+  switch i32 %41, label %64 [
+    i32 0, label %55
+    i32 1, label %62
   ]
 
-58:                                               ; preds = %47
-  %59 = call ptr @wmem_packet_scope() #10
-  %60 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %57, i32 noundef %54, i32 noundef -2147483642) #10
-  %61 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.971, ptr noundef %60) #10
-  %62 = load i32, ptr @hf_mswsp_cdbcolid_vstring, align 4
-  %63 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %40, i32 noundef %62, ptr noundef %0, i32 noundef %57, i32 noundef %54, ptr noundef %60, ptr noundef nonnull @.str.972, ptr noundef %60) #10
-  %64 = add i32 %57, %54
+55:                                               ; preds = %16
+  %56 = call ptr @wmem_packet_scope() #10
+  %57 = call ptr @tvb_get_string_enc(ptr noundef %56, ptr noundef %0, i32 noundef %54, i32 noundef %51, i32 noundef -2147483642) #10
+  %58 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.971, ptr noundef %57) #10
+  %59 = load i32, ptr @hf_mswsp_cdbcolid_vstring, align 4
+  %60 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %40, i32 noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %51, ptr noundef %57, ptr noundef nonnull @.str.972, ptr noundef %57) #10
+  %61 = add i32 %54, %51
   br label %parse_CDbColId.exit
 
-65:                                               ; preds = %47
+62:                                               ; preds = %16
+  %63 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.973, i32 noundef %51) #10
+  br label %parse_CDbColId.exit
+
+64:                                               ; preds = %16
+  %65 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.974) #10
+  br label %parse_CDbColId.exit
+
+parse_CDbColId.exit:                              ; preds = %55, %62, %64
+  %.0.i = phi i32 [ %61, %55 ], [ %54, %62 ], [ %54, %64 ]
   %66 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.973, i32 noundef %54) #10
-  br label %parse_CDbColId.exit
-
-67:                                               ; preds = %47
-  %68 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.974) #10
-  br label %parse_CDbColId.exit
-
-parse_CDbColId.exit:                              ; preds = %58, %65, %67
-  %.0.i = phi i32 [ %64, %58 ], [ %57, %65 ], [ %57, %67 ]
-  %69 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %69, ptr noundef %0, i32 noundef %.0.i) #10
+  call void @proto_item_set_end(ptr noundef %66, ptr noundef %0, i32 noundef %.0.i) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %70 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull @.str.142)
-  %71 = call fastcc ptr @str_CBaseStorageVariant(ptr noundef nonnull %10, i32 noundef 1)
-  %72 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.935, ptr noundef %71) #10
-  %73 = load ptr, ptr %11, align 8
-  call void @proto_item_set_end(ptr noundef %73, ptr noundef %0, i32 noundef %70) #10
-  ret i32 %70
+  %67 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull @.str.142)
+  %68 = call fastcc ptr @str_CBaseStorageVariant(ptr noundef nonnull %10, i32 noundef 1)
+  %69 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.935, ptr noundef %68) #10
+  %70 = load ptr, ptr %11, align 8
+  call void @proto_item_set_end(ptr noundef %70, ptr noundef %0, i32 noundef %67) #10
+  ret i32 %67
 }
 
 declare void @tvb_get_letohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

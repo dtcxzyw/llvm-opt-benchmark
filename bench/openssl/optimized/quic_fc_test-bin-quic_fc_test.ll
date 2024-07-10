@@ -43,7 +43,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [50 x i8] c"ossl_quic_txfc_has_become_blocked(parent_txfc, 0)\00", align 1
 @.str.33 = private unnamed_addr constant [50 x i8] c"ossl_quic_txfc_has_become_blocked(parent_txfc, 1)\00", align 1
 @.str.34 = private unnamed_addr constant [41 x i8] c"ossl_quic_txfc_consume_credit(txfc, 499)\00", align 1
-@rx_scripts = internal unnamed_addr constant [2 x ptr] [ptr @rx_script_1, ptr @rx_script_2], align 16
 @cur_time.0 = internal unnamed_addr global i64 0, align 8
 @.str.35 = private unnamed_addr constant [71 x i8] c"ossl_quic_rxfc_init(&conn_rxfc, 0, op->arg0, op->arg1, fake_now, NULL)\00", align 1
 @.str.36 = private unnamed_addr constant [15 x i8] c"op->stream_idx\00", align 1
@@ -69,8 +68,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [70 x i8] c"ossl_quic_rxfc_get_error(&stream_rxfc[op->stream_idx], (int)op->arg1)\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.57 = private unnamed_addr constant [6 x i8] c"# %s\0A\00", align 1
-@rx_script_1 = internal constant [105 x %struct.rx_test_op] [%struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 1, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1, i64 0, i8 1, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 20, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 20, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 20, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 41, i64 0, i8 1, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 40, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 201000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048516, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 1048577, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 201000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048576, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097153, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 199000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048576, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 5242875, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 250000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 5242881, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op zeroinitializer], align 16
-@rx_script_2 = internal constant [71 x %struct.rx_test_op] [%struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 1, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 0, i64 393216, i64 11796480, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 1, i64 393216, i64 11796480, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 35, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 52, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 10, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 1, i64 42, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 52, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 393258, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 393206, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 786432, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1441834, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 393258, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 786433, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op zeroinitializer], align 16
+@rx_script_1 = internal unnamed_addr constant [105 x %struct.rx_test_op] [%struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 1, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1, i64 0, i8 1, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 50, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 20, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 20, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 20, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 41, i64 0, i8 1, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 40, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 60, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 201000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048516, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 1048577, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 201000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048576, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097153, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 199000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 1048576, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 3145728, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 5242875, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 250000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 5242881, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 5242880, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op zeroinitializer], align 16
+@rx_script_2 = internal unnamed_addr constant [71 x %struct.rx_test_op] [%struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 1, i64 0, i64 1048576, i64 10485760, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 0, i64 393216, i64 11796480, i8 0, ptr null }, %struct.rx_test_op { i8 2, i64 1, i64 393216, i64 11796480, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 1, i64 35, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 52, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 10, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 10, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 1, i64 42, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 52, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 1, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 15, i64 0, i64 1000000000, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 7, i64 0, i64 393258, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 8, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1048576, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 4, i64 0, i64 393206, i64 50000000, i8 0, ptr null }, %struct.rx_test_op { i8 6, i64 0, i64 786432, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 12, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 5, i64 0, i64 1441834, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 9, i64 0, i64 393258, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 0, i64 393216, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 10, i64 1, i64 42, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 1, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 11, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 1, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 786433, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 14, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 3, i64 0, i64 2097152, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 0, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 3, i64 1, i8 0, ptr null }, %struct.rx_test_op { i8 13, i64 0, i64 0, i64 0, i8 0, ptr null }, %struct.rx_test_op zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
@@ -508,9 +507,8 @@ entry:
   %conn_rxfc.i = alloca %struct.quic_rxfc_st, align 8
   %stream_rxfc.i = alloca [3 x %struct.quic_rxfc_st], align 16
   %stream_init_done.i = alloca [3 x i8], align 1
-  %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @rx_scripts, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
+  %0 = icmp eq i32 %idx, 0
+  %1 = select i1 %0, ptr @rx_script_1, ptr @rx_script_2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %conn_rxfc.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %stream_rxfc.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %stream_init_done.i)
@@ -522,9 +520,9 @@ entry:
 
 for.cond.i:                                       ; preds = %for.inc.i, %entry
   %conn_init_done.0.i = phi i32 [ 0, %entry ], [ %conn_init_done.1.i, %for.inc.i ]
-  %op.0.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i, %for.inc.i ]
-  %1 = load i8, ptr %op.0.i, align 8
-  switch i8 %1, label %run_rxfc_script.exit [
+  %op.0.i = phi ptr [ %1, %entry ], [ %incdec.ptr.i, %for.inc.i ]
+  %2 = load i8, ptr %op.0.i, align 8
+  switch i8 %2, label %run_rxfc_script.exit [
     i8 0, label %run_rxfc_script.exit.loopexit
     i8 1, label %sw.bb.i
     i8 2, label %sw.bb9.i
@@ -546,10 +544,10 @@ for.cond.i:                                       ; preds = %for.inc.i, %entry
 
 sw.bb.i:                                          ; preds = %for.cond.i
   %arg0.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %2 = load i64, ptr %arg0.i, align 8
+  %3 = load i64, ptr %arg0.i, align 8
   %arg1.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %3 = load i64, ptr %arg1.i, align 8
-  %call5.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %conn_rxfc.i, ptr noundef null, i64 noundef %2, i64 noundef %3, ptr noundef nonnull @fake_now, ptr noundef null) #7
+  %4 = load i64, ptr %arg1.i, align 8
+  %call5.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %conn_rxfc.i, ptr noundef null, i64 noundef %3, i64 noundef %4, ptr noundef nonnull @fake_now, ptr noundef null) #7
   %cmp6.i = icmp ne i32 %call5.i, 0
   %conv7.i = zext i1 %cmp6.i to i32
   %call8.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 494, ptr noundef nonnull @.str.35, i32 noundef %conv7.i) #7
@@ -558,8 +556,8 @@ sw.bb.i:                                          ; preds = %for.cond.i
 
 sw.bb9.i:                                         ; preds = %for.cond.i
   %stream_idx.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %4 = load i64, ptr %stream_idx.i, align 8
-  %call10.i = call i32 @test_size_t_lt(ptr noundef nonnull @.str.2, i32 noundef 501, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %4, i64 noundef 3) #7
+  %5 = load i64, ptr %stream_idx.i, align 8
+  %call10.i = call i32 @test_size_t_lt(ptr noundef nonnull @.str.2, i32 noundef 501, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %5, i64 noundef 3) #7
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %run_rxfc_script.exit, label %lor.lhs.false.i
 
@@ -571,7 +569,6 @@ lor.lhs.false.i:                                  ; preds = %sw.bb9.i
   br i1 %tobool15.not.i, label %run_rxfc_script.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %lor.lhs.false.i
-  %5 = load i64, ptr %stream_idx.i, align 8
   %arrayidx.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %5
   %arg019.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   %6 = load i64, ptr %arg019.i, align 8
@@ -585,8 +582,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool25.not.i, label %run_rxfc_script.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end17.i
-  %8 = load i64, ptr %stream_idx.i, align 8
-  %arrayidx29.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %8
+  %arrayidx29.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %5
   store i8 1, ptr %arrayidx29.i, align 1
   br label %for.inc.i
 
@@ -596,33 +592,33 @@ sw.bb30.i:                                        ; preds = %for.cond.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb30.i
   %stream_idx32.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %9 = load i64, ptr %stream_idx32.i, align 8
-  %cmp33.i = icmp ult i64 %9, 3
+  %8 = load i64, ptr %stream_idx32.i, align 8
+  %cmp33.i = icmp ult i64 %8, 3
   br i1 %cmp33.i, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %arrayidx36.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %9
-  %10 = load i8, ptr %arrayidx36.i, align 1
-  %tobool38.i = icmp ne i8 %10, 0
+  %arrayidx36.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %8
+  %9 = load i8, ptr %arrayidx36.i, align 1
+  %tobool38.i = icmp ne i8 %9, 0
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %sw.bb30.i
-  %11 = phi i1 [ false, %land.lhs.true.i ], [ false, %sw.bb30.i ], [ %tobool38.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %11 to i32
+  %10 = phi i1 [ false, %land.lhs.true.i ], [ false, %sw.bb30.i ], [ %tobool38.i, %land.rhs.i ]
+  %land.ext.i = zext i1 %10 to i32
   %call41.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @.str.40, i32 noundef %land.ext.i) #7
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %run_rxfc_script.exit, label %if.end44.i
 
 if.end44.i:                                       ; preds = %land.end.i
   %stream_idx45.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %12 = load i64, ptr %stream_idx45.i, align 8
-  %arrayidx46.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %12
+  %11 = load i64, ptr %stream_idx45.i, align 8
+  %arrayidx46.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %11
   %arg047.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %13 = load i64, ptr %arg047.i, align 8
+  %12 = load i64, ptr %arg047.i, align 8
   %arg148.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %14 = load i64, ptr %arg148.i, align 8
-  %conv49.i = trunc i64 %14 to i32
-  %call50.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %arrayidx46.i, i64 noundef %13, i32 noundef %conv49.i) #7
+  %13 = load i64, ptr %arg148.i, align 8
+  %conv49.i = trunc i64 %13 to i32
+  %call50.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %arrayidx46.i, i64 noundef %12, i32 noundef %conv49.i) #7
   %cmp51.i = icmp ne i32 %call50.i, 0
   %conv52.i = zext i1 %cmp51.i to i32
   %call53.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 521, ptr noundef nonnull @.str.41, i32 noundef %conv52.i) #7
@@ -635,35 +631,35 @@ sw.bb57.i:                                        ; preds = %for.cond.i
 
 land.lhs.true59.i:                                ; preds = %sw.bb57.i
   %stream_idx60.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %15 = load i64, ptr %stream_idx60.i, align 8
-  %cmp61.i = icmp ult i64 %15, 3
+  %14 = load i64, ptr %stream_idx60.i, align 8
+  %cmp61.i = icmp ult i64 %14, 3
   br i1 %cmp61.i, label %land.rhs63.i, label %land.end68.i
 
 land.rhs63.i:                                     ; preds = %land.lhs.true59.i
-  %arrayidx65.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %15
-  %16 = load i8, ptr %arrayidx65.i, align 1
-  %tobool67.i = icmp ne i8 %16, 0
+  %arrayidx65.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %14
+  %15 = load i8, ptr %arrayidx65.i, align 1
+  %tobool67.i = icmp ne i8 %15, 0
   br label %land.end68.i
 
 land.end68.i:                                     ; preds = %land.rhs63.i, %land.lhs.true59.i, %sw.bb57.i
-  %17 = phi i1 [ false, %land.lhs.true59.i ], [ false, %sw.bb57.i ], [ %tobool67.i, %land.rhs63.i ]
-  %land.ext69.i = zext i1 %17 to i32
+  %16 = phi i1 [ false, %land.lhs.true59.i ], [ false, %sw.bb57.i ], [ %tobool67.i, %land.rhs63.i ]
+  %land.ext69.i = zext i1 %16 to i32
   %call72.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 528, ptr noundef nonnull @.str.40, i32 noundef %land.ext69.i) #7
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %run_rxfc_script.exit, label %if.end75.i
 
 if.end75.i:                                       ; preds = %land.end68.i
   %stream_idx76.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %18 = load i64, ptr %stream_idx76.i, align 8
-  %arrayidx77.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %18
+  %17 = load i64, ptr %stream_idx76.i, align 8
+  %arrayidx77.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %17
   %arg078.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %19 = load i64, ptr %arg078.i, align 8
+  %18 = load i64, ptr %arg078.i, align 8
   %arg179.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %20 = load i64, ptr %arg179.i, align 8
-  %call83.i = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %arrayidx77.i, i64 noundef %19, i64 %20) #7
+  %19 = load i64, ptr %arg179.i, align 8
+  %call83.i = call i32 @ossl_quic_rxfc_on_retire(ptr noundef nonnull %arrayidx77.i, i64 noundef %18, i64 %19) #7
   %expect_fail.i = getelementptr inbounds i8, ptr %op.0.i, i64 32
-  %21 = load i8, ptr %expect_fail.i, align 8
-  %tobool84.not.i = icmp eq i8 %21, 0
+  %20 = load i8, ptr %expect_fail.i, align 8
+  %tobool84.not.i = icmp eq i8 %20, 0
   %lnot.ext.i = zext i1 %tobool84.not.i to i32
   %call85.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 534, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %call83.i, i32 noundef %lnot.ext.i) #7
   %tobool86.not.i = icmp eq i32 %call85.i, 0
@@ -679,37 +675,36 @@ sw.bb89.i:                                        ; preds = %for.cond.i
 if.end95.i:                                       ; preds = %sw.bb89.i
   %call96.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %conn_rxfc.i) #7
   %arg097.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %22 = load i64, ptr %arg097.i, align 8
-  %call98.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 542, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %call96.i, i64 noundef %22) #7
+  %21 = load i64, ptr %arg097.i, align 8
+  %call98.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 542, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %call96.i, i64 noundef %21) #7
   %tobool99.not.i = icmp eq i32 %call98.i, 0
   br i1 %tobool99.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb102.i:                                       ; preds = %for.cond.i
   %stream_idx103.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %23 = load i64, ptr %stream_idx103.i, align 8
-  %cmp104.i = icmp ult i64 %23, 3
+  %22 = load i64, ptr %stream_idx103.i, align 8
+  %cmp104.i = icmp ult i64 %22, 3
   br i1 %cmp104.i, label %land.rhs106.i, label %land.end111.i
 
 land.rhs106.i:                                    ; preds = %sw.bb102.i
-  %arrayidx108.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %23
-  %24 = load i8, ptr %arrayidx108.i, align 1
-  %tobool110.i = icmp ne i8 %24, 0
+  %arrayidx108.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %22
+  %23 = load i8, ptr %arrayidx108.i, align 1
+  %tobool110.i = icmp ne i8 %23, 0
   br label %land.end111.i
 
 land.end111.i:                                    ; preds = %land.rhs106.i, %sw.bb102.i
-  %25 = phi i1 [ false, %sw.bb102.i ], [ %tobool110.i, %land.rhs106.i ]
-  %land.ext112.i = zext i1 %25 to i32
+  %24 = phi i1 [ false, %sw.bb102.i ], [ %tobool110.i, %land.rhs106.i ]
+  %land.ext112.i = zext i1 %24 to i32
   %call115.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 547, ptr noundef nonnull @.str.46, i32 noundef %land.ext112.i) #7
   %tobool116.not.i = icmp eq i32 %call115.i, 0
   br i1 %tobool116.not.i, label %run_rxfc_script.exit, label %if.end118.i
 
 if.end118.i:                                      ; preds = %land.end111.i
-  %26 = load i64, ptr %stream_idx103.i, align 8
-  %arrayidx120.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %26
+  %arrayidx120.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %22
   %call121.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %arrayidx120.i) #7
   %arg0122.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %27 = load i64, ptr %arg0122.i, align 8
-  %call123.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 550, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i64 noundef %call121.i, i64 noundef %27) #7
+  %25 = load i64, ptr %arg0122.i, align 8
+  %call123.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 550, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i64 noundef %call121.i, i64 noundef %25) #7
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
@@ -723,37 +718,36 @@ sw.bb127.i:                                       ; preds = %for.cond.i
 if.end133.i:                                      ; preds = %sw.bb127.i
   %call134.i = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %conn_rxfc.i) #7
   %arg0135.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %28 = load i64, ptr %arg0135.i, align 8
-  %call136.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.45, i64 noundef %call134.i, i64 noundef %28) #7
+  %26 = load i64, ptr %arg0135.i, align 8
+  %call136.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 557, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.45, i64 noundef %call134.i, i64 noundef %26) #7
   %tobool137.not.i = icmp eq i32 %call136.i, 0
   br i1 %tobool137.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb140.i:                                       ; preds = %for.cond.i
   %stream_idx141.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %29 = load i64, ptr %stream_idx141.i, align 8
-  %cmp142.i = icmp ult i64 %29, 3
+  %27 = load i64, ptr %stream_idx141.i, align 8
+  %cmp142.i = icmp ult i64 %27, 3
   br i1 %cmp142.i, label %land.rhs144.i, label %land.end149.i
 
 land.rhs144.i:                                    ; preds = %sw.bb140.i
-  %arrayidx146.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %29
-  %30 = load i8, ptr %arrayidx146.i, align 1
-  %tobool148.i = icmp ne i8 %30, 0
+  %arrayidx146.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %27
+  %28 = load i8, ptr %arrayidx146.i, align 1
+  %tobool148.i = icmp ne i8 %28, 0
   br label %land.end149.i
 
 land.end149.i:                                    ; preds = %land.rhs144.i, %sw.bb140.i
-  %31 = phi i1 [ false, %sw.bb140.i ], [ %tobool148.i, %land.rhs144.i ]
-  %land.ext150.i = zext i1 %31 to i32
+  %29 = phi i1 [ false, %sw.bb140.i ], [ %tobool148.i, %land.rhs144.i ]
+  %land.ext150.i = zext i1 %29 to i32
   %call153.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 562, ptr noundef nonnull @.str.46, i32 noundef %land.ext150.i) #7
   %tobool154.not.i = icmp eq i32 %call153.i, 0
   br i1 %tobool154.not.i, label %run_rxfc_script.exit, label %if.end156.i
 
 if.end156.i:                                      ; preds = %land.end149.i
-  %32 = load i64, ptr %stream_idx141.i, align 8
-  %arrayidx158.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %32
+  %arrayidx158.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %27
   %call159.i = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %arrayidx158.i) #7
   %arg0160.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %33 = load i64, ptr %arg0160.i, align 8
-  %call161.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 565, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.45, i64 noundef %call159.i, i64 noundef %33) #7
+  %30 = load i64, ptr %arg0160.i, align 8
+  %call161.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 565, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.45, i64 noundef %call159.i, i64 noundef %30) #7
   %tobool162.not.i = icmp eq i32 %call161.i, 0
   br i1 %tobool162.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
@@ -767,37 +761,36 @@ sw.bb165.i:                                       ; preds = %for.cond.i
 if.end171.i:                                      ; preds = %sw.bb165.i
   %call172.i = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %conn_rxfc.i) #7
   %arg0173.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %34 = load i64, ptr %arg0173.i, align 8
-  %call174.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 572, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.45, i64 noundef %call172.i, i64 noundef %34) #7
+  %31 = load i64, ptr %arg0173.i, align 8
+  %call174.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 572, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.45, i64 noundef %call172.i, i64 noundef %31) #7
   %tobool175.not.i = icmp eq i32 %call174.i, 0
   br i1 %tobool175.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb178.i:                                       ; preds = %for.cond.i
   %stream_idx179.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %35 = load i64, ptr %stream_idx179.i, align 8
-  %cmp180.i = icmp ult i64 %35, 3
+  %32 = load i64, ptr %stream_idx179.i, align 8
+  %cmp180.i = icmp ult i64 %32, 3
   br i1 %cmp180.i, label %land.rhs182.i, label %land.end187.i
 
 land.rhs182.i:                                    ; preds = %sw.bb178.i
-  %arrayidx184.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %35
-  %36 = load i8, ptr %arrayidx184.i, align 1
-  %tobool186.i = icmp ne i8 %36, 0
+  %arrayidx184.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %32
+  %33 = load i8, ptr %arrayidx184.i, align 1
+  %tobool186.i = icmp ne i8 %33, 0
   br label %land.end187.i
 
 land.end187.i:                                    ; preds = %land.rhs182.i, %sw.bb178.i
-  %37 = phi i1 [ false, %sw.bb178.i ], [ %tobool186.i, %land.rhs182.i ]
-  %land.ext188.i = zext i1 %37 to i32
+  %34 = phi i1 [ false, %sw.bb178.i ], [ %tobool186.i, %land.rhs182.i ]
+  %land.ext188.i = zext i1 %34 to i32
   %call191.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 577, ptr noundef nonnull @.str.46, i32 noundef %land.ext188.i) #7
   %tobool192.not.i = icmp eq i32 %call191.i, 0
   br i1 %tobool192.not.i, label %run_rxfc_script.exit, label %if.end194.i
 
 if.end194.i:                                      ; preds = %land.end187.i
-  %38 = load i64, ptr %stream_idx179.i, align 8
-  %arrayidx196.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %38
+  %arrayidx196.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %32
   %call197.i = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %arrayidx196.i) #7
   %arg0198.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %39 = load i64, ptr %arg0198.i, align 8
-  %call199.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 580, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.45, i64 noundef %call197.i, i64 noundef %39) #7
+  %35 = load i64, ptr %arg0198.i, align 8
+  %call199.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 580, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.45, i64 noundef %call197.i, i64 noundef %35) #7
   %tobool200.not.i = icmp eq i32 %call199.i, 0
   br i1 %tobool200.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
@@ -810,45 +803,44 @@ sw.bb203.i:                                       ; preds = %for.cond.i
 
 if.end209.i:                                      ; preds = %sw.bb203.i
   %arg1210.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %40 = load i64, ptr %arg1210.i, align 8
-  %conv211.i = trunc i64 %40 to i32
+  %36 = load i64, ptr %arg1210.i, align 8
+  %conv211.i = trunc i64 %36 to i32
   %call212.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %conn_rxfc.i, i32 noundef %conv211.i) #7
   %arg0213.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %41 = load i64, ptr %arg0213.i, align 8
-  %conv214.i = trunc i64 %41 to i32
+  %37 = load i64, ptr %arg0213.i, align 8
+  %conv214.i = trunc i64 %37 to i32
   %call215.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef %call212.i, i32 noundef %conv214.i) #7
   %tobool216.not.i = icmp eq i32 %call215.i, 0
   br i1 %tobool216.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb219.i:                                       ; preds = %for.cond.i
   %stream_idx220.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %42 = load i64, ptr %stream_idx220.i, align 8
-  %cmp221.i = icmp ult i64 %42, 3
+  %38 = load i64, ptr %stream_idx220.i, align 8
+  %cmp221.i = icmp ult i64 %38, 3
   br i1 %cmp221.i, label %land.rhs223.i, label %land.end228.i
 
 land.rhs223.i:                                    ; preds = %sw.bb219.i
-  %arrayidx225.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %42
-  %43 = load i8, ptr %arrayidx225.i, align 1
-  %tobool227.i = icmp ne i8 %43, 0
+  %arrayidx225.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %38
+  %39 = load i8, ptr %arrayidx225.i, align 1
+  %tobool227.i = icmp ne i8 %39, 0
   br label %land.end228.i
 
 land.end228.i:                                    ; preds = %land.rhs223.i, %sw.bb219.i
-  %44 = phi i1 [ false, %sw.bb219.i ], [ %tobool227.i, %land.rhs223.i ]
-  %land.ext229.i = zext i1 %44 to i32
+  %40 = phi i1 [ false, %sw.bb219.i ], [ %tobool227.i, %land.rhs223.i ]
+  %land.ext229.i = zext i1 %40 to i32
   %call232.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 593, ptr noundef nonnull @.str.46, i32 noundef %land.ext229.i) #7
   %tobool233.not.i = icmp eq i32 %call232.i, 0
   br i1 %tobool233.not.i, label %run_rxfc_script.exit, label %if.end235.i
 
 if.end235.i:                                      ; preds = %land.end228.i
-  %45 = load i64, ptr %stream_idx220.i, align 8
-  %arrayidx237.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %45
+  %arrayidx237.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %38
   %arg1238.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %46 = load i64, ptr %arg1238.i, align 8
-  %conv239.i = trunc i64 %46 to i32
+  %41 = load i64, ptr %arg1238.i, align 8
+  %conv239.i = trunc i64 %41 to i32
   %call240.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %arrayidx237.i, i32 noundef %conv239.i) #7
   %arg0241.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %47 = load i64, ptr %arg0241.i, align 8
-  %conv242.i = trunc i64 %47 to i32
+  %42 = load i64, ptr %arg0241.i, align 8
+  %conv242.i = trunc i64 %42 to i32
   %call243.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 597, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.53, i32 noundef %call240.i, i32 noundef %conv242.i) #7
   %tobool244.not.i = icmp eq i32 %call243.i, 0
   br i1 %tobool244.not.i, label %run_rxfc_script.exit, label %for.inc.i
@@ -862,62 +854,61 @@ sw.bb247.i:                                       ; preds = %for.cond.i
 
 if.end253.i:                                      ; preds = %sw.bb247.i
   %arg1254.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %48 = load i64, ptr %arg1254.i, align 8
-  %conv255.i = trunc i64 %48 to i32
+  %43 = load i64, ptr %arg1254.i, align 8
+  %conv255.i = trunc i64 %43 to i32
   %call256.i = call i32 @ossl_quic_rxfc_get_error(ptr noundef nonnull %conn_rxfc.i, i32 noundef %conv255.i) #7
   %arg0257.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %49 = load i64, ptr %arg0257.i, align 8
-  %conv258.i = trunc i64 %49 to i32
+  %44 = load i64, ptr %arg0257.i, align 8
+  %conv258.i = trunc i64 %44 to i32
   %call259.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 605, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef %call256.i, i32 noundef %conv258.i) #7
   %tobool260.not.i = icmp eq i32 %call259.i, 0
   br i1 %tobool260.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb263.i:                                       ; preds = %for.cond.i
   %stream_idx264.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %50 = load i64, ptr %stream_idx264.i, align 8
-  %cmp265.i = icmp ult i64 %50, 3
+  %45 = load i64, ptr %stream_idx264.i, align 8
+  %cmp265.i = icmp ult i64 %45, 3
   br i1 %cmp265.i, label %land.rhs267.i, label %land.end272.i
 
 land.rhs267.i:                                    ; preds = %sw.bb263.i
-  %arrayidx269.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %50
-  %51 = load i8, ptr %arrayidx269.i, align 1
-  %tobool271.i = icmp ne i8 %51, 0
+  %arrayidx269.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %45
+  %46 = load i8, ptr %arrayidx269.i, align 1
+  %tobool271.i = icmp ne i8 %46, 0
   br label %land.end272.i
 
 land.end272.i:                                    ; preds = %land.rhs267.i, %sw.bb263.i
-  %52 = phi i1 [ false, %sw.bb263.i ], [ %tobool271.i, %land.rhs267.i ]
-  %land.ext273.i = zext i1 %52 to i32
+  %47 = phi i1 [ false, %sw.bb263.i ], [ %tobool271.i, %land.rhs267.i ]
+  %land.ext273.i = zext i1 %47 to i32
   %call276.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 610, ptr noundef nonnull @.str.46, i32 noundef %land.ext273.i) #7
   %tobool277.not.i = icmp eq i32 %call276.i, 0
   br i1 %tobool277.not.i, label %run_rxfc_script.exit, label %if.end279.i
 
 if.end279.i:                                      ; preds = %land.end272.i
-  %53 = load i64, ptr %stream_idx264.i, align 8
-  %arrayidx281.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %53
+  %arrayidx281.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %stream_rxfc.i, i64 0, i64 %45
   %arg1282.i = getelementptr inbounds i8, ptr %op.0.i, i64 24
-  %54 = load i64, ptr %arg1282.i, align 8
-  %conv283.i = trunc i64 %54 to i32
+  %48 = load i64, ptr %arg1282.i, align 8
+  %conv283.i = trunc i64 %48 to i32
   %call284.i = call i32 @ossl_quic_rxfc_get_error(ptr noundef nonnull %arrayidx281.i, i32 noundef %conv283.i) #7
   %arg0285.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %55 = load i64, ptr %arg0285.i, align 8
-  %conv286.i = trunc i64 %55 to i32
+  %49 = load i64, ptr %arg0285.i, align 8
+  %conv286.i = trunc i64 %49 to i32
   %call287.i = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.53, i32 noundef %call284.i, i32 noundef %conv286.i) #7
   %tobool288.not.i = icmp eq i32 %call287.i, 0
   br i1 %tobool288.not.i, label %run_rxfc_script.exit, label %for.inc.i
 
 sw.bb291.i:                                       ; preds = %for.cond.i
   %arg0294.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %56 = load i64, ptr %arg0294.i, align 8
-  %57 = load i64, ptr @cur_time.0, align 8
-  %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %57, i64 %56)
+  %50 = load i64, ptr %arg0294.i, align 8
+  %51 = load i64, ptr @cur_time.0, align 8
+  %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %51, i64 %50)
   store i64 %retval.sroa.0.0.i.i, ptr @cur_time.0, align 8
   br label %for.inc.i
 
 sw.bb300.i:                                       ; preds = %for.cond.i
-  %58 = load ptr, ptr @stderr, align 8
+  %52 = load ptr, ptr @stderr, align 8
   %msg.i = getelementptr inbounds i8, ptr %op.0.i, i64 40
-  %59 = load ptr, ptr %msg.i, align 8
-  %call301.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.57, ptr noundef %59) #8
+  %53 = load ptr, ptr %msg.i, align 8
+  %call301.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.57, ptr noundef %53) #8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb300.i, %sw.bb291.i, %if.end279.i, %if.end253.i, %if.end235.i, %if.end209.i, %if.end194.i, %if.end171.i, %if.end156.i, %if.end133.i, %if.end118.i, %if.end95.i, %if.end75.i, %if.end44.i, %if.end27.i, %sw.bb.i

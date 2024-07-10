@@ -132,7 +132,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.106 = private unnamed_addr constant [35 x i8] c"rpk_verify_server_cb: ok=%d err=%d\00", align 1
 @switch.table.test_rpk = private unnamed_addr constant [4 x ptr] [ptr @cert, ptr @cert2, ptr @cert448, ptr @cert25519], align 8
 @switch.table.test_rpk.1 = private unnamed_addr constant [4 x ptr] [ptr @privkey, ptr @privkey2, ptr @privkey448, ptr @privkey25519], align 8
-@switch.table.test_rpk.2 = private unnamed_addr constant [4 x ptr] [ptr @cert2, ptr @cert, ptr @cert, ptr @cert], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
@@ -413,10 +412,8 @@ switch.lookup:                                    ; preds = %if.end20
   %3 = zext nneg i8 %div7137 to i64
   %switch.gep142 = getelementptr inbounds [4 x ptr], ptr @switch.table.test_rpk.1, i64 0, i64 %3
   %switch.load143 = load ptr, ptr %switch.gep142, align 8
-  %4 = zext nneg i8 %div7137 to i64
-  %switch.gep144 = getelementptr inbounds [4 x ptr], ptr @switch.table.test_rpk.2, i64 0, i64 %4
-  %switch.load145 = load ptr, ptr %switch.gep144, align 8
-  %other_cert_file.0 = load ptr, ptr %switch.load145, align 8
+  %cert2.val = load ptr, ptr @cert2, align 8
+  %cert.val = load ptr, ptr @cert, align 8
   %privkey_file.0 = load ptr, ptr %switch.load143, align 8
   %cert_file.0 = load ptr, ptr %switch.load, align 8
   %call25 = tail call ptr @load_cert_pem(ptr noundef %cert_file.0, ptr noundef null) #4
@@ -425,6 +422,9 @@ switch.lookup:                                    ; preds = %if.end20
   br i1 %tobool27.not, label %end, label %if.end29
 
 if.end29:                                         ; preds = %switch.lookup
+  %div7.lhs.trunc.off = add i8 %div7.lhs.trunc, 31
+  %4 = icmp ult i8 %div7.lhs.trunc.off, 63
+  %other_cert_file.0 = select i1 %4, ptr %cert2.val, ptr %cert.val
   %call30 = tail call ptr @X509_get0_pubkey(ptr noundef %call25) #4
   %call31 = tail call ptr @load_cert_pem(ptr noundef %other_cert_file.0, ptr noundef null) #4
   %call32 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 185, ptr noundef nonnull @.str.41, ptr noundef %call31) #4

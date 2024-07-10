@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [4 x i8] c"NSS\00", align 1
 @dissect_corosynec_totemnet.last_key_index = internal unnamed_addr global i32 -1, align 4
 @dissect_corosynec_totemnet.last_check_crypt_type_index = internal unnamed_addr global i32 0, align 4
-@__const.dissect_corosynec_totemnet.check_crypt_type_list = private unnamed_addr constant [2 x i32] [i32 0, i32 1], align 4
 @.str.20 = private unnamed_addr constant [15 x i8] c"Decrypted Data\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -116,76 +115,71 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
 6:                                                ; preds = %4
   %7 = load i32, ptr @dissect_corosynec_totemnet.last_key_index, align 4
   %.not27 = icmp eq i32 %7, -1
-  br i1 %.not27, label %19, label %8
+  br i1 %.not27, label %18, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [2 x i32], ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = sext i32 %7 to i64
-  %14 = getelementptr ptr, ptr %5, i64 %13
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %15)
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %44, label %18
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
+  %12 = sext i32 %7 to i64
+  %13 = getelementptr ptr, ptr %5, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef %14)
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %40, label %17
 
-18:                                               ; preds = %8
+17:                                               ; preds = %8
   store i32 -1, ptr @dissect_corosynec_totemnet.last_key_index, align 4
   %.pre = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %18, %6
-  %20 = phi ptr [ %.pre, %18 ], [ %5, %6 ]
-  %21 = load ptr, ptr %20, align 8
-  %.not2832 = icmp eq ptr %21, null
+18:                                               ; preds = %17, %6
+  %19 = phi ptr [ %.pre, %17 ], [ %5, %6 ]
+  %20 = load ptr, ptr %19, align 8
+  %.not2832 = icmp eq ptr %20, null
   br i1 %.not2832, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %19, %36
-  %22 = phi i64 [ %39, %36 ], [ 0, %19 ]
-  %.02233 = phi i32 [ %37, %36 ], [ 0, %19 ]
-  br label %23
+.preheader:                                       ; preds = %18, %32
+  %21 = phi i64 [ %35, %32 ], [ 0, %18 ]
+  %.02233 = phi i32 [ %33, %32 ], [ 0, %18 ]
+  br label %22
 
-23:                                               ; preds = %33, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
-  %24 = getelementptr [2 x i32], ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 0, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4
-  %26 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %22
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25, ptr noundef %28)
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %33
+22:                                               ; preds = %29, %.preheader
+  %.02331 = phi i32 [ 0, %.preheader ], [ %30, %29 ]
+  %23 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
+  %24 = getelementptr ptr, ptr %23, i64 %21
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.02331, ptr noundef %25)
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %29
 
-31:                                               ; preds = %23
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
+28:                                               ; preds = %22
   store i32 %.02233, ptr @dissect_corosynec_totemnet.last_key_index, align 4
-  store i32 %32, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
-  br label %44
+  store i32 %.02331, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
+  br label %40
 
-33:                                               ; preds = %23
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = or i32 %29, %34
-  %or.cond = icmp eq i32 %35, 0
-  br i1 %or.cond, label %23, label %36, !llvm.loop !4
+29:                                               ; preds = %22
+  %30 = add nuw nsw i32 %.02331, 1
+  %31 = or i32 %26, %.02331
+  %or.cond = icmp eq i32 %31, 0
+  br i1 %or.cond, label %22, label %32, !llvm.loop !4
 
-36:                                               ; preds = %33
-  %37 = add i32 %.02233, 1
-  %38 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
-  %39 = sext i32 %37 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %.not28 = icmp eq ptr %41, null
+32:                                               ; preds = %29
+  %33 = add i32 %.02233, 1
+  %34 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr ptr, ptr %34, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  %.not28 = icmp eq ptr %37, null
   br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %36, %19, %4
-  %42 = load ptr, ptr @corosync_totemsrp_handle, align 8
-  %43 = tail call i32 @call_dissector(ptr noundef %42, ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
-  br label %44
+.loopexit:                                        ; preds = %32, %18, %4
+  %38 = load ptr, ptr @corosync_totemsrp_handle, align 8
+  %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
+  br label %40
 
-44:                                               ; preds = %8, %.loopexit, %31
-  %.0 = phi i32 [ %29, %31 ], [ %43, %.loopexit ], [ %16, %8 ]
+40:                                               ; preds = %8, %.loopexit, %28
+  %.0 = phi i32 [ %26, %28 ], [ %39, %.loopexit ], [ %15, %8 ]
   ret i32 %.0
 }
 

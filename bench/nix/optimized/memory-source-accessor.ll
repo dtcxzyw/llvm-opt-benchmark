@@ -631,7 +631,6 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTSSt18bad_variant_access = linkonce_odr constant [23 x i8] c"St18bad_variant_access\00", comdat, align 1
 @_ZTISt18bad_variant_access = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt18bad_variant_access, ptr @_ZTISt9exception }, comdat, align 8
 @_ZTVSt18bad_variant_access = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTISt18bad_variant_access, ptr @_ZNSt18bad_variant_accessD2Ev, ptr @_ZNSt18bad_variant_accessD0Ev, ptr @_ZNKSt18bad_variant_access4whatEv] }, comdat, align 8
-@__const._ZSt24__find_uniq_type_in_packIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEmv.__found = private unnamed_addr constant [3 x i8] c"\00\01\00", align 1
 @_ZTVN3nix14SourceAccessorE = external unnamed_addr constant { [13 x ptr] }, align 8
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN5boost4noneE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_memory_source_accessor.cc, ptr null }]
@@ -3376,7 +3375,7 @@ _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 91:                                               ; preds = %90
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %89, align 8
   invoke void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #24
-          to label %121 unwind label %95
+          to label %119 unwind label %95
 
 92:                                               ; preds = %_ZNSt8optionalIN3nix20MemorySourceAccessor4FileEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_.exit
   %93 = landingpad { ptr, i32 }
@@ -3385,7 +3384,7 @@ _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZN3nix20MemorySourceAccessor4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @_ZN3nix20MemorySourceAccessor4File9DirectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #23
   call void @_ZN3nix9CanonPathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %120
+  br label %118
 
 .thread:                                          ; preds = %88
   %94 = landingpad { ptr, i32 }
@@ -3399,84 +3398,82 @@ _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #23
-  br i1 %.09, label %97, label %120
+  br i1 %.09, label %97, label %118
 
 97:                                               ; preds = %.thread, %95
   %.pn24 = phi { ptr, i32 } [ %94, %.thread ], [ %96, %95 ]
   call void @__cxa_free_exception(ptr %89) #23
-  br label %120
+  br label %118
 
 98:                                               ; preds = %_ZN3nix9CanonPathD2Ev.exit
   %99 = getelementptr inbounds i8, ptr %33, i64 48
   %100 = load i8, ptr %99, align 8
   br label %101
 
-101:                                              ; preds = %107, %98
-  %.010.i.i = phi i64 [ 0, %98 ], [ %108, %107 ]
-  %.079.i.i = phi i64 [ 3, %98 ], [ %.1.i.i, %107 ]
-  %102 = getelementptr inbounds [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEmv.__found, i64 0, i64 %.010.i.i
-  %103 = load i8, ptr %102, align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %105, %98
+  %.010.i.i = phi i64 [ 0, %98 ], [ %106, %105 ]
+  %.079.i.i = phi i64 [ 3, %98 ], [ %.1.i.i, %105 ]
+  %102 = icmp eq i64 %.010.i.i, 1
+  br i1 %102, label %103, label %105
 
-105:                                              ; preds = %101
-  %106 = icmp ult i64 %.079.i.i, 3
-  br i1 %106, label %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit, label %107
+103:                                              ; preds = %101
+  %104 = icmp ult i64 %.079.i.i, 3
+  br i1 %104, label %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit, label %105
 
-107:                                              ; preds = %105, %101
-  %.1.i.i = phi i64 [ %.079.i.i, %101 ], [ %.010.i.i, %105 ]
-  %108 = add nuw nsw i64 %.010.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %108, 3
+105:                                              ; preds = %103, %101
+  %.1.i.i = phi i64 [ %.079.i.i, %101 ], [ 1, %103 ]
+  %106 = add nuw nsw i64 %.010.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %106, 3
   br i1 %exitcond.not.i.i, label %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit, label %101, !llvm.loop !97
 
-_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit: ; preds = %105, %107
-  %.08.i.i = phi i64 [ 3, %105 ], [ %.1.i.i, %107 ]
-  %109 = sext i8 %100 to i64
-  %110 = icmp eq i64 %.08.i.i, %109
-  br i1 %110, label %119, label %111
+_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit: ; preds = %103, %105
+  %.08.i.i = phi i64 [ 3, %103 ], [ %.1.i.i, %105 ]
+  %107 = sext i8 %100 to i64
+  %108 = icmp eq i64 %.08.i.i, %107
+  br i1 %108, label %117, label %109
 
-111:                                              ; preds = %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit
-  %112 = call ptr @__cxa_allocate_exception(i64 376) #23
+109:                                              ; preds = %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit
+  %110 = call ptr @__cxa_allocate_exception(i64 376) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %113 unwind label %.thread25
+          to label %111 unwind label %.thread25
 
-113:                                              ; preds = %111
-  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %112, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %114 unwind label %116
+111:                                              ; preds = %109
+  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %110, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %112 unwind label %114
 
-114:                                              ; preds = %113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %112, align 8
-  invoke void @__cxa_throw(ptr nonnull %112, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #24
-          to label %121 unwind label %116
+112:                                              ; preds = %111
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %110, align 8
+  invoke void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #24
+          to label %119 unwind label %114
 
-.thread25:                                        ; preds = %111
-  %115 = landingpad { ptr, i32 }
+.thread25:                                        ; preds = %109
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
-  br label %118
+  br label %116
 
-116:                                              ; preds = %114, %113
-  %.0 = phi i1 [ false, %114 ], [ true, %113 ]
-  %117 = landingpad { ptr, i32 }
+114:                                              ; preds = %112, %111
+  %.0 = phi i1 [ false, %112 ], [ true, %111 ]
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
-  br i1 %.0, label %118, label %120
+  br i1 %.0, label %116, label %118
 
-118:                                              ; preds = %.thread25, %116
-  %.pn1828 = phi { ptr, i32 } [ %115, %.thread25 ], [ %117, %116 ]
-  call void @__cxa_free_exception(ptr %112) #23
-  br label %120
+116:                                              ; preds = %.thread25, %114
+  %.pn1828 = phi { ptr, i32 } [ %113, %.thread25 ], [ %115, %114 ]
+  call void @__cxa_free_exception(ptr %110) #23
+  br label %118
 
-119:                                              ; preds = %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit
+117:                                              ; preds = %_ZSt17holds_alternativeIN3nix20MemorySourceAccessor4File9DirectoryEJNS2_7RegularES3_NS2_7SymlinkEEEbRKSt7variantIJDpT0_EE.exit
   ret void
 
-120:                                              ; preds = %116, %118, %95, %97, %92
-  %.pn18.pn = phi { ptr, i32 } [ %.pn1828, %118 ], [ %117, %116 ], [ %.pn24, %97 ], [ %96, %95 ], [ %93, %92 ]
+118:                                              ; preds = %114, %116, %95, %97, %92
+  %.pn18.pn = phi { ptr, i32 } [ %.pn1828, %116 ], [ %115, %114 ], [ %.pn24, %97 ], [ %96, %95 ], [ %93, %92 ]
   resume { ptr, i32 } %.pn18.pn
 
-121:                                              ; preds = %114, %91
+119:                                              ; preds = %112, %91
   unreachable
 }
 

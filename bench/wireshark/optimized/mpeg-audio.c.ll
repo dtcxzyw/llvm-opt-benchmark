@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 @mpa_samples_data = internal unnamed_addr constant [3 x [3 x i32]] [[3 x i32] [i32 384, i32 1152, i32 1152], [3 x i32] [i32 384, i32 1152, i32 576], [3 x i32] [i32 384, i32 1152, i32 576]], align 16
 @mpa_bitrates = internal unnamed_addr constant [3 x [3 x [16 x i32]]] [[3 x [16 x i32]] [[16 x i32] [i32 0, i32 32, i32 64, i32 96, i32 128, i32 160, i32 192, i32 224, i32 256, i32 288, i32 320, i32 352, i32 384, i32 416, i32 448, i32 0], [16 x i32] [i32 0, i32 32, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 160, i32 192, i32 224, i32 256, i32 320, i32 384, i32 0], [16 x i32] [i32 0, i32 32, i32 40, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 160, i32 192, i32 224, i32 256, i32 320, i32 0]], [3 x [16 x i32]] [[16 x i32] [i32 0, i32 32, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 176, i32 192, i32 224, i32 256, i32 0], [16 x i32] [i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 0], [16 x i32] [i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 0]], [3 x [16 x i32]] [[16 x i32] [i32 0, i32 32, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 176, i32 192, i32 224, i32 256, i32 0], [16 x i32] [i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 0], [16 x i32] [i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 64, i32 80, i32 96, i32 112, i32 128, i32 144, i32 160, i32 0]]], align 16
 @mpa_frequencies = internal unnamed_addr constant [3 x [4 x i32]] [[4 x i32] [i32 44100, i32 48000, i32 32000, i32 0], [4 x i32] [i32 22050, i32 24000, i32 16000, i32 0], [4 x i32] [i32 11025, i32 12000, i32 8000, i32 0]], align 16
-@mpa_padding_data = internal unnamed_addr constant [3 x i32] [i32 4, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @mpa_version(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
@@ -98,22 +97,11 @@ define i32 @mpa_padding(ptr nocapture noundef readonly %0) local_unnamed_addr #0
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 512
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %13, label %4
-
-4:                                                ; preds = %1
-  %5 = lshr i32 %2, 17
-  %6 = and i32 %5, 3
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [4 x i32], ptr @mpa_layers, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr [3 x i32], ptr @mpa_padding_data, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  br label %13
-
-13:                                               ; preds = %1, %4
-  %14 = phi i32 [ %12, %4 ], [ 0, %1 ]
-  ret i32 %14
+  %4 = and i32 %2, 393216
+  %5 = icmp eq i32 %4, 393216
+  %6 = select i1 %5, i32 4, i32 1
+  %7 = select i1 %.not, i32 0, i32 %6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -1021,7 +1021,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @"_ZTIZN18OpenImageIO_v2_6_011thread_pool4pushIZNS_9TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0EESt6futureIDTclfp_Li0EEEEOT_EUliE_" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN18OpenImageIO_v2_6_011thread_pool4pushIZNS_9TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0EESt6futureIDTclfp_Li0EEEEOT_EUliE_" }, align 8
 @__tls_guard = internal thread_local unnamed_addr global i1 false, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_tiffinput.cpp, ptr null }]
-@switch.table._ZN18OpenImageIO_v2_6_09TIFFInput8readspecEb = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 3, i32 1, i32 1], align 4
 
 @_ZN18OpenImageIO_v2_6_09TIFFInputC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18OpenImageIO_v2_6_09TIFFInputC2Ev
 @_ZN18OpenImageIO_v2_6_09TIFFInputD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18OpenImageIO_v2_6_09TIFFInputD2Ev
@@ -3178,22 +3177,15 @@ if.end319:                                        ; preds = %if.then308, %if.the
 if.then331:                                       ; preds = %if.end319
   %89 = load i16, ptr %m_photometric, align 4
   %90 = icmp ult i16 %89, 5
-  br i1 %90, label %switch.lookup, label %if.end348
-
-switch.lookup:                                    ; preds = %if.then331
-  %91 = zext nneg i16 %89 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN18OpenImageIO_v2_6_09TIFFInput8readspecEb, i64 0, i64 %91
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %if.end348
-
-if.end348:                                        ; preds = %switch.lookup, %if.then331
-  %colorchannels.0 = phi i32 [ 3, %if.then331 ], [ %switch.load, %switch.lookup ]
+  %91 = icmp eq i16 %89, 2
+  %switch.load = select i1 %91, i32 3, i32 1
+  %colorchannels.0 = select i1 %90, i32 %switch.load, i32 3
   %92 = load i16, ptr %m_inputchannels, align 2
   %conv354565 = zext i16 %92 to i32
   %cmp355566 = icmp ult i32 %colorchannels.0, %conv354565
   br i1 %cmp355566, label %for.body357.lr.ph, label %for.end392
 
-for.body357.lr.ph:                                ; preds = %if.end348
+for.body357.lr.ph:                                ; preds = %if.then331
   %alpha_channel369 = getelementptr inbounds i8, ptr %this, i64 128
   %m_keep_unassociated_alpha = getelementptr inbounds i8, ptr %this, i64 282
   %m_len.i.i217 = getelementptr inbounds i8, ptr %agg.tmp.i215, i64 8
@@ -3281,9 +3273,9 @@ for.end392.loopexit:                              ; preds = %for.inc390
   %.pre591 = load i16, ptr %m_photometric, align 4
   br label %for.end392
 
-for.end392:                                       ; preds = %for.end392.loopexit, %if.end348
-  %107 = phi i16 [ %89, %if.end348 ], [ %.pre591, %for.end392.loopexit ]
-  %alpha_is_unassociated.0.lcssa = phi i1 [ false, %if.end348 ], [ %alpha_is_unassociated.1, %for.end392.loopexit ]
+for.end392:                                       ; preds = %for.end392.loopexit, %if.then331
+  %107 = phi i16 [ %89, %if.then331 ], [ %.pre591, %for.end392.loopexit ]
+  %alpha_is_unassociated.0.lcssa = phi i1 [ false, %if.then331 ], [ %alpha_is_unassociated.1, %for.end392.loopexit ]
   %cmp395 = icmp eq i16 %107, 5
   %alpha_channel398 = getelementptr inbounds i8, ptr %this, i64 128
   br i1 %cmp395, label %if.end399.thread, label %if.end399

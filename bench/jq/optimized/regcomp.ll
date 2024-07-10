@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @onig_inited = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [45 x i8] c"You didn't call onig_initialize() explicitly\00", align 1
 @EndCallTop = internal unnamed_addr global ptr null, align 8
-@check_node_in_look_behind.bag_mask = internal unnamed_addr constant [2 x i32] [i32 15, i32 14], align 4
-@check_node_in_look_behind.anchor_mask = internal unnamed_addr constant [2 x i32] [i32 212596, i32 212604], align 4
 @distance_value.dist_vals = internal unnamed_addr constant [100 x i16] [i16 1000, i16 500, i16 333, i16 250, i16 200, i16 167, i16 143, i16 125, i16 111, i16 100, i16 91, i16 83, i16 77, i16 71, i16 67, i16 63, i16 59, i16 56, i16 53, i16 50, i16 48, i16 45, i16 43, i16 42, i16 40, i16 38, i16 37, i16 36, i16 34, i16 33, i16 32, i16 31, i16 30, i16 29, i16 29, i16 28, i16 27, i16 26, i16 26, i16 25, i16 24, i16 24, i16 23, i16 23, i16 22, i16 22, i16 21, i16 21, i16 20, i16 20, i16 20, i16 19, i16 19, i16 19, i16 18, i16 18, i16 18, i16 17, i16 17, i16 17, i16 16, i16 16, i16 16, i16 16, i16 15, i16 15, i16 15, i16 15, i16 14, i16 14, i16 14, i16 14, i16 14, i16 14, i16 13, i16 13, i16 13, i16 13, i16 13, i16 13, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 11, i16 11, i16 11, i16 11, i16 11, i16 11, i16 11, i16 11, i16 11, i16 10, i16 10, i16 10, i16 10, i16 10], align 16
 @map_position_value.Vals = internal unnamed_addr constant [128 x i16] [i16 5, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 10, i16 10, i16 1, i16 1, i16 10, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 12, i16 4, i16 7, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 5, i16 5, i16 5, i16 5, i16 5, i16 5, i16 5, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 5, i16 5, i16 5, i16 5, i16 5, i16 5, i16 5, i16 6, i16 6, i16 6, i16 6, i16 7, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 5, i16 6, i16 5, i16 5, i16 5, i16 5, i16 6, i16 6, i16 6, i16 6, i16 7, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 6, i16 5, i16 5, i16 5, i16 5, i16 1], align 16
 
@@ -11650,9 +11648,9 @@ define internal fastcc range(i32 0, 2) i32 @check_node_in_look_behind(ptr nocapt
   br i1 %5, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds [2 x i32], ptr @check_node_in_look_behind.anchor_mask, i64 0, i64 %6
-  %8 = getelementptr inbounds [2 x i32], ptr @check_node_in_look_behind.bag_mask, i64 0, i64 %6
+  %6 = icmp eq i32 %1, 0
+  %7 = select i1 %6, i32 212596, i32 212604
+  %8 = select i1 %6, i32 15, i32 14
   br label %9
 
 9:                                                ; preds = %.lr.ph, %tailrecurse.backedge
@@ -11663,9 +11661,9 @@ define internal fastcc range(i32 0, 2) i32 @check_node_in_look_behind(ptr nocapt
     i32 8, label %.preheader
     i32 4, label %19
     i32 5, label %24
-    i32 6, label %50
-    i32 10, label %59
-    i32 9, label %72
+    i32 6, label %49
+    i32 10, label %57
+    i32 9, label %70
   ]
 
 .preheader:                                       ; preds = %9, %9
@@ -11690,8 +11688,8 @@ define internal fastcc range(i32 0, 2) i32 @check_node_in_look_behind(ptr nocapt
   %21 = load ptr, ptr %20, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %19, %47, %56
-  %.tr.be = phi ptr [ %21, %19 ], [ %49, %47 ], [ %58, %56 ]
+tailrecurse.backedge:                             ; preds = %19, %46, %54
+  %.tr.be = phi ptr [ %21, %19 ], [ %48, %46 ], [ %56, %54 ]
   %22 = load i32, ptr %.tr.be, align 8
   %23 = icmp ugt i32 %22, 10
   br i1 %23, label %.critedge, label %9
@@ -11700,109 +11698,107 @@ tailrecurse.backedge:                             ; preds = %19, %47, %56
   %25 = getelementptr inbounds i8, ptr %.tr82, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = shl nuw i32 1, %26
-  %28 = load i32, ptr %8, align 4
-  %29 = and i32 %27, %28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.critedge, label %31
+  %28 = and i32 %27, %8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.critedge, label %30
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %.tr82, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call fastcc i32 @check_node_in_look_behind(ptr noundef %33, i32 noundef %1, ptr noundef %2)
-  %.not65 = icmp eq i32 %34, 0
-  br i1 %.not65, label %35, label %.critedge
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %.tr82, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call fastcc i32 @check_node_in_look_behind(ptr noundef %32, i32 noundef %1, ptr noundef %2)
+  %.not65 = icmp eq i32 %33, 0
+  br i1 %.not65, label %34, label %.critedge
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %25, align 8
-  switch i32 %36, label %.critedge [
-    i32 0, label %37
-    i32 3, label %42
+34:                                               ; preds = %30
+  %35 = load i32, ptr %25, align 8
+  switch i32 %35, label %.critedge [
+    i32 0, label %36
+    i32 3, label %41
   ]
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.tr82, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 67174528
-  %or.cond73 = icmp eq i32 %40, 0
-  br i1 %or.cond73, label %.critedge, label %41
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %.tr82, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 67174528
+  %or.cond73 = icmp eq i32 %39, 0
+  br i1 %or.cond73, label %.critedge, label %40
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   store i32 1, ptr %2, align 4
   br label %.critedge
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.tr82, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %.not66 = icmp eq ptr %44, null
-  br i1 %.not66, label %47, label %45
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds i8, ptr %.tr82, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %.not66 = icmp eq ptr %43, null
+  br i1 %.not66, label %46, label %44
 
-45:                                               ; preds = %42
-  %46 = tail call fastcc i32 @check_node_in_look_behind(ptr noundef nonnull %44, i32 noundef %1, ptr noundef %2)
-  %.not67 = icmp eq i32 %46, 0
-  br i1 %.not67, label %47, label %.critedge
+44:                                               ; preds = %41
+  %45 = tail call fastcc i32 @check_node_in_look_behind(ptr noundef nonnull %43, i32 noundef %1, ptr noundef %2)
+  %.not67 = icmp eq i32 %45, 0
+  br i1 %.not67, label %46, label %.critedge
 
-47:                                               ; preds = %45, %42
-  %48 = getelementptr inbounds i8, ptr %.tr82, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %.not68 = icmp eq ptr %49, null
+46:                                               ; preds = %44, %41
+  %47 = getelementptr inbounds i8, ptr %.tr82, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %.not68 = icmp eq ptr %48, null
   br i1 %.not68, label %.critedge, label %tailrecurse.backedge
 
-50:                                               ; preds = %9
-  %51 = getelementptr inbounds i8, ptr %.tr82, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = load i32, ptr %7, align 4
-  %54 = and i32 %53, %52
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.critedge, label %56
+49:                                               ; preds = %9
+  %50 = getelementptr inbounds i8, ptr %.tr82, i64 24
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %51, %7
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.critedge, label %54
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %.tr82, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %.not64 = icmp eq ptr %58, null
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %.tr82, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %.not64 = icmp eq ptr %56, null
   br i1 %.not64, label %.critedge, label %tailrecurse.backedge
 
-59:                                               ; preds = %9
-  %60 = getelementptr inbounds i8, ptr %.tr82, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 16777216
-  %.not63 = icmp eq i32 %62, 0
-  br i1 %.not63, label %63, label %.critedge
+57:                                               ; preds = %9
+  %58 = getelementptr inbounds i8, ptr %.tr82, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 16777216
+  %.not63 = icmp eq i32 %60, 0
+  br i1 %.not63, label %61, label %.critedge
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.tr82, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %.critedge
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %.tr82, i64 16
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %.critedge
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %.tr82, i64 20
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.critedge
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %.tr82, i64 20
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %.critedge
 
-71:                                               ; preds = %67
+69:                                               ; preds = %65
   store i32 1, ptr %2, align 4
   br label %.critedge
 
-72:                                               ; preds = %9
-  %73 = getelementptr inbounds i8, ptr %.tr82, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 64
-  %.not = icmp eq i32 %75, 0
-  br i1 %.not, label %77, label %76
+70:                                               ; preds = %9
+  %71 = getelementptr inbounds i8, ptr %.tr82, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, 64
+  %.not = icmp eq i32 %73, 0
+  br i1 %.not, label %75, label %74
 
-76:                                               ; preds = %72
+74:                                               ; preds = %70
   store i32 1, ptr %2, align 4
   br label %.critedge
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %.tr82, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call fastcc i32 @check_called_node_in_look_behind(ptr noundef %79)
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds i8, ptr %.tr82, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call fastcc i32 @check_called_node_in_look_behind(ptr noundef %77)
   br label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse.backedge, %24, %50, %35, %9, %56, %47, %45, %31, %16, %11, %3, %41, %71, %67, %63, %77, %76, %37, %59
-  %.0 = phi i32 [ 1, %59 ], [ 0, %76 ], [ %80, %77 ], [ 0, %71 ], [ 0, %67 ], [ 0, %63 ], [ 0, %41 ], [ 0, %37 ], [ 1, %3 ], [ 1, %11 ], [ 0, %16 ], [ 1, %tailrecurse.backedge ], [ 1, %24 ], [ 1, %50 ], [ 0, %35 ], [ 0, %9 ], [ 0, %56 ], [ 0, %47 ], [ 1, %45 ], [ 1, %31 ]
+.critedge:                                        ; preds = %tailrecurse.backedge, %24, %49, %34, %9, %54, %46, %44, %30, %16, %11, %3, %40, %69, %65, %61, %75, %74, %36, %57
+  %.0 = phi i32 [ 1, %57 ], [ 0, %74 ], [ %78, %75 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %40 ], [ 0, %36 ], [ 1, %3 ], [ 1, %11 ], [ 0, %16 ], [ 1, %tailrecurse.backedge ], [ 1, %24 ], [ 1, %49 ], [ 0, %34 ], [ 0, %9 ], [ 0, %54 ], [ 0, %46 ], [ 1, %44 ], [ 1, %30 ]
   ret i32 %.0
 }
 

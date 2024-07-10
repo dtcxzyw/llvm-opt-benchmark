@@ -172,7 +172,6 @@ $_ZN19OpenColorIO_v2_4dev15getMatrixValuesIdLi4EEENSt7__cxx1112basic_stringIcSt1
 @.str.114 = private unnamed_addr constant [8 x i8] c"matrix(\00", align 1
 @.str.115 = private unnamed_addr constant [10 x i8] c"float4x4(\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_GpuShaderUtils.cpp, ptr null }]
-@switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.3, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1], align 8
 @switch.table._ZN19OpenColorIO_v2_4dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE = private unnamed_addr constant [9 x ptr] [ptr @.str.4, ptr @.str.93, ptr @.str.93, ptr @.str.93, ptr @.str.5, ptr @.str.26, ptr @.str.93, ptr @.str.93, ptr @.str.5], align 8
 @switch.table._ZNK19OpenColorIO_v2_4dev13GpuShaderText4lerpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_ = private unnamed_addr constant [9 x ptr] [ptr @.str.33, ptr @.str.32, ptr @.str.32, ptr @.str.32, ptr @.str.33, ptr @.str.32, ptr @.str.32, ptr @.str.32, ptr @.str.32], align 8
 @switch.table._ZNK19OpenColorIO_v2_4dev13GpuShaderText5atan2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ = private unnamed_addr constant [9 x ptr] [ptr @.str.54, ptr @.str.54, ptr @.str.54, ptr @.str.54, ptr @.str.55, ptr @.str.55, ptr @.str.54, ptr @.str.54, ptr @.str.55], align 8
@@ -663,9 +662,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %nrvo.skipdtor
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %3 = icmp eq i32 %switch.tableidx, 3
+  %switch.load = select i1 %3, ptr @.str.3, ptr @.str.1
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke unwind label %lpad
 
@@ -730,9 +728,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %3 = icmp eq i32 %switch.tableidx, 3
+  %switch.load = select i1 %3, ptr @.str.3, ptr @.str.1
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
@@ -926,9 +923,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %3 = icmp eq i32 %switch.tableidx, 3
+  %switch.load = select i1 %3, ptr @.str.3, ptr @.str.1
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
@@ -1131,9 +1127,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %3 = icmp eq i32 %switch.tableidx, 3
+  %switch.load = select i1 %3, ptr @.str.3, ptr @.str.1
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 
@@ -1601,9 +1596,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %invoke.cont
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb, i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %3 = icmp eq i32 %switch.tableidx, 3
+  %switch.load = select i1 %3, ptr @.str.3, ptr @.str.1
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull %switch.load)
           to label %invoke.cont5.invoke.i unwind label %lpad.i
 

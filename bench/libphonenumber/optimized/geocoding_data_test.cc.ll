@@ -189,7 +189,6 @@ $_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44GeocodingDataTest
 @.str.17 = private unnamed_addr constant [34 x i8] c"langs_1->available_languages_size\00", align 1
 @.str.18 = private unnamed_addr constant [3 x i8] c"de\00", align 1
 @.str.19 = private unnamed_addr constant [3 x i8] c"en\00", align 1
-@__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages = private unnamed_addr constant [2 x ptr] [ptr @.str.18, ptr @.str.19], align 16
 @.str.20 = private unnamed_addr constant [22 x i8] c"expected_languages[i]\00", align 1
 @.str.21 = private unnamed_addr constant [32 x i8] c"langs_1->available_languages[i]\00", align 1
 @.str.22 = private unnamed_addr constant [2 x i8] c"5\00", align 1
@@ -205,7 +204,6 @@ $_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44GeocodingDataTest
 @.str.31 = private unnamed_addr constant [25 x i8] c"desc_1_de->prefixes_size\00", align 1
 @.str.32 = private unnamed_addr constant [11 x i8] c"New Jersey\00", align 1
 @.str.33 = private unnamed_addr constant [12 x i8] c"Kalifornien\00", align 1
-@__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions = private unnamed_addr constant [2 x ptr] [ptr @.str.32, ptr @.str.33], align 16
 @.str.34 = private unnamed_addr constant [21 x i8] c"expected_prefixes[i]\00", align 1
 @.str.35 = private unnamed_addr constant [23 x i8] c"desc_1_de->prefixes[i]\00", align 1
 @.str.36 = private unnamed_addr constant [25 x i8] c"expected_descriptions[i]\00", align 1
@@ -3704,12 +3702,12 @@ _ZN7testing15AssertionResultD2Ev.exit142:         ; preds = %153, %_ZNKSt14defau
 
 159:                                              ; preds = %.lr.ph238, %_ZN7testing15AssertionResultD2Ev.exit153
   %indvars.iv252 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next253, %_ZN7testing15AssertionResultD2Ev.exit153 ]
-  %160 = getelementptr inbounds [2 x ptr], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_languages, i64 0, i64 %indvars.iv252
-  %161 = load ptr, ptr %160, align 8
+  %160 = icmp eq i64 %indvars.iv252, 0
+  %161 = select i1 %160, ptr @.str.18, ptr @.str.19
   %162 = load ptr, ptr %121, align 8
   %163 = getelementptr inbounds ptr, ptr %162, i64 %indvars.iv252
   %164 = load ptr, ptr %163, align 8
-  call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef %161, ptr noundef %164)
+  call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %161, ptr noundef %164)
   %165 = load i8, ptr %15, align 8
   %166 = trunc i8 %165 to i1
   br i1 %166, label %190, label %169
@@ -4252,12 +4250,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit200:         ; preds = %344, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i199
   store ptr null, ptr %307, align 8
-  %346 = getelementptr inbounds [2 x ptr], ptr @__const._ZN4i18n12phonenumbers44GeocodingDataTest_TestTestGeocodingData_Test8TestBodyEv.expected_descriptions, i64 0, i64 %indvars.iv258
-  %347 = load ptr, ptr %346, align 8
+  %346 = icmp eq i64 %indvars.iv258, 0
+  %347 = select i1 %346, ptr @.str.32, ptr @.str.33
   %348 = load ptr, ptr %308, align 8
   %349 = getelementptr inbounds ptr, ptr %348, i64 %indvars.iv258
   %350 = load ptr, ptr %349, align 8
-  call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %34, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %347, ptr noundef %350)
+  call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %34, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull %347, ptr noundef %350)
   %351 = load i8, ptr %34, align 8
   %352 = trunc i8 %351 to i1
   br i1 %352, label %376, label %355

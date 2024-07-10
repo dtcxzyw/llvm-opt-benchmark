@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"DSBMV \00", align 1
-@sbmv = internal unnamed_addr constant [2 x ptr] [ptr @dsbmv_U, ptr @dsbmv_L], align 16
 
 ; Function Attrs: nounwind uwtable
 define void @dsbmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr nocapture noundef readonly %10) local_unnamed_addr #0 {
@@ -23,74 +22,71 @@ define void @dsbmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %23 = select i1 %21, i8 %22, i8 %13
   %24 = icmp ne i8 %23, 85
   %25 = icmp ne i8 %23, 76
-  %26 = sext i1 %24 to i64
-  %27 = icmp eq i32 %20, 0
-  %28 = select i1 %27, i32 11, i32 0
-  %29 = icmp eq i32 %18, 0
-  %30 = select i1 %29, i32 8, i32 %28
-  %31 = icmp sgt i32 %17, %15
-  %32 = select i1 %31, i32 %30, i32 6
-  %33 = icmp slt i32 %15, 0
-  %34 = select i1 %33, i32 3, i32 %32
-  %35 = icmp slt i32 %14, 0
-  %36 = select i1 %35, i32 2, i32 %34
-  %37 = and i1 %25, %24
-  %38 = select i1 %37, i32 1, i32 %36
-  store i32 %38, ptr %12, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %42, label %40
+  %26 = icmp eq i32 %20, 0
+  %27 = select i1 %26, i32 11, i32 0
+  %28 = icmp eq i32 %18, 0
+  %29 = select i1 %28, i32 8, i32 %27
+  %30 = icmp sgt i32 %17, %15
+  %31 = select i1 %30, i32 %29, i32 6
+  %32 = icmp slt i32 %15, 0
+  %33 = select i1 %32, i32 3, i32 %31
+  %34 = icmp slt i32 %14, 0
+  %35 = select i1 %34, i32 2, i32 %33
+  %36 = and i1 %25, %24
+  %37 = select i1 %36, i32 1, i32 %35
+  store i32 %37, ptr %12, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %41, label %39
 
-40:                                               ; preds = %11
-  %41 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 7) #4
-  br label %77
+39:                                               ; preds = %11
+  %40 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 7) #4
+  br label %74
 
-42:                                               ; preds = %11
-  %43 = icmp eq i32 %14, 0
-  br i1 %43, label %77, label %44
+41:                                               ; preds = %11
+  %42 = icmp eq i32 %14, 0
+  br i1 %42, label %74, label %43
 
-44:                                               ; preds = %42
-  %45 = fcmp une double %19, 1.000000e+00
-  br i1 %45, label %46, label %51
+43:                                               ; preds = %41
+  %44 = fcmp une double %19, 1.000000e+00
+  br i1 %44, label %45, label %50
 
-46:                                               ; preds = %44
-  %47 = sext i32 %14 to i64
-  %48 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %49 = zext nneg i32 %48 to i64
-  %50 = tail call i32 @dscal_k(i64 noundef %47, i64 noundef 0, i64 noundef 0, double noundef %19, ptr noundef %9, i64 noundef %49, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #4
-  br label %51
+45:                                               ; preds = %43
+  %46 = sext i32 %14 to i64
+  %47 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %48 = zext nneg i32 %47 to i64
+  %49 = tail call i32 @dscal_k(i64 noundef %46, i64 noundef 0, i64 noundef 0, double noundef %19, ptr noundef %9, i64 noundef %48, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #4
+  br label %50
 
-51:                                               ; preds = %46, %44
-  %52 = fcmp oeq double %16, 0.000000e+00
-  br i1 %52, label %77, label %53
+50:                                               ; preds = %45, %43
+  %51 = fcmp oeq double %16, 0.000000e+00
+  br i1 %51, label %74, label %52
 
-53:                                               ; preds = %51
-  %54 = icmp slt i32 %18, 0
-  %55 = add nsw i32 %14, -1
-  %56 = mul nsw i32 %18, %55
-  %57 = sext i32 %56 to i64
-  %58 = sub nsw i64 0, %57
-  %59 = select i1 %54, i64 %58, i64 0
-  %60 = getelementptr inbounds double, ptr %6, i64 %59
-  %61 = icmp slt i32 %20, 0
-  %62 = mul nsw i32 %20, %55
-  %63 = sext i32 %62 to i64
-  %64 = sub nsw i64 0, %63
-  %65 = select i1 %61, i64 %64, i64 0
-  %66 = getelementptr inbounds double, ptr %9, i64 %65
-  %67 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
-  %68 = select i1 %25, i64 %26, i64 1
-  %69 = getelementptr inbounds [2 x ptr], ptr @sbmv, i64 0, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !10
-  %71 = sext i32 %14 to i64
-  %72 = sext i32 %15 to i64
-  %73 = sext i32 %17 to i64
-  %74 = sext i32 %18 to i64
-  %75 = sext i32 %20 to i64
-  %76 = tail call i32 %70(i64 noundef %71, i64 noundef %72, double noundef %16, ptr noundef %4, i64 noundef %73, ptr noundef %60, i64 noundef %74, ptr noundef %66, i64 noundef %75, ptr noundef %67) #4
-  tail call void @blas_memory_free(ptr noundef %67) #4
-  br label %77
+52:                                               ; preds = %50
+  %53 = icmp slt i32 %18, 0
+  %54 = add nsw i32 %14, -1
+  %55 = mul nsw i32 %18, %54
+  %56 = sext i32 %55 to i64
+  %57 = sub nsw i64 0, %56
+  %58 = select i1 %53, i64 %57, i64 0
+  %59 = getelementptr inbounds double, ptr %6, i64 %58
+  %60 = icmp slt i32 %20, 0
+  %61 = mul nsw i32 %20, %54
+  %62 = sext i32 %61 to i64
+  %63 = sub nsw i64 0, %62
+  %64 = select i1 %60, i64 %63, i64 0
+  %65 = getelementptr inbounds double, ptr %9, i64 %64
+  %66 = tail call ptr @blas_memory_alloc(i32 noundef 1) #4
+  %67 = select i1 %24, ptr @dsbmv_L, ptr @dsbmv_U
+  %68 = sext i32 %14 to i64
+  %69 = sext i32 %15 to i64
+  %70 = sext i32 %17 to i64
+  %71 = sext i32 %18 to i64
+  %72 = sext i32 %20 to i64
+  %73 = tail call i32 %67(i64 noundef %68, i64 noundef %69, double noundef %16, ptr noundef %4, i64 noundef %70, ptr noundef %59, i64 noundef %71, ptr noundef %65, i64 noundef %72, ptr noundef %66) #4
+  tail call void @blas_memory_free(ptr noundef %66) #4
+  br label %74
 
-77:                                               ; preds = %53, %51, %42, %40
+74:                                               ; preds = %52, %50, %41, %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   ret void
 }
@@ -112,9 +108,9 @@ declare void @blas_memory_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare i32 @dsbmv_U(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsbmv_U(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dsbmv_L(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @dsbmv_L(i64 noundef, i64 noundef, double noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -134,5 +130,3 @@ attributes #4 = { nounwind }
 !7 = !{!"int", !4, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"any pointer", !4, i64 0}
