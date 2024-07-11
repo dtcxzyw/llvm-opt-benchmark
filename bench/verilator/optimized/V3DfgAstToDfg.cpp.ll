@@ -5353,7 +5353,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6Driv
   call void @_ZdlPv(ptr noundef %.sroa.4.020.i) #22
   br label %.body
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i: ; preds = %393, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i, %390
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i, %393, %390
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_SF_T0_T1_T2_(ptr nonnull %.sroa.0250.1463689, ptr %380, ptr noundef nonnull %389, i64 noundef %storemerge26.i.i.i)
           to label %397 unwind label %395
 
