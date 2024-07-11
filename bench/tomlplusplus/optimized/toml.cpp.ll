@@ -1078,7 +1078,6 @@ $_ZSt19piecewise_construct = comdat any
 @.str.5 = private unnamed_addr constant [6 x i8] c" of '\00", align 1
 @_ZTVN4toml2v34nodeE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v34nodeE, ptr @_ZN4toml2v34nodeD1Ev, ptr @_ZN4toml2v34nodeD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @.str.6 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.7 = private unnamed_addr constant [4 x i8] c".[]\00", align 1
 @_ZTVN4toml2v35arrayE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v35arrayE, ptr @_ZN4toml2v35arrayD1Ev, ptr @_ZN4toml2v35arrayD0Ev, ptr @_ZN4toml2v35array14is_homogeneousENS0_9node_typeERPNS0_4nodeE, ptr @_ZNK4toml2v35array14is_homogeneousENS0_9node_typeERPKNS0_4nodeE, ptr @_ZNK4toml2v35array14is_homogeneousENS0_9node_typeE, ptr @_ZNK4toml2v35array4typeEv, ptr @_ZNK4toml2v35array8is_tableEv, ptr @_ZNK4toml2v35array8is_arrayEv, ptr @_ZNK4toml2v35array18is_array_of_tablesEv, ptr @_ZNK4toml2v35array8is_valueEv, ptr @_ZNK4toml2v35array9is_stringEv, ptr @_ZNK4toml2v35array10is_integerEv, ptr @_ZNK4toml2v35array17is_floating_pointEv, ptr @_ZNK4toml2v35array9is_numberEv, ptr @_ZNK4toml2v35array10is_booleanEv, ptr @_ZNK4toml2v35array7is_dateEv, ptr @_ZNK4toml2v35array7is_timeEv, ptr @_ZNK4toml2v35array12is_date_timeEv, ptr @_ZN4toml2v35array8as_tableEv, ptr @_ZN4toml2v35array8as_arrayEv, ptr @_ZN4toml2v35array9as_stringB5cxx11Ev, ptr @_ZN4toml2v35array10as_integerEv, ptr @_ZN4toml2v35array17as_floating_pointEv, ptr @_ZN4toml2v35array10as_booleanEv, ptr @_ZN4toml2v35array7as_dateEv, ptr @_ZN4toml2v35array7as_timeEv, ptr @_ZN4toml2v35array12as_date_timeEv, ptr @_ZNK4toml2v35array8as_tableEv, ptr @_ZNK4toml2v35array8as_arrayEv, ptr @_ZNK4toml2v35array9as_stringB5cxx11Ev, ptr @_ZNK4toml2v35array10as_integerEv, ptr @_ZNK4toml2v35array17as_floating_pointEv, ptr @_ZNK4toml2v35array10as_booleanEv, ptr @_ZNK4toml2v35array7as_dateEv, ptr @_ZNK4toml2v35array7as_timeEv, ptr @_ZNK4toml2v35array12as_date_timeEv] }, align 8
 @_ZTVN4toml2v35tableE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v35tableE, ptr @_ZN4toml2v35tableD1Ev, ptr @_ZN4toml2v35tableD0Ev, ptr @_ZN4toml2v35table14is_homogeneousENS0_9node_typeERPNS0_4nodeE, ptr @_ZNK4toml2v35table14is_homogeneousENS0_9node_typeERPKNS0_4nodeE, ptr @_ZNK4toml2v35table14is_homogeneousENS0_9node_typeE, ptr @_ZNK4toml2v35table4typeEv, ptr @_ZNK4toml2v35table8is_tableEv, ptr @_ZNK4toml2v35table8is_arrayEv, ptr @_ZNK4toml2v35table18is_array_of_tablesEv, ptr @_ZNK4toml2v35table8is_valueEv, ptr @_ZNK4toml2v35table9is_stringEv, ptr @_ZNK4toml2v35table10is_integerEv, ptr @_ZNK4toml2v35table17is_floating_pointEv, ptr @_ZNK4toml2v35table9is_numberEv, ptr @_ZNK4toml2v35table10is_booleanEv, ptr @_ZNK4toml2v35table7is_dateEv, ptr @_ZNK4toml2v35table7is_timeEv, ptr @_ZNK4toml2v35table12is_date_timeEv, ptr @_ZN4toml2v35table8as_tableEv, ptr @_ZN4toml2v35table8as_arrayEv, ptr @_ZN4toml2v35table9as_stringB5cxx11Ev, ptr @_ZN4toml2v35table10as_integerEv, ptr @_ZN4toml2v35table17as_floating_pointEv, ptr @_ZN4toml2v35table10as_booleanEv, ptr @_ZN4toml2v35table7as_dateEv, ptr @_ZN4toml2v35table7as_timeEv, ptr @_ZN4toml2v35table12as_date_timeEv, ptr @_ZNK4toml2v35table8as_tableEv, ptr @_ZNK4toml2v35table8as_arrayEv, ptr @_ZNK4toml2v35table9as_stringB5cxx11Ev, ptr @_ZNK4toml2v35table10as_integerEv, ptr @_ZNK4toml2v35table17as_floating_pointEv, ptr @_ZNK4toml2v35table10as_booleanEv, ptr @_ZNK4toml2v35table7as_dateEv, ptr @_ZNK4toml2v35table7as_timeEv, ptr @_ZNK4toml2v35table12as_date_timeEv] }, align 8
 @.str.9 = private unnamed_addr constant [6 x i8] c"key '\00", align 1
@@ -5755,8 +5754,8 @@ while.body8.preheader:                            ; preds = %while.body
   br i1 %cmp10.not160, label %if.end14.preheader, label %return
 
 if.end14.preheader:                               ; preds = %while.body8.preheader
-  %add.ptr.i58261 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0159
-  %1 = load i8, ptr %add.ptr.i58261, align 1
+  %add.ptr.i58262 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0159
+  %1 = load i8, ptr %add.ptr.i58262, align 1
   %2 = add i8 %1, -48
   %3 = icmp ult i8 %2, 10
   br i1 %3, label %while.end, label %if.else
@@ -5770,20 +5769,20 @@ if.end14:                                         ; preds = %if.then28
 
 if.else:                                          ; preds = %if.end14.preheader, %if.end14
   %7 = phi i8 [ %4, %if.end14 ], [ %1, %if.end14.preheader ]
-  %index_start.0162262 = phi i64 [ %index_start.0, %if.end14 ], [ %index_start.0159, %if.end14.preheader ]
+  %index_start.0162263 = phi i64 [ %index_start.0, %if.end14 ], [ %index_start.0159, %if.end14.preheader ]
   switch i8 %7, label %return [
     i8 32, label %if.then28
     i8 9, label %if.then28
   ]
 
 if.then28:                                        ; preds = %if.else, %if.else
-  %index_start.0 = add i64 %index_start.0162262, 1
+  %index_start.0 = add i64 %index_start.0162263, 1
   %exitcond.not = icmp eq i64 %index_start.0, %path.coerce0
   br i1 %exitcond.not, label %return, label %if.end14, !llvm.loop !50
 
 while.end:                                        ; preds = %if.end14, %if.end14.preheader
   %index_start.0162.lcssa = phi i64 [ %index_start.0159, %if.end14.preheader ], [ %index_start.0, %if.end14 ]
-  %index_start.0.in161.lcssa = phi i64 [ %pos.0, %if.end14.preheader ], [ %index_start.0162262, %if.end14 ]
+  %index_start.0.in161.lcssa = phi i64 [ %pos.0, %if.end14.preheader ], [ %index_start.0162263, %if.end14 ]
   %.lcssa = phi i8 [ %1, %if.end14.preheader ], [ %4, %if.end14 ]
   %add.ptr.i58.le = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0162.lcssa
   %add32 = add nuw i64 %index_start.0.in161.lcssa, 2
@@ -5933,18 +5932,19 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %if.else146, %for.in
   %__pos.addr.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i75 ], [ %add149, %if.else146 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %__pos.addr.07.i.i
   %19 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i.i = sext i8 %19 to i32
-  %call.i.i.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv.i.i.i, i64 noundef 3) #39
-  %tobool2.not.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool2.not.i.i, label %for.inc.i.i75, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+  switch i8 %19, label %for.inc.i.i75 [
+    i8 46, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+    i8 91, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+    i8 93, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+  ]
 
 for.inc.i.i75:                                    ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %inc.i.i = add i64 %__pos.addr.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %path.coerce0
   br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !54
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %for.inc.i.i75, %if.else146
-  %retval.0.i.i = phi i64 [ -1, %if.else146 ], [ -1, %for.inc.i.i75 ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds = %for.inc.i.i75, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.else146
+  %retval.0.i.i = phi i64 [ -1, %if.else146 ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %for.inc.i.i75 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i, i64 %path.coerce0)
   %sub154 = sub i64 %.sroa.speculated, %pos.0
   %sub.i77 = sub i64 %path.coerce0, %pos.0
@@ -21040,9 +21040,6 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #24
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZZN4toml2v37at_pathERNS0_4nodeESt17basic_string_viewIcSt11char_traitsIcEEEN3$_08__invokeEPvS6_"(ptr nocapture noundef %data, i64 %key.coerce0, ptr %key.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {

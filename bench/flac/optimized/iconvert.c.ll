@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c"Uu\00", align 1
-@.str.2 = private unnamed_addr constant [3 x i8] c"Tt\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"Ff\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"%s//TRANSLIT\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c"?\00", align 1
 
@@ -23,34 +20,37 @@ entry:
   %tbl = alloca i64, align 8
   %tb167 = alloca ptr, align 8
   %tbl168 = alloca i64, align 8
-  %call = tail call ptr @iconv_open(ptr noundef nonnull @.str, ptr noundef %fromcode) #8
+  %call = tail call ptr @iconv_open(ptr noundef nonnull @.str, ptr noundef %fromcode) #7
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %tocode, align 1
-  %conv = sext i8 %0 to i32
-  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.1, i32 %conv, i64 3)
-  %tobool.not = icmp eq ptr %memchr, null
-  br i1 %tobool.not, label %if.then26, label %lor.lhs.false
+  switch i8 %0, label %if.then26 [
+    i8 85, label %lor.lhs.false
+    i8 117, label %lor.lhs.false
+    i8 0, label %lor.lhs.false
+  ]
 
-lor.lhs.false:                                    ; preds = %if.end
+lor.lhs.false:                                    ; preds = %if.end, %if.end, %if.end
   %arrayidx2 = getelementptr inbounds i8, ptr %tocode, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
-  %conv3 = sext i8 %1 to i32
-  %memchr81 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 %conv3, i64 3)
-  %tobool5.not = icmp eq ptr %memchr81, null
-  br i1 %tobool5.not, label %if.then26, label %lor.lhs.false6
+  switch i8 %1, label %if.then26 [
+    i8 84, label %lor.lhs.false6
+    i8 116, label %lor.lhs.false6
+    i8 0, label %lor.lhs.false6
+  ]
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false
+lor.lhs.false6:                                   ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
   %arrayidx7 = getelementptr inbounds i8, ptr %tocode, i64 2
   %2 = load i8, ptr %arrayidx7, align 1
-  %conv8 = sext i8 %2 to i32
-  %memchr82 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3, i32 %conv8, i64 3)
-  %tobool10.not = icmp eq ptr %memchr82, null
-  br i1 %tobool10.not, label %if.then26, label %lor.lhs.false11
+  switch i8 %2, label %if.then26 [
+    i8 70, label %lor.lhs.false11
+    i8 102, label %lor.lhs.false11
+    i8 0, label %lor.lhs.false11
+  ]
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false6
+lor.lhs.false11:                                  ; preds = %lor.lhs.false6, %lor.lhs.false6, %lor.lhs.false6
   %arrayidx12 = getelementptr inbounds i8, ptr %tocode, i64 3
   %3 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %3, 45
@@ -68,8 +68,8 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false16
   %cmp24.not = icmp eq i8 %5, 0
   br i1 %cmp24.not, label %if.end45, label %if.then26
 
-if.then26:                                        ; preds = %lor.lhs.false21, %lor.lhs.false16, %lor.lhs.false11, %lor.lhs.false6, %lor.lhs.false, %if.end
-  %call27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %tocode1, ptr noundef nonnull @.str.4, ptr noundef nonnull %tocode) #8
+if.then26:                                        ; preds = %lor.lhs.false6, %lor.lhs.false, %if.end, %lor.lhs.false21, %lor.lhs.false16, %lor.lhs.false11
+  %call27 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %tocode1, ptr noundef nonnull @.str.4, ptr noundef nonnull %tocode) #7
   %cmp28 = icmp sgt i32 %call27, -1
   %6 = load ptr, ptr %tocode1, align 8
   %tobool31 = icmp ne ptr %6, null
@@ -77,28 +77,28 @@ if.then26:                                        ; preds = %lor.lhs.false21, %l
   br i1 %or.cond, label %if.end33, label %if.end198.thread
 
 if.end198.thread:                                 ; preds = %if.then26
-  %call199103 = call i32 @iconv_close(ptr noundef %call) #8
+  %call199103 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end33:                                         ; preds = %if.then26
-  %call34 = call ptr @iconv_open(ptr noundef nonnull %6, ptr noundef nonnull @.str) #8
+  %call34 = call ptr @iconv_open(ptr noundef nonnull %6, ptr noundef nonnull @.str) #7
   %7 = load ptr, ptr %tocode1, align 8
-  call void @free(ptr noundef %7) #8
+  call void @free(ptr noundef %7) #7
   %cmp35 = icmp eq ptr %call34, inttoptr (i64 -1 to ptr)
   br i1 %cmp35, label %if.end39, label %if.end45
 
 if.end39:                                         ; preds = %if.end33
-  %call38 = call ptr @iconv_open(ptr noundef nonnull %tocode, ptr noundef %fromcode) #8
+  %call38 = call ptr @iconv_open(ptr noundef nonnull %tocode, ptr noundef %fromcode) #7
   %cmp40 = icmp eq ptr %call38, inttoptr (i64 -1 to ptr)
   br i1 %cmp40, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %if.end39
-  %call43 = call i32 @iconv_close(ptr noundef %call) #8
+  %call43 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end45:                                         ; preds = %if.end33, %if.end39, %lor.lhs.false21
   %cd2.1 = phi ptr [ %call38, %if.end39 ], [ inttoptr (i64 -1 to ptr), %lor.lhs.false21 ], [ %call34, %if.end33 ]
-  %call46 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #9
+  %call46 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #8
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %if.end198, label %if.end49
 
@@ -107,7 +107,7 @@ if.end49:                                         ; preds = %if.end45
   store i64 %fromlen, ptr %ibl, align 8
   store ptr %call46, ptr %ob, align 8
   store i64 1, ptr %obl, align 8
-  %call50107 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call50107 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %8 = load i64, ptr %ibl, align 8
   %tobool51.not108 = icmp eq i64 %8, 0
   br i1 %tobool51.not108, label %for.end, label %if.end53
@@ -128,7 +128,7 @@ if.then56:                                        ; preds = %if.end53
 
 if.end60:                                         ; preds = %if.then56
   %11 = load ptr, ptr %ob, align 8
-  %call62 = call ptr @realloc(ptr noundef %utfbuf.0109, i64 noundef %mul) #10
+  %call62 = call ptr @realloc(ptr noundef %utfbuf.0109, i64 noundef %mul) #9
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %fail, label %if.end65
 
@@ -155,14 +155,14 @@ if.else:                                          ; preds = %if.end53
   %14 = load i64, ptr %obl, align 8
   %dec67 = add i64 %14, -1
   store i64 %dec67, ptr %obl, align 8
-  %call68 = call i64 @iconv(ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %call68 = call i64 @iconv(ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end65
   %utfbuf.1 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.0109, %if.else ]
   %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0110, %if.else ]
   %ret.1 = phi i32 [ %ret.0111, %if.end65 ], [ 2, %if.else ]
-  %call50 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call50 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %15 = load i64, ptr %ibl, align 8
   %tobool51.not = icmp eq i64 %15, 0
   br i1 %tobool51.not, label %for.end, label %if.end53
@@ -190,8 +190,8 @@ if.end78:                                         ; preds = %if.then74, %if.then
   br i1 %tobool79.not, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %if.end78
-  call void @free(ptr noundef %utfbuf.0.lcssa) #8
-  %call81 = call i32 @iconv_close(ptr noundef %call) #8
+  call void @free(ptr noundef %utfbuf.0.lcssa) #7
+  %call81 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end82:                                         ; preds = %if.end78
@@ -204,7 +204,7 @@ if.end82:                                         ; preds = %if.end78
 
 safe_realloc_nofree_add_2op_.exit:                ; preds = %if.end82
   %add.i = add nuw i64 %sub.ptr.sub85, 1
-  %call.i = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %add.i) #10
+  %call.i = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %add.i) #9
   %tobool87.not = icmp eq ptr %call.i, null
   br i1 %tobool87.not, label %fail, label %if.end89
 
@@ -216,7 +216,7 @@ if.end89:                                         ; preds = %safe_realloc_nofree
   store ptr %add.ptr93, ptr %ob, align 8
   store i8 0, ptr %add.ptr93, align 1
   store ptr %call.i, ptr %to, align 8
-  %call94 = call i32 @iconv_close(ptr noundef %call) #8
+  %call94 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end95:                                         ; preds = %for.end
@@ -228,7 +228,7 @@ if.end95:                                         ; preds = %for.end
   br i1 %cmp99, label %fail, label %if.end102
 
 if.end102:                                        ; preds = %if.end95
-  %call103 = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %sub.ptr.sub98) #10
+  %call103 = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %sub.ptr.sub98) #9
   %tobool104.not = icmp eq ptr %call103, null
   br i1 %tobool104.not, label %fail, label %while.body.lr.ph
 
@@ -238,19 +238,19 @@ while.body.lr.ph:                                 ; preds = %if.end102
   %sub.ptr.rhs.cast119 = ptrtoint ptr %tbuf to i64
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call108146 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call108149 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %20 = load i64, ptr %ibl, align 8
-  %tobool109.not147 = icmp eq i64 %20, 0
-  br i1 %tobool109.not147, label %while.end, label %land.lhs.true
+  %tobool109.not150 = icmp eq i64 %20, 0
+  br i1 %tobool109.not150, label %while.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body.lr.ph, %if.end132
-  %call108149 = phi i64 [ %call108, %if.end132 ], [ %call108146, %while.body.lr.ph ]
-  %outlen.0115148 = phi i64 [ %add137, %if.end132 ], [ 0, %while.body.lr.ph ]
-  %cmp110 = icmp eq i64 %call108149, -1
+  %call108152 = phi i64 [ %call108, %if.end132 ], [ %call108149, %while.body.lr.ph ]
+  %outlen.0115151 = phi i64 [ %add137, %if.end132 ], [ 0, %while.body.lr.ph ]
+  %cmp110 = icmp eq i64 %call108152, -1
   br i1 %cmp110, label %land.lhs.true112, label %if.then116
 
 land.lhs.true112:                                 ; preds = %land.lhs.true
-  %call113 = tail call ptr @__errno_location() #11
+  %call113 = tail call ptr @__errno_location() #10
   %21 = load i32, ptr %call113, align 4
   %cmp114 = icmp eq i32 %21, 7
   br i1 %cmp114, label %if.end132, label %if.then116
@@ -261,10 +261,10 @@ if.then116:                                       ; preds = %land.lhs.true112, %
   %22 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast118 = ptrtoint ptr %22 to i64
   %sub.ptr.sub120 = sub i64 %sub.ptr.lhs.cast118, %sub.ptr.rhs.cast119
-  %add = add i64 %sub.ptr.sub120, %outlen.0115148
+  %add = add i64 %sub.ptr.sub120, %outlen.0115151
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call122 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb, ptr noundef nonnull %tbl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call122 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb, ptr noundef nonnull %tbl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %23 = load ptr, ptr %ib, align 8
   %ibl.promoted = load i64, ptr %ibl, align 8
   br label %for.cond125
@@ -285,14 +285,14 @@ land.rhs:                                         ; preds = %for.cond125
   br i1 %tobool128.not, label %if.end132, label %for.cond125, !llvm.loop !5
 
 if.end132:                                        ; preds = %land.rhs, %land.lhs.true112
-  %outlen.1 = phi i64 [ %outlen.0115148, %land.lhs.true112 ], [ %add, %land.rhs ]
+  %outlen.1 = phi i64 [ %outlen.0115151, %land.lhs.true112 ], [ %add, %land.rhs ]
   %25 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast134 = ptrtoint ptr %25 to i64
   %sub.ptr.sub136 = sub i64 %outlen.1, %sub.ptr.rhs.cast119
   %add137 = add i64 %sub.ptr.sub136, %sub.ptr.lhs.cast134
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call108 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call108 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %26 = load i64, ptr %ibl, align 8
   %tobool109.not = icmp eq i64 %26, 0
   br i1 %tobool109.not, label %while.end, label %land.lhs.true, !llvm.loop !7
@@ -300,22 +300,22 @@ if.end132:                                        ; preds = %land.rhs, %land.lhs
 while.end:                                        ; preds = %if.end132, %for.cond125, %while.body.lr.ph
   %outlen.1.ph = phi i64 [ 0, %while.body.lr.ph ], [ %add, %for.cond125 ], [ %add137, %if.end132 ]
   %27 = load ptr, ptr %ob, align 8
-  %sub.ptr.lhs.cast134127 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub136128 = sub i64 %outlen.1.ph, %sub.ptr.rhs.cast119
-  %add137129 = add i64 %sub.ptr.sub136128, %sub.ptr.lhs.cast134127
+  %sub.ptr.lhs.cast134130 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub136131 = sub i64 %outlen.1.ph, %sub.ptr.rhs.cast119
+  %add137132 = add i64 %sub.ptr.sub136131, %sub.ptr.lhs.cast134130
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call139 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call139 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %28 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast141 = ptrtoint ptr %28 to i64
   %sub.ptr.sub143 = sub i64 %sub.ptr.lhs.cast141, %sub.ptr.rhs.cast119
-  %add144 = add i64 %sub.ptr.sub143, %add137129
+  %add144 = add i64 %sub.ptr.sub143, %add137132
   %cmp.i87 = icmp eq i64 %add144, -1
   br i1 %cmp.i87, label %fail, label %safe_malloc_add_2op_.exit
 
 safe_malloc_add_2op_.exit:                        ; preds = %while.end
   %add.i89 = add nuw i64 %add144, 1
-  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i89) #9
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i89) #8
   %tobool146.not = icmp eq ptr %call.i.i, null
   br i1 %tobool146.not, label %fail, label %while.body151.preheader
 
@@ -324,23 +324,23 @@ while.body151.preheader:                          ; preds = %safe_malloc_add_2op
   store i64 %sub.ptr.sub98, ptr %ibl, align 8
   store ptr %call.i.i, ptr %ob, align 8
   store i64 %add144, ptr %obl, align 8
-  %call152150 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
-  %tobool153151 = icmp eq i64 %call152150, 0
-  %tobool155152 = icmp ne i32 %ret.0.lcssa, 0
-  %or.cond1153 = select i1 %tobool153151, i1 true, i1 %tobool155152
-  %spec.store.select154 = select i1 %or.cond1153, i32 %ret.0.lcssa, i32 1
+  %call152153 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %tobool153154 = icmp eq i64 %call152153, 0
+  %tobool155155 = icmp ne i32 %ret.0.lcssa, 0
+  %or.cond1156 = select i1 %tobool153154, i1 true, i1 %tobool155155
+  %spec.store.select157 = select i1 %or.cond1156, i32 %ret.0.lcssa, i32 1
   %29 = load i64, ptr %ibl, align 8
-  %tobool158.not155 = icmp eq i64 %29, 0
-  br i1 %tobool158.not155, label %while.end185, label %land.lhs.true159
+  %tobool158.not158 = icmp eq i64 %29, 0
+  br i1 %tobool158.not158, label %while.end185, label %land.lhs.true159
 
 land.lhs.true159:                                 ; preds = %while.body151.preheader, %if.end184
-  %spec.store.select157 = phi i32 [ %spec.store.select, %if.end184 ], [ %spec.store.select154, %while.body151.preheader ]
-  %call152156 = phi i64 [ %call152, %if.end184 ], [ %call152150, %while.body151.preheader ]
-  %cmp160 = icmp eq i64 %call152156, -1
+  %spec.store.select160 = phi i32 [ %spec.store.select, %if.end184 ], [ %spec.store.select157, %while.body151.preheader ]
+  %call152159 = phi i64 [ %call152, %if.end184 ], [ %call152153, %while.body151.preheader ]
+  %cmp160 = icmp eq i64 %call152159, -1
   br i1 %cmp160, label %land.lhs.true162, label %if.then166
 
 land.lhs.true162:                                 ; preds = %land.lhs.true159
-  %call163 = tail call ptr @__errno_location() #11
+  %call163 = tail call ptr @__errno_location() #10
   %30 = load i32, ptr %call163, align 4
   %cmp164 = icmp eq i32 %30, 7
   br i1 %cmp164, label %if.end184, label %if.then166
@@ -348,7 +348,7 @@ land.lhs.true162:                                 ; preds = %land.lhs.true159
 if.then166:                                       ; preds = %land.lhs.true162, %land.lhs.true159
   store ptr @.str.5, ptr %tb167, align 8
   store i64 1, ptr %tbl168, align 8
-  %call169 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb167, ptr noundef nonnull %tbl168, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call169 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb167, ptr noundef nonnull %tbl168, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %31 = load ptr, ptr %ib, align 8
   %ibl.promoted117 = load i64, ptr %ibl, align 8
   br label %for.cond172
@@ -369,23 +369,23 @@ land.rhs174:                                      ; preds = %for.cond172
   br i1 %tobool177.not, label %if.end184, label %for.cond172, !llvm.loop !8
 
 if.end184:                                        ; preds = %land.rhs174, %land.lhs.true162
-  %call152 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %call152 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %tobool153 = icmp eq i64 %call152, 0
-  %tobool155 = icmp ne i32 %spec.store.select157, 0
+  %tobool155 = icmp ne i32 %spec.store.select160, 0
   %or.cond1 = select i1 %tobool153, i1 true, i1 %tobool155
-  %spec.store.select = select i1 %or.cond1, i32 %spec.store.select157, i32 1
+  %spec.store.select = select i1 %or.cond1, i32 %spec.store.select160, i32 1
   %33 = load i64, ptr %ibl, align 8
   %tobool158.not = icmp eq i64 %33, 0
   br i1 %tobool158.not, label %while.end185, label %land.lhs.true159, !llvm.loop !9
 
 while.end185:                                     ; preds = %if.end184, %for.cond172, %while.body151.preheader
-  %spec.store.select143 = phi i32 [ %spec.store.select154, %while.body151.preheader ], [ %spec.store.select157, %for.cond172 ], [ %spec.store.select, %if.end184 ]
-  %call186 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
+  %spec.store.select146 = phi i32 [ %spec.store.select157, %while.body151.preheader ], [ %spec.store.select160, %for.cond172 ], [ %spec.store.select, %if.end184 ]
+  %call186 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %34 = load ptr, ptr %ob, align 8
   store i8 0, ptr %34, align 1
-  call void @free(ptr noundef %call103) #8
-  %call187 = call i32 @iconv_close(ptr noundef %call) #8
-  %call188 = call i32 @iconv_close(ptr noundef %cd2.1) #8
+  call void @free(ptr noundef %call103) #7
+  %call187 = call i32 @iconv_close(ptr noundef %call) #7
+  %call188 = call i32 @iconv_close(ptr noundef %cd2.1) #7
   %tobool189.not = icmp eq ptr %tolen, null
   br i1 %tobool189.not, label %if.end191, label %if.then190
 
@@ -398,7 +398,7 @@ if.end191:                                        ; preds = %if.then190, %while.
   br i1 %tobool192.not, label %if.then193, label %if.end194
 
 if.then193:                                       ; preds = %if.end191
-  call void @free(ptr noundef %call.i.i) #8
+  call void @free(ptr noundef %call.i.i) #7
   br label %return
 
 if.end194:                                        ; preds = %if.end191
@@ -411,20 +411,20 @@ fail:                                             ; preds = %if.end60, %if.then5
   br i1 %cmp195.not, label %if.end198, label %if.then197
 
 if.then197:                                       ; preds = %fail
-  call void @free(ptr noundef nonnull %utfbuf.2) #8
+  call void @free(ptr noundef nonnull %utfbuf.2) #7
   br label %if.end198
 
 if.end198:                                        ; preds = %if.end45, %if.then197, %fail
-  %call199 = call i32 @iconv_close(ptr noundef %call) #8
+  %call199 = call i32 @iconv_close(ptr noundef %call) #7
   %cmp200.not = icmp eq ptr %cd2.1, inttoptr (i64 -1 to ptr)
   br i1 %cmp200.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %if.end198
-  %call203 = call i32 @iconv_close(ptr noundef %cd2.1) #8
+  %call203 = call i32 @iconv_close(ptr noundef %cd2.1) #7
   br label %return
 
 return:                                           ; preds = %if.end198.thread, %if.end198, %if.then202, %entry, %if.end194, %if.then193, %if.end89, %if.then80, %if.then42
-  %retval.0 = phi i32 [ -1, %if.then42 ], [ %ret.0.lcssa, %if.end89 ], [ %ret.0.lcssa, %if.then80 ], [ %spec.store.select143, %if.end194 ], [ %spec.store.select143, %if.then193 ], [ -1, %entry ], [ -2, %if.then202 ], [ -2, %if.end198 ], [ -2, %if.end198.thread ]
+  %retval.0 = phi i32 [ -1, %if.then42 ], [ %ret.0.lcssa, %if.end89 ], [ %ret.0.lcssa, %if.then80 ], [ %spec.store.select146, %if.end194 ], [ %spec.store.select146, %if.then193 ], [ -1, %entry ], [ -2, %if.then202 ], [ -2, %if.end198 ], [ -2, %if.end198.thread ]
   ret i32 %retval.0
 }
 
@@ -449,9 +449,6 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
-
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -459,11 +456,10 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind allocsize(1) }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind allocsize(1) }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
