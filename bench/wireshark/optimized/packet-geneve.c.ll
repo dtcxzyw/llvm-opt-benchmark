@@ -375,19 +375,19 @@ proto_item_set_hidden.exit68.i.i:                 ; preds = %120, %117, %116, %1
 
 135:                                              ; preds = %proto_item_set_hidden.exit68.i.i
   %136 = load i32, ptr @hf_geneve_opt_gcp_endpoint, align 4
-  %137 = add nsw i32 %64, -4
+  %137 = zext nneg i8 %63 to i32
   %138 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %136, ptr noundef %0, i32 noundef %126, i32 noundef %137, i32 noundef 0) #2
   br label %dissect_option.exit.i
 
 139:                                              ; preds = %proto_item_set_hidden.exit68.i.i
   %140 = load i32, ptr @hf_geneve_opt_gcp_profile, align 4
-  %141 = add nsw i32 %64, -4
+  %141 = zext nneg i8 %63 to i32
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %140, ptr noundef %0, i32 noundef %126, i32 noundef %141, i32 noundef 0) #2
   br label %dissect_option.exit.i
 
 143:                                              ; preds = %proto_item_set_hidden.exit68.i.i
   %144 = load i32, ptr @hf_geneve_opt_unknown_data, align 4
-  %145 = add nsw i32 %64, -4
+  %145 = zext nneg i8 %63 to i32
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %144, ptr noundef %0, i32 noundef %126, i32 noundef %145, i32 noundef 0) #2
   br label %dissect_option.exit.i
 

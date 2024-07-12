@@ -2252,14 +2252,14 @@ if.else55:                                        ; preds = %while.body
   br i1 %cmp67, label %while.end87, label %while.cond71.preheader
 
 while.cond71.preheader:                           ; preds = %if.else55
+  %dec40 = zext nneg i32 %and57 to i64
   %16 = trunc nuw nsw i32 %and62 to i8
   %conv79 = add nuw nsw i8 %16, 1
   br label %while.body72
 
 while.body72:                                     ; preds = %while.cond71.preheader, %if.end82
   %indvars.iv = phi i64 [ %conv65, %while.cond71.preheader ], [ %indvars.iv.next, %if.end82 ]
-  %dec42.in = phi i64 [ %conv59, %while.cond71.preheader ], [ %dec42, %if.end82 ]
-  %dec42 = add nsw i64 %dec42.in, -1
+  %dec42 = phi i64 [ %dec40, %while.cond71.preheader ], [ %dec, %if.end82 ]
   %arrayidx74 = getelementptr inbounds i8, ptr %max, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx74, align 1
   %18 = zext i8 %17 to i32
@@ -2272,6 +2272,7 @@ if.then78:                                        ; preds = %while.body72
 
 if.end82:                                         ; preds = %if.then78, %while.body72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %dec = add nsw i64 %dec42, -1
   %tobool.not = icmp eq i64 %dec42, 0
   br i1 %tobool.not, label %while.end, label %while.body72, !llvm.loop !19
 

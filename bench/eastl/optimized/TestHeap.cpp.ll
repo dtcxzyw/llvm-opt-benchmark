@@ -370,8 +370,7 @@ for.end:                                          ; preds = %for.body12
   call void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_RT0_(ptr noundef nonnull %call6, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   %add.ptr19 = getelementptr inbounds i32, ptr %call9, i64 %wide.trip.count
-  %sub.i = add nsw i64 %wide.trip.count, -2
-  %shr.i = lshr i64 %sub.i, 1
+  %shr.i = lshr i64 %mul.i.i, 33
   %add.i181 = add nuw nsw i64 %shr.i, 1
   br label %do.body.i
 
