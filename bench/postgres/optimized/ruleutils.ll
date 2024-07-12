@@ -19650,10 +19650,9 @@ define internal fastcc void @get_json_constructor_options(ptr nocapture noundef 
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %21, align 8
   %32 = icmp eq i32 %31, 3802
-  %33 = select i1 %32, i32 2, i32 1
-  %.not8.i = icmp eq i32 %30, %33
-  %34 = icmp eq i32 %30, 0
-  %or.cond.i = or i1 %34, %.not8.i
+  %33 = select i1 %32, i32 -3, i32 -2
+  %34 = and i32 %33, %30
+  %or.cond.i = icmp eq i32 %34, 0
   br i1 %or.cond.i, label %get_json_returning.exit, label %35
 
 35:                                               ; preds = %23
