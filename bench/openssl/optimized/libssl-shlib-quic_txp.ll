@@ -2623,7 +2623,6 @@ if.then71.i.i:                                    ; preds = %land.rhs.i.i, %lor.
   %bf.set75.i.i = or i8 %bf.load.i117.i.i, 1
   store i8 %bf.set75.i.i, ptr %has_explicit_len.i.i, align 16
   store i64 0, ptr %payload_len_explicit.i.i, align 8
-  store i64 0, ptr %hdr_len_explicit.i.i, align 8
   store i64 0, ptr %len1.i.i.i, align 16
   %call.i121.i.i = call i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr noundef nonnull %arrayidx13.i.i) #10
   %cmp5.i122.i.i = icmp eq i64 %call.i121.i.i, 0

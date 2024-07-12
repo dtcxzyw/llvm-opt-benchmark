@@ -103,7 +103,6 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %deadline, align 8
   %add = add nsw i64 %0, 3
-  store i64 %add, ptr %deadline, align 8
   store ptr null, ptr %names, align 8
   store ptr null, ptr %names_after, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %now, i8 0, i64 16, i1 false)

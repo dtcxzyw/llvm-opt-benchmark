@@ -2481,7 +2481,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions36suggestedDefaultPerViewRenderin
   %10 = alloca %struct.MLPerViewGLOptions, align 8
   call void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %255, label %12
+  br i1 %11, label %254, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 264
@@ -2521,9 +2521,9 @@ define void @_ZN29MLPoliciesStandAloneFunctions36suggestedDefaultPerViewRenderin
 
 _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit: ; preds = %._crit_edge.i, %26
   store ptr null, ptr %23, align 8
-  br label %254
+  br label %253
 
-30:                                               ; preds = %254
+30:                                               ; preds = %253
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2803,237 +2803,232 @@ _ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_1
           to label %149 unwind label %93
 
 149:                                              ; preds = %147
-  br i1 %148, label %150, label %254
+  br i1 %148, label %150, label %253
 
 150:                                              ; preds = %143, %149
-  %151 = getelementptr inbounds i8, ptr %9, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %151, i8 0, i64 5, i1 false)
-  store i8 1, ptr %9, align 1
-  store i8 1, ptr %34, align 1
-  store i8 1, ptr %35, align 1
-  %152 = getelementptr inbounds i8, ptr %10, i64 13
-  %153 = getelementptr inbounds i8, ptr %10, i64 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 12
-  store i8 1, ptr %154, align 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -12566464, i32 -1>, ptr %152, align 1
-  %155 = getelementptr inbounds i8, ptr %10, i64 29
-  %156 = getelementptr inbounds i8, ptr %10, i64 36
-  store i8 0, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %10, i64 34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %155, i8 0, i64 5, i1 false)
-  store i8 1, ptr %157, align 2
-  %158 = getelementptr inbounds i8, ptr %10, i64 35
-  store i8 0, ptr %158, align 1
-  %159 = getelementptr inbounds i8, ptr %10, i64 40
-  store float 3.000000e+00, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %10, i64 44
-  store i8 0, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %10, i64 45
-  store i8 1, ptr %161, align 1
-  %162 = getelementptr inbounds i8, ptr %10, i64 48
-  store float 1.000000e+00, ptr %162, align 8
+  %151 = getelementptr inbounds i8, ptr %10, i64 13
+  %152 = getelementptr inbounds i8, ptr %10, i64 8
+  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %10, i64 12
+  store i8 1, ptr %153, align 4
+  store <4 x i32> <i32 -1, i32 -1, i32 -12566464, i32 -1>, ptr %151, align 1
+  %154 = getelementptr inbounds i8, ptr %10, i64 29
+  %155 = getelementptr inbounds i8, ptr %10, i64 36
+  store i8 0, ptr %155, align 4
+  %156 = getelementptr inbounds i8, ptr %10, i64 34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %154, i8 0, i64 5, i1 false)
+  store i8 1, ptr %156, align 2
+  %157 = getelementptr inbounds i8, ptr %10, i64 35
+  store i8 0, ptr %157, align 1
+  %158 = getelementptr inbounds i8, ptr %10, i64 40
+  store float 3.000000e+00, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %10, i64 44
+  store i8 0, ptr %159, align 4
+  %160 = getelementptr inbounds i8, ptr %10, i64 45
+  store i8 1, ptr %160, align 1
+  %161 = getelementptr inbounds i8, ptr %10, i64 48
+  store float 1.000000e+00, ptr %161, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %10, align 8
-  %163 = getelementptr inbounds i8, ptr %10, i64 66
-  %164 = getelementptr inbounds i8, ptr %10, i64 70
-  %165 = getelementptr inbounds i8, ptr %10, i64 74
-  %166 = getelementptr inbounds i8, ptr %10, i64 79
-  %167 = getelementptr inbounds i8, ptr %10, i64 83
-  %168 = getelementptr inbounds i8, ptr %10, i64 52
-  store i8 1, ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %10, i64 53
-  %170 = getelementptr inbounds i8, ptr %10, i64 63
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %169, i8 0, i64 10, i1 false)
-  store i8 1, ptr %170, align 1
-  %171 = getelementptr inbounds i8, ptr %10, i64 64
-  store i8 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %10, i64 65
+  %162 = getelementptr inbounds i8, ptr %10, i64 66
+  %163 = getelementptr inbounds i8, ptr %10, i64 70
+  %164 = getelementptr inbounds i8, ptr %10, i64 74
+  %165 = getelementptr inbounds i8, ptr %10, i64 79
+  %166 = getelementptr inbounds i8, ptr %10, i64 83
+  %167 = getelementptr inbounds i8, ptr %10, i64 52
+  store i8 1, ptr %167, align 4
+  %168 = getelementptr inbounds i8, ptr %10, i64 53
+  %169 = getelementptr inbounds i8, ptr %10, i64 63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %168, i8 0, i64 10, i1 false)
+  store i8 1, ptr %169, align 1
+  %170 = getelementptr inbounds i8, ptr %10, i64 64
+  store i8 0, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %10, i64 65
+  store i8 0, ptr %171, align 1
+  %172 = getelementptr inbounds i8, ptr %10, i64 87
   store i8 0, ptr %172, align 1
-  %173 = getelementptr inbounds i8, ptr %10, i64 87
-  store i8 0, ptr %173, align 1
-  %174 = getelementptr inbounds i8, ptr %10, i64 88
-  store i8 1, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %10, i64 89
-  store i8 1, ptr %175, align 1
-  store i32 -14671840, ptr %163, align 2
-  store i32 -3355444, ptr %164, align 2
-  store i32 -1, ptr %165, align 2
-  %176 = getelementptr inbounds i8, ptr %10, i64 78
-  store i8 0, ptr %176, align 2
-  store i32 -3355393, ptr %166, align 1
-  store i32 -13108, ptr %167, align 1
-  %177 = getelementptr inbounds i8, ptr %8, i64 32
-  %178 = load ptr, ptr %177, align 8
-  %.not = icmp eq ptr %178, null
-  br i1 %.not, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, label %181
+  %173 = getelementptr inbounds i8, ptr %10, i64 88
+  store i8 1, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %10, i64 89
+  store i8 1, ptr %174, align 1
+  store i32 -14671840, ptr %162, align 2
+  store i32 -3355444, ptr %163, align 2
+  store i32 -1, ptr %164, align 2
+  %175 = getelementptr inbounds i8, ptr %10, i64 78
+  store i8 0, ptr %175, align 2
+  store i32 -3355393, ptr %165, align 1
+  store i32 -13108, ptr %166, align 1
+  %176 = getelementptr inbounds i8, ptr %8, i64 32
+  %177 = load ptr, ptr %176, align 8
+  %.not = icmp eq ptr %177, null
+  br i1 %.not, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, label %180
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread: ; preds = %150
-  %179 = getelementptr inbounds i8, ptr %10, i64 60
-  store i8 1, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %10, i64 61
-  store i8 1, ptr %180, align 1
-  br label %247
+  %178 = getelementptr inbounds i8, ptr %10, i64 60
+  store i8 1, ptr %178, align 4
+  %179 = getelementptr inbounds i8, ptr %10, i64 61
+  store i8 1, ptr %179, align 1
+  br label %246
 
-181:                                              ; preds = %150
-  %182 = getelementptr inbounds i8, ptr %10, i64 9
-  %183 = getelementptr inbounds i8, ptr %178, i64 8
-  %184 = load i8, ptr %183, align 8
-  %185 = and i8 %184, 1
-  store i8 %185, ptr %153, align 8
-  %186 = getelementptr inbounds i8, ptr %178, i64 36
-  %187 = load i8, ptr %186, align 4
-  %188 = and i8 %187, 1
-  store i8 %188, ptr %156, align 4
-  %189 = getelementptr inbounds i8, ptr %178, i64 40
-  %190 = load float, ptr %189, align 8
-  store float %190, ptr %159, align 8
-  %191 = getelementptr inbounds i8, ptr %178, i64 44
-  %192 = load i8, ptr %191, align 4
-  %193 = and i8 %192, 1
-  store i8 %193, ptr %160, align 4
-  %194 = getelementptr inbounds i8, ptr %178, i64 45
-  %195 = load i8, ptr %194, align 1
-  %196 = and i8 %195, 1
-  store i8 %196, ptr %161, align 1
-  %197 = getelementptr inbounds i8, ptr %178, i64 9
-  %198 = load <4 x i8>, ptr %197, align 1
-  %199 = and <4 x i8> %198, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %199, ptr %182, align 1
-  %200 = getelementptr inbounds i8, ptr %178, i64 29
-  %201 = load <4 x i8>, ptr %200, align 1
-  %202 = and <4 x i8> %201, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %202, ptr %155, align 1
-  %203 = getelementptr inbounds i8, ptr %178, i64 13
-  %204 = load <4 x i32>, ptr %203, align 1
-  store <4 x i32> %204, ptr %152, align 1
-  %205 = getelementptr inbounds i8, ptr %178, i64 33
-  %206 = load i8, ptr %205, align 1
-  %207 = getelementptr inbounds i8, ptr %10, i64 33
-  %208 = and i8 %206, 1
-  store i8 %208, ptr %207, align 1
-  %209 = getelementptr inbounds i8, ptr %178, i64 34
-  %210 = load i8, ptr %209, align 2
-  %211 = and i8 %210, 1
-  store i8 %211, ptr %157, align 2
-  %212 = getelementptr inbounds i8, ptr %178, i64 35
-  %213 = load i8, ptr %212, align 1
-  %214 = and i8 %213, 1
-  store i8 %214, ptr %158, align 1
-  %215 = getelementptr inbounds i8, ptr %178, i64 48
-  %216 = load float, ptr %215, align 8
-  store float %216, ptr %162, align 8
-  %217 = getelementptr inbounds i8, ptr %178, i64 52
-  %218 = load <8 x i8>, ptr %217, align 4
-  %219 = and <8 x i8> %218, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  store <8 x i8> %219, ptr %168, align 4
-  %220 = getelementptr inbounds i8, ptr %10, i64 61
-  %221 = getelementptr inbounds i8, ptr %10, i64 60
-  %222 = getelementptr inbounds i8, ptr %178, i64 62
-  %223 = getelementptr inbounds i8, ptr %10, i64 62
-  %224 = load <4 x i8>, ptr %222, align 2
-  %225 = and <4 x i8> %224, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %225, ptr %223, align 2
-  %226 = getelementptr inbounds i8, ptr %178, i64 87
-  %227 = load i8, ptr %226, align 1
-  %228 = and i8 %227, 1
-  store i8 %228, ptr %173, align 1
-  %229 = getelementptr inbounds i8, ptr %178, i64 89
-  %230 = load i8, ptr %229, align 1
-  %231 = and i8 %230, 1
-  store i8 %231, ptr %175, align 1
-  %232 = getelementptr inbounds i8, ptr %178, i64 88
-  %233 = load i8, ptr %232, align 8
-  %234 = and i8 %233, 1
-  store i8 %234, ptr %174, align 8
-  %235 = getelementptr inbounds i8, ptr %178, i64 66
-  %236 = load <2 x i32>, ptr %235, align 2
-  store <2 x i32> %236, ptr %163, align 2
-  %237 = getelementptr inbounds i8, ptr %178, i64 74
-  %238 = load i32, ptr %237, align 2
-  store i32 %238, ptr %165, align 2
-  %239 = getelementptr inbounds i8, ptr %178, i64 78
-  %240 = load i8, ptr %239, align 2
-  %241 = and i8 %240, 1
-  store i8 %241, ptr %176, align 2
-  %242 = getelementptr inbounds i8, ptr %178, i64 79
-  %243 = load <2 x i32>, ptr %242, align 1
-  store <2 x i32> %243, ptr %166, align 1
-  store i8 1, ptr %221, align 4
-  store i8 1, ptr %220, align 1
-  %244 = load ptr, ptr %178, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
-  %246 = load ptr, ptr %245, align 8
-  call void %246(ptr noundef nonnull align 8 dereferenceable(90) %178) #22
-  br label %247
+180:                                              ; preds = %150
+  %181 = getelementptr inbounds i8, ptr %10, i64 9
+  %182 = getelementptr inbounds i8, ptr %177, i64 8
+  %183 = load i8, ptr %182, align 8
+  %184 = and i8 %183, 1
+  store i8 %184, ptr %152, align 8
+  %185 = getelementptr inbounds i8, ptr %177, i64 36
+  %186 = load i8, ptr %185, align 4
+  %187 = and i8 %186, 1
+  store i8 %187, ptr %155, align 4
+  %188 = getelementptr inbounds i8, ptr %177, i64 40
+  %189 = load float, ptr %188, align 8
+  store float %189, ptr %158, align 8
+  %190 = getelementptr inbounds i8, ptr %177, i64 44
+  %191 = load i8, ptr %190, align 4
+  %192 = and i8 %191, 1
+  store i8 %192, ptr %159, align 4
+  %193 = getelementptr inbounds i8, ptr %177, i64 45
+  %194 = load i8, ptr %193, align 1
+  %195 = and i8 %194, 1
+  store i8 %195, ptr %160, align 1
+  %196 = getelementptr inbounds i8, ptr %177, i64 9
+  %197 = load <4 x i8>, ptr %196, align 1
+  %198 = and <4 x i8> %197, <i8 1, i8 1, i8 1, i8 1>
+  store <4 x i8> %198, ptr %181, align 1
+  %199 = getelementptr inbounds i8, ptr %177, i64 29
+  %200 = load <4 x i8>, ptr %199, align 1
+  %201 = and <4 x i8> %200, <i8 1, i8 1, i8 1, i8 1>
+  store <4 x i8> %201, ptr %154, align 1
+  %202 = getelementptr inbounds i8, ptr %177, i64 13
+  %203 = load <4 x i32>, ptr %202, align 1
+  store <4 x i32> %203, ptr %151, align 1
+  %204 = getelementptr inbounds i8, ptr %177, i64 33
+  %205 = load i8, ptr %204, align 1
+  %206 = getelementptr inbounds i8, ptr %10, i64 33
+  %207 = and i8 %205, 1
+  store i8 %207, ptr %206, align 1
+  %208 = getelementptr inbounds i8, ptr %177, i64 34
+  %209 = load i8, ptr %208, align 2
+  %210 = and i8 %209, 1
+  store i8 %210, ptr %156, align 2
+  %211 = getelementptr inbounds i8, ptr %177, i64 35
+  %212 = load i8, ptr %211, align 1
+  %213 = and i8 %212, 1
+  store i8 %213, ptr %157, align 1
+  %214 = getelementptr inbounds i8, ptr %177, i64 48
+  %215 = load float, ptr %214, align 8
+  store float %215, ptr %161, align 8
+  %216 = getelementptr inbounds i8, ptr %177, i64 52
+  %217 = load <8 x i8>, ptr %216, align 4
+  %218 = and <8 x i8> %217, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  store <8 x i8> %218, ptr %167, align 4
+  %219 = getelementptr inbounds i8, ptr %10, i64 61
+  %220 = getelementptr inbounds i8, ptr %10, i64 60
+  %221 = getelementptr inbounds i8, ptr %177, i64 62
+  %222 = getelementptr inbounds i8, ptr %10, i64 62
+  %223 = load <4 x i8>, ptr %221, align 2
+  %224 = and <4 x i8> %223, <i8 1, i8 1, i8 1, i8 1>
+  store <4 x i8> %224, ptr %222, align 2
+  %225 = getelementptr inbounds i8, ptr %177, i64 87
+  %226 = load i8, ptr %225, align 1
+  %227 = and i8 %226, 1
+  store i8 %227, ptr %172, align 1
+  %228 = getelementptr inbounds i8, ptr %177, i64 89
+  %229 = load i8, ptr %228, align 1
+  %230 = and i8 %229, 1
+  store i8 %230, ptr %174, align 1
+  %231 = getelementptr inbounds i8, ptr %177, i64 88
+  %232 = load i8, ptr %231, align 8
+  %233 = and i8 %232, 1
+  store i8 %233, ptr %173, align 8
+  %234 = getelementptr inbounds i8, ptr %177, i64 66
+  %235 = load <2 x i32>, ptr %234, align 2
+  store <2 x i32> %235, ptr %162, align 2
+  %236 = getelementptr inbounds i8, ptr %177, i64 74
+  %237 = load i32, ptr %236, align 2
+  store i32 %237, ptr %164, align 2
+  %238 = getelementptr inbounds i8, ptr %177, i64 78
+  %239 = load i8, ptr %238, align 2
+  %240 = and i8 %239, 1
+  store i8 %240, ptr %175, align 2
+  %241 = getelementptr inbounds i8, ptr %177, i64 79
+  %242 = load <2 x i32>, ptr %241, align 1
+  store <2 x i32> %242, ptr %165, align 1
+  store i8 1, ptr %220, align 4
+  store i8 1, ptr %219, align 1
+  %243 = load ptr, ptr %177, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %245 = load ptr, ptr %244, align 8
+  call void %245(ptr noundef nonnull align 8 dereferenceable(90) %177) #22
+  br label %246
 
-247:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, %181
-  %248 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
-          to label %.noexc52 unwind label %252
+246:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, %180
+  %247 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
+          to label %.noexc52 unwind label %251
 
-.noexc52:                                         ; preds = %247
-  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %248, ptr noundef nonnull align 8 dereferenceable(90) %10)
-          to label %251 unwind label %249
+.noexc52:                                         ; preds = %246
+  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %247, ptr noundef nonnull align 8 dereferenceable(90) %10)
+          to label %250 unwind label %248
 
-249:                                              ; preds = %.noexc52
-  %250 = landingpad { ptr, i32 }
+248:                                              ; preds = %.noexc52
+  %249 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %248) #21
+  call void @_ZdlPv(ptr noundef nonnull %247) #21
   br label %.body
 
-251:                                              ; preds = %.noexc52
-  store ptr %248, ptr %177, align 8
-  br label %254
+250:                                              ; preds = %.noexc52
+  store ptr %247, ptr %176, align 8
+  br label %253
 
-252:                                              ; preds = %247
-  %253 = landingpad { ptr, i32 }
+251:                                              ; preds = %246
+  %252 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-254:                                              ; preds = %149, %251, %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit
+253:                                              ; preds = %149, %250, %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit
   call void @_ZN29MLPoliciesStandAloneFunctions19setBestWireModalityEP9MeshModelR15MLRenderingData(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %8)
   invoke void @_ZN29MLPoliciesStandAloneFunctions47computeRequestedRenderingDataCompatibleWithMeshEP9MeshModelRK15MLRenderingDataRS2_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %255 unwind label %30
+          to label %254 unwind label %30
 
-255:                                              ; preds = %254, %3
-  %256 = getelementptr inbounds i8, ptr %8, i64 8
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %8, i64 16
-  %259 = load ptr, ptr %258, align 8
-  %.not.i.i.i.i = icmp eq ptr %259, %257
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %260
+254:                                              ; preds = %253, %3
+  %255 = getelementptr inbounds i8, ptr %8, i64 8
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds i8, ptr %8, i64 16
+  %258 = load ptr, ptr %257, align 8
+  %.not.i.i.i.i = icmp eq ptr %258, %256
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %259
 
-260:                                              ; preds = %255
-  store ptr %257, ptr %258, align 8
+259:                                              ; preds = %254
+  store ptr %256, ptr %257, align 8
   br label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
 
-_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %260, %255
-  %261 = getelementptr inbounds i8, ptr %8, i64 32
-  %262 = load ptr, ptr %261, align 8
-  %263 = icmp eq ptr %262, null
-  br i1 %263, label %268, label %264
+_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %259, %254
+  %260 = getelementptr inbounds i8, ptr %8, i64 32
+  %261 = load ptr, ptr %260, align 8
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %267, label %263
 
-264:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %265 = load ptr, ptr %262, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 8
-  %267 = load ptr, ptr %266, align 8
-  call void %267(ptr noundef nonnull align 8 dereferenceable(90) %262) #22
-  %.pre.i.i = load ptr, ptr %256, align 8
-  br label %268
+263:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %264 = load ptr, ptr %261, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 8
+  %266 = load ptr, ptr %265, align 8
+  call void %266(ptr noundef nonnull align 8 dereferenceable(90) %261) #22
+  %.pre.i.i = load ptr, ptr %255, align 8
+  br label %267
 
-268:                                              ; preds = %264, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %269 = phi ptr [ %.pre.i.i, %264 ], [ %257, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %269, null
-  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %270
+267:                                              ; preds = %263, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %268 = phi ptr [ %.pre.i.i, %263 ], [ %256, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %268, null
+  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %269
 
-270:                                              ; preds = %268
-  call void @_ZdlPv(ptr noundef nonnull %269) #21
+269:                                              ; preds = %267
+  call void @_ZdlPv(ptr noundef nonnull %268) #21
   br label %_ZN15MLRenderingDataD2Ev.exit
 
-_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %268, %270
+_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %267, %269
   ret void
 
-.body:                                            ; preds = %93, %249, %252, %30
-  %.pn19 = phi { ptr, i32 } [ %31, %30 ], [ %94, %93 ], [ %253, %252 ], [ %250, %249 ]
+.body:                                            ; preds = %93, %248, %251, %30
+  %.pn19 = phi { ptr, i32 } [ %31, %30 ], [ %94, %93 ], [ %252, %251 ], [ %249, %248 ]
   call void @_ZN15MLRenderingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #22
   resume { ptr, i32 } %.pn19
 }

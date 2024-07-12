@@ -274,15 +274,15 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %170 = icmp eq i32 %103, 3
   %171 = load double, ptr %8, align 8, !tbaa !7
   %172 = load i32, ptr %2, align 4, !tbaa !3
-  %173 = add nsw i32 %172, -1
-  store i32 %173, ptr %19, align 4, !tbaa !3
-  br i1 %170, label %174, label %.loopexit56
+  br i1 %170, label %173, label %.loopexit56
 
-174:                                              ; preds = %.loopexit57
+173:                                              ; preds = %.loopexit57
+  %174 = add nsw i32 %172, -1
+  store i32 %174, ptr %19, align 4, !tbaa !3
   %175 = icmp slt i32 %172, 2
   br i1 %175, label %.loopexit55, label %.preheader54
 
-.preheader54:                                     ; preds = %174
+.preheader54:                                     ; preds = %173
   %176 = zext nneg i32 %172 to i64
   br label %177
 
@@ -312,11 +312,11 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %.pre95 = load i32, ptr %2, align 4, !tbaa !3
   br label %.loopexit55
 
-.loopexit55:                                      ; preds = %.loopexit55.loopexit, %174
-  %196 = phi i32 [ %172, %174 ], [ %.pre95, %.loopexit55.loopexit ]
-  %197 = phi double [ %171, %174 ], [ %194, %.loopexit55.loopexit ]
-  %198 = phi double [ %171, %174 ], [ %190, %.loopexit55.loopexit ]
-  %199 = phi double [ 0.000000e+00, %174 ], [ %184, %.loopexit55.loopexit ]
+.loopexit55:                                      ; preds = %.loopexit55.loopexit, %173
+  %196 = phi i32 [ %172, %173 ], [ %.pre95, %.loopexit55.loopexit ]
+  %197 = phi double [ %171, %173 ], [ %194, %.loopexit55.loopexit ]
+  %198 = phi double [ %171, %173 ], [ %190, %.loopexit55.loopexit ]
+  %199 = phi double [ 0.000000e+00, %173 ], [ %184, %.loopexit55.loopexit ]
   %200 = sext i32 %196 to i64
   %201 = getelementptr inbounds double, ptr %36, i64 %200
   %202 = load double, ptr %201, align 8, !tbaa !7

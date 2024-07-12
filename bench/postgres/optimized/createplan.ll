@@ -1333,7 +1333,6 @@ list_length.exit114:                              ; preds = %716, %718
   %723 = load ptr, ptr %722, align 8
   %724 = getelementptr inbounds i8, ptr %1, i64 8
   %725 = load ptr, ptr %724, align 8
-  store i32 0, ptr %39, align 4
   store ptr null, ptr %40, align 8
   %726 = getelementptr inbounds i8, ptr %1, i64 72
   %727 = load ptr, ptr %726, align 8

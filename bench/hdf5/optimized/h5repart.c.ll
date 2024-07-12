@@ -263,7 +263,6 @@ sub_2247:                                         ; preds = %sub_1246
 
 96:                                               ; preds = %94
   %97 = add nsw i32 %.lcssa305, 2
-  store i32 %97, ptr %3, align 4
   %98 = sext i32 %71 to i64
   %99 = getelementptr inbounds ptr, ptr %1, i64 %98
   %100 = load ptr, ptr %99, align 8

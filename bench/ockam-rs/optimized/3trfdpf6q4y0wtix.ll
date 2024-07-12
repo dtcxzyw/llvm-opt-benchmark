@@ -114973,7 +114973,7 @@ common.resume:                                    ; preds = %442, %223, %.loopex
 .loopexit39.i.i.i:                                ; preds = %112, %.loopexit39.loopexit.i.i.i
   %110 = phi i8 [ %.pre.i.i.i, %.loopexit39.loopexit.i.i.i ], [ %113, %112 ]
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %.thread.i.i.i, label %123
+  br i1 %111, label %.loopexit.i.i.i, label %123
 
 112:                                              ; preds = %103
   %113 = load i8, ptr %87, align 8, !range !30, !noalias !17232, !noundef !4
@@ -115014,10 +115014,6 @@ common.resume:                                    ; preds = %442, %223, %.loopex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !17258
   br label %206
 
-.thread.i.i.i:                                    ; preds = %.loopexit39.i.i.i
-  store i8 0, ptr %87, align 8, !alias.scope !17259, !noalias !17260
-  br label %.loopexit.i.i.i
-
 .loopexit38.i.i.i:                                ; preds = %121, %115
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44), !noalias !17258
   store i64 5, ptr %44, align 8, !noalias !17258
@@ -115028,9 +115024,9 @@ common.resume:                                    ; preds = %442, %223, %.loopex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44), !noalias !17258
   br label %206
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph.i19.i.i.i, %.thread.i.i.i
-  %.pre.i.i60.i = phi i8 [ 0, %.thread.i.i.i ], [ %113, %.lr.ph.i19.i.i.i ]
-  %.sroa.3.034.i.i.i = phi i8 [ %106, %.thread.i.i.i ], [ %120, %.lr.ph.i19.i.i.i ]
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i19.i.i.i, %.loopexit39.i.i.i
+  %.pre.i.i60.i = phi i8 [ 0, %.loopexit39.i.i.i ], [ %113, %.lr.ph.i19.i.i.i ]
+  %.sroa.3.034.i.i.i = phi i8 [ %106, %.loopexit39.i.i.i ], [ %120, %.lr.ph.i19.i.i.i ]
   %126 = icmp eq i8 %.sroa.3.034.i.i.i, 93
   br i1 %126, label %127, label %129
 

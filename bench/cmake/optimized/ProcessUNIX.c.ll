@@ -3684,25 +3684,25 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %3, ptr %13, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %269, label %14
+  br i1 %.not, label %268, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 1292
   %16 = load volatile i32, ptr %15, align 4
   %.not30 = icmp eq i32 %16, 3
-  br i1 %.not30, label %17, label %269
+  br i1 %.not30, label %17, label %268
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 1296
   %19 = load volatile i32, ptr %18, align 8
   %.not31 = icmp eq i32 %19, 0
-  br i1 %.not31, label %20, label %269
+  br i1 %.not31, label %20, label %268
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 1152
   %22 = load i32, ptr %21, align 8
   %.not32 = icmp eq i32 %22, 0
-  br i1 %.not32, label %23, label %269
+  br i1 %.not32, label %23, label %268
 
 23:                                               ; preds = %20
   %.not33 = icmp eq ptr %3, null
@@ -3711,99 +3711,98 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
 .split:                                           ; preds = %23
   %24 = getelementptr inbounds i8, ptr %12, i64 24
   %25 = call fastcc i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %24)
+  %26 = icmp eq i32 %25, 0
   br label %kwsysProcessGetTimeoutTime.exit
 
 .split26:                                         ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %26 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #25
-  %27 = load i64, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = sdiv i64 %29, 1000
+  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #25
+  %28 = load i64, ptr %11, align 8
+  %29 = getelementptr inbounds i8, ptr %11, i64 8
+  %30 = load i64, ptr %29, align 8
+  %31 = sdiv i64 %30, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %31 = getelementptr inbounds i8, ptr %12, i64 24
-  %32 = getelementptr inbounds i8, ptr %0, i64 1080
-  %33 = load double, ptr %32, align 8
-  %34 = fcmp ogt double %33, 0.000000e+00
-  br i1 %34, label %35, label %54
+  %32 = getelementptr inbounds i8, ptr %12, i64 24
+  %33 = getelementptr inbounds i8, ptr %0, i64 1080
+  %34 = load double, ptr %33, align 8
+  %35 = fcmp ogt double %34, 0.000000e+00
+  br i1 %35, label %36, label %55
 
-35:                                               ; preds = %.split26
-  %36 = getelementptr inbounds i8, ptr %0, i64 1136
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp slt i64 %37, 0
-  br i1 %38, label %39, label %54
+36:                                               ; preds = %.split26
+  %37 = getelementptr inbounds i8, ptr %0, i64 1136
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp slt i64 %38, 0
+  br i1 %39, label %40, label %55
 
-39:                                               ; preds = %35
-  %40 = fptosi double %33 to i64
-  %41 = sitofp i64 %40 to double
-  %42 = fsub double %33, %41
-  %43 = fmul double %42, 1.000000e+06
-  %44 = fptosi double %43 to i64
-  %45 = getelementptr inbounds i8, ptr %0, i64 1120
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1128
-  %48 = load i64, ptr %47, align 8
-  %49 = add nsw i64 %46, %40
-  %50 = add nsw i64 %48, %44
-  %51 = icmp sgt i64 %50, 999999
-  %52 = add nsw i64 %50, -1000000
-  %53 = zext i1 %51 to i64
-  %.sroa.03.0.i.i = add nsw i64 %49, %53
-  %.sroa.4.0.i.i = select i1 %51, i64 %52, i64 %50
-  store i64 %.sroa.03.0.i.i, ptr %36, align 8
+40:                                               ; preds = %36
+  %41 = fptosi double %34 to i64
+  %42 = sitofp i64 %41 to double
+  %43 = fsub double %34, %42
+  %44 = fmul double %43, 1.000000e+06
+  %45 = fptosi double %44 to i64
+  %46 = getelementptr inbounds i8, ptr %0, i64 1120
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 1128
+  %49 = load i64, ptr %48, align 8
+  %50 = add nsw i64 %47, %41
+  %51 = add nsw i64 %49, %45
+  %52 = icmp sgt i64 %51, 999999
+  %53 = add nsw i64 %51, -1000000
+  %54 = zext i1 %52 to i64
+  %.sroa.03.0.i.i = add nsw i64 %50, %54
+  %.sroa.4.0.i.i = select i1 %52, i64 %53, i64 %51
+  store i64 %.sroa.03.0.i.i, ptr %37, align 8
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1144
   store i64 %.sroa.4.0.i.i, ptr %.sroa.25.0..sroa_idx.i, align 8
-  br label %54
+  br label %55
 
-54:                                               ; preds = %.split26, %35, %39
-  %55 = getelementptr inbounds i8, ptr %0, i64 1136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
+55:                                               ; preds = %.split26, %36, %40
+  %56 = getelementptr inbounds i8, ptr %0, i64 1136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #25
-  %57 = load i64, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = sdiv i64 %59, 1000
+  %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #25
+  %58 = load i64, ptr %10, align 8
+  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  %60 = load i64, ptr %59, align 8
+  %61 = sdiv i64 %60, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %61 = load double, ptr %3, align 8
-  %62 = fptosi double %61 to i64
-  %63 = sitofp i64 %62 to double
-  %64 = fsub double %61, %63
-  %65 = fmul double %64, 1.000000e+06
-  %66 = fptosi double %65 to i64
-  %67 = add nsw i64 %57, %62
-  %68 = add nsw i64 %60, %66
-  %69 = icmp sgt i64 %68, 999999
-  %70 = add nsw i64 %68, -1000000
-  %71 = zext i1 %69 to i64
-  %.sroa.03.0.i29.i = add nsw i64 %67, %71
-  %.sroa.4.0.i30.i = select i1 %69, i64 %70, i64 %68
-  %72 = load i64, ptr %31, align 8
-  %73 = icmp slt i64 %72, 0
-  br i1 %73, label %80, label %74
+  %62 = load double, ptr %3, align 8
+  %63 = fptosi double %62 to i64
+  %64 = sitofp i64 %63 to double
+  %65 = fsub double %62, %64
+  %66 = fmul double %65, 1.000000e+06
+  %67 = fptosi double %66 to i64
+  %68 = add nsw i64 %58, %63
+  %69 = add nsw i64 %61, %67
+  %70 = icmp sgt i64 %69, 999999
+  %71 = add nsw i64 %69, -1000000
+  %72 = zext i1 %70 to i64
+  %.sroa.03.0.i29.i = add nsw i64 %68, %72
+  %.sroa.4.0.i30.i = select i1 %70, i64 %71, i64 %69
+  %73 = load i64, ptr %32, align 8
+  %74 = icmp slt i64 %73, 0
+  br i1 %74, label %81, label %75
 
-74:                                               ; preds = %54
-  %75 = getelementptr inbounds i8, ptr %12, i64 32
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp sge i64 %.sroa.03.0.i29.i, %72
-  %78 = icmp ne i64 %.sroa.03.0.i29.i, %72
-  %79 = icmp sge i64 %.sroa.4.0.i30.i, %76
-  %.not37.i = select i1 %78, i1 true, i1 %79
-  %narrow.i.not.i = select i1 %77, i1 %.not37.i, i1 false
-  br i1 %narrow.i.not.i, label %kwsysProcessGetTimeoutTime.exit, label %80
+75:                                               ; preds = %55
+  %76 = getelementptr inbounds i8, ptr %12, i64 32
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp sge i64 %.sroa.03.0.i29.i, %73
+  %79 = icmp ne i64 %.sroa.03.0.i29.i, %73
+  %80 = icmp sge i64 %.sroa.4.0.i30.i, %77
+  %.not37.i = select i1 %79, i1 true, i1 %80
+  %narrow.i.not.i = select i1 %78, i1 %.not37.i, i1 false
+  br i1 %narrow.i.not.i, label %kwsysProcessGetTimeoutTime.exit, label %81
 
-80:                                               ; preds = %74, %54
-  store i64 %.sroa.03.0.i29.i, ptr %31, align 8
+81:                                               ; preds = %75, %55
+  store i64 %.sroa.03.0.i29.i, ptr %32, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
   store i64 %.sroa.4.0.i30.i, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %kwsysProcessGetTimeoutTime.exit
 
-kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
-  %phi.call = phi i32 [ %25, %.split ], [ 1, %80 ], [ 0, %74 ]
-  %.sroa.3.0 = phi i64 [ 0, %.split ], [ %30, %80 ], [ %30, %74 ]
-  %.sroa.05.0 = phi i64 [ 0, %.split ], [ %27, %80 ], [ %27, %74 ]
-  %81 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 %phi.call, ptr %81, align 8
+kwsysProcessGetTimeoutTime.exit:                  ; preds = %81, %75, %.split
+  %phi.call = phi i1 [ %26, %.split ], [ false, %81 ], [ true, %75 ]
+  %.sroa.3.0 = phi i64 [ 0, %.split ], [ %31, %81 ], [ %31, %75 ]
+  %.sroa.05.0 = phi i64 [ 0, %.split ], [ %28, %81 ], [ %28, %75 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 1156
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
@@ -3829,9 +3828,8 @@ kwsysProcessGetTimeoutTime.exit:                  ; preds = %80, %74, %.split
   %99 = load i64, ptr %98, align 8
   %100 = icmp slt i64 %99, 0
   %..i = select i1 %100, ptr null, ptr %9
-  %.not84.i = icmp eq i32 %phi.call, 0
   %101 = load ptr, ptr %13, align 8
-  %spec.select = select i1 %.not84.i, ptr null, ptr %101
+  %spec.select = select i1 %phi.call, ptr null, ptr %101
   %102 = getelementptr inbounds i8, ptr %6, i64 8
   %103 = getelementptr inbounds i8, ptr %12, i64 32
   %104 = load i64, ptr %103, align 8
@@ -4200,25 +4198,23 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
   %263 = getelementptr inbounds i8, ptr %12, i64 4
   %264 = load i32, ptr %263, align 4
   %.not35 = icmp eq i32 %264, 0
-  br i1 %.not35, label %265, label %269
+  br i1 %.not35, label %265, label %268
 
 265:                                              ; preds = %262
   %266 = load i32, ptr %12, align 8
-  %.not36 = icmp eq i32 %266, 0
-  br i1 %.not36, label %269, label %267
+  %.not36 = icmp ne i32 %266, 0
+  %brmerge.not = select i1 %.not36, i1 %phi.call, i1 false
+  %.mux = select i1 %.not36, i32 255, i32 0
+  br i1 %brmerge.not, label %267, label %268
 
 267:                                              ; preds = %265
-  %.not37 = icmp eq i32 %phi.call, 0
-  br i1 %.not37, label %268, label %269
-
-268:                                              ; preds = %267
   call void @cmsysProcess_Kill(ptr noundef nonnull %0)
   store volatile i32 0, ptr %18, align 8
   store i32 1, ptr %21, align 8
-  br label %269
+  br label %268
 
-269:                                              ; preds = %265, %267, %262, %4, %14, %17, %20, %268
-  %.0 = phi i32 [ 0, %268 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %4 ], [ %264, %262 ], [ 255, %267 ], [ 0, %265 ]
+268:                                              ; preds = %265, %262, %4, %14, %17, %20, %267
+  %.0 = phi i32 [ 0, %267 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %4 ], [ %264, %262 ], [ %.mux, %265 ]
   ret i32 %.0
 }
 

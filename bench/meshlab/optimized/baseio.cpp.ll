@@ -53044,7 +53044,6 @@ _ZN3vcg3tri2io11ImporterVMII6CMeshOldiscE4FreeEPv.exit100: ; preds = %300, %301
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds i8, ptr %306, i64 %308
   %310 = load i32, ptr %309, align 1
-  store i32 %310, ptr %16, align 4
   %311 = add i32 %307, 4
   store i32 %311, ptr @_ZZN3vcg3tri2io11ImporterVMII6CMeshOldiscE3posEvE1p, align 4
   br label %_ZN3vcg3tri2io11ImporterVMII6CMeshOldiscE7ReadIntERj.exit101

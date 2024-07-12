@@ -5153,9 +5153,6 @@ for.end:                                          ; preds = %for.body, %if.then2
   %16 = phi i32 [ %15, %if.then20 ], [ %spec.store.select1, %for.body ]
   %spec.store.select3107.lcssa = phi i32 [ %14, %if.then20 ], [ %spec.store.select3, %for.body ]
   %spec.store.select106.lcssa = phi i32 [ %13, %if.then20 ], [ %spec.store.select, %for.body ]
-  store i32 %spec.store.select106.lcssa, ptr %w, align 4
-  store i32 %spec.store.select3107.lcssa, ptr %h, align 4
-  store i32 %16, ptr %d, align 4
   %mul = mul i32 %spec.store.select3107.lcssa, 6
   %m_nchans = getelementptr inbounds i8, ptr %this, i64 248
   %17 = load i32, ptr %m_nchans, align 8

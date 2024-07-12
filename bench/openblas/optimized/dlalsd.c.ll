@@ -174,7 +174,6 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %100, label %101, label %.loopexit20
 
 101:                                              ; preds = %.loopexit21
-  store i32 %99, ptr %14, align 4, !tbaa !3
   %102 = sext i32 %26 to i64
   %103 = icmp sgt i32 %.pre24, 1
   br i1 %103, label %.split.preheader, label %.loopexit20

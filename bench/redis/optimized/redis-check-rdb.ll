@@ -281,19 +281,9 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %call6 = tail call i32 @fileno(ptr noundef nonnull %fp.addr.0) #15
   %call7 = call i32 @fstat64(i32 noundef %call6, ptr noundef nonnull %sb) #15
   %cmp8 = icmp eq i32 %call7, -1
-  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
-  br i1 %cmp8, label %if.then10, label %if.end.if.end11_crit_edge
-
-if.end.if.end11_crit_edge:                        ; preds = %if.end
-  %.pre = load i64, ptr %st_size, align 8
-  br label %if.end11
-
-if.then10:                                        ; preds = %if.end
-  store i64 0, ptr %st_size, align 8
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end.if.end11_crit_edge, %if.then10
-  %0 = phi i64 [ %.pre, %if.end.if.end11_crit_edge ], [ 0, %if.then10 ]
+  %st_size12.phi.trans.insert = getelementptr inbounds i8, ptr %sb, i64 48
+  %.pre = load i64, ptr %st_size12.phi.trans.insert, align 8
+  %0 = select i1 %cmp8, i64 0, i64 %.pre
   tail call void @startLoadingFile(i64 noundef %0, ptr noundef %rdbfilename, i32 noundef 0) #15
   tail call void @rioInitWithFile(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef nonnull %fp.addr.0) #15
   store ptr @redis_check_rdb.rdb, ptr @rdbstate, align 8
@@ -303,9 +293,9 @@ if.end11:                                         ; preds = %if.end.if.end11_cri
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i, label %eoferr
 
-while.body.i:                                     ; preds = %if.end11, %if.end12.i
-  %len.addr.03.i = phi i64 [ %sub.i, %if.end12.i ], [ 9, %if.end11 ]
-  %buf.addr.02.i = phi ptr [ %add.ptr.i, %if.end12.i ], [ %buf, %if.end11 ]
+while.body.i:                                     ; preds = %if.end, %if.end12.i
+  %len.addr.03.i = phi i64 [ %sub.i, %if.end12.i ], [ 9, %if.end ]
+  %buf.addr.02.i = phi ptr [ %add.ptr.i, %if.end12.i ], [ %buf, %if.end ]
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
   %tobool2.not.not.i = icmp eq i64 %2, 0
   %3 = call i64 @llvm.umin.i64(i64 %2, i64 %len.addr.03.i)
@@ -655,7 +645,7 @@ if.end242.sink.split:                             ; preds = %if.else235, %if.end
 if.end242:                                        ; preds = %if.end242.sink.split, %while.end
   br i1 %cmp, label %return.sink.split.sink.split, label %return.sink.split
 
-eoferr:                                           ; preds = %if.then55, %if.end202, %if.end185, %if.end145, %if.end140, %if.then135, %if.then120, %if.end111, %if.end106, %if.then101, %if.end92, %if.then87, %if.then77, %if.then64, %if.then46, %if.then39, %while.body, %if.then6.i66, %if.end11, %if.then6.i, %if.then226, %if.then129
+eoferr:                                           ; preds = %if.then55, %if.end202, %if.end185, %if.end145, %if.end140, %if.then135, %if.then120, %if.end111, %if.end106, %if.then101, %if.end92, %if.then87, %if.then77, %if.then64, %if.then46, %if.then39, %while.body, %if.then6.i66, %if.end, %if.then6.i, %if.then226, %if.then129
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 52), align 4
   %tobool247.not = icmp eq i32 %30, 0
   br i1 %tobool247.not, label %if.else249, label %if.then248

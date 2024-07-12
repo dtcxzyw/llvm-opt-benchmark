@@ -61232,7 +61232,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit897: ; preds = %230
   %347 = getelementptr inbounds i8, ptr %105, i64 8
   %348 = getelementptr inbounds i8, ptr %106, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %348, ptr noundef nonnull align 8 dereferenceable(104) %347, i64 104, i1 false)
-  store i64 27, ptr %106, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %105)
   br label %.thread1212
 
@@ -64799,7 +64798,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit897: ; preds = %230
   %347 = getelementptr inbounds i8, ptr %105, i64 8
   %348 = getelementptr inbounds i8, ptr %106, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %348, ptr noundef nonnull align 8 dereferenceable(104) %347, i64 104, i1 false)
-  store i64 27, ptr %106, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %105)
   br label %.thread1212
 
@@ -85494,7 +85492,6 @@ define internal fastcc void @"_ZN14datafusion_sql8relation60_$LT$impl$u20$datafu
   %223 = getelementptr inbounds i8, ptr %36, i64 8
   %224 = getelementptr inbounds i8, ptr %37, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %224, ptr noundef nonnull align 8 dereferenceable(104) %223, i64 104, i1 false)
-  store i64 27, ptr %37, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %36)
   br label %229
 
@@ -85602,7 +85599,6 @@ define internal fastcc void @"_ZN14datafusion_sql8relation60_$LT$impl$u20$datafu
   %260 = getelementptr inbounds i8, ptr %32, i64 8
   %261 = getelementptr inbounds i8, ptr %33, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %261, ptr noundef nonnull align 8 dereferenceable(104) %260, i64 104, i1 false)
-  store i64 27, ptr %33, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %32)
   br label %266
 
@@ -87359,7 +87355,6 @@ define internal fastcc void @"_ZN14datafusion_sql8relation60_$LT$impl$u20$datafu
   %350 = getelementptr inbounds i8, ptr %39, i64 8
   %351 = getelementptr inbounds i8, ptr %40, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %351, ptr noundef nonnull align 8 dereferenceable(104) %350, i64 104, i1 false)
-  store i64 27, ptr %40, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %39)
   br label %356
 
@@ -87467,7 +87462,6 @@ define internal fastcc void @"_ZN14datafusion_sql8relation60_$LT$impl$u20$datafu
   %387 = getelementptr inbounds i8, ptr %35, i64 8
   %388 = getelementptr inbounds i8, ptr %36, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %388, ptr noundef nonnull align 8 dereferenceable(104) %387, i64 104, i1 false)
-  store i64 27, ptr %36, align 16
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %35)
   br label %393
 

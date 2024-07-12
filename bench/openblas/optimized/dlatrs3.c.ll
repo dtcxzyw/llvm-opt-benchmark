@@ -359,7 +359,6 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %231, label %225, label %.loopexit, !llvm.loop !15
 
 232:                                              ; preds = %215
-  store i32 %57, ptr %16, align 4, !tbaa !3
   %233 = icmp slt i32 %57, 1
   br i1 %233, label %.loopexit, label %234
 

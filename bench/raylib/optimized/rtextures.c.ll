@@ -24293,7 +24293,7 @@ define void @DrawTextureNPatch(ptr nocapture noundef readonly byval(%struct.Text
   %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %8 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %105, label %9
+  br i1 %.not, label %103, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 4
@@ -24308,84 +24308,77 @@ define void @DrawTextureNPatch(ptr nocapture noundef readonly byval(%struct.Text
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load float, ptr %19, align 8
   %21 = fcmp olt float %20, 0.000000e+00
-  br i1 %21, label %22, label %25
+  br i1 %21, label %22, label %._crit_edge
 
 22:                                               ; preds = %9
   %23 = load float, ptr %1, align 8
   %24 = fsub float %23, %20
   store float %24, ptr %1, align 8
-  br label %25
-
-25:                                               ; preds = %22, %9
-  %26 = getelementptr inbounds i8, ptr %1, i64 12
-  %27 = load float, ptr %26, align 4
-  %28 = fcmp olt float %27, 0.000000e+00
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
-  %30 = load float, ptr %29, align 4
-  br i1 %28, label %31, label %._crit_edge
-
-31:                                               ; preds = %25
-  %32 = fsub float %30, %27
-  store float %32, ptr %29, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %25, %31
-  %33 = phi float [ %32, %31 ], [ %30, %25 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
-  %38 = insertelement <2 x i32> poison, i32 %35, i64 0
-  %39 = shufflevector <2 x i32> %38, <2 x i32> poison, <2 x i32> zeroinitializer
-  %40 = icmp eq <2 x i32> %39, <i32 1, i32 2>
-  %41 = insertelement <2 x float> poison, float %20, i64 0
-  %42 = insertelement <2 x float> %41, float %27, i64 1
-  %43 = select <2 x i1> %40, <2 x float> %42, <2 x float> %18
-  %44 = load <2 x i32>, ptr %36, align 8
+._crit_edge:                                      ; preds = %22, %9
+  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp olt float %26, 0.000000e+00
+  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = load float, ptr %28, align 4
+  %30 = fsub float %29, %26
+  %31 = select i1 %27, float %30, float %29
+  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = insertelement <2 x i32> poison, i32 %33, i64 0
+  %37 = shufflevector <2 x i32> %36, <2 x i32> poison, <2 x i32> zeroinitializer
+  %38 = icmp eq <2 x i32> %37, <i32 1, i32 2>
+  %39 = insertelement <2 x float> poison, float %20, i64 0
+  %40 = insertelement <2 x float> %39, float %26, i64 1
+  %41 = select <2 x i1> %38, <2 x float> %40, <2 x float> %18
+  %42 = load <2 x i32>, ptr %34, align 8
+  %43 = sitofp <2 x i32> %42 to <2 x float>
+  %44 = load <2 x i32>, ptr %35, align 8
   %45 = sitofp <2 x i32> %44 to <2 x float>
-  %46 = load <2 x i32>, ptr %37, align 8
-  %47 = sitofp <2 x i32> %46 to <2 x float>
-  %48 = fadd <2 x float> %45, %47
-  %49 = fcmp ugt <2 x float> %43, %48
-  %50 = or <2 x i1> %40, %49
-  %or.cond.not = extractelement <2 x i1> %50, i64 0
-  %51 = extractelement <2 x float> %48, i64 0
-  %52 = extractelement <2 x float> %45, i64 0
-  %53 = fdiv float %52, %51
-  %54 = extractelement <2 x float> %43, i64 0
-  %55 = fmul float %54, %53
-  %56 = fsub float %54, %55
-  %57 = extractelement <2 x float> %47, i64 0
-  %.0299 = select i1 %or.cond.not, float %57, float %56
-  %.0297 = select i1 %or.cond.not, float %52, float %55
-  %58 = or <2 x i1> %40, %49
-  %or.cond5.not = extractelement <2 x i1> %58, i64 1
-  %59 = extractelement <2 x float> %48, i64 1
-  %60 = extractelement <2 x float> %45, i64 1
-  %61 = fdiv float %60, %59
-  %62 = extractelement <2 x float> %43, i64 1
-  %63 = fmul float %62, %61
-  %64 = fsub float %62, %63
-  %65 = extractelement <2 x float> %47, i64 1
-  %.0300 = select i1 %or.cond5.not, float %65, float %64
-  %.0298 = select i1 %or.cond5.not, float %60, float %63
-  %66 = fsub float %54, %.0299
-  %67 = fsub float %62, %.0300
-  %68 = load float, ptr %1, align 8
-  %69 = fdiv float %68, %12
-  %70 = fdiv float %33, %15
-  %71 = fadd float %68, %.0297
-  %72 = fdiv float %71, %12
-  %73 = fadd float %33, %.0298
-  %74 = fdiv float %73, %15
-  %75 = fadd float %20, %68
-  %76 = fsub float %75, %.0299
-  %77 = fdiv float %76, %12
-  %78 = fadd float %27, %33
-  %79 = fsub float %78, %.0300
-  %80 = fdiv float %79, %15
-  %81 = fdiv float %75, %12
-  %82 = fdiv float %78, %15
+  %46 = fadd <2 x float> %43, %45
+  %47 = fcmp ugt <2 x float> %41, %46
+  %48 = or <2 x i1> %38, %47
+  %or.cond.not = extractelement <2 x i1> %48, i64 0
+  %49 = extractelement <2 x float> %46, i64 0
+  %50 = extractelement <2 x float> %43, i64 0
+  %51 = fdiv float %50, %49
+  %52 = extractelement <2 x float> %41, i64 0
+  %53 = fmul float %52, %51
+  %54 = fsub float %52, %53
+  %55 = extractelement <2 x float> %45, i64 0
+  %.0299 = select i1 %or.cond.not, float %55, float %54
+  %.0297 = select i1 %or.cond.not, float %50, float %53
+  %56 = or <2 x i1> %38, %47
+  %or.cond5.not = extractelement <2 x i1> %56, i64 1
+  %57 = extractelement <2 x float> %46, i64 1
+  %58 = extractelement <2 x float> %43, i64 1
+  %59 = fdiv float %58, %57
+  %60 = extractelement <2 x float> %41, i64 1
+  %61 = fmul float %60, %59
+  %62 = fsub float %60, %61
+  %63 = extractelement <2 x float> %45, i64 1
+  %.0300 = select i1 %or.cond5.not, float %63, float %62
+  %.0298 = select i1 %or.cond5.not, float %58, float %61
+  %64 = fsub float %52, %.0299
+  %65 = fsub float %60, %.0300
+  %66 = load float, ptr %1, align 8
+  %67 = fdiv float %66, %12
+  %68 = fdiv float %31, %15
+  %69 = fadd float %66, %.0297
+  %70 = fdiv float %69, %12
+  %71 = fadd float %31, %.0298
+  %72 = fdiv float %71, %15
+  %73 = fadd float %20, %66
+  %74 = fsub float %73, %.0299
+  %75 = fdiv float %74, %12
+  %76 = fadd float %26, %31
+  %77 = fsub float %76, %.0300
+  %78 = fdiv float %77, %15
+  %79 = fdiv float %73, %12
+  %80 = fdiv float %76, %15
   tail call void @rlSetTexture(i32 noundef %8) #49
   tail call void @rlPushMatrix() #49
   %.sroa.0288.0.vec.extract = extractelement <2 x float> %2, i64 0
@@ -24393,195 +24386,195 @@ define void @DrawTextureNPatch(ptr nocapture noundef readonly byval(%struct.Text
   tail call void @rlTranslatef(float noundef %.sroa.0288.0.vec.extract, float noundef %.sroa.0288.4.vec.extract, float noundef 0.000000e+00) #49
   tail call void @rlRotatef(float noundef %5, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #49
   %.sroa.0287.0.vec.extract = extractelement <2 x float> %4, i64 0
-  %83 = fneg float %.sroa.0287.0.vec.extract
+  %81 = fneg float %.sroa.0287.0.vec.extract
   %.sroa.0287.4.vec.extract = extractelement <2 x float> %4, i64 1
-  %84 = fneg float %.sroa.0287.4.vec.extract
-  tail call void @rlTranslatef(float noundef %83, float noundef %84, float noundef 0.000000e+00) #49
+  %82 = fneg float %.sroa.0287.4.vec.extract
+  tail call void @rlTranslatef(float noundef %81, float noundef %82, float noundef 0.000000e+00) #49
   tail call void @rlBegin(i32 noundef 7) #49
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0286.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #49
   tail call void @rlNormal3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #49
-  switch i32 %35, label %104 [
-    i32 0, label %85
-    i32 1, label %96
-    i32 2, label %100
+  switch i32 %33, label %102 [
+    i32 0, label %83
+    i32 1, label %94
+    i32 2, label %98
   ]
 
-85:                                               ; preds = %._crit_edge
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %74) #49
+83:                                               ; preds = %._crit_edge
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %72) #49
   tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %74) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %72) #49
   tail call void @rlVertex2f(float noundef %.0297, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %70) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %68) #49
   tail call void @rlVertex2f(float noundef %.0297, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %70) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %68) #49
   tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef 0.000000e+00) #49
-  br i1 %or.cond.not, label %86, label %87
+  br i1 %or.cond.not, label %84, label %85
 
-86:                                               ; preds = %85
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef 0.000000e+00) #49
-  br label %87
+84:                                               ; preds = %83
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef 0.000000e+00) #49
+  br label %85
 
-87:                                               ; preds = %86, %85
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %74) #49
-  %88 = extractelement <2 x float> %18, i64 0
-  tail call void @rlVertex2f(float noundef %88, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %88, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef 0.000000e+00) #49
-  br i1 %or.cond5.not, label %89, label %92
+85:                                               ; preds = %84, %83
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %72) #49
+  %86 = extractelement <2 x float> %18, i64 0
+  tail call void @rlVertex2f(float noundef %86, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %86, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef 0.000000e+00) #49
+  br i1 %or.cond5.not, label %87, label %90
 
-89:                                               ; preds = %87
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef %60) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %60) #49
-  br i1 %or.cond.not, label %90, label %91
+87:                                               ; preds = %85
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef %58) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %58) #49
+  br i1 %or.cond.not, label %88, label %89
 
-90:                                               ; preds = %89
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %60) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %60) #49
-  br label %91
+88:                                               ; preds = %87
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %58) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %58) #49
+  br label %89
 
-91:                                               ; preds = %90, %89
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %88, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %88, float noundef %60) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %60) #49
-  br label %92
+89:                                               ; preds = %88, %87
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %86, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %86, float noundef %58) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %58) #49
+  br label %90
 
-92:                                               ; preds = %91, %87
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %82) #49
-  %93 = extractelement <2 x float> %18, i64 1
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %67) #49
-  br i1 %or.cond.not, label %94, label %95
+90:                                               ; preds = %89, %85
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %80) #49
+  %91 = extractelement <2 x float> %18, i64 1
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %65) #49
+  br i1 %or.cond.not, label %92, label %93
 
-94:                                               ; preds = %92
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %67) #49
-  br label %95
+92:                                               ; preds = %90
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %65) #49
+  br label %93
 
-95:                                               ; preds = %94, %92
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %88, float noundef %93) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %88, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %67) #49
-  br label %104
-
-96:                                               ; preds = %._crit_edge
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef 0.000000e+00) #49
-  br i1 %or.cond.not, label %97, label %98
-
-97:                                               ; preds = %96
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef %.0298) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %74) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %.0298) #49
-  br label %98
-
-98:                                               ; preds = %97, %96
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %82) #49
-  %99 = extractelement <2 x float> %18, i64 1
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %99) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef %99) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef %20, float noundef %67) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %80) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %67) #49
-  br label %104
-
-100:                                              ; preds = %._crit_edge
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %.0297, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %69, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef 0.000000e+00) #49
-  br i1 %or.cond.not, label %101, label %102
-
-101:                                              ; preds = %100
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %72, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %52, float noundef 0.000000e+00) #49
+93:                                               ; preds = %92, %90
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %86, float noundef %91) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %86, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %65) #49
   br label %102
 
-102:                                              ; preds = %101, %100
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %82) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %82) #49
-  %103 = extractelement <2 x float> %18, i64 0
-  tail call void @rlVertex2f(float noundef %103, float noundef %27) #49
-  tail call void @rlTexCoord2f(float noundef %81, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %103, float noundef 0.000000e+00) #49
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %70) #49
-  tail call void @rlVertex2f(float noundef %66, float noundef 0.000000e+00) #49
-  br label %104
+94:                                               ; preds = %._crit_edge
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef 0.000000e+00) #49
+  br i1 %or.cond.not, label %95, label %96
 
-104:                                              ; preds = %._crit_edge, %98, %102, %95
+95:                                               ; preds = %94
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef %.0298) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %72) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %.0298) #49
+  br label %96
+
+96:                                               ; preds = %95, %94
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %80) #49
+  %97 = extractelement <2 x float> %18, i64 1
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %97) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef %97) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef %20, float noundef %65) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %78) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %65) #49
+  br label %102
+
+98:                                               ; preds = %._crit_edge
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %.0297, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %67, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef 0.000000e+00, float noundef 0.000000e+00) #49
+  br i1 %or.cond.not, label %99, label %100
+
+99:                                               ; preds = %98
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %70, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %50, float noundef 0.000000e+00) #49
+  br label %100
+
+100:                                              ; preds = %99, %98
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %80) #49
+  %101 = extractelement <2 x float> %18, i64 0
+  tail call void @rlVertex2f(float noundef %101, float noundef %26) #49
+  tail call void @rlTexCoord2f(float noundef %79, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %101, float noundef 0.000000e+00) #49
+  tail call void @rlTexCoord2f(float noundef %75, float noundef %68) #49
+  tail call void @rlVertex2f(float noundef %64, float noundef 0.000000e+00) #49
+  br label %102
+
+102:                                              ; preds = %._crit_edge, %96, %100, %93
   tail call void @rlEnd() #49
   tail call void @rlPopMatrix() #49
   tail call void @rlSetTexture(i32 noundef 0) #49
-  br label %105
+  br label %103
 
-105:                                              ; preds = %104, %7
+103:                                              ; preds = %102, %7
   ret void
 }
 

@@ -11100,12 +11100,12 @@ if.else.i26.i:                                    ; preds = %if.then7.i
 
 if.end.i.i718.preheader:                          ; preds = %if.else.i26.i
   %198 = zext i8 %193 to i64
-  %cmp.i.i7192005 = icmp eq i8 %193, 0
-  br i1 %cmp.i.i7192005, label %if.end6.i.i.thread, label %do.body.i.i716
+  %cmp.i.i7192003 = icmp eq i8 %193, 0
+  br i1 %cmp.i.i7192003, label %if.end6.i.i.thread, label %do.body.i.i716
 
 do.body.i.i716:                                   ; preds = %if.end.i.i718.preheader, %if.end.i.i718
-  %indvars.iv17172006 = phi i64 [ %indvars.iv.next1718, %if.end.i.i718 ], [ 0, %if.end.i.i718.preheader ]
-  %indvars.iv.next1718 = add nuw nsw i64 %indvars.iv17172006, 1
+  %indvars.iv17172004 = phi i64 [ %indvars.iv.next1718, %if.end.i.i718 ], [ 0, %if.end.i.i718.preheader ]
+  %indvars.iv.next1718 = add nuw nsw i64 %indvars.iv17172004, 1
   %arrayidx.i159.i = getelementptr inbounds [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next1718
   %199 = load i32, ptr %arrayidx.i159.i, align 4
   %conv.i160.i = zext i32 %199 to i64
@@ -11132,14 +11132,14 @@ if.end.i.i718:                                    ; preds = %do.body.i.i716
   br i1 %cmp.i.i719, label %if.end6.i.i.thread, label %do.body.i.i716
 
 if.end6.i.i.thread:                               ; preds = %if.end.i.i718, %if.end.i.i718.preheader
-  %.lcssa1972 = phi i64 [ %196, %if.end.i.i718.preheader ], [ %206, %if.end.i.i718 ]
-  %.lcssa1970 = phi i64 [ %195, %if.end.i.i718.preheader ], [ %205, %if.end.i.i718 ]
+  %.lcssa1970 = phi i64 [ %196, %if.end.i.i718.preheader ], [ %206, %if.end.i.i718 ]
+  %.lcssa1968 = phi i64 [ %195, %if.end.i.i718.preheader ], [ %205, %if.end.i.i718 ]
   %mul.i113.i1525.lcssa = phi i64 [ %mul.i113.i1518, %if.end.i.i718.preheader ], [ %mul.i113.i, %if.end.i.i718 ]
-  %.lcssa1967 = phi i64 [ %mul.i168.i1497, %if.end.i.i718.preheader ], [ %mul.i161.i, %if.end.i.i718 ]
-  %208 = getelementptr inbounds i8, ptr %add.ptr9.i712, i64 %.lcssa1967
+  %.lcssa1965 = phi i64 [ %mul.i168.i1497, %if.end.i.i718.preheader ], [ %mul.i161.i, %if.end.i.i718 ]
+  %208 = getelementptr inbounds i8, ptr %add.ptr9.i712, i64 %.lcssa1965
   %add.ptr.i114.i.le = getelementptr inbounds i8, ptr %208, i64 %mul.i113.i1525.lcssa
-  %not.i149.i = xor i64 %.lcssa1972, -1
-  %and.i150.i = and i64 %.lcssa1970, %not.i149.i
+  %not.i149.i = xor i64 %.lcssa1970, -1
+  %and.i150.i = and i64 %.lcssa1968, %not.i149.i
   store i64 %and.i150.i, ptr %add.ptr.i114.i.le, align 1
   br label %subCastleDeactivateStaleSubs.exit
 
@@ -11188,12 +11188,12 @@ if.else.i.i704:                                   ; preds = %if.else.i699
 
 if.end.i69.i.preheader:                           ; preds = %if.else.i.i704
   %219 = zext i8 %214 to i64
-  %cmp.i70.i2000 = icmp eq i8 %214, 0
-  br i1 %cmp.i70.i2000, label %if.end6.i71.i.thread, label %do.body.i63.i
+  %cmp.i70.i1998 = icmp eq i8 %214, 0
+  br i1 %cmp.i70.i1998, label %if.end6.i71.i.thread, label %do.body.i63.i
 
 do.body.i63.i:                                    ; preds = %if.end.i69.i.preheader, %if.end.i69.i
-  %indvars.iv17112001 = phi i64 [ %indvars.iv.next1712, %if.end.i69.i ], [ 0, %if.end.i69.i.preheader ]
-  %indvars.iv.next1712 = add nuw nsw i64 %indvars.iv17112001, 1
+  %indvars.iv17111999 = phi i64 [ %indvars.iv.next1712, %if.end.i69.i ], [ 0, %if.end.i69.i.preheader ]
+  %indvars.iv.next1712 = add nuw nsw i64 %indvars.iv17111999, 1
   %arrayidx.i166.i = getelementptr inbounds [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next1712
   %220 = load i32, ptr %arrayidx.i166.i, align 4
   %conv.i167.i = zext i32 %220 to i64
@@ -11220,14 +11220,14 @@ if.end.i69.i:                                     ; preds = %do.body.i63.i
   br i1 %cmp.i70.i, label %if.end6.i71.i.thread, label %do.body.i63.i
 
 if.end6.i71.i.thread:                             ; preds = %if.end.i69.i, %if.end.i69.i.preheader
-  %.lcssa1965 = phi i64 [ %217, %if.end.i69.i.preheader ], [ %227, %if.end.i69.i ]
-  %.lcssa1963 = phi i64 [ %216, %if.end.i69.i.preheader ], [ %226, %if.end.i69.i ]
+  %.lcssa1963 = phi i64 [ %217, %if.end.i69.i.preheader ], [ %227, %if.end.i69.i ]
+  %.lcssa1961 = phi i64 [ %216, %if.end.i69.i.preheader ], [ %226, %if.end.i69.i ]
   %mul.i.i1510.lcssa = phi i64 [ %mul.i.i1503, %if.end.i69.i.preheader ], [ %mul.i.i, %if.end.i69.i ]
-  %.lcssa1960 = phi i64 [ %mul.i168.i1497, %if.end.i69.i.preheader ], [ %mul.i168.i, %if.end.i69.i ]
-  %229 = getelementptr inbounds i8, ptr %add.ptr13.i701, i64 %.lcssa1960
+  %.lcssa1958 = phi i64 [ %mul.i168.i1497, %if.end.i69.i.preheader ], [ %mul.i168.i, %if.end.i69.i ]
+  %229 = getelementptr inbounds i8, ptr %add.ptr13.i701, i64 %.lcssa1958
   %add.ptr.i100.i.le = getelementptr inbounds i8, ptr %229, i64 %mul.i.i1510.lcssa
-  %not.i144.i = xor i64 %.lcssa1965, -1
-  %and.i145.i = and i64 %.lcssa1963, %not.i144.i
+  %not.i144.i = xor i64 %.lcssa1963, -1
+  %and.i145.i = and i64 %.lcssa1961, %not.i144.i
   store i64 %and.i145.i, ptr %add.ptr.i100.i.le, align 1
   br label %subCastleDeactivateStaleSubs.exit
 
@@ -11964,12 +11964,12 @@ if.else.i26.i932:                                 ; preds = %if.then7.i924
 
 if.end.i.i965.preheader:                          ; preds = %if.else.i26.i932
   %316 = zext i8 %311 to i64
-  %cmp.i.i9662017 = icmp eq i8 %311, 0
-  br i1 %cmp.i.i9662017, label %if.end6.i.i967.thread, label %do.body.i.i937
+  %cmp.i.i9662015 = icmp eq i8 %311, 0
+  br i1 %cmp.i.i9662015, label %if.end6.i.i967.thread, label %do.body.i.i937
 
 do.body.i.i937:                                   ; preds = %if.end.i.i965.preheader, %if.end.i.i965
-  %indvars.iv17342018 = phi i64 [ %indvars.iv.next1735, %if.end.i.i965 ], [ 0, %if.end.i.i965.preheader ]
-  %indvars.iv.next1735 = add nuw nsw i64 %indvars.iv17342018, 1
+  %indvars.iv17342016 = phi i64 [ %indvars.iv.next1735, %if.end.i.i965 ], [ 0, %if.end.i.i965.preheader ]
+  %indvars.iv.next1735 = add nuw nsw i64 %indvars.iv17342016, 1
   %arrayidx.i159.i939 = getelementptr inbounds [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next1735
   %317 = load i32, ptr %arrayidx.i159.i939, align 4
   %conv.i160.i940 = zext i32 %317 to i64
@@ -11996,14 +11996,14 @@ if.end.i.i965:                                    ; preds = %do.body.i.i937
   br i1 %cmp.i.i966, label %if.end6.i.i967.thread, label %do.body.i.i937
 
 if.end6.i.i967.thread:                            ; preds = %if.end.i.i965, %if.end.i.i965.preheader
-  %.lcssa1951 = phi i64 [ %314, %if.end.i.i965.preheader ], [ %324, %if.end.i.i965 ]
-  %.lcssa1949 = phi i64 [ %313, %if.end.i.i965.preheader ], [ %323, %if.end.i.i965 ]
+  %.lcssa1950 = phi i64 [ %314, %if.end.i.i965.preheader ], [ %324, %if.end.i.i965 ]
+  %.lcssa1948 = phi i64 [ %313, %if.end.i.i965.preheader ], [ %323, %if.end.i.i965 ]
   %mul.i113.i9491564.lcssa = phi i64 [ %mul.i113.i9491557, %if.end.i.i965.preheader ], [ %mul.i113.i949, %if.end.i.i965 ]
-  %.lcssa1946 = phi i64 [ %mul.i168.i8791536, %if.end.i.i965.preheader ], [ %mul.i161.i941, %if.end.i.i965 ]
-  %326 = getelementptr inbounds i8, ptr %add.ptr9.i927, i64 %.lcssa1946
+  %.lcssa1945 = phi i64 [ %mul.i168.i8791536, %if.end.i.i965.preheader ], [ %mul.i161.i941, %if.end.i.i965 ]
+  %326 = getelementptr inbounds i8, ptr %add.ptr9.i927, i64 %.lcssa1945
   %add.ptr.i114.i950.le = getelementptr inbounds i8, ptr %326, i64 %mul.i113.i9491564.lcssa
-  %not.i149.i973 = xor i64 %.lcssa1951, -1
-  %and.i150.i974 = and i64 %.lcssa1949, %not.i149.i973
+  %not.i149.i973 = xor i64 %.lcssa1950, -1
+  %and.i150.i974 = and i64 %.lcssa1948, %not.i149.i973
   store i64 %and.i150.i974, ptr %add.ptr.i114.i950.le, align 1
   br label %subCastleDeactivateStaleSubs.exit985
 
@@ -12052,12 +12052,12 @@ if.else.i.i870:                                   ; preds = %if.else.i864
 
 if.end.i69.i904.preheader:                        ; preds = %if.else.i.i870
   %337 = zext i8 %332 to i64
-  %cmp.i70.i9052011 = icmp eq i8 %332, 0
-  br i1 %cmp.i70.i9052011, label %if.end6.i71.i906.thread, label %do.body.i63.i875
+  %cmp.i70.i9052009 = icmp eq i8 %332, 0
+  br i1 %cmp.i70.i9052009, label %if.end6.i71.i906.thread, label %do.body.i63.i875
 
 do.body.i63.i875:                                 ; preds = %if.end.i69.i904.preheader, %if.end.i69.i904
-  %indvars.iv17282012 = phi i64 [ %indvars.iv.next1729, %if.end.i69.i904 ], [ 0, %if.end.i69.i904.preheader ]
-  %indvars.iv.next1729 = add nuw nsw i64 %indvars.iv17282012, 1
+  %indvars.iv17282010 = phi i64 [ %indvars.iv.next1729, %if.end.i69.i904 ], [ 0, %if.end.i69.i904.preheader ]
+  %indvars.iv.next1729 = add nuw nsw i64 %indvars.iv17282010, 1
   %arrayidx.i166.i877 = getelementptr inbounds [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %indvars.iv.next1729
   %338 = load i32, ptr %arrayidx.i166.i877, align 4
   %conv.i167.i878 = zext i32 %338 to i64
@@ -12084,14 +12084,14 @@ if.end.i69.i904:                                  ; preds = %do.body.i63.i875
   br i1 %cmp.i70.i905, label %if.end6.i71.i906.thread, label %do.body.i63.i875
 
 if.end6.i71.i906.thread:                          ; preds = %if.end.i69.i904, %if.end.i69.i904.preheader
-  %.lcssa1944 = phi i64 [ %335, %if.end.i69.i904.preheader ], [ %345, %if.end.i69.i904 ]
-  %.lcssa1942 = phi i64 [ %334, %if.end.i69.i904.preheader ], [ %344, %if.end.i69.i904 ]
+  %.lcssa1943 = phi i64 [ %335, %if.end.i69.i904.preheader ], [ %345, %if.end.i69.i904 ]
+  %.lcssa1941 = phi i64 [ %334, %if.end.i69.i904.preheader ], [ %344, %if.end.i69.i904 ]
   %mul.i.i8871549.lcssa = phi i64 [ %mul.i.i8871542, %if.end.i69.i904.preheader ], [ %mul.i.i887, %if.end.i69.i904 ]
-  %.lcssa1939 = phi i64 [ %mul.i168.i8791536, %if.end.i69.i904.preheader ], [ %mul.i168.i879, %if.end.i69.i904 ]
-  %347 = getelementptr inbounds i8, ptr %add.ptr13.i867, i64 %.lcssa1939
+  %.lcssa1938 = phi i64 [ %mul.i168.i8791536, %if.end.i69.i904.preheader ], [ %mul.i168.i879, %if.end.i69.i904 ]
+  %347 = getelementptr inbounds i8, ptr %add.ptr13.i867, i64 %.lcssa1938
   %add.ptr.i100.i888.le = getelementptr inbounds i8, ptr %347, i64 %mul.i.i8871549.lcssa
-  %not.i144.i912 = xor i64 %.lcssa1944, -1
-  %and.i145.i913 = and i64 %.lcssa1942, %not.i144.i912
+  %not.i144.i912 = xor i64 %.lcssa1943, -1
+  %and.i145.i913 = and i64 %.lcssa1941, %not.i144.i912
   store i64 %and.i145.i913, ptr %add.ptr.i100.i888.le, align 1
   br label %subCastleDeactivateStaleSubs.exit985
 
@@ -12121,57 +12121,48 @@ if.else.i1466:                                    ; preds = %if.then.i1011
   %351 = load i64, ptr %si_state.i, align 16
   %352 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %351, i1 true)
   %tobool18.i.not1568 = icmp eq i64 %and12.i, 0
-  br i1 %tobool18.i.not1568, label %if.end31.i.lr.ph, label %if.then19.i1501
-
-if.end31.i.lr.ph:                                 ; preds = %if.else.i1466
-  %sub34.i2023 = add i64 %351, -1
-  %and37.i2024 = and i64 %sub34.i2023, %351
-  %tobool40.i.not2025 = icmp eq i64 %and37.i2024, 0
-  br i1 %tobool40.i.not2025, label %if.end31.i.lr.ph.mmbit_sparse_iter_next.exit.loopexit_crit_edge, label %if.end42.i1470.preheader
-
-if.end42.i1470.preheader:                         ; preds = %if.end31.i.lr.ph
-  %353 = load i64, ptr %add.ptr25.i, align 8
-  %354 = load i32, ptr %val48.i, align 8
-  br label %if.end42.i1470
+  br i1 %tobool18.i.not1568, label %if.end31.i, label %if.then19.i1501
 
 for.cond.i1468.if.then19.i1501_crit_edge:         ; preds = %if.end72.i
   store i32 %add49.i, ptr %itkey78.i, align 8
   br label %if.then19.i1501
 
 if.then19.i1501:                                  ; preds = %for.cond.i1468.if.then19.i1501_crit_edge, %if.else.i1466
-  %and37.i1565.lcssa = phi i64 [ %and37.i2026, %for.cond.i1468.if.then19.i1501_crit_edge ], [ %351, %if.else.i1466 ]
+  %and37.i1565.lcssa = phi i64 [ %and37.i, %for.cond.i1468.if.then19.i1501_crit_edge ], [ %351, %if.else.i1466 ]
   %.lcssa1451 = phi i64 [ %and74.i, %for.cond.i1468.if.then19.i1501_crit_edge ], [ %and12.i, %if.else.i1466 ]
-  %bit.i1457.0.in.lcssa = phi i64 [ %356, %for.cond.i1468.if.then19.i1501_crit_edge ], [ %352, %if.else.i1466 ]
+  %bit.i1457.0.in.lcssa = phi i64 [ %354, %for.cond.i1468.if.then19.i1501_crit_edge ], [ %352, %if.else.i1466 ]
   store i64 %and37.i1565.lcssa, ptr %si_state.i, align 16
   store i64 %.lcssa1451, ptr %arrayidx.i1467, align 16
-  %355 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa1451, i1 true)
+  %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa1451, i1 true)
   %mul.i1509 = shl nuw nsw i64 %bit.i1457.0.in.lcssa, 6
-  %add29.i = or disjoint i64 %mul.i1509, %355
+  %add29.i = or disjoint i64 %mul.i1509, %353
   %conv30.i = trunc nuw nsw i64 %add29.i to i32
   br label %mmbit_sparse_iter_next.exit
 
-if.end31.i:                                       ; preds = %if.end72.i
-  %sub34.i = add i64 %and37.i2026, -1
-  %and37.i = and i64 %sub34.i, %and37.i2026
+if.end31.i:                                       ; preds = %if.else.i1466, %if.end72.i
+  %and37.i15651570 = phi i64 [ %and37.i, %if.end72.i ], [ %351, %if.else.i1466 ]
+  %sub34.i = add i64 %and37.i15651570, -1
+  %and37.i = and i64 %sub34.i, %and37.i15651570
   %tobool40.i.not = icmp eq i64 %and37.i, 0
-  br i1 %tobool40.i.not, label %mmbit_sparse_iter_next.exit.loopexit, label %if.end42.i1470
+  br i1 %tobool40.i.not, label %castleDeactivateStaleSubs.exit, label %if.end42.i1470
 
-if.end42.i1470:                                   ; preds = %if.end42.i1470.preheader, %if.end31.i
-  %and37.i2026 = phi i64 [ %and37.i, %if.end31.i ], [ %and37.i2024, %if.end42.i1470.preheader ]
-  %356 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and37.i2026, i1 true)
-  %notmask1306 = shl nsw i64 -1, %356
+if.end42.i1470:                                   ; preds = %if.end31.i
+  %354 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and37.i, i1 true)
+  %355 = load i64, ptr %add.ptr25.i, align 8
+  %notmask1306 = shl nsw i64 -1, %354
   %sub.i144.i = xor i64 %notmask1306, -1
-  %and.i92.i = and i64 %353, %sub.i144.i
-  %357 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i92.i)
-  %cast.i167.i = trunc nuw nsw i64 %357 to i32
-  %add49.i = add i32 %354, %cast.i167.i
+  %and.i92.i = and i64 %355, %sub.i144.i
+  %356 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i92.i)
+  %cast.i167.i = trunc nuw nsw i64 %356 to i32
+  %357 = load i32, ptr %val48.i, align 8
+  %add49.i = add i32 %357, %cast.i167.i
   %idx.ext51.i = zext i32 %add49.i to i64
   %add.ptr52.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr25.i, i64 %idx.ext51.i
-  %.tr1307 = trunc nuw nsw i64 %356 to i32
+  %.tr1307 = trunc nuw nsw i64 %354 to i32
   %conv55.i = shl nuw nsw i32 %.tr1307, 6
   %narrow1308 = add nuw nsw i32 %conv55.i, 64
   %cmp59.i = icmp ugt i32 %narrow1308, %261
-  %mul63.i = shl nuw nsw i64 %356, 3
+  %mul63.i = shl nuw nsw i64 %354, 3
   %add.ptr64.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 %mul63.i
   br i1 %cmp59.i, label %if.then61.i, label %if.else67.i
 
@@ -12318,23 +12309,12 @@ for.cond.i.i.backedge:                            ; preds = %if.end20.i.i, %if.e
   %key.addr.i.i1529.0.be = phi i32 [ %add.i.i1563, %if.else.i.i1570 ], [ %shr.i.i1560, %if.end20.i.i ]
   br label %for.cond.i.i
 
-if.end31.i.lr.ph.mmbit_sparse_iter_next.exit.loopexit_crit_edge: ; preds = %if.end31.i.lr.ph
-  %itkey78.i.promoted = load i32, ptr %itkey78.i, align 8
-  br label %mmbit_sparse_iter_next.exit.loopexit
-
-mmbit_sparse_iter_next.exit.loopexit:             ; preds = %if.end31.i, %if.end31.i.lr.ph.mmbit_sparse_iter_next.exit.loopexit_crit_edge
-  %add49.i1575.lcssa = phi i32 [ %itkey78.i.promoted, %if.end31.i.lr.ph.mmbit_sparse_iter_next.exit.loopexit_crit_edge ], [ %add49.i, %if.end31.i ]
-  store i32 %add49.i1575.lcssa, ptr %itkey78.i, align 8
-  store i64 0, ptr %si_state.i, align 16
-  store i64 0, ptr %arrayidx.i1467, align 16
-  br label %castleDeactivateStaleSubs.exit
-
 mmbit_sparse_iter_next.exit:                      ; preds = %if.then.i.i1561, %if.then4.i1515, %if.then19.i1501
   %key.i1004.0 = phi i32 [ %cast.i.i1516, %if.then4.i1515 ], [ %conv30.i, %if.then19.i1501 ], [ %add.i.i1563, %if.then.i.i1561 ]
   %cmp29.i.not = icmp eq i32 %key.i1004.0, -1
   br i1 %cmp29.i.not, label %castleDeactivateStaleSubs.exit, label %while.body.i, !llvm.loop !30
 
-castleDeactivateStaleSubs.exit:                   ; preds = %if.else16.i, %if.end46.i, %if.then.i1510, %mmbit_sparse_iter_next.exit, %if.else16.i.i, %mmbit_sparse_iter_next.exit.loopexit, %if.end7.i1220, %if.else.i992, %mmbit_get_flat_block.exit83.i, %if.end.i993, %while.end26, %if.end14.i
+castleDeactivateStaleSubs.exit:                   ; preds = %if.else16.i, %if.end46.i, %if.then.i1510, %mmbit_sparse_iter_next.exit, %if.else16.i.i, %if.end31.i, %if.end7.i1220, %if.else.i992, %mmbit_get_flat_block.exit83.i, %if.end.i993, %while.end26, %if.end14.i
   %exclusive = getelementptr inbounds i8, ptr %n, i64 73
   %377 = load i8, ptr %exclusive, align 1
   %tobool.not = icmp eq i8 %377, 0

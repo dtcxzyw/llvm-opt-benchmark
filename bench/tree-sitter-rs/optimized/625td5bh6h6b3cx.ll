@@ -20335,7 +20335,6 @@ define noundef ptr @_ZN15tree_sitter_cli4test17run_tests_at_path17h03c5cc25bb671
   br i1 %130, label %.loopexit178, label %126
 
 131:                                              ; preds = %91
-  store i8 0, ptr %27, align 1
   %132 = load i64, ptr %63, align 8, !noundef !4
   %133 = icmp eq i64 %132, 1
   br i1 %133, label %135, label %141

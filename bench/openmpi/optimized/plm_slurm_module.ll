@@ -1576,7 +1576,6 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %56
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 1
-  store ptr %80, ptr %5, align 8
   %81 = call i64 @strtoul(ptr nocapture noundef nonnull %80, ptr noundef null, i32 noundef 10) #15
   %82 = trunc i64 %81 to i32
   %83 = icmp slt i32 %78, 17

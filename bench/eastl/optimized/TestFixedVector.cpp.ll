@@ -13985,7 +13985,6 @@ if.then.i2470:                                    ; preds = %invoke.cont973
   br label %_ZN10TestObjectD2Ev.exit2475
 
 _ZN10TestObjectD2Ev.exit2475:                     ; preds = %invoke.cont973, %if.then.i2470
-  store i32 0, ptr %mMagicValue.i2463, align 8
   %688 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %689 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i2474 = add nsw i64 %689, 1

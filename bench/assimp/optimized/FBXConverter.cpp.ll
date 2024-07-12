@@ -18517,25 +18517,26 @@ invoke.cont208:                                   ; preds = %.noexc446
 
 call.i449.noexc:                                  ; preds = %invoke.cont208
   %cmp.i450 = icmp eq ptr %call.i449459, null
-  br i1 %cmp.i450, label %if.end217.critedge, label %if.end10.i451
+  br i1 %cmp.i450, label %invoke.cont210, label %if.end10.i451
 
 if.end10.i451:                                    ; preds = %call.i449.noexc
   %89 = call noundef ptr @__dynamic_cast(ptr nonnull %call.i449459, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyIfEE, i64 0) #24
   %cmp12.i453 = icmp eq ptr %89, null
-  br i1 %cmp12.i453, label %if.then13.i457, label %if.end14.i454
-
-if.then13.i457:                                   ; preds = %if.end10.i451
-  store i8 0, ptr %ok, align 1
-  br label %if.end217.critedge
+  br i1 %cmp12.i453, label %invoke.cont210, label %if.end14.i454
 
 if.end14.i454:                                    ; preds = %if.end10.i451
-  store i8 1, ptr %ok, align 1
   %value.i.i455 = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load float, ptr %value.i.i455, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206) #24
   store float %90, ptr %useColorMap, align 4
   %call.i461 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %out_mat, ptr noundef nonnull %useColorMap, i32 noundef 4, ptr noundef nonnull @.str.143, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  br label %if.end217
+
+invoke.cont210:                                   ; preds = %if.end10.i451, %call.i449.noexc
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206) #24
+  store float 0.000000e+00, ptr %useColorMap, align 4
   br label %if.end217
 
 lpad207:                                          ; preds = %call.i440.noexc, %if.end204
@@ -18549,13 +18550,7 @@ lpad209:                                          ; preds = %invoke.cont208
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #24
   br label %eh.resume
 
-if.end217.critedge:                               ; preds = %call.i449.noexc, %if.then13.i457
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205) #24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206) #24
-  store float 0.000000e+00, ptr %useColorMap, align 4
-  br label %if.end217
-
-if.end217:                                        ; preds = %if.end217.critedge, %if.end14.i454
+if.end217:                                        ; preds = %invoke.cont210, %if.end14.i454
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #24
   %call.i462467 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
           to label %call.i462.noexc unwind label %lpad220
@@ -18580,25 +18575,26 @@ invoke.cont221:                                   ; preds = %.noexc468
 
 call.i471.noexc:                                  ; preds = %invoke.cont221
   %cmp.i472 = icmp eq ptr %call.i471481, null
-  br i1 %cmp.i472, label %if.end230.critedge, label %if.end10.i473
+  br i1 %cmp.i472, label %invoke.cont223, label %if.end10.i473
 
 if.end10.i473:                                    ; preds = %call.i471.noexc
   %94 = call noundef ptr @__dynamic_cast(ptr nonnull %call.i471481, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyIfEE, i64 0) #24
   %cmp12.i475 = icmp eq ptr %94, null
-  br i1 %cmp12.i475, label %if.then13.i479, label %if.end14.i476
-
-if.then13.i479:                                   ; preds = %if.end10.i473
-  store i8 0, ptr %ok, align 1
-  br label %if.end230.critedge
+  br i1 %cmp12.i475, label %invoke.cont223, label %if.end14.i476
 
 if.end14.i476:                                    ; preds = %if.end10.i473
-  store i8 1, ptr %ok, align 1
   %value.i.i477 = getelementptr inbounds i8, ptr %94, i64 8
   %95 = load float, ptr %value.i.i477, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #24
   store float %95, ptr %useMetallicMap, align 4
   %call.i483 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %out_mat, ptr noundef nonnull %useMetallicMap, i32 noundef 4, ptr noundef nonnull @.str.145, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  br label %if.end230
+
+invoke.cont223:                                   ; preds = %if.end10.i473, %call.i471.noexc
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #24
+  store float 0.000000e+00, ptr %useMetallicMap, align 4
   br label %if.end230
 
 lpad220:                                          ; preds = %call.i462.noexc, %if.end217
@@ -18612,13 +18608,7 @@ lpad222:                                          ; preds = %invoke.cont221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #24
   br label %eh.resume
 
-if.end230.critedge:                               ; preds = %call.i471.noexc, %if.then13.i479
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218) #24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219) #24
-  store float 0.000000e+00, ptr %useMetallicMap, align 4
-  br label %if.end230
-
-if.end230:                                        ; preds = %if.end230.critedge, %if.end14.i476
+if.end230:                                        ; preds = %invoke.cont223, %if.end14.i476
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp232) #24
   %call.i484489 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231)
           to label %call.i484.noexc unwind label %lpad233

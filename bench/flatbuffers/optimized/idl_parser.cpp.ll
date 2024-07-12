@@ -40634,15 +40634,11 @@ for.cond234.preheader:                            ; preds = %if.end225
   %sub.ptr.sub.i196275 = sub i64 %sub.ptr.lhs.cast.i194273, %sub.ptr.rhs.cast.i195274
   %64 = and i64 %sub.ptr.sub.i196275, 524280
   %cmp238277.not = icmp eq i64 %64, 0
-  br i1 %cmp238277.not, label %if.end316, label %for.body239.lr.ph
+  br i1 %cmp238277.not, label %if.end316, label %for.body239
 
-for.body239.lr.ph:                                ; preds = %for.cond234.preheader
-  %has_been_checked_.i199 = getelementptr inbounds i8, ptr %ref.tmp253, i64 1
-  br label %for.body239
-
-for.body239:                                      ; preds = %for.body239.lr.ph, %if.end309
-  %65 = phi ptr [ %63, %for.body239.lr.ph ], [ %81, %if.end309 ]
-  %i.0278 = phi i16 [ 0, %for.body239.lr.ph ], [ %inc313, %if.end309 ]
+for.body239:                                      ; preds = %for.cond234.preheader, %if.end309
+  %65 = phi ptr [ %81, %if.end309 ], [ %63, %for.cond234.preheader ]
+  %i.0278 = phi i16 [ %inc313, %if.end309 ], [ 0, %for.cond234.preheader ]
   %conv240 = zext i16 %i.0278 to i64
   %add.ptr.i198 = getelementptr inbounds ptr, ptr %65, i64 %conv240
   %66 = load ptr, ptr %add.ptr.i198, align 8
@@ -40665,7 +40661,6 @@ invoke.cont248:                                   ; preds = %invoke.cont246
           to label %invoke.cont255 unwind label %lpad18.loopexit
 
 invoke.cont255:                                   ; preds = %invoke.cont248
-  store i8 1, ptr %has_been_checked_.i199, align 1
   %67 = load i8, ptr %ref.tmp253, align 1
   %tobool.i200 = trunc i8 %67 to i1
   br i1 %tobool.i200, label %if.then263, label %if.end278

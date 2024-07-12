@@ -678,7 +678,6 @@ XLogBytePosToRecPtr.exit.i:                       ; preds = %140, %138
   %.0.i31.i = phi i64 [ %139, %138 ], [ %146, %140 ]
   %147 = and i64 %.0.i31.i, 4294967295
   %148 = add i64 %147, %128
-  store i64 %148, ptr %6, align 8
   %149 = urem i64 %135, %108
   %150 = udiv i64 %135, %108
   %151 = icmp ult i64 %149, 8152

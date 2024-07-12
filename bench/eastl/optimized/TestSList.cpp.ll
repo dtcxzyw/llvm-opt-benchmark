@@ -10586,7 +10586,6 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i52
   br i1 %cmp.not.i.i.i5301, label %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit5302, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5298, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit5302:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5298, %invoke.cont2340
-  store ptr null, ptr %l2262.sroa.0, align 8
   store ptr null, ptr %list12343.sroa.0, align 8
   br label %for.body.i.i.i5306
 

@@ -3331,11 +3331,7 @@ lpad:                                             ; preds = %while.body
 
 while.cond8:                                      ; preds = %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %cmp.not.i26 = icmp eq i64 %id, %pri.coerce0
-  br i1 %cmp.not.i26, label %if.else.i28, label %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38.thread
-
-_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38.thread: ; preds = %while.cond8
-  store ptr null, ptr %_result9, align 8
-  br label %while.end23
+  br i1 %cmp.not.i26, label %if.else.i28, label %while.end23
 
 if.else.i28:                                      ; preds = %while.cond8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i25)
@@ -3388,7 +3384,7 @@ lpad18:                                           ; preds = %invoke.cont19, %whi
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #30
   unreachable
 
-while.end23:                                      ; preds = %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38.thread, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38
+while.end23:                                      ; preds = %while.cond8, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38
   %tobool.not = icmp ne ptr %txn, null
   %.not = and i1 %tobool.not, %permanent
   br i1 %.not, label %cond.false, label %cleanup.done

@@ -47382,8 +47382,6 @@ if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112bas
   %19 = load i32, ptr %17, align 1
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   store i32 %19, ptr %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx27, align 4
-  %agg.tmp.sroa.0.8.ptr.i.i.sroa_idx29 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
-  store ptr %17, ptr %agg.tmp.sroa.0.8.ptr.i.i.sroa_idx29, align 8, !tbaa !50
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %if.else.i.i, %if.end.i.i, %if.then.i.i247

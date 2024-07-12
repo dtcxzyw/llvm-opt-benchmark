@@ -87,7 +87,6 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %47, i1 false), !tbaa !7
   store double 0.000000e+00, ptr %6, align 8, !tbaa !7
   %48 = icmp eq i32 %39, 0
-  store i32 %40, ptr %10, align 4, !tbaa !3
   %49 = sext i32 %13 to i64
   br i1 %48, label %109, label %50
 

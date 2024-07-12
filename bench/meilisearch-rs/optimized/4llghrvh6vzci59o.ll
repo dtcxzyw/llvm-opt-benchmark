@@ -6609,12 +6609,12 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
   %423 = load i64, ptr %72, align 8, !range !960, !noundef !11
   %trunc106 = trunc nuw i64 %423 to i1
   %424 = getelementptr inbounds i8, ptr %72, i64 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 32
   br i1 %trunc106, label %426, label %425
 
 425:                                              ; preds = %422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.086, ptr noundef nonnull align 8 dereferenceable(24) %424, i64 24, i1 false)
-  %.sroa.232.0.copyload = load i8, ptr %.sroa.235.0..sroa_idx, align 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 32
+  %.sroa.232.0.copyload = load i8, ptr %.sroa.232.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
@@ -6622,6 +6622,7 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
           to label %427 unwind label %.thread843.loopexit.split-lp
 
 426:                                              ; preds = %422
+  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 32
   %.sroa.235.0.copyload = load i8, ptr %.sroa.235.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
@@ -7002,12 +7003,12 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
   %505 = load i64, ptr %91, align 8, !range !960, !noundef !11
   %trunc107 = trunc nuw i64 %505 to i1
   %506 = getelementptr inbounds i8, ptr %91, i64 8
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 32
   br i1 %trunc107, label %508, label %507
 
 507:                                              ; preds = %504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.071, ptr noundef nonnull align 8 dereferenceable(24) %506, i64 24, i1 false)
-  %.sroa.217.0.copyload = load i8, ptr %.sroa.220.0..sroa_idx, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 32
+  %.sroa.217.0.copyload = load i8, ptr %.sroa.217.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
@@ -7015,6 +7016,7 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
           to label %509 unwind label %.thread843.loopexit.split-lp
 
 508:                                              ; preds = %504
+  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 32
   %.sroa.220.0.copyload = load i8, ptr %.sroa.220.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
@@ -7170,7 +7172,6 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
   br label %"_ZN4core3ptr96drop_in_place$LT$deserr..FieldState$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h5beee2d8814189d6E.exit"
 
 533:                                              ; preds = %.noexc260
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13385, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i251.sroa.11, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7.i251.sroa.11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %98)
@@ -7345,7 +7346,6 @@ default.unreachable:                              ; preds = %391, %381, %371, %3
   br label %"_ZN4core3ptr96drop_in_place$LT$deserr..FieldState$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h5beee2d8814189d6E.exit279"
 
 566:                                              ; preds = %.noexc275
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i266.sroa.11, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7.i266.sroa.11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %101)

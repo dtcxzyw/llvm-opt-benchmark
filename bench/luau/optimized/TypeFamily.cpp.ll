@@ -22796,7 +22796,6 @@ _ZNSt6vectorIN4Luau21GenericTypeDefinitionESaIS1_EEaSEOS3_.exit.i87: ; preds = %
   %379 = load ptr, ptr %378, align 8
   store ptr %379, ptr %373, align 8
   %.not.i.i.i.i.i4.i88 = icmp eq ptr %371, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %370, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i4.i88, label %_ZN4Luau7TypeFunD2Ev.exit93, label %380
 
 380:                                              ; preds = %_ZNSt6vectorIN4Luau21GenericTypeDefinitionESaIS1_EEaSEOS3_.exit.i87

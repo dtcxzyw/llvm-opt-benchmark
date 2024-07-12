@@ -1150,7 +1150,6 @@ split.thread.i:                                   ; preds = %isvalid_rfc2428_del
   %425 = ptrtoint ptr %424 to i64
   %426 = sub i64 %425, %417
   %427 = trunc i64 %426 to i32
-  store i32 %427, ptr %19, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %428 = load i32, ptr %20, align 8
   switch i32 %428, label %proto_item_set_generated.exit [

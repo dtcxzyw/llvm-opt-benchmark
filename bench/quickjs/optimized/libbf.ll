@@ -27446,7 +27446,6 @@ bf_mul_2exp.exit:                                 ; preds = %59, %68
 
 bf_set.exit:                                      ; preds = %._crit_edge.i, %bf_set_nan.exit.i, %33, %83
   %storemerge = phi i64 [ %84, %83 ], [ 0, %33 ], [ 0, %bf_set_nan.exit.i ], [ 0, %._crit_edge.i ]
-  store i64 %storemerge, ptr %10, align 8
   %85 = load i32, ptr %12, align 8
   %86 = call i32 @bf_mul(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %7, i64 noundef %28, i32 noundef 0)
   %87 = load i64, ptr %14, align 8

@@ -2713,8 +2713,6 @@ sw.bb70:                                          ; preds = %for.end68
   br i1 %or.cond, label %if.then76, label %if.end83
 
 if.then76:                                        ; preds = %sw.bb70
-  store i32 2, ptr %sharedVertsA, align 4
-  store i32 0, ptr %arrayidx74, align 4
   %51 = load <2 x i32>, ptr %sharedVertsB, align 8
   %52 = shufflevector <2 x i32> %51, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %52, ptr %sharedVertsB, align 8

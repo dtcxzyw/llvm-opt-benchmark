@@ -38392,7 +38392,6 @@ _ZN8tinygltf6detail8ArrayEndERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx11
   %167 = load <2 x ptr>, ptr %114, align 8
   store <2 x ptr> %167, ptr %113, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %166, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i, label %168
 
 168:                                              ; preds = %165

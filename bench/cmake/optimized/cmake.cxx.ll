@@ -35161,7 +35161,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit165: ;
 385:                                              ; preds = %375
   %386 = ptrtoint ptr %376 to i64
   store i64 %386, ptr %40, align 8
-  store ptr null, ptr %39, align 8
   invoke void @_ZN5cmake18SetGlobalGeneratorESt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(2216) %0, ptr noundef nonnull %40)
           to label %387 unwind label %409
 
@@ -35178,7 +35177,6 @@ _ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i: ; preds = %387
   br label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit: ; preds = %387, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i
-  store ptr null, ptr %40, align 8
   %392 = load ptr, ptr %361, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #30
   %393 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41)

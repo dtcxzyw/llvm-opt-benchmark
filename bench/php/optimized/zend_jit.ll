@@ -93539,7 +93539,6 @@ jit_CONST_FUNC.exit523:                           ; preds = %576, %587
 
 595:                                              ; preds = %jit_CONST_FUNC.exit523, %567
   %596 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %458) #32
-  store i32 %596, ptr %16, align 4
   %597 = and i32 %4, 256
   %.not434 = icmp eq i32 %597, 0
   br i1 %.not434, label %709, label %599

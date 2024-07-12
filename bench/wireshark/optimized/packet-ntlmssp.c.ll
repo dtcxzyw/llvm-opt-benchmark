@@ -677,7 +677,6 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 32
   %30 = load i64, ptr %29, align 1
-  store i64 %30, ptr %20, align 8
   br label %31
 
 31:                                               ; preds = %26, %24

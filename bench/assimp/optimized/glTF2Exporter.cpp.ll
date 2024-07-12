@@ -27845,7 +27845,6 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocat
   store ptr %261, ptr %n.sroa.35.0.arrayidx.i.sroa_idx.i689, align 8
   %value13.i.i691 = getelementptr inbounds %"class.rapidjson::GenericMember", ptr %263, i64 %idxprom.i.i686, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value13.i.i691, ptr noundef nonnull align 8 dereferenceable(16) %materialClearcoat186, i64 16, i1 false)
-  store i16 0, ptr %flags.i597, align 2
   %inc.i.i693 = add i32 %exts.sroa.0.6, 1
   br label %if.end219
 

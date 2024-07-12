@@ -170915,10 +170915,10 @@ define void @"_ZN5typst5model4cite1_91_$LT$impl$u20$typst..foundations..element.
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !36968
   store ptr %20, ptr %8, align 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %22, ptr %.sroa.6.8..sroa_idx, align 8
-  %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %.sroa.639.0.copyload, ptr %.sroa.7.8..sroa_idx, align 8
+  %.sroa.5.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %22, ptr %.sroa.5.8..sroa_idx, align 8
+  %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %.sroa.639.0.copyload, ptr %.sroa.6.8..sroa_idx, align 8
   %28 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.4622153547959463051(ptr noalias noundef nonnull readonly align 1 @anon.d0b53836d7e1f22013aa0a92172aa16d.122.llvm.4622153547959463051, i64 noundef 8, i64 noundef 24, i1 noundef zeroext false)
           to label %.noexc.i.i unwind label %32, !noalias !36968
 
@@ -171130,12 +171130,12 @@ define void @"_ZN5typst5model4cite1_91_$LT$impl$u20$typst..foundations..element.
 96:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !37007
   store i64 %86, ptr %5, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %89, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6119.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %91, ptr %.sroa.6119.0..sroa_idx, align 8
-  %.sroa.7120.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.647.0.copyload, ptr %.sroa.7120.0..sroa_idx, align 8
+  %.sroa.5119.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %89, ptr %.sroa.5119.0..sroa_idx, align 8
+  %.sroa.6120.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %91, ptr %.sroa.6120.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %.sroa.647.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   %97 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.4622153547959463051(ptr noalias noundef nonnull readonly align 1 @anon.d0b53836d7e1f22013aa0a92172aa16d.122.llvm.4622153547959463051, i64 noundef 8, i64 noundef 32, i1 noundef zeroext false)
           to label %.noexc.i.i73 unwind label %101, !noalias !37007
 

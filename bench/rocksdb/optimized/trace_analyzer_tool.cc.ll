@@ -17652,7 +17652,6 @@ if.then.i252:                                     ; preds = %invoke.cont93
   %retryable_9.i258 = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i259 = and i8 %88, 1
   store i8 %frombool.i259, ptr %retryable_9.i258, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp88, align 8
   %data_loss_.i260 = getelementptr inbounds i8, ptr %ref.tmp88, i64 4
   %89 = load i8, ptr %data_loss_.i260, align 4
   %data_loss_12.i261 = getelementptr inbounds i8, ptr %agg.result, i64 4

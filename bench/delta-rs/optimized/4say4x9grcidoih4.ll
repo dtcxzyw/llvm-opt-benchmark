@@ -18014,7 +18014,6 @@ define internal fastcc void @_ZN11flatbuffers8get_root14root_with_opts17h09c57e7
   %14 = alloca { i32, [15 x i32] }, align 8
   %.sroa.731.i.i.i.i.i = alloca [9 x i32], align 4
   %.sroa.16.i.i.i.i.i = alloca [10 x i32], align 8
-  %.sroa.724.sroa.8.i.i.i.i.i = alloca [4 x i32], align 8
   %15 = alloca { i32, [15 x i32] }, align 8
   %.sroa.717.i.i.i.i.i = alloca [9 x i32], align 4
   %16 = alloca { i32, [15 x i32] }, align 8
@@ -18427,7 +18426,6 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i.i:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !3874
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !3874
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.731.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.724.sroa.8.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.717.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.710.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16), !noalias !3875
@@ -18643,7 +18641,6 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   %.sroa.15.8..sroa_idx143.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %.sroa.15.8.copyload144.i.i.i.i.i = load i64, ptr %.sroa.15.8..sroa_idx143.i.i.i.i.i, align 8, !alias.scope !3927, !noalias !3875
   %.sroa.16.8..sroa_idx147.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.724.sroa.8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.8..sroa_idx147.i.i.i.i.i, i64 16, i1 false), !noalias !3874
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.16.i.i.i.i.i)
   store i64 %.sroa.11138.1.ph.i.i.i.i.i, ptr %12, align 8, !noalias !3875
   %.sroa.724.sroa.7.4..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
@@ -18659,7 +18656,7 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   %.sroa.8.1.i.i.i.i.i = phi i32 [ %.sroa.4.i.sroa.0.0.copyload176.i.i.i.i.i, %218 ], [ %.sroa.424.0.copyload.i.i.i.i.i.i, %174 ]
   %.sroa.0136.1.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.pr.i175.i.i.i.i.i, %218 ], [ %167, %174 ]
   %225 = phi <2 x i64> [ %219, %218 ], [ %175, %174 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.724.sroa.8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.i.i.i.i.i, i64 16, i1 false), !noalias !3875
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.sroa.gep4.i127.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.i.i.i.i.i, i64 16, i1 false), !noalias !3928
   %.sroa.16.40..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.16.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink.i.sroa.gep2.i126.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.40..sroa_idx.i.i.i.i.i, i64 24, i1 false), !noalias !3928
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.16.i.i.i.i.i)
@@ -18668,7 +18665,6 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i._crit_edge.i.
   store i32 %.sroa.8.1.i.i.i.i.i, ptr %.sroa.264.0..sroa_idx.i.i.i.i.i, align 4, !alias.scope !3929, !noalias !3928
   %.sroa.264.sroa.2.0..sroa.264.0..sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store <2 x i64> %225, ptr %.sroa.264.sroa.2.0..sroa.264.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !3929, !noalias !3928
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.sroa.gep4.i127.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.724.sroa.8.i.i.i.i.i, i64 16, i1 false), !noalias !3928
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !3875
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16), !noalias !3875
   br label %"_ZN84_$LT$arrow_ipc..gen..Schema..Schema$u20$as$u20$flatbuffers..verifier..Verifiable$GT$12run_verifier17hc220cb28aed0da1cE.exit.i.i.i.i"
@@ -19023,7 +19019,6 @@ _ZN11flatbuffers8verifier12append_trace17hedc9f77f3a97ed5aE.exit.i125.i.i.i.i.i:
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !3874
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !3874
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.731.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.724.sroa.8.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.717.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.710.i.i.i.i.i)
   br label %"_ZN103_$LT$flatbuffers..primitives..ForwardsUOffset$LT$T$GT$$u20$as$u20$flatbuffers..verifier..Verifiable$GT$12run_verifier17hb9978b24fb73fe5aE.exit.i.i.i"

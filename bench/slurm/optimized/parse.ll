@@ -65,7 +65,6 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1
-  store ptr %6, ptr %2, align 8
   %7 = tail call i32 @strncasecmp(ptr noundef nonnull %6, ptr noundef nonnull @.str, i64 noundef 6) #9
   %.not181 = icmp eq i32 %7, 0
   br i1 %.not181, label %10, label %8

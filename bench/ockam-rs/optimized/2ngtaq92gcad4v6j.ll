@@ -123436,23 +123436,21 @@ common.ret:                                       ; preds = %1574, %"_ZN4core3pt
 
 "_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE.exit.thread": ; preds = %1582, %.noexc501
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !23443
-  store i16 2, ptr %86, align 4, !alias.scope !23458, !noalias !23461
   %1584 = getelementptr inbounds i8, ptr %1, i64 672
   br label %1603
 
 1585:                                             ; preds = %1577
   %.sroa.9633.sroa.8.0..sroa.9633.0..sroa_idx634.sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !23463
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !23458
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9633.sroa.8.0..sroa.9633.0..sroa_idx634.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5649, i64 24, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !23458)
-  store i32 %1558, ptr %12, align 8, !noalias !23458
+  store i32 %1558, ptr %12, align 8, !noalias !23462
   %.sroa.9633.0..sroa_idx634 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %.sroa.4758.0.copyload, ptr %.sroa.9633.0..sroa_idx634, align 4, !noalias !23458
+  store i32 %.sroa.4758.0.copyload, ptr %.sroa.9633.0..sroa_idx634, align 4, !noalias !23462
   %.sroa.9633.sroa.7.0..sroa.9633.0..sroa_idx634.sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %.sroa.5759.0.copyload, ptr %.sroa.9633.sroa.7.0..sroa.9633.0..sroa_idx634.sroa_idx, align 8, !noalias !23458
-  call void @llvm.experimental.noalias.scope.decl(metadata !23464)
+  store ptr %.sroa.5759.0.copyload, ptr %.sroa.9633.sroa.7.0..sroa.9633.0..sroa_idx634.sroa_idx, align 8, !noalias !23462
+  call void @llvm.experimental.noalias.scope.decl(metadata !23463)
   invoke void @"_ZN94_$LT$tokio..net..addr..sealed..OneOrMore$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h76faa72826a47ccdE"(ptr noalias nocapture noundef nonnull sret({ i16, [15 x i16] }) align 4 dereferenceable(32) %86, ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
-          to label %1588 unwind label %1586, !noalias !23461
+          to label %1588 unwind label %1586, !noalias !23466
 
 1586:                                             ; preds = %1585
   %1587 = landingpad { ptr, i32 }
@@ -123504,7 +123502,7 @@ common.ret:                                       ; preds = %1574, %"_ZN4core3pt
   br label %.body503
 
 "_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE.exit": ; preds = %1588, %.noexc505
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !23463
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !23458
   %.pre879 = load i16, ptr %86, align 4, !range !4408, !alias.scope !23478, !noalias !23482
   %1601 = getelementptr inbounds i8, ptr %1, i64 672
   call void @llvm.experimental.noalias.scope.decl(metadata !23485)
@@ -182370,22 +182368,22 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !23455 = !{!23456}
 !23456 = distinct !{!23456, !23457, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h3490dbe1d1371a97E.llvm.1425447921696267910: argument 0"}
 !23457 = distinct !{!23457, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h3490dbe1d1371a97E.llvm.1425447921696267910"}
-!23458 = !{!23459}
+!23458 = !{!23459, !23461}
 !23459 = distinct !{!23459, !23460, !"_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE: argument 0"}
 !23460 = distinct !{!23460, !"_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE"}
-!23461 = !{!23462}
-!23462 = distinct !{!23462, !23460, !"_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE: argument 1"}
-!23463 = !{!23459, !23462}
-!23464 = !{!23465}
-!23465 = distinct !{!23465, !23466, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E: argument 1"}
-!23466 = distinct !{!23466, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E"}
-!23467 = !{!23468, !23459, !23462}
-!23468 = distinct !{!23468, !23466, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E: argument 0"}
+!23461 = distinct !{!23461, !23460, !"_ZN4core6option15Option$LT$T$GT$8and_then17hdf0432173b550a5cE: argument 1"}
+!23462 = !{!23459}
+!23463 = !{!23464}
+!23464 = distinct !{!23464, !23465, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E: argument 1"}
+!23465 = distinct !{!23465, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E"}
+!23466 = !{!23461}
+!23467 = !{!23468, !23459, !23461}
+!23468 = distinct !{!23468, !23465, !"_ZN155_$LT$ockam_api..kafka..protocol_aware..metadata_interceptor..OutletInterceptorImpl$u20$as$u20$ockam_api..kafka..protocol_aware..KafkaMessageInterceptor$GT$18intercept_response28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a60c1592df86245E: argument 0"}
 !23469 = !{!23470}
 !23470 = distinct !{!23470, !23471, !"_ZN4core3ptr56drop_in_place$LT$tokio..net..addr..sealed..OneOrMore$GT$17h6e121bcd726629b5E: argument 0"}
 !23471 = distinct !{!23471, !"_ZN4core3ptr56drop_in_place$LT$tokio..net..addr..sealed..OneOrMore$GT$17h6e121bcd726629b5E"}
-!23472 = !{!23470, !23465}
-!23473 = !{!23474, !23476, !23470, !23468, !23465, !23459, !23462}
+!23472 = !{!23470, !23464}
+!23473 = !{!23474, !23476, !23470, !23468, !23464, !23459, !23461}
 !23474 = distinct !{!23474, !23475, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab9fa3d67f7de405E.llvm.1425447921696267910: argument 0"}
 !23475 = distinct !{!23475, !"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab9fa3d67f7de405E.llvm.1425447921696267910"}
 !23476 = distinct !{!23476, !23477, !"_ZN4core3ptr94drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h5166861b1e8c0ab3E: argument 0"}

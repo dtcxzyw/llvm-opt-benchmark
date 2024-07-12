@@ -20274,26 +20274,26 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef %0, ptr noundef %1
   %16 = alloca i32, align 4
   br label %17
 
-17:                                               ; preds = %176, %4
-  %.040 = phi i32 [ %3, %4 ], [ %.141, %176 ]
-  %.0 = phi ptr [ %2, %4 ], [ %.1, %176 ]
+17:                                               ; preds = %166, %4
+  %.040 = phi i32 [ %3, %4 ], [ %.141, %166 ]
+  %.0 = phi ptr [ %2, %4 ], [ %.1, %166 ]
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.040) #7
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %177
+  br i1 %19, label %20, label %167
 
 20:                                               ; preds = %17
   %21 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %.040, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %22 = load i8, ptr %14, align 1
-  switch i8 %22, label %177 [
+  switch i8 %22, label %167 [
     i8 0, label %23
     i8 1, label %25
-    i8 2, label %172
-    i8 3, label %174
+    i8 2, label %162
+    i8 3, label %164
   ]
 
 23:                                               ; preds = %20
   %24 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.040, ptr noundef nonnull @.str.2558)
-  br label %176
+  br label %166
 
 25:                                               ; preds = %20
   %26 = load i32, ptr @ett_bacapp_value, align 4
@@ -20305,9 +20305,9 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   br label %30
 
-30:                                               ; preds = %169, %25
-  %.045.i = phi i32 [ %29, %25 ], [ %.146.i, %169 ]
-  %.0.i = phi ptr [ %27, %25 ], [ %.1.i, %169 ]
+30:                                               ; preds = %159, %25
+  %.045.i = phi i32 [ %29, %25 ], [ %.146.i, %159 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %.1.i, %159 ]
   %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.045.i) #7
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %fAuditLogQueryParameters.exit
@@ -20323,7 +20323,7 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef %0, ptr noundef %1
   %38 = load i8, ptr %11, align 1
   switch i8 %38, label %fAuditLogQueryParameters.exit [
     i8 0, label %39
-    i8 1, label %107
+    i8 1, label %102
   ]
 
 39:                                               ; preds = %37
@@ -20336,8 +20336,8 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   br label %44
 
-44:                                               ; preds = %104, %39
-  %.0.i.i = phi i32 [ %43, %39 ], [ %.1.i.i, %104 ]
+44:                                               ; preds = %99, %39
+  %.0.i.i = phi i32 [ %43, %39 ], [ %.1.i.i, %99 ]
   %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i.i) #7
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %fAuditLogQueryByTargetParameters.exit.i
@@ -20347,309 +20347,287 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef %0, ptr noundef %1
   %49 = and i8 %48, 7
   %50 = zext nneg i8 %49 to i32
   store i32 %50, ptr %10, align 4
-  %51 = and i8 %48, 8
-  %.not.i45 = icmp eq i8 %51, 0
-  br i1 %.not.i45, label %54, label %52
+  %51 = lshr i8 %48, 4
+  store i8 %51, ptr %8, align 1
+  %52 = icmp ult i8 %48, -16
+  br i1 %52, label %56, label %53
 
-52:                                               ; preds = %47
-  %53 = and i8 %48, 15
-  store i8 %53, ptr %9, align 1
-  br label %54
+53:                                               ; preds = %47
+  %54 = add i32 %.0.i.i, 1
+  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #7
+  store i8 %55, ptr %8, align 1
+  br label %56
 
-54:                                               ; preds = %52, %47
-  %55 = phi i8 [ %53, %52 ], [ 0, %47 ]
-  %56 = lshr i8 %48, 4
-  store i8 %56, ptr %8, align 1
-  %57 = icmp ult i8 %48, -16
-  br i1 %57, label %61, label %58
-
-58:                                               ; preds = %54
-  %59 = add i32 %.0.i.i, 1
-  %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #7
-  store i8 %60, ptr %8, align 1
-  br label %61
-
-61:                                               ; preds = %58, %54
-  %62 = phi i8 [ %60, %58 ], [ %56, %54 ]
-  %.0107.i46 = phi i32 [ 2, %58 ], [ 1, %54 ]
+56:                                               ; preds = %53, %47
+  %57 = phi i8 [ %55, %53 ], [ %51, %47 ]
+  %.0107.i46 = phi i32 [ 2, %53 ], [ 1, %47 ]
   %.not135.i47 = icmp eq i8 %49, 5
-  br i1 %.not135.i47, label %63, label %75
+  br i1 %.not135.i47, label %58, label %70
 
-63:                                               ; preds = %61
-  %64 = add i32 %.0107.i46, %.0.i.i
-  %65 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #7
-  switch i8 %65, label %73 [
-    i8 -2, label %66
-    i8 -1, label %70
+58:                                               ; preds = %56
+  %59 = add i32 %.0107.i46, %.0.i.i
+  %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #7
+  switch i8 %60, label %68 [
+    i8 -2, label %61
+    i8 -1, label %65
   ]
 
-66:                                               ; preds = %63
-  %67 = add i32 %64, 1
-  %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %67) #7
-  %69 = zext i16 %68 to i32
+61:                                               ; preds = %58
+  %62 = add i32 %59, 1
+  %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62) #7
+  %64 = zext i16 %63 to i32
+  store i32 %64, ptr %10, align 4
+  br label %70
+
+65:                                               ; preds = %58
+  %66 = add i32 %59, 1
+  %67 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %66) #7
+  store i32 %67, ptr %10, align 4
+  br label %70
+
+68:                                               ; preds = %58
+  %69 = zext i8 %60 to i32
   store i32 %69, ptr %10, align 4
-  br label %75
+  br label %70
 
-70:                                               ; preds = %63
-  %71 = add i32 %64, 1
-  %72 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %71) #7
-  store i32 %72, ptr %10, align 4
-  br label %75
+70:                                               ; preds = %68, %65, %61, %56
+  %71 = phi i32 [ %69, %68 ], [ %67, %65 ], [ %64, %61 ], [ %50, %56 ]
+  %72 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
+  %73 = icmp ugt i32 %71, %72
+  br i1 %73, label %74, label %fTagHeaderTree.exit51
 
-73:                                               ; preds = %63
-  %74 = zext i8 %65 to i32
-  store i32 %74, ptr %10, align 4
-  br label %75
-
-75:                                               ; preds = %73, %70, %66, %61
-  %76 = phi i32 [ %74, %73 ], [ %72, %70 ], [ %69, %66 ], [ %50, %61 ]
-  %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %78 = icmp ugt i32 %76, %77
-  br i1 %78, label %79, label %fTagHeaderTree.exit51
-
-79:                                               ; preds = %75
-  %80 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %81 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2564, i32 noundef %76, i32 noundef %80) #7
+74:                                               ; preds = %70
+  %75 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
+  %76 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2564, i32 noundef %71, i32 noundef %75) #7
   store i32 1, ptr %10, align 4
   br label %fTagHeaderTree.exit51
 
-fTagHeaderTree.exit51:                            ; preds = %75, %79
-  %82 = and i8 %55, 7
-  %.not.i.i = icmp eq i8 %82, 7
-  br i1 %.not.i.i, label %fAuditLogQueryByTargetParameters.exit.i, label %83
+fTagHeaderTree.exit51:                            ; preds = %70, %74
+  %77 = and i8 %48, 15
+  %.not.i.i = icmp eq i8 %77, 15
+  br i1 %.not.i.i, label %fAuditLogQueryByTargetParameters.exit.i, label %78
 
-83:                                               ; preds = %fTagHeaderTree.exit51
-  switch i8 %62, label %fAuditLogQueryByTargetParameters.exit.i [
-    i8 0, label %84
-    i8 1, label %86
-    i8 2, label %92
-    i8 3, label %94
-    i8 4, label %96
-    i8 5, label %98
-    i8 6, label %100
-    i8 7, label %102
+78:                                               ; preds = %fTagHeaderTree.exit51
+  switch i8 %57, label %fAuditLogQueryByTargetParameters.exit.i [
+    i8 0, label %79
+    i8 1, label %81
+    i8 2, label %87
+    i8 3, label %89
+    i8 4, label %91
+    i8 5, label %93
+    i8 6, label %95
+    i8 7, label %97
   ]
 
-84:                                               ; preds = %83
-  %85 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.2632)
-  br label %104
+79:                                               ; preds = %78
+  %80 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.2632)
+  br label %99
 
-86:                                               ; preds = %83
-  %87 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %88 = add i32 %87, %.0.i.i
-  %89 = tail call fastcc i32 @fAddress(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %88)
-  %90 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %89, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %91 = add i32 %90, %89
-  br label %104
+81:                                               ; preds = %78
+  %82 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %83 = add i32 %82, %.0.i.i
+  %84 = tail call fastcc i32 @fAddress(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %83)
+  %85 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %84, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %86 = add i32 %85, %84
+  br label %99
 
-92:                                               ; preds = %83
-  %93 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.2558)
-  br label %104
+87:                                               ; preds = %78
+  %88 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.2558)
+  br label %99
 
-94:                                               ; preds = %83
-  %95 = tail call fastcc i32 @fPropertyIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i)
-  br label %104
+89:                                               ; preds = %78
+  %90 = tail call fastcc i32 @fPropertyIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i)
+  br label %99
 
-96:                                               ; preds = %83
-  %97 = tail call fastcc i32 @fPropertyArrayIndex(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i)
-  br label %104
+91:                                               ; preds = %78
+  %92 = tail call fastcc i32 @fPropertyArrayIndex(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i)
+  br label %99
 
-98:                                               ; preds = %83
-  %99 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3024)
-  br label %104
+93:                                               ; preds = %78
+  %94 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3024)
+  br label %99
 
-100:                                              ; preds = %83
-  %101 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3775, ptr noundef nonnull @BACnetAuditOperation, i32 noundef 0)
-  br label %104
+95:                                               ; preds = %78
+  %96 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3775, ptr noundef nonnull @BACnetAuditOperation, i32 noundef 0)
+  br label %99
 
-102:                                              ; preds = %83
-  %103 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3776, ptr noundef nonnull @BACnetSuccessFilter, i32 noundef 64)
-  br label %104
+97:                                               ; preds = %78
+  %98 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0.i.i, ptr noundef nonnull @.str.3776, ptr noundef nonnull @BACnetSuccessFilter, i32 noundef 64)
+  br label %99
 
-104:                                              ; preds = %102, %100, %98, %96, %94, %92, %86, %84
-  %.1.i.i = phi i32 [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %86 ], [ %85, %84 ]
+99:                                               ; preds = %97, %95, %93, %91, %89, %87, %81, %79
+  %.1.i.i = phi i32 [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %81 ], [ %80, %79 ]
   %.not53.i.i = icmp ugt i32 %.1.i.i, %.0.i.i
   br i1 %.not53.i.i, label %44, label %fAuditLogQueryByTargetParameters.exit.i, !llvm.loop !183
 
-fAuditLogQueryByTargetParameters.exit.i:          ; preds = %104, %83, %fTagHeaderTree.exit51, %44
-  %.052.i.i = phi i32 [ %.0.i.i, %83 ], [ %.0.i.i, %fTagHeaderTree.exit51 ], [ %.1.i.i, %104 ], [ %.0.i.i, %44 ]
+fAuditLogQueryByTargetParameters.exit.i:          ; preds = %99, %78, %fTagHeaderTree.exit51, %44
+  %.052.i.i = phi i32 [ %.0.i.i, %78 ], [ %.0.i.i, %fTagHeaderTree.exit51 ], [ %.1.i.i, %99 ], [ %.0.i.i, %44 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %105 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.052.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %106 = add i32 %105, %.052.i.i
-  br label %169
+  %100 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.052.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %101 = add i32 %100, %.052.i.i
+  br label %159
 
-107:                                              ; preds = %37
-  %108 = load i32, ptr @ett_bacapp_value, align 4
-  %109 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef %0, i32 noundef %.045.i, i32 noundef 1, i32 noundef %108, ptr noundef null, ptr noundef nonnull @.str.3774) #7
-  %110 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.045.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %111 = add i32 %110, %.045.i
+102:                                              ; preds = %37
+  %103 = load i32, ptr @ett_bacapp_value, align 4
+  %104 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef %0, i32 noundef %.045.i, i32 noundef 1, i32 noundef %103, ptr noundef null, ptr noundef nonnull @.str.3774) #7
+  %105 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.045.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %106 = add i32 %105, %.045.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  br label %112
+  br label %107
 
-112:                                              ; preds = %166, %107
-  %.0.i49.i = phi i32 [ %111, %107 ], [ %.1.i51.i, %166 ]
-  %113 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i49.i) #7
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %fAuditLogQueryBySourceParameters.exit.i
+107:                                              ; preds = %156, %102
+  %.0.i49.i = phi i32 [ %106, %102 ], [ %.1.i51.i, %156 ]
+  %108 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i49.i) #7
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %110, label %fAuditLogQueryBySourceParameters.exit.i
 
-115:                                              ; preds = %112
-  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i49.i) #7
-  %117 = and i8 %116, 7
-  %118 = zext nneg i8 %117 to i32
-  store i32 %118, ptr %7, align 4
-  %119 = and i8 %116, 8
-  %.not.i43 = icmp eq i8 %119, 0
-  br i1 %.not.i43, label %122, label %120
+110:                                              ; preds = %107
+  %111 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i49.i) #7
+  %112 = and i8 %111, 7
+  %113 = zext nneg i8 %112 to i32
+  store i32 %113, ptr %7, align 4
+  %114 = lshr i8 %111, 4
+  store i8 %114, ptr %5, align 1
+  %115 = icmp ult i8 %111, -16
+  br i1 %115, label %119, label %116
 
-120:                                              ; preds = %115
-  %121 = and i8 %116, 15
-  store i8 %121, ptr %6, align 1
-  br label %122
+116:                                              ; preds = %110
+  %117 = add i32 %.0.i49.i, 1
+  %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #7
+  store i8 %118, ptr %5, align 1
+  br label %119
 
-122:                                              ; preds = %120, %115
-  %123 = phi i8 [ %121, %120 ], [ 0, %115 ]
-  %124 = lshr i8 %116, 4
-  store i8 %124, ptr %5, align 1
-  %125 = icmp ult i8 %116, -16
-  br i1 %125, label %129, label %126
+119:                                              ; preds = %116, %110
+  %120 = phi i8 [ %118, %116 ], [ %114, %110 ]
+  %.0107.i = phi i32 [ 2, %116 ], [ 1, %110 ]
+  %.not135.i = icmp eq i8 %112, 5
+  br i1 %.not135.i, label %121, label %133
 
-126:                                              ; preds = %122
-  %127 = add i32 %.0.i49.i, 1
-  %128 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %127) #7
-  store i8 %128, ptr %5, align 1
-  br label %129
-
-129:                                              ; preds = %126, %122
-  %130 = phi i8 [ %128, %126 ], [ %124, %122 ]
-  %.0107.i = phi i32 [ 2, %126 ], [ 1, %122 ]
-  %.not135.i = icmp eq i8 %117, 5
-  br i1 %.not135.i, label %131, label %143
-
-131:                                              ; preds = %129
-  %132 = add i32 %.0107.i, %.0.i49.i
-  %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %132) #7
-  switch i8 %133, label %141 [
-    i8 -2, label %134
-    i8 -1, label %138
+121:                                              ; preds = %119
+  %122 = add i32 %.0107.i, %.0.i49.i
+  %123 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %122) #7
+  switch i8 %123, label %131 [
+    i8 -2, label %124
+    i8 -1, label %128
   ]
 
-134:                                              ; preds = %131
-  %135 = add i32 %132, 1
-  %136 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %135) #7
-  %137 = zext i16 %136 to i32
-  store i32 %137, ptr %7, align 4
-  br label %143
+124:                                              ; preds = %121
+  %125 = add i32 %122, 1
+  %126 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %125) #7
+  %127 = zext i16 %126 to i32
+  store i32 %127, ptr %7, align 4
+  br label %133
 
-138:                                              ; preds = %131
-  %139 = add i32 %132, 1
-  %140 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %139) #7
-  store i32 %140, ptr %7, align 4
-  br label %143
+128:                                              ; preds = %121
+  %129 = add i32 %122, 1
+  %130 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %129) #7
+  store i32 %130, ptr %7, align 4
+  br label %133
 
-141:                                              ; preds = %131
-  %142 = zext i8 %133 to i32
-  store i32 %142, ptr %7, align 4
-  br label %143
+131:                                              ; preds = %121
+  %132 = zext i8 %123 to i32
+  store i32 %132, ptr %7, align 4
+  br label %133
 
-143:                                              ; preds = %141, %138, %134, %129
-  %144 = phi i32 [ %142, %141 ], [ %140, %138 ], [ %137, %134 ], [ %118, %129 ]
-  %145 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %146 = icmp ugt i32 %144, %145
-  br i1 %146, label %147, label %fTagHeaderTree.exit
+133:                                              ; preds = %131, %128, %124, %119
+  %134 = phi i32 [ %132, %131 ], [ %130, %128 ], [ %127, %124 ], [ %113, %119 ]
+  %135 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
+  %136 = icmp ugt i32 %134, %135
+  br i1 %136, label %137, label %fTagHeaderTree.exit
 
-147:                                              ; preds = %143
-  %148 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %149 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2564, i32 noundef %144, i32 noundef %148) #7
+137:                                              ; preds = %133
+  %138 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
+  %139 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_bacapp_bad_length, ptr noundef nonnull @.str.2564, i32 noundef %134, i32 noundef %138) #7
   store i32 1, ptr %7, align 4
   br label %fTagHeaderTree.exit
 
-fTagHeaderTree.exit:                              ; preds = %143, %147
-  %150 = and i8 %123, 7
-  %.not.i50.i = icmp eq i8 %150, 7
-  br i1 %.not.i50.i, label %fAuditLogQueryBySourceParameters.exit.i, label %151
+fTagHeaderTree.exit:                              ; preds = %133, %137
+  %140 = and i8 %111, 15
+  %.not.i50.i = icmp eq i8 %140, 15
+  br i1 %.not.i50.i, label %fAuditLogQueryBySourceParameters.exit.i, label %141
 
-151:                                              ; preds = %fTagHeaderTree.exit
-  switch i8 %130, label %fAuditLogQueryBySourceParameters.exit.i [
-    i8 0, label %152
-    i8 1, label %154
-    i8 2, label %160
-    i8 3, label %162
-    i8 4, label %164
+141:                                              ; preds = %fTagHeaderTree.exit
+  switch i8 %120, label %fAuditLogQueryBySourceParameters.exit.i [
+    i8 0, label %142
+    i8 1, label %144
+    i8 2, label %150
+    i8 3, label %152
+    i8 4, label %154
   ]
 
-152:                                              ; preds = %151
-  %153 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.2632)
-  br label %166
+142:                                              ; preds = %141
+  %143 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.2632)
+  br label %156
 
-154:                                              ; preds = %151
-  %155 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0.i49.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %156 = add i32 %155, %.0.i49.i
-  %157 = tail call fastcc i32 @fAddress(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %156)
-  %158 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %157, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %159 = add i32 %158, %157
-  br label %166
+144:                                              ; preds = %141
+  %145 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.0.i49.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %146 = add i32 %145, %.0.i49.i
+  %147 = tail call fastcc i32 @fAddress(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %146)
+  %148 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %147, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %149 = add i32 %148, %147
+  br label %156
 
-160:                                              ; preds = %151
-  %161 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.2558)
-  br label %166
+150:                                              ; preds = %141
+  %151 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.2558)
+  br label %156
 
-162:                                              ; preds = %151
-  %163 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.3779, ptr noundef nonnull @BACnetAuditOperation, i32 noundef 0)
-  br label %166
+152:                                              ; preds = %141
+  %153 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.3779, ptr noundef nonnull @BACnetAuditOperation, i32 noundef 0)
+  br label %156
 
-164:                                              ; preds = %151
-  %165 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.3780, ptr noundef nonnull @BACnetSuccessFilter, i32 noundef 64)
-  br label %166
+154:                                              ; preds = %141
+  %155 = tail call fastcc i32 @fEnumeratedTagSplit(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.0.i49.i, ptr noundef nonnull @.str.3780, ptr noundef nonnull @BACnetSuccessFilter, i32 noundef 64)
+  br label %156
 
-166:                                              ; preds = %164, %162, %160, %154, %152
-  %.1.i51.i = phi i32 [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %154 ], [ %153, %152 ]
+156:                                              ; preds = %154, %152, %150, %144, %142
+  %.1.i51.i = phi i32 [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %144 ], [ %143, %142 ]
   %.not41.i.i = icmp ugt i32 %.1.i51.i, %.0.i49.i
-  br i1 %.not41.i.i, label %112, label %fAuditLogQueryBySourceParameters.exit.i, !llvm.loop !184
+  br i1 %.not41.i.i, label %107, label %fAuditLogQueryBySourceParameters.exit.i, !llvm.loop !184
 
-fAuditLogQueryBySourceParameters.exit.i:          ; preds = %166, %151, %fTagHeaderTree.exit, %112
-  %.040.i.i = phi i32 [ %.0.i49.i, %151 ], [ %.0.i49.i, %fTagHeaderTree.exit ], [ %.1.i51.i, %166 ], [ %.0.i49.i, %112 ]
+fAuditLogQueryBySourceParameters.exit.i:          ; preds = %156, %141, %fTagHeaderTree.exit, %107
+  %.040.i.i = phi i32 [ %.0.i49.i, %141 ], [ %.0.i49.i, %fTagHeaderTree.exit ], [ %.1.i51.i, %156 ], [ %.0.i49.i, %107 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %167 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.040.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %168 = add i32 %167, %.040.i.i
-  br label %169
+  %157 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %.040.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %158 = add i32 %157, %.040.i.i
+  br label %159
 
-169:                                              ; preds = %fAuditLogQueryBySourceParameters.exit.i, %fAuditLogQueryByTargetParameters.exit.i
-  %.146.i = phi i32 [ %168, %fAuditLogQueryBySourceParameters.exit.i ], [ %106, %fAuditLogQueryByTargetParameters.exit.i ]
-  %.1.i = phi ptr [ %109, %fAuditLogQueryBySourceParameters.exit.i ], [ %41, %fAuditLogQueryByTargetParameters.exit.i ]
+159:                                              ; preds = %fAuditLogQueryBySourceParameters.exit.i, %fAuditLogQueryByTargetParameters.exit.i
+  %.146.i = phi i32 [ %158, %fAuditLogQueryBySourceParameters.exit.i ], [ %101, %fAuditLogQueryByTargetParameters.exit.i ]
+  %.1.i = phi ptr [ %104, %fAuditLogQueryBySourceParameters.exit.i ], [ %41, %fAuditLogQueryByTargetParameters.exit.i ]
   %.not48.i = icmp ugt i32 %.146.i, %.045.i
   br i1 %.not48.i, label %30, label %fAuditLogQueryParameters.exit, !llvm.loop !185
 
-fAuditLogQueryParameters.exit:                    ; preds = %30, %33, %37, %169
-  %.047.i = phi i32 [ %.045.i, %37 ], [ %.045.i, %33 ], [ %.146.i, %169 ], [ %.045.i, %30 ]
+fAuditLogQueryParameters.exit:                    ; preds = %30, %33, %37, %159
+  %.047.i = phi i32 [ %.045.i, %37 ], [ %.045.i, %33 ], [ %.146.i, %159 ], [ %.045.i, %30 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %170 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %27, i32 noundef %.047.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
-  %171 = add i32 %170, %.047.i
-  br label %176
+  %160 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %27, i32 noundef %.047.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %161 = add i32 %160, %.047.i
+  br label %166
 
-172:                                              ; preds = %20
-  %173 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.040, ptr noundef nonnull @.str.3771)
-  br label %176
+162:                                              ; preds = %20
+  %163 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.040, ptr noundef nonnull @.str.3771)
+  br label %166
 
-174:                                              ; preds = %20
-  %175 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.040, ptr noundef nonnull @.str.3772)
-  br label %176
+164:                                              ; preds = %20
+  %165 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.040, ptr noundef nonnull @.str.3772)
+  br label %166
 
-176:                                              ; preds = %174, %172, %fAuditLogQueryParameters.exit, %23
-  %.141 = phi i32 [ %175, %174 ], [ %173, %172 ], [ %171, %fAuditLogQueryParameters.exit ], [ %24, %23 ]
-  %.1 = phi ptr [ %.0, %174 ], [ %.0, %172 ], [ %27, %fAuditLogQueryParameters.exit ], [ %.0, %23 ]
+166:                                              ; preds = %164, %162, %fAuditLogQueryParameters.exit, %23
+  %.141 = phi i32 [ %165, %164 ], [ %163, %162 ], [ %161, %fAuditLogQueryParameters.exit ], [ %24, %23 ]
+  %.1 = phi ptr [ %.0, %164 ], [ %.0, %162 ], [ %27, %fAuditLogQueryParameters.exit ], [ %.0, %23 ]
   %.not = icmp ugt i32 %.141, %.040
-  br i1 %.not, label %17, label %177, !llvm.loop !186
+  br i1 %.not, label %17, label %167, !llvm.loop !186
 
-177:                                              ; preds = %17, %176, %20
-  %.042 = phi i32 [ %.040, %20 ], [ %.141, %176 ], [ %.040, %17 ]
+167:                                              ; preds = %17, %166, %20
+  %.042 = phi i32 [ %.040, %20 ], [ %.141, %166 ], [ %.040, %17 ]
   ret i32 %.042
 }
 

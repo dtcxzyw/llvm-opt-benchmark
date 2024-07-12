@@ -52324,7 +52324,6 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i526: ; preds = %invok
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit529
 
 _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit529: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i526, %invoke.cont147
-  store ptr null, ptr %agg.tmp144, align 8, !tbaa !67
   %139 = load ptr, ptr %agg.tmp143, align 8, !tbaa !67
   %cmp.not.i530 = icmp eq ptr %139, null
   br i1 %cmp.not.i530, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit534, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i531
