@@ -177,7 +177,6 @@ if.end13.i:                                       ; preds = %invoke.cont.i, %if.
   br label %land.rhs.i
 
 while.end.i.thread:                               ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i333 = ptrtoint ptr %scevgep to i64
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
   %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %4, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336, align 8
@@ -301,7 +300,7 @@ if.end63.i:                                       ; preds = %while.end.i.thread,
   %13 = phi i64 [ %sub.ptr.sub60.i, %while.end53.i ], [ 0, %land.lhs.true21.i ], [ 0, %while.end.i.thread ]
   %14 = phi ptr [ %incdec.ptr26.i, %while.end53.i ], [ null, %land.lhs.true21.i ], [ null, %while.end.i.thread ]
   %15 = phi i64 [ %sub.ptr.sub.i, %while.end53.i ], [ %sub.ptr.sub.i, %land.lhs.true21.i ], [ %4, %while.end.i.thread ]
-  %sub.ptr.lhs.cast.i337 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end53.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true21.i ], [ %sub.ptr.lhs.cast.i333, %while.end.i.thread ]
+  %sub.ptr.lhs.cast.i337 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end53.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true21.i ], [ %last399, %while.end.i.thread ]
   %exponent.i.0 = phi i64 [ %sub.ptr.sub56.i, %while.end53.i ], [ 0, %land.lhs.true21.i ], [ 0, %while.end.i.thread ]
   %digit_count.i.0 = phi i64 [ %sub62.i, %while.end53.i ], [ %sub.ptr.sub.i, %land.lhs.true21.i ], [ %4, %while.end.i.thread ]
   %i.i.3 = phi i64 [ %i.i.2.lcssa, %while.end53.i ], [ %i.i.0361, %land.lhs.true21.i ], [ %add.i, %while.end.i.thread ]
@@ -1002,7 +1001,6 @@ if.end13.i:                                       ; preds = %invoke.cont.i, %if.
   br label %land.rhs.i
 
 while.end.i.thread:                               ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i333 = ptrtoint ptr %scevgep to i64
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
   %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %4, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336, align 8
@@ -1126,7 +1124,7 @@ if.end63.i:                                       ; preds = %while.end.i.thread,
   %13 = phi i64 [ %sub.ptr.sub60.i, %while.end53.i ], [ 0, %land.lhs.true21.i ], [ 0, %while.end.i.thread ]
   %14 = phi ptr [ %incdec.ptr26.i, %while.end53.i ], [ null, %land.lhs.true21.i ], [ null, %while.end.i.thread ]
   %15 = phi i64 [ %sub.ptr.sub.i, %while.end53.i ], [ %sub.ptr.sub.i, %land.lhs.true21.i ], [ %4, %while.end.i.thread ]
-  %sub.ptr.lhs.cast.i337 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end53.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true21.i ], [ %sub.ptr.lhs.cast.i333, %while.end.i.thread ]
+  %sub.ptr.lhs.cast.i337 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end53.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true21.i ], [ %last399, %while.end.i.thread ]
   %exponent.i.0 = phi i64 [ %sub.ptr.sub56.i, %while.end53.i ], [ 0, %land.lhs.true21.i ], [ 0, %while.end.i.thread ]
   %digit_count.i.0 = phi i64 [ %sub62.i, %while.end53.i ], [ %sub.ptr.sub.i, %land.lhs.true21.i ], [ %4, %while.end.i.thread ]
   %i.i.3 = phi i64 [ %i.i.2.lcssa, %while.end53.i ], [ %i.i.0361, %land.lhs.true21.i ], [ %add.i, %while.end.i.thread ]

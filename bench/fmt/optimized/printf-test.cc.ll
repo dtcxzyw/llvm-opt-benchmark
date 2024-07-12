@@ -230799,7 +230799,6 @@ if.then9:                                         ; preds = %land.lhs.true
   br i1 %cmp.not10.i.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.then9
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i198 to i64
   %.pre.i.i.i.i = load i64, ptr %size_.i.i.i.i, align 8
   br label %while.body.i.i.i.i
 
@@ -230807,7 +230806,7 @@ while.body.i.i.i.i:                               ; preds = %_ZSt20uninitialized
   %7 = phi i64 [ %.pre.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %add7.i.i.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i ]
   %begin.addr.011.i.i.i.i = phi ptr [ %start.0863, %while.body.lr.ph.i.i.i.i ], [ %add.ptr8.i.i.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i ]
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %begin.addr.011.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i
   %add.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, %7
   %8 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %8, %add.i.i.i.i
@@ -230869,7 +230868,6 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.not10.i.i.i.i201, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit229, label %while.body.lr.ph.i.i.i.i202
 
 while.body.lr.ph.i.i.i.i202:                      ; preds = %if.end19
-  %sub.ptr.lhs.cast.i.i.i.i203 = ptrtoint ptr %add.ptr.i.i200 to i64
   %.pre.i.i.i.i207 = load i64, ptr %size_.i.i.i.i, align 8
   br label %while.body.i.i.i.i208
 
@@ -230877,7 +230875,7 @@ while.body.i.i.i.i208:                            ; preds = %_ZSt20uninitialized
   %16 = phi i64 [ %.pre.i.i.i.i207, %while.body.lr.ph.i.i.i.i202 ], [ %add7.i.i.i.i222, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i221 ]
   %begin.addr.011.i.i.i.i209 = phi ptr [ %start.0863, %while.body.lr.ph.i.i.i.i202 ], [ %add.ptr8.i.i.i.i223, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i221 ]
   %sub.ptr.rhs.cast.i.i.i.i210 = ptrtoint ptr %begin.addr.011.i.i.i.i209 to i64
-  %sub.ptr.sub.i.i.i.i211 = sub i64 %sub.ptr.lhs.cast.i.i.i.i203, %sub.ptr.rhs.cast.i.i.i.i210
+  %sub.ptr.sub.i.i.i.i211 = sub i64 %sub.ptr.lhs.cast22, %sub.ptr.rhs.cast.i.i.i.i210
   %add.i.i.i.i212 = add i64 %sub.ptr.sub.i.i.i.i211, %16
   %17 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i213 = icmp ult i64 %17, %add.i.i.i.i212
@@ -233006,7 +233004,6 @@ while.end:                                        ; preds = %while.cond.backedge
   br i1 %cmp.not10.i.i.i.i765, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit793, label %while.body.lr.ph.i.i.i.i766
 
 while.body.lr.ph.i.i.i.i766:                      ; preds = %while.end
-  %sub.ptr.lhs.cast.i.i.i.i767 = ptrtoint ptr %add.ptr.i.i764 to i64
   %size_.i.i.i.i768 = getelementptr inbounds i8, ptr %buf, i64 16
   %capacity_.i.i.i.i.i769 = getelementptr inbounds i8, ptr %buf, i64 24
   %ptr_.i.i.i.i770 = getelementptr inbounds i8, ptr %buf, i64 8
@@ -233017,7 +233014,7 @@ while.body.i.i.i.i772:                            ; preds = %_ZSt20uninitialized
   %218 = phi i64 [ %.pre.i.i.i.i771, %while.body.lr.ph.i.i.i.i766 ], [ %add7.i.i.i.i786, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i785 ]
   %begin.addr.011.i.i.i.i773 = phi ptr [ %start.0853, %while.body.lr.ph.i.i.i.i766 ], [ %add.ptr8.i.i.i.i787, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i.i.i785 ]
   %sub.ptr.rhs.cast.i.i.i.i774 = ptrtoint ptr %begin.addr.011.i.i.i.i773 to i64
-  %sub.ptr.sub.i.i.i.i775 = sub i64 %sub.ptr.lhs.cast.i.i.i.i767, %sub.ptr.rhs.cast.i.i.i.i774
+  %sub.ptr.sub.i.i.i.i775 = sub i64 %sub.ptr.lhs.cast203, %sub.ptr.rhs.cast.i.i.i.i774
   %add.i.i.i.i776 = add i64 %sub.ptr.sub.i.i.i.i775, %218
   %219 = load i64, ptr %capacity_.i.i.i.i.i769, align 8
   %cmp.i.i.i.i.i777 = icmp ult i64 %219, %add.i.i.i.i776

@@ -372,19 +372,19 @@ define void @_ZN7mitsuba12FileResolver5eraseERKNS_10filesystem4pathE(ptr nocaptu
 
 _ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %5, align 8
+  %21 = ptrtoint ptr %20 to i64
   br label %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.i
 
 _ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.i: ; preds = %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i, %14
-  %21 = phi ptr [ %8, %14 ], [ %.pre.i, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i ]
-  %storemerge.lcssa.i.i.i.i.i.i = phi ptr [ %13, %14 ], [ %20, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i ]
-  %22 = ptrtoint ptr %storemerge.lcssa.i.i.i.i.i.i to i64
-  %23 = sub i64 %22, %10
+  %22 = phi ptr [ %8, %14 ], [ %.pre.i, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i ]
+  %storemerge.lcssa.i.i.i.i.i.i = phi i64 [ %10, %14 ], [ %21, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.loopexit.i ]
+  %23 = sub i64 %storemerge.lcssa.i.i.i.i.i.i, %10
   %24 = getelementptr inbounds i8, ptr %13, i64 %23
-  %.not6.i.i.i = icmp eq ptr %21, %24
+  %.not6.i.i.i = icmp eq ptr %22, %24
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_9allocatorIS3_EEE17__destruct_at_endB8ne190000EPS3_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i
-  %.07.i.i.i = phi ptr [ %25, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i ], [ %21, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.i ]
+  %.07.i.i.i = phi ptr [ %25, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i.i ], [ %22, %_ZNSt3__14moveB8ne190000IPN7mitsuba10filesystem4pathES4_EET0_T_S6_S5_.exit.i ]
   %25 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -32
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
@@ -439,7 +439,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7m
   br i1 %.not, label %.loopexit15, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
   %.not1316 = icmp eq ptr %10, %1
   br i1 %.not1316, label %.loopexit15, label %.lr.ph
 
@@ -449,7 +449,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7m
 
 12:                                               ; preds = %.lr.ph, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit
   %13 = phi ptr [ %10, %.lr.ph ], [ %58, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
-  %.sroa.0.019 = phi ptr [ %9, %.lr.ph ], [ %13, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
+  %.sroa.0.019 = phi ptr [ %5, %.lr.ph ], [ %13, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
   %.sroa.010.017 = phi ptr [ %9, %.lr.ph ], [ %.sroa.010.1, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
   %14 = load ptr, ptr %11, align 8
   %15 = load ptr, ptr %2, align 8

@@ -67853,13 +67853,15 @@ _ZN5arrow7compute10ExpressionaSEOS1_.exit.i.i.i.i.i71: ; preds = %if.end8.sink.s
   %incdec.ptr1.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i56, i64 16
   %dec.i.i.i.i.i74 = add nsw i64 %__n.09.i.i.i.i.i55, -1
   %cmp.i.i.i.i.i75 = icmp sgt i64 %__n.09.i.i.i.i.i55, 1
-  br i1 %cmp.i.i.i.i.i75, label %for.body.i.i.i.i.i54, label %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95, !llvm.loop !530
+  br i1 %cmp.i.i.i.i.i75, label %for.body.i.i.i.i.i54, label %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95.loopexit, !llvm.loop !530
 
-_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95: ; preds = %_ZN5arrow7compute10ExpressionaSEOS1_.exit.i.i.i.i.i71, %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i49 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %incdec.ptr1.i.i.i.i.i73, %_ZN5arrow7compute10ExpressionaSEOS1_.exit.i.i.i.i.i71 ]
-  %sub.ptr.lhs.cast.i.i.i50 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i49 to i64
-  %sub.ptr.rhs.cast.i.i.i51 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i.i50, %sub.ptr.rhs.cast.i.i.i51
+_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95.loopexit: ; preds = %_ZN5arrow7compute10ExpressionaSEOS1_.exit.i.i.i.i.i71
+  %58 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i73 to i64
+  br label %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95
+
+_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95: ; preds = %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95.loopexit, %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i49 = phi i64 [ %sub.ptr.lhs.cast.i.i.i, %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %58, %_ZSt4moveIPN5arrow7compute10ExpressionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit95.loopexit ]
+  %sub.ptr.sub.i.i.i52 = sub i64 %__result.addr.0.lcssa.i.i.i.i.i49, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i52
   ret ptr %add.ptr.i.i.i.i53
 }

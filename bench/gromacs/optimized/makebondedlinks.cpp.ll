@@ -800,16 +800,16 @@ _ZL10check_linkPSt6vectorIiSaIiEEi.exit161.i:     ; preds = %_ZNSt6vectorIiSaIiE
   %284 = or i64 %283, 4194304
   store i64 %284, ptr %282, align 8, !noalias !8
   %285 = add nsw i32 %.2105453.i, 1
-  %286 = ptrtoint ptr %.sroa.34.2 to i64
-  %287 = ptrtoint ptr %.sroa.24.2 to i64
+  %286 = ptrtoint ptr %.sroa.10.11.i to i64
+  %287 = ptrtoint ptr %.sroa.0226.11.i to i64
   %288 = sub i64 %286, %287
-  %289 = ptrtoint ptr %.sroa.0226.11.i to i64
-  %290 = ptrtoint ptr %.sroa.10.11.i to i64
-  %291 = sub i64 %290, %289
-  %292 = ashr exact i64 %291, 2
+  %289 = ptrtoint ptr %.sroa.34.2 to i64
+  %290 = ptrtoint ptr %.sroa.24.2 to i64
+  %291 = sub i64 %289, %290
+  %292 = ashr exact i64 %288, 2
   %293 = ptrtoint ptr %.sroa.43.2 to i64
-  %294 = sub i64 %293, %286
-  %.not.i207.i = icmp ult i64 %294, %291
+  %294 = sub i64 %293, %289
+  %.not.i207.i = icmp ult i64 %294, %288
   br i1 %.not.i207.i, label %302, label %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i: ; preds = %280
@@ -829,11 +829,11 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i: ; preds = %280
   br i1 %300, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i, !llvm.loop !17
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i
-  %301 = getelementptr inbounds i8, ptr %.sroa.34.2, i64 %291
+  %301 = getelementptr inbounds i8, ptr %.sroa.34.2, i64 %288
   br label %.noexc163.i
 
 302:                                              ; preds = %280
-  %303 = ashr exact i64 %288, 2
+  %303 = ashr exact i64 %291, 2
   %304 = sub nsw i64 2305843009213693951, %303
   %305 = icmp ult i64 %304, %292
   br i1 %305, label %306, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -865,13 +865,13 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %311, %_ZNKSt6vec
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i.i, label %316, label %315
 
 315:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %314, ptr align 4 %.sroa.24.2, i64 %288, i1 false), !noalias !8
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %314, ptr align 4 %.sroa.24.2, i64 %291, i1 false), !noalias !8
   br label %316
 
 316:                                              ; preds = %315, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %317 = getelementptr i8, ptr %314, i64 %288
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %317, ptr align 4 %.sroa.0226.11.i, i64 %291, i1 false), !noalias !8
-  %318 = add i64 %288, %291
+  %317 = getelementptr i8, ptr %314, i64 %291
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %317, ptr align 4 %.sroa.0226.11.i, i64 %288, i1 false), !noalias !8
+  %318 = add i64 %291, %288
   %scevgep.i.i = getelementptr i8, ptr %314, i64 %318
   %.not.i72.i.i = icmp eq ptr %.sroa.24.2, null
   br i1 %.not.i72.i.i, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, label %319
@@ -890,7 +890,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %319, %316
   %.sroa.34.3 = phi ptr [ %.sroa.34.2, %.thread.i ], [ %scevgep.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %301, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %.sroa.43.3 = phi ptr [ %.sroa.43.2, %.thread.i ], [ %320, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %.sroa.43.2, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %.3106555.i = phi i32 [ %.2105453.i, %.thread.i ], [ %285, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %285, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
-  %.pre-phi.i = phi i64 [ %279, %.thread.i ], [ %.pre553.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %287, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
+  %.pre-phi.i = phi i64 [ %279, %.thread.i ], [ %.pre553.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i ], [ %290, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i.i ]
   %321 = ptrtoint ptr %.sroa.34.3 to i64
   %322 = sub i64 %321, %.pre-phi.i
   %323 = lshr exact i64 %322, 2

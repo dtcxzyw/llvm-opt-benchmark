@@ -3658,9 +3658,9 @@ _ZL17get_ci_block_sizeRKN5Nbnxm4GridEbi.exit:     ; preds = %415, %417
   %568 = load ptr, ptr %0, align 8
   %569 = getelementptr inbounds i8, ptr %0, i64 8
   %570 = load ptr, ptr %569, align 8
-  %571 = ptrtoint ptr %568 to i64
-  %572 = ptrtoint ptr %570 to i64
-  %573 = sub i64 %572, %571
+  %571 = ptrtoint ptr %570 to i64
+  %572 = ptrtoint ptr %568 to i64
+  %573 = sub i64 %571, %572
   %574 = lshr exact i64 %573, 8
   %575 = trunc i64 %574 to i32
   %576 = icmp sgt i32 %575, 0
@@ -3829,9 +3829,9 @@ _ZL20rebalanceSimpleListsN3gmx8ArrayRefIK16NbnxnPairlistCpuEENS0_IS1_EENS0_I14Pa
   br i1 %or.cond.i123, label %_ZL19reduce_buffer_flagsN3gmx8ArrayRefI14PairsearchWorkEEiNS0_ISt5arrayImLm2EEEE.exit, label %_ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i
 
 _ZL13bitmask_unionPSt5arrayImLm2EES0_.exit.critedge.lr.ph.us.preheader.i: ; preds = %650
-  %658 = ptrtoint ptr %654 to i64
-  %659 = ptrtoint ptr %656 to i64
-  %660 = sub i64 %659, %658
+  %658 = ptrtoint ptr %656 to i64
+  %659 = ptrtoint ptr %654 to i64
+  %660 = sub i64 %658, %659
   %661 = ashr exact i64 %660, 4
   %umax.i = call i64 @llvm.umax.i64(i64 %661, i64 1)
   %wide.trip.count.i124 = zext nneg i32 %652 to i64
@@ -3889,23 +3889,23 @@ _ZL19reduce_buffer_flagsN3gmx8ArrayRefI14PairsearchWorkEEiNS0_ISt5arrayImLm2EEEE
   br i1 %.not210, label %._crit_edge259, label %.lr.ph258
 
 ._crit_edge259:                                   ; preds = %.lr.ph258, %673
-  %685 = ptrtoint ptr %676 to i64
-  %686 = load ptr, ptr %23, align 8
-  %687 = load ptr, ptr %34, align 8
-  %688 = ptrtoint ptr %687 to i64
-  %689 = ptrtoint ptr %686 to i64
-  %690 = sub i64 %688, %689
-  %691 = getelementptr inbounds i8, ptr %686, i64 %690
+  %685 = ptrtoint ptr %678 to i64
+  %686 = ptrtoint ptr %676 to i64
+  %687 = sub i64 %685, %686
+  %688 = load ptr, ptr %23, align 8
+  %689 = load ptr, ptr %34, align 8
+  %690 = ptrtoint ptr %689 to i64
+  %691 = ptrtoint ptr %688 to i64
+  %692 = sub i64 %690, %691
+  %693 = getelementptr inbounds i8, ptr %688, i64 %692
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  store ptr %686, ptr %12, align 8
-  %692 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %691, ptr %692, align 8
-  %693 = ptrtoint ptr %678 to i64
-  %694 = sub i64 %693, %685
-  %695 = lshr exact i64 %694, 3
+  store ptr %688, ptr %12, align 8
+  %694 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %693, ptr %694, align 8
+  %695 = lshr exact i64 %687, 3
   %696 = trunc i64 %695 to i32
   store i32 %696, ptr %13, align 4
   %697 = icmp eq i32 %696, 1
@@ -4401,22 +4401,24 @@ _ZL19print_nblist_sci_cjP8_IO_FILERK16NbnxnPairlistGpu.exit: ; preds = %._crit_e
   %972 = load ptr, ptr %971, align 8
   %973 = getelementptr inbounds i8, ptr %966, i64 448
   %974 = load ptr, ptr %973, align 8
-  %975 = ptrtoint ptr %972 to i64
-  %976 = load i32, ptr %26, align 4
+  %975 = ptrtoint ptr %974 to i64
+  %976 = ptrtoint ptr %972 to i64
+  %977 = sub i64 %975, %976
+  %978 = load i32, ptr %26, align 4
   %.not66.i = icmp eq ptr %972, %974
   br i1 %.not66.i, label %_ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit, label %.lr.ph73.i
 
 .lr.ph73.i:                                       ; preds = %970
-  %977 = icmp sgt i32 %976, 0
-  %978 = getelementptr inbounds i8, ptr %11, i64 8
-  br i1 %977, label %.lr.ph73.split.us.i, label %.lr.ph73.split.i
+  %979 = icmp sgt i32 %978, 0
+  %980 = getelementptr inbounds i8, ptr %11, i64 8
+  br i1 %979, label %.lr.ph73.split.us.i, label %.lr.ph73.split.i
 
-.lr.ph73.split.us.i:                              ; preds = %.lr.ph73.i, %1006
-  %.071.us.i = phi i32 [ %.1.us.i, %1006 ], [ 0, %.lr.ph73.i ]
-  %.03570.us.i = phi i32 [ %.136.us.i, %1006 ], [ 0, %.lr.ph73.i ]
-  %.03769.us.i = phi i32 [ %.138.us.i, %1006 ], [ 0, %.lr.ph73.i ]
-  %.04268.us.i = phi i32 [ %.143.us.i, %1006 ], [ 0, %.lr.ph73.i ]
-  %.sroa.0.067.us.i = phi ptr [ %1007, %1006 ], [ %972, %.lr.ph73.i ]
+.lr.ph73.split.us.i:                              ; preds = %.lr.ph73.i, %1008
+  %.071.us.i = phi i32 [ %.1.us.i, %1008 ], [ 0, %.lr.ph73.i ]
+  %.03570.us.i = phi i32 [ %.136.us.i, %1008 ], [ 0, %.lr.ph73.i ]
+  %.03769.us.i = phi i32 [ %.138.us.i, %1008 ], [ 0, %.lr.ph73.i ]
+  %.04268.us.i = phi i32 [ %.143.us.i, %1008 ], [ 0, %.lr.ph73.i ]
+  %.sroa.0.067.us.i = phi ptr [ %1009, %1008 ], [ %972, %.lr.ph73.i ]
   %.sroa.014.0.copyload.us.i = load i64, ptr %.sroa.0.067.us.i, align 8
   %.sroa.215.0..sroa_idx.us.i = getelementptr inbounds i8, ptr %.sroa.0.067.us.i, i64 8
   %.sroa.215.0.copyload.us.i = load i64, ptr %.sroa.215.0..sroa_idx.us.i, align 8
@@ -4431,62 +4433,62 @@ _ZL19print_nblist_sci_cjP8_IO_FILERK16NbnxnPairlistGpu.exit: ; preds = %._crit_e
   br label %.backedge.us.i
 
 .backedge.us.i:                                   ; preds = %.backedge.us.i.backedge, %.lr.ph73.split.us.i
-  %979 = phi i1 [ true, %.lr.ph73.split.us.i ], [ false, %.backedge.us.i.backedge ]
+  %981 = phi i1 [ true, %.lr.ph73.split.us.i ], [ false, %.backedge.us.i.backedge ]
   %indvars.iv.i.sroa.phi.us.i = phi ptr [ %.sroa.053.i, %.lr.ph73.split.us.i ], [ %.sroa.454.i, %.backedge.us.i.backedge ]
   %indvars.iv.i.sroa.phi55.us.i = phi ptr [ %.sroa.057.i, %.lr.ph73.split.us.i ], [ %.sroa.458.i, %.backedge.us.i.backedge ]
   %.067.i.us.i = phi i1 [ true, %.lr.ph73.split.us.i ], [ %.067.i.us.i.be, %.backedge.us.i.backedge ]
-  br i1 %.067.i.us.i, label %980, label %.thread.us.i
+  br i1 %.067.i.us.i, label %982, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.backedge.us.i
-  br i1 %979, label %.backedge.us.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.us.i
+  br i1 %981, label %.backedge.us.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.us.i
 
 _ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.us.i: ; preds = %.thread.us.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.057.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.458.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.053.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.454.i)
-  br label %984
+  br label %986
 
-980:                                              ; preds = %.backedge.us.i
-  %981 = load i64, ptr %indvars.iv.i.sroa.phi55.us.i, align 8
-  %982 = load i64, ptr %indvars.iv.i.sroa.phi.us.i, align 8
-  %983 = icmp eq i64 %981, %982
-  br i1 %979, label %.backedge.us.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i
+982:                                              ; preds = %.backedge.us.i
+  %983 = load i64, ptr %indvars.iv.i.sroa.phi55.us.i, align 8
+  %984 = load i64, ptr %indvars.iv.i.sroa.phi.us.i, align 8
+  %985 = icmp eq i64 %983, %984
+  br i1 %981, label %.backedge.us.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i
 
-.backedge.us.i.backedge:                          ; preds = %980, %.thread.us.i
-  %.067.i.us.i.be = phi i1 [ %983, %980 ], [ false, %.thread.us.i ]
+.backedge.us.i.backedge:                          ; preds = %982, %.thread.us.i
+  %.067.i.us.i.be = phi i1 [ %985, %982 ], [ false, %.thread.us.i ]
   br label %.backedge.us.i, !llvm.loop !72
 
-_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i: ; preds = %980
+_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i: ; preds = %982
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.057.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.458.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.053.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.454.i)
-  br i1 %983, label %1003, label %984
+  br i1 %985, label %1005, label %986
 
-984:                                              ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.us.i
+986:                                              ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.us.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.060.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.461.i)
   store i64 %.sroa.014.0.copyload.us.i, ptr %.sroa.060.i, align 8
   store i64 %.sroa.215.0.copyload.us.i, ptr %.sroa.461.i, align 8
   br label %.backedge86.i
 
-.backedge86.i:                                    ; preds = %.backedge86.i.backedge, %984
-  %985 = phi i1 [ true, %984 ], [ false, %.backedge86.i.backedge ]
-  %indvars.iv.i45.sroa.phi.us.i = phi ptr [ %.sroa.060.i, %984 ], [ %.sroa.461.i, %.backedge86.i.backedge ]
-  %.056.i.us.i = phi i1 [ true, %984 ], [ %.056.i.us.i.be, %.backedge86.i.backedge ]
-  br i1 %.056.i.us.i, label %986, label %.thread85.i
+.backedge86.i:                                    ; preds = %.backedge86.i.backedge, %986
+  %987 = phi i1 [ true, %986 ], [ false, %.backedge86.i.backedge ]
+  %indvars.iv.i45.sroa.phi.us.i = phi ptr [ %.sroa.060.i, %986 ], [ %.sroa.461.i, %.backedge86.i.backedge ]
+  %.056.i.us.i = phi i1 [ true, %986 ], [ %.056.i.us.i.be, %.backedge86.i.backedge ]
+  br i1 %.056.i.us.i, label %988, label %.thread85.i
 
-986:                                              ; preds = %.backedge86.i
-  %987 = load i64, ptr %indvars.iv.i45.sroa.phi.us.i, align 8
-  %988 = icmp eq i64 %987, 0
-  br i1 %985, label %.backedge86.i.backedge, label %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i
+988:                                              ; preds = %.backedge86.i
+  %989 = load i64, ptr %indvars.iv.i45.sroa.phi.us.i, align 8
+  %990 = icmp eq i64 %989, 0
+  br i1 %987, label %.backedge86.i.backedge, label %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i
 
 .thread85.i:                                      ; preds = %.backedge86.i
-  br i1 %985, label %.backedge86.i.backedge, label %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.thread.i
+  br i1 %987, label %.backedge86.i.backedge, label %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.thread.i
 
-.backedge86.i.backedge:                           ; preds = %.thread85.i, %986
-  %.056.i.us.i.be = phi i1 [ false, %.thread85.i ], [ %988, %986 ]
+.backedge86.i.backedge:                           ; preds = %.thread85.i, %988
+  %.056.i.us.i.be = phi i1 [ false, %.thread85.i ], [ %990, %988 ]
   br label %.backedge86.i, !llvm.loop !73
 
 _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.thread.i: ; preds = %.thread85.i
@@ -4497,64 +4499,64 @@ _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.thread.i: ; preds = %.thread85.i
 .preheader.us.i.preheader:                        ; preds = %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.thread.i
   br label %.preheader.us.i
 
-_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i:    ; preds = %986
+_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i:    ; preds = %988
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.060.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.461.i)
-  br i1 %988, label %1006, label %.preheader.us.i.preheader
-
-989:                                              ; preds = %._crit_edge.us.i154
-  %990 = add nsw i32 %spec.select.us.i, %.04268.us.i
-  br label %1006
+  br i1 %990, label %1008, label %.preheader.us.i.preheader
 
 991:                                              ; preds = %._crit_edge.us.i154
-  %992 = add nsw i32 %.03769.us.i, 1
-  br label %1006
+  %992 = add nsw i32 %spec.select.us.i, %.04268.us.i
+  br label %1008
+
+993:                                              ; preds = %._crit_edge.us.i154
+  %994 = add nsw i32 %.03769.us.i, 1
+  br label %1008
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %.preheader.us.i
-  %.03965.us.i = phi i32 [ %1002, %.preheader.us.i ], [ 0, %.preheader.us.i.preheader ]
+  %.03965.us.i = phi i32 [ %1004, %.preheader.us.i ], [ 0, %.preheader.us.i.preheader ]
   %.04064.us.i = phi i32 [ %spec.select.us.i, %.preheader.us.i ], [ 0, %.preheader.us.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i64 %.sroa.014.0.copyload.us.i, ptr %11, align 8
-  store i64 %.sroa.215.0.copyload.us.i, ptr %978, align 8
-  %993 = lshr i32 %.03965.us.i, 6
-  %994 = zext nneg i32 %993 to i64
-  %995 = getelementptr inbounds [2 x i64], ptr %11, i64 0, i64 %994
-  %996 = load i64, ptr %995, align 8
-  %997 = and i32 %.03965.us.i, 63
-  %998 = zext nneg i32 %997 to i64
-  %999 = shl nuw i64 1, %998
-  %1000 = and i64 %996, %999
-  %.not62.us.i = icmp ne i64 %1000, 0
+  store i64 %.sroa.215.0.copyload.us.i, ptr %980, align 8
+  %995 = lshr i32 %.03965.us.i, 6
+  %996 = zext nneg i32 %995 to i64
+  %997 = getelementptr inbounds [2 x i64], ptr %11, i64 0, i64 %996
+  %998 = load i64, ptr %997, align 8
+  %999 = and i32 %.03965.us.i, 63
+  %1000 = zext nneg i32 %999 to i64
+  %1001 = shl nuw i64 1, %1000
+  %1002 = and i64 %998, %1001
+  %.not62.us.i = icmp ne i64 %1002, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %1001 = zext i1 %.not62.us.i to i32
-  %spec.select.us.i = add nuw nsw i32 %.04064.us.i, %1001
-  %1002 = add nuw nsw i32 %.03965.us.i, 1
-  %exitcond.not.i153 = icmp eq i32 %1002, %976
+  %1003 = zext i1 %.not62.us.i to i32
+  %spec.select.us.i = add nuw nsw i32 %.04064.us.i, %1003
+  %1004 = add nuw nsw i32 %.03965.us.i, 1
+  %exitcond.not.i153 = icmp eq i32 %1004, %978
   br i1 %exitcond.not.i153, label %._crit_edge.us.i154, label %.preheader.us.i, !llvm.loop !74
 
-1003:                                             ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i
-  %1004 = add nsw i32 %.071.us.i, 1
-  %1005 = add nsw i32 %.03570.us.i, 1
-  br label %1006
+1005:                                             ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.us.i
+  %1006 = add nsw i32 %.071.us.i, 1
+  %1007 = add nsw i32 %.03570.us.i, 1
+  br label %1008
 
-1006:                                             ; preds = %1003, %991, %989, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i
-  %.143.us.i = phi i32 [ %.04268.us.i, %1003 ], [ %.04268.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %.04268.us.i, %991 ], [ %990, %989 ]
-  %.138.us.i = phi i32 [ %.03769.us.i, %1003 ], [ %.03769.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %992, %991 ], [ %.03769.us.i, %989 ]
-  %.136.us.i = phi i32 [ %1005, %1003 ], [ %.03570.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %.03570.us.i, %991 ], [ %.03570.us.i, %989 ]
-  %.1.us.i = phi i32 [ %1004, %1003 ], [ %.071.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %1008, %991 ], [ %1008, %989 ]
-  %1007 = getelementptr inbounds i8, ptr %.sroa.0.067.us.i, i64 16
-  %.not.us.i = icmp eq ptr %1007, %974
+1008:                                             ; preds = %1005, %993, %991, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i
+  %.143.us.i = phi i32 [ %.04268.us.i, %1005 ], [ %.04268.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %.04268.us.i, %993 ], [ %992, %991 ]
+  %.138.us.i = phi i32 [ %.03769.us.i, %1005 ], [ %.03769.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %994, %993 ], [ %.03769.us.i, %991 ]
+  %.136.us.i = phi i32 [ %1007, %1005 ], [ %.03570.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %.03570.us.i, %993 ], [ %.03570.us.i, %991 ]
+  %.1.us.i = phi i32 [ %1006, %1005 ], [ %.071.us.i, %_ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i ], [ %1010, %993 ], [ %1010, %991 ]
+  %1009 = getelementptr inbounds i8, ptr %.sroa.0.067.us.i, i64 16
+  %.not.us.i = icmp eq ptr %1009, %974
   br i1 %.not.us.i, label %._crit_edge74.loopexit.i, label %.lr.ph73.split.us.i
 
 ._crit_edge.us.i154:                              ; preds = %.preheader.us.i
-  %1008 = add nsw i32 %spec.select.us.i, %.071.us.i
-  %1009 = icmp eq i32 %spec.select.us.i, 1
-  br i1 %1009, label %991, label %989
+  %1010 = add nsw i32 %spec.select.us.i, %.071.us.i
+  %1011 = icmp eq i32 %spec.select.us.i, 1
+  br i1 %1011, label %993, label %991
 
 .lr.ph73.split.i:                                 ; preds = %.lr.ph73.i, %.preheader.i149
   %.071.i = phi i32 [ %.1.i150, %.preheader.i149 ], [ 0, %.lr.ph73.i ]
   %.03570.i = phi i32 [ %.136.i, %.preheader.i149 ], [ 0, %.lr.ph73.i ]
-  %.sroa.0.067.i = phi ptr [ %1018, %.preheader.i149 ], [ %972, %.lr.ph73.i ]
+  %.sroa.0.067.i = phi ptr [ %1020, %.preheader.i149 ], [ %972, %.lr.ph73.i ]
   %.sroa.014.0.copyload.i = load i64, ptr %.sroa.0.067.i, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.067.i, i64 8
   %.sroa.215.0.copyload.i = load i64, ptr %.sroa.215.0..sroa_idx.i, align 8
@@ -4569,23 +4571,23 @@ _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i:    ; preds = %986
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph73.split.i
-  %1010 = phi i1 [ true, %.lr.ph73.split.i ], [ false, %.backedge.i.backedge ]
+  %1012 = phi i1 [ true, %.lr.ph73.split.i ], [ false, %.backedge.i.backedge ]
   %indvars.iv.i.sroa.phi.i = phi ptr [ %.sroa.053.i, %.lr.ph73.split.i ], [ %.sroa.454.i, %.backedge.i.backedge ]
   %indvars.iv.i.sroa.phi55.i = phi ptr [ %.sroa.057.i, %.lr.ph73.split.i ], [ %.sroa.458.i, %.backedge.i.backedge ]
   %.067.i.i = phi i1 [ true, %.lr.ph73.split.i ], [ %.067.i.i.be, %.backedge.i.backedge ]
-  br i1 %.067.i.i, label %1011, label %.thread.i
+  br i1 %.067.i.i, label %1013, label %.thread.i
 
-1011:                                             ; preds = %.backedge.i
-  %1012 = load i64, ptr %indvars.iv.i.sroa.phi55.i, align 8
-  %1013 = load i64, ptr %indvars.iv.i.sroa.phi.i, align 8
-  %1014 = icmp eq i64 %1012, %1013
-  br i1 %1010, label %.backedge.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i
+1013:                                             ; preds = %.backedge.i
+  %1014 = load i64, ptr %indvars.iv.i.sroa.phi55.i, align 8
+  %1015 = load i64, ptr %indvars.iv.i.sroa.phi.i, align 8
+  %1016 = icmp eq i64 %1014, %1015
+  br i1 %1012, label %.backedge.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i
 
 .thread.i:                                        ; preds = %.backedge.i
-  br i1 %1010, label %.backedge.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i
+  br i1 %1012, label %.backedge.i.backedge, label %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i
 
-.backedge.i.backedge:                             ; preds = %.thread.i, %1011
-  %.067.i.i.be = phi i1 [ false, %.thread.i ], [ %1014, %1011 ]
+.backedge.i.backedge:                             ; preds = %.thread.i, %1013
+  %.067.i.i.be = phi i1 [ false, %.thread.i ], [ %1016, %1013 ]
   br label %.backedge.i, !llvm.loop !72
 
 _ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i: ; preds = %.thread.i
@@ -4595,38 +4597,36 @@ _ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i: ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.454.i)
   br label %.preheader.i149
 
-_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i:   ; preds = %1011
+_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i:   ; preds = %1013
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.057.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.458.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.053.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.454.i)
-  br i1 %1014, label %1015, label %.preheader.i149
+  br i1 %1016, label %1017, label %.preheader.i149
 
-1015:                                             ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i
-  %1016 = add nsw i32 %.071.i, 1
-  %1017 = add nsw i32 %.03570.i, 1
+1017:                                             ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i
+  %1018 = add nsw i32 %.071.i, 1
+  %1019 = add nsw i32 %.03570.i, 1
   br label %.preheader.i149
 
-.preheader.i149:                                  ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i, %1015
-  %.136.i = phi i32 [ %1017, %1015 ], [ %.03570.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i ], [ %.03570.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i ]
-  %.1.i150 = phi i32 [ %1016, %1015 ], [ %.071.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i ], [ %.071.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i ]
-  %1018 = getelementptr inbounds i8, ptr %.sroa.0.067.i, i64 16
-  %.not.i151 = icmp eq ptr %1018, %974
+.preheader.i149:                                  ; preds = %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i, %1017
+  %.136.i = phi i32 [ %1019, %1017 ], [ %.03570.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i ], [ %.03570.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i ]
+  %.1.i150 = phi i32 [ %1018, %1017 ], [ %.071.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.i ], [ %.071.i, %_ZL16bitmask_is_equalSt5arrayImLm2EES0_.exit.thread.i ]
+  %1020 = getelementptr inbounds i8, ptr %.sroa.0.067.i, i64 16
+  %.not.i151 = icmp eq ptr %1020, %974
   br i1 %.not.i151, label %_ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit, label %.lr.ph73.split.i
 
-._crit_edge74.loopexit.i:                         ; preds = %1006
-  %1019 = sitofp i32 %.138.us.i to double
-  %1020 = sitofp i32 %.143.us.i to double
+._crit_edge74.loopexit.i:                         ; preds = %1008
+  %1021 = sitofp i32 %.138.us.i to double
+  %1022 = sitofp i32 %.143.us.i to double
   br label %_ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit
 
 _ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit: ; preds = %.preheader.i149, %970, %._crit_edge74.loopexit.i
-  %.042.lcssa.i = phi double [ 0.000000e+00, %970 ], [ %1020, %._crit_edge74.loopexit.i ], [ 0.000000e+00, %.preheader.i149 ]
-  %.037.lcssa.i = phi double [ 0.000000e+00, %970 ], [ %1019, %._crit_edge74.loopexit.i ], [ 0.000000e+00, %.preheader.i149 ]
+  %.042.lcssa.i = phi double [ 0.000000e+00, %970 ], [ %1022, %._crit_edge74.loopexit.i ], [ 0.000000e+00, %.preheader.i149 ]
+  %.037.lcssa.i = phi double [ 0.000000e+00, %970 ], [ %1021, %._crit_edge74.loopexit.i ], [ 0.000000e+00, %.preheader.i149 ]
   %.035.lcssa.i = phi i32 [ 0, %970 ], [ %.136.us.i, %._crit_edge74.loopexit.i ], [ %.136.i, %.preheader.i149 ]
   %.0.lcssa.i152 = phi i32 [ 0, %970 ], [ %.1.us.i, %._crit_edge74.loopexit.i ], [ %.1.i150, %.preheader.i149 ]
-  %1021 = ptrtoint ptr %974 to i64
-  %1022 = sub i64 %1021, %975
-  %1023 = ashr exact i64 %1022, 4
+  %1023 = ashr exact i64 %977, 4
   %1024 = uitofp i64 %1023 to double
   %1025 = load ptr, ptr @debug, align 8
   %1026 = sitofp i32 %.0.lcssa.i152 to double
@@ -4635,7 +4635,7 @@ _ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit: ; preds = %.pr
   %1029 = fdiv double %1028, %1024
   %1030 = fdiv double %.037.lcssa.i, %1024
   %1031 = fdiv double %.042.lcssa.i, %1024
-  %1032 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1025, ptr noundef nonnull @.str.48, i64 noundef %1023, i32 noundef %976, double noundef %1027, double noundef %1029, double noundef %1030, double noundef %1031) #11
+  %1032 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1025, ptr noundef nonnull @.str.48, i64 noundef %1023, i32 noundef %978, double noundef %1027, double noundef %1029, double noundef %1030, double noundef %1031) #11
   br label %.thread206
 
 .thread206:                                       ; preds = %845, %_ZL19print_nblist_sci_cjP8_IO_FILERK16NbnxnPairlistGpu.exit, %_ZL20print_reduction_costN3gmx8ArrayRefIKSt5arrayImLm2EEEEi.exit, %.thread

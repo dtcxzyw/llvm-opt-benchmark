@@ -32,12 +32,12 @@ define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6Bi
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %14, %15
-  br i1 %.not, label %._crit_edge96, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
+  br i1 %.not, label %._crit_edge95, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %2, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
   %16 = phi ptr [ %129, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit ], [ %15, %2 ]
-  %.095 = phi i64 [ %127, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit ], [ 0, %2 ]
-  %17 = getelementptr inbounds %"class.std::unique_ptr.84", ptr %16, i64 %.095
+  %.094 = phi i64 [ %127, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit ], [ 0, %2 ]
+  %17 = getelementptr inbounds %"class.std::unique_ptr.84", ptr %16, i64 %.094
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
@@ -65,7 +65,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %28 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %.095
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %.094
   store ptr %22, ptr %30, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -81,7 +81,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %38 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %.095
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %.094
   store ptr %32, ptr %40, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -97,7 +97,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %48 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %.095
+  %50 = getelementptr inbounds ptr, ptr %49, i64 %.094
   store ptr %42, ptr %50, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -113,7 +113,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %58 = getelementptr inbounds i8, ptr %52, i64 16
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %13, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %.095
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %.094
   store ptr %52, ptr %60, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -137,8 +137,8 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   store ptr %74, ptr %75, align 8
   %76 = load ptr, ptr %67, align 8
   %77 = load ptr, ptr %66, align 8
-  %.not98 = icmp eq ptr %76, %77
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp eq ptr %76, %77
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %78 = phi ptr [ %85, %.lr.ph ], [ %77, %61 ]
@@ -168,7 +168,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %92 = getelementptr inbounds i8, ptr %91, i64 %.lcssa
   store i64 0, ptr %92, align 8
   %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %.095
+  %94 = getelementptr inbounds ptr, ptr %93, i64 %.094
   store ptr %62, ptr %94, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -181,7 +181,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   store i64 %98, ptr %99, align 8
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.79") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %18)
   %100 = load ptr, ptr %13, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %.095
+  %101 = getelementptr inbounds ptr, ptr %100, i64 %.094
   store ptr %96, ptr %101, align 8
   %102 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %102, null
@@ -200,7 +200,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   store i64 %107, ptr %108, align 8
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.79") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %18)
   %109 = load ptr, ptr %13, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %.095
+  %110 = getelementptr inbounds ptr, ptr %109, i64 %.094
   store ptr %105, ptr %110, align 8
   %111 = load ptr, ptr %4, align 8
   %.not.i.i.i86 = icmp eq ptr %111, null
@@ -213,24 +213,24 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 113:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %114 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %115 = load ptr, ptr %13, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %.095
+  %116 = getelementptr inbounds ptr, ptr %115, i64 %.094
   store ptr %114, ptr %116, align 8
   %117 = load i64, ptr %19, align 8
   %118 = load ptr, ptr %13, align 8
-  %119 = getelementptr inbounds ptr, ptr %118, i64 %.095
+  %119 = getelementptr inbounds ptr, ptr %118, i64 %.094
   %120 = load ptr, ptr %119, align 8
   store i64 %117, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %18, i64 16
   %122 = load i64, ptr %121, align 8
   %123 = load ptr, ptr %13, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %.095
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %.094
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i64 %122, ptr %126, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %112, %104, %103, %95, %21, %31, %41, %51, %._crit_edge, %113
-  %127 = add nuw i64 %.095, 1
+  %127 = add nuw i64 %.094, 1
   %128 = load ptr, ptr %7, align 8
   %129 = load ptr, ptr %5, align 8
   %130 = ptrtoint ptr %128 to i64
@@ -238,15 +238,15 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %11
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 3
   %134 = icmp ult i64 %127, %133
-  br i1 %134, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge96.loopexit, !llvm.loop !6
+  br i1 %134, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge95.loopexit, !llvm.loop !6
 
-._crit_edge96.loopexit:                           ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
-  %.pre101 = load ptr, ptr %13, align 8
-  br label %._crit_edge96
+._crit_edge95.loopexit:                           ; preds = %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
+  %.pre100 = load ptr, ptr %13, align 8
+  br label %._crit_edge95
 
-._crit_edge96:                                    ; preds = %._crit_edge96.loopexit, %2
-  %135 = phi ptr [ %12, %2 ], [ %.pre101, %._crit_edge96.loopexit ]
-  %.lcssa92 = phi i64 [ 0, %2 ], [ %132, %._crit_edge96.loopexit ]
+._crit_edge95:                                    ; preds = %._crit_edge95.loopexit, %2
+  %135 = phi ptr [ %12, %2 ], [ %.pre100, %._crit_edge95.loopexit ]
+  %.lcssa92 = phi i64 [ 0, %2 ], [ %132, %._crit_edge95.loopexit ]
   %136 = getelementptr inbounds i8, ptr %135, i64 %.lcssa92
   store ptr null, ptr %136, align 8
   ret void

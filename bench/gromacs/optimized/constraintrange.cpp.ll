@@ -407,15 +407,15 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %30 = getelementptr inbounds i32, ptr %21, i64 %29
   %31 = getelementptr inbounds i8, ptr %1, i64 1512
   %32 = load ptr, ptr %31, align 8
-  %33 = ptrtoint ptr %18 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 1496
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp sgt i32 %6, 0
-  %37 = load i64, ptr %8, align 8
-  %38 = inttoptr i64 %37 to ptr
-  %39 = ptrtoint ptr %35 to i64
-  %40 = sub i64 %39, %33
-  %41 = ashr exact i64 %40, 2
+  %33 = getelementptr inbounds i8, ptr %1, i64 1496
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %18 to i64
+  %37 = sub i64 %35, %36
+  %38 = icmp sgt i32 %6, 0
+  %39 = load i64, ptr %8, align 8
+  %40 = inttoptr i64 %39 to ptr
+  %41 = ashr exact i64 %37, 2
   %42 = sub nsw i64 0, %41
   %invariant.gep = getelementptr i32, ptr %32, i64 %42
   %43 = and i32 %7, 1
@@ -424,7 +424,7 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %46 = icmp slt i32 %45, %7
   %47 = mul nsw i32 %7, 1000
   %48 = sext i32 %6 to i64
-  %49 = getelementptr inbounds i32, ptr %38, i64 %48
+  %49 = getelementptr inbounds i32, ptr %40, i64 %48
   %50 = ptrtoint ptr %3 to i64
   %51 = ptrtoint ptr %2 to i64
   %52 = sub i64 %50, %51
@@ -433,8 +433,8 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %55 = getelementptr inbounds i8, ptr %8, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %57, %37
-  %59 = getelementptr inbounds i8, ptr %38, i64 %58
+  %58 = sub i64 %57, %39
+  %59 = getelementptr inbounds i8, ptr %40, i64 %58
   %wide.trip.count = zext nneg i32 %6 to i64
   %wide.trip.count120 = zext nneg i32 %6 to i64
   br label %60
@@ -442,12 +442,12 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
 60:                                               ; preds = %.lr.ph115, %112
   %.sroa.091.0113 = phi ptr [ %30, %.lr.ph115 ], [ %113, %112 ]
   %61 = load i32, ptr %.sroa.091.0113, align 4
-  br i1 %36, label %.lr.ph, label %.critedge
+  br i1 %38, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %60 ]
   %.071107 = phi i1 [ %spec.select, %.lr.ph ], [ true, %60 ]
-  %62 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
+  %62 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = icmp ne i32 %61, %63
   %spec.select = select i1 %64, i1 %.071107, i1 false
@@ -494,12 +494,12 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %85 = tail call noundef float @sqrtf(float noundef %80) #15
   %86 = fpext float %85 to double
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %81, ptr noundef nonnull @.str.2, double noundef %83, double noundef %84, double noundef %86) #15
-  br i1 %36, label %.lr.ph110, label %._crit_edge111
+  br i1 %38, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %82, %.lr.ph110
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph110 ], [ 0, %82 ]
   %88 = load ptr, ptr @debug, align 8
-  %89 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv117
+  %89 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv117
   %90 = load i32, ptr %89, align 4
   %91 = load i32, ptr %.0.i, align 4
   %92 = sext i32 %91 to i64
@@ -539,7 +539,7 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
 111:                                              ; preds = %104, %108
   %.0 = phi i32 [ %110, %108 ], [ %106, %104 ]
   store i32 %61, ptr %49, align 4
-  store ptr %38, ptr %14, align 8
+  store ptr %40, ptr %14, align 8
   store ptr %59, ptr %54, align 8
   tail call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr %2, ptr %53, i1 noundef zeroext %4, i32 noundef %.0, i32 noundef %45, i32 noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %14, float noundef %.074, float noundef %.075, ptr noundef nonnull %11, ptr noundef nonnull %12)
   store i32 -1, ptr %49, align 4

@@ -4602,9 +4602,9 @@ define internal fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17Interact
 .lr.ph208.split.us:                               ; preds = %.lr.ph208
   %48 = load ptr, ptr %1, align 8
   %49 = load ptr, ptr %40, align 8
-  %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %51, %50
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %48 to i64
+  %52 = sub i64 %50, %51
   %.not6.i.i.i.i.i.us = icmp eq ptr %48, %49
   %.not6.i.i.i.i.i.us.fr = freeze i1 %.not6.i.i.i.i.i.us
   %wide.trip.count247 = and i64 %19, 2147483647
@@ -4616,9 +4616,9 @@ define internal fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17Interact
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %54 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %58, %57
+  %57 = ptrtoint ptr %56 to i64
+  %58 = ptrtoint ptr %54 to i64
+  %59 = sub i64 %57, %58
   %60 = icmp eq i64 %52, %59
   br i1 %60, label %_ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us.us, label %.split.us
 
@@ -4682,19 +4682,19 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
   %.081204 = phi i1 [ false, %.lr.ph208.split.preheader ], [ %.283, %_ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit ]
   %83 = load ptr, ptr %1, align 8
   %84 = load ptr, ptr %40, align 8
-  %85 = ptrtoint ptr %83 to i64
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds %class.InteractionOfType, ptr %86, i64 %indvars.iv236
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %85 = ptrtoint ptr %84 to i64
+  %86 = ptrtoint ptr %83 to i64
+  %87 = sub i64 %85, %86
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds %class.InteractionOfType, ptr %88, i64 %indvars.iv236
   %90 = load ptr, ptr %89, align 8
-  %91 = ptrtoint ptr %90 to i64
-  %92 = ptrtoint ptr %88 to i64
-  %93 = sub i64 %91, %92
-  %94 = getelementptr inbounds i8, ptr %88, i64 %93
-  %95 = ptrtoint ptr %84 to i64
-  %96 = sub i64 %95, %85
-  %97 = icmp eq i64 %96, %93
+  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = ptrtoint ptr %90 to i64
+  %95 = sub i64 %93, %94
+  %96 = getelementptr inbounds i8, ptr %90, i64 %95
+  %97 = icmp eq i64 %87, %95
   br i1 %97, label %98, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph208.split, %.lr.ph208.split.us.split, %.lr.ph208.split.us.split.us
@@ -4706,7 +4706,7 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
   br i1 %.not6.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %98, %102
-  %.sroa.0.08.i.i.i.i.i = phi ptr [ %104, %102 ], [ %88, %98 ]
+  %.sroa.0.08.i.i.i.i.i = phi ptr [ %104, %102 ], [ %90, %98 ]
   %.sroa.04.07.i.i.i.i.i = phi ptr [ %103, %102 ], [ %83, %98 ]
   %99 = load i32, ptr %.sroa.04.07.i.i.i.i.i, align 4
   %100 = load i32, ptr %.sroa.0.08.i.i.i.i.i, align 4
@@ -4720,7 +4720,7 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
   br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
 
 .lr.ph.i.i.i.i9.i:                                ; preds = %.lr.ph.i.i.i.i.i, %110
-  %105 = phi ptr [ %107, %110 ], [ %94, %.lr.ph.i.i.i.i.i ]
+  %105 = phi ptr [ %107, %110 ], [ %96, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.05.i.i.i.i.i = phi ptr [ %111, %110 ], [ %83, %.lr.ph.i.i.i.i.i ]
   %106 = load i32, ptr %.sroa.0.05.i.i.i.i.i, align 4
   %107 = getelementptr inbounds i8, ptr %105, i64 -4
@@ -4734,8 +4734,8 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
   br i1 %.not.i.i.i.i11.i, label %.lr.ph.i.i.i.i.preheader, label %.lr.ph.i.i.i.i9.i, !llvm.loop !55
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %102, %110, %98
-  %.ptr = getelementptr inbounds i8, ptr %87, i64 24
-  %112 = getelementptr i8, ptr %87, i64 %.idx
+  %.ptr = getelementptr inbounds i8, ptr %89, i64 24
+  %112 = getelementptr i8, ptr %89, i64 %.idx
   %.ptr189 = getelementptr i8, ptr %112, i64 24
   br label %.lr.ph.i.i.i.i
 
@@ -10003,9 +10003,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %.val2.i.i.i.i = load ptr, ptr %.sroa.0111.0141.i.i.i, align 8
   %24 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 8
   %.val3.i.i.i.i = load ptr, ptr %24, align 8
-  %25 = ptrtoint ptr %.val2.i.i.i.i to i64
-  %26 = ptrtoint ptr %.val3.i.i.i.i to i64
-  %27 = sub i64 %26, %25
+  %25 = ptrtoint ptr %.val3.i.i.i.i to i64
+  %26 = ptrtoint ptr %.val2.i.i.i.i to i64
+  %27 = sub i64 %25, %26
   %28 = icmp eq i64 %27, 16
   br i1 %28, label %31, label %30
 
@@ -10055,9 +10055,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %.val2.i36.i.i.i = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 112
   %.val3.i37.i.i.i = load ptr, ptr %44, align 8
-  %45 = ptrtoint ptr %.val2.i36.i.i.i to i64
-  %46 = ptrtoint ptr %.val3.i37.i.i.i to i64
-  %47 = sub i64 %46, %45
+  %45 = ptrtoint ptr %.val3.i37.i.i.i to i64
+  %46 = ptrtoint ptr %.val2.i36.i.i.i to i64
+  %47 = sub i64 %45, %46
   %48 = icmp eq i64 %47, 16
   br i1 %48, label %50, label %49
 
@@ -10103,9 +10103,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %.val2.i48.i.i.i = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 216
   %.val3.i49.i.i.i = load ptr, ptr %63, align 8
-  %64 = ptrtoint ptr %.val2.i48.i.i.i to i64
-  %65 = ptrtoint ptr %.val3.i49.i.i.i to i64
-  %66 = sub i64 %65, %64
+  %64 = ptrtoint ptr %.val3.i49.i.i.i to i64
+  %65 = ptrtoint ptr %.val2.i48.i.i.i to i64
+  %66 = sub i64 %64, %65
   %67 = icmp eq i64 %66, 16
   br i1 %67, label %69, label %68
 
@@ -10151,9 +10151,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   %.val2.i60.i.i.i = load ptr, ptr %81, align 8
   %82 = getelementptr i8, ptr %.sroa.0111.0141.i.i.i, i64 320
   %.val3.i61.i.i.i = load ptr, ptr %82, align 8
-  %83 = ptrtoint ptr %.val2.i60.i.i.i to i64
-  %84 = ptrtoint ptr %.val3.i61.i.i.i to i64
-  %85 = sub i64 %84, %83
+  %83 = ptrtoint ptr %.val3.i61.i.i.i to i64
+  %84 = ptrtoint ptr %.val2.i60.i.i.i to i64
+  %85 = sub i64 %83, %84
   %86 = icmp eq i64 %85, 16
   br i1 %86, label %88, label %87
 
@@ -10221,9 +10221,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   unreachable
 
 107:                                              ; preds = %104
-  %108 = ptrtoint ptr %.val2.i72.i.i.i to i64
-  %109 = ptrtoint ptr %.val3.i73.i.i.i to i64
-  %110 = sub i64 %109, %108
+  %108 = ptrtoint ptr %.val3.i73.i.i.i to i64
+  %109 = ptrtoint ptr %.val2.i72.i.i.i to i64
+  %110 = sub i64 %108, %109
   %111 = icmp eq i64 %110, 16
   br i1 %111, label %113, label %112
 
@@ -10280,9 +10280,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   unreachable
 
 128:                                              ; preds = %._crit_edge._crit_edge.i.i.i
-  %129 = ptrtoint ptr %.val2.i84.i.i.i to i64
-  %130 = ptrtoint ptr %.val3.i85.i.i.i to i64
-  %131 = sub i64 %130, %129
+  %129 = ptrtoint ptr %.val3.i85.i.i.i to i64
+  %130 = ptrtoint ptr %.val2.i84.i.i.i to i64
+  %131 = sub i64 %129, %130
   %132 = icmp eq i64 %131, 16
   br i1 %132, label %134, label %133
 
@@ -10339,9 +10339,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   unreachable
 
 149:                                              ; preds = %._crit_edge._crit_edge159.i.i.i
-  %150 = ptrtoint ptr %.val2.i96.i.i.i to i64
-  %151 = ptrtoint ptr %.val3.i97.i.i.i to i64
-  %152 = sub i64 %151, %150
+  %150 = ptrtoint ptr %.val3.i97.i.i.i to i64
+  %151 = ptrtoint ptr %.val2.i96.i.i.i to i64
+  %152 = sub i64 %150, %151
   %153 = icmp eq i64 %152, 16
   br i1 %153, label %155, label %154
 
@@ -10411,9 +10411,9 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
   unreachable
 
 172:                                              ; preds = %169
-  %173 = ptrtoint ptr %.val to i64
-  %174 = ptrtoint ptr %.val40 to i64
-  %175 = sub i64 %174, %173
+  %173 = ptrtoint ptr %.val40 to i64
+  %174 = ptrtoint ptr %.val to i64
+  %175 = sub i64 %173, %174
   %176 = icmp eq i64 %175, 16
   br i1 %176, label %178, label %177
 
@@ -10822,9 +10822,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = ptrtoint ptr %53 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %57, %56
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
   %59 = ashr exact i64 %58, 2
   %60 = sext i32 %19 to i64
   %61 = icmp slt i64 %59, %60
@@ -10840,9 +10840,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %66 = load ptr, ptr %2, align 8
   %67 = getelementptr inbounds i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = ptrtoint ptr %66 to i64
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %70, %69
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %66 to i64
+  %71 = sub i64 %69, %70
   br label %82
 
 72:                                               ; preds = %62
@@ -10852,9 +10852,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds i8, ptr %2, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %76 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %80, %79
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %76 to i64
+  %81 = sub i64 %79, %80
   br i1 %75, label %.thread117, label %82
 
 82:                                               ; preds = %.thread, %72
@@ -10884,9 +10884,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i.i.i.i = load ptr, ptr %.sroa.0108.0192.i.i.i, align 8
   %98 = getelementptr i8, ptr %.sroa.0108.0192.i.i.i, i64 8
   %.val1.i.i.i.i = load ptr, ptr %98, align 8
-  %99 = ptrtoint ptr %.val.i.i.i.i to i64
-  %100 = ptrtoint ptr %.val1.i.i.i.i to i64
-  %101 = sub i64 %100, %99
+  %99 = ptrtoint ptr %.val1.i.i.i.i to i64
+  %100 = ptrtoint ptr %.val.i.i.i.i to i64
+  %101 = sub i64 %99, %100
   %.not.i.i.i.i.i.i = icmp eq i64 %101, %83
   br i1 %.not.i.i.i.i.i.i, label %102, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
 
@@ -10948,9 +10948,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i16.i.i.i = load ptr, ptr %127, align 8
   %128 = getelementptr i8, ptr %.sroa.0108.0192.i.i.i, i64 112
   %.val1.i17.i.i.i = load ptr, ptr %128, align 8
-  %129 = ptrtoint ptr %.val.i16.i.i.i to i64
-  %130 = ptrtoint ptr %.val1.i17.i.i.i to i64
-  %131 = sub i64 %130, %129
+  %129 = ptrtoint ptr %.val1.i17.i.i.i to i64
+  %130 = ptrtoint ptr %.val.i16.i.i.i to i64
+  %131 = sub i64 %129, %130
   %.not.i.i.i18.i.i.i = icmp eq i64 %131, %83
   br i1 %.not.i.i.i18.i.i.i, label %132, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit30.i.i.i"
 
@@ -11012,9 +11012,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i31.i.i.i = load ptr, ptr %157, align 8
   %158 = getelementptr i8, ptr %.sroa.0108.0192.i.i.i, i64 216
   %.val1.i32.i.i.i = load ptr, ptr %158, align 8
-  %159 = ptrtoint ptr %.val.i31.i.i.i to i64
-  %160 = ptrtoint ptr %.val1.i32.i.i.i to i64
-  %161 = sub i64 %160, %159
+  %159 = ptrtoint ptr %.val1.i32.i.i.i to i64
+  %160 = ptrtoint ptr %.val.i31.i.i.i to i64
+  %161 = sub i64 %159, %160
   %.not.i.i.i33.i.i.i = icmp eq i64 %161, %83
   br i1 %.not.i.i.i33.i.i.i, label %162, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit45.i.i.i"
 
@@ -11076,9 +11076,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i46.i.i.i = load ptr, ptr %187, align 8
   %188 = getelementptr i8, ptr %.sroa.0108.0192.i.i.i, i64 320
   %.val1.i47.i.i.i = load ptr, ptr %188, align 8
-  %189 = ptrtoint ptr %.val.i46.i.i.i to i64
-  %190 = ptrtoint ptr %.val1.i47.i.i.i to i64
-  %191 = sub i64 %190, %189
+  %189 = ptrtoint ptr %.val1.i47.i.i.i to i64
+  %190 = ptrtoint ptr %.val.i46.i.i.i to i64
+  %191 = sub i64 %189, %190
   %.not.i.i.i48.i.i.i = icmp eq i64 %191, %83
   br i1 %.not.i.i.i48.i.i.i, label %192, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit60.i.i.i"
 
@@ -11168,9 +11168,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i61.i.i.i = load ptr, ptr %.sroa.0108.0.lcssa.i.i.i, align 8
   %222 = getelementptr i8, ptr %.sroa.0108.0.lcssa.i.i.i, i64 8
   %.val1.i62.i.i.i = load ptr, ptr %222, align 8
-  %223 = ptrtoint ptr %.val.i61.i.i.i to i64
-  %224 = ptrtoint ptr %.val1.i62.i.i.i to i64
-  %225 = sub i64 %224, %223
+  %223 = ptrtoint ptr %.val1.i62.i.i.i to i64
+  %224 = ptrtoint ptr %.val.i61.i.i.i to i64
+  %225 = sub i64 %223, %224
   %226 = ashr exact i64 %83, 2
   %.not.i.i.i63.i.i.i = icmp eq i64 %225, %83
   br i1 %.not.i.i.i63.i.i.i, label %227, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit75.i.i.i"
@@ -11241,9 +11241,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i76.i.i.i = load ptr, ptr %.sroa.0108.1.i.i.i, align 8
   %257 = getelementptr i8, ptr %.sroa.0108.1.i.i.i, i64 8
   %.val1.i77.i.i.i = load ptr, ptr %257, align 8
-  %258 = ptrtoint ptr %.val.i76.i.i.i to i64
-  %259 = ptrtoint ptr %.val1.i77.i.i.i to i64
-  %260 = sub i64 %259, %258
+  %258 = ptrtoint ptr %.val1.i77.i.i.i to i64
+  %259 = ptrtoint ptr %.val.i76.i.i.i to i64
+  %260 = sub i64 %258, %259
   %.not.i.i.i78.i.i.i = icmp eq i64 %260, %83
   br i1 %.not.i.i.i78.i.i.i, label %261, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit90.i.i.i"
 
@@ -11313,9 +11313,9 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %.val.i91.i.i.i = load ptr, ptr %.sroa.0108.2.i.i.i, align 8
   %291 = getelementptr i8, ptr %.sroa.0108.2.i.i.i, i64 8
   %.val1.i92.i.i.i = load ptr, ptr %291, align 8
-  %292 = ptrtoint ptr %.val.i91.i.i.i to i64
-  %293 = ptrtoint ptr %.val1.i92.i.i.i to i64
-  %294 = sub i64 %293, %292
+  %292 = ptrtoint ptr %.val1.i92.i.i.i to i64
+  %293 = ptrtoint ptr %.val.i91.i.i.i to i64
+  %294 = sub i64 %292, %293
   %.not.i.i.i93.i.i.i = icmp eq i64 %294, %83
   br i1 %.not.i.i.i93.i.i.i, label %295, label %.preheader123
 

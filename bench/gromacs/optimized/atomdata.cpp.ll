@@ -5229,9 +5229,9 @@ define void @_Z31nbnxn_atomdata_copy_x_to_nbat_xRKN5Nbnxm7GridSetEN3gmx12AtomLoc
 
 14:                                               ; preds = %13, %4
   %.04.i = phi i32 [ 1, %13 ], [ 0, %4 ]
-  %15 = ptrtoint ptr %.val to i64
-  %16 = ptrtoint ptr %.val2 to i64
-  %17 = sub i64 %16, %15
+  %15 = ptrtoint ptr %.val2 to i64
+  %16 = ptrtoint ptr %.val to i64
+  %17 = sub i64 %15, %16
   %.0.in.i = sdiv exact i64 %17, 376
   %.0.i = trunc i64 %.0.in.i to i32
   %.not.i.i = icmp sgt i32 %.04.i, %.0.i
@@ -5448,9 +5448,9 @@ define void @_Z30nbnxn_atomdata_x_to_nbat_x_gpuRKN5Nbnxm7GridSetEN3gmx12AtomLoca
 
 9:                                                ; preds = %8, %5
   %.04.i = phi i32 [ 1, %8 ], [ 0, %5 ]
-  %10 = ptrtoint ptr %.val to i64
-  %11 = ptrtoint ptr %.val14 to i64
-  %12 = sub i64 %11, %10
+  %10 = ptrtoint ptr %.val14 to i64
+  %11 = ptrtoint ptr %.val to i64
+  %12 = sub i64 %10, %11
   %.0.in.i = sdiv exact i64 %12, 376
   %.0.i = trunc i64 %.0.in.i to i32
   %.not.i.i = icmp sgt i32 %.04.i, %.0.i
@@ -5534,9 +5534,9 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %indvars.iv = phi i64 [ %24, %.lr.ph69 ], [ %indvars.iv.next, %.loopexit ]
   %29 = load ptr, ptr %19, align 8
   %30 = load ptr, ptr %20, align 8
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %32, %31
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %29 to i64
+  %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 4
   %35 = mul i64 %34, %indvars.iv
   %36 = load i32, ptr %2, align 4
@@ -6240,9 +6240,9 @@ define void @_ZN16nbnxn_atomdata_t16clearForceBufferEi(ptr nocapture noundef non
   br i1 %.not.i, label %_ZL18clearBufferFlaggedILi3EEviN3gmx8ArrayRefIKSt5arrayImLm2EEEENS1_IfEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
-  %23 = ptrtoint ptr %9 to i64
-  %24 = ptrtoint ptr %11 to i64
-  %25 = sub i64 %24, %23
+  %23 = ptrtoint ptr %11 to i64
+  %24 = ptrtoint ptr %9 to i64
+  %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 4
   %.sroa.01.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8

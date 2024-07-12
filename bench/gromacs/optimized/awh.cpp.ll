@@ -1868,9 +1868,9 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %159 = fdiv double 1.000000e+00, %158
   %160 = load ptr, ptr %5, align 8
   %161 = load ptr, ptr %39, align 8
-  %162 = ptrtoint ptr %160 to i64
-  %163 = ptrtoint ptr %161 to i64
-  %164 = sub i64 %163, %162
+  %162 = ptrtoint ptr %161 to i64
+  %163 = ptrtoint ptr %160 to i64
+  %164 = sub i64 %162, %163
   %165 = icmp sgt i64 %164, 0
   br i1 %165, label %.lr.ph368, label %._crit_edge369
 

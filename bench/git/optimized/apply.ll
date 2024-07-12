@@ -9542,8 +9542,7 @@ if.end35.i:                                       ; preds = %if.end29.i
   ]
 
 if.end51.i:                                       ; preds = %if.end35.i
-  %sub.ptr.lhs.cast52.i = ptrtoint ptr %add.ptr31.i to i64
-  %sub.ptr.sub54.i = sub i64 %sub.ptr.lhs.cast52.i, %sub.ptr.rhs.cast
+  %sub.ptr.sub54.i = sub i64 %sub.ptr.rhs.cast82.pre-phi.i.i, %sub.ptr.rhs.cast
   %tobool.not.i84.i = icmp eq i64 %sub.ptr.sub54.i, 0
   br i1 %tobool.not.i84.i, label %trailing_spaces_len.exit.i, label %while.cond.i89.i
 
@@ -9560,7 +9559,7 @@ while.body.i.i:                                   ; preds = %while.cond.i89.i
 
 if.then7.i.i:                                     ; preds = %while.body.i.i
   %sub.ptr.rhs.cast.i94.i = ptrtoint ptr %p.0.i90.i to i64
-  %sub.ptr.sub.i95.i = sub i64 %sub.ptr.lhs.cast52.i, %sub.ptr.rhs.cast.i94.i
+  %sub.ptr.sub.i95.i = sub i64 %sub.ptr.rhs.cast82.pre-phi.i.i, %sub.ptr.rhs.cast.i94.i
   br label %trailing_spaces_len.exit.i
 
 trailing_spaces_len.exit.i:                       ; preds = %while.cond.i89.i, %if.then7.i.i, %if.end51.i

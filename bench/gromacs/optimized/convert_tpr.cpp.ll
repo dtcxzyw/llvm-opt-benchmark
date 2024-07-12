@@ -2640,23 +2640,23 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not15.i, label %._crit_edge.i124, label %.lr.ph.i121
 
 ._crit_edge.i124:                                 ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
-  %397 = ptrtoint ptr %scevgep.i.i200 to i64
-  %398 = ptrtoint ptr %334 to i64
+  %397 = ptrtoint ptr %.sroa.7.4.i to i64
+  %398 = ptrtoint ptr %.sroa.05.3.i to i64
   %399 = sub i64 %397, %398
+  %400 = ptrtoint ptr %scevgep.i.i200 to i64
+  %401 = ptrtoint ptr %334 to i64
+  %402 = sub i64 %400, %401
   %.not82.i.i = icmp eq ptr %.sroa.7.4.i, %.sroa.05.3.i
-  br i1 %.not82.i.i, label %.noexc25.i, label %400
+  br i1 %.not82.i.i, label %.noexc25.i, label %403
 
-400:                                              ; preds = %._crit_edge.i124
-  %401 = ptrtoint ptr %.sroa.05.3.i to i64
-  %402 = ptrtoint ptr %.sroa.7.4.i to i64
-  %403 = sub i64 %402, %401
-  %404 = ashr exact i64 %403, 2
+403:                                              ; preds = %._crit_edge.i124
+  %404 = ashr exact i64 %399, 2
   %405 = ptrtoint ptr %333 to i64
-  %406 = sub i64 %405, %397
-  %.not.i30.i = icmp ult i64 %406, %403
+  %406 = sub i64 %405, %400
+  %.not.i30.i = icmp ult i64 %406, %399
   br i1 %.not.i30.i, label %414, label %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i
 
-_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i: ; preds = %400
+_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i: ; preds = %403
   %407 = icmp sgt i64 %404, 0
   br i1 %407, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i
 
@@ -2673,11 +2673,11 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i: ; preds = %400
   br i1 %412, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i, !llvm.loop !34
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56.i..noexc25_crit_edge.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit.i.i
-  %413 = getelementptr inbounds i8, ptr %scevgep.i.i200, i64 %403
+  %413 = getelementptr inbounds i8, ptr %scevgep.i.i200, i64 %399
   br label %.noexc25.i
 
-414:                                              ; preds = %400
-  %415 = ashr exact i64 %399, 2
+414:                                              ; preds = %403
+  %415 = ashr exact i64 %402, 2
   %416 = sub nsw i64 2305843009213693951, %415
   %417 = icmp ult i64 %416, %404
   br i1 %417, label %418, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i129
@@ -2715,14 +2715,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %423, %_ZNKSt6vec
   br i1 %.not.i.i.i.i.i.i.i.i.i63.i.i, label %428, label %427
 
 427:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %426, ptr align 4 %334, i64 %399, i1 false), !noalias !31
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %426, ptr align 4 %334, i64 %402, i1 false), !noalias !31
   br label %428
 
 428:                                              ; preds = %427, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %429 = getelementptr i8, ptr %426, i64 %399
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %429, ptr align 4 %.sroa.05.3.i, i64 %403, i1 false), !noalias !31
-  %430 = add i64 %403, %397
-  %431 = sub i64 %430, %398
+  %429 = getelementptr i8, ptr %426, i64 %402
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %429, ptr align 4 %.sroa.05.3.i, i64 %399, i1 false), !noalias !31
+  %430 = add i64 %399, %400
+  %431 = sub i64 %430, %401
   %scevgep.i.i = getelementptr i8, ptr %426, i64 %431
   %.not.i72.i.i = icmp eq ptr %334, null
   br i1 %.not.i72.i.i, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, label %432

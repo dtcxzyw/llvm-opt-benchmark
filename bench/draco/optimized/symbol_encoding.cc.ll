@@ -2774,7 +2774,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
 
@@ -8254,7 +8254,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !87
 
@@ -10215,7 +10215,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !109
 
@@ -12176,7 +12176,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !131
 
@@ -14137,7 +14137,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !153
 
@@ -16098,7 +16098,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !175
 
@@ -18059,7 +18059,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !197
 
@@ -20020,7 +20020,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !219
 
@@ -21982,7 +21982,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !241
 
@@ -23944,7 +23944,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !263
 
@@ -25906,7 +25906,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !285
 
@@ -27868,7 +27868,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !307
 
@@ -29830,7 +29830,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !329
 
@@ -31792,7 +31792,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !351
 
@@ -33754,7 +33754,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !373
 
@@ -35716,7 +35716,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !395
 
@@ -37678,7 +37678,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !417
 
@@ -39640,7 +39640,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %92, %88
   store ptr %93, ptr %14, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.split
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit35:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
   %exitcond55.not = icmp eq i32 %63, %umax54
   br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !439
 

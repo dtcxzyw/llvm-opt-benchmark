@@ -280,7 +280,7 @@ _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZNSt12_Vector_b
   br label %common.resume
 
 common.resume:                                    ; preds = %247, %.body114, %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit2.i315, %296, %.loopexit.split-lp.i, %.loopexit.split.us.i
-  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.us.i, %.loopexit.split.us.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %.pn, %.body114 ], [ %248, %247 ], [ %eh.lpad-body.i, %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit2.i315 ], [ %eh.lpad-body.i, %296 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.us.i, %.loopexit.split.us.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %.pn, %.body114 ], [ %248, %247 ], [ %lpad.phi.i90, %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit2.i315 ], [ %lpad.phi.i90, %296 ]
   call void @_ZNSt6vectorI14Atom2VsiteBondSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #21
   resume { ptr, i32 } %common.resume.op
 
@@ -655,9 +655,9 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %243
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, i8 0, i64 72, i1 false), !alias.scope !23
   %253 = icmp sgt i32 %250, 0
-  br i1 %253, label %.lr.ph150.i, label %_ZL28createVsiteBondedInformationiN3gmx8ArrayRefIKiEENS0_IK14Atom2VsiteBondEE.exit
+  br i1 %253, label %.lr.ph147.i, label %_ZL28createVsiteBondedInformationiN3gmx8ArrayRefIKiEENS0_IK14Atom2VsiteBondEE.exit
 
-.lr.ph150.i:                                      ; preds = %249
+.lr.ph147.i:                                      ; preds = %249
   %wide.trip.count.i80 = zext nneg i32 %250 to i64
   %.promoted1143 = load ptr, ptr %159, align 8, !alias.scope !23
   %.promoted = load ptr, ptr %158, align 8, !alias.scope !23
@@ -670,26 +670,26 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %243
   %.promoted1174 = load ptr, ptr %165, align 8, !alias.scope !23
   br label %254
 
-254:                                              ; preds = %._crit_edge.i85, %.lr.ph150.i
-  %.lcssa11421176 = phi ptr [ %.promoted1174, %.lr.ph150.i ], [ %.lcssa11421175, %._crit_edge.i85 ]
-  %.lcssa11371173 = phi ptr [ %.promoted1171, %.lr.ph150.i ], [ %.lcssa11371172, %._crit_edge.i85 ]
-  %.lcssa11321170 = phi ptr [ %.promoted1168, %.lr.ph150.i ], [ %.lcssa11321169, %._crit_edge.i85 ]
-  %.lcssa11271167 = phi ptr [ %.promoted1165, %.lr.ph150.i ], [ %.lcssa11271166, %._crit_edge.i85 ]
-  %.lcssa11221164 = phi ptr [ %.promoted1162, %.lr.ph150.i ], [ %.lcssa11221163, %._crit_edge.i85 ]
-  %.lcssa11171159 = phi ptr [ %.promoted1157, %.lr.ph150.i ], [ %.lcssa11171158, %._crit_edge.i85 ]
-  %.lcssa11121154 = phi ptr [ %.promoted1152, %.lr.ph150.i ], [ %.lcssa11121153, %._crit_edge.i85 ]
-  %.lcssa11071149 = phi ptr [ %.promoted, %.lr.ph150.i ], [ %.lcssa11071148, %._crit_edge.i85 ]
-  %.lcssa11021145 = phi ptr [ %.promoted1143, %.lr.ph150.i ], [ %.lcssa11021144, %._crit_edge.i85 ]
-  %.promoted685730 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted685729, %._crit_edge.i85 ]
-  %.promoted686725 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted686724, %._crit_edge.i85 ]
-  %.promoted684720 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted684719, %._crit_edge.i85 ]
-  %.promoted682715 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted682714, %._crit_edge.i85 ]
-  %.promoted683710 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted683709, %._crit_edge.i85 ]
-  %.promoted681705 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted681704, %._crit_edge.i85 ]
-  %.promoted679700 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted679699, %._crit_edge.i85 ]
-  %.promoted680695 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted680694, %._crit_edge.i85 ]
-  %.promoted691 = phi ptr [ null, %.lr.ph150.i ], [ %.promoted690, %._crit_edge.i85 ]
-  %indvars.iv.i81 = phi i64 [ 0, %.lr.ph150.i ], [ %indvars.iv.next.i86, %._crit_edge.i85 ]
+254:                                              ; preds = %._crit_edge.i85, %.lr.ph147.i
+  %.lcssa11421176 = phi ptr [ %.promoted1174, %.lr.ph147.i ], [ %.lcssa11421175, %._crit_edge.i85 ]
+  %.lcssa11371173 = phi ptr [ %.promoted1171, %.lr.ph147.i ], [ %.lcssa11371172, %._crit_edge.i85 ]
+  %.lcssa11321170 = phi ptr [ %.promoted1168, %.lr.ph147.i ], [ %.lcssa11321169, %._crit_edge.i85 ]
+  %.lcssa11271167 = phi ptr [ %.promoted1165, %.lr.ph147.i ], [ %.lcssa11271166, %._crit_edge.i85 ]
+  %.lcssa11221164 = phi ptr [ %.promoted1162, %.lr.ph147.i ], [ %.lcssa11221163, %._crit_edge.i85 ]
+  %.lcssa11171159 = phi ptr [ %.promoted1157, %.lr.ph147.i ], [ %.lcssa11171158, %._crit_edge.i85 ]
+  %.lcssa11121154 = phi ptr [ %.promoted1152, %.lr.ph147.i ], [ %.lcssa11121153, %._crit_edge.i85 ]
+  %.lcssa11071149 = phi ptr [ %.promoted, %.lr.ph147.i ], [ %.lcssa11071148, %._crit_edge.i85 ]
+  %.lcssa11021145 = phi ptr [ %.promoted1143, %.lr.ph147.i ], [ %.lcssa11021144, %._crit_edge.i85 ]
+  %.promoted685730 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted685729, %._crit_edge.i85 ]
+  %.promoted686725 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted686724, %._crit_edge.i85 ]
+  %.promoted684720 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted684719, %._crit_edge.i85 ]
+  %.promoted682715 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted682714, %._crit_edge.i85 ]
+  %.promoted683710 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted683709, %._crit_edge.i85 ]
+  %.promoted681705 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted681704, %._crit_edge.i85 ]
+  %.promoted679700 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted679699, %._crit_edge.i85 ]
+  %.promoted680695 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted680694, %._crit_edge.i85 ]
+  %.promoted691 = phi ptr [ null, %.lr.ph147.i ], [ %.promoted690, %._crit_edge.i85 ]
+  %indvars.iv.i81 = phi i64 [ 0, %.lr.ph147.i ], [ %indvars.iv.next.i86, %._crit_edge.i85 ]
   %255 = getelementptr inbounds i32, ptr %251, i64 %indvars.iv.i81
   %256 = load i32, ptr %255, align 4, !noalias !23
   %257 = sext i32 %256 to i64
@@ -697,8 +697,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %243
   %259 = load ptr, ptr %258, align 8, !noalias !23
   %260 = getelementptr inbounds i8, ptr %258, i64 8
   %261 = load ptr, ptr %260, align 8, !noalias !23
-  %.not146.i = icmp eq ptr %259, %261
-  br i1 %.not146.i, label %._crit_edge.i85, label %.lr.ph.i82
+  %.not143.i = icmp eq ptr %259, %261
+  br i1 %.not143.i, label %._crit_edge.i85, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %254, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i
   %262 = phi ptr [ %408, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %.lcssa11421176, %254 ]
@@ -728,9 +728,9 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %243
   %277 = phi ptr [ %423, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %.promoted680695, %254 ]
   %278 = phi ptr [ %424, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %.promoted679700, %254 ]
   %279 = phi ptr [ %425, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %.promoted691, %254 ]
-  %.sroa.0129.0147.i = phi ptr [ %426, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %259, %254 ]
-  %280 = load i32, ptr %.sroa.0129.0147.i, align 8, !noalias !23
-  %281 = getelementptr inbounds i8, ptr %.sroa.0129.0147.i, i64 8
+  %.sroa.0129.0144.i = phi ptr [ %426, %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i ], [ %259, %254 ]
+  %280 = load i32, ptr %.sroa.0129.0144.i, align 8, !noalias !23
+  %281 = getelementptr inbounds i8, ptr %.sroa.0129.0144.i, i64 8
   %282 = load ptr, ptr %281, align 8, !noalias !23
   %283 = sext i32 %280 to i64
   %284 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %283, i32 5
@@ -750,7 +750,7 @@ _ZL18vsite_bond_nrchecki.exit.i88:                ; preds = %.lr.ph.i82
     i32 4, label %371
   ]
 
-.loopexit.i:                                      ; preds = %395, %379, %358, %342, %321, %305
+.body.loopexit.i:                                 ; preds = %395, %379, %358, %342, %321, %305
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   store ptr %.lcssa11021145, ptr %159, align 8, !alias.scope !23
@@ -768,13 +768,13 @@ _ZL18vsite_bond_nrchecki.exit.i88:                ; preds = %.lr.ph.i82
   store ptr %262, ptr %165, align 8, !alias.scope !23
   br label %.body.i
 
-.loopexit.split-lp.i89:                           ; preds = %.invoke165.i, %.invoke.i
-  %lpad.loopexit.split-lp.i90 = landingpad { ptr, i32 }
+.body.loopexit.split-lp.i:                        ; preds = %.invoke157.i, %.invoke.i
+  %lpad.loopexit.split-lp.i89 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %.loopexit.split-lp.i89, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i90, %.loopexit.split-lp.i89 ]
+.body.i:                                          ; preds = %.body.loopexit.split-lp.i, %.body.loopexit.i
+  %lpad.phi.i90 = phi { ptr, i32 } [ %lpad.loopexit.i, %.body.loopexit.i ], [ %lpad.loopexit.split-lp.i89, %.body.loopexit.split-lp.i ]
   %291 = load ptr, ptr %158, align 8
   %.not.i.i.i.i312 = icmp eq ptr %291, null
   br i1 %.not.i.i.i.i312, label %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit.i313, label %292
@@ -805,9 +805,9 @@ _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit2.i315: ; preds = %294, %_
   %298 = load ptr, ptr %282, align 8, !noalias !23
   %299 = getelementptr inbounds i8, ptr %282, i64 8
   %300 = load ptr, ptr %299, align 8, !noalias !23
-  %301 = ptrtoint ptr %298 to i64
-  %302 = ptrtoint ptr %300 to i64
-  %303 = sub i64 %302, %301
+  %301 = ptrtoint ptr %300 to i64
+  %302 = ptrtoint ptr %298 to i64
+  %303 = sub i64 %301, %302
   %304 = icmp eq i64 %303, 8
   br i1 %304, label %305, label %.invoke.i
 
@@ -826,14 +826,14 @@ _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EED2Ev.exit2.i315: ; preds = %294, %_
   store ptr %263, ptr %38, align 8, !alias.scope !23
   store ptr %262, ptr %165, align 8, !alias.scope !23
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfTypeENK3$_0clEv", ptr noundef nonnull @.str.3, i32 noundef 155) #19
-          to label %.cont.i unwind label %.loopexit.split-lp.i89, !noalias !23
+          to label %.cont.i unwind label %.body.loopexit.split-lp.i, !noalias !23
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
 305:                                              ; preds = %297
   %306 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %282)
-          to label %.noexc19.i unwind label %.loopexit.i, !noalias !23
+          to label %.noexc19.i unwind label %.body.loopexit.i, !noalias !23
 
 .noexc19.i:                                       ; preds = %305
   %.not.i.i.i = icmp eq ptr %273, %272
@@ -864,9 +864,9 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
   %313 = ptrtoint ptr %271 to i64
   %314 = sub i64 %312, %313
   %315 = icmp eq i64 %314, 9223372036854775800
-  br i1 %315, label %.invoke165.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %315, label %.invoke157.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
-.invoke165.i:                                     ; preds = %385, %348, %311
+.invoke157.i:                                     ; preds = %385, %348, %311
   store ptr %.lcssa11021145, ptr %159, align 8, !alias.scope !23
   store ptr %.lcssa11071149, ptr %158, align 8, !alias.scope !23
   store ptr %.lcssa11121154, ptr %160, align 8, !alias.scope !23
@@ -881,9 +881,9 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
   store ptr %263, ptr %38, align 8, !alias.scope !23
   store ptr %262, ptr %165, align 8, !alias.scope !23
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #19
-          to label %.cont166.i unwind label %.loopexit.split-lp.i89, !noalias !23
+          to label %.cont158.i unwind label %.body.loopexit.split-lp.i, !noalias !23
 
-.cont166.i:                                       ; preds = %.invoke165.i
+.cont158.i:                                       ; preds = %.invoke157.i
   unreachable
 
 _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %311
@@ -894,14 +894,14 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; pr
   %319 = call i64 @llvm.umin.i64(i64 %317, i64 461168601842738790)
   %320 = select i1 %318, i64 461168601842738790, i64 %319
   %.not.i.i52.i = icmp eq i64 %320, 0
-  br i1 %.not.i.i52.i, label %.preheader.i.i.i.i.i, label %321
+  br i1 %.not.i.i52.i, label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i, label %321
 
 321:                                              ; preds = %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %322 = mul nuw nsw i64 %320, 20
   %323 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %322) #20
-          to label %.preheader.i.i.i.i.i unwind label %.loopexit.i, !noalias !23
+          to label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i unwind label %.body.loopexit.i, !noalias !23
 
-.preheader.i.i.i.i.i:                             ; preds = %321, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %321, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %324 = phi ptr [ null, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %323, %321 ]
   %325 = getelementptr inbounds %class.VsiteBondedInteraction, ptr %324, i64 %316
   %326 = load float, ptr %306, align 4, !noalias !23
@@ -909,9 +909,9 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; pr
   %.not1112.i.i.i.i.i = icmp eq ptr %298, %300
   br i1 %.not1112.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.0.pn14.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %325, %.preheader.i.i.i.i.i ]
-  %.sroa.0.013.i.i.i.i.i = phi ptr [ %328, %.lr.ph.i.i.i.i.i ], [ %298, %.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.0.pn14.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %325, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.0.013.i.i.i.i.i = phi ptr [ %328, %.lr.ph.i.i.i.i.i ], [ %298, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i ]
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.0.pn14.i.i.i.i.i, i64 4
   %327 = load i32, ptr %.sroa.0.013.i.i.i.i.i, align 4, !noalias !23
   store i32 %327, ptr %.0.i.i.i.i.i, align 4, !noalias !23
@@ -919,7 +919,7 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; pr
   %.not11.i.i.i.i.i = icmp eq ptr %328, %300
   br i1 %.not11.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.preheader.i.i.i.i.i
+_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i.i
   %.not10.i.i.i.i.i = icmp eq ptr %271, %272
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i, label %.lr.ph.i.i.i27.i.i
 
@@ -950,15 +950,15 @@ _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35
   %335 = load ptr, ptr %282, align 8, !noalias !23
   %336 = getelementptr inbounds i8, ptr %282, i64 8
   %337 = load ptr, ptr %336, align 8, !noalias !23
-  %338 = ptrtoint ptr %335 to i64
-  %339 = ptrtoint ptr %337 to i64
-  %340 = sub i64 %339, %338
+  %338 = ptrtoint ptr %337 to i64
+  %339 = ptrtoint ptr %335 to i64
+  %340 = sub i64 %338, %339
   %341 = icmp eq i64 %340, 12
   br i1 %341, label %342, label %.invoke.i
 
 342:                                              ; preds = %334
   %343 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %282)
-          to label %.noexc33.i unwind label %.loopexit.i, !noalias !23
+          to label %.noexc33.i unwind label %.body.loopexit.i, !noalias !23
 
 .noexc33.i:                                       ; preds = %342
   %.not.i.i22.i = icmp eq ptr %276, %275
@@ -989,7 +989,7 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
   %350 = ptrtoint ptr %274 to i64
   %351 = sub i64 %349, %350
   %352 = icmp eq i64 %351, 9223372036854775800
-  br i1 %352, label %.invoke165.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i
+  br i1 %352, label %.invoke157.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i
 
 _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i: ; preds = %348
   %353 = sdiv exact i64 %351, 20
@@ -999,14 +999,14 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i: ; 
   %356 = call i64 @llvm.umin.i64(i64 %354, i64 461168601842738790)
   %357 = select i1 %355, i64 461168601842738790, i64 %356
   %.not.i.i57.i = icmp eq i64 %357, 0
-  br i1 %.not.i.i57.i, label %.preheader.i.i.i.i63.i, label %358
+  br i1 %.not.i.i57.i, label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i, label %358
 
 358:                                              ; preds = %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i
   %359 = mul nuw nsw i64 %357, 20
   %360 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %359) #20
-          to label %.preheader.i.i.i.i63.i unwind label %.loopexit.i, !noalias !23
+          to label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i unwind label %.body.loopexit.i, !noalias !23
 
-.preheader.i.i.i.i63.i:                           ; preds = %358, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i
+_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i: ; preds = %358, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i
   %361 = phi ptr [ null, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i ], [ %360, %358 ]
   %362 = getelementptr inbounds %class.VsiteBondedInteraction, ptr %361, i64 %353
   %363 = load float, ptr %343, align 4, !noalias !23
@@ -1014,9 +1014,9 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i: ; 
   %.not1112.i.i.i.i64.i = icmp eq ptr %335, %337
   br i1 %.not1112.i.i.i.i64.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i, label %.lr.ph.i.i.i.i65.i
 
-.lr.ph.i.i.i.i65.i:                               ; preds = %.preheader.i.i.i.i63.i, %.lr.ph.i.i.i.i65.i
-  %.0.pn14.i.i.i.i66.i = phi ptr [ %.0.i.i.i.i68.i, %.lr.ph.i.i.i.i65.i ], [ %362, %.preheader.i.i.i.i63.i ]
-  %.sroa.0.013.i.i.i.i67.i = phi ptr [ %365, %.lr.ph.i.i.i.i65.i ], [ %335, %.preheader.i.i.i.i63.i ]
+.lr.ph.i.i.i.i65.i:                               ; preds = %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i, %.lr.ph.i.i.i.i65.i
+  %.0.pn14.i.i.i.i66.i = phi ptr [ %.0.i.i.i.i68.i, %.lr.ph.i.i.i.i65.i ], [ %362, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i ]
+  %.sroa.0.013.i.i.i.i67.i = phi ptr [ %365, %.lr.ph.i.i.i.i65.i ], [ %335, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i ]
   %.0.i.i.i.i68.i = getelementptr inbounds i8, ptr %.0.pn14.i.i.i.i66.i, i64 4
   %364 = load i32, ptr %.sroa.0.013.i.i.i.i67.i, align 4, !noalias !23
   store i32 %364, ptr %.0.i.i.i.i68.i, align 4, !noalias !23
@@ -1024,7 +1024,7 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i55.i: ; 
   %.not11.i.i.i.i69.i = icmp eq ptr %365, %337
   br i1 %.not11.i.i.i.i69.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i, label %.lr.ph.i.i.i.i65.i
 
-_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i: ; preds = %.lr.ph.i.i.i.i65.i, %.preheader.i.i.i.i63.i
+_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i: ; preds = %.lr.ph.i.i.i.i65.i, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i58.i
   %.not10.i.i.i.i71.i = icmp eq ptr %274, %275
   br i1 %.not10.i.i.i.i71.i, label %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i83.i, label %.lr.ph.i.i.i27.i72.i
 
@@ -1055,15 +1055,15 @@ _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35
   %372 = load ptr, ptr %282, align 8, !noalias !23
   %373 = getelementptr inbounds i8, ptr %282, i64 8
   %374 = load ptr, ptr %373, align 8, !noalias !23
-  %375 = ptrtoint ptr %372 to i64
-  %376 = ptrtoint ptr %374 to i64
-  %377 = sub i64 %376, %375
+  %375 = ptrtoint ptr %374 to i64
+  %376 = ptrtoint ptr %372 to i64
+  %377 = sub i64 %375, %376
   %378 = icmp eq i64 %377, 16
   br i1 %378, label %379, label %.invoke.i
 
 379:                                              ; preds = %371
   %380 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %282)
-          to label %.noexc48.i unwind label %.loopexit.i, !noalias !23
+          to label %.noexc48.i unwind label %.body.loopexit.i, !noalias !23
 
 .noexc48.i:                                       ; preds = %379
   %.not.i.i37.i = icmp eq ptr %279, %278
@@ -1094,7 +1094,7 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
   %387 = ptrtoint ptr %277 to i64
   %388 = sub i64 %386, %387
   %389 = icmp eq i64 %388, 9223372036854775800
-  br i1 %389, label %.invoke165.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i
+  br i1 %389, label %.invoke157.i, label %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i
 
 _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i: ; preds = %385
   %390 = sdiv exact i64 %388, 20
@@ -1104,14 +1104,14 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i: ; 
   %393 = call i64 @llvm.umin.i64(i64 %391, i64 461168601842738790)
   %394 = select i1 %392, i64 461168601842738790, i64 %393
   %.not.i.i94.i = icmp eq i64 %394, 0
-  br i1 %.not.i.i94.i, label %.preheader.i.i.i.i100.i, label %395
+  br i1 %.not.i.i94.i, label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i, label %395
 
 395:                                              ; preds = %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i
   %396 = mul nuw nsw i64 %394, 20
   %397 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %396) #20
-          to label %.preheader.i.i.i.i100.i unwind label %.loopexit.i, !noalias !23
+          to label %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i unwind label %.body.loopexit.i, !noalias !23
 
-.preheader.i.i.i.i100.i:                          ; preds = %395, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i
+_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i: ; preds = %395, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i
   %398 = phi ptr [ null, %_ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i ], [ %397, %395 ]
   %399 = getelementptr inbounds %class.VsiteBondedInteraction, ptr %398, i64 %390
   %400 = load float, ptr %380, align 4, !noalias !23
@@ -1119,9 +1119,9 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i: ; 
   %.not1112.i.i.i.i101.i = icmp eq ptr %372, %374
   br i1 %.not1112.i.i.i.i101.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i, label %.lr.ph.i.i.i.i102.i
 
-.lr.ph.i.i.i.i102.i:                              ; preds = %.preheader.i.i.i.i100.i, %.lr.ph.i.i.i.i102.i
-  %.0.pn14.i.i.i.i103.i = phi ptr [ %.0.i.i.i.i105.i, %.lr.ph.i.i.i.i102.i ], [ %399, %.preheader.i.i.i.i100.i ]
-  %.sroa.0.013.i.i.i.i104.i = phi ptr [ %402, %.lr.ph.i.i.i.i102.i ], [ %372, %.preheader.i.i.i.i100.i ]
+.lr.ph.i.i.i.i102.i:                              ; preds = %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i, %.lr.ph.i.i.i.i102.i
+  %.0.pn14.i.i.i.i103.i = phi ptr [ %.0.i.i.i.i105.i, %.lr.ph.i.i.i.i102.i ], [ %399, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i ]
+  %.sroa.0.013.i.i.i.i104.i = phi ptr [ %402, %.lr.ph.i.i.i.i102.i ], [ %372, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i ]
   %.0.i.i.i.i105.i = getelementptr inbounds i8, ptr %.0.pn14.i.i.i.i103.i, i64 4
   %401 = load i32, ptr %.sroa.0.013.i.i.i.i104.i, align 4, !noalias !23
   store i32 %401, ptr %.0.i.i.i.i105.i, align 4, !noalias !23
@@ -1129,7 +1129,7 @@ _ZNKSt6vectorI22VsiteBondedInteractionSaIS0_EE12_M_check_lenEmPKc.exit.i92.i: ; 
   %.not11.i.i.i.i106.i = icmp eq ptr %402, %374
   br i1 %.not11.i.i.i.i106.i, label %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i, label %.lr.ph.i.i.i.i102.i
 
-_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i: ; preds = %.lr.ph.i.i.i.i102.i, %.preheader.i.i.i.i100.i
+_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i: ; preds = %.lr.ph.i.i.i.i102.i, %_ZNSt12_Vector_baseI22VsiteBondedInteractionSaIS0_EE11_M_allocateEm.exit.i95.i
   %.not10.i.i.i.i108.i = icmp eq ptr %277, %278
   br i1 %.not10.i.i.i.i108.i, label %_ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i120.i, label %.lr.ph.i.i.i27.i109.i
 
@@ -1184,7 +1184,7 @@ _ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfTy
   %423 = phi ptr [ %398, %.noexc50.i ], [ %277, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i46.i ], [ %277, %.noexc35.i ], [ %277, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i31.i ], [ %277, %.noexc21.i ], [ %277, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i.i ], [ %277, %_ZL18vsite_bond_nrchecki.exit.i88 ], [ %277, %.lr.ph.i82 ]
   %424 = phi ptr [ %407, %.noexc50.i ], [ %278, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i46.i ], [ %278, %.noexc35.i ], [ %278, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i31.i ], [ %278, %.noexc21.i ], [ %278, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i.i ], [ %278, %_ZL18vsite_bond_nrchecki.exit.i88 ], [ %278, %.lr.ph.i82 ]
   %425 = phi ptr [ %405, %.noexc50.i ], [ %384, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i46.i ], [ %279, %.noexc35.i ], [ %279, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i31.i ], [ %279, %.noexc21.i ], [ %279, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i.i ], [ %279, %_ZL18vsite_bond_nrchecki.exit.i88 ], [ %279, %.lr.ph.i82 ]
-  %426 = getelementptr inbounds i8, ptr %.sroa.0129.0147.i, i64 16
+  %426 = getelementptr inbounds i8, ptr %.sroa.0129.0144.i, i64 16
   %.not.i84 = icmp eq ptr %426, %261
   br i1 %.not.i84, label %._crit_edge.i85.loopexit, label %.lr.ph.i82
 
