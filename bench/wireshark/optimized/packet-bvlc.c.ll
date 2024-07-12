@@ -1163,25 +1163,25 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %40 = load i32, ptr @ett_bdt, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #3
   %42 = icmp ugt i32 %spec.select, 13
-  br i1 %42, label %.lr.ph145.preheader, label %.loopexit
+  br i1 %42, label %.lr.ph4.preheader, label %.loopexit
 
-.lr.ph145.preheader:                              ; preds = %36
-  %invariant.op148 = add nsw i32 %.0136, -9
-  br label %.lr.ph145
+.lr.ph4.preheader:                                ; preds = %36
+  %invariant.op7 = add nsw i32 %.0136, -9
+  br label %.lr.ph4
 
-.lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %.0135144 = phi i32 [ %51, %.lr.ph145 ], [ 4, %.lr.ph145.preheader ]
+.lr.ph4:                                          ; preds = %.lr.ph4.preheader, %.lr.ph4
+  %.01353 = phi i32 [ %51, %.lr.ph4 ], [ 4, %.lr.ph4.preheader ]
   %43 = load i32, ptr @hf_bvlc_bdt_ip, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef %.0135144, i32 noundef 4, i32 noundef 0) #3
-  %45 = add nuw nsw i32 %.0135144, 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef %.01353, i32 noundef 4, i32 noundef 0) #3
+  %45 = add nuw nsw i32 %.01353, 4
   %46 = load i32, ptr @hf_bvlc_bdt_port, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0) #3
-  %48 = add nuw nsw i32 %.0135144, 6
+  %48 = add nuw nsw i32 %.01353, 6
   %49 = load i32, ptr @hf_bvlc_bdt_mask, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #3
-  %51 = add nuw nsw i32 %.0135144, 10
-  %52 = icmp slt i32 %51, %invariant.op148
-  br i1 %52, label %.lr.ph145, label %.loopexit, !llvm.loop !11
+  %51 = add nuw nsw i32 %.01353, 10
+  %52 = icmp slt i32 %51, %invariant.op7
+  br i1 %52, label %.lr.ph4, label %.loopexit, !llvm.loop !11
 
 53:                                               ; preds = %32
   %54 = load i32, ptr @hf_bvlc_reg_ttl, align 4
@@ -1202,19 +1202,19 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1143 = phi i32 [ %74, %.lr.ph ], [ 4, %.lr.ph.preheader ]
+  %.12 = phi i32 [ %74, %.lr.ph ], [ 4, %.lr.ph.preheader ]
   %63 = load i32, ptr @hf_bvlc_fdt_ip, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %63, ptr noundef %0, i32 noundef %.1143, i32 noundef 4, i32 noundef 0) #3
-  %65 = add nuw nsw i32 %.1143, 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %63, ptr noundef %0, i32 noundef %.12, i32 noundef 4, i32 noundef 0) #3
+  %65 = add nuw nsw i32 %.12, 4
   %66 = load i32, ptr @hf_bvlc_fdt_port, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef 0) #3
-  %68 = add nuw nsw i32 %.1143, 6
+  %68 = add nuw nsw i32 %.12, 6
   %69 = load i32, ptr @hf_bvlc_fdt_ttl, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0) #3
-  %71 = add nuw nsw i32 %.1143, 8
+  %71 = add nuw nsw i32 %.12, 8
   %72 = load i32, ptr @hf_bvlc_fdt_timeout, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef 0) #3
-  %74 = add nuw nsw i32 %.1143, 10
+  %74 = add nuw nsw i32 %.12, 10
   %75 = icmp slt i32 %74, %invariant.op
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
@@ -1246,7 +1246,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %92, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph145, %56, %36, %32, %89, %87, %76, %53, %33
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph4, %56, %36, %32, %89, %87, %76, %53, %33
   %94 = sub nsw i32 %11, %.0136
   %95 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0136, i32 noundef %94) #3
   %96 = load ptr, ptr @bvlc_dissector_table, align 8
@@ -1291,13 +1291,13 @@ switch.lookup:                                    ; preds = %3
 
 14:                                               ; preds = %.thread, %switch.lookup
   %15 = phi i32 [ %10, %.thread ], [ %12, %switch.lookup ]
-  %.0116124 = phi i32 [ 0, %.thread ], [ %switch.load, %switch.lookup ]
+  %.01162 = phi i32 [ 0, %.thread ], [ %switch.load, %switch.lookup ]
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @bvlc_ipv6_function_names, ptr noundef nonnull @.str.411) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.410, ptr noundef %18) #3
   %19 = load i32, ptr @proto_bvlc, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef %.0116124, i32 noundef 0) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef %.01162, i32 noundef 0) #3
   %21 = load i32, ptr @ett_bvlc, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #3
   %23 = load i32, ptr @hf_bvlc_type, align 4
@@ -1310,16 +1310,16 @@ switch.lookup:                                    ; preds = %3
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %14
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %.0116124, ptr noundef nonnull @.str.412, i32 noundef %.0116124, i32 noundef %15, i32 noundef %7) #3
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %.01162, ptr noundef nonnull @.str.412, i32 noundef %.01162, i32 noundef %15, i32 noundef %7) #3
   br label %33
 
 31:                                               ; preds = %14
-  %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %.0116124, ptr noundef nonnull @.str.413, i32 noundef %.0116124, i32 noundef %7) #3
+  %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %22, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %.01162, ptr noundef nonnull @.str.413, i32 noundef %.01162, i32 noundef %7) #3
   br label %33
 
 33:                                               ; preds = %31, %29
   %.not121 = icmp eq i8 %5, 11
-  br i1 %.not121, label %.thread125, label %34
+  br i1 %.not121, label %.thread3, label %34
 
 34:                                               ; preds = %33
   %35 = load i32, ptr @hf_bvlc_virt_source, align 4
@@ -1374,17 +1374,17 @@ switch.lookup:                                    ; preds = %3
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %61, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #3
   br label %70
 
-.thread125:                                       ; preds = %33
+.thread3:                                         ; preds = %33
   %63 = tail call i32 @bacnet_dissect_sec_wrapper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 4, ptr noundef null) #3
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %68
 
-65:                                               ; preds = %.thread125
+65:                                               ; preds = %.thread3
   %66 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #3
   %67 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %79
 
-68:                                               ; preds = %.thread125
+68:                                               ; preds = %.thread3
   %69 = tail call fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %70
 

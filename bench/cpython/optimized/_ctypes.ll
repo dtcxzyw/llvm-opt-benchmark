@@ -3659,14 +3659,14 @@ GetKeepedObjects.exit:                            ; preds = %if.then.i.i
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %while.end.i.i, %_Py_NewRef.exit.i.i, %GetKeepedObjects.exit
-  %retval.0.i91 = phi ptr [ %call.i.i, %GetKeepedObjects.exit ], [ %15, %while.end.i.i ], [ @_Py_NoneStruct, %_Py_NewRef.exit.i.i ]
-  %18 = load i32, ptr %retval.0.i91, align 8
+  %retval.0.i7 = phi ptr [ %call.i.i, %GetKeepedObjects.exit ], [ %15, %while.end.i.i ], [ @_Py_NoneStruct, %_Py_NewRef.exit.i.i ]
+  %18 = load i32, ptr %retval.0.i7, align 8
   %add.i.i = add i32 %18, 1
   %cmp.i.i72 = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i72, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end44
-  store i32 %add.i.i, ptr %retval.0.i91, align 8
+  store i32 %add.i.i, ptr %retval.0.i7, align 8
   br label %return
 
 if.end46:                                         ; preds = %if.end30
@@ -3733,7 +3733,7 @@ if.end69:                                         ; preds = %PyObject_TypeCheck.
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end44, %if.end62, %GetKeepedObjects.exit, %if.end30, %if.end.i, %if.then1.i, %if.end18, %if.end69, %if.end67, %if.then57, %if.else25, %if.then24, %if.then17, %if.then8, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.then57 ], [ %call68, %if.end67 ], [ null, %if.end69 ], [ %call10, %if.then8 ], [ null, %if.then17 ], [ @_Py_NoneStruct, %if.then24 ], [ null, %if.else25 ], [ %call19, %if.end18 ], [ %call19, %if.then1.i ], [ %call19, %if.end.i ], [ null, %if.end30 ], [ null, %GetKeepedObjects.exit ], [ null, %if.end62 ], [ %retval.0.i91, %if.end44 ], [ %retval.0.i91, %if.end.i.i ]
+  %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.then57 ], [ %call68, %if.end67 ], [ null, %if.end69 ], [ %call10, %if.then8 ], [ null, %if.then17 ], [ @_Py_NoneStruct, %if.then24 ], [ null, %if.else25 ], [ %call19, %if.end18 ], [ %call19, %if.then1.i ], [ %call19, %if.end.i ], [ null, %if.end30 ], [ null, %GetKeepedObjects.exit ], [ null, %if.end62 ], [ %retval.0.i7, %if.end44 ], [ %retval.0.i7, %if.end.i.i ]
   ret ptr %retval.0
 }
 

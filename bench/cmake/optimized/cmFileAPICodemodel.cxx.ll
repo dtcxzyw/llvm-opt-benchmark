@@ -2226,8 +2226,8 @@ _ZN2cm6appendISt6vectorIP17cmGeneratorTargetSaIS3_EES1_ISt10unique_ptrIS2_St14de
   %534 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13unordered_mapIPK12cmSourceFilejSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %469) #21
-  %.val.i.i.i.i.i = load ptr, ptr %465, align 8, !noalias !39
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val.i.i.i.i.i)
+  %.val.i.i.i = load ptr, ptr %465, align 8, !noalias !39
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val.i.i.i)
   call fastcc void @_ZN12_GLOBAL__N_113BacktraceDataD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %463) #21
   br label %535
 
@@ -12797,8 +12797,8 @@ _ZNSt10_HashtableIPK12cmSourceFileSt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stE
 
 _ZNSt13unordered_mapIPK12cmSourceFilejSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_jEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPK12cmSourceFileSt4pairIKS2_jESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %51
   %52 = getelementptr inbounds i8, ptr %0, i64 440
-  %.val.i.i = load ptr, ptr %52, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val.i.i)
+  %.val = load ptr, ptr %52, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.val)
   %53 = getelementptr inbounds i8, ptr %0, i64 104
   tail call fastcc void @_ZN12_GLOBAL__N_113BacktraceDataD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %53) #21
   %54 = getelementptr inbounds i8, ptr %0, i64 80
@@ -13276,21 +13276,21 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.08 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_111CompileDataEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %.0.val)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 32
-  %5 = getelementptr inbounds i8, ptr %.08, i64 64
+  %4 = getelementptr inbounds i8, ptr %.02, i64 32
+  %5 = getelementptr inbounds i8, ptr %.02, i64 64
   tail call fastcc void @_ZN12_GLOBAL__N_111CompileDataD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %5) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #22
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !318
 

@@ -2105,12 +2105,12 @@ define internal fastcc noundef i32 @dissect_edonkey_search_query(ptr noundef %0,
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %3
-  %.tr114 = phi i32 [ %1, %3 ], [ %15, %8 ]
-  %.tr115 = phi ptr [ %2, %3 ], [ %10, %8 ]
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.tr114) #7
+  %.tr1 = phi i32 [ %1, %3 ], [ %15, %8 ]
+  %.tr2 = phi ptr [ %2, %3 ], [ %10, %8 ]
+  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.tr1) #7
   %5 = load i32, ptr @hf_edonkey_search_type, align 4
   %6 = zext i8 %4 to i32
-  %7 = tail call ptr @proto_tree_add_uint(ptr noundef %.tr115, i32 noundef %5, ptr noundef %0, i32 noundef %.tr114, i32 noundef 1, i32 noundef %6) #7
+  %7 = tail call ptr @proto_tree_add_uint(ptr noundef %.tr2, i32 noundef %5, ptr noundef %0, i32 noundef %.tr1, i32 noundef 1, i32 noundef %6) #7
   switch i8 %4, label %87 [
     i8 0, label %8
     i8 1, label %16
@@ -2123,14 +2123,14 @@ tailrecurse:                                      ; preds = %8, %3
   %9 = load i32, ptr @ett_edonkey_search, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %9) #7
   %11 = load i32, ptr @hf_edonkey_search_ops, align 4
-  %12 = add i32 %.tr114, 1
+  %12 = add i32 %.tr1, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648) #7
-  %14 = add i32 %.tr114, 2
+  %14 = add i32 %.tr1, 2
   %15 = tail call fastcc i32 @dissect_edonkey_search_query(ptr noundef %0, i32 noundef %14, ptr noundef %10)
   br label %tailrecurse
 
 16:                                               ; preds = %tailrecurse
-  %17 = add i32 %.tr114, 1
+  %17 = add i32 %.tr1, 1
   %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17) #7
   %19 = zext i16 %18 to i32
   %20 = add nuw nsw i32 %19, 3
@@ -2140,17 +2140,17 @@ tailrecurse:                                      ; preds = %8, %3
   %23 = load i32, ptr @hf_edonkey_string_length, align 4
   %24 = tail call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19) #7
   %25 = load i32, ptr @hf_edonkey_string, align 4
-  %26 = add i32 %.tr114, 3
+  %26 = add i32 %.tr1, 3
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef %19, i32 noundef 0) #7
-  %28 = add i32 %20, %.tr114
+  %28 = add i32 %20, %.tr1
   br label %89
 
 29:                                               ; preds = %tailrecurse
-  %30 = add i32 %.tr114, 1
+  %30 = add i32 %.tr1, 1
   %31 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %30) #7
   %32 = zext i16 %31 to i32
   %33 = add nuw nsw i32 %32, 3
-  %34 = add i32 %33, %.tr114
+  %34 = add i32 %33, %.tr1
   %35 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %34) #7
   %36 = add i32 %34, 2
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #7
@@ -2163,7 +2163,7 @@ tailrecurse:                                      ; preds = %8, %3
   %43 = load i32, ptr @hf_edonkey_string_length, align 4
   %44 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %32) #7
   %45 = load i32, ptr @hf_edonkey_string, align 4
-  %46 = add i32 %.tr114, 3
+  %46 = add i32 %.tr1, 3
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef %32, i32 noundef 0) #7
   %48 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %49 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %48, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef %38) #7
@@ -2183,13 +2183,13 @@ tailrecurse:                                      ; preds = %8, %3
   br label %edonkey_tree_add_metatag_name.exit
 
 edonkey_tree_add_metatag_name.exit:               ; preds = %53, %56
-  %59 = add i32 %40, %.tr114
+  %59 = add i32 %40, %.tr1
   br label %89
 
 60:                                               ; preds = %tailrecurse
-  %61 = add i32 %.tr114, 6
+  %61 = add i32 %.tr1, 6
   %62 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %61) #7
-  %63 = add i32 %.tr114, 8
+  %63 = add i32 %.tr1, 8
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #7
   %65 = zext i16 %62 to i32
   %66 = add nuw nsw i32 %65, 8
@@ -2197,10 +2197,10 @@ edonkey_tree_add_metatag_name.exit:               ; preds = %53, %56
   %67 = load i32, ptr @ett_edonkey_search, align 4
   %68 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %67) #7
   %69 = load i32, ptr @hf_edonkey_search_limit, align 4
-  %70 = add i32 %.tr114, 1
+  %70 = add i32 %.tr1, 1
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648) #7
   %72 = load i32, ptr @hf_edonkey_search_limit_type, align 4
-  %73 = add i32 %.tr114, 5
+  %73 = add i32 %.tr1, 5
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef -2147483648) #7
   %75 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %76 = tail call ptr @proto_tree_add_uint(ptr noundef %68, i32 noundef %75, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %65) #7
@@ -2220,12 +2220,12 @@ edonkey_tree_add_metatag_name.exit:               ; preds = %53, %56
   br label %edonkey_tree_add_metatag_name.exit112
 
 edonkey_tree_add_metatag_name.exit112:            ; preds = %80, %83
-  %86 = add i32 %66, %.tr114
+  %86 = add i32 %66, %.tr1
   br label %89
 
 87:                                               ; preds = %tailrecurse
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef 1) #7
-  %88 = add i32 %.tr114, 1
+  %88 = add i32 %.tr1, 1
   br label %89
 
 89:                                               ; preds = %87, %edonkey_tree_add_metatag_name.exit112, %edonkey_tree_add_metatag_name.exit, %16

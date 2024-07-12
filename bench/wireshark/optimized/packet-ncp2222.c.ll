@@ -22919,12 +22919,12 @@ process_search_match.exit:                        ; preds = %150
   unreachable
 
 .sink.split.sink.split:                           ; preds = %146, %132, %106, %80, %69, %58, %check_offset_addition.exit.i, %17, %process_search_match.exit
-  %.0.i.sink35 = phi i32 [ %196, %process_search_match.exit ], [ %16, %146 ], [ %145, %132 ], [ %131, %106 ], [ %105, %80 ], [ %79, %69 ], [ %68, %58 ], [ %57, %check_offset_addition.exit.i ], [ %42, %17 ]
-  %220 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.0.i.sink35) #13
+  %.0.i.sink7 = phi i32 [ %196, %process_search_match.exit ], [ %16, %146 ], [ %145, %132 ], [ %131, %106 ], [ %105, %80 ], [ %79, %69 ], [ %68, %58 ], [ %57, %check_offset_addition.exit.i ], [ %42, %17 ]
+  %220 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.0.i.sink7) #13
   %221 = icmp sgt i32 %220, 4
-  %222 = and i32 %.0.i.sink35, 3
+  %222 = and i32 %.0.i.sink7, 3
   %.0.i198.i = select i1 %221, i32 %222, i32 0
-  %223 = add i32 %.0.i198.i, %.0.i.sink35
+  %223 = add i32 %.0.i198.i, %.0.i.sink7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %207, %.sink.split.sink.split, %197

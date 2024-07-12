@@ -430,22 +430,22 @@ delete.notnull3:                                  ; preds = %delete.end
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %2 = getelementptr inbounds i8, ptr %this, i64 368
-  %tileMap.val = load ptr, ptr %2, align 8
+  %tileMap.val16 = load ptr, ptr %2, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 352
-  %cmp.i.not29 = icmp eq ptr %tileMap.val, %add.ptr.i.i
-  br i1 %cmp.i.not29, label %for.cond15.preheader, label %for.body
+  %cmp.i.not30 = icmp eq ptr %tileMap.val16, %add.ptr.i.i
+  br i1 %cmp.i.not30, label %for.cond15.preheader, label %for.body
 
 for.cond15.preheader:                             ; preds = %for.inc, %delete.end4
   %tileBuffers = getelementptr inbounds i8, ptr %this, i64 312
   %3 = getelementptr inbounds i8, ptr %this, i64 320
-  %tileBuffers.val31 = load ptr, ptr %tileBuffers, align 8
-  %tileBuffers.val1032 = load ptr, ptr %3, align 8
-  %cmp37.not = icmp eq ptr %tileBuffers.val1032, %tileBuffers.val31
-  br i1 %cmp37.not, label %for.cond29.preheader, label %for.body17
+  %tileBuffers.val32 = load ptr, ptr %tileBuffers, align 8
+  %tileBuffers.val1033 = load ptr, ptr %3, align 8
+  %cmp38.not = icmp eq ptr %tileBuffers.val1033, %tileBuffers.val32
+  br i1 %cmp38.not, label %for.cond29.preheader, label %for.body17
 
 for.body:                                         ; preds = %delete.end4, %for.inc
-  %i.sroa.0.030 = phi ptr [ %call.i, %for.inc ], [ %tileMap.val, %delete.end4 ]
-  %second = getelementptr inbounds i8, ptr %i.sroa.0.030, i64 48
+  %i.sroa.0.031 = phi ptr [ %call.i, %for.inc ], [ %tileMap.val16, %delete.end4 ]
+  %second = getelementptr inbounds i8, ptr %i.sroa.0.031, i64 48
   %4 = load ptr, ptr %second, align 8
   %isnull10 = icmp eq ptr %4, null
   br i1 %isnull10, label %for.inc, label %delete.notnull11
@@ -474,23 +474,23 @@ _ZN7Imf_3_212_GLOBAL__N_112BufferedTileD2Ev.exit: ; preds = %delete.end.i, %dele
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN7Imf_3_212_GLOBAL__N_112BufferedTileD2Ev.exit
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.030) #25
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.031) #25
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond15.preheader, label %for.body, !llvm.loop !8
 
 for.cond29.preheader:                             ; preds = %for.inc26, %for.cond15.preheader
   %slices = getelementptr inbounds i8, ptr %this, i64 288
   %7 = getelementptr inbounds i8, ptr %this, i64 296
-  %slices.val1740 = load ptr, ptr %slices, align 8
-  %slices.val1841 = load ptr, ptr %7, align 8
-  %cmp3146.not = icmp eq ptr %slices.val1841, %slices.val1740
-  br i1 %cmp3146.not, label %for.end40, label %for.body32
+  %slices.val1841 = load ptr, ptr %slices, align 8
+  %slices.val1942 = load ptr, ptr %7, align 8
+  %cmp3147.not = icmp eq ptr %slices.val1942, %slices.val1841
+  br i1 %cmp3147.not, label %for.end40, label %for.body32
 
 for.body17:                                       ; preds = %for.cond15.preheader, %for.inc26
-  %tileBuffers.val1051 = phi ptr [ %tileBuffers.val10, %for.inc26 ], [ %tileBuffers.val1032, %for.cond15.preheader ]
-  %tileBuffers.val49 = phi ptr [ %tileBuffers.val, %for.inc26 ], [ %tileBuffers.val31, %for.cond15.preheader ]
-  %i14.038 = phi i64 [ %inc, %for.inc26 ], [ 0, %for.cond15.preheader ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %tileBuffers.val49, i64 %i14.038
+  %tileBuffers.val1052 = phi ptr [ %tileBuffers.val10, %for.inc26 ], [ %tileBuffers.val1033, %for.cond15.preheader ]
+  %tileBuffers.val50 = phi ptr [ %tileBuffers.val, %for.inc26 ], [ %tileBuffers.val32, %for.cond15.preheader ]
+  %i14.039 = phi i64 [ %inc, %for.inc26 ], [ 0, %for.cond15.preheader ]
+  %add.ptr.i = getelementptr inbounds ptr, ptr %tileBuffers.val50, i64 %i14.039
   %8 = load ptr, ptr %add.ptr.i, align 8
   %cmp20.not = icmp eq ptr %8, null
   br i1 %cmp20.not, label %for.inc26, label %delete.notnull24
@@ -499,16 +499,16 @@ delete.notnull24:                                 ; preds = %for.body17
   %compressor.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %compressor.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
-  br i1 %cmp.not.i, label %if.end.i, label %delete.notnull.i21
+  br i1 %cmp.not.i, label %if.end.i, label %delete.notnull.i22
 
-delete.notnull.i21:                               ; preds = %delete.notnull24
+delete.notnull.i22:                               ; preds = %delete.notnull24
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %9) #21
   br label %if.end.i
 
-if.end.i:                                         ; preds = %delete.notnull.i21, %delete.notnull24
+if.end.i:                                         ; preds = %delete.notnull.i22, %delete.notnull24
   %sampleCountTableCompressor.i = getelementptr inbounds i8, ptr %8, i64 80
   %11 = load ptr, ptr %sampleCountTableCompressor.i, align 8
   %cmp3.not.i = icmp eq ptr %11, null
@@ -552,9 +552,9 @@ _ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit:   ; preds = %_ZN7Imf_3_25ArrayIc
   br label %for.inc26
 
 for.inc26:                                        ; preds = %for.body17, %_ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit
-  %tileBuffers.val10 = phi ptr [ %tileBuffers.val1051, %for.body17 ], [ %tileBuffers.val10.pre, %_ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit ]
-  %tileBuffers.val = phi ptr [ %tileBuffers.val49, %for.body17 ], [ %tileBuffers.val.pre, %_ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit ]
-  %inc = add nuw i64 %i14.038, 1
+  %tileBuffers.val10 = phi ptr [ %tileBuffers.val1052, %for.body17 ], [ %tileBuffers.val10.pre, %_ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit ]
+  %tileBuffers.val = phi ptr [ %tileBuffers.val50, %for.body17 ], [ %tileBuffers.val.pre, %_ZN7Imf_3_212_GLOBAL__N_110TileBufferD2Ev.exit ]
+  %inc = add nuw i64 %i14.039, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %tileBuffers.val10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %tileBuffers.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -563,35 +563,35 @@ for.inc26:                                        ; preds = %for.body17, %_ZN7Im
   br i1 %cmp, label %for.body17, label %for.cond29.preheader, !llvm.loop !9
 
 for.body32:                                       ; preds = %for.cond29.preheader, %for.inc38
-  %slices.val1855 = phi ptr [ %slices.val18, %for.inc38 ], [ %slices.val1841, %for.cond29.preheader ]
-  %slices.val1753 = phi ptr [ %slices.val17, %for.inc38 ], [ %slices.val1740, %for.cond29.preheader ]
-  %i28.047 = phi i64 [ %inc39, %for.inc38 ], [ 0, %for.cond29.preheader ]
-  %add.ptr.i26 = getelementptr inbounds ptr, ptr %slices.val1753, i64 %i28.047
-  %15 = load ptr, ptr %add.ptr.i26, align 8
+  %slices.val1956 = phi ptr [ %slices.val19, %for.inc38 ], [ %slices.val1942, %for.cond29.preheader ]
+  %slices.val1854 = phi ptr [ %slices.val18, %for.inc38 ], [ %slices.val1841, %for.cond29.preheader ]
+  %i28.048 = phi i64 [ %inc39, %for.inc38 ], [ 0, %for.cond29.preheader ]
+  %add.ptr.i27 = getelementptr inbounds ptr, ptr %slices.val1854, i64 %i28.048
+  %15 = load ptr, ptr %add.ptr.i27, align 8
   %isnull35 = icmp eq ptr %15, null
   br i1 %isnull35, label %for.inc38, label %delete.notnull36
 
 delete.notnull36:                                 ; preds = %for.body32
   tail call void @_ZdlPv(ptr noundef nonnull %15) #23
-  %slices.val17.pre = load ptr, ptr %slices, align 8
-  %slices.val18.pre = load ptr, ptr %7, align 8
+  %slices.val18.pre = load ptr, ptr %slices, align 8
+  %slices.val19.pre = load ptr, ptr %7, align 8
   br label %for.inc38
 
 for.inc38:                                        ; preds = %for.body32, %delete.notnull36
-  %slices.val18 = phi ptr [ %slices.val1855, %for.body32 ], [ %slices.val18.pre, %delete.notnull36 ]
-  %slices.val17 = phi ptr [ %slices.val1753, %for.body32 ], [ %slices.val17.pre, %delete.notnull36 ]
-  %inc39 = add nuw i64 %i28.047, 1
-  %sub.ptr.lhs.cast.i22 = ptrtoint ptr %slices.val18 to i64
-  %sub.ptr.rhs.cast.i23 = ptrtoint ptr %slices.val17 to i64
-  %sub.ptr.sub.i24 = sub i64 %sub.ptr.lhs.cast.i22, %sub.ptr.rhs.cast.i23
-  %sub.ptr.div.i25 = ashr exact i64 %sub.ptr.sub.i24, 3
-  %cmp31 = icmp ult i64 %inc39, %sub.ptr.div.i25
+  %slices.val19 = phi ptr [ %slices.val1956, %for.body32 ], [ %slices.val19.pre, %delete.notnull36 ]
+  %slices.val18 = phi ptr [ %slices.val1854, %for.body32 ], [ %slices.val18.pre, %delete.notnull36 ]
+  %inc39 = add nuw i64 %i28.048, 1
+  %sub.ptr.lhs.cast.i23 = ptrtoint ptr %slices.val19 to i64
+  %sub.ptr.rhs.cast.i24 = ptrtoint ptr %slices.val18 to i64
+  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
+  %sub.ptr.div.i26 = ashr exact i64 %sub.ptr.sub.i25, 3
+  %cmp31 = icmp ult i64 %inc39, %sub.ptr.div.i26
   br i1 %cmp31, label %for.body32, label %for.end40, !llvm.loop !10
 
 for.end40:                                        ; preds = %for.inc38, %for.cond29.preheader
   %16 = getelementptr inbounds i8, ptr %this, i64 360
-  %this.val.i.i = load ptr, ptr %16, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN7Imf_3_212_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %this.val.i.i)
+  %tileMap.val = load ptr, ptr %16, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIN7Imf_3_212_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %tileMap.val)
   %tileBuffers.val13 = load ptr, ptr %tileBuffers, align 8
   %tobool.not.i.i.i = icmp eq ptr %tileBuffers.val13, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit, label %if.then.i.i.i
@@ -602,14 +602,14 @@ if.then.i.i.i:                                    ; preds = %for.end40
 
 _ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit: ; preds = %for.end40, %if.then.i.i.i
   %slices.val = load ptr, ptr %slices, align 8
-  %tobool.not.i.i.i27 = icmp eq ptr %slices.val, null
-  br i1 %tobool.not.i.i.i27, label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EED2Ev.exit, label %if.then.i.i.i28
+  %tobool.not.i.i.i28 = icmp eq ptr %slices.val, null
+  br i1 %tobool.not.i.i.i28, label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EED2Ev.exit, label %if.then.i.i.i29
 
-if.then.i.i.i28:                                  ; preds = %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit
+if.then.i.i.i29:                                  ; preds = %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %slices.val) #23
   br label %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit, %if.then.i.i.i28
+_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110TileBufferESaIS3_EED2Ev.exit, %if.then.i.i.i29
   %_offsets.i = getelementptr inbounds i8, ptr %this, i64 256
   %17 = load ptr, ptr %_offsets.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 264
@@ -7537,17 +7537,17 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIN7Imf_3_212_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp.not5 = icmp eq ptr %__x, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not1 = icmp eq ptr %__x, null
+  br i1 %cmp.not1, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %__x.addr.06 = phi ptr [ %__x.addr.0.val4, %while.body ], [ %__x, %entry ]
-  %0 = getelementptr i8, ptr %__x.addr.06, i64 24
+  %__x.addr.02 = phi ptr [ %__x.addr.0.val4, %while.body ], [ %__x, %entry ]
+  %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIN7Imf_3_212_GLOBAL__N_19TileCoordESt4pairIKS2_PNS1_12BufferedTileEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %__x.addr.0.val)
-  %1 = getelementptr i8, ptr %__x.addr.06, i64 16
+  %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val4 = load ptr, ptr %1, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #23
   %cmp.not = icmp eq ptr %__x.addr.0.val4, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
 

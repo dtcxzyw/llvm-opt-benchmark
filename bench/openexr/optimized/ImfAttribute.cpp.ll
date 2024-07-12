@@ -641,8 +641,8 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define internal void @_ZN7Imf_3_212_GLOBAL__N_113LockedTypeMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  %this.val.i.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %this.val.i.i)
+  %this.val = load ptr, ptr %0, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %this.val)
   ret void
 }
 
@@ -655,17 +655,17 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %__x) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp.not5 = icmp eq ptr %__x, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not1 = icmp eq ptr %__x, null
+  br i1 %cmp.not1, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %__x.addr.06 = phi ptr [ %__x.addr.0.val4, %while.body ], [ %__x, %entry ]
-  %0 = getelementptr i8, ptr %__x.addr.06, i64 24
+  %__x.addr.02 = phi ptr [ %__x.addr.0.val4, %while.body ], [ %__x, %entry ]
+  %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_PFPN7Imf_3_29AttributeEvEESt10_Select1stIS9_ENS4_12_GLOBAL__N_111NameCompareESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %__x.addr.0.val)
-  %1 = getelementptr i8, ptr %__x.addr.06, i64 16
+  %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val4 = load ptr, ptr %1, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #21
   %cmp.not = icmp eq ptr %__x.addr.0.val4, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 

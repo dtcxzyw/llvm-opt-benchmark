@@ -21806,8 +21806,8 @@ define internal fastcc void @"_ZN15rustfmt_nightly4expr11format_expr28_$u7b$$u7b
   br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit", label %tailrecurse.i.i.i
 
 tailrecurse.i.i.i:                                ; preds = %3, %tailrecurse.backedge.i.i.i
-  %.tr1.i.i.i = phi ptr [ %.tr1.be.i.i.i, %tailrecurse.backedge.i.i.i ], [ %1, %3 ]
-  %10 = load i8, ptr %.tr1.i.i.i, align 8, !range !2613, !noundef !10
+  %.tr.i.i.i = phi ptr [ %.tr.be.i.i.i, %tailrecurse.backedge.i.i.i ], [ %1, %3 ]
+  %10 = load i8, ptr %.tr.i.i.i, align 8, !range !2613, !noundef !10
   switch i8 %10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit" [
     i8 5, label %11
     i8 6, label %tailrecurse.backedge.i.i.i
@@ -21819,13 +21819,13 @@ tailrecurse.i.i.i:                                ; preds = %3, %tailrecurse.bac
 
 tailrecurse.backedge.i.i.i:                       ; preds = %11, %tailrecurse.i.i.i
   %.sink.i.i.i = phi i64 [ 24, %11 ], [ 8, %tailrecurse.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %.tr1.i.i.i, i64 %.sink.i.i.i
-  %.tr1.be.i.i.i = load ptr, ptr %12, align 8, !nonnull !10, !align !11, !noundef !10
+  %12 = getelementptr inbounds i8, ptr %.tr.i.i.i, i64 %.sink.i.i.i
+  %.tr.be.i.i.i = load ptr, ptr %12, align 8, !nonnull !10, !align !11, !noundef !10
   br label %tailrecurse.i.i.i
 
 13:                                               ; preds = %tailrecurse.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !3467
-  %14 = getelementptr inbounds i8, ptr %.tr1.i.i.i, i64 4
+  %14 = getelementptr inbounds i8, ptr %.tr.i.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %14, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load i8, ptr %15, align 4, !range !3084, !alias.scope !3474, !noalias !3467, !noundef !10
@@ -21834,15 +21834,15 @@ tailrecurse.backedge.i.i.i:                       ; preds = %11, %tailrecurse.i.
   %19 = load i32, ptr %18, align 4, !range !3085, !alias.scope !3474, !noalias !3467
   %20 = icmp eq i32 %19, -255
   %or.cond.i.i.i.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond.i.i.i.i, label %21, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i
+  br i1 %or.cond.i.i.i.i, label %21, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i
 
 21:                                               ; preds = %13
   %22 = call { ptr, i64 } @_RNvMs8_NtCsdF516cSs19B_10rustc_span6symbolNtB5_6Symbol6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !3467
   %23 = extractvalue { ptr, i64 } %22, 1
   %.not.i.i.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i, label %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i
 
-_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i: ; preds = %21, %13
+_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i: ; preds = %21, %13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !3467
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit"
 
@@ -21858,9 +21858,9 @@ _ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3
   %spec.select11.i.i = zext i1 %27 to i64
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit": ; preds = %tailrecurse.i.i.i, %3, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i
-  %.sroa.3.0.i = phi i64 [ 0, %3 ], [ 0, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i ], [ %spec.select11.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i ], [ 0, %tailrecurse.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %3 ], [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread4.i.i ], [ %spec.select.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i ], [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %tailrecurse.i.i.i ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hf421db6735040d35E.exit": ; preds = %tailrecurse.i.i.i, %3, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i
+  %.sroa.3.0.i = phi i64 [ 0, %3 ], [ 0, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i ], [ %spec.select11.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i ], [ 0, %tailrecurse.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %3 ], [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.thread5.i.i ], [ %spec.select.i.i, %_ZN15rustfmt_nightly4expr11format_expr24needs_space_before_range17hc3754793f37b3a97E.exit.i.i ], [ @anon.87cf9f699931e7f72e5feaf785e04e8d.31.llvm.15131964271339581801, %tailrecurse.i.i.i ]
   store ptr %.sroa.0.0.i, ptr %7, align 8
   %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sroa.3.0.i, ptr %.fca.1.gep, align 8

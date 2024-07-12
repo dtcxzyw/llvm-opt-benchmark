@@ -673,7 +673,7 @@ declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 n
 declare void @Cudd_AutodynEnable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddTransferPermute(ptr %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_bddTransferPermute(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 448
@@ -709,8 +709,8 @@ define ptr @Cudd_bddTransferPermute(ptr %0, ptr noundef %1, ptr noundef %2, ptr 
 
 .preheader.i:                                     ; preds = %19
   %22 = call i32 @st__gen(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
-  %.not2729.i = icmp eq i32 %22, 0
-  br i1 %.not2729.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not271.i = icmp eq i32 %22, 0
+  br i1 %.not271.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %23 = load ptr, ptr %6, align 8

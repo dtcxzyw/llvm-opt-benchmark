@@ -6770,17 +6770,17 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit
-  %.08 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef %.0.val6)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 80
+  %4 = getelementptr inbounds i8, ptr %.02, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_115TransformActionEEclEPS1_.exit.i.i.i.i.i.i
@@ -6794,9 +6794,9 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_115TransformActionEEclEPS1_.exit.i.i.i.i.i.
 
 _ZNSt8_Rb_treeIN12_GLOBAL__N_116ActionDescriptorES1_St9_IdentityIS1_ESt8functionIFbN6cmList15TransformActionES6_EESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_115TransformActionEEclEPS1_.exit.i.i.i.i.i.i
   store ptr null, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %.08, i64 40
+  %9 = getelementptr inbounds i8, ptr %.02, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #29
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
 

@@ -196,7 +196,7 @@ $_ZN4pugi15xpath_exceptionD0Ev = comdat any
 @.str.108 = private unnamed_addr constant [5 x i8] c"%.*g\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_pugixml.cpp, ptr null }]
 @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc = private unnamed_addr constant [16 x ptr] [ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE12parse_simpleEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE9parse_eolEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE9parse_eolEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wconvEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wconvEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wconvEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wconvEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc, ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc], align 8
-@switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.82 = private unnamed_addr constant [8 x ptr] [ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_NS1_8opt_trueEE5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES4_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_NS1_9opt_falseEE5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_S3_E5parseEPc], align 8
+@switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83 = private unnamed_addr constant [8 x ptr] [ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_NS1_8opt_trueEE5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES4_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES3_E5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_NS1_9opt_falseEE5parseEPc, ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_S3_E5parseEPc], align 8
 @switch.table._ZNK4pugi16xml_parse_result11descriptionEv = private unnamed_addr constant [17 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18], align 8
 @switch.table._ZNK4pugi12xml_document4saveERNS_10xml_writerEPKcjNS_12xml_encodingE = private unnamed_addr constant [9 x i32] [i32 1, i32 5, i32 5, i32 5, i32 2, i32 5, i32 5, i32 5, i32 5], align 4
 @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv = private unnamed_addr constant [4 x i64] [i64 56, i64 24, i64 24, i64 17], align 8
@@ -8418,7 +8418,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %la
   %and2.i.i.i = and i32 %shr1.i.i.i, 4
   %or.i.i.i = or disjoint i32 %and.i173.i.i, %and2.i.i.i
   %127 = zext nneg i32 %or.i.i.i to i64
-  %switch.gep1319 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.82, i64 0, i64 %127
+  %switch.gep1319 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.83, i64 0, i64 %127
   %switch.load1320 = load ptr, ptr %switch.gep1319, align 8
   %and397.i.i = and i32 %options, 1032
   %tobool398.not.i.i = icmp ne i32 %and397.i.i, 0
@@ -34291,25 +34291,25 @@ entry:
   %temp.i15.i = alloca %"class.pugi::xpath_node", align 8
   %temp.i.i = alloca %"class.pugi::xpath_node", align 8
   %pivot.i = alloca %"class.pugi::xpath_node", align 16
-  %sub.ptr.lhs.cast26 = ptrtoint ptr %end to i64
-  %sub.ptr.rhs.cast27 = ptrtoint ptr %begin to i64
-  %sub.ptr.sub28 = sub i64 %sub.ptr.lhs.cast26, %sub.ptr.rhs.cast27
-  %sub.ptr.div29 = ashr exact i64 %sub.ptr.sub28, 4
-  %cmp30 = icmp sgt i64 %sub.ptr.div29, 16
-  br i1 %cmp30, label %while.body, label %while.end
+  %sub.ptr.lhs.cast3 = ptrtoint ptr %end to i64
+  %sub.ptr.rhs.cast4 = ptrtoint ptr %begin to i64
+  %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast4
+  %sub.ptr.div6 = ashr exact i64 %sub.ptr.sub5, 4
+  %cmp7 = icmp sgt i64 %sub.ptr.div6, 16
+  br i1 %cmp7, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end
-  %sub.ptr.div35 = phi i64 [ %sub.ptr.div, %if.end ], [ %sub.ptr.div29, %entry ]
-  %sub.ptr.rhs.cast34 = phi i64 [ %sub.ptr.rhs.cast.pre-phi, %if.end ], [ %sub.ptr.rhs.cast27, %entry ]
-  %sub.ptr.lhs.cast33 = phi i64 [ %sub.ptr.lhs.cast.pre-phi, %if.end ], [ %sub.ptr.lhs.cast26, %entry ]
-  %begin.addr.032 = phi ptr [ %begin.addr.1, %if.end ], [ %begin, %entry ]
-  %end.addr.031 = phi ptr [ %end.addr.1, %if.end ], [ %end, %entry ]
-  %div18 = lshr i64 %sub.ptr.div35, 1
-  %add.ptr = getelementptr inbounds %"class.pugi::xpath_node", ptr %begin.addr.032, i64 %div18
-  %add.ptr5 = getelementptr inbounds i8, ptr %end.addr.031, i64 -16
-  %call.i = tail call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull readonly align 8 dereferenceable(16) %begin.addr.032)
-  %spec.select.i = select i1 %call.i, ptr %add.ptr, ptr %begin.addr.032
-  %spec.select9.i = select i1 %call.i, ptr %begin.addr.032, ptr %add.ptr
+  %sub.ptr.div13 = phi i64 [ %sub.ptr.div, %if.end ], [ %sub.ptr.div6, %entry ]
+  %sub.ptr.rhs.cast12 = phi i64 [ %sub.ptr.rhs.cast.pre-phi, %if.end ], [ %sub.ptr.rhs.cast4, %entry ]
+  %sub.ptr.lhs.cast10 = phi i64 [ %sub.ptr.lhs.cast.pre-phi, %if.end ], [ %sub.ptr.lhs.cast3, %entry ]
+  %begin.addr.09 = phi ptr [ %begin.addr.1, %if.end ], [ %begin, %entry ]
+  %end.addr.08 = phi ptr [ %end.addr.1, %if.end ], [ %end, %entry ]
+  %div18 = lshr i64 %sub.ptr.div13, 1
+  %add.ptr = getelementptr inbounds %"class.pugi::xpath_node", ptr %begin.addr.09, i64 %div18
+  %add.ptr5 = getelementptr inbounds i8, ptr %end.addr.08, i64 -16
+  %call.i = tail call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull readonly align 8 dereferenceable(16) %begin.addr.09)
+  %spec.select.i = select i1 %call.i, ptr %add.ptr, ptr %begin.addr.09
+  %spec.select9.i = select i1 %call.i, ptr %begin.addr.09, ptr %add.ptr
   %call1.i = tail call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(16) %spec.select9.i)
   %middle.addr.1.i = select i1 %call1.i, ptr %add.ptr5, ptr %spec.select9.i
   %call4.i = tail call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull align 8 dereferenceable(16) %middle.addr.1.i, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i)
@@ -34317,17 +34317,17 @@ while.body:                                       ; preds = %entry, %if.end
   %0 = load <2 x ptr>, ptr %middle.addr.2.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pivot.i)
   store <2 x ptr> %0, ptr %pivot.i, align 16
-  %cmp1.i = icmp ult ptr %begin.addr.032, %end.addr.031
+  %cmp1.i = icmp ult ptr %begin.addr.09, %end.addr.08
   br i1 %cmp1.i, label %while.body.i, label %_ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit
 
 for.cond.preheader.i:                             ; preds = %if.end7.i
-  %cmp8.not6.i = icmp eq ptr %eq.1.i, %begin.addr.032
+  %cmp8.not6.i = icmp eq ptr %eq.1.i, %begin.addr.09
   br i1 %cmp8.not6.i, label %_ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit, label %for.body.i
 
 while.body.i:                                     ; preds = %while.body, %if.end7.i
-  %gt.04.i = phi ptr [ %gt.1.i, %if.end7.i ], [ %end.addr.031, %while.body ]
-  %lt.03.i = phi ptr [ %lt.1.i, %if.end7.i ], [ %begin.addr.032, %while.body ]
-  %eq.02.i = phi ptr [ %eq.1.i, %if.end7.i ], [ %begin.addr.032, %while.body ]
+  %gt.04.i = phi ptr [ %gt.1.i, %if.end7.i ], [ %end.addr.08, %while.body ]
+  %lt.03.i = phi ptr [ %lt.1.i, %if.end7.i ], [ %begin.addr.09, %while.body ]
+  %eq.02.i = phi ptr [ %eq.1.i, %if.end7.i ], [ %begin.addr.09, %while.body ]
   %call.i19 = call fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull align 8 dereferenceable(16) %lt.03.i, ptr noundef nonnull align 8 dereferenceable(16) %pivot.i)
   br i1 %call.i19, label %if.then.i, label %if.else.i
 
@@ -34371,7 +34371,7 @@ if.end7.i:                                        ; preds = %if.else5.i, %if.the
   br i1 %cmp.i, label %while.body.i, label %for.cond.preheader.i, !llvm.loop !332
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %it.08.i = phi ptr [ %incdec.ptr10.i, %for.body.i ], [ %begin.addr.032, %for.cond.preheader.i ]
+  %it.08.i = phi ptr [ %incdec.ptr10.i, %for.body.i ], [ %begin.addr.09, %for.cond.preheader.i ]
   %eqbeg.07.i = phi ptr [ %incdec.ptr9.i, %for.body.i ], [ %gt.1.i, %for.cond.preheader.i ]
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %eqbeg.07.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i16.i)
@@ -34384,31 +34384,31 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp8.not.i, label %_ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit, label %for.body.i, !llvm.loop !333
 
 _ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit: ; preds = %for.body.i, %while.body, %for.cond.preheader.i
-  %gt.0.lcssa13.i = phi ptr [ %gt.1.i, %for.cond.preheader.i ], [ %end.addr.031, %while.body ], [ %gt.1.i, %for.body.i ]
-  %eqbeg.0.lcssa.i = phi ptr [ %gt.1.i, %for.cond.preheader.i ], [ %end.addr.031, %while.body ], [ %incdec.ptr9.i, %for.body.i ]
+  %gt.0.lcssa13.i = phi ptr [ %gt.1.i, %for.cond.preheader.i ], [ %end.addr.08, %while.body ], [ %gt.1.i, %for.body.i ]
+  %eqbeg.0.lcssa.i = phi ptr [ %gt.1.i, %for.cond.preheader.i ], [ %end.addr.08, %while.body ], [ %incdec.ptr9.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pivot.i)
   %sub.ptr.lhs.cast6 = ptrtoint ptr %eqbeg.0.lcssa.i to i64
-  %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast34
+  %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast12
   %sub.ptr.rhs.cast11 = ptrtoint ptr %gt.0.lcssa13.i to i64
-  %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast11
+  %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast11
   %cmp14 = icmp sgt i64 %sub.ptr.sub8, %sub.ptr.sub12
   br i1 %cmp14, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef %gt.0.lcssa13.i, ptr noundef %end.addr.031)
-  %.pre37 = ptrtoint ptr %begin.addr.032 to i64
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef %gt.0.lcssa13.i, ptr noundef %end.addr.08)
+  %.pre15 = ptrtoint ptr %begin.addr.09 to i64
   br label %if.end
 
 if.else:                                          ; preds = %_ZN4pugi4impl12_GLOBAL__N_110partition3INS_10xpath_nodeENS1_25document_order_comparatorEEEvPT_S6_S5_RKT0_PS6_SA_.exit
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef nonnull %begin.addr.032, ptr noundef %eqbeg.0.lcssa.i)
-  %.pre = ptrtoint ptr %end.addr.031 to i64
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_14sortIPNS_10xpath_nodeENS1_25document_order_comparatorEEEvT_S6_RKT0_(ptr noundef nonnull %begin.addr.09, ptr noundef %eqbeg.0.lcssa.i)
+  %.pre = ptrtoint ptr %end.addr.08 to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %sub.ptr.rhs.cast.pre-phi = phi i64 [ %sub.ptr.rhs.cast11, %if.else ], [ %.pre37, %if.then ]
+  %sub.ptr.rhs.cast.pre-phi = phi i64 [ %sub.ptr.rhs.cast11, %if.else ], [ %.pre15, %if.then ]
   %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre, %if.else ], [ %sub.ptr.lhs.cast6, %if.then ]
-  %end.addr.1 = phi ptr [ %end.addr.031, %if.else ], [ %eqbeg.0.lcssa.i, %if.then ]
-  %begin.addr.1 = phi ptr [ %gt.0.lcssa13.i, %if.else ], [ %begin.addr.032, %if.then ]
+  %end.addr.1 = phi ptr [ %end.addr.08, %if.else ], [ %eqbeg.0.lcssa.i, %if.then ]
+  %begin.addr.1 = phi ptr [ %gt.0.lcssa13.i, %if.else ], [ %begin.addr.09, %if.then ]
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast.pre-phi, %sub.ptr.rhs.cast.pre-phi
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %cmp = icmp sgt i64 %sub.ptr.div, 16

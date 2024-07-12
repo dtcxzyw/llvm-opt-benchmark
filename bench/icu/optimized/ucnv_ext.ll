@@ -1504,7 +1504,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i = and i32 %3, -1610612736
   %cmp1.not.i = icmp eq i32 %and.i, -2147483648
-  br i1 %cmp1.not.i, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit, label %if.end12.thread69
+  br i1 %cmp1.not.i, label %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit, label %if.end12.thread22
 
 if.else.i:                                        ; preds = %entry
   %and3.i = and i32 %3, 536870912
@@ -1537,29 +1537,29 @@ if.else:                                          ; preds = %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.else, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit
-  %cmp1352.not = icmp eq i16 %2, 0
-  br i1 %cmp1352.not, label %for.end, label %for.body.lr.ph
+  %cmp135.not = icmp eq i16 %2, 0
+  br i1 %cmp135.not, label %for.end, label %for.body.lr.ph
 
-if.end12.thread69:                                ; preds = %if.then.i
-  %cmp1352.not70 = icmp eq i16 %2, 0
-  br i1 %cmp1352.not70, label %for.end, label %for.body.lr.ph.thread71
+if.end12.thread22:                                ; preds = %if.then.i
+  %cmp135.not23 = icmp eq i16 %2, 0
+  br i1 %cmp135.not23, label %for.end, label %for.body.lr.ph.thread24
 
-for.body.lr.ph.thread71:                          ; preds = %if.end12.thread69
-  %idxprom1572 = sext i32 %length to i64
-  %arrayidx1673 = getelementptr inbounds i16, ptr %s, i64 %idxprom1572
-  %addString2974 = getelementptr inbounds i8, ptr %sa, i64 24
-  %add3175 = add nsw i32 %length, 1
+for.body.lr.ph.thread24:                          ; preds = %if.end12.thread22
+  %idxprom1525 = sext i32 %length to i64
+  %arrayidx1626 = getelementptr inbounds i16, ptr %s, i64 %idxprom1525
+  %addString2927 = getelementptr inbounds i8, ptr %sa, i64 24
+  %add3128 = add nsw i32 %length, 1
   br label %for.body.us.preheader
 
 if.end12.thread:                                  ; preds = %if.else.i
-  %cmp1352.not61 = icmp eq i16 %2, 0
-  br i1 %cmp1352.not61, label %for.end, label %for.body.lr.ph.thread
+  %cmp135.not14 = icmp eq i16 %2, 0
+  br i1 %cmp135.not14, label %for.end, label %for.body.lr.ph.thread
 
 for.body.lr.ph.thread:                            ; preds = %if.end12.thread
-  %idxprom1562 = sext i32 %length to i64
-  %arrayidx1663 = getelementptr inbounds i16, ptr %s, i64 %idxprom1562
-  %addString2964 = getelementptr inbounds i8, ptr %sa, i64 24
-  %add3165 = add nsw i32 %length, 1
+  %idxprom1515 = sext i32 %length to i64
+  %arrayidx1616 = getelementptr inbounds i16, ptr %s, i64 %idxprom1515
+  %addString2917 = getelementptr inbounds i8, ptr %sa, i64 24
+  %add3118 = add nsw i32 %length, 1
   br label %for.body.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end12
@@ -1570,25 +1570,25 @@ for.body.lr.ph:                                   ; preds = %if.end12
   br i1 %cmp.i, label %for.body.us.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.thread, %for.body.lr.ph
-  %add3168 = phi i32 [ %add3165, %for.body.lr.ph.thread ], [ %add31, %for.body.lr.ph ]
-  %addString2967 = phi ptr [ %addString2964, %for.body.lr.ph.thread ], [ %addString29, %for.body.lr.ph ]
-  %arrayidx1666 = phi ptr [ %arrayidx1663, %for.body.lr.ph.thread ], [ %arrayidx16, %for.body.lr.ph ]
+  %add3121 = phi i32 [ %add3118, %for.body.lr.ph.thread ], [ %add31, %for.body.lr.ph ]
+  %addString2920 = phi ptr [ %addString2917, %for.body.lr.ph.thread ], [ %addString29, %for.body.lr.ph ]
+  %arrayidx1619 = phi ptr [ %arrayidx1616, %for.body.lr.ph.thread ], [ %arrayidx16, %for.body.lr.ph ]
   %wide.trip.count = zext i16 %2 to i64
   br label %for.body
 
-for.body.us.preheader:                            ; preds = %for.body.lr.ph.thread71, %for.body.lr.ph
-  %add3178 = phi i32 [ %add3175, %for.body.lr.ph.thread71 ], [ %add31, %for.body.lr.ph ]
-  %addString2977 = phi ptr [ %addString2974, %for.body.lr.ph.thread71 ], [ %addString29, %for.body.lr.ph ]
-  %arrayidx1676 = phi ptr [ %arrayidx1673, %for.body.lr.ph.thread71 ], [ %arrayidx16, %for.body.lr.ph ]
-  %wide.trip.count59 = zext i16 %2 to i64
+for.body.us.preheader:                            ; preds = %for.body.lr.ph.thread24, %for.body.lr.ph
+  %add3131 = phi i32 [ %add3128, %for.body.lr.ph.thread24 ], [ %add31, %for.body.lr.ph ]
+  %addString2930 = phi ptr [ %addString2927, %for.body.lr.ph.thread24 ], [ %addString29, %for.body.lr.ph ]
+  %arrayidx1629 = phi ptr [ %arrayidx1626, %for.body.lr.ph.thread24 ], [ %arrayidx16, %for.body.lr.ph ]
+  %wide.trip.count12 = zext i16 %2 to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %indvars.iv56 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next57, %for.inc.us ]
-  %arrayidx14.us = getelementptr inbounds i16, ptr %incdec.ptr, i64 %indvars.iv56
+  %indvars.iv9 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next10, %for.inc.us ]
+  %arrayidx14.us = getelementptr inbounds i16, ptr %incdec.ptr, i64 %indvars.iv9
   %7 = load i16, ptr %arrayidx14.us, align 2
-  store i16 %7, ptr %arrayidx1676, align 2
-  %arrayidx18.us = getelementptr inbounds i32, ptr %incdec.ptr8, i64 %indvars.iv56
+  store i16 %7, ptr %arrayidx1629, align 2
+  %arrayidx18.us = getelementptr inbounds i32, ptr %incdec.ptr8, i64 %indvars.iv9
   %8 = load i32, ptr %arrayidx18.us, align 4
   %cmp19.us = icmp eq i32 %8, 0
   br i1 %cmp19.us, label %for.inc.us, label %if.else21.us
@@ -1609,25 +1609,25 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us: ; preds = %if.else25.us
   br i1 %cmp9.i42.not.us, label %for.inc.us, label %if.then28.us
 
 if.then28.us:                                     ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us
-  %9 = load ptr, ptr %addString2977, align 8
+  %9 = load ptr, ptr %addString2930, align 8
   %10 = load ptr, ptr %sa, align 8
-  tail call void %9(ptr noundef %10, ptr noundef %s, i32 noundef %add3178)
+  tail call void %9(ptr noundef %10, ptr noundef %s, i32 noundef %add3131)
   br label %for.inc.us
 
 if.then23.us:                                     ; preds = %if.else21.us
-  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef nonnull %cx, ptr noundef %sa, i32 noundef 0, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %add3178, i32 noundef %8)
+  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef nonnull %cx, ptr noundef %sa, i32 noundef 0, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %add3131, i32 noundef %8)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then23.us, %if.then28.us, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47.us, %if.else25.us, %for.body.us
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %for.end, label %for.body.us, !llvm.loop !17
+  %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
+  %exitcond13.not = icmp eq i64 %indvars.iv.next10, %wide.trip.count12
+  br i1 %exitcond13.not, label %for.end, label %for.body.us, !llvm.loop !17
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx14 = getelementptr inbounds i16, ptr %incdec.ptr, i64 %indvars.iv
   %11 = load i16, ptr %arrayidx14, align 2
-  store i16 %11, ptr %arrayidx1666, align 2
+  store i16 %11, ptr %arrayidx1619, align 2
   %arrayidx18 = getelementptr inbounds i32, ptr %incdec.ptr8, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx18, align 4
   %cmp19 = icmp eq i32 %12, 0
@@ -1638,7 +1638,7 @@ if.else21:                                        ; preds = %for.body
   br i1 %cmp22, label %if.then23, label %if.else25
 
 if.then23:                                        ; preds = %if.else21
-  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef nonnull %cx, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %add3168, i32 noundef %12)
+  tail call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef nonnull %cx, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength, i32 noundef %firstCP, ptr noundef nonnull %s, i32 noundef %add3121, i32 noundef %12)
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else21
@@ -1653,9 +1653,9 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit47: ; preds = %if.else25
   br i1 %cmp9.i42.not, label %for.inc, label %if.then28
 
 if.then28:                                        ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47
-  %13 = load ptr, ptr %addString2967, align 8
+  %13 = load ptr, ptr %addString2920, align 8
   %14 = load ptr, ptr %sa, align 8
-  tail call void %13(ptr noundef %14, ptr noundef %s, i32 noundef %add3168)
+  tail call void %13(ptr noundef %14, ptr noundef %s, i32 noundef %add3121)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else25, %for.body, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit47, %if.then28, %if.then23
@@ -1663,7 +1663,7 @@ for.inc:                                          ; preds = %if.else25, %for.bod
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
-for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end12.thread69, %if.end12.thread, %if.end12
+for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end12.thread22, %if.end12.thread, %if.end12
   ret void
 }
 

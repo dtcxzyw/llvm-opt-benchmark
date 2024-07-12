@@ -1625,17 +1625,17 @@ declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #2 {
-  %.not93 = icmp eq i32 %1, 0
-  br i1 %.not93, label %._crit_edge92, label %.lr.ph.preheader
+  %.not16 = icmp eq i32 %1, 0
+  br i1 %.not16, label %._crit_edge15, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.preheader78:                                     ; preds = %.lr.ph
-  br i1 %.not93, label %._crit_edge92, label %.lr.ph91
+.preheader1:                                      ; preds = %.lr.ph
+  br i1 %.not16, label %._crit_edge15, label %.lr.ph14
 
-.lr.ph91:                                         ; preds = %.preheader78
+.lr.ph14:                                         ; preds = %.preheader1
   %7 = and i64 %5, 1
   %.not = icmp eq i64 %7, 0
   %8 = add i32 %14, -1
@@ -1643,24 +1643,24 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06179 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
+  %.0612 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
   %9 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @hwloc_bitmap_weight(ptr noundef %12) #18
-  %14 = add i32 %13, %.06179
+  %14 = add i32 %13, %.0612
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader78, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader1, label %.lr.ph, !llvm.loop !14
 
-15:                                               ; preds = %.lr.ph91, %61
-  %.190 = phi i32 [ 0, %.lr.ph91 ], [ %62, %61 ]
-  %.06289 = phi ptr [ %2, %.lr.ph91 ], [ %.163, %61 ]
-  %.06488 = phi i32 [ 0, %.lr.ph91 ], [ %.165, %61 ]
-  %16 = xor i32 %.190, -1
+15:                                               ; preds = %.lr.ph14, %61
+  %.113 = phi i32 [ 0, %.lr.ph14 ], [ %62, %61 ]
+  %.06212 = phi ptr [ %2, %.lr.ph14 ], [ %.163, %61 ]
+  %.06411 = phi i32 [ 0, %.lr.ph14 ], [ %.165, %61 ]
+  %16 = xor i32 %.113, -1
   %17 = add i32 %16, %1
-  %18 = select i1 %.not, i32 %.190, i32 %17
+  %18 = select i1 %.not, i32 %.113, i32 %17
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
@@ -1668,30 +1668,30 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %21, align 8
   %25 = tail call i32 @hwloc_obj_type_is_normal(i32 noundef %24) #17
-  %.not7481 = icmp eq i32 %25, 0
-  br i1 %.not7481, label %.lr.ph83, label %._crit_edge
+  %.not744 = icmp eq i32 %25, 0
+  br i1 %.not744, label %.lr.ph6, label %._crit_edge
 
-.lr.ph83:                                         ; preds = %15, %.lr.ph83
-  %.05982 = phi ptr [ %27, %.lr.ph83 ], [ %21, %15 ]
-  %26 = getelementptr inbounds i8, ptr %.05982, i64 72
+.lr.ph6:                                          ; preds = %15, %.lr.ph6
+  %.0595 = phi ptr [ %27, %.lr.ph6 ], [ %21, %15 ]
+  %26 = getelementptr inbounds i8, ptr %.0595, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 @hwloc_obj_type_is_normal(i32 noundef %28) #17
   %.not74 = icmp eq i32 %29, 0
-  br i1 %.not74, label %.lr.ph83, label %._crit_edge, !llvm.loop !15
+  br i1 %.not74, label %.lr.ph6, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph83, %15
-  %.059.lcssa = phi ptr [ %21, %15 ], [ %27, %.lr.ph83 ]
+._crit_edge:                                      ; preds = %.lr.ph6, %15
+  %.059.lcssa = phi ptr [ %21, %15 ], [ %27, %.lr.ph6 ]
   %30 = tail call i32 @hwloc_bitmap_weight(ptr noundef %23) #18
   %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %61, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = add i32 %30, %.06488
+  %32 = add i32 %30, %.06411
   %33 = mul i32 %32, %3
   %34 = add i32 %8, %33
   %35 = udiv i32 %34, %14
-  %36 = mul i32 %.06488, %3
+  %36 = mul i32 %.06411, %3
   %37 = add i32 %8, %36
   %38 = udiv i32 %37, %14
   %39 = sub i32 %35, %38
@@ -1710,23 +1710,23 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
 
 47:                                               ; preds = %44, %31
   %.not77 = icmp eq i32 %35, %38
-  br i1 %.not77, label %52, label %.lr.ph86.preheader
+  br i1 %.not77, label %52, label %.lr.ph9.preheader
 
-.lr.ph86.preheader:                               ; preds = %47
+.lr.ph9.preheader:                                ; preds = %47
   %48 = zext i32 %39 to i64
-  br label %.lr.ph86
+  br label %.lr.ph9
 
-.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next99, %.lr.ph86 ]
+.lr.ph9:                                          ; preds = %.lr.ph9.preheader, %.lr.ph9
+  %indvars.iv21 = phi i64 [ 0, %.lr.ph9.preheader ], [ %indvars.iv.next22, %.lr.ph9 ]
   %49 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %23) #17
-  %50 = getelementptr inbounds ptr, ptr %.06289, i64 %indvars.iv98
+  %50 = getelementptr inbounds ptr, ptr %.06212, i64 %indvars.iv21
   store ptr %49, ptr %50, align 8
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %51 = icmp ult i64 %indvars.iv.next99, %48
-  br i1 %51, label %.lr.ph86, label %.loopexit, !llvm.loop !16
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %51 = icmp ult i64 %indvars.iv.next22, %48
+  br i1 %51, label %.lr.ph9, label %.loopexit, !llvm.loop !16
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %.06289, i64 -8
+  %53 = getelementptr inbounds i8, ptr %.06212, i64 -8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @hwloc_bitmap_or(ptr noundef %54, ptr noundef %54, ptr noundef %23) #17
   br label %.loopexit
@@ -1734,22 +1734,22 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
 56:                                               ; preds = %44
   %57 = getelementptr inbounds i8, ptr %.059.lcssa, i64 112
   %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @hwloc_distrib(ptr noundef %58, i32 noundef %41, ptr noundef %.06289, i32 noundef %39, i32 noundef %4, i64 noundef %5)
+  tail call fastcc void @hwloc_distrib(ptr noundef %58, i32 noundef %41, ptr noundef %.06212, i32 noundef %39, i32 noundef %4, i64 noundef %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph86, %52, %56
+.loopexit:                                        ; preds = %.lr.ph9, %52, %56
   %59 = zext i32 %39 to i64
-  %60 = getelementptr inbounds ptr, ptr %.06289, i64 %59
+  %60 = getelementptr inbounds ptr, ptr %.06212, i64 %59
   br label %61
 
 61:                                               ; preds = %._crit_edge, %.loopexit
-  %.165 = phi i32 [ %32, %.loopexit ], [ %.06488, %._crit_edge ]
-  %.163 = phi ptr [ %60, %.loopexit ], [ %.06289, %._crit_edge ]
-  %62 = add nuw i32 %.190, 1
-  %exitcond101.not = icmp eq i32 %62, %1
-  br i1 %exitcond101.not, label %._crit_edge92, label %15, !llvm.loop !17
+  %.165 = phi i32 [ %32, %.loopexit ], [ %.06411, %._crit_edge ]
+  %.163 = phi ptr [ %60, %.loopexit ], [ %.06212, %._crit_edge ]
+  %62 = add nuw i32 %.113, 1
+  %exitcond24.not = icmp eq i32 %62, %1
+  br i1 %exitcond24.not, label %._crit_edge15, label %15, !llvm.loop !17
 
-._crit_edge92:                                    ; preds = %61, %6, %.preheader78
+._crit_edge15:                                    ; preds = %61, %6, %.preheader1
   ret void
 }
 

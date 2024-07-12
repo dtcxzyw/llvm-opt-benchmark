@@ -21288,17 +21288,17 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   %81 = call ptr @table_open(i32 noundef 1249, i32 noundef 3) #13
   %82 = getelementptr inbounds i8, ptr %68, i64 4
   %83 = load i32, ptr %82, align 4
-  %.not8997 = icmp sgt i32 %83, 0
-  br i1 %.not8997, label %.lr.ph, label %._crit_edge
+  %.not894 = icmp sgt i32 %83, 0
+  br i1 %.not894, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %80
   %84 = getelementptr inbounds i8, ptr %68, i64 16
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %111
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %111 ], [ 0, %.lr.ph ]
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %111 ], [ 0, %.lr.ph ]
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv111
+  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv18
   %87 = load i32, ptr %86, align 8
   %88 = call ptr @table_open(i32 noundef %87, i32 noundef 0) #13
   call void @CheckTableNotInUse(ptr noundef %88, ptr noundef nonnull @.str.31)
@@ -21316,7 +21316,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   %97 = getelementptr inbounds i8, ptr %96, i64 98
   %98 = load i16, ptr %97, align 2
   %99 = icmp slt i16 %98, 1
-  br i1 %99, label %.split100.us, label %100
+  br i1 %99, label %.split7.us, label %100
 
 100:                                              ; preds = %90
   %101 = icmp eq i16 %98, 1
@@ -21343,10 +21343,10 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
 111:                                              ; preds = %108, %106
   call void @heap_freetuple(ptr noundef nonnull %89) #13
   call void @table_close(ptr noundef %88, i32 noundef 0) #13
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %112 = load i32, ptr %82, align 4
   %113 = sext i32 %112 to i64
-  %.not89.us = icmp slt i64 %indvars.iv.next112, %113
+  %.not89.us = icmp slt i64 %indvars.iv.next19, %113
   br i1 %.not89.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %133
@@ -21378,13 +21378,13 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
   %128 = getelementptr inbounds i8, ptr %127, i64 98
   %129 = load i16, ptr %128, align 2
   %130 = icmp slt i16 %129, 1
-  br i1 %130, label %.split100.us, label %133
+  br i1 %130, label %.split7.us, label %133
 
-.split100.us:                                     ; preds = %121, %90
-  %.us-phi101 = phi i32 [ %87, %90 ], [ %116, %121 ]
+.split7.us:                                       ; preds = %121, %90
+  %.us-phi8 = phi i32 [ %87, %90 ], [ %116, %121 ]
   %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %131)
-  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.308, i32 noundef %.us-phi101, ptr noundef %1) #13
+  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.308, i32 noundef %.us-phi8, ptr noundef %1) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 9207, ptr noundef nonnull @__func__.ATExecDropColumn) #13
   unreachable
 
@@ -24782,15 +24782,15 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
   %112 = getelementptr inbounds i8, ptr %111, i64 115
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, 112
-  br i1 %114, label %115, label %.loopexit106
+  br i1 %114, label %115, label %.loopexit1
 
 115:                                              ; preds = %109
   %116 = call ptr @RelationGetPartitionDesc(ptr noundef nonnull %2, i1 noundef zeroext true) #13
   %117 = load i32, ptr %116, align 8
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph109, label %.loopexit106
+  br i1 %118, label %.lr.ph4, label %.loopexit1
 
-.lr.ph109:                                        ; preds = %115
+.lr.ph4:                                          ; preds = %115
   %119 = getelementptr inbounds i8, ptr %116, i64 8
   %120 = getelementptr inbounds i8, ptr %2, i64 64
   %121 = sext i32 %5 to i64
@@ -24799,10 +24799,10 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %124
 
-124:                                              ; preds = %.lr.ph109, %155
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next113, %155 ]
+124:                                              ; preds = %.lr.ph4, %155
+  %indvars.iv7 = phi i64 [ 0, %.lr.ph4 ], [ %indvars.iv.next8, %155 ]
   %125 = load ptr, ptr %119, align 8
-  %126 = getelementptr i32, ptr %125, i64 %indvars.iv112
+  %126 = getelementptr i32, ptr %125, i64 %indvars.iv7
   %127 = load i32, ptr %126, align 4
   %128 = call ptr @table_open(i32 noundef %127, i32 noundef 6) #13
   %129 = getelementptr inbounds i8, ptr %128, i64 64
@@ -24860,13 +24860,13 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
   br label %155
 
 155:                                              ; preds = %150, %154
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %156 = load i32, ptr %116, align 8
   %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv.next113, %157
-  br i1 %158, label %124, label %.loopexit106, !llvm.loop !89
+  %158 = icmp slt i64 %indvars.iv.next8, %157
+  br i1 %158, label %124, label %.loopexit1, !llvm.loop !89
 
-.loopexit106:                                     ; preds = %155, %115, %109
+.loopexit1:                                       ; preds = %155, %115, %109
   %.sroa.0.0.copyload = load i64, ptr %17, align 8
   %.sroa.2.0.copyload = load i32, ptr %105, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0

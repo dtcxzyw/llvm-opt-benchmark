@@ -11991,8 +11991,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 define internal void @"_ZNSt3setIN11flatbuffers11FlatCOptionENS0_3$_0ESaIS1_EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  %this.val.i = load ptr, ptr %0, align 8
-  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %this.val.i)
+  %this.val = load ptr, ptr %0, align 8
+  tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %this.val)
   ret void
 }
 
@@ -22137,25 +22137,25 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %__x) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp.not5 = icmp eq ptr %__x, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not1 = icmp eq ptr %__x, null
+  br i1 %cmp.not1, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %__x.addr.06 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
-  %0 = getelementptr i8, ptr %__x.addr.06, i64 24
+  %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
+  %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
   tail call fastcc void @"_ZNSt8_Rb_treeIN11flatbuffers11FlatCOptionES1_St9_IdentityIS1_ENS0_3$_0ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E"(ptr noundef %__x.addr.0.val4)
-  %1 = getelementptr i8, ptr %__x.addr.06, i64 16
+  %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 32
-  %description.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 128
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
+  %description.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description.i.i.i.i.i) #20
-  %parameter.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 96
+  %parameter.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parameter.i.i.i.i.i) #20
-  %long_opt.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 64
+  %long_opt.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %long_opt.i.i.i.i.i) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #22
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !25
 

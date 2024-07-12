@@ -18389,7 +18389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113ClkbufmapPass12module_queueEPN5Y
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
-  br i1 %10, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38, label %11
+  br i1 %10, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13, label %11
 
 11:                                               ; preds = %4
   %.not.i.i.i = icmp eq ptr %1, null
@@ -18452,7 +18452,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL6ModuleEEEjPKT_.exit.i.i.i: ; pred
   %51 = getelementptr inbounds i32, ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %.lr.ph.i.i, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38
+  br i1 %53, label %.lr.ph.i.i, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
   %54 = load ptr, ptr %23, align 8
@@ -18470,9 +18470,9 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL6ModuleEEEjPKT_.exit.i.i.i: ; pred
   %61 = getelementptr inbounds i8, ptr %57, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %55, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38, !llvm.loop !206
+  br i1 %63, label %55, label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13, !llvm.loop !206
 
-_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38: ; preds = %60, %4, %._crit_edge.i.i
+_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13: ; preds = %60, %4, %._crit_edge.i.i
   %64 = getelementptr inbounds i8, ptr %1, i64 224
   %65 = load ptr, ptr %64, align 8, !noalias !207
   %66 = getelementptr inbounds i8, ptr %1, i64 232
@@ -18480,7 +18480,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.
   %68 = icmp eq ptr %65, %67
   br i1 %68, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit19, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38
+.lr.ph.preheader:                                 ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13
   %69 = getelementptr inbounds i8, ptr %1, i64 140
   %70 = ptrtoint ptr %67 to i64
   %71 = ptrtoint ptr %65 to i64
@@ -18500,7 +18500,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %122
   store i32 %79, ptr %69, align 4
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit19
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit19: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread38
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit19: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread13
   %80 = getelementptr inbounds i8, ptr %2, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %2, i64 16
@@ -18576,7 +18576,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %84,
   call void @_ZN5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.239") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL6ModuleENS0_8hash_opsIS4_EEE5countERKS4_.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit23: ; preds = %121, %.lr.ph
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit23: ; preds = %.lr.ph, %121
   %112 = landingpad { ptr, i32 }
           cleanup
   %113 = load i32, ptr %69, align 4

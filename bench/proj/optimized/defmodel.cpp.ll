@@ -6436,7 +6436,7 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   store i8 1, ptr %122, align 2
   %128 = getelementptr inbounds i8, ptr %78, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, i8 0, i64 24, i1 false)
-  br label %.thread53.i
+  br label %.thread54.i
 
 129:                                              ; preds = %.noexc.i
   %130 = invoke i32 @proj_get_type(ptr noundef nonnull %126)
@@ -6453,7 +6453,7 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   store i8 %134, ptr %122, align 2
   %135 = getelementptr inbounds i8, ptr %78, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
-  br i1 %133, label %.thread53.i, label %136
+  br i1 %133, label %.thread54.i, label %136
 
 136:                                              ; preds = %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %137 = load i8, ptr %92, align 8
@@ -6497,20 +6497,20 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   br i1 %.025.i, label %148, label %279
 
 148:                                              ; preds = %146, %.thread.i
-  %.pn52.i = phi { ptr, i32 } [ %145, %.thread.i ], [ %147, %146 ]
+  %.pn53.i = phi { ptr, i32 } [ %145, %.thread.i ], [ %147, %146 ]
   call void @__cxa_free_exception(ptr %140) #29
   br label %279
 
 149:                                              ; preds = %136
   %150 = load i8, ptr %107, align 1
   %151 = trunc i8 %150 to i1
-  br i1 %151, label %.thread53.i, label %152
+  br i1 %151, label %.thread54.i, label %152
 
 152:                                              ; preds = %149
   %153 = call ptr @__cxa_allocate_exception(i64 40) #29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.244, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %154 unwind label %.thread55.i
+          to label %154 unwind label %.thread56.i
 
 154:                                              ; preds = %152
   invoke void @_ZN16DeformationModel18EvaluatorExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %153, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -6520,7 +6520,7 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   invoke void @__cxa_throw(ptr nonnull %153, ptr nonnull @_ZTIN16DeformationModel18EvaluatorExceptionE, ptr nonnull @_ZN16DeformationModel18EvaluatorExceptionD2Ev) #31
           to label %281 unwind label %157
 
-.thread55.i:                                      ; preds = %152
+.thread56.i:                                      ; preds = %152
   %156 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -6536,12 +6536,12 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #29
   br i1 %.023.i, label %159, label %279
 
-159:                                              ; preds = %157, %.thread55.i
-  %.pn2858.i = phi { ptr, i32 } [ %156, %.thread55.i ], [ %158, %157 ]
+159:                                              ; preds = %157, %.thread56.i
+  %.pn2859.i = phi { ptr, i32 } [ %156, %.thread56.i ], [ %158, %157 ]
   call void @__cxa_free_exception(ptr %153) #29
   br label %279
 
-.thread53.i:                                      ; preds = %149, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
+.thread54.i:                                      ; preds = %149, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
   %160 = phi ptr [ %135, %149 ], [ %135, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %128, %_ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i ]
   %161 = load ptr, ptr %78, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 904
@@ -6555,17 +6555,17 @@ _ZN12_GLOBAL__N_114EvaluatorIface15isGeographicCRSERKNSt7__cxx1112basic_stringIc
   %170 = icmp ugt i64 %169, 1152921504606846975
   br i1 %170, label %171, label %172
 
-171:                                              ; preds = %.thread53.i
+171:                                              ; preds = %.thread54.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.145) #31
           to label %.noexc40.i unwind label %.loopexit.split-lp.i
 
 .noexc40.i:                                       ; preds = %171
   unreachable
 
-172:                                              ; preds = %.thread53.i
+172:                                              ; preds = %.thread54.i
   %173 = getelementptr inbounds i8, ptr %78, i64 56
-  %.not73.i = icmp eq ptr %164, %165
-  br i1 %.not73.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i
+  %.not74.i = icmp eq ptr %164, %165
+  br i1 %.not74.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i: ; preds = %172
   %174 = shl nuw nsw i64 %169, 3
@@ -6579,28 +6579,28 @@ _ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__
   %177 = getelementptr inbounds %"class.std::unique_ptr.112", ptr %175, i64 %169
   store ptr %177, ptr %173, align 8
   %.pre.i = load ptr, ptr %162, align 8
-  %.pre71.i = load ptr, ptr %163, align 8
+  %.pre72.i = load ptr, ptr %163, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i, %172
-  %178 = phi ptr [ %.pre71.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i ], [ %164, %172 ]
+  %178 = phi ptr [ %.pre72.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i ], [ %164, %172 ]
   %179 = phi ptr [ %.pre.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit.i.i ], [ %165, %172 ]
-  %.not69.i = icmp eq ptr %179, %178
-  br i1 %.not69.i, label %.loopexit, label %.lr.ph.i
+  %.not70.i = icmp eq ptr %179, %178
+  br i1 %.not70.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE7reserveEm.exit.i
   %180 = getelementptr inbounds i8, ptr %78, i64 48
   br label %181
 
 181:                                              ; preds = %277, %.lr.ph.i
-  %.sroa.045.070.i = phi ptr [ %179, %.lr.ph.i ], [ %278, %277 ]
+  %.sroa.046.071.i = phi ptr [ %179, %.lr.ph.i ], [ %278, %277 ]
   %182 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #32
           to label %183 unwind label %.loopexit.i
 
 183:                                              ; preds = %181
-  store ptr %.sroa.045.070.i, ptr %182, align 8
+  store ptr %.sroa.046.071.i, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %182, i64 8
-  %185 = getelementptr inbounds i8, ptr %.sroa.045.070.i, i64 208
+  %185 = getelementptr inbounds i8, ptr %.sroa.046.071.i, i64 208
   %186 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %185) #29
   %187 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN16DeformationModelL12STR_BILINEARB5cxx11E) #29
   %188 = icmp eq i64 %186, %187
@@ -6718,7 +6718,7 @@ _ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gri
 
 244:                                              ; preds = %239
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.146) #31
-          to label %.noexc42.i unwind label %.loopexit.split-lp65.i
+          to label %.noexc42.i unwind label %.loopexit.split-lp66.i
 
 .noexc42.i:                                       ; preds = %244
   unreachable
@@ -6737,7 +6737,7 @@ _ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gr
 251:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
   %252 = shl nuw nsw i64 %250, 3
   %253 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %252) #32
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit64.i
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit65.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_M_allocateEm.exit.i.i.i: ; preds = %251, %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
   %254 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %253, %251 ]
@@ -6793,7 +6793,7 @@ _ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7Gri
   %269 = call ptr @__cxa_allocate_exception(i64 40) #29
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.245, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %270 unwind label %.thread60.i
+          to label %270 unwind label %.thread61.i
 
 270:                                              ; preds = %268
   invoke void @_ZN16DeformationModel18EvaluatorExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %269, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -6815,24 +6815,24 @@ _ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7Gri
           catch ptr @_ZTISt9exception
   br label %279
 
-.loopexit64.i:                                    ; preds = %251
-  %lpad.loopexit66.i = landingpad { ptr, i32 }
+.loopexit65.i:                                    ; preds = %251
+  %lpad.loopexit67.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %272
 
-.loopexit.split-lp65.i:                           ; preds = %244
-  %lpad.loopexit.split-lp67.i = landingpad { ptr, i32 }
+.loopexit.split-lp66.i:                           ; preds = %244
+  %lpad.loopexit.split-lp68.i = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %272
 
-272:                                              ; preds = %.loopexit.split-lp65.i, %.loopexit64.i
-  %lpad.phi68.i = phi { ptr, i32 } [ %lpad.loopexit66.i, %.loopexit64.i ], [ %lpad.loopexit.split-lp67.i, %.loopexit.split-lp65.i ]
+272:                                              ; preds = %.loopexit.split-lp66.i, %.loopexit65.i
+  %lpad.phi69.i = phi { ptr, i32 } [ %lpad.loopexit67.i, %.loopexit65.i ], [ %lpad.loopexit.split-lp68.i, %.loopexit.split-lp66.i ]
   call fastcc void @_ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %279
 
-.thread60.i:                                      ; preds = %268
+.thread61.i:                                      ; preds = %268
   %273 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -6848,19 +6848,19 @@ _ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7Gri
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
   br i1 %.0.i, label %276, label %279
 
-276:                                              ; preds = %274, %.thread60.i
-  %.pn3063.i = phi { ptr, i32 } [ %273, %.thread60.i ], [ %275, %274 ]
+276:                                              ; preds = %274, %.thread61.i
+  %.pn3064.i = phi { ptr, i32 } [ %273, %.thread61.i ], [ %275, %274 ]
   call void @__cxa_free_exception(ptr %269) #29
   br label %279
 
 277:                                              ; preds = %264, %_ZNSt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2_7GridSetEEESt14default_deleteIS5_EED2Ev.exit.i
-  %278 = getelementptr inbounds i8, ptr %.sroa.045.070.i, i64 312
+  %278 = getelementptr inbounds i8, ptr %.sroa.046.071.i, i64 312
   %.not.i63 = icmp eq ptr %278, %178
   br i1 %.not.i63, label %.loopexit, label %181
 
 279:                                              ; preds = %276, %274, %272, %.loopexit.split-lp.i, %.loopexit.i, %159, %157, %148, %146
   %280 = phi ptr [ %160, %276 ], [ %160, %274 ], [ %160, %272 ], [ %135, %159 ], [ %135, %157 ], [ %135, %148 ], [ %135, %146 ], [ %160, %.loopexit.split-lp.i ], [ %160, %.loopexit.i ]
-  %.pn30.pn.i = phi { ptr, i32 } [ %.pn3063.i, %276 ], [ %275, %274 ], [ %lpad.phi68.i, %272 ], [ %.pn2858.i, %159 ], [ %158, %157 ], [ %.pn52.i, %148 ], [ %147, %146 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %.pn30.pn.i = phi { ptr, i32 } [ %.pn3064.i, %276 ], [ %275, %274 ], [ %lpad.phi69.i, %272 ], [ %.pn2859.i, %159 ], [ %158, %157 ], [ %.pn53.i, %148 ], [ %147, %146 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %280) #29
   br label %.body
 
@@ -7134,8 +7134,8 @@ define internal void @_ZL16reassign_contextP8PJconstsP6pj_ctx(ptr nocapture noun
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds i8, ptr %11, i64 32
-  %.val.i.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i.i)
+  %.val.i.i.i.i.i.i = load ptr, ptr %13, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i)
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %15, null
@@ -8784,8 +8784,8 @@ define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11Co
 
 6:                                                ; preds = %.lr.ph.i.i.i
   %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i)
+  %.val.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i.i.i.i.i.i)
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -8793,8 +8793,8 @@ define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN16DeformationModel11Co
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %9, i64 32
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i.i.i)
+  %.val.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i.i.i.i)
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
@@ -8846,8 +8846,8 @@ define internal fastcc void @_ZNSt10unique_ptrIN16DeformationModel11ComponentExI
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 40
-  %.val.i.i.i.i = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i.i.i)
+  %.val.i.i = load ptr, ptr %4, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.val.i.i)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -8855,8 +8855,8 @@ define internal fastcc void @_ZNSt10unique_ptrIN16DeformationModel11ComponentExI
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 32
-  %.val.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i)
+  %.val.i.i.i.i.i = load ptr, ptr %8, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i)
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
@@ -8884,17 +8884,17 @@ _ZNKSt14default_deleteIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.08 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N16DeformationModel6GridExIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef %.0.val)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #34
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
@@ -8904,17 +8904,17 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_14GridESt4pairIKS3_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
-  %.08 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.0.val)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 40
+  %4 = getelementptr inbounds i8, ptr %.02, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i
@@ -8924,7 +8924,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i: ; preds =
   br label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit
 
 _ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN12_GLOBAL__N_14GridEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #34
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
@@ -8988,49 +8988,49 @@ define internal fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_G
   %.in.v.i = select i1 %50, i64 48, i64 16
   %.in.i282 = getelementptr inbounds i8, ptr %53, i64 %.in.v.i
   %55 = load double, ptr %.in.i282, align 8
-  br i1 %50, label %.preheader462, label %..loopexit_crit_edge
+  br i1 %50, label %.preheader463, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %10
-  %.pre521 = fadd double %54, -1.000000e-05
-  %.pre522 = fadd double %55, 1.000000e-05
+  %.pre522 = fadd double %54, -1.000000e-05
+  %.pre523 = fadd double %55, 1.000000e-05
   br label %.loopexit
 
-.preheader462:                                    ; preds = %10
+.preheader463:                                    ; preds = %10
   %56 = fadd double %54, -1.000000e-10
   %57 = fcmp ogt double %56, %2
   br i1 %57, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader462
-  %.0424.lcssa = phi double [ %2, %.preheader462 ], [ %60, %.lr.ph ]
+.preheader:                                       ; preds = %.lr.ph, %.preheader463
+  %.0425.lcssa = phi double [ %2, %.preheader463 ], [ %60, %.lr.ph ]
   %58 = fadd double %51, %55
-  %59 = fcmp ogt double %.0424.lcssa, %58
-  br i1 %59, label %.lr.ph491, label %.loopexit
+  %59 = fcmp ogt double %.0425.lcssa, %58
+  br i1 %59, label %.lr.ph492, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader462, %.lr.ph
-  %.0424489 = phi double [ %60, %.lr.ph ], [ %2, %.preheader462 ]
-  %60 = fadd double %.0424489, 0x401921FB54442D18
+.lr.ph:                                           ; preds = %.preheader463, %.lr.ph
+  %.0425490 = phi double [ %60, %.lr.ph ], [ %2, %.preheader463 ]
+  %60 = fadd double %.0425490, 0x401921FB54442D18
   %61 = fcmp olt double %60, %56
   br i1 %61, label %.lr.ph, label %.preheader, !llvm.loop !98
 
-.lr.ph491:                                        ; preds = %.preheader, %.lr.ph491
-  %.1425490 = phi double [ %62, %.lr.ph491 ], [ %.0424.lcssa, %.preheader ]
-  %62 = fadd double %.1425490, 0xC01921FB54442D18
+.lr.ph492:                                        ; preds = %.preheader, %.lr.ph492
+  %.1426491 = phi double [ %62, %.lr.ph492 ], [ %.0425.lcssa, %.preheader ]
+  %62 = fadd double %.1426491, 0xC01921FB54442D18
   %63 = fcmp ogt double %62, %58
-  br i1 %63, label %.lr.ph491, label %.loopexit, !llvm.loop !99
+  br i1 %63, label %.lr.ph492, label %.loopexit, !llvm.loop !99
 
-.loopexit:                                        ; preds = %.lr.ph491, %..loopexit_crit_edge, %.preheader
-  %.pre-phi523 = phi double [ %.pre522, %..loopexit_crit_edge ], [ %58, %.preheader ], [ %58, %.lr.ph491 ]
-  %.pre-phi = phi double [ %.pre521, %..loopexit_crit_edge ], [ %56, %.preheader ], [ %56, %.lr.ph491 ]
-  %64 = phi double [ 1.000000e+04, %..loopexit_crit_edge ], [ 0x3F5C987103B761F5, %.preheader ], [ 0x3F5C987103B761F5, %.lr.ph491 ]
-  %.in.v.i285 = phi i64 [ 24, %..loopexit_crit_edge ], [ 56, %.preheader ], [ 56, %.lr.ph491 ]
-  %.in.v.i283 = phi i64 [ 8, %..loopexit_crit_edge ], [ 40, %.preheader ], [ 40, %.lr.ph491 ]
-  %.2426 = phi double [ %2, %..loopexit_crit_edge ], [ %.0424.lcssa, %.preheader ], [ %62, %.lr.ph491 ]
+.loopexit:                                        ; preds = %.lr.ph492, %..loopexit_crit_edge, %.preheader
+  %.pre-phi524 = phi double [ %.pre523, %..loopexit_crit_edge ], [ %58, %.preheader ], [ %58, %.lr.ph492 ]
+  %.pre-phi = phi double [ %.pre522, %..loopexit_crit_edge ], [ %56, %.preheader ], [ %56, %.lr.ph492 ]
+  %64 = phi double [ 1.000000e+04, %..loopexit_crit_edge ], [ 0x3F5C987103B761F5, %.preheader ], [ 0x3F5C987103B761F5, %.lr.ph492 ]
+  %.in.v.i285 = phi i64 [ 24, %..loopexit_crit_edge ], [ 56, %.preheader ], [ 56, %.lr.ph492 ]
+  %.in.v.i283 = phi i64 [ 8, %..loopexit_crit_edge ], [ 40, %.preheader ], [ 40, %.lr.ph492 ]
+  %.2427 = phi double [ %2, %..loopexit_crit_edge ], [ %.0425.lcssa, %.preheader ], [ %62, %.lr.ph492 ]
   %.in.i284 = getelementptr inbounds i8, ptr %53, i64 %.in.v.i283
   %65 = load double, ptr %.in.i284, align 8
   %.in.i286 = getelementptr inbounds i8, ptr %53, i64 %.in.v.i285
   %66 = load double, ptr %.in.i286, align 8
-  %67 = fcmp olt double %.2426, %.pre-phi
-  %68 = fcmp ogt double %.2426, %.pre-phi523
+  %67 = fcmp olt double %.2427, %.pre-phi
+  %68 = fcmp ogt double %.2427, %.pre-phi524
   %or.cond.i = or i1 %67, %68
   br i1 %or.cond.i, label %74, label %69
 
@@ -9039,30 +9039,30 @@ define internal fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_G
   %71 = fcmp ogt double %70, %3
   %72 = fadd double %51, %66
   %73 = fcmp olt double %72, %3
-  %or.cond71.not82.i.not458 = or i1 %71, %73
-  %brmerge.i.not = and i1 %or.cond71.not82.i.not458, %6
+  %or.cond71.not82.i.not459 = or i1 %71, %73
+  %brmerge.i.not = and i1 %or.cond71.not82.i.not459, %6
   br i1 %brmerge.i.not, label %75, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit
 
 74:                                               ; preds = %.loopexit
   br i1 %6, label %75, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 75:                                               ; preds = %74, %69
-  %76 = fcmp ult double %.2426, %.pre-phi
-  %77 = fcmp ugt double %.2426, %.pre-phi523
+  %76 = fcmp ult double %.2427, %.pre-phi
+  %77 = fcmp ugt double %.2427, %.pre-phi524
   %or.cond73.i = or i1 %76, %77
   br i1 %or.cond73.i, label %78, label %86
 
 78:                                               ; preds = %75
   %79 = fsub double %54, %64
-  %80 = fcmp ogt double %.2426, %79
-  %81 = fcmp olt double %.2426, %54
+  %80 = fcmp ogt double %.2427, %79
+  %81 = fcmp olt double %.2427, %54
   %or.cond74.i = and i1 %80, %81
   br i1 %or.cond74.i, label %86, label %82
 
 82:                                               ; preds = %78
   %83 = fadd double %55, %64
-  %84 = fcmp olt double %.2426, %83
-  %85 = fcmp ogt double %.2426, %55
+  %84 = fcmp olt double %.2427, %83
+  %85 = fcmp ogt double %.2427, %55
   %or.cond75.i = and i1 %84, %85
   br i1 %or.cond75.i, label %.sink.split.i, label %86
 
@@ -9070,7 +9070,7 @@ define internal fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_G
   br label %86
 
 86:                                               ; preds = %78, %.sink.split.i, %82, %75
-  %.3427 = phi double [ %.2426, %82 ], [ %.2426, %75 ], [ %54, %78 ], [ %55, %.sink.split.i ]
+  %.3428 = phi double [ %.2427, %82 ], [ %.2427, %75 ], [ %54, %78 ], [ %55, %.sink.split.i ]
   %.055.i = phi i1 [ false, %82 ], [ true, %75 ], [ true, %78 ], [ true, %.sink.split.i ]
   %87 = fsub double %65, %51
   %88 = fcmp ugt double %87, %3
@@ -9094,15 +9094,15 @@ define internal fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_G
   br i1 %or.cond79.i, label %.sink.split83.i, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 .sink.split83.i:                                  ; preds = %95, %91, %86
-  %.0429 = phi double [ %3, %86 ], [ %65, %91 ], [ %66, %95 ]
-  %99 = insertelement <2 x double> poison, double %.3427, i64 0
-  %100 = insertelement <2 x double> %99, double %.0429, i64 1
+  %.0430 = phi double [ %3, %86 ], [ %65, %91 ], [ %66, %95 ]
+  %99 = insertelement <2 x double> poison, double %.3428, i64 0
+  %100 = insertelement <2 x double> %99, double %.0430, i64 1
   br i1 %.055.i, label %103, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
-  %101 = insertelement <2 x double> poison, double %.2426, i64 0
+  %101 = insertelement <2 x double> poison, double %.2427, i64 0
   %102 = insertelement <2 x double> %101, double %3, i64 1
-  br i1 %or.cond71.not82.i.not458, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %103
+  br i1 %or.cond71.not82.i.not459, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %103
 
 103:                                              ; preds = %.sink.split83.i, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit
   %104 = phi <2 x double> [ %100, %.sink.split83.i ], [ %102, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit ]
@@ -9122,15 +9122,15 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   %.val254 = load ptr, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 48
   %.val = load ptr, ptr %114, align 8
-  %.not493 = icmp eq ptr %.val254, %.val
-  br i1 %.not493, label %._crit_edge, label %.lr.ph503
+  %.not494 = icmp eq ptr %.val254, %.val
+  br i1 %.not494, label %._crit_edge, label %.lr.ph504
 
-.lr.ph503:                                        ; preds = %112
+.lr.ph504:                                        ; preds = %112
   %115 = fneg double %51
   %116 = getelementptr inbounds i8, ptr %0, i64 32
   %117 = getelementptr inbounds i8, ptr %47, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 16
-  %.sroa.6333.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 24
+  %.sroa.6334.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 24
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 32
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 40
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 48
@@ -9143,15 +9143,15 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   %121 = extractelement <2 x double> %104, i64 1
   br label %122
 
-122:                                              ; preds = %.lr.ph503, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
-  %.0231500 = phi double [ 0.000000e+00, %.lr.ph503 ], [ %.3, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %.0233499 = phi i8 [ 0, %.lr.ph503 ], [ %.2235, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %.0236498 = phi double [ 0.000000e+00, %.lr.ph503 ], [ %.2238, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %.0240497 = phi double [ 0.000000e+00, %.lr.ph503 ], [ %.2242, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %.sroa.0401.0494 = phi ptr [ %.val254, %.lr.ph503 ], [ %561, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %123 = phi <2 x double> [ zeroinitializer, %.lr.ph503 ], [ %559, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %124 = phi <2 x double> [ zeroinitializer, %.lr.ph503 ], [ %560, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
-  %.val269 = load ptr, ptr %.sroa.0401.0494, align 8
+122:                                              ; preds = %.lr.ph504, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
+  %.0231501 = phi double [ 0.000000e+00, %.lr.ph504 ], [ %.3, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %.0233500 = phi i8 [ 0, %.lr.ph504 ], [ %.2235, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %.0236499 = phi double [ 0.000000e+00, %.lr.ph504 ], [ %.2238, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %.0240498 = phi double [ 0.000000e+00, %.lr.ph504 ], [ %.2242, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %.sroa.0402.0495 = phi ptr [ %.val254, %.lr.ph504 ], [ %561, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %123 = phi <2 x double> [ zeroinitializer, %.lr.ph504 ], [ %559, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %124 = phi <2 x double> [ zeroinitializer, %.lr.ph504 ], [ %560, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread ]
+  %.val269 = load ptr, ptr %.sroa.0402.0495, align 8
   %125 = load ptr, ptr %.val269, align 8
   %126 = getelementptr inbounds i8, ptr %.val269, i64 12
   %127 = load i32, ptr %126, align 4
@@ -9186,23 +9186,23 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   %143 = fcmp olt double %121, %142
   %144 = fadd double %51, %136
   %145 = fcmp ogt double %121, %144
-  %or.cond71.not82.i296.not461 = or i1 %143, %145
-  %brmerge.i298.not = and i1 %or.cond71.not82.i296.not461, %6
+  %or.cond71.not82.i296.not462 = or i1 %143, %145
+  %brmerge.i298.not = and i1 %or.cond71.not82.i296.not462, %6
   br i1 %brmerge.i298.not, label %147, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312
 
 146:                                              ; preds = %129
-  br i1 %6, label %._crit_edge520, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
+  br i1 %6, label %._crit_edge521, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
-._crit_edge520:                                   ; preds = %146
-  %.pre524 = fsub double %135, %51
-  %.pre526 = fadd double %51, %136
+._crit_edge521:                                   ; preds = %146
+  %.pre525 = fsub double %135, %51
+  %.pre527 = fadd double %51, %136
   br label %147
 
-147:                                              ; preds = %._crit_edge520, %141
-  %.pre-phi527 = phi double [ %.pre526, %._crit_edge520 ], [ %144, %141 ]
-  %.pre-phi525 = phi double [ %.pre524, %._crit_edge520 ], [ %142, %141 ]
-  %148 = fcmp ult double %121, %.pre-phi525
-  %149 = fcmp ugt double %121, %.pre-phi527
+147:                                              ; preds = %._crit_edge521, %141
+  %.pre-phi528 = phi double [ %.pre527, %._crit_edge521 ], [ %144, %141 ]
+  %.pre-phi526 = phi double [ %.pre525, %._crit_edge521 ], [ %142, %141 ]
+  %148 = fcmp ult double %121, %.pre-phi526
+  %149 = fcmp ugt double %121, %.pre-phi528
   %or.cond77.i301 = or i1 %148, %149
   br i1 %or.cond77.i301, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread, label %.sink.split83.i306
 
@@ -9213,7 +9213,7 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   br i1 %or.cond73.i299.not, label %152, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
 _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312: ; preds = %141
-  br i1 %or.cond71.not82.i296.not461, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread, label %152
+  br i1 %or.cond71.not82.i296.not462, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread, label %152
 
 152:                                              ; preds = %.sink.split83.i306, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312
   %153 = insertelement <2 x double> poison, double %133, i64 0
@@ -9252,7 +9252,7 @@ _ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluat
   br i1 %175, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread, label %176
 
 176:                                              ; preds = %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit
-  %.val266 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.val266 = load ptr, ptr %.sroa.0402.0495, align 8
   %177 = getelementptr inbounds i8, ptr %.val266, i64 16
   %.val272 = load ptr, ptr %177, align 8
   %.not.i317 = icmp eq ptr %.val272, null
@@ -9325,19 +9325,19 @@ _ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i5.i: ; p
   br label %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.thread.i, %201, %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i5.i
-  %.sroa.0370.0 = phi ptr [ null, %201 ], [ null, %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i5.i ], [ %193, %.thread.i ]
+  %.sroa.0371.0 = phi ptr [ null, %201 ], [ null, %_ZNKSt14default_deleteIN5osgeo4proj19GenericShiftGridSetEEclEPS2_.exit.i5.i ], [ %193, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %.val265 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.val265 = load ptr, ptr %.sroa.0402.0495, align 8
   %205 = getelementptr inbounds i8, ptr %.val265, i64 16
   %206 = load ptr, ptr %205, align 8
-  store ptr %.sroa.0370.0, ptr %205, align 8
+  store ptr %.sroa.0371.0, ptr %205, align 8
   %.not.i.i.i.i = icmp eq ptr %206, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit, label %207
 
 207:                                              ; preds = %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %208 = getelementptr inbounds i8, ptr %206, i64 32
-  %.val.i.i.i.i.i.i.i.i = load ptr, ptr %208, align 8
-  call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i.i.i)
+  %.val.i.i.i.i.i.i = load ptr, ptr %208, align 8
+  call fastcc void @_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef %.val.i.i.i.i.i.i)
   %209 = getelementptr inbounds i8, ptr %206, i64 8
   %210 = load ptr, ptr %209, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %210, null
@@ -9355,7 +9355,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i: ; preds = 
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_17GridSetEEclEPS1_.exit.i.i.i.i, %_ZN12_GLOBAL__N_114EvaluatorIface4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.val264 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.val264 = load ptr, ptr %.sroa.0402.0495, align 8
   %214 = getelementptr inbounds i8, ptr %.val264, i64 16
   %.val273 = load ptr, ptr %214, align 8
   %.not.i321 = icmp eq ptr %.val273, null
@@ -9373,13 +9373,13 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; p
 
 221:                                              ; preds = %215
   %222 = getelementptr inbounds i8, ptr %.val274, i64 32
-  %.val.i.i.i = load ptr, ptr %222, align 8
+  %.val.i.i.i323 = load ptr, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %.val274, i64 24
-  %.not2.i.i.i.i = icmp eq ptr %.val.i.i.i, null
+  %.not2.i.i.i.i = icmp eq ptr %.val.i.i.i323, null
   br i1 %.not2.i.i.i.i, label %_ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS7_EESt4lessIS4_ESaISt4pairIKS4_SA_EEE4findERSE_.exit.thread.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %221, %.lr.ph.i.i.i.i
-  %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.val.i.i.i, %221 ]
+  %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.val.i.i.i323, %221 ]
   %.083.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %223, %221 ]
   %224 = getelementptr inbounds i8, ptr %.04.i.i.i.i, i64 32
   %225 = load ptr, ptr %224, align 8
@@ -9388,8 +9388,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit: ; p
   %.1.in.v.i.i.i.i = select i1 %226, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr i8, ptr %.04.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
-  %.not.i.i.i.i323 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i323, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !103
+  %.not.i.i.i.i324 = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i324, label %_ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !103
 
 _ZNSt8_Rb_treeIPKN5osgeo4proj16GenericShiftGridESt4pairIKS4_St10unique_ptrIN12_GLOBAL__N_14GridESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS4_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS6_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %227 = icmp eq ptr %.19.i.i.i.i, %223
@@ -9453,7 +9453,7 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridESt10unique_ptrIN12_GLOBAL__N_14GridES
   br i1 %.not2.i.i.i.i, label %._crit_edge.thread.i.i.i.i, label %.lr.ph.i.i.i13.i
 
 .lr.ph.i.i.i13.i:                                 ; preds = %.noexc.i, %.lr.ph.i.i.i13.i
-  %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i13.i ], [ %.val.i.i.i, %.noexc.i ]
+  %.01317.i.i.i.i = phi ptr [ %.013.i.i.i.i, %.lr.ph.i.i.i13.i ], [ %.val.i.i.i323, %.noexc.i ]
   %261 = getelementptr inbounds i8, ptr %.01317.i.i.i.i, i64 32
   %262 = load ptr, ptr %261, align 8
   %263 = icmp ugt ptr %262, %220
@@ -9568,13 +9568,13 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
 313:                                              ; preds = %307
   %314 = fptosi double %302 to i32
   %315 = add nsw i32 %285, -2
-  %.sroa.speculated341 = call i32 @llvm.smin.i32(i32 %315, i32 %314)
+  %.sroa.speculated342 = call i32 @llvm.smin.i32(i32 %315, i32 %314)
   %316 = fptosi double %308 to i32
   %317 = add nsw i32 %289, -2
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %317, i32 %316)
-  %318 = add nsw i32 %.sroa.speculated341, 1
+  %318 = add nsw i32 %.sroa.speculated342, 1
   %319 = add nsw i32 %.sroa.speculated, 1
-  %320 = sitofp i32 %.sroa.speculated341 to double
+  %320 = sitofp i32 %.sroa.speculated342 to double
   %321 = fsub double %302, %320
   %322 = sitofp i32 %.sroa.speculated to double
   %323 = fsub double %308, %322
@@ -9584,7 +9584,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %327 = fmul double %321, %325
   %328 = fmul double %324, %323
   %329 = fmul double %321, %323
-  %.val262 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.val262 = load ptr, ptr %.sroa.0402.0495, align 8
   %330 = getelementptr inbounds i8, ptr %.val262, i64 12
   %331 = load i32, ptr %330, align 4
   %332 = icmp eq i32 %331, 2
@@ -9595,7 +9595,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   store double 0.000000e+00, ptr %17, align 8
   store double 0.000000e+00, ptr %18, align 8
   store double 0.000000e+00, ptr %19, align 8
-  %334 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid10getZOffsetEiiRd(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %334 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid10getZOffsetEiiRd(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %16)
   br i1 %334, label %335, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 335:                                              ; preds = %333
@@ -9603,7 +9603,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %336, label %337, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 337:                                              ; preds = %335
-  %338 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid10getZOffsetEiiRd(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %338 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid10getZOffsetEiiRd(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %17)
   br i1 %338, label %339, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 339:                                              ; preds = %337
@@ -9619,7 +9619,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %347 = call double @llvm.fmuladd.f64(double %346, double %327, double %345)
   %348 = load double, ptr %19, align 8
   %349 = call double @llvm.fmuladd.f64(double %348, double %329, double %347)
-  %350 = call double @llvm.fmuladd.f64(double %.0.i316, double %349, double %.0231500)
+  %350 = call double @llvm.fmuladd.f64(double %.0.i316, double %349, double %.0231501)
   br label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
 351:                                              ; preds = %313
@@ -9640,7 +9640,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %354, label %356, label %364
 
 356:                                              ; preds = %355
-  %357 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %357 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
   br i1 %357, label %358, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 358:                                              ; preds = %356
@@ -9648,7 +9648,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %359, label %360, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 360:                                              ; preds = %358
-  %361 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %361 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid16getLongLatOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br i1 %361, label %362, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 362:                                              ; preds = %360
@@ -9660,7 +9660,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   store double 0.000000e+00, ptr %29, align 8
   store double 0.000000e+00, ptr %30, align 8
   store double 0.000000e+00, ptr %31, align 8
-  %365 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid17getLongLatZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %365 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid17getLongLatZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %28)
   br i1 %365, label %366, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 366:                                              ; preds = %364
@@ -9668,7 +9668,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %367, label %368, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 368:                                              ; preds = %366
-  %369 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid17getLongLatZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %29)
+  %369 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid17getLongLatZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %29)
   br i1 %369, label %370, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 370:                                              ; preds = %368
@@ -9684,11 +9684,11 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %378 = call double @llvm.fmuladd.f64(double %377, double %327, double %376)
   %379 = load double, ptr %31, align 8
   %380 = call double @llvm.fmuladd.f64(double %379, double %329, double %378)
-  %381 = call double @llvm.fmuladd.f64(double %.0.i316, double %380, double %.0231500)
+  %381 = call double @llvm.fmuladd.f64(double %.0.i316, double %380, double %.0231501)
   br label %382
 
 382:                                              ; preds = %362, %372
-  %.1232 = phi double [ %.0231500, %362 ], [ %381, %372 ]
+  %.1232 = phi double [ %.0231501, %362 ], [ %381, %372 ]
   %383 = load double, ptr %20, align 8
   %384 = load double, ptr %22, align 8
   %385 = load double, ptr %24, align 8
@@ -9734,7 +9734,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %354, label %415, label %423
 
 415:                                              ; preds = %414
-  %416 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid24getEastingNorthingOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
+  %416 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid24getEastingNorthingOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
   br i1 %416, label %417, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 417:                                              ; preds = %415
@@ -9742,7 +9742,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %418, label %419, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 419:                                              ; preds = %417
-  %420 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid24getEastingNorthingOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %420 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid24getEastingNorthingOffsetEiiRdS1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
   br i1 %420, label %421, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 421:                                              ; preds = %419
@@ -9754,7 +9754,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   store double 0.000000e+00, ptr %41, align 8
   store double 0.000000e+00, ptr %42, align 8
   store double 0.000000e+00, ptr %43, align 8
-  %424 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid25getEastingNorthingZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  %424 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid25getEastingNorthingZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %40)
   br i1 %424, label %425, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 425:                                              ; preds = %423
@@ -9762,7 +9762,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br i1 %426, label %427, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 427:                                              ; preds = %425
-  %428 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid25getEastingNorthingZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated341, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %428 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_14Grid25getEastingNorthingZOffsetEiiRdS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %.val12.i, i32 noundef %.sroa.speculated342, i32 noundef %319, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br i1 %428, label %429, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
 429:                                              ; preds = %427
@@ -9778,12 +9778,12 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %437 = call double @llvm.fmuladd.f64(double %436, double %327, double %435)
   %438 = load double, ptr %43, align 8
   %439 = call double @llvm.fmuladd.f64(double %438, double %329, double %437)
-  %440 = call double @llvm.fmuladd.f64(double %.0.i316, double %439, double %.0231500)
+  %440 = call double @llvm.fmuladd.f64(double %.0.i316, double %439, double %.0231501)
   br label %441
 
 441:                                              ; preds = %421, %431
-  %.2 = phi double [ %.0231500, %421 ], [ %440, %431 ]
-  %.val259 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.2 = phi double [ %.0231501, %421 ], [ %440, %431 ]
+  %.val259 = load ptr, ptr %.sroa.0402.0495, align 8
   %442 = getelementptr inbounds i8, ptr %.val259, i64 8
   %443 = load i8, ptr %442, align 8
   %444 = trunc i8 %443 to i1
@@ -9867,12 +9867,12 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   %497 = load double, ptr %293, align 8
   %498 = call double @cos(double noundef %497) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.12.0..sroa_idx, i8 0, i64 128, i1 false)
-  %.val256 = load ptr, ptr %.sroa.0401.0494, align 8
+  %.val256 = load ptr, ptr %.sroa.0402.0495, align 8
   %499 = getelementptr inbounds i8, ptr %.val256, i64 24
   store ptr %.val12.i, ptr %47, align 8
   store ptr %.val12.i, ptr %117, align 8
   store i8 %489, ptr %.sroa.5.0..sroa_idx, align 8
-  store double %491, ptr %.sroa.6333.0..sroa_idx, align 8
+  store double %491, ptr %.sroa.6334.0..sroa_idx, align 8
   store double %494, ptr %.sroa.7.0..sroa_idx, align 8
   store double %496, ptr %.sroa.8.0..sroa_idx, align 8
   store double %498, ptr %.sroa.9.0..sroa_idx, align 8
@@ -9882,8 +9882,8 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   br label %501
 
 501:                                              ; preds = %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
-  %.sroa.0335.0 = phi ptr [ %500, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread ], [ %.19.i.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit ]
-  %502 = getelementptr inbounds i8, ptr %.sroa.0335.0, i64 40
+  %.sroa.0336.0 = phi ptr [ %500, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread ], [ %.19.i.i.i, %_ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit ]
+  %502 = getelementptr inbounds i8, ptr %.sroa.0336.0, i64 40
   %503 = load double, ptr %32, align 8
   %504 = load double, ptr %33, align 8
   %505 = load double, ptr %34, align 8
@@ -9892,8 +9892,8 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   %508 = load double, ptr %37, align 8
   %509 = load double, ptr %38, align 8
   %510 = load double, ptr %39, align 8
-  call fastcc void @_ZN16DeformationModel6GridExIN12_GLOBAL__N_14GridEE21getBilinearGeocentricEiiddddddddddddRdS4_S4_(ptr noundef nonnull align 8 dereferenceable(184) %502, i32 noundef %.sroa.speculated341, i32 noundef %.sroa.speculated, double noundef %503, double noundef %504, double noundef %505, double noundef %506, double noundef %507, double noundef %508, double noundef %509, double noundef %510, double noundef %326, double noundef %328, double noundef %327, double noundef %329, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46)
-  %511 = trunc nuw i8 %.0233499 to i1
+  call fastcc void @_ZN16DeformationModel6GridExIN12_GLOBAL__N_14GridEE21getBilinearGeocentricEiiddddddddddddRdS4_S4_(ptr noundef nonnull align 8 dereferenceable(184) %502, i32 noundef %.sroa.speculated342, i32 noundef %.sroa.speculated, double noundef %503, double noundef %504, double noundef %505, double noundef %506, double noundef %507, double noundef %508, double noundef %509, double noundef %510, double noundef %326, double noundef %328, double noundef %327, double noundef %329, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  %511 = trunc nuw i8 %.0233500 to i1
   br i1 %511, label %515, label %512
 
 512:                                              ; preds = %501
@@ -9902,13 +9902,13 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   br label %515
 
 515:                                              ; preds = %512, %501
-  %.1241 = phi double [ %.0240497, %501 ], [ %514, %512 ]
-  %.1237 = phi double [ %.0236498, %501 ], [ %513, %512 ]
-  %.1234 = phi i8 [ %.0233499, %501 ], [ 1, %512 ]
+  %.1241 = phi double [ %.0240498, %501 ], [ %514, %512 ]
+  %.1237 = phi double [ %.0236499, %501 ], [ %513, %512 ]
+  %.1234 = phi i8 [ %.0233500, %501 ], [ 1, %512 ]
   %516 = fadd double %321, -5.000000e-01
   %517 = load double, ptr %292, align 8
   %518 = fmul double %516, %517
-  %519 = getelementptr inbounds i8, ptr %.sroa.0335.0, i64 48
+  %519 = getelementptr inbounds i8, ptr %.sroa.0336.0, i64 48
   %520 = load i8, ptr %519, align 8
   %521 = trunc i8 %520 to i1
   br i1 %521, label %522, label %526
@@ -9964,13 +9964,13 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   br label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
 _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread: ; preds = %147, %215, %146, %.sink.split83.i306, %341, %445, %537, %382, %291, %301, %307, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312, %122
-  %.2242 = phi double [ %.0240497, %122 ], [ %.0240497, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0240497, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0240497, %291 ], [ %.0240497, %341 ], [ %.0240497, %382 ], [ %.0240497, %445 ], [ %.1241, %537 ], [ %.0240497, %307 ], [ %.0240497, %301 ], [ %.0240497, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0240497, %.sink.split83.i306 ], [ %.0240497, %146 ], [ %.0240497, %215 ], [ %.0240497, %147 ]
-  %.2238 = phi double [ %.0236498, %122 ], [ %.0236498, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0236498, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0236498, %291 ], [ %.0236498, %341 ], [ %.0236498, %382 ], [ %.0236498, %445 ], [ %.1237, %537 ], [ %.0236498, %307 ], [ %.0236498, %301 ], [ %.0236498, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0236498, %.sink.split83.i306 ], [ %.0236498, %146 ], [ %.0236498, %215 ], [ %.0236498, %147 ]
-  %.2235 = phi i8 [ %.0233499, %122 ], [ %.0233499, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0233499, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0233499, %291 ], [ %.0233499, %341 ], [ %.0233499, %382 ], [ %.0233499, %445 ], [ %.1234, %537 ], [ %.0233499, %307 ], [ %.0233499, %301 ], [ %.0233499, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0233499, %.sink.split83.i306 ], [ %.0233499, %146 ], [ %.0233499, %215 ], [ %.0233499, %147 ]
-  %.3 = phi double [ %.0231500, %122 ], [ %.0231500, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0231500, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0231500, %291 ], [ %350, %341 ], [ %.1232, %382 ], [ %.2, %445 ], [ %.2, %537 ], [ %.0231500, %307 ], [ %.0231500, %301 ], [ %.0231500, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0231500, %.sink.split83.i306 ], [ %.0231500, %146 ], [ %.0231500, %215 ], [ %.0231500, %147 ]
+  %.2242 = phi double [ %.0240498, %122 ], [ %.0240498, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0240498, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0240498, %291 ], [ %.0240498, %341 ], [ %.0240498, %382 ], [ %.0240498, %445 ], [ %.1241, %537 ], [ %.0240498, %307 ], [ %.0240498, %301 ], [ %.0240498, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0240498, %.sink.split83.i306 ], [ %.0240498, %146 ], [ %.0240498, %215 ], [ %.0240498, %147 ]
+  %.2238 = phi double [ %.0236499, %122 ], [ %.0236499, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0236499, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0236499, %291 ], [ %.0236499, %341 ], [ %.0236499, %382 ], [ %.0236499, %445 ], [ %.1237, %537 ], [ %.0236499, %307 ], [ %.0236499, %301 ], [ %.0236499, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0236499, %.sink.split83.i306 ], [ %.0236499, %146 ], [ %.0236499, %215 ], [ %.0236499, %147 ]
+  %.2235 = phi i8 [ %.0233500, %122 ], [ %.0233500, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0233500, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0233500, %291 ], [ %.0233500, %341 ], [ %.0233500, %382 ], [ %.0233500, %445 ], [ %.1234, %537 ], [ %.0233500, %307 ], [ %.0233500, %301 ], [ %.0233500, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0233500, %.sink.split83.i306 ], [ %.0233500, %146 ], [ %.0233500, %215 ], [ %.0233500, %147 ]
+  %.3 = phi double [ %.0231501, %122 ], [ %.0231501, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %.0231501, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %.0231501, %291 ], [ %350, %341 ], [ %.1232, %382 ], [ %.2, %445 ], [ %.2, %537 ], [ %.0231501, %307 ], [ %.0231501, %301 ], [ %.0231501, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %.0231501, %.sink.split83.i306 ], [ %.0231501, %146 ], [ %.0231501, %215 ], [ %.0231501, %147 ]
   %559 = phi <2 x double> [ %123, %122 ], [ %123, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %123, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %123, %291 ], [ %123, %341 ], [ %413, %382 ], [ %123, %445 ], [ %123, %537 ], [ %123, %307 ], [ %123, %301 ], [ %123, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %123, %.sink.split83.i306 ], [ %123, %146 ], [ %123, %215 ], [ %123, %147 ]
   %560 = phi <2 x double> [ %124, %122 ], [ %124, %_ZNK16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS1_7GridSetEE10evaluateAtEd.exit ], [ %124, %_ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit ], [ %124, %291 ], [ %124, %341 ], [ %124, %382 ], [ %476, %445 ], [ %558, %537 ], [ %124, %307 ], [ %124, %301 ], [ %124, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312 ], [ %124, %.sink.split83.i306 ], [ %124, %146 ], [ %124, %215 ], [ %124, %147 ]
-  %561 = getelementptr inbounds i8, ptr %.sroa.0401.0494, i64 8
+  %561 = getelementptr inbounds i8, ptr %.sroa.0402.0495, i64 8
   %.not = icmp eq ptr %561, %.val
   br i1 %.not, label %._crit_edge.loopexit, label %122
 
@@ -10117,8 +10117,8 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread: ; preds = %147, %2
   %651 = getelementptr inbounds i8, ptr %.val281, i64 128
   %652 = load ptr, ptr %651, align 8
   store <2 x double> %650, ptr %12, align 16
-  %.sroa.3.0..sroa_idx.i327 = getelementptr inbounds i8, ptr %12, i64 16
-  store double %640, ptr %.sroa.3.0..sroa_idx.i327, align 16
+  %.sroa.3.0..sroa_idx.i328 = getelementptr inbounds i8, ptr %12, i64 16
+  store double %640, ptr %.sroa.3.0..sroa_idx.i328, align 16
   call void %652(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %11, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %12, ptr noundef %.val281)
   %653 = load double, ptr %11, align 8
   store double %653, ptr %7, align 8

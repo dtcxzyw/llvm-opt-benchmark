@@ -3922,8 +3922,8 @@ define internal fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %0, ptr noca
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3
-  %.tr42 = phi ptr [ %0, %3 ], [ %.val35, %26 ]
-  %8 = ptrtoint ptr %.tr42 to i64
+  %.tr = phi ptr [ %0, %3 ], [ %.val35, %26 ]
+  %8 = ptrtoint ptr %.tr to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr i8, ptr %10, i64 32
@@ -3937,7 +3937,7 @@ tailrecurse:                                      ; preds = %26, %3
   ]
 
 13:                                               ; preds = %tailrecurse
-  %14 = icmp ne ptr %.tr42, %10
+  %14 = icmp ne ptr %.tr, %10
   %15 = zext i1 %14 to i32
   store i32 %15, ptr %1, align 4
   store i32 0, ptr %2, align 4
@@ -3947,7 +3947,7 @@ tailrecurse:                                      ; preds = %26, %3
   %17 = getelementptr i8, ptr %10, i64 32
   %18 = lshr i32 %.val, 4
   %19 = and i32 %18, 1
-  %20 = icmp eq ptr %.tr42, %10
+  %20 = icmp eq ptr %.tr, %10
   %21 = zext i1 %20 to i32
   %22 = xor i32 %19, %21
   store i32 %22, ptr %1, align 4
@@ -3979,7 +3979,7 @@ tailrecurse:                                      ; preds = %26, %3
   %38 = or i32 %37, %33
   store i32 %38, ptr %2, align 4
   %39 = and i32 %35, %32
-  %40 = icmp eq ptr %.tr42, %10
+  %40 = icmp eq ptr %.tr, %10
   %41 = zext i1 %40 to i32
   %42 = xor i32 %39, %41
   store i32 %42, ptr %1, align 4

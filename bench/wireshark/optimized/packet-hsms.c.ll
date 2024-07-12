@@ -439,7 +439,7 @@ define internal fastcc noundef i32 @dissect_secs_variable(ptr noundef %0, ptr no
     i8 3, label %14
     i8 2, label %18
     i8 1, label %23
-    i8 0, label %.loopexit139
+    i8 0, label %.loopexit1
   ]
 
 14:                                               ; preds = %3
@@ -480,7 +480,7 @@ default.unreachable:                              ; preds = %3
   %36 = urem i32 %.0132, %35
   %37 = udiv i32 %.0132, %35
   %.not138 = icmp eq i32 %36, 0
-  br i1 %.not138, label %38, label %.loopexit139
+  br i1 %.not138, label %38, label %.loopexit1
 
 38:                                               ; preds = %29, %28
   %.1133 = phi i32 [ %.0132, %28 ], [ %37, %29 ]
@@ -512,8 +512,8 @@ default.unreachable:                              ; preds = %3
   ]
 
 .preheader:                                       ; preds = %38
-  %.not143 = icmp eq i32 %.1133, 0
-  br i1 %.not143, label %.loopexit, label %.lr.ph
+  %.not5 = icmp eq i32 %.1133, 0
+  br i1 %.not5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %59 = zext nneg i8 %8 to i64
@@ -521,29 +521,29 @@ default.unreachable:                              ; preds = %3
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %63
-  %.0130142.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
-  %.0131141.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph ]
+  %.01304.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
+  %.01313.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph ]
   %61 = call fastcc i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %2)
   %62 = icmp eq i32 %61, -1
-  br i1 %62, label %.loopexit139, label %63
+  br i1 %62, label %.loopexit1, label %63
 
 63:                                               ; preds = %.lr.ph.split.us
-  %.1.us = add i32 %61, %.0131141.us
-  %64 = add nuw i32 %.0130142.us, 1
-  %exitcond146.not = icmp eq i32 %64, %.1133
-  br i1 %exitcond146.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
+  %.1.us = add i32 %61, %.01313.us
+  %64 = add nuw i32 %.01304.us, 1
+  %exitcond8.not = icmp eq i32 %64, %.1133
+  br i1 %exitcond8.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
 
 65:                                               ; preds = %38
   br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %80
-  %.0130142 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
-  %.0131141 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph ]
+  %.01304 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
+  %.01313 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph ]
   %66 = load ptr, ptr @value_lengths, align 8
   %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef %60) #3
   %68 = ptrtoint ptr %67 to i64
   %69 = trunc i64 %68 to i32
-  switch i8 %8, label %.loopexit139 [
+  switch i8 %8, label %.loopexit1 [
     i8 9, label %80
     i8 24, label %70
     i8 25, label %71
@@ -595,16 +595,16 @@ default.unreachable:                              ; preds = %3
   %84 = load i32, ptr %2, align 4
   %85 = add i32 %84, %69
   store i32 %85, ptr %2, align 4
-  %.1 = add i32 %.0131141, %69
-  %86 = add nuw i32 %.0130142, 1
+  %.1 = add i32 %.01313, %69
+  %86 = add nuw i32 %.01304, 1
   %exitcond.not = icmp eq i32 %86, %.1133
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit.sink.split:                             ; preds = %38, %65
-  %.sink156 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %38 ]
+  %.sink18 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %38 ]
   %hf_hsms_data_item_value_string.sink = phi ptr [ @hf_hsms_data_item_value_string, %65 ], [ @hf_hsms_data_item_value_binary, %38 ]
   %87 = load ptr, ptr @value_lengths, align 8
-  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink156) #3
+  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink18) #3
   %89 = ptrtoint ptr %88 to i64
   %90 = trunc i64 %89 to i32
   %91 = mul i32 %.1133, %90
@@ -621,9 +621,9 @@ default.unreachable:                              ; preds = %3
   %97 = add nuw nsw i32 %13, 1
   %98 = add i32 %97, %.2
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %98) #3
-  br label %.loopexit139
+  br label %.loopexit1
 
-.loopexit139:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us, %29, %3, %.loopexit
+.loopexit1:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %29, %3, %.loopexit
   %.0 = phi i32 [ %98, %.loopexit ], [ -1, %3 ], [ -1, %29 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
   ret i32 %.0
 }

@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/wmem_interval_tree.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._wmem_range_t = type { i64, i64, i64 }
-
 @.str = private unnamed_addr constant [38 x i8] c"Range: low=%lu high=%lu max_edge=%lu\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -289,68 +287,56 @@ define internal range(i32 -1, 2) i32 @wmem_tree_compare_ranges(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @wmem_itree_find_intervals(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
-  %5 = alloca %struct._wmem_range_t, align 8
-  store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 0, ptr %7, align 8
-  %8 = tail call noalias ptr @wmem_list_new(ptr noundef %1) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %10, ptr noundef nonnull byval(%struct._wmem_range_t) align 8 %5, ptr noundef %8)
-  ret ptr %8
+  %5 = tail call noalias ptr @wmem_list_new(ptr noundef %1) #7
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %7, i64 %2, i64 %3, ptr noundef %5)
+  ret ptr %5
 }
 
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly %0, ptr nocapture noundef readonly byval(%struct._wmem_range_t) align 8 %1, ptr noundef %2) unnamed_addr #1 {
-  %.not14 = icmp eq ptr %0, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
+  %.not3 = icmp eq ptr %0, null
+  br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load i64, ptr %1, align 8
-  %6 = load i64, ptr %4, align 8
-  br label %7
+.lr.ph:                                           ; preds = %2, %wmem_itree_range_overlap.exit.thread
+  %.tr4 = phi ptr [ %18, %wmem_itree_range_overlap.exit.thread ], [ %0, %2 ]
+  %3 = getelementptr inbounds i8, ptr %.tr4, i64 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ult i64 %6, %.0.val
+  br i1 %7, label %._crit_edge, label %8
 
-7:                                                ; preds = %.lr.ph, %wmem_itree_range_overlap.exit.thread
-  %.tr15 = phi ptr [ %0, %.lr.ph ], [ %23, %wmem_itree_range_overlap.exit.thread ]
-  %8 = getelementptr inbounds i8, ptr %.tr15, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp ugt i64 %5, %11
-  br i1 %12, label %._crit_edge, label %13
-
-13:                                               ; preds = %7
-  %14 = load i64, ptr %9, align 8
-  %.not.i = icmp ugt i64 %14, %6
+8:                                                ; preds = %.lr.ph
+  %9 = load i64, ptr %4, align 8
+  %.not.i = icmp ugt i64 %9, %.8.val
   br i1 %.not.i, label %wmem_itree_range_overlap.exit.thread, label %wmem_itree_range_overlap.exit
 
-wmem_itree_range_overlap.exit:                    ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %.not10 = icmp ugt i64 %5, %16
-  br i1 %.not10, label %wmem_itree_range_overlap.exit.thread, label %17
+wmem_itree_range_overlap.exit:                    ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8
+  %.not1 = icmp ult i64 %11, %.0.val
+  br i1 %.not1, label %wmem_itree_range_overlap.exit.thread, label %12
 
-17:                                               ; preds = %wmem_itree_range_overlap.exit
-  %18 = getelementptr inbounds i8, ptr %.tr15, i64 32
-  %19 = load ptr, ptr %18, align 8
-  tail call void @wmem_list_prepend(ptr noundef %2, ptr noundef %19) #7
+12:                                               ; preds = %wmem_itree_range_overlap.exit
+  %13 = getelementptr inbounds i8, ptr %.tr4, i64 32
+  %14 = load ptr, ptr %13, align 8
+  tail call void @wmem_list_prepend(ptr noundef %1, ptr noundef %14) #7
   br label %wmem_itree_range_overlap.exit.thread
 
-wmem_itree_range_overlap.exit.thread:             ; preds = %13, %17, %wmem_itree_range_overlap.exit
-  %20 = getelementptr inbounds i8, ptr %.tr15, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %21, ptr noundef nonnull byval(%struct._wmem_range_t) align 8 %1, ptr noundef %2)
-  %22 = getelementptr inbounds i8, ptr %.tr15, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %._crit_edge, label %7
+wmem_itree_range_overlap.exit.thread:             ; preds = %8, %12, %wmem_itree_range_overlap.exit
+  %15 = getelementptr inbounds i8, ptr %.tr4, i64 8
+  %16 = load ptr, ptr %15, align 8
+  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %16, i64 %.0.val, i64 %.8.val, ptr noundef %1)
+  %17 = getelementptr inbounds i8, ptr %.tr4, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %wmem_itree_range_overlap.exit.thread, %7, %3
+._crit_edge:                                      ; preds = %wmem_itree_range_overlap.exit.thread, %.lr.ph, %2
   ret void
 }
 

@@ -3894,8 +3894,8 @@ define internal fastcc void @scale_bb(ptr nocapture noundef readonly %0, double 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 236
   %7 = load i32, ptr %6, align 4
-  %.not16 = icmp slt i32 %7, 1
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not2 = icmp slt i32 %7, 1
+  br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %3 ]

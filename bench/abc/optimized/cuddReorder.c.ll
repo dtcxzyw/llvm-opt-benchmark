@@ -250,7 +250,7 @@ declare i32 @cuddTreeSifting(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @cuddZddAlignToBdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %.not4459 = icmp sgt i32 %4, 0
@@ -473,15 +473,15 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
-  %.03145 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %17 ]
+  %.03 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
+  %.0312 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %17 ]
   %18 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %.03145)
-  %.1 = tail call i32 @llvm.smax.i32(i32 %22, i32 %.046)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %.0312)
+  %.1 = tail call i32 @llvm.smax.i32(i32 %22, i32 %.03)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nsw i64 %indvars.iv.next to i32
   %24 = icmp ugt i32 %12, %23
@@ -550,18 +550,18 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.054 = phi i32 [ -1, %.lr.ph ], [ %spec.select50, %15 ]
-  %.03653 = phi i32 [ 0, %.lr.ph ], [ %.137, %15 ]
-  %.03852 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %15 ]
+  %.04 = phi i32 [ -1, %.lr.ph ], [ %spec.select50, %15 ]
+  %.0363 = phi i32 [ 0, %.lr.ph ], [ %.137, %15 ]
+  %.0382 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %15 ]
   %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %2, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %20, %.03852
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %20, i32 %.03852)
-  %spec.select50 = select i1 %21, i32 %17, i32 %.054
-  %.137 = tail call i32 @llvm.smax.i32(i32 %20, i32 %.03653)
+  %21 = icmp slt i32 %20, %.0382
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %20, i32 %.0382)
+  %spec.select50 = select i1 %21, i32 %17, i32 %.04
+  %.137 = tail call i32 @llvm.smax.i32(i32 %20, i32 %.0363)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = trunc nsw i64 %indvars.iv.next to i32
   %23 = icmp ugt i32 %10, %22

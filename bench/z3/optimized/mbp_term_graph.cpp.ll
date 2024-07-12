@@ -3171,15 +3171,15 @@ invoke.cont5.thread:                              ; preds = %invoke.cont5.thread
 for.body:                                         ; preds = %invoke.cont5.thread
   %arrayidx.i.i13 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx.i.i13, align 8
-  %m_kind.i.i.i.i35.i = getelementptr inbounds i8, ptr %10, i64 4
-  %bf.load.i.i.i.i36.i = load i32, ptr %m_kind.i.i.i.i35.i, align 4
-  %bf.clear.i.i.i.i37.i = and i32 %bf.load.i.i.i.i36.i, 65535
-  %cmp.i.i.i38.i = icmp eq i32 %bf.clear.i.i.i.i37.i, 0
-  br i1 %cmp.i.i.i38.i, label %land.rhs.i.i.i.i, label %if.end.i
+  %m_kind.i.i.i.i9.i = getelementptr inbounds i8, ptr %10, i64 4
+  %bf.load.i.i.i.i10.i = load i32, ptr %m_kind.i.i.i.i9.i, align 4
+  %bf.clear.i.i.i.i11.i = and i32 %bf.load.i.i.i.i10.i, 65535
+  %cmp.i.i.i12.i = icmp eq i32 %bf.clear.i.i.i.i11.i, 0
+  br i1 %cmp.i.i.i12.i, label %land.rhs.i.i.i.i, label %if.end.i
 
 land.rhs.i.i.i.i:                                 ; preds = %for.body, %if.then.i
-  %lit.tr39.i = phi ptr [ %17, %if.then.i ], [ %10, %for.body ]
-  %m_decl.i.i.i.i.i = getelementptr inbounds i8, ptr %lit.tr39.i, i64 16
+  %lit.tr13.i = phi ptr [ %17, %if.then.i ], [ %10, %for.body ]
+  %m_decl.i.i.i.i.i = getelementptr inbounds i8, ptr %lit.tr13.i, i64 16
   %11 = load ptr, ptr %m_decl.i.i.i.i.i, align 8
   %m_info.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %m_info.i.i.i.i.i.i, align 8
@@ -3196,13 +3196,13 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i.i:        ; preds = %land.rhs.i.i.i.i
   br i1 %15, label %land.lhs.true.i.i, label %if.end.loopexit.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i
-  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %lit.tr39.i, i64 24
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %lit.tr13.i, i64 24
   %16 = load i32, ptr %m_num_args.i.i.i, align 8
   %cmp.i.i14 = icmp eq i32 %16, 1
   br i1 %cmp.i.i14, label %if.then.i, label %if.end.loopexit.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i.i
-  %m_args.i.i.i = getelementptr inbounds i8, ptr %lit.tr39.i, i64 32
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %lit.tr13.i, i64 32
   %17 = load ptr, ptr %m_args.i.i.i, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 4
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
@@ -3211,13 +3211,13 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end.loopexit.i
 
 if.end.loopexit.i:                                ; preds = %if.then.i, %land.lhs.true.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %land.rhs.i.i.i.i
-  %lit.tr.lcssa.ph.i = phi ptr [ %lit.tr39.i, %land.rhs.i.i.i.i ], [ %17, %if.then.i ], [ %lit.tr39.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ %lit.tr39.i, %land.lhs.true.i.i ]
+  %lit.tr.lcssa.ph.i = phi ptr [ %lit.tr13.i, %land.rhs.i.i.i.i ], [ %17, %if.then.i ], [ %lit.tr13.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ %lit.tr13.i, %land.lhs.true.i.i ]
   %m_kind.i.i.i.i3.phi.trans.insert.i = getelementptr inbounds i8, ptr %lit.tr.lcssa.ph.i, i64 4
   %bf.load.i.i.i.i4.pre.i = load i32, ptr %m_kind.i.i.i.i3.phi.trans.insert.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.loopexit.i, %for.body
-  %bf.load.i.i.i.i4.i = phi i32 [ %bf.load.i.i.i.i36.i, %for.body ], [ %bf.load.i.i.i.i4.pre.i, %if.end.loopexit.i ]
+  %bf.load.i.i.i.i4.i = phi i32 [ %bf.load.i.i.i.i10.i, %for.body ], [ %bf.load.i.i.i.i4.pre.i, %if.end.loopexit.i ]
   %lit.tr.lcssa.i = phi ptr [ %10, %for.body ], [ %lit.tr.lcssa.ph.i, %if.end.loopexit.i ]
   %bf.clear.i.i.i.i5.i = and i32 %bf.load.i.i.i.i4.i, 65535
   %cmp.i.i.i6.i = icmp eq i32 %bf.clear.i.i.i.i5.i, 0

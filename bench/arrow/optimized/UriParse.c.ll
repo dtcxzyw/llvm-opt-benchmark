@@ -3785,23 +3785,23 @@ if.end.i.i:                                       ; preds = %if.end8.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
-  %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
+  %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
-  %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
-  %7 = load i8, ptr %first.tr7.i.i.i, align 1
+  %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
+  %7 = load i8, ptr %first.tr2.i.i.i, align 1
   %.off.i.i.i = add i8 %7, -48
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %add.ptr.i.i.i, %afterLast
   br i1 %exitcond.not.i.i.i, label %if.end4.i.i, label %if.end.i.i.i
 
 if.end4.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
   store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
@@ -5207,12 +5207,12 @@ if.end3:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
   %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 2
-  %cmp.not6.i = icmp ult ptr %add.ptr4, %afterLast
-  br i1 %cmp.not6.i, label %if.end.i, label %if.then11
+  %cmp.not1.i = icmp ult ptr %add.ptr4, %afterLast
+  br i1 %cmp.not1.i, label %if.end.i, label %if.then11
 
 if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
-  %first.tr7.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
-  %3 = load i8, ptr %first.tr7.i, align 1
+  %first.tr2.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
+  %3 = load i8, ptr %first.tr2.i, align 1
   switch i8 %3, label %if.end8 [
     i8 48, label %sw.bb.i
     i8 49, label %sw.bb.i
@@ -5239,12 +5239,12 @@ if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.tr7.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %first.tr2.i, i64 1
   %exitcond.not.i = icmp eq ptr %add.ptr.i, %afterLast
   br i1 %exitcond.not.i, label %if.then11, label %if.end.i
 
 if.end8:                                          ; preds = %if.end.i
-  %cmp9.not = icmp ult ptr %first.tr7.i, %afterLast
+  %cmp9.not = icmp ult ptr %first.tr2.i, %afterLast
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %if.end8
@@ -5264,7 +5264,7 @@ if.end12:                                         ; preds = %if.end8
 if.then16:                                        ; preds = %if.end12
   %call.i42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
-  store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
+  store ptr %first.tr2.i, ptr %errorPos1.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i44, align 8
   br label %return
@@ -5275,7 +5275,7 @@ if.end17:                                         ; preds = %if.end12
   %6 = load ptr, ptr %state, align 8
   %ipFuture = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %first, ptr %ipFuture, align 8
-  %add.ptr21 = getelementptr inbounds i8, ptr %first.tr7.i, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %first.tr2.i, i64 1
   %cmp.not16.i = icmp ult ptr %add.ptr21, %afterLast
   br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopA.exit.thread
 
@@ -5867,23 +5867,23 @@ if.end.i:                                         ; preds = %if.end5
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 1
-  %cmp.not6.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not6.i.i, label %if.end.i.i, label %if.end4.i
+  %cmp.not1.i.i = icmp ult ptr %add.ptr.i, %afterLast
+  br i1 %cmp.not1.i.i, label %if.end.i.i, label %if.end4.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
-  %first.tr7.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
-  %4 = load i8, ptr %first.tr7.i.i, align 1
+  %first.tr2.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
+  %4 = load i8, ptr %first.tr2.i.i, align 1
   %.off.i.i = add i8 %4, -48
   %switch.i.i = icmp ult i8 %.off.i.i, 10
   br i1 %switch.i.i, label %sw.bb.i.i, label %if.end4.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %add.ptr.i.i, %afterLast
   br i1 %exitcond.not.i.i, label %if.end4.i, label %if.end.i.i
 
 if.end4.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
-  %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr7.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
+  %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr2.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
   %portText.i = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %add.ptr.i, ptr %portText.i, align 8
@@ -6050,23 +6050,23 @@ if.end.i27.i:                                     ; preds = %sw.default.i
 
 sw.bb.i.i20:                                      ; preds = %if.end.i27.i
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %first.tr.i, i64 1
-  %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
-  br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
+  %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb.i.i.i
-  %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
-  %21 = load i8, ptr %first.tr7.i.i.i, align 1
+  %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
+  %21 = load i8, ptr %first.tr2.i.i.i, align 1
   %.off.i.i.i = add i8 %21, -48
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %add.ptr.i.i.i, %afterLast
   br i1 %exitcond.not.i.i.i, label %if.end4.i.i, label %if.end.i.i.i
 
 if.end4.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %22 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %22, i64 80
   store ptr %add.ptr.i.i21, ptr %portText.i.i, align 8
@@ -6977,23 +6977,23 @@ if.end.i.i:                                       ; preds = %if.end7.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
-  %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
-  %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
-  %7 = load i32, ptr %first.tr7.i.i.i, align 4
+  %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
+  %7 = load i32, ptr %first.tr2.i.i.i, align 4
   %.off.i.i.i = add i32 %7, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
   store ptr %add.ptr.i.i, ptr %portText.i.i, align 8
@@ -8399,12 +8399,12 @@ if.end3:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3, %if.end3
   %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 8
-  %cmp.not6.i = icmp ult ptr %add.ptr4, %afterLast
-  br i1 %cmp.not6.i, label %if.end.i, label %if.then9
+  %cmp.not1.i = icmp ult ptr %add.ptr4, %afterLast
+  br i1 %cmp.not1.i, label %if.end.i, label %if.then9
 
 if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
-  %first.tr7.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
-  %3 = load i32, ptr %first.tr7.i, align 4
+  %first.tr2.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
+  %3 = load i32, ptr %first.tr2.i, align 4
   switch i32 %3, label %if.end7 [
     i32 48, label %sw.bb.i
     i32 49, label %sw.bb.i
@@ -8431,12 +8431,12 @@ if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.tr7.i, i64 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %first.tr2.i, i64 4
   %cmp.not.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %if.then9
 
 if.end7:                                          ; preds = %if.end.i
-  %cmp8.not = icmp ult ptr %first.tr7.i, %afterLast
+  %cmp8.not = icmp ult ptr %first.tr2.i, %afterLast
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %if.end7
@@ -8456,7 +8456,7 @@ if.end10:                                         ; preds = %if.end7
 if.then12:                                        ; preds = %if.end10
   %call.i42 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %5, ptr noundef %memory)
   %errorPos1.i43 = getelementptr inbounds i8, ptr %state, i64 16
-  store ptr %first.tr7.i, ptr %errorPos1.i43, align 8
+  store ptr %first.tr2.i, ptr %errorPos1.i43, align 8
   %errorCode.i44 = getelementptr inbounds i8, ptr %state, i64 8
   store i32 1, ptr %errorCode.i44, align 8
   br label %return
@@ -8467,7 +8467,7 @@ if.end13:                                         ; preds = %if.end10
   %6 = load ptr, ptr %state, align 8
   %ipFuture = getelementptr inbounds i8, ptr %6, i64 64
   store ptr %first, ptr %ipFuture, align 8
-  %add.ptr17 = getelementptr inbounds i8, ptr %first.tr7.i, i64 4
+  %add.ptr17 = getelementptr inbounds i8, ptr %first.tr2.i, i64 4
   %cmp.not16.i = icmp ult ptr %add.ptr17, %afterLast
   br i1 %cmp.not16.i, label %if.end.preheader.i, label %uriParseIpFutLoopW.exit.thread
 
@@ -9050,23 +9050,23 @@ if.end.i:                                         ; preds = %if.end4
 
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 4
-  %cmp.not6.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not6.i.i, label %if.end.i.i, label %if.end3.i
+  %cmp.not1.i.i = icmp ult ptr %add.ptr.i, %afterLast
+  br i1 %cmp.not1.i.i, label %if.end.i.i, label %if.end3.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
-  %first.tr7.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
-  %4 = load i32, ptr %first.tr7.i.i, align 4
+  %first.tr2.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
+  %4 = load i32, ptr %first.tr2.i.i, align 4
   %.off.i.i = add i32 %4, -48
   %switch.i.i = icmp ult i32 %.off.i.i, 10
   br i1 %switch.i.i, label %sw.bb.i.i, label %if.end3.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i, i64 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i, i64 4
   %cmp.not.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
-  %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr7.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
+  %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr2.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
   %portText.i = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %add.ptr.i, ptr %portText.i, align 8
@@ -9233,23 +9233,23 @@ if.end.i27.i:                                     ; preds = %sw.default.i
 
 sw.bb.i.i20:                                      ; preds = %if.end.i27.i
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %first.tr.i, i64 4
-  %cmp.not6.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
-  br i1 %cmp.not6.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb.i.i.i
-  %first.tr7.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
-  %21 = load i32, ptr %first.tr7.i.i.i, align 4
+  %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
+  %21 = load i32, ptr %first.tr2.i.i.i, align 4
   %.off.i.i.i = add i32 %21, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
   br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr7.i.i.i, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
-  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr7.i.i.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %22 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %22, i64 80
   store ptr %add.ptr.i.i21, ptr %portText.i.i, align 8

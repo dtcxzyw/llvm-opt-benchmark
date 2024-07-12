@@ -628,7 +628,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.03040 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
+  %.0303 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -637,7 +637,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef %14, ptr noundef %1, ptr noundef %2)
   %.not37 = icmp eq i32 %15, 0
-  %spec.select = select i1 %.not37, i32 %.03040, i32 1
+  %spec.select = select i1 %.not37, i32 %.0303, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i16, ptr %4, align 8
   %17 = sext i16 %16 to i64
@@ -658,18 +658,18 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 
 .preheader:                                       ; preds = %19
   %22 = icmp sgt i16 %16, 0
-  br i1 %22, label %.lr.ph43, label %.loopexit
+  br i1 %22, label %.lr.ph6, label %.loopexit
 
-.lr.ph43:                                         ; preds = %.preheader
+.lr.ph6:                                          ; preds = %.preheader
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %.not36 = icmp eq ptr %1, null
-  br i1 %.not36, label %.lr.ph43.split.us, label %.lr.ph43.split
+  br i1 %.not36, label %.lr.ph6.split.us, label %.lr.ph6.split
 
-.lr.ph43.split.us:                                ; preds = %.lr.ph43, %36
-  %24 = phi i16 [ %37, %36 ], [ %16, %.lr.ph43 ]
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %36 ], [ 0, %.lr.ph43 ]
+.lr.ph6.split.us:                                 ; preds = %.lr.ph6, %36
+  %24 = phi i16 [ %37, %36 ], [ %16, %.lr.ph6 ]
+  %indvars.iv13 = phi i64 [ %indvars.iv.next14, %36 ], [ 0, %.lr.ph6 ]
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv50
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv13
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
@@ -678,25 +678,25 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %32 = icmp eq i32 %31, 2
   br i1 %32, label %33, label %36
 
-33:                                               ; preds = %.lr.ph43.split.us
+33:                                               ; preds = %.lr.ph6.split.us
   %34 = load i32, ptr %2, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %2, align 4
-  %.pre53 = load i16, ptr %4, align 8
+  %.pre16 = load i16, ptr %4, align 8
   br label %36
 
-36:                                               ; preds = %33, %.lr.ph43.split.us
-  %37 = phi i16 [ %.pre53, %33 ], [ %24, %.lr.ph43.split.us ]
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+36:                                               ; preds = %33, %.lr.ph6.split.us
+  %37 = phi i16 [ %.pre16, %33 ], [ %24, %.lr.ph6.split.us ]
+  %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %38 = sext i16 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next51, %38
-  br i1 %39, label %.lr.ph43.split.us, label %.loopexit, !llvm.loop !15
+  %39 = icmp slt i64 %indvars.iv.next14, %38
+  br i1 %39, label %.lr.ph6.split.us, label %.loopexit, !llvm.loop !15
 
-.lr.ph43.split:                                   ; preds = %.lr.ph43, %57
-  %40 = phi i16 [ %58, %57 ], [ %16, %.lr.ph43 ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %57 ], [ 0, %.lr.ph43 ]
+.lr.ph6.split:                                    ; preds = %.lr.ph6, %57
+  %40 = phi i16 [ %58, %57 ], [ %16, %.lr.ph6 ]
+  %indvars.iv10 = phi i64 [ %indvars.iv.next11, %57 ], [ 0, %.lr.ph6 ]
   %41 = load ptr, ptr %23, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv47
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv10
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -705,7 +705,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %48 = icmp eq i32 %47, 2
   br i1 %48, label %49, label %57
 
-49:                                               ; preds = %.lr.ph43.split
+49:                                               ; preds = %.lr.ph6.split
   %50 = getelementptr inbounds i8, ptr %46, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 8
@@ -718,12 +718,12 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %.pre = load i16, ptr %4, align 8
   br label %57
 
-57:                                               ; preds = %49, %.lr.ph43.split
-  %58 = phi i16 [ %.pre, %49 ], [ %40, %.lr.ph43.split ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+57:                                               ; preds = %49, %.lr.ph6.split
+  %58 = phi i16 [ %.pre, %49 ], [ %40, %.lr.ph6.split ]
+  %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %59 = sext i16 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next48, %59
-  br i1 %60, label %.lr.ph43.split, label %.loopexit, !llvm.loop !15
+  %60 = icmp slt i64 %indvars.iv.next11, %59
+  br i1 %60, label %.lr.ph6.split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %57, %36, %.preheader, %19, %._crit_edge, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %._crit_edge ], [ 1, %19 ], [ 0, %.preheader ], [ 0, %36 ], [ 0, %57 ]

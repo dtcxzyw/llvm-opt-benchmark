@@ -16233,7 +16233,7 @@ lpad87.loopexit.i:                                ; preds = %invoke.cont109.i, %
           cleanup
   br label %lpad87.i
 
-lpad87.loopexit.split-lp.i:                       ; preds = %invoke.cont86.i, %invoke.cont126.i, %invoke.cont120.i, %invoke.cont116.i
+lpad87.loopexit.split-lp.i:                       ; preds = %invoke.cont126.i, %invoke.cont120.i, %invoke.cont116.i, %invoke.cont86.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad87.i
@@ -17373,8 +17373,8 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %m_num_args.i = getelementptr inbounds i8, ptr %e, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8
-  %cmp18.not = icmp eq i32 %0, 0
-  br i1 %cmp18.not, label %if.end9, label %for.body.lr.ph
+  %cmp12.not = icmp eq i32 %0, 0
+  br i1 %cmp12.not, label %if.end9, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_args.i = getelementptr inbounds i8, ptr %e, i64 32

@@ -2218,7 +2218,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %66, %_ZNSt6vectorIi
   %125 = getelementptr inbounds i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %126, -1
-  br i1 %127, label %.loopexit149, label %_ZNK11gmx_ga2la_t4findEi.exit.i
+  br i1 %127, label %.loopexit33, label %_ZNK11gmx_ga2la_t4findEi.exit.i
 
 128:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
   %129 = getelementptr inbounds i8, ptr %8, i64 24
@@ -2245,27 +2245,27 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %66, %_ZNSt6vectorIi
   %141 = getelementptr inbounds i8, ptr %135, i64 12
   %142 = load i32, ptr %141, align 4
   %143 = icmp sgt i32 %142, -1
-  br i1 %143, label %133, label %.loopexit149, !llvm.loop !19
+  br i1 %143, label %133, label %.loopexit33, !llvm.loop !19
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %138, %121
   %144 = phi ptr [ %132, %138 ], [ %123, %121 ]
   %145 = phi i32 [ %.pre.i, %138 ], [ %126, %121 ]
   %.0.i.i = phi ptr [ %139, %138 ], [ %124, %121 ]
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %.loopexit149
+  br i1 %146, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %.loopexit33
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i
   %147 = load i32, ptr %.0.i.i, align 4
   br label %150
 
-.loopexit149:                                     ; preds = %140, %_ZNK11gmx_ga2la_t4findEi.exit.i, %121
+.loopexit33:                                      ; preds = %140, %_ZNK11gmx_ga2la_t4findEi.exit.i, %121
   %148 = phi ptr [ %144, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %123, %121 ], [ %132, %140 ]
   %149 = xor i32 %114, -1
   br label %150
 
-150:                                              ; preds = %.loopexit149, %_ZNK11gmx_ga2la_t8findHomeEi.exit
-  %151 = phi ptr [ %148, %.loopexit149 ], [ %144, %_ZNK11gmx_ga2la_t8findHomeEi.exit ]
-  %.sroa.0126.0 = phi i32 [ %149, %.loopexit149 ], [ %147, %_ZNK11gmx_ga2la_t8findHomeEi.exit ]
+150:                                              ; preds = %.loopexit33, %_ZNK11gmx_ga2la_t8findHomeEi.exit
+  %151 = phi ptr [ %148, %.loopexit33 ], [ %144, %_ZNK11gmx_ga2la_t8findHomeEi.exit ]
+  %.sroa.010.0 = phi i32 [ %149, %.loopexit33 ], [ %147, %_ZNK11gmx_ga2la_t8findHomeEi.exit ]
   br i1 %120, label %152, label %158
 
 152:                                              ; preds = %150
@@ -2274,7 +2274,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   %155 = getelementptr inbounds i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = icmp eq i32 %156, -1
-  br i1 %157, label %.loopexit148, label %_ZNK11gmx_ga2la_t4findEi.exit.i90
+  br i1 %157, label %.loopexit32, label %_ZNK11gmx_ga2la_t4findEi.exit.i90
 
 158:                                              ; preds = %150
   %159 = getelementptr inbounds i8, ptr %8, i64 24
@@ -2300,24 +2300,24 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   %170 = getelementptr inbounds i8, ptr %164, i64 12
   %171 = load i32, ptr %170, align 4
   %172 = icmp sgt i32 %171, -1
-  br i1 %172, label %162, label %.loopexit148, !llvm.loop !19
+  br i1 %172, label %162, label %.loopexit32, !llvm.loop !19
 
 _ZNK11gmx_ga2la_t4findEi.exit.i90:                ; preds = %167, %152
   %173 = phi i32 [ %.pre.i89, %167 ], [ %156, %152 ]
   %.0.i.i91 = phi ptr [ %168, %167 ], [ %154, %152 ]
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %_ZNK11gmx_ga2la_t8findHomeEi.exit93, label %.loopexit148
+  br i1 %174, label %_ZNK11gmx_ga2la_t8findHomeEi.exit93, label %.loopexit32
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit93:              ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i90
   %175 = load i32, ptr %.0.i.i91, align 4
   br label %177
 
-.loopexit148:                                     ; preds = %169, %_ZNK11gmx_ga2la_t4findEi.exit.i90, %152
+.loopexit32:                                      ; preds = %169, %_ZNK11gmx_ga2la_t4findEi.exit.i90, %152
   %176 = xor i32 %117, -1
   br label %177
 
-177:                                              ; preds = %.loopexit148, %_ZNK11gmx_ga2la_t8findHomeEi.exit93
-  %.sroa.3.0 = phi i32 [ %176, %.loopexit148 ], [ %175, %_ZNK11gmx_ga2la_t8findHomeEi.exit93 ]
+177:                                              ; preds = %.loopexit32, %_ZNK11gmx_ga2la_t8findHomeEi.exit93
+  %.sroa.3.0 = phi i32 [ %176, %.loopexit32 ], [ %175, %_ZNK11gmx_ga2la_t8findHomeEi.exit93 ]
   %178 = getelementptr inbounds i8, ptr %11, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %11, align 8
@@ -2409,7 +2409,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   %218 = load ptr, ptr %11, align 8
   %219 = getelementptr i8, ptr %218, i64 %183
   %220 = getelementptr i8, ptr %219, i64 4
-  store i32 %.sroa.0126.0, ptr %220, align 4
+  store i32 %.sroa.010.0, ptr %220, align 4
   %221 = load ptr, ptr %11, align 8
   %222 = getelementptr i8, ptr %221, i64 %183
   %223 = getelementptr i8, ptr %222, i64 8
@@ -2608,7 +2608,7 @@ _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %235, %_ZN3gmx9HashedMapIiE6insertEiRKi.exit
   %319 = icmp sgt i32 %4, 0
-  br i1 %319, label %320, label %.loopexit147
+  br i1 %319, label %320, label %.loopexit31
 
 320:                                              ; preds = %_ZN3gmx9HashedMapIiE4findEi.exit
   %321 = sext i32 %2 to i64
@@ -2621,8 +2621,8 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %235, %_ZN3gmx9Hashe
   %328 = load i32, ptr %327, align 4
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds i32, ptr %323, i64 %329
-  %.not146157 = icmp eq i32 %326, %328
-  br i1 %.not146157, label %.loopexit147, label %.lr.ph
+  %.not3041 = icmp eq i32 %326, %328
+  br i1 %.not3041, label %.loopexit31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %320
   %331 = sext i32 %326 to i64
@@ -2652,8 +2652,8 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %235, %_ZN3gmx9Hashe
   br label %354
 
 354:                                              ; preds = %.lr.ph, %_ZNK11gmx_ga2la_t8findHomeEi.exit116
-  %.sroa.0119.0158 = phi ptr [ %332, %.lr.ph ], [ %393, %_ZNK11gmx_ga2la_t8findHomeEi.exit116 ]
-  %355 = load i32, ptr %.sroa.0119.0158, align 4
+  %.sroa.03.042 = phi ptr [ %332, %.lr.ph ], [ %393, %_ZNK11gmx_ga2la_t8findHomeEi.exit116 ]
+  %355 = load i32, ptr %.sroa.03.042, align 4
   %.not72 = icmp eq i32 %355, %0
   br i1 %.not72, label %_ZNK11gmx_ga2la_t8findHomeEi.exit116, label %356
 
@@ -2727,11 +2727,11 @@ _ZNK11gmx_ga2la_t4findEi.exit.i113:               ; preds = %386, %371
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit116
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit116:             ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i113, %354, %.loopexit
-  %393 = getelementptr inbounds i8, ptr %.sroa.0119.0158, i64 4
-  %.not146 = icmp eq ptr %393, %330
-  br i1 %.not146, label %.loopexit147, label %354
+  %393 = getelementptr inbounds i8, ptr %.sroa.03.042, i64 4
+  %.not30 = icmp eq ptr %393, %330
+  br i1 %.not30, label %.loopexit31, label %354
 
-.loopexit147:                                     ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit116, %320, %_ZN3gmx9HashedMapIiE4findEi.exit
+.loopexit31:                                      ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit116, %320, %_ZN3gmx9HashedMapIiE4findEi.exit
   ret void
 }
 

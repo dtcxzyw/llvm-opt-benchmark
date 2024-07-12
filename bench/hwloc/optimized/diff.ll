@@ -781,14 +781,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr nound
 72:                                               ; preds = %70, %63
   %73 = tail call fastcc i32 @hwloc_append_diff_obj_attr_string(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null, ptr noundef %65, ptr noundef %67, ptr noundef %3, ptr noundef %4)
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %hwloc_append_diff_too_complex.exit, label %._crit_edge305
+  br i1 %74, label %hwloc_append_diff_too_complex.exit, label %._crit_edge82
 
-._crit_edge305:                                   ; preds = %72
+._crit_edge82:                                    ; preds = %72
   %.pre = load i32, ptr %1, align 8
   br label %75
 
-75:                                               ; preds = %._crit_edge305, %70, %69
-  %76 = phi i32 [ %.pre, %._crit_edge305 ], [ %11, %70 ], [ %11, %69 ]
+75:                                               ; preds = %._crit_edge82, %70, %69
+  %76 = phi i32 [ %.pre, %._crit_edge82 ], [ %11, %70 ], [ %11, %69 ]
   switch i32 %76, label %112 [
     i32 13, label %77
     i32 4, label %87
@@ -876,8 +876,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr nound
   br i1 %.not221, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %112
-  %.not283 = icmp eq i32 %115, 0
-  br i1 %.not283, label %._crit_edge, label %.lr.ph
+  %.not60 = icmp eq i32 %115, 0
+  br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %136
   %119 = phi i32 [ %137, %136 ], [ %115, %.preheader ]
@@ -904,14 +904,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr nound
 133:                                              ; preds = %127
   %134 = tail call fastcc i32 @hwloc_append_diff_obj_attr_string(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef %124, ptr noundef %129, ptr noundef %131, ptr noundef %3, ptr noundef %4)
   %135 = icmp slt i32 %134, 0
-  br i1 %135, label %hwloc_append_diff_too_complex.exit, label %._crit_edge306
+  br i1 %135, label %hwloc_append_diff_too_complex.exit, label %._crit_edge83
 
-._crit_edge306:                                   ; preds = %133
-  %.pre307 = load i32, ptr %114, align 8
+._crit_edge83:                                    ; preds = %133
+  %.pre84 = load i32, ptr %114, align 8
   br label %136
 
-136:                                              ; preds = %._crit_edge306, %127
-  %137 = phi i32 [ %.pre307, %._crit_edge306 ], [ %119, %127 ]
+136:                                              ; preds = %._crit_edge83, %127
+  %137 = phi i32 [ %.pre84, %._crit_edge83 ], [ %119, %127 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = zext i32 %137 to i64
   %139 = icmp ult i64 %indvars.iv.next, %138
@@ -920,136 +920,136 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr nound
 ._crit_edge:                                      ; preds = %136, %.preheader
   %140 = getelementptr inbounds i8, ptr %1, i64 120
   %141 = getelementptr inbounds i8, ptr %2, i64 120
-  %.0165248 = load ptr, ptr %141, align 8
-  %.0166249 = load ptr, ptr %140, align 8
-  %142 = icmp ne ptr %.0166249, null
-  %143 = icmp ne ptr %.0165248, null
+  %.016525 = load ptr, ptr %141, align 8
+  %.016626 = load ptr, ptr %140, align 8
+  %142 = icmp ne ptr %.016626, null
+  %143 = icmp ne ptr %.016525, null
   %144 = select i1 %142, i1 %143, i1 false
-  br i1 %144, label %.lr.ph253, label %._crit_edge254
+  br i1 %144, label %.lr.ph30, label %._crit_edge31
 
-.lr.ph253:                                        ; preds = %._crit_edge, %147
-  %.0166251 = phi ptr [ %.0166, %147 ], [ %.0166249, %._crit_edge ]
-  %.0165250 = phi ptr [ %.0165, %147 ], [ %.0165248, %._crit_edge ]
-  %145 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.0166251, ptr noundef nonnull %.0165250, ptr noundef %3, ptr noundef %4)
+.lr.ph30:                                         ; preds = %._crit_edge, %147
+  %.016628 = phi ptr [ %.0166, %147 ], [ %.016626, %._crit_edge ]
+  %.016527 = phi ptr [ %.0165, %147 ], [ %.016525, %._crit_edge ]
+  %145 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.016628, ptr noundef nonnull %.016527, ptr noundef %3, ptr noundef %4)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %hwloc_append_diff_too_complex.exit, label %147
 
-147:                                              ; preds = %.lr.ph253
-  %148 = getelementptr inbounds i8, ptr %.0166251, i64 88
-  %149 = getelementptr inbounds i8, ptr %.0165250, i64 88
+147:                                              ; preds = %.lr.ph30
+  %148 = getelementptr inbounds i8, ptr %.016628, i64 88
+  %149 = getelementptr inbounds i8, ptr %.016527, i64 88
   %.0165 = load ptr, ptr %149, align 8
   %.0166 = load ptr, ptr %148, align 8
   %150 = icmp ne ptr %.0166, null
   %151 = icmp ne ptr %.0165, null
   %152 = select i1 %150, i1 %151, i1 false
-  br i1 %152, label %.lr.ph253, label %._crit_edge254, !llvm.loop !16
+  br i1 %152, label %.lr.ph30, label %._crit_edge31, !llvm.loop !16
 
-._crit_edge254:                                   ; preds = %147, %._crit_edge
-  %.lcssa244 = phi i1 [ %142, %._crit_edge ], [ %150, %147 ]
-  %.lcssa242 = phi i1 [ %143, %._crit_edge ], [ %151, %147 ]
-  %or.cond = select i1 %.lcssa244, i1 true, i1 %.lcssa242
+._crit_edge31:                                    ; preds = %147, %._crit_edge
+  %.lcssa21 = phi i1 [ %142, %._crit_edge ], [ %150, %147 ]
+  %.lcssa19 = phi i1 [ %143, %._crit_edge ], [ %151, %147 ]
+  %or.cond = select i1 %.lcssa21, i1 true, i1 %.lcssa19
   br i1 %or.cond, label %.loopexit, label %153
 
-153:                                              ; preds = %._crit_edge254
+153:                                              ; preds = %._crit_edge31
   %154 = getelementptr inbounds i8, ptr %1, i64 144
   %155 = getelementptr inbounds i8, ptr %2, i64 144
-  %.1256 = load ptr, ptr %155, align 8
-  %.1167257 = load ptr, ptr %154, align 8
-  %156 = icmp ne ptr %.1167257, null
-  %157 = icmp ne ptr %.1256, null
+  %.133 = load ptr, ptr %155, align 8
+  %.116734 = load ptr, ptr %154, align 8
+  %156 = icmp ne ptr %.116734, null
+  %157 = icmp ne ptr %.133, null
   %158 = select i1 %156, i1 %157, i1 false
-  br i1 %158, label %.lr.ph261, label %._crit_edge262
+  br i1 %158, label %.lr.ph38, label %._crit_edge39
 
-.lr.ph261:                                        ; preds = %153, %161
-  %.1167259 = phi ptr [ %.1167, %161 ], [ %.1167257, %153 ]
-  %.1258 = phi ptr [ %.1, %161 ], [ %.1256, %153 ]
-  %159 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.1167259, ptr noundef nonnull %.1258, ptr noundef %3, ptr noundef %4)
+.lr.ph38:                                         ; preds = %153, %161
+  %.116736 = phi ptr [ %.1167, %161 ], [ %.116734, %153 ]
+  %.135 = phi ptr [ %.1, %161 ], [ %.133, %153 ]
+  %159 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.116736, ptr noundef nonnull %.135, ptr noundef %3, ptr noundef %4)
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %hwloc_append_diff_too_complex.exit, label %161
 
-161:                                              ; preds = %.lr.ph261
-  %162 = getelementptr inbounds i8, ptr %.1167259, i64 88
-  %163 = getelementptr inbounds i8, ptr %.1258, i64 88
+161:                                              ; preds = %.lr.ph38
+  %162 = getelementptr inbounds i8, ptr %.116736, i64 88
+  %163 = getelementptr inbounds i8, ptr %.135, i64 88
   %.1 = load ptr, ptr %163, align 8
   %.1167 = load ptr, ptr %162, align 8
   %164 = icmp ne ptr %.1167, null
   %165 = icmp ne ptr %.1, null
   %166 = select i1 %164, i1 %165, i1 false
-  br i1 %166, label %.lr.ph261, label %._crit_edge262, !llvm.loop !17
+  br i1 %166, label %.lr.ph38, label %._crit_edge39, !llvm.loop !17
 
-._crit_edge262:                                   ; preds = %161, %153
-  %.lcssa239 = phi i1 [ %156, %153 ], [ %164, %161 ]
-  %.lcssa237 = phi i1 [ %157, %153 ], [ %165, %161 ]
-  %or.cond3 = select i1 %.lcssa239, i1 true, i1 %.lcssa237
+._crit_edge39:                                    ; preds = %161, %153
+  %.lcssa16 = phi i1 [ %156, %153 ], [ %164, %161 ]
+  %.lcssa14 = phi i1 [ %157, %153 ], [ %165, %161 ]
+  %or.cond3 = select i1 %.lcssa16, i1 true, i1 %.lcssa14
   br i1 %or.cond3, label %.loopexit, label %167
 
-167:                                              ; preds = %._crit_edge262
+167:                                              ; preds = %._crit_edge39
   %168 = getelementptr inbounds i8, ptr %1, i64 160
   %169 = getelementptr inbounds i8, ptr %2, i64 160
-  %.2265 = load ptr, ptr %169, align 8
-  %.2168266 = load ptr, ptr %168, align 8
-  %170 = icmp ne ptr %.2168266, null
-  %171 = icmp ne ptr %.2265, null
+  %.242 = load ptr, ptr %169, align 8
+  %.216843 = load ptr, ptr %168, align 8
+  %170 = icmp ne ptr %.216843, null
+  %171 = icmp ne ptr %.242, null
   %172 = select i1 %170, i1 %171, i1 false
-  br i1 %172, label %.lr.ph270, label %._crit_edge271
+  br i1 %172, label %.lr.ph47, label %._crit_edge48
 
-.lr.ph270:                                        ; preds = %167, %175
-  %.2168268 = phi ptr [ %.2168, %175 ], [ %.2168266, %167 ]
-  %.2267 = phi ptr [ %.2, %175 ], [ %.2265, %167 ]
-  %173 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.2168268, ptr noundef nonnull %.2267, ptr noundef %3, ptr noundef %4)
+.lr.ph47:                                         ; preds = %167, %175
+  %.216845 = phi ptr [ %.2168, %175 ], [ %.216843, %167 ]
+  %.244 = phi ptr [ %.2, %175 ], [ %.242, %167 ]
+  %173 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.216845, ptr noundef nonnull %.244, ptr noundef %3, ptr noundef %4)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %hwloc_append_diff_too_complex.exit, label %175
 
-175:                                              ; preds = %.lr.ph270
-  %176 = getelementptr inbounds i8, ptr %.2168268, i64 88
-  %177 = getelementptr inbounds i8, ptr %.2267, i64 88
+175:                                              ; preds = %.lr.ph47
+  %176 = getelementptr inbounds i8, ptr %.216845, i64 88
+  %177 = getelementptr inbounds i8, ptr %.244, i64 88
   %.2 = load ptr, ptr %177, align 8
   %.2168 = load ptr, ptr %176, align 8
   %178 = icmp ne ptr %.2168, null
   %179 = icmp ne ptr %.2, null
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %.lr.ph270, label %._crit_edge271, !llvm.loop !18
+  br i1 %180, label %.lr.ph47, label %._crit_edge48, !llvm.loop !18
 
-._crit_edge271:                                   ; preds = %175, %167
-  %.lcssa234 = phi i1 [ %170, %167 ], [ %178, %175 ]
-  %.lcssa232 = phi i1 [ %171, %167 ], [ %179, %175 ]
-  %or.cond5 = select i1 %.lcssa234, i1 true, i1 %.lcssa232
+._crit_edge48:                                    ; preds = %175, %167
+  %.lcssa11 = phi i1 [ %170, %167 ], [ %178, %175 ]
+  %.lcssa9 = phi i1 [ %171, %167 ], [ %179, %175 ]
+  %or.cond5 = select i1 %.lcssa11, i1 true, i1 %.lcssa9
   br i1 %or.cond5, label %.loopexit, label %181
 
-181:                                              ; preds = %._crit_edge271
+181:                                              ; preds = %._crit_edge48
   %182 = getelementptr inbounds i8, ptr %1, i64 176
   %183 = getelementptr inbounds i8, ptr %2, i64 176
-  %.3274 = load ptr, ptr %183, align 8
-  %.3169275 = load ptr, ptr %182, align 8
-  %184 = icmp ne ptr %.3169275, null
-  %185 = icmp ne ptr %.3274, null
+  %.351 = load ptr, ptr %183, align 8
+  %.316952 = load ptr, ptr %182, align 8
+  %184 = icmp ne ptr %.316952, null
+  %185 = icmp ne ptr %.351, null
   %186 = select i1 %184, i1 %185, i1 false
-  br i1 %186, label %.lr.ph279, label %._crit_edge280
+  br i1 %186, label %.lr.ph56, label %._crit_edge57
 
-.lr.ph279:                                        ; preds = %181, %189
-  %.3169277 = phi ptr [ %.3169, %189 ], [ %.3169275, %181 ]
-  %.3276 = phi ptr [ %.3, %189 ], [ %.3274, %181 ]
-  %187 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.3169277, ptr noundef nonnull %.3276, ptr noundef %3, ptr noundef %4)
+.lr.ph56:                                         ; preds = %181, %189
+  %.316954 = phi ptr [ %.3169, %189 ], [ %.316952, %181 ]
+  %.353 = phi ptr [ %.3, %189 ], [ %.351, %181 ]
+  %187 = tail call fastcc i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef nonnull %.316954, ptr noundef nonnull %.353, ptr noundef %3, ptr noundef %4)
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %hwloc_append_diff_too_complex.exit, label %189
 
-189:                                              ; preds = %.lr.ph279
-  %190 = getelementptr inbounds i8, ptr %.3169277, i64 88
-  %191 = getelementptr inbounds i8, ptr %.3276, i64 88
+189:                                              ; preds = %.lr.ph56
+  %190 = getelementptr inbounds i8, ptr %.316954, i64 88
+  %191 = getelementptr inbounds i8, ptr %.353, i64 88
   %.3 = load ptr, ptr %191, align 8
   %.3169 = load ptr, ptr %190, align 8
   %192 = icmp ne ptr %.3169, null
   %193 = icmp ne ptr %.3, null
   %194 = select i1 %192, i1 %193, i1 false
-  br i1 %194, label %.lr.ph279, label %._crit_edge280, !llvm.loop !19
+  br i1 %194, label %.lr.ph56, label %._crit_edge57, !llvm.loop !19
 
-._crit_edge280:                                   ; preds = %189, %181
-  %.lcssa229 = phi i1 [ %184, %181 ], [ %192, %189 ]
+._crit_edge57:                                    ; preds = %189, %181
+  %.lcssa6 = phi i1 [ %184, %181 ], [ %192, %189 ]
   %.lcssa = phi i1 [ %185, %181 ], [ %193, %189 ]
-  %or.cond7 = select i1 %.lcssa229, i1 true, i1 %.lcssa
+  %or.cond7 = select i1 %.lcssa6, i1 true, i1 %.lcssa
   br i1 %or.cond7, label %.loopexit, label %hwloc_append_diff_too_complex.exit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge280, %._crit_edge271, %._crit_edge262, %._crit_edge254, %112, %107, %102, %97, %92, %87, %27, %34, %36, %43, %45, %52, %54, %61, %22, %13, %20, %10, %5
+.loopexit:                                        ; preds = %.lr.ph, %._crit_edge57, %._crit_edge48, %._crit_edge39, %._crit_edge31, %112, %107, %102, %97, %92, %87, %27, %34, %36, %43, %45, %52, %54, %61, %22, %13, %20, %10, %5
   %195 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not.i = icmp eq ptr %195, null
   br i1 %.not.i, label %hwloc_append_diff_too_complex.exit, label %196
@@ -1076,8 +1076,8 @@ hwloc_append_diff.exit.i:                         ; preds = %200, %196
   store ptr null, ptr %203, align 8
   br label %hwloc_append_diff_too_complex.exit
 
-hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph253, %.lr.ph261, %.lr.ph270, %.lr.ph279, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge280, %84, %72
-  %.0 = phi i32 [ -1, %72 ], [ -1, %84 ], [ 0, %._crit_edge280 ], [ 0, %.loopexit ], [ 0, %hwloc_append_diff.exit.i ], [ %187, %.lr.ph279 ], [ %173, %.lr.ph270 ], [ %159, %.lr.ph261 ], [ %145, %.lr.ph253 ], [ -1, %133 ]
+hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph30, %.lr.ph38, %.lr.ph47, %.lr.ph56, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge57, %84, %72
+  %.0 = phi i32 [ -1, %72 ], [ -1, %84 ], [ 0, %._crit_edge57 ], [ 0, %.loopexit ], [ 0, %hwloc_append_diff.exit.i ], [ %187, %.lr.ph56 ], [ %173, %.lr.ph47 ], [ %159, %.lr.ph38 ], [ %145, %.lr.ph30 ], [ -1, %133 ]
   ret i32 %.0
 }
 

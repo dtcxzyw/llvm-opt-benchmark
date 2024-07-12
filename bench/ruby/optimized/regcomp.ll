@@ -1477,7 +1477,7 @@ define internal fastcc i32 @subexp_recursive_check_trav(ptr nocapture noundef %0
 tailrecurse:                                      ; preds = %28, %1
   %.tr = phi ptr [ %0, %1 ], [ %30, %28 ]
   %2 = load i32, ptr %.tr, align 8
-  switch i32 %2, label %common.ret12 [
+  switch i32 %2, label %common.ret24 [
     i32 8, label %.preheader
     i32 9, label %.preheader
     i32 5, label %13
@@ -1499,14 +1499,14 @@ tailrecurse:                                      ; preds = %28, %1
 
 8:                                                ; preds = %3
   %9 = icmp slt i32 %6, 0
-  br i1 %9, label %common.ret12, label %10
+  br i1 %9, label %common.ret24, label %10
 
 10:                                               ; preds = %3, %8
   %.1 = phi i32 [ %.032, %8 ], [ 1, %3 ]
   %11 = getelementptr inbounds i8, ptr %.031, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not39 = icmp eq ptr %12, null
-  br i1 %.not39, label %common.ret12, label %3, !llvm.loop !14
+  br i1 %.not39, label %common.ret24, label %3, !llvm.loop !14
 
 13:                                               ; preds = %tailrecurse
   %14 = getelementptr inbounds i8, ptr %.tr, i64 8
@@ -1517,19 +1517,19 @@ tailrecurse:                                      ; preds = %28, %1
   %19 = icmp eq i32 %18, 0
   %20 = icmp eq i32 %16, 1
   %or.cond = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %common.ret12
+  br i1 %or.cond, label %21, label %common.ret24
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds i8, ptr %.tr, i64 48
   store i32 1, ptr %22, align 8
-  br label %common.ret12
+  br label %common.ret24
 
 23:                                               ; preds = %tailrecurse
   %24 = getelementptr inbounds i8, ptr %.tr, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, -1024
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 22)
-  switch i32 %27, label %common.ret12 [
+  switch i32 %27, label %common.ret24 [
     i32 0, label %28
     i32 1, label %28
     i32 3, label %28
@@ -1569,9 +1569,9 @@ tailrecurse:                                      ; preds = %28, %1
   store i32 %44, ptr %32, align 4
   br label %45
 
-common.ret12:                                     ; preds = %21, %13, %10, %8, %23, %tailrecurse, %45
-  %common.ret12.op = phi i32 [ %spec.select, %45 ], [ 1, %21 ], [ %16, %13 ], [ %.1, %10 ], [ %6, %8 ], [ 0, %23 ], [ 0, %tailrecurse ]
-  ret i32 %common.ret12.op
+common.ret24:                                     ; preds = %21, %13, %10, %8, %23, %tailrecurse, %45
+  %common.ret24.op = phi i32 [ %spec.select, %45 ], [ 1, %21 ], [ %16, %13 ], [ %.1, %10 ], [ %6, %8 ], [ 0, %23 ], [ 0, %tailrecurse ]
+  ret i32 %common.ret24.op
 
 45:                                               ; preds = %42, %31
   %46 = getelementptr inbounds i8, ptr %.tr, i64 24
@@ -1581,7 +1581,7 @@ common.ret12:                                     ; preds = %21, %13, %10, %8, %
   %50 = lshr i32 %49, 8
   %51 = and i32 %50, 1
   %spec.select = or i32 %51, %48
-  br label %common.ret12
+  br label %common.ret24
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable

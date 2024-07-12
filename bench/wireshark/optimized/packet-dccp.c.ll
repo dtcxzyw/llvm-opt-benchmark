@@ -2011,16 +2011,16 @@ define internal fastcc void @dissect_options(ptr noundef %0, ptr noundef %1, ptr
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %385
-  %.0392 = phi i32 [ %387, %385 ], [ %3, %5 ]
-  %8 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0392) #10
+  %.02 = phi i32 [ %387, %385 ], [ %3, %5 ]
+  %8 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02) #10
   %9 = load i32, ptr @hf_dccp_option_type, align 4
   %10 = zext i8 %8 to i32
-  %11 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %.0392, i32 noundef 1, i32 noundef %10) #10
+  %11 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef %10) #10
   %12 = icmp ugt i8 %8, 31
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.lr.ph
-  %14 = add nsw i32 %.0392, 1
+  %14 = add nsw i32 %.02, 1
   %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #10
   %16 = icmp ult i8 %15, 2
   br i1 %16, label %17, label %19
@@ -2032,13 +2032,13 @@ define internal fastcc void @dissect_options(ptr noundef %0, ptr noundef %1, ptr
 19:                                               ; preds = %13
   %20 = zext i8 %15 to i32
   call void @proto_item_set_len(ptr noundef %11, i32 noundef %20) #10
-  %21 = add i32 %.0392, 2
+  %21 = add i32 %.02, 2
   %22 = add i8 %15, -2
   br label %23
 
 23:                                               ; preds = %.lr.ph, %19
   %.0371 = phi i8 [ %22, %19 ], [ 1, %.lr.ph ]
-  %.1 = phi i32 [ %21, %19 ], [ %.0392, %.lr.ph ]
+  %.1 = phi i32 [ %21, %19 ], [ %.02, %.lr.ph ]
   %24 = load i32, ptr @ett_dccp_options_item, align 4
   %25 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %24) #10
   switch i8 %8, label %371 [

@@ -211,7 +211,7 @@ lpad.thread71.i:                                  ; preds = %call47.i.noexc.i, %
           cleanup
   br label %delete.notnull.i.i
 
-lpad.i:                                           ; preds = %if.end56.i, %if.then.i.i.i
+lpad.i:                                           ; preds = %if.then.i.i.i, %if.end56.i
   %lpad.thr_comm.split-lp70.i = landingpad { ptr, i32 }
           cleanup
   %isnull.i.i = icmp eq ptr %nativePool.sroa.12.2.i, null
@@ -865,20 +865,20 @@ sw.bb19:                                          ; preds = %entry
 
 sw.bb23:                                          ; preds = %entry
   %call24 = tail call i32 @res_countArrayItems_75(ptr noundef %pResData, i32 noundef %res)
-  %cmp2572 = icmp sgt i32 %call24, 0
-  br i1 %cmp2572, label %for.body.lr.ph, label %sw.epilog
+  %cmp2510 = icmp sgt i32 %call24, 0
+  br i1 %cmp2510, label %for.body.lr.ph, label %sw.epilog
 
 for.body.lr.ph:                                   ; preds = %sw.bb23
   %add = add nsw i32 %depth, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %doCheckParent.074 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
-  %i.073 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i.073, ptr noundef nonnull %itemKey)
+  %doCheckParent.012 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
+  %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i.011, ptr noundef nonnull %itemKey)
   %3 = load ptr, ptr %itemKey, align 8
   %call27 = call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call26, ptr noundef %3, ptr noundef %inKey, i32 noundef %add, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
-  %and60 = and i8 %call27, %doCheckParent.074
+  %and60 = and i8 %call27, %doCheckParent.012
   %4 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %4, 1
   br i1 %cmp.i, label %for.inc, label %if.then31
@@ -886,26 +886,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then31:                                        ; preds = %for.body
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %itemKey, align 8
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11, ptr noundef %itemName, i32 noundef %res, i32 noundef %i.073, ptr noundef %6, i32 noundef %call26) #12
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11, ptr noundef %itemName, i32 noundef %res, i32 noundef %i.011, ptr noundef %6, i32 noundef %call26) #12
   br label %sw.epilog
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.073, 1
-  %exitcond81.not = icmp eq i32 %inc, %call24
-  br i1 %exitcond81.not, label %sw.epilog, label %for.body, !llvm.loop !7
+  %inc = add nuw nsw i32 %i.011, 1
+  %exitcond19.not = icmp eq i32 %inc, %call24
+  br i1 %exitcond19.not, label %sw.epilog, label %for.body, !llvm.loop !7
 
 sw.bb34:                                          ; preds = %entry
   %call36 = tail call i32 @res_countArrayItems_75(ptr noundef %pResData, i32 noundef %res)
-  %cmp3970 = icmp sgt i32 %call36, 0
-  br i1 %cmp3970, label %for.body40.lr.ph, label %sw.epilog
+  %cmp398 = icmp sgt i32 %call36, 0
+  br i1 %cmp398, label %for.body40.lr.ph, label %sw.epilog
 
 for.body40.lr.ph:                                 ; preds = %sw.bb34
   %add43 = add nsw i32 %depth, 1
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc50
-  %i37.071 = phi i32 [ 0, %for.body40.lr.ph ], [ %inc51, %for.inc50 ]
-  %call42 = tail call i32 @res_getArrayItem_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i37.071)
+  %i37.09 = phi i32 [ 0, %for.body40.lr.ph ], [ %inc51, %for.inc50 ]
+  %call42 = tail call i32 @res_getArrayItem_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i37.09)
   %7 = tail call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call42, ptr noundef null, ptr noundef %inKey, i32 noundef %add43, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
   %8 = load i32, ptr %pErrorCode, align 4
   %cmp.i61 = icmp slt i32 %8, 1
@@ -913,11 +913,11 @@ for.body40:                                       ; preds = %for.body40.lr.ph, %
 
 if.then47:                                        ; preds = %for.body40
   %9 = load ptr, ptr @stderr, align 8
-  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.12, ptr noundef %itemName, i32 noundef %res, i32 noundef %i37.071, i32 noundef %call42) #12
+  %call48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.12, ptr noundef %itemName, i32 noundef %res, i32 noundef %i37.09, i32 noundef %call42) #12
   br label %sw.epilog
 
 for.inc50:                                        ; preds = %for.body40
-  %inc51 = add nuw nsw i32 %i37.071, 1
+  %inc51 = add nuw nsw i32 %i37.09, 1
   %exitcond.not = icmp eq i32 %inc51, %call36
   br i1 %exitcond.not, label %sw.epilog, label %for.body40, !llvm.loop !8
 

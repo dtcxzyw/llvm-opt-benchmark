@@ -1040,13 +1040,13 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %6, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %.024 = load ptr, ptr %8, align 8
-  %.not2125 = icmp eq ptr %.024, null
-  br i1 %.not2125, label %._crit_edge, label %.lr.ph
+  %.01 = load ptr, ptr %8, align 8
+  %.not212 = icmp eq ptr %.01, null
+  br i1 %.not212, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %12
-  %.026 = phi ptr [ %.0, %12 ], [ %.024, %7 ]
-  %9 = getelementptr inbounds i8, ptr %.026, i64 72
+  %.03 = phi ptr [ %.0, %12 ], [ %.01, %7 ]
+  %9 = getelementptr inbounds i8, ptr %.03, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %12, label %11
@@ -1056,7 +1056,7 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.026, i64 48
+  %13 = getelementptr inbounds i8, ptr %.03, i64 48
   %.0 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %.0, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -1066,26 +1066,26 @@ define internal fastcc void @sxe_add_namespaces(ptr nocapture noundef readonly %
 
 14:                                               ; preds = %._crit_edge
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.01727 = load ptr, ptr %15, align 8
-  %.not2228 = icmp eq ptr %.01727, null
-  br i1 %.not2228, label %.loopexit, label %.lr.ph31
+  %.0174 = load ptr, ptr %15, align 8
+  %.not225 = icmp eq ptr %.0174, null
+  br i1 %.not225, label %.loopexit, label %.lr.ph8
 
-.lr.ph31:                                         ; preds = %14, %20
-  %.01729 = phi ptr [ %.017, %20 ], [ %.01727, %14 ]
-  %16 = getelementptr inbounds i8, ptr %.01729, i64 8
+.lr.ph8:                                          ; preds = %14, %20
+  %.0176 = phi ptr [ %.017, %20 ], [ %.0174, %14 ]
+  %16 = getelementptr inbounds i8, ptr %.0176, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %.lr.ph31
-  tail call fastcc void @sxe_add_namespaces(ptr noundef nonnull %.01729, i1 noundef zeroext true, ptr noundef %2)
+19:                                               ; preds = %.lr.ph8
+  tail call fastcc void @sxe_add_namespaces(ptr noundef nonnull %.0176, i1 noundef zeroext true, ptr noundef %2)
   br label %20
 
-20:                                               ; preds = %19, %.lr.ph31
-  %21 = getelementptr inbounds i8, ptr %.01729, i64 48
+20:                                               ; preds = %19, %.lr.ph8
+  %21 = getelementptr inbounds i8, ptr %.0176, i64 48
   %.017 = load ptr, ptr %21, align 8
   %.not22 = icmp eq ptr %.017, null
-  br i1 %.not22, label %.loopexit, label %.lr.ph31
+  br i1 %.not22, label %.loopexit, label %.lr.ph8
 
 .loopexit:                                        ; preds = %20, %14, %._crit_edge
   ret void
@@ -1256,14 +1256,14 @@ define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %.016 = load ptr, ptr %8, align 8
-  %.not17 = icmp eq ptr %.016, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.01 = load ptr, ptr %8, align 8
+  %.not2 = icmp eq ptr %.01, null
+  br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.018 = phi ptr [ %.0, %.lr.ph ], [ %.016, %7 ]
-  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef nonnull %.018)
-  %.0 = load ptr, ptr %.018, align 8
+  %.03 = phi ptr [ %.0, %.lr.ph ], [ %.01, %7 ]
+  tail call fastcc void @sxe_add_namespace_name(ptr noundef %2, ptr noundef nonnull %.03)
+  %.0 = load ptr, ptr %.03, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1272,19 +1272,19 @@ define internal fastcc void @sxe_add_registered_namespaces(ptr nocapture noundef
 
 9:                                                ; preds = %._crit_edge
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %.01319 = load ptr, ptr %10, align 8
-  %.not1520 = icmp eq ptr %.01319, null
-  br i1 %.not1520, label %.loopexit, label %.lr.ph23
+  %.0134 = load ptr, ptr %10, align 8
+  %.not155 = icmp eq ptr %.0134, null
+  br i1 %.not155, label %.loopexit, label %.lr.ph8
 
-.lr.ph23:                                         ; preds = %9, %.lr.ph23
-  %.01321 = phi ptr [ %.013, %.lr.ph23 ], [ %.01319, %9 ]
-  tail call fastcc void @sxe_add_registered_namespaces(ptr noundef nonnull %.01321, i1 noundef zeroext true, ptr noundef %2)
-  %11 = getelementptr inbounds i8, ptr %.01321, i64 48
+.lr.ph8:                                          ; preds = %9, %.lr.ph8
+  %.0136 = phi ptr [ %.013, %.lr.ph8 ], [ %.0134, %9 ]
+  tail call fastcc void @sxe_add_registered_namespaces(ptr noundef nonnull %.0136, i1 noundef zeroext true, ptr noundef %2)
+  %11 = getelementptr inbounds i8, ptr %.0136, i64 48
   %.013 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %.013, null
-  br i1 %.not15, label %.loopexit, label %.lr.ph23
+  br i1 %.not15, label %.loopexit, label %.lr.ph8
 
-.loopexit:                                        ; preds = %.lr.ph23, %9, %._crit_edge, %3
+.loopexit:                                        ; preds = %.lr.ph8, %9, %._crit_edge, %3
   ret void
 }
 

@@ -30082,14 +30082,14 @@ sw.bb6:                                           ; preds = %tailrecurse
 sw.bb8:                                           ; preds = %tailrecurse
   %_properties = getelementptr inbounds i8, ptr %node.tr, i64 48
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node.tr, i64 56
-  %__begin4.sroa.0.030 = load ptr, ptr %Next.i.i.i.i, align 8
-  %cmp.i.not31 = icmp eq ptr %__begin4.sroa.0.030, %_properties
-  br i1 %cmp.i.not31, label %sw.epilog, label %for.body
+  %__begin4.sroa.0.014 = load ptr, ptr %Next.i.i.i.i, align 8
+  %cmp.i.not15 = icmp eq ptr %__begin4.sroa.0.014, %_properties
+  br i1 %cmp.i.not15, label %sw.epilog, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.body
-  %__begin4.sroa.0.032 = phi ptr [ %__begin4.sroa.0.0, %for.body ], [ %__begin4.sroa.0.030, %sw.bb8 ]
-  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin4.sroa.0.032, ptr noundef nonnull align 8 dereferenceable(48) %ids)
-  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.032, i64 8
+  %__begin4.sroa.0.016 = phi ptr [ %__begin4.sroa.0.0, %for.body ], [ %__begin4.sroa.0.014, %sw.bb8 ]
+  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin4.sroa.0.016, ptr noundef nonnull align 8 dereferenceable(48) %ids)
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.016, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %_properties
   br i1 %cmp.i.not, label %sw.epilog, label %for.body
@@ -30097,14 +30097,14 @@ for.body:                                         ; preds = %sw.bb8, %for.body
 sw.bb17:                                          ; preds = %tailrecurse
   %_elements = getelementptr inbounds i8, ptr %node.tr, i64 48
   %Next.i.i.i.i14 = getelementptr inbounds i8, ptr %node.tr, i64 56
-  %__begin420.sroa.0.027 = load ptr, ptr %Next.i.i.i.i14, align 8
-  %cmp.i15.not28 = icmp eq ptr %__begin420.sroa.0.027, %_elements
-  br i1 %cmp.i15.not28, label %sw.epilog, label %for.body28
+  %__begin420.sroa.0.011 = load ptr, ptr %Next.i.i.i.i14, align 8
+  %cmp.i15.not12 = icmp eq ptr %__begin420.sroa.0.011, %_elements
+  br i1 %cmp.i15.not12, label %sw.epilog, label %for.body28
 
 for.body28:                                       ; preds = %sw.bb17, %for.body28
-  %__begin420.sroa.0.029 = phi ptr [ %__begin420.sroa.0.0, %for.body28 ], [ %__begin420.sroa.0.027, %sw.bb17 ]
-  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin420.sroa.0.029, ptr noundef nonnull align 8 dereferenceable(48) %ids)
-  %Next.i.i.i16 = getelementptr inbounds i8, ptr %__begin420.sroa.0.029, i64 8
+  %__begin420.sroa.0.013 = phi ptr [ %__begin420.sroa.0.0, %for.body28 ], [ %__begin420.sroa.0.011, %sw.bb17 ]
+  tail call fastcc void @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations13collectAllIDsEPNS_6ESTree4NodeERN4llvh9SetVectorIPNS_12UniqueStringESt6vectorIS9_SaIS9_EENS6_8DenseSetIS9_NS6_12DenseMapInfoIS9_EEEEEE(ptr noundef nonnull %__begin420.sroa.0.013, ptr noundef nonnull align 8 dereferenceable(48) %ids)
+  %Next.i.i.i16 = getelementptr inbounds i8, ptr %__begin420.sroa.0.013, i64 8
   %__begin420.sroa.0.0 = load ptr, ptr %Next.i.i.i16, align 8
   %cmp.i15.not = icmp eq ptr %__begin420.sroa.0.0, %_elements
   br i1 %cmp.i15.not, label %sw.epilog, label %for.body28

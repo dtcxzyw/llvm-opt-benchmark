@@ -13060,19 +13060,19 @@ define internal fastcc void @zend_file_cache_unserialize_type(ptr nocapture noun
   %18 = zext i32 %17 to i64
   %.idx = shl nuw nsw i64 %18, 4
   %.add = or disjoint i64 %.idx, 8
-  %.ptr49 = getelementptr inbounds i8, ptr %.039, i64 %.add
-  %.not50 = icmp eq i32 %17, 0
-  br i1 %.not50, label %.loopexit, label %.lr.ph.preheader
+  %.ptr2 = getelementptr inbounds i8, ptr %.039, i64 %.add
+  %.not3 = icmp eq i32 %17, 0
+  br i1 %.not3, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
   %.ptr = getelementptr inbounds i8, ptr %.039, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04048 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %.04048, ptr noundef %1, ptr noundef %2)
-  %19 = getelementptr inbounds i8, ptr %.04048, i64 16
-  %20 = icmp ult ptr %19, %.ptr49
+  %.0401 = phi ptr [ %19, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  tail call fastcc void @zend_file_cache_unserialize_type(ptr noundef nonnull %.0401, ptr noundef %1, ptr noundef %2)
+  %19 = getelementptr inbounds i8, ptr %.0401, i64 16
+  %20 = icmp ult ptr %19, %.ptr2
   br i1 %20, label %.lr.ph, label %.loopexit
 
 21:                                               ; preds = %3

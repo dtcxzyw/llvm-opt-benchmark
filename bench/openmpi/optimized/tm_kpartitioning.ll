@@ -1070,11 +1070,11 @@ split_constraints.exit:                           ; preds = %219, %204, %218
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  br i1 %86, label %.lr.ph133.preheader, label %._crit_edge
+  br i1 %86, label %.lr.ph16.preheader, label %._crit_edge
 
-.lr.ph133.preheader:                              ; preds = %.preheader
-  %wide.trip.count151 = zext nneg i32 %12 to i64
-  br label %.lr.ph133
+.lr.ph16.preheader:                               ; preds = %.preheader
+  %wide.trip.count34 = zext nneg i32 %12 to i64
+  br label %.lr.ph16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1085,31 +1085,31 @@ split_constraints.exit:                           ; preds = %219, %204, %218
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !30
 
-.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next149, %.lr.ph133 ]
-  %224 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv148
+.lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next32, %.lr.ph16 ]
+  %224 = getelementptr inbounds ptr, ptr %221, i64 %indvars.iv31
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 48
-  %227 = trunc nuw nsw i64 %indvars.iv148 to i32
+  %227 = trunc nuw nsw i64 %indvars.iv31 to i32
   store i32 %227, ptr %226, align 8
-  %228 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv148
+  %228 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv31
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv148
+  %230 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv31
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds %struct.constraint_t, ptr %.0.i, i64 %indvars.iv148
+  %232 = getelementptr inbounds %struct.constraint_t, ptr %.0.i, i64 %indvars.iv31
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %232, i64 8
   %235 = load i32, ptr %234, align 8
   tail call fastcc void @kpartition_build_level_topology(ptr noundef %225, ptr noundef %229, i32 noundef %70, i32 noundef %188, ptr noundef nonnull %4, ptr noundef %231, ptr noundef %233, i32 noundef %235)
   %236 = getelementptr inbounds i8, ptr %225, i64 16
   store ptr %0, ptr %236, align 8
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph133, !llvm.loop !31
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
+  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph16, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph133, %split_constraints.exit, %split_constraints.exit.thread, %.preheader
-  %.0.i154156 = phi ptr [ %.0.i, %.preheader ], [ %.0.i, %split_constraints.exit ], [ %187, %split_constraints.exit.thread ], [ %.0.i, %.lr.ph133 ]
-  %237 = phi ptr [ %221, %.preheader ], [ %221, %split_constraints.exit ], [ %190, %split_constraints.exit.thread ], [ %221, %.lr.ph133 ]
+._crit_edge:                                      ; preds = %.lr.ph16, %split_constraints.exit, %split_constraints.exit.thread, %.preheader
+  %.0.i3739 = phi ptr [ %.0.i, %.preheader ], [ %.0.i, %split_constraints.exit ], [ %187, %split_constraints.exit.thread ], [ %.0.i, %.lr.ph16 ]
+  %237 = phi ptr [ %221, %.preheader ], [ %221, %split_constraints.exit ], [ %190, %split_constraints.exit.thread ], [ %221, %.lr.ph16 ]
   %238 = getelementptr inbounds i8, ptr %0, i64 48
   %239 = load i32, ptr %238, align 8
   tail call void @tm_set_node(ptr noundef %0, ptr noundef %237, i32 noundef %12, ptr noundef null, i32 noundef %239, double noundef 0.000000e+00, ptr noundef null, i32 noundef %3) #13
@@ -1182,7 +1182,7 @@ free_tab_com_mat.exit:                            ; preds = %._crit_edge, %._cri
   br label %free_tab_local_vertices.exit
 
 free_tab_local_vertices.exit:                     ; preds = %free_tab_com_mat.exit, %._crit_edge.i102
-  %.not.i109 = icmp eq ptr %.0.i154156, null
+  %.not.i109 = icmp eq ptr %.0.i3739, null
   br i1 %.not.i109, label %free_const_tab.exit, label %.preheader.i110
 
 .preheader.i110:                                  ; preds = %free_tab_local_vertices.exit
@@ -1194,7 +1194,7 @@ free_tab_local_vertices.exit:                     ; preds = %free_tab_com_mat.ex
 
 .lr.ph.i114:                                      ; preds = %259, %.lr.ph.preheader.i112
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %259 ]
-  %254 = getelementptr inbounds %struct.constraint_t, ptr %.0.i154156, i64 %indvars.iv.i115
+  %254 = getelementptr inbounds %struct.constraint_t, ptr %.0.i3739, i64 %indvars.iv.i115
   %255 = getelementptr inbounds i8, ptr %254, i64 8
   %256 = load i32, ptr %255, align 8
   %.not9.i = icmp eq i32 %256, 0
@@ -1211,7 +1211,7 @@ free_tab_local_vertices.exit:                     ; preds = %free_tab_com_mat.ex
   br i1 %exitcond.not.i117, label %._crit_edge.i111, label %.lr.ph.i114, !llvm.loop !35
 
 ._crit_edge.i111:                                 ; preds = %259, %.preheader.i110
-  tail call void @free(ptr noundef nonnull %.0.i154156) #13
+  tail call void @free(ptr noundef nonnull %.0.i3739) #13
   br label %free_const_tab.exit
 
 free_const_tab.exit:                              ; preds = %._crit_edge.i111, %free_tab_local_vertices.exit, %24

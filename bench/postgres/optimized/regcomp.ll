@@ -26259,8 +26259,8 @@ define internal fastcc void @deltraverse(ptr nocapture noundef %0, ptr noundef %
   store ptr %1, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
-  %.not2429 = icmp eq ptr %26, null
-  br i1 %.not2429, label %._crit_edge, label %.lr.ph
+  %.not241 = icmp eq ptr %26, null
+  br i1 %.not241, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 144

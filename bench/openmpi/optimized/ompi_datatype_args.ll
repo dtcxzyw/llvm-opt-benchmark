@@ -1841,15 +1841,15 @@ __ompi_datatype_create_from_args.exit:            ; preds = %._crit_edge, %ompi_
   %.056 = phi ptr [ null, %51 ], [ %369, %__ompi_datatype_create_from_args.exit ]
   %.055 = phi i32 [ %53, %51 ], [ %25, %__ompi_datatype_create_from_args.exit ]
   %372 = icmp sgt i32 %.055, 0
-  br i1 %372, label %.lr.ph65.preheader, label %._crit_edge66
+  br i1 %372, label %.lr.ph6.preheader, label %._crit_edge7
 
-.lr.ph65.preheader:                               ; preds = %371
-  %wide.trip.count73 = zext nneg i32 %.055 to i64
-  br label %.lr.ph65
+.lr.ph6.preheader:                                ; preds = %371
+  %wide.trip.count14 = zext nneg i32 %.055 to i64
+  br label %.lr.ph6
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %399
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next71, %399 ]
-  %373 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv70
+.lr.ph6:                                          ; preds = %.lr.ph6.preheader, %399
+  %indvars.iv11 = phi i64 [ 0, %.lr.ph6.preheader ], [ %indvars.iv.next12, %399 ]
+  %373 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv11
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr i8, ptr %374, i64 16
   %.val = load i16, ptr %375, align 8
@@ -1857,7 +1857,7 @@ __ompi_datatype_create_from_args.exit:            ; preds = %._crit_edge, %ompi_
   %.not = icmp eq i16 %376, 0
   br i1 %.not, label %377, label %399
 
-377:                                              ; preds = %.lr.ph65
+377:                                              ; preds = %.lr.ph6
   %378 = getelementptr inbounds i8, ptr %374, i64 8
   %379 = load i8, ptr @opal_uses_threads, align 1
   %380 = trunc i8 %379 to i1
@@ -1908,17 +1908,17 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   store ptr null, ptr %373, align 8
   br label %399
 
-399:                                              ; preds = %.lr.ph65, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !14
+399:                                              ; preds = %.lr.ph6, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
+  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
+  %exitcond15.not = icmp eq i64 %indvars.iv.next12, %wide.trip.count14
+  br i1 %exitcond15.not, label %._crit_edge7, label %.lr.ph6, !llvm.loop !14
 
-._crit_edge66:                                    ; preds = %399, %371
+._crit_edge7:                                     ; preds = %399, %371
   call void @free(ptr noundef %28) #14
   br label %400
 
-400:                                              ; preds = %._crit_edge66, %18
-  %.054 = phi ptr [ %21, %18 ], [ %.056, %._crit_edge66 ]
+400:                                              ; preds = %._crit_edge7, %18
+  %.054 = phi ptr [ %21, %18 ], [ %.056, %._crit_edge7 ]
   ret ptr %.054
 }
 

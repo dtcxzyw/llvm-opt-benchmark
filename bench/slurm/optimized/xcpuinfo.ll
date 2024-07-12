@@ -1025,11 +1025,11 @@ define internal fastcc i32 @_core_child_count(ptr nocapture noundef readonly %0)
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.0911 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
+  %.091 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @_core_child_count(ptr noundef %10)
-  %12 = add nsw i32 %11, %.0911
+  %12 = add nsw i32 %11, %.091
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !16

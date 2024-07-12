@@ -1284,23 +1284,23 @@ define internal fastcc void @cloudSupport(ptr nocapture noundef %0, ptr nocaptur
   %5 = and i32 %4, -268435457
   %6 = icmp ne i32 %5, 268435455
   %7 = and i32 %4, 268435456
-  %.not13 = icmp eq i32 %7, 0
-  %or.cond14 = and i1 %6, %.not13
-  br i1 %or.cond14, label %tailrecurse, label %tailrecurse._crit_edge
+  %.not2 = icmp eq i32 %7, 0
+  %or.cond3 = and i1 %6, %.not2
+  br i1 %or.cond3, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse:                                      ; preds = %2, %tailrecurse
   %8 = phi i32 [ %21, %tailrecurse ], [ %4, %2 ]
   %9 = phi ptr [ %20, %tailrecurse ], [ %3, %2 ]
-  %.tr1115 = phi ptr [ %19, %tailrecurse ], [ %0, %2 ]
+  %.tr4 = phi ptr [ %19, %tailrecurse ], [ %0, %2 ]
   %10 = or disjoint i32 %8, 268435456
   store i32 %10, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %1, i64 %11
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.tr1115, i64 16
+  %13 = getelementptr inbounds i8, ptr %.tr4, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @cloudSupport(ptr noundef %14, ptr noundef %1)
-  %15 = getelementptr inbounds i8, ptr %.tr1115, i64 8
+  %15 = getelementptr inbounds i8, ptr %.tr4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -1323,23 +1323,23 @@ define internal fastcc void @cloudClearMark(ptr nocapture noundef %0) unnamed_ad
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 268435456
-  %.not8 = icmp eq i32 %4, 0
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq i32 %4, 0
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %5 = phi i32 [ %17, %tailrecurse ], [ %3, %1 ]
   %6 = phi ptr [ %16, %tailrecurse ], [ %2, %1 ]
-  %.tr79 = phi ptr [ %15, %tailrecurse ], [ %0, %1 ]
+  %.tr2 = phi ptr [ %15, %tailrecurse ], [ %0, %1 ]
   %7 = and i32 %5, -268435457
   store i32 %7, ptr %6, align 4
   %8 = icmp eq i32 %7, 268435455
   br i1 %8, label %._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.tr79, i64 16
+  %9 = getelementptr inbounds i8, ptr %.tr2, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @cloudClearMark(ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %.tr79, i64 8
+  %11 = getelementptr inbounds i8, ptr %.tr2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
@@ -1399,7 +1399,7 @@ define i32 @Cloud_SupportSize(ptr nocapture noundef readonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cloud_DagSize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1526,7 +1526,7 @@ common.ret17:                                     ; preds = %3, %10, %17
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cloud_SharingSize(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

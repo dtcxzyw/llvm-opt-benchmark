@@ -669,7 +669,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_TransferPermuteTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 448
@@ -705,8 +705,8 @@ define ptr @Extra_TransferPermuteTime(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .preheader.i:                                     ; preds = %20
   %23 = call i32 @st__gen(ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %.not2729.i = icmp eq i32 %23, 0
-  br i1 %.not2729.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not271.i = icmp eq i32 %23, 0
+  br i1 %.not271.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %24 = load ptr, ptr %7, align 8

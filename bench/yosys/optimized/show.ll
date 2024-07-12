@@ -3267,8 +3267,8 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread.i: ; preds = 
   %631 = getelementptr inbounds i8, ptr %27, i64 80
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %503) #25
   call void @_ZNSt3mapIN5Yosys5RTLIL5ConstEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %629) #25
-  %.val.i.i.i = load ptr, ptr %482, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.val.i.i.i)
+  %.val.i = load ptr, ptr %482, align 8
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.val.i)
   call void @_ZNSt3mapIN5Yosys5RTLIL8IdStringEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %630) #25
   call void @_ZNSt3mapIN5Yosys5RTLIL8IdStringEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %631) #25
   call void @_ZNSt6vectorIN5Yosys10shared_strESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %470) #25
@@ -4252,8 +4252,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %7, %14
 
 _ZNSt3mapIN5Yosys5RTLIL5ConstEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit: ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 200
-  %.val.i.i = load ptr, ptr %24, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.val.i.i)
+  %.val = load ptr, ptr %24, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.val)
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   %26 = getelementptr inbounds i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
@@ -47629,12 +47629,12 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit792: ; preds = %_ZSt8_Destr
   %2596 = load ptr, ptr %2595, align 8
   %2597 = getelementptr inbounds i8, ptr %2586, i64 208
   %2598 = load ptr, ptr %2597, align 8
-  %.not36.i = icmp eq ptr %2596, %2598
-  br i1 %.not36.i, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL7ProcessERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %2596, %2598
+  br i1 %.not16.i, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL7ProcessERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc802, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8SyncRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit.i
-  %.sroa.021.037.i = phi ptr [ %3017, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8SyncRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit.i ], [ %2596, %.noexc802 ]
-  %2599 = load ptr, ptr %.sroa.021.037.i, align 8
+  %.sroa.01.017.i = phi ptr [ %3017, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8SyncRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit.i ], [ %2596, %.noexc802 ]
+  %2599 = load ptr, ptr %.sroa.01.017.i, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %36)
   %2600 = getelementptr inbounds i8, ptr %2599, i64 8
   %.02022.i.i.i.i.i = load ptr, ptr %2512, align 8
@@ -49009,7 +49009,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_
 
 _ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8SyncRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit.i: ; preds = %3015, %.noexc806
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %36)
-  %3017 = getelementptr inbounds i8, ptr %.sroa.021.037.i, i64 8
+  %3017 = getelementptr inbounds i8, ptr %.sroa.01.017.i, i64 8
   %.not.i800 = icmp eq ptr %3017, %2598
   br i1 %.not.i800, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL7ProcessERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph.i
 
@@ -80805,20 +80805,20 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit
-  %.08 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.0.val)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 160
+  %4 = getelementptr inbounds i8, ptr %.02, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  %5 = getelementptr inbounds i8, ptr %.08, i64 112
-  %6 = getelementptr inbounds i8, ptr %.08, i64 128
+  %5 = getelementptr inbounds i8, ptr %.02, i64 112
+  %6 = getelementptr inbounds i8, ptr %.02, i64 128
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_St9_IdentityIS7_ESt4lessIS7_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt4lessIS7_ESaIS7_EED2Ev.exit.i.i.i.i.i.i unwind label %8
@@ -80831,8 +80831,8 @@ define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_
   unreachable
 
 _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt4lessIS7_ESaIS7_EED2Ev.exit.i.i.i.i.i.i: ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.08, i64 64
-  %12 = getelementptr inbounds i8, ptr %.08, i64 80
+  %11 = getelementptr inbounds i8, ptr %.02, i64 64
+  %12 = getelementptr inbounds i8, ptr %.02, i64 80
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiES7_St9_IdentityIS7_ESt4lessIS7_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %13)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit unwind label %14
@@ -80845,9 +80845,9 @@ _ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt4lessI
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N12_GLOBAL__N_110ShowWorker8net_connEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt4lessIS7_ESaIS7_EED2Ev.exit.i.i.i.i.i.i
-  %17 = getelementptr inbounds i8, ptr %.08, i64 32
+  %17 = getelementptr inbounds i8, ptr %.02, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #26
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !617
 
@@ -84858,18 +84858,18 @@ _ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsERSt6vectorIN5Yosys5RTLIL7Sig
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 112
   %31 = load ptr, ptr %30, align 8
-  %.not26 = icmp eq ptr %29, %31
-  br i1 %.not26, label %._crit_edge, label %.lr.ph28
+  %.not12 = icmp eq ptr %29, %31
+  br i1 %.not12, label %._crit_edge, label %.lr.ph14
 
-.lr.ph28:                                         ; preds = %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsERSt6vectorIN5Yosys5RTLIL7SigSpecESaIS4_EERSt3setIS4_St4lessIS4_ES5_E.exit
+.lr.ph14:                                         ; preds = %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsERSt6vectorIN5Yosys5RTLIL7SigSpecESaIS4_EERSt3setIS4_St4lessIS4_ES5_E.exit
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = getelementptr inbounds i8, ptr %1, i64 24
   br label %35
 
-35:                                               ; preds = %.lr.ph28, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit
-  %.sroa.015.027 = phi ptr [ %29, %.lr.ph28 ], [ %54, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit ]
-  %36 = load ptr, ptr %.sroa.015.027, align 8
+35:                                               ; preds = %.lr.ph14, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit
+  %.sroa.01.013 = phi ptr [ %29, %.lr.ph14 ], [ %54, %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit ]
+  %36 = load ptr, ptr %.sroa.01.013, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.02022.i.i.i = load ptr, ptr %32, align 8
@@ -84918,19 +84918,19 @@ _ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE6insertERKS2_.exit: ; preds 
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %36, i64 128
   %51 = load ptr, ptr %50, align 8
-  %.not2224 = icmp eq ptr %49, %51
-  br i1 %.not2224, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph
+  %.not810 = icmp eq ptr %49, %51
+  br i1 %.not810, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE6insertERKS2_.exit, %.lr.ph
-  %.sroa.019.025 = phi ptr [ %53, %.lr.ph ], [ %49, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE6insertERKS2_.exit ]
-  %52 = load ptr, ptr %.sroa.019.025, align 8
+  %.sroa.05.011 = phi ptr [ %53, %.lr.ph ], [ %49, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE6insertERKS2_.exit ]
+  %52 = load ptr, ptr %.sroa.05.011, align 8
   call fastcc void @_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL8CaseRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_(ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %53 = getelementptr inbounds i8, ptr %.sroa.019.025, i64 8
-  %.not22 = icmp eq ptr %53, %51
-  br i1 %.not22, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph
+  %53 = getelementptr inbounds i8, ptr %.sroa.05.011, i64 8
+  %.not8 = icmp eq ptr %53, %51
+  br i1 %.not8, label %_ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit, label %.lr.ph
 
 _ZN12_GLOBAL__N_110ShowWorker20collect_proc_signalsEPN5Yosys5RTLIL10SwitchRuleERSt3setINS2_7SigSpecESt4lessIS6_ESaIS6_EESB_.exit: ; preds = %.lr.ph, %_ZNSt3setIN5Yosys5RTLIL7SigSpecESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
-  %54 = getelementptr inbounds i8, ptr %.sroa.015.027, i64 8
+  %54 = getelementptr inbounds i8, ptr %.sroa.01.013, i64 8
   %.not = icmp eq ptr %54, %31
   br i1 %.not, label %._crit_edge, label %35
 

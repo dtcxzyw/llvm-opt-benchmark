@@ -3821,8 +3821,8 @@ entry:
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %namedRootAcceptor, i1 noundef zeroext true) #27
   %stats = getelementptr inbounds i8, ptr %rootAcceptor, i64 96
   %breakdown.val = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.not35 = icmp eq ptr %breakdown.val, %2
-  br i1 %cmp.i.not35, label %for.end, label %for.body.lr.ph
+  %cmp.i.not34 = icmp eq ptr %breakdown.val, %2
+  br i1 %cmp.i.not34, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %stats.promoted = load i64, ptr %stats, align 8
@@ -3831,18 +3831,18 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %add1437 = phi i64 [ %size13.promoted, %for.body.lr.ph ], [ %add14, %for.body ]
-  %__begin2.sroa.0.036 = phi ptr [ %breakdown.val, %for.body.lr.ph ], [ %call.i, %for.body ]
+  %add1436 = phi i64 [ %size13.promoted, %for.body.lr.ph ], [ %add14, %for.body ]
+  %__begin2.sroa.0.035 = phi ptr [ %breakdown.val, %for.body.lr.ph ], [ %call.i, %for.body ]
   %6 = phi i64 [ %stats.promoted, %for.body.lr.ph ], [ %add, %for.body ]
-  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.036, i64 64
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.035, i64 64
   %7 = load i64, ptr %second, align 8
   %add = add i64 %6, %7
   store i64 %add, ptr %stats, align 8
-  %size = getelementptr inbounds i8, ptr %__begin2.sroa.0.036, i64 72
+  %size = getelementptr inbounds i8, ptr %__begin2.sroa.0.035, i64 72
   %8 = load i64, ptr %size, align 8
-  %add14 = add i64 %add1437, %8
+  %add14 = add i64 %add1436, %8
   store i64 %add14, ptr %size13, align 8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.036) #31
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.035) #31
   %cmp.i.not = icmp eq ptr %call.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3911,21 +3911,21 @@ if.then.i.i:                                      ; preds = %for.end
 _ZNSt8functionIFvPN6hermes2vm6GCCellEEED2Ev.exit: ; preds = %for.end, %if.then.i.i
   %stats21 = getelementptr inbounds i8, ptr %acceptor, i64 96
   %breakdown22.val = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i19, align 8
-  %cmp.i25.not38 = icmp eq ptr %breakdown22.val, %12
-  br i1 %cmp.i25.not38, label %for.end42, label %for.body31.preheader
+  %cmp.i25.not37 = icmp eq ptr %breakdown22.val, %12
+  br i1 %cmp.i25.not37, label %for.end42, label %for.body31.preheader
 
 for.body31.preheader:                             ; preds = %_ZNSt8functionIFvPN6hermes2vm6GCCellEEED2Ev.exit
   %stats21.promoted = load i64, ptr %stats21, align 8
   br label %for.body31
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.body31
-  %__begin223.sroa.0.039 = phi ptr [ %call.i27, %for.body31 ], [ %breakdown22.val, %for.body31.preheader ]
+  %__begin223.sroa.0.038 = phi ptr [ %call.i27, %for.body31 ], [ %breakdown22.val, %for.body31.preheader ]
   %15 = phi i64 [ %add39, %for.body31 ], [ %stats21.promoted, %for.body31.preheader ]
-  %second34 = getelementptr inbounds i8, ptr %__begin223.sroa.0.039, i64 64
+  %second34 = getelementptr inbounds i8, ptr %__begin223.sroa.0.038, i64 64
   %16 = load i64, ptr %second34, align 8
   %add39 = add i64 %15, %16
   store i64 %add39, ptr %stats21, align 8
-  %call.i27 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin223.sroa.0.039) #31
+  %call.i27 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin223.sroa.0.038) #31
   %cmp.i25.not = icmp eq ptr %call.i27, %12
   br i1 %cmp.i25.not, label %for.end42, label %for.body31
 
@@ -3943,10 +3943,10 @@ for.end42:                                        ; preds = %for.body31, %_ZNSt8
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.87, i64 noundef %19) #27
   call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull align 8 dereferenceable(64) %stats21, i64 noundef 1)
   %call4.i32 = call ptr @setlocale(i32 noundef 1, ptr noundef %call.i28) #27
-  %this.val.i.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i18, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i)
-  %this.val.i.i.i.i.i34 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i34)
+  %diagnostic.val.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i18, align 8
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
+  %diagnostic.val.i33 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i33)
   ret void
 }
 
@@ -3954,8 +3954,8 @@ for.end42:                                        ; preds = %for.body31, %_ZNSt8
 define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 128
-  %this.val.i.i.i.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i)
+  %diagnostic.val = load ptr, ptr %0, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val)
   ret void
 }
 
@@ -4296,8 +4296,8 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 128
-  %this.val.i.i.i.i.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i)
+  %diagnostic.val.i = load ptr, ptr %0, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
@@ -4565,8 +4565,8 @@ entry:
 define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptorD1Ev(ptr nocapture noundef readonly %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 120
-  %this.val.i.i.i.i.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i)
+  %diagnostic.val.i = load ptr, ptr %0, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
   ret void
 }
 
@@ -4575,8 +4575,8 @@ define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26Heap
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %1 = getelementptr inbounds i8, ptr %this, i64 120
-  %this.val.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i.i)
+  %diagnostic.val.i.i = load ptr, ptr %1, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -4891,8 +4891,8 @@ cleanup.i:                                        ; preds = %lor.rhs.i.i.i, %if.
 if.then.i9.i:                                     ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_.exit.i, %if.end12.i82.i.i, %if.else44.i.i, %if.end12.i38.i.i, %if.end12.i.i.i
   %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_.exit.i ], [ %__j.sroa.0.0.i84.i.i, %if.end12.i82.i.i ], [ %__j.sroa.0.0.i40.i.i, %if.end12.i38.i.i ], [ %__j.sroa.0.0.i.i.i, %if.end12.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17, %if.else44.i.i ]
   %13 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 96
-  %this.val.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i.i.i.i.i)
+  %breakdown.i.i.val.i.i.i.i = load ptr, ptr %13, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %breakdown.i.i.val.i.i.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #30
   br label %if.end
@@ -4914,22 +4914,22 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x) unnamed_addr #0 align 2 {
 entry:
-  %cmp.not5 = icmp eq ptr %__x, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not1 = icmp eq ptr %__x, null
+  br i1 %cmp.not1, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %__x.addr.06 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
-  %0 = getelementptr i8, ptr %__x.addr.06, i64 24
+  %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
+  %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x.addr.0.val4)
-  %1 = getelementptr i8, ptr %__x.addr.06, i64 16
+  %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
-  %_M_storage.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 32
-  %2 = getelementptr i8, ptr %__x.addr.06, i64 96
+  %_M_storage.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
+  %2 = getelementptr i8, ptr %__x.addr.02, i64 96
   %this.val.i.i = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #30
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !57
 

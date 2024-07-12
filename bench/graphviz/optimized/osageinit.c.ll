@@ -135,9 +135,9 @@ define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1) unnamed_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = icmp eq ptr %1, null
   %.0.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.0.sroa.gep28 = getelementptr inbounds i8, ptr %1, i64 8
-  %.0.sroa.gep30 = getelementptr inbounds i8, ptr %3, i64 16
-  %.0.sroa.gep31 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.sroa.gep1 = getelementptr inbounds i8, ptr %1, i64 8
+  %.0.sroa.gep3 = getelementptr inbounds i8, ptr %3, i64 16
+  %.0.sroa.gep4 = getelementptr inbounds i8, ptr %1, i64 16
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
@@ -154,31 +154,31 @@ define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1) unnamed_
 
 clist_append.exit:                                ; preds = %5
   store ptr %malloc, ptr %3, align 8
-  store i64 1, ptr %.0.sroa.gep30, align 8
+  store i64 1, ptr %.0.sroa.gep3, align 8
   store ptr null, ptr %malloc, align 8
   store i64 1, ptr %.0.sroa.gep, align 8
   br label %11
 
 11:                                               ; preds = %2, %clist_append.exit
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %clist_append.exit ], [ %.0.sroa.gep28, %2 ]
-  %.0.sroa.phi29 = phi ptr [ %.0.sroa.gep30, %clist_append.exit ], [ %.0.sroa.gep31, %2 ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %clist_append.exit ], [ %.0.sroa.gep1, %2 ]
+  %.0.sroa.phi2 = phi ptr [ %.0.sroa.gep3, %clist_append.exit ], [ %.0.sroa.gep4, %2 ]
   %.0 = phi ptr [ %3, %clist_append.exit ], [ %1, %2 ]
   %12 = tail call ptr @agfstsubg(ptr noundef %0) #15
-  %.not32 = icmp eq ptr %12, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not5 = icmp eq ptr %12, null
+  br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %45
-  %.01833 = phi ptr [ %46, %45 ], [ %12, %11 ]
-  %13 = call ptr @agnameof(ptr noundef nonnull %.01833) #15
+  %.0186 = phi ptr [ %46, %45 ], [ %12, %11 ]
+  %13 = call ptr @agnameof(ptr noundef nonnull %.0186) #15
   %14 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #18
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %44
 
 16:                                               ; preds = %.lr.ph
-  %17 = call ptr @agbindrec(ptr noundef nonnull %.01833, ptr noundef nonnull @.str.2, i32 noundef 408, i32 noundef 1) #15
-  call void @do_graph_label(ptr noundef nonnull %.01833) #15
+  %17 = call ptr @agbindrec(ptr noundef nonnull %.0186, ptr noundef nonnull @.str.2, i32 noundef 408, i32 noundef 1) #15
+  call void @do_graph_label(ptr noundef nonnull %.0186) #15
   %18 = load i64, ptr %.0.sroa.phi, align 8
-  %19 = load i64, ptr %.0.sroa.phi29, align 8
+  %19 = load i64, ptr %.0.sroa.phi2, align 8
   %20 = icmp eq i64 %18, %19
   br i1 %20, label %21, label %._crit_edge.i.i21
 
@@ -201,14 +201,14 @@ clist_append.exit:                                ; preds = %5
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %24
-  %30 = load i64, ptr %.0.sroa.phi29, align 8
+  %30 = load i64, ptr %.0.sroa.phi2, align 8
   %31 = shl i64 %30, 3
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
   %33 = sub i64 %spec.select.i.i23, %30
   %34 = shl i64 %33, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %34, i1 false)
   store ptr %27, ptr %.0, align 8
-  store i64 %spec.select.i.i23, ptr %.0.sroa.phi29, align 8
+  store i64 %spec.select.i.i23, ptr %.0.sroa.phi2, align 8
   %.pre22.i.i25 = load i64, ptr %.0.sroa.phi, align 8
   br label %clist_append.exit27
 
@@ -224,19 +224,19 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
   %39 = phi i64 [ %18, %._crit_edge.i.i21 ], [ %.pre22.i.i25, %29 ]
   %40 = phi ptr [ %.pre.i.i22, %._crit_edge.i.i21 ], [ %27, %29 ]
   %41 = getelementptr inbounds ptr, ptr %40, i64 %39
-  store ptr %.01833, ptr %41, align 8
+  store ptr %.0186, ptr %41, align 8
   %42 = load i64, ptr %.0.sroa.phi, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %.0.sroa.phi, align 8
-  call fastcc void @mkClusters(ptr noundef nonnull %.01833, ptr noundef null)
+  call fastcc void @mkClusters(ptr noundef nonnull %.0186, ptr noundef null)
   br label %45
 
 44:                                               ; preds = %.lr.ph
-  call fastcc void @mkClusters(ptr noundef nonnull %.01833, ptr noundef nonnull %.0)
+  call fastcc void @mkClusters(ptr noundef nonnull %.0186, ptr noundef nonnull %.0)
   br label %45
 
 45:                                               ; preds = %clist_append.exit27, %44
-  %46 = call ptr @agnxtsubg(ptr noundef nonnull %.01833) #15
+  %46 = call ptr @agnxtsubg(ptr noundef nonnull %.0186) #15
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -255,7 +255,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
   br i1 %53, label %54, label %79
 
 54:                                               ; preds = %47
-  %55 = load i64, ptr %.0.sroa.gep30, align 8
+  %55 = load i64, ptr %.0.sroa.gep3, align 8
   %56 = icmp ugt i64 %55, %.val
   br i1 %56, label %57, label %.clist_shrink_to_fit.exit_crit_edge
 

@@ -1510,7 +1510,7 @@ $_ZTIZN11flatbuffers4rust13RustGenerator23GenerateIndividualFilesEvEUlRKNS_9Stru
 @.str.661 = private unnamed_addr constant [15 x i8] c"pub use self::\00", align 1
 @.str.662 = private unnamed_addr constant [5 x i8] c"Rust\00", align 1
 @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE = private unnamed_addr constant [9 x i32] [i32 9, i32 10, i32 11, i32 13, i32 14, i32 12, i32 2, i32 2, i32 15], align 4
-@switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.54 = private unnamed_addr constant [6 x i32] [i32 17, i32 17, i32 17, i32 19, i32 2, i32 18], align 4
+@switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.56 = private unnamed_addr constant [6 x i32] [i32 17, i32 17, i32 17, i32 19, i32 2, i32 18], align 4
 @switch.table._ZZN11flatbuffers4rust13RustGenerator8GenTableERKNS_9StructDefEENKUlRKNS_8FieldDefEE0_clES7_ = private unnamed_addr constant [19 x i64] [i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 8, i64 8, i64 4, i64 8, i64 4, i64 4, i64 4, i64 4, i64 4, i64 8], align 8
 
 ; Function Attrs: mustprogress uwtable
@@ -2322,8 +2322,8 @@ eh.resume.i:                                      ; preds = %ehcleanup78.i, %ehc
   resume { ptr, i32 } %.pn19.pn.i
 
 _ZN11flatbuffersL26GenerateRustModuleRootFileERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
-  %this.val.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i.i.i)
+  %this.val.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i)
   call void @_ZN11flatbuffers5NamerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %namer.i) #20
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %namer.i)
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %agg.tmp.i)
@@ -32914,7 +32914,7 @@ switch.lookup:                                    ; preds = %if.then6
 
 switch.lookup26:                                  ; preds = %if.then17
   %19 = zext nneg i32 %call19 to i64
-  %switch.gep27 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.54, i64 0, i64 %19
+  %switch.gep27 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.56, i64 0, i64 %19
   %switch.load28 = load i32, ptr %switch.gep27, align 4
   br label %return
 
@@ -59476,8 +59476,8 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
   %54 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i6, i64 80
-  %this.val.i.i.i.i.i.i.i = load ptr, ptr %54, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i.i.i.i.i.i)
+  %second.i.val.i.i.i.i.i = load ptr, ptr %54, align 8
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %second.i.val.i.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6.i) #20
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i6) #21
   br label %invoke.cont
@@ -59775,8 +59775,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %3 = getelementptr inbounds i8, ptr %this, i64 16
-  %this.val.i.i = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i)
+  %this.val = load ptr, ptr %3, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val)
   ret void
 }
 
@@ -59871,20 +59871,20 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %__x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp.not5 = icmp eq ptr %__x, null
-  br i1 %cmp.not5, label %while.end, label %while.body
+  %cmp.not1 = icmp eq ptr %__x, null
+  br i1 %cmp.not1, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %__x.addr.06 = phi ptr [ %__x.addr.0.val, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %__x, %entry ]
-  %0 = getelementptr i8, ptr %__x.addr.06, i64 24
+  %__x.addr.02 = phi ptr [ %__x.addr.0.val, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %__x, %entry ]
+  %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %__x.addr.0.val4)
-  %1 = getelementptr i8, ptr %__x.addr.06, i64 16
+  %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
-  %_M_storage.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 32
-  %generated_files.i.i.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 112
+  %_M_storage.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
+  %generated_files.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 112
   %2 = load ptr, ptr %generated_files.i.i.i, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %__x.addr.06, i64 120
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 120
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -59910,11 +59910,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %5 = getelementptr i8, ptr %__x.addr.06, i64 80
+  %5 = getelementptr i8, ptr %__x.addr.02, i64 80
   %this.val.i.i = load ptr, ptr %5, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN11flatbuffersL26GenerateRustModuleRootFileERKNS8_6ParserERS7_E6ModuleESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef %this.val.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #21
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !585
 

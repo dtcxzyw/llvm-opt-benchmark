@@ -33834,15 +33834,15 @@ _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE9push_backERKS2_.exit: ; preds = %38, 
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr inbounds i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8
-  %.not2729 = icmp eq ptr %69, %71
-  br i1 %.not2729, label %.critedge, label %.lr.ph
+  %.not810 = icmp eq ptr %69, %71
+  br i1 %.not810, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68, %.lr.ph
-  %.sroa.020.030 = phi ptr [ %72, %.lr.ph ], [ %69, %68 ]
-  tail call fastcc void @_ZL12processILibsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK17cmGeneratorTargetRK10cmLinkItemP17cmGlobalGeneratorRSt6vectorIS9_SaIS9_EERSt3setIS9_St4lessIS9_ESG_E(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.020.030, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %72 = getelementptr inbounds i8, ptr %.sroa.020.030, i64 104
-  %.not27 = icmp eq ptr %72, %71
-  br i1 %.not27, label %.critedge, label %.lr.ph
+  %.sroa.01.011 = phi ptr [ %72, %.lr.ph ], [ %69, %68 ]
+  tail call fastcc void @_ZL12processILibsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK17cmGeneratorTargetRK10cmLinkItemP17cmGlobalGeneratorRSt6vectorIS9_SaIS9_EERSt3setIS9_St4lessIS9_ESG_E(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01.011, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %72 = getelementptr inbounds i8, ptr %.sroa.01.011, i64 104
+  %.not8 = icmp eq ptr %72, %71
+  br i1 %.not8, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %68, %19, %5, %_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE9push_backERKS2_.exit
   ret void

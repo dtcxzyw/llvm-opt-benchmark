@@ -3621,7 +3621,7 @@ if.else57:                                        ; preds = %if.end40
   %tobool60.not = icmp ult i32 %rs.0, 128
   br i1 %tobool60.not, label %if.end64, label %if.then61
 
-common.ret1:                                      ; preds = %if.then83, %if.else89, %if.then87, %if.then79, %if.then61
+common.ret3:                                      ; preds = %if.then83, %if.else89, %if.then87, %if.then79, %if.then61
   ret void
 
 if.then61:                                        ; preds = %if.else57
@@ -3631,7 +3631,7 @@ if.then61:                                        ; preds = %if.else57
   %14 = load i32, ptr %dst, align 4
   %conv63 = sitofp i32 %14 to double
   store double %conv63, ptr %dst, align 8
-  br label %common.ret1
+  br label %common.ret3
 
 if.end64:                                         ; preds = %if.else57
   %gpr = getelementptr inbounds i8, ptr %ex, i64 128
@@ -3657,25 +3657,25 @@ if.end76:                                         ; preds = %if.else, %if.then43
 if.then79:                                        ; preds = %if.end76
   %15 = load i32, ptr %src.0, align 4
   store i32 %15, ptr %dst, align 4
-  br label %common.ret1
+  br label %common.ret3
 
 if.then83:                                        ; preds = %if.then29, %land.lhs.true, %if.then54, %if.end76
-  %src.043 = phi ptr [ %src.0, %if.end76 ], [ %tmp, %if.then54 ], [ %arrayidx46, %land.lhs.true ], [ %tmp, %if.then29 ]
-  %16 = load i64, ptr %src.043, align 8
+  %src.02 = phi ptr [ %src.0, %if.end76 ], [ %tmp, %if.then54 ], [ %arrayidx46, %land.lhs.true ], [ %tmp, %if.then29 ]
+  %16 = load i64, ptr %src.02, align 8
   store i64 %16, ptr %dst, align 8
-  br label %common.ret1
+  br label %common.ret3
 
 if.then87:                                        ; preds = %if.end76
   %17 = load i32, ptr %src.0, align 4
   %conv88 = trunc i32 %17 to i8
   store i8 %conv88, ptr %dst, align 1
-  br label %common.ret1
+  br label %common.ret3
 
 if.else89:                                        ; preds = %if.end76
   %18 = load i32, ptr %src.0, align 4
   %conv90 = trunc i32 %18 to i16
   store i16 %conv90, ptr %dst, align 2
-  br label %common.ret1
+  br label %common.ret3
 }
 
 declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

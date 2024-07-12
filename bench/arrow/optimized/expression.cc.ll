@@ -14569,8 +14569,8 @@ if.end12:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %arguments, align 8
-  %cmp298.not = icmp eq ptr %3, %4
-  br i1 %cmp298.not, label %if.end63, label %for.body.lr.ph
+  %cmp16.not = icmp eq ptr %3, %4
+  br i1 %cmp16.not, label %if.end63, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12
   %_M_refcount.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
@@ -14581,9 +14581,9 @@ for.body.lr.ph:                                   ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi ptr [ %4, %for.body.lr.ph ], [ %53, %for.inc ]
-  %i.0300 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0299 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.0300
+  %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.017 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.018
   %6 = load ptr, ptr %add.ptr.i, align 8
   store ptr %6, ptr %agg.tmp15, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -14711,13 +14711,13 @@ invoke.cont31:                                    ; preds = %_ZN5arrow7compute10
   store ptr %25, ptr %_M_refcount.i.i.i.i.i136, align 8, !alias.scope !223
   store ptr null, ptr %storage_.i.i135, align 8, !noalias !223
   %26 = load ptr, ptr %arguments, align 8
-  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.0300
+  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.018
   %27 = load ptr, ptr %add.ptr.i138, align 8
   %cmp.i.i139 = icmp eq ptr %24, %27
   br i1 %cmp.i.i139, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont31
-  %tobool37 = trunc nuw i8 %at_least_one_modified.0299 to i1
+  %tobool37 = trunc nuw i8 %at_least_one_modified.017 to i1
   br i1 %tobool37, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -14732,9 +14732,9 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0299, %if.end36 ], [ 1, %if.then38 ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.0300
+  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   store ptr %24, ptr %add.ptr.i140, align 8
   %_M_refcount3.i.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i140, i64 8
@@ -14813,7 +14813,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0299, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176
@@ -14894,7 +14894,7 @@ cleanup46:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup46, %cleanup46
-  %inc = add nuw i64 %i.0300, 1
+  %inc = add nuw i64 %i.018, 1
   %52 = load ptr, ptr %_M_finish.i, align 8
   %53 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %52 to i64
@@ -17872,22 +17872,22 @@ if.then:                                          ; preds = %_ZN5arrow7compute10
   br label %cleanup71
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i
-  %lpad.loopexit380 = landingpad { ptr, i32 }
+  %lpad.loopexit9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNKSt8__detail15_Hashtable_baseIN5arrow8FieldRefESt4pairIKS2_NS1_5DatumEENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i.i.i.i
-  %lpad.loopexit382 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end15.i.i.i
-  %lpad.loopexit.split-lp383 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i.i.i, %ehcleanup154.i
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad.i.i.i.i.i.i.i.i ], [ %.pn19.i, %ehcleanup154.i ], [ %lpad.loopexit380, %lpad.loopexit ], [ %lpad.loopexit382, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp383, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad.i.i.i.i.i.i.i.i ], [ %.pn19.i, %ehcleanup154.i ], [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit11, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow7compute10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %eh.resume
 
@@ -18001,8 +18001,8 @@ if.end11:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %166, i64 40
   %169 = load ptr, ptr %_M_finish.i, align 8
   %170 = load ptr, ptr %arguments, align 8
-  %cmp398.not = icmp eq ptr %169, %170
-  br i1 %cmp398.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit350, label %for.body.lr.ph
+  %cmp27.not = icmp eq ptr %169, %170
+  br i1 %cmp27.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit350, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end11
   %_M_refcount.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
@@ -18013,9 +18013,9 @@ for.body.lr.ph:                                   ; preds = %if.end11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %171 = phi ptr [ %170, %for.body.lr.ph ], [ %221, %for.inc ]
-  %i.0400 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0399 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %171, i64 %i.0400
+  %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.028 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %171, i64 %i.029
   %172 = load ptr, ptr %add.ptr.i, align 8
   store ptr %172, ptr %agg.tmp14, align 8
   %_M_refcount3.i.i.i96 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -18141,14 +18141,14 @@ invoke.cont30:                                    ; preds = %_ZN5arrow7compute10
   store <2 x ptr> %190, ptr %modified_argument, align 16, !alias.scope !294
   store ptr null, ptr %storage_.i.i137, align 8, !noalias !294
   %191 = load ptr, ptr %arguments, align 8
-  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %191, i64 %i.0400
+  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %191, i64 %i.029
   %192 = load ptr, ptr %add.ptr.i140, align 8
   %193 = extractelement <2 x ptr> %190, i64 0
   %cmp.i.i141 = icmp eq ptr %193, %192
   br i1 %cmp.i.i141, label %cleanup, label %if.end35
 
 if.end35:                                         ; preds = %invoke.cont30
-  %tobool36 = trunc nuw i8 %at_least_one_modified.0399 to i1
+  %tobool36 = trunc nuw i8 %at_least_one_modified.028 to i1
   br i1 %tobool36, label %if.end42, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
@@ -18167,10 +18167,10 @@ lpad39:                                           ; preds = %if.then37
   br label %ehcleanup70
 
 if.end42:                                         ; preds = %if.then37.if.end42_crit_edge, %if.end35
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0399, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.028, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
   %196 = phi <2 x ptr> [ %190, %if.end35 ], [ %194, %if.then37.if.end42_crit_edge ]
   %197 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i142 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %197, i64 %i.0400
+  %add.ptr.i142 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %197, i64 %i.029
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   %_M_refcount3.i.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr.i142, i64 8
   %198 = load ptr, ptr %_M_refcount3.i.i.i.i144, align 8
@@ -18248,7 +18248,7 @@ if.end8.sink.split.i.i.i.i.i.i166:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i166, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153, %if.end42, %invoke.cont30
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont30 ], [ 0, %if.end42 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i166 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0399, %invoke.cont30 ], [ %at_least_one_modified.1, %if.end42 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i166 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.028, %invoke.cont30 ], [ %at_least_one_modified.1, %if.end42 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i153 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i163 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i166 ]
   %209 = load ptr, ptr %_M_refcount.i.i.i.i.i138, align 8
   %cmp.not.i.i.i.i177 = icmp eq ptr %209, null
   br i1 %cmp.not.i.i.i.i177, label %cleanup45, label %if.then.i.i.i.i178
@@ -18329,7 +18329,7 @@ cleanup45:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup45, %cleanup45
-  %inc = add nuw i64 %i.0400, 1
+  %inc = add nuw i64 %i.029, 1
   %220 = load ptr, ptr %_M_finish.i, align 8
   %221 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %220 to i64
@@ -19171,8 +19171,8 @@ if.end11:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %27, i64 40
   %30 = load ptr, ptr %_M_finish.i, align 8
   %31 = load ptr, ptr %arguments, align 8
-  %cmp335.not = icmp eq ptr %30, %31
-  br i1 %cmp335.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit311, label %for.body.lr.ph
+  %cmp17.not = icmp eq ptr %30, %31
+  br i1 %cmp17.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit311, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end11
   %_M_refcount.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
@@ -19183,9 +19183,9 @@ for.body.lr.ph:                                   ; preds = %if.end11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %32 = phi ptr [ %31, %for.body.lr.ph ], [ %82, %for.inc ]
-  %i.0337 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0336 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %32, i64 %i.0337
+  %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.018 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %32, i64 %i.019
   %33 = load ptr, ptr %add.ptr.i, align 8
   store ptr %33, ptr %agg.tmp14, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -19311,14 +19311,14 @@ invoke.cont30:                                    ; preds = %_ZN5arrow7compute10
   store <2 x ptr> %51, ptr %modified_argument, align 16, !alias.scope !310
   store ptr null, ptr %storage_.i.i98, align 8, !noalias !310
   %52 = load ptr, ptr %arguments, align 8
-  %add.ptr.i101 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %52, i64 %i.0337
+  %add.ptr.i101 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %52, i64 %i.019
   %53 = load ptr, ptr %add.ptr.i101, align 8
   %54 = extractelement <2 x ptr> %51, i64 0
   %cmp.i.i102 = icmp eq ptr %54, %53
   br i1 %cmp.i.i102, label %cleanup, label %if.end35
 
 if.end35:                                         ; preds = %invoke.cont30
-  %tobool36 = trunc nuw i8 %at_least_one_modified.0336 to i1
+  %tobool36 = trunc nuw i8 %at_least_one_modified.018 to i1
   br i1 %tobool36, label %if.end42, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
@@ -19337,10 +19337,10 @@ lpad39:                                           ; preds = %if.then37
   br label %ehcleanup70
 
 if.end42:                                         ; preds = %if.then37.if.end42_crit_edge, %if.end35
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0336, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.018, %if.end35 ], [ 1, %if.then37.if.end42_crit_edge ]
   %57 = phi <2 x ptr> [ %51, %if.end35 ], [ %55, %if.then37.if.end42_crit_edge ]
   %58 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i103 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %58, i64 %i.0337
+  %add.ptr.i103 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %58, i64 %i.019
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   %_M_refcount3.i.i.i.i105 = getelementptr inbounds i8, ptr %add.ptr.i103, i64 8
   %59 = load ptr, ptr %_M_refcount3.i.i.i.i105, align 8
@@ -19418,7 +19418,7 @@ if.end8.sink.split.i.i.i.i.i.i127:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114, %if.end42, %invoke.cont30
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont30 ], [ 0, %if.end42 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i127 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0336, %invoke.cont30 ], [ %at_least_one_modified.1, %if.end42 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i127 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont30 ], [ %at_least_one_modified.1, %if.end42 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i114 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i124 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i127 ]
   %70 = load ptr, ptr %_M_refcount.i.i.i.i.i99, align 8
   %cmp.not.i.i.i.i138 = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i.i138, label %cleanup45, label %if.then.i.i.i.i139
@@ -19499,7 +19499,7 @@ cleanup45:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup45, %cleanup45
-  %inc = add nuw i64 %i.0337, 1
+  %inc = add nuw i64 %i.019, 1
   %81 = load ptr, ptr %_M_finish.i, align 8
   %82 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %81 to i64
@@ -21994,8 +21994,8 @@ if.end12:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %arguments, align 8
-  %cmp298.not = icmp eq ptr %3, %4
-  br i1 %cmp298.not, label %if.end63, label %for.body.lr.ph
+  %cmp16.not = icmp eq ptr %3, %4
+  br i1 %cmp16.not, label %if.end63, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12
   %_M_refcount.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
@@ -22006,9 +22006,9 @@ for.body.lr.ph:                                   ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi ptr [ %4, %for.body.lr.ph ], [ %53, %for.inc ]
-  %i.0300 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0299 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.0300
+  %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.017 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.018
   %6 = load ptr, ptr %add.ptr.i, align 8
   store ptr %6, ptr %agg.tmp15, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -22136,13 +22136,13 @@ invoke.cont31:                                    ; preds = %_ZN5arrow7compute10
   store ptr %25, ptr %_M_refcount.i.i.i.i.i136, align 8, !alias.scope !374
   store ptr null, ptr %storage_.i.i135, align 8, !noalias !374
   %26 = load ptr, ptr %arguments, align 8
-  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.0300
+  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.018
   %27 = load ptr, ptr %add.ptr.i138, align 8
   %cmp.i.i139 = icmp eq ptr %24, %27
   br i1 %cmp.i.i139, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont31
-  %tobool37 = trunc nuw i8 %at_least_one_modified.0299 to i1
+  %tobool37 = trunc nuw i8 %at_least_one_modified.017 to i1
   br i1 %tobool37, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -22157,9 +22157,9 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0299, %if.end36 ], [ 1, %if.then38 ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.0300
+  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   store ptr %24, ptr %add.ptr.i140, align 8
   %_M_refcount3.i.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i140, i64 8
@@ -22238,7 +22238,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0299, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176
@@ -22319,7 +22319,7 @@ cleanup46:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup46, %cleanup46
-  %inc = add nuw i64 %i.0300, 1
+  %inc = add nuw i64 %i.018, 1
   %52 = load ptr, ptr %_M_finish.i, align 8
   %53 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %52 to i64
@@ -23597,8 +23597,8 @@ if.end12:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %53, i64 40
   %56 = load ptr, ptr %_M_finish.i, align 8
   %57 = load ptr, ptr %arguments, align 8
-  %cmp389.not = icmp eq ptr %56, %57
-  br i1 %cmp389.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit363, label %for.body.lr.ph
+  %cmp17.not = icmp eq ptr %56, %57
+  br i1 %cmp17.not, label %_ZN5arrow7compute10ExpressionD2Ev.exit363, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12
   %_M_refcount.i.i.i106 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
@@ -23609,9 +23609,9 @@ for.body.lr.ph:                                   ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %58 = phi ptr [ %57, %for.body.lr.ph ], [ %108, %for.inc ]
-  %i.0391 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0390 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %58, i64 %i.0391
+  %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.018 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %58, i64 %i.019
   %59 = load ptr, ptr %add.ptr.i, align 8
   store ptr %59, ptr %agg.tmp15, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -23737,14 +23737,14 @@ invoke.cont31:                                    ; preds = %_ZN5arrow7compute10
   store <2 x ptr> %77, ptr %modified_argument, align 16, !alias.scope !391
   store ptr null, ptr %storage_.i.i146, align 8, !noalias !391
   %78 = load ptr, ptr %arguments, align 8
-  %add.ptr.i149 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %78, i64 %i.0391
+  %add.ptr.i149 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %78, i64 %i.019
   %79 = load ptr, ptr %add.ptr.i149, align 8
   %80 = extractelement <2 x ptr> %77, i64 0
   %cmp.i.i150 = icmp eq ptr %80, %79
   br i1 %cmp.i.i150, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont31
-  %tobool37 = trunc nuw i8 %at_least_one_modified.0390 to i1
+  %tobool37 = trunc nuw i8 %at_least_one_modified.018 to i1
   br i1 %tobool37, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -23763,10 +23763,10 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup71
 
 if.end43:                                         ; preds = %if.then38.if.end43_crit_edge, %if.end36
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0390, %if.end36 ], [ 1, %if.then38.if.end43_crit_edge ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.018, %if.end36 ], [ 1, %if.then38.if.end43_crit_edge ]
   %83 = phi <2 x ptr> [ %77, %if.end36 ], [ %81, %if.then38.if.end43_crit_edge ]
   %84 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i151 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %84, i64 %i.0391
+  %add.ptr.i151 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %84, i64 %i.019
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   %_M_refcount3.i.i.i.i153 = getelementptr inbounds i8, ptr %add.ptr.i151, i64 8
   %85 = load ptr, ptr %_M_refcount3.i.i.i.i153, align 8
@@ -23844,7 +23844,7 @@ if.end8.sink.split.i.i.i.i.i.i175:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162, %if.end43, %invoke.cont31
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i175 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0390, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i175 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.018, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i162 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i172 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i175 ]
   %96 = load ptr, ptr %_M_refcount.i.i.i.i.i147, align 8
   %cmp.not.i.i.i.i186 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i186, label %cleanup46, label %if.then.i.i.i.i187
@@ -23925,7 +23925,7 @@ cleanup46:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup46, %cleanup46
-  %inc = add nuw i64 %i.0391, 1
+  %inc = add nuw i64 %i.019, 1
   %107 = load ptr, ptr %_M_finish.i, align 8
   %108 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %107 to i64
@@ -42677,8 +42677,8 @@ if.end12:                                         ; preds = %_ZSt6get_ifIN5arrow
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %arguments, align 8
-  %cmp298.not = icmp eq ptr %3, %4
-  br i1 %cmp298.not, label %if.end63, label %for.body.lr.ph
+  %cmp16.not = icmp eq ptr %3, %4
+  br i1 %cmp16.not, label %if.end63, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12
   %_M_refcount.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
@@ -42689,9 +42689,9 @@ for.body.lr.ph:                                   ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi ptr [ %4, %for.body.lr.ph ], [ %53, %for.inc ]
-  %i.0300 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %at_least_one_modified.0299 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.0300
+  %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %at_least_one_modified.017 = phi i8 [ 0, %for.body.lr.ph ], [ %at_least_one_modified.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.arrow::compute::Expression", ptr %5, i64 %i.018
   %6 = load ptr, ptr %add.ptr.i, align 8
   store ptr %6, ptr %agg.tmp15, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -42819,13 +42819,13 @@ invoke.cont31:                                    ; preds = %_ZN5arrow7compute10
   store ptr %25, ptr %_M_refcount.i.i.i.i.i136, align 8, !alias.scope !553
   store ptr null, ptr %storage_.i.i135, align 8, !noalias !553
   %26 = load ptr, ptr %arguments, align 8
-  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.0300
+  %add.ptr.i138 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %26, i64 %i.018
   %27 = load ptr, ptr %add.ptr.i138, align 8
   %cmp.i.i139 = icmp eq ptr %24, %27
   br i1 %cmp.i.i139, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %invoke.cont31
-  %tobool37 = trunc nuw i8 %at_least_one_modified.0299 to i1
+  %tobool37 = trunc nuw i8 %at_least_one_modified.017 to i1
   br i1 %tobool37, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -42840,9 +42840,9 @@ lpad40:                                           ; preds = %if.then38
   br label %ehcleanup69
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.0299, %if.end36 ], [ 1, %if.then38 ]
+  %at_least_one_modified.1 = phi i8 [ %at_least_one_modified.017, %if.end36 ], [ 1, %if.then38 ]
   %29 = load ptr, ptr %modified_arguments, align 16
-  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.0300
+  %add.ptr.i140 = getelementptr inbounds %"class.arrow::compute::Expression", ptr %29, i64 %i.018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_argument, i8 0, i64 16, i1 false)
   store ptr %24, ptr %add.ptr.i140, align 8
   %_M_refcount3.i.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i140, i64 8
@@ -42921,7 +42921,7 @@ if.end8.sink.split.i.i.i.i.i.i164:                ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %if.end43, %invoke.cont31
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont31 ], [ 0, %if.end43 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ 0, %if.end8.sink.split.i.i.i.i.i.i164 ]
-  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.0299, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
+  %at_least_one_modified.2 = phi i8 [ %at_least_one_modified.017, %invoke.cont31 ], [ %at_least_one_modified.1, %if.end43 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %at_least_one_modified.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i161 ], [ %at_least_one_modified.1, %if.end8.sink.split.i.i.i.i.i.i164 ]
   %41 = load ptr, ptr %_M_refcount.i.i.i.i.i136, align 8
   %cmp.not.i.i.i.i175 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i175, label %cleanup46, label %if.then.i.i.i.i176
@@ -43002,7 +43002,7 @@ cleanup46:                                        ; preds = %if.end8.sink.split.
   ]
 
 for.inc:                                          ; preds = %cleanup46, %cleanup46
-  %inc = add nuw i64 %i.0300, 1
+  %inc = add nuw i64 %i.018, 1
   %52 = load ptr, ptr %_M_finish.i, align 8
   %53 = load ptr, ptr %arguments, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %52 to i64

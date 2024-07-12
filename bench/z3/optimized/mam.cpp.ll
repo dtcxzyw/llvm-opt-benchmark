@@ -24872,34 +24872,34 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNK12_GLOBAL__N_19code_tree11display_seqERSoPNS_11instructionEj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %head, i32 noundef %indent) unnamed_addr #3 align 2 {
 entry:
-  %cmp17.not = icmp eq i32 %indent, 0
-  br i1 %cmp17.not, label %for.end, label %for.body
+  %cmp2.not = icmp eq i32 %indent, 0
+  br i1 %cmp2.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.018 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %i.03 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.23)
-  %inc = add nuw i32 %i.018, 1
+  %inc = add nuw i32 %i.03, 1
   %exitcond.not = icmp eq i32 %inc, %indent
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !128
 
 for.end:                                          ; preds = %for.body, %entry
   %call2 = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_11instructionE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %head)
-  %curr.0.in19 = getelementptr inbounds i8, ptr %head, i64 8
-  %curr.020 = load ptr, ptr %curr.0.in19, align 8
-  %cmp3.not21 = icmp eq ptr %curr.020, null
-  br i1 %cmp3.not21, label %if.end.critedge, label %land.lhs.true
+  %curr.0.in4 = getelementptr inbounds i8, ptr %head, i64 8
+  %curr.05 = load ptr, ptr %curr.0.in4, align 8
+  %cmp3.not6 = icmp eq ptr %curr.05, null
+  br i1 %cmp3.not6, label %if.end.critedge, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end, %while.body
-  %curr.022 = phi ptr [ %curr.0, %while.body ], [ %curr.020, %for.end ]
-  %0 = load i32, ptr %curr.022, align 8
+  %curr.07 = phi ptr [ %curr.0, %while.body ], [ %curr.05, %for.end ]
+  %0 = load i32, ptr %curr.07, align 8
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 26
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.17)
   br i1 %switch, label %if.then, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
-  %call8 = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_11instructionE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %curr.022)
-  %curr.0.in = getelementptr inbounds i8, ptr %curr.022, i64 8
+  %call8 = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLOBAL__N_1lsERSoRKNS_11instructionE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %curr.07)
+  %curr.0.in = getelementptr inbounds i8, ptr %curr.07, i64 8
   %curr.0 = load ptr, ptr %curr.0.in, align 8
   %cmp3.not = icmp eq ptr %curr.0, null
   br i1 %cmp3.not, label %if.end.critedge, label %land.lhs.true, !llvm.loop !129
@@ -24909,9 +24909,9 @@ if.then:                                          ; preds = %land.lhs.true
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i
-  %curr.0.i23 = phi ptr [ %curr.022, %if.then ], [ %2, %while.body.i ]
-  tail call fastcc void @_ZNK12_GLOBAL__N_19code_tree11display_seqERSoPNS_11instructionEj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %curr.0.i23, i32 noundef %add)
-  %m_alt.i = getelementptr inbounds i8, ptr %curr.0.i23, i64 16
+  %curr.0.i8 = phi ptr [ %curr.07, %if.then ], [ %2, %while.body.i ]
+  tail call fastcc void @_ZNK12_GLOBAL__N_19code_tree11display_seqERSoPNS_11instructionEj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %curr.0.i8, i32 noundef %add)
+  %m_alt.i = getelementptr inbounds i8, ptr %curr.0.i8, i64 16
   %2 = load ptr, ptr %m_alt.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !130

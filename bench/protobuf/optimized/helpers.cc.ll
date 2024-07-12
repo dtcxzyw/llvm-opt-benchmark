@@ -7307,8 +7307,8 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20Ha
 entry:
   %field_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %field_count_.i, align 4
-  %cmp11 = icmp sgt i32 %0, 0
-  br i1 %cmp11, label %for.body.lr.ph, label %for.cond4.preheader
+  %cmp1 = icmp sgt i32 %0, 0
+  br i1 %cmp1, label %for.body.lr.ph, label %for.cond4.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
   %fields_.i = getelementptr inbounds i8, ptr %descriptor, i64 56
@@ -7317,8 +7317,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond4.preheader:                              ; preds = %for.inc, %entry
   %nested_type_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 128
   %1 = load i32, ptr %nested_type_count_.i, align 8
-  %cmp613 = icmp sgt i32 %1, 0
-  br i1 %cmp613, label %for.body7.lr.ph, label %return
+  %cmp63 = icmp sgt i32 %1, 0
+  br i1 %cmp63, label %for.body7.lr.ph, label %return
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
   %nested_types_.i = getelementptr inbounds i8, ptr %descriptor, i64 72
@@ -7405,16 +7405,16 @@ for.inc:                                          ; preds = %if.then5.i.i.i.i13.
   br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !189
 
 for.cond4:                                        ; preds = %for.body7
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %17 = load i32, ptr %nested_type_count_.i, align 8
   %18 = sext i32 %17 to i64
-  %cmp6 = icmp slt i64 %indvars.iv.next19, %18
+  %cmp6 = icmp slt i64 %indvars.iv.next9, %18
   br i1 %cmp6, label %for.body7, label %return, !llvm.loop !190
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.cond4
-  %indvars.iv18 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next19, %for.cond4 ]
+  %indvars.iv8 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next9, %for.cond4 ]
   %19 = load ptr, ptr %nested_types_.i, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %19, i64 %indvars.iv18
+  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %19, i64 %indvars.iv8
   %call9 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i10)
   br i1 %call9, label %return, label %for.cond4
 
@@ -7459,8 +7459,8 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL13Ha
 entry:
   %field_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %field_count_.i, align 4
-  %cmp12 = icmp sgt i32 %0, 0
-  br i1 %cmp12, label %for.body.lr.ph, label %for.cond4.preheader
+  %cmp2 = icmp sgt i32 %0, 0
+  br i1 %cmp2, label %for.body.lr.ph, label %for.cond4.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
   %fields_.i = getelementptr inbounds i8, ptr %descriptor, i64 56
@@ -7469,8 +7469,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond4.preheader:                              ; preds = %for.inc, %entry
   %nested_type_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 128
   %1 = load i32, ptr %nested_type_count_.i, align 8
-  %cmp614 = icmp sgt i32 %1, 0
-  br i1 %cmp614, label %for.body7.lr.ph, label %return
+  %cmp64 = icmp sgt i32 %1, 0
+  br i1 %cmp64, label %for.body7.lr.ph, label %return
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
   %nested_types_.i = getelementptr inbounds i8, ptr %descriptor, i64 72
@@ -7580,16 +7580,16 @@ for.inc:                                          ; preds = %_ZNK6google8protobu
   br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !192
 
 for.cond4:                                        ; preds = %for.body7
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
+  %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %22 = load i32, ptr %nested_type_count_.i, align 8
   %23 = sext i32 %22 to i64
-  %cmp6 = icmp slt i64 %indvars.iv.next20, %23
+  %cmp6 = icmp slt i64 %indvars.iv.next10, %23
   br i1 %cmp6, label %for.body7, label %return, !llvm.loop !193
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.cond4
-  %indvars.iv19 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next20, %for.cond4 ]
+  %indvars.iv9 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next10, %for.cond4 ]
   %24 = load ptr, ptr %nested_types_.i, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %24, i64 %indvars.iv19
+  %add.ptr.i10 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %24, i64 %indvars.iv9
   %call9 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler3cppL13HasCordFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i10)
   br i1 %call9, label %return, label %for.cond4
 

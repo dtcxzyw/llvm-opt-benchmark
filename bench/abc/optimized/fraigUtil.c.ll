@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [47 x i8] c"Number of candidate pairs = %d.  Proved = %d.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fraig_Dfs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Fraig_Dfs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -45,7 +45,8 @@ define ptr @Fraig_Dfs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %6, i32 noundef %1)
+  %.val = load i32, ptr %3, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val, ptr noundef %19, ptr noundef %6, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 4
@@ -61,59 +62,57 @@ define ptr @Fraig_Dfs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 declare ptr @Fraig_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fraig_Dfs_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %6, %8
-  br i1 %9, label %29, label %10
+define internal fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, %.128.val
+  br i1 %6, label %26, label %7
 
-10:                                               ; preds = %4
-  store i32 %8, ptr %5, align 8
-  %11 = tail call i32 @Fraig_NodeIsAnd(ptr noundef nonnull %1) #15
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %23, label %12
+7:                                                ; preds = %3
+  store i32 %.128.val, ptr %4, align 8
+  %8 = tail call i32 @Fraig_NodeIsAnd(ptr noundef nonnull %0) #15
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %20, label %9
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, -2
-  %17 = inttoptr i64 %16 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %2, i32 noundef %3)
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %2, i32 noundef %3)
-  br label %23
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, -2
+  %14 = inttoptr i64 %13 to ptr
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %14, ptr noundef %1, i32 noundef %2)
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = and i64 %17, -2
+  %19 = inttoptr i64 %18 to ptr
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef %19, ptr noundef %1, i32 noundef %2)
+  br label %20
 
-23:                                               ; preds = %12, %10
-  %.not22 = icmp eq i32 %3, 0
-  br i1 %.not22, label %28, label %24
+20:                                               ; preds = %9, %7
+  %.not22 = icmp eq i32 %2, 0
+  br i1 %.not22, label %25, label %21
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %28, label %27
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = load ptr, ptr %22, align 8
+  %.not23 = icmp eq ptr %23, null
+  br i1 %.not23, label %25, label %24
 
-27:                                               ; preds = %24
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef %2, i32 noundef %3)
-  br label %28
+24:                                               ; preds = %21
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.128.val, ptr noundef nonnull %23, ptr noundef %1, i32 noundef %2)
+  br label %25
 
-28:                                               ; preds = %27, %24, %23
-  tail call void @Fraig_NodeVecPush(ptr noundef %2, ptr noundef nonnull %1) #15
-  br label %29
+25:                                               ; preds = %24, %21, %20
+  tail call void @Fraig_NodeVecPush(ptr noundef %1, ptr noundef nonnull %0) #15
+  br label %26
 
-29:                                               ; preds = %4, %28
+26:                                               ; preds = %3, %25
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Fraig_DfsOne(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Fraig_DfsOne(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -122,12 +121,13 @@ define noundef ptr @Fraig_DfsOne(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef %0, ptr noundef %10, ptr noundef %7, i32 noundef %2)
+  %.val = load i32, ptr %4, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val, ptr noundef %10, ptr noundef %7, i32 noundef %2)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fraig_DfsNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Fraig_DfsNodes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
@@ -147,7 +147,8 @@ define ptr @Fraig_DfsNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef %0, ptr noundef %14, ptr noundef %8, i32 noundef %3)
+  %.val = load i32, ptr %5, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val, ptr noundef %14, ptr noundef %8, i32 noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -157,7 +158,7 @@ define ptr @Fraig_DfsNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_CountNodes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Fraig_CountNodes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -180,7 +181,8 @@ define i32 @Fraig_CountNodes(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %6, i32 noundef %1)
+  %.val.i = load i32, ptr %3, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val.i, ptr noundef %19, ptr noundef %6, i32 noundef %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 4
@@ -274,7 +276,7 @@ tailrecurse:                                      ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -283,7 +285,8 @@ define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr noundef %0, ptr nocapture nounde
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef %0, ptr noundef %10, ptr noundef %7, i32 noundef 1)
+  %.val.i = load i32, ptr %4, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val.i, ptr noundef %10, ptr noundef %7, i32 noundef 1)
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr %4, align 8
@@ -294,7 +297,7 @@ define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_ManMarkRealFanouts(ptr noundef %0) local_unnamed_addr #0 {
+define void @Fraig_ManMarkRealFanouts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -317,7 +320,8 @@ define void @Fraig_ManMarkRealFanouts(ptr noundef %0) local_unnamed_addr #0 {
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %5, i32 noundef 0)
+  %.val.i = load i32, ptr %2, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val.i, ptr noundef %18, ptr noundef %5, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 4
@@ -466,7 +470,7 @@ define i32 @Fraig_BitStringCountOnes(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fraig_ManCheckConsistency(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i32 @Fraig_ManCheckConsistency(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -489,7 +493,8 @@ define noundef i32 @Fraig_ManCheckConsistency(ptr noundef %0) local_unnamed_addr
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %5, i32 noundef 0)
+  %.val.i = load i32, ptr %2, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val.i, ptr noundef %18, ptr noundef %5, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 4
@@ -606,7 +611,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @Fraig_NodeIsConst(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_PrintNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Fraig_PrintNode(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -615,7 +620,8 @@ define void @Fraig_PrintNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  tail call fastcc void @Fraig_Dfs_rec(ptr noundef %0, ptr noundef %9, ptr noundef %6, i32 noundef 0)
+  %.val.i = load i32, ptr %3, align 8
+  tail call fastcc void @Fraig_Dfs_rec(i32 %.val.i, ptr noundef %9, ptr noundef %6, i32 noundef 0)
   %10 = getelementptr inbounds i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0

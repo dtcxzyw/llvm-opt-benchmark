@@ -4784,22 +4784,22 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %cmp.not.i.i.i.i.i = icmp eq ptr %7, %8
   %_M_finish.i.i.i.i22 = getelementptr inbounds i8, ptr %next, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %next, i64 16
-  %add.ptr.i.i.i.i48 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %m_num_bits.i23 = getelementptr inbounds i8, ptr %next, i64 24
   %sub = add i32 %age_limit, -1
   br i1 %cmp.not.i.i.i.i.i, label %for.body.us, label %invoke.cont11.split
 
 for.body.us:                                      ; preds = %invoke.cont11, %for.cond.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.cond.us ], [ 0, %invoke.cont11 ]
-  %cmp1356.us = phi i1 [ %cmp13.us, %for.cond.us ], [ true, %invoke.cont11 ]
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.cond.us ], [ 0, %invoke.cont11 ]
+  %cmp1314.us = phi i1 [ %cmp13.us, %for.cond.us ], [ true, %invoke.cont11 ]
   store i64 0, ptr %next, align 8
-  store ptr %add.ptr.i.i.i.i48, ptr %_M_end_of_storage.i.i.i.i, align 8
-  store ptr %add.ptr.i.i.i.i48, ptr %_M_finish.i.i.i.i22, align 8
+  store ptr %add.ptr.i.i.i.i6, ptr %_M_end_of_storage.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i6, ptr %_M_finish.i.i.i.i22, align 8
   store i64 %5, ptr %m_num_bits.i23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i8 0, i64 32, i1 false)
-  %rem.i.i.i.i.us = and i64 %indvars.iv63, 63
+  %rem.i.i.i.i.us = and i64 %indvars.iv21, 63
   %shl.i.i.i.i.us = shl nuw i64 1, %rem.i.i.i.i.us
-  %div1.i.i.i.i.us = lshr i64 %indvars.iv63, 6
+  %div1.i.i.i.i.us = lshr i64 %indvars.iv21, 6
   %arrayidx.i.i.i.i.i.us = getelementptr inbounds [4 x i64], ptr %ref.tmp15, i64 0, i64 %div1.i.i.i.i.us
   %10 = load i64, ptr %arrayidx.i.i.i.i.i.us, align 8
   %or.i.i.i.us = or i64 %10, %shl.i.i.i.i.us
@@ -4808,10 +4808,10 @@ for.body.us:                                      ; preds = %invoke.cont11, %for
           to label %invoke.cont18.us unwind label %lpad16.split.us
 
 for.cond.us:                                      ; preds = %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %cmp13.us = icmp ult i64 %indvars.iv63, 255
-  %exitcond65.not = icmp eq i64 %indvars.iv.next64, 256
-  br i1 %exitcond65.not, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34, label %for.body.us, !llvm.loop !109
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %cmp13.us = icmp ult i64 %indvars.iv21, 255
+  %exitcond23.not = icmp eq i64 %indvars.iv.next22, 256
+  br i1 %exitcond23.not, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34, label %for.body.us, !llvm.loop !109
 
 invoke.cont18.us:                                 ; preds = %for.body.us
   %call20.us = invoke fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_8NGHolderERKSt6vectorINS_9StateInfoESaIS4_EERKN5boost14dynamic_bitsetImSaImEEERSt3mapISC_jSt4lessISC_ESaISt4pairISD_jEEEj(ptr noundef nonnull align 8 dereferenceable(24) %info, ptr noundef nonnull align 8 dereferenceable(32) %next, ptr noundef nonnull align 8 dereferenceable(48) %visited, i32 noundef %sub)
@@ -4836,9 +4836,9 @@ lpad16.split.us:                                  ; preds = %invoke.cont18.us, %
 
 invoke.cont11.split:                              ; preds = %invoke.cont11
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.us58, label %for.body
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.us16, label %for.body
 
-for.body.us58:                                    ; preds = %invoke.cont11.split
+for.body.us16:                                    ; preds = %invoke.cont11.split
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next, i8 0, i64 24, i1 false)
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #19
           to label %.noexc unwind label %lpad10.loopexit.split-lp
@@ -4851,12 +4851,12 @@ for.cond:                                         ; preds = %_ZN5boost14dynamic_
 
 for.body:                                         ; preds = %invoke.cont11.split, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %invoke.cont11.split ]
-  %cmp1356 = phi i1 [ %cmp13, %for.cond ], [ true, %invoke.cont11.split ]
+  %cmp1314 = phi i1 [ %cmp13, %for.cond ], [ true, %invoke.cont11.split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i6.i.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #20
           to label %if.then.i.i.i.i.i.i.i.i.i.i unwind label %lpad10.loopexit
 
-.noexc:                                           ; preds = %for.body.us58
+.noexc:                                           ; preds = %for.body.us16
   unreachable
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body
@@ -4886,7 +4886,7 @@ lpad10.loopexit:                                  ; preds = %for.body
           cleanup
   br label %ehcleanup
 
-lpad10.loopexit.split-lp:                         ; preds = %invoke.cont, %for.body.us58
+lpad10.loopexit.split-lp:                         ; preds = %invoke.cont, %for.body.us16
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -4897,7 +4897,7 @@ lpad16.split:                                     ; preds = %invoke.cont18, %if.
   br label %lpad16
 
 lpad16:                                           ; preds = %lpad16.split.us, %lpad16.split
-  %.us-phi57 = phi { ptr, i32 } [ %14, %lpad16.split ], [ %12, %lpad16.split.us ]
+  %.us-phi15 = phi { ptr, i32 } [ %14, %lpad16.split ], [ %12, %lpad16.split.us ]
   %15 = load ptr, ptr %next, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i, label %ehcleanup, label %if.then.i.i.i.i25
@@ -4919,12 +4919,12 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30:     ; preds = %cleanup, %if.then.i
   br i1 %call20, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34, label %for.cond
 
 _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34:     ; preds = %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30, %for.cond, %for.cond.us, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30.us
-  %.us-phi = phi i1 [ %cmp13.us, %for.cond.us ], [ %cmp1356.us, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30.us ], [ %cmp13, %for.cond ], [ %cmp1356, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30 ]
+  %.us-phi = phi i1 [ %cmp13.us, %for.cond.us ], [ %cmp1314.us, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30.us ], [ %cmp13, %for.cond ], [ %cmp1314, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit30 ]
   call void @_ZdlPv(ptr noundef nonnull %8) #21
   br label %return
 
 ehcleanup:                                        ; preds = %lpad10.loopexit, %lpad10.loopexit.split-lp, %if.then.i.i.i.i25, %lpad16
-  %.pn = phi { ptr, i32 } [ %.us-phi57, %lpad16 ], [ %.us-phi57, %if.then.i.i.i.i25 ], [ %lpad.loopexit, %lpad10.loopexit ], [ %lpad.loopexit.split-lp, %lpad10.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.us-phi15, %lpad16 ], [ %.us-phi15, %if.then.i.i.i.i25 ], [ %lpad.loopexit, %lpad10.loopexit ], [ %lpad.loopexit.split-lp, %lpad10.loopexit.split-lp ]
   %tobool.not.i.i.i.i35 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i35, label %eh.resume, label %if.then.i.i.i.i36
 

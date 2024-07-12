@@ -9594,9 +9594,9 @@ if.then:                                          ; preds = %_ZNKSt8__detail15_H
 
 if.end:                                           ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %u.coerce0, i64 64
-  %__begin1.sroa.0.044 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i15.not45 = icmp eq ptr %__begin1.sroa.0.044, %m_header.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i15.not45, label %for.end, label %for.body.lr.ph
+  %__begin1.sroa.0.021 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i15.not22 = icmp eq ptr %__begin1.sroa.0.021, %m_header.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i15.not22, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %impl_alpha_size.i = getelementptr inbounds i8, ptr %info, i64 88
@@ -9609,9 +9609,9 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.047 = phi ptr [ %__begin1.sroa.0.044, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.inc ]
-  %rv.046 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %rv.1, %for.inc ]
-  %target.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.047, i64 40
+  %__begin1.sroa.0.024 = phi ptr [ %__begin1.sroa.0.021, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.inc ]
+  %rv.023 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %rv.1, %for.inc ]
+  %target.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 40
   %14 = load ptr, ptr %target.i.i.i, align 8
   %serial2.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load i64, ptr %serial2.i.i.i.i, align 8
@@ -9768,12 +9768,12 @@ if.then22:                                        ; preds = %if.else
 
 if.end27:                                         ; preds = %if.then.i.i4.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEEEclERKS8_SB_.exit.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RdfaGraphENS3_15RdfaVertexPropsENS3_13RdfaEdgePropsEEEEELb1EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i.i, %if.then22
   %weight.0 = phi double [ %call24, %if.then22 ], [ 1.000000e+00, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RdfaGraphENS3_15RdfaVertexPropsENS3_13RdfaEdgePropsEEEEELb1EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i.i ], [ 1.000000e+00, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEEEclERKS8_SB_.exit.i.i ], [ 1.000000e+00, %if.then.i.i4.i.i ]
-  %48 = tail call double @llvm.fmuladd.f64(double %div, double %weight.0, double %rv.046)
+  %48 = tail call double @llvm.fmuladd.f64(double %div, double %weight.0, double %rv.023)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %for.body, %if.end27
-  %rv.1 = phi double [ %rv.046, %for.body ], [ %48, %if.end27 ], [ %rv.046, %if.else ]
-  %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.047, align 8
+  %rv.1 = phi double [ %rv.023, %for.body ], [ %48, %if.end27 ], [ %rv.023, %if.else ]
+  %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.024, align 8
   %cmp.i.i.i.i.i.i.i15.not = icmp eq ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i15.not, label %for.end, label %for.body
 

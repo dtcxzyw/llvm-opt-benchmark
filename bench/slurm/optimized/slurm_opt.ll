@@ -16354,8 +16354,8 @@ define internal i32 @arg_set_data_switches(ptr noundef %0, ptr noundef %1, ptr n
 32:                                               ; preds = %22
   %33 = load ptr, ptr %4, align 8
   %34 = call ptr @xstrchr(ptr noundef %33, i32 noundef 64) #23
-  %.not15.not.i.i = icmp eq ptr %34, null
-  br i1 %.not15.not.i.i, label %_handle_data_switches_str.exit.i, label %.lr.ph.i.i
+  %.not3.not.i.i = icmp eq ptr %34, null
+  br i1 %.not3.not.i.i, label %_handle_data_switches_str.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 628

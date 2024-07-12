@@ -5807,14 +5807,14 @@ if.then4.i.i45.i:                                 ; preds = %for.end.i
   %34 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %34 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %33, i64 %conv.i
-  %cmp5.not8 = icmp eq i32 %34, 0
-  br i1 %cmp5.not8, label %for.end, label %for.body
+  %cmp5.not2 = icmp eq i32 %34, 0
+  br i1 %cmp5.not2, label %for.end, label %for.body
 
 for.body:                                         ; preds = %"_ZZN6hermes9IRPrinter22printFunctionVariablesEPNS_8FunctionEENK3$_0clEPNS_9ScopeDescE.exit", %for.body
-  %__begin2.09 = phi ptr [ %incdec.ptr, %for.body ], [ %33, %"_ZZN6hermes9IRPrinter22printFunctionVariablesEPNS_8FunctionEENK3$_0clEPNS_9ScopeDescE.exit" ]
-  %35 = load ptr, ptr %__begin2.09, align 8
+  %__begin2.03 = phi ptr [ %incdec.ptr, %for.body ], [ %33, %"_ZZN6hermes9IRPrinter22printFunctionVariablesEPNS_8FunctionEENK3$_0clEPNS_9ScopeDescE.exit" ]
+  %35 = load ptr, ptr %__begin2.03, align 8
   tail call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZNS_9IRPrinter22printFunctionVariablesEPS0_E3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %35, ptr nonnull %handler.coerce0, ptr nonnull %handler.coerce1)
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.09, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.03, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end, label %for.body
 

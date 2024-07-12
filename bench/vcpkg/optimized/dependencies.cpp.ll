@@ -3664,9 +3664,9 @@ _ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4p
   br i1 %.not.i.i, label %_ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit, label %_ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i.i: ; preds = %_ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit.i
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %.val.i.i.i.i.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i.i.i.i)
+  %51 = getelementptr i8, ptr %50, i64 16
+  %.val.i.i.i = load ptr, ptr %51, align 8
+  call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i)
   call void @_ZdlPv(ptr noundef nonnull %50) #26
   br label %_ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit
 
@@ -7666,9 +7666,9 @@ _ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4p
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_112ClusterGraphESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i: ; preds = %_ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %.val.i.i.i.i.i = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i.i.i)
+  %11 = getelementptr i8, ptr %10, i64 16
+  %.val.i.i = load ptr, ptr %11, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %10) #26
   br label %_ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_112ClusterGraphESt14default_deleteIS2_EED2Ev.exit
 
@@ -7793,9 +7793,9 @@ _ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4p
   br i1 %.not.i.i, label %_ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit, label %_ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit.i.i: ; preds = %_ZNSt3mapIN5vcpkg11FeatureSpecENS0_18PlatformExpression4ExprESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit.i
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %.val.i.i.i.i.i.i = load ptr, ptr %48, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i.i.i.i)
+  %48 = getelementptr i8, ptr %47, i64 16
+  %.val.i.i.i = load ptr, ptr %48, align 8
+  call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i)
   call void @_ZdlPv(ptr noundef nonnull %47) #26
   br label %_ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit
 
@@ -13355,8 +13355,8 @@ _ZNSt6vectorIN5vcpkg12_GLOBAL__N_121VersionedPackageGraph15ConstraintFrameESaIS3
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5vcpkg12_GLOBAL__N_121VersionedPackageGraph15ConstraintFrameESaIS3_EED2Ev.exit
   %21 = getelementptr inbounds i8, ptr %0, i64 208
-  %.val.i.i = load ptr, ptr %21, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val.i.i)
+  %.val = load ptr, ptr %21, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val)
   %22 = getelementptr inbounds i8, ptr %0, i64 144
   %23 = getelementptr inbounds i8, ptr %0, i64 160
   %24 = load ptr, ptr %23, align 8
@@ -18381,9 +18381,9 @@ define internal fastcc void @_ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_112ClusterGra
   br i1 %.not, label %4, label %_ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit
 
 _ZNKSt14default_deleteIN5vcpkg12_GLOBAL__N_112ClusterGraphEEclEPS2_.exit: ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %.val.i.i.i.i = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i.i.i.i)
+  %3 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %3, align 8
+  tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.val.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #26
   br label %4
 
@@ -18423,54 +18423,54 @@ declare void @_ZN5vcpkg18PlatformExpression4ExprD1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
-  %.08 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val, %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef %.0.val6)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 312
+  %4 = getelementptr inbounds i8, ptr %.02, i64 312
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_118ClusterInstallInfoEED2Ev.exit.i.i.i.i.i.i
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.08, i64 320
+  %8 = getelementptr inbounds i8, ptr %.02, i64 320
   tail call fastcc void @_ZN5vcpkg12_GLOBAL__N_118ClusterInstallInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %8) #25
   br label %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_118ClusterInstallInfoEED2Ev.exit.i.i.i.i.i.i
 
 _ZN5vcpkg8OptionalINS_12_GLOBAL__N_118ClusterInstallInfoEED2Ev.exit.i.i.i.i.i.i: ; preds = %7, %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.08, i64 152
+  %9 = getelementptr inbounds i8, ptr %.02, i64 152
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_116ClusterInstalledEED2Ev.exit.i.i.i.i.i.i
 
 12:                                               ; preds = %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_118ClusterInstallInfoEED2Ev.exit.i.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.08, i64 160
+  %13 = getelementptr inbounds i8, ptr %.02, i64 160
   tail call fastcc void @_ZN5vcpkg12_GLOBAL__N_116ClusterInstalledD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %13) #25
   br label %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_116ClusterInstalledEED2Ev.exit.i.i.i.i.i.i
 
 _ZN5vcpkg8OptionalINS_12_GLOBAL__N_116ClusterInstalledEED2Ev.exit.i.i.i.i.i.i: ; preds = %12, %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_118ClusterInstallInfoEED2Ev.exit.i.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %.08, i64 144
+  %14 = getelementptr inbounds i8, ptr %.02, i64 144
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
 
 17:                                               ; preds = %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_116ClusterInstalledEED2Ev.exit.i.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.08, i64 112
+  %18 = getelementptr inbounds i8, ptr %.02, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   br label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
 
 _ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_17ClusterEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %_ZN5vcpkg8OptionalINS_12_GLOBAL__N_116ClusterInstalledEED2Ev.exit.i.i.i.i.i.i, %17
-  %19 = getelementptr inbounds i8, ptr %.08, i64 32
-  %20 = getelementptr inbounds i8, ptr %.08, i64 72
+  %19 = getelementptr inbounds i8, ptr %.02, i64 32
+  %20 = getelementptr inbounds i8, ptr %.02, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #26
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265
 
@@ -37711,21 +37711,21 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.not7 = icmp eq ptr %0, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+  %.not1 = icmp eq ptr %0, null
+  br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.08 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr i8, ptr %.08, i64 24
+  %.02 = phi ptr [ %.0.val6, %.lr.ph ], [ %0, %1 ]
+  %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.0.val)
-  %3 = getelementptr i8, ptr %.08, i64 16
+  %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val6 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 32
-  %5 = getelementptr inbounds i8, ptr %.08, i64 72
+  %4 = getelementptr inbounds i8, ptr %.02, i64 32
+  %5 = getelementptr inbounds i8, ptr %.02, i64 72
   tail call fastcc void @_ZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(209) %5) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %.08) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.02) #26
   %.not = icmp eq ptr %.0.val6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !551
 
