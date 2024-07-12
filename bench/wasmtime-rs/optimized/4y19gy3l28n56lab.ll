@@ -2895,8 +2895,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0eae3b368f
   %25 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !670, !noalias !675
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !680
   store <2 x ptr> %25, ptr %7, align 16, !noalias !687
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %24, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !687
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %24, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !687
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !680
   call void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h0e4adb9e26b950b0E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !680
   %26 = load i32, ptr %6, align 8, !range !688, !noalias !680, !noundef !10
@@ -3136,8 +3136,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1702a15791
   %31 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !744, !noalias !749
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !754
   store <2 x ptr> %31, ptr %13, align 16, !noalias !761
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 %30, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !761
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 %30, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !761
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !754
   call void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8a8de8a174bf41bdE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13), !noalias !754
   %32 = load i32, ptr %12, align 8, !range !688, !noalias !754, !noundef !10
@@ -3708,8 +3708,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h494c06c989
   %28 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !865, !noalias !870
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !875
   store <2 x ptr> %28, ptr %10, align 16, !noalias !882
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 %27, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !882
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 %27, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !882
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !875
   call void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h13a1e9ae76ff967bE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10), !noalias !875
   %29 = load i32, ptr %9, align 8, !range !688, !noalias !875, !noundef !10
@@ -3894,8 +3894,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5a64e5fd59
   %31 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !910, !noalias !915
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !920
   store <2 x ptr> %31, ptr %13, align 16, !noalias !927
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 %30, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !927
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 %30, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !927
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !920
   call void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8a8de8a174bf41bdE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13), !noalias !920
   %32 = load i32, ptr %12, align 8, !range !688, !noalias !920, !noundef !10
@@ -4219,8 +4219,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h74c8a35756
   %28 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !991, !noalias !996
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1001
   store <2 x ptr> %28, ptr %10, align 16, !noalias !1008
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 %27, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1008
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 %27, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1008
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !1001
   call void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h13a1e9ae76ff967bE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10), !noalias !1001
   %29 = load i32, ptr %9, align 8, !range !688, !noalias !1001, !noundef !10
@@ -4399,8 +4399,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h75982d58b0
   %27 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !1036, !noalias !1041
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1046
   store <2 x ptr> %27, ptr %9, align 16, !noalias !1053
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %26, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1053
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %26, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1053
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !1046
   call void @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h436e12333515b770E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !1046
   %28 = load i32, ptr %8, align 8, !range !688, !noalias !1046, !noundef !10
@@ -4652,8 +4652,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h914fe0b0d5
   %28 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !1111, !noalias !1116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1121
   store <2 x ptr> %28, ptr %10, align 16, !noalias !1128
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 %27, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1128
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 %27, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1128
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !1121
   call void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h13a1e9ae76ff967bE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10), !noalias !1121
   %29 = load i32, ptr %9, align 8, !range !688, !noalias !1121, !noundef !10
@@ -4830,8 +4830,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17haf65efb3b4
   %25 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !1156, !noalias !1161
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1166
   store <2 x ptr> %25, ptr %7, align 16, !noalias !1173
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %24, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1173
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %24, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1173
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !1166
   call void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h0e4adb9e26b950b0E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !1166
   %26 = load i32, ptr %6, align 8, !range !688, !noalias !1166, !noundef !10
@@ -5232,8 +5232,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd880f91732
   %27 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !1251, !noalias !1256
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1261
   store <2 x ptr> %27, ptr %9, align 16, !noalias !1268
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %26, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1268
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %26, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1268
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !1261
   call void @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h436e12333515b770E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !1261
   %28 = load i32, ptr %8, align 8, !range !688, !noalias !1261, !noundef !10
@@ -5401,8 +5401,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17heb0f8e9d26
   %25 = load <2 x ptr>, ptr %.val3, align 8, !alias.scope !1299, !noalias !1304
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1309
   store <2 x ptr> %25, ptr %7, align 16, !noalias !1316
-  %.sroa.43.i.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %24, ptr %.sroa.43.i.sroa.7.4..sroa_idx.i, align 16, !noalias !1316
+  %.sroa.4.sroa.7.4..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %24, ptr %.sroa.4.sroa.7.4..sroa_idx.i, align 16, !noalias !1316
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !1309
   call void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h0e4adb9e26b950b0E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !1309
   %26 = load i32, ptr %6, align 8, !range !688, !noalias !1309, !noundef !10
@@ -8765,7 +8765,7 @@ attributes #32 = { noreturn }
 !684 = distinct !{!684, !685, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h209c2badc08fa916E: argument 0"}
 !685 = distinct !{!685, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h209c2badc08fa916E"}
 !686 = distinct !{!686, !685, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h209c2badc08fa916E: argument 1"}
-!687 = !{!681, !684, !686, !678}
+!687 = !{!684, !678}
 !688 = !{i32 0, i32 12}
 !689 = !{!681, !683, !690, !691, !678}
 !690 = distinct !{!690, !685, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h209c2badc08fa916E: argument 0:thread"}
@@ -8839,7 +8839,7 @@ attributes #32 = { noreturn }
 !758 = distinct !{!758, !759, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0c8c622821d9015E: argument 0"}
 !759 = distinct !{!759, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0c8c622821d9015E"}
 !760 = distinct !{!760, !759, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0c8c622821d9015E: argument 1"}
-!761 = !{!755, !758, !760, !752}
+!761 = !{!758, !752}
 !762 = !{!755, !757, !763, !764, !752}
 !763 = distinct !{!763, !759, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0c8c622821d9015E: argument 0:thread"}
 !764 = distinct !{!764, !759, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0c8c622821d9015E: argument 1:thread"}
@@ -8960,7 +8960,7 @@ attributes #32 = { noreturn }
 !879 = distinct !{!879, !880, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2ea85bad99ec7f3E: argument 0"}
 !880 = distinct !{!880, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2ea85bad99ec7f3E"}
 !881 = distinct !{!881, !880, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2ea85bad99ec7f3E: argument 1"}
-!882 = !{!876, !879, !881, !873}
+!882 = !{!879, !873}
 !883 = !{!876, !878, !884, !885, !873}
 !884 = distinct !{!884, !880, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2ea85bad99ec7f3E: argument 0:thread"}
 !885 = distinct !{!885, !880, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2ea85bad99ec7f3E: argument 1:thread"}
@@ -9005,7 +9005,7 @@ attributes #32 = { noreturn }
 !924 = distinct !{!924, !925, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0a9d62a36275e11E: argument 0"}
 !925 = distinct !{!925, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0a9d62a36275e11E"}
 !926 = distinct !{!926, !925, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0a9d62a36275e11E: argument 1"}
-!927 = !{!921, !924, !926, !918}
+!927 = !{!924, !918}
 !928 = !{!921, !923, !929, !930, !918}
 !929 = distinct !{!929, !925, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0a9d62a36275e11E: argument 0:thread"}
 !930 = distinct !{!930, !925, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0a9d62a36275e11E: argument 1:thread"}
@@ -9086,7 +9086,7 @@ attributes #32 = { noreturn }
 !1005 = distinct !{!1005, !1006, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf65f0f8b1f96b293E: argument 0"}
 !1006 = distinct !{!1006, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf65f0f8b1f96b293E"}
 !1007 = distinct !{!1007, !1006, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf65f0f8b1f96b293E: argument 1"}
-!1008 = !{!1002, !1005, !1007, !999}
+!1008 = !{!1005, !999}
 !1009 = !{!1002, !1004, !1010, !1011, !999}
 !1010 = distinct !{!1010, !1006, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf65f0f8b1f96b293E: argument 0:thread"}
 !1011 = distinct !{!1011, !1006, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf65f0f8b1f96b293E: argument 1:thread"}
@@ -9131,7 +9131,7 @@ attributes #32 = { noreturn }
 !1050 = distinct !{!1050, !1051, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h34cd0905b598fb30E: argument 0"}
 !1051 = distinct !{!1051, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h34cd0905b598fb30E"}
 !1052 = distinct !{!1052, !1051, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h34cd0905b598fb30E: argument 1"}
-!1053 = !{!1047, !1050, !1052, !1044}
+!1053 = !{!1050, !1044}
 !1054 = !{!1047, !1049, !1055, !1056, !1044}
 !1055 = distinct !{!1055, !1051, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h34cd0905b598fb30E: argument 0:thread"}
 !1056 = distinct !{!1056, !1051, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h34cd0905b598fb30E: argument 1:thread"}
@@ -9206,7 +9206,7 @@ attributes #32 = { noreturn }
 !1125 = distinct !{!1125, !1126, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e797df92f3df894E: argument 0"}
 !1126 = distinct !{!1126, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e797df92f3df894E"}
 !1127 = distinct !{!1127, !1126, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e797df92f3df894E: argument 1"}
-!1128 = !{!1122, !1125, !1127, !1119}
+!1128 = !{!1125, !1119}
 !1129 = !{!1122, !1124, !1130, !1131, !1119}
 !1130 = distinct !{!1130, !1126, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e797df92f3df894E: argument 0:thread"}
 !1131 = distinct !{!1131, !1126, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e797df92f3df894E: argument 1:thread"}
@@ -9251,7 +9251,7 @@ attributes #32 = { noreturn }
 !1170 = distinct !{!1170, !1171, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b83c86333b2dec4E: argument 0"}
 !1171 = distinct !{!1171, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b83c86333b2dec4E"}
 !1172 = distinct !{!1172, !1171, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b83c86333b2dec4E: argument 1"}
-!1173 = !{!1167, !1170, !1172, !1164}
+!1173 = !{!1170, !1164}
 !1174 = !{!1167, !1169, !1175, !1176, !1164}
 !1175 = distinct !{!1175, !1171, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b83c86333b2dec4E: argument 0:thread"}
 !1176 = distinct !{!1176, !1171, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b83c86333b2dec4E: argument 1:thread"}
@@ -9346,7 +9346,7 @@ attributes #32 = { noreturn }
 !1265 = distinct !{!1265, !1266, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15f89121a6104086E: argument 0"}
 !1266 = distinct !{!1266, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15f89121a6104086E"}
 !1267 = distinct !{!1267, !1266, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15f89121a6104086E: argument 1"}
-!1268 = !{!1262, !1265, !1267, !1259}
+!1268 = !{!1265, !1259}
 !1269 = !{!1262, !1264, !1270, !1271, !1259}
 !1270 = distinct !{!1270, !1266, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15f89121a6104086E: argument 0:thread"}
 !1271 = distinct !{!1271, !1266, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15f89121a6104086E: argument 1:thread"}
@@ -9394,7 +9394,7 @@ attributes #32 = { noreturn }
 !1313 = distinct !{!1313, !1314, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92d5b52aaca14e49E: argument 0"}
 !1314 = distinct !{!1314, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92d5b52aaca14e49E"}
 !1315 = distinct !{!1315, !1314, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92d5b52aaca14e49E: argument 1"}
-!1316 = !{!1310, !1313, !1315, !1307}
+!1316 = !{!1313, !1307}
 !1317 = !{!1310, !1312, !1318, !1319, !1307}
 !1318 = distinct !{!1318, !1314, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92d5b52aaca14e49E: argument 0:thread"}
 !1319 = distinct !{!1319, !1314, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h92d5b52aaca14e49E: argument 1:thread"}

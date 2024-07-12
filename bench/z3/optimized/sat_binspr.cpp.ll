@@ -98,7 +98,7 @@ define hidden void @_ZN3sat6binsprclEv(ptr noundef nonnull align 8 dereferenceab
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
-  %agg.tmp9656.sroa.4 = alloca <{ [4 x i8], i64, i32 }>, align 4
+  %agg.tmp164.sroa.5.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %agg.tmp1.i = alloca %"class.sat::justification", align 8
   %_rep = alloca %"struct.sat::binspr::report", align 8
   %p = alloca %class.params_ref, align 8
@@ -525,7 +525,7 @@ cond.true.i:                                      ; preds = %invoke.cont77
   %m_trail.i = getelementptr inbounds i8, ptr %50, i64 3928
   %52 = load ptr, ptr %m_trail.i, align 8
   %cmp.i1.i = icmp eq ptr %52, null
-  br i1 %cmp.i1.i, label %_ZNK3sat6solver15init_trail_sizeEv.exit, label %if.end.i.i36
+  br i1 %cmp.i1.i, label %for.cond81.preheader, label %if.end.i.i36
 
 if.end.i.i36:                                     ; preds = %cond.true.i
   %arrayidx.i.i37 = getelementptr inbounds i8, ptr %52, i64 -4
@@ -540,14 +540,14 @@ cond.end.sink.split.i:                            ; preds = %cond.false.i, %if.e
   %arrayidx.i.sink.i = phi ptr [ %arrayidx.i.i37, %if.end.i.i36 ], [ %53, %cond.false.i ]
   %54 = load i32, ptr %arrayidx.i.sink.i, align 4
   %55 = zext i32 %54 to i64
-  br label %_ZNK3sat6solver15init_trail_sizeEv.exit
+  br label %for.cond81.preheader
 
-_ZNK3sat6solver15init_trail_sizeEv.exit:          ; preds = %cond.true.i, %cond.end.sink.split.i
-  %cond.i = phi i64 [ 0, %cond.true.i ], [ %55, %cond.end.sink.split.i ]
+for.cond81.preheader:                             ; preds = %cond.true.i, %cond.end.sink.split.i
+  %indvars.iv.ph = phi i64 [ %55, %cond.end.sink.split.i ], [ 0, %cond.true.i ]
   br label %for.cond81
 
-for.cond81:                                       ; preds = %_ZNK3sat6solver15init_trail_sizeEv.exit, %for.inc105
-  %indvars.iv = phi i64 [ %cond.i, %_ZNK3sat6solver15init_trail_sizeEv.exit ], [ %indvars.iv.next, %for.inc105 ]
+for.cond81:                                       ; preds = %for.cond81.preheader, %for.inc105
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc105 ], [ %indvars.iv.ph, %for.cond81.preheader ]
   %56 = load ptr, ptr %s, align 8
   %m_scope_lvl.i.i38 = getelementptr inbounds i8, ptr %56, i64 3756
   %57 = load i32, ptr %m_scope_lvl.i.i38, align 4
@@ -591,10 +591,6 @@ invoke.cont102:                                   ; preds = %invoke.cont85
   %64 = load ptr, ptr %m_justification.i53, align 8, !noalias !7
   %idxprom.i.i54 = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i55 = getelementptr inbounds %"class.sat::justification", ptr %64, i64 %idxprom.i.i54
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp9656.sroa.4)
-  %agg.tmp9656.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i55, align 8
-  %agg.tmp9656.sroa.4.0.arrayidx.i.i55.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i55, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9656.sroa.4, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9656.sroa.4.0.arrayidx.i.i55.sroa_idx, i64 16, i1 false)
   %m_assignment.i.i = getelementptr inbounds i8, ptr %63, i64 3440
   %65 = load ptr, ptr %m_assignment.i.i, align 8
   %idxprom.i.i.i = zext i32 %retval.sroa.0.0.copyload.i to i64
@@ -616,26 +612,33 @@ sw.bb10.i:                                        ; preds = %invoke.cont102
           to label %for.inc105 unwind label %lpad.loopexit
 
 sw.bb14.i:                                        ; preds = %invoke.cont102
+  %agg.tmp9656.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i55, align 8
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i)
+  %67 = getelementptr inbounds i8, ptr %arrayidx.i.i55, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(20) %67, i64 20, i1 false)
   %cmp.i.i58 = icmp eq i32 %agg.tmp9656.sroa.0.0.copyload, 0
-  br i1 %cmp.i.i58, label %land.lhs.true.i.i, label %for.inc105
+  br i1 %cmp.i.i58, label %land.lhs.true.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb14.i
   %m_trim.i.i = getelementptr inbounds i8, ptr %63, i64 3976
-  %67 = load i8, ptr %m_trim.i.i, align 8
-  %tobool.i.i = trunc i8 %67 to i1
-  br i1 %tobool.i.i, label %for.inc105, label %if.then.i.i
+  %68 = load i8, ptr %m_trim.i.i, align 8
+  %tobool.i.i = trunc i8 %68 to i1
+  br i1 %tobool.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %m_justification.i.i = getelementptr inbounds i8, ptr %63, i64 3448
-  %68 = load ptr, ptr %m_justification.i.i, align 8
-  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %68, i64 %idxprom.i.i54
+  %69 = load ptr, ptr %m_justification.i.i, align 8
+  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %69, i64 %idxprom.i.i54
   store i32 0, ptr %arrayidx.i.i6.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp9656.sroa.4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i, i64 16, i1 false)
+  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
+
+_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i: ; preds = %if.then.i.i, %land.lhs.true.i.i, %sw.bb14.i
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i)
   br label %for.inc105
 
-for.inc105:                                       ; preds = %sw.bb14.i, %land.lhs.true.i.i, %if.then.i.i, %invoke.cont102, %sw.bb.i, %sw.bb10.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9656.sroa.4)
+for.inc105:                                       ; preds = %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i, %invoke.cont102, %sw.bb.i, %sw.bb10.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond81, !llvm.loop !10
 

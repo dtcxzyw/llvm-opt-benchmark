@@ -296,7 +296,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %117 = sext i32 %113 to i64
   %118 = add nuw nsw i32 %66, 1
   %119 = zext nneg i32 %105 to i64
-  %120 = add nsw i64 %119, -1
+  %120 = zext i32 %104 to i64
   %121 = insertelement <8 x i64> poison, i64 %120, i64 0
   %122 = shufflevector <8 x i64> %121, <8 x i64> poison, <8 x i32> zeroinitializer
   %123 = shufflevector <2 x float> %116, <2 x float> poison, <8 x i32> zeroinitializer

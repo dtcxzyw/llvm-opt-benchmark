@@ -2154,8 +2154,8 @@ select.unfold:                                    ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !343
   %121 = getelementptr inbounds i8, ptr %4, i64 40
   %122 = load ptr, ptr %121, align 8, !noalias !342, !align !26, !noundef !13
-  %123 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %123, i64 40, i1 false), !noalias !342
+  %123 = getelementptr inbounds i8, ptr %16, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %123, i64 40, i1 false), !noalias !343
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
   call void @llvm.experimental.noalias.scope.decl(metadata !347)
   %124 = load i64, ptr %4, align 8, !range !62, !alias.scope !350, !noalias !342, !noundef !13

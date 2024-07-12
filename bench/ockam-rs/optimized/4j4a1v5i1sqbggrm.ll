@@ -10057,9 +10057,9 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.718.i.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.78.i.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i.sroa.7)
-  br label %94
+  br label %95
 
-86:                                               ; preds = %96, %23, %21
+86:                                               ; preds = %97, %23, %21
   ret void
 
 87:                                               ; preds = %77, %27
@@ -10070,7 +10070,7 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
 .body:                                            ; preds = %33, %87
   %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %.pn82.i, %33 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h5f10ed4078ef9485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #26
-          to label %99 unwind label %97
+          to label %100 unwind label %98
 
 89:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !1702
@@ -10086,8 +10086,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %.sroa.5.sroa.4.sroa.0.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.sroa.4.sroa.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4.sroa.0.16..sroa_idx, i64 16, i1 false), !noalias !1707
-  %.sroa.5.sroa.4.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.sroa.4.sroa.0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4.sroa.0.32..sroa_idx, i64 16, i1 false), !noalias !1707
+  %91 = getelementptr inbounds i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.5.sroa.4.sroa.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1702
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1702
@@ -10097,12 +10097,12 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.78.i.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i.sroa.7)
   call void @llvm.experimental.noalias.scope.decl(metadata !1735)
-  %91 = icmp eq ptr %.sroa.011.0.copyload, null
-  br i1 %91, label %94, label %92
+  %92 = icmp eq ptr %.sroa.011.0.copyload, null
+  br i1 %92, label %95, label %93
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.011.0.copyload, ptr %93, align 8, !alias.scope !1738
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.011.0.copyload, ptr %94, align 8, !alias.scope !1738
   %.sroa.9.0..sroa_idx6 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.9.0..sroa_idx6, align 8, !alias.scope !1738
   %.sroa.14.0..sroa_idx8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10115,23 +10115,23 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.sroa.0, i64 16, i1 false), !alias.scope !1738
   %.sroa.22.sroa.4.0..sroa.22.0..sroa_idx10.sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i64 %.sroa.728.i.sroa.0.0.copyload22, ptr %.sroa.22.sroa.4.0..sroa.22.0..sroa_idx10.sroa_idx, align 8, !alias.scope !1738
-  br label %96
+  br label %97
 
-94:                                               ; preds = %.thread, %89
+95:                                               ; preds = %.thread, %89
   %.sroa.14.sroa.0.3 = phi i64 [ %90, %89 ], [ %.sroa.14.sroa.0.2, %.thread ]
   %.sroa.9.316 = phi i64 [ %.sroa.4.0.copyload, %89 ], [ %.sroa.9.2, %.thread ]
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.9.316, ptr %95, align 8, !alias.scope !1738
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.9.316, ptr %96, align 8, !alias.scope !1738
   %.sroa.14.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.14.sroa.0.3, ptr %.sroa.14.8..sroa_idx, align 8, !alias.scope !1738
   %.sroa.14.sroa.9.0..sroa.14.8..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.9.0..sroa.14.8..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.9, i64 16, i1 false), !alias.scope !1738
-  br label %96
+  br label %97
 
-96:                                               ; preds = %94, %92
-  %.sink = phi i64 [ 40, %94 ], [ 88, %92 ]
-  %.sroa.18.sink = phi ptr [ %.sroa.18, %94 ], [ %.sroa.22.sroa.5, %92 ]
-  %storemerge.i = phi i64 [ 1, %94 ], [ 0, %92 ]
+97:                                               ; preds = %95, %93
+  %.sink = phi i64 [ 40, %95 ], [ 88, %93 ]
+  %.sroa.18.sink = phi ptr [ %.sroa.18, %95 ], [ %.sroa.22.sroa.5, %93 ]
+  %storemerge.i = phi i64 [ 1, %95 ], [ 0, %93 ]
   %.sroa.18.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18.sink, i64 16, i1 false), !alias.scope !1738
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1740, !noalias !1735
@@ -10143,13 +10143,13 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %86
 
-97:                                               ; preds = %.body
-  %98 = landingpad { ptr, i32 }
+98:                                               ; preds = %.body
+  %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27
   unreachable
 
-99:                                               ; preds = %.body
+100:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

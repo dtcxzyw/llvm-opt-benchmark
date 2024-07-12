@@ -1279,12 +1279,13 @@ if.end149:                                        ; preds = %if.then142, %if.els
   store ptr %s1130.sroa.2.0.copyload700, ptr %s.sroa.3.0..sroa_idx, align 8
   store i64 %add157, ptr %s.sroa.384.0..sroa_idx, align 8
   %s10.sroa.0.0.copyload = load i8, ptr %p, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %block_state1162.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %s.sroa.2.0..sroa_idx, i64 7, i1 false)
+  %37 = getelementptr inbounds i8, ptr %block_state10, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %block_state1162.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %37, i64 7, i1 false)
   %s10.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
   %s10.sroa.3.0.copyload = load ptr, ptr %s10.sroa.3.0..sroa_idx, align 8
   %switch.tableidx894 = add nsw i8 %s.sroa.0.0.copyload, -8
-  %37 = zext nneg i8 %switch.tableidx894 to i64
-  %switch.gep895 = getelementptr inbounds [6 x i64], ptr @switch.table.finish_, i64 0, i64 %37
+  %38 = zext nneg i8 %switch.tableidx894 to i64
+  %switch.gep895 = getelementptr inbounds [6 x i64], ptr @switch.table.finish_, i64 0, i64 %38
   %switch.load896 = load i64, ptr %switch.gep895, align 8
   %rem171 = urem i64 %add157, %switch.load896
   %cmp172 = icmp eq i64 %rem171, 0
@@ -1294,17 +1295,17 @@ if.end149:                                        ; preds = %if.then142, %if.els
 
 if.else179:                                       ; preds = %if.end149
   %switch.tableidx898 = add nsw i8 %s.sroa.0.0.copyload, -8
-  %38 = zext nneg i8 %switch.tableidx898 to i64
-  %switch.gep899 = getelementptr inbounds [6 x i64], ptr @switch.table.finish_, i64 0, i64 %38
+  %39 = zext nneg i8 %switch.tableidx898 to i64
+  %switch.gep899 = getelementptr inbounds [6 x i64], ptr @switch.table.finish_, i64 0, i64 %39
   %switch.load900 = load i64, ptr %switch.gep899, align 8
   %rem182 = urem i64 %add157, %switch.load900
-  %39 = icmp eq i64 %rem182, 0
-  br i1 %39, label %if.end195, label %if.then187
+  %40 = icmp eq i64 %rem182, 0
+  br i1 %40, label %if.end195, label %if.then187
 
 if.then187:                                       ; preds = %if.end149, %if.else179
   %switch.tableidx902 = shl nuw nsw i8 %s.sroa.0.0.copyload, 3
-  %40 = add nsw i8 %switch.tableidx902, -64
-  %switch.shiftamt = zext nneg i8 %40 to i48
+  %41 = add nsw i8 %switch.tableidx902, -64
+  %switch.shiftamt = zext nneg i8 %41 to i48
   %switch.downshift = lshr i48 -131218626015096, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   switch i8 %s10.sroa.0.0.copyload, label %sw.default.i384 [
@@ -1337,8 +1338,8 @@ sw.bb5.i378:                                      ; preds = %if.then187
   br label %block_len.exit386
 
 sw.default.i384:                                  ; preds = %if.then187
-  %41 = load ptr, ptr @stderr, align 8
-  %call.i385 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
+  %42 = load ptr, ptr @stderr, align 8
+  %call.i385 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
   tail call void @exit(i32 noundef 253) #15
   unreachable
 
@@ -1396,19 +1397,19 @@ block_len.exit12.i404:                            ; preds = %sw.bb5.i4.i425, %sw
   %idx.ext15.i409 = and i64 %mul14.i408, %.sink.i406
   %add.ptr16.i410 = getelementptr i8, ptr %s1130.sroa.2.0.copyload700, i64 %idx.ext15.i409
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i387)
-  %42 = sub nuw nsw i64 200, %.sink50.i405
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i407, i8 0, i64 %42, i1 false)
+  %43 = sub nuw nsw i64 200, %.sink50.i405
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i407, i8 0, i64 %43, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i387, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16.i410, i64 %.sink50.i405, i1 false)
   br label %for.body.i.i.i411
 
 for.body.i.i.i411:                                ; preds = %for.body.i.i.i411, %block_len.exit12.i404
   %indvars.iv.i.i.i412 = phi i64 [ 0, %block_len.exit12.i404 ], [ %indvars.iv.next.i.i.i417, %for.body.i.i.i411 ]
-  %43 = shl nuw nsw i64 %indvars.iv.i.i.i412, 3
-  %add.ptr.i.i.i413 = getelementptr i8, ptr %block.i.i.i387, i64 %43
+  %44 = shl nuw nsw i64 %indvars.iv.i.i.i412, 3
+  %add.ptr.i.i.i413 = getelementptr i8, ptr %block.i.i.i387, i64 %44
   %add.ptr.val.i.i.i414 = load i64, ptr %add.ptr.i.i.i413, align 8
   %arrayidx.i.i.i415 = getelementptr i64, ptr %s10.sroa.3.0.copyload, i64 %indvars.iv.i.i.i412
-  %44 = load i64, ptr %arrayidx.i.i.i415, align 8
-  %xor.i.i.i416 = xor i64 %44, %add.ptr.val.i.i.i414
+  %45 = load i64, ptr %arrayidx.i.i.i415, align 8
+  %xor.i.i.i416 = xor i64 %45, %add.ptr.val.i.i.i414
   store i64 %xor.i.i.i416, ptr %arrayidx.i.i.i415, align 8
   %indvars.iv.next.i.i.i417 = add nuw nsw i64 %indvars.iv.i.i.i412, 1
   %exitcond.not.i.i.i418 = icmp eq i64 %indvars.iv.next.i.i.i417, 25
@@ -1425,21 +1426,21 @@ if.end195:                                        ; preds = %Hacl_Impl_SHA3_abso
   %sub197 = sub i32 %len, %sub125697
   %conv198 = zext i32 %sub197 to i64
   %switch.tableidx904 = add nsw i8 %s.sroa.0.0.copyload, -8
-  %45 = icmp ult i8 %switch.tableidx904, 6
-  br i1 %45, label %switch.lookup903, label %sw.default.i433
+  %46 = icmp ult i8 %switch.tableidx904, 6
+  br i1 %46, label %switch.lookup903, label %sw.default.i433
 
 sw.default.i433:                                  ; preds = %if.end195
-  %46 = load ptr, ptr @stderr, align 8
-  %call.i434 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
+  %47 = load ptr, ptr @stderr, align 8
+  %call.i434 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
   tail call void @exit(i32 noundef 253) #15
   unreachable
 
 switch.lookup903:                                 ; preds = %if.end195
-  %47 = zext nneg i8 %switch.tableidx904 to i64
-  %switch.gep905 = getelementptr inbounds [6 x i32], ptr @switch.table.Hacl_Streaming_Keccak_block_len, i64 0, i64 %47
+  %48 = zext nneg i8 %switch.tableidx904 to i64
+  %switch.gep905 = getelementptr inbounds [6 x i32], ptr @switch.table.Hacl_Streaming_Keccak_block_len, i64 0, i64 %48
   %switch.load906 = load i32, ptr %switch.gep905, align 4
-  %48 = urem i32 %sub197, %switch.load906
-  %cmp202 = icmp ne i32 %48, 0
+  %49 = urem i32 %sub197, %switch.load906
+  %cmp202 = icmp ne i32 %49, 0
   %cmp207.not = icmp eq i32 %sub125697, %len
   %or.cond112 = select i1 %cmp202, i1 true, i1 %cmp207.not
   br i1 %or.cond112, label %if.else211, label %if.then209
@@ -1492,36 +1493,36 @@ if.else211:                                       ; preds = %switch.lookup903
   ]
 
 if.end218.thread768:                              ; preds = %if.else211
-  %49 = urem i32 %sub197, 144
-  %sub221770 = sub i32 %sub197, %49
+  %50 = urem i32 %sub197, 144
+  %sub221770 = sub i32 %sub197, %50
   br label %block_len.exit462.thread
 
 if.end218.thread771:                              ; preds = %if.else211
-  %50 = urem i32 %sub197, 136
-  %sub221773 = sub i32 %sub197, %50
+  %51 = urem i32 %sub197, 136
+  %sub221773 = sub i32 %sub197, %51
   br label %sw.bb1.i468
 
 if.end218.thread774:                              ; preds = %if.else211
-  %51 = urem i32 %sub197, 104
-  %sub221776 = sub i32 %sub197, %51
+  %52 = urem i32 %sub197, 104
+  %sub221776 = sub i32 %sub197, %52
   br label %sw.bb2.i467
 
 if.end218.thread777:                              ; preds = %if.else211
-  %52 = urem i32 %sub197, 72
-  %sub221779 = sub i32 %sub197, %52
+  %53 = urem i32 %sub197, 72
+  %sub221779 = sub i32 %sub197, %53
   br label %sw.bb3.i466
 
 if.end218.thread780:                              ; preds = %if.else211
-  %53 = urem i32 %sub197, 168
-  %sub221782 = sub i32 %sub197, %53
+  %54 = urem i32 %sub197, 168
+  %sub221782 = sub i32 %sub197, %54
   br label %sw.bb4.i465
 
 default.unreachable828:                           ; preds = %if.else211
   unreachable
 
 if.end218:                                        ; preds = %if.else211
-  %54 = urem i32 %sub197, 136
-  %sub221 = sub i32 %sub197, %54
+  %55 = urem i32 %sub197, 136
+  %sub221 = sub i32 %sub197, %55
   br label %sw.bb5.i463
 
 block_len.exit462.thread:                         ; preds = %if.end218.thread768, %if.end218.thread
@@ -1562,18 +1563,18 @@ block_len.exit471:                                ; preds = %block_len.exit462.t
   %idx.ext230 = zext i32 %mul226 to i64
   %add.ptr231 = getelementptr i8, ptr %add.ptr129699, i64 %idx.ext230
   %switch.tableidx908 = add i8 %s10.sroa.0.0.copyload, -8
-  %55 = icmp ult i8 %switch.tableidx908, 6
-  br i1 %55, label %switch.lookup907, label %sw.default.i478
+  %56 = icmp ult i8 %switch.tableidx908, 6
+  br i1 %56, label %switch.lookup907, label %sw.default.i478
 
 sw.default.i478:                                  ; preds = %block_len.exit471
-  %56 = load ptr, ptr @stderr, align 8
-  %call.i479 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
+  %57 = load ptr, ptr @stderr, align 8
+  %call.i479 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 58) #14
   tail call void @exit(i32 noundef 253) #15
   unreachable
 
 switch.lookup907:                                 ; preds = %block_len.exit471
-  %57 = zext nneg i8 %switch.tableidx908 to i64
-  %switch.gep909 = getelementptr inbounds [6 x i32], ptr @switch.table.Hacl_Streaming_Keccak_block_len, i64 0, i64 %57
+  %58 = zext nneg i8 %switch.tableidx908 to i64
+  %switch.gep909 = getelementptr inbounds [6 x i32], ptr @switch.table.Hacl_Streaming_Keccak_block_len, i64 0, i64 %58
   %switch.load910 = load i32, ptr %switch.gep909, align 4
   %cmp42.not.i482 = icmp ugt i32 %switch.load910, %mul226
   %retval.0.i5.sroa.gep.i483 = getelementptr inbounds i8, ptr %block.i.i.i481, i64 136
@@ -1621,19 +1622,19 @@ block_len.exit12.i498:                            ; preds = %sw.bb5.i4.i519, %sw
   %idx.ext15.i503 = and i64 %mul14.i502, %.sink.i500
   %add.ptr16.i504 = getelementptr i8, ptr %add.ptr129699, i64 %idx.ext15.i503
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i481)
-  %58 = sub nuw nsw i64 200, %.sink50.i499
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i501, i8 0, i64 %58, i1 false)
+  %59 = sub nuw nsw i64 200, %.sink50.i499
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %retval.0.i5.sroa.phi.i501, i8 0, i64 %59, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %block.i.i.i481, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr16.i504, i64 %.sink50.i499, i1 false)
   br label %for.body.i.i.i505
 
 for.body.i.i.i505:                                ; preds = %for.body.i.i.i505, %block_len.exit12.i498
   %indvars.iv.i.i.i506 = phi i64 [ 0, %block_len.exit12.i498 ], [ %indvars.iv.next.i.i.i511, %for.body.i.i.i505 ]
-  %59 = shl nuw nsw i64 %indvars.iv.i.i.i506, 3
-  %add.ptr.i.i.i507 = getelementptr i8, ptr %block.i.i.i481, i64 %59
+  %60 = shl nuw nsw i64 %indvars.iv.i.i.i506, 3
+  %add.ptr.i.i.i507 = getelementptr i8, ptr %block.i.i.i481, i64 %60
   %add.ptr.val.i.i.i508 = load i64, ptr %add.ptr.i.i.i507, align 8
   %arrayidx.i.i.i509 = getelementptr i64, ptr %s10.sroa.3.0.copyload, i64 %indvars.iv.i.i.i506
-  %60 = load i64, ptr %arrayidx.i.i.i509, align 8
-  %xor.i.i.i510 = xor i64 %60, %add.ptr.val.i.i.i508
+  %61 = load i64, ptr %arrayidx.i.i.i509, align 8
+  %xor.i.i.i510 = xor i64 %61, %add.ptr.val.i.i.i508
   store i64 %xor.i.i.i510, ptr %arrayidx.i.i.i509, align 8
   %indvars.iv.next.i.i.i511 = add nuw nsw i64 %indvars.iv.i.i.i506, 1
   %exitcond.not.i.i.i512 = icmp eq i64 %indvars.iv.next.i.i.i511, 25

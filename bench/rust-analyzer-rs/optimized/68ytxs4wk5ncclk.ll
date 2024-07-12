@@ -80843,9 +80843,9 @@ define hidden void @"_ZN8chalk_ir16Binders$LT$T$GT$10substitute17h5c5caba51ad40c
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !20596
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !20593
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %.sroa.29.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %27 = load <4 x i32>, ptr %.sroa.29.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !20596

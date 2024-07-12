@@ -1846,7 +1846,7 @@ for.body.i.i.prol.loopexit:                       ; preds = %adjust_assign.exit3
   %idxprom6.i.i.prol = zext i16 %316 to i64
   %startpc.i.i.prol = getelementptr inbounds %struct.LocVar, ptr %311, i64 %idxprom6.i.i.prol, i32 1
   store i32 %309, ptr %startpc.i.i.prol, align 8, !tbaa !73
-  %indvars.iv.next.i.i.prol = add nsw i64 %312, -1
+  %indvars.iv.next.i.i.prol = zext nneg i32 %nvars.0.i to i64
   %317 = icmp eq i32 %nvars.0.i, 0
   br i1 %317, label %localstat.exit, label %for.body.i.i.preheader
 

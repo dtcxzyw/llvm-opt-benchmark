@@ -3987,8 +3987,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %85
   %103 = load i64, ptr %102, align 8, !alias.scope !954, !noalias !953, !noundef !5
   store i64 %103, ptr %22, align 8, !noalias !960
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !960
-  %104 = getelementptr inbounds i8, ptr %26, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false), !noalias !953
+  %104 = getelementptr inbounds i8, ptr %27, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %104, i64 24, i1 false), !noalias !947
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !960
   store ptr %22, ptr %19, align 8, !noalias !960
   %105 = getelementptr inbounds i8, ptr %19, i64 8

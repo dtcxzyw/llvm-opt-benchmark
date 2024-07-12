@@ -25469,9 +25469,9 @@ define internal fastcc void @_ZN8wasmtime7runtime6module8registry10LoadedCode11p
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h5f9db7e2e5bc8126E"(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %26)
   %28 = load ptr, ptr %6, align 8, !noundef !4
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %63, label %31
+  br i1 %29, label %64, label %31
 
-30:                                               ; preds = %63, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60168f3528e960a5E.exit.thread"
+30:                                               ; preds = %64, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60168f3528e960a5E.exit.thread"
   ret void
 
 31:                                               ; preds = %25
@@ -25498,7 +25498,7 @@ define internal fastcc void @_ZN8wasmtime7runtime6module8registry10LoadedCode11p
 38:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h77d884d9635df029E.llvm.15361297093319246575.exit"
   %39 = load ptr, ptr %5, align 8, !alias.scope !6946, !nonnull !4, !noundef !4
   %40 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h2890d3458b4259e3E.llvm.3458943816331328394"()
-          to label %.noexc.i unwind label %60, !noalias !6946
+          to label %.noexc.i unwind label %61, !noalias !6946
 
 .noexc.i:                                         ; preds = %38
   %41 = icmp eq ptr %40, null
@@ -25506,7 +25506,7 @@ define internal fastcc void @_ZN8wasmtime7runtime6module8registry10LoadedCode11p
 
 42:                                               ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 192) #51
-          to label %.noexc12.i unwind label %60, !noalias !6946
+          to label %.noexc12.i unwind label %61, !noalias !6946
 
 .noexc12.i:                                       ; preds = %42
   unreachable
@@ -25529,39 +25529,40 @@ define internal fastcc void @_ZN8wasmtime7runtime6module8registry10LoadedCode11p
   br label %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50cf4347a8e7ad5eE.exit"
 
 51:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h77d884d9635df029E.llvm.15361297093319246575.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
-  %53 = load i64, ptr %52, align 8, !alias.scope !6946, !noundef !4
-  call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17h748a08f579ebca7fE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %53, ptr noundef nonnull %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-  %54 = load ptr, ptr %5, align 8, !alias.scope !6946, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load i64, ptr %55, align 8, !noundef !4
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %55, align 8
+  %52 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
+  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = load i64, ptr %53, align 8, !alias.scope !6946, !noundef !4
+  call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17h748a08f579ebca7fE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %54, ptr noundef nonnull %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
+  %55 = load ptr, ptr %5, align 8, !alias.scope !6946, !nonnull !4, !noundef !4
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = load i64, ptr %56, align 8, !noundef !4
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %56, align 8
   br label %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50cf4347a8e7ad5eE.exit"
 
-58:                                               ; preds = %60
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %61
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52, !noalias !6946
   unreachable
 
-60:                                               ; preds = %42, %38
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %42, %38
+  %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..module..Module$GT$17h32a91d7f6f86d8c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #53
-          to label %62 unwind label %58, !noalias !6946
+          to label %63 unwind label %59, !noalias !6946
 
-62:                                               ; preds = %60
-  resume { ptr, i32 } %61
+63:                                               ; preds = %61
+  resume { ptr, i32 } %62
 
 "_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50cf4347a8e7ad5eE.exit": ; preds = %43, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %63
+  br label %64
 
-63:                                               ; preds = %25, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50cf4347a8e7ad5eE.exit"
+64:                                               ; preds = %25, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50cf4347a8e7ad5eE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %30
 }

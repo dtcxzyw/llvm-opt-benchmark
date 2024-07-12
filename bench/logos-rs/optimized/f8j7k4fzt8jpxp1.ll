@@ -2879,7 +2879,7 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
   unreachable
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
+  %32 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %33 = load i32, ptr %8, align 8
   %34 = icmp eq i32 %33, 0

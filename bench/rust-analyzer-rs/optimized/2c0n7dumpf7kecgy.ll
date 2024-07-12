@@ -7389,7 +7389,7 @@ define internal void @"_ZN13project_model13build_scripts21WorkspaceBuildScripts1
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !nonnull !4, !align !76, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %75 = getelementptr inbounds i8, ptr %10, i64 24
+  %75 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %74, i64 40
   %77 = load ptr, ptr %76, align 8, !invariant.load !4, !nonnull !4
@@ -7985,7 +7985,7 @@ define internal void @"_ZN13project_model13build_scripts21WorkspaceBuildScripts1
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !nonnull !4, !align !76, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %75 = getelementptr inbounds i8, ptr %10, i64 24
+  %75 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
   %76 = getelementptr inbounds i8, ptr %74, i64 40
   %77 = load ptr, ptr %76, align 8, !invariant.load !4, !nonnull !4

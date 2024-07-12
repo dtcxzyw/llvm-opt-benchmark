@@ -8566,20 +8566,20 @@ define hidden void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..En
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64 } }, {} }, {} }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { { ptr, [3 x i64] } } } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2771)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 256
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2771
-  %.not.not.i = icmp eq i64 %.sroa.4.0.copyload, 2
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 256
+  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 2, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !2771
+  %.not.not.i = icmp eq i64 %.sroa.3.0.copyload, 2
   br i1 %.not.not.i, label %"_ZN4core3ptr293drop_in_place$LT$core..option..Option$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$$GT$17h69b8a54ae9af7749E.exit", label %5
 
 5:                                                ; preds = %1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4), !noalias !2771
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2771
-  store i64 %.sroa.4.0.copyload, ptr %3, align 8, !noalias !2771
-  %.sroa.6.256..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.256..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
+  store i64 %.sroa.3.0.copyload, ptr %3, align 8, !noalias !2771
+  %.sroa.5.256..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.256..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %2), !noalias !2771
   %6 = invoke noundef nonnull align 8 ptr @_ZN5hyper5error5Error12new_canceled17h410125745090cd2eE()
           to label %7 unwind label %9, !noalias !2771
@@ -8625,7 +8625,7 @@ define hidden void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..En
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %2), !noalias !2771
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2771
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4), !noalias !2771
-  %.pr = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2774
+  %.pr = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !2774
   %16 = icmp eq i64 %.pr, 2
   br i1 %16, label %"_ZN4core3ptr293drop_in_place$LT$core..option..Option$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$$GT$17h69b8a54ae9af7749E.exit", label %17
 
@@ -8658,7 +8658,7 @@ define hidden void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..En
 
 .body.i.i:                                        ; preds = %25, %18
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %26, %25 ], [ %19, %18 ]
-  invoke void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$17h7e244674a42fb1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx) #23
+  invoke void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$17h7e244674a42fb1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx) #23
           to label %common.resume unwind label %27
 
 27:                                               ; preds = %.body.i.i
@@ -8672,7 +8672,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr265drop_in_place$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$17h66bf6043a01272c3E.exit.i": ; preds = %21
-  tail call void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$17h7e244674a42fb1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx)
+  tail call void @"_ZN4core3ptr187drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$GT$17h7e244674a42fb1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx)
   br label %"_ZN4core3ptr293drop_in_place$LT$core..option..Option$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$$GT$17h69b8a54ae9af7749E.exit"
 
 "_ZN4core3ptr293drop_in_place$LT$core..option..Option$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$$GT$17h69b8a54ae9af7749E.exit": ; preds = %1, %15, %"_ZN4core3ptr265drop_in_place$LT$$LP$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$GT$$RP$$GT$17h66bf6043a01272c3E.exit.i"

@@ -32198,7 +32198,7 @@ define hidden void @"_ZN101_$LT$tokio..process..imp..pidfd_reaper..PidfdReaper$L
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false)
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$tokio..io..poll_evented..PollEvented$LT$tokio..process..imp..pidfd_reaper..Pidfd$GT$$GT$17h945a70478754d991E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %10 unwind label %.body.thread27

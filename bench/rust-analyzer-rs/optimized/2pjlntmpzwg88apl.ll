@@ -2328,7 +2328,7 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
 
 15:                                               ; preds = %13
   invoke void @"_ZN4core3ptr126drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17hfa26950e5c4a1392E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-          to label %.body unwind label %24
+          to label %.body unwind label %25
 
 16:                                               ; preds = %1
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef %6) #58
@@ -2368,23 +2368,23 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
   unreachable
 
 ._crit_edge.i:                                    ; preds = %17
-  %.sroa.5.0..sroa_idx25.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 6, ptr %4, align 8, !alias.scope !972, !noalias !977
   %22 = getelementptr i8, ptr %8, i64 8
   store i64 %.val.i, ptr %22, align 8, !noalias !961
   %.sroa.4.0..0.sroa_idx.i = getelementptr i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..0.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx25.i, i64 40, i1 false)
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..0.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %23, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !961
   tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !983)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !alias.scope !986
   store i64 6, ptr %4, align 8, !alias.scope !989, !noalias !990
-  %23 = load i64, ptr %3, align 8, !range !964, !noalias !961, !noundef !10
-  %.not.i = icmp eq i64 %23, 6
+  %24 = load i64, ptr %3, align 8, !range !964, !noalias !961, !noundef !10
+  %.not.i = icmp eq i64 %24, 6
   br i1 %.not.i, label %18, label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$chalk_ir..Binders$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17hb85b9f9ec3bd45baE.exit.i"
 
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %15
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #59
   unreachable

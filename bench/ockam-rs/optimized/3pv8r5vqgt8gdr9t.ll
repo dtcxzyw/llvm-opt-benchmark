@@ -7092,61 +7092,56 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN10ockam_abac3e
 define void @_ZN10ockam_abac3env3Env3del17h0c19f12dceecc808E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, align 8
-  %6 = alloca { i8, [31 x i8] }, align 8
-  %7 = alloca { [24 x i8], i8, [31 x i8] }, align 8
-  %8 = alloca { i8, [31 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !961
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98909d5ff81b777fE.llvm.13644632513290305466"(ptr noalias nocapture noundef nonnull sret({ [24 x i8], i8, [31 x i8] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !966
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
-  %10 = load i8, ptr %9, align 8, !range !508, !noalias !961, !noundef !45
-  %11 = icmp eq i8 %10, 7
-  br i1 %11, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit.thread", label %12
+  %6 = alloca { [24 x i8], i8, [31 x i8] }, align 8
+  %7 = alloca { i8, [31 x i8] }, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !961
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h98909d5ff81b777fE.llvm.13644632513290305466"(ptr noalias nocapture noundef nonnull sret({ [24 x i8], i8, [31 x i8] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !966
+  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = load i8, ptr %8, align 8, !range !508, !noalias !961, !noundef !45
+  %10 = icmp eq i8 %9, 7
+  br i1 %10, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit.thread", label %11
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit.thread": ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !961
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !961
   br label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit"
 
-12:                                               ; preds = %3
+11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !961
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !961
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !961
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !961
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !967
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5208923429a1fa8dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5), !noalias !966
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = load i64, ptr %14, align 8, !range !173, !noalias !967, !noundef !45
-  %.not.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", label %16
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = load i64, ptr %12, align 8, !range !173, !noalias !967, !noundef !45
+  %.not.i.i.i.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", label %14
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
-  %18 = load i64, ptr %17, align 8, !noalias !967, !noundef !45
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", label %20
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = load i64, ptr %15, align 8, !noalias !967, !noundef !45
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", label %18
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %4, align 8, !noalias !967, !nonnull !45, !noundef !45
-  call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %15) #24, !noalias !966
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8, !noalias !967, !nonnull !45, !noundef !45
+  call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %13) #24, !noalias !966
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit": ; preds = %12, %16, %20
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit": ; preds = %11, %14, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !967
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !961
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !976
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.pr = load i8, ptr %8, align 8, !alias.scope !977
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !961
-  %22 = icmp eq i8 %.pr, 7
-  br i1 %22, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit", label %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !976
+  %.pr = load i8, ptr %7, align 8, !alias.scope !977
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !961
+  %20 = icmp eq i8 %.pr, 7
+  br i1 %20, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit", label %21
 
-23:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit"
-  call void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.5773138781079186978"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+21:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit"
+  call void @"_ZN4core3ptr43drop_in_place$LT$ockam_abac..expr..Expr$GT$17h0f84dc221bd73437E.llvm.5773138781079186978"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   br label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit"
 
-"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit.thread", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$ockam_abac..expr..Expr$GT$$GT$17h3cd469e6d6913d09E.llvm.5773138781079186978.exit": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit.thread", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h87fcdd9dc2bd085aE.exit", %21
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 }
 

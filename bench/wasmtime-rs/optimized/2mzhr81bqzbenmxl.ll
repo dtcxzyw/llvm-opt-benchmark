@@ -1202,7 +1202,6 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u2
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a2540E(ptr nocapture writeonly sret({ i64, [33 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.250 = alloca [40 x i8], align 8
   %5 = alloca { { i64, [3 x i64] }, { { i64, [3 x i64] }, { ptr, [5 x i64] } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i8, i8, [6 x i8] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
@@ -1232,33 +1231,33 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   invoke void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e40b64d51512db4E"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %13, ptr nonnull align 8 %14)
           to label %20 unwind label %.loopexit
 
-19:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread93, %57
-  %.pn62 = phi { ptr, i32 } [ %58, %57 ], [ %55, %.thread93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+19:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread93, %58
+  %.pn62 = phi { ptr, i32 } [ %59, %58 ], [ %56, %.thread93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %14) #6
           to label %.thread unwind label %35
 
-.loopexit:                                        ; preds = %.backedge, %44
+.loopexit:                                        ; preds = %.backedge, %45
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %19
 
-.loopexit.split-lp:                               ; preds = %49
+.loopexit.split-lp:                               ; preds = %50
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %19
 
 20:                                               ; preds = %.backedge
   %21 = load i64, ptr %13, align 8, !range !13, !noundef !7
-  switch i64 %21, label %44 [
+  switch i64 %21, label %45 [
     i64 -9223372036854775799, label %22
-    i64 -9223372036854775800, label %45
+    i64 -9223372036854775800, label %46
   ]
 
 22:                                               ; preds = %20
   invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %14)
           to label %24 unwind label %.thread80
 
-.thread80:                                        ; preds = %22, %51
+.thread80:                                        ; preds = %22, %52
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -1299,11 +1298,11 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i64 2, ptr %0, align 8
-  br label %40
+  br label %41
 
 32:                                               ; preds = %29
   invoke void @_ZN3syn5error5Error3new17hbe333740d893045bE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, i32 %2, ptr nonnull align 1 @anon.21000207f2688d89f8a4d64a0b8cf040.16, i64 23)
-          to label %38 unwind label %33
+          to label %39 unwind label %33
 
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
@@ -1311,7 +1310,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %5) #6
           to label %.thread77 unwind label %35
 
-35:                                               ; preds = %.thread, %57, %.thread77, %41, %33, %19
+35:                                               ; preds = %.thread, %58, %.thread77, %42, %33, %19
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
@@ -1319,100 +1318,99 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 
 37:                                               ; preds = %29
   %.sroa.328.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.250, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.328.0..sroa_idx, i64 40, i1 false)
-  %.sroa.250.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.250, i64 24
+  %38 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 224, i1 false)
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %.sroa.026.0.copyload, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.336.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.328.0..sroa_idx, i64 24, i1 false)
   %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.437.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.250.32..sroa_idx, i64 16, i1 false)
-  br label %40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.437.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
+  br label %41
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %5)
-          to label %40 unwind label %41
+          to label %41 unwind label %42
 
-40:                                               ; preds = %52, %.thread92, %38, %37
+41:                                               ; preds = %53, %.thread92, %39, %37
   call void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17h87f5463c76b0ad5aE"(ptr nonnull align 8 %16)
   ret void
 
-41:                                               ; preds = %38
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17h87f5463c76b0ad5aE"(ptr nonnull align 8 %16) #6
-          to label %43 unwind label %35
+          to label %44 unwind label %35
 
-43:                                               ; preds = %.thread77, %41
-  %.pn72 = phi { ptr, i32 } [ %42, %41 ], [ %.pn67.pn, %.thread77 ]
+44:                                               ; preds = %.thread77, %42
+  %.pn72 = phi { ptr, i32 } [ %43, %42 ], [ %.pn67.pn, %.thread77 ]
   resume { ptr, i32 } %.pn72
 
-44:                                               ; preds = %20
+45:                                               ; preds = %20
   store i64 %21, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haf0c4362bf258140E"(ptr nonnull align 8 %15, ptr nonnull align 8 %9)
           to label %.backedge.backedge unwind label %.loopexit
 
-45:                                               ; preds = %20
+46:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx, i64 48, i1 false)
-  %46 = load i64, ptr %16, align 8, !range !14, !noundef !7
-  %.not60.not = icmp eq i64 %46, -9223372036854775808
-  br i1 %.not60.not, label %48, label %47
+  %47 = load i64, ptr %16, align 8, !range !14, !noundef !7
+  %.not60.not = icmp eq i64 %47, -9223372036854775808
+  br i1 %.not60.not, label %49, label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   invoke void @_ZN3syn5error5Error3new17hbe333740d893045bE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %11, i32 %2, ptr nonnull align 1 @anon.21000207f2688d89f8a4d64a0b8cf040.17, i64 24)
-          to label %49 unwind label %57
+          to label %50 unwind label %58
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx, i64 48, i1 false)
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17h87f5463c76b0ad5aE"(ptr nonnull align 8 %16)
-          to label %56 unwind label %.thread93
+          to label %57 unwind label %.thread93
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17ha3cbfeb3bfde8d31E"(ptr nonnull align 8 %12)
-          to label %51 unwind label %.loopexit.split-lp
+          to label %52 unwind label %.loopexit.split-lp
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %14)
-          to label %52 unwind label %.thread80
-
-52:                                               ; preds = %51
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate..config..ConfigField$GT$$GT$17h6361124860f857e8E"(ptr nonnull align 8 %15)
-          to label %40 unwind label %53
-
-.thread77:                                        ; preds = %33, %23, %.thread, %53
-  %.pn67.pn = phi { ptr, i32 } [ %.pn6776, %.thread ], [ %lpad.thr_comm.split-lp, %23 ], [ %54, %53 ], [ %34, %33 ]
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17h87f5463c76b0ad5aE"(ptr nonnull align 8 %16) #6
-          to label %43 unwind label %35
+          to label %53 unwind label %.thread80
 
 53:                                               ; preds = %52
-  %54 = landingpad { ptr, i32 }
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$wiggle_generate..config..ConfigField$GT$$GT$17h6361124860f857e8E"(ptr nonnull align 8 %15)
+          to label %41 unwind label %54
+
+.thread77:                                        ; preds = %33, %23, %.thread, %54
+  %.pn67.pn = phi { ptr, i32 } [ %.pn6776, %.thread ], [ %lpad.thr_comm.split-lp, %23 ], [ %55, %54 ], [ %34, %33 ]
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17h87f5463c76b0ad5aE"(ptr nonnull align 8 %16) #6
+          to label %44 unwind label %35
+
+54:                                               ; preds = %53
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %.thread77
 
-.thread93:                                        ; preds = %48
-  %55 = landingpad { ptr, i32 }
+.thread93:                                        ; preds = %49
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   br label %19
 
-56:                                               ; preds = %48
+57:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %56, %44
+.backedge.backedge:                               ; preds = %57, %45
   br label %.backedge
 
-57:                                               ; preds = %47
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %48
+  %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17ha3cbfeb3bfde8d31E"(ptr nonnull align 8 %12) #6
           to label %19 unwind label %35

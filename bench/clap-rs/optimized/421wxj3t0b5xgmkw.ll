@@ -4804,10 +4804,7 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remove17h7ec09015a2cc740fE"(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #3 {
-  %.sroa.02 = alloca [120 x i8], align 8
-  %.sroa.01 = alloca [104 x i8], align 8
   %4 = alloca { [2 x i64], i64, [12 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4)
   call void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remove_entry17h7463ba68e919c492E.llvm.7008872586094235178"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [12 x i64] }) align 8 dereferenceable(120) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !438, !noundef !18
@@ -4816,21 +4813,14 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6remov
 
 8:                                                ; preds = %3
   store i64 2, ptr %0, align 8
-  br label %10
+  br label %11
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.02)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.01)
-  %.sroa.02.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.02, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.02.16..sroa_idx, i64 104, i1 false)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.02)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.01, i64 104, i1 false)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.01)
-  br label %10
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %10, i64 104, i1 false)
+  br label %11
 
-10:                                               ; preds = %9, %8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
+11:                                               ; preds = %9, %8
   ret void
 }
 

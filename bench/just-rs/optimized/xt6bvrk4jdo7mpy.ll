@@ -10319,98 +10319,68 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h919d2204b8fd3b1cE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
-  %4 = alloca { { ptr, i64 }, { { i64, ptr, {} }, i64 } }, align 8
-  %5 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %6 = alloca { [2 x i64], i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h1604549d37f1f002E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [2 x i64] }) align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = load i64, ptr %7, align 8, !range !182, !noundef !4
-  %9 = icmp eq i64 %8, -9223372036854775808
-  br i1 %9, label %10, label %11
+  %4 = alloca { [2 x i64], i64, [2 x i64] }, align 8
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h1604549d37f1f002E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [2 x i64] }) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 8, !range !182, !noundef !4
+  %7 = icmp eq i64 %6, -9223372036854775808
+  br i1 %7, label %8, label %9
 
-10:                                               ; preds = %3
+8:                                                ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %13
+  br label %11
 
-11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %13
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  br label %11
 
-13:                                               ; preds = %11, %10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+11:                                               ; preds = %9, %8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17hba0a05390d777b1aE"(ptr noalias nocapture noundef writeonly sret({ [160 x i8], i8, [7 x i8] }) align 8 dereferenceable(168) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = alloca { { ptr, i64 }, { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } } } }, align 8
-  %6 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } } }, align 8
-  %7 = alloca { [176 x i8], i8, [7 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %7)
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7b4dd97d987b888cE.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [176 x i8], i8, [7 x i8] }) align 8 dereferenceable(184) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
-  %9 = load i8, ptr %8, align 8, !range !1368, !noundef !4
-  %10 = icmp eq i8 %9, 34
-  br i1 %10, label %11, label %13
+  %5 = alloca { [176 x i8], i8, [7 x i8] }, align 8
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h7b4dd97d987b888cE.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [176 x i8], i8, [7 x i8] }) align 8 dereferenceable(184) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %7 = load i8, ptr %6, align 8, !range !1368, !noundef !4
+  %8 = icmp eq i8 %7, 34
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  store i8 34, ptr %10, align 8
+  br label %13
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  store i8 34, ptr %12, align 8
-  br label %15
+  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %12, i64 168, i1 false)
+  br label %13
 
-13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) %7, i64 184, i1 false)
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6)
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %14, i64 168, i1 false)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %6, i64 168, i1 false)
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6)
-  br label %15
-
-15:                                               ; preds = %13, %11
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %7)
+13:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17he42375bc421567c1E"(ptr noalias nocapture noundef writeonly sret({ i64, [33 x i64] }) align 8 dereferenceable(272) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = alloca { { ptr, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { ptr, [1 x i64] }, i64, i32, i8, i8, i8, [1 x i8] } }, align 8
-  %6 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { ptr, [1 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, align 8
-  %7 = alloca { [2 x i64], i64, [33 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %7)
-  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h430d86203113fd17E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [33 x i64] }) align 8 dereferenceable(288) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load i64, ptr %8, align 8, !range !182, !noundef !4
-  %10 = icmp eq i64 %9, -9223372036854775808
-  br i1 %10, label %11, label %12
+  %5 = alloca { [2 x i64], i64, [33 x i64] }, align 8
+  call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h430d86203113fd17E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ [2 x i64], i64, [33 x i64] }) align 8 dereferenceable(288) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 8, !range !182, !noundef !4
+  %8 = icmp eq i64 %7, -9223372036854775808
+  br i1 %8, label %9, label %10
 
-11:                                               ; preds = %4
+9:                                                ; preds = %4
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %14
+  br label %12
 
-12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull align 8 dereferenceable(288) %7, i64 288, i1 false)
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6)
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull align 8 dereferenceable(272) %13, i64 272, i1 false)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %6, i64 272, i1 false)
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6)
-  br label %14
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %11, i64 272, i1 false)
+  br label %12
 
-14:                                               ; preds = %12, %11
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %7)
+12:                                               ; preds = %10, %9
   ret void
 }
 

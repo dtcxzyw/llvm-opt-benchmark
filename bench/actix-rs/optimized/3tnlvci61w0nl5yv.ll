@@ -4517,8 +4517,8 @@ _ZN4http6header5value11HeaderValue16try_from_generic17hc558a62304874136E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false), !noalias !788
   %121 = getelementptr inbounds i8, ptr %4, i64 40
   %122 = load ptr, ptr %121, align 8, !noalias !787, !align !10, !noundef !9
-  %123 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %123, i64 40, i1 false), !noalias !787
+  %123 = getelementptr inbounds i8, ptr %16, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %123, i64 40, i1 false), !noalias !788
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
   %124 = load i64, ptr %4, align 8, !range !81, !alias.scope !795, !noalias !787, !noundef !9

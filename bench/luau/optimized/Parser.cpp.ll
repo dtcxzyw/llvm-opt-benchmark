@@ -18577,29 +18577,29 @@ define dso_local noundef ptr @_ZN4Luau6Parser17parseInterpStringEv(ptr noundef n
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = getelementptr inbounds i8, ptr %0, i64 44
   %.sroa.072.0.copyload = load i64, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %3, i64 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 808
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
-  %35 = getelementptr inbounds i8, ptr %0, i64 440
-  %36 = getelementptr inbounds i8, ptr %0, i64 464
+  %31 = getelementptr inbounds i8, ptr %0, i64 808
+  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds i8, ptr %0, i64 440
+  %35 = getelementptr inbounds i8, ptr %0, i64 464
+  %36 = getelementptr inbounds i8, ptr %0, i64 44
   br label %37
 
 37:                                               ; preds = %.backedge, %1
   %.sroa.11.0 = phi i64 [ 0, %1 ], [ %95, %.backedge ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false)
-  %38 = load ptr, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false)
+  %38 = load ptr, ptr %32, align 8
   %39 = invoke noundef i32 @_ZNK4Luau6Lexeme9getLengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %40 unwind label %.loopexit95
 
 40:                                               ; preds = %37
   %41 = zext i32 %39 to i64
-  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %38, i64 noundef %41)
+  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef %38, i64 noundef %41)
           to label %43 unwind label %.loopexit95
 
 43:                                               ; preds = %40
-  %44 = invoke noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %44 = invoke noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %45 unwind label %.loopexit95
 
 45:                                               ; preds = %43
@@ -18636,14 +18636,14 @@ define dso_local noundef ptr @_ZN4Luau6Parser17parseInterpStringEv(ptr noundef n
   br label %236
 
 54:                                               ; preds = %45
-  %55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
-  %56 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
+  %55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
+  %56 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
   %57 = add i64 %56, 1
   %.not.i.i = icmp eq i64 %57, 0
   br i1 %.not.i.i, label %.loopexit94, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %54
-  %58 = load ptr, ptr %34, align 8
+  %58 = load ptr, ptr %33, align 8
   %59 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %57)
           to label %.lr.ph.i.i unwind label %.loopexit95
 
@@ -18659,13 +18659,13 @@ define dso_local noundef ptr @_ZN4Luau6Parser17parseInterpStringEv(ptr noundef n
 
 .loopexit94:                                      ; preds = %.lr.ph.i.i, %54
   %64 = phi ptr [ null, %54 ], [ %59, %.lr.ph.i.i ]
-  %65 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
+  %65 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
           to label %66 unwind label %.loopexit95
 
 66:                                               ; preds = %.loopexit94
   %67 = load ptr, ptr %16, align 8
-  %68 = load ptr, ptr %35, align 8
+  %68 = load ptr, ptr %34, align 8
   %.not.i.i10 = icmp eq ptr %67, %68
   br i1 %.not.i.i10, label %72, label %69
 
@@ -18735,7 +18735,7 @@ _ZNSt6vectorIN4Luau8AstArrayIcEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cx
   store ptr %86, ptr %15, align 8
   store ptr %91, ptr %16, align 8
   %93 = getelementptr inbounds %"struct.Luau::AstArray.193", ptr %86, i64 %82
-  store ptr %93, ptr %35, align 8
+  store ptr %93, ptr %34, align 8
   br label %94
 
 94:                                               ; preds = %_ZNSt6vectorIN4Luau8AstArrayIcEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %69
@@ -18764,7 +18764,7 @@ _ZNSt6vectorIN4Luau8AstArrayIcEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cx
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %23, align 8
-  %105 = load ptr, ptr %36, align 8
+  %105 = load ptr, ptr %35, align 8
   %.not.i.i13 = icmp eq ptr %104, %105
   br i1 %.not.i.i13, label %109, label %106
 
@@ -18823,7 +18823,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   store ptr %123, ptr %22, align 8
   store ptr %128, ptr %23, align 8
   %130 = getelementptr inbounds ptr, ptr %123, i64 %119
-  store ptr %130, ptr %36, align 8
+  store ptr %130, ptr %35, align 8
   br label %.loopexit96
 
 131:                                              ; preds = %98
@@ -18837,7 +18837,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %23, align 8
-  %136 = load ptr, ptr %36, align 8
+  %136 = load ptr, ptr %35, align 8
   %.not.i.i19 = icmp eq ptr %135, %136
   br i1 %.not.i.i19, label %140, label %137
 
@@ -18896,7 +18896,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   store ptr %154, ptr %22, align 8
   store ptr %159, ptr %23, align 8
   %161 = getelementptr inbounds ptr, ptr %154, i64 %150
-  store ptr %161, ptr %36, align 8
+  store ptr %161, ptr %35, align 8
   br label %.loopexit96
 
 162:                                              ; preds = %98
@@ -18905,7 +18905,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 
 164:                                              ; preds = %162
   %165 = load ptr, ptr %23, align 8
-  %166 = load ptr, ptr %36, align 8
+  %166 = load ptr, ptr %35, align 8
   %.not.i.i30 = icmp eq ptr %165, %166
   br i1 %.not.i.i30, label %170, label %167
 
@@ -18964,7 +18964,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   store ptr %184, ptr %22, align 8
   store ptr %189, ptr %23, align 8
   %191 = getelementptr inbounds ptr, ptr %184, i64 %180
-  store ptr %191, ptr %36, align 8
+  store ptr %191, ptr %35, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i37, %167
@@ -19016,7 +19016,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 .lr.ph.preheader.i.i41:                           ; preds = %.loopexit96
   %203 = load ptr, ptr %15, align 8
   %204 = getelementptr i8, ptr %203, i64 %21
-  %205 = load ptr, ptr %34, align 8
+  %205 = load ptr, ptr %33, align 8
   %206 = shl i64 %95, 4
   %207 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %205, i64 noundef %206)
           to label %.lr.ph.i.i42 unwind label %.loopexit.split-lp
@@ -19041,7 +19041,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 .lr.ph.preheader.i.i47:                           ; preds = %.loopexit93
   %214 = load ptr, ptr %22, align 8
   %215 = getelementptr i8, ptr %214, i64 %28
-  %216 = load ptr, ptr %34, align 8
+  %216 = load ptr, ptr %33, align 8
   %217 = shl i64 %.sroa.11.1, 3
   %218 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %216, i64 noundef %217)
           to label %.lr.ph.i.i48 unwind label %.loopexit.split-lp
@@ -19061,7 +19061,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   store ptr %223, ptr %13, align 8
   %224 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %.sroa.11.1, ptr %224, align 8
-  %225 = load ptr, ptr %34, align 8
+  %225 = load ptr, ptr %33, align 8
   store i64 %.sroa.072.0.copyload, ptr %14, align 8
   %226 = getelementptr inbounds i8, ptr %14, i64 8
   %227 = getelementptr inbounds i8, ptr %2, i64 8

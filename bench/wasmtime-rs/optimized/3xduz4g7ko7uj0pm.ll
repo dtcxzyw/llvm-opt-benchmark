@@ -13463,7 +13463,7 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ9component9translate6in
   %221 = getelementptr inbounds i8, ptr %33, i64 136
   %222 = load i32, ptr %221, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
-  %223 = getelementptr inbounds i8, ptr %33, i64 104
+  %223 = getelementptr inbounds i8, ptr %3, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %223, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   invoke fastcc void @_ZN16wasmtime_environ9component9translate6inline7Inliner17canonical_options17h06bc1e1b26756cd0E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(32) %30, ptr noalias noundef nonnull align 8 dereferenceable(728) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %31)

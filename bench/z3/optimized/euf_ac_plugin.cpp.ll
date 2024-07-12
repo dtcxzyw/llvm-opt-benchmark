@@ -2077,7 +2077,6 @@ for.inc.i54.i.i.i:                                ; preds = %while.body.i.i58.i.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf9ac_plugin4undoEv(ptr nocapture noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %.sroa.2 = alloca [44 x i8], align 4
   %m_undo = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_undo, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2441,18 +2440,16 @@ _ZN6vectorISt4pairIjN3euf9ac_plugin6sharedEELb0EjE4backEv.exit: ; preds = %sw.bb
   %retval.0.i.i72 = phi i64 [ %77, %if.end.i.i70 ], [ 4294967295, %sw.bb43 ]
   %arrayidx.i1.i73 = getelementptr inbounds %"struct.std::pair.60", ptr %74, i64 %retval.0.i.i72
   %.sroa.0.0.copyload = load i32, ptr %arrayidx.i1.i73, align 8
-  %.sroa.2.0.arrayidx.i1.i73.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i1.i73, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.2, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.2.0.arrayidx.i1.i73.sroa_idx, i64 44, i1 false)
   %m_shared48 = getelementptr inbounds i8, ptr %this, i64 64
   %78 = load ptr, ptr %m_shared48, align 8
   %idxprom.i75 = zext i32 %.sroa.0.0.copyload to i64
   %arrayidx.i76 = getelementptr inbounds %"struct.euf::ac_plugin::shared", ptr %78, i64 %idxprom.i75
-  %.sroa.2.8.second.i.i74.sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.2.8.second.i.i74.sroa_idx, i64 40, i1 false)
-  %79 = load ptr, ptr %m_update_shared_trail, align 8
-  %arrayidx.i77 = getelementptr inbounds i8, ptr %79, i64 -4
-  %80 = load i32, ptr %arrayidx.i77, align 4
-  %dec.i78 = add i32 %80, -1
+  %79 = getelementptr inbounds i8, ptr %arrayidx.i1.i73, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(40) %79, i64 40, i1 false)
+  %80 = load ptr, ptr %m_update_shared_trail, align 8
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %80, i64 -4
+  %81 = load i32, ptr %arrayidx.i77, align 4
+  %dec.i78 = add i32 %81, -1
   store i32 %dec.i78, ptr %arrayidx.i77, align 4
   br label %sw.epilog
 

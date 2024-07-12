@@ -1172,25 +1172,25 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %5 = alloca { { i8, [23 x i8] } }, align 8
   %6 = alloca { i32, [2 x i32] }, align 4
   %7 = alloca { { { i8, [23 x i8] } }, { i32, [4 x i32] }, [1 x i32] }, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !55, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
-  %9 = load ptr, ptr %0, align 8, !nonnull !4, !align !55, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !394
+  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !403
-  %10 = load i32, ptr %8, align 8, !range !405, !alias.scope !401, !noalias !406, !noundef !4
+  %10 = load i32, ptr %9, align 8, !range !405, !alias.scope !401, !noalias !406, !noundef !4
   %.not.i.i = icmp eq i32 %10, 4
   br i1 %.not.i.i, label %11, label %.critedge.i.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull readonly align 4 dereferenceable(12) %12, i64 12, i1 false), !noalias !406
+  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !394
-  call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h842cd3e4b8eac6c1E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !409
+  call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h842cd3e4b8eac6c1E"(ptr noalias nocapture noundef nonnull sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !409
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !408
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !408
   br label %_ZN4core3ops8function6FnOnce9call_once17h2514bca2b932df3eE.exit

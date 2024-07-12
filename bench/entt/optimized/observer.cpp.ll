@@ -3457,7 +3457,7 @@ call2.i.noexc1079:                                ; preds = %invoke.cont378
   %and.i.i.i.i.i1076 = and i32 %267, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i1076, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i1076 to i64
   %vtable.i.i1077 = load ptr, ptr %call2.i1080, align 8, !tbaa !4
   %vfn.i.i1078 = getelementptr inbounds i8, ptr %vtable.i.i1077, i64 16
   %268 = load ptr, ptr %vfn.i.i1078, align 8
@@ -5383,7 +5383,7 @@ call2.i.noexc739:                                 ; preds = %cleanup.cont172
   %and.i.i.i.i.i738 = and i32 %144, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i738, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i738 to i64
   %vtable.i.i = load ptr, ptr %call2.i740, align 8, !tbaa !4
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %145 = load ptr, ptr %vfn.i.i, align 8
@@ -5804,7 +5804,7 @@ call2.i.noexc919:                                 ; preds = %cleanup.cont252
   %and.i.i.i.i.i913 = and i32 %205, 1048575
   %narrow.i.i.i914 = add nuw nsw i32 %and.i.i.i.i.i913, 1
   %inc.i.i.i.i915 = zext nneg i32 %narrow.i.i.i914 to i64
-  %sub.i.i.i.i916 = add nsw i64 %inc.i.i.i.i915, -1
+  %sub.i.i.i.i916 = zext nneg i32 %and.i.i.i.i.i913 to i64
   %vtable.i.i917 = load ptr, ptr %call2.i920, align 8, !tbaa !4
   %vfn.i.i918 = getelementptr inbounds i8, ptr %vtable.i.i917, i64 16
   %206 = load ptr, ptr %vfn.i.i918, align 8
@@ -6084,7 +6084,7 @@ call2.i.noexc1070:                                ; preds = %invoke.cont334
   %and.i.i.i.i.i1064 = and i32 %248, 1048575
   %narrow.i.i.i1065 = add nuw nsw i32 %and.i.i.i.i.i1064, 1
   %inc.i.i.i.i1066 = zext nneg i32 %narrow.i.i.i1065 to i64
-  %sub.i.i.i.i1067 = add nsw i64 %inc.i.i.i.i1066, -1
+  %sub.i.i.i.i1067 = zext nneg i32 %and.i.i.i.i.i1064 to i64
   %vtable.i.i1068 = load ptr, ptr %call2.i1071, align 8, !tbaa !4
   %vfn.i.i1069 = getelementptr inbounds i8, ptr %vtable.i.i1068, i64 16
   %249 = load ptr, ptr %vfn.i.i1069, align 8
@@ -7362,7 +7362,7 @@ call2.i.noexc578:                                 ; preds = %cleanup.cont100
   %and.i.i.i.i.i577 = and i32 %90, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i577, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i577 to i64
   %vtable.i.i = load ptr, ptr %call2.i579, align 8, !tbaa !4
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %91 = load ptr, ptr %vfn.i.i, align 8
@@ -7668,7 +7668,7 @@ call2.i.noexc745:                                 ; preds = %cleanup.cont144
   %and.i.i.i.i.i739 = and i32 %137, 1048575
   %narrow.i.i.i740 = add nuw nsw i32 %and.i.i.i.i.i739, 1
   %inc.i.i.i.i741 = zext nneg i32 %narrow.i.i.i740 to i64
-  %sub.i.i.i.i742 = add nsw i64 %inc.i.i.i.i741, -1
+  %sub.i.i.i.i742 = zext nneg i32 %and.i.i.i.i.i739 to i64
   %vtable.i.i743 = load ptr, ptr %call2.i746, align 8, !tbaa !4
   %vfn.i.i744 = getelementptr inbounds i8, ptr %vtable.i.i743, i64 16
   %138 = load ptr, ptr %vfn.i.i744, align 8
@@ -7695,7 +7695,7 @@ call2.i.noexc763:                                 ; preds = %invoke.cont146
   %and.i.i.i.i.i757 = and i32 %142, 1048575
   %narrow.i.i.i758 = add nuw nsw i32 %and.i.i.i.i.i757, 1
   %inc.i.i.i.i759 = zext nneg i32 %narrow.i.i.i758 to i64
-  %sub.i.i.i.i760 = add nsw i64 %inc.i.i.i.i759, -1
+  %sub.i.i.i.i760 = zext nneg i32 %and.i.i.i.i.i757 to i64
   %vtable.i.i761 = load ptr, ptr %call2.i764, align 8, !tbaa !4
   %vfn.i.i762 = getelementptr inbounds i8, ptr %vtable.i.i761, i64 16
   %143 = load ptr, ptr %vfn.i.i762, align 8
@@ -8456,7 +8456,7 @@ call2.i.noexc1035:                                ; preds = %cleanup.cont288
   %and.i.i.i.i.i1029 = and i32 %245, 1048575
   %narrow.i.i.i1030 = add nuw nsw i32 %and.i.i.i.i.i1029, 1
   %inc.i.i.i.i1031 = zext nneg i32 %narrow.i.i.i1030 to i64
-  %sub.i.i.i.i1032 = add nsw i64 %inc.i.i.i.i1031, -1
+  %sub.i.i.i.i1032 = zext nneg i32 %and.i.i.i.i.i1029 to i64
   %vtable.i.i1033 = load ptr, ptr %call2.i1036, align 8, !tbaa !4
   %vfn.i.i1034 = getelementptr inbounds i8, ptr %vtable.i.i1033, i64 16
   %246 = load ptr, ptr %vfn.i.i1034, align 8
@@ -8653,7 +8653,7 @@ call2.i.noexc1101:                                ; preds = %invoke.cont328
   %and.i.i.i.i.i1095 = and i32 %273, 1048575
   %narrow.i.i.i1096 = add nuw nsw i32 %and.i.i.i.i.i1095, 1
   %inc.i.i.i.i1097 = zext nneg i32 %narrow.i.i.i1096 to i64
-  %sub.i.i.i.i1098 = add nsw i64 %inc.i.i.i.i1097, -1
+  %sub.i.i.i.i1098 = zext nneg i32 %and.i.i.i.i.i1095 to i64
   %vtable.i.i1099 = load ptr, ptr %call2.i1102, align 8, !tbaa !4
   %vfn.i.i1100 = getelementptr inbounds i8, ptr %vtable.i.i1099, i64 16
   %274 = load ptr, ptr %vfn.i.i1100, align 8
@@ -11568,7 +11568,7 @@ call2.i.noexc762:                                 ; preds = %cleanup.cont145
   %and.i.i.i.i.i760 = and i32 %149, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i760, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i761 = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i761 = zext nneg i32 %and.i.i.i.i.i760 to i64
   %vtable.i.i = load ptr, ptr %call2.i763, align 8, !tbaa !4
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %150 = load ptr, ptr %vfn.i.i, align 8
@@ -12345,7 +12345,7 @@ call2.i.noexc1047:                                ; preds = %cleanup.cont288
   %and.i.i.i.i.i1041 = and i32 %257, 1048575
   %narrow.i.i.i1042 = add nuw nsw i32 %and.i.i.i.i.i1041, 1
   %inc.i.i.i.i1043 = zext nneg i32 %narrow.i.i.i1042 to i64
-  %sub.i.i.i.i1044 = add nsw i64 %inc.i.i.i.i1043, -1
+  %sub.i.i.i.i1044 = zext nneg i32 %and.i.i.i.i.i1041 to i64
   %vtable.i.i1045 = load ptr, ptr %call2.i1048, align 8, !tbaa !4
   %vfn.i.i1046 = getelementptr inbounds i8, ptr %vtable.i.i1045, i64 16
   %258 = load ptr, ptr %vfn.i.i1046, align 8
@@ -13136,7 +13136,7 @@ call2.i.noexc436:                                 ; preds = %invoke.cont39
   %and.i.i.i.i.i432 = and i32 %53, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i432, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i433 = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i433 = zext nneg i32 %and.i.i.i.i.i432 to i64
   %vtable.i.i434 = load ptr, ptr %call2.i437, align 8, !tbaa !4
   %vfn.i.i435 = getelementptr inbounds i8, ptr %vtable.i.i434, i64 16
   %54 = load ptr, ptr %vfn.i.i435, align 8
@@ -13654,7 +13654,7 @@ call2.i.noexc578:                                 ; preds = %cleanup.cont140
   %and.i.i.i.i.i572 = and i32 %121, 1048575
   %narrow.i.i.i573 = add nuw nsw i32 %and.i.i.i.i.i572, 1
   %inc.i.i.i.i574 = zext nneg i32 %narrow.i.i.i573 to i64
-  %sub.i.i.i.i575 = add nsw i64 %inc.i.i.i.i574, -1
+  %sub.i.i.i.i575 = zext nneg i32 %and.i.i.i.i.i572 to i64
   %vtable.i.i576 = load ptr, ptr %call2.i579, align 8, !tbaa !4
   %vfn.i.i577 = getelementptr inbounds i8, ptr %vtable.i.i576, i64 16
   %122 = load ptr, ptr %vfn.i.i577, align 8
@@ -14395,7 +14395,7 @@ call2.i.noexc197:                                 ; preds = %invoke.cont42
   %and.i.i.i.i.i194 = and i32 %36, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i194, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i194 to i64
   %vtable.i.i195 = load ptr, ptr %call2.i198, align 8, !tbaa !4
   %vfn.i.i196 = getelementptr inbounds i8, ptr %vtable.i.i195, i64 16
   %37 = load ptr, ptr %vfn.i.i196, align 8
@@ -17987,7 +17987,7 @@ call2.i.noexc1171:                                ; preds = %cleanup.cont355
   %and.i.i.i.i.i1168 = and i32 %259, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i1168, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i1168 to i64
   %vtable.i.i1169 = load ptr, ptr %call2.i1172, align 8, !tbaa !4
   %vfn.i.i1170 = getelementptr inbounds i8, ptr %vtable.i.i1169, i64 16
   %260 = load ptr, ptr %vfn.i.i1170, align 8
@@ -19947,7 +19947,7 @@ call2.i.noexc544:                                 ; preds = %_ZN4entt14basic_obs
   %and.i.i.i.i.i541 = and i32 %131, 1048575
   %narrow.i.i.i = add nuw nsw i32 %and.i.i.i.i.i541, 1
   %inc.i.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %sub.i.i.i.i = add nsw i64 %inc.i.i.i.i, -1
+  %sub.i.i.i.i = zext nneg i32 %and.i.i.i.i.i541 to i64
   %vtable.i.i542 = load ptr, ptr %call2.i545, align 8, !tbaa !4
   %vfn.i.i543 = getelementptr inbounds i8, ptr %vtable.i.i542, i64 16
   %132 = load ptr, ptr %vfn.i.i543, align 8
@@ -34486,11 +34486,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_iEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_iEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -37711,11 +37710,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_idEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_idEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -38115,11 +38113,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_NSE_IJfEEEicEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_NSE_IJfEEEicEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -39488,11 +39485,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJdEEENSE_IJcEEENSE_IJEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESP_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJdEEENSE_IJcEEENSE_IJEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESP_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -40583,11 +40579,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_cEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_cEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -40705,11 +40700,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_iEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_iEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -41591,11 +41585,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJdEEENSE_IJcEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJdEEENSE_IJcEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -42556,11 +42549,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_iEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_iEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -43334,11 +43326,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_cEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_cEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -44468,11 +44459,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEENSE_IJfEEEdEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEENSE_IJfEEEdEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -44665,11 +44655,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEENSE_IJcEEEiEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEENSE_IJcEEEiEEEE10discard_ifILm1EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -46173,11 +46162,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_NSE_IJcEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_NSE_IJcEEEiEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESO_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry
@@ -47125,11 +47113,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %payload, i64 32
   %narrow.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 1
   %inc.i.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %sub.i.i.i.i.i = add nsw i64 %inc.i.i.i.i.i, -1
   %vtable.i.i.i = load ptr, ptr %payload, align 8, !tbaa !4
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %sub.i.i.i.i.i)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %payload, ptr nonnull %packed.i.i.i.i.i, i64 %inc.i.i.i.i.i, ptr nonnull %packed.i.i.i.i.i, i64 %conv.i.i.i.i.i)
   br label %_ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_icEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit
 
 _ZZN4entt8delegateIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_EE7connectITnDaXadL_ZNS_14basic_observerIS4_jSaIjEE15matcher_handlerINS_7matcherIJNS_9type_listIJEEESF_SF_icEEEE10discard_ifILm0EEEvRSB_S5_S2_EESB_EEvRT0_ENKUlPKvS5_S2_E_clESN_S5_S2_.exit: ; preds = %if.then.i.i, %land.lhs.true.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %entry

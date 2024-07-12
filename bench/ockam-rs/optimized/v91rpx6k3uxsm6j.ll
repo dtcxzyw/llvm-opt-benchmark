@@ -5068,7 +5068,7 @@ common.resume.i:                                  ; preds = %.body.i, %18
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h4dc3d2683f717f58E.exit.i": ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !noalias !742
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %5), !noalias !737
   tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
@@ -5187,7 +5187,7 @@ common.resume.i:                                  ; preds = %.body.i, %18
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17heb307a946eb965bbE.exit.i": ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !noalias !773
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %5), !noalias !768
   tail call void @llvm.experimental.noalias.scope.decl(metadata !774)
@@ -5308,7 +5308,7 @@ common.resume.i:                                  ; preds = %.body.i, %19
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17hcc7d7830b4483c1aE.exit.i": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !804
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !804
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %5), !noalias !799
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   %24 = load i64, ptr %1, align 8, !range !14, !alias.scope !808, !noalias !809, !noundef !5
@@ -5428,7 +5428,7 @@ common.resume.i:                                  ; preds = %.body.i, %19
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$11take_output28_$u7b$$u7b$closure$u7d$$u7d$17h160c3c7139b6e557E.exit.i": ; preds = %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !835
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !835
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %5), !noalias !830
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
   %24 = load i64, ptr %1, align 8, !range !14, !alias.scope !839, !noalias !840, !noundef !5

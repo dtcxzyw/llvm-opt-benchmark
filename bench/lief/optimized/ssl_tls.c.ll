@@ -5319,8 +5319,8 @@ define hidden i32 @mbedtls_ssl_derive_keys(ptr noundef %0) local_unnamed_addr #0
   %43 = load ptr, ptr %5, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 1496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 16 dereferenceable(32) %45, i64 32, i1 false)
+  %45 = getelementptr inbounds i8, ptr %43, i64 1528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %47, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)

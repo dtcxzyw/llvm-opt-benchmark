@@ -9687,7 +9687,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5alloc11collec
   %4 = alloca { ptr, i64, { ptr, [2 x i64] }, {}, {} }, align 8
   %5 = load ptr, ptr %0, align 8, !noundef !4
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %35, label %7
+  br i1 %6, label %36, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -9728,40 +9728,41 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5alloc11collec
   br label %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit"
 
 23:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !alias.scope !1316, !noundef !4
-  call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17hbc68f9de223a51cbE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %25, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  %26 = load ptr, ptr %2, align 8, !alias.scope !1322, !noalias !1316, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
-  %29 = load i64, ptr %28, align 8, !alias.scope !1322, !noalias !1316, !noundef !4
-  %30 = getelementptr inbounds i64, ptr %27, i64 %29
-  %31 = load ptr, ptr %4, align 8, !alias.scope !1316, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %32, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = load i64, ptr %25, align 8, !alias.scope !1316, !noundef !4
+  call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17hbc68f9de223a51cbE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %26, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  %27 = load ptr, ptr %2, align 8, !alias.scope !1322, !noalias !1316, !nonnull !4, !noundef !4
+  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !1322, !noalias !1316, !noundef !4
+  %31 = getelementptr inbounds i64, ptr %28, i64 %30
+  %32 = load ptr, ptr %4, align 8, !alias.scope !1316, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load i64, ptr %33, align 8, !noundef !4
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %33, align 8
   br label %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit"
 
 "_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit": ; preds = %"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$4push17h0eceff4700b2f846E.exit.i", %23
-  %.0.i = phi ptr [ %20, %"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$4push17h0eceff4700b2f846E.exit.i" ], [ %30, %23 ]
+  %.0.i = phi ptr [ %20, %"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$4push17h0eceff4700b2f846E.exit.i" ], [ %31, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  br label %39
+  br label %40
 
-35:                                               ; preds = %1
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
+36:                                               ; preds = %1
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 96
-  %38 = getelementptr inbounds i64, ptr %37, i64 %.sroa.21.0.copyload
-  br label %39
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 96
+  %39 = getelementptr inbounds i64, ptr %38, i64 %.sroa.21.0.copyload
+  br label %40
 
-39:                                               ; preds = %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit", %35
-  %.0 = phi ptr [ %38, %35 ], [ %.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit" ]
+40:                                               ; preds = %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit", %36
+  %.0 = phi ptr [ %39, %36 ], [ %.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17he2d62280f405d42eE.llvm.8540189446595550310.exit" ]
   ret ptr %.0
 }
 

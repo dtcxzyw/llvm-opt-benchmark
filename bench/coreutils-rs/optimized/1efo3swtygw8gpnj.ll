@@ -6783,17 +6783,17 @@ define internal fastcc void @_ZN5uu_tr9operation8Sequence8from_str17h5c46a50bfba
   unreachable
 
 66:                                               ; preds = %25
-  %.sroa.11.8.copyload15 = load i64, ptr %19, align 8, !noalias !1314
-  %.sroa.14.8.copyload16 = load i64, ptr %20, align 8, !noalias !1314
+  %.sroa.10.8.copyload = load i64, ptr %19, align 8, !noalias !1314
+  %.sroa.13.8.copyload = load i64, ptr %20, align 8, !noalias !1314
   %.sroa.17.8..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.17.8.copyload17 = load i64, ptr %.sroa.17.8..sroa_idx, align 8, !noalias !1314
-  %.sroa.17.sroa.7.0.extract.shift = and i64 %.sroa.17.8.copyload17, -256
-  %67 = and i64 %.sroa.17.8.copyload17, 255
+  %.sroa.17.8.copyload = load i64, ptr %.sroa.17.8..sroa_idx, align 8, !noalias !1314
+  %.sroa.17.sroa.7.0.extract.shift = and i64 %.sroa.17.8.copyload, -256
+  %67 = and i64 %.sroa.17.8.copyload, 255
   br label %68
 
 68:                                               ; preds = %66, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i"
-  %.sroa.14.0 = phi i64 [ %.sroa.14.8.copyload16, %66 ], [ %.sroa.513.0.i, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
-  %.sroa.11.0 = phi i64 [ %.sroa.11.8.copyload15, %66 ], [ %48, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
+  %.sroa.13.0 = phi i64 [ %.sroa.13.8.copyload, %66 ], [ %.sroa.513.0.i, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.8.copyload, %66 ], [ %48, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
   %.sroa.613.0 = phi i64 [ %26, %66 ], [ 1, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
   %.sroa.17.sroa.0.0 = phi i64 [ %67, %66 ], [ 8, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
   %.sroa.17.sroa.7.sroa.0.0 = phi i64 [ %.sroa.17.sroa.7.0.extract.shift, %66 ], [ 0, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.exit.i" ]
@@ -6847,32 +6847,32 @@ common.resume.i:                                  ; preds = %.body.i, %71
 83:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f9d214d8373581cE.llvm.10579361824584921976.exit.i.i", %75, %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1342
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1308
-  %84 = inttoptr i64 %.sroa.14.0 to ptr
-  %.sroa.17.sroa.0.0.insert.insert21 = or disjoint i64 %.sroa.17.sroa.7.sroa.0.0, %.sroa.17.sroa.0.0
+  %84 = inttoptr i64 %.sroa.13.0 to ptr
+  %.sroa.17.sroa.0.0.insert.insert17 = or disjoint i64 %.sroa.17.sroa.7.sroa.0.0, %.sroa.17.sroa.0.0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !1347
   store i64 %.sroa.613.0, ptr %11, align 8, !noalias !1351
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %.sroa.11.0, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !1351
+  store i64 %.sroa.10.0, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !1351
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %84, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1351
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 %.sroa.17.sroa.0.0.insert.insert21, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !1351
+  store i64 %.sroa.17.sroa.0.0.insert.insert17, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !1351
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.4920c289cb5bce572bf2b72717362552.16, i64 noundef 43, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.67) #25, !noalias !1347
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he77062264925e5b2E.exit": ; preds = %25
-  %.sroa.14.24.copyload = load i64, ptr %10, align 8, !noalias !1314
+  %.sroa.13.24.copyload = load i64, ptr %10, align 8, !noalias !1314
   %.sroa.17.24.copyload = load i64, ptr %16, align 8, !noalias !1314
-  %.sroa.19.24.copyload = load i64, ptr %17, align 8, !noalias !1314
+  %.sroa.20.24.copyload = load i64, ptr %17, align 8, !noalias !1314
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !1308
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1308
   %85 = inttoptr i64 %.sroa.17.24.copyload to ptr
   %86 = icmp ne i64 %.sroa.17.24.copyload, 0
   call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds { i64, [2 x i64] }, ptr %85, i64 %.sroa.19.24.copyload
+  %87 = getelementptr inbounds { i64, [2 x i64] }, ptr %85, i64 %.sroa.20.24.copyload
   store ptr %85, ptr %12, align 8, !alias.scope !1352, !noalias !1355
   %88 = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 %.sroa.14.24.copyload, ptr %88, align 8, !alias.scope !1352, !noalias !1355
+  store i64 %.sroa.13.24.copyload, ptr %88, align 8, !alias.scope !1352, !noalias !1355
   %89 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %85, ptr %89, align 8, !alias.scope !1352, !noalias !1355
   %90 = getelementptr inbounds i8, ptr %12, i64 24

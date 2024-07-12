@@ -4665,8 +4665,8 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6re
   ret void
 
 88:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hc9d6d461f8dec936E.exit"
-  %89 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %89, i64 184, i1 false)
+  %89 = getelementptr inbounds i8, ptr %65, i64 -184
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %89, i64 184, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %90 = load i8, ptr %5, align 8, !range !143, !alias.scope !680, !noundef !4
   %91 = icmp eq i8 %90, 0
@@ -13660,7 +13660,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.exit.i"
 
 335:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h0997b38699e320c4E.exit.i.i"
-  %336 = getelementptr inbounds i8, ptr %10, i64 24
+  %336 = getelementptr inbounds i8, ptr %313, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %336, i64 24, i1 false), !noalias !2725
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2726
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
@@ -14350,9 +14350,9 @@ common.resume:                                    ; preds = %.body, %32
   br label %182
 
 110:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hf388285ef8308d95E.exit.i.i"
-  %111 = getelementptr inbounds i8, ptr %12, i64 24
+  %111 = getelementptr inbounds i8, ptr %87, i64 -24
   %.sroa.015.0.copyload = load i64, ptr %111, align 8, !noalias !2942
-  %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.517, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.517.0..sroa_idx, i64 16, i1 false), !noalias !2942
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !2943
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
@@ -19906,7 +19906,7 @@ attributes #43 = { noreturn }
 !2722 = !{!2717, !2690, !2691, !2654, !2647, !2642, !2640, !2446, !2448}
 !2723 = !{!2712, !2709, !2717, !2706, !2690, !2686, !2654, !2644, !2642, !2637, !2446, !2448}
 !2724 = !{!2686, !2644, !2642, !2637, !2446, !2448}
-!2725 = !{!2637, !2640, !2443, !2446, !2448}
+!2725 = !{!2637, !2446, !2448}
 !2726 = !{!2727, !2729, !2731, !2642, !2637, !2640, !2443, !2446, !2448}
 !2727 = distinct !{!2727, !2728, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2199571249dea28fE.llvm.4248407042397360440: argument 0"}
 !2728 = distinct !{!2728, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2199571249dea28fE.llvm.4248407042397360440"}
@@ -20123,7 +20123,7 @@ attributes #43 = { noreturn }
 !2939 = !{!2934, !2903, !2904, !2869, !2870, !2859, !2860, !2849, !2854}
 !2940 = !{!2929, !2926, !2934, !2923, !2903, !2899, !2904, !2869, !2862, !2859, !2856, !2849, !2852}
 !2941 = !{!2899, !2904, !2862, !2859, !2856, !2849, !2852}
-!2942 = !{!2856, !2860, !2849, !2852, !2854}
+!2942 = !{!2856, !2849, !2852}
 !2943 = !{!2944, !2946, !2948, !2859, !2856, !2860, !2849, !2852, !2854}
 !2944 = distinct !{!2944, !2945, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2199571249dea28fE.llvm.4248407042397360440: argument 0"}
 !2945 = distinct !{!2945, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2199571249dea28fE.llvm.4248407042397360440"}

@@ -3000,7 +3000,6 @@ define hidden void @"_ZN9actix_web7service24ServiceResponse$LT$B$GT$3new17h24637
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17h0f5ee41c32385459E.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.010 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.3 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %5 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
   %7 = load i8, ptr %6, align 8, !range !528, !noundef !4
@@ -3073,8 +3072,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %5, i64 40
   %32 = load ptr, ptr %31, align 8, !align !85, !noundef !4
-  %33 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false)
+  %33 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !541)
   switch i64 %.sroa.03.0.copyload, label %34 [
@@ -3131,7 +3129,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %32, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
   %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false)
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store ptr null, ptr %.sroa.48.0..sroa_idx, align 8
   br label %28
@@ -3155,7 +3153,6 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17h8801f3cad0d69999E.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.2 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %3 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i8, ptr %4, align 8, !range !528, !noundef !4
@@ -3191,12 +3188,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   br i1 %16, label %18, label %19
 
 17:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit", %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit
-  %.sink16 = phi i64 [ 56, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 16, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sink15 = phi ptr [ null, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ @anon.cc2783a4db5db7f54861db7cc543ce37.35, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sink = phi i64 [ 0, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink16
-  store ptr %.sink15, ptr %.sroa.47.0..sroa_idx, align 8
-  store i64 %.sink, ptr %0, align 8
+  %.sink15 = phi i64 [ 56, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 16, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %.sink = phi ptr [ null, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ @anon.cc2783a4db5db7f54861db7cc543ce37.35, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %storemerge = phi i64 [ 0, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink15
+  store ptr %.sink, ptr %.sroa.47.0..sroa_idx, align 8
+  store i64 %storemerge, ptr %0, align 8
   ret void
 
 18:                                               ; preds = %15
@@ -3210,8 +3207,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx, i64 80, i1 false)
   %20 = getelementptr inbounds i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8, !align !85, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
+  %22 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   switch i64 %.sroa.03.0.copyload, label %23 [
@@ -3267,13 +3263,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %21, ptr %42, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   br label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17h9754c34915774845E.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ ptr, [9 x i64] }) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.410 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %5 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
   %7 = load i8, ptr %6, align 8, !range !528, !noundef !4
@@ -3326,8 +3321,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx, i64 80, i1 false)
   %23 = getelementptr inbounds i8, ptr %5, i64 40
   %24 = load ptr, ptr %23, align 8, !align !85, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.410, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
+  %25 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
   switch i64 %.sroa.03.0.copyload, label %26 [
@@ -3386,14 +3380,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   %.sroa.06.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %24, ptr %.sroa.06.sroa.5.0..sroa_idx, align 8
   %.sroa.06.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.410, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   br label %20
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17hd5eec606f1c6c21aE.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.2 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %3 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i8, ptr %4, align 8, !range !528, !noundef !4
@@ -3429,12 +3422,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   br i1 %16, label %18, label %19
 
 17:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit", %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit
-  %.sink16 = phi i64 [ 56, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 16, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sink15 = phi ptr [ null, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ @anon.cc2783a4db5db7f54861db7cc543ce37.35, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sink = phi i64 [ 0, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
-  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink16
-  store ptr %.sink15, ptr %.sroa.47.0..sroa_idx, align 8
-  store i64 %.sink, ptr %0, align 8
+  %.sink15 = phi i64 [ 56, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 16, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %.sink = phi ptr [ null, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ @anon.cc2783a4db5db7f54861db7cc543ce37.35, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %storemerge = phi i64 [ 0, %"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit" ], [ 1, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exit ]
+  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink15
+  store ptr %.sink, ptr %.sroa.47.0..sroa_idx, align 8
+  store i64 %storemerge, ptr %0, align 8
   ret void
 
 18:                                               ; preds = %15
@@ -3448,8 +3441,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx, i64 80, i1 false)
   %20 = getelementptr inbounds i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8, !align !85, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
+  %22 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !598)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !601)
   switch i64 %.sroa.03.0.copyload, label %23 [
@@ -3505,13 +3497,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.906605461179275197.exi
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %21, ptr %42, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.06.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   br label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17he683dfbb67b09774E.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ [132 x i8], i8, [3 x i8] }) align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, ptr noalias nocapture noundef align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.2 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %.sroa.3 = alloca { i64, i64, i64, { [44 x i8], i8, [3 x i8] }, {} }, align 8
   %4 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -3586,8 +3577,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   %32 = getelementptr inbounds i8, ptr %4, i64 40
   %33 = load ptr, ptr %32, align 8, !align !85, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
+  %34 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
   switch i64 %.sroa.03.0.copyload, label %35 [
@@ -3644,7 +3634,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %33, ptr %.sroa.59.0..sroa_idx, align 8
   %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
   %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3, i64 72, i1 false)
   br label %"_ZN4core3ptr243drop_in_place$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h886d78ab9f5e7bd3E.exit"
@@ -3668,7 +3658,6 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message_body17hfe8bfed0af89b12eE.llvm.906605461179275197(ptr noalias nocapture noundef writeonly sret({ [140 x i8], i8, [3 x i8] }) align 8 dereferenceable(144) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, ptr noalias nocapture noundef align 8 dereferenceable(80) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.2 = alloca { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }, align 8
   %.sroa.3 = alloca { i64, { i64, i64, i64, { [44 x i8], i8, [3 x i8] }, {} } }, align 8
   %4 = alloca { { { i64, [4 x i64] } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -3743,8 +3732,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false)
   %32 = getelementptr inbounds i8, ptr %4, i64 40
   %33 = load ptr, ptr %32, align 8, !align !85, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
+  %34 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !667)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   switch i64 %.sroa.03.0.copyload, label %35 [
@@ -3801,7 +3789,7 @@ define hidden void @_ZN9actix_web8response7builder19HttpResponseBuilder12message
   %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %33, ptr %.sroa.58.0..sroa_idx, align 8
   %.sroa.58.sroa.4.0..sroa.58.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.58.sroa.4.0..sroa.58.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.58.sroa.4.0..sroa.58.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
   %.sroa.58.sroa.5.0..sroa.58.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.58.sroa.5.0..sroa.58.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3, i64 80, i1 false)
   br label %"_ZN4core3ptr245drop_in_place$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h3ee432163d09557fE.exit"

@@ -50638,112 +50638,113 @@ ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
   br i1 %or.cond75, label %ma_decoder__preinit.exit.thread, label %48
 
 48:                                               ; preds = %.thread19.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %26, i64 32, i1 false)
-  %49 = icmp eq ptr %43, null
-  %50 = icmp eq ptr %46, null
-  %51 = select i1 %49, i1 %50, i1 false
+  %49 = getelementptr inbounds i8, ptr %10, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false)
+  %50 = icmp eq ptr %43, null
+  %51 = icmp eq ptr %46, null
+  %52 = select i1 %50, i1 %51, i1 false
   br label %ma_decoder__preinit.exit
 
 ma_decoder__preinit.exit:                         ; preds = %48, %40
-  %or.cond78 = phi i1 [ %51, %48 ], [ true, %40 ]
-  %52 = icmp eq ptr %0, null
-  %53 = icmp eq i64 %1, 0
-  %or.cond = or i1 %52, %53
-  br i1 %or.cond, label %ma_decoder__preinit.exit.thread, label %54
+  %or.cond78 = phi i1 [ %52, %48 ], [ true, %40 ]
+  %53 = icmp eq ptr %0, null
+  %54 = icmp eq i64 %1, 0
+  %or.cond = or i1 %53, %54
+  br i1 %or.cond, label %ma_decoder__preinit.exit.thread, label %55
 
-54:                                               ; preds = %ma_decoder__preinit.exit
-  %55 = getelementptr inbounds i8, ptr %9, i64 112
-  %56 = getelementptr inbounds i8, ptr %9, i64 120
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %ma_decoder_init_custom_from_memory__internal.exit, label %.preheader.i
+55:                                               ; preds = %ma_decoder__preinit.exit
+  %56 = getelementptr inbounds i8, ptr %9, i64 112
+  %57 = getelementptr inbounds i8, ptr %9, i64 120
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %ma_decoder_init_custom_from_memory__internal.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %9, i64 128
-  %60 = load i32, ptr %59, align 8
-  %.not19.i = icmp eq i32 %60, 0
+.preheader.i:                                     ; preds = %55
+  %60 = getelementptr inbounds i8, ptr %9, i64 128
+  %61 = load i32, ptr %60, align 8
+  %.not19.i = icmp eq i32 %61, 0
   br i1 %.not19.i, label %ma_decoder_init_custom_from_memory__internal.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %61 = getelementptr inbounds i8, ptr %9, i64 136
-  %62 = getelementptr inbounds i8, ptr %9, i64 116
-  %63 = load ptr, ptr %61, align 8
-  %64 = load i32, ptr %9, align 8
-  %65 = load i32, ptr %62, align 4
-  %.sroa.3.0.insert.ext.i.i.i = zext i32 %65 to i64
+  %62 = getelementptr inbounds i8, ptr %9, i64 136
+  %63 = getelementptr inbounds i8, ptr %9, i64 116
+  %64 = load ptr, ptr %62, align 8
+  %65 = load i32, ptr %9, align 8
+  %66 = load i32, ptr %63, align 4
+  %.sroa.3.0.insert.ext.i.i.i = zext i32 %66 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %64 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext i32 %65 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %66 = zext i32 %60 to i64
-  br label %67
+  %67 = zext i32 %61 to i64
+  br label %68
 
-67:                                               ; preds = %76, %.lr.ph.i
-  %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %77, %76 ]
-  %68 = getelementptr inbounds ptr, ptr %57, i64 %.01418.i
-  %69 = load ptr, ptr %68, align 8
-  %.not.i48 = icmp eq ptr %69, null
-  br i1 %.not.i48, label %76, label %70
+68:                                               ; preds = %77, %.lr.ph.i
+  %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %78, %77 ]
+  %69 = getelementptr inbounds ptr, ptr %58, i64 %.01418.i
+  %70 = load ptr, ptr %69, align 8
+  %.not.i48 = icmp eq ptr %70, null
+  br i1 %.not.i48, label %77, label %71
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %71 = getelementptr inbounds i8, ptr %69, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %ma_decoder_init_from_memory__internal.exit.thread.i, label %74
+  %72 = getelementptr inbounds i8, ptr %70, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %ma_decoder_init_from_memory__internal.exit.thread.i, label %75
 
-74:                                               ; preds = %70
+75:                                               ; preds = %71
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %7, align 8
-  %75 = call i32 %72(ptr noundef %63, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %25, ptr noundef nonnull %8) #68
-  %.not.i.i = icmp eq i32 %75, 0
-  br i1 %.not.i.i, label %79, label %ma_decoder_init_from_memory__internal.exit.thread.i
+  %76 = call i32 %73(ptr noundef %64, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %25, ptr noundef nonnull %8) #68
+  %.not.i.i = icmp eq i32 %76, 0
+  br i1 %.not.i.i, label %80, label %ma_decoder_init_from_memory__internal.exit.thread.i
 
-ma_decoder_init_from_memory__internal.exit.thread.i: ; preds = %74, %70
+ma_decoder_init_from_memory__internal.exit.thread.i: ; preds = %75, %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %76
+  br label %77
 
-76:                                               ; preds = %ma_decoder_init_from_memory__internal.exit.thread.i, %67
-  %77 = add nuw nsw i64 %.01418.i, 1
-  %exitcond.not = icmp eq i64 %77, %66
-  br i1 %exitcond.not, label %ma_decoder_init_custom_from_memory__internal.exit, label %67
+77:                                               ; preds = %ma_decoder_init_from_memory__internal.exit.thread.i, %68
+  %78 = add nuw nsw i64 %.01418.i, 1
+  %exitcond.not = icmp eq i64 %78, %67
+  br i1 %exitcond.not, label %ma_decoder_init_custom_from_memory__internal.exit, label %68
 
-ma_decoder_init_custom_from_memory__internal.exit: ; preds = %76, %54, %.preheader.i
-  %78 = load i32, ptr %55, align 8
-  %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %92, label %ma_decoder__preinit.exit.thread
+ma_decoder_init_custom_from_memory__internal.exit: ; preds = %77, %55, %.preheader.i
+  %79 = load i32, ptr %56, align 8
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %93, label %ma_decoder__preinit.exit.thread
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %69, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %63, ptr %83, align 8
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %70, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %64, ptr %84, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %84 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %9, ptr noundef %3)
-  %.not45 = icmp eq i32 %84, 0
-  br i1 %.not45, label %127, label %85
+  %85 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %9, ptr noundef %3)
+  %.not45 = icmp eq i32 %85, 0
+  br i1 %.not45, label %129, label %86
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %82, align 8
-  %.not46 = icmp eq ptr %86, null
-  br i1 %.not46, label %ma_decoder__preinit.exit.thread, label %87
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %83, align 8
+  %.not46 = icmp eq ptr %87, null
+  br i1 %.not46, label %ma_decoder__preinit.exit.thread, label %88
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
-  %89 = load ptr, ptr %88, align 8
-  %.not47 = icmp eq ptr %89, null
-  br i1 %.not47, label %ma_decoder__preinit.exit.thread, label %90
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %87, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %.not47 = icmp eq ptr %90, null
+  br i1 %.not47, label %ma_decoder__preinit.exit.thread, label %91
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %83, align 8
-  call void %89(ptr noundef %91, ptr noundef nonnull %81, ptr noundef nonnull %25) #68
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %84, align 8
+  call void %90(ptr noundef %92, ptr noundef nonnull %82, ptr noundef nonnull %25) #68
   br label %ma_decoder__preinit.exit.thread
 
-92:                                               ; preds = %ma_decoder_init_custom_from_memory__internal.exit
+93:                                               ; preds = %ma_decoder_init_custom_from_memory__internal.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(488) %15, i8 0, i64 488, i1 false)
   store ptr @g_ma_decoder_data_source_vtable, ptr %3, align 8
   store i64 0, ptr %16, align 8
@@ -50755,119 +50756,120 @@ ma_decoder_init_custom_from_memory__internal.exit: ; preds = %76, %54, %.prehead
   store ptr @ma_decoder__on_read_memory, ptr %22, align 8
   store ptr @ma_decoder__on_seek_memory, ptr %23, align 8
   store ptr @ma_decoder__on_tell_memory, ptr %24, align 8
-  br i1 %28, label %93, label %96
-
-93:                                               ; preds = %92
-  br i1 %31, label %94, label %.thread19.i.i.i.i
+  br i1 %28, label %94, label %97
 
 94:                                               ; preds = %93
-  br i1 %or.cond78, label %95, label %ma_decoder__preinit.exit.thread
+  br i1 %31, label %95, label %.thread19.i.i.i.i
 
 95:                                               ; preds = %94
+  br i1 %or.cond78, label %96, label %ma_decoder__preinit.exit.thread
+
+96:                                               ; preds = %95
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 504
   store ptr @ma__malloc_default, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 512
   store ptr @ma__realloc_default, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 520
   store ptr @ma__free_default, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
-  br label %98
+  br label %100
 
-96:                                               ; preds = %92
+97:                                               ; preds = %93
   %brmerge = select i1 %31, i1 true, i1 %or.cond78
-  br i1 %brmerge, label %ma_decoder__preinit.exit.thread, label %97
+  br i1 %brmerge, label %ma_decoder__preinit.exit.thread, label %98
 
-.thread19.i.i.i.i:                                ; preds = %93
-  br i1 %or.cond78, label %ma_decoder__preinit.exit.thread, label %97
+.thread19.i.i.i.i:                                ; preds = %94
+  br i1 %or.cond78, label %ma_decoder__preinit.exit.thread, label %98
 
-97:                                               ; preds = %96, %.thread19.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %26, i64 32, i1 false)
-  br label %98
+98:                                               ; preds = %97, %.thread19.i.i.i.i
+  %99 = getelementptr inbounds i8, ptr %10, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %99, i64 32, i1 false)
+  br label %100
 
-98:                                               ; preds = %97, %95
-  %99 = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr %0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 536
-  store i64 %1, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %3, i64 544
-  store i64 0, ptr %101, align 8
-  br i1 %58, label %.loopexit.i, label %.preheader.i.i
+100:                                              ; preds = %98, %96
+  %101 = getelementptr inbounds i8, ptr %3, i64 528
+  store ptr %0, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 536
+  store i64 %1, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %3, i64 544
+  store i64 0, ptr %103, align 8
+  br i1 %59, label %.loopexit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %9, i64 128
-  %103 = load i32, ptr %102, align 8
-  %.not24.i.i = icmp eq i32 %103, 0
+.preheader.i.i:                                   ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %9, i64 128
+  %105 = load i32, ptr %104, align 8
+  %.not24.i.i = icmp eq i32 %105, 0
   br i1 %.not24.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %104 = getelementptr inbounds i8, ptr %9, i64 136
-  %105 = getelementptr inbounds i8, ptr %9, i64 116
-  %106 = load ptr, ptr %104, align 8
-  %107 = load i32, ptr %9, align 8
-  %108 = load i32, ptr %105, align 4
-  %.sroa.3.0.insert.ext.i.i.i.i = zext i32 %108 to i64
+  %106 = getelementptr inbounds i8, ptr %9, i64 136
+  %107 = getelementptr inbounds i8, ptr %9, i64 116
+  %108 = load ptr, ptr %106, align 8
+  %109 = load i32, ptr %9, align 8
+  %110 = load i32, ptr %107, align 4
+  %.sroa.3.0.insert.ext.i.i.i.i = zext i32 %110 to i64
   %.sroa.3.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %107 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %109 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %109 = zext i32 %103 to i64
-  br label %110
+  %111 = zext i32 %105 to i64
+  br label %112
 
-110:                                              ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.01521.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %121, %._crit_edge.i.i ]
-  %111 = getelementptr inbounds ptr, ptr %57, i64 %.01521.i.i
-  %112 = load ptr, ptr %111, align 8
-  %.not.i.i55 = icmp eq ptr %112, null
-  br i1 %.not.i.i55, label %._crit_edge.i.i, label %113
+112:                                              ; preds = %._crit_edge.i.i, %.lr.ph.i.i
+  %.01521.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %123, %._crit_edge.i.i ]
+  %113 = getelementptr inbounds ptr, ptr %58, i64 %.01521.i.i
+  %114 = load ptr, ptr %113, align 8
+  %.not.i.i55 = icmp eq ptr %114, null
+  br i1 %.not.i.i55, label %._crit_edge.i.i, label %115
 
-113:                                              ; preds = %110
+115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %114 = load ptr, ptr %112, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %118, label %116
+  %116 = load ptr, ptr %114, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %120, label %118
 
-116:                                              ; preds = %113
+118:                                              ; preds = %115
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %5, align 8
-  %117 = call i32 %114(ptr noundef %106, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %25, ptr noundef nonnull %6) #68
-  %.not.i.i.i = icmp eq i32 %117, 0
-  br i1 %.not.i.i.i, label %.thread.i, label %118
+  %119 = call i32 %116(ptr noundef %108, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %25, ptr noundef nonnull %6) #68
+  %.not.i.i.i = icmp eq i32 %119, 0
+  br i1 %.not.i.i.i, label %.thread.i, label %120
 
-118:                                              ; preds = %116, %113
+120:                                              ; preds = %118, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %119 = load ptr, ptr %23, align 8
-  %120 = call i32 %119(ptr noundef nonnull %3, i64 noundef 0, i32 noundef 0) #68
-  %.not18.i.i = icmp eq i32 %120, 0
+  %121 = load ptr, ptr %23, align 8
+  %122 = call i32 %121(ptr noundef nonnull %3, i64 noundef 0, i32 noundef 0) #68
+  %.not18.i.i = icmp eq i32 %122, 0
   br i1 %.not18.i.i, label %._crit_edge.i.i, label %.loopexit.i
 
-._crit_edge.i.i:                                  ; preds = %118, %110
-  %121 = add nuw nsw i64 %.01521.i.i, 1
-  %exitcond90.not = icmp eq i64 %121, %109
-  br i1 %exitcond90.not, label %.loopexit.i, label %110
+._crit_edge.i.i:                                  ; preds = %120, %112
+  %123 = add nuw nsw i64 %.01521.i.i, 1
+  %exitcond90.not = icmp eq i64 %123, %111
+  br i1 %exitcond90.not, label %.loopexit.i, label %112
 
-.loopexit.i:                                      ; preds = %._crit_edge.i.i, %118, %.preheader.i.i, %98
-  %.0.i.ph.i = phi i32 [ -203, %.preheader.i.i ], [ -203, %98 ], [ -203, %._crit_edge.i.i ], [ %120, %118 ]
-  store i64 0, ptr %101, align 8
+.loopexit.i:                                      ; preds = %._crit_edge.i.i, %120, %.preheader.i.i, %100
+  %.0.i.ph.i = phi i32 [ -203, %.preheader.i.i ], [ -203, %100 ], [ -203, %._crit_edge.i.i ], [ %122, %120 ]
+  store i64 0, ptr %103, align 8
   br label %ma_decoder__preinit.exit.thread
 
-.thread.i:                                        ; preds = %116
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %112, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %106, ptr %125, align 8
+.thread.i:                                        ; preds = %118
+  %124 = load ptr, ptr %6, align 8
+  %125 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %124, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %114, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %108, ptr %127, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %126 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull readonly %9, ptr noundef nonnull %3)
-  %.not44 = icmp eq i32 %126, 0
-  br i1 %.not44, label %127, label %ma_decoder__preinit.exit.thread
+  %128 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull readonly %9, ptr noundef nonnull %3)
+  %.not44 = icmp eq i32 %128, 0
+  br i1 %.not44, label %129, label %ma_decoder__preinit.exit.thread
 
-127:                                              ; preds = %.thread.i, %79
+129:                                              ; preds = %.thread.i, %80
   br label %ma_decoder__preinit.exit.thread
 
-ma_decoder__preinit.exit.thread:                  ; preds = %96, %.thread19.i.i.i.i, %ma_decoder_init_custom_from_memory__internal.exit, %.thread19.i.i.i, %.loopexit.i, %94, %33, %41, %ma_decoder_config_init_copy.exit, %.thread.i, %85, %87, %90, %ma_decoder__preinit.exit, %127
-  %.034 = phi i32 [ 0, %127 ], [ -2, %ma_decoder__preinit.exit ], [ -203, %ma_decoder_init_custom_from_memory__internal.exit ], [ %84, %90 ], [ %84, %87 ], [ %84, %85 ], [ %126, %.thread.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %41 ], [ -2, %33 ], [ -2, %96 ], [ -2, %94 ], [ %.0.i.ph.i, %.loopexit.i ], [ -2, %.thread19.i.i.i ], [ -2, %.thread19.i.i.i.i ]
+ma_decoder__preinit.exit.thread:                  ; preds = %97, %.thread19.i.i.i.i, %ma_decoder_init_custom_from_memory__internal.exit, %.thread19.i.i.i, %.loopexit.i, %95, %33, %41, %ma_decoder_config_init_copy.exit, %.thread.i, %86, %88, %91, %ma_decoder__preinit.exit, %129
+  %.034 = phi i32 [ 0, %129 ], [ -2, %ma_decoder__preinit.exit ], [ -203, %ma_decoder_init_custom_from_memory__internal.exit ], [ %85, %91 ], [ %85, %88 ], [ %85, %86 ], [ %128, %.thread.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %41 ], [ -2, %33 ], [ -2, %97 ], [ -2, %95 ], [ %.0.i.ph.i, %.loopexit.i ], [ -2, %.thread19.i.i.i ], [ -2, %.thread19.i.i.i.i ]
   ret i32 %.034
 }
 
@@ -51408,239 +51410,240 @@ ma_decoder_config_init_copy.exit:                 ; preds = %10, %11
   br i1 %or.cond58, label %ma_decoder__preinit_vfs.exit.thread, label %47
 
 47:                                               ; preds = %.thread19.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull readonly align 8 dereferenceable(32) %25, i64 32, i1 false)
+  %48 = getelementptr inbounds i8, ptr %9, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false)
   br label %ma_decoder__preinit.exit.i
 
 ma_decoder__preinit.exit.i:                       ; preds = %47, %39
-  %48 = icmp eq ptr %1, null
-  br i1 %48, label %ma_decoder__preinit_vfs.exit.thread, label %49
+  %49 = icmp eq ptr %1, null
+  br i1 %49, label %ma_decoder__preinit_vfs.exit.thread, label %50
 
-49:                                               ; preds = %ma_decoder__preinit.exit.i
-  %50 = load i8, ptr %1, align 1
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %ma_decoder__preinit_vfs.exit.thread, label %52
+50:                                               ; preds = %ma_decoder__preinit.exit.i
+  %51 = load i8, ptr %1, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %ma_decoder__preinit_vfs.exit.thread, label %53
 
-52:                                               ; preds = %49
+53:                                               ; preds = %50
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %56, label %53
+  br i1 %.not.i.i, label %57, label %54
 
-53:                                               ; preds = %52
+54:                                               ; preds = %53
   store ptr null, ptr %7, align 8
-  %54 = load ptr, ptr %0, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %ma_decoder__preinit_vfs.exit.thread, label %ma_vfs_or_default_open.exit.i
+  %55 = load ptr, ptr %0, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %ma_decoder__preinit_vfs.exit.thread, label %ma_vfs_or_default_open.exit.i
 
-56:                                               ; preds = %52
-  %57 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %65
+57:                                               ; preds = %53
+  %58 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly @.str.170)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %66
 
-59:                                               ; preds = %56
-  %60 = tail call ptr @__errno_location() #84
-  %61 = load i32, ptr %60, align 4
-  %62 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %61)
-  %63 = icmp eq i32 %62, 0
-  %spec.select = select i1 %63, i32 -1, i32 %62
+60:                                               ; preds = %57
+  %61 = tail call ptr @__errno_location() #84
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call fastcc i32 @ma_result_from_errno(i32 noundef %62)
+  %64 = icmp eq i32 %63, 0
+  %spec.select = select i1 %64, i32 -1, i32 %63
   br label %ma_decoder__preinit_vfs.exit.thread
 
-ma_vfs_or_default_open.exit.i:                    ; preds = %53
-  %64 = call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %7) #68
-  %.not16.i = icmp eq i32 %64, 0
+ma_vfs_or_default_open.exit.i:                    ; preds = %54
+  %65 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %7) #68
+  %.not16.i = icmp eq i32 %65, 0
   br i1 %.not16.i, label %.thread, label %ma_decoder__preinit_vfs.exit.thread
 
-ma_decoder__preinit_vfs.exit.thread:              ; preds = %59, %.thread19.i.i.i.i, %49, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open.exit.i, %ma_decoder_config_init_copy.exit, %40, %32, %53
-  %.0.i.ph = phi i32 [ -29, %53 ], [ -2, %32 ], [ -2, %40 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %64, %ma_vfs_or_default_open.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %49 ], [ -2, %.thread19.i.i.i.i ], [ %spec.select, %59 ]
+ma_decoder__preinit_vfs.exit.thread:              ; preds = %60, %.thread19.i.i.i.i, %50, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open.exit.i, %ma_decoder_config_init_copy.exit, %40, %32, %54
+  %.0.i.ph = phi i32 [ -29, %54 ], [ -2, %32 ], [ -2, %40 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %65, %ma_vfs_or_default_open.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %50 ], [ -2, %.thread19.i.i.i.i ], [ %spec.select, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %ma_vfs_or_default_close.exit
 
-65:                                               ; preds = %56
-  %66 = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr %0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 536
-  store ptr %57, ptr %67, align 8
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds i8, ptr %3, i64 528
+  store ptr %0, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %3, i64 536
+  store ptr %58, ptr %68, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %68 = getelementptr inbounds i8, ptr %8, i64 112
-  %69 = load i32, ptr %68, align 8
-  %.not27 = icmp eq i32 %69, 0
-  br i1 %.not27, label %ma_decoder__on_seek_vfs.exit, label %82
+  %69 = getelementptr inbounds i8, ptr %8, i64 112
+  %70 = load i32, ptr %69, align 8
+  %.not27 = icmp eq i32 %70, 0
+  br i1 %.not27, label %ma_decoder__on_seek_vfs.exit, label %83
 
 .thread:                                          ; preds = %ma_vfs_or_default_open.exit.i
   %.pre.i = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr %0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 536
-  store ptr %.pre.i, ptr %71, align 8
+  %71 = getelementptr inbounds i8, ptr %3, i64 528
+  store ptr %0, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %3, i64 536
+  store ptr %.pre.i, ptr %72, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %72 = getelementptr inbounds i8, ptr %8, i64 112
-  %73 = load i32, ptr %72, align 8
-  %.not2765 = icmp eq i32 %73, 0
-  br i1 %.not2765, label %ma_decoder__on_seek_vfs.exit, label %74
+  %73 = getelementptr inbounds i8, ptr %8, i64 112
+  %74 = load i32, ptr %73, align 8
+  %.not2765 = icmp eq i32 %74, 0
+  br i1 %.not2765, label %ma_decoder__on_seek_vfs.exit, label %75
 
-74:                                               ; preds = %.thread
-  %75 = icmp eq ptr %.pre.i, null
-  br i1 %75, label %ma_decoder__on_seek_vfs.exit, label %76
+75:                                               ; preds = %.thread
+  %76 = icmp eq ptr %.pre.i, null
+  br i1 %76, label %ma_decoder__on_seek_vfs.exit, label %77
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %0, i64 40
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %ma_decoder__on_seek_vfs.exit, label %80
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %ma_decoder__on_seek_vfs.exit, label %81
 
-80:                                               ; preds = %76
-  %81 = call i32 %78(ptr noundef nonnull %0, ptr noundef nonnull %.pre.i, i64 noundef 0, i32 noundef 0) #68
+81:                                               ; preds = %77
+  %82 = call i32 %79(ptr noundef nonnull %0, ptr noundef nonnull %.pre.i, i64 noundef 0, i32 noundef 0) #68
   br label %ma_decoder__on_seek_vfs.exit
 
-82:                                               ; preds = %65
-  %83 = tail call i32 @fseek(ptr noundef nonnull %57, i64 noundef 0, i32 noundef 0)
+83:                                               ; preds = %66
+  %84 = tail call i32 @fseek(ptr noundef nonnull %58, i64 noundef 0, i32 noundef 0)
   br label %ma_decoder__on_seek_vfs.exit
 
-ma_decoder__on_seek_vfs.exit:                     ; preds = %.thread, %82, %80, %76, %74, %65
-  %.not2767 = phi i1 [ true, %.thread ], [ false, %82 ], [ false, %80 ], [ false, %76 ], [ false, %74 ], [ true, %65 ]
-  %84 = phi ptr [ %71, %.thread ], [ %67, %82 ], [ %71, %80 ], [ %71, %76 ], [ %71, %74 ], [ %67, %65 ]
-  %85 = phi ptr [ %70, %.thread ], [ %66, %82 ], [ %70, %80 ], [ %70, %76 ], [ %70, %74 ], [ %66, %65 ]
-  %86 = getelementptr inbounds i8, ptr %8, i64 120
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %.loopexit, label %.preheader.i
+ma_decoder__on_seek_vfs.exit:                     ; preds = %.thread, %83, %81, %77, %75, %66
+  %.not2767 = phi i1 [ true, %.thread ], [ false, %83 ], [ false, %81 ], [ false, %77 ], [ false, %75 ], [ true, %66 ]
+  %85 = phi ptr [ %72, %.thread ], [ %68, %83 ], [ %72, %81 ], [ %72, %77 ], [ %72, %75 ], [ %68, %66 ]
+  %86 = phi ptr [ %71, %.thread ], [ %67, %83 ], [ %71, %81 ], [ %71, %77 ], [ %71, %75 ], [ %67, %66 ]
+  %87 = getelementptr inbounds i8, ptr %8, i64 120
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %ma_decoder__on_seek_vfs.exit
-  %89 = getelementptr inbounds i8, ptr %8, i64 128
-  %90 = load i32, ptr %89, align 8
-  %.not24.i = icmp eq i32 %90, 0
+  %90 = getelementptr inbounds i8, ptr %8, i64 128
+  %91 = load i32, ptr %90, align 8
+  %.not24.i = icmp eq i32 %91, 0
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %91 = getelementptr inbounds i8, ptr %8, i64 136
-  %92 = getelementptr inbounds i8, ptr %8, i64 116
-  %93 = load ptr, ptr %91, align 8
-  %94 = load i32, ptr %8, align 8
-  %95 = load i32, ptr %92, align 4
-  %.sroa.3.0.insert.ext.i.i.i = zext i32 %95 to i64
+  %92 = getelementptr inbounds i8, ptr %8, i64 136
+  %93 = getelementptr inbounds i8, ptr %8, i64 116
+  %94 = load ptr, ptr %92, align 8
+  %95 = load i32, ptr %8, align 8
+  %96 = load i32, ptr %93, align 4
+  %.sroa.3.0.insert.ext.i.i.i = zext i32 %96 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %94 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext i32 %95 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %96 = zext i32 %90 to i64
+  %97 = zext i32 %91 to i64
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
   %.01521.i = phi i64 [ 0, %.lr.ph.i ], [ %.01521.i.be, %.backedge.backedge ]
-  %97 = getelementptr inbounds ptr, ptr %87, i64 %.01521.i
-  %98 = load ptr, ptr %97, align 8
-  %.not.i34 = icmp eq ptr %98, null
-  br i1 %.not.i34, label %._crit_edge.i, label %99
+  %98 = getelementptr inbounds ptr, ptr %88, i64 %.01521.i
+  %99 = load ptr, ptr %98, align 8
+  %.not.i34 = icmp eq ptr %99, null
+  br i1 %.not.i34, label %._crit_edge.i, label %100
 
-99:                                               ; preds = %.backedge
+100:                                              ; preds = %.backedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %100 = load ptr, ptr %98, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %104, label %102
+  %101 = load ptr, ptr %99, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %105, label %103
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %5, align 8
-  %103 = call i32 %100(ptr noundef %93, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef nonnull %6) #68
-  %.not.i.i35 = icmp eq i32 %103, 0
-  br i1 %.not.i.i35, label %ma_decoder__on_seek_vfs.exit42.thread, label %104
+  %104 = call i32 %101(ptr noundef %94, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %24, ptr noundef nonnull %6) #68
+  %.not.i.i35 = icmp eq i32 %104, 0
+  br i1 %.not.i.i35, label %ma_decoder__on_seek_vfs.exit42.thread, label %105
 
-104:                                              ; preds = %102, %99
+105:                                              ; preds = %103, %100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %105 = load ptr, ptr %22, align 8
-  %106 = call i32 %105(ptr noundef %3, i64 noundef 0, i32 noundef 0) #68
-  %.not18.i = icmp eq i32 %106, 0
-  %107 = add nuw nsw i64 %.01521.i, 1
-  %108 = icmp ult i64 %107, %96
-  %or.cond61 = select i1 %.not18.i, i1 %108, i1 false
+  %106 = load ptr, ptr %22, align 8
+  %107 = call i32 %106(ptr noundef %3, i64 noundef 0, i32 noundef 0) #68
+  %.not18.i = icmp eq i32 %107, 0
+  %108 = add nuw nsw i64 %.01521.i, 1
+  %109 = icmp ult i64 %108, %97
+  %or.cond61 = select i1 %.not18.i, i1 %109, i1 false
   br i1 %or.cond61, label %.backedge.backedge, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %.backedge
   %.old = add nuw nsw i64 %.01521.i, 1
-  %.old60 = icmp ult i64 %.old, %96
+  %.old60 = icmp ult i64 %.old, %97
   br i1 %.old60, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %._crit_edge.i, %104
-  %.01521.i.be = phi i64 [ %.old, %._crit_edge.i ], [ %107, %104 ]
+.backedge.backedge:                               ; preds = %._crit_edge.i, %105
+  %.01521.i.be = phi i64 [ %.old, %._crit_edge.i ], [ %108, %105 ]
   br label %.backedge
 
-.loopexit:                                        ; preds = %104, %._crit_edge.i, %ma_decoder__on_seek_vfs.exit, %.preheader.i
-  %109 = load ptr, ptr %85, align 8
-  %110 = load ptr, ptr %84, align 8
-  %.not.i.i38 = icmp eq ptr %109, null
-  %111 = icmp eq ptr %110, null
-  br i1 %.not.i.i38, label %119, label %112
+.loopexit:                                        ; preds = %105, %._crit_edge.i, %ma_decoder__on_seek_vfs.exit, %.preheader.i
+  %110 = load ptr, ptr %86, align 8
+  %111 = load ptr, ptr %85, align 8
+  %.not.i.i38 = icmp eq ptr %110, null
+  %112 = icmp eq ptr %111, null
+  br i1 %.not.i.i38, label %120, label %113
 
-112:                                              ; preds = %.loopexit
-  br i1 %111, label %ma_decoder__on_seek_vfs.exit42, label %113
+113:                                              ; preds = %.loopexit
+  br i1 %112, label %ma_decoder__on_seek_vfs.exit42, label %114
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %109, i64 40
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %ma_decoder__on_seek_vfs.exit42, label %117
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds i8, ptr %110, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %ma_decoder__on_seek_vfs.exit42, label %118
 
-117:                                              ; preds = %113
-  %118 = call i32 %115(ptr noundef nonnull %109, ptr noundef nonnull %110, i64 noundef 0, i32 noundef 0) #68
+118:                                              ; preds = %114
+  %119 = call i32 %116(ptr noundef nonnull %110, ptr noundef nonnull %111, i64 noundef 0, i32 noundef 0) #68
   br label %ma_decoder__on_seek_vfs.exit42
 
-119:                                              ; preds = %.loopexit
-  br i1 %111, label %ma_decoder__on_seek_vfs.exit42, label %120
+120:                                              ; preds = %.loopexit
+  br i1 %112, label %ma_decoder__on_seek_vfs.exit42, label %121
 
-120:                                              ; preds = %119
-  %121 = call i32 @fseek(ptr noundef nonnull %110, i64 noundef 0, i32 noundef 0)
+121:                                              ; preds = %120
+  %122 = call i32 @fseek(ptr noundef nonnull %111, i64 noundef 0, i32 noundef 0)
   br label %ma_decoder__on_seek_vfs.exit42
 
-ma_decoder__on_seek_vfs.exit42:                   ; preds = %120, %119, %117, %113, %112
-  br i1 %.not2767, label %126, label %ma_vfs_or_default_close.exit
+ma_decoder__on_seek_vfs.exit42:                   ; preds = %121, %120, %118, %114, %113
+  br i1 %.not2767, label %127, label %ma_vfs_or_default_close.exit
 
-ma_decoder__on_seek_vfs.exit42.thread:            ; preds = %102
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %98, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %93, ptr %125, align 8
+ma_decoder__on_seek_vfs.exit42.thread:            ; preds = %103
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %123, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %99, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %94, ptr %126, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br i1 %.not2767, label %128, label %ma_vfs_or_default_close.exit
+  br i1 %.not2767, label %129, label %ma_vfs_or_default_close.exit
 
-126:                                              ; preds = %ma_decoder__on_seek_vfs.exit42
-  %127 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef nonnull %8, ptr noundef nonnull %3)
-  br label %130
+127:                                              ; preds = %ma_decoder__on_seek_vfs.exit42
+  %128 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  br label %131
 
-128:                                              ; preds = %ma_decoder__on_seek_vfs.exit42.thread
-  %129 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %8, ptr noundef nonnull %3)
-  br label %130
+129:                                              ; preds = %ma_decoder__on_seek_vfs.exit42.thread
+  %130 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %8, ptr noundef nonnull %3)
+  br label %131
 
-130:                                              ; preds = %128, %126
-  %.2 = phi i32 [ %127, %126 ], [ %129, %128 ]
+131:                                              ; preds = %129, %127
+  %.2 = phi i32 [ %128, %127 ], [ %130, %129 ]
   %.not31 = icmp eq i32 %.2, 0
-  br i1 %.not31, label %ma_vfs_or_default_close.exit, label %131
+  br i1 %.not31, label %ma_vfs_or_default_close.exit, label %132
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %84, align 8
-  %.not32 = icmp eq ptr %132, null
-  br i1 %.not32, label %ma_vfs_or_default_close.exit, label %133
+132:                                              ; preds = %131
+  %133 = load ptr, ptr %85, align 8
+  %.not32 = icmp eq ptr %133, null
+  br i1 %.not32, label %ma_vfs_or_default_close.exit, label %134
 
-133:                                              ; preds = %131
-  br i1 %.not.i.i, label %140, label %134
+134:                                              ; preds = %132
+  br i1 %.not.i.i, label %141, label %135
 
-134:                                              ; preds = %133
-  %135 = getelementptr inbounds i8, ptr %0, i64 16
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %ma_vfs_or_default_close.exit, label %138
+135:                                              ; preds = %134
+  %136 = getelementptr inbounds i8, ptr %0, i64 16
+  %137 = load ptr, ptr %136, align 8
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %ma_vfs_or_default_close.exit, label %139
 
-138:                                              ; preds = %134
-  %139 = call i32 %136(ptr noundef nonnull %0, ptr noundef nonnull %132) #68
+139:                                              ; preds = %135
+  %140 = call i32 %137(ptr noundef nonnull %0, ptr noundef nonnull %133) #68
   br label %ma_vfs_or_default_close.exit
 
-140:                                              ; preds = %133
-  %141 = call i32 @fclose(ptr noundef nonnull %132)
+141:                                              ; preds = %134
+  %142 = call i32 @fclose(ptr noundef nonnull %133)
   br label %ma_vfs_or_default_close.exit
 
-ma_vfs_or_default_close.exit:                     ; preds = %140, %138, %134, %ma_decoder__on_seek_vfs.exit42.thread, %ma_decoder__preinit_vfs.exit.thread, %130, %131, %ma_decoder__on_seek_vfs.exit42
-  %.022 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit42 ], [ %.2, %131 ], [ 0, %130 ], [ %.0.i.ph, %ma_decoder__preinit_vfs.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit42.thread ], [ %.2, %134 ], [ %.2, %138 ], [ %.2, %140 ]
+ma_vfs_or_default_close.exit:                     ; preds = %141, %139, %135, %ma_decoder__on_seek_vfs.exit42.thread, %ma_decoder__preinit_vfs.exit.thread, %131, %132, %ma_decoder__on_seek_vfs.exit42
+  %.022 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit42 ], [ %.2, %132 ], [ 0, %131 ], [ %.0.i.ph, %ma_decoder__preinit_vfs.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit42.thread ], [ %.2, %135 ], [ %.2, %139 ], [ %.2, %141 ]
   ret i32 %.022
 }
 
@@ -51787,241 +51790,242 @@ ma_decoder_config_init_copy.exit:                 ; preds = %11, %12
   br i1 %or.cond54, label %ma_decoder__preinit_vfs_w.exit.thread, label %48
 
 48:                                               ; preds = %.thread19.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %26, i64 32, i1 false)
+  %49 = getelementptr inbounds i8, ptr %10, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false)
   br label %ma_decoder__preinit.exit.i
 
 ma_decoder__preinit.exit.i:                       ; preds = %48, %40
-  %49 = icmp eq ptr %1, null
-  br i1 %49, label %ma_decoder__preinit_vfs_w.exit.thread, label %50
+  %50 = icmp eq ptr %1, null
+  br i1 %50, label %ma_decoder__preinit_vfs_w.exit.thread, label %51
 
-50:                                               ; preds = %ma_decoder__preinit.exit.i
-  %51 = load i32, ptr %1, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %ma_decoder__preinit_vfs_w.exit.thread, label %53
+51:                                               ; preds = %ma_decoder__preinit.exit.i
+  %52 = load i32, ptr %1, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %ma_decoder__preinit_vfs_w.exit.thread, label %54
 
-53:                                               ; preds = %50
+54:                                               ; preds = %51
   %.not.i.i = icmp eq ptr %0, null
   store ptr null, ptr %8, align 8
-  br i1 %.not.i.i, label %60, label %54
+  br i1 %.not.i.i, label %61, label %55
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %ma_decoder__preinit_vfs_w.exit.thread, label %58
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %ma_decoder__preinit_vfs_w.exit.thread, label %59
 
-58:                                               ; preds = %54
-  %59 = call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %8) #68
+59:                                               ; preds = %55
+  %60 = call i32 %57(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %8) #68
   br label %ma_vfs_or_default_open_w.exit.i
 
-60:                                               ; preds = %53
+61:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %61 = call i32 @ma_wfopen(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull @.str.171, ptr noundef null)
-  %.not13.i.i.i.i = icmp eq i32 %61, 0
-  br i1 %.not13.i.i.i.i, label %62, label %ma_default_vfs_open_w__stdio.exit.i.i.i
+  %62 = call i32 @ma_wfopen(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull @.str.171, ptr noundef null)
+  %.not13.i.i.i.i = icmp eq i32 %62, 0
+  br i1 %.not13.i.i.i.i, label %63, label %ma_default_vfs_open_w__stdio.exit.i.i.i
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %7, align 8
-  store ptr %63, ptr %8, align 8
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %7, align 8
+  store ptr %64, ptr %8, align 8
   br label %ma_default_vfs_open_w__stdio.exit.i.i.i
 
-ma_default_vfs_open_w__stdio.exit.i.i.i:          ; preds = %62, %60
+ma_default_vfs_open_w__stdio.exit.i.i.i:          ; preds = %63, %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %ma_vfs_or_default_open_w.exit.i
 
-ma_vfs_or_default_open_w.exit.i:                  ; preds = %ma_default_vfs_open_w__stdio.exit.i.i.i, %58
-  %.0.i17.i = phi i32 [ %59, %58 ], [ %61, %ma_default_vfs_open_w__stdio.exit.i.i.i ]
+ma_vfs_or_default_open_w.exit.i:                  ; preds = %ma_default_vfs_open_w__stdio.exit.i.i.i, %59
+  %.0.i17.i = phi i32 [ %60, %59 ], [ %62, %ma_default_vfs_open_w__stdio.exit.i.i.i ]
   %.not16.i = icmp eq i32 %.0.i17.i, 0
-  br i1 %.not16.i, label %64, label %ma_decoder__preinit_vfs_w.exit.thread
+  br i1 %.not16.i, label %65, label %ma_decoder__preinit_vfs_w.exit.thread
 
-ma_decoder__preinit_vfs_w.exit.thread:            ; preds = %.thread19.i.i.i.i, %50, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open_w.exit.i, %ma_decoder_config_init_copy.exit, %41, %33, %54
-  %.0.i.ph = phi i32 [ -29, %54 ], [ -2, %33 ], [ -2, %41 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %.0.i17.i, %ma_vfs_or_default_open_w.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %50 ], [ -2, %.thread19.i.i.i.i ]
+ma_decoder__preinit_vfs_w.exit.thread:            ; preds = %.thread19.i.i.i.i, %51, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open_w.exit.i, %ma_decoder_config_init_copy.exit, %41, %33, %55
+  %.0.i.ph = phi i32 [ -29, %55 ], [ -2, %33 ], [ -2, %41 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %.0.i17.i, %ma_vfs_or_default_open_w.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %51 ], [ -2, %.thread19.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %ma_vfs_or_default_close.exit
 
-64:                                               ; preds = %ma_vfs_or_default_open_w.exit.i
-  %65 = getelementptr inbounds i8, ptr %3, i64 528
-  store ptr %0, ptr %65, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 536
-  store ptr %66, ptr %67, align 8
+65:                                               ; preds = %ma_vfs_or_default_open_w.exit.i
+  %66 = getelementptr inbounds i8, ptr %3, i64 528
+  store ptr %0, ptr %66, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds i8, ptr %3, i64 536
+  store ptr %67, ptr %68, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %68 = getelementptr inbounds i8, ptr %9, i64 112
-  %69 = load i32, ptr %68, align 8
-  %.not25 = icmp eq i32 %69, 0
-  br i1 %.not25, label %ma_decoder__on_seek_vfs.exit, label %70
+  %69 = getelementptr inbounds i8, ptr %9, i64 112
+  %70 = load i32, ptr %69, align 8
+  %.not25 = icmp eq i32 %70, 0
+  br i1 %.not25, label %ma_decoder__on_seek_vfs.exit, label %71
 
-70:                                               ; preds = %64
-  %71 = icmp eq ptr %66, null
-  br i1 %.not.i.i, label %79, label %72
+71:                                               ; preds = %65
+  %72 = icmp eq ptr %67, null
+  br i1 %.not.i.i, label %80, label %73
 
-72:                                               ; preds = %70
-  br i1 %71, label %ma_decoder__on_seek_vfs.exit, label %73
+73:                                               ; preds = %71
+  br i1 %72, label %ma_decoder__on_seek_vfs.exit, label %74
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 40
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %ma_decoder__on_seek_vfs.exit, label %77
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %ma_decoder__on_seek_vfs.exit, label %78
 
-77:                                               ; preds = %73
-  %78 = call i32 %75(ptr noundef nonnull %0, ptr noundef nonnull %66, i64 noundef 0, i32 noundef 0) #68
+78:                                               ; preds = %74
+  %79 = call i32 %76(ptr noundef nonnull %0, ptr noundef nonnull %67, i64 noundef 0, i32 noundef 0) #68
   br label %ma_decoder__on_seek_vfs.exit
 
-79:                                               ; preds = %70
-  br i1 %71, label %ma_decoder__on_seek_vfs.exit, label %80
+80:                                               ; preds = %71
+  br i1 %72, label %ma_decoder__on_seek_vfs.exit, label %81
 
-80:                                               ; preds = %79
-  %81 = call i32 @fseek(ptr noundef nonnull %66, i64 noundef 0, i32 noundef 0)
+81:                                               ; preds = %80
+  %82 = call i32 @fseek(ptr noundef nonnull %67, i64 noundef 0, i32 noundef 0)
   br label %ma_decoder__on_seek_vfs.exit
 
-ma_decoder__on_seek_vfs.exit:                     ; preds = %80, %79, %77, %73, %72, %64
-  %82 = getelementptr inbounds i8, ptr %9, i64 120
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.loopexit, label %.preheader.i
+ma_decoder__on_seek_vfs.exit:                     ; preds = %81, %80, %78, %74, %73, %65
+  %83 = getelementptr inbounds i8, ptr %9, i64 120
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %ma_decoder__on_seek_vfs.exit
-  %85 = getelementptr inbounds i8, ptr %9, i64 128
-  %86 = load i32, ptr %85, align 8
-  %.not24.i = icmp eq i32 %86, 0
+  %86 = getelementptr inbounds i8, ptr %9, i64 128
+  %87 = load i32, ptr %86, align 8
+  %.not24.i = icmp eq i32 %87, 0
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %87 = getelementptr inbounds i8, ptr %9, i64 136
-  %88 = getelementptr inbounds i8, ptr %9, i64 116
-  %89 = load ptr, ptr %87, align 8
-  %90 = load i32, ptr %9, align 8
-  %91 = load i32, ptr %88, align 4
-  %.sroa.3.0.insert.ext.i.i.i = zext i32 %91 to i64
+  %88 = getelementptr inbounds i8, ptr %9, i64 136
+  %89 = getelementptr inbounds i8, ptr %9, i64 116
+  %90 = load ptr, ptr %88, align 8
+  %91 = load i32, ptr %9, align 8
+  %92 = load i32, ptr %89, align 4
+  %.sroa.3.0.insert.ext.i.i.i = zext i32 %92 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %90 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext i32 %91 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %92 = zext i32 %86 to i64
+  %93 = zext i32 %87 to i64
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
   %.01521.i = phi i64 [ 0, %.lr.ph.i ], [ %.01521.i.be, %.backedge.backedge ]
-  %93 = getelementptr inbounds ptr, ptr %83, i64 %.01521.i
-  %94 = load ptr, ptr %93, align 8
-  %.not.i31 = icmp eq ptr %94, null
-  br i1 %.not.i31, label %._crit_edge.i, label %95
+  %94 = getelementptr inbounds ptr, ptr %84, i64 %.01521.i
+  %95 = load ptr, ptr %94, align 8
+  %.not.i31 = icmp eq ptr %95, null
+  br i1 %.not.i31, label %._crit_edge.i, label %96
 
-95:                                               ; preds = %.backedge
+96:                                               ; preds = %.backedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %96 = load ptr, ptr %94, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %100, label %98
+  %97 = load ptr, ptr %95, align 8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %101, label %99
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %5, align 8
-  %99 = call i32 %96(ptr noundef %89, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %25, ptr noundef nonnull %6) #68
-  %.not.i.i32 = icmp eq i32 %99, 0
-  br i1 %.not.i.i32, label %ma_decoder__on_seek_vfs.exit38.thread, label %100
+  %100 = call i32 %97(ptr noundef %90, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %25, ptr noundef nonnull %6) #68
+  %.not.i.i32 = icmp eq i32 %100, 0
+  br i1 %.not.i.i32, label %ma_decoder__on_seek_vfs.exit38.thread, label %101
 
-100:                                              ; preds = %98, %95
+101:                                              ; preds = %99, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %101 = load ptr, ptr %23, align 8
-  %102 = call i32 %101(ptr noundef %3, i64 noundef 0, i32 noundef 0) #68
-  %.not18.i = icmp eq i32 %102, 0
-  %103 = add nuw nsw i64 %.01521.i, 1
-  %104 = icmp ult i64 %103, %92
-  %or.cond57 = select i1 %.not18.i, i1 %104, i1 false
+  %102 = load ptr, ptr %23, align 8
+  %103 = call i32 %102(ptr noundef %3, i64 noundef 0, i32 noundef 0) #68
+  %.not18.i = icmp eq i32 %103, 0
+  %104 = add nuw nsw i64 %.01521.i, 1
+  %105 = icmp ult i64 %104, %93
+  %or.cond57 = select i1 %.not18.i, i1 %105, i1 false
   br i1 %or.cond57, label %.backedge.backedge, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %.backedge
   %.old = add nuw nsw i64 %.01521.i, 1
-  %.old56 = icmp ult i64 %.old, %92
+  %.old56 = icmp ult i64 %.old, %93
   br i1 %.old56, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %._crit_edge.i, %100
-  %.01521.i.be = phi i64 [ %.old, %._crit_edge.i ], [ %103, %100 ]
+.backedge.backedge:                               ; preds = %._crit_edge.i, %101
+  %.01521.i.be = phi i64 [ %.old, %._crit_edge.i ], [ %104, %101 ]
   br label %.backedge
 
-.loopexit:                                        ; preds = %100, %._crit_edge.i, %ma_decoder__on_seek_vfs.exit, %.preheader.i
-  %105 = load ptr, ptr %65, align 8
-  %106 = load ptr, ptr %67, align 8
-  %.not.i.i34 = icmp eq ptr %105, null
-  %107 = icmp eq ptr %106, null
-  br i1 %.not.i.i34, label %115, label %108
+.loopexit:                                        ; preds = %101, %._crit_edge.i, %ma_decoder__on_seek_vfs.exit, %.preheader.i
+  %106 = load ptr, ptr %66, align 8
+  %107 = load ptr, ptr %68, align 8
+  %.not.i.i34 = icmp eq ptr %106, null
+  %108 = icmp eq ptr %107, null
+  br i1 %.not.i.i34, label %116, label %109
 
-108:                                              ; preds = %.loopexit
-  br i1 %107, label %ma_decoder__on_seek_vfs.exit38, label %109
+109:                                              ; preds = %.loopexit
+  br i1 %108, label %ma_decoder__on_seek_vfs.exit38, label %110
 
-109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %105, i64 40
-  %111 = load ptr, ptr %110, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %ma_decoder__on_seek_vfs.exit38, label %113
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds i8, ptr %106, i64 40
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %ma_decoder__on_seek_vfs.exit38, label %114
 
-113:                                              ; preds = %109
-  %114 = call i32 %111(ptr noundef nonnull %105, ptr noundef nonnull %106, i64 noundef 0, i32 noundef 0) #68
+114:                                              ; preds = %110
+  %115 = call i32 %112(ptr noundef nonnull %106, ptr noundef nonnull %107, i64 noundef 0, i32 noundef 0) #68
   br label %ma_decoder__on_seek_vfs.exit38
 
-115:                                              ; preds = %.loopexit
-  br i1 %107, label %ma_decoder__on_seek_vfs.exit38, label %116
+116:                                              ; preds = %.loopexit
+  br i1 %108, label %ma_decoder__on_seek_vfs.exit38, label %117
 
-116:                                              ; preds = %115
-  %117 = call i32 @fseek(ptr noundef nonnull %106, i64 noundef 0, i32 noundef 0)
+117:                                              ; preds = %116
+  %118 = call i32 @fseek(ptr noundef nonnull %107, i64 noundef 0, i32 noundef 0)
   br label %ma_decoder__on_seek_vfs.exit38
 
-ma_decoder__on_seek_vfs.exit38:                   ; preds = %116, %115, %113, %109, %108
-  br i1 %.not25, label %122, label %ma_vfs_or_default_close.exit
+ma_decoder__on_seek_vfs.exit38:                   ; preds = %117, %116, %114, %110, %109
+  br i1 %.not25, label %123, label %ma_vfs_or_default_close.exit
 
-ma_decoder__on_seek_vfs.exit38.thread:            ; preds = %98
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %94, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %89, ptr %121, align 8
+ma_decoder__on_seek_vfs.exit38.thread:            ; preds = %99
+  %119 = load ptr, ptr %6, align 8
+  %120 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %95, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %90, ptr %122, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br i1 %.not25, label %124, label %ma_vfs_or_default_close.exit
+  br i1 %.not25, label %125, label %ma_vfs_or_default_close.exit
 
-122:                                              ; preds = %ma_decoder__on_seek_vfs.exit38
-  %123 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef nonnull %9, ptr noundef nonnull %3)
-  br label %126
+123:                                              ; preds = %ma_decoder__on_seek_vfs.exit38
+  %124 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_vfs, ptr noundef nonnull %9, ptr noundef nonnull %3)
+  br label %127
 
-124:                                              ; preds = %ma_decoder__on_seek_vfs.exit38.thread
-  %125 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %9, ptr noundef nonnull %3)
-  br label %126
+125:                                              ; preds = %ma_decoder__on_seek_vfs.exit38.thread
+  %126 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %9, ptr noundef nonnull %3)
+  br label %127
 
-126:                                              ; preds = %124, %122
-  %.2 = phi i32 [ %123, %122 ], [ %125, %124 ]
+127:                                              ; preds = %125, %123
+  %.2 = phi i32 [ %124, %123 ], [ %126, %125 ]
   %.not29 = icmp eq i32 %.2, 0
-  br i1 %.not29, label %ma_vfs_or_default_close.exit, label %127
+  br i1 %.not29, label %ma_vfs_or_default_close.exit, label %128
 
-127:                                              ; preds = %126
-  %128 = load ptr, ptr %67, align 8
-  %129 = icmp eq ptr %128, null
-  br i1 %.not.i.i, label %137, label %130
+128:                                              ; preds = %127
+  %129 = load ptr, ptr %68, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %.not.i.i, label %138, label %131
 
-130:                                              ; preds = %127
-  br i1 %129, label %ma_vfs_or_default_close.exit, label %131
+131:                                              ; preds = %128
+  br i1 %130, label %ma_vfs_or_default_close.exit, label %132
 
-131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %ma_vfs_or_default_close.exit, label %135
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %ma_vfs_or_default_close.exit, label %136
 
-135:                                              ; preds = %131
-  %136 = call i32 %133(ptr noundef nonnull %0, ptr noundef nonnull %128) #68
+136:                                              ; preds = %132
+  %137 = call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %129) #68
   br label %ma_vfs_or_default_close.exit
 
-137:                                              ; preds = %127
-  br i1 %129, label %ma_vfs_or_default_close.exit, label %138
+138:                                              ; preds = %128
+  br i1 %130, label %ma_vfs_or_default_close.exit, label %139
 
-138:                                              ; preds = %137
-  %139 = call i32 @fclose(ptr noundef nonnull %128)
+139:                                              ; preds = %138
+  %140 = call i32 @fclose(ptr noundef nonnull %129)
   br label %ma_vfs_or_default_close.exit
 
-ma_vfs_or_default_close.exit:                     ; preds = %138, %137, %135, %131, %130, %ma_decoder__on_seek_vfs.exit38.thread, %ma_decoder__preinit_vfs_w.exit.thread, %126, %ma_decoder__on_seek_vfs.exit38
-  %.021 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit38 ], [ 0, %126 ], [ %.0.i.ph, %ma_decoder__preinit_vfs_w.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit38.thread ], [ %.2, %130 ], [ %.2, %131 ], [ %.2, %135 ], [ %.2, %137 ], [ %.2, %138 ]
+ma_vfs_or_default_close.exit:                     ; preds = %139, %138, %136, %132, %131, %ma_decoder__on_seek_vfs.exit38.thread, %ma_decoder__preinit_vfs_w.exit.thread, %127, %ma_decoder__on_seek_vfs.exit38
+  %.021 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit38 ], [ 0, %127 ], [ %.0.i.ph, %ma_decoder__preinit_vfs_w.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit38.thread ], [ %.2, %131 ], [ %.2, %132 ], [ %.2, %136 ], [ %.2, %138 ], [ %.2, %139 ]
   ret i32 %.021
 }
 

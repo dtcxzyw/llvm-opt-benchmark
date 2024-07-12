@@ -2990,22 +2990,22 @@ default.unreachable185:                           ; preds = %1497, %1481, %1455,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %116, ptr noundef nonnull align 8 dereferenceable(232) %0, i64 232, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %111), !noalias !462
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %110), !noalias !466
-  %297 = getelementptr inbounds i8, ptr %116, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %110, ptr noundef nonnull align 8 dereferenceable(168) %297, i64 168, i1 false), !noalias !470
+  %297 = getelementptr inbounds i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %110, ptr noundef nonnull align 8 dereferenceable(168) %297, i64 168, i1 false)
   invoke void @_ZN10ockam_core7routing7message13local_message12LocalMessage12into_payload17hdb0396257fbfea38E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %111, ptr noalias nocapture noundef nonnull align 8 dereferenceable(168) %110)
-          to label %300 unwind label %298, !noalias !471
+          to label %300 unwind label %298, !noalias !470
 
 298:                                              ; preds = %"_ZN10ockam_core7message15Routed$LT$M$GT$12return_route17h11b2227763b9bc0aE.exit"
   %299 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %116) #15
-          to label %324 unwind label %322, !noalias !470
+          to label %324 unwind label %322, !noalias !471
 
 300:                                              ; preds = %"_ZN10ockam_core7message15Routed$LT$M$GT$12return_route17h11b2227763b9bc0aE.exit"
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %110), !noalias !466
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %109), !noalias !472
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce8b4509a7e37250E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %109, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %116)
-          to label %.noexc.i.i unwind label %309, !noalias !470
+          to label %.noexc.i.i unwind label %309, !noalias !471
 
 .noexc.i.i:                                       ; preds = %300
   %301 = getelementptr inbounds i8, ptr %109, i64 8
@@ -3021,7 +3021,7 @@ default.unreachable185:                           ; preds = %1497, %1481, %1455,
 
 307:                                              ; preds = %303
   %308 = load ptr, ptr %109, align 8, !noalias !472, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %308, i64 noundef %305, i64 noundef %302) #17, !noalias !470
+  call void @__rust_dealloc(ptr noundef nonnull %308, i64 noundef %305, i64 noundef %302) #17, !noalias !471
   br label %312
 
 309:                                              ; preds = %300
@@ -3029,7 +3029,7 @@ default.unreachable185:                           ; preds = %1497, %1481, %1455,
           cleanup
   %311 = getelementptr inbounds i8, ptr %116, i64 32
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %311) #15
-          to label %.body125 unwind label %322, !noalias !470
+          to label %.body125 unwind label %322, !noalias !471
 
 312:                                              ; preds = %307, %303, %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %109), !noalias !472
@@ -3052,19 +3052,19 @@ default.unreachable185:                           ; preds = %1497, %1481, %1455,
 
 320:                                              ; preds = %316
   %321 = load ptr, ptr %108, align 8, !noalias !481, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %321, i64 noundef %318, i64 noundef %315) #17, !noalias !470
+  call void @__rust_dealloc(ptr noundef nonnull %321, i64 noundef %318, i64 noundef %315) #17, !noalias !471
   br label %"_ZN10ockam_core7message15Routed$LT$M$GT$12into_payload17ha5987d397cbef5b4E.exit.i"
 
 322:                                              ; preds = %324, %309, %298
   %323 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #16, !noalias !470
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #16, !noalias !471
   unreachable
 
 324:                                              ; preds = %298
   %325 = getelementptr inbounds i8, ptr %116, i64 32
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %325) #15
-          to label %.body125 unwind label %322, !noalias !470
+          to label %.body125 unwind label %322, !noalias !471
 
 "_ZN10ockam_core7message15Routed$LT$M$GT$12into_payload17ha5987d397cbef5b4E.exit.i": ; preds = %320, %316, %.noexc124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %108), !noalias !481
@@ -8283,8 +8283,8 @@ attributes #18 = { noreturn }
 !467 = distinct !{!467, !468, !"_ZN10ockam_core7message15Routed$LT$M$GT$12into_payload17ha5987d397cbef5b4E: argument 0"}
 !468 = distinct !{!468, !"_ZN10ockam_core7message15Routed$LT$M$GT$12into_payload17ha5987d397cbef5b4E"}
 !469 = distinct !{!469, !468, !"_ZN10ockam_core7message15Routed$LT$M$GT$12into_payload17ha5987d397cbef5b4E: argument 1"}
-!470 = !{!467, !463}
-!471 = !{!469, !463, !465}
+!470 = !{!469, !463, !465}
+!471 = !{!467, !463}
 !472 = !{!473, !475, !477, !479, !467, !469, !463, !465}
 !473 = distinct !{!473, !474, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb8585298e7d9c12E.llvm.1797472119934586438: argument 0"}
 !474 = distinct !{!474, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcb8585298e7d9c12E.llvm.1797472119934586438"}

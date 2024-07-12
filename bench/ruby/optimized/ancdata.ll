@@ -3121,7 +3121,6 @@ RSTRING_PTR.exit:                                 ; preds = %32, %36
 define internal i64 @ancillary_s_ipv6_pktinfo(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %.sroa.3 = alloca [22 x i8], align 2
   %6 = alloca %struct.in6_pktinfo, align 4
   store i64 %1, ptr %5, align 8
   %7 = call i64 @rsock_sockaddr_string_value(ptr noundef nonnull %5) #11
@@ -3152,8 +3151,6 @@ define internal i64 @ancillary_s_ipv6_pktinfo(i64 %0, i64 noundef %1, i64 nounde
 RSTRING_PTR.exit:                                 ; preds = %15, %19
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %19 ], [ %18, %15 ]
   %.sroa.0.0.copyload = load i16, ptr %.sroa.2.0.i, align 1
-  %.sroa.3.0..sroa.2.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(22) %.sroa.3.0..sroa.2.0.i.sroa_idx, i64 22, i1 false)
   %.not2 = icmp eq i16 %.sroa.0.0.copyload, 10
   br i1 %.not2, label %22, label %20
 
@@ -3164,20 +3161,20 @@ RSTRING_PTR.exit:                                 ; preds = %15, %19
 
 22:                                               ; preds = %RSTRING_PTR.exit
   %23 = trunc i64 %8 to i32
-  %.sroa.3.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.3, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.3.8..sroa_idx, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %23, ptr %24, align 4
-  %25 = call i64 @rb_str_new(ptr noundef nonnull %6, i64 noundef 20) #11
+  %24 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
+  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %23, ptr %25, align 4
+  %26 = call i64 @rb_str_new(ptr noundef nonnull %6, i64 noundef 20) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i64 %25, ptr %4, align 8
-  %26 = load i64, ptr @rb_cAncillaryData, align 8
-  %27 = call i64 @rb_obj_alloc(i64 noundef %26) #11
-  %28 = call i64 @rb_string_value(ptr noundef nonnull %4) #11
-  %29 = load i64, ptr %4, align 8
-  %30 = call i64 @ancillary_initialize(i64 noundef %27, i64 noundef 21, i64 noundef 83, i64 noundef 101, i64 noundef %29)
+  store i64 %26, ptr %4, align 8
+  %27 = load i64, ptr @rb_cAncillaryData, align 8
+  %28 = call i64 @rb_obj_alloc(i64 noundef %27) #11
+  %29 = call i64 @rb_string_value(ptr noundef nonnull %4) #11
+  %30 = load i64, ptr %4, align 8
+  %31 = call i64 @ancillary_initialize(i64 noundef %28, i64 noundef 21, i64 noundef 83, i64 noundef 101, i64 noundef %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret i64 %27
+  ret i64 %28
 }
 
 ; Function Attrs: nounwind uwtable

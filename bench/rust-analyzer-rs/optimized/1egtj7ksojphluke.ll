@@ -51540,7 +51540,7 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i.i: ;
   %.sroa.046.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %2190, ptr %.sroa.046.sroa.6.0..sroa_idx.i.i, align 8, !noalias !12070
   %2191 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.0.i.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 36
+  %.sroa.6235.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 36
   %.sroa.6.0..sroa_idx49.i.i = getelementptr inbounds i8, ptr %22, i64 4
   %2192 = getelementptr inbounds i8, ptr %17, i64 8
   %2193 = getelementptr inbounds i8, ptr %18, i64 48
@@ -51613,9 +51613,9 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i.i: ;
           to label %2223 unwind label %2173, !noalias !12083
 
 2222:                                             ; preds = %.noexc171.i.i
-  %.sroa.0.i.i.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.0.i.i.sroa.4.0..sroa_idx.i.i, align 4, !noalias !12456
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !12070
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !12070
+  %.sroa.6235.24.copyload.i.i = load i64, ptr %.sroa.6235.24..sroa_idx.i.i, align 4, !noalias !12456
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !12070
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22), !noalias !12070
   %.not111.i.i = icmp eq i32 %2209, 3
@@ -51713,7 +51713,7 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i.i: ;
 
 2257:                                             ; preds = %2222
   store i32 %2209, ptr %22, align 4, !noalias !12070
-  store i64 %.sroa.0.i.i.sroa.4.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx49.i.i, align 4, !noalias !12070
+  store i64 %.sroa.6235.24.copyload.i.i, ptr %.sroa.6.0..sroa_idx49.i.i, align 4, !noalias !12070
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !12070
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !12070
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !12070
@@ -55062,7 +55062,7 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i: ; p
   %.sroa.046.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %514, ptr %.sroa.046.sroa.6.0..sroa_idx.i, align 8, !noalias !13253
   %515 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.0.i.i.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 36
+  %.sroa.6234.24..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 36
   %.sroa.6.0..sroa_idx49.i = getelementptr inbounds i8, ptr %21, i64 4
   %516 = getelementptr inbounds i8, ptr %16, i64 8
   %517 = getelementptr inbounds i8, ptr %17, i64 48
@@ -55135,9 +55135,9 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i: ; p
           to label %547 unwind label %497, !noalias !13250
 
 546:                                              ; preds = %.noexc171.i
-  %.sroa.0.i.i.sroa.4.0.copyload.i = load i64, ptr %.sroa.0.i.i.sroa.4.0..sroa_idx.i, align 4, !noalias !13625
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !13253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !13253
+  %.sroa.6234.24.copyload.i = load i64, ptr %.sroa.6234.24..sroa_idx.i, align 4, !noalias !13625
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !13253
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21), !noalias !13253
   %.not111.i = icmp eq i32 %533, 3
@@ -55235,7 +55235,7 @@ _ZN4core3ops8function5FnMut8call_mut17h11a81b2919e00135E.exit.i.i.i.i.i.i.i: ; p
 
 581:                                              ; preds = %546
   store i32 %533, ptr %21, align 4, !noalias !13253
-  store i64 %.sroa.0.i.i.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx49.i, align 4, !noalias !13253
+  store i64 %.sroa.6234.24.copyload.i, ptr %.sroa.6.0..sroa_idx49.i, align 4, !noalias !13253
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !13253
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !13253
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !13253

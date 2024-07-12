@@ -18629,8 +18629,8 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$3new17h315
   br i1 %trunc5.i, label %20, label %22
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %5, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.52.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %21, i64 12, i1 false), !noalias !2845
+  %21 = getelementptr inbounds i8, ptr %.sroa.7, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.52.i, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   br label %22
 
 22:                                               ; preds = %20, %9
@@ -18750,8 +18750,8 @@ define hidden void @"_ZN5image6codecs3hdr7decoder19HdrAdapter$LT$R$GT$3new17he8f
   br i1 %trunc5.i, label %20, label %22
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %5, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.52.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %21, i64 12, i1 false), !noalias !2856
+  %21 = getelementptr inbounds i8, ptr %.sroa.7, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.52.i, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
   br label %22
 
 22:                                               ; preds = %20, %9

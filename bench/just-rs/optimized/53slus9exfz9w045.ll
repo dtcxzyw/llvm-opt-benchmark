@@ -5044,7 +5044,7 @@ common.resume:                                    ; preds = %36, %.body21, %196
 
 204:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30)
-  %205 = getelementptr inbounds i8, ptr %31, i64 8
+  %205 = getelementptr inbounds i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(80) %205, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1179
   store i64 0, ptr %7, align 8, !noalias !1179

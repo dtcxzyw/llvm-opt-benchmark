@@ -62087,7 +62087,8 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else11.i.i.i, %l
   br i1 %or.cond157, label %return, label %if.else20.i.i.i
 
 if.else20.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i, i64 32, i1 false)
+  %7 = getelementptr inbounds i8, ptr %tmp, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.else20.i.i.i, %if.then9.i.i.i
@@ -62098,8 +62099,8 @@ if.end:                                           ; preds = %if.else20.i.i.i, %i
 
 if.end4:                                          ; preds = %if.end
   %encodingFormat = getelementptr inbounds i8, ptr %config, i64 112
-  %7 = load i32, ptr %encodingFormat, align 8
-  switch i32 %7, label %if.then24 [
+  %8 = load i32, ptr %encodingFormat, align 8
+  switch i32 %8, label %if.then24 [
     i32 3, label %if.then19
     i32 1, label %if.then9
     i32 2, label %if.then14
@@ -62108,33 +62109,33 @@ if.end4:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
-  %cmp.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
+  %cmp.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i, label %if.end11.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then9
-  %9 = load i32, ptr %config, align 8
+  %10 = load i32, ptr %config, align 8
   %seekPointCount.i.i = getelementptr inbounds i8, ptr %config, i64 116
-  %10 = load i32, ptr %seekPointCount.i.i, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %10 to i64
+  %11 = load i32, ptr %seekPointCount.i.i, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %11 to i64
   %retval.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %9 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %10 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %8(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %9(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end11.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %11 = load ptr, ptr %pBackend.i.i, align 8
+  %12 = load ptr, ptr %pBackend.i.i, align 8
   %pBackend6.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %11, ptr %pBackend6.i.i, align 8
+  store ptr %12, ptr %pBackend6.i.i, align 8
   %pBackendVTable.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i, align 8
   %pCustomBackendUserData.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %12 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
+  %13 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %12, ptr %pBackendUserData.i.i, align 8
+  store ptr %13, ptr %pBackendUserData.i.i, align 8
   br label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end5.i.i, %if.end.i.i, %if.then9
@@ -62146,33 +62147,33 @@ if.end11.thread:                                  ; preds = %if.end5.i.i, %if.en
 if.then14:                                        ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i50)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i51)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
-  %cmp.i.i52 = icmp eq ptr %13, null
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
+  %cmp.i.i52 = icmp eq ptr %14, null
   br i1 %cmp.i.i52, label %ma_decoder_init_flac_from_memory__internal.exit, label %if.end.i.i53
 
 if.end.i.i53:                                     ; preds = %if.then14
-  %14 = load i32, ptr %config, align 8
+  %15 = load i32, ptr %config, align 8
   %seekPointCount.i.i54 = getelementptr inbounds i8, ptr %config, i64 116
-  %15 = load i32, ptr %seekPointCount.i.i54, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i55 = zext i32 %15 to i64
+  %16 = load i32, ptr %seekPointCount.i.i54, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i55 = zext i32 %16 to i64
   %retval.sroa.3.0.insert.shift.i.i.i56 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i55, 32
-  %retval.sroa.0.0.insert.ext.i.i.i57 = zext i32 %14 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i57 = zext i32 %15 to i64
   %retval.sroa.0.0.insert.insert.i.i.i58 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i56, %retval.sroa.0.0.insert.ext.i.i.i57
   store i64 %retval.sroa.0.0.insert.insert.i.i.i58, ptr %backendConfig.i.i50, align 8
-  %call2.i.i60 = call i32 %13(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i50, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i51) #64
+  %call2.i.i60 = call i32 %14(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i50, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i51) #64
   %cmp3.not.i.i61 = icmp eq i32 %call2.i.i60, 0
   br i1 %cmp3.not.i.i61, label %if.end5.i.i63, label %ma_decoder_init_flac_from_memory__internal.exit
 
 if.end5.i.i63:                                    ; preds = %if.end.i.i53
-  %16 = load ptr, ptr %pBackend.i.i51, align 8
+  %17 = load ptr, ptr %pBackend.i.i51, align 8
   %pBackend6.i.i64 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %16, ptr %pBackend6.i.i64, align 8
+  store ptr %17, ptr %pBackend6.i.i64, align 8
   %pBackendVTable.i.i65 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i65, align 8
   %pCustomBackendUserData.i.i66 = getelementptr inbounds i8, ptr %config, i64 136
-  %17 = load ptr, ptr %pCustomBackendUserData.i.i66, align 8
+  %18 = load ptr, ptr %pCustomBackendUserData.i.i66, align 8
   %pBackendUserData.i.i67 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %17, ptr %pBackendUserData.i.i67, align 8
+  store ptr %18, ptr %pBackendUserData.i.i67, align 8
   br label %ma_decoder_init_flac_from_memory__internal.exit
 
 ma_decoder_init_flac_from_memory__internal.exit:  ; preds = %if.then14, %if.end.i.i53, %if.end5.i.i63
@@ -62184,33 +62185,33 @@ ma_decoder_init_flac_from_memory__internal.exit:  ; preds = %if.then14, %if.end.
 if.then19:                                        ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i69)
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 24), align 8
-  %cmp.i.i70 = icmp eq ptr %18, null
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 24), align 8
+  %cmp.i.i70 = icmp eq ptr %19, null
   br i1 %cmp.i.i70, label %ma_decoder_init_mp3_from_memory__internal.exit, label %if.end.i.i71
 
 if.end.i.i71:                                     ; preds = %if.then19
-  %19 = load i32, ptr %config, align 8
+  %20 = load i32, ptr %config, align 8
   %seekPointCount.i.i72 = getelementptr inbounds i8, ptr %config, i64 116
-  %20 = load i32, ptr %seekPointCount.i.i72, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i73 = zext i32 %20 to i64
+  %21 = load i32, ptr %seekPointCount.i.i72, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i73 = zext i32 %21 to i64
   %retval.sroa.3.0.insert.shift.i.i.i74 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i73, 32
-  %retval.sroa.0.0.insert.ext.i.i.i75 = zext i32 %19 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i75 = zext i32 %20 to i64
   %retval.sroa.0.0.insert.insert.i.i.i76 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i74, %retval.sroa.0.0.insert.ext.i.i.i75
   store i64 %retval.sroa.0.0.insert.insert.i.i.i76, ptr %backendConfig.i.i68, align 8
-  %call2.i.i78 = call i32 %18(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i68, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i69) #64
+  %call2.i.i78 = call i32 %19(ptr noundef null, ptr noundef nonnull %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i68, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i69) #64
   %cmp3.not.i.i79 = icmp eq i32 %call2.i.i78, 0
   br i1 %cmp3.not.i.i79, label %if.end5.i.i81, label %ma_decoder_init_mp3_from_memory__internal.exit
 
 if.end5.i.i81:                                    ; preds = %if.end.i.i71
-  %21 = load ptr, ptr %pBackend.i.i69, align 8
+  %22 = load ptr, ptr %pBackend.i.i69, align 8
   %pBackend6.i.i82 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %21, ptr %pBackend6.i.i82, align 8
+  store ptr %22, ptr %pBackend6.i.i82, align 8
   %pBackendVTable.i.i83 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i83, align 8
   %pCustomBackendUserData.i.i84 = getelementptr inbounds i8, ptr %config, i64 136
-  %22 = load ptr, ptr %pCustomBackendUserData.i.i84, align 8
+  %23 = load ptr, ptr %pCustomBackendUserData.i.i84, align 8
   %pBackendUserData.i.i85 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %22, ptr %pBackendUserData.i.i85, align 8
+  store ptr %23, ptr %pBackendUserData.i.i85, align 8
   br label %ma_decoder_init_mp3_from_memory__internal.exit
 
 ma_decoder_init_mp3_from_memory__internal.exit:   ; preds = %if.then19, %if.end.i.i71, %if.end5.i.i81
@@ -62226,47 +62227,47 @@ if.end22:                                         ; preds = %ma_decoder_init_fla
 
 if.then24:                                        ; preds = %if.end4, %if.end22
   %ppCustomBackendVTables.i = getelementptr inbounds i8, ptr %config, i64 120
-  %23 = load ptr, ptr %ppCustomBackendVTables.i, align 8
-  %cmp.i88 = icmp eq ptr %23, null
+  %24 = load ptr, ptr %ppCustomBackendVTables.i, align 8
+  %cmp.i88 = icmp eq ptr %24, null
   br i1 %cmp.i88, label %ma_decoder_init_custom_from_memory__internal.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then24
   %customBackendCount.i = getelementptr inbounds i8, ptr %config, i64 128
-  %24 = load i32, ptr %customBackendCount.i, align 8
-  %cmp111.not.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr %customBackendCount.i, align 8
+  %cmp111.not.i = icmp eq i32 %25, 0
   br i1 %cmp111.not.i, label %ma_decoder_init_custom_from_memory__internal.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %pCustomBackendUserData.i = getelementptr inbounds i8, ptr %config, i64 136
   %seekPointCount.i.i89 = getelementptr inbounds i8, ptr %config, i64 116
-  %conv.i = zext i32 %24 to i64
+  %conv.i = zext i32 %25 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %ivtable.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %23, i64 %ivtable.012.i
-  %25 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not.i = icmp eq ptr %25, null
+  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %ivtable.012.i
+  %26 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not.i = icmp eq ptr %26, null
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %26 = load ptr, ptr %pCustomBackendUserData.i, align 8
+  %27 = load ptr, ptr %pCustomBackendUserData.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i86)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i87)
-  %onInitMemory.i.i = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load ptr, ptr %onInitMemory.i.i, align 8
-  %cmp.i.i91 = icmp eq ptr %27, null
+  %onInitMemory.i.i = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load ptr, ptr %onInitMemory.i.i, align 8
+  %cmp.i.i91 = icmp eq ptr %28, null
   br i1 %cmp.i.i91, label %ma_decoder_init_from_memory__internal.exit.thread.i, label %if.end.i.i92
 
 if.end.i.i92:                                     ; preds = %if.then6.i
-  %28 = load i32, ptr %config, align 8
-  %29 = load i32, ptr %seekPointCount.i.i89, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i93 = zext i32 %29 to i64
+  %29 = load i32, ptr %config, align 8
+  %30 = load i32, ptr %seekPointCount.i.i89, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i93 = zext i32 %30 to i64
   %retval.sroa.3.0.insert.shift.i.i.i94 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i93, 32
-  %retval.sroa.0.0.insert.ext.i.i.i95 = zext i32 %28 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i95 = zext i32 %29 to i64
   %retval.sroa.0.0.insert.insert.i.i.i96 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i94, %retval.sroa.0.0.insert.ext.i.i.i95
   store i64 %retval.sroa.0.0.insert.insert.i.i.i96, ptr %backendConfig.i.i86, align 8
-  %call2.i.i97 = call i32 %27(ptr noundef %26, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i86, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i87) #64
+  %call2.i.i97 = call i32 %28(ptr noundef %27, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i86, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i87) #64
   %cmp3.not.i.i98 = icmp eq i32 %call2.i.i97, 0
   br i1 %cmp3.not.i.i98, label %if.end30.thread, label %ma_decoder_init_from_memory__internal.exit.thread.i
 
@@ -62276,13 +62277,13 @@ ma_decoder_init_from_memory__internal.exit.thread.i: ; preds = %if.end.i.i92, %i
   br label %for.inc.i
 
 if.end30.thread:                                  ; preds = %if.end.i.i92
-  %30 = load ptr, ptr %pBackend.i.i87, align 8
+  %31 = load ptr, ptr %pBackend.i.i87, align 8
   %pBackend6.i.i100 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %30, ptr %pBackend6.i.i100, align 8
+  store ptr %31, ptr %pBackend6.i.i100, align 8
   %pBackendVTable.i.i101 = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  store ptr %25, ptr %pBackendVTable.i.i101, align 8
+  store ptr %26, ptr %pBackendVTable.i.i101, align 8
   %pBackendUserData.i.i102 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %26, ptr %pBackendUserData.i.i102, align 8
+  store ptr %27, ptr %pBackendUserData.i.i102, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i86)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i87)
   br label %if.then48
@@ -62293,39 +62294,39 @@ for.inc.i:                                        ; preds = %ma_decoder_init_fro
   br i1 %cmp1.i, label %for.body.i, label %ma_decoder_init_custom_from_memory__internal.exit, !llvm.loop !628
 
 ma_decoder_init_custom_from_memory__internal.exit: ; preds = %for.inc.i, %if.then24, %for.cond.preheader.i
-  %cmp28.not = icmp eq i32 %7, 0
+  %cmp28.not = icmp eq i32 %8, 0
   br i1 %cmp28.not, label %if.then34, label %return
 
 if.then34:                                        ; preds = %ma_decoder_init_custom_from_memory__internal.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i103)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i104)
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
-  %cmp.i.i105 = icmp eq ptr %31, null
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 24), align 8
+  %cmp.i.i105 = icmp eq ptr %32, null
   br i1 %cmp.i.i105, label %if.then38, label %if.end.i.i106
 
 if.end.i.i106:                                    ; preds = %if.then34
-  %32 = load i32, ptr %config, align 8
+  %33 = load i32, ptr %config, align 8
   %seekPointCount.i.i107 = getelementptr inbounds i8, ptr %config, i64 116
-  %33 = load i32, ptr %seekPointCount.i.i107, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i108 = zext i32 %33 to i64
+  %34 = load i32, ptr %seekPointCount.i.i107, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i108 = zext i32 %34 to i64
   %retval.sroa.3.0.insert.shift.i.i.i109 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i108, 32
-  %retval.sroa.0.0.insert.ext.i.i.i110 = zext i32 %32 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i110 = zext i32 %33 to i64
   %retval.sroa.0.0.insert.insert.i.i.i111 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i109, %retval.sroa.0.0.insert.ext.i.i.i110
   store i64 %retval.sroa.0.0.insert.insert.i.i.i111, ptr %backendConfig.i.i103, align 8
-  %call2.i.i113 = call i32 %31(ptr noundef null, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i103, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i104) #64
+  %call2.i.i113 = call i32 %32(ptr noundef null, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i103, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i104) #64
   %cmp3.not.i.i114 = icmp eq i32 %call2.i.i113, 0
   br i1 %cmp3.not.i.i114, label %ma_decoder_init_wav_from_memory__internal.exit122, label %if.then38
 
 ma_decoder_init_wav_from_memory__internal.exit122: ; preds = %if.end.i.i106
-  %34 = load ptr, ptr %pBackend.i.i104, align 8
+  %35 = load ptr, ptr %pBackend.i.i104, align 8
   %pBackend6.i.i118 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %34, ptr %pBackend6.i.i118, align 8
+  store ptr %35, ptr %pBackend6.i.i118, align 8
   %pBackendVTable.i.i119 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i119, align 8
   %pCustomBackendUserData.i.i120 = getelementptr inbounds i8, ptr %config, i64 136
-  %35 = load ptr, ptr %pCustomBackendUserData.i.i120, align 8
+  %36 = load ptr, ptr %pCustomBackendUserData.i.i120, align 8
   %pBackendUserData.i.i121 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %35, ptr %pBackendUserData.i.i121, align 8
+  store ptr %36, ptr %pBackendUserData.i.i121, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i103)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i104)
   br label %if.then48
@@ -62335,33 +62336,33 @@ if.then38:                                        ; preds = %if.then34, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i104)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i123)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i124)
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
-  %cmp.i.i125 = icmp eq ptr %36, null
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 24), align 8
+  %cmp.i.i125 = icmp eq ptr %37, null
   br i1 %cmp.i.i125, label %if.then42, label %if.end.i.i126
 
 if.end.i.i126:                                    ; preds = %if.then38
-  %37 = load i32, ptr %config, align 8
+  %38 = load i32, ptr %config, align 8
   %seekPointCount.i.i127 = getelementptr inbounds i8, ptr %config, i64 116
-  %38 = load i32, ptr %seekPointCount.i.i127, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i128 = zext i32 %38 to i64
+  %39 = load i32, ptr %seekPointCount.i.i127, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i128 = zext i32 %39 to i64
   %retval.sroa.3.0.insert.shift.i.i.i129 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i128, 32
-  %retval.sroa.0.0.insert.ext.i.i.i130 = zext i32 %37 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i130 = zext i32 %38 to i64
   %retval.sroa.0.0.insert.insert.i.i.i131 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i129, %retval.sroa.0.0.insert.ext.i.i.i130
   store i64 %retval.sroa.0.0.insert.insert.i.i.i131, ptr %backendConfig.i.i123, align 8
-  %call2.i.i133 = call i32 %36(ptr noundef null, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i123, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i124) #64
+  %call2.i.i133 = call i32 %37(ptr noundef null, ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %backendConfig.i.i123, ptr noundef nonnull %allocationCallbacks2.i.i, ptr noundef nonnull %pBackend.i.i124) #64
   %cmp3.not.i.i134 = icmp eq i32 %call2.i.i133, 0
   br i1 %cmp3.not.i.i134, label %ma_decoder_init_flac_from_memory__internal.exit142, label %if.then42
 
 ma_decoder_init_flac_from_memory__internal.exit142: ; preds = %if.end.i.i126
-  %39 = load ptr, ptr %pBackend.i.i124, align 8
+  %40 = load ptr, ptr %pBackend.i.i124, align 8
   %pBackend6.i.i138 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %39, ptr %pBackend6.i.i138, align 8
+  store ptr %40, ptr %pBackend6.i.i138, align 8
   %pBackendVTable.i.i139 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i139, align 8
   %pCustomBackendUserData.i.i140 = getelementptr inbounds i8, ptr %config, i64 136
-  %40 = load ptr, ptr %pCustomBackendUserData.i.i140, align 8
+  %41 = load ptr, ptr %pCustomBackendUserData.i.i140, align 8
   %pBackendUserData.i.i141 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %40, ptr %pBackendUserData.i.i141, align 8
+  store ptr %41, ptr %pBackendUserData.i.i141, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i124)
   br label %if.then48
@@ -62370,8 +62371,8 @@ if.then42:                                        ; preds = %if.then38, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i124)
   %call43 = call fastcc i32 @ma_decoder_init_mp3_from_memory__internal(ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %config, ptr noundef %pDecoder)
-  %41 = icmp eq i32 %call43, 0
-  br i1 %41, label %if.then48, label %if.else
+  %42 = icmp eq i32 %call43, 0
+  br i1 %42, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %ma_decoder_init_flac_from_memory__internal.exit142, %ma_decoder_init_wav_from_memory__internal.exit122, %if.end30.thread, %if.end22, %if.then42
   %call49 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %config, ptr noundef %pDecoder)
@@ -62380,21 +62381,21 @@ if.then48:                                        ; preds = %ma_decoder_init_fla
 
 if.then51:                                        ; preds = %if.then48
   %pBackendVTable = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  %42 = load ptr, ptr %pBackendVTable, align 8
-  %cmp52.not = icmp eq ptr %42, null
+  %43 = load ptr, ptr %pBackendVTable, align 8
+  %cmp52.not = icmp eq ptr %43, null
   br i1 %cmp52.not, label %return, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.then51
-  %onUninit = getelementptr inbounds i8, ptr %42, i64 32
-  %43 = load ptr, ptr %onUninit, align 8
-  %cmp55.not = icmp eq ptr %43, null
+  %onUninit = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = load ptr, ptr %onUninit, align 8
+  %cmp55.not = icmp eq ptr %44, null
   br i1 %cmp55.not, label %return, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true53
   %pBackendUserData = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  %44 = load ptr, ptr %pBackendUserData, align 8
+  %45 = load ptr, ptr %pBackendUserData, align 8
   %pBackend = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  call void %43(ptr noundef %44, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i) #64
+  call void %44(ptr noundef %45, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i) #64
   br label %return
 
 if.else:                                          ; preds = %if.then42
@@ -63119,7 +63120,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond290, label %ma_decoder__preinit_vfs.exit.thread, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  %7 = getelementptr inbounds i8, ptr %tmp, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -63127,8 +63129,8 @@ if.end.i:                                         ; preds = %if.else20.i.i.i.i, 
   br i1 %cmp1.i, label %ma_decoder__preinit_vfs.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %7 = load i8, ptr %pFilePath, align 1
-  %cmp2.i = icmp eq i8 %7, 0
+  %8 = load i8, ptr %pFilePath, align 1
+  %cmp2.i = icmp eq i8 %8, 0
   br i1 %cmp2.i, label %ma_decoder__preinit_vfs.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
@@ -63137,8 +63139,8 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
 
 if.end6.i.i.i:                                    ; preds = %if.end5.i
   store ptr null, ptr %file.i, align 8
-  %8 = load ptr, ptr %pVFS, align 8
-  %cmp7.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %pVFS, align 8
+  %cmp7.i.i.i = icmp eq ptr %9, null
   br i1 %cmp7.i.i.i, label %ma_decoder__preinit_vfs.exit.thread, label %ma_vfs_or_default_open.exit.i
 
 if.end6.i.i.i.i.i:                                ; preds = %if.end5.i
@@ -63148,14 +63150,14 @@ if.end6.i.i.i.i.i:                                ; preds = %if.end5.i
 
 if.then8.i.i.i.i.i:                               ; preds = %if.end6.i.i.i.i.i
   %call9.i.i.i.i.i = tail call ptr @__errno_location() #79
-  %9 = load i32, ptr %call9.i.i.i.i.i, align 4
-  %call10.i.i.i.i.i = tail call fastcc i32 @ma_result_from_errno(i32 noundef %9)
+  %10 = load i32, ptr %call9.i.i.i.i.i, align 4
+  %call10.i.i.i.i.i = tail call fastcc i32 @ma_result_from_errno(i32 noundef %10)
   %cmp11.i.i.i.i.i = icmp eq i32 %call10.i.i.i.i.i, 0
   %spec.select = select i1 %cmp11.i.i.i.i.i, i32 -1, i32 %call10.i.i.i.i.i
   br label %ma_decoder__preinit_vfs.exit.thread
 
 ma_vfs_or_default_open.exit.i:                    ; preds = %if.end6.i.i.i
-  %call.i.i.i = call i32 %8(ptr noundef nonnull %pVFS, ptr noundef nonnull %pFilePath, i32 noundef 1, ptr noundef nonnull %file.i) #64
+  %call.i.i.i = call i32 %9(ptr noundef nonnull %pVFS, ptr noundef nonnull %pFilePath, i32 noundef 1, ptr noundef nonnull %file.i) #64
   %cmp7.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp7.not.i, label %ma_vfs_or_default_open.exit.if.end10_crit_edge.i, label %ma_decoder__preinit_vfs.exit.thread
 
@@ -63169,15 +63171,15 @@ ma_decoder__preinit_vfs.exit.thread:              ; preds = %if.then8.i.i.i.i.i,
   br label %return
 
 if.end:                                           ; preds = %ma_vfs_or_default_open.exit.if.end10_crit_edge.i, %if.end6.i.i.i.i.i
-  %10 = phi ptr [ %.pre.i, %ma_vfs_or_default_open.exit.if.end10_crit_edge.i ], [ %call.i.i.i.i.i, %if.end6.i.i.i.i.i ]
+  %11 = phi ptr [ %.pre.i, %ma_vfs_or_default_open.exit.if.end10_crit_edge.i ], [ %call.i.i.i.i.i, %if.end6.i.i.i.i.i ]
   %data.i = getelementptr inbounds i8, ptr %pDecoder, i64 528
   store ptr %pVFS, ptr %data.i, align 8
   %file13.i = getelementptr inbounds i8, ptr %pDecoder, i64 536
-  store ptr %10, ptr %file13.i, align 8
+  store ptr %11, ptr %file13.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   %encodingFormat = getelementptr inbounds i8, ptr %config, i64 112
-  %11 = load i32, ptr %encodingFormat, align 8
-  switch i32 %11, label %if.then19 [
+  %12 = load i32, ptr %encodingFormat, align 8
+  switch i32 %12, label %if.then19 [
     i32 0, label %if.then24.critedge
     i32 1, label %if.then5
     i32 2, label %if.then10
@@ -63187,33 +63189,33 @@ if.end:                                           ; preds = %ma_vfs_or_default_o
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %12 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
-  %cmp.i.i36 = icmp eq ptr %12, null
+  %13 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
+  %cmp.i.i36 = icmp eq ptr %13, null
   br i1 %cmp.i.i36, label %if.end7.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
-  %13 = load i32, ptr %config, align 8
+  %14 = load i32, ptr %config, align 8
   %seekPointCount.i.i = getelementptr inbounds i8, ptr %config, i64 116
-  %14 = load i32, ptr %seekPointCount.i.i, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %14 to i64
+  %15 = load i32, ptr %seekPointCount.i.i, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %15 to i64
   %retval.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %13 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %14 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %12(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %13(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end7.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %15 = load ptr, ptr %pBackend.i.i, align 8
+  %16 = load ptr, ptr %pBackend.i.i, align 8
   %pBackend6.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %15, ptr %pBackend6.i.i, align 8
+  store ptr %16, ptr %pBackend6.i.i, align 8
   %pBackendVTable.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i, align 8
   %pCustomBackendUserData.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %16 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
+  %17 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %16, ptr %pBackendUserData.i.i, align 8
+  store ptr %17, ptr %pBackendUserData.i.i, align 8
   br label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %if.end5.i.i, %if.end.i.i, %if.then5
@@ -63225,33 +63227,33 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i38)
-  %17 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
-  %cmp.i.i39 = icmp eq ptr %17, null
+  %18 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
+  %cmp.i.i39 = icmp eq ptr %18, null
   br i1 %cmp.i.i39, label %ma_decoder_init_flac__internal.exit, label %if.end.i.i40
 
 if.end.i.i40:                                     ; preds = %if.then10
-  %18 = load i32, ptr %config, align 8
+  %19 = load i32, ptr %config, align 8
   %seekPointCount.i.i41 = getelementptr inbounds i8, ptr %config, i64 116
-  %19 = load i32, ptr %seekPointCount.i.i41, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i42 = zext i32 %19 to i64
+  %20 = load i32, ptr %seekPointCount.i.i41, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i42 = zext i32 %20 to i64
   %retval.sroa.3.0.insert.shift.i.i.i43 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i42, 32
-  %retval.sroa.0.0.insert.ext.i.i.i44 = zext i32 %18 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i44 = zext i32 %19 to i64
   %retval.sroa.0.0.insert.insert.i.i.i45 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i43, %retval.sroa.0.0.insert.ext.i.i.i44
   store i64 %retval.sroa.0.0.insert.insert.i.i.i45, ptr %backendConfig.i.i37, align 8
-  %call2.i.i47 = call i32 %17(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i37, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i38) #64
+  %call2.i.i47 = call i32 %18(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i37, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i38) #64
   %cmp3.not.i.i48 = icmp eq i32 %call2.i.i47, 0
   br i1 %cmp3.not.i.i48, label %if.end5.i.i50, label %ma_decoder_init_flac__internal.exit
 
 if.end5.i.i50:                                    ; preds = %if.end.i.i40
-  %20 = load ptr, ptr %pBackend.i.i38, align 8
+  %21 = load ptr, ptr %pBackend.i.i38, align 8
   %pBackend6.i.i51 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %20, ptr %pBackend6.i.i51, align 8
+  store ptr %21, ptr %pBackend6.i.i51, align 8
   %pBackendVTable.i.i52 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i52, align 8
   %pCustomBackendUserData.i.i53 = getelementptr inbounds i8, ptr %config, i64 136
-  %21 = load ptr, ptr %pCustomBackendUserData.i.i53, align 8
+  %22 = load ptr, ptr %pCustomBackendUserData.i.i53, align 8
   %pBackendUserData.i.i54 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %21, ptr %pBackendUserData.i.i54, align 8
+  store ptr %22, ptr %pBackendUserData.i.i54, align 8
   br label %ma_decoder_init_flac__internal.exit
 
 ma_decoder_init_flac__internal.exit:              ; preds = %if.then10, %if.end.i.i40, %if.end5.i.i50
@@ -63263,33 +63265,33 @@ ma_decoder_init_flac__internal.exit:              ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i55)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i56)
-  %22 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
-  %cmp.i.i57 = icmp eq ptr %22, null
+  %23 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
+  %cmp.i.i57 = icmp eq ptr %23, null
   br i1 %cmp.i.i57, label %ma_decoder_init_mp3__internal.exit, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %if.then15
-  %23 = load i32, ptr %config, align 8
+  %24 = load i32, ptr %config, align 8
   %seekPointCount.i.i59 = getelementptr inbounds i8, ptr %config, i64 116
-  %24 = load i32, ptr %seekPointCount.i.i59, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i60 = zext i32 %24 to i64
+  %25 = load i32, ptr %seekPointCount.i.i59, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i60 = zext i32 %25 to i64
   %retval.sroa.3.0.insert.shift.i.i.i61 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i60, 32
-  %retval.sroa.0.0.insert.ext.i.i.i62 = zext i32 %23 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i62 = zext i32 %24 to i64
   %retval.sroa.0.0.insert.insert.i.i.i63 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i61, %retval.sroa.0.0.insert.ext.i.i.i62
   store i64 %retval.sroa.0.0.insert.insert.i.i.i63, ptr %backendConfig.i.i55, align 8
-  %call2.i.i65 = call i32 %22(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i55, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i56) #64
+  %call2.i.i65 = call i32 %23(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i55, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i56) #64
   %cmp3.not.i.i66 = icmp eq i32 %call2.i.i65, 0
   br i1 %cmp3.not.i.i66, label %if.end5.i.i68, label %ma_decoder_init_mp3__internal.exit
 
 if.end5.i.i68:                                    ; preds = %if.end.i.i58
-  %25 = load ptr, ptr %pBackend.i.i56, align 8
+  %26 = load ptr, ptr %pBackend.i.i56, align 8
   %pBackend6.i.i69 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %25, ptr %pBackend6.i.i69, align 8
+  store ptr %26, ptr %pBackend6.i.i69, align 8
   %pBackendVTable.i.i70 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i70, align 8
   %pCustomBackendUserData.i.i71 = getelementptr inbounds i8, ptr %config, i64 136
-  %26 = load ptr, ptr %pCustomBackendUserData.i.i71, align 8
+  %27 = load ptr, ptr %pCustomBackendUserData.i.i71, align 8
   %pBackendUserData.i.i72 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %26, ptr %pBackendUserData.i.i72, align 8
+  store ptr %27, ptr %pBackendUserData.i.i72, align 8
   br label %ma_decoder_init_mp3__internal.exit
 
 ma_decoder_init_mp3__internal.exit:               ; preds = %if.then15, %if.end.i.i58, %if.end5.i.i68
@@ -63309,82 +63311,82 @@ if.end17.if.then19_crit_edge:                     ; preds = %if.end17
   br label %if.then19
 
 if.then19:                                        ; preds = %if.end17.if.then19_crit_edge, %if.end
-  %27 = phi ptr [ %.pre301, %if.end17.if.then19_crit_edge ], [ %10, %if.end ]
-  %28 = phi ptr [ %.pre, %if.end17.if.then19_crit_edge ], [ %pVFS, %if.end ]
-  %cmp.not.i.i75 = icmp eq ptr %28, null
-  %cmp.i6.i.i = icmp eq ptr %27, null
+  %28 = phi ptr [ %.pre301, %if.end17.if.then19_crit_edge ], [ %11, %if.end ]
+  %29 = phi ptr [ %.pre, %if.end17.if.then19_crit_edge ], [ %pVFS, %if.end ]
+  %cmp.not.i.i75 = icmp eq ptr %29, null
+  %cmp.i6.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i75, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then19
   br i1 %cmp.i6.i.i, label %if.then24.critedge, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %onSeek.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
-  %29 = load ptr, ptr %onSeek.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq ptr %29, null
+  %onSeek.i.i.i = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = load ptr, ptr %onSeek.i.i.i, align 8
+  %cmp2.i.i.i = icmp eq ptr %30, null
   br i1 %cmp2.i.i.i, label %if.then24.critedge, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call.i.i.i76 = call i32 %29(ptr noundef nonnull %28, ptr noundef nonnull %27, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i76 = call i32 %30(ptr noundef nonnull %29, ptr noundef nonnull %28, i64 noundef 0, i32 noundef 0) #64
   br label %if.then24.critedge
 
 if.else.i.i:                                      ; preds = %if.then19
   br i1 %cmp.i6.i.i, label %if.then24.critedge, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %if.else.i.i
-  %call.i.i.i.i = call i32 @fseek(ptr noundef nonnull %27, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i = call i32 @fseek(ptr noundef nonnull %28, i64 noundef 0, i32 noundef 0)
   br label %if.then24.critedge
 
 if.then24.critedge:                               ; preds = %if.end, %if.end.i7.i.i, %if.else.i.i, %if.end4.i.i.i, %if.end.i.i.i, %if.then.i.i
   %ppCustomBackendVTables.i = getelementptr inbounds i8, ptr %config, i64 120
-  %30 = load ptr, ptr %ppCustomBackendVTables.i, align 8
-  %cmp.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %ppCustomBackendVTables.i, align 8
+  %cmp.i = icmp eq ptr %31, null
   br i1 %cmp.i, label %if.then29, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then24.critedge
   %customBackendCount.i = getelementptr inbounds i8, ptr %config, i64 128
-  %31 = load i32, ptr %customBackendCount.i, align 8
-  %cmp114.not.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr %customBackendCount.i, align 8
+  %cmp114.not.i = icmp eq i32 %32, 0
   br i1 %cmp114.not.i, label %if.then29, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %pCustomBackendUserData.i = getelementptr inbounds i8, ptr %config, i64 136
   %seekPointCount.i.i80 = getelementptr inbounds i8, ptr %config, i64 116
-  %32 = load ptr, ptr %pCustomBackendUserData.i, align 8
-  %33 = load i32, ptr %config, align 8
-  %34 = load i32, ptr %seekPointCount.i.i80, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i84 = zext i32 %34 to i64
+  %33 = load ptr, ptr %pCustomBackendUserData.i, align 8
+  %34 = load i32, ptr %config, align 8
+  %35 = load i32, ptr %seekPointCount.i.i80, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i84 = zext i32 %35 to i64
   %retval.sroa.3.0.insert.shift.i.i.i85 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i84, 32
-  %retval.sroa.0.0.insert.ext.i.i.i86 = zext i32 %33 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i86 = zext i32 %34 to i64
   %retval.sroa.0.0.insert.insert.i.i.i87 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i85, %retval.sroa.0.0.insert.ext.i.i.i86
-  %conv.i = zext i32 %31 to i64
+  %conv.i = zext i32 %32 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.backedge, %for.body.lr.ph.i
   %ivtable.015.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %ivtable.015.i.be, %for.body.i.backedge ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %30, i64 %ivtable.015.i
-  %35 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not.i = icmp eq ptr %35, null
+  %arrayidx.i = getelementptr inbounds ptr, ptr %31, i64 %ivtable.015.i
+  %36 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not.i = icmp eq ptr %36, null
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %36 = load ptr, ptr %35, align 8
-  %cmp.i.i82 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %36, align 8
+  %cmp.i.i82 = icmp eq ptr %37, null
   br i1 %cmp.i.i82, label %if.else.i90, label %if.end.i.i83
 
 if.end.i.i83:                                     ; preds = %if.then6.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i87, ptr %backendConfig.i.i78, align 8
-  %call2.i.i88 = call i32 %36(ptr noundef %32, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i78, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i79) #64
+  %call2.i.i88 = call i32 %37(ptr noundef %33, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i78, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i79) #64
   %cmp3.not.i.i89 = icmp eq i32 %call2.i.i88, 0
   br i1 %cmp3.not.i.i89, label %if.end32.thread, label %if.else.i90
 
 if.else.i90:                                      ; preds = %if.end.i.i83, %if.then6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %37 = load ptr, ptr %onSeek6.i.i, align 8
-  %call.i.i = call i32 %37(ptr noundef %pDecoder, i64 noundef 0, i32 noundef 0) #64
+  %38 = load ptr, ptr %onSeek6.i.i, align 8
+  %call.i.i = call i32 %38(ptr noundef %pDecoder, i64 noundef 0, i32 noundef 0) #64
   %cmp11.not.i = icmp eq i32 %call.i.i, 0
   %add.i = add nuw nsw i64 %ivtable.015.i, 1
   %cmp1.i93 = icmp ult i64 %add.i, %conv.i
@@ -63401,54 +63403,54 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %if.else
   br label %for.body.i, !llvm.loop !624
 
 if.then29:                                        ; preds = %if.else.i90, %for.inc.i, %if.then24.critedge, %for.cond.preheader.i
-  %38 = load ptr, ptr %data.i, align 8
-  %39 = load ptr, ptr %file13.i, align 8
-  %cmp.not.i.i99 = icmp eq ptr %38, null
-  %cmp.i6.i.i100 = icmp eq ptr %39, null
+  %39 = load ptr, ptr %data.i, align 8
+  %40 = load ptr, ptr %file13.i, align 8
+  %cmp.not.i.i99 = icmp eq ptr %39, null
+  %cmp.i6.i.i100 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i99, label %if.else.i.i108, label %if.then.i.i101
 
 if.then.i.i101:                                   ; preds = %if.then29
   br i1 %cmp.i6.i.i100, label %if.end32, label %if.end.i.i.i102
 
 if.end.i.i.i102:                                  ; preds = %if.then.i.i101
-  %onSeek.i.i.i103 = getelementptr inbounds i8, ptr %38, i64 40
-  %40 = load ptr, ptr %onSeek.i.i.i103, align 8
-  %cmp2.i.i.i104 = icmp eq ptr %40, null
+  %onSeek.i.i.i103 = getelementptr inbounds i8, ptr %39, i64 40
+  %41 = load ptr, ptr %onSeek.i.i.i103, align 8
+  %cmp2.i.i.i104 = icmp eq ptr %41, null
   br i1 %cmp2.i.i.i104, label %if.end32, label %if.end4.i.i.i105
 
 if.end4.i.i.i105:                                 ; preds = %if.end.i.i.i102
-  %call.i.i.i106 = call i32 %40(ptr noundef nonnull %38, ptr noundef nonnull %39, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i106 = call i32 %41(ptr noundef nonnull %39, ptr noundef nonnull %40, i64 noundef 0, i32 noundef 0) #64
   br label %if.end32
 
 if.else.i.i108:                                   ; preds = %if.then29
   br i1 %cmp.i6.i.i100, label %if.end32, label %if.end.i7.i.i109
 
 if.end.i7.i.i109:                                 ; preds = %if.else.i.i108
-  %call.i.i.i.i110 = call i32 @fseek(ptr noundef nonnull %39, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i110 = call i32 @fseek(ptr noundef nonnull %40, i64 noundef 0, i32 noundef 0)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end.i7.i.i109, %if.else.i.i108, %if.end4.i.i.i105, %if.end.i.i.i102, %if.then.i.i101
-  %cmp34.not = icmp eq i32 %11, 0
+  %cmp34.not = icmp eq i32 %12, 0
   br i1 %cmp34.not, label %while.cond.i.i.i, label %return
 
 if.end32.thread:                                  ; preds = %if.end.i.i83
-  %41 = load ptr, ptr %pBackend.i.i79, align 8
+  %42 = load ptr, ptr %pBackend.i.i79, align 8
   %pBackend6.i.i94 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %41, ptr %pBackend6.i.i94, align 8
+  store ptr %42, ptr %pBackend6.i.i94, align 8
   %pBackendVTable.i.i95 = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  store ptr %35, ptr %pBackendVTable.i.i95, align 8
+  store ptr %36, ptr %pBackendVTable.i.i95, align 8
   %pBackendUserData.i.i96 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %32, ptr %pBackendUserData.i.i96, align 8
+  store ptr %33, ptr %pBackendUserData.i.i96, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %cmp34.not275 = icmp eq i32 %11, 0
+  %cmp34.not275 = icmp eq i32 %12, 0
   br i1 %cmp34.not275, label %if.else, label %return
 
 while.cond.i.i.i:                                 ; preds = %if.end32, %if.end12.i.i.i
   %path.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end12.i.i.i ], [ %pFilePath, %if.end32 ]
   %fileName.0.i.i.i = phi ptr [ %fileName.1.i.i.i, %if.end12.i.i.i ], [ %pFilePath, %if.end32 ]
-  %42 = load i8, ptr %path.addr.0.i.i.i, align 1
-  switch i8 %42, label %if.end12.i.i.i [
+  %43 = load i8, ptr %path.addr.0.i.i.i, align 1
+  switch i8 %43, label %if.end12.i.i.i [
     i8 0, label %while.cond13.i.i.i
     i8 47, label %if.then11.i.i.i
     i8 92, label %if.then11.i.i.i
@@ -63464,8 +63466,8 @@ if.end12.i.i.i:                                   ; preds = %if.then11.i.i.i, %w
 
 while.cond13.i.i.i:                               ; preds = %while.cond.i.i.i, %while.body26.i.i.i
   %fileName.2.i.i.i = phi ptr [ %add.ptr27.i.i.i, %while.body26.i.i.i ], [ %fileName.0.i.i.i, %while.cond.i.i.i ]
-  %43 = load i8, ptr %fileName.2.i.i.i, align 1
-  switch i8 %43, label %while.cond.i.i [
+  %44 = load i8, ptr %fileName.2.i.i.i, align 1
+  switch i8 %44, label %while.cond.i.i [
     i8 92, label %while.body26.i.i.i
     i8 47, label %while.body26.i.i.i
   ]
@@ -63475,10 +63477,10 @@ while.body26.i.i.i:                               ; preds = %while.cond13.i.i.i,
   br label %while.cond13.i.i.i, !llvm.loop !633
 
 while.cond.i.i:                                   ; preds = %while.cond13.i.i.i, %if.end8.i.i
-  %44 = phi i8 [ %.pr.i.i, %if.end8.i.i ], [ %43, %while.cond13.i.i.i ]
+  %45 = phi i8 [ %.pr.i.i, %if.end8.i.i ], [ %44, %while.cond13.i.i.i ]
   %extension.0.i.i = phi ptr [ %add.ptr9.i.i, %if.end8.i.i ], [ %fileName.2.i.i.i, %while.cond13.i.i.i ]
   %lastOccurance.0.i.i = phi ptr [ %lastOccurance.1.i.i, %if.end8.i.i ], [ null, %while.cond13.i.i.i ]
-  switch i8 %44, label %if.end8.i.i [
+  switch i8 %45, label %if.end8.i.i [
     i8 0, label %ma_path_extension_equal.exit
     i8 46, label %if.then7.i.i
   ]
@@ -63504,33 +63506,33 @@ ma_path_extension_equal.exit:                     ; preds = %while.cond.i.i
 if.then39:                                        ; preds = %ma_path_extension_equal.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i117)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i118)
-  %45 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
-  %cmp.i.i119 = icmp eq ptr %45, null
+  %46 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
+  %cmp.i.i119 = icmp eq ptr %46, null
   br i1 %cmp.i.i119, label %if.then42, label %if.end.i.i120
 
 if.end.i.i120:                                    ; preds = %if.then39
-  %46 = load i32, ptr %config, align 8
+  %47 = load i32, ptr %config, align 8
   %seekPointCount.i.i121 = getelementptr inbounds i8, ptr %config, i64 116
-  %47 = load i32, ptr %seekPointCount.i.i121, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i122 = zext i32 %47 to i64
+  %48 = load i32, ptr %seekPointCount.i.i121, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i122 = zext i32 %48 to i64
   %retval.sroa.3.0.insert.shift.i.i.i123 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i122, 32
-  %retval.sroa.0.0.insert.ext.i.i.i124 = zext i32 %46 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i124 = zext i32 %47 to i64
   %retval.sroa.0.0.insert.insert.i.i.i125 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i123, %retval.sroa.0.0.insert.ext.i.i.i124
   store i64 %retval.sroa.0.0.insert.insert.i.i.i125, ptr %backendConfig.i.i117, align 8
-  %call2.i.i127 = call i32 %45(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i117, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i118) #64
+  %call2.i.i127 = call i32 %46(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i117, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i118) #64
   %cmp3.not.i.i128 = icmp eq i32 %call2.i.i127, 0
   br i1 %cmp3.not.i.i128, label %ma_decoder_init_wav__internal.exit136, label %if.then42
 
 ma_decoder_init_wav__internal.exit136:            ; preds = %if.end.i.i120
-  %48 = load ptr, ptr %pBackend.i.i118, align 8
+  %49 = load ptr, ptr %pBackend.i.i118, align 8
   %pBackend6.i.i132 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %48, ptr %pBackend6.i.i132, align 8
+  store ptr %49, ptr %pBackend6.i.i132, align 8
   %pBackendVTable.i.i133 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i133, align 8
   %pCustomBackendUserData.i.i134 = getelementptr inbounds i8, ptr %config, i64 136
-  %49 = load ptr, ptr %pCustomBackendUserData.i.i134, align 8
+  %50 = load ptr, ptr %pCustomBackendUserData.i.i134, align 8
   %pBackendUserData.i.i135 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %49, ptr %pBackendUserData.i.i135, align 8
+  store ptr %50, ptr %pBackendUserData.i.i135, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i117)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i118)
   br label %if.else
@@ -63538,30 +63540,30 @@ ma_decoder_init_wav__internal.exit136:            ; preds = %if.end.i.i120
 if.then42:                                        ; preds = %if.then39, %if.end.i.i120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i117)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i118)
-  %50 = load ptr, ptr %data.i, align 8
-  %51 = load ptr, ptr %file13.i, align 8
-  %cmp.not.i.i139 = icmp eq ptr %50, null
-  %cmp.i6.i.i140 = icmp eq ptr %51, null
+  %51 = load ptr, ptr %data.i, align 8
+  %52 = load ptr, ptr %file13.i, align 8
+  %cmp.not.i.i139 = icmp eq ptr %51, null
+  %cmp.i6.i.i140 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i139, label %if.else.i.i148, label %if.then.i.i141
 
 if.then.i.i141:                                   ; preds = %if.then42
   br i1 %cmp.i6.i.i140, label %while.cond.i.i.i155.preheader, label %if.end.i.i.i142
 
 if.end.i.i.i142:                                  ; preds = %if.then.i.i141
-  %onSeek.i.i.i143 = getelementptr inbounds i8, ptr %50, i64 40
-  %52 = load ptr, ptr %onSeek.i.i.i143, align 8
-  %cmp2.i.i.i144 = icmp eq ptr %52, null
+  %onSeek.i.i.i143 = getelementptr inbounds i8, ptr %51, i64 40
+  %53 = load ptr, ptr %onSeek.i.i.i143, align 8
+  %cmp2.i.i.i144 = icmp eq ptr %53, null
   br i1 %cmp2.i.i.i144, label %while.cond.i.i.i155.preheader, label %if.end4.i.i.i145
 
 if.end4.i.i.i145:                                 ; preds = %if.end.i.i.i142
-  %call.i.i.i146 = call i32 %52(ptr noundef nonnull %50, ptr noundef nonnull %51, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i146 = call i32 %53(ptr noundef nonnull %51, ptr noundef nonnull %52, i64 noundef 0, i32 noundef 0) #64
   br label %while.cond.i.i.i155.preheader
 
 if.else.i.i148:                                   ; preds = %if.then42
   br i1 %cmp.i6.i.i140, label %while.cond.i.i.i155.preheader, label %if.end.i7.i.i149
 
 if.end.i7.i.i149:                                 ; preds = %if.else.i.i148
-  %call.i.i.i.i150 = call i32 @fseek(ptr noundef nonnull %51, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i150 = call i32 @fseek(ptr noundef nonnull %52, i64 noundef 0, i32 noundef 0)
   br label %while.cond.i.i.i155.preheader
 
 while.cond.i.i.i155.preheader:                    ; preds = %if.end.i7.i.i149, %if.else.i.i148, %if.end4.i.i.i145, %if.end.i.i.i142, %if.then.i.i141, %ma_path_extension_equal.exit
@@ -63570,8 +63572,8 @@ while.cond.i.i.i155.preheader:                    ; preds = %if.end.i7.i.i149, %
 while.cond.i.i.i155:                              ; preds = %while.cond.i.i.i155.preheader, %if.end12.i.i.i159
   %path.addr.0.i.i.i156 = phi ptr [ %add.ptr.i.i.i161, %if.end12.i.i.i159 ], [ %pFilePath, %while.cond.i.i.i155.preheader ]
   %fileName.0.i.i.i157 = phi ptr [ %fileName.1.i.i.i160, %if.end12.i.i.i159 ], [ %pFilePath, %while.cond.i.i.i155.preheader ]
-  %53 = load i8, ptr %path.addr.0.i.i.i156, align 1
-  switch i8 %53, label %if.end12.i.i.i159 [
+  %54 = load i8, ptr %path.addr.0.i.i.i156, align 1
+  switch i8 %54, label %if.end12.i.i.i159 [
     i8 0, label %while.cond13.i.i.i162
     i8 47, label %if.then11.i.i.i158
     i8 92, label %if.then11.i.i.i158
@@ -63587,8 +63589,8 @@ if.end12.i.i.i159:                                ; preds = %if.then11.i.i.i158,
 
 while.cond13.i.i.i162:                            ; preds = %while.cond.i.i.i155, %while.body26.i.i.i164
   %fileName.2.i.i.i163 = phi ptr [ %add.ptr27.i.i.i165, %while.body26.i.i.i164 ], [ %fileName.0.i.i.i157, %while.cond.i.i.i155 ]
-  %54 = load i8, ptr %fileName.2.i.i.i163, align 1
-  switch i8 %54, label %while.cond.i.i166 [
+  %55 = load i8, ptr %fileName.2.i.i.i163, align 1
+  switch i8 %55, label %while.cond.i.i166 [
     i8 92, label %while.body26.i.i.i164
     i8 47, label %while.body26.i.i.i164
   ]
@@ -63598,10 +63600,10 @@ while.body26.i.i.i164:                            ; preds = %while.cond13.i.i.i1
   br label %while.cond13.i.i.i162, !llvm.loop !633
 
 while.cond.i.i166:                                ; preds = %while.cond13.i.i.i162, %if.end8.i.i171
-  %55 = phi i8 [ %.pr.i.i175, %if.end8.i.i171 ], [ %54, %while.cond13.i.i.i162 ]
+  %56 = phi i8 [ %.pr.i.i175, %if.end8.i.i171 ], [ %55, %while.cond13.i.i.i162 ]
   %extension.0.i.i167 = phi ptr [ %add.ptr9.i.i174, %if.end8.i.i171 ], [ %fileName.2.i.i.i163, %while.cond13.i.i.i162 ]
   %lastOccurance.0.i.i168 = phi ptr [ %lastOccurance.1.i.i173, %if.end8.i.i171 ], [ null, %while.cond13.i.i.i162 ]
-  switch i8 %55, label %if.end8.i.i171 [
+  switch i8 %56, label %if.end8.i.i171 [
     i8 0, label %ma_path_extension_equal.exit183
     i8 46, label %if.then7.i.i169
   ]
@@ -63627,33 +63629,33 @@ ma_path_extension_equal.exit183:                  ; preds = %while.cond.i.i166
 if.then50:                                        ; preds = %ma_path_extension_equal.exit183
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i184)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i185)
-  %56 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
-  %cmp.i.i186 = icmp eq ptr %56, null
+  %57 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
+  %cmp.i.i186 = icmp eq ptr %57, null
   br i1 %cmp.i.i186, label %if.then53, label %if.end.i.i187
 
 if.end.i.i187:                                    ; preds = %if.then50
-  %57 = load i32, ptr %config, align 8
+  %58 = load i32, ptr %config, align 8
   %seekPointCount.i.i188 = getelementptr inbounds i8, ptr %config, i64 116
-  %58 = load i32, ptr %seekPointCount.i.i188, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i189 = zext i32 %58 to i64
+  %59 = load i32, ptr %seekPointCount.i.i188, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i189 = zext i32 %59 to i64
   %retval.sroa.3.0.insert.shift.i.i.i190 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i189, 32
-  %retval.sroa.0.0.insert.ext.i.i.i191 = zext i32 %57 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i191 = zext i32 %58 to i64
   %retval.sroa.0.0.insert.insert.i.i.i192 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i190, %retval.sroa.0.0.insert.ext.i.i.i191
   store i64 %retval.sroa.0.0.insert.insert.i.i.i192, ptr %backendConfig.i.i184, align 8
-  %call2.i.i194 = call i32 %56(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i184, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i185) #64
+  %call2.i.i194 = call i32 %57(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i184, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i185) #64
   %cmp3.not.i.i195 = icmp eq i32 %call2.i.i194, 0
   br i1 %cmp3.not.i.i195, label %ma_decoder_init_flac__internal.exit203, label %if.then53
 
 ma_decoder_init_flac__internal.exit203:           ; preds = %if.end.i.i187
-  %59 = load ptr, ptr %pBackend.i.i185, align 8
+  %60 = load ptr, ptr %pBackend.i.i185, align 8
   %pBackend6.i.i199 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %59, ptr %pBackend6.i.i199, align 8
+  store ptr %60, ptr %pBackend6.i.i199, align 8
   %pBackendVTable.i.i200 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i200, align 8
   %pCustomBackendUserData.i.i201 = getelementptr inbounds i8, ptr %config, i64 136
-  %60 = load ptr, ptr %pCustomBackendUserData.i.i201, align 8
+  %61 = load ptr, ptr %pCustomBackendUserData.i.i201, align 8
   %pBackendUserData.i.i202 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %60, ptr %pBackendUserData.i.i202, align 8
+  store ptr %61, ptr %pBackendUserData.i.i202, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i184)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i185)
   br label %if.else
@@ -63670,8 +63672,8 @@ while.cond.i.i.i205.preheader:                    ; preds = %ma_path_extension_e
 while.cond.i.i.i205:                              ; preds = %while.cond.i.i.i205.preheader, %if.end12.i.i.i209
   %path.addr.0.i.i.i206 = phi ptr [ %add.ptr.i.i.i211, %if.end12.i.i.i209 ], [ %pFilePath, %while.cond.i.i.i205.preheader ]
   %fileName.0.i.i.i207 = phi ptr [ %fileName.1.i.i.i210, %if.end12.i.i.i209 ], [ %pFilePath, %while.cond.i.i.i205.preheader ]
-  %61 = load i8, ptr %path.addr.0.i.i.i206, align 1
-  switch i8 %61, label %if.end12.i.i.i209 [
+  %62 = load i8, ptr %path.addr.0.i.i.i206, align 1
+  switch i8 %62, label %if.end12.i.i.i209 [
     i8 0, label %while.cond13.i.i.i212
     i8 47, label %if.then11.i.i.i208
     i8 92, label %if.then11.i.i.i208
@@ -63687,8 +63689,8 @@ if.end12.i.i.i209:                                ; preds = %if.then11.i.i.i208,
 
 while.cond13.i.i.i212:                            ; preds = %while.cond.i.i.i205, %while.body26.i.i.i214
   %fileName.2.i.i.i213 = phi ptr [ %add.ptr27.i.i.i215, %while.body26.i.i.i214 ], [ %fileName.0.i.i.i207, %while.cond.i.i.i205 ]
-  %62 = load i8, ptr %fileName.2.i.i.i213, align 1
-  switch i8 %62, label %while.cond.i.i216 [
+  %63 = load i8, ptr %fileName.2.i.i.i213, align 1
+  switch i8 %63, label %while.cond.i.i216 [
     i8 92, label %while.body26.i.i.i214
     i8 47, label %while.body26.i.i.i214
   ]
@@ -63698,10 +63700,10 @@ while.body26.i.i.i214:                            ; preds = %while.cond13.i.i.i2
   br label %while.cond13.i.i.i212, !llvm.loop !633
 
 while.cond.i.i216:                                ; preds = %while.cond13.i.i.i212, %if.end8.i.i221
-  %63 = phi i8 [ %.pr.i.i225, %if.end8.i.i221 ], [ %62, %while.cond13.i.i.i212 ]
+  %64 = phi i8 [ %.pr.i.i225, %if.end8.i.i221 ], [ %63, %while.cond13.i.i.i212 ]
   %extension.0.i.i217 = phi ptr [ %add.ptr9.i.i224, %if.end8.i.i221 ], [ %fileName.2.i.i.i213, %while.cond13.i.i.i212 ]
   %lastOccurance.0.i.i218 = phi ptr [ %lastOccurance.1.i.i223, %if.end8.i.i221 ], [ null, %while.cond13.i.i.i212 ]
-  switch i8 %63, label %if.end8.i.i221 [
+  switch i8 %64, label %if.end8.i.i221 [
     i8 0, label %ma_path_extension_equal.exit233
     i8 46, label %if.then7.i.i219
   ]
@@ -63727,33 +63729,33 @@ ma_path_extension_equal.exit233:                  ; preds = %while.cond.i.i216
 if.then61:                                        ; preds = %ma_path_extension_equal.exit233
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i234)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i235)
-  %64 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
-  %cmp.i.i236 = icmp eq ptr %64, null
+  %65 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
+  %cmp.i.i236 = icmp eq ptr %65, null
   br i1 %cmp.i.i236, label %if.then64, label %if.end.i.i237
 
 if.end.i.i237:                                    ; preds = %if.then61
-  %65 = load i32, ptr %config, align 8
+  %66 = load i32, ptr %config, align 8
   %seekPointCount.i.i238 = getelementptr inbounds i8, ptr %config, i64 116
-  %66 = load i32, ptr %seekPointCount.i.i238, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i239 = zext i32 %66 to i64
+  %67 = load i32, ptr %seekPointCount.i.i238, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i239 = zext i32 %67 to i64
   %retval.sroa.3.0.insert.shift.i.i.i240 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i239, 32
-  %retval.sroa.0.0.insert.ext.i.i.i241 = zext i32 %65 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i241 = zext i32 %66 to i64
   %retval.sroa.0.0.insert.insert.i.i.i242 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i240, %retval.sroa.0.0.insert.ext.i.i.i241
   store i64 %retval.sroa.0.0.insert.insert.i.i.i242, ptr %backendConfig.i.i234, align 8
-  %call2.i.i244 = call i32 %64(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i234, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i235) #64
+  %call2.i.i244 = call i32 %65(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i234, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i235) #64
   %cmp3.not.i.i245 = icmp eq i32 %call2.i.i244, 0
   br i1 %cmp3.not.i.i245, label %ma_decoder_init_mp3__internal.exit253, label %if.then64
 
 ma_decoder_init_mp3__internal.exit253:            ; preds = %if.end.i.i237
-  %67 = load ptr, ptr %pBackend.i.i235, align 8
+  %68 = load ptr, ptr %pBackend.i.i235, align 8
   %pBackend6.i.i249 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %67, ptr %pBackend6.i.i249, align 8
+  store ptr %68, ptr %pBackend6.i.i249, align 8
   %pBackendVTable.i.i250 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i250, align 8
   %pCustomBackendUserData.i.i251 = getelementptr inbounds i8, ptr %config, i64 136
-  %68 = load ptr, ptr %pCustomBackendUserData.i.i251, align 8
+  %69 = load ptr, ptr %pCustomBackendUserData.i.i251, align 8
   %pBackendUserData.i.i252 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %68, ptr %pBackendUserData.i.i252, align 8
+  store ptr %69, ptr %pBackendUserData.i.i252, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i234)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i235)
   br label %if.else
@@ -63778,8 +63780,8 @@ if.end73:                                         ; preds = %if.else, %if.then70
   br i1 %cmp74.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %if.end73
-  %69 = load ptr, ptr %file13.i, align 8
-  %cmp76.not = icmp eq ptr %69, null
+  %70 = load ptr, ptr %file13.i, align 8
+  %cmp76.not = icmp eq ptr %70, null
   br i1 %cmp76.not, label %return, label %if.then77
 
 if.then77:                                        ; preds = %if.then75
@@ -63787,16 +63789,16 @@ if.then77:                                        ; preds = %if.then75
 
 if.end.i.i256:                                    ; preds = %if.then77
   %onClose.i.i = getelementptr inbounds i8, ptr %pVFS, i64 16
-  %70 = load ptr, ptr %onClose.i.i, align 8
-  %cmp2.i.i = icmp eq ptr %70, null
+  %71 = load ptr, ptr %onClose.i.i, align 8
+  %cmp2.i.i = icmp eq ptr %71, null
   br i1 %cmp2.i.i, label %return, label %if.end4.i.i257
 
 if.end4.i.i257:                                   ; preds = %if.end.i.i256
-  %call.i.i258 = call i32 %70(ptr noundef nonnull %pVFS, ptr noundef nonnull %69) #64
+  %call.i.i258 = call i32 %71(ptr noundef nonnull %pVFS, ptr noundef nonnull %70) #64
   br label %return
 
 if.end.i5.i:                                      ; preds = %if.then77
-  %call.i.i.i261 = call i32 @fclose(ptr noundef nonnull %69)
+  %call.i.i.i261 = call i32 @fclose(ptr noundef nonnull %70)
   br label %return
 
 return:                                           ; preds = %if.end.i5.i, %if.end4.i.i257, %if.end.i.i256, %if.end32.thread, %ma_decoder__preinit_vfs.exit.thread, %if.end73, %if.then75, %if.end32
@@ -63962,7 +63964,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond220, label %ma_decoder__preinit_vfs_w.exit.thread, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  %7 = getelementptr inbounds i8, ptr %tmp, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -63970,8 +63973,8 @@ if.end.i:                                         ; preds = %if.else20.i.i.i.i, 
   br i1 %cmp1.i, label %ma_decoder__preinit_vfs_w.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %7 = load i32, ptr %pFilePath, align 4
-  %cmp2.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %pFilePath, align 4
+  %cmp2.i = icmp eq i32 %8, 0
   br i1 %cmp2.i, label %ma_decoder__preinit_vfs_w.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
@@ -63981,12 +63984,12 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i
 
 if.end6.i.i.i:                                    ; preds = %if.end4.i
   %onOpenW.i.i.i = getelementptr inbounds i8, ptr %pVFS, i64 8
-  %8 = load ptr, ptr %onOpenW.i.i.i, align 8
-  %cmp7.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %onOpenW.i.i.i, align 8
+  %cmp7.i.i.i = icmp eq ptr %9, null
   br i1 %cmp7.i.i.i, label %ma_decoder__preinit_vfs_w.exit.thread, label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end6.i.i.i
-  %call.i.i.i = call i32 %8(ptr noundef nonnull %pVFS, ptr noundef nonnull %pFilePath, i32 noundef 1, ptr noundef nonnull %file.i) #64
+  %call.i.i.i = call i32 %9(ptr noundef nonnull %pVFS, ptr noundef nonnull %pFilePath, i32 noundef 1, ptr noundef nonnull %file.i) #64
   br label %ma_vfs_or_default_open_w.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end4.i
@@ -63996,8 +63999,8 @@ if.end4.i.i.i:                                    ; preds = %if.end4.i
   br i1 %cmp7.not.i.i.i.i, label %if.end9.i.i.i.i, label %ma_default_vfs_open_w__stdio.exit.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end4.i.i.i
-  %9 = load ptr, ptr %pFileStd.i.i.i.i, align 8
-  store ptr %9, ptr %file.i, align 8
+  %10 = load ptr, ptr %pFileStd.i.i.i.i, align 8
+  store ptr %10, ptr %file.i, align 8
   br label %ma_default_vfs_open_w__stdio.exit.i.i.i
 
 ma_default_vfs_open_w__stdio.exit.i.i.i:          ; preds = %if.end9.i.i.i.i, %if.end4.i.i.i
@@ -64017,13 +64020,13 @@ ma_decoder__preinit_vfs_w.exit.thread:            ; preds = %lor.lhs.false.i.i.i
 if.end:                                           ; preds = %ma_vfs_or_default_open_w.exit.i
   %data.i = getelementptr inbounds i8, ptr %pDecoder, i64 528
   store ptr %pVFS, ptr %data.i, align 8
-  %10 = load ptr, ptr %file.i, align 8
+  %11 = load ptr, ptr %file.i, align 8
   %file11.i = getelementptr inbounds i8, ptr %pDecoder, i64 536
-  store ptr %10, ptr %file11.i, align 8
+  store ptr %11, ptr %file11.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   %encodingFormat = getelementptr inbounds i8, ptr %config, i64 112
-  %11 = load i32, ptr %encodingFormat, align 8
-  switch i32 %11, label %if.then19 [
+  %12 = load i32, ptr %encodingFormat, align 8
+  switch i32 %12, label %if.then19 [
     i32 0, label %if.then24.critedge
     i32 1, label %if.then5
     i32 2, label %if.then10
@@ -64033,33 +64036,33 @@ if.end:                                           ; preds = %ma_vfs_or_default_o
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %12 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
-  %cmp.i.i34 = icmp eq ptr %12, null
+  %13 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
+  %cmp.i.i34 = icmp eq ptr %13, null
   br i1 %cmp.i.i34, label %if.end7.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
-  %13 = load i32, ptr %config, align 8
+  %14 = load i32, ptr %config, align 8
   %seekPointCount.i.i = getelementptr inbounds i8, ptr %config, i64 116
-  %14 = load i32, ptr %seekPointCount.i.i, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %14 to i64
+  %15 = load i32, ptr %seekPointCount.i.i, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %15 to i64
   %retval.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %13 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %14 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %12(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %13(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end7.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %15 = load ptr, ptr %pBackend.i.i, align 8
+  %16 = load ptr, ptr %pBackend.i.i, align 8
   %pBackend6.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %15, ptr %pBackend6.i.i, align 8
+  store ptr %16, ptr %pBackend6.i.i, align 8
   %pBackendVTable.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i, align 8
   %pCustomBackendUserData.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %16 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
+  %17 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %16, ptr %pBackendUserData.i.i, align 8
+  store ptr %17, ptr %pBackendUserData.i.i, align 8
   br label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %if.end5.i.i, %if.end.i.i, %if.then5
@@ -64071,33 +64074,33 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i36)
-  %17 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
-  %cmp.i.i37 = icmp eq ptr %17, null
+  %18 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
+  %cmp.i.i37 = icmp eq ptr %18, null
   br i1 %cmp.i.i37, label %ma_decoder_init_flac__internal.exit, label %if.end.i.i38
 
 if.end.i.i38:                                     ; preds = %if.then10
-  %18 = load i32, ptr %config, align 8
+  %19 = load i32, ptr %config, align 8
   %seekPointCount.i.i39 = getelementptr inbounds i8, ptr %config, i64 116
-  %19 = load i32, ptr %seekPointCount.i.i39, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i40 = zext i32 %19 to i64
+  %20 = load i32, ptr %seekPointCount.i.i39, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i40 = zext i32 %20 to i64
   %retval.sroa.3.0.insert.shift.i.i.i41 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i40, 32
-  %retval.sroa.0.0.insert.ext.i.i.i42 = zext i32 %18 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i42 = zext i32 %19 to i64
   %retval.sroa.0.0.insert.insert.i.i.i43 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i41, %retval.sroa.0.0.insert.ext.i.i.i42
   store i64 %retval.sroa.0.0.insert.insert.i.i.i43, ptr %backendConfig.i.i35, align 8
-  %call2.i.i45 = call i32 %17(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i35, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i36) #64
+  %call2.i.i45 = call i32 %18(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i35, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i36) #64
   %cmp3.not.i.i46 = icmp eq i32 %call2.i.i45, 0
   br i1 %cmp3.not.i.i46, label %if.end5.i.i48, label %ma_decoder_init_flac__internal.exit
 
 if.end5.i.i48:                                    ; preds = %if.end.i.i38
-  %20 = load ptr, ptr %pBackend.i.i36, align 8
+  %21 = load ptr, ptr %pBackend.i.i36, align 8
   %pBackend6.i.i49 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %20, ptr %pBackend6.i.i49, align 8
+  store ptr %21, ptr %pBackend6.i.i49, align 8
   %pBackendVTable.i.i50 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i50, align 8
   %pCustomBackendUserData.i.i51 = getelementptr inbounds i8, ptr %config, i64 136
-  %21 = load ptr, ptr %pCustomBackendUserData.i.i51, align 8
+  %22 = load ptr, ptr %pCustomBackendUserData.i.i51, align 8
   %pBackendUserData.i.i52 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %21, ptr %pBackendUserData.i.i52, align 8
+  store ptr %22, ptr %pBackendUserData.i.i52, align 8
   br label %ma_decoder_init_flac__internal.exit
 
 ma_decoder_init_flac__internal.exit:              ; preds = %if.then10, %if.end.i.i38, %if.end5.i.i48
@@ -64109,33 +64112,33 @@ ma_decoder_init_flac__internal.exit:              ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i54)
-  %22 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
-  %cmp.i.i55 = icmp eq ptr %22, null
+  %23 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
+  %cmp.i.i55 = icmp eq ptr %23, null
   br i1 %cmp.i.i55, label %ma_decoder_init_mp3__internal.exit, label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %if.then15
-  %23 = load i32, ptr %config, align 8
+  %24 = load i32, ptr %config, align 8
   %seekPointCount.i.i57 = getelementptr inbounds i8, ptr %config, i64 116
-  %24 = load i32, ptr %seekPointCount.i.i57, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %24 to i64
+  %25 = load i32, ptr %seekPointCount.i.i57, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %25 to i64
   %retval.sroa.3.0.insert.shift.i.i.i59 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i58, 32
-  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %23 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %24 to i64
   %retval.sroa.0.0.insert.insert.i.i.i61 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i59, %retval.sroa.0.0.insert.ext.i.i.i60
   store i64 %retval.sroa.0.0.insert.insert.i.i.i61, ptr %backendConfig.i.i53, align 8
-  %call2.i.i63 = call i32 %22(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
+  %call2.i.i63 = call i32 %23(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
   %cmp3.not.i.i64 = icmp eq i32 %call2.i.i63, 0
   br i1 %cmp3.not.i.i64, label %if.end5.i.i66, label %ma_decoder_init_mp3__internal.exit
 
 if.end5.i.i66:                                    ; preds = %if.end.i.i56
-  %25 = load ptr, ptr %pBackend.i.i54, align 8
+  %26 = load ptr, ptr %pBackend.i.i54, align 8
   %pBackend6.i.i67 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %25, ptr %pBackend6.i.i67, align 8
+  store ptr %26, ptr %pBackend6.i.i67, align 8
   %pBackendVTable.i.i68 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i68, align 8
   %pCustomBackendUserData.i.i69 = getelementptr inbounds i8, ptr %config, i64 136
-  %26 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
+  %27 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
   %pBackendUserData.i.i70 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %26, ptr %pBackendUserData.i.i70, align 8
+  store ptr %27, ptr %pBackendUserData.i.i70, align 8
   br label %ma_decoder_init_mp3__internal.exit
 
 ma_decoder_init_mp3__internal.exit:               ; preds = %if.then15, %if.end.i.i56, %if.end5.i.i66
@@ -64155,82 +64158,82 @@ if.end17.if.then19_crit_edge:                     ; preds = %if.end17
   br label %if.then19
 
 if.then19:                                        ; preds = %if.end17.if.then19_crit_edge, %if.end
-  %27 = phi ptr [ %.pre225, %if.end17.if.then19_crit_edge ], [ %10, %if.end ]
-  %28 = phi ptr [ %.pre, %if.end17.if.then19_crit_edge ], [ %pVFS, %if.end ]
-  %cmp.not.i.i73 = icmp eq ptr %28, null
-  %cmp.i6.i.i = icmp eq ptr %27, null
+  %28 = phi ptr [ %.pre225, %if.end17.if.then19_crit_edge ], [ %11, %if.end ]
+  %29 = phi ptr [ %.pre, %if.end17.if.then19_crit_edge ], [ %pVFS, %if.end ]
+  %cmp.not.i.i73 = icmp eq ptr %29, null
+  %cmp.i6.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i73, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then19
   br i1 %cmp.i6.i.i, label %if.then24.critedge, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %onSeek.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
-  %29 = load ptr, ptr %onSeek.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq ptr %29, null
+  %onSeek.i.i.i = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = load ptr, ptr %onSeek.i.i.i, align 8
+  %cmp2.i.i.i = icmp eq ptr %30, null
   br i1 %cmp2.i.i.i, label %if.then24.critedge, label %if.end4.i.i.i74
 
 if.end4.i.i.i74:                                  ; preds = %if.end.i.i.i
-  %call.i.i.i75 = call i32 %29(ptr noundef nonnull %28, ptr noundef nonnull %27, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i75 = call i32 %30(ptr noundef nonnull %29, ptr noundef nonnull %28, i64 noundef 0, i32 noundef 0) #64
   br label %if.then24.critedge
 
 if.else.i.i:                                      ; preds = %if.then19
   br i1 %cmp.i6.i.i, label %if.then24.critedge, label %if.end.i7.i.i
 
 if.end.i7.i.i:                                    ; preds = %if.else.i.i
-  %call.i.i.i.i77 = call i32 @fseek(ptr noundef nonnull %27, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i77 = call i32 @fseek(ptr noundef nonnull %28, i64 noundef 0, i32 noundef 0)
   br label %if.then24.critedge
 
 if.then24.critedge:                               ; preds = %if.end, %if.end.i7.i.i, %if.else.i.i, %if.end4.i.i.i74, %if.end.i.i.i, %if.then.i.i
   %ppCustomBackendVTables.i = getelementptr inbounds i8, ptr %config, i64 120
-  %30 = load ptr, ptr %ppCustomBackendVTables.i, align 8
-  %cmp.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %ppCustomBackendVTables.i, align 8
+  %cmp.i = icmp eq ptr %31, null
   br i1 %cmp.i, label %if.then29, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then24.critedge
   %customBackendCount.i = getelementptr inbounds i8, ptr %config, i64 128
-  %31 = load i32, ptr %customBackendCount.i, align 8
-  %cmp114.not.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr %customBackendCount.i, align 8
+  %cmp114.not.i = icmp eq i32 %32, 0
   br i1 %cmp114.not.i, label %if.then29, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %pCustomBackendUserData.i = getelementptr inbounds i8, ptr %config, i64 136
   %seekPointCount.i.i80 = getelementptr inbounds i8, ptr %config, i64 116
-  %32 = load ptr, ptr %pCustomBackendUserData.i, align 8
-  %33 = load i32, ptr %config, align 8
-  %34 = load i32, ptr %seekPointCount.i.i80, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i84 = zext i32 %34 to i64
+  %33 = load ptr, ptr %pCustomBackendUserData.i, align 8
+  %34 = load i32, ptr %config, align 8
+  %35 = load i32, ptr %seekPointCount.i.i80, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i84 = zext i32 %35 to i64
   %retval.sroa.3.0.insert.shift.i.i.i85 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i84, 32
-  %retval.sroa.0.0.insert.ext.i.i.i86 = zext i32 %33 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i86 = zext i32 %34 to i64
   %retval.sroa.0.0.insert.insert.i.i.i87 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i85, %retval.sroa.0.0.insert.ext.i.i.i86
-  %conv.i = zext i32 %31 to i64
+  %conv.i = zext i32 %32 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.backedge, %for.body.lr.ph.i
   %ivtable.015.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %ivtable.015.i.be, %for.body.i.backedge ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %30, i64 %ivtable.015.i
-  %35 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not.i = icmp eq ptr %35, null
+  %arrayidx.i = getelementptr inbounds ptr, ptr %31, i64 %ivtable.015.i
+  %36 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not.i = icmp eq ptr %36, null
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %36 = load ptr, ptr %35, align 8
-  %cmp.i.i82 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %36, align 8
+  %cmp.i.i82 = icmp eq ptr %37, null
   br i1 %cmp.i.i82, label %if.else.i90, label %if.end.i.i83
 
 if.end.i.i83:                                     ; preds = %if.then6.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i87, ptr %backendConfig.i.i78, align 8
-  %call2.i.i88 = call i32 %36(ptr noundef %32, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i78, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i79) #64
+  %call2.i.i88 = call i32 %37(ptr noundef %33, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef %pDecoder, ptr noundef nonnull %backendConfig.i.i78, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i79) #64
   %cmp3.not.i.i89 = icmp eq i32 %call2.i.i88, 0
   br i1 %cmp3.not.i.i89, label %if.end32.thread, label %if.else.i90
 
 if.else.i90:                                      ; preds = %if.end.i.i83, %if.then6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %37 = load ptr, ptr %onSeek6.i.i, align 8
-  %call.i.i = call i32 %37(ptr noundef %pDecoder, i64 noundef 0, i32 noundef 0) #64
+  %38 = load ptr, ptr %onSeek6.i.i, align 8
+  %call.i.i = call i32 %38(ptr noundef %pDecoder, i64 noundef 0, i32 noundef 0) #64
   %cmp11.not.i = icmp eq i32 %call.i.i, 0
   %add.i = add nuw nsw i64 %ivtable.015.i, 1
   %cmp1.i92 = icmp ult i64 %add.i, %conv.i
@@ -64247,47 +64250,47 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %if.else
   br label %for.body.i, !llvm.loop !624
 
 if.then29:                                        ; preds = %if.else.i90, %for.inc.i, %if.then24.critedge, %for.cond.preheader.i
-  %38 = load ptr, ptr %data.i, align 8
-  %39 = load ptr, ptr %file11.i, align 8
-  %cmp.not.i.i98 = icmp eq ptr %38, null
-  %cmp.i6.i.i99 = icmp eq ptr %39, null
+  %39 = load ptr, ptr %data.i, align 8
+  %40 = load ptr, ptr %file11.i, align 8
+  %cmp.not.i.i98 = icmp eq ptr %39, null
+  %cmp.i6.i.i99 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i98, label %if.else.i.i107, label %if.then.i.i100
 
 if.then.i.i100:                                   ; preds = %if.then29
   br i1 %cmp.i6.i.i99, label %if.end32, label %if.end.i.i.i101
 
 if.end.i.i.i101:                                  ; preds = %if.then.i.i100
-  %onSeek.i.i.i102 = getelementptr inbounds i8, ptr %38, i64 40
-  %40 = load ptr, ptr %onSeek.i.i.i102, align 8
-  %cmp2.i.i.i103 = icmp eq ptr %40, null
+  %onSeek.i.i.i102 = getelementptr inbounds i8, ptr %39, i64 40
+  %41 = load ptr, ptr %onSeek.i.i.i102, align 8
+  %cmp2.i.i.i103 = icmp eq ptr %41, null
   br i1 %cmp2.i.i.i103, label %if.end32, label %if.end4.i.i.i104
 
 if.end4.i.i.i104:                                 ; preds = %if.end.i.i.i101
-  %call.i.i.i105 = call i32 %40(ptr noundef nonnull %38, ptr noundef nonnull %39, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i105 = call i32 %41(ptr noundef nonnull %39, ptr noundef nonnull %40, i64 noundef 0, i32 noundef 0) #64
   br label %if.end32
 
 if.else.i.i107:                                   ; preds = %if.then29
   br i1 %cmp.i6.i.i99, label %if.end32, label %if.end.i7.i.i108
 
 if.end.i7.i.i108:                                 ; preds = %if.else.i.i107
-  %call.i.i.i.i109 = call i32 @fseek(ptr noundef nonnull %39, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i109 = call i32 @fseek(ptr noundef nonnull %40, i64 noundef 0, i32 noundef 0)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end.i7.i.i108, %if.else.i.i107, %if.end4.i.i.i104, %if.end.i.i.i101, %if.then.i.i100
-  %cmp34.not = icmp eq i32 %11, 0
+  %cmp34.not = icmp eq i32 %12, 0
   br i1 %cmp34.not, label %land.lhs.true, label %return
 
 if.end32.thread:                                  ; preds = %if.end.i.i83
-  %41 = load ptr, ptr %pBackend.i.i79, align 8
+  %42 = load ptr, ptr %pBackend.i.i79, align 8
   %pBackend6.i.i93 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %41, ptr %pBackend6.i.i93, align 8
+  store ptr %42, ptr %pBackend6.i.i93, align 8
   %pBackendVTable.i.i94 = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  store ptr %35, ptr %pBackendVTable.i.i94, align 8
+  store ptr %36, ptr %pBackendVTable.i.i94, align 8
   %pBackendUserData.i.i95 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %32, ptr %pBackendUserData.i.i95, align 8
+  store ptr %33, ptr %pBackendUserData.i.i95, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i79)
-  %cmp34.not211 = icmp eq i32 %11, 0
+  %cmp34.not211 = icmp eq i32 %12, 0
   br i1 %cmp34.not211, label %if.else, label %return
 
 land.lhs.true:                                    ; preds = %if.end32
@@ -64298,33 +64301,33 @@ land.lhs.true:                                    ; preds = %if.end32
 if.then39:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i113)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i114)
-  %42 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
-  %cmp.i.i115 = icmp eq ptr %42, null
+  %43 = load ptr, ptr @g_ma_decoding_backend_vtable_wav, align 8
+  %cmp.i.i115 = icmp eq ptr %43, null
   br i1 %cmp.i.i115, label %if.then42, label %if.end.i.i116
 
 if.end.i.i116:                                    ; preds = %if.then39
-  %43 = load i32, ptr %config, align 8
+  %44 = load i32, ptr %config, align 8
   %seekPointCount.i.i117 = getelementptr inbounds i8, ptr %config, i64 116
-  %44 = load i32, ptr %seekPointCount.i.i117, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i118 = zext i32 %44 to i64
+  %45 = load i32, ptr %seekPointCount.i.i117, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i118 = zext i32 %45 to i64
   %retval.sroa.3.0.insert.shift.i.i.i119 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i118, 32
-  %retval.sroa.0.0.insert.ext.i.i.i120 = zext i32 %43 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i120 = zext i32 %44 to i64
   %retval.sroa.0.0.insert.insert.i.i.i121 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i119, %retval.sroa.0.0.insert.ext.i.i.i120
   store i64 %retval.sroa.0.0.insert.insert.i.i.i121, ptr %backendConfig.i.i113, align 8
-  %call2.i.i123 = call i32 %42(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i113, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i114) #64
+  %call2.i.i123 = call i32 %43(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i113, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i114) #64
   %cmp3.not.i.i124 = icmp eq i32 %call2.i.i123, 0
   br i1 %cmp3.not.i.i124, label %ma_decoder_init_wav__internal.exit132, label %if.then42
 
 ma_decoder_init_wav__internal.exit132:            ; preds = %if.end.i.i116
-  %45 = load ptr, ptr %pBackend.i.i114, align 8
+  %46 = load ptr, ptr %pBackend.i.i114, align 8
   %pBackend6.i.i128 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %45, ptr %pBackend6.i.i128, align 8
+  store ptr %46, ptr %pBackend6.i.i128, align 8
   %pBackendVTable.i.i129 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i129, align 8
   %pCustomBackendUserData.i.i130 = getelementptr inbounds i8, ptr %config, i64 136
-  %46 = load ptr, ptr %pCustomBackendUserData.i.i130, align 8
+  %47 = load ptr, ptr %pCustomBackendUserData.i.i130, align 8
   %pBackendUserData.i.i131 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %46, ptr %pBackendUserData.i.i131, align 8
+  store ptr %47, ptr %pBackendUserData.i.i131, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i114)
   br label %if.else
@@ -64332,30 +64335,30 @@ ma_decoder_init_wav__internal.exit132:            ; preds = %if.end.i.i116
 if.then42:                                        ; preds = %if.then39, %if.end.i.i116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i114)
-  %47 = load ptr, ptr %data.i, align 8
-  %48 = load ptr, ptr %file11.i, align 8
-  %cmp.not.i.i135 = icmp eq ptr %47, null
-  %cmp.i6.i.i136 = icmp eq ptr %48, null
+  %48 = load ptr, ptr %data.i, align 8
+  %49 = load ptr, ptr %file11.i, align 8
+  %cmp.not.i.i135 = icmp eq ptr %48, null
+  %cmp.i6.i.i136 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i135, label %if.else.i.i144, label %if.then.i.i137
 
 if.then.i.i137:                                   ; preds = %if.then42
   br i1 %cmp.i6.i.i136, label %land.lhs.true47.critedge, label %if.end.i.i.i138
 
 if.end.i.i.i138:                                  ; preds = %if.then.i.i137
-  %onSeek.i.i.i139 = getelementptr inbounds i8, ptr %47, i64 40
-  %49 = load ptr, ptr %onSeek.i.i.i139, align 8
-  %cmp2.i.i.i140 = icmp eq ptr %49, null
+  %onSeek.i.i.i139 = getelementptr inbounds i8, ptr %48, i64 40
+  %50 = load ptr, ptr %onSeek.i.i.i139, align 8
+  %cmp2.i.i.i140 = icmp eq ptr %50, null
   br i1 %cmp2.i.i.i140, label %land.lhs.true47.critedge, label %if.end4.i.i.i141
 
 if.end4.i.i.i141:                                 ; preds = %if.end.i.i.i138
-  %call.i.i.i142 = call i32 %49(ptr noundef nonnull %47, ptr noundef nonnull %48, i64 noundef 0, i32 noundef 0) #64
+  %call.i.i.i142 = call i32 %50(ptr noundef nonnull %48, ptr noundef nonnull %49, i64 noundef 0, i32 noundef 0) #64
   br label %land.lhs.true47.critedge
 
 if.else.i.i144:                                   ; preds = %if.then42
   br i1 %cmp.i6.i.i136, label %land.lhs.true47.critedge, label %if.end.i7.i.i145
 
 if.end.i7.i.i145:                                 ; preds = %if.else.i.i144
-  %call.i.i.i.i146 = call i32 @fseek(ptr noundef nonnull %48, i64 noundef 0, i32 noundef 0)
+  %call.i.i.i.i146 = call i32 @fseek(ptr noundef nonnull %49, i64 noundef 0, i32 noundef 0)
   br label %land.lhs.true47.critedge
 
 land.lhs.true47.critedge:                         ; preds = %if.end.i7.i.i145, %if.else.i.i144, %if.end4.i.i.i141, %if.end.i.i.i138, %if.then.i.i137, %land.lhs.true
@@ -64366,33 +64369,33 @@ land.lhs.true47.critedge:                         ; preds = %if.end.i7.i.i145, %
 if.then50:                                        ; preds = %land.lhs.true47.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i150)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i151)
-  %50 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
-  %cmp.i.i152 = icmp eq ptr %50, null
+  %51 = load ptr, ptr @g_ma_decoding_backend_vtable_flac, align 8
+  %cmp.i.i152 = icmp eq ptr %51, null
   br i1 %cmp.i.i152, label %if.then53, label %if.end.i.i153
 
 if.end.i.i153:                                    ; preds = %if.then50
-  %51 = load i32, ptr %config, align 8
+  %52 = load i32, ptr %config, align 8
   %seekPointCount.i.i154 = getelementptr inbounds i8, ptr %config, i64 116
-  %52 = load i32, ptr %seekPointCount.i.i154, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i155 = zext i32 %52 to i64
+  %53 = load i32, ptr %seekPointCount.i.i154, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i155 = zext i32 %53 to i64
   %retval.sroa.3.0.insert.shift.i.i.i156 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i155, 32
-  %retval.sroa.0.0.insert.ext.i.i.i157 = zext i32 %51 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i157 = zext i32 %52 to i64
   %retval.sroa.0.0.insert.insert.i.i.i158 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i156, %retval.sroa.0.0.insert.ext.i.i.i157
   store i64 %retval.sroa.0.0.insert.insert.i.i.i158, ptr %backendConfig.i.i150, align 8
-  %call2.i.i160 = call i32 %50(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i150, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i151) #64
+  %call2.i.i160 = call i32 %51(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i150, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i151) #64
   %cmp3.not.i.i161 = icmp eq i32 %call2.i.i160, 0
   br i1 %cmp3.not.i.i161, label %ma_decoder_init_flac__internal.exit169, label %if.then53
 
 ma_decoder_init_flac__internal.exit169:           ; preds = %if.end.i.i153
-  %53 = load ptr, ptr %pBackend.i.i151, align 8
+  %54 = load ptr, ptr %pBackend.i.i151, align 8
   %pBackend6.i.i165 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %53, ptr %pBackend6.i.i165, align 8
+  store ptr %54, ptr %pBackend6.i.i165, align 8
   %pBackendVTable.i.i166 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i166, align 8
   %pCustomBackendUserData.i.i167 = getelementptr inbounds i8, ptr %config, i64 136
-  %54 = load ptr, ptr %pCustomBackendUserData.i.i167, align 8
+  %55 = load ptr, ptr %pCustomBackendUserData.i.i167, align 8
   %pBackendUserData.i.i168 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %54, ptr %pBackendUserData.i.i168, align 8
+  store ptr %55, ptr %pBackendUserData.i.i168, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i151)
   br label %if.else
@@ -64411,33 +64414,33 @@ land.lhs.true58.critedge:                         ; preds = %land.lhs.true47.cri
 if.then61:                                        ; preds = %land.lhs.true58.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i170)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i171)
-  %55 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
-  %cmp.i.i172 = icmp eq ptr %55, null
+  %56 = load ptr, ptr @g_ma_decoding_backend_vtable_mp3, align 8
+  %cmp.i.i172 = icmp eq ptr %56, null
   br i1 %cmp.i.i172, label %if.then64, label %if.end.i.i173
 
 if.end.i.i173:                                    ; preds = %if.then61
-  %56 = load i32, ptr %config, align 8
+  %57 = load i32, ptr %config, align 8
   %seekPointCount.i.i174 = getelementptr inbounds i8, ptr %config, i64 116
-  %57 = load i32, ptr %seekPointCount.i.i174, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i175 = zext i32 %57 to i64
+  %58 = load i32, ptr %seekPointCount.i.i174, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i175 = zext i32 %58 to i64
   %retval.sroa.3.0.insert.shift.i.i.i176 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i175, 32
-  %retval.sroa.0.0.insert.ext.i.i.i177 = zext i32 %56 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i177 = zext i32 %57 to i64
   %retval.sroa.0.0.insert.insert.i.i.i178 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i176, %retval.sroa.0.0.insert.ext.i.i.i177
   store i64 %retval.sroa.0.0.insert.insert.i.i.i178, ptr %backendConfig.i.i170, align 8
-  %call2.i.i180 = call i32 %55(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i170, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i171) #64
+  %call2.i.i180 = call i32 %56(ptr noundef null, ptr noundef nonnull @ma_decoder_internal_on_read__custom, ptr noundef nonnull @ma_decoder_internal_on_seek__custom, ptr noundef nonnull @ma_decoder_internal_on_tell__custom, ptr noundef nonnull %pDecoder, ptr noundef nonnull %backendConfig.i.i170, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i171) #64
   %cmp3.not.i.i181 = icmp eq i32 %call2.i.i180, 0
   br i1 %cmp3.not.i.i181, label %ma_decoder_init_mp3__internal.exit189, label %if.then64
 
 ma_decoder_init_mp3__internal.exit189:            ; preds = %if.end.i.i173
-  %58 = load ptr, ptr %pBackend.i.i171, align 8
+  %59 = load ptr, ptr %pBackend.i.i171, align 8
   %pBackend6.i.i185 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %58, ptr %pBackend6.i.i185, align 8
+  store ptr %59, ptr %pBackend6.i.i185, align 8
   %pBackendVTable.i.i186 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i186, align 8
   %pCustomBackendUserData.i.i187 = getelementptr inbounds i8, ptr %config, i64 136
-  %59 = load ptr, ptr %pCustomBackendUserData.i.i187, align 8
+  %60 = load ptr, ptr %pCustomBackendUserData.i.i187, align 8
   %pBackendUserData.i.i188 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %59, ptr %pBackendUserData.i.i188, align 8
+  store ptr %60, ptr %pBackendUserData.i.i188, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i171)
   br label %if.else
@@ -64462,8 +64465,8 @@ if.end73:                                         ; preds = %if.else, %if.then70
   br i1 %cmp74.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %if.end73
-  %60 = load ptr, ptr %file11.i, align 8
-  %cmp.i4.i = icmp eq ptr %60, null
+  %61 = load ptr, ptr %file11.i, align 8
+  %cmp.i4.i = icmp eq ptr %61, null
   br i1 %cmp.not.i.i, label %if.else.i196, label %if.then.i191
 
 if.then.i191:                                     ; preds = %if.then75
@@ -64471,19 +64474,19 @@ if.then.i191:                                     ; preds = %if.then75
 
 if.end.i.i192:                                    ; preds = %if.then.i191
   %onClose.i.i = getelementptr inbounds i8, ptr %pVFS, i64 16
-  %61 = load ptr, ptr %onClose.i.i, align 8
-  %cmp2.i.i = icmp eq ptr %61, null
+  %62 = load ptr, ptr %onClose.i.i, align 8
+  %cmp2.i.i = icmp eq ptr %62, null
   br i1 %cmp2.i.i, label %return, label %if.end4.i.i193
 
 if.end4.i.i193:                                   ; preds = %if.end.i.i192
-  %call.i.i194 = call i32 %61(ptr noundef nonnull %pVFS, ptr noundef nonnull %60) #64
+  %call.i.i194 = call i32 %62(ptr noundef nonnull %pVFS, ptr noundef nonnull %61) #64
   br label %return
 
 if.else.i196:                                     ; preds = %if.then75
   br i1 %cmp.i4.i, label %return, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.else.i196
-  %call.i.i.i197 = call i32 @fclose(ptr noundef nonnull %60)
+  %call.i.i.i197 = call i32 @fclose(ptr noundef nonnull %61)
   br label %return
 
 return:                                           ; preds = %if.end.i5.i, %if.else.i196, %if.end4.i.i193, %if.end.i.i192, %if.then.i191, %if.end32.thread, %ma_decoder__preinit_vfs_w.exit.thread, %if.end73, %if.end32
@@ -64684,7 +64687,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond296, label %return, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  %7 = getelementptr inbounds i8, ptr %tmp, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -64692,14 +64696,14 @@ if.end.i:                                         ; preds = %if.else20.i.i.i.i, 
   br i1 %cmp1.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %7 = load i8, ptr %pFilePath, align 1
-  %cmp2.i = icmp eq i8 %7, 0
+  %8 = load i8, ptr %pFilePath, align 1
+  %cmp2.i = icmp eq i8 %8, 0
   br i1 %cmp2.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false.i
   %encodingFormat = getelementptr inbounds i8, ptr %config, i64 112
-  %8 = load i32, ptr %encodingFormat, align 8
-  switch i32 %8, label %if.then20 [
+  %9 = load i32, ptr %encodingFormat, align 8
+  switch i32 %9, label %if.then20 [
     i32 3, label %if.then15
     i32 1, label %if.then5
     i32 2, label %if.then10
@@ -64708,33 +64712,33 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
-  %cmp.i.i52 = icmp eq ptr %9, null
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
+  %cmp.i.i52 = icmp eq ptr %10, null
   br i1 %cmp.i.i52, label %if.end7.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
-  %10 = load i32, ptr %config, align 8
+  %11 = load i32, ptr %config, align 8
   %seekPointCount.i.i = getelementptr inbounds i8, ptr %config, i64 116
-  %11 = load i32, ptr %seekPointCount.i.i, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %11 to i64
+  %12 = load i32, ptr %seekPointCount.i.i, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %12 to i64
   %retval.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %10 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %11 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %9(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %10(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end7.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %12 = load ptr, ptr %pBackend.i.i, align 8
+  %13 = load ptr, ptr %pBackend.i.i, align 8
   %pBackend6.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %12, ptr %pBackend6.i.i, align 8
+  store ptr %13, ptr %pBackend6.i.i, align 8
   %pBackendVTable.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i, align 8
   %pCustomBackendUserData.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %13 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
+  %14 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %13, ptr %pBackendUserData.i.i, align 8
+  store ptr %14, ptr %pBackendUserData.i.i, align 8
   br label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %if.end5.i.i, %if.end.i.i, %if.then5
@@ -64746,33 +64750,33 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i54)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
-  %cmp.i.i55 = icmp eq ptr %14, null
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
+  %cmp.i.i55 = icmp eq ptr %15, null
   br i1 %cmp.i.i55, label %ma_decoder_init_flac_from_file__internal.exit, label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %if.then10
-  %15 = load i32, ptr %config, align 8
+  %16 = load i32, ptr %config, align 8
   %seekPointCount.i.i57 = getelementptr inbounds i8, ptr %config, i64 116
-  %16 = load i32, ptr %seekPointCount.i.i57, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %16 to i64
+  %17 = load i32, ptr %seekPointCount.i.i57, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %17 to i64
   %retval.sroa.3.0.insert.shift.i.i.i59 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i58, 32
-  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %15 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %16 to i64
   %retval.sroa.0.0.insert.insert.i.i.i61 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i59, %retval.sroa.0.0.insert.ext.i.i.i60
   store i64 %retval.sroa.0.0.insert.insert.i.i.i61, ptr %backendConfig.i.i53, align 8
-  %call2.i.i63 = call i32 %14(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
+  %call2.i.i63 = call i32 %15(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
   %cmp3.not.i.i64 = icmp eq i32 %call2.i.i63, 0
   br i1 %cmp3.not.i.i64, label %if.end5.i.i66, label %ma_decoder_init_flac_from_file__internal.exit
 
 if.end5.i.i66:                                    ; preds = %if.end.i.i56
-  %17 = load ptr, ptr %pBackend.i.i54, align 8
+  %18 = load ptr, ptr %pBackend.i.i54, align 8
   %pBackend6.i.i67 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %17, ptr %pBackend6.i.i67, align 8
+  store ptr %18, ptr %pBackend6.i.i67, align 8
   %pBackendVTable.i.i68 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i68, align 8
   %pCustomBackendUserData.i.i69 = getelementptr inbounds i8, ptr %config, i64 136
-  %18 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
+  %19 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
   %pBackendUserData.i.i70 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %18, ptr %pBackendUserData.i.i70, align 8
+  store ptr %19, ptr %pBackendUserData.i.i70, align 8
   br label %ma_decoder_init_flac_from_file__internal.exit
 
 ma_decoder_init_flac_from_file__internal.exit:    ; preds = %if.then10, %if.end.i.i56, %if.end5.i.i66
@@ -64784,33 +64788,33 @@ ma_decoder_init_flac_from_file__internal.exit:    ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i72)
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
-  %cmp.i.i73 = icmp eq ptr %19, null
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
+  %cmp.i.i73 = icmp eq ptr %20, null
   br i1 %cmp.i.i73, label %ma_decoder_init_mp3_from_file__internal.exit, label %if.end.i.i74
 
 if.end.i.i74:                                     ; preds = %if.then15
-  %20 = load i32, ptr %config, align 8
+  %21 = load i32, ptr %config, align 8
   %seekPointCount.i.i75 = getelementptr inbounds i8, ptr %config, i64 116
-  %21 = load i32, ptr %seekPointCount.i.i75, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i76 = zext i32 %21 to i64
+  %22 = load i32, ptr %seekPointCount.i.i75, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i76 = zext i32 %22 to i64
   %retval.sroa.3.0.insert.shift.i.i.i77 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i76, 32
-  %retval.sroa.0.0.insert.ext.i.i.i78 = zext i32 %20 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i78 = zext i32 %21 to i64
   %retval.sroa.0.0.insert.insert.i.i.i79 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i77, %retval.sroa.0.0.insert.ext.i.i.i78
   store i64 %retval.sroa.0.0.insert.insert.i.i.i79, ptr %backendConfig.i.i71, align 8
-  %call2.i.i81 = call i32 %19(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i71, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i72) #64
+  %call2.i.i81 = call i32 %20(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i71, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i72) #64
   %cmp3.not.i.i82 = icmp eq i32 %call2.i.i81, 0
   br i1 %cmp3.not.i.i82, label %if.end5.i.i84, label %ma_decoder_init_mp3_from_file__internal.exit
 
 if.end5.i.i84:                                    ; preds = %if.end.i.i74
-  %22 = load ptr, ptr %pBackend.i.i72, align 8
+  %23 = load ptr, ptr %pBackend.i.i72, align 8
   %pBackend6.i.i85 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %22, ptr %pBackend6.i.i85, align 8
+  store ptr %23, ptr %pBackend6.i.i85, align 8
   %pBackendVTable.i.i86 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i86, align 8
   %pCustomBackendUserData.i.i87 = getelementptr inbounds i8, ptr %config, i64 136
-  %23 = load ptr, ptr %pCustomBackendUserData.i.i87, align 8
+  %24 = load ptr, ptr %pCustomBackendUserData.i.i87, align 8
   %pBackendUserData.i.i88 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %23, ptr %pBackendUserData.i.i88, align 8
+  store ptr %24, ptr %pBackendUserData.i.i88, align 8
   br label %ma_decoder_init_mp3_from_file__internal.exit
 
 ma_decoder_init_mp3_from_file__internal.exit:     ; preds = %if.then15, %if.end.i.i74, %if.end5.i.i84
@@ -64826,47 +64830,47 @@ if.end18:                                         ; preds = %ma_decoder_init_fla
 
 if.then20:                                        ; preds = %if.end, %if.end18
   %ppCustomBackendVTables.i = getelementptr inbounds i8, ptr %config, i64 120
-  %24 = load ptr, ptr %ppCustomBackendVTables.i, align 8
-  %cmp.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %ppCustomBackendVTables.i, align 8
+  %cmp.i = icmp eq ptr %25, null
   br i1 %cmp.i, label %ma_decoder_init_custom_from_file__internal.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then20
   %customBackendCount.i = getelementptr inbounds i8, ptr %config, i64 128
-  %25 = load i32, ptr %customBackendCount.i, align 8
-  %cmp111.not.i = icmp eq i32 %25, 0
+  %26 = load i32, ptr %customBackendCount.i, align 8
+  %cmp111.not.i = icmp eq i32 %26, 0
   br i1 %cmp111.not.i, label %ma_decoder_init_custom_from_file__internal.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %pCustomBackendUserData.i = getelementptr inbounds i8, ptr %config, i64 136
   %seekPointCount.i.i91 = getelementptr inbounds i8, ptr %config, i64 116
-  %26 = load ptr, ptr %pCustomBackendUserData.i, align 8
-  %27 = load i32, ptr %config, align 8
-  %28 = load i32, ptr %seekPointCount.i.i91, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i95 = zext i32 %28 to i64
+  %27 = load ptr, ptr %pCustomBackendUserData.i, align 8
+  %28 = load i32, ptr %config, align 8
+  %29 = load i32, ptr %seekPointCount.i.i91, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i95 = zext i32 %29 to i64
   %retval.sroa.3.0.insert.shift.i.i.i96 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i95, 32
-  %retval.sroa.0.0.insert.ext.i.i.i97 = zext i32 %27 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i97 = zext i32 %28 to i64
   %retval.sroa.0.0.insert.insert.i.i.i98 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i96, %retval.sroa.0.0.insert.ext.i.i.i97
-  %conv.i = zext i32 %25 to i64
+  %conv.i = zext i32 %26 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %ivtable.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %ivtable.012.i
-  %29 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not.i = icmp eq ptr %29, null
+  %arrayidx.i = getelementptr inbounds ptr, ptr %25, i64 %ivtable.012.i
+  %30 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not.i = icmp eq ptr %30, null
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i89)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i90)
-  %onInitFile.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load ptr, ptr %onInitFile.i.i, align 8
-  %cmp.i.i93 = icmp eq ptr %30, null
+  %onInitFile.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load ptr, ptr %onInitFile.i.i, align 8
+  %cmp.i.i93 = icmp eq ptr %31, null
   br i1 %cmp.i.i93, label %ma_decoder_init_from_file__internal.exit.thread.i, label %if.end.i.i94
 
 if.end.i.i94:                                     ; preds = %if.then6.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i98, ptr %backendConfig.i.i89, align 8
-  %call2.i.i99 = call i32 %30(ptr noundef %26, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i89, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i90) #64
+  %call2.i.i99 = call i32 %31(ptr noundef %27, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i89, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i90) #64
   %cmp3.not.i.i100 = icmp eq i32 %call2.i.i99, 0
   br i1 %cmp3.not.i.i100, label %if.end26.thread, label %ma_decoder_init_from_file__internal.exit.thread.i
 
@@ -64876,13 +64880,13 @@ ma_decoder_init_from_file__internal.exit.thread.i: ; preds = %if.end.i.i94, %if.
   br label %for.inc.i
 
 if.end26.thread:                                  ; preds = %if.end.i.i94
-  %31 = load ptr, ptr %pBackend.i.i90, align 8
+  %32 = load ptr, ptr %pBackend.i.i90, align 8
   %pBackend6.i.i103 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %31, ptr %pBackend6.i.i103, align 8
+  store ptr %32, ptr %pBackend6.i.i103, align 8
   %pBackendVTable.i.i104 = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  store ptr %29, ptr %pBackendVTable.i.i104, align 8
+  store ptr %30, ptr %pBackendVTable.i.i104, align 8
   %pBackendUserData.i.i105 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %26, ptr %pBackendUserData.i.i105, align 8
+  store ptr %27, ptr %pBackendUserData.i.i105, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i90)
   br label %if.then64
@@ -64893,14 +64897,14 @@ for.inc.i:                                        ; preds = %ma_decoder_init_fro
   br i1 %exitcond.not, label %ma_decoder_init_custom_from_file__internal.exit, label %for.body.i, !llvm.loop !644
 
 ma_decoder_init_custom_from_file__internal.exit:  ; preds = %for.inc.i, %if.then20, %for.cond.preheader.i
-  %cmp24.not = icmp eq i32 %8, 0
+  %cmp24.not = icmp eq i32 %9, 0
   br i1 %cmp24.not, label %while.cond.i.i.i, label %return
 
 while.cond.i.i.i:                                 ; preds = %ma_decoder_init_custom_from_file__internal.exit, %if.end12.i.i.i
   %path.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end12.i.i.i ], [ %pFilePath, %ma_decoder_init_custom_from_file__internal.exit ]
   %fileName.0.i.i.i = phi ptr [ %fileName.1.i.i.i, %if.end12.i.i.i ], [ %pFilePath, %ma_decoder_init_custom_from_file__internal.exit ]
-  %32 = load i8, ptr %path.addr.0.i.i.i, align 1
-  switch i8 %32, label %if.end12.i.i.i [
+  %33 = load i8, ptr %path.addr.0.i.i.i, align 1
+  switch i8 %33, label %if.end12.i.i.i [
     i8 0, label %while.cond13.i.i.i
     i8 47, label %if.then11.i.i.i
     i8 92, label %if.then11.i.i.i
@@ -64916,8 +64920,8 @@ if.end12.i.i.i:                                   ; preds = %if.then11.i.i.i, %w
 
 while.cond13.i.i.i:                               ; preds = %while.cond.i.i.i, %while.body26.i.i.i
   %fileName.2.i.i.i = phi ptr [ %add.ptr27.i.i.i, %while.body26.i.i.i ], [ %fileName.0.i.i.i, %while.cond.i.i.i ]
-  %33 = load i8, ptr %fileName.2.i.i.i, align 1
-  switch i8 %33, label %while.cond.i.i [
+  %34 = load i8, ptr %fileName.2.i.i.i, align 1
+  switch i8 %34, label %while.cond.i.i [
     i8 92, label %while.body26.i.i.i
     i8 47, label %while.body26.i.i.i
   ]
@@ -64927,10 +64931,10 @@ while.body26.i.i.i:                               ; preds = %while.cond13.i.i.i,
   br label %while.cond13.i.i.i, !llvm.loop !633
 
 while.cond.i.i:                                   ; preds = %while.cond13.i.i.i, %if.end8.i.i
-  %34 = phi i8 [ %.pr.i.i, %if.end8.i.i ], [ %33, %while.cond13.i.i.i ]
+  %35 = phi i8 [ %.pr.i.i, %if.end8.i.i ], [ %34, %while.cond13.i.i.i ]
   %extension.0.i.i = phi ptr [ %add.ptr9.i.i, %if.end8.i.i ], [ %fileName.2.i.i.i, %while.cond13.i.i.i ]
   %lastOccurance.0.i.i = phi ptr [ %lastOccurance.1.i.i, %if.end8.i.i ], [ null, %while.cond13.i.i.i ]
-  switch i8 %34, label %if.end8.i.i [
+  switch i8 %35, label %if.end8.i.i [
     i8 0, label %ma_path_extension_equal.exit
     i8 46, label %if.then7.i.i
   ]
@@ -64959,20 +64963,20 @@ while.cond.i.i.i130.preheader:                    ; preds = %ma_decoder_init_wav
 if.then30:                                        ; preds = %ma_path_extension_equal.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i109)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i110)
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
-  %cmp.i.i111 = icmp eq ptr %35, null
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
+  %cmp.i.i111 = icmp eq ptr %36, null
   br i1 %cmp.i.i111, label %ma_decoder_init_wav_from_file__internal.exit128.thread, label %if.end.i.i112
 
 if.end.i.i112:                                    ; preds = %if.then30
-  %36 = load i32, ptr %config, align 8
+  %37 = load i32, ptr %config, align 8
   %seekPointCount.i.i113 = getelementptr inbounds i8, ptr %config, i64 116
-  %37 = load i32, ptr %seekPointCount.i.i113, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i114 = zext i32 %37 to i64
+  %38 = load i32, ptr %seekPointCount.i.i113, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i114 = zext i32 %38 to i64
   %retval.sroa.3.0.insert.shift.i.i.i115 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i114, 32
-  %retval.sroa.0.0.insert.ext.i.i.i116 = zext i32 %36 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i116 = zext i32 %37 to i64
   %retval.sroa.0.0.insert.insert.i.i.i117 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i115, %retval.sroa.0.0.insert.ext.i.i.i116
   store i64 %retval.sroa.0.0.insert.insert.i.i.i117, ptr %backendConfig.i.i109, align 8
-  %call2.i.i119 = call i32 %35(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i109, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i110) #64
+  %call2.i.i119 = call i32 %36(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i109, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i110) #64
   %cmp3.not.i.i120 = icmp eq i32 %call2.i.i119, 0
   br i1 %cmp3.not.i.i120, label %ma_decoder_init_wav_from_file__internal.exit128, label %ma_decoder_init_wav_from_file__internal.exit128.thread
 
@@ -64982,15 +64986,15 @@ ma_decoder_init_wav_from_file__internal.exit128.thread: ; preds = %if.then30, %i
   br label %while.cond.i.i.i130.preheader
 
 ma_decoder_init_wav_from_file__internal.exit128:  ; preds = %if.end.i.i112
-  %38 = load ptr, ptr %pBackend.i.i110, align 8
+  %39 = load ptr, ptr %pBackend.i.i110, align 8
   %pBackend6.i.i124 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %38, ptr %pBackend6.i.i124, align 8
+  store ptr %39, ptr %pBackend6.i.i124, align 8
   %pBackendVTable.i.i125 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i125, align 8
   %pCustomBackendUserData.i.i126 = getelementptr inbounds i8, ptr %config, i64 136
-  %39 = load ptr, ptr %pCustomBackendUserData.i.i126, align 8
+  %40 = load ptr, ptr %pCustomBackendUserData.i.i126, align 8
   %pBackendUserData.i.i127 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %39, ptr %pBackendUserData.i.i127, align 8
+  store ptr %40, ptr %pBackendUserData.i.i127, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i109)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i110)
   br label %if.then64
@@ -64998,8 +65002,8 @@ ma_decoder_init_wav_from_file__internal.exit128:  ; preds = %if.end.i.i112
 while.cond.i.i.i130:                              ; preds = %while.cond.i.i.i130.preheader, %if.end12.i.i.i134
   %path.addr.0.i.i.i131 = phi ptr [ %add.ptr.i.i.i136, %if.end12.i.i.i134 ], [ %pFilePath, %while.cond.i.i.i130.preheader ]
   %fileName.0.i.i.i132 = phi ptr [ %fileName.1.i.i.i135, %if.end12.i.i.i134 ], [ %pFilePath, %while.cond.i.i.i130.preheader ]
-  %40 = load i8, ptr %path.addr.0.i.i.i131, align 1
-  switch i8 %40, label %if.end12.i.i.i134 [
+  %41 = load i8, ptr %path.addr.0.i.i.i131, align 1
+  switch i8 %41, label %if.end12.i.i.i134 [
     i8 0, label %while.cond13.i.i.i137
     i8 47, label %if.then11.i.i.i133
     i8 92, label %if.then11.i.i.i133
@@ -65015,8 +65019,8 @@ if.end12.i.i.i134:                                ; preds = %if.then11.i.i.i133,
 
 while.cond13.i.i.i137:                            ; preds = %while.cond.i.i.i130, %while.body26.i.i.i139
   %fileName.2.i.i.i138 = phi ptr [ %add.ptr27.i.i.i140, %while.body26.i.i.i139 ], [ %fileName.0.i.i.i132, %while.cond.i.i.i130 ]
-  %41 = load i8, ptr %fileName.2.i.i.i138, align 1
-  switch i8 %41, label %while.cond.i.i141 [
+  %42 = load i8, ptr %fileName.2.i.i.i138, align 1
+  switch i8 %42, label %while.cond.i.i141 [
     i8 92, label %while.body26.i.i.i139
     i8 47, label %while.body26.i.i.i139
   ]
@@ -65026,10 +65030,10 @@ while.body26.i.i.i139:                            ; preds = %while.cond13.i.i.i1
   br label %while.cond13.i.i.i137, !llvm.loop !633
 
 while.cond.i.i141:                                ; preds = %while.cond13.i.i.i137, %if.end8.i.i146
-  %42 = phi i8 [ %.pr.i.i150, %if.end8.i.i146 ], [ %41, %while.cond13.i.i.i137 ]
+  %43 = phi i8 [ %.pr.i.i150, %if.end8.i.i146 ], [ %42, %while.cond13.i.i.i137 ]
   %extension.0.i.i142 = phi ptr [ %add.ptr9.i.i149, %if.end8.i.i146 ], [ %fileName.2.i.i.i138, %while.cond13.i.i.i137 ]
   %lastOccurance.0.i.i143 = phi ptr [ %lastOccurance.1.i.i148, %if.end8.i.i146 ], [ null, %while.cond13.i.i.i137 ]
-  switch i8 %42, label %if.end8.i.i146 [
+  switch i8 %43, label %if.end8.i.i146 [
     i8 0, label %ma_path_extension_equal.exit158
     i8 46, label %if.then7.i.i144
   ]
@@ -65058,20 +65062,20 @@ while.cond.i.i.i180.preheader:                    ; preds = %ma_decoder_init_fla
 if.then37:                                        ; preds = %ma_path_extension_equal.exit158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i159)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i160)
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
-  %cmp.i.i161 = icmp eq ptr %43, null
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
+  %cmp.i.i161 = icmp eq ptr %44, null
   br i1 %cmp.i.i161, label %ma_decoder_init_flac_from_file__internal.exit178.thread, label %if.end.i.i162
 
 if.end.i.i162:                                    ; preds = %if.then37
-  %44 = load i32, ptr %config, align 8
+  %45 = load i32, ptr %config, align 8
   %seekPointCount.i.i163 = getelementptr inbounds i8, ptr %config, i64 116
-  %45 = load i32, ptr %seekPointCount.i.i163, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i164 = zext i32 %45 to i64
+  %46 = load i32, ptr %seekPointCount.i.i163, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i164 = zext i32 %46 to i64
   %retval.sroa.3.0.insert.shift.i.i.i165 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i164, 32
-  %retval.sroa.0.0.insert.ext.i.i.i166 = zext i32 %44 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i166 = zext i32 %45 to i64
   %retval.sroa.0.0.insert.insert.i.i.i167 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i165, %retval.sroa.0.0.insert.ext.i.i.i166
   store i64 %retval.sroa.0.0.insert.insert.i.i.i167, ptr %backendConfig.i.i159, align 8
-  %call2.i.i169 = call i32 %43(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i159, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i160) #64
+  %call2.i.i169 = call i32 %44(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i159, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i160) #64
   %cmp3.not.i.i170 = icmp eq i32 %call2.i.i169, 0
   br i1 %cmp3.not.i.i170, label %ma_decoder_init_flac_from_file__internal.exit178, label %ma_decoder_init_flac_from_file__internal.exit178.thread
 
@@ -65081,15 +65085,15 @@ ma_decoder_init_flac_from_file__internal.exit178.thread: ; preds = %if.then37, %
   br label %while.cond.i.i.i180.preheader
 
 ma_decoder_init_flac_from_file__internal.exit178: ; preds = %if.end.i.i162
-  %46 = load ptr, ptr %pBackend.i.i160, align 8
+  %47 = load ptr, ptr %pBackend.i.i160, align 8
   %pBackend6.i.i174 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %46, ptr %pBackend6.i.i174, align 8
+  store ptr %47, ptr %pBackend6.i.i174, align 8
   %pBackendVTable.i.i175 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i175, align 8
   %pCustomBackendUserData.i.i176 = getelementptr inbounds i8, ptr %config, i64 136
-  %47 = load ptr, ptr %pCustomBackendUserData.i.i176, align 8
+  %48 = load ptr, ptr %pCustomBackendUserData.i.i176, align 8
   %pBackendUserData.i.i177 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %47, ptr %pBackendUserData.i.i177, align 8
+  store ptr %48, ptr %pBackendUserData.i.i177, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i159)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i160)
   br label %if.then64
@@ -65097,8 +65101,8 @@ ma_decoder_init_flac_from_file__internal.exit178: ; preds = %if.end.i.i162
 while.cond.i.i.i180:                              ; preds = %while.cond.i.i.i180.preheader, %if.end12.i.i.i184
   %path.addr.0.i.i.i181 = phi ptr [ %add.ptr.i.i.i186, %if.end12.i.i.i184 ], [ %pFilePath, %while.cond.i.i.i180.preheader ]
   %fileName.0.i.i.i182 = phi ptr [ %fileName.1.i.i.i185, %if.end12.i.i.i184 ], [ %pFilePath, %while.cond.i.i.i180.preheader ]
-  %48 = load i8, ptr %path.addr.0.i.i.i181, align 1
-  switch i8 %48, label %if.end12.i.i.i184 [
+  %49 = load i8, ptr %path.addr.0.i.i.i181, align 1
+  switch i8 %49, label %if.end12.i.i.i184 [
     i8 0, label %while.cond13.i.i.i187
     i8 47, label %if.then11.i.i.i183
     i8 92, label %if.then11.i.i.i183
@@ -65114,8 +65118,8 @@ if.end12.i.i.i184:                                ; preds = %if.then11.i.i.i183,
 
 while.cond13.i.i.i187:                            ; preds = %while.cond.i.i.i180, %while.body26.i.i.i189
   %fileName.2.i.i.i188 = phi ptr [ %add.ptr27.i.i.i190, %while.body26.i.i.i189 ], [ %fileName.0.i.i.i182, %while.cond.i.i.i180 ]
-  %49 = load i8, ptr %fileName.2.i.i.i188, align 1
-  switch i8 %49, label %while.cond.i.i191 [
+  %50 = load i8, ptr %fileName.2.i.i.i188, align 1
+  switch i8 %50, label %while.cond.i.i191 [
     i8 92, label %while.body26.i.i.i189
     i8 47, label %while.body26.i.i.i189
   ]
@@ -65125,10 +65129,10 @@ while.body26.i.i.i189:                            ; preds = %while.cond13.i.i.i1
   br label %while.cond13.i.i.i187, !llvm.loop !633
 
 while.cond.i.i191:                                ; preds = %while.cond13.i.i.i187, %if.end8.i.i196
-  %50 = phi i8 [ %.pr.i.i200, %if.end8.i.i196 ], [ %49, %while.cond13.i.i.i187 ]
+  %51 = phi i8 [ %.pr.i.i200, %if.end8.i.i196 ], [ %50, %while.cond13.i.i.i187 ]
   %extension.0.i.i192 = phi ptr [ %add.ptr9.i.i199, %if.end8.i.i196 ], [ %fileName.2.i.i.i188, %while.cond13.i.i.i187 ]
   %lastOccurance.0.i.i193 = phi ptr [ %lastOccurance.1.i.i198, %if.end8.i.i196 ], [ null, %while.cond13.i.i.i187 ]
-  switch i8 %50, label %if.end8.i.i196 [
+  switch i8 %51, label %if.end8.i.i196 [
     i8 0, label %ma_path_extension_equal.exit208
     i8 46, label %if.then7.i.i194
   ]
@@ -65154,20 +65158,20 @@ ma_path_extension_equal.exit208:                  ; preds = %while.cond.i.i191
 if.then44:                                        ; preds = %ma_path_extension_equal.exit208
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i209)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i210)
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
-  %cmp.i.i211 = icmp eq ptr %51, null
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 8), align 8
+  %cmp.i.i211 = icmp eq ptr %52, null
   br i1 %cmp.i.i211, label %ma_decoder_init_mp3_from_file__internal.exit228.thread, label %if.end.i.i212
 
 if.end.i.i212:                                    ; preds = %if.then44
-  %52 = load i32, ptr %config, align 8
+  %53 = load i32, ptr %config, align 8
   %seekPointCount.i.i213 = getelementptr inbounds i8, ptr %config, i64 116
-  %53 = load i32, ptr %seekPointCount.i.i213, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i214 = zext i32 %53 to i64
+  %54 = load i32, ptr %seekPointCount.i.i213, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i214 = zext i32 %54 to i64
   %retval.sroa.3.0.insert.shift.i.i.i215 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i214, 32
-  %retval.sroa.0.0.insert.ext.i.i.i216 = zext i32 %52 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i216 = zext i32 %53 to i64
   %retval.sroa.0.0.insert.insert.i.i.i217 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i215, %retval.sroa.0.0.insert.ext.i.i.i216
   store i64 %retval.sroa.0.0.insert.insert.i.i.i217, ptr %backendConfig.i.i209, align 8
-  %call2.i.i219 = call i32 %51(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i209, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i210) #64
+  %call2.i.i219 = call i32 %52(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i209, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i210) #64
   %cmp3.not.i.i220 = icmp eq i32 %call2.i.i219, 0
   br i1 %cmp3.not.i.i220, label %ma_decoder_init_mp3_from_file__internal.exit228, label %ma_decoder_init_mp3_from_file__internal.exit228.thread
 
@@ -65177,15 +65181,15 @@ ma_decoder_init_mp3_from_file__internal.exit228.thread: ; preds = %if.then44, %i
   br label %if.then50
 
 ma_decoder_init_mp3_from_file__internal.exit228:  ; preds = %if.end.i.i212
-  %54 = load ptr, ptr %pBackend.i.i210, align 8
+  %55 = load ptr, ptr %pBackend.i.i210, align 8
   %pBackend6.i.i224 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %54, ptr %pBackend6.i.i224, align 8
+  store ptr %55, ptr %pBackend6.i.i224, align 8
   %pBackendVTable.i.i225 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i225, align 8
   %pCustomBackendUserData.i.i226 = getelementptr inbounds i8, ptr %config, i64 136
-  %55 = load ptr, ptr %pCustomBackendUserData.i.i226, align 8
+  %56 = load ptr, ptr %pCustomBackendUserData.i.i226, align 8
   %pBackendUserData.i.i227 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %55, ptr %pBackendUserData.i.i227, align 8
+  store ptr %56, ptr %pBackendUserData.i.i227, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i209)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i210)
   br label %if.then64
@@ -65193,33 +65197,33 @@ ma_decoder_init_mp3_from_file__internal.exit228:  ; preds = %if.end.i.i212
 if.then50:                                        ; preds = %ma_decoder_init_mp3_from_file__internal.exit228.thread, %ma_path_extension_equal.exit208
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i229)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i230)
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
-  %cmp.i.i231 = icmp eq ptr %56, null
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 8), align 8
+  %cmp.i.i231 = icmp eq ptr %57, null
   br i1 %cmp.i.i231, label %if.then54, label %if.end.i.i232
 
 if.end.i.i232:                                    ; preds = %if.then50
-  %57 = load i32, ptr %config, align 8
+  %58 = load i32, ptr %config, align 8
   %seekPointCount.i.i233 = getelementptr inbounds i8, ptr %config, i64 116
-  %58 = load i32, ptr %seekPointCount.i.i233, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i234 = zext i32 %58 to i64
+  %59 = load i32, ptr %seekPointCount.i.i233, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i234 = zext i32 %59 to i64
   %retval.sroa.3.0.insert.shift.i.i.i235 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i234, 32
-  %retval.sroa.0.0.insert.ext.i.i.i236 = zext i32 %57 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i236 = zext i32 %58 to i64
   %retval.sroa.0.0.insert.insert.i.i.i237 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i235, %retval.sroa.0.0.insert.ext.i.i.i236
   store i64 %retval.sroa.0.0.insert.insert.i.i.i237, ptr %backendConfig.i.i229, align 8
-  %call2.i.i239 = call i32 %56(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i229, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i230) #64
+  %call2.i.i239 = call i32 %57(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i229, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i230) #64
   %cmp3.not.i.i240 = icmp eq i32 %call2.i.i239, 0
   br i1 %cmp3.not.i.i240, label %ma_decoder_init_wav_from_file__internal.exit248, label %if.then54
 
 ma_decoder_init_wav_from_file__internal.exit248:  ; preds = %if.end.i.i232
-  %59 = load ptr, ptr %pBackend.i.i230, align 8
+  %60 = load ptr, ptr %pBackend.i.i230, align 8
   %pBackend6.i.i244 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %59, ptr %pBackend6.i.i244, align 8
+  store ptr %60, ptr %pBackend6.i.i244, align 8
   %pBackendVTable.i.i245 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i245, align 8
   %pCustomBackendUserData.i.i246 = getelementptr inbounds i8, ptr %config, i64 136
-  %60 = load ptr, ptr %pCustomBackendUserData.i.i246, align 8
+  %61 = load ptr, ptr %pCustomBackendUserData.i.i246, align 8
   %pBackendUserData.i.i247 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %60, ptr %pBackendUserData.i.i247, align 8
+  store ptr %61, ptr %pBackendUserData.i.i247, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i229)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i230)
   br label %if.then64
@@ -65229,33 +65233,33 @@ if.then54:                                        ; preds = %if.then50, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i230)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i249)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i250)
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
-  %cmp.i.i251 = icmp eq ptr %61, null
+  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 8), align 8
+  %cmp.i.i251 = icmp eq ptr %62, null
   br i1 %cmp.i.i251, label %if.then58, label %if.end.i.i252
 
 if.end.i.i252:                                    ; preds = %if.then54
-  %62 = load i32, ptr %config, align 8
+  %63 = load i32, ptr %config, align 8
   %seekPointCount.i.i253 = getelementptr inbounds i8, ptr %config, i64 116
-  %63 = load i32, ptr %seekPointCount.i.i253, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i254 = zext i32 %63 to i64
+  %64 = load i32, ptr %seekPointCount.i.i253, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i254 = zext i32 %64 to i64
   %retval.sroa.3.0.insert.shift.i.i.i255 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i254, 32
-  %retval.sroa.0.0.insert.ext.i.i.i256 = zext i32 %62 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i256 = zext i32 %63 to i64
   %retval.sroa.0.0.insert.insert.i.i.i257 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i255, %retval.sroa.0.0.insert.ext.i.i.i256
   store i64 %retval.sroa.0.0.insert.insert.i.i.i257, ptr %backendConfig.i.i249, align 8
-  %call2.i.i259 = call i32 %61(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i249, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i250) #64
+  %call2.i.i259 = call i32 %62(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i249, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i250) #64
   %cmp3.not.i.i260 = icmp eq i32 %call2.i.i259, 0
   br i1 %cmp3.not.i.i260, label %ma_decoder_init_flac_from_file__internal.exit268, label %if.then58
 
 ma_decoder_init_flac_from_file__internal.exit268: ; preds = %if.end.i.i252
-  %64 = load ptr, ptr %pBackend.i.i250, align 8
+  %65 = load ptr, ptr %pBackend.i.i250, align 8
   %pBackend6.i.i264 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %64, ptr %pBackend6.i.i264, align 8
+  store ptr %65, ptr %pBackend6.i.i264, align 8
   %pBackendVTable.i.i265 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i265, align 8
   %pCustomBackendUserData.i.i266 = getelementptr inbounds i8, ptr %config, i64 136
-  %65 = load ptr, ptr %pCustomBackendUserData.i.i266, align 8
+  %66 = load ptr, ptr %pCustomBackendUserData.i.i266, align 8
   %pBackendUserData.i.i267 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %65, ptr %pBackendUserData.i.i267, align 8
+  store ptr %66, ptr %pBackendUserData.i.i267, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i249)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i250)
   br label %if.then64
@@ -65264,8 +65268,8 @@ if.then58:                                        ; preds = %if.then54, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i249)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i250)
   %call59 = call fastcc i32 @ma_decoder_init_mp3_from_file__internal(ptr noundef nonnull %pFilePath, ptr noundef nonnull %config, ptr noundef %pDecoder)
-  %66 = icmp eq i32 %call59, 0
-  br i1 %66, label %if.then64, label %if.else
+  %67 = icmp eq i32 %call59, 0
+  br i1 %67, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %ma_decoder_init_flac_from_file__internal.exit268, %ma_decoder_init_wav_from_file__internal.exit248, %ma_decoder_init_mp3_from_file__internal.exit228, %ma_decoder_init_flac_from_file__internal.exit178, %ma_decoder_init_wav_from_file__internal.exit128, %if.end26.thread, %if.end18, %if.then58
   %call65 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %config, ptr noundef %pDecoder)
@@ -65274,21 +65278,21 @@ if.then64:                                        ; preds = %ma_decoder_init_fla
 
 if.then67:                                        ; preds = %if.then64
   %pBackendVTable = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  %67 = load ptr, ptr %pBackendVTable, align 8
-  %cmp68.not = icmp eq ptr %67, null
+  %68 = load ptr, ptr %pBackendVTable, align 8
+  %cmp68.not = icmp eq ptr %68, null
   br i1 %cmp68.not, label %return, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.then67
-  %onUninit = getelementptr inbounds i8, ptr %67, i64 32
-  %68 = load ptr, ptr %onUninit, align 8
-  %cmp71.not = icmp eq ptr %68, null
+  %onUninit = getelementptr inbounds i8, ptr %68, i64 32
+  %69 = load ptr, ptr %onUninit, align 8
+  %cmp71.not = icmp eq ptr %69, null
   br i1 %cmp71.not, label %return, label %if.then72
 
 if.then72:                                        ; preds = %land.lhs.true69
   %pBackendUserData = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  %69 = load ptr, ptr %pBackendUserData, align 8
+  %70 = load ptr, ptr %pBackendUserData, align 8
   %pBackend = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  call void %68(ptr noundef %69, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i.i) #64
+  call void %69(ptr noundef %70, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i.i) #64
   br label %return
 
 if.else:                                          ; preds = %if.then58
@@ -65450,7 +65454,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.else11.i.i.i.i, 
   br i1 %or.cond227, label %return, label %if.else20.i.i.i.i
 
 if.else20.i.i.i.i:                                ; preds = %lor.lhs.false.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %allocationCallbacks1.i.i.i, i64 32, i1 false)
+  %7 = getelementptr inbounds i8, ptr %tmp, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else20.i.i.i.i, %if.then9.i.i.i.i
@@ -65458,14 +65463,14 @@ if.end.i:                                         ; preds = %if.else20.i.i.i.i, 
   br i1 %cmp1.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %7 = load i32, ptr %pFilePath, align 4
-  %cmp2.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %pFilePath, align 4
+  %cmp2.i = icmp eq i32 %8, 0
   br i1 %cmp2.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false.i
   %encodingFormat = getelementptr inbounds i8, ptr %config, i64 112
-  %8 = load i32, ptr %encodingFormat, align 8
-  switch i32 %8, label %if.then20 [
+  %9 = load i32, ptr %encodingFormat, align 8
+  switch i32 %9, label %if.then20 [
     i32 3, label %if.then15
     i32 1, label %if.then5
     i32 2, label %if.then10
@@ -65474,33 +65479,33 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.then5:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i)
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
-  %cmp.i.i52 = icmp eq ptr %9, null
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
+  %cmp.i.i52 = icmp eq ptr %10, null
   br i1 %cmp.i.i52, label %if.end7.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
-  %10 = load i32, ptr %config, align 8
+  %11 = load i32, ptr %config, align 8
   %seekPointCount.i.i = getelementptr inbounds i8, ptr %config, i64 116
-  %11 = load i32, ptr %seekPointCount.i.i, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %11 to i64
+  %12 = load i32, ptr %seekPointCount.i.i, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i = zext i32 %12 to i64
   %retval.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i, 32
-  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %10 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %11 to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %backendConfig.i.i, align 8
-  %call2.i.i = call i32 %9(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
+  %call2.i.i = call i32 %10(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i) #64
   %cmp3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.end7.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %12 = load ptr, ptr %pBackend.i.i, align 8
+  %13 = load ptr, ptr %pBackend.i.i, align 8
   %pBackend6.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %12, ptr %pBackend6.i.i, align 8
+  store ptr %13, ptr %pBackend6.i.i, align 8
   %pBackendVTable.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i, align 8
   %pCustomBackendUserData.i.i = getelementptr inbounds i8, ptr %config, i64 136
-  %13 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
+  %14 = load ptr, ptr %pCustomBackendUserData.i.i, align 8
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %13, ptr %pBackendUserData.i.i, align 8
+  store ptr %14, ptr %pBackendUserData.i.i, align 8
   br label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %if.end5.i.i, %if.end.i.i, %if.then5
@@ -65512,33 +65517,33 @@ if.end7.thread:                                   ; preds = %if.end5.i.i, %if.en
 if.then10:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i54)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
-  %cmp.i.i55 = icmp eq ptr %14, null
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
+  %cmp.i.i55 = icmp eq ptr %15, null
   br i1 %cmp.i.i55, label %ma_decoder_init_flac_from_file_w__internal.exit, label %if.end.i.i56
 
 if.end.i.i56:                                     ; preds = %if.then10
-  %15 = load i32, ptr %config, align 8
+  %16 = load i32, ptr %config, align 8
   %seekPointCount.i.i57 = getelementptr inbounds i8, ptr %config, i64 116
-  %16 = load i32, ptr %seekPointCount.i.i57, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %16 to i64
+  %17 = load i32, ptr %seekPointCount.i.i57, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i58 = zext i32 %17 to i64
   %retval.sroa.3.0.insert.shift.i.i.i59 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i58, 32
-  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %15 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i60 = zext i32 %16 to i64
   %retval.sroa.0.0.insert.insert.i.i.i61 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i59, %retval.sroa.0.0.insert.ext.i.i.i60
   store i64 %retval.sroa.0.0.insert.insert.i.i.i61, ptr %backendConfig.i.i53, align 8
-  %call2.i.i63 = call i32 %14(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
+  %call2.i.i63 = call i32 %15(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i53, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i54) #64
   %cmp3.not.i.i64 = icmp eq i32 %call2.i.i63, 0
   br i1 %cmp3.not.i.i64, label %if.end5.i.i66, label %ma_decoder_init_flac_from_file_w__internal.exit
 
 if.end5.i.i66:                                    ; preds = %if.end.i.i56
-  %17 = load ptr, ptr %pBackend.i.i54, align 8
+  %18 = load ptr, ptr %pBackend.i.i54, align 8
   %pBackend6.i.i67 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %17, ptr %pBackend6.i.i67, align 8
+  store ptr %18, ptr %pBackend6.i.i67, align 8
   %pBackendVTable.i.i68 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i68, align 8
   %pCustomBackendUserData.i.i69 = getelementptr inbounds i8, ptr %config, i64 136
-  %18 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
+  %19 = load ptr, ptr %pCustomBackendUserData.i.i69, align 8
   %pBackendUserData.i.i70 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %18, ptr %pBackendUserData.i.i70, align 8
+  store ptr %19, ptr %pBackendUserData.i.i70, align 8
   br label %ma_decoder_init_flac_from_file_w__internal.exit
 
 ma_decoder_init_flac_from_file_w__internal.exit:  ; preds = %if.then10, %if.end.i.i56, %if.end5.i.i66
@@ -65550,33 +65555,33 @@ ma_decoder_init_flac_from_file_w__internal.exit:  ; preds = %if.then10, %if.end.
 if.then15:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i71)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i72)
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
-  %cmp.i.i73 = icmp eq ptr %19, null
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
+  %cmp.i.i73 = icmp eq ptr %20, null
   br i1 %cmp.i.i73, label %ma_decoder_init_mp3_from_file_w__internal.exit, label %if.end.i.i74
 
 if.end.i.i74:                                     ; preds = %if.then15
-  %20 = load i32, ptr %config, align 8
+  %21 = load i32, ptr %config, align 8
   %seekPointCount.i.i75 = getelementptr inbounds i8, ptr %config, i64 116
-  %21 = load i32, ptr %seekPointCount.i.i75, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i76 = zext i32 %21 to i64
+  %22 = load i32, ptr %seekPointCount.i.i75, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i76 = zext i32 %22 to i64
   %retval.sroa.3.0.insert.shift.i.i.i77 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i76, 32
-  %retval.sroa.0.0.insert.ext.i.i.i78 = zext i32 %20 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i78 = zext i32 %21 to i64
   %retval.sroa.0.0.insert.insert.i.i.i79 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i77, %retval.sroa.0.0.insert.ext.i.i.i78
   store i64 %retval.sroa.0.0.insert.insert.i.i.i79, ptr %backendConfig.i.i71, align 8
-  %call2.i.i81 = call i32 %19(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i71, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i72) #64
+  %call2.i.i81 = call i32 %20(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i71, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i72) #64
   %cmp3.not.i.i82 = icmp eq i32 %call2.i.i81, 0
   br i1 %cmp3.not.i.i82, label %if.end5.i.i84, label %ma_decoder_init_mp3_from_file_w__internal.exit
 
 if.end5.i.i84:                                    ; preds = %if.end.i.i74
-  %22 = load ptr, ptr %pBackend.i.i72, align 8
+  %23 = load ptr, ptr %pBackend.i.i72, align 8
   %pBackend6.i.i85 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %22, ptr %pBackend6.i.i85, align 8
+  store ptr %23, ptr %pBackend6.i.i85, align 8
   %pBackendVTable.i.i86 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i86, align 8
   %pCustomBackendUserData.i.i87 = getelementptr inbounds i8, ptr %config, i64 136
-  %23 = load ptr, ptr %pCustomBackendUserData.i.i87, align 8
+  %24 = load ptr, ptr %pCustomBackendUserData.i.i87, align 8
   %pBackendUserData.i.i88 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %23, ptr %pBackendUserData.i.i88, align 8
+  store ptr %24, ptr %pBackendUserData.i.i88, align 8
   br label %ma_decoder_init_mp3_from_file_w__internal.exit
 
 ma_decoder_init_mp3_from_file_w__internal.exit:   ; preds = %if.then15, %if.end.i.i74, %if.end5.i.i84
@@ -65592,47 +65597,47 @@ if.end18:                                         ; preds = %ma_decoder_init_fla
 
 if.then20:                                        ; preds = %if.end, %if.end18
   %ppCustomBackendVTables.i = getelementptr inbounds i8, ptr %config, i64 120
-  %24 = load ptr, ptr %ppCustomBackendVTables.i, align 8
-  %cmp.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %ppCustomBackendVTables.i, align 8
+  %cmp.i = icmp eq ptr %25, null
   br i1 %cmp.i, label %ma_decoder_init_custom_from_file_w__internal.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then20
   %customBackendCount.i = getelementptr inbounds i8, ptr %config, i64 128
-  %25 = load i32, ptr %customBackendCount.i, align 8
-  %cmp111.not.i = icmp eq i32 %25, 0
+  %26 = load i32, ptr %customBackendCount.i, align 8
+  %cmp111.not.i = icmp eq i32 %26, 0
   br i1 %cmp111.not.i, label %ma_decoder_init_custom_from_file_w__internal.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %pCustomBackendUserData.i = getelementptr inbounds i8, ptr %config, i64 136
   %seekPointCount.i.i91 = getelementptr inbounds i8, ptr %config, i64 116
-  %26 = load ptr, ptr %pCustomBackendUserData.i, align 8
-  %27 = load i32, ptr %config, align 8
-  %28 = load i32, ptr %seekPointCount.i.i91, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i95 = zext i32 %28 to i64
+  %27 = load ptr, ptr %pCustomBackendUserData.i, align 8
+  %28 = load i32, ptr %config, align 8
+  %29 = load i32, ptr %seekPointCount.i.i91, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i95 = zext i32 %29 to i64
   %retval.sroa.3.0.insert.shift.i.i.i96 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i95, 32
-  %retval.sroa.0.0.insert.ext.i.i.i97 = zext i32 %27 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i97 = zext i32 %28 to i64
   %retval.sroa.0.0.insert.insert.i.i.i98 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i96, %retval.sroa.0.0.insert.ext.i.i.i97
-  %conv.i = zext i32 %25 to i64
+  %conv.i = zext i32 %26 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %ivtable.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %ivtable.012.i
-  %29 = load ptr, ptr %arrayidx.i, align 8
-  %cmp4.not.i = icmp eq ptr %29, null
+  %arrayidx.i = getelementptr inbounds ptr, ptr %25, i64 %ivtable.012.i
+  %30 = load ptr, ptr %arrayidx.i, align 8
+  %cmp4.not.i = icmp eq ptr %30, null
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i89)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i90)
-  %onInitFileW.i.i = getelementptr inbounds i8, ptr %29, i64 16
-  %30 = load ptr, ptr %onInitFileW.i.i, align 8
-  %cmp.i.i93 = icmp eq ptr %30, null
+  %onInitFileW.i.i = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load ptr, ptr %onInitFileW.i.i, align 8
+  %cmp.i.i93 = icmp eq ptr %31, null
   br i1 %cmp.i.i93, label %ma_decoder_init_from_file_w__internal.exit.thread.i, label %if.end.i.i94
 
 if.end.i.i94:                                     ; preds = %if.then6.i
   store i64 %retval.sroa.0.0.insert.insert.i.i.i98, ptr %backendConfig.i.i89, align 8
-  %call2.i.i99 = call i32 %30(ptr noundef %26, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i89, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i90) #64
+  %call2.i.i99 = call i32 %31(ptr noundef %27, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i89, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i90) #64
   %cmp3.not.i.i100 = icmp eq i32 %call2.i.i99, 0
   br i1 %cmp3.not.i.i100, label %if.end26.thread, label %ma_decoder_init_from_file_w__internal.exit.thread.i
 
@@ -65642,13 +65647,13 @@ ma_decoder_init_from_file_w__internal.exit.thread.i: ; preds = %if.end.i.i94, %i
   br label %for.inc.i
 
 if.end26.thread:                                  ; preds = %if.end.i.i94
-  %31 = load ptr, ptr %pBackend.i.i90, align 8
+  %32 = load ptr, ptr %pBackend.i.i90, align 8
   %pBackend6.i.i103 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %31, ptr %pBackend6.i.i103, align 8
+  store ptr %32, ptr %pBackend6.i.i103, align 8
   %pBackendVTable.i.i104 = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  store ptr %29, ptr %pBackendVTable.i.i104, align 8
+  store ptr %30, ptr %pBackendVTable.i.i104, align 8
   %pBackendUserData.i.i105 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %26, ptr %pBackendUserData.i.i105, align 8
+  store ptr %27, ptr %pBackendUserData.i.i105, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i90)
   br label %if.then64
@@ -65659,7 +65664,7 @@ for.inc.i:                                        ; preds = %ma_decoder_init_fro
   br i1 %exitcond.not, label %ma_decoder_init_custom_from_file_w__internal.exit, label %for.body.i, !llvm.loop !648
 
 ma_decoder_init_custom_from_file_w__internal.exit: ; preds = %for.inc.i, %if.then20, %for.cond.preheader.i
-  %cmp24.not = icmp eq i32 %8, 0
+  %cmp24.not = icmp eq i32 %9, 0
   br i1 %cmp24.not, label %land.lhs.true28, label %return
 
 land.lhs.true28:                                  ; preds = %ma_decoder_init_custom_from_file_w__internal.exit
@@ -65670,20 +65675,20 @@ land.lhs.true28:                                  ; preds = %ma_decoder_init_cus
 if.then30:                                        ; preds = %land.lhs.true28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i106)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i107)
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
-  %cmp.i.i108 = icmp eq ptr %32, null
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
+  %cmp.i.i108 = icmp eq ptr %33, null
   br i1 %cmp.i.i108, label %ma_decoder_init_wav_from_file_w__internal.exit125.thread, label %if.end.i.i109
 
 if.end.i.i109:                                    ; preds = %if.then30
-  %33 = load i32, ptr %config, align 8
+  %34 = load i32, ptr %config, align 8
   %seekPointCount.i.i110 = getelementptr inbounds i8, ptr %config, i64 116
-  %34 = load i32, ptr %seekPointCount.i.i110, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i111 = zext i32 %34 to i64
+  %35 = load i32, ptr %seekPointCount.i.i110, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i111 = zext i32 %35 to i64
   %retval.sroa.3.0.insert.shift.i.i.i112 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i111, 32
-  %retval.sroa.0.0.insert.ext.i.i.i113 = zext i32 %33 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i113 = zext i32 %34 to i64
   %retval.sroa.0.0.insert.insert.i.i.i114 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i112, %retval.sroa.0.0.insert.ext.i.i.i113
   store i64 %retval.sroa.0.0.insert.insert.i.i.i114, ptr %backendConfig.i.i106, align 8
-  %call2.i.i116 = call i32 %32(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i106, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i107) #64
+  %call2.i.i116 = call i32 %33(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i106, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i107) #64
   %cmp3.not.i.i117 = icmp eq i32 %call2.i.i116, 0
   br i1 %cmp3.not.i.i117, label %ma_decoder_init_wav_from_file_w__internal.exit125, label %ma_decoder_init_wav_from_file_w__internal.exit125.thread
 
@@ -65693,15 +65698,15 @@ ma_decoder_init_wav_from_file_w__internal.exit125.thread: ; preds = %if.then30, 
   br label %land.lhs.true34
 
 ma_decoder_init_wav_from_file_w__internal.exit125: ; preds = %if.end.i.i109
-  %35 = load ptr, ptr %pBackend.i.i107, align 8
+  %36 = load ptr, ptr %pBackend.i.i107, align 8
   %pBackend6.i.i121 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %35, ptr %pBackend6.i.i121, align 8
+  store ptr %36, ptr %pBackend6.i.i121, align 8
   %pBackendVTable.i.i122 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i122, align 8
   %pCustomBackendUserData.i.i123 = getelementptr inbounds i8, ptr %config, i64 136
-  %36 = load ptr, ptr %pCustomBackendUserData.i.i123, align 8
+  %37 = load ptr, ptr %pCustomBackendUserData.i.i123, align 8
   %pBackendUserData.i.i124 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %36, ptr %pBackendUserData.i.i124, align 8
+  store ptr %37, ptr %pBackendUserData.i.i124, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i106)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i107)
   br label %if.then64
@@ -65714,20 +65719,20 @@ land.lhs.true34:                                  ; preds = %ma_decoder_init_wav
 if.then37:                                        ; preds = %land.lhs.true34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i126)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i127)
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
-  %cmp.i.i128 = icmp eq ptr %37, null
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
+  %cmp.i.i128 = icmp eq ptr %38, null
   br i1 %cmp.i.i128, label %ma_decoder_init_flac_from_file_w__internal.exit145.thread, label %if.end.i.i129
 
 if.end.i.i129:                                    ; preds = %if.then37
-  %38 = load i32, ptr %config, align 8
+  %39 = load i32, ptr %config, align 8
   %seekPointCount.i.i130 = getelementptr inbounds i8, ptr %config, i64 116
-  %39 = load i32, ptr %seekPointCount.i.i130, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i131 = zext i32 %39 to i64
+  %40 = load i32, ptr %seekPointCount.i.i130, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i131 = zext i32 %40 to i64
   %retval.sroa.3.0.insert.shift.i.i.i132 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i131, 32
-  %retval.sroa.0.0.insert.ext.i.i.i133 = zext i32 %38 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i133 = zext i32 %39 to i64
   %retval.sroa.0.0.insert.insert.i.i.i134 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i132, %retval.sroa.0.0.insert.ext.i.i.i133
   store i64 %retval.sroa.0.0.insert.insert.i.i.i134, ptr %backendConfig.i.i126, align 8
-  %call2.i.i136 = call i32 %37(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i126, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i127) #64
+  %call2.i.i136 = call i32 %38(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i126, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i127) #64
   %cmp3.not.i.i137 = icmp eq i32 %call2.i.i136, 0
   br i1 %cmp3.not.i.i137, label %ma_decoder_init_flac_from_file_w__internal.exit145, label %ma_decoder_init_flac_from_file_w__internal.exit145.thread
 
@@ -65737,15 +65742,15 @@ ma_decoder_init_flac_from_file_w__internal.exit145.thread: ; preds = %if.then37,
   br label %land.lhs.true41
 
 ma_decoder_init_flac_from_file_w__internal.exit145: ; preds = %if.end.i.i129
-  %40 = load ptr, ptr %pBackend.i.i127, align 8
+  %41 = load ptr, ptr %pBackend.i.i127, align 8
   %pBackend6.i.i141 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %40, ptr %pBackend6.i.i141, align 8
+  store ptr %41, ptr %pBackend6.i.i141, align 8
   %pBackendVTable.i.i142 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i142, align 8
   %pCustomBackendUserData.i.i143 = getelementptr inbounds i8, ptr %config, i64 136
-  %41 = load ptr, ptr %pCustomBackendUserData.i.i143, align 8
+  %42 = load ptr, ptr %pCustomBackendUserData.i.i143, align 8
   %pBackendUserData.i.i144 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %41, ptr %pBackendUserData.i.i144, align 8
+  store ptr %42, ptr %pBackendUserData.i.i144, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i126)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i127)
   br label %if.then64
@@ -65758,20 +65763,20 @@ land.lhs.true41:                                  ; preds = %ma_decoder_init_fla
 if.then44:                                        ; preds = %land.lhs.true41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i146)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i147)
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
-  %cmp.i.i148 = icmp eq ptr %42, null
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_mp3, i64 16), align 8
+  %cmp.i.i148 = icmp eq ptr %43, null
   br i1 %cmp.i.i148, label %ma_decoder_init_mp3_from_file_w__internal.exit165.thread, label %if.end.i.i149
 
 if.end.i.i149:                                    ; preds = %if.then44
-  %43 = load i32, ptr %config, align 8
+  %44 = load i32, ptr %config, align 8
   %seekPointCount.i.i150 = getelementptr inbounds i8, ptr %config, i64 116
-  %44 = load i32, ptr %seekPointCount.i.i150, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i151 = zext i32 %44 to i64
+  %45 = load i32, ptr %seekPointCount.i.i150, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i151 = zext i32 %45 to i64
   %retval.sroa.3.0.insert.shift.i.i.i152 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i151, 32
-  %retval.sroa.0.0.insert.ext.i.i.i153 = zext i32 %43 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i153 = zext i32 %44 to i64
   %retval.sroa.0.0.insert.insert.i.i.i154 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i152, %retval.sroa.0.0.insert.ext.i.i.i153
   store i64 %retval.sroa.0.0.insert.insert.i.i.i154, ptr %backendConfig.i.i146, align 8
-  %call2.i.i156 = call i32 %42(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i146, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i147) #64
+  %call2.i.i156 = call i32 %43(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i146, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i147) #64
   %cmp3.not.i.i157 = icmp eq i32 %call2.i.i156, 0
   br i1 %cmp3.not.i.i157, label %ma_decoder_init_mp3_from_file_w__internal.exit165, label %ma_decoder_init_mp3_from_file_w__internal.exit165.thread
 
@@ -65781,15 +65786,15 @@ ma_decoder_init_mp3_from_file_w__internal.exit165.thread: ; preds = %if.then44, 
   br label %if.then50
 
 ma_decoder_init_mp3_from_file_w__internal.exit165: ; preds = %if.end.i.i149
-  %45 = load ptr, ptr %pBackend.i.i147, align 8
+  %46 = load ptr, ptr %pBackend.i.i147, align 8
   %pBackend6.i.i161 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %45, ptr %pBackend6.i.i161, align 8
+  store ptr %46, ptr %pBackend6.i.i161, align 8
   %pBackendVTable.i.i162 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_mp3, ptr %pBackendVTable.i.i162, align 8
   %pCustomBackendUserData.i.i163 = getelementptr inbounds i8, ptr %config, i64 136
-  %46 = load ptr, ptr %pCustomBackendUserData.i.i163, align 8
+  %47 = load ptr, ptr %pCustomBackendUserData.i.i163, align 8
   %pBackendUserData.i.i164 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %46, ptr %pBackendUserData.i.i164, align 8
+  store ptr %47, ptr %pBackendUserData.i.i164, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i146)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i147)
   br label %if.then64
@@ -65797,33 +65802,33 @@ ma_decoder_init_mp3_from_file_w__internal.exit165: ; preds = %if.end.i.i149
 if.then50:                                        ; preds = %ma_decoder_init_mp3_from_file_w__internal.exit165.thread, %land.lhs.true41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i166)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i167)
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
-  %cmp.i.i168 = icmp eq ptr %47, null
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_wav, i64 16), align 8
+  %cmp.i.i168 = icmp eq ptr %48, null
   br i1 %cmp.i.i168, label %if.then54, label %if.end.i.i169
 
 if.end.i.i169:                                    ; preds = %if.then50
-  %48 = load i32, ptr %config, align 8
+  %49 = load i32, ptr %config, align 8
   %seekPointCount.i.i170 = getelementptr inbounds i8, ptr %config, i64 116
-  %49 = load i32, ptr %seekPointCount.i.i170, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i171 = zext i32 %49 to i64
+  %50 = load i32, ptr %seekPointCount.i.i170, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i171 = zext i32 %50 to i64
   %retval.sroa.3.0.insert.shift.i.i.i172 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i171, 32
-  %retval.sroa.0.0.insert.ext.i.i.i173 = zext i32 %48 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i173 = zext i32 %49 to i64
   %retval.sroa.0.0.insert.insert.i.i.i174 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i172, %retval.sroa.0.0.insert.ext.i.i.i173
   store i64 %retval.sroa.0.0.insert.insert.i.i.i174, ptr %backendConfig.i.i166, align 8
-  %call2.i.i176 = call i32 %47(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i166, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i167) #64
+  %call2.i.i176 = call i32 %48(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i166, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i167) #64
   %cmp3.not.i.i177 = icmp eq i32 %call2.i.i176, 0
   br i1 %cmp3.not.i.i177, label %ma_decoder_init_wav_from_file_w__internal.exit185, label %if.then54
 
 ma_decoder_init_wav_from_file_w__internal.exit185: ; preds = %if.end.i.i169
-  %50 = load ptr, ptr %pBackend.i.i167, align 8
+  %51 = load ptr, ptr %pBackend.i.i167, align 8
   %pBackend6.i.i181 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %50, ptr %pBackend6.i.i181, align 8
+  store ptr %51, ptr %pBackend6.i.i181, align 8
   %pBackendVTable.i.i182 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_wav, ptr %pBackendVTable.i.i182, align 8
   %pCustomBackendUserData.i.i183 = getelementptr inbounds i8, ptr %config, i64 136
-  %51 = load ptr, ptr %pCustomBackendUserData.i.i183, align 8
+  %52 = load ptr, ptr %pCustomBackendUserData.i.i183, align 8
   %pBackendUserData.i.i184 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %51, ptr %pBackendUserData.i.i184, align 8
+  store ptr %52, ptr %pBackendUserData.i.i184, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i166)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i167)
   br label %if.then64
@@ -65833,33 +65838,33 @@ if.then54:                                        ; preds = %if.then50, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i167)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %backendConfig.i.i186)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pBackend.i.i187)
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
-  %cmp.i.i188 = icmp eq ptr %52, null
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @g_ma_decoding_backend_vtable_flac, i64 16), align 8
+  %cmp.i.i188 = icmp eq ptr %53, null
   br i1 %cmp.i.i188, label %if.then58, label %if.end.i.i189
 
 if.end.i.i189:                                    ; preds = %if.then54
-  %53 = load i32, ptr %config, align 8
+  %54 = load i32, ptr %config, align 8
   %seekPointCount.i.i190 = getelementptr inbounds i8, ptr %config, i64 116
-  %54 = load i32, ptr %seekPointCount.i.i190, align 4
-  %retval.sroa.3.0.insert.ext.i.i.i191 = zext i32 %54 to i64
+  %55 = load i32, ptr %seekPointCount.i.i190, align 4
+  %retval.sroa.3.0.insert.ext.i.i.i191 = zext i32 %55 to i64
   %retval.sroa.3.0.insert.shift.i.i.i192 = shl nuw i64 %retval.sroa.3.0.insert.ext.i.i.i191, 32
-  %retval.sroa.0.0.insert.ext.i.i.i193 = zext i32 %53 to i64
+  %retval.sroa.0.0.insert.ext.i.i.i193 = zext i32 %54 to i64
   %retval.sroa.0.0.insert.insert.i.i.i194 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i.i192, %retval.sroa.0.0.insert.ext.i.i.i193
   store i64 %retval.sroa.0.0.insert.insert.i.i.i194, ptr %backendConfig.i.i186, align 8
-  %call2.i.i196 = call i32 %52(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i186, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i187) #64
+  %call2.i.i196 = call i32 %53(ptr noundef null, ptr noundef nonnull %pFilePath, ptr noundef nonnull %backendConfig.i.i186, ptr noundef nonnull %allocationCallbacks2.i.i.i, ptr noundef nonnull %pBackend.i.i187) #64
   %cmp3.not.i.i197 = icmp eq i32 %call2.i.i196, 0
   br i1 %cmp3.not.i.i197, label %ma_decoder_init_flac_from_file_w__internal.exit205, label %if.then58
 
 ma_decoder_init_flac_from_file_w__internal.exit205: ; preds = %if.end.i.i189
-  %55 = load ptr, ptr %pBackend.i.i187, align 8
+  %56 = load ptr, ptr %pBackend.i.i187, align 8
   %pBackend6.i.i201 = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  store ptr %55, ptr %pBackend6.i.i201, align 8
+  store ptr %56, ptr %pBackend6.i.i201, align 8
   %pBackendVTable.i.i202 = getelementptr inbounds i8, ptr %pDecoder, i64 80
   store ptr @g_ma_decoding_backend_vtable_flac, ptr %pBackendVTable.i.i202, align 8
   %pCustomBackendUserData.i.i203 = getelementptr inbounds i8, ptr %config, i64 136
-  %56 = load ptr, ptr %pCustomBackendUserData.i.i203, align 8
+  %57 = load ptr, ptr %pCustomBackendUserData.i.i203, align 8
   %pBackendUserData.i.i204 = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  store ptr %56, ptr %pBackendUserData.i.i204, align 8
+  store ptr %57, ptr %pBackendUserData.i.i204, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i187)
   br label %if.then64
@@ -65868,8 +65873,8 @@ if.then58:                                        ; preds = %if.then54, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i187)
   %call59 = call fastcc i32 @ma_decoder_init_mp3_from_file_w__internal(ptr noundef nonnull %pFilePath, ptr noundef nonnull %config, ptr noundef %pDecoder)
-  %57 = icmp eq i32 %call59, 0
-  br i1 %57, label %if.then64, label %if.else
+  %58 = icmp eq i32 %call59, 0
+  br i1 %58, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %ma_decoder_init_flac_from_file_w__internal.exit205, %ma_decoder_init_wav_from_file_w__internal.exit185, %ma_decoder_init_mp3_from_file_w__internal.exit165, %ma_decoder_init_flac_from_file_w__internal.exit145, %ma_decoder_init_wav_from_file_w__internal.exit125, %if.end26.thread, %if.end18, %if.then58
   %call65 = call fastcc i32 @ma_decoder__postinit(ptr noundef nonnull %config, ptr noundef %pDecoder)
@@ -65878,21 +65883,21 @@ if.then64:                                        ; preds = %ma_decoder_init_fla
 
 if.then67:                                        ; preds = %if.then64
   %pBackendVTable = getelementptr inbounds i8, ptr %pDecoder, i64 80
-  %58 = load ptr, ptr %pBackendVTable, align 8
-  %cmp68.not = icmp eq ptr %58, null
+  %59 = load ptr, ptr %pBackendVTable, align 8
+  %cmp68.not = icmp eq ptr %59, null
   br i1 %cmp68.not, label %return, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.then67
-  %onUninit = getelementptr inbounds i8, ptr %58, i64 32
-  %59 = load ptr, ptr %onUninit, align 8
-  %cmp71.not = icmp eq ptr %59, null
+  %onUninit = getelementptr inbounds i8, ptr %59, i64 32
+  %60 = load ptr, ptr %onUninit, align 8
+  %cmp71.not = icmp eq ptr %60, null
   br i1 %cmp71.not, label %return, label %if.then72
 
 if.then72:                                        ; preds = %land.lhs.true69
   %pBackendUserData = getelementptr inbounds i8, ptr %pDecoder, i64 88
-  %60 = load ptr, ptr %pBackendUserData, align 8
+  %61 = load ptr, ptr %pBackendUserData, align 8
   %pBackend = getelementptr inbounds i8, ptr %pDecoder, i64 72
-  call void %59(ptr noundef %60, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i.i) #64
+  call void %60(ptr noundef %61, ptr noundef nonnull %pBackend, ptr noundef nonnull %allocationCallbacks2.i.i.i) #64
   br label %return
 
 if.else:                                          ; preds = %if.then58

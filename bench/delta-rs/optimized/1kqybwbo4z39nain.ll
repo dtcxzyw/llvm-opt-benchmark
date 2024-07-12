@@ -1556,11 +1556,11 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   br i1 %354, label %367, label %355
 
 355:                                              ; preds = %"_ZN89_$LT$deltalake_core..storage..StorageOptions$u20$as$u20$deltalake_azure..AzureOptions$GT$16as_azure_options28_$u7b$$u7b$closure$u7d$$u7d$17h376167779bdf30afE.exit"
-  %.sroa.4.i.sroa.5.7..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.712.8..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !355
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.sroa.5.7..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.712.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   %.val4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  store i64 %.sroa.5.i.sroa.4.7.copyload, ptr %6, align 8, !noalias !355
+  store i64 %.sroa.5.i.sroa.4.7.copyload, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !358
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h463773d5bd9338faE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %.val4, i8 noundef %44, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !358
   call void @llvm.experimental.noalias.scope.decl(metadata !361)

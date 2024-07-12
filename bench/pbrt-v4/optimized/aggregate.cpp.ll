@@ -1319,7 +1319,6 @@ define linkonce_odr dso_local void @_ZN4pbrt20EnqueueWorkAfterMissENS_11RayWorkI
 entry:
   %agg.tmp1.sroa.11.i = alloca %"class.pbrt::SampledWavelengths", align 16
   %agg.tmp21.i = alloca %"class.pbrt::SampledWavelengths", align 16
-  %agg.tmp.sroa.11 = alloca <{ i32, %"class.pbrt::SampledWavelengths" }>, align 8
   %medium = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load i64, ptr %medium, align 8
   %and.i = and i64 %0, 144115188075855871
@@ -1340,8 +1339,6 @@ if.then:                                          ; preds = %entry
   %agg.tmp.sroa.6.0.copyload = load float, ptr %agg.tmp.sroa.6.0.r.sroa_idx, align 4
   %agg.tmp.sroa.7.0.r.sroa_idx = getelementptr inbounds i8, ptr %r, i64 24
   %agg.tmp.sroa.7.0.copyload = load float, ptr %agg.tmp.sroa.7.0.r.sroa_idx, align 8
-  %depth3.i = getelementptr inbounds i8, ptr %r, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.sroa.11, ptr noundef nonnull align 8 dereferenceable(36) %depth3.i, i64 36, i1 false)
   %agg.tmp.sroa.13.40.depth3.i.sroa_idx = getelementptr inbounds i8, ptr %r, i64 76
   %agg.tmp.sroa.13.40.copyload = load i32, ptr %agg.tmp.sroa.13.40.depth3.i.sroa_idx, align 4
   %agg.tmp.sroa.14.40.depth3.i.sroa_idx = getelementptr inbounds i8, ptr %r, i64 80
@@ -1387,50 +1384,50 @@ if.then:                                          ; preds = %entry
   %agg.tmp.sroa.34.40.depth3.i.sroa_idx = getelementptr inbounds i8, ptr %r, i64 184
   %agg.tmp.sroa.34.40.copyload = load i32, ptr %agg.tmp.sroa.34.40.depth3.i.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i)
-  %agg.tmp.sroa.11.44.lambda.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.11, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp21.i, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp.sroa.11.44.lambda.i.sroa_idx, i64 32, i1 false)
+  %1 = getelementptr inbounds i8, ptr %r, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp21.i, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   %size.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 848
-  %1 = atomicrmw add ptr %size.i.i.i, i32 1 monotonic, align 4
+  %2 = atomicrmw add ptr %size.i.i.i, i32 1 monotonic, align 4
   %x2.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 24
-  %2 = load ptr, ptr %x2.i.i.i.i, align 8
-  %idxprom.i.i.i.i = sext i32 %1 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %2, i64 %idxprom.i.i.i.i
+  %3 = load ptr, ptr %x2.i.i.i.i, align 8
+  %idxprom.i.i.i.i = sext i32 %2 to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %3, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.0.0.copyload, ptr %arrayidx.i.i.i.i, align 4
   %y4.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 32
-  %3 = load ptr, ptr %y4.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i = getelementptr inbounds float, ptr %3, i64 %idxprom.i.i.i.i
+  %4 = load ptr, ptr %y4.i.i.i.i, align 8
+  %arrayidx7.i.i.i.i = getelementptr inbounds float, ptr %4, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.2.0.copyload, ptr %arrayidx7.i.i.i.i, align 4
   %z9.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 40
-  %4 = load ptr, ptr %z9.i.i.i.i, align 8
-  %arrayidx12.i.i.i.i = getelementptr inbounds float, ptr %4, i64 %idxprom.i.i.i.i
+  %5 = load ptr, ptr %z9.i.i.i.i, align 8
+  %arrayidx12.i.i.i.i = getelementptr inbounds float, ptr %5, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.3.0.copyload, ptr %arrayidx12.i.i.i.i, align 4
   %x2.i6.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 56
-  %5 = load ptr, ptr %x2.i6.i.i.i, align 8
-  %arrayidx.i9.i.i.i = getelementptr inbounds float, ptr %5, i64 %idxprom.i.i.i.i
+  %6 = load ptr, ptr %x2.i6.i.i.i, align 8
+  %arrayidx.i9.i.i.i = getelementptr inbounds float, ptr %6, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.4.0.copyload, ptr %arrayidx.i9.i.i.i, align 4
   %y4.i11.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 64
-  %6 = load ptr, ptr %y4.i11.i.i.i, align 8
-  %arrayidx7.i13.i.i.i = getelementptr inbounds float, ptr %6, i64 %idxprom.i.i.i.i
+  %7 = load ptr, ptr %y4.i11.i.i.i, align 8
+  %arrayidx7.i13.i.i.i = getelementptr inbounds float, ptr %7, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.5.0.copyload, ptr %arrayidx7.i13.i.i.i, align 4
   %z9.i15.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 72
-  %7 = load ptr, ptr %z9.i15.i.i.i, align 8
-  %arrayidx12.i17.i.i.i = getelementptr inbounds float, ptr %7, i64 %idxprom.i.i.i.i
+  %8 = load ptr, ptr %z9.i15.i.i.i, align 8
+  %arrayidx12.i17.i.i.i = getelementptr inbounds float, ptr %8, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.6.0.copyload, ptr %arrayidx12.i17.i.i.i, align 4
   %time9.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 80
-  %8 = load ptr, ptr %time9.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %8, i64 %idxprom.i.i.i.i
+  %9 = load ptr, ptr %time9.i.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %9, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.7.0.copyload, ptr %arrayidx.i.i.i, align 4
   %medium12.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 88
-  %9 = load ptr, ptr %medium12.i.i.i, align 8
-  %arrayidx15.i.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %9, i64 %idxprom.i.i.i.i
+  %10 = load ptr, ptr %medium12.i.i.i, align 8
+  %arrayidx15.i.i.i = getelementptr inbounds %"class.pbrt::Medium", ptr %10, i64 %idxprom.i.i.i.i
   store i64 %0, ptr %arrayidx15.i.i.i, align 8
   %tMax4.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 104
-  %10 = load ptr, ptr %tMax4.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds float, ptr %10, i64 %idxprom.i.i.i.i
+  %11 = load ptr, ptr %tMax4.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds float, ptr %11, i64 %idxprom.i.i.i.i
   store float 0x7FF0000000000000, ptr %arrayidx.i.i, align 4
   %lambda4.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 120
-  %11 = load ptr, ptr %lambda4.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %11, i64 %idxprom.i.i.i.i
+  %12 = load ptr, ptr %lambda4.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %12, i64 %idxprom.i.i.i.i
   %agg.tmp21.i.0.agg.tmp21.i.0.agg.tmp21.i.0.agg.tmp21.0.agg.tmp21.0..i = load <4 x float>, ptr %agg.tmp21.i, align 16
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = shufflevector <4 x float> %agg.tmp21.i.0.agg.tmp21.i.0.agg.tmp21.i.0.agg.tmp21.0.agg.tmp21.0..i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %agg.tmp21.i.8.agg.tmp21.i.8.agg.tmp21.i.8.agg.tmp21.8.agg.tmp21.8.arrayidx.i23.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 8
@@ -1440,8 +1437,8 @@ if.then:                                          ; preds = %entry
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i, align 8
   %pdf4.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 128
-  %12 = load ptr, ptr %pdf4.i.i.i, align 8
-  %add.ptr21.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %12, i64 %idxprom.i.i.i.i
+  %13 = load ptr, ptr %pdf4.i.i.i, align 8
+  %add.ptr21.i.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %13, i64 %idxprom.i.i.i.i
   %agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.16.agg.tmp21.16.pdf.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 16
   %agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.16.agg.tmp21.16..i = load <4 x float>, ptr %agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.16.agg.tmp21.16.pdf.i.i.sroa_idx, align 16
   %agg.tmp22.sroa.0.4.vec.insert.i.i.i = shufflevector <4 x float> %agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.i.16.agg.tmp21.16.agg.tmp21.16..i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
@@ -1450,86 +1447,86 @@ if.then:                                          ; preds = %entry
   %v.sroa.2.0.p.addr.0..sroa_idx.i29.i.i.i = getelementptr inbounds i8, ptr %add.ptr21.i.i.i, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i29.i.i.i, align 8
   %ptr4.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 160
-  %13 = load ptr, ptr %ptr4.i.i.i, align 8
-  %add.ptr.i18.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %13, i64 %idxprom.i.i.i.i
+  %14 = load ptr, ptr %ptr4.i.i.i, align 8
+  %add.ptr.i18.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %14, i64 %idxprom.i.i.i.i
   store <2 x float> %agg.tmp.sroa.14.40.copyload, ptr %add.ptr.i18.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i.i = getelementptr inbounds i8, ptr %add.ptr.i18.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.15.40.copyload, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i21.i.i, align 8
   %ptr4.i25.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 184
-  %14 = load ptr, ptr %ptr4.i25.i.i, align 8
-  %add.ptr.i27.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %14, i64 %idxprom.i.i.i.i
+  %15 = load ptr, ptr %ptr4.i25.i.i, align 8
+  %add.ptr.i27.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %15, i64 %idxprom.i.i.i.i
   store <2 x float> %agg.tmp.sroa.16.40.copyload, ptr %add.ptr.i27.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i30.i.i = getelementptr inbounds i8, ptr %add.ptr.i27.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.17.40.copyload, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i30.i.i, align 8
   %ptr4.i34.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 208
-  %15 = load ptr, ptr %ptr4.i34.i.i, align 8
-  %add.ptr.i36.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %15, i64 %idxprom.i.i.i.i
+  %16 = load ptr, ptr %ptr4.i34.i.i, align 8
+  %add.ptr.i36.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %16, i64 %idxprom.i.i.i.i
   store <2 x float> %agg.tmp.sroa.18.40.copyload, ptr %add.ptr.i36.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i39.i.i = getelementptr inbounds i8, ptr %add.ptr.i36.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.19.40.copyload, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i39.i.i, align 8
   %pixelIndex17.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 224
-  %16 = load ptr, ptr %pixelIndex17.i.i, align 8
-  %arrayidx19.i.i = getelementptr inbounds i32, ptr %16, i64 %idxprom.i.i.i.i
+  %17 = load ptr, ptr %pixelIndex17.i.i, align 8
+  %arrayidx19.i.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i.i.i.i
   store i32 %agg.tmp.sroa.13.40.copyload, ptr %arrayidx19.i.i, align 4
   %low2.i.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 496
-  %17 = load ptr, ptr %low2.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds float, ptr %17, i64 %idxprom.i.i.i.i
+  %18 = load ptr, ptr %low2.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i = getelementptr inbounds float, ptr %18, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.20.40.copyload, ptr %arrayidx.i.i.i.i.i, align 4
   %high4.i.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 504
-  %18 = load ptr, ptr %high4.i.i.i.i.i, align 8
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds float, ptr %18, i64 %idxprom.i.i.i.i
+  %19 = load ptr, ptr %high4.i.i.i.i.i, align 8
+  %arrayidx7.i.i.i.i.i = getelementptr inbounds float, ptr %19, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.21.40.copyload, ptr %arrayidx7.i.i.i.i.i, align 4
   %low2.i5.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 520
-  %19 = load ptr, ptr %low2.i5.i.i.i.i, align 8
-  %arrayidx.i8.i.i.i.i = getelementptr inbounds float, ptr %19, i64 %idxprom.i.i.i.i
+  %20 = load ptr, ptr %low2.i5.i.i.i.i, align 8
+  %arrayidx.i8.i.i.i.i = getelementptr inbounds float, ptr %20, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.22.40.copyload, ptr %arrayidx.i8.i.i.i.i, align 4
   %high4.i10.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 528
-  %20 = load ptr, ptr %high4.i10.i.i.i.i, align 8
-  %arrayidx7.i12.i.i.i.i = getelementptr inbounds float, ptr %20, i64 %idxprom.i.i.i.i
+  %21 = load ptr, ptr %high4.i10.i.i.i.i, align 8
+  %arrayidx7.i12.i.i.i.i = getelementptr inbounds float, ptr %21, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.23.40.copyload, ptr %arrayidx7.i12.i.i.i.i, align 4
   %low2.i15.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 544
-  %21 = load ptr, ptr %low2.i15.i.i.i.i, align 8
-  %arrayidx.i18.i.i.i.i = getelementptr inbounds float, ptr %21, i64 %idxprom.i.i.i.i
+  %22 = load ptr, ptr %low2.i15.i.i.i.i, align 8
+  %arrayidx.i18.i.i.i.i = getelementptr inbounds float, ptr %22, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.24.40.copyload, ptr %arrayidx.i18.i.i.i.i, align 4
   %high4.i20.i.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 552
-  %22 = load ptr, ptr %high4.i20.i.i.i.i, align 8
-  %arrayidx7.i22.i.i.i.i = getelementptr inbounds float, ptr %22, i64 %idxprom.i.i.i.i
+  %23 = load ptr, ptr %high4.i20.i.i.i.i, align 8
+  %arrayidx7.i22.i.i.i.i = getelementptr inbounds float, ptr %23, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.25.40.copyload, ptr %arrayidx7.i22.i.i.i.i, align 4
   %x2.i.i45.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 568
-  %23 = load ptr, ptr %x2.i.i45.i.i, align 8
-  %arrayidx.i.i47.i.i = getelementptr inbounds float, ptr %23, i64 %idxprom.i.i.i.i
+  %24 = load ptr, ptr %x2.i.i45.i.i, align 8
+  %arrayidx.i.i47.i.i = getelementptr inbounds float, ptr %24, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.26.40.copyload, ptr %arrayidx.i.i47.i.i, align 4
   %y4.i.i48.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 576
-  %24 = load ptr, ptr %y4.i.i48.i.i, align 8
-  %arrayidx7.i.i49.i.i = getelementptr inbounds float, ptr %24, i64 %idxprom.i.i.i.i
+  %25 = load ptr, ptr %y4.i.i48.i.i, align 8
+  %arrayidx7.i.i49.i.i = getelementptr inbounds float, ptr %25, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.27.40.copyload, ptr %arrayidx7.i.i49.i.i, align 4
   %z9.i.i50.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 584
-  %25 = load ptr, ptr %z9.i.i50.i.i, align 8
-  %arrayidx12.i.i51.i.i = getelementptr inbounds float, ptr %25, i64 %idxprom.i.i.i.i
+  %26 = load ptr, ptr %z9.i.i50.i.i, align 8
+  %arrayidx12.i.i51.i.i = getelementptr inbounds float, ptr %26, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.28.40.copyload, ptr %arrayidx12.i.i51.i.i, align 4
   %x2.i10.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 600
-  %26 = load ptr, ptr %x2.i10.i.i.i, align 8
-  %arrayidx.i13.i.i.i = getelementptr inbounds float, ptr %26, i64 %idxprom.i.i.i.i
+  %27 = load ptr, ptr %x2.i10.i.i.i, align 8
+  %arrayidx.i13.i.i.i = getelementptr inbounds float, ptr %27, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.29.40.copyload, ptr %arrayidx.i13.i.i.i, align 4
   %y4.i15.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 608
-  %27 = load ptr, ptr %y4.i15.i.i.i, align 8
-  %arrayidx7.i17.i.i.i = getelementptr inbounds float, ptr %27, i64 %idxprom.i.i.i.i
+  %28 = load ptr, ptr %y4.i15.i.i.i, align 8
+  %arrayidx7.i17.i.i.i = getelementptr inbounds float, ptr %28, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.30.40.copyload, ptr %arrayidx7.i17.i.i.i, align 4
   %z9.i19.i.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 616
-  %28 = load ptr, ptr %z9.i19.i.i.i, align 8
-  %arrayidx12.i21.i.i.i = getelementptr inbounds float, ptr %28, i64 %idxprom.i.i.i.i
+  %29 = load ptr, ptr %z9.i19.i.i.i, align 8
+  %arrayidx12.i21.i.i.i = getelementptr inbounds float, ptr %29, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.31.40.copyload, ptr %arrayidx12.i21.i.i.i, align 4
   %specularBounce23.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 624
-  %29 = load ptr, ptr %specularBounce23.i.i, align 8
-  %arrayidx25.i.i = getelementptr inbounds i32, ptr %29, i64 %idxprom.i.i.i.i
+  %30 = load ptr, ptr %specularBounce23.i.i, align 8
+  %arrayidx25.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i
   store i32 %agg.tmp.sroa.33.40.copyload, ptr %arrayidx25.i.i, align 4
   %anyNonSpecularBounces26.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 808
-  %30 = load ptr, ptr %anyNonSpecularBounces26.i.i, align 8
-  %arrayidx28.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i
+  %31 = load ptr, ptr %anyNonSpecularBounces26.i.i, align 8
+  %arrayidx28.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i.i.i
   store i32 %agg.tmp.sroa.34.40.copyload, ptr %arrayidx28.i.i, align 4
   %etaScale29.i.i = getelementptr inbounds i8, ptr %mediumSampleQueue, i64 816
-  %31 = load ptr, ptr %etaScale29.i.i, align 8
-  %arrayidx31.i.i = getelementptr inbounds float, ptr %31, i64 %idxprom.i.i.i.i
+  %32 = load ptr, ptr %etaScale29.i.i, align 8
+  %arrayidx31.i.i = getelementptr inbounds float, ptr %32, i64 %idxprom.i.i.i.i
   store float %agg.tmp.sroa.32.40.copyload, ptr %arrayidx31.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i)
   br label %if.end5
@@ -1590,63 +1587,63 @@ if.then2:                                         ; preds = %if.else
   %agg.tmp3.sroa.2847.40.depth3.i6.sroa_idx = getelementptr inbounds i8, ptr %r, i64 180
   %agg.tmp3.sroa.2847.40.copyload = load i32, ptr %agg.tmp3.sroa.2847.40.depth3.i6.sroa_idx, align 4
   %size.i.i.i8 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 360
-  %32 = atomicrmw add ptr %size.i.i.i8, i32 1 monotonic, align 4
+  %33 = atomicrmw add ptr %size.i.i.i8, i32 1 monotonic, align 4
   %x2.i.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 16
-  %33 = load ptr, ptr %x2.i.i.i, align 8
-  %idxprom.i.i.i = sext i32 %32 to i64
-  %arrayidx.i.i.i9 = getelementptr inbounds float, ptr %33, i64 %idxprom.i.i.i
+  %34 = load ptr, ptr %x2.i.i.i, align 8
+  %idxprom.i.i.i = sext i32 %33 to i64
+  %arrayidx.i.i.i9 = getelementptr inbounds float, ptr %34, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.0.0.copyload, ptr %arrayidx.i.i.i9, align 4
   %y4.i.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 24
-  %34 = load ptr, ptr %y4.i.i.i, align 8
-  %arrayidx7.i.i.i = getelementptr inbounds float, ptr %34, i64 %idxprom.i.i.i
+  %35 = load ptr, ptr %y4.i.i.i, align 8
+  %arrayidx7.i.i.i = getelementptr inbounds float, ptr %35, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.2.0.copyload, ptr %arrayidx7.i.i.i, align 4
   %z9.i.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 32
-  %35 = load ptr, ptr %z9.i.i.i, align 8
-  %arrayidx12.i.i.i = getelementptr inbounds float, ptr %35, i64 %idxprom.i.i.i
+  %36 = load ptr, ptr %z9.i.i.i, align 8
+  %arrayidx12.i.i.i = getelementptr inbounds float, ptr %36, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.3.0.copyload, ptr %arrayidx12.i.i.i, align 4
   %x2.i12.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 48
-  %36 = load ptr, ptr %x2.i12.i.i, align 8
-  %arrayidx.i15.i.i = getelementptr inbounds float, ptr %36, i64 %idxprom.i.i.i
+  %37 = load ptr, ptr %x2.i12.i.i, align 8
+  %arrayidx.i15.i.i = getelementptr inbounds float, ptr %37, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.4.0.copyload, ptr %arrayidx.i15.i.i, align 4
   %y4.i17.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 56
-  %37 = load ptr, ptr %y4.i17.i.i, align 8
-  %arrayidx7.i19.i.i = getelementptr inbounds float, ptr %37, i64 %idxprom.i.i.i
+  %38 = load ptr, ptr %y4.i17.i.i, align 8
+  %arrayidx7.i19.i.i = getelementptr inbounds float, ptr %38, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.5.0.copyload, ptr %arrayidx7.i19.i.i, align 4
   %z9.i21.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 64
-  %38 = load ptr, ptr %z9.i21.i.i, align 8
-  %arrayidx12.i23.i.i = getelementptr inbounds float, ptr %38, i64 %idxprom.i.i.i
+  %39 = load ptr, ptr %z9.i21.i.i, align 8
+  %arrayidx12.i23.i.i = getelementptr inbounds float, ptr %39, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.6.0.copyload, ptr %arrayidx12.i23.i.i, align 4
   %depth9.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 72
-  %39 = load ptr, ptr %depth9.i.i, align 8
-  %arrayidx.i.i10 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i.i.i
+  %40 = load ptr, ptr %depth9.i.i, align 8
+  %arrayidx.i.i10 = getelementptr inbounds i32, ptr %40, i64 %idxprom.i.i.i
   store i32 %agg.tmp3.sroa.9.40.copyload, ptr %arrayidx.i.i10, align 4
   %ptr4.i.i.i11 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 88
-  %40 = load ptr, ptr %ptr4.i.i.i11, align 8
-  %add.ptr.i.i.i12 = getelementptr inbounds %"struct.pbrt::Float4", ptr %40, i64 %idxprom.i.i.i
+  %41 = load ptr, ptr %ptr4.i.i.i11, align 8
+  %add.ptr.i.i.i12 = getelementptr inbounds %"struct.pbrt::Float4", ptr %41, i64 %idxprom.i.i.i
   %agg.tmp.sroa.0.4.vec.insert.i.i.i13 = shufflevector <4 x float> %agg.tmp3.sroa.13.40.copyload, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %agg.tmp.sroa.3.12.vec.insert.i.i.i14 = shufflevector <4 x float> %agg.tmp3.sroa.13.40.copyload, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i13, ptr %add.ptr.i.i.i12, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i15 = getelementptr inbounds i8, ptr %add.ptr.i.i.i12, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i.i.i14, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i.i.i15, align 8
   %ptr4.i29.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 112
-  %41 = load ptr, ptr %ptr4.i29.i.i, align 8
-  %add.ptr.i31.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %41, i64 %idxprom.i.i.i
+  %42 = load ptr, ptr %ptr4.i29.i.i, align 8
+  %add.ptr.i31.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %42, i64 %idxprom.i.i.i
   %agg.tmp.sroa.0.4.vec.insert.i32.i.i = shufflevector <4 x float> %agg.tmp3.sroa.14.40.copyload, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %agg.tmp.sroa.3.12.vec.insert.i33.i.i = shufflevector <4 x float> %agg.tmp3.sroa.14.40.copyload, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i32.i.i, ptr %add.ptr.i31.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i.i = getelementptr inbounds i8, ptr %add.ptr.i31.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i33.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i34.i.i, align 8
   %ptr4.i38.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 136
-  %42 = load ptr, ptr %ptr4.i38.i.i, align 8
-  %add.ptr.i40.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %42, i64 %idxprom.i.i.i
+  %43 = load ptr, ptr %ptr4.i38.i.i, align 8
+  %add.ptr.i40.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %43, i64 %idxprom.i.i.i
   %agg.tmp.sroa.0.4.vec.insert.i41.i.i = shufflevector <4 x float> %agg.tmp3.sroa.15.40.copyload, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %agg.tmp.sroa.3.12.vec.insert.i42.i.i = shufflevector <4 x float> %agg.tmp3.sroa.15.40.copyload, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i41.i.i, ptr %add.ptr.i40.i.i, align 16
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i43.i.i = getelementptr inbounds i8, ptr %add.ptr.i40.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i42.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i43.i.i, align 8
   %lambda4.i.i.i16 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 160
-  %43 = load ptr, ptr %lambda4.i.i.i16, align 8
-  %add.ptr.i48.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %43, i64 %idxprom.i.i.i
+  %44 = load ptr, ptr %lambda4.i.i.i16, align 8
+  %add.ptr.i48.i.i = getelementptr inbounds %"struct.pbrt::Float4", ptr %44, i64 %idxprom.i.i.i
   %agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.0.agg.tmp1.sroa.11.0.agg.tmp1.sroa.11.28..i = load <4 x float>, ptr %agg.tmp1.sroa.11.i, align 16
   %agg.tmp.sroa.0.4.vec.insert.i49.i.i = shufflevector <4 x float> %agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.i.0.agg.tmp1.sroa.11.0.agg.tmp1.sroa.11.0.agg.tmp1.sroa.11.28..i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %agg.tmp1.sroa.11.i.8.i.8.i.8.arrayidx.i23.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.sroa.11.i, i64 8
@@ -1656,8 +1653,8 @@ if.then2:                                         ; preds = %if.else
   %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i.i = getelementptr inbounds i8, ptr %add.ptr.i48.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.3.12.vec.insert.i50.i.i, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i.i51.i.i, align 8
   %pdf4.i.i.i17 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 168
-  %44 = load ptr, ptr %pdf4.i.i.i17, align 8
-  %add.ptr21.i.i.i18 = getelementptr inbounds %"struct.pbrt::Float4", ptr %44, i64 %idxprom.i.i.i
+  %45 = load ptr, ptr %pdf4.i.i.i17, align 8
+  %add.ptr21.i.i.i18 = getelementptr inbounds %"struct.pbrt::Float4", ptr %45, i64 %idxprom.i.i.i
   %agg.tmp1.sroa.11.i.16.i.16.i.16.pdf.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1.sroa.11.i, i64 16
   %agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.16.agg.tmp1.sroa.11.16.agg.tmp1.sroa.11.44..i = load <4 x float>, ptr %agg.tmp1.sroa.11.i.16.i.16.i.16.pdf.i.i.sroa_idx, align 16
   %agg.tmp22.sroa.0.4.vec.insert.i.i.i19 = shufflevector <4 x float> %agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.i.16.agg.tmp1.sroa.11.16.agg.tmp1.sroa.11.16.agg.tmp1.sroa.11.44..i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
@@ -1666,60 +1663,60 @@ if.then2:                                         ; preds = %if.else
   %v.sroa.2.0.p.addr.0..sroa_idx.i29.i.i.i21 = getelementptr inbounds i8, ptr %add.ptr21.i.i.i18, i64 8
   store <2 x float> %agg.tmp22.sroa.3.12.vec.insert.i.i.i20, ptr %v.sroa.2.0.p.addr.0..sroa_idx.i29.i.i.i21, align 8
   %low2.i.i.i.i.i22 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 216
-  %45 = load ptr, ptr %low2.i.i.i.i.i22, align 8
-  %arrayidx.i.i.i.i.i23 = getelementptr inbounds float, ptr %45, i64 %idxprom.i.i.i
+  %46 = load ptr, ptr %low2.i.i.i.i.i22, align 8
+  %arrayidx.i.i.i.i.i23 = getelementptr inbounds float, ptr %46, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.16.40.copyload, ptr %arrayidx.i.i.i.i.i23, align 4
   %high4.i.i.i.i.i24 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 224
-  %46 = load ptr, ptr %high4.i.i.i.i.i24, align 8
-  %arrayidx7.i.i.i.i.i25 = getelementptr inbounds float, ptr %46, i64 %idxprom.i.i.i
+  %47 = load ptr, ptr %high4.i.i.i.i.i24, align 8
+  %arrayidx7.i.i.i.i.i25 = getelementptr inbounds float, ptr %47, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.17.40.copyload, ptr %arrayidx7.i.i.i.i.i25, align 4
   %low2.i5.i.i.i.i26 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 240
-  %47 = load ptr, ptr %low2.i5.i.i.i.i26, align 8
-  %arrayidx.i8.i.i.i.i27 = getelementptr inbounds float, ptr %47, i64 %idxprom.i.i.i
+  %48 = load ptr, ptr %low2.i5.i.i.i.i26, align 8
+  %arrayidx.i8.i.i.i.i27 = getelementptr inbounds float, ptr %48, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.18.40.copyload, ptr %arrayidx.i8.i.i.i.i27, align 4
   %high4.i10.i.i.i.i28 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 248
-  %48 = load ptr, ptr %high4.i10.i.i.i.i28, align 8
-  %arrayidx7.i12.i.i.i.i29 = getelementptr inbounds float, ptr %48, i64 %idxprom.i.i.i
+  %49 = load ptr, ptr %high4.i10.i.i.i.i28, align 8
+  %arrayidx7.i12.i.i.i.i29 = getelementptr inbounds float, ptr %49, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.19.40.copyload, ptr %arrayidx7.i12.i.i.i.i29, align 4
   %low2.i15.i.i.i.i30 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 264
-  %49 = load ptr, ptr %low2.i15.i.i.i.i30, align 8
-  %arrayidx.i18.i.i.i.i31 = getelementptr inbounds float, ptr %49, i64 %idxprom.i.i.i
+  %50 = load ptr, ptr %low2.i15.i.i.i.i30, align 8
+  %arrayidx.i18.i.i.i.i31 = getelementptr inbounds float, ptr %50, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.20.40.copyload, ptr %arrayidx.i18.i.i.i.i31, align 4
   %high4.i20.i.i.i.i32 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 272
-  %50 = load ptr, ptr %high4.i20.i.i.i.i32, align 8
-  %arrayidx7.i22.i.i.i.i33 = getelementptr inbounds float, ptr %50, i64 %idxprom.i.i.i
+  %51 = load ptr, ptr %high4.i20.i.i.i.i32, align 8
+  %arrayidx7.i22.i.i.i.i33 = getelementptr inbounds float, ptr %51, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.21.40.copyload, ptr %arrayidx7.i22.i.i.i.i33, align 4
   %x2.i.i.i.i34 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 288
-  %51 = load ptr, ptr %x2.i.i.i.i34, align 8
-  %arrayidx.i.i.i.i35 = getelementptr inbounds float, ptr %51, i64 %idxprom.i.i.i
+  %52 = load ptr, ptr %x2.i.i.i.i34, align 8
+  %arrayidx.i.i.i.i35 = getelementptr inbounds float, ptr %52, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.22.40.copyload, ptr %arrayidx.i.i.i.i35, align 4
   %y4.i.i.i.i36 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 296
-  %52 = load ptr, ptr %y4.i.i.i.i36, align 8
-  %arrayidx7.i.i.i.i37 = getelementptr inbounds float, ptr %52, i64 %idxprom.i.i.i
+  %53 = load ptr, ptr %y4.i.i.i.i36, align 8
+  %arrayidx7.i.i.i.i37 = getelementptr inbounds float, ptr %53, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.23.40.copyload, ptr %arrayidx7.i.i.i.i37, align 4
   %z9.i.i.i.i38 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 304
-  %53 = load ptr, ptr %z9.i.i.i.i38, align 8
-  %arrayidx12.i.i.i.i39 = getelementptr inbounds float, ptr %53, i64 %idxprom.i.i.i
+  %54 = load ptr, ptr %z9.i.i.i.i38, align 8
+  %arrayidx12.i.i.i.i39 = getelementptr inbounds float, ptr %54, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.24.40.copyload, ptr %arrayidx12.i.i.i.i39, align 4
   %x2.i10.i.i.i40 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 320
-  %54 = load ptr, ptr %x2.i10.i.i.i40, align 8
-  %arrayidx.i13.i.i.i41 = getelementptr inbounds float, ptr %54, i64 %idxprom.i.i.i
+  %55 = load ptr, ptr %x2.i10.i.i.i40, align 8
+  %arrayidx.i13.i.i.i41 = getelementptr inbounds float, ptr %55, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.25.40.copyload, ptr %arrayidx.i13.i.i.i41, align 4
   %y4.i15.i.i.i42 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 328
-  %55 = load ptr, ptr %y4.i15.i.i.i42, align 8
-  %arrayidx7.i17.i.i.i43 = getelementptr inbounds float, ptr %55, i64 %idxprom.i.i.i
+  %56 = load ptr, ptr %y4.i15.i.i.i42, align 8
+  %arrayidx7.i17.i.i.i43 = getelementptr inbounds float, ptr %56, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.26.40.copyload, ptr %arrayidx7.i17.i.i.i43, align 4
   %z9.i19.i.i.i44 = getelementptr inbounds i8, ptr %escapedRayQueue, i64 336
-  %56 = load ptr, ptr %z9.i19.i.i.i44, align 8
-  %arrayidx12.i21.i.i.i45 = getelementptr inbounds float, ptr %56, i64 %idxprom.i.i.i
+  %57 = load ptr, ptr %z9.i19.i.i.i44, align 8
+  %arrayidx12.i21.i.i.i45 = getelementptr inbounds float, ptr %57, i64 %idxprom.i.i.i
   store float %agg.tmp3.sroa.27.40.copyload, ptr %arrayidx12.i21.i.i.i45, align 4
   %specularBounce37.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 344
-  %57 = load ptr, ptr %specularBounce37.i.i, align 8
-  %arrayidx40.i.i = getelementptr inbounds i32, ptr %57, i64 %idxprom.i.i.i
+  %58 = load ptr, ptr %specularBounce37.i.i, align 8
+  %arrayidx40.i.i = getelementptr inbounds i32, ptr %58, i64 %idxprom.i.i.i
   store i32 %agg.tmp3.sroa.2847.40.copyload, ptr %arrayidx40.i.i, align 4
   %pixelIndex42.i.i = getelementptr inbounds i8, ptr %escapedRayQueue, i64 352
-  %58 = load ptr, ptr %pixelIndex42.i.i, align 8
-  %arrayidx45.i.i = getelementptr inbounds i32, ptr %58, i64 %idxprom.i.i.i
+  %59 = load ptr, ptr %pixelIndex42.i.i, align 8
+  %arrayidx45.i.i = getelementptr inbounds i32, ptr %59, i64 %idxprom.i.i.i
   store i32 %agg.tmp3.sroa.12.40.copyload, ptr %arrayidx45.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.sroa.11.i)
   br label %if.end5
@@ -10437,10 +10434,9 @@ entry:
   br i1 %call2.i.i.i, label %"_ZSt10__invoke_rIvRZNK4pbrt12CPUAggregate15IntersectShadowEiPNS0_9WorkQueueINS0_17ShadowRayWorkItemEEEPNS0_3SOAINS0_16PixelSampleStateEEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %r_u.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 92
   %r_l.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %r_u.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %r_u30.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i
@@ -10477,10 +10473,9 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !88
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  %Ld1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 76
   %div.i.i.i.i.i = fmul float %add.i.i.i.i.i, 2.500000e-01
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i2.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.i2.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %Ld1.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.i2.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %Ld21.i.i.i.i, i64 16, i1 false)
   br label %for.body.i.i3.i.i.i.i
 
 for.body.i.i3.i.i.i.i:                            ; preds = %for.body.i.i3.i.i.i.i, %_ZNK4pbrt15SampledSpectrum7AverageEv.exit.i.i.i.i

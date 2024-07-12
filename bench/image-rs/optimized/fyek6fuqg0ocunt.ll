@@ -4001,7 +4001,6 @@ switch.lookup:
   %.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7.sroa.0 = alloca [7 x i8], align 1
   %.sroa.7.sroa.4 = alloca [24 x i8], align 1
-  %.sroa.5 = alloca [3 x i64], align 8
   %31 = alloca { ptr, [5 x i64] }, align 8
   %32 = alloca { i64, i64 }, align 8
   %33 = alloca { i64, i64 }, align 8
@@ -4044,7 +4043,6 @@ default.unreachable208:                           ; preds = %64
 51:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5144.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5144.sroa.8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.8)
@@ -4123,7 +4121,6 @@ default.unreachable208:                           ; preds = %64
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5144.sroa.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5144.sroa.8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   switch i64 %.sroa.5144.sroa.5.0, label %default.unreachable208 [
     i64 0, label %66
     i64 1, label %116
@@ -4163,7 +4160,7 @@ default.unreachable208:                           ; preds = %64
 
 .critedge:                                        ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %70 = getelementptr inbounds i8, ptr %25, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !4
   %.not.i = icmp eq i64 %71, %3
@@ -4216,7 +4213,6 @@ default.unreachable208:                           ; preds = %64
 87:                                               ; preds = %265, %248, %231, %214, %198, %181, %164, %147, %130, %104, %86
   call void @"_ZN4core3ptr111drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hf0cc9cd5e99a9f95E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %29)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   store i8 10, ptr %0, align 8
   br label %266
 
@@ -4234,7 +4230,7 @@ default.unreachable208:                           ; preds = %64
 
 92:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   store ptr %2, ptr %27, align 8
   %93 = getelementptr inbounds i8, ptr %27, i64 8
@@ -4300,7 +4296,6 @@ default.unreachable208:                           ; preds = %64
 113:                                              ; preds = %112, %65
   call void @"_ZN4core3ptr111drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hf0cc9cd5e99a9f95E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %29)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   br label %266
 
 114:                                              ; preds = %120
@@ -4311,7 +4306,7 @@ default.unreachable208:                           ; preds = %64
 
 116:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %117 = getelementptr inbounds i8, ptr %24, i64 16
   %118 = load i64, ptr %117, align 8, !noundef !4
   %119 = shl nsw i64 %118, 1
@@ -4359,7 +4354,7 @@ default.unreachable208:                           ; preds = %64
 
 133:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %134 = getelementptr inbounds i8, ptr %23, i64 16
   %135 = load i64, ptr %134, align 8, !noundef !4
   %136 = shl nsw i64 %135, 2
@@ -4407,7 +4402,7 @@ default.unreachable208:                           ; preds = %64
 
 150:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %151 = getelementptr inbounds i8, ptr %22, i64 16
   %152 = load i64, ptr %151, align 8, !noundef !4
   %153 = shl nsw i64 %152, 3
@@ -4455,7 +4450,7 @@ default.unreachable208:                           ; preds = %64
 
 167:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %168 = getelementptr inbounds i8, ptr %17, i64 16
   %169 = load i64, ptr %168, align 8, !noundef !4
   %170 = shl nsw i64 %169, 2
@@ -4503,7 +4498,7 @@ default.unreachable208:                           ; preds = %64
 
 184:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %185 = getelementptr inbounds i8, ptr %16, i64 16
   %186 = load i64, ptr %185, align 8, !noundef !4
   %187 = shl nsw i64 %186, 3
@@ -4551,7 +4546,7 @@ default.unreachable208:                           ; preds = %64
 
 201:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %202 = getelementptr inbounds i8, ptr %21, i64 16
   %203 = load i64, ptr %202, align 8, !noundef !4
   %.not.i119 = icmp eq i64 %203, %3
@@ -4598,7 +4593,7 @@ default.unreachable208:                           ; preds = %64
 
 217:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %218 = getelementptr inbounds i8, ptr %20, i64 16
   %219 = load i64, ptr %218, align 8, !noundef !4
   %220 = shl nsw i64 %219, 1
@@ -4646,7 +4641,7 @@ default.unreachable208:                           ; preds = %64
 
 234:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %235 = getelementptr inbounds i8, ptr %19, i64 16
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = shl nsw i64 %236, 2
@@ -4694,7 +4689,7 @@ default.unreachable208:                           ; preds = %64
 
 251:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %252 = getelementptr inbounds i8, ptr %18, i64 16
   %253 = load i64, ptr %252, align 8, !noundef !4
   %254 = shl nsw i64 %253, 3
@@ -4789,7 +4784,6 @@ switch.lookup:
   %.sroa.8 = alloca [24 x i8], align 8
   %.sroa.7.sroa.0 = alloca [7 x i8], align 1
   %.sroa.7.sroa.4 = alloca [24 x i8], align 1
-  %.sroa.5 = alloca [3 x i64], align 8
   %31 = alloca { ptr, [5 x i64] }, align 8
   %32 = alloca { i64, i64 }, align 8
   %33 = alloca { i64, i64 }, align 8
@@ -4832,7 +4826,6 @@ default.unreachable208:                           ; preds = %64
 51:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5144.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5144.sroa.8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.8)
@@ -4911,7 +4904,6 @@ default.unreachable208:                           ; preds = %64
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5144.sroa.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5144.sroa.8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   switch i64 %.sroa.5144.sroa.5.0, label %default.unreachable208 [
     i64 0, label %66
     i64 1, label %116
@@ -4951,7 +4943,7 @@ default.unreachable208:                           ; preds = %64
 
 .critedge:                                        ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %70 = getelementptr inbounds i8, ptr %25, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !4
   %.not.i = icmp eq i64 %71, %3
@@ -5004,7 +4996,6 @@ default.unreachable208:                           ; preds = %64
 87:                                               ; preds = %265, %248, %231, %214, %198, %181, %164, %147, %130, %104, %86
   call void @"_ZN4core3ptr98drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hce659f685e3eeebeE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %29)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   store i8 10, ptr %0, align 8
   br label %266
 
@@ -5022,7 +5013,7 @@ default.unreachable208:                           ; preds = %64
 
 92:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   store ptr %2, ptr %27, align 8
   %93 = getelementptr inbounds i8, ptr %27, i64 8
@@ -5088,7 +5079,6 @@ default.unreachable208:                           ; preds = %64
 113:                                              ; preds = %112, %65
   call void @"_ZN4core3ptr98drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hce659f685e3eeebeE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %29)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   br label %266
 
 114:                                              ; preds = %120
@@ -5099,7 +5089,7 @@ default.unreachable208:                           ; preds = %64
 
 116:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %117 = getelementptr inbounds i8, ptr %24, i64 16
   %118 = load i64, ptr %117, align 8, !noundef !4
   %119 = shl nsw i64 %118, 1
@@ -5147,7 +5137,7 @@ default.unreachable208:                           ; preds = %64
 
 133:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %134 = getelementptr inbounds i8, ptr %23, i64 16
   %135 = load i64, ptr %134, align 8, !noundef !4
   %136 = shl nsw i64 %135, 2
@@ -5195,7 +5185,7 @@ default.unreachable208:                           ; preds = %64
 
 150:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %151 = getelementptr inbounds i8, ptr %22, i64 16
   %152 = load i64, ptr %151, align 8, !noundef !4
   %153 = shl nsw i64 %152, 3
@@ -5243,7 +5233,7 @@ default.unreachable208:                           ; preds = %64
 
 167:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %168 = getelementptr inbounds i8, ptr %17, i64 16
   %169 = load i64, ptr %168, align 8, !noundef !4
   %170 = shl nsw i64 %169, 2
@@ -5291,7 +5281,7 @@ default.unreachable208:                           ; preds = %64
 
 184:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %185 = getelementptr inbounds i8, ptr %16, i64 16
   %186 = load i64, ptr %185, align 8, !noundef !4
   %187 = shl nsw i64 %186, 3
@@ -5339,7 +5329,7 @@ default.unreachable208:                           ; preds = %64
 
 201:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %202 = getelementptr inbounds i8, ptr %21, i64 16
   %203 = load i64, ptr %202, align 8, !noundef !4
   %.not.i119 = icmp eq i64 %203, %3
@@ -5386,7 +5376,7 @@ default.unreachable208:                           ; preds = %64
 
 217:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %218 = getelementptr inbounds i8, ptr %20, i64 16
   %219 = load i64, ptr %218, align 8, !noundef !4
   %220 = shl nsw i64 %219, 1
@@ -5434,7 +5424,7 @@ default.unreachable208:                           ; preds = %64
 
 234:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %235 = getelementptr inbounds i8, ptr %19, i64 16
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = shl nsw i64 %236, 2
@@ -5482,7 +5472,7 @@ default.unreachable208:                           ; preds = %64
 
 251:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7.sroa.4, i64 24, i1 false)
   %252 = getelementptr inbounds i8, ptr %18, i64 16
   %253 = load i64, ptr %252, align 8, !noundef !4
   %254 = shl nsw i64 %253, 3
@@ -34838,12 +34828,6 @@ define void @_ZN5image8dynimage12DynamicImage10into_bytes17h79945752eeac4080E(pt
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.4.i92.sroa.0 = alloca [24 x i8], align 1
-  %.sroa.4.i89.sroa.0 = alloca [24 x i8], align 1
-  %.sroa.4.i86.sroa.0 = alloca [24 x i8], align 1
-  %.sroa.4.i83.sroa.0 = alloca [24 x i8], align 1
-  %.sroa.4.i80.sroa.0 = alloca [24 x i8], align 1
-  %.sroa.4.i.sroa.0 = alloca [24 x i8], align 1
   %9 = alloca { { i64, ptr }, i64 }, align 8
   %10 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca { { i64, ptr }, i64 }, align 8
@@ -34945,9 +34929,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 28:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %14, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %14, i64 16
@@ -34993,9 +34976,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 48:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i80.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i80.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %49 = getelementptr inbounds i8, ptr %13, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds i8, ptr %13, i64 16
@@ -35041,9 +35023,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 68:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i83.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i83.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %69 = getelementptr inbounds i8, ptr %12, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %12, i64 16
@@ -35089,9 +35070,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 88:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i86.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i86.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %89 = getelementptr inbounds i8, ptr %11, i64 8
   %90 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
   %91 = getelementptr inbounds i8, ptr %11, i64 16
@@ -35137,9 +35117,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 108:                                              ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i89.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i89.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %10, i64 8
   %110 = load ptr, ptr %109, align 8, !nonnull !4, !noundef !4
   %111 = getelementptr inbounds i8, ptr %10, i64 16
@@ -35185,9 +35164,8 @@ default.unreachable212:                           ; preds = %2
           to label %21 unwind label %19
 
 128:                                              ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i92.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.i92.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %129 = getelementptr inbounds i8, ptr %9, i64 8
   %130 = load ptr, ptr %129, align 8, !nonnull !4, !noundef !4
   %131 = getelementptr inbounds i8, ptr %9, i64 16

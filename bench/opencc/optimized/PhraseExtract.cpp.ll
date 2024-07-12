@@ -6089,7 +6089,6 @@ _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6opencc19UT
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6opencc19UTF8StringSliceBaseIhEENS3_13PhraseExtract7SignalsEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS6_8DictType9BuildKeysEvEUlRKS8_SI_E_EEEvT_T0_SM_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef byval(%"struct.std::pair") align 8 %3) local_unnamed_addr #3 comdat {
-  %.sroa.7 = alloca [38 x i8], align 2
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp sgt i64 %6, %1
@@ -6171,9 +6170,6 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract8DictType9BuildKeys
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 9
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 10
-  call void @llvm.lifetime.start.p0(i64 38, ptr nonnull %.sroa.7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(38) %.sroa.7, ptr noundef nonnull align 2 dereferenceable(38) %.sroa.4.0..sroa_idx, i64 38, i1 false)
   %50 = icmp sgt i64 %.1, %1
   br i1 %50, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6opencc19UTF8StringSliceBaseIhEENS3_13PhraseExtract7SignalsEESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops14_Iter_comp_valIZNS6_8DictType9BuildKeysEvEUlRKS8_SI_E_EEEvT_T0_SM_T1_RT2_.exit
 
@@ -6219,9 +6215,8 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6opencc19UTF8StringSl
   %.sroa.6.0..sroa_idx37 = getelementptr inbounds i8, ptr %68, i64 9
   store i8 %.sroa.3.0.copyload, ptr %.sroa.6.0..sroa_idx37, align 1
   %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %.sroa.7.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 2 dereferenceable(32) %.sroa.7.16..sroa_idx, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 38, ptr nonnull %.sroa.7)
+  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false)
   ret void
 }
 

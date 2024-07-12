@@ -31,11 +31,11 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i5.i.i, i64 %conv.i.i
   store i8 0, ptr %call5.i.i.i.i3.i.i5.i.i, align 1, !tbaa !16
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i5.i.i, i64 1
-  %sub.i.i.i.i.i.i.i = add nsw i64 %conv.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i.i = icmp ult i32 %mul.i.i, 8
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6BitmapC2Ejj.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then
+  %sub.i.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i.i.i, i1 false)
   br label %_ZN6BitmapC2Ejj.exit.i
 
@@ -585,11 +585,11 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i.i.i10 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i5.i.i9, i64 %conv.i.i8
   store i8 0, ptr %call5.i.i.i.i3.i.i5.i.i9, align 1, !tbaa !16
   %incdec.ptr.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i5.i.i9, i64 1
-  %sub.i.i.i.i.i.i.i12 = add nsw i64 %conv.i.i8, -1
-  %cmp.i.i.i.i.i.i.i.i.i13 = icmp eq i64 %sub.i.i.i.i.i.i.i12, 0
+  %cmp.i.i.i.i.i.i.i.i.i13 = icmp ult i32 %mul.i.i5, 8
   br i1 %cmp.i.i.i.i.i.i.i.i.i13, label %_ZN6BitmapC2Ejj.exit.i15, label %if.then.i.i.i.i.i.i.i.i.i.i.i14
 
 if.then.i.i.i.i.i.i.i.i.i.i.i14:                  ; preds = %if.else
+  %sub.i.i.i.i.i.i.i12 = zext nneg i32 %shr.i.i.i6 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i.i.i11, i8 0, i64 %sub.i.i.i.i.i.i.i12, i1 false)
   br label %_ZN6BitmapC2Ejj.exit.i15
 

@@ -597,7 +597,6 @@ define hidden void @_ZN12futures_lite6stream9StreamExt9poll_next17h9a6c24040302b
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c461380164176bfE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.4 = alloca [23 x i8], align 1
   %.not20 = icmp eq i64 %1, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
@@ -606,11 +605,10 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %.promoted = load ptr, ptr %4, align 8
   %.promoted22 = load i64, ptr %5, align 8
-  %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %7 = phi i64 [ %.promoted22, %.lr.ph ], [ %17, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %7 = phi i64 [ %.promoted22, %.lr.ph ], [ %18, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %8 = phi ptr [ %.promoted, %.lr.ph ], [ %15, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %.121 = phi i64 [ %1, %.lr.ph ], [ %9, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %9 = add i64 %.121, -1
@@ -629,10 +627,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c4
   %14 = getelementptr inbounds i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8, !noundef !4
   store ptr %15, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.4)
   %.sroa.0.0.copyload = load i8, ptr %8, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, i64 23, i1 false)
   store i8 1, ptr %8, align 8
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 1
   store i8 1, ptr %.sroa.4.0..0..sroa_idx, align 1
@@ -640,14 +635,14 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c4
   br i1 %.not14, label %16, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 16:                                               ; preds = %13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.8..sroa_idx, i64 16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   call void @_ZN14event_listener4Task4wake17h0f7a18696dd04c4fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit": ; preds = %16, %13
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4)
-  %17 = add i64 %7, 1
-  store i64 %17, ptr %5, align 8
+  %18 = add i64 %7, 1
+  store i64 %18, ptr %5, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %.loopexit, label %6
 }
@@ -655,7 +650,6 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2c4
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e3f188da931715E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.4 = alloca [23 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ugt i64 %5, %1
@@ -669,13 +663,12 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.promoted22 = load ptr, ptr %9, align 8
-  %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
   %11 = phi ptr [ %.promoted22, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %.121 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
-  %12 = phi i64 [ %5, %.lr.ph ], [ %21, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %12 = phi i64 [ %5, %.lr.ph ], [ %22, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %13 = add i64 %.121, -1
   %14 = icmp eq ptr %11, null
   br i1 %14, label %15, label %17
@@ -692,10 +685,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
   %18 = getelementptr inbounds i8, ptr %11, i64 32
   %19 = load ptr, ptr %18, align 8, !noundef !4
   store ptr %19, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.4)
   %.sroa.0.0.copyload = load i8, ptr %11, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, i64 23, i1 false)
   store i8 1, ptr %11, align 8
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 1
   store i8 0, ptr %.sroa.4.0..0..sroa_idx, align 1
@@ -703,14 +693,14 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
   br i1 %.not14, label %20, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 20:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.8..sroa_idx, i64 16, i1 false)
+  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   call void @_ZN14event_listener4Task4wake17h0f7a18696dd04c4fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit": ; preds = %20, %17
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4)
-  %21 = add i64 %12, 1
-  store i64 %21, ptr %4, align 8
+  %22 = add i64 %12, 1
+  store i64 %22, ptr %4, align 8
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.loopexit, label %10
 }
@@ -718,7 +708,6 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h30e
 ; Function Attrs: cold nonlazybind uwtable
 define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3bf2fe567b129f90E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.4 = alloca [23 x i8], align 1
   %.val = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val16 = load i8, ptr %4, align 8, !range !75, !noundef !4
@@ -744,7 +733,6 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   %.promoted24 = load i8, ptr %12, align 1, !alias.scope !76
   %.promoted25 = load i64, ptr %13, align 8
   %14 = trunc nuw i8 %.promoted24 to i1
-  %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
   br label %17
 
 15:                                               ; preds = %6
@@ -752,7 +740,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   br label %10
 
 17:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
-  %18 = phi i64 [ %.promoted25, %.lr.ph ], [ %27, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
+  %18 = phi i64 [ %.promoted25, %.lr.ph ], [ %28, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %trunc.i.i.i = phi i1 [ %14, %.lr.ph ], [ false, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %19 = phi ptr [ %.promoted, %.lr.ph ], [ %24, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
   %.123 = phi i64 [ %.011, %.lr.ph ], [ %20, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit" ]
@@ -778,10 +766,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   unreachable
 
 "_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit": ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.4)
   %.sroa.0.0.copyload = load i8, ptr %19, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, i64 23, i1 false)
   store i8 1, ptr %19, align 8
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 1
   store i8 %.val16, ptr %.sroa.4.0..0..sroa_idx, align 1
@@ -789,14 +774,14 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
   br i1 %.not14, label %26, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 26:                                               ; preds = %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.8..sroa_idx, i64 16, i1 false)
+  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   call void @_ZN14event_listener4Task4wake17h0f7a18696dd04c4fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.exit": ; preds = %26, %"_ZN110_$LT$event_listener..notify..GenericNotify$LT$F$GT$$u20$as$u20$event_listener..notify..NotificationPrivate$GT$8next_tag17hf0df2ab6e876bd37E.exit"
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4)
-  %27 = add i64 %18, 1
-  store i64 %27, ptr %13, align 8
+  %28 = add i64 %18, 1
+  store i64 %28, ptr %13, align 8
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %.loopexit, label %17
 }
@@ -804,7 +789,6 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h3
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he202c8bca4035b2cE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %.sroa.4 = alloca [23 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ugt i64 %5, %1
@@ -818,13 +802,12 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
 .lr.ph:                                           ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.promoted22 = load ptr, ptr %9, align 8
-  %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit"
   %11 = phi ptr [ %.promoted22, %.lr.ph ], [ %19, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
   %.121 = phi i64 [ %8, %.lr.ph ], [ %13, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
-  %12 = phi i64 [ %5, %.lr.ph ], [ %21, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
+  %12 = phi i64 [ %5, %.lr.ph ], [ %22, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit" ]
   %13 = add i64 %.121, -1
   %14 = icmp eq ptr %11, null
   br i1 %14, label %15, label %17
@@ -841,10 +824,7 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
   %18 = getelementptr inbounds i8, ptr %11, i64 32
   %19 = load ptr, ptr %18, align 8, !noundef !4
   store ptr %19, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.4)
   %.sroa.0.0.copyload = load i8, ptr %11, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, i64 23, i1 false)
   store i8 1, ptr %11, align 8
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 1
   store i8 0, ptr %.sroa.4.0..0..sroa_idx, align 1
@@ -852,14 +832,14 @@ define hidden noundef i64 @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17he20
   br i1 %.not14, label %20, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit"
 
 20:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4.8..sroa_idx, i64 16, i1 false)
+  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   call void @_ZN14event_listener4Task4wake17h0f109f004e04bb88E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3)
   br label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit"
 
 "_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hc961af4f87fbece0E.exit": ; preds = %20, %17
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.4)
-  %21 = add i64 %12, 1
-  store i64 %21, ptr %4, align 8
+  %22 = add i64 %12, 1
+  store i64 %22, ptr %4, align 8
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %.loopexit, label %10
 }

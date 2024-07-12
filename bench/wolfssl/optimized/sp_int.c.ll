@@ -11200,7 +11200,7 @@ land.rhs9.lr.ph.i.i:                              ; preds = %lor.lhs.false6.i
   br i1 %cmp11.i19.not.i, label %for.body33.lr.ph.i.i, label %for.body13.i.i.preheader
 
 for.body13.i.i.preheader:                         ; preds = %land.rhs9.lr.ph.i.i
-  %9 = add nsw i64 %5, -1
+  %9 = zext nneg i32 %shr.i27 to i64
   br label %for.body13.i.i
 
 land.rhs9.i.i:                                    ; preds = %for.body13.i.i

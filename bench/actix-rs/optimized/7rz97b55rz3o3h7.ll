@@ -12033,23 +12033,23 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit102.thread: ; preds = %_ZN4c
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %51), !noalias !1672
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %56), !noalias !1675
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %55), !noalias !1675
-  %305 = getelementptr inbounds i8, ptr %67, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %55, ptr noundef nonnull readonly align 8 dereferenceable(88) %305, i64 88, i1 false), !noalias !1678
-  call void @llvm.experimental.noalias.scope.decl(metadata !1679)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1682)
+  %305 = getelementptr inbounds i8, ptr %1, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %55, ptr noundef nonnull align 8 dereferenceable(88) %305, i64 88, i1 false)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1678)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1681)
   %306 = invoke { i16, i16 } @"_ZN9actix_tls7connect3uri75_$LT$impl$u20$actix_tls..connect..host..Host$u20$for$u20$http..uri..Uri$GT$4port17h468b21d2daba6a80E"(ptr noundef nonnull align 8 %55)
-          to label %"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E.exit.i.i" unwind label %307, !noalias !1684
+          to label %"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E.exit.i.i" unwind label %307, !noalias !1683
 
 307:                                              ; preds = %302
   %308 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2850a332abbab773E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %55) #29
-          to label %.body111 unwind label %309, !noalias !1684
+          to label %.body111 unwind label %309, !noalias !1683
 
 309:                                              ; preds = %307
   %310 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #28, !noalias !1684
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #28, !noalias !1683
   unreachable
 
 "_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E.exit.i.i": ; preds = %302
@@ -12058,15 +12058,15 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit102.thread: ; preds = %_ZN4c
   %312 = extractvalue { i16, i16 } %306, 1
   %.0.i.i.i109 = select i1 %switch.i.i.i, i16 0, i16 %312
   %313 = getelementptr inbounds i8, ptr %56, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %313, ptr noundef nonnull align 8 dereferenceable(88) %55, i64 88, i1 false), !alias.scope !1685, !noalias !1675
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %313, ptr noundef nonnull align 8 dereferenceable(88) %55, i64 88, i1 false), !alias.scope !1684, !noalias !1675
   %314 = getelementptr inbounds i8, ptr %56, i64 128
-  store i16 %.0.i.i.i109, ptr %314, align 8, !alias.scope !1679, !noalias !1686
-  store i32 0, ptr %56, align 8, !alias.scope !1679, !noalias !1686
+  store i16 %.0.i.i.i109, ptr %314, align 8, !alias.scope !1678, !noalias !1685
+  store i32 0, ptr %56, align 8, !alias.scope !1678, !noalias !1685
   %315 = getelementptr inbounds i8, ptr %56, i64 130
-  store i8 2, ptr %315, align 2, !alias.scope !1679, !noalias !1686
+  store i8 2, ptr %315, align 2, !alias.scope !1678, !noalias !1685
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %55), !noalias !1675
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54), !noalias !1675
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %54, ptr noundef nonnull readonly align 8 dereferenceable(32) %67, i64 32, i1 false), !noalias !1678
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %54, ptr noundef nonnull readonly align 8 dereferenceable(32) %67, i64 32, i1 false), !noalias !1686
   invoke void @"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$8set_addr17h0836841b4ed2a3bfE"(ptr noalias nocapture noundef nonnull sret({ { i32, [9 x i32] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, i16, { i8, [16 x i8] }, [5 x i8] }) align 8 dereferenceable(152) %51, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %56, ptr noalias nocapture noundef nonnull align 4 dereferenceable(32) %54)
           to label %.noexc113 unwind label %334
 
@@ -17339,15 +17339,15 @@ attributes #30 = { nounwind }
 !1675 = !{!1676, !1670, !1677, !1673, !1667, !1674}
 !1676 = distinct !{!1676, !1671, !"_ZN128_$LT$awc..client..connector..TcpConnectorInnerService$LT$S$GT$$u20$as$u20$actix_service..Service$LT$awc..client..Connect$GT$$GT$4call17h757716b4c807d09dE: argument 0"}
 !1677 = distinct !{!1677, !1671, !"_ZN128_$LT$awc..client..connector..TcpConnectorInnerService$LT$S$GT$$u20$as$u20$actix_service..Service$LT$awc..client..Connect$GT$$GT$4call17h757716b4c807d09dE: argument 2"}
-!1678 = !{!1676, !1670, !1673, !1667}
-!1679 = !{!1680}
-!1680 = distinct !{!1680, !1681, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E: argument 0"}
-!1681 = distinct !{!1681, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E"}
-!1682 = !{!1683}
-!1683 = distinct !{!1683, !1681, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E: argument 1"}
-!1684 = !{!1680, !1676, !1670, !1677, !1673, !1667, !1674}
-!1685 = !{!1680, !1683}
-!1686 = !{!1683, !1676, !1670, !1677, !1673, !1667, !1674}
+!1678 = !{!1679}
+!1679 = distinct !{!1679, !1680, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E: argument 0"}
+!1680 = distinct !{!1680, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E"}
+!1681 = !{!1682}
+!1682 = distinct !{!1682, !1680, !"_ZN9actix_tls7connect4info20ConnectInfo$LT$R$GT$3new17h6372bafd324f5944E: argument 1"}
+!1683 = !{!1679, !1676, !1670, !1677, !1673, !1667, !1674}
+!1684 = !{!1679, !1682}
+!1685 = !{!1682, !1676, !1670, !1677, !1673, !1667, !1674}
+!1686 = !{!1676, !1670, !1673, !1667}
 !1687 = !{!1670, !1667}
 !1688 = !{!1676, !1677, !1673, !1674}
 !1689 = !{!1690, !1692}

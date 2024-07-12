@@ -1119,9 +1119,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 10:                                               ; preds = %23, %.lr.ph.i.i
   %.val12.i.i = phi i64 [ %.sroa.54.0.copyload, %.lr.ph.i.i ], [ %25, %23 ]
-  %.sroa.01.021.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %11, %23 ]
-  %11 = add nuw i64 %.sroa.01.021.i.i, 1
-  %12 = add i64 %.sroa.01.021.i.i, %.sroa.6.0.copyload
+  %.sroa.01.020.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %11, %23 ]
+  %11 = add nuw i64 %.sroa.01.020.i.i, 1
+  %12 = add i64 %.sroa.01.020.i.i, %.sroa.6.0.copyload
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i.i.i), !noalias !254
   %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.sroa.41.0.copyload, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 48
@@ -1727,7 +1727,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %.val2.i.i = load ptr, ptr %8, align 8, !alias.scope !453, !noalias !456, !nonnull !49, !align !66, !noundef !49
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %.val.i14.i = load ptr, ptr %9, align 8, !alias.scope !441, !noalias !438, !nonnull !49, !align !66
+  %.val.i13.i = load ptr, ptr %9, align 8, !alias.scope !441, !noalias !438, !nonnull !49, !align !66
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !alias.scope !441, !noalias !438
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1736,10 +1736,10 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 
 13:                                               ; preds = %25, %.lr.ph.i
   %.val12.i = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %27, %25 ]
-  %.sroa.01.021.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %25 ]
-  %14 = add nuw i64 %.sroa.01.021.i, 1
+  %.sroa.01.020.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %25 ]
+  %14 = add nuw i64 %.sroa.01.020.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
-  %15 = add i64 %.sroa.01.021.i, %.val.i
+  %15 = add i64 %.sroa.01.020.i, %.val.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i.i), !noalias !460
   %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val1.i.i, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 48
@@ -1763,7 +1763,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i.i), !noalias !460
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i), !noalias !475
-  invoke void @_ZN16wasmtime_environ9component9translate5adapt23fact_import_to_core_def17hcc11ab2f1de27e5fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(640) %.val.i14.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN16wasmtime_environ9component9translate5adapt23fact_import_to_core_def17hcc11ab2f1de27e5fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(640) %.val.i13.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
           to label %25 unwind label %21, !noalias !469
 
 25:                                               ; preds = %23
@@ -2223,7 +2223,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %.val2.i = load ptr, ptr %8, align 8, !alias.scope !647, !noalias !650, !nonnull !49, !align !66, !noundef !49
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %.val.i14 = load ptr, ptr %9, align 8, !nonnull !49, !align !66
+  %.val.i13 = load ptr, ptr %9, align 8, !nonnull !49, !align !66
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2238,10 +2238,10 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 
 13:                                               ; preds = %.lr.ph, %25
   %.val12 = phi i64 [ %.promoted, %.lr.ph ], [ %27, %25 ]
-  %.sroa.01.021 = phi i64 [ 0, %.lr.ph ], [ %14, %25 ]
-  %14 = add nuw i64 %.sroa.01.021, 1
+  %.sroa.01.020 = phi i64 [ 0, %.lr.ph ], [ %14, %25 ]
+  %14 = add nuw i64 %.sroa.01.020, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !642)
-  %15 = add i64 %.sroa.01.021, %.val
+  %15 = add i64 %.sroa.01.020, %.val
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i), !noalias !658
   %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val1.i, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 48
@@ -2265,7 +2265,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i), !noalias !658
   tail call void @llvm.experimental.noalias.scope.decl(metadata !676)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i), !noalias !672
-  invoke void @_ZN16wasmtime_environ9component9translate5adapt23fact_import_to_core_def17hcc11ab2f1de27e5fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i, ptr noalias noundef nonnull align 8 dereferenceable(640) %.val.i14, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN16wasmtime_environ9component9translate5adapt23fact_import_to_core_def17hcc11ab2f1de27e5fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %.sroa.0.i, ptr noalias noundef nonnull align 8 dereferenceable(640) %.val.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
           to label %25 unwind label %21
 
 25:                                               ; preds = %23

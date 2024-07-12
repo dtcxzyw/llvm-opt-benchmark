@@ -572,7 +572,7 @@ define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr nocaptur
   br i1 %208, label %248, label %257
 
 233:                                              ; preds = %206
-  %234 = getelementptr inbounds i8, ptr %9, i64 8
+  %234 = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %234, i64 24, i1 false)
   %235 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h67c4390d3745334fE"(i64 %199, i1 zeroext false)
           to label %238 unwind label %236
