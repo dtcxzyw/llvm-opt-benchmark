@@ -2745,8 +2745,8 @@ if.else.i.i:                                      ; preds = %sw.bb20.i.i
 
 sw.bb35.i.i:                                      ; preds = %if.end.i
   %conv36.i.i = trunc i64 %add.i.i.i to i32
-  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv36.i.i, i1 false)
-  %cond43.i.i = tail call i32 @llvm.umin.i32(i32 %7, i32 4)
+  %7 = or i32 %conv36.i.i, 16
+  %cond43.i.i = tail call range(i32 0, 5) i32 @llvm.cttz.i32(i32 %7, i1 true)
   br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i

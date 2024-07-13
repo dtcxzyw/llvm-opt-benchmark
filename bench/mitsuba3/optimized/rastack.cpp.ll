@@ -100,8 +100,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %17 = load ptr, ptr %5, align 8, !tbaa !27
   %18 = getelementptr inbounds i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !18
-  %20 = tail call i8 @llvm.cttz.i8(i8 %19, i1 true), !range !28
-  %21 = tail call i8 @llvm.umin.i8(i8 %20, i8 6)
+  %20 = or i8 %19, 64
+  %21 = tail call range(i8 0, 7) i8 @llvm.cttz.i8(i8 %20, i1 true)
   %22 = getelementptr inbounds i8, ptr %17, i64 2
   %23 = load i16, ptr %22, align 2, !tbaa !19
   %24 = and i16 %23, 1
@@ -228,7 +228,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %101 = getelementptr inbounds i8, ptr %98, i64 12
   %102 = load i32, ptr %101, align 4, !tbaa !22
   %103 = icmp ult i32 %100, %102
-  br i1 %103, label %92, label %104, !llvm.loop !29
+  br i1 %103, label %92, label %104, !llvm.loop !28
 
 104:                                              ; preds = %95, %92
   %105 = phi ptr [ %96, %95 ], [ %93, %92 ]
@@ -252,7 +252,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %115 = getelementptr inbounds i8, ptr %112, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !22
   %117 = icmp ugt i32 %114, %116
-  br i1 %117, label %106, label %split, !llvm.loop !31
+  br i1 %117, label %106, label %split, !llvm.loop !30
 
 split:                                            ; preds = %109, %._crit_edge
   %118 = phi ptr [ %.pre, %._crit_edge ], [ %111, %109 ]
@@ -264,7 +264,7 @@ split:                                            ; preds = %109, %._crit_edge
   %122 = load ptr, ptr %105, align 8, !tbaa !27
   store ptr %118, ptr %105, align 8, !tbaa !27
   store ptr %122, ptr %119, align 8, !tbaa !27
-  br label %89, !llvm.loop !32
+  br label %89, !llvm.loop !31
 
 123:                                              ; preds = %split
   %124 = load ptr, ptr %46, align 8, !tbaa !27
@@ -327,13 +327,13 @@ split:                                            ; preds = %109, %._crit_edge
 .loopexit33:                                      ; preds = %161, %152, %145
   %159 = getelementptr inbounds i8, ptr %146, i64 8
   %160 = icmp ult ptr %159, %141
-  br i1 %160, label %145, label %.loopexit34, !llvm.loop !33
+  br i1 %160, label %145, label %.loopexit34, !llvm.loop !32
 
 161:                                              ; preds = %152
   store ptr %149, ptr %154, align 8, !tbaa !27
   store ptr %155, ptr %153, align 8, !tbaa !27
   %162 = icmp ugt ptr %154, %46
-  br i1 %162, label %152, label %.loopexit33, !llvm.loop !34
+  br i1 %162, label %152, label %.loopexit33, !llvm.loop !33
 
 .loopexit34:                                      ; preds = %.loopexit33, %140, %138
   %163 = icmp eq ptr %48, %2
@@ -350,7 +350,7 @@ split:                                            ; preds = %109, %._crit_edge
   %.be = phi ptr [ %134, %131 ], [ %168, %164 ]
   %.be89 = phi ptr [ %135, %131 ], [ %166, %164 ]
   %.be90 = phi ptr [ %137, %131 ], [ %167, %164 ]
-  br label %45, !llvm.loop !35
+  br label %45, !llvm.loop !34
 
 169:                                              ; preds = %.loopexit34
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #6
@@ -368,8 +368,8 @@ split:                                            ; preds = %109, %._crit_edge
   %176 = load ptr, ptr %175, align 8, !tbaa !27
   %177 = getelementptr inbounds i8, ptr %176, i64 1
   %178 = load i8, ptr %177, align 1, !tbaa !18
-  %179 = tail call i8 @llvm.cttz.i8(i8 %178, i1 true), !range !28
-  %180 = tail call i8 @llvm.umin.i8(i8 %179, i8 6)
+  %179 = or i8 %178, 64
+  %180 = tail call range(i8 0, 7) i8 @llvm.cttz.i8(i8 %179, i1 true)
   %181 = getelementptr inbounds i8, ptr %176, i64 2
   %182 = load i16, ptr %181, align 2, !tbaa !19
   %183 = and i16 %182, 1
@@ -400,8 +400,8 @@ split:                                            ; preds = %109, %._crit_edge
   %201 = load ptr, ptr %200, align 8, !tbaa !27
   %202 = getelementptr inbounds i8, ptr %201, i64 1
   %203 = load i8, ptr %202, align 1, !tbaa !18
-  %204 = tail call i8 @llvm.cttz.i8(i8 %203, i1 true), !range !28
-  %205 = tail call i8 @llvm.umin.i8(i8 %204, i8 6)
+  %204 = or i8 %203, 64
+  %205 = tail call range(i8 0, 7) i8 @llvm.cttz.i8(i8 %204, i1 true)
   %206 = getelementptr inbounds i8, ptr %201, i64 2
   %207 = load i16, ptr %206, align 2, !tbaa !19
   %208 = and i16 %207, 1
@@ -456,7 +456,7 @@ split:                                            ; preds = %109, %._crit_edge
   br i1 %244, label %245, label %.loopexit31
 
 245:                                              ; preds = %234
-  %246 = call noundef i32 @llvm.cttz.i32(i32 %243, i1 true), !range !36
+  %246 = call noundef i32 @llvm.cttz.i32(i32 %243, i1 true), !range !35
   %247 = zext nneg i32 %246 to i64
   br label %248
 
@@ -471,7 +471,7 @@ split:                                            ; preds = %109, %._crit_edge
 254:                                              ; preds = %248
   %255 = add nuw nsw i64 %249, 1
   %256 = icmp eq i64 %255, 6
-  br i1 %256, label %.loopexit31, label %248, !llvm.loop !37
+  br i1 %256, label %.loopexit31, label %248, !llvm.loop !36
 
 .loopexit31:                                      ; preds = %254, %234
   %257 = icmp eq i32 %227, %241
@@ -481,13 +481,13 @@ split:                                            ; preds = %109, %._crit_edge
 259:                                              ; preds = %248
   %260 = getelementptr inbounds i8, ptr %250, i64 8
   %261 = add i32 %252, -1
-  store i32 %261, ptr %260, align 8, !tbaa !9, !noalias !38
-  %262 = load ptr, ptr %250, align 8, !tbaa !26, !noalias !38
+  store i32 %261, ptr %260, align 8, !tbaa !9, !noalias !37
+  %262 = load ptr, ptr %250, align 8, !tbaa !26, !noalias !37
   %263 = zext i32 %261 to i64
   %264 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RAStackGap", ptr %262, i64 %263
-  %265 = load i32, ptr %264, align 4, !tbaa !41, !noalias !38
+  %265 = load i32, ptr %264, align 4, !tbaa !40, !noalias !37
   %266 = getelementptr inbounds i8, ptr %264, i64 4
-  %267 = load i32, ptr %266, align 4, !tbaa !43, !noalias !38
+  %267 = load i32, ptr %266, align 4, !tbaa !42, !noalias !37
   %268 = getelementptr inbounds i8, ptr %229, i64 16
   store i32 %265, ptr %268, align 4, !tbaa !23
   %269 = sub i32 %267, %243
@@ -511,7 +511,7 @@ split:                                            ; preds = %109, %._crit_edge
 
 .preheader:                                       ; preds = %278, %301
   %282 = phi i32 [ %312, %301 ], [ %279, %278 ]
-  %283 = call noundef i32 @llvm.cttz.i32(i32 %282, i1 true), !range !36
+  %283 = call noundef i32 @llvm.cttz.i32(i32 %282, i1 true), !range !35
   %284 = shl nuw i32 1, %283
   %285 = sub i32 %280, %282
   %286 = icmp ult i32 %285, %284
@@ -582,7 +582,7 @@ split:                                            ; preds = %109, %._crit_edge
   %329 = sub i32 0, %327
   %330 = and i32 %328, %329
   %331 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %330, ptr %331, align 4, !tbaa !44
+  store i32 %330, ptr %331, align 4, !tbaa !43
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %295, %324
@@ -630,7 +630,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator17adjustSlotOff
   %27 = getelementptr inbounds i8, ptr %15, i64 8
   %28 = add nuw nsw i64 %16, 1
   %29 = icmp eq i64 %28, %13
-  br i1 %29, label %.loopexit3, label %.preheader2, !llvm.loop !45
+  br i1 %29, label %.loopexit3, label %.preheader2, !llvm.loop !44
 
 .loopexit3:                                       ; preds = %26, %10
   %30 = phi ptr [ %4, %10 ], [ %27, %26 ]
@@ -731,9 +731,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #4
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -772,22 +769,21 @@ attributes #6 = { nounwind }
 !25 = !{!11, !8, i64 16}
 !26 = !{!4, !5, i64 0}
 !27 = !{!5, !5, i64 0}
-!28 = !{i8 0, i8 9}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = distinct !{!32, !30}
-!33 = distinct !{!33, !30}
-!34 = distinct !{!34, !30}
-!35 = distinct !{!35, !30}
-!36 = !{i32 0, i32 33}
-!37 = distinct !{!37, !30}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv: argument 0"}
-!40 = distinct !{!40, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv"}
-!41 = !{!42, !8, i64 0}
-!42 = !{!"_ZTSN6asmjit9_abi_1_1010RAStackGapE", !8, i64 0, !8, i64 4}
-!43 = !{!42, !8, i64 4}
-!44 = !{!11, !8, i64 12}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.unroll.disable"}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = distinct !{!30, !29}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}
+!33 = distinct !{!33, !29}
+!34 = distinct !{!34, !29}
+!35 = !{i32 0, i32 33}
+!36 = distinct !{!36, !29}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv: argument 0"}
+!39 = distinct !{!39, !"_ZN6asmjit9_abi_1_1010ZoneVectorINS0_10RAStackGapEE3popEv"}
+!40 = !{!41, !8, i64 0}
+!41 = !{!"_ZTSN6asmjit9_abi_1_1010RAStackGapE", !8, i64 0, !8, i64 4}
+!42 = !{!41, !8, i64 4}
+!43 = !{!11, !8, i64 12}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.unroll.disable"}
