@@ -715,7 +715,7 @@ _ZN7Imf_3_223offsetInLineBufferTableERKSt6vectorImSaImEEiiiRS2_.exit: ; preds = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN7Imf_3_214lineBufferMinYEiii(i32 noundef %y, i32 noundef %minY, i32 noundef %linesInLineBuffer) local_unnamed_addr #4 {
 entry:
-  %sub = sub i32 %y, %minY
+  %sub = sub nsw i32 %y, %minY
   %0 = srem i32 %sub, %linesInLineBuffer
   %add = sub i32 %y, %0
   ret i32 %add
@@ -724,7 +724,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZN7Imf_3_214lineBufferMaxYEiii(i32 noundef %y, i32 noundef %minY, i32 noundef %linesInLineBuffer) local_unnamed_addr #4 {
 entry:
-  %sub.i = sub i32 %y, %minY
+  %sub.i = sub nsw i32 %y, %minY
   %0 = srem i32 %sub.i, %linesInLineBuffer
   %add.i = add i32 %y, -1
   %add = add i32 %add.i, %linesInLineBuffer

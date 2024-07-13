@@ -1527,7 +1527,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %21, %101,
   %147 = getelementptr inbounds i8, ptr %7, i64 212
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 1
-  %150 = add i64 %2, -1
+  %150 = add nsw i64 %2, -1
   br i1 %149, label %155, label %151
 
 151:                                              ; preds = %146

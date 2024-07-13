@@ -2140,7 +2140,7 @@ for.end257:                                       ; preds = %for.inc255
   br i1 %cmp258, label %land.lhs.true, label %if.end324
 
 land.lhs.true:                                    ; preds = %for.cond219.preheader, %for.end257
-  %fSum.0.lcssa575 = phi float [ %fSum.1, %for.end257 ], [ 0.000000e+00, %for.cond219.preheader ]
+  %fSum.0.lcssa572 = phi float [ %fSum.1, %for.end257 ], [ 0.000000e+00, %for.cond219.preheader ]
   %iParentNode262 = getelementptr inbounds i8, ptr %arrayidx223, i64 36
   %140 = load i32, ptr %iParentNode262, align 4
   %cmp263.not = icmp eq i32 %140, -1
@@ -2166,11 +2166,11 @@ invoke.cont274:                                   ; preds = %if.then273
           to label %invoke.cont276 unwind label %delete.notnull.i.i.loopexit.split-lp.loopexit
 
 invoke.cont276:                                   ; preds = %invoke.cont274
-  %tobool277 = fcmp une float %fSum.0.lcssa575, 0.000000e+00
+  %tobool277 = fcmp une float %fSum.0.lcssa572, 0.000000e+00
   br i1 %tobool277, label %if.then278, label %if.end324
 
 if.then278:                                       ; preds = %invoke.cont276
-  %div279 = fdiv float 1.000000e+00, %fSum.0.lcssa575
+  %div279 = fdiv float 1.000000e+00, %fSum.0.lcssa572
   %143 = load ptr, ptr %aiBoneLinks, align 8
   %144 = load ptr, ptr %_M_finish.i204, align 8
   %cmp.i248.not496 = icmp eq ptr %143, %144
@@ -2205,7 +2205,7 @@ for.inc307:                                       ; preds = %for.body290, %if.en
 
 if.else311:                                       ; preds = %if.then264
   %arrayidx.i258 = getelementptr inbounds %"class.std::vector.45", ptr %.ptr411.ptr, i64 %conv269
-  %sub320 = fsub float 1.000000e+00, %fSum.0.lcssa575
+  %sub320 = fsub float 1.000000e+00, %fSum.0.lcssa572
   %_M_finish.i259 = getelementptr inbounds i8, ptr %arrayidx.i258, i64 8
   %150 = load ptr, ptr %_M_finish.i259, align 8
   %_M_end_of_storage.i260 = getelementptr inbounds i8, ptr %arrayidx.i258, i64 16

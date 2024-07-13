@@ -328,9 +328,9 @@ while.body8.us.preheader:                         ; preds = %while.body8.lr.ph
   %9 = tail call i32 @llvm.usub.sat.i32(i32 %remaining_exponent.0.lcssa.fr, i32 25)
   %10 = add nuw i32 %9, 12
   %11 = urem i32 %10, 13
-  %.neg73 = sub i32 %11, %10
+  %.neg72 = sub i32 %11, %10
   %12 = add nsw i32 %remaining_exponent.0.lcssa.fr, -13
-  %13 = add i32 %.neg73, %12
+  %13 = add i32 %.neg72, %12
   br label %while.end10
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6icu_7517double_conversion6Bignum16MultiplyByUInt64Em.exit

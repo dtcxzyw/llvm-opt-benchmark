@@ -1373,7 +1373,7 @@ define void @_ZN4ring6digest7Context6update17h48da5b5e3b1c40caE(ptr noalias noun
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.12309478120345669377.exit46": ; preds = %47, %60
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %37, %47 ]
-  %66 = sub i64 %2, %15
+  %66 = sub nuw i64 %2, %15
   %67 = getelementptr inbounds i8, ptr %1, i64 %15
   store i64 0, ptr %13, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32

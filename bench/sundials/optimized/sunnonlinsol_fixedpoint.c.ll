@@ -287,7 +287,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   %98 = getelementptr inbounds ptr, ptr %45, i64 %97
   %99 = load ptr, ptr %98, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %99, ptr noundef %2) #12
-  %100 = icmp sgt i32 %67, 0
+  %100 = icmp sgt i32 %37, 1
   %101 = mul nsw i32 %67, %32
   br i1 %100, label %.lr.ph9.i, label %._crit_edge10.i
 

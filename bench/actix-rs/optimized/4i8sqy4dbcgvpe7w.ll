@@ -1956,15 +1956,15 @@ _ZN6brotli3enc9histogram18HistogramAddVector17h51da60c814b6d924E.exit.i.i: ; pre
   br label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i
 
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i: ; preds = %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i, %.lr.ph.i.i
-  %.023.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %321, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i ]
-  %.01022.i.i = phi i32 [ 7, %.lr.ph.i.i ], [ %spec.store.select.i.i.i, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i ]
+  %.022.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %321, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i ]
+  %.0921.i.i = phi i32 [ 7, %.lr.ph.i.i ], [ %spec.store.select.i.i.i, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %190), !noalias !272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %190, i8 0, i64 1024, i1 false), !noalias !272
   store float 0x47EFFE0460000000, ptr %290, align 8, !alias.scope !273, !noalias !272
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
   call void @llvm.experimental.noalias.scope.decl(metadata !279)
-  %292 = mul i32 %.01022.i.i, 16807
-  %293 = icmp eq i32 %.01022.i.i, 0
+  %292 = mul i32 %.0921.i.i, 16807
+  %293 = icmp eq i32 %.0921.i.i, 0
   %spec.store.select.i.i.i = select i1 %293, i32 1, i32 %292
   %294 = zext i32 %spec.store.select.i.i.i to i64
   %295 = urem i64 %294, %291
@@ -1997,7 +1997,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i: ; preds =
   br i1 %306, label %_ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i, label %.lr.ph.i.i.i.i
 
 _ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  %307 = urem i64 %.023.i.i, %spec.store.select.i
+  %307 = urem i64 %.022.i.i, %spec.store.select.i
   %308 = icmp ult i64 %307, %236
   br i1 %308, label %309, label %322, !prof !296
 
@@ -2010,11 +2010,11 @@ _ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i: ; pre
   br label %314
 
 314:                                              ; preds = %314, %309
-  %.sroa.01.0.i21.i.i = phi i64 [ 0, %309 ], [ %315, %314 ]
-  %315 = add nuw nsw i64 %.sroa.01.0.i21.i.i, 1
-  %316 = getelementptr inbounds [0 x i32], ptr %310, i64 0, i64 %.sroa.01.0.i21.i.i
+  %.sroa.01.0.i20.i.i = phi i64 [ 0, %309 ], [ %315, %314 ]
+  %315 = add nuw nsw i64 %.sroa.01.0.i20.i.i, 1
+  %316 = getelementptr inbounds [0 x i32], ptr %310, i64 0, i64 %.sroa.01.0.i20.i.i
   %317 = load i32, ptr %316, align 4, !alias.scope !270, !noalias !267, !noundef !4
-  %318 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %.sroa.01.0.i21.i.i
+  %318 = getelementptr inbounds [0 x i32], ptr %190, i64 0, i64 %.sroa.01.0.i20.i.i
   %319 = load i32, ptr %318, align 4, !noalias !272, !noundef !4
   %320 = add i32 %319, %317
   store i32 %320, ptr %316, align 4, !alias.scope !270, !noalias !267
@@ -2023,7 +2023,7 @@ _ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i: ; pre
 
 _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit.i.i: ; preds = %314
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %190), !noalias !272
-  %321 = add nuw i64 %.023.i.i, 1
+  %321 = add nuw i64 %.022.i.i, 1
   %exitcond.not.i = icmp eq i64 %321, %umax.i
   br i1 %exitcond.not.i, label %_ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i
 
@@ -5163,15 +5163,15 @@ _ZN6brotli3enc9histogram18HistogramAddVector17h27c57c8e514d7079E.exit.i.i: ; pre
   br label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i
 
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i: ; preds = %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i, %.lr.ph.i.i78
-  %.027.i.i = phi i64 [ 0, %.lr.ph.i.i78 ], [ %1436, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i ]
-  %.01026.i.i = phi i32 [ 7, %.lr.ph.i.i78 ], [ %spec.store.select.i.i.i80, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i ]
+  %.026.i.i = phi i64 [ 0, %.lr.ph.i.i78 ], [ %1436, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i ]
+  %.0925.i.i = phi i32 [ 7, %.lr.ph.i.i78 ], [ %spec.store.select.i.i.i80, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 2832, ptr nonnull %130), !noalias !997
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %130, i8 0, i64 2816, i1 false), !noalias !997
   store float 0x47EFFE0460000000, ptr %1402, align 8, !alias.scope !998, !noalias !997
   call void @llvm.experimental.noalias.scope.decl(metadata !1001)
   call void @llvm.experimental.noalias.scope.decl(metadata !1004)
-  %1404 = mul i32 %.01026.i.i, 16807
-  %1405 = icmp eq i32 %.01026.i.i, 0
+  %1404 = mul i32 %.0925.i.i, 16807
+  %1405 = icmp eq i32 %.0925.i.i, 0
   %spec.store.select.i.i.i80 = select i1 %1405, i32 1, i32 %1404
   %1406 = zext i32 %spec.store.select.i.i.i80 to i64
   %1407 = urem i64 %1406, %1403
@@ -5208,7 +5208,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i: ; preds =
   br i1 %1420, label %_ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i, label %.lr.ph.i.i.i.i81
 
 _ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i: ; preds = %1416
-  %1421 = urem i64 %.027.i.i, %spec.store.select.i50
+  %1421 = urem i64 %.026.i.i, %spec.store.select.i50
   %1422 = icmp ult i64 %1421, %1343
   br i1 %1422, label %1423, label %.split48.us.i.invoke.i, !prof !296
 
@@ -5222,11 +5222,11 @@ _ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i: ; pre
   br label %1429
 
 1429:                                             ; preds = %1429, %1423
-  %.sroa.01.0.i25.i.i = phi i64 [ 0, %1423 ], [ %1430, %1429 ]
-  %1430 = add nuw nsw i64 %.sroa.01.0.i25.i.i, 1
-  %1431 = getelementptr inbounds [0 x i32], ptr %1424, i64 0, i64 %.sroa.01.0.i25.i.i
+  %.sroa.01.0.i24.i.i = phi i64 [ 0, %1423 ], [ %1430, %1429 ]
+  %1430 = add nuw nsw i64 %.sroa.01.0.i24.i.i, 1
+  %1431 = getelementptr inbounds [0 x i32], ptr %1424, i64 0, i64 %.sroa.01.0.i24.i.i
   %1432 = load i32, ptr %1431, align 4, !alias.scope !995, !noalias !992, !noundef !4
-  %1433 = getelementptr inbounds [0 x i32], ptr %130, i64 0, i64 %.sroa.01.0.i25.i.i
+  %1433 = getelementptr inbounds [0 x i32], ptr %130, i64 0, i64 %.sroa.01.0.i24.i.i
   %1434 = load i32, ptr %1433, align 4, !noalias !997, !noundef !4
   %1435 = add i32 %1434, %1432
   store i32 %1435, ptr %1431, align 4, !alias.scope !995, !noalias !992
@@ -5235,7 +5235,7 @@ _ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i: ; pre
 
 _ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit.i.i: ; preds = %1429
   call void @llvm.lifetime.end.p0(i64 2832, ptr nonnull %130), !noalias !997
-  %1436 = add nuw i64 %.027.i.i, 1
+  %1436 = add nuw i64 %.026.i.i, 1
   %exitcond.not.i85 = icmp eq i64 %1436, %umax.i79
   br i1 %exitcond.not.i85, label %_ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i
 
@@ -8394,15 +8394,15 @@ _ZN6brotli3enc9histogram18HistogramAddVector17h7232d01df834c7edE.exit.i.i: ; pre
   br label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i
 
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i: ; preds = %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i, %.lr.ph.i.i467
-  %.027.i.i469 = phi i64 [ 0, %.lr.ph.i.i467 ], [ %2559, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i ]
-  %.01026.i.i470 = phi i32 [ 7, %.lr.ph.i.i467 ], [ %spec.store.select.i.i.i471, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i ]
+  %.026.i.i469 = phi i64 [ 0, %.lr.ph.i.i467 ], [ %2559, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i ]
+  %.0925.i.i470 = phi i32 [ 7, %.lr.ph.i.i467 ], [ %spec.store.select.i.i.i471, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 2192, ptr nonnull %70), !noalias !1725
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %70, i8 0, i64 2176, i1 false), !noalias !1725
   store float 0x47EFFE0460000000, ptr %2524, align 8, !alias.scope !1726, !noalias !1725
   call void @llvm.experimental.noalias.scope.decl(metadata !1729)
   call void @llvm.experimental.noalias.scope.decl(metadata !1732)
-  %2527 = mul i32 %.01026.i.i470, 16807
-  %2528 = icmp eq i32 %.01026.i.i470, 0
+  %2527 = mul i32 %.0925.i.i470, 16807
+  %2528 = icmp eq i32 %.0925.i.i470, 0
   %spec.store.select.i.i.i471 = select i1 %2528, i32 1, i32 %2527
   %2529 = zext i32 %spec.store.select.i.i.i471 to i64
   %2530 = urem i64 %2529, %2526
@@ -8439,7 +8439,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i: ; preds =
   br i1 %2543, label %_ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i, label %.lr.ph.i.i.i.i473
 
 _ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i: ; preds = %2539
-  %2544 = urem i64 %.027.i.i469, %spec.store.select.i430
+  %2544 = urem i64 %.026.i.i469, %spec.store.select.i430
   %2545 = icmp ult i64 %2544, %2466
   br i1 %2545, label %2546, label %.split48.us.i.invoke.i463, !prof !296
 
@@ -8453,11 +8453,11 @@ _ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i: ; pre
   br label %2552
 
 2552:                                             ; preds = %2552, %2546
-  %.sroa.01.0.i25.i.i477 = phi i64 [ 0, %2546 ], [ %2553, %2552 ]
-  %2553 = add nuw nsw i64 %.sroa.01.0.i25.i.i477, 1
-  %2554 = getelementptr inbounds [0 x i32], ptr %2547, i64 0, i64 %.sroa.01.0.i25.i.i477
+  %.sroa.01.0.i24.i.i477 = phi i64 [ 0, %2546 ], [ %2553, %2552 ]
+  %2553 = add nuw nsw i64 %.sroa.01.0.i24.i.i477, 1
+  %2554 = getelementptr inbounds [0 x i32], ptr %2547, i64 0, i64 %.sroa.01.0.i24.i.i477
   %2555 = load i32, ptr %2554, align 4, !alias.scope !1723, !noalias !1720, !noundef !4
-  %2556 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %.sroa.01.0.i25.i.i477
+  %2556 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %.sroa.01.0.i24.i.i477
   %2557 = load i32, ptr %2556, align 4, !noalias !1725, !noundef !4
   %2558 = add i32 %2557, %2555
   store i32 %2558, ptr %2554, align 4, !alias.scope !1723, !noalias !1720
@@ -8466,7 +8466,7 @@ _ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i: ; pre
 
 _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit.i.i: ; preds = %2552
   call void @llvm.lifetime.end.p0(i64 2192, ptr nonnull %70), !noalias !1725
-  %2559 = add nuw i64 %.027.i.i469, 1
+  %2559 = add nuw i64 %.026.i.i469, 1
   %exitcond.not.i479 = icmp eq i64 %2559, %umax.i468
   br i1 %exitcond.not.i479, label %_ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i
 

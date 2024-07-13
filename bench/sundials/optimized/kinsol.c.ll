@@ -3897,7 +3897,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %.not323 = phi i1 [ true, %19 ], [ %.not321, %22 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 440
   %27 = load ptr, ptr %26, align 8
-  %28 = add i64 %5, -1
+  %28 = add nsw i64 %5, -1
   %29 = getelementptr inbounds i8, ptr %0, i64 448
   %30 = load i64, ptr %29, align 8
   %31 = srem i64 %28, %30

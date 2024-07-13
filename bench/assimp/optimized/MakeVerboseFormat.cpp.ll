@@ -159,7 +159,7 @@ if.end35.thread:                                  ; preds = %new.ctorloop18, %ar
   %pvBitangents.0.ph = phi ptr [ %call26, %new.ctorloop18 ], [ %call26250, %arrayctor.cont24.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %apvTextureCoords, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %apvColorSets, i8 0, i64 64, i1 false)
-  %mTextureCoords.i342 = getelementptr inbounds i8, ptr %pcMesh, i64 112
+  %mTextureCoords.i338 = getelementptr inbounds i8, ptr %pcMesh, i64 112
   br label %if.end.i.preheader
 
 if.end35:                                         ; preds = %if.end
@@ -169,9 +169,9 @@ if.end35:                                         ; preds = %if.end
   br i1 %cmp2.i, label %if.end.i.preheader, label %while.end63.split
 
 if.end.i.preheader:                               ; preds = %if.end35.thread, %if.end35
-  %mTextureCoords.i347 = phi ptr [ %mTextureCoords.i342, %if.end35.thread ], [ %mTextureCoords.i, %if.end35 ]
-  %pvTangents.0346 = phi ptr [ %call16, %if.end35.thread ], [ null, %if.end35 ]
-  %pvBitangents.0344 = phi ptr [ %pvBitangents.0.ph, %if.end35.thread ], [ null, %if.end35 ]
+  %mTextureCoords.i343 = phi ptr [ %mTextureCoords.i338, %if.end35.thread ], [ %mTextureCoords.i, %if.end35 ]
+  %pvTangents.0342 = phi ptr [ %call16, %if.end35.thread ], [ null, %if.end35 ]
+  %pvBitangents.0340 = phi ptr [ %pvBitangents.0.ph, %if.end35.thread ], [ null, %if.end35 ]
   %19 = add nsw i64 %2, -12
   %20 = urem i64 %19, 12
   %21 = sub nuw nsw i64 %19, %20
@@ -229,19 +229,19 @@ arrayctor.cont59:                                 ; preds = %new.ctorloop53, %wh
   br i1 %exitcond285, label %while.end63.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !7
 
 while.end63.split:                                ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %arrayctor.cont59, %if.end35, %while.cond47.preheader.split
-  %pvBitangents.0343355 = phi ptr [ %pvBitangents.0344, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvBitangents.0344, %arrayctor.cont59 ], [ %pvBitangents.0344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %pvTangents.0345354 = phi ptr [ %pvTangents.0346, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvTangents.0346, %arrayctor.cont59 ], [ %pvTangents.0346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %mTextureCoords.i348353 = phi ptr [ %mTextureCoords.i347, %while.cond47.preheader.split ], [ %mTextureCoords.i, %if.end35 ], [ %mTextureCoords.i347, %arrayctor.cont59 ], [ %mTextureCoords.i347, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %pvBitangents.0339351 = phi ptr [ %pvBitangents.0340, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvBitangents.0340, %arrayctor.cont59 ], [ %pvBitangents.0340, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %pvTangents.0341350 = phi ptr [ %pvTangents.0342, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvTangents.0342, %arrayctor.cont59 ], [ %pvTangents.0342, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %mTextureCoords.i344349 = phi ptr [ %mTextureCoords.i343, %while.cond47.preheader.split ], [ %mTextureCoords.i, %if.end35 ], [ %mTextureCoords.i343, %arrayctor.cont59 ], [ %mTextureCoords.i343, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %mNumBones = getelementptr inbounds i8, ptr %pcMesh, i64 216
   %27 = load i32, ptr %mNumBones, align 8
-  %.fr339 = freeze i32 %27
-  %conv64 = zext i32 %.fr339 to i64
+  %.fr335 = freeze i32 %27
+  %conv64 = zext i32 %.fr335 to i64
   %28 = mul nuw nsw i64 %conv64, 24
   %29 = add nuw nsw i64 %28, 8
   %call65 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #11
   store i64 %conv64, ptr %call65, align 16
   %.ptr = getelementptr i8, ptr %call65, i64 8
-  %isempty66 = icmp eq i32 %.fr339, 0
+  %isempty66 = icmp eq i32 %.fr335, 0
   br i1 %isempty66, label %for.cond82.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end63.split
@@ -271,8 +271,8 @@ for.body85.lr.ph:                                 ; preds = %for.cond82.preheade
   br label %for.body85
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit
-  %.pre329 = phi i32 [ %.fr339, %for.body.lr.ph ], [ %.pre330, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
-  %37 = phi i32 [ %.fr339, %for.body.lr.ph ], [ %45, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %.pre329 = phi i32 [ %.fr335, %for.body.lr.ph ], [ %.pre330, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %37 = phi i32 [ %.fr335, %for.body.lr.ph ], [ %45, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
   %indvars.iv286 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next287, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
   %arrayidx76 = getelementptr inbounds %"class.std::vector", ptr %.ptr, i64 %indvars.iv286
   %38 = load ptr, ptr %mBones, align 8
@@ -546,10 +546,10 @@ if.end139:                                        ; preds = %if.then131, %for.en
 
 if.then141:                                       ; preds = %if.end139
   %arrayidx146 = getelementptr inbounds %class.aiVector3t, ptr %80, i64 %idxprom126
-  %arrayidx148 = getelementptr inbounds %class.aiVector3t, ptr %pvTangents.0345354, i64 %idxprom128
+  %arrayidx148 = getelementptr inbounds %class.aiVector3t, ptr %pvTangents.0341350, i64 %idxprom128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx148, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx146, i64 12, i1 false)
   %arrayidx153 = getelementptr inbounds %class.aiVector3t, ptr %81, i64 %idxprom126
-  %arrayidx155 = getelementptr inbounds %class.aiVector3t, ptr %pvBitangents.0343355, i64 %idxprom128
+  %arrayidx155 = getelementptr inbounds %class.aiVector3t, ptr %pvBitangents.0339351, i64 %idxprom128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx155, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx153, i64 12, i1 false)
   br label %if.end.i179.preheader
 
@@ -558,7 +558,7 @@ if.end.i179.preheader:                            ; preds = %if.end139, %if.then
 
 if.end.i179:                                      ; preds = %if.end.i179.preheader, %while.body159
   %indvars.iv295 = phi i64 [ %indvars.iv.next296, %while.body159 ], [ 0, %if.end.i179.preheader ]
-  %arrayidx.i182 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i348353, i64 0, i64 %indvars.iv295
+  %arrayidx.i182 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i344349, i64 0, i64 %indvars.iv295
   %82 = load ptr, ptr %arrayidx.i182, align 8
   %cmp2.not.i183 = icmp ne ptr %82, null
   %83 = load i32, ptr %mNumVertices, align 4
@@ -703,7 +703,7 @@ for.inc252:                                       ; preds = %if.then211, %if.els
   br i1 %cmp202, label %for.body203, label %delete.notnull256, !llvm.loop !26
 
 delete.notnull256:                                ; preds = %for.inc252, %for.cond200.preheader
-  %arraydestroy.isempty = icmp eq i32 %.fr339, 0
+  %arraydestroy.isempty = icmp eq i32 %.fr335, 0
   br i1 %arraydestroy.isempty, label %arraydestroy.done258, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull256
@@ -743,7 +743,7 @@ delete.end263:                                    ; preds = %delete.notnull262, 
 
 if.end.i215:                                      ; preds = %delete.end263, %delete.end273
   %indvars.iv312 = phi i64 [ 0, %delete.end263 ], [ %indvars.iv.next313, %delete.end273 ]
-  %arrayidx.i218 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i348353, i64 0, i64 %indvars.iv312
+  %arrayidx.i218 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i344349, i64 0, i64 %indvars.iv312
   %122 = load ptr, ptr %arrayidx.i218, align 8
   %cmp2.not.i219 = icmp ne ptr %122, null
   %123 = load i32, ptr %mNumVertices, align 4
@@ -812,7 +812,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit246:  ; preds = %if.end305
 
 delete.end311:                                    ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit246
   tail call void @_ZdaPv(ptr noundef nonnull %133) #12
-  store ptr %pvTangents.0345354, ptr %mTangents.i, align 8
+  store ptr %pvTangents.0341350, ptr %mTangents.i, align 8
   %135 = load ptr, ptr %mBitangents.i, align 8
   %isnull314 = icmp eq ptr %135, null
   br i1 %isnull314, label %delete.end316, label %delete.notnull315
@@ -822,7 +822,7 @@ delete.notnull315:                                ; preds = %delete.end311
   br label %delete.end316
 
 delete.end316:                                    ; preds = %delete.notnull315, %delete.end311
-  store ptr %pvBitangents.0343355, ptr %mBitangents.i, align 8
+  store ptr %pvBitangents.0339351, ptr %mBitangents.i, align 8
   %.pre327 = load i32, ptr %mNumVertices, align 4
   br label %if.end318
 

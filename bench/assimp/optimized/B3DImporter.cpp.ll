@@ -1542,10 +1542,10 @@ for.cond155.preheader:                            ; preds = %for.end149, %invoke
   br i1 %cmp157493.not, label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227.thread, label %for.body158.preheader
 
 _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227.thread: ; preds = %for.cond155.preheader
-  %mNumBones579 = getelementptr inbounds i8, ptr %53, i64 216
-  store i32 0, ptr %mNumBones579, align 8
-  %mBones584 = getelementptr inbounds i8, ptr %53, i64 224
-  store ptr null, ptr %mBones584, align 8
+  %mNumBones575 = getelementptr inbounds i8, ptr %53, i64 216
+  store i32 0, ptr %mNumBones575, align 8
+  %mBones580 = getelementptr inbounds i8, ptr %53, i64 224
+  store ptr null, ptr %mBones580, align 8
   br label %invoke.cont.i230
 
 for.body158.preheader:                            ; preds = %for.cond155.preheader

@@ -131,7 +131,7 @@ if.then.i:                                        ; preds = %invoke.cont
   br label %invoke.cont4
 
 if.else.i:                                        ; preds = %invoke.cont
-  %sub.i.i = add i32 %4, -1
+  %sub.i.i = add nsw i32 %4, -1
   %conv.i.i = sext i32 %sub.i.i to i64
   %add.i.i = add i64 %conv.i.i, %bytes
   %conv1.i.i = sext i32 %4 to i64
@@ -160,7 +160,7 @@ if.then.i13:                                      ; preds = %invoke.cont4
   br label %invoke.cont6
 
 if.else.i5:                                       ; preds = %invoke.cont4
-  %sub.i.i6 = add i32 %9, -1
+  %sub.i.i6 = add nsw i32 %9, -1
   %conv.i.i7 = sext i32 %sub.i.i6 to i64
   %add.i.i8 = add i64 %conv.i.i7, %bytes
   %conv1.i.i9 = sext i32 %9 to i64

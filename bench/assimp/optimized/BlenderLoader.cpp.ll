@@ -10945,9 +10945,9 @@ if.then302:                                       ; preds = %if.end299
   br label %for.inc335
 
 for.inc335:                                       ; preds = %if.end299, %if.then302
-  %.sink1035 = phi i32 [ 8, %if.then302 ], [ 4, %if.end299 ]
+  %.sink1032 = phi i32 [ 8, %if.then302 ], [ 4, %if.end299 ]
   %189 = load i32, ptr %128, align 8
-  %or = or i32 %189, %.sink1035
+  %or = or i32 %189, %.sink1032
   store i32 %or, ptr %128, align 8
   %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
   %190 = load i32, ptr %totface, align 8
@@ -11104,9 +11104,9 @@ if.else429:                                       ; preds = %invoke.cont364, %fo
   br label %for.inc433
 
 for.inc433:                                       ; preds = %for.end423, %if.else429
-  %.sink1036 = phi i32 [ 8, %if.else429 ], [ 4, %for.end423 ]
+  %.sink1033 = phi i32 [ 8, %if.else429 ], [ 4, %for.end423 ]
   %223 = load i32, ptr %196, align 8
-  %or428 = or i32 %223, %.sink1036
+  %or428 = or i32 %223, %.sink1033
   store i32 %or428, ptr %196, align 8
   %indvars.iv.next978 = add nuw nsw i64 %indvars.iv977, 1
   %224 = load i32, ptr %totpoly, align 8

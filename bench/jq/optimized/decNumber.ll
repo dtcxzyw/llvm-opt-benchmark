@@ -12083,10 +12083,10 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   br i1 %19, label %.thread71, label %42
 
 .thread:                                          ; preds = %9
-  %20 = add nuw i32 %2, 2
+  %20 = add nuw nsw i32 %2, 2
   %21 = urem i32 %20, 3
   %22 = udiv i32 %20, 3
-  %23 = sub nuw i32 %20, %21
+  %23 = sub nuw nsw i32 %20, %21
   %24 = add nsw i32 %23, -3
   %25 = sub nsw i32 %2, %24
   %26 = icmp eq i32 %25, 3

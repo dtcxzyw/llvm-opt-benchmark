@@ -9683,33 +9683,32 @@ _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EEC
   %_M_finish.i.i.i141 = phi ptr [ %_M_finish.i.i.i137, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %for.body.i.i.i.i.i ]
   %cond.i.i.i.i140 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %for.body.i.i.i.i.i ]
   %21 = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %.fr = freeze ptr %21
   %cond.i.i.i.i140157 = ptrtoint ptr %cond.i.i.i.i140 to i64
-  %__cur.0.lcssa.i.i.i.i.i155 = ptrtoint ptr %.fr to i64
-  store ptr %.fr, ptr %_M_finish.i.i.i141, align 8
+  %__cur.0.lcssa.i.i.i.i.i155 = ptrtoint ptr %21 to i64
+  store ptr %21, ptr %_M_finish.i.i.i141, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12, i8 0, i64 32, i1 false)
-  %cmp.not.i = icmp eq ptr %.fr, %add.ptr.i.i.i21142
+  %cmp.not.i = icmp eq ptr %21, %add.ptr.i.i.i21142
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EEC2ERKS6_.exit
-  store ptr %message1, ptr %.fr, align 8
-  %specific_field.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 8
+  store ptr %message1, ptr %21, align 8
+  %specific_field.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %message2, ptr %specific_field.sroa.4.0..sroa_idx, align 8
-  %specific_field.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 16
+  %specific_field.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   store i32 %unpacked_any, ptr %specific_field.sroa.5.0..sroa_idx, align 8
-  %specific_field.sroa.6119.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 24
+  %specific_field.sroa.6119.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
   store ptr %repeated_field, ptr %specific_field.sroa.6119.0..sroa_idx, align 8
-  %specific_field.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 32
+  %specific_field.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_field.sroa.8.0..sroa_idx, align 8
-  %specific_field.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 48
+  %specific_field.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12, i64 32, i1 false)
-  %specific_field.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 80
+  %specific_field.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 80
   store i32 -1, ptr %specific_field.sroa.13.0..sroa_idx, align 8
-  %specific_field.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 84
+  %specific_field.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 84
   store i32 -1, ptr %specific_field.sroa.14.0..sroa_idx, align 4
-  %specific_field.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %.fr, i64 88
+  %specific_field.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 88
   store i8 0, ptr %specific_field.sroa.15.0..sroa_idx, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %.fr, i64 96
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i141, align 8
   br label %invoke.cont
 

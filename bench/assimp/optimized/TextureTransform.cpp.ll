@@ -1067,8 +1067,8 @@ lor.rhs:                                          ; preds = %lor.lhs.false220
 land.rhs:                                         ; preds = %lor.rhs
   %_M_storage.i.i183 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load <4 x float>, ptr %_M_storage.i.i183, align 8
-  %.fr777 = freeze <4 x float> %92
-  %93 = fcmp une <4 x float> %.fr777, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %.fr775 = freeze <4 x float> %92
+  %93 = fcmp une <4 x float> %.fr775, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %94 = bitcast <4 x i1> %93 to i4
   %.not = icmp eq i4 %94, 0
   br i1 %.not, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit, label %for.body245.preheader
@@ -1150,8 +1150,8 @@ for.body245:                                      ; preds = %for.body245.prehead
   %it236.sroa.0.0655 = phi ptr [ %115, %for.inc295 ], [ %90, %for.body245.preheader ]
   %_M_storage.i.i201 = getelementptr inbounds i8, ptr %it236.sroa.0.0655, i64 16
   %99 = load <4 x float>, ptr %_M_storage.i.i201, align 8
-  %.fr778 = freeze <4 x float> %99
-  %100 = fcmp une <4 x float> %.fr778, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %.fr776 = freeze <4 x float> %99
+  %100 = fcmp une <4 x float> %.fr776, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %101 = bitcast <4 x i1> %100 to i4
   %102 = icmp ne i4 %101, 0
   br i1 %102, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit215.thread, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit215
@@ -1198,11 +1198,11 @@ for.body275:                                      ; preds = %for.body275.prehead
   %it2.sroa.0.0661 = phi ptr [ %112, %for.inc281 ], [ %106, %for.body275.preheader ]
   %_M_storage.i.i235 = getelementptr inbounds i8, ptr %it2.sroa.0.0661, i64 16
   %108 = load <4 x float>, ptr %_M_storage.i.i235, align 8
-  %.fr779 = freeze <4 x float> %108
-  %109 = fcmp une <4 x float> %.fr779, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %.fr777 = freeze <4 x float> %108
+  %109 = fcmp une <4 x float> %.fr777, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %110 = bitcast <4 x i1> %109 to i4
-  %.not780 = icmp eq i4 %110, 0
-  br i1 %.not780, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249, label %for.end283
+  %.not778 = icmp eq i4 %110, 0
+  br i1 %.not778, label %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249, label %for.end283
 
 _ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit249: ; preds = %for.body275
   %mRotation.i247 = getelementptr inbounds i8, ptr %it2.sroa.0.0661, i64 32
@@ -1399,11 +1399,11 @@ invoke.cont398:                                   ; preds = %if.then397
           to label %if.end406thread-pre-split unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end406thread-pre-split:                        ; preds = %invoke.cont398, %invoke.cont395
-  %.pr750 = load i64, ptr %_M_size.i.i.i182, align 8
+  %.pr748 = load i64, ptr %_M_size.i.i.i182, align 8
   br label %if.end406
 
 if.end406:                                        ; preds = %if.end406thread-pre-split, %for.end390
-  %127 = phi i64 [ %.pr750, %if.end406thread-pre-split ], [ %125, %for.end390 ]
+  %127 = phi i64 [ %.pr748, %if.end406thread-pre-split ], [ %125, %for.end390 ]
   %size.0 = phi i32 [ 8, %if.end406thread-pre-split ], [ %conv392, %for.end390 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %old, ptr noundef nonnull align 8 dereferenceable(64) %mTextureCoords.i, i64 64, i1 false)
   %cmp426686.not = icmp eq i64 %127, 0
@@ -1564,9 +1564,9 @@ invoke.cont507:                                   ; preds = %if.else504
   br i1 %isempty509, label %if.end520.sink.split, label %if.end520.sink.split.sink.split
 
 if.end520.sink.split.sink.split:                  ; preds = %invoke.cont507, %invoke.cont498
-  %.sink766 = phi i64 [ %145, %invoke.cont498 ], [ %147, %invoke.cont507 ]
+  %.sink764 = phi i64 [ %145, %invoke.cont498 ], [ %147, %invoke.cont507 ]
   %call508.sink = phi ptr [ %call499, %invoke.cont498 ], [ %call508, %invoke.cont507 ]
-  %148 = add nsw i64 %.sink766, -12
+  %148 = add nsw i64 %.sink764, -12
   %149 = urem i64 %148, 12
   %150 = sub nuw nsw i64 %148, %149
   %151 = add nsw i64 %150, 12
@@ -1602,11 +1602,11 @@ if.end533:                                        ; preds = %if.then529, %if.end
   %add.ptr = getelementptr inbounds %class.aiVector3t, ptr %152, i64 %idx.ext
   %y8.i303 = getelementptr inbounds i8, ptr %it236.sroa.0.3689, i64 20
   %157 = load <4 x float>, ptr %_M_storage.i.i294, align 8
-  %.fr781 = freeze <4 x float> %157
+  %.fr779 = freeze <4 x float> %157
   %mRotation550.phi.trans.insert = getelementptr inbounds i8, ptr %it236.sroa.0.3689, i64 32
   %.pre740 = load float, ptr %mRotation550.phi.trans.insert, align 8
   %cmp10.i308 = fcmp olt float %.pre740, 0x3F81DF46A0000000
-  %158 = fcmp une <4 x float> %.fr781, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %158 = fcmp une <4 x float> %.fr779, <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 1.000000e+00>
   %159 = bitcast <4 x i1> %158 to i4
   %160 = icmp eq i4 %159, 0
   %op.rdx = select i1 %160, i1 %cmp10.i308, i1 false
@@ -1617,8 +1617,8 @@ if.then538:                                       ; preds = %if.end533
   %inc543 = add i32 %161, 1
   store i32 %inc543, ptr %transformedChannels, align 4
   %cmp551 = fcmp ogt float %.pre740, 0x3F81DF46A0000000
-  %162 = extractelement <4 x float> %.fr781, i64 0
-  %163 = extractelement <4 x float> %.fr781, i64 1
+  %162 = extractelement <4 x float> %.fr779, i64 0
+  %163 = extractelement <4 x float> %.fr779, i64 1
   br i1 %cmp551, label %if.then552, label %invoke.cont571
 
 if.then552:                                       ; preds = %if.then538
@@ -1637,11 +1637,11 @@ invoke.cont571:                                   ; preds = %if.then552, %if.the
   %matrix.sroa.15.0 = phi float [ %call.i12.i, %if.then552 ], [ 0.000000e+00, %if.then538 ]
   %add560 = fadd float %165, 0.000000e+00
   %add563 = fadd float %164, 0.000000e+00
-  %166 = extractelement <4 x float> %.fr781, i64 3
+  %166 = extractelement <4 x float> %.fr779, i64 3
   %mul7.i.i = fmul float %166, 0.000000e+00
-  %167 = extractelement <4 x float> %.fr781, i64 2
+  %167 = extractelement <4 x float> %.fr779, i64 2
   %168 = call float @llvm.fmuladd.f32(float %167, float 0.000000e+00, float 0.000000e+00)
-  %169 = shufflevector <4 x float> %.fr781, <4 x float> poison, <2 x i32> <i32 2, i32 3>
+  %169 = shufflevector <4 x float> %.fr779, <4 x float> poison, <2 x i32> <i32 2, i32 3>
   %170 = insertelement <2 x float> %169, float %168, i64 1
   %171 = fadd <2 x float> %170, zeroinitializer
   %172 = insertelement <2 x float> %169, float %mul7.i.i, i64 0

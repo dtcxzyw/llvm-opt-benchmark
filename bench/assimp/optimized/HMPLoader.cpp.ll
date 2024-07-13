@@ -555,7 +555,7 @@ entry:
 
 arrayctor.cont.thread:                            ; preds = %entry
   store ptr %call7, ptr %mVertices.i, align 8
-  %call1048 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
+  %call1047 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
   br label %arrayctor.cont18
 
 new.ctorloop12:                                   ; preds = %entry
@@ -574,9 +574,9 @@ new.ctorloop12:                                   ; preds = %entry
   br label %arrayctor.cont18
 
 arrayctor.cont18:                                 ; preds = %arrayctor.cont.thread, %new.ctorloop12
-  %call1049 = phi ptr [ %call1048, %arrayctor.cont.thread ], [ %call10, %new.ctorloop12 ]
+  %call1048 = phi ptr [ %call1047, %arrayctor.cont.thread ], [ %call10, %new.ctorloop12 ]
   %mNormals = getelementptr inbounds i8, ptr %call4, i64 24
-  store ptr %call1049, ptr %mNormals, align 8
+  store ptr %call1048, ptr %mNormals, align 8
   %conv20 = sitofp i32 %.fr to float
   %fnumverts_x = getelementptr inbounds i8, ptr %0, i64 44
   %18 = load float, ptr %fnumverts_x, align 1
@@ -804,7 +804,7 @@ entry:
 
 arrayctor.cont.thread:                            ; preds = %entry
   store ptr %call7, ptr %mVertices.i, align 8
-  %call1053 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
+  %call1052 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #19
   br label %arrayctor.cont18
 
 new.ctorloop12:                                   ; preds = %entry
@@ -823,9 +823,9 @@ new.ctorloop12:                                   ; preds = %entry
   br label %arrayctor.cont18
 
 arrayctor.cont18:                                 ; preds = %arrayctor.cont.thread, %new.ctorloop12
-  %call1054 = phi ptr [ %call1053, %arrayctor.cont.thread ], [ %call10, %new.ctorloop12 ]
+  %call1053 = phi ptr [ %call1052, %arrayctor.cont.thread ], [ %call10, %new.ctorloop12 ]
   %mNormals = getelementptr inbounds i8, ptr %call4, i64 24
-  store ptr %call1054, ptr %mNormals, align 8
+  store ptr %call1053, ptr %mNormals, align 8
   %conv20 = sitofp i32 %.fr to float
   %fnumverts_x = getelementptr inbounds i8, ptr %0, i64 44
   %18 = load float, ptr %fnumverts_x, align 1

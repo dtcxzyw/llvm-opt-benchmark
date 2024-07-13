@@ -208,7 +208,7 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
   %21 = sub nsw i64 %3, %20
   %sext = shl i64 %14, 32
   %22 = ashr exact i64 %sext, 32
-  %23 = add i64 %22, %3
+  %23 = add nsw i64 %22, %3
   %24 = srem i64 %23, %19
   %25 = add i64 %24, %21
   %26 = sub i64 %23, %25

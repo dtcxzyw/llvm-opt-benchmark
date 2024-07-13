@@ -425,7 +425,7 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
 169:                                              ; preds = %171, %164
   %.048.i = phi i32 [ 1, %164 ], [ %172, %171 ]
   %170 = icmp slt i32 %.048.i, %.val87.val
-  br i1 %170, label %171, label %.loopexit64.i
+  br i1 %170, label %171, label %.loopexit63.i
 
 171:                                              ; preds = %169
   %172 = mul nsw i32 %.048.i, %165
@@ -439,26 +439,26 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %177 = srem i32 %176, %.val87.val
   %178 = sext i32 %1 to i64
   %179 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %178, ptr noundef %2, i32 noundef %177, ptr noundef %41, i1 noundef zeroext true) #4
-  %.not59.i = icmp eq i32 %179, 0
-  br i1 %.not59.i, label %.loopexit64.i, label %bcast_sched_linear.exit.thread128
+  %.not58.i = icmp eq i32 %179, 0
+  br i1 %.not58.i, label %.loopexit63.i, label %bcast_sched_linear.exit.thread128
 
-.loopexit64.i:                                    ; preds = %169, %174
-  %.14969.i = sdiv i32 %.048.i, %165
-  %180 = icmp sgt i32 %.14969.i, 0
+.loopexit63.i:                                    ; preds = %169, %174
+  %.14968.i = sdiv i32 %.048.i, %165
+  %180 = icmp sgt i32 %.14968.i, 0
   br i1 %180, label %.preheader.lr.ph.i, label %bcast_sched_linear.exit.thread
 
-.preheader.lr.ph.i:                               ; preds = %.loopexit64.i
+.preheader.lr.ph.i:                               ; preds = %.loopexit63.i
   %181 = icmp sgt i32 %165, 1
   %182 = sext i32 %1 to i64
   br i1 %181, label %.preheader.us.i, label %bcast_sched_linear.exit.thread
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %..loopexit_crit_edge.us.i
-  %.14970.us.i = phi i32 [ %.149.us.i, %..loopexit_crit_edge.us.i ], [ %.14969.i, %.preheader.lr.ph.i ]
+  %.14969.us.i = phi i32 [ %.149.us.i, %..loopexit_crit_edge.us.i ], [ %.14968.i, %.preheader.lr.ph.i ]
   br label %183
 
 183:                                              ; preds = %191, %.preheader.us.i
-  %.068.us.i = phi i32 [ 1, %.preheader.us.i ], [ %192, %191 ]
-  %184 = mul nuw nsw i32 %.068.us.i, %.14970.us.i
+  %.067.us.i = phi i32 [ 1, %.preheader.us.i ], [ %192, %191 ]
+  %184 = mul nuw nsw i32 %.067.us.i, %.14969.us.i
   %185 = add nsw i32 %184, %168
   %186 = icmp slt i32 %185, %.val87.val
   br i1 %186, label %187, label %191
@@ -467,16 +467,16 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   %188 = add nsw i32 %185, %3
   %189 = srem i32 %188, %.val87.val
   %190 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %182, ptr noundef %2, i32 noundef %189, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not60.us.i = icmp eq i32 %190, 0
-  br i1 %.not60.us.i, label %191, label %bcast_sched_linear.exit.thread128
+  %.not59.us.i = icmp eq i32 %190, 0
+  br i1 %.not59.us.i, label %191, label %bcast_sched_linear.exit.thread128
 
 191:                                              ; preds = %187, %183
-  %192 = add nuw nsw i32 %.068.us.i, 1
+  %192 = add nuw nsw i32 %.067.us.i, 1
   %exitcond.not.i101 = icmp eq i32 %192, %165
   br i1 %exitcond.not.i101, label %..loopexit_crit_edge.us.i, label %183, !llvm.loop !12
 
 ..loopexit_crit_edge.us.i:                        ; preds = %191
-  %.149.us.i = udiv i32 %.14970.us.i, %165
+  %.149.us.i = udiv i32 %.14969.us.i, %165
   %193 = icmp sgt i32 %.149.us.i, 0
   br i1 %193, label %.preheader.us.i, label %bcast_sched_linear.exit.thread, !llvm.loop !13
 
@@ -532,7 +532,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i104, %205
   tail call void @free(ptr noundef %41) #4
   br label %nbc_get_noop_request.exit
 
-bcast_sched_linear.exit.thread:                   ; preds = %..loopexit_crit_edge.us.i, %162, %150, %136, %97, %87, %60, %.preheader.i, %62, %.preheader.lr.ph.i, %.loopexit64.i, %.lr.ph.split.us.i, %112, %99, %.thread.i, %bcast_sched_linear.exit
+bcast_sched_linear.exit.thread:                   ; preds = %..loopexit_crit_edge.us.i, %162, %150, %136, %97, %87, %60, %.preheader.i, %62, %.preheader.lr.ph.i, %.loopexit63.i, %.lr.ph.split.us.i, %112, %99, %.thread.i, %bcast_sched_linear.exit
   %213 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %41) #4
   %.not83 = icmp eq i32 %213, 0
   br i1 %.not83, label %233, label %214

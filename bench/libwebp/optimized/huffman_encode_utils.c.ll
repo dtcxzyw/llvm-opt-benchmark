@@ -127,7 +127,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %57 = getelementptr inbounds i8, ptr %.059, i64 1
   store i8 0, ptr %57, align 1
   %58 = getelementptr inbounds i8, ptr %.059, i64 2
-  %59 = add i32 %22, -1
+  %59 = add nsw i32 %22, -1
   br label %60
 
 60:                                               ; preds = %56, %55

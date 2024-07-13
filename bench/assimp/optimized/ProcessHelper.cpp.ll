@@ -1377,8 +1377,8 @@ new.ctorloop66:                                   ; preds = %invoke.cont63
 if.end73.thread:                                  ; preds = %invoke.cont63, %new.ctorloop66
   %mBitangents = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call64, ptr %mBitangents, align 8
-  %mTextureCoords.i350 = getelementptr inbounds i8, ptr %pMesh, i64 112
-  %mTextureCoords351 = getelementptr inbounds i8, ptr %call, i64 112
+  %mTextureCoords.i346 = getelementptr inbounds i8, ptr %pMesh, i64 112
+  %mTextureCoords347 = getelementptr inbounds i8, ptr %call, i64 112
   br label %if.end.i159.preheader
 
 if.end73:                                         ; preds = %if.end49
@@ -1387,10 +1387,10 @@ if.end73:                                         ; preds = %if.end49
   br i1 %cmp2.i, label %if.end.i159.preheader, label %for.end115.split
 
 if.end.i159.preheader:                            ; preds = %if.end73.thread, %if.end73
-  %mTextureCoords356 = phi ptr [ %mTextureCoords351, %if.end73.thread ], [ %mTextureCoords, %if.end73 ]
-  %mTextureCoords.i354 = phi ptr [ %mTextureCoords.i350, %if.end73.thread ], [ %mTextureCoords.i, %if.end73 ]
-  %mNumUVComponents358 = getelementptr inbounds i8, ptr %pMesh, i64 176
-  %mNumUVComponents91359 = getelementptr inbounds i8, ptr %call, i64 176
+  %mTextureCoords352 = phi ptr [ %mTextureCoords347, %if.end73.thread ], [ %mTextureCoords, %if.end73 ]
+  %mTextureCoords.i350 = phi ptr [ %mTextureCoords.i346, %if.end73.thread ], [ %mTextureCoords.i, %if.end73 ]
+  %mNumUVComponents354 = getelementptr inbounds i8, ptr %pMesh, i64 176
+  %mNumUVComponents91355 = getelementptr inbounds i8, ptr %call, i64 176
   %39 = add i64 %17, -12
   %40 = urem i64 %39, 12
   %41 = sub nuw i64 %39, %40
@@ -1429,9 +1429,9 @@ new.ctorloop82:                                   ; preds = %invoke.cont79
 arrayctor.cont88:                                 ; preds = %new.ctorloop82, %invoke.cont79
   %arrayidx89 = getelementptr inbounds [8 x ptr], ptr %44, i64 0, i64 %a.0281
   store ptr %call80, ptr %arrayidx89, align 8
-  %arrayidx90 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents358, i64 0, i64 %a.0281
+  %arrayidx90 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents354, i64 0, i64 %a.0281
   %49 = load i32, ptr %arrayidx90, align 4
-  %arrayidx92 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents91359, i64 0, i64 %a.0281
+  %arrayidx92 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents91355, i64 0, i64 %a.0281
   store i32 %49, ptr %arrayidx92, align 4
   %inc94 = add nuw nsw i64 %a.0281, 1
   %exitcond.not = icmp eq i64 %inc94, 8
@@ -1464,8 +1464,8 @@ arrayctor.cont111:                                ; preds = %new.ctorloop105, %i
   br i1 %exitcond310.not, label %for.end115.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !29
 
 for.end115.split:                                 ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %arrayctor.cont111, %if.end73, %for.cond97.preheader.split
-  %mTextureCoords.i355365 = phi ptr [ %mTextureCoords.i354, %for.cond97.preheader.split ], [ %mTextureCoords.i, %if.end73 ], [ %mTextureCoords.i354, %arrayctor.cont111 ], [ %mTextureCoords.i354, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %mTextureCoords357364 = phi ptr [ %mTextureCoords356, %for.cond97.preheader.split ], [ %mTextureCoords, %if.end73 ], [ %mTextureCoords356, %arrayctor.cont111 ], [ %mTextureCoords356, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %mTextureCoords.i351361 = phi ptr [ %mTextureCoords.i350, %for.cond97.preheader.split ], [ %mTextureCoords.i, %if.end73 ], [ %mTextureCoords.i350, %arrayctor.cont111 ], [ %mTextureCoords.i350, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %mTextureCoords353360 = phi ptr [ %mTextureCoords352, %for.cond97.preheader.split ], [ %mTextureCoords, %if.end73 ], [ %mTextureCoords352, %arrayctor.cont111 ], [ %mTextureCoords352, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %51 = shl i64 %sub.ptr.sub.i, 2
   %52 = add nuw nsw i64 %51, 8
   %call117 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %52) #18
@@ -1477,8 +1477,8 @@ invoke.cont116:                                   ; preds = %for.end115.split
   br i1 %cmp276.not, label %arrayctor.cont125.thread, label %new.ctorloop119
 
 arrayctor.cont125.thread:                         ; preds = %invoke.cont116
-  %mFaces126368 = getelementptr inbounds i8, ptr %call, i64 208
-  store ptr %53, ptr %mFaces126368, align 8
+  %mFaces126364 = getelementptr inbounds i8, ptr %call, i64 208
+  store ptr %53, ptr %mFaces126364, align 8
   br label %for.cond164.preheader
 
 new.ctorloop119:                                  ; preds = %invoke.cont116
@@ -1632,7 +1632,7 @@ land.rhs.i191.preheader:                          ; preds = %if.end188, %if.then
 
 land.rhs.i191:                                    ; preds = %land.rhs.i191.preheader, %while.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %land.rhs.i191.preheader ]
-  %arrayidx.i192 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i355365, i64 0, i64 %indvars.iv.i
+  %arrayidx.i192 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i351361, i64 0, i64 %indvars.iv.i
   %83 = load ptr, ptr %arrayidx.i192, align 8
   %tobool.not.i = icmp eq ptr %83, null
   br i1 %tobool.not.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit, label %while.body.i
@@ -1648,20 +1648,20 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %land.rhs.i191
   br i1 %cmp209290.not, label %land.rhs.i194.preheader, label %for.body210.preheader
 
 for.body210.preheader:                            ; preds = %while.body.i, %_ZNK6aiMesh16GetNumUVChannelsEv.exit
-  %n.0.lcssa.i372 = phi i64 [ %indvars.iv.i, %_ZNK6aiMesh16GetNumUVChannelsEv.exit ], [ 8, %while.body.i ]
+  %n.0.lcssa.i368 = phi i64 [ %indvars.iv.i, %_ZNK6aiMesh16GetNumUVChannelsEv.exit ], [ 8, %while.body.i ]
   br label %for.body210
 
 for.body210:                                      ; preds = %for.body210.preheader, %for.body210
   %c.0291 = phi i64 [ %inc220, %for.body210 ], [ 0, %for.body210.preheader ]
-  %arrayidx212 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i355365, i64 0, i64 %c.0291
+  %arrayidx212 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i351361, i64 0, i64 %c.0291
   %84 = load ptr, ptr %arrayidx212, align 8
   %arrayidx214 = getelementptr inbounds %class.aiVector3t, ptr %84, i64 %indvars.iv313
-  %arrayidx216 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords357364, i64 0, i64 %c.0291
+  %arrayidx216 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords353360, i64 0, i64 %c.0291
   %85 = load ptr, ptr %arrayidx216, align 8
   %arrayidx218 = getelementptr inbounds %class.aiVector3t, ptr %85, i64 %idxprom177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx218, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx214, i64 12, i1 false)
   %inc220 = add nuw nsw i64 %c.0291, 1
-  %exitcond311.not = icmp eq i64 %inc220, %n.0.lcssa.i372
+  %exitcond311.not = icmp eq i64 %inc220, %n.0.lcssa.i368
   br i1 %exitcond311.not, label %land.rhs.i194.preheader, label %for.body210, !llvm.loop !33
 
 land.rhs.i194.preheader:                          ; preds = %for.body210, %_ZNK6aiMesh16GetNumUVChannelsEv.exit
@@ -1685,7 +1685,7 @@ _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %land.rhs.i194
   br i1 %cmp228292.not, label %for.inc241, label %for.body229.preheader
 
 for.body229.preheader:                            ; preds = %while.body.i198, %_ZNK6aiMesh19GetNumColorChannelsEv.exit
-  %n.0.lcssa.i201376 = phi i64 [ %indvars.iv.i195, %_ZNK6aiMesh19GetNumColorChannelsEv.exit ], [ 8, %while.body.i198 ]
+  %n.0.lcssa.i201372 = phi i64 [ %indvars.iv.i195, %_ZNK6aiMesh19GetNumColorChannelsEv.exit ], [ 8, %while.body.i198 ]
   br label %for.body229
 
 for.body229:                                      ; preds = %for.body229.preheader, %for.body229
@@ -1698,7 +1698,7 @@ for.body229:                                      ; preds = %for.body229.prehead
   %arrayidx237 = getelementptr inbounds %class.aiColor4t, ptr %88, i64 %idxprom177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx237, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx233, i64 16, i1 false)
   %inc239 = add nuw nsw i64 %c222.0293, 1
-  %exitcond312.not = icmp eq i64 %inc239, %n.0.lcssa.i201376
+  %exitcond312.not = icmp eq i64 %inc239, %n.0.lcssa.i201372
   br i1 %exitcond312.not, label %for.inc241, label %for.body229, !llvm.loop !35
 
 for.inc241:                                       ; preds = %for.body229, %_ZNK6aiMesh19GetNumColorChannelsEv.exit, %for.body167
@@ -1804,7 +1804,7 @@ for.inc289:                                       ; preds = %for.body281, %if.th
   br i1 %exitcond331.not, label %for.end291, label %for.body281, !llvm.loop !39
 
 for.end291:                                       ; preds = %for.inc289, %if.then244, %for.cond278.preheader
-  %subBones.sroa.0.0378381 = phi ptr [ %call5.i.i.i.i2.i.i218, %for.cond278.preheader ], [ null, %if.then244 ], [ %call5.i.i.i.i2.i.i218, %for.inc289 ]
+  %subBones.sroa.0.0374377 = phi ptr [ %call5.i.i.i.i2.i.i218, %for.cond278.preheader ], [ null, %if.then244 ], [ %call5.i.i.i.i2.i.i218, %for.inc289 ]
   %mNumBones292 = getelementptr inbounds i8, ptr %call, i64 216
   %102 = load i32, ptr %mNumBones292, align 8
   %tobool293.not = icmp eq i32 %102, 0
@@ -1828,7 +1828,7 @@ for.body307.lr.ph:                                ; preds = %invoke.cont298
 
 for.body307:                                      ; preds = %for.body307.lr.ph, %for.inc370
   %indvars.iv336 = phi i64 [ 0, %for.body307.lr.ph ], [ %indvars.iv.next337, %for.inc370 ]
-  %add.ptr.i223 = getelementptr inbounds i32, ptr %subBones.sroa.0.0378381, i64 %indvars.iv336
+  %add.ptr.i223 = getelementptr inbounds i32, ptr %subBones.sroa.0.0374377, i64 %indvars.iv336
   %104 = load i32, ptr %add.ptr.i223, align 4
   %cmp310 = icmp eq i32 %104, 0
   br i1 %cmp310, label %for.inc370, label %if.end312
@@ -1841,12 +1841,12 @@ lpad297.thread:                                   ; preds = %_ZN8aiStringaSERKS_
 lpad297:                                          ; preds = %if.then294
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i = icmp eq ptr %subBones.sroa.0.0378381, null
+  %tobool.not.i.i.i = icmp eq ptr %subBones.sroa.0.0374377, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad297.thread, %lpad297
   %lpad.phi265 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad297.thread ], [ %lpad.thr_comm.split-lp, %lpad297 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %subBones.sroa.0.0378381) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %subBones.sroa.0.0374377) #19
   br label %ehcleanup
 
 if.end312:                                        ; preds = %for.body307
@@ -1968,11 +1968,11 @@ for.inc370:                                       ; preds = %for.inc367, %arrayc
   br i1 %cmp306, label %for.body307, label %if.end373, !llvm.loop !41
 
 if.end373:                                        ; preds = %for.inc370, %invoke.cont298, %for.end291
-  %tobool.not.i.i.i235 = icmp eq ptr %subBones.sroa.0.0378381, null
+  %tobool.not.i.i.i235 = icmp eq ptr %subBones.sroa.0.0374377, null
   br i1 %tobool.not.i.i.i235, label %if.end374, label %if.then.i.i.i236
 
 if.then.i.i.i236:                                 ; preds = %if.end373
-  tail call void @_ZdlPv(ptr noundef nonnull %subBones.sroa.0.0378381) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %subBones.sroa.0.0374377) #19
   br label %if.end374
 
 if.end374:                                        ; preds = %if.then.i.i.i236, %if.end373, %for.end243
