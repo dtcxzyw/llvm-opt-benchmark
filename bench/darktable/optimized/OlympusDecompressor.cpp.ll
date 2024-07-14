@@ -817,11 +817,11 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   br label %10
 
-.loopexit:                                        ; preds = %88, %4
+.loopexit:                                        ; preds = %85, %4
   ret ptr %0
 
-10:                                               ; preds = %88, %6
-  %11 = phi i32 [ %1, %6 ], [ %89, %88 ]
+10:                                               ; preds = %85, %6
+  %11 = phi i32 [ %1, %6 ], [ %86, %85 ]
   %12 = load ptr, ptr %7, align 8, !tbaa !16
   %13 = load ptr, ptr %3, align 8, !tbaa !14
   %14 = ptrtoint ptr %12 to i64
@@ -899,7 +899,7 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %59 = load ptr, ptr %8, align 8, !tbaa !16
   %60 = getelementptr inbounds i8, ptr %59, i64 1
   store ptr %60, ptr %8, align 8, !tbaa !16
-  br label %88
+  br label %85
 
 61:                                               ; preds = %53
   %62 = load ptr, ptr %0, align 8, !tbaa !11
@@ -919,44 +919,38 @@ define linkonce_odr hidden ptr @_ZSt10generate_nISt20back_insert_iteratorISt6vec
   %71 = icmp ult i64 %70, %65
   %72 = tail call i64 @llvm.umin.i64(i64 %70, i64 9223372036854775807)
   %73 = select i1 %71, i64 9223372036854775807, i64 %72
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %77, label %75
+  %74 = icmp ne i64 %73, 0
+  tail call void @llvm.assume(i1 %74)
+  %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #18
+  %76 = getelementptr inbounds i8, ptr %75, i64 %65
+  store i8 %54, ptr %76, align 1, !tbaa !89
+  %77 = icmp sgt i64 %65, 0
+  br i1 %77, label %78, label %79
 
-75:                                               ; preds = %68
-  %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #18
-  br label %77
+78:                                               ; preds = %68
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %62, i64 %65, i1 false)
+  br label %79
 
-77:                                               ; preds = %75, %68
-  %78 = phi ptr [ %76, %75 ], [ null, %68 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 %65
-  store i8 %54, ptr %79, align 1, !tbaa !89
-  %80 = icmp sgt i64 %65, 0
-  br i1 %80, label %81, label %82
+79:                                               ; preds = %78, %68
+  %80 = getelementptr inbounds i8, ptr %76, i64 1
+  %81 = icmp eq ptr %62, null
+  br i1 %81, label %83, label %82
 
-81:                                               ; preds = %77
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %62, i64 %65, i1 false)
-  br label %82
-
-82:                                               ; preds = %81, %77
-  %83 = getelementptr inbounds i8, ptr %79, i64 1
-  %84 = icmp eq ptr %62, null
-  br i1 %84, label %86, label %85
-
-85:                                               ; preds = %82
+82:                                               ; preds = %79
   tail call void @_ZdlPv(ptr noundef nonnull %62) #20
-  br label %86
+  br label %83
 
-86:                                               ; preds = %85, %82
-  store ptr %78, ptr %0, align 8, !tbaa !14
-  store ptr %83, ptr %8, align 8, !tbaa !16
-  %87 = getelementptr inbounds i8, ptr %78, i64 %73
-  store ptr %87, ptr %9, align 8, !tbaa !17
-  br label %88
+83:                                               ; preds = %82, %79
+  store ptr %75, ptr %0, align 8, !tbaa !14
+  store ptr %80, ptr %8, align 8, !tbaa !16
+  %84 = getelementptr inbounds i8, ptr %75, i64 %73
+  store ptr %84, ptr %9, align 8, !tbaa !17
+  br label %85
 
-88:                                               ; preds = %86, %58
-  %89 = add i32 %11, -1
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.loopexit, label %10, !llvm.loop !120
+85:                                               ; preds = %83, %58
+  %86 = add i32 %11, -1
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %.loopexit, label %10, !llvm.loop !120
 }
 
 ; Function Attrs: noreturn

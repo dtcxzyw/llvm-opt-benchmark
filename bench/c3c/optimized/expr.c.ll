@@ -2472,7 +2472,7 @@ define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
-  br label %48
+  br label %49
 
 13:                                               ; preds = %6, %1
   %14 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
@@ -2488,64 +2488,64 @@ define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local
   store ptr %14, ptr %18, align 8
   %20 = and i16 %15, 3840
   %21 = icmp eq i16 %20, 512
-  br i1 %21, label %22, label %48
+  br i1 %21, label %22, label %49
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %14, align 8, !nonnull !13, !noundef !13
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 40
-  br i1 %25, label %thread-pre-split, label %28
+  br i1 %25, label %26, label %29
 
-thread-pre-split:                                 ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 56
-  %27 = load ptr, ptr %26, align 8
-  %.pr = load i32, ptr %27, align 8
-  br label %28
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %23, i64 56
+  %28 = load ptr, ptr %27, align 8
+  %.pr = load i32, ptr %28, align 8
+  br label %29
 
-28:                                               ; preds = %thread-pre-split, %22
-  %29 = phi i32 [ %.pr, %thread-pre-split ], [ %24, %22 ]
-  %.0 = phi ptr [ %27, %thread-pre-split ], [ %23, %22 ]
-  %30 = icmp eq i32 %29, 23
-  br i1 %30, label %34, label %31
+29:                                               ; preds = %22, %26
+  %30 = phi i32 [ %24, %22 ], [ %.pr, %26 ]
+  %.0 = phi ptr [ %23, %22 ], [ %28, %26 ]
+  %31 = icmp eq i32 %30, 23
+  br i1 %31, label %35, label %32
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  br label %34
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %.0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  br label %35
 
-34:                                               ; preds = %28, %31
-  %.0.pn = phi ptr [ %33, %31 ], [ %.0, %28 ]
+35:                                               ; preds = %32, %29
+  %.0.pn = phi ptr [ %34, %32 ], [ %.0, %29 ]
   %.in = getelementptr inbounds i8, ptr %.0.pn, i64 56
-  %35 = load ptr, ptr %.in, align 8
-  %36 = icmp eq i32 %24, 31
-  br i1 %36, label %37, label %41
+  %36 = load ptr, ptr %.in, align 8
+  %37 = icmp eq i32 %24, 31
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %23, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i32, ptr %39, align 8
-  br label %41
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %23, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %40, align 8
+  br label %42
 
-41:                                               ; preds = %37, %34
-  %.035 = phi i32 [ %40, %37 ], [ %24, %34 ]
-  %42 = icmp eq i32 %.035, 40
-  br i1 %42, label %43, label %.critedge
+42:                                               ; preds = %38, %35
+  %.035 = phi i32 [ %41, %38 ], [ %24, %35 ]
+  %43 = icmp eq i32 %.035, 40
+  br i1 %43, label %44, label %.critedge
 
-43:                                               ; preds = %41
-  %44 = load i32, ptr %35, align 8
-  %45 = icmp eq i32 %44, 40
-  br i1 %45, label %.critedge, label %46
+44:                                               ; preds = %42
+  %45 = load i32, ptr %36, align 8
+  %46 = icmp eq i32 %45, 40
+  br i1 %46, label %.critedge, label %47
 
-46:                                               ; preds = %43
-  %47 = tail call ptr @type_get_optional(ptr noundef nonnull %35) #12
+47:                                               ; preds = %44
+  %48 = tail call ptr @type_get_optional(ptr noundef nonnull %36) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %41, %43, %46
-  %.033 = phi ptr [ %47, %46 ], [ %35, %43 ], [ %35, %41 ]
+.critedge:                                        ; preds = %42, %44, %47
+  %.033 = phi ptr [ %48, %47 ], [ %36, %44 ], [ %36, %42 ]
   store ptr %.033, ptr %0, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.critedge, %13, %10
+49:                                               ; preds = %.critedge, %13, %10
   ret void
 }
 

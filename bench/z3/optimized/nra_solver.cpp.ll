@@ -3445,8 +3445,9 @@ for.body27:                                       ; preds = %_ZN6vectorISt4pairI
   br i1 %cmp.i.i76, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i: ; preds = %for.body27
-  %cmp.not.i = icmp eq i32 %add, 0
-  br i1 %cmp.not.i, label %invoke.cont30, label %while.cond.i.i.preheader
+  %cmp.not.i = icmp ne i32 %add, 0
+  call void @llvm.assume(i1 %cmp.not.i)
+  br label %while.cond.i.i.preheader
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i: ; preds = %for.body27
   %arrayidx.i.i77 = getelementptr inbounds i8, ptr %28, i64 -4
@@ -3499,9 +3500,9 @@ while.end.i.i:                                    ; preds = %_ZNK6vectorIN3nra6s
   %.pre1213 = load ptr, ptr %var2occurs, align 8
   br label %invoke.cont30
 
-invoke.cont30:                                    ; preds = %while.end.i.i, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i
-  %36 = phi ptr [ %.pre1213, %while.end.i.i ], [ %28, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i ]
-  %37 = phi i32 [ %.pre, %while.end.i.i ], [ %27, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i ], [ -1, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i ]
+invoke.cont30:                                    ; preds = %while.end.i.i, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i
+  %36 = phi ptr [ %.pre1213, %while.end.i.i ], [ %28, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i ]
+  %37 = phi i32 [ %.pre, %while.end.i.i ], [ %27, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i ]
   %idxprom.i = zext i32 %37 to i64
   %arrayidx.i = getelementptr inbounds %"struct.nra::solver::imp::occurs", ptr %36, i64 %idxprom.i
   %38 = load ptr, ptr %arrayidx.i, align 8
@@ -3654,8 +3655,9 @@ for.body62:                                       ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %cmp.i.i93, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i117, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i117: ; preds = %for.body62
-  %cmp.not.i118 = icmp eq i32 %add64, 0
-  br i1 %cmp.not.i118, label %invoke.cont65, label %while.cond.i.i101.preheader
+  %cmp.not.i118 = icmp ne i32 %add64, 0
+  call void @llvm.assume(i1 %cmp.not.i118)
+  br label %while.cond.i.i101.preheader
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94: ; preds = %for.body62
   %arrayidx.i.i95 = getelementptr inbounds i8, ptr %56, i64 -4
@@ -3707,8 +3709,8 @@ while.end.i.i108:                                 ; preds = %_ZNK6vectorIN3nra6s
   %.pre1216 = load ptr, ptr %var2occurs, align 8
   br label %invoke.cont65
 
-invoke.cont65:                                    ; preds = %while.end.i.i108, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i117
-  %64 = phi ptr [ %.pre1216, %while.end.i.i108 ], [ %56, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94 ], [ null, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i117 ]
+invoke.cont65:                                    ; preds = %while.end.i.i108, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94
+  %64 = phi ptr [ %.pre1216, %while.end.i.i108 ], [ %56, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i94 ]
   %idxprom.i122 = zext i32 %55 to i64
   %monics = getelementptr inbounds %"struct.nra::solver::imp::occurs", ptr %64, i64 %idxprom.i122, i32 1
   %65 = load i32, ptr %__begin242.01177, align 8
@@ -3893,8 +3895,9 @@ invoke.cont107:                                   ; preds = %invoke.cont96, %_ZN
   br i1 %cmp.i.i152, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i177, label %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i177: ; preds = %invoke.cont107
-  %cmp.not.i178 = icmp eq i32 %add112, 0
-  br i1 %cmp.not.i178, label %invoke.cont113, label %while.cond.i.i161.preheader
+  %cmp.not.i178 = icmp ne i32 %add112, 0
+  call void @llvm.assume(i1 %cmp.not.i178)
+  br label %while.cond.i.i161.preheader
 
 _ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153: ; preds = %invoke.cont107
   %arrayidx.i.i154 = getelementptr inbounds i8, ptr %87, i64 -4
@@ -3946,8 +3949,8 @@ while.end.i.i168:                                 ; preds = %_ZNK6vectorIN3nra6s
   %.pre1218 = load ptr, ptr %var2occurs, align 8
   br label %invoke.cont113
 
-invoke.cont113:                                   ; preds = %while.end.i.i168, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i177
-  %95 = phi ptr [ %.pre1218, %while.end.i.i168 ], [ %87, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153 ], [ null, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.i177 ]
+invoke.cont113:                                   ; preds = %while.end.i.i168, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153
+  %95 = phi ptr [ %.pre1218, %while.end.i.i168 ], [ %87, %_ZNK6vectorIN3nra6solver3imp6occursELb1EjE4sizeEv.exit.thread.i153 ]
   %idxprom.i182 = zext i32 %86 to i64
   %terms = getelementptr inbounds %"struct.nra::solver::imp::occurs", ptr %95, i64 %idxprom.i182, i32 2
   %96 = load ptr, ptr %terms, align 8
@@ -15353,11 +15356,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15374,8 +15377,8 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nosync nounwind memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { noreturn }

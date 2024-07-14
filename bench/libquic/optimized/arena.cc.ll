@@ -48,7 +48,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #13
   br label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -67,7 +67,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
   br label %_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
@@ -125,7 +125,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #13
   br label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -139,7 +139,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyIN3net
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EEaSEOS4_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #13
   br label %_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EEaSEOS4_.exit
 
 _ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EEaSEOS4_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
@@ -178,7 +178,7 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %this, align 8
   %.sroa.speculated32 = tail call i64 @llvm.umax.i64(i64 %2, i64 %additional_space)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated32) #13
+  %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated32) #14
   store ptr %call.i.i, ptr %ref.tmp.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %.sroa.speculated32, ptr %size.i.i, align 8
@@ -210,7 +210,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i
   br i1 %cmp.not.i.i1.i, label %_ZN3net11UnsafeArena10AllocBlockEm.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %invoke.cont.i
-  call void @_ZdaPv(ptr noundef nonnull %.pre5.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre5.i) #13
   br label %_ZN3net11UnsafeArena10AllocBlockEm.exit
 
 lpad.i:                                           ; preds = %if.else.i.i.i
@@ -223,7 +223,7 @@ lpad.i:                                           ; preds = %if.else.i.i.i
 common.resume.sink.split:                         ; preds = %lpad.i, %lpad.i19
   %.sink = phi ptr [ %11, %lpad.i19 ], [ %5, %lpad.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %10, %lpad.i19 ], [ %4, %lpad.i ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #12
+  call void @_ZdaPv(ptr noundef nonnull %.sink) #13
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i19, %lpad.i
@@ -247,7 +247,7 @@ if.then5:                                         ; preds = %if.else
   %8 = load i64, ptr %this, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %8, i64 %additional_space)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5)
-  %call.i.i6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #13
+  %call.i.i6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #14
   store ptr %call.i.i6, ptr %ref.tmp.i5, align 8
   %size.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 8
   store i64 %.sroa.speculated, ptr %size.i.i7, align 8
@@ -279,7 +279,7 @@ invoke.cont.i23:                                  ; preds = %if.else.i.i.i17
   br i1 %cmp.not.i.i1.i25, label %_ZN3net11UnsafeArena10AllocBlockEm.exit27, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i26
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i26: ; preds = %invoke.cont.i23
-  call void @_ZdaPv(ptr noundef nonnull %.pre5.i24) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre5.i24) #13
   br label %_ZN3net11UnsafeArena10AllocBlockEm.exit27
 
 lpad.i19:                                         ; preds = %if.else.i.i.i17
@@ -421,7 +421,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #13
   br label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -442,7 +442,7 @@ _ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE5clearEv.exit: ; preds = %entry, %
 define dso_local void @_ZN3net11UnsafeArena10AllocBlockEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.net::UnsafeArena::Block", align 8
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #13
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #14
   store ptr %call.i, ptr %ref.tmp, align 8
   %size.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %size, ptr %size.i, align 8
@@ -477,7 +477,7 @@ invoke.cont:                                      ; preds = %if.else.i.i
   br i1 %cmp.not.i.i1, label %_ZN3net11UnsafeArena5BlockD2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %invoke.cont
-  call void @_ZdaPv(ptr noundef nonnull %.pre5) #12
+  call void @_ZdaPv(ptr noundef nonnull %.pre5) #13
   br label %_ZN3net11UnsafeArena5BlockD2Ev.exit
 
 _ZN3net11UnsafeArena5BlockD2Ev.exit:              ; preds = %invoke.cont.thread, %invoke.cont, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -491,7 +491,7 @@ lpad:                                             ; preds = %if.else.i.i
   br i1 %cmp.not.i.i2, label %_ZN3net11UnsafeArena5BlockD2Ev.exit4, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i3
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i3: ; preds = %lpad
-  call void @_ZdaPv(ptr noundef nonnull %3) #12
+  call void @_ZdaPv(ptr noundef nonnull %3) #13
   br label %_ZN3net11UnsafeArena5BlockD2Ev.exit4
 
 _ZN3net11UnsafeArena5BlockD2Ev.exit4:             ; preds = %lpad, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i3
@@ -501,7 +501,7 @@ _ZN3net11UnsafeArena5BlockD2Ev.exit4:             ; preds = %lpad, %_ZNKSt14defa
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net11UnsafeArena5BlockC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i64 noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %s) #13
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %s) #14
   store ptr %call, ptr %this, align 8
   %size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %s, ptr %size, align 8
@@ -521,7 +521,7 @@ entry:
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -549,7 +549,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #13
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
@@ -575,7 +575,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #13
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
@@ -604,7 +604,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #15
   unreachable
 
 _ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -616,18 +616,11 @@ _ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #13
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"struct.net::UnsafeArena::Block", ptr %cond.i19, i64 %sub.ptr.div.i
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #14
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %size.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %size2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load <2 x i64>, ptr %size2.i.i.i, align 8
@@ -638,9 +631,9 @@ invoke.cont:                                      ; preds = %_ZNKSt6vectorIN3net
   %cmp.i.i.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i
 
-for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.inc.i.i.i.i.i
-  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
+for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i.i.i
+  %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
   %size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
   %size2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
   %5 = load i64, ptr %size2.i.i.i.i.i.i.i, align 8
@@ -657,8 +650,8 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i, !llvm.loop !7
 
-invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %cmp.i.i.not7.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
@@ -683,7 +676,7 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i28, label %for.inc.i.i.i.i.i30, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29: ; preds = %for.body.i.i.i.i.i21
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %11) #13
   br label %for.inc.i.i.i.i.i30
 
 for.inc.i.i.i.i.i30:                              ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
@@ -704,7 +697,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont14, %_ZS
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #13
   br label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %for.body.i.i.i
@@ -718,14 +711,14 @@ _ZSt8_DestroyIPN3net11UnsafeArena5BlockES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN3net11UnsafeArena5BlockESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i36
 
 if.then.i36:                                      ; preds = %_ZSt8_DestroyIPN3net11UnsafeArena5BlockES2_EvT_S4_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #13
   br label %_ZNSt12_Vector_baseIN3net11UnsafeArena5BlockESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3net11UnsafeArena5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN3net11UnsafeArena5BlockES2_EvT_S4_RSaIT0_E.exit, %if.then.i36
   %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i19, ptr %this, align 8
+  store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds %"struct.net::UnsafeArena::Block", ptr %cond.i19, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds %"struct.net::UnsafeArena::Block", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -742,11 +735,14 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -759,10 +755,11 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { builtin nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { noreturn }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { builtin nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

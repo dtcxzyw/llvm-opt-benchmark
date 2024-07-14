@@ -2056,67 +2056,60 @@ JS_ToFloat64.exit287.thread:                      ; preds = %142, %138, %JS_ToFl
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_c_function_data_call(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4, i32 noundef %5, ptr noundef %6, i32 %7) #0 {
-  %9 = and i64 %2, 4294967295
-  %.not.i = icmp eq i64 %9, 4294967295
-  %10 = inttoptr i64 %1 to ptr
-  br i1 %.not.i, label %11, label %JS_GetOpaque.exit
+JS_GetOpaque.exit:
+  %8 = and i64 %2, 4294967295
+  %.not.i = icmp eq i64 %8, 4294967295
+  %9 = inttoptr i64 %1 to ptr
+  tail call void @llvm.assume(i1 %.not.i)
+  %10 = getelementptr inbounds i8, ptr %9, i64 6
+  %11 = load i16, ptr %10, align 2
+  %.not3.i = icmp eq i16 %11, 15
+  tail call void @llvm.assume(i1 %.not3.i)
+  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load i8, ptr %14, align 8
+  %16 = zext i8 %15 to i32
+  %17 = icmp sgt i32 %16, %5
+  br i1 %17, label %18, label %.loopexit
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 6
-  %13 = load i16, ptr %12, align 2
-  %.not3.i = icmp eq i16 %13, 15
-  br i1 %.not3.i, label %14, label %JS_GetOpaque.exit
+18:                                               ; preds = %JS_GetOpaque.exit
+  %19 = zext i8 %15 to i64
+  %20 = shl nuw nsw i64 %19, 4
+  %21 = alloca i8, i64 %20, align 16
+  %22 = icmp sgt i32 %5, 0
+  br i1 %22, label %.lr.ph.preheader, label %.lr.ph33.preheader
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 48
-  %16 = load ptr, ptr %15, align 8
-  br label %JS_GetOpaque.exit
-
-JS_GetOpaque.exit:                                ; preds = %8, %11, %14
-  %.0.i = phi ptr [ %16, %14 ], [ null, %8 ], [ null, %11 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %18 = load i8, ptr %17, align 8
-  %19 = zext i8 %18 to i32
-  %20 = icmp sgt i32 %19, %5
-  br i1 %20, label %21, label %.loopexit
-
-21:                                               ; preds = %JS_GetOpaque.exit
-  %22 = zext i8 %18 to i64
-  %23 = shl nuw nsw i64 %22, 4
-  %24 = alloca i8, i64 %23, align 16
-  %25 = icmp sgt i32 %5, 0
-  br i1 %25, label %.lr.ph.preheader, label %.lr.ph33.preheader
-
-.lr.ph.preheader:                                 ; preds = %21
-  %26 = zext nneg i32 %5 to i64
-  %27 = shl nuw nsw i64 %26, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %24, ptr align 8 %6, i64 %27, i1 false)
+.lr.ph.preheader:                                 ; preds = %18
+  %23 = zext nneg i32 %5 to i64
+  %24 = shl nuw nsw i64 %23, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 8 %6, i64 %24, i1 false)
   br label %.lr.ph33.preheader
 
-.lr.ph33.preheader:                               ; preds = %21, %.lr.ph.preheader
-  %28 = sext i32 %5 to i64
-  %29 = zext i8 %18 to i64
+.lr.ph33.preheader:                               ; preds = %18, %.lr.ph.preheader
+  %25 = sext i32 %5 to i64
+  %26 = zext i8 %15 to i64
   br label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
-  %indvars.iv = phi i64 [ %28, %.lr.ph33.preheader ], [ %indvars.iv.next, %.lr.ph33 ]
-  %30 = getelementptr %struct.JSValue, ptr %24, i64 %indvars.iv
-  store i32 0, ptr %30, align 16
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  %indvars.iv = phi i64 [ %25, %.lr.ph33.preheader ], [ %indvars.iv.next, %.lr.ph33 ]
+  %27 = getelementptr %struct.JSValue, ptr %21, i64 %indvars.iv
+  store i32 0, ptr %27, align 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store i64 3, ptr %.sroa.21.0..sroa_idx, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %31 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %31, label %.lr.ph33, label %.loopexit, !llvm.loop !13
+  %28 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %28, label %.lr.ph33, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph33, %JS_GetOpaque.exit
-  %.0 = phi ptr [ %6, %JS_GetOpaque.exit ], [ %24, %.lr.ph33 ]
-  %32 = load ptr, ptr %.0.i, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 10
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %37 = call { i64, i64 } %32(ptr noundef %0, i64 %3, i64 %4, i32 noundef %5, ptr noundef %.0, i32 noundef %35, ptr noundef nonnull %36) #42
-  ret { i64, i64 } %37
+  %.0 = phi ptr [ %6, %JS_GetOpaque.exit ], [ %21, %.lr.ph33 ]
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds i8, ptr %13, i64 10
+  %31 = load i16, ptr %30, align 2
+  %32 = zext i16 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %13, i64 16
+  %34 = call { i64, i64 } %29(ptr noundef %0, i64 %3, i64 %4, i32 noundef %5, ptr noundef %.0, i32 noundef %32, ptr noundef nonnull %33) #42
+  ret { i64, i64 } %34
 }
 
 ; Function Attrs: nounwind uwtable

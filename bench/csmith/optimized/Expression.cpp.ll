@@ -452,7 +452,7 @@ _ZL25ExpressionTypeProbabilityPK12VectorFilter.exit: ; preds = %.noexc50, %.noex
   br i1 %.not45, label %88, label %121
 
 88:                                               ; preds = %86
-  switch i32 %.040, label %99 [
+  switch i32 %.040, label %unreachable [
     i32 0, label %89
     i32 1, label %91
     i32 2, label %93
@@ -480,8 +480,11 @@ _ZL25ExpressionTypeProbabilityPK12VectorFilter.exit: ; preds = %.noexc50, %.noex
   %98 = call noundef ptr @_ZN15ExpressionComma11make_randomER9CGContextPK4TypePK12CVQualifiers(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.038, ptr noundef %2)
   br label %99
 
-99:                                               ; preds = %88, %97, %95, %93, %91, %89
-  %.039 = phi ptr [ null, %88 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ]
+unreachable:                                      ; preds = %88
+  unreachable
+
+99:                                               ; preds = %97, %95, %93, %91, %89
+  %.039 = phi ptr [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ]
   %100 = getelementptr inbounds i8, ptr %.039, i64 8
   %101 = load i32, ptr %100, align 8
   %switch48 = icmp ult i32 %101, 2
@@ -734,7 +737,7 @@ _ZL25ExpressionTypeProbabilityPK12VectorFilter.exit: ; preds = %.noexc37, %.noex
   br i1 %.not33, label %55, label %88
 
 55:                                               ; preds = %53
-  switch i32 %.029, label %66 [
+  switch i32 %.029, label %unreachable [
     i32 0, label %56
     i32 1, label %58
     i32 2, label %60
@@ -762,8 +765,11 @@ _ZL25ExpressionTypeProbabilityPK12VectorFilter.exit: ; preds = %.noexc37, %.noex
   %65 = call noundef ptr @_ZN15ExpressionComma11make_randomER9CGContextPK4TypePK12CVQualifiers(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2)
   br label %66
 
-66:                                               ; preds = %55, %64, %62, %60, %58, %56
-  %.030 = phi ptr [ null, %55 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
+unreachable:                                      ; preds = %55
+  unreachable
+
+66:                                               ; preds = %64, %62, %60, %58, %56
+  %.030 = phi ptr [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
   %67 = getelementptr inbounds i8, ptr %.030, i64 8
   %68 = load i32, ptr %67, align 8
   %switch = icmp ult i32 %68, 2

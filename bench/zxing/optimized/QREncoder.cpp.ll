@@ -2923,50 +2923,44 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_
   %17 = select i1 %15, i64 9223372036854775807, i64 %16
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %18, %8
-  %20 = icmp eq i64 %17, 0
-  br i1 %20, label %23, label %21
+  %20 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #24
+  %22 = getelementptr inbounds i8, ptr %21, i64 %19
+  %23 = load i8, ptr %2, align 1, !tbaa !11
+  store i8 %23, ptr %22, align 1, !tbaa !11
+  %24 = icmp sgt i64 %19, 0
+  br i1 %24, label %25, label %26
 
-21:                                               ; preds = %12
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #24
-  br label %23
+25:                                               ; preds = %12
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %6, i64 %19, i1 false)
+  br label %26
 
-23:                                               ; preds = %21, %12
-  %24 = phi ptr [ %22, %21 ], [ null, %12 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %19
-  %26 = load i8, ptr %2, align 1, !tbaa !11
-  store i8 %26, ptr %25, align 1, !tbaa !11
-  %27 = icmp sgt i64 %19, 0
-  br i1 %27, label %28, label %29
+26:                                               ; preds = %25, %12
+  %27 = getelementptr inbounds i8, ptr %22, i64 1
+  %28 = sub i64 %7, %18
+  %29 = icmp sgt i64 %28, 0
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %6, i64 %19, i1 false)
-  br label %29
+30:                                               ; preds = %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %1, i64 %28, i1 false)
+  br label %31
 
-29:                                               ; preds = %28, %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 1
-  %31 = sub i64 %7, %18
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %30, %26
+  %32 = icmp eq ptr %6, null
+  br i1 %32, label %34, label %33
 
-33:                                               ; preds = %29
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %1, i64 %31, i1 false)
+33:                                               ; preds = %31
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %34
 
-34:                                               ; preds = %33, %29
-  %35 = icmp eq ptr %6, null
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %34
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
-  br label %37
-
-37:                                               ; preds = %36, %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = getelementptr inbounds i8, ptr %30, i64 %31
-  store ptr %24, ptr %0, align 8, !tbaa !28
-  store ptr %39, ptr %4, align 8, !tbaa !26
-  %40 = getelementptr inbounds i8, ptr %24, i64 %17
-  store ptr %40, ptr %38, align 8, !tbaa !51
+34:                                               ; preds = %33, %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds i8, ptr %27, i64 %28
+  store ptr %21, ptr %0, align 8, !tbaa !28
+  store ptr %36, ptr %4, align 8, !tbaa !26
+  %37 = getelementptr inbounds i8, ptr %21, i64 %17
+  store ptr %37, ptr %35, align 8, !tbaa !51
   ret void
 }
 

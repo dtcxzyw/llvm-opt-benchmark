@@ -4741,42 +4741,44 @@ entry:
 define i32 @SSL_has_pending(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %iter = alloca ptr, align 8
-  %cond = icmp eq ptr %s, null
-  br i1 %cond, label %cond.end15, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %cond = icmp ne ptr %s, null
+  tail call void @llvm.assume(i1 %cond)
   %0 = load i32, ptr %s, align 8
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %if.then, label %cond.false
+  br i1 %switch, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   %call = tail call i32 @ossl_quic_has_pending(ptr noundef nonnull %s) #24
   br label %return
 
-cond.false:                                       ; preds = %land.lhs.true
-  %cond13 = icmp eq i32 %0, 0
-  %spec.select = select i1 %cond13, ptr %s, ptr null
+if.end:                                           ; preds = %entry
+  %switch13 = icmp eq i32 %0, 0
+  br i1 %switch13, label %cond.end15, label %cond.true11
+
+cond.true11:                                      ; preds = %if.end
+  %tls = getelementptr inbounds i8, ptr %s, i64 64
+  %1 = load ptr, ptr %tls, align 8
   br label %cond.end15
 
-cond.end15:                                       ; preds = %cond.false, %entry
-  %cond16 = phi ptr [ null, %entry ], [ %spec.select, %cond.false ]
+cond.end15:                                       ; preds = %if.end, %cond.true11
+  %cond16 = phi ptr [ %1, %cond.true11 ], [ %s, %if.end ]
   %method = getelementptr inbounds i8, ptr %cond16, i64 24
-  %1 = load ptr, ptr %method, align 8
-  %ssl3_enc = getelementptr inbounds i8, ptr %1, i64 216
-  %2 = load ptr, ptr %ssl3_enc, align 8
-  %enc_flags = getelementptr inbounds i8, ptr %2, i64 80
-  %3 = load i32, ptr %enc_flags, align 8
-  %and = and i32 %3, 8
+  %2 = load ptr, ptr %method, align 8
+  %ssl3_enc = getelementptr inbounds i8, ptr %2, i64 216
+  %3 = load ptr, ptr %ssl3_enc, align 8
+  %enc_flags = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = load i32, ptr %enc_flags, align 8
+  %and = and i32 %4, 8
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end24, label %if.then17
 
 if.then17:                                        ; preds = %cond.end15
   %d = getelementptr inbounds i8, ptr %cond16, i64 3144
-  %4 = load ptr, ptr %d, align 8
-  %q = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = load ptr, ptr %q, align 8
-  %call18 = tail call ptr @pqueue_iterator(ptr noundef %5) #24
+  %5 = load ptr, ptr %d, align 8
+  %q = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %q, align 8
+  %call18 = tail call ptr @pqueue_iterator(ptr noundef %6) #24
   store ptr %call18, ptr %iter, align 8
   br label %while.cond
 
@@ -4787,10 +4789,10 @@ while.cond:                                       ; preds = %while.body, %if.the
 
 while.body:                                       ; preds = %while.cond
   %data = getelementptr inbounds i8, ptr %call19, i64 8
-  %6 = load ptr, ptr %data, align 8
-  %length = getelementptr inbounds i8, ptr %6, i64 32
-  %7 = load i64, ptr %length, align 8
-  %cmp21.not = icmp eq i64 %7, 0
+  %7 = load ptr, ptr %data, align 8
+  %length = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = load i64, ptr %length, align 8
+  %cmp21.not = icmp eq i64 %8, 0
   br i1 %cmp21.not, label %while.cond, label %return, !llvm.loop !12
 
 if.end24:                                         ; preds = %while.cond, %cond.end15
@@ -5468,28 +5470,26 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @SSL_do_handshake(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.ssl_async_args, align 8
-  %cmp = icmp eq ptr %s, null
-  br i1 %cmp, label %if.end, label %cond.false
-
-cond.false:                                       ; preds = %entry
+  %cmp = icmp ne ptr %s, null
+  tail call void @llvm.assume(i1 %cmp)
   %0 = load i32, ptr %s, align 8
   switch i32 %0, label %land.lhs.true [
     i32 0, label %if.end
     i32 1, label %if.then
   ]
 
-land.lhs.true:                                    ; preds = %cond.false
+land.lhs.true:                                    ; preds = %entry
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %if.then, label %if.end
+  tail call void @llvm.assume(i1 %switch)
+  br label %if.then
 
-if.then:                                          ; preds = %cond.false, %land.lhs.true
+if.then:                                          ; preds = %land.lhs.true, %entry
   %call = tail call i32 @ossl_quic_do_handshake(ptr noundef nonnull %s) #24
   br label %return
 
-if.end:                                           ; preds = %cond.false, %entry, %land.lhs.true
-  %cond1122 = phi ptr [ null, %land.lhs.true ], [ null, %entry ], [ %s, %cond.false ]
-  %handshake_func = getelementptr inbounds i8, ptr %cond1122, i64 104
+if.end:                                           ; preds = %entry
+  %handshake_func = getelementptr inbounds i8, ptr %s, i64 104
   %1 = load ptr, ptr %handshake_func, align 8
   %cmp17 = icmp eq ptr %1, null
   br i1 %cmp17, label %if.then18, label %if.end19
@@ -5501,13 +5501,13 @@ if.then18:                                        ; preds = %if.end
   br label %return
 
 if.end19:                                         ; preds = %if.end
-  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %cond1122, i32 noundef -1) #24
+  tail call void @ossl_statem_check_finish_init(ptr noundef nonnull %s, i32 noundef -1) #24
   %method = getelementptr inbounds i8, ptr %s, i64 24
   %2 = load ptr, ptr %method, align 8
   %ssl_renegotiate_check = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %ssl_renegotiate_check, align 8
-  %call20 = tail call i32 %3(ptr noundef %s, i32 noundef 0) #24
-  %call21 = tail call i32 @SSL_in_init(ptr noundef %s) #24
+  %call20 = tail call i32 %3(ptr noundef nonnull %s, i32 noundef 0) #24
+  %call21 = tail call i32 @SSL_in_init(ptr noundef nonnull %s) #24
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %lor.lhs.false22, label %if.then25
 
@@ -5517,7 +5517,7 @@ lor.lhs.false22:                                  ; preds = %if.end19
   br i1 %tobool24.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %lor.lhs.false22, %if.end19
-  %mode = getelementptr inbounds i8, ptr %cond1122, i64 2360
+  %mode = getelementptr inbounds i8, ptr %s, i64 2360
   %4 = load i32, ptr %mode, align 8
   %and = and i32 %4, 256
   %tobool26.not = icmp eq i32 %and, 0
@@ -17891,14 +17891,14 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
@@ -17930,8 +17930,8 @@ attributes #17 = { nofree norecurse nosync nounwind memory(read, argmem: readwri
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nounwind }
 attributes #25 = { nounwind willreturn memory(read) }

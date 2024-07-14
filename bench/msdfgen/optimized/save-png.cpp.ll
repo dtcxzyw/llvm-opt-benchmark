@@ -63,7 +63,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %if.end14
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #12
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #13
           to label %.noexc unwind label %lpad16
 
 .noexc:                                           ; preds = %if.then.i.i
@@ -72,7 +72,7 @@ if.then.i.i:                                      ; preds = %if.end14
 if.then.i.i.i.i.i:                                ; preds = %if.end14
   %conv = zext nneg i32 %height to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 3
-  %call5.i.i.i.i2.i.i27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #13
+  %call5.i.i.i.i2.i.i27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad16
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
@@ -115,14 +115,14 @@ for.end:                                          ; preds = %for.body
           to label %invoke.cont23 unwind label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
 
 invoke.cont23:                                    ; preds = %for.end
-  %call25 = call i32 @_setjmp(ptr noundef %call24) #14
+  %call25 = call i32 @_setjmp(ptr noundef %call24) #15
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit:                ; preds = %invoke.cont33, %invoke.cont31, %invoke.cont30, %invoke.cont29, %if.end28, %for.end
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #15
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #16
   br label %ehcleanup
 
 if.end28:                                         ; preds = %invoke.cont23
@@ -146,7 +146,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31 unwind label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit31:              ; preds = %invoke.cont33, %invoke.cont23
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #15
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #16
   br label %cleanup35
 
 cleanup35:                                        ; preds = %if.end10, %if.end6, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
@@ -158,7 +158,7 @@ terminate.lpad.i:                                 ; preds = %cleanup35
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #16
+  call void @__clang_call_terminate(ptr %9) #17
   unreachable
 
 _ZN7msdfgen8PngGuardD2Ev.exit:                    ; preds = %cleanup35
@@ -168,7 +168,7 @@ _ZN7msdfgen8PngGuardD2Ev.exit:                    ; preds = %cleanup35
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit, %lpad16
   %.pn = phi { ptr, i32 } [ %7, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ], [ %6, %lpad16 ]
-  call void @_ZN7msdfgen8PngGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %guard) #17
+  call void @_ZN7msdfgen8PngGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %guard) #18
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %entry, %_ZN7msdfgen8PngGuardD2Ev.exit
@@ -225,31 +225,29 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = mul i32 %height, %width
   %mul4 = mul i32 %mul, %channels
-  %conv = sext i32 %mul4 to i64
   %cmp.i.i = icmp slt i32 %mul4, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #13
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.end
-  %cmp.not.i.i.i.i = icmp eq i32 %channels, 0
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %call5.i.i.i.i1.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #13
+  %conv = zext nneg i32 %mul4 to i64
+  %cmp.not.i.i.i.i = icmp ne i32 %channels, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
+  %call5.i.i.i.i1.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #14
   store i8 0, ptr %call5.i.i.i.i1.i.i13, align 1
   %sub.i.i.i.i.i = add nsw i64 %conv, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i13, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %cmp25.not = icmp eq i32 %mul4, 0
   br i1 %cmp25.not, label %for.end, label %invoke.cont6.preheader
 
@@ -279,32 +277,20 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
 lpad5:                                            ; preds = %for.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i = icmp eq ptr %bytePixels.sroa.0.030, null
-  br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i13) #16
+  resume { ptr, i32 } %1
 
-if.then.i.i.i:                                    ; preds = %lpad5
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #15
-  br label %eh.resume
+for.end:                                          ; preds = %invoke.cont6, %invoke.cont
+  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %call5.i.i.i.i1.i.i13, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
+          to label %if.then.i.i.i17 unwind label %lpad5
 
-for.end:                                          ; preds = %invoke.cont6, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %invoke.cont
-  %bytePixels.sroa.0.030 = phi ptr [ %call5.i.i.i.i1.i.i13, %invoke.cont ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i1.i.i13, %invoke.cont6 ]
-  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %bytePixels.sroa.0.030, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
-          to label %invoke.cont10 unwind label %lpad5
-
-invoke.cont10:                                    ; preds = %for.end
-  %tobool.not.i.i.i16 = icmp eq ptr %bytePixels.sroa.0.030, null
-  br i1 %tobool.not.i.i.i16, label %return, label %if.then.i.i.i17
-
-if.then.i.i.i17:                                  ; preds = %invoke.cont10
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #15
+if.then.i.i.i17:                                  ; preds = %for.end
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i13) #16
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i17, %invoke.cont10, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %call11, %invoke.cont10 ], [ %call11, %if.then.i.i.i17 ]
+return:                                           ; preds = %if.then.i.i.i17, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %call11, %if.then.i.i.i17 ]
   ret i1 %retval.0
-
-eh.resume:                                        ; preds = %if.then.i.i.i, %lpad5
-  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -365,7 +351,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @png_error(ptr noundef %png, ptr noundef nonnull @.str.3) #12
+  tail call void @png_error(ptr noundef %png, ptr noundef nonnull @.str.3) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -405,7 +391,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #16
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 }
 
@@ -414,8 +400,8 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -448,6 +434,9 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -460,12 +449,13 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { nounwind returns_twice }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind returns_twice }
+attributes #16 = { builtin nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

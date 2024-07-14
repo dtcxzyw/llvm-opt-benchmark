@@ -564,10 +564,10 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   %16 = trunc i64 %10 to i32
   store i16 0, ptr %13, align 1
-  %.sroa.237.0..sroa.015.0.sroa_idx = getelementptr inbounds i8, ptr %13, i64 2
-  store i16 1, ptr %.sroa.237.0..sroa.015.0.sroa_idx, align 1
-  %.sroa.338.0..sroa.015.0.sroa_idx = getelementptr inbounds i8, ptr %13, i64 4
-  store i16 1, ptr %.sroa.338.0..sroa.015.0.sroa_idx, align 1
+  %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 2
+  store i16 1, ptr %.sroa.237.0..sroa_idx, align 1
+  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 4
+  store i16 1, ptr %.sroa.338.0..sroa_idx, align 1
   %17 = getelementptr inbounds i8, ptr %13, i64 6
   %18 = load <4 x i8>, ptr %14, align 8
   store <4 x i8> %18, ptr %17, align 1

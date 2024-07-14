@@ -197,7 +197,7 @@ if.end20:                                         ; preds = %if.then14, %if.end1
 define internal fastcc void @uv__signal_stop(ptr noundef %handle) unnamed_addr #0 {
 entry:
   %data.i.i = alloca i8, align 1
-  %sa.i18 = alloca %struct.sigaction, align 8
+  %sa.i19 = alloca %struct.sigaction, align 8
   %sa_old.i = alloca %struct.sigaction, align 8
   %sa.i = alloca %struct.sigaction, align 8
   %lookup.i = alloca %struct.uv_signal_s, align 8
@@ -434,8 +434,8 @@ if.end67.i.i:                                     ; preds = %if.end51.i.i, %if.t
   %tmp.0.i.i = phi ptr [ %33, %if.end51.i.i ], [ %26, %if.then.i.i ]
   %tree_entry68.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 112
   %35 = load ptr, ptr %tree_entry68.i.i, align 8
-  %cmp70.i.i = icmp eq ptr %35, null
-  br i1 %cmp70.i.i, label %land.lhs.true.i.i, label %lor.lhs.false71.i.i
+  %cmp70.i.not.i = icmp eq ptr %35, null
+  br i1 %cmp70.i.not.i, label %land.lhs.true.i.i, label %lor.lhs.false71.i.i
 
 lor.lhs.false71.i.i:                              ; preds = %if.end67.i.i
   %rbe_color75.i.i = getelementptr inbounds i8, ptr %35, i64 136
@@ -461,15 +461,15 @@ if.else91.i.i:                                    ; preds = %lor.lhs.false71.i.i
   %rbe_right93.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 120
   %.pre54.i.i = load ptr, ptr %rbe_right93.phi.trans.insert.i.i, align 8
   %cmp94.i.i = icmp eq ptr %.pre54.i.i, null
-  br i1 %cmp94.i.i, label %if.end108.i.i, label %lor.lhs.false95.i.thread.i
+  br i1 %cmp94.i.i, label %if.then105.i.i, label %lor.lhs.false95.i.i
 
-lor.lhs.false95.i.thread.i:                       ; preds = %if.else91.i.i
-  %rbe_color99.i8.i = getelementptr inbounds i8, ptr %.pre54.i.i, i64 136
-  %39 = load i32, ptr %rbe_color99.i8.i, align 8
-  %cmp100.i9.i = icmp eq i32 %39, 0
-  br i1 %cmp100.i9.i, label %if.end108.i.i, label %if.end168.i.i
+lor.lhs.false95.i.i:                              ; preds = %if.else91.i.i
+  %rbe_color99.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre54.i.i, i64 136
+  %.pre.i = load i32, ptr %rbe_color99.i.phi.trans.insert.i, align 8
+  %39 = icmp eq i32 %.pre.i, 0
+  br i1 %39, label %if.then105.i.i, label %if.end168.i.i
 
-if.end108.i.i:                                    ; preds = %lor.lhs.false95.i.thread.i, %if.else91.i.i
+if.then105.i.i:                                   ; preds = %lor.lhs.false95.i.i, %if.else91.i.i
   store i32 0, ptr %rbe_color75.i.i.le, align 8
   %.pre55.i.i = load ptr, ptr %tree_entry68.i.i.le, align 8
   %rbe_color110.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 136
@@ -480,12 +480,12 @@ if.end108.i.i:                                    ; preds = %lor.lhs.false95.i.t
   %cmp118.not.i.i = icmp eq ptr %40, null
   br i1 %cmp118.not.i.i, label %do.end126.i.i, label %if.then119.i.i
 
-if.then119.i.i:                                   ; preds = %if.end108.i.i
+if.then119.i.i:                                   ; preds = %if.then105.i.i
   %rbe_parent123.i.i = getelementptr inbounds i8, ptr %40, i64 128
   store ptr %tmp.0.i.i, ptr %rbe_parent123.i.i, align 8
   br label %do.end126.i.i
 
-do.end126.i.i:                                    ; preds = %if.then119.i.i, %if.end108.i.i
+do.end126.i.i:                                    ; preds = %if.then119.i.i, %if.then105.i.i
   %rbe_parent128.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 128
   %41 = load ptr, ptr %rbe_parent128.i.i, align 8
   %rbe_parent130.i.i = getelementptr inbounds i8, ptr %.pre55.i.i, i64 128
@@ -510,9 +510,9 @@ if.end151.i.i:                                    ; preds = %if.then132.i.i, %do
   %43 = load ptr, ptr %rbe_right.i.i, align 8
   br label %if.end168.i.i
 
-if.end168.i.i:                                    ; preds = %lor.lhs.false80.i.i, %if.end151.i.i, %lor.lhs.false95.i.thread.i
-  %elm.addr.261.i.i = phi ptr [ %elm.addr.262.i.i, %if.end151.i.i ], [ %34, %lor.lhs.false95.i.thread.i ], [ %34, %lor.lhs.false80.i.i ]
-  %tmp.1.i.i = phi ptr [ %43, %if.end151.i.i ], [ %tmp.0.i.i, %lor.lhs.false95.i.thread.i ], [ %tmp.0.i.i, %lor.lhs.false80.i.i ]
+if.end168.i.i:                                    ; preds = %lor.lhs.false80.i.i, %if.end151.i.i, %lor.lhs.false95.i.i
+  %elm.addr.261.i.i = phi ptr [ %elm.addr.262.i.i, %if.end151.i.i ], [ %34, %lor.lhs.false95.i.i ], [ %34, %lor.lhs.false80.i.i ]
+  %tmp.1.i.i = phi ptr [ %43, %if.end151.i.i ], [ %tmp.0.i.i, %lor.lhs.false95.i.i ], [ %tmp.0.i.i, %lor.lhs.false80.i.i ]
   %rbe_color170.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i, i64 136
   %44 = load i32, ptr %rbe_color170.i.i, align 8
   %rbe_color172.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 136
@@ -641,15 +641,15 @@ lor.lhs.false325.i.i:                             ; preds = %land.lhs.true321.i.
 if.else336.i.i:                                   ; preds = %lor.lhs.false325.i.i
   %rbe_right323.i.i.le = getelementptr inbounds i8, ptr %tmp.2.i.i, i64 120
   %rbe_color329.i.i.le = getelementptr inbounds i8, ptr %60, i64 136
-  br i1 %cmp314.i.i, label %if.end353.i.i, label %lor.lhs.false340.i.i
+  br i1 %cmp314.i.i, label %if.then350.i.i, label %lor.lhs.false340.i.i
 
 lor.lhs.false340.i.i:                             ; preds = %if.else336.i.i
   %rbe_color344.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %58, i64 136
   %.pre.i.i = load i32, ptr %rbe_color344.phi.trans.insert.i.i, align 8
   %62 = icmp eq i32 %.pre.i.i, 0
-  br i1 %62, label %if.end353.i.i, label %if.end413.i.i
+  br i1 %62, label %if.then350.i.i, label %if.end413.i.i
 
-if.end353.i.i:                                    ; preds = %lor.lhs.false340.i.i, %if.else336.i.i
+if.then350.i.i:                                   ; preds = %lor.lhs.false340.i.i, %if.else336.i.i
   store i32 0, ptr %rbe_color329.i.i.le, align 8
   %.pre53.i.i = load ptr, ptr %rbe_right323.i.i.le, align 8
   %rbe_color355.i.i = getelementptr inbounds i8, ptr %tmp.2.i.i, i64 136
@@ -660,12 +660,12 @@ if.end353.i.i:                                    ; preds = %lor.lhs.false340.i.
   %cmp363.not.i.i = icmp eq ptr %63, null
   br i1 %cmp363.not.i.i, label %do.end371.i.i, label %if.then364.i.i
 
-if.then364.i.i:                                   ; preds = %if.end353.i.i
+if.then364.i.i:                                   ; preds = %if.then350.i.i
   %rbe_parent368.i.i = getelementptr inbounds i8, ptr %63, i64 128
   store ptr %tmp.2.i.i, ptr %rbe_parent368.i.i, align 8
   br label %do.end371.i.i
 
-do.end371.i.i:                                    ; preds = %if.then364.i.i, %if.end353.i.i
+do.end371.i.i:                                    ; preds = %if.then364.i.i, %if.then350.i.i
   %rbe_parent373.i.i = getelementptr inbounds i8, ptr %tmp.2.i.i, i64 128
   %64 = load ptr, ptr %rbe_parent373.i.i, align 8
   %rbe_parent375.i.i = getelementptr inbounds i8, ptr %.pre53.i.i, i64 128
@@ -823,11 +823,11 @@ uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %if.end5.i.i
 
 uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i: ; preds = %uv__signal_tree_s_RB_NFIND.exit.i
   %signum2.phi.trans.insert.i = getelementptr inbounds i8, ptr %res.1.i.i, i64 104
-  %.pre.i = load i32, ptr %signum2.phi.trans.insert.i, align 8
+  %.pre.i15 = load i32, ptr %signum2.phi.trans.insert.i, align 8
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i
-  %78 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %75, %if.else.i.i ]
+  %78 = phi i32 [ %.pre.i15, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %75, %if.else.i.i ]
   %retval.0.i9.i = phi ptr [ %res.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.land.lhs.true_crit_edge.i ], [ %tmp.08.i.i, %if.else.i.i ]
   %cmp3.i = icmp eq i32 %78, %74
   br i1 %cmp3.i, label %if.else, label %if.then4
@@ -839,8 +839,8 @@ if.then4:                                         ; preds = %uv__signal_tree_s_R
   %arrayidx.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 152, i1 false)
   %call.i = call i32 @sigaction(i32 noundef %74, ptr noundef nonnull %sa.i, ptr noundef null) #10
-  %tobool.not.i16 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i16, label %uv__signal_unregister_handler.exit, label %if.then.i
+  %tobool.not.i17 = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i17, label %uv__signal_unregister_handler.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then4
   call void @abort() #11
@@ -864,27 +864,27 @@ if.else:                                          ; preds = %land.lhs.true.i
   br i1 %or.cond, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i18)
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i19)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa_old.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i18, i8 0, i64 152, i1 false)
-  %sa_mask.i = getelementptr inbounds i8, ptr %sa.i18, i64 8
-  %call.i19 = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i) #10
-  %tobool.not.i20 = icmp eq i32 %call.i19, 0
-  br i1 %tobool.not.i20, label %if.end.i22, label %if.then.i21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa.i19, i8 0, i64 152, i1 false)
+  %sa_mask.i = getelementptr inbounds i8, ptr %sa.i19, i64 8
+  %call.i20 = call i32 @sigfillset(ptr noundef nonnull %sa_mask.i) #10
+  %tobool.not.i21 = icmp eq i32 %call.i20, 0
+  br i1 %tobool.not.i21, label %if.end.i23, label %if.then.i22
 
-if.then.i21:                                      ; preds = %if.then9
+if.then.i22:                                      ; preds = %if.then9
   call void @abort() #11
   unreachable
 
-if.end.i22:                                       ; preds = %if.then9
-  store ptr @uv__signal_handler, ptr %sa.i18, align 8
-  %sa_flags.i = getelementptr inbounds i8, ptr %sa.i18, i64 136
+if.end.i23:                                       ; preds = %if.then9
+  store ptr @uv__signal_handler, ptr %sa.i19, align 8
+  %sa_flags.i = getelementptr inbounds i8, ptr %sa.i19, i64 136
   store i32 -1879048192, ptr %sa_flags.i, align 8
-  %call5.i = call i32 @sigaction(i32 noundef %74, ptr noundef nonnull %sa.i18, ptr noundef nonnull %sa_old.i) #10
+  %call5.i = call i32 @sigaction(i32 noundef %74, ptr noundef nonnull %sa.i19, ptr noundef nonnull %sa_old.i) #10
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end9.i, label %uv__signal_register_handler.exit
 
-if.end9.i:                                        ; preds = %if.end.i22
+if.end9.i:                                        ; preds = %if.end.i23
   %idxprom.i.i = sext i32 %74 to i64
   %arrayidx.i.i = getelementptr inbounds [128 x %struct.sigaction], ptr @uv__sigactions, i64 0, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(152) %sa_old.i, i64 152, i1 false)
@@ -892,45 +892,45 @@ if.end9.i:                                        ; preds = %if.end.i22
   store i8 1, ptr %arrayidx2.i.i, align 1
   br label %uv__signal_register_handler.exit
 
-uv__signal_register_handler.exit:                 ; preds = %if.end.i22, %if.end9.i
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i18)
+uv__signal_register_handler.exit:                 ; preds = %if.end.i23, %if.end9.i
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i19)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa_old.i)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %uv__signal_register_handler.exit, %uv__signal_unregister_handler.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.i.i)
   store i8 42, ptr %data.i.i, align 1
-  br label %do.body.i.i24
+  br label %do.body.i.i25
 
-do.body.i.i24:                                    ; preds = %land.rhs.i.i25, %if.end13
+do.body.i.i25:                                    ; preds = %land.rhs.i.i26, %if.end13
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @uv__signal_lock_pipefd, i64 4), align 4
   %call.i.i = call i64 @write(i32 noundef %81, ptr noundef nonnull %data.i.i, i64 noundef 1) #10
   %82 = and i64 %call.i.i, 2147483648
   %cmp.not.not.i.not.i = icmp eq i64 %82, 0
-  br i1 %cmp.not.not.i.not.i, label %if.end.i27, label %land.rhs.i.i25
+  br i1 %cmp.not.not.i.not.i, label %if.end.i28, label %land.rhs.i.i26
 
-land.rhs.i.i25:                                   ; preds = %do.body.i.i24
+land.rhs.i.i26:                                   ; preds = %do.body.i.i25
   %call2.i.i = tail call ptr @__errno_location() #12
   %83 = load i32, ptr %call2.i.i, align 4
   %cmp3.i.i = icmp eq i32 %83, 4
-  br i1 %cmp3.i.i, label %do.body.i.i24, label %if.then.i26
+  br i1 %cmp3.i.i, label %do.body.i.i25, label %if.then.i27
 
-if.then.i26:                                      ; preds = %land.rhs.i.i25
+if.then.i27:                                      ; preds = %land.rhs.i.i26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
   call void @abort() #11
   unreachable
 
-if.end.i27:                                       ; preds = %do.body.i.i24
+if.end.i28:                                       ; preds = %do.body.i.i25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.i.i)
   %call1.i = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %saved_sigmask, ptr noundef null) #10
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %uv__signal_unlock_and_unblock.exit, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i27
+if.then3.i:                                       ; preds = %if.end.i28
   call void @abort() #11
   unreachable
 
-uv__signal_unlock_and_unblock.exit:               ; preds = %if.end.i27
+uv__signal_unlock_and_unblock.exit:               ; preds = %if.end.i28
   store i32 0, ptr %signum, align 8
   %flags15 = getelementptr inbounds i8, ptr %handle, i64 88
   %84 = load i32, ptr %flags15, align 8

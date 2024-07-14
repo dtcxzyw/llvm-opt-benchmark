@@ -1359,44 +1359,39 @@ _ZNK4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toI
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4Luau14Instantiation25cleanEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 472
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %6)
-  %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, label %8
-
-8:                                                ; preds = %2
-  %9 = load i32, ptr %7, align 8
-  %10 = icmp eq i32 %9, 2
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = select i1 %10, ptr %11, ptr null
-  br label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
-
-_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %2, %8
-  %13 = phi ptr [ %12, %8 ], [ null, %2 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %.not.i.i7 = icmp eq ptr %15, null
+_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit:
+  %2 = alloca ptr, align 8
+  store ptr %1, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 472
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EEixERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %5)
+  %.not.i.i = icmp ne ptr %6, null
+  call void @llvm.assume(i1 %.not.i.i)
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 2
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = select i1 %8, ptr %9, ptr null
+  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %.not.i.i7 = icmp eq ptr %12, null
   br i1 %.not.i.i7, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
-  %16 = load i32, ptr %15, align 8
-  %.fr = freeze i32 %16
+  %13 = load i32, ptr %12, align 8
+  %.fr = freeze i32 %13
   %.not = icmp eq i32 %.fr, 17
-  %17 = getelementptr inbounds i8, ptr %13, i64 40
-  br i1 %.not, label %18, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread
+  %14 = getelementptr inbounds i8, ptr %10, i64 40
+  br i1 %.not, label %15, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread
 
 _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
-  br label %18
+  br label %15
 
-18:                                               ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread
-  %19 = phi ptr [ %14, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %17, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
-  %20 = load ptr, ptr %19, align 8
-  call void @_ZN4Luau12Substitution16dontTraverseIntoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %20)
-  ret ptr %20
+15:                                               ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread
+  %16 = phi ptr [ %11, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %14, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
+  %17 = load ptr, ptr %16, align 8
+  call void @_ZN4Luau12Substitution16dontTraverseIntoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %17)
+  ret ptr %17
 }
 
 declare noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef) local_unnamed_addr #4

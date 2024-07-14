@@ -2567,9 +2567,8 @@ _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i:  ; preds = %.lr.ph
   %481 = getelementptr inbounds i8, ptr %476, i64 80
   %482 = load ptr, ptr %481, align 8, !noalias !33
   %483 = getelementptr inbounds %"class.Ipopt::SmartPtr.46", ptr %482, i64 %indvars.iv
-  %484 = load ptr, ptr %483, align 8, !noalias !33
-  %.not.i.i.i219 = icmp eq ptr %484, null
-  br i1 %.not.i.i.i219, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit221, label %485
+  %484 = load ptr, ptr %483, align 8, !noalias !33, !nonnull !19, !noundef !19
+  br label %485
 
 485:                                              ; preds = %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i, %.lr.ph
   %.0.i3.i = phi ptr [ %484, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i ], [ %480, %.lr.ph ]
@@ -2585,16 +2584,15 @@ _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i:  ; preds = %.lr.ph
   tail call void %492(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i) #15
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit221
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit221:     ; preds = %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i, %485, %489
-  %.0.i4.i457 = phi ptr [ %.0.i3.i, %485 ], [ %.0.i3.i, %489 ], [ null, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i ]
-  %493 = getelementptr inbounds i8, ptr %.0.i4.i457, i64 208
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit221:     ; preds = %485, %489
+  %493 = getelementptr inbounds i8, ptr %.0.i3.i, i64 208
   %494 = load ptr, ptr %493, align 8, !noalias !36
   %495 = load ptr, ptr %494, align 8, !noalias !36
   %.not.i.i222 = icmp eq ptr %495, null
   br i1 %.not.i.i222, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i
 
 _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.i:    ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit221
-  %496 = getelementptr inbounds i8, ptr %.0.i4.i457, i64 232
+  %496 = getelementptr inbounds i8, ptr %.0.i3.i, i64 232
   %497 = load ptr, ptr %496, align 8, !noalias !36
   %498 = load ptr, ptr %497, align 8, !noalias !36, !nonnull !19, !noundef !19
   br label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i

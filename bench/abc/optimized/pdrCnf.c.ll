@@ -560,39 +560,31 @@ define i32 @Pdr_ObjRegNum(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %26 = getelementptr inbounds i32, ptr %.val.i7, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -1
-  br i1 %28, label %Pdr_ObjRegNum1.exit, label %29
+  br i1 %28, label %Pdr_ObjRegNum1.exit, label %Aig_ManObj.exit.i
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i8, ptr %31, i64 32
-  %.val14.i = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %.val14.i, null
-  br i1 %.not.i.i, label %Aig_ManObj.exit.i, label %33
-
-33:                                               ; preds = %29
-  %34 = getelementptr i8, ptr %.val14.i, i64 8
-  %.val.i.i = load ptr, ptr %34, align 8
-  %35 = sext i32 %27 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  br label %Aig_ManObj.exit.i
-
-Aig_ManObj.exit.i:                                ; preds = %33, %29
-  %38 = phi ptr [ %37, %33 ], [ null, %29 ]
-  %39 = getelementptr i8, ptr %38, i64 24
-  %.val3.i.i = load i64, ptr %39, align 8
-  %40 = and i64 %.val3.i.i, 7
-  %.not.i16.i = icmp eq i64 %40, 3
+Aig_ManObj.exit.i:                                ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %30, i64 32
+  %.val14.i = load ptr, ptr %31, align 8, !nonnull !8, !noundef !8
+  %32 = getelementptr i8, ptr %.val14.i, i64 8
+  %.val.i.i = load ptr, ptr %32, align 8
+  %33 = sext i32 %27 to i64
+  %34 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr i8, ptr %35, i64 24
+  %.val3.i.i = load i64, ptr %36, align 8
+  %37 = and i64 %.val3.i.i, 7
+  %.not.i16.i = icmp eq i64 %37, 3
   br i1 %.not.i16.i, label %Saig_ObjIsLi.exit.i, label %Pdr_ObjRegNum1.exit
 
 Saig_ObjIsLi.exit.i:                              ; preds = %Aig_ManObj.exit.i
-  %.val.i17.i = load i32, ptr %38, align 8
-  %41 = getelementptr i8, ptr %31, i64 112
-  %.val4.i.i = load i32, ptr %41, align 8
+  %.val.i17.i = load i32, ptr %35, align 8
+  %38 = getelementptr i8, ptr %30, i64 112
+  %.val4.i.i = load i32, ptr %38, align 8
   %.not19.i = icmp slt i32 %.val.i17.i, %.val4.i.i
-  %42 = sub nsw i32 %.val.i17.i, %.val4.i.i
-  %spec.select.i = select i1 %.not19.i, i32 -1, i32 %42
+  %39 = sub nsw i32 %.val.i17.i, %.val4.i.i
+  %spec.select.i = select i1 %.not19.i, i32 -1, i32 %39
   br label %Pdr_ObjRegNum1.exit
 
 Pdr_ObjRegNum1.exit:                              ; preds = %Saig_ObjIsLi.exit.i, %Aig_ManObj.exit.i, %19, %12, %7
@@ -824,7 +816,7 @@ Pdr_ObjSatVar.exit.i:                             ; preds = %62, %56
   %69 = getelementptr i8, ptr %68, i64 104
   %.val36.i = load i32, ptr %69, align 8
   %70 = icmp slt i32 %67, %.val36.i
-  br i1 %70, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !8
+  br i1 %70, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !9
 
 .critedge.loopexit.i:                             ; preds = %Pdr_ObjSatVar.exit.i
   %.pre.i = load ptr, ptr %9, align 8
@@ -969,7 +961,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %Vec_PtrGrow.exit.si
   store ptr null, ptr %136, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %134, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %134, !llvm.loop !10
 
 ._crit_edge.i.i.i:                                ; preds = %134, %Vec_PtrGrow.exit.i.i.i
   store i32 %101, ptr %102, align 4
@@ -1030,7 +1022,7 @@ Vec_PtrGetEntry.exit.i:                           ; preds = %._crit_edge.i.i.i, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %160 = sext i32 %.0.val.i to i64
   %161 = icmp slt i64 %indvars.iv.next.i, %160
-  br i1 %161, label %150, label %.critedge.i, !llvm.loop !10
+  br i1 %161, label %150, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %159, %146, %.thread.i
   %162 = phi ptr [ %143, %.thread.i ], [ %.phi.trans.insert.i, %146 ], [ %.phi.trans.insert.i, %159 ]
@@ -1143,6 +1135,7 @@ attributes #11 = { nounwind allocsize(0,1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!8 = !{}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

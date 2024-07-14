@@ -4307,10 +4307,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN4llvh8DenseMapIN6hermes10IdentifierEPNS1_19ScopedHashTableNodeIS2_PNS1_5ValueEEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S7_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
   %2 = load ptr, ptr %this, align 8
   %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i = icmp eq i32 %3, 0
-  br i1 %cmp.i.i, label %if.end12, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then
+  %cmp.i.i = icmp ne i32 %3, 0
+  tail call void @llvm.assume(i1 %cmp.i.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %Lookup, align 8
   %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %conv.i.i.i.i.i = trunc i64 %4 to i32
@@ -4325,12 +4323,12 @@ if.end.i.i:                                       ; preds = %if.then
   %cmp.i.i23.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i
   br i1 %cmp.i.i23.i.i, label %if.end12, label %if.end13.i.i
 
-if.end13.i.i:                                     ; preds = %if.end.i.i, %if.end21.i.i
-  %agg.tmp7.sroa.0.0.copyload28.i.i = phi ptr [ %agg.tmp7.sroa.0.0.copyload.i.i, %if.end21.i.i ], [ %agg.tmp7.sroa.0.0.copyload22.i.i, %if.end.i.i ]
-  %add.ptr27.i.i = phi ptr [ %add.ptr.i.i, %if.end21.i.i ], [ %add.ptr21.i.i, %if.end.i.i ]
-  %BucketNo.026.i.i = phi i32 [ %BucketNo.0.i.i, %if.end21.i.i ], [ %BucketNo.019.i.i, %if.end.i.i ]
-  %FoundTombstone.025.i.i = phi ptr [ %spec.select.i.i, %if.end21.i.i ], [ null, %if.end.i.i ]
-  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end21.i.i ], [ 1, %if.end.i.i ]
+if.end13.i.i:                                     ; preds = %if.then, %if.end21.i.i
+  %agg.tmp7.sroa.0.0.copyload28.i.i = phi ptr [ %agg.tmp7.sroa.0.0.copyload.i.i, %if.end21.i.i ], [ %agg.tmp7.sroa.0.0.copyload22.i.i, %if.then ]
+  %add.ptr27.i.i = phi ptr [ %add.ptr.i.i, %if.end21.i.i ], [ %add.ptr21.i.i, %if.then ]
+  %BucketNo.026.i.i = phi i32 [ %BucketNo.0.i.i, %if.end21.i.i ], [ %BucketNo.019.i.i, %if.then ]
+  %FoundTombstone.025.i.i = phi ptr [ %spec.select.i.i, %if.end21.i.i ], [ null, %if.then ]
+  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end21.i.i ], [ 1, %if.then ]
   %cmp.i.i15.i.i = icmp eq ptr %agg.tmp7.sroa.0.0.copyload28.i.i, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i.i15.i.i, label %if.then20.i.i, label %if.end21.i.i
 
@@ -4367,10 +4365,8 @@ if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapIN6hermes10IdentifierEPNS1_19ScopedHashTableNodeIS2_PNS1_5ValueEEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S7_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
   %6 = load ptr, ptr %this, align 8
   %7 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i10 = icmp eq i32 %7, 0
-  br i1 %cmp.i.i10, label %if.end12, label %if.end.i.i11
-
-if.end.i.i11:                                     ; preds = %if.then10
+  %cmp.i.i10 = icmp ne i32 %7, 0
+  tail call void @llvm.assume(i1 %cmp.i.i10)
   %agg.tmp.sroa.0.0.copyload.i.i.i12 = load ptr, ptr %Lookup, align 8
   %8 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i.i12 to i64
   %conv.i.i.i.i.i13 = trunc i64 %8 to i32
@@ -4385,12 +4381,12 @@ if.end.i.i11:                                     ; preds = %if.then10
   %cmp.i.i23.i.i22 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload22.i.i21
   br i1 %cmp.i.i23.i.i22, label %if.end12, label %if.end13.i.i23
 
-if.end13.i.i23:                                   ; preds = %if.end.i.i11, %if.end21.i.i30
-  %agg.tmp7.sroa.0.0.copyload28.i.i24 = phi ptr [ %agg.tmp7.sroa.0.0.copyload.i.i40, %if.end21.i.i30 ], [ %agg.tmp7.sroa.0.0.copyload22.i.i21, %if.end.i.i11 ]
-  %add.ptr27.i.i25 = phi ptr [ %add.ptr.i.i39, %if.end21.i.i30 ], [ %add.ptr21.i.i20, %if.end.i.i11 ]
-  %BucketNo.026.i.i26 = phi i32 [ %BucketNo.0.i.i37, %if.end21.i.i30 ], [ %BucketNo.019.i.i18, %if.end.i.i11 ]
-  %FoundTombstone.025.i.i27 = phi ptr [ %spec.select.i.i34, %if.end21.i.i30 ], [ null, %if.end.i.i11 ]
-  %ProbeAmt.024.i.i28 = phi i32 [ %inc.i.i35, %if.end21.i.i30 ], [ 1, %if.end.i.i11 ]
+if.end13.i.i23:                                   ; preds = %if.then10, %if.end21.i.i30
+  %agg.tmp7.sroa.0.0.copyload28.i.i24 = phi ptr [ %agg.tmp7.sroa.0.0.copyload.i.i40, %if.end21.i.i30 ], [ %agg.tmp7.sroa.0.0.copyload22.i.i21, %if.then10 ]
+  %add.ptr27.i.i25 = phi ptr [ %add.ptr.i.i39, %if.end21.i.i30 ], [ %add.ptr21.i.i20, %if.then10 ]
+  %BucketNo.026.i.i26 = phi i32 [ %BucketNo.0.i.i37, %if.end21.i.i30 ], [ %BucketNo.019.i.i18, %if.then10 ]
+  %FoundTombstone.025.i.i27 = phi ptr [ %spec.select.i.i34, %if.end21.i.i30 ], [ null, %if.then10 ]
+  %ProbeAmt.024.i.i28 = phi i32 [ %inc.i.i35, %if.end21.i.i30 ], [ 1, %if.then10 ]
   %cmp.i.i15.i.i29 = icmp eq ptr %agg.tmp7.sroa.0.0.copyload28.i.i24, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i.i15.i.i29, label %if.then20.i.i44, label %if.end21.i.i30
 
@@ -4413,8 +4409,8 @@ if.end21.i.i30:                                   ; preds = %if.end13.i.i23
   %cmp.i.i.i.i41 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload.i.i40
   br i1 %cmp.i.i.i.i41, label %if.end12, label %if.end13.i.i23, !llvm.loop !8
 
-if.end12:                                         ; preds = %if.end21.i.i, %if.end21.i.i30, %if.then20.i.i44, %if.end.i.i11, %if.then10, %if.then20.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then20.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i46, %if.then20.i.i44 ], [ null, %if.then10 ], [ %add.ptr21.i.i20, %if.end.i.i11 ], [ %add.ptr.i.i39, %if.end21.i.i30 ], [ %add.ptr.i.i, %if.end21.i.i ]
+if.end12:                                         ; preds = %if.end21.i.i, %if.end21.i.i30, %if.then20.i.i44, %if.then10, %if.then20.i.i, %if.then, %if.else
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then20.i.i ], [ %add.ptr21.i.i, %if.then ], [ %cond.i.i46, %if.then20.i.i44 ], [ %add.ptr21.i.i20, %if.then10 ], [ %add.ptr.i.i39, %if.end21.i.i30 ], [ %add.ptr.i.i, %if.end21.i.i ]
   %9 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %9, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8
@@ -4601,10 +4597,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN4llvh8DenseMapIPN6hermes6ESTree23FunctionDeclarationNodeESt4pairIPNS1_8FunctionENS1_5irgen11ESTreeIRGen14AlreadyEmittedEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SB_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
   %2 = load ptr, ptr %this, align 8
   %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i = icmp eq i32 %3, 0
-  br i1 %cmp.i.i, label %if.end12, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then
+  %cmp.i.i = icmp ne i32 %3, 0
+  tail call void @llvm.assume(i1 %cmp.i.i)
   %4 = load ptr, ptr %Lookup, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i.i.i.i = trunc i64 %5 to i32
@@ -4619,12 +4613,12 @@ if.end.i.i:                                       ; preds = %if.then
   %cmp.i22.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i22.i.i, label %if.end12, label %if.end9.i.i
 
-if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end13.i.i
-  %7 = phi ptr [ %8, %if.end13.i.i ], [ %6, %if.end.i.i ]
-  %add.ptr26.i.i = phi ptr [ %add.ptr.i.i, %if.end13.i.i ], [ %add.ptr21.i.i, %if.end.i.i ]
-  %BucketNo.025.i.i = phi i32 [ %BucketNo.0.i.i, %if.end13.i.i ], [ %BucketNo.019.i.i, %if.end.i.i ]
-  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end13.i.i ], [ 1, %if.end.i.i ]
-  %FoundTombstone.023.i.i = phi ptr [ %spec.select.i.i, %if.end13.i.i ], [ null, %if.end.i.i ]
+if.end9.i.i:                                      ; preds = %if.then, %if.end13.i.i
+  %7 = phi ptr [ %8, %if.end13.i.i ], [ %6, %if.then ]
+  %add.ptr26.i.i = phi ptr [ %add.ptr.i.i, %if.end13.i.i ], [ %add.ptr21.i.i, %if.then ]
+  %BucketNo.025.i.i = phi i32 [ %BucketNo.0.i.i, %if.end13.i.i ], [ %BucketNo.019.i.i, %if.then ]
+  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end13.i.i ], [ 1, %if.then ]
+  %FoundTombstone.023.i.i = phi ptr [ %spec.select.i.i, %if.end13.i.i ], [ null, %if.then ]
   %cmp.i15.i.i = icmp eq ptr %7, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i15.i.i, label %if.then12.i.i, label %if.end13.i.i
 
@@ -4661,10 +4655,8 @@ if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapIPN6hermes6ESTree23FunctionDeclarationNodeESt4pairIPNS1_8FunctionENS1_5irgen11ESTreeIRGen14AlreadyEmittedEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SB_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
   %10 = load ptr, ptr %this, align 8
   %11 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i10 = icmp eq i32 %11, 0
-  br i1 %cmp.i.i10, label %if.end12, label %if.end.i.i11
-
-if.end.i.i11:                                     ; preds = %if.then10
+  %cmp.i.i10 = icmp ne i32 %11, 0
+  tail call void @llvm.assume(i1 %cmp.i.i10)
   %12 = load ptr, ptr %Lookup, align 8
   %13 = ptrtoint ptr %12 to i64
   %conv.i.i.i.i12 = trunc i64 %13 to i32
@@ -4679,12 +4671,12 @@ if.end.i.i11:                                     ; preds = %if.then10
   %cmp.i22.i.i20 = icmp eq ptr %12, %14
   br i1 %cmp.i22.i.i20, label %if.end12, label %if.end9.i.i21
 
-if.end9.i.i21:                                    ; preds = %if.end.i.i11, %if.end13.i.i27
-  %15 = phi ptr [ %16, %if.end13.i.i27 ], [ %14, %if.end.i.i11 ]
-  %add.ptr26.i.i22 = phi ptr [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr21.i.i19, %if.end.i.i11 ]
-  %BucketNo.025.i.i23 = phi i32 [ %BucketNo.0.i.i34, %if.end13.i.i27 ], [ %BucketNo.019.i.i17, %if.end.i.i11 ]
-  %ProbeAmt.024.i.i24 = phi i32 [ %inc.i.i32, %if.end13.i.i27 ], [ 1, %if.end.i.i11 ]
-  %FoundTombstone.023.i.i25 = phi ptr [ %spec.select.i.i31, %if.end13.i.i27 ], [ null, %if.end.i.i11 ]
+if.end9.i.i21:                                    ; preds = %if.then10, %if.end13.i.i27
+  %15 = phi ptr [ %16, %if.end13.i.i27 ], [ %14, %if.then10 ]
+  %add.ptr26.i.i22 = phi ptr [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr21.i.i19, %if.then10 ]
+  %BucketNo.025.i.i23 = phi i32 [ %BucketNo.0.i.i34, %if.end13.i.i27 ], [ %BucketNo.019.i.i17, %if.then10 ]
+  %ProbeAmt.024.i.i24 = phi i32 [ %inc.i.i32, %if.end13.i.i27 ], [ 1, %if.then10 ]
+  %FoundTombstone.023.i.i25 = phi ptr [ %spec.select.i.i31, %if.end13.i.i27 ], [ null, %if.then10 ]
   %cmp.i15.i.i26 = icmp eq ptr %15, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i15.i.i26, label %if.then12.i.i40, label %if.end13.i.i27
 
@@ -4707,8 +4699,8 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %cmp.i.i.i37 = icmp eq ptr %12, %16
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !6
 
-if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
+if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.then10, %if.then12.i.i, %if.then, %if.else
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ %add.ptr21.i.i, %if.then ], [ %cond.i.i42, %if.then12.i.i40 ], [ %add.ptr21.i.i19, %if.then10 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
   %17 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %17, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8

@@ -31319,8 +31319,9 @@ _ZNK10polynomial8monomial9degree_ofEj.exit:       ; preds = %if.end25.i.i, %for.
   br i1 %cmp.i.i50, label %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i, label %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i
 
 _ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i:     ; preds = %_ZNK10polynomial8monomial9degree_ofEj.exit
-  %cmp.not.i = icmp eq i32 %add, 0
-  br i1 %cmp.not.i, label %_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit, label %while.cond.i.i.preheader
+  %cmp.not.i = icmp ne i32 %add, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
+  br label %while.cond.i.i.preheader
 
 _ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i: ; preds = %_ZNK10polynomial8monomial9degree_ofEj.exit
   %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -4
@@ -31370,8 +31371,8 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %.pre = load ptr, ptr %buckets, align 8
   br label %_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit
 
-_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit:     ; preds = %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i, %while.end.i.i, %for.body.preheader.i.i
-  %15 = phi ptr [ null, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i ], [ %9, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i ], [ %.pre373, %while.end.i.i ], [ %.pre, %for.body.preheader.i.i ]
+_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit:     ; preds = %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i, %while.end.i.i, %for.body.preheader.i.i
+  %15 = phi ptr [ %9, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i ], [ %.pre373, %while.end.i.i ], [ %.pre, %for.body.preheader.i.i ]
   %idxprom.i = zext i32 %retval.0.i to i64
   %arrayidx.i = getelementptr inbounds %class.svector, ptr %15, i64 %idxprom.i
   %16 = load ptr, ptr %arrayidx.i, align 8

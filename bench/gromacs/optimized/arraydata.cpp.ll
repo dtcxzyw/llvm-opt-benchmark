@@ -128,37 +128,38 @@ define noundef zeroext i1 @_ZN3gmx25AbstractAnalysisArrayData22requestStorageInt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25AbstractAnalysisArrayDataE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  store float 1.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
-  store i8 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 93
-  store i8 0, ptr %6, align 1
-  %7 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
+  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
+  store float 1.000000e+00, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  store i8 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 93
+  store i8 0, ptr %5, align 1
+  %6 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
           to label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit unwind label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  store float 0.000000e+00, ptr %7, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  store ptr %7, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  store ptr %11, ptr %8, align 8
+_ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  store float 0.000000e+00, ptr %6, align 4
+  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  store ptr %6, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  store ptr %10, ptr %7, align 8
   ret void
 
-_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %1
-  %12 = landingpad { ptr, i32 }
+_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EED2Ev.exit: ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3

@@ -4470,25 +4470,19 @@ Vga_ManLookup.exit63.thread:                      ; preds = %Vga_ManLookup.exit6
   %97 = add nsw i32 %73, 1
   store i32 %97, ptr %4, align 8
   store i32 %73, ptr %.0.lcssa.i6269, align 4
-  %.not.i65 = icmp eq i32 %73, 0
-  br i1 %.not.i65, label %Vta_ManObj.exit66, label %98
-
-98:                                               ; preds = %Vga_ManLookup.exit63.thread
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = sext i32 %73 to i64
-  %102 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %100, i64 %101
-  br label %Vta_ManObj.exit66
-
-Vta_ManObj.exit66:                                ; preds = %Vga_ManLookup.exit63.thread, %98
-  %103 = phi ptr [ %102, %98 ], [ null, %Vga_ManLookup.exit63.thread ]
-  store i32 %1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
-  store i32 %2, ptr %104, align 4
+  %.not.i65 = icmp ne i32 %73, 0
+  tail call void @llvm.assume(i1 %.not.i65)
+  %98 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = sext i32 %73 to i64
+  %101 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %99, i64 %100
+  store i32 %1, ptr %101, align 4
+  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  store i32 %2, ptr %102, align 4
   br label %Vta_ManObj.exit
 
-Vta_ManObj.exit:                                  ; preds = %89, %Vta_ManObj.exit66
-  %.044 = phi ptr [ %103, %Vta_ManObj.exit66 ], [ %.01418.i59, %89 ]
+Vta_ManObj.exit:                                  ; preds = %89, %Vga_ManLookup.exit63.thread
+  %.044 = phi ptr [ %101, %Vga_ManLookup.exit63.thread ], [ %.01418.i59, %89 ]
   ret ptr %.044
 }
 

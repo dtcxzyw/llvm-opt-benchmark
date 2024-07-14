@@ -1333,7 +1333,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 6:                                                ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.40) #13
-  br label %126
+  unreachable
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %1, null
@@ -1341,7 +1341,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 9:                                                ; preds = %7
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.41) #13
-  br label %126
+  unreachable
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %3, null
@@ -1349,7 +1349,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 12:                                               ; preds = %10
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.42) #13
-  br label %126
+  unreachable
 
 13:                                               ; preds = %10
   %14 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #16
@@ -1358,7 +1358,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 16:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.43) #13
-  br label %126
+  unreachable
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %3, align 8
@@ -1593,10 +1593,9 @@ add_newsuffix.exit:                               ; preds = %109
   store i64 %125, ptr %49, align 8
   br label %130
 
-126:                                              ; preds = %6, %9, %12, %16, %36, %58, %119, %123, %24
-  %.062.ph = phi i32 [ 20, %24 ], [ %.064.i.ph, %123 ], [ %.064.i.ph, %119 ], [ 20, %58 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
-  %.0.ph = phi ptr [ %14, %24 ], [ %14, %123 ], [ %14, %119 ], [ %14, %58 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
-  %127 = load ptr, ptr %.0.ph, align 8
+126:                                              ; preds = %36, %58, %119, %123, %24
+  %.062.ph = phi i32 [ 20, %24 ], [ %.064.i.ph, %123 ], [ %.064.i.ph, %119 ], [ 20, %58 ], [ 34, %36 ]
+  %127 = load ptr, ptr %14, align 8
   %.not78 = icmp eq ptr %127, null
   br i1 %.not78, label %129, label %128
 
@@ -1605,7 +1604,7 @@ add_newsuffix.exit:                               ; preds = %109
   br label %129
 
 129:                                              ; preds = %126, %128
-  tail call void @free(ptr noundef nonnull %.0.ph) #13
+  tail call void @free(ptr noundef nonnull %14) #13
   br label %130
 
 130:                                              ; preds = %add_newsuffix.exit, %list_add_tail.exit, %129

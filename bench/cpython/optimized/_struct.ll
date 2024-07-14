@@ -1992,43 +1992,43 @@ if.end14.i.i:                                     ; preds = %while.body.i.i
 
 if.then21.i.i:                                    ; preds = %if.end14.i.i
   %conv23.i.i = zext nneg i8 %24 to i64
-  %incdec.ptr25158.i.i = getelementptr i8, ptr %s.0.i.i, i64 2
+  %incdec.ptr25163.i.i = getelementptr i8, ptr %s.0.i.i, i64 2
   %25 = load i8, ptr %incdec.ptr.i.i, align 1
   %26 = add i8 %25, -48
   %27 = icmp ult i8 %26, 10
   br i1 %27, label %while.body32.i.i, label %while.end.i.i
 
 while.body32.i.i:                                 ; preds = %if.then21.i.i, %if.end44.i.i
-  %conv26162.in.i.i = phi i8 [ %29, %if.end44.i.i ], [ %25, %if.then21.i.i ]
-  %incdec.ptr25161.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end44.i.i ], [ %incdec.ptr25158.i.i, %if.then21.i.i ]
-  %num.0160.i.i = phi i64 [ %add.i23.i, %if.end44.i.i ], [ %conv23.i.i, %if.then21.i.i ]
-  %conv26162.i.i = zext nneg i8 %conv26162.in.i.i to i32
-  %cmp33.i.i = icmp sgt i64 %num.0160.i.i, 922337203685477579
+  %conv26167.in.i.i = phi i8 [ %29, %if.end44.i.i ], [ %25, %if.then21.i.i ]
+  %incdec.ptr25166.i.i = phi ptr [ %incdec.ptr25.i.i, %if.end44.i.i ], [ %incdec.ptr25163.i.i, %if.then21.i.i ]
+  %num.0165.i.i = phi i64 [ %add.i23.i, %if.end44.i.i ], [ %conv23.i.i, %if.then21.i.i ]
+  %conv26167.i.i = zext nneg i8 %conv26167.in.i.i to i32
+  %cmp33.i.i = icmp sgt i64 %num.0165.i.i, 922337203685477579
   br i1 %cmp33.i.i, label %land.lhs.true35.i.i, label %if.end44.i.i
 
 land.lhs.true35.i.i:                              ; preds = %while.body32.i.i
-  %cmp36.not.i.i = icmp eq i64 %num.0160.i.i, 922337203685477580
-  %28 = and i32 %conv26162.i.i, 56
+  %cmp36.not.i.i = icmp eq i64 %num.0165.i.i, 922337203685477580
+  %28 = and i32 %conv26167.i.i, 56
   %cmp41.not.i.i = icmp eq i32 %28, 48
   %or.cond92.i.i = and i1 %cmp36.not.i.i, %cmp41.not.i.i
   br i1 %or.cond92.i.i, label %if.end44.i.i, label %overflow.i.i
 
 if.end44.i.i:                                     ; preds = %land.lhs.true35.i.i, %while.body32.i.i
-  %mul.i.i = mul i64 %num.0160.i.i, 10
-  %sub46.i.i = add nsw i32 %conv26162.i.i, -48
+  %mul.i.i = mul i64 %num.0165.i.i, 10
+  %sub46.i.i = add nsw i32 %conv26167.i.i, -48
   %conv47.i.i = zext nneg i32 %sub46.i.i to i64
   %add.i23.i = add i64 %mul.i.i, %conv47.i.i
-  %incdec.ptr25.i.i = getelementptr i8, ptr %incdec.ptr25161.i.i, i64 1
-  %29 = load i8, ptr %incdec.ptr25161.i.i, align 1
+  %incdec.ptr25.i.i = getelementptr i8, ptr %incdec.ptr25166.i.i, i64 1
+  %29 = load i8, ptr %incdec.ptr25166.i.i, align 1
   %30 = add i8 %29, -48
   %31 = icmp ult i8 %30, 10
   br i1 %31, label %while.body32.i.i, label %while.end.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %if.end44.i.i, %if.then21.i.i
   %num.0.lcssa.i.i = phi i64 [ %conv23.i.i, %if.then21.i.i ], [ %add.i23.i, %if.end44.i.i ]
-  %incdec.ptr25.lcssa.i.i = phi ptr [ %incdec.ptr25158.i.i, %if.then21.i.i ], [ %incdec.ptr25.i.i, %if.end44.i.i ]
-  %.lcssa138.i.i = phi i8 [ %25, %if.then21.i.i ], [ %29, %if.end44.i.i ]
-  %cmp49.i.i = icmp eq i8 %.lcssa138.i.i, 0
+  %incdec.ptr25.lcssa.i.i = phi ptr [ %incdec.ptr25163.i.i, %if.then21.i.i ], [ %incdec.ptr25.i.i, %if.end44.i.i ]
+  %.lcssa143.i.i = phi i8 [ %25, %if.then21.i.i ], [ %29, %if.end44.i.i ]
+  %cmp49.i.i = icmp eq i8 %.lcssa143.i.i, 0
   br i1 %cmp49.i.i, label %if.then51.i.i, label %if.end54.i.i
 
 if.then51.i.i:                                    ; preds = %while.end.i.i
@@ -2039,7 +2039,7 @@ if.then51.i.i:                                    ; preds = %while.end.i.i
 
 if.end54.i.i:                                     ; preds = %while.end.i.i, %if.end14.i.i
   %s.2.i.i = phi ptr [ %incdec.ptr25.lcssa.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %if.end14.i.i ]
-  %c.0.i.i = phi i8 [ %.lcssa138.i.i, %while.end.i.i ], [ %22, %if.end14.i.i ]
+  %c.0.i.i = phi i8 [ %.lcssa143.i.i, %while.end.i.i ], [ %22, %if.end14.i.i ]
   %num.1.i.i = phi i64 [ %num.0.lcssa.i.i, %while.end.i.i ], [ 1, %if.end14.i.i ]
   %33 = load i8, ptr %retval.0.i.i.i, align 16
   %cmp.not5.i.i.i = icmp eq i8 %33, 0
@@ -2190,7 +2190,7 @@ if.end117.i.i:                                    ; preds = %while.body108.i.i
 
 if.then125.i.i:                                   ; preds = %if.end117.i.i
   %conv128.i.i = zext nneg i8 %43 to i64
-  %incdec.ptr130165.i.i = getelementptr i8, ptr %s.3.i.i, i64 2
+  %incdec.ptr130170.i.i = getelementptr i8, ptr %s.3.i.i, i64 2
   %44 = load i8, ptr %incdec.ptr104.i.i, align 1
   %45 = add i8 %44, -48
   %46 = icmp ult i8 %45, 10
@@ -2198,20 +2198,20 @@ if.then125.i.i:                                   ; preds = %if.end117.i.i
 
 while.body139.i.i:                                ; preds = %if.then125.i.i, %while.body139.i.i
   %47 = phi i8 [ %49, %while.body139.i.i ], [ %44, %if.then125.i.i ]
-  %incdec.ptr130167.i.i = phi ptr [ %incdec.ptr130.i.i, %while.body139.i.i ], [ %incdec.ptr130165.i.i, %if.then125.i.i ]
-  %num.2166.i.i = phi i64 [ %add144.i.i, %while.body139.i.i ], [ %conv128.i.i, %if.then125.i.i ]
-  %mul140.i.i = mul i64 %num.2166.i.i, 10
+  %incdec.ptr130172.i.i = phi ptr [ %incdec.ptr130.i.i, %while.body139.i.i ], [ %incdec.ptr130170.i.i, %if.then125.i.i ]
+  %num.2171.i.i = phi i64 [ %add144.i.i, %while.body139.i.i ], [ %conv128.i.i, %if.then125.i.i ]
+  %mul140.i.i = mul i64 %num.2171.i.i, 10
   %48 = and i8 %47, 15
   %conv143.i.i = zext nneg i8 %48 to i64
   %add144.i.i = add i64 %mul140.i.i, %conv143.i.i
-  %incdec.ptr130.i.i = getelementptr i8, ptr %incdec.ptr130167.i.i, i64 1
-  %49 = load i8, ptr %incdec.ptr130167.i.i, align 1
+  %incdec.ptr130.i.i = getelementptr i8, ptr %incdec.ptr130172.i.i, i64 1
+  %49 = load i8, ptr %incdec.ptr130172.i.i, align 1
   %50 = add i8 %49, -48
   %51 = icmp ult i8 %50, 10
   br i1 %51, label %while.body139.i.i, label %if.end147.i.i, !llvm.loop !15
 
 if.end147.i.i:                                    ; preds = %while.body139.i.i, %if.then125.i.i, %if.end117.i.i
-  %s.5.i.i = phi ptr [ %incdec.ptr104.i.i, %if.end117.i.i ], [ %incdec.ptr130165.i.i, %if.then125.i.i ], [ %incdec.ptr130.i.i, %while.body139.i.i ]
+  %s.5.i.i = phi ptr [ %incdec.ptr104.i.i, %if.end117.i.i ], [ %incdec.ptr130170.i.i, %if.then125.i.i ], [ %incdec.ptr130.i.i, %while.body139.i.i ]
   %c.1.i.i = phi i8 [ %41, %if.end117.i.i ], [ %44, %if.then125.i.i ], [ %49, %while.body139.i.i ]
   %num.3.i.i = phi i64 [ 1, %if.end117.i.i ], [ %conv128.i.i, %if.then125.i.i ], [ %add144.i.i, %while.body139.i.i ]
   %52 = load i8, ptr %retval.0.i.i.i, align 16

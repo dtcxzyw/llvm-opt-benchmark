@@ -3711,57 +3711,51 @@ jvp_object_rehash.exit.i:                         ; preds = %105, %jvp_object_ne
   %.sroa.4.0.insert.shift.i.i.i = shl nuw i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.4.0.insert.shift.i.i.i, 135
   tail call void @jv_mem_free(ptr noundef nonnull %9) #24
-  %106 = tail call fastcc i32 @jvp_string_hash(ptr %3)
-  %107 = getelementptr inbounds i8, ptr %62, i64 4
-  %108 = load i32, ptr %107, align 4
-  %.sroa.1.0.extract.trunc.i.i46.i = trunc nuw i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i to i32
-  %109 = icmp eq i32 %108, %.sroa.1.0.extract.trunc.i.i46.i
-  br i1 %109, label %jvp_object_add_slot.exit50.i, label %110
-
-110:                                              ; preds = %jvp_object_rehash.exit.i
-  %111 = getelementptr inbounds i8, ptr %62, i64 8
-  %112 = ashr exact i64 %.sroa.4.0.insert.shift.i.i.i, 32
-  %113 = getelementptr inbounds [0 x %struct.object_slot], ptr %111, i64 0, i64 %112
-  %tr.sh.diff.i.i44.i = shl i32 %.sroa.1.0.extract.trunc.i.i46.i, 1
-  %114 = add nsw i32 %tr.sh.diff.i.i44.i, -1
-  %115 = and i32 %114, %106
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %113, i64 %116
-  %118 = icmp eq i32 %108, -1
-  %119 = sext i32 %108 to i64
-  %120 = getelementptr inbounds [0 x %struct.object_slot], ptr %111, i64 0, i64 %119
-  %.0.i.i47.i = select i1 %118, ptr null, ptr %120
-  %121 = add nsw i32 %108, 1
-  store i32 %121, ptr %107, align 4
-  %122 = load i32, ptr %117, align 4
-  store i32 %122, ptr %.0.i.i47.i, align 8
-  store i32 %108, ptr %117, align 4
-  %123 = tail call fastcc i32 @jvp_string_hash(ptr %3)
-  %124 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 4
-  store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 8
-  store i64 %2, ptr %125, align 8
+  %106 = getelementptr inbounds i8, ptr %62, i64 8
+  %107 = ashr exact i64 %.sroa.4.0.insert.shift.i.i.i, 32
+  %108 = getelementptr inbounds [0 x %struct.object_slot], ptr %106, i64 0, i64 %107
+  %.sroa.4.0.insert.ext.i.pre-phi.i.tr.i = trunc nuw i64 %.sroa.4.0.insert.ext.i.pre-phi.i.i to i32
+  %tr.sh.diff.i.i44.i = shl i32 %.sroa.4.0.insert.ext.i.pre-phi.i.tr.i, 1
+  %109 = add nsw i32 %tr.sh.diff.i.i44.i, -1
+  %110 = tail call fastcc i32 @jvp_string_hash(ptr %3)
+  %111 = and i32 %109, %110
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %108, i64 %112
+  %114 = getelementptr inbounds i8, ptr %62, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp ne i32 %115, %.sroa.4.0.insert.ext.i.pre-phi.i.tr.i
+  tail call void @llvm.assume(i1 %116)
+  %117 = icmp eq i32 %115, -1
+  %118 = sext i32 %115 to i64
+  %119 = getelementptr inbounds [0 x %struct.object_slot], ptr %106, i64 0, i64 %118
+  %.0.i.i47.i = select i1 %117, ptr null, ptr %119
+  %120 = add nsw i32 %115, 1
+  store i32 %120, ptr %114, align 4
+  %121 = load i32, ptr %113, align 4
+  store i32 %121, ptr %.0.i.i47.i, align 8
+  store i32 %115, ptr %113, align 4
+  %122 = tail call fastcc i32 @jvp_string_hash(ptr %3)
+  %123 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 4
+  store i32 %122, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 8
+  store i64 %2, ptr %124, align 8
   %.sroa.3.0..sroa_idx.i48.i = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx.i48.i, align 8
-  br label %jvp_object_add_slot.exit50.i
-
-jvp_object_add_slot.exit50.i:                     ; preds = %110, %jvp_object_rehash.exit.i
-  %.0.i49.i = phi ptr [ %120, %110 ], [ null, %jvp_object_rehash.exit.i ]
-  %126 = getelementptr inbounds i8, ptr %.0.i49.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
+  %125 = getelementptr inbounds i8, ptr %119, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
   br label %jvp_object_write.exit
 
-jvp_object_write.exit:                            ; preds = %jvp_object_find_slot.exit.i, %39, %43, %jvp_object_add_slot.exit50.i
-  %.sroa.7.0 = phi ptr [ %62, %jvp_object_add_slot.exit50.i ], [ %9, %43 ], [ %9, %39 ], [ %9, %jvp_object_find_slot.exit.i ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %jvp_object_add_slot.exit50.i ], [ %8, %43 ], [ %8, %39 ], [ %8, %jvp_object_find_slot.exit.i ]
-  %.pn.i = phi ptr [ %.0.i49.i, %jvp_object_add_slot.exit50.i ], [ %46, %43 ], [ %.021.i.i, %39 ], [ %.021.i.i, %jvp_object_find_slot.exit.i ]
+jvp_object_write.exit:                            ; preds = %jvp_object_find_slot.exit.i, %39, %43, %jvp_object_rehash.exit.i
+  %.sroa.7.0 = phi ptr [ %62, %jvp_object_rehash.exit.i ], [ %9, %43 ], [ %9, %39 ], [ %9, %jvp_object_find_slot.exit.i ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %jvp_object_rehash.exit.i ], [ %8, %43 ], [ %8, %39 ], [ %8, %jvp_object_find_slot.exit.i ]
+  %.pn.i = phi ptr [ %119, %jvp_object_rehash.exit.i ], [ %46, %43 ], [ %.021.i.i, %39 ], [ %.021.i.i, %jvp_object_find_slot.exit.i ]
   %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %127 = load i64, ptr %.0.i, align 8
-  %128 = getelementptr inbounds i8, ptr %.pn.i, i64 32
-  %129 = load ptr, ptr %128, align 8
-  tail call void @jv_free(i64 %127, ptr %129)
+  %126 = load i64, ptr %.0.i, align 8
+  %127 = getelementptr inbounds i8, ptr %.pn.i, i64 32
+  %128 = load ptr, ptr %127, align 8
+  tail call void @jv_free(i64 %126, ptr %128)
   store i64 %4, ptr %.0.i, align 8
-  store ptr %5, ptr %128, align 8
+  store ptr %5, ptr %127, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.7.0, 1
   ret { i64, ptr } %.fca.1.insert

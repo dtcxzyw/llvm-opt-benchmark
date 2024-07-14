@@ -1768,24 +1768,16 @@ define internal zeroext i1 @virtio_pci_queue_enabled(ptr noundef %d, i32 noundef
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
   %0 = getelementptr i8, ptr %call.i, i64 33696
-  %bus.val = load ptr, ptr %0, align 8
-  %tobool.not.i = icmp eq ptr %bus.val, null
-  br i1 %tobool.not.i, label %virtio_bus_get_device.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %entry
+  %bus.val = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
-  br label %virtio_bus_get_device.exit
-
-virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
-  %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %2 = getelementptr i8, ptr %cond.i, i64 184
+  %2 = getelementptr i8, ptr %1, i64 184
   %call1.val = load i64, ptr %2, align 8
   %and.i.i = and i64 %call1.val, 4294967296
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %virtio_bus_get_device.exit
+if.then:                                          ; preds = %entry
   %vqs = getelementptr inbounds i8, ptr %call.i, i64 4924
   %idxprom = sext i32 %n to i64
   %enabled = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs, i64 0, i64 %idxprom, i32 1
@@ -1793,8 +1785,8 @@ if.then:                                          ; preds = %virtio_bus_get_devi
   %tobool = trunc i8 %3 to i1
   br label %return
 
-if.end:                                           ; preds = %virtio_bus_get_device.exit
-  %call3 = tail call zeroext i1 @virtio_queue_enabled_legacy(ptr noundef nonnull %cond.i, i32 noundef %n) #13
+if.end:                                           ; preds = %entry
+  %call3 = tail call zeroext i1 @virtio_queue_enabled_legacy(ptr noundef nonnull %1, i32 noundef %n) #13
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

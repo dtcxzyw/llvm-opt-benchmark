@@ -1117,20 +1117,18 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   tail call fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %mul4.i.i.i)
   %this.val11.i.i.i = load ptr, ptr %this, align 8
   %this.val12.i.i.i = load i32, ptr %0, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %this.val12.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.end12.i.i.i, label %if.end.i.i.i.i.i
-
-if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
+  %cmp.i.i.i.i.i = icmp ne i32 %this.val12.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %Val.val.i.i.i.i.i = load ptr, ptr %Key, align 8
   %call.i.i.i.i.i.i.i = tail call i64 @_ZNK6hermes11Instruction11getHashCodeEv(ptr noundef nonnull align 8 dereferenceable(132) %Val.val.i.i.i.i.i) #10
   %conv.i.i.i.i.i.i.i = trunc i64 %call.i.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i = add i32 %this.val12.i.i.i, -1
   br label %while.body.i.i.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i, %if.end.i.i.i.i.i
-  %ProbeAmt.0.i.i.i.i.i = phi i32 [ 1, %if.end.i.i.i.i.i ], [ %inc.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
-  %call6.pn.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %add.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
-  %FoundTombstone.0.i.i.i.i.i = phi ptr [ null, %if.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
+while.body.i.i.i.i.i:                             ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i, %if.then.i.i.i
+  %ProbeAmt.0.i.i.i.i.i = phi i32 [ 1, %if.then.i.i.i ], [ %inc.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
+  %call6.pn.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i.i.i, %if.then.i.i.i ], [ %add.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
+  %FoundTombstone.0.i.i.i.i.i = phi ptr [ null, %if.then.i.i.i ], [ %spec.select.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i.i.i.i ]
   %BucketNo.0.i.i.i.i.i = and i32 %call6.pn.i.i.i.i.i, %sub.i.i.i.i.i
   %idx.ext.i.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %this.val11.i.i.i, i64 %idx.ext.i.i.i.i.i
@@ -1202,20 +1200,18 @@ if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   tail call fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %this.val8.i.i.i)
   %this.val9.i.i.i = load ptr, ptr %this, align 8
   %this.val10.i.i.i = load i32, ptr %0, align 8
-  %cmp.i.i15.i.i.i = icmp eq i32 %this.val10.i.i.i, 0
-  br i1 %cmp.i.i15.i.i.i, label %if.end12.i.i.i, label %if.end.i.i16.i.i.i
-
-if.end.i.i16.i.i.i:                               ; preds = %if.then10.i.i.i
+  %cmp.i.i15.i.i.i = icmp ne i32 %this.val10.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.i.i15.i.i.i)
   %Val.val.i.i17.i.i.i = load ptr, ptr %Key, align 8
   %call.i.i.i.i18.i.i.i = tail call i64 @_ZNK6hermes11Instruction11getHashCodeEv(ptr noundef nonnull align 8 dereferenceable(132) %Val.val.i.i17.i.i.i) #10
   %conv.i.i.i.i19.i.i.i = trunc i64 %call.i.i.i.i18.i.i.i to i32
   %sub.i.i20.i.i.i = add i32 %this.val10.i.i.i, -1
   br label %while.body.i.i21.i.i.i
 
-while.body.i.i21.i.i.i:                           ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i, %if.end.i.i16.i.i.i
-  %ProbeAmt.0.i.i22.i.i.i = phi i32 [ 1, %if.end.i.i16.i.i.i ], [ %inc.i.i41.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
-  %call6.pn.i.i23.i.i.i = phi i32 [ %conv.i.i.i.i19.i.i.i, %if.end.i.i16.i.i.i ], [ %add.i.i42.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
-  %FoundTombstone.0.i.i24.i.i.i = phi ptr [ null, %if.end.i.i16.i.i.i ], [ %spec.select.i.i40.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
+while.body.i.i21.i.i.i:                           ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i, %if.then10.i.i.i
+  %ProbeAmt.0.i.i22.i.i.i = phi i32 [ 1, %if.then10.i.i.i ], [ %inc.i.i41.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
+  %call6.pn.i.i23.i.i.i = phi i32 [ %conv.i.i.i.i19.i.i.i, %if.then10.i.i.i ], [ %add.i.i42.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
+  %FoundTombstone.0.i.i24.i.i.i = phi ptr [ null, %if.then10.i.i.i ], [ %spec.select.i.i40.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.i.i ]
   %BucketNo.0.i.i25.i.i.i = and i32 %call6.pn.i.i23.i.i.i, %sub.i.i20.i.i.i
   %idx.ext.i.i26.i.i.i = zext i32 %BucketNo.0.i.i25.i.i.i to i64
   %add.ptr.i.i27.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %this.val9.i.i.i, i64 %idx.ext.i.i26.i.i.i
@@ -1273,8 +1269,8 @@ _ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit27.i.i36.i.
   %add.i.i42.i.i.i = add i32 %BucketNo.0.i.i25.i.i.i, %ProbeAmt.0.i.i22.i.i.i
   br label %while.body.i.i21.i.i.i, !llvm.loop !4
 
-if.end12.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i, %if.then.i.i.i31.i.i.i, %if.then20.i.i43.i.i.i, %if.then10.i.i.i, %if.else.i.i.i, %if.then20.i.i.i.i.i, %if.then.i.i.i
-  %TheBucket.addr.0.i.i.i = phi ptr [ %cond.sink.i.i.i, %if.else.i.i.i ], [ %cond.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ null, %if.then.i.i.i ], [ %cond.i.i45.i.i.i, %if.then20.i.i43.i.i.i ], [ null, %if.then10.i.i.i ], [ %add.ptr.i.i27.i.i.i, %if.then.i.i.i31.i.i.i ], [ %add.ptr.i.i27.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i ]
+if.end12.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i, %if.then.i.i.i31.i.i.i, %if.then20.i.i43.i.i.i, %if.else.i.i.i, %if.then20.i.i.i.i.i
+  %TheBucket.addr.0.i.i.i = phi ptr [ %cond.sink.i.i.i, %if.else.i.i.i ], [ %cond.i.i.i.i.i, %if.then20.i.i.i.i.i ], [ %cond.i.i45.i.i.i, %if.then20.i.i43.i.i.i ], [ %add.ptr.i.i27.i.i.i, %if.then.i.i.i31.i.i.i ], [ %add.ptr.i.i27.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i54.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i.i ]
   %this.val.i.i.i.i = load i32, ptr %3, align 8
   %add.i.i.i.i = add i32 %this.val.i.i.i.i, 1
   store i32 %add.i.i.i.i, ptr %3, align 8

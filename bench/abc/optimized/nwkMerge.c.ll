@@ -2707,9 +2707,8 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load ptr, ptr %3, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %.not2935.i = icmp eq ptr %24, null
-  br i1 %.not2935.i, label %Nwk_ManGraphListFindMin.exit, label %.preheader.i
+  %24 = load ptr, ptr %23, align 8, !nonnull !30, !noundef !30
+  br label %.preheader.i
 
 .preheader.i:                                     ; preds = %20, %37
   %.039.i = phi i32 [ %.1.lcssa.i, %37 ], [ 1000000, %20 ]
@@ -2767,15 +2766,14 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
   %.not29.i = icmp eq ptr %40, null
   br i1 %.not29.i, label %Nwk_ManGraphListFindMin.exit, label %.preheader.i, !llvm.loop !28
 
-Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34, %37, %20
-  %.3.i = phi ptr [ null, %20 ], [ %.123.lcssa.i, %37 ], [ %.123.lcssa.i, %34 ], [ %.123.lcssa.i, %._crit_edge.i ]
-  %41 = getelementptr inbounds i8, ptr %.3.i, i64 12
+Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34, %37
+  %41 = getelementptr inbounds i8, ptr %.123.lcssa.i, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.i31, label %.loopexit
 
 .lr.ph.i31:                                       ; preds = %Nwk_ManGraphListFindMin.exit
-  %44 = getelementptr inbounds i8, ptr %.3.i, i64 16
+  %44 = getelementptr inbounds i8, ptr %.123.lcssa.i, i64 16
   %wide.trip.count.i32 = zext nneg i32 %42 to i64
   br label %45
 
@@ -2810,11 +2808,11 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
 .critedge:                                        ; preds = %.critedge.preheader.loopexit
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 17
-  br i1 %exitcond50.not, label %.loopexit.thread, label %.critedge.preheader.loopexit, !llvm.loop !30
+  br i1 %exitcond50.not, label %.loopexit.thread, label %.critedge.preheader.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %59, %Nwk_ManGraphListFindMin.exit
   %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %59 ]
-  tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.3.i, ptr noundef %.010.lcssa.i)
+  tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.123.lcssa.i, ptr noundef %.010.lcssa.i)
   %60 = icmp eq i64 %indvars.iv47, 17
   br i1 %60, label %.loopexit.thread, label %.backedge.backedge
 
@@ -2912,7 +2910,7 @@ define noalias noundef ptr @Nwk_ManLutMergeReadGraph(ptr nocapture noundef reado
 Nwk_ManGraphHashEdge.exit:                        ; preds = %37, %18, %._crit_edge.i
   %50 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %51 = icmp eq i32 %50, 3
-  br i1 %51, label %18, label %._crit_edge, !llvm.loop !31
+  br i1 %51, label %18, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %Nwk_ManGraphHashEdge.exit, %1
   %52 = call i32 @fclose(ptr noundef %7)
@@ -3137,7 +3135,7 @@ define void @Nwk_ManMarkFanins_rec(ptr nocapture noundef %0, i32 noundef %1) loc
   %19 = load i32, ptr %12, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !32
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %18, %.preheader, %8, %5, %2
   ret void
@@ -3198,7 +3196,7 @@ define void @Nwk_ManMarkFanouts_rec(ptr nocapture noundef %0, i32 noundef %1, i3
   %26 = add nuw nsw i32 %.025, 1
   %27 = load i32, ptr %13, align 8
   %28 = icmp slt i32 %26, %27
-  br i1 %28, label %18, label %.critedge, !llvm.loop !33
+  br i1 %28, label %18, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %18, %25, %.preheader, %12, %9, %6, %3
   ret void
@@ -3326,7 +3324,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %.critedge2, !llvm.loop !34
+  br i1 %57, label %.lr.ph, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.lr.ph, %54, %8
   %58 = getelementptr inbounds i8, ptr %10, i64 64
@@ -3437,14 +3435,14 @@ Vec_PtrPush.exit54:                               ; preds = %.Vec_PtrGrow.exit11
   %106 = add nuw nsw i32 %.161, 1
   %107 = load i32, ptr %58, align 8
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph62, label %.critedge4, !llvm.loop !35
+  br i1 %108, label %.lr.ph62, label %.critedge4, !llvm.loop !36
 
 .critedge4:                                       ; preds = %105, %.lr.ph62, %.critedge2
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %.val46 = load i32, ptr %5, align 4
   %109 = sext i32 %.val46 to i64
   %110 = icmp slt i64 %indvars.iv.next69, %109
-  br i1 %110, label %8, label %.critedge, !llvm.loop !36
+  br i1 %110, label %8, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %.critedge4, %3
   ret void
@@ -3602,13 +3600,13 @@ Vec_PtrPush.exit83:                               ; preds = %.Vec_PtrGrow.exit11
   %.060.val = load i32, ptr %39, align 4
   %73 = sext i32 %.060.val to i64
   %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %42, label %.critedge, !llvm.loop !37
+  br i1 %74, label %42, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit83, %37
   %75 = add nuw nsw i32 %.05791, 1
   %76 = load i32, ptr %34, align 4
   %.not.not = icmp slt i32 %.05791, %76
-  br i1 %.not.not, label %37, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %.not.not, label %37, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
   %.pre102 = load ptr, ptr %0, align 8
@@ -3711,7 +3709,7 @@ Vec_PtrPush.exit83:                               ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %124 = sext i32 %.val70 to i64
   %125 = icmp slt i64 %indvars.iv.next100, %124
-  br i1 %125, label %102, label %.critedge2, !llvm.loop !39
+  br i1 %125, label %102, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %123, %97
   %.1.lcssa = phi i32 [ 0, %97 ], [ %.2, %123 ]
@@ -3756,7 +3754,7 @@ define i32 @Nwk_ManCountTotalFanins(ptr nocapture noundef readonly %0, ptr nocap
   %17 = add nsw i32 %16, %.012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !40
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !41
 
 .critedge:                                        ; preds = %9, %12, %2
   %.0.lcssa = phi i32 [ %.val, %2 ], [ %17, %12 ], [ %.012, %9 ]
@@ -3788,7 +3786,7 @@ define void @Nwk_ManCollectOverlapCands(ptr nocapture noundef %0, ptr nocapture 
   %15 = load i32, ptr %5, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !41
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph, %11, %3
   %18 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3914,7 +3912,7 @@ define void @Nwk_ManCollectOverlapCands(ptr nocapture noundef %0, ptr nocapture 
   %79 = add nsw i32 %78, %.012.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Nwk_ManCountTotalFanins.exit, label %71, !llvm.loop !40
+  br i1 %exitcond.not.i, label %Nwk_ManCountTotalFanins.exit, label %71, !llvm.loop !41
 
 Nwk_ManCountTotalFanins.exit:                     ; preds = %71, %74, %65
   %.0.lcssa.i = phi i32 [ %.val.i, %65 ], [ %.012.i, %71 ], [ %79, %74 ]
@@ -3991,7 +3989,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %112 = add nuw nsw i32 %.073, 1
   %113 = load i32, ptr %39, align 8
   %114 = icmp slt i32 %112, %113
-  br i1 %114, label %45, label %.critedge4.loopexit, !llvm.loop !42
+  br i1 %114, label %45, label %.critedge4.loopexit, !llvm.loop !43
 
 .critedge4.loopexit:                              ; preds = %45, %111
   %.pre = load i32, ptr %5, align 4
@@ -4002,7 +4000,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next84, %116
-  br i1 %117, label %30, label %.critedge2, !llvm.loop !43
+  br i1 %117, label %30, label %.critedge2, !llvm.loop !44
 
 .critedge2:                                       ; preds = %30, %.critedge4
   %118 = phi i32 [ %115, %.critedge4 ], [ %31, %30 ]
@@ -4026,7 +4024,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %127 = load i32, ptr %5, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next87, %128
-  br i1 %129, label %.lr.ph80, label %.critedge6, !llvm.loop !44
+  br i1 %129, label %.lr.ph80, label %.critedge6, !llvm.loop !45
 
 .critedge6:                                       ; preds = %.lr.ph80, %123, %.critedge, %.critedge2
   ret void
@@ -4096,7 +4094,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %.182 = phi i32 [ %.081151, %18 ], [ %30, %25 ], [ %.081151, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !46
 
 .critedge:                                        ; preds = %31, %Abc_Clock.exit
   %.081.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.182, %31 ]
@@ -4284,7 +4282,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 Nwk_ManGraphHashEdge.exit:                        ; preds = %105, %85, %._crit_edge.i
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %.critedge4.preheader, label %85, !llvm.loop !46
+  br i1 %exitcond166.not, label %.critedge4.preheader, label %85, !llvm.loop !47
 
 118:                                              ; preds = %.lr.ph155, %Nwk_ManGraphHashEdge.exit129
   %indvars.iv167 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next168, %Nwk_ManGraphHashEdge.exit129 ]
@@ -4356,7 +4354,7 @@ Nwk_ManGraphHashEdge.exit:                        ; preds = %105, %85, %._crit_e
 Nwk_ManGraphHashEdge.exit129:                     ; preds = %138, %118, %._crit_edge.i128
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.critedge6, label %118, !llvm.loop !47
+  br i1 %exitcond171.not, label %.critedge6, label %118, !llvm.loop !48
 
 .critedge6:                                       ; preds = %Nwk_ManGraphHashEdge.exit129, %.critedge4.preheader
   %151 = load i32, ptr %57, align 4
@@ -4379,7 +4377,7 @@ Nwk_ManGraphHashEdge.exit129:                     ; preds = %138, %118, %._crit_
   %.val104 = load i32, ptr %157, align 4
   %158 = sext i32 %.val104 to i64
   %159 = icmp slt i64 %indvars.iv.next173, %158
-  br i1 %159, label %58, label %.critedge2.loopexit, !llvm.loop !48
+  br i1 %159, label %58, label %.critedge2.loopexit, !llvm.loop !49
 
 .critedge2.loopexit:                              ; preds = %155
   %.pre = load ptr, ptr %36, align 8
@@ -4644,7 +4642,7 @@ attributes #22 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
+!30 = !{}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
@@ -4663,3 +4661,4 @@ attributes #22 = { nounwind willreturn memory(read) }
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}

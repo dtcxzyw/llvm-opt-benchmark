@@ -1203,22 +1203,16 @@ _ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i: ; pr
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.sub.i.i.i
   %32 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
   %cond.i.i = select i1 %cmp7.i.i, i64 9223372036854775807, i64 %32
-  %cmp.not.i.i39 = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i39, label %_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i
+  %cmp.not.i.i39 = icmp ne i64 %cond.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i39)
   %call.i.i.i.i40 = tail call noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %cond.i.i, i64 noundef 1) #18
-  br label %_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41
-
-_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41: ; preds = %cond.true.i.i, %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i
-  %cond.i37.i = phi ptr [ %call.i.i.i.i40, %cond.true.i.i ], [ null, %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr9.i = getelementptr inbounds i8, ptr %cond.i37.i, i64 %sub.ptr.sub.i.i.i
+  %add.ptr9.i = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %add.ptr9.i, align 1, !tbaa !51
   %cmp.not6.i.i.i.i42 = icmp eq ptr %26, %28
   br i1 %cmp.not6.i.i.i.i42, label %_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49, label %for.body.i.i.i.i43.preheader
 
-for.body.i.i.i.i43.preheader:                     ; preds = %_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41
-  %cond.i37.i77 = ptrtoint ptr %cond.i37.i to i64
+for.body.i.i.i.i43.preheader:                     ; preds = %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i
+  %cond.i37.i77 = ptrtoint ptr %call.i.i.i.i40 to i64
   %min.iters.check80 = icmp ult i64 %sub.ptr.sub.i.i.i, 32
   %33 = sub i64 %cond.i37.i77, %27
   %diff.check78 = icmp ult i64 %33, 32
@@ -1227,12 +1221,12 @@ for.body.i.i.i.i43.preheader:                     ; preds = %_ZNSt12_Vector_base
 
 vector.ph81:                                      ; preds = %for.body.i.i.i.i43.preheader
   %n.vec83 = and i64 %sub.ptr.sub.i.i.i, -32
-  %ind.end84 = getelementptr i8, ptr %cond.i37.i, i64 %n.vec83
+  %ind.end84 = getelementptr i8, ptr %call.i.i.i.i40, i64 %n.vec83
   br label %vector.body89
 
 vector.body89:                                    ; preds = %vector.body89, %vector.ph81
   %index90 = phi i64 [ 0, %vector.ph81 ], [ %index.next97, %vector.body89 ]
-  %next.gep91 = getelementptr i8, ptr %cond.i37.i, i64 %index90
+  %next.gep91 = getelementptr i8, ptr %call.i.i.i.i40, i64 %index90
   %next.gep93 = getelementptr i8, ptr %26, i64 %index90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
@@ -1263,7 +1257,7 @@ _ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i
 for.body.i.i.i.i43.preheader99:                   ; preds = %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge, %for.body.i.i.i.i43.preheader
   %.pre-phi = phi i64 [ %.pre17, %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge ], [ %sub.ptr.sub.i.i.i, %for.body.i.i.i.i43.preheader ]
   %__first.addr.07.i.i.i.i45.ph101.pre-phi = phi i64 [ %.pre, %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge ], [ %27, %for.body.i.i.i.i43.preheader ]
-  %__cur.08.i.i.i.i44.ph = phi ptr [ %ind.end84, %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge ], [ %cond.i37.i, %for.body.i.i.i.i43.preheader ]
+  %__cur.08.i.i.i.i44.ph = phi ptr [ %ind.end84, %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge ], [ %call.i.i.i.i40, %for.body.i.i.i.i43.preheader ]
   %__first.addr.07.i.i.i.i45.ph = phi ptr [ %ind.end86, %middle.block79.for.body.i.i.i.i43.preheader99_crit_edge ], [ %26, %for.body.i.i.i.i43.preheader ]
   %xtraiter102 = and i64 %.pre-phi, 7
   %lcmp.mod103.not = icmp eq i64 %xtraiter102, 0
@@ -1345,8 +1339,8 @@ for.body.i.i.i.i43:                               ; preds = %for.body.i.i.i.i43.
   %cmp.not.i.i.i.i48.7 = icmp eq ptr %incdec.ptr.i.i.i.i46.7, %28
   br i1 %cmp.not.i.i.i.i48.7, label %_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49, label %for.body.i.i.i.i43, !llvm.loop !169
 
-_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49: ; preds = %for.body.i.i.i.i43, %for.body.i.i.i.i43.prol.loopexit, %_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41
-  %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i37.i, %_ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE11_M_allocateEm.exit.i41 ], [ %incdec.ptr1.i.i.i.i47.lcssa.unr, %for.body.i.i.i.i43.prol.loopexit ], [ %incdec.ptr1.i.i.i.i47.7, %for.body.i.i.i.i43 ]
+_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49: ; preds = %for.body.i.i.i.i43, %for.body.i.i.i.i43.prol.loopexit, %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i
+  %__cur.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i40, %_ZNKSt6vectorIcN5folly19reentrant_allocatorIcEEE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i47.lcssa.unr, %for.body.i.i.i.i43.prol.loopexit ], [ %incdec.ptr1.i.i.i.i47.7, %for.body.i.i.i.i43 ]
   %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 1
   %tobool.not.i.i50 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i50, label %.noexc32, label %if.then.i47.i
@@ -1361,9 +1355,9 @@ if.then.i47.i:                                    ; preds = %_ZNSt6vectorIcN5fol
 
 .noexc32:                                         ; preds = %if.then.i47.i, %_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49
   %incdec.ptr.i11 = phi ptr [ %incdec.ptr.i10, %if.then.i47.i ], [ %incdec.ptr.i, %_ZNSt6vectorIcN5folly19reentrant_allocatorIcEEE11_S_relocateEPcS4_S4_RS2_.exit.i49 ]
-  store ptr %cond.i37.i, ptr %0, align 8, !tbaa !22
+  store ptr %call.i.i.i.i40, ptr %0, align 8, !tbaa !22
   store ptr %incdec.ptr.i11, ptr %_M_finish.i, align 8, !tbaa !24
-  %add.ptr24.i = getelementptr inbounds i8, ptr %cond.i37.i, i64 %cond.i.i
+  %add.ptr24.i = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 %cond.i.i
   store ptr %add.ptr24.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !133
   br label %invoke.cont17
 

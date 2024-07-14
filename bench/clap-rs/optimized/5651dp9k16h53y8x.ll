@@ -5185,18 +5185,18 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
   br label %.outer.i.outer
 
 .outer.i.outer:                                   ; preds = %56, %.lr.ph
-  %.sroa.0.0.ph.i.ph = phi ptr [ %.sroa.0.4.ph31.i, %56 ], [ %.fca.0.extract9, %.lr.ph ]
+  %.sroa.0.0.ph.i.ph = phi ptr [ %.sroa.0.1.ph31.i, %56 ], [ %.fca.0.extract9, %.lr.ph ]
   %.018.ph.i.ph = phi i8 [ %.018.i, %56 ], [ 0, %.lr.ph ]
   %.0.ph.i.ph = phi i64 [ %spec.select.i, %56 ], [ 0, %.lr.ph ]
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread28.i, %.outer.i.outer
-  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.ph.i.ph, %.outer.i.outer ], [ %.sroa.0.4.ph31.i, %.thread28.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.0.ph.i.ph, %.outer.i.outer ], [ %.sroa.0.1.ph31.i, %.thread28.i ]
   %.018.ph.i = phi i8 [ %.018.ph.i.ph, %.outer.i.outer ], [ 1, %.thread28.i ]
   br label %11
 
 11:                                               ; preds = %53, %.outer.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.4.ph31.i, %53 ], [ %.sroa.0.0.ph.i, %.outer.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.ph31.i, %53 ], [ %.sroa.0.0.ph.i, %.outer.i ]
   %.018.i = phi i8 [ 0, %53 ], [ %.018.ph.i, %.outer.i ]
   %12 = icmp eq ptr %.sroa.0.0.i, %10
   br i1 %12, label %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit, label %13
@@ -5256,7 +5256,7 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
 
 .thread28.i:                                      ; preds = %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i", %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i"
   %.sroa.4.0.i.ph32.i = phi i32 [ %49, %39 ], [ %28, %27 ], [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i" ], [ %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i" ]
-  %.sroa.0.4.ph31.i = phi ptr [ %41, %39 ], [ %14, %27 ], [ %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i" ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i" ]
+  %.sroa.0.1.ph31.i = phi ptr [ %41, %39 ], [ %14, %27 ], [ %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i" ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i" ]
   %51 = icmp ult i32 %.sroa.4.0.i.ph32.i, 32
   %52 = icmp eq i32 %.sroa.4.0.i.ph32.i, 127
   %.020.i = or i1 %51, %52
@@ -8980,18 +8980,18 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %49, %2
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.4.ph31, %49 ], [ %0, %2 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.1.ph31, %49 ], [ %0, %2 ]
   %.018.ph.ph = phi i8 [ %.018, %49 ], [ 0, %2 ]
   %.0.ph.ph = phi i64 [ %spec.select, %49 ], [ 0, %2 ]
   br label %.outer
 
 .outer:                                           ; preds = %.thread28, %.outer.outer
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.ph.ph, %.outer.outer ], [ %.sroa.0.4.ph31, %.thread28 ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.ph.ph, %.outer.outer ], [ %.sroa.0.1.ph31, %.thread28 ]
   %.018.ph = phi i8 [ %.018.ph.ph, %.outer.outer ], [ 1, %.thread28 ]
   br label %4
 
 4:                                                ; preds = %.outer, %46
-  %.sroa.0.0 = phi ptr [ %.sroa.0.4.ph31, %46 ], [ %.sroa.0.0.ph, %.outer ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph31, %46 ], [ %.sroa.0.0.ph, %.outer ]
   %.018 = phi i8 [ 0, %46 ], [ %.018.ph, %.outer ]
   %5 = icmp eq ptr %.sroa.0.0, %3
   br i1 %5, label %.thread, label %6
@@ -9054,7 +9054,7 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
 
 .thread28:                                        ; preds = %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i", %32
   %.sroa.4.0.i.ph32 = phi i32 [ %42, %32 ], [ %21, %20 ], [ %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i" ], [ %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i" ]
-  %.sroa.0.4.ph31 = phi ptr [ %34, %32 ], [ %7, %20 ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i" ], [ %13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i" ]
+  %.sroa.0.1.ph31 = phi ptr [ %34, %32 ], [ %7, %20 ], [ %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i" ], [ %13, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i" ]
   %44 = icmp ult i32 %.sroa.4.0.i.ph32, 32
   %45 = icmp eq i32 %.sroa.4.0.i.ph32, 127
   %.020 = or i1 %44, %45

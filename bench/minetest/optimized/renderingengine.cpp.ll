@@ -4998,8 +4998,8 @@ _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
   store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !158
   br label %if.end
 
-lpad.loopexit:                                    ; preds = %cond.true.i.i.i.4, %if.end.3, %cond.true.i.i.i.3, %if.end.2, %cond.true.i.i.i.2, %if.end.1, %cond.true.i.i.i.1, %if.end, %cond.true.i.i.i, %entry
-  %cond.i31.i.i1316.lcssa = phi ptr [ null, %entry ], [ null, %cond.true.i.i.i ], [ %cond.i31.i.i12, %if.end ], [ %cond.i31.i.i12, %cond.true.i.i.i.1 ], [ %cond.i31.i.i12.1, %if.end.1 ], [ %cond.i31.i.i12.1, %cond.true.i.i.i.2 ], [ %cond.i31.i.i12.2, %if.end.2 ], [ %cond.i31.i.i12.2, %cond.true.i.i.i.3 ], [ %cond.i31.i.i12.3, %if.end.3 ], [ %cond.i31.i.i12.3, %cond.true.i.i.i.4 ]
+lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4, %if.end.3, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3, %if.end.2, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2, %if.end.1, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1, %if.end, %cond.true.i.i.i, %entry
+  %cond.i31.i.i1316.lcssa = phi ptr [ null, %entry ], [ null, %cond.true.i.i.i ], [ %cond.i31.i.i12, %if.end ], [ %cond.i31.i.i12, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1 ], [ %cond.i31.i.i12.1, %if.end.1 ], [ %cond.i31.i.i12.1, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2 ], [ %cond.i31.i.i12.2, %if.end.2 ], [ %cond.i31.i.i12.2, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3 ], [ %cond.i31.i.i12.3, %if.end.3 ], [ %cond.i31.i.i12.3, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4 ]
   %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   store ptr %cond.i31.i.i1316.lcssa, ptr %agg.result, align 8, !tbaa !22
@@ -5046,28 +5046,24 @@ _ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1:
   %cmp7.i.i.i.1 = icmp ult i64 %add.i.i.i.1, %sub.ptr.div.i.i.i.i.1
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.1, i64 2305843009213693951)
   %cond.i.i.i.1 = select i1 %cmp7.i.i.i.1, i64 2305843009213693951, i64 %2
-  %cmp.not.i.i.i.1 = icmp eq i64 %cond.i.i.i.1, 0
-  br i1 %cmp.not.i.i.i.1, label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1, label %cond.true.i.i.i.1
-
-cond.true.i.i.i.1:                                ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1
+  %cmp.not.i.i.i.1 = icmp ne i64 %cond.i.i.i.1, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.1)
   %mul.i.i.i.i.i.1 = shl nuw nsw i64 %cond.i.i.i.1, 2
   %call5.i.i.i.i.i6.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.1) #27
           to label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1: ; preds = %cond.true.i.i.i.1, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1
-  %cond.i31.i.i.1 = phi ptr [ null, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1 ], [ %call5.i.i.i.i.i6.1, %cond.true.i.i.i.1 ]
-  %add.ptr.i.i.1 = getelementptr inbounds i32, ptr %cond.i31.i.i.1, i64 %sub.ptr.div.i.i.i.i.1
+_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1: ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.1
+  %add.ptr.i.i.1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i6.1, i64 %sub.ptr.sub.i.i.i.i.1
   store i32 5, ptr %add.ptr.i.i.1, align 4, !tbaa !33
   %cmp.i.i.i.i.i.1 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.1, 0
   br i1 %cmp.i.i.i.i.i.1, label %if.then.i.i.i.i.i.1, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.1
 
 if.then.i.i.i.i.i.1:                              ; preds = %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %cond.i31.i.i.1, ptr align 4 %cond.i31.i.i12, i64 %sub.ptr.sub.i.i.i.i.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i6.1, ptr align 4 %cond.i31.i.i12, i64 %sub.ptr.sub.i.i.i.i.1, i1 false)
   br label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.1
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.1: ; preds = %if.then.i.i.i.i.i.1, %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.1
-  %add.ptr.i.i.i.i.i.1 = getelementptr inbounds i8, ptr %cond.i31.i.i.1, i64 %sub.ptr.sub.i.i.i.i.1
-  %incdec.ptr.i.i.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.1, i64 4
+  %incdec.ptr.i.i.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.1, i64 4
   %tobool.not.i.i.i.1 = icmp eq ptr %cond.i31.i.i12, null
   br i1 %tobool.not.i.i.i.1, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1, label %if.then.i39.i.i.1
 
@@ -5077,14 +5073,14 @@ if.then.i39.i.i.1:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1: ; preds = %if.then.i39.i.i.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.1
   store ptr %incdec.ptr.i.i.1, ptr %_M_finish.i, align 8, !tbaa !156
-  %add.ptr19.i.i.1 = getelementptr inbounds i32, ptr %cond.i31.i.i.1, i64 %cond.i.i.i.1
+  %add.ptr19.i.i.1 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i6.1, i64 %cond.i.i.i.1
   store ptr %add.ptr19.i.i.1, ptr %_M_end_of_storage.i, align 8, !tbaa !158
   br label %if.end.1
 
 if.end.1:                                         ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1, %invoke.cont.1
   %3 = phi ptr [ %add.ptr19.i.i.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1 ], [ %1, %invoke.cont.1 ]
   %4 = phi ptr [ %incdec.ptr.i.i.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1 ], [ %1, %invoke.cont.1 ]
-  %cond.i31.i.i12.1 = phi ptr [ %cond.i31.i.i.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1 ], [ %cond.i31.i.i12, %invoke.cont.1 ]
+  %cond.i31.i.i12.1 = phi ptr [ %call5.i.i.i.i.i6.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1 ], [ %cond.i31.i.i12, %invoke.cont.1 ]
   %call.i5.2 = invoke noundef zeroext i1 @isDriverSupported(i32 noundef 3)
           to label %invoke.cont.2 unwind label %lpad.loopexit
 
@@ -5115,28 +5111,24 @@ _ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2:
   %cmp7.i.i.i.2 = icmp ult i64 %add.i.i.i.2, %sub.ptr.div.i.i.i.i.2
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.2, i64 2305843009213693951)
   %cond.i.i.i.2 = select i1 %cmp7.i.i.i.2, i64 2305843009213693951, i64 %5
-  %cmp.not.i.i.i.2 = icmp eq i64 %cond.i.i.i.2, 0
-  br i1 %cmp.not.i.i.i.2, label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2, label %cond.true.i.i.i.2
-
-cond.true.i.i.i.2:                                ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2
+  %cmp.not.i.i.i.2 = icmp ne i64 %cond.i.i.i.2, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.2)
   %mul.i.i.i.i.i.2 = shl nuw nsw i64 %cond.i.i.i.2, 2
   %call5.i.i.i.i.i6.2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.2) #27
           to label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2: ; preds = %cond.true.i.i.i.2, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2
-  %cond.i31.i.i.2 = phi ptr [ null, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2 ], [ %call5.i.i.i.i.i6.2, %cond.true.i.i.i.2 ]
-  %add.ptr.i.i.2 = getelementptr inbounds i32, ptr %cond.i31.i.i.2, i64 %sub.ptr.div.i.i.i.i.2
+_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2: ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.2
+  %add.ptr.i.i.2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i6.2, i64 %sub.ptr.sub.i.i.i.i.2
   store i32 3, ptr %add.ptr.i.i.2, align 4, !tbaa !33
   %cmp.i.i.i.i.i.2 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.2, 0
   br i1 %cmp.i.i.i.i.i.2, label %if.then.i.i.i.i.i.2, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.2
 
 if.then.i.i.i.i.i.2:                              ; preds = %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i31.i.i.2, ptr align 4 %cond.i31.i.i12.1, i64 %sub.ptr.sub.i.i.i.i.2, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i6.2, ptr align 4 %cond.i31.i.i12.1, i64 %sub.ptr.sub.i.i.i.i.2, i1 false)
   br label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.2
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.2: ; preds = %if.then.i.i.i.i.i.2, %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.2
-  %add.ptr.i.i.i.i.i.2 = getelementptr inbounds i8, ptr %cond.i31.i.i.2, i64 %sub.ptr.sub.i.i.i.i.2
-  %incdec.ptr.i.i.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.2, i64 4
+  %incdec.ptr.i.i.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.2, i64 4
   %tobool.not.i.i.i.2 = icmp eq ptr %cond.i31.i.i12.1, null
   br i1 %tobool.not.i.i.i.2, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2, label %if.then.i39.i.i.2
 
@@ -5146,14 +5138,14 @@ if.then.i39.i.i.2:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2: ; preds = %if.then.i39.i.i.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.2
   store ptr %incdec.ptr.i.i.2, ptr %_M_finish.i, align 8, !tbaa !156
-  %add.ptr19.i.i.2 = getelementptr inbounds i32, ptr %cond.i31.i.i.2, i64 %cond.i.i.i.2
+  %add.ptr19.i.i.2 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i6.2, i64 %cond.i.i.i.2
   store ptr %add.ptr19.i.i.2, ptr %_M_end_of_storage.i, align 8, !tbaa !158
   br label %if.end.2
 
 if.end.2:                                         ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2, %if.then.i.2, %invoke.cont.2
   %6 = phi ptr [ %add.ptr19.i.i.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2 ], [ %3, %if.then.i.2 ], [ %3, %invoke.cont.2 ]
   %7 = phi ptr [ %incdec.ptr.i.i.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2 ], [ %incdec.ptr.i.2, %if.then.i.2 ], [ %4, %invoke.cont.2 ]
-  %cond.i31.i.i12.2 = phi ptr [ %cond.i31.i.i.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2 ], [ %cond.i31.i.i12.1, %if.then.i.2 ], [ %cond.i31.i.i12.1, %invoke.cont.2 ]
+  %cond.i31.i.i12.2 = phi ptr [ %call5.i.i.i.i.i6.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2 ], [ %cond.i31.i.i12.1, %if.then.i.2 ], [ %cond.i31.i.i12.1, %invoke.cont.2 ]
   %call.i5.3 = invoke noundef zeroext i1 @isDriverSupported(i32 noundef 2)
           to label %invoke.cont.3 unwind label %lpad.loopexit
 
@@ -5184,28 +5176,24 @@ _ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3:
   %cmp7.i.i.i.3 = icmp ult i64 %add.i.i.i.3, %sub.ptr.div.i.i.i.i.3
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.3, i64 2305843009213693951)
   %cond.i.i.i.3 = select i1 %cmp7.i.i.i.3, i64 2305843009213693951, i64 %8
-  %cmp.not.i.i.i.3 = icmp eq i64 %cond.i.i.i.3, 0
-  br i1 %cmp.not.i.i.i.3, label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3, label %cond.true.i.i.i.3
-
-cond.true.i.i.i.3:                                ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3
+  %cmp.not.i.i.i.3 = icmp ne i64 %cond.i.i.i.3, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.3)
   %mul.i.i.i.i.i.3 = shl nuw nsw i64 %cond.i.i.i.3, 2
   %call5.i.i.i.i.i6.3 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.3) #27
           to label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3: ; preds = %cond.true.i.i.i.3, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3
-  %cond.i31.i.i.3 = phi ptr [ null, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3 ], [ %call5.i.i.i.i.i6.3, %cond.true.i.i.i.3 ]
-  %add.ptr.i.i.3 = getelementptr inbounds i32, ptr %cond.i31.i.i.3, i64 %sub.ptr.div.i.i.i.i.3
+_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3: ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.3
+  %add.ptr.i.i.3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i6.3, i64 %sub.ptr.sub.i.i.i.i.3
   store i32 2, ptr %add.ptr.i.i.3, align 4, !tbaa !33
   %cmp.i.i.i.i.i.3 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.3, 0
   br i1 %cmp.i.i.i.i.i.3, label %if.then.i.i.i.i.i.3, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.3
 
 if.then.i.i.i.i.i.3:                              ; preds = %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i31.i.i.3, ptr align 4 %cond.i31.i.i12.2, i64 %sub.ptr.sub.i.i.i.i.3, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i6.3, ptr align 4 %cond.i31.i.i12.2, i64 %sub.ptr.sub.i.i.i.i.3, i1 false)
   br label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.3
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.3: ; preds = %if.then.i.i.i.i.i.3, %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.3
-  %add.ptr.i.i.i.i.i.3 = getelementptr inbounds i8, ptr %cond.i31.i.i.3, i64 %sub.ptr.sub.i.i.i.i.3
-  %incdec.ptr.i.i.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.3, i64 4
+  %incdec.ptr.i.i.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.3, i64 4
   %tobool.not.i.i.i.3 = icmp eq ptr %cond.i31.i.i12.2, null
   br i1 %tobool.not.i.i.i.3, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3, label %if.then.i39.i.i.3
 
@@ -5215,14 +5203,14 @@ if.then.i39.i.i.3:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3: ; preds = %if.then.i39.i.i.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.3
   store ptr %incdec.ptr.i.i.3, ptr %_M_finish.i, align 8, !tbaa !156
-  %add.ptr19.i.i.3 = getelementptr inbounds i32, ptr %cond.i31.i.i.3, i64 %cond.i.i.i.3
+  %add.ptr19.i.i.3 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i6.3, i64 %cond.i.i.i.3
   store ptr %add.ptr19.i.i.3, ptr %_M_end_of_storage.i, align 8, !tbaa !158
   br label %if.end.3
 
 if.end.3:                                         ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3, %if.then.i.3, %invoke.cont.3
   %9 = phi ptr [ %add.ptr19.i.i.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3 ], [ %6, %if.then.i.3 ], [ %6, %invoke.cont.3 ]
   %10 = phi ptr [ %incdec.ptr.i.i.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3 ], [ %incdec.ptr.i.3, %if.then.i.3 ], [ %7, %invoke.cont.3 ]
-  %cond.i31.i.i12.3 = phi ptr [ %cond.i31.i.i.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3 ], [ %cond.i31.i.i12.2, %if.then.i.3 ], [ %cond.i31.i.i12.2, %invoke.cont.3 ]
+  %cond.i31.i.i12.3 = phi ptr [ %call5.i.i.i.i.i6.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3 ], [ %cond.i31.i.i12.2, %if.then.i.3 ], [ %cond.i31.i.i12.2, %invoke.cont.3 ]
   %call.i5.4 = invoke noundef zeroext i1 @isDriverSupported(i32 noundef 0)
           to label %invoke.cont.4 unwind label %lpad.loopexit
 
@@ -5253,28 +5241,24 @@ _ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4:
   %cmp7.i.i.i.4 = icmp ult i64 %add.i.i.i.4, %sub.ptr.div.i.i.i.i.4
   %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.4, i64 2305843009213693951)
   %cond.i.i.i.4 = select i1 %cmp7.i.i.i.4, i64 2305843009213693951, i64 %11
-  %cmp.not.i.i.i.4 = icmp eq i64 %cond.i.i.i.4, 0
-  br i1 %cmp.not.i.i.i.4, label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4, label %cond.true.i.i.i.4
-
-cond.true.i.i.i.4:                                ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4
+  %cmp.not.i.i.i.4 = icmp ne i64 %cond.i.i.i.4, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.4)
   %mul.i.i.i.i.i.4 = shl nuw nsw i64 %cond.i.i.i.4, 2
   %call5.i.i.i.i.i6.4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.4) #27
           to label %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4 unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4: ; preds = %cond.true.i.i.i.4, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4
-  %cond.i31.i.i.4 = phi ptr [ null, %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4 ], [ %call5.i.i.i.i.i6.4, %cond.true.i.i.i.4 ]
-  %add.ptr.i.i.4 = getelementptr inbounds i32, ptr %cond.i31.i.i.4, i64 %sub.ptr.div.i.i.i.i.4
+_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4: ; preds = %_ZNKSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.4
+  %add.ptr.i.i.4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i6.4, i64 %sub.ptr.sub.i.i.i.i.4
   store i32 0, ptr %add.ptr.i.i.4, align 4, !tbaa !33
   %cmp.i.i.i.i.i.4 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.4, 0
   br i1 %cmp.i.i.i.i.i.4, label %if.then.i.i.i.i.i.4, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.4
 
 if.then.i.i.i.i.i.4:                              ; preds = %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i31.i.i.4, ptr align 4 %cond.i31.i.i12.3, i64 %sub.ptr.sub.i.i.i.i.4, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i6.4, ptr align 4 %cond.i31.i.i12.3, i64 %sub.ptr.sub.i.i.i.i.4, i1 false)
   br label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.4
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.4: ; preds = %if.then.i.i.i.i.i.4, %_ZNSt12_Vector_baseIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_M_allocateEm.exit.i.i.4
-  %add.ptr.i.i.i.i.i.4 = getelementptr inbounds i8, ptr %cond.i31.i.i.4, i64 %sub.ptr.sub.i.i.i.i.4
-  %incdec.ptr.i.i.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.4, i64 4
+  %incdec.ptr.i.i.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.4, i64 4
   %tobool.not.i.i.i.4 = icmp eq ptr %cond.i31.i.i12.3, null
   br i1 %tobool.not.i.i.i.4, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4, label %if.then.i39.i.i.4
 
@@ -5284,12 +5268,12 @@ if.then.i39.i.i.4:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4: ; preds = %if.then.i39.i.i.4, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.4
   store ptr %incdec.ptr.i.i.4, ptr %_M_finish.i, align 8, !tbaa !156
-  %add.ptr19.i.i.4 = getelementptr inbounds i32, ptr %cond.i31.i.i.4, i64 %cond.i.i.i.4
+  %add.ptr19.i.i.4 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i6.4, i64 %cond.i.i.i.4
   store ptr %add.ptr19.i.i.4, ptr %_M_end_of_storage.i, align 8, !tbaa !158
   br label %if.end.4
 
 if.end.4:                                         ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4, %if.then.i.4, %invoke.cont.4
-  %cond.i31.i.i12.4 = phi ptr [ %cond.i31.i.i.4, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4 ], [ %cond.i31.i.i12.3, %if.then.i.4 ], [ %cond.i31.i.i12.3, %invoke.cont.4 ]
+  %cond.i31.i.i12.4 = phi ptr [ %call5.i.i.i.i.i6.4, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4 ], [ %cond.i31.i.i12.3, %if.then.i.4 ], [ %cond.i31.i.i12.3, %invoke.cont.4 ]
   store ptr %cond.i31.i.i12.4, ptr %agg.result, align 8, !tbaa !22
   ret void
 }

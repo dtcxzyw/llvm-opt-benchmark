@@ -28,33 +28,32 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %7 = load ptr, ptr %.02840, align 16
   %8 = getelementptr inbounds i8, ptr %.02840, i64 28
   %9 = load i8, ptr %8, align 4
-  br label %10
+  %10 = getelementptr inbounds i8, ptr %.02939, i64 28
+  %11 = load i8, ptr %10, align 4
+  %.not3344 = icmp ugt i8 %9, %11
+  br i1 %.not3344, label %.critedge, label %.lr.ph46
 
-10:                                               ; preds = %.lr.ph, %13
-  %.13035 = phi ptr [ %.02939, %.lr.ph ], [ %14, %13 ]
-  %11 = getelementptr inbounds i8, ptr %.13035, i64 28
-  %12 = load i8, ptr %11, align 4
-  %.not33 = icmp ugt i8 %9, %12
-  br i1 %.not33, label %.critedge, label %13
+.lr.ph46:                                         ; preds = %.lr.ph, %.lr.ph46
+  %.1303545 = phi ptr [ %12, %.lr.ph46 ], [ %.02939, %.lr.ph ]
+  %12 = load ptr, ptr %.1303545, align 16, !nonnull !6, !noundef !6
+  %13 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = load i8, ptr %13, align 4
+  %.not33 = icmp ugt i8 %9, %14
+  br i1 %.not33, label %.critedge, label %.lr.ph46
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %.13035, align 16
-  %.not32 = icmp eq ptr %14, null
-  br i1 %.not32, label %.critedge, label %10, !llvm.loop !6
-
-.critedge:                                        ; preds = %10, %13
-  %.130.lcssa.ph = phi ptr [ %.13035, %10 ], [ null, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.130.lcssa.ph, i64 8
+.critedge:                                        ; preds = %.lr.ph46, %.lr.ph
+  %.13035.lcssa = phi ptr [ %.02939, %.lr.ph ], [ %12, %.lr.ph46 ]
+  %15 = getelementptr inbounds i8, ptr %.13035.lcssa, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  store ptr %.130.lcssa.ph, ptr %.02840, align 16
+  store ptr %.13035.lcssa, ptr %.02840, align 16
   %18 = getelementptr inbounds i8, ptr %.02840, i64 8
   br i1 %17, label %19, label %21
 
 19:                                               ; preds = %.critedge
   store ptr null, ptr %18, align 8
   store ptr %.02840, ptr @g_readytorun, align 8
-  %20 = getelementptr inbounds i8, ptr %.130.lcssa.ph, i64 48
+  %20 = getelementptr inbounds i8, ptr %.13035.lcssa, i64 48
   store i8 2, ptr %20, align 16
   br label %22
 
@@ -70,7 +69,7 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %23 = getelementptr inbounds i8, ptr %.02840, i64 48
   store i8 %.sink, ptr %23, align 16
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %22, %5
   %.0.lcssa = phi i1 [ false, %5 ], [ %.1, %22 ]
@@ -96,6 +95,6 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

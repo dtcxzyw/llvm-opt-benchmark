@@ -178,11 +178,10 @@ if.then:                                          ; preds = %lor.lhs.false, %for
   br i1 %tobool14.not, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then
-  %7 = load ptr, ptr @drive_config_groups, align 16
-  %cmp.not8.i = icmp eq ptr %7, null
-  br i1 %cmp.not8.i, label %for.end.i, label %for.body.i
+  %7 = load ptr, ptr @drive_config_groups, align 16, !nonnull !7, !noundef !7
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %if.then15, %for.inc.i
+for.body.i:                                       ; preds = %for.inc.i, %if.then15
   %8 = phi ptr [ %16, %for.inc.i ], [ %7, %if.then15 ]
   %i.010.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.then15 ]
   %head.09.i = phi ptr [ %head.1.i, %for.inc.i ], [ null, %if.then15 ]
@@ -230,7 +229,7 @@ sw.epilog.i:                                      ; preds = %for.body.i31, %sw.e
   %arrayidx.i39 = getelementptr %struct.QemuOptDesc, ptr %desc.i, i64 %idxprom.i38
   %14 = load ptr, ptr %arrayidx.i39, align 8
   %cmp.not.i40 = icmp eq ptr %14, null
-  br i1 %cmp.not.i40, label %query_option_descs.exit, label %for.body.i31, !llvm.loop !7
+  br i1 %cmp.not.i40, label %query_option_descs.exit, label %for.body.i31, !llvm.loop !8
 
 query_option_descs.exit:                          ; preds = %sw.epilog.i, %for.body.i
   %param_list.0.lcssa.i = phi ptr [ null, %for.body.i ], [ %call22.i, %sw.epilog.i ]
@@ -240,7 +239,7 @@ while.cond.i.i:                                   ; preds = %query_option_descs.
   %cur.0.i.i = phi ptr [ %15, %while.cond.i.i ], [ %head.09.i, %query_option_descs.exit ]
   %15 = load ptr, ptr %cur.0.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i, label %connect_infolist.exit.i, label %while.cond.i.i, !llvm.loop !8
+  br i1 %tobool.not.i.i, label %connect_infolist.exit.i, label %while.cond.i.i, !llvm.loop !9
 
 connect_infolist.exit.i:                          ; preds = %while.cond.i.i
   store ptr %param_list.0.lcssa.i, ptr %cur.0.i.i, align 8
@@ -253,18 +252,17 @@ for.inc.i:                                        ; preds = %connect_infolist.ex
   %arrayidx.i = getelementptr [5 x ptr], ptr @drive_config_groups, i64 0, i64 %idxprom.i
   %16 = load ptr, ptr %arrayidx.i, align 8
   %cmp.not.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
-for.end.i:                                        ; preds = %for.inc.i, %if.then15
-  %head.0.lcssa.i = phi ptr [ null, %if.then15 ], [ %head.1.i, %for.inc.i ]
-  %17 = load ptr, ptr %head.0.lcssa.i, align 8
+for.end.i:                                        ; preds = %for.inc.i
+  %17 = load ptr, ptr %head.1.i, align 8
   %tobool.not13.i.i = icmp eq ptr %17, null
   br i1 %tobool.not13.i.i, label %do.body, label %while.cond1.preheader.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %for.end.i, %while.end.i.i
   %18 = phi ptr [ %26, %while.end.i.i ], [ %17, %for.end.i ]
-  %cur.014.i.i = phi ptr [ %25, %while.end.i.i ], [ %head.0.lcssa.i, %for.end.i ]
-  %cmp.not11.i.i = icmp eq ptr %18, %head.0.lcssa.i
+  %cur.014.i.i = phi ptr [ %25, %while.end.i.i ], [ %head.1.i, %for.end.i ]
+  %cmp.not11.i.i = icmp eq ptr %18, %head.1.i
   br i1 %cmp.not11.i.i, label %while.end.i.i, label %while.body3.lr.ph.i.i
 
 while.body3.lr.ph.i.i:                            ; preds = %while.cond1.preheader.i.i
@@ -274,7 +272,7 @@ while.body3.lr.ph.i.i:                            ; preds = %while.cond1.prehead
   br label %while.body3.i.i
 
 while.body3.i.i:                                  ; preds = %if.end.i.i, %while.body3.lr.ph.i.i
-  %pre_entry.012.i.i = phi ptr [ %head.0.lcssa.i, %while.body3.lr.ph.i.i ], [ %24, %if.end.i.i ]
+  %pre_entry.012.i.i = phi ptr [ %head.1.i, %while.body3.lr.ph.i.i ], [ %24, %if.end.i.i ]
   %value.i.i = getelementptr inbounds i8, ptr %pre_entry.012.i.i, i64 8
   %21 = load ptr, ptr %value.i.i, align 8
   %22 = load ptr, ptr %21, align 8
@@ -293,13 +291,13 @@ if.then.i.i:                                      ; preds = %while.body3.i.i
 if.end.i.i:                                       ; preds = %while.body3.i.i
   %24 = load ptr, ptr %pre_entry.012.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %24, %18
-  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body3.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body3.i.i, !llvm.loop !11
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %if.then.i.i, %while.cond1.preheader.i.i
   %25 = phi ptr [ %18, %while.cond1.preheader.i.i ], [ %.pre.i.i, %if.then.i.i ], [ %18, %if.end.i.i ]
   %26 = load ptr, ptr %25, align 8
   %tobool.not.i7.i = icmp eq ptr %26, null
-  br i1 %tobool.not.i7.i, label %do.body, label %while.cond1.preheader.i.i, !llvm.loop !11
+  br i1 %tobool.not.i7.i, label %do.body, label %while.cond1.preheader.i.i, !llvm.loop !12
 
 if.else:                                          ; preds = %if.then
   %desc = getelementptr inbounds i8, ptr %5, i64 40
@@ -307,9 +305,9 @@ if.else:                                          ; preds = %if.then
   br label %do.body
 
 do.body:                                          ; preds = %while.end.i.i, %for.end.i, %if.else
-  %head.0.lcssa.i.sink = phi ptr [ %call19, %if.else ], [ %head.0.lcssa.i, %for.end.i ], [ %head.0.lcssa.i, %while.end.i.i ]
+  %head.1.i.lcssa.sink = phi ptr [ %call19, %if.else ], [ %head.1.i, %for.end.i ], [ %head.1.i, %while.end.i.i ]
   %parameters = getelementptr inbounds i8, ptr %call4, i64 8
-  store ptr %head.0.lcssa.i.sink, ptr %parameters, align 8
+  store ptr %head.1.i.lcssa.sink, ptr %parameters, align 8
   %call21 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #14
   %value = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call4, ptr %value, align 8
@@ -323,7 +321,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %do.
   %arrayidx = getelementptr [48 x ptr], ptr @vm_config_groups, i64 0, i64 %idxprom
   %27 = load ptr, ptr %arrayidx, align 8
   %cmp.not = icmp eq ptr %27, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %entry
   %conf_list.0.lcssa = phi ptr [ null, %entry ], [ %conf_list.1, %for.inc ]
@@ -372,7 +370,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %set.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   %29 = load ptr, ptr %set.i, align 8
   %tobool4.not.i = icmp eq ptr %29, null
-  br i1 %tobool4.not.i, label %while.cond.i, label %for.cond7.preheader.i, !llvm.loop !13
+  br i1 %tobool4.not.i, label %while.cond.i, label %for.cond7.preheader.i, !llvm.loop !14
 
 for.cond7.preheader.i:                            ; preds = %while.body.i
   br i1 %cmp.not21.i, label %if.then15.i, label %for.body8.i
@@ -385,12 +383,12 @@ for.body8.i:                                      ; preds = %for.cond7.preheader
   %32 = load ptr, ptr %call2.i, align 8
   %call10.i = call i32 @g_str_equal(ptr noundef %31, ptr noundef %32) #11
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %for.inc.i26, label %while.cond.outer.i, !llvm.loop !13
+  br i1 %tobool11.not.i, label %for.inc.i26, label %while.cond.outer.i, !llvm.loop !14
 
 for.inc.i26:                                      ; preds = %for.body8.i
   %33 = load ptr, ptr %clpiter.022.i, align 8
   %cmp.not.i27 = icmp eq ptr %33, null
-  br i1 %cmp.not.i27, label %if.then15.i, label %for.body8.i, !llvm.loop !14
+  br i1 %cmp.not.i27, label %if.then15.i, label %for.body8.i, !llvm.loop !15
 
 if.then15.i:                                      ; preds = %for.cond7.preheader.i, %for.inc.i26
   %call.i.i28 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
@@ -457,13 +455,13 @@ objprop_to_cmdline_prop.exit.i:                   ; preds = %if.then24.i.i, %if.
   %value18.i = getelementptr inbounds i8, ptr %call17.i, i64 8
   store ptr %call.i.i28, ptr %value18.i, align 8
   store ptr %params.1.ph.i.ph, ptr %call17.i, align 8
-  br label %while.cond.outer.i.outer, !llvm.loop !13
+  br label %while.cond.outer.i.outer, !llvm.loop !14
 
 for.inc21.i:                                      ; preds = %while.cond.i
   %next22.i = getelementptr inbounds i8, ptr %curr_mach.023.i, i64 8
   %40 = load ptr, ptr %next22.i, align 8
   %tobool1.not.i = icmp eq ptr %40, null
-  br i1 %tobool1.not.i, label %if.end39.thread, label %for.body.i25, !llvm.loop !15
+  br i1 %tobool1.not.i, label %if.end39.thread, label %for.body.i25, !llvm.loop !16
 
 if.end39.thread:                                  ; preds = %for.inc21.i
   call void @g_slist_free(ptr noundef nonnull %call.i23) #11
@@ -554,7 +552,7 @@ sw.epilog:                                        ; preds = %for.body, %sw.epilo
   %arrayidx = getelementptr %struct.QemuOptDesc, ptr %desc, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp.not = icmp eq ptr %5, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %sw.epilog, %entry
   %param_list.0.lcssa = phi ptr [ null, %entry ], [ %call22, %sw.epilog ]
@@ -615,7 +613,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -647,7 +645,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
@@ -830,7 +828,7 @@ while.cond.outer.backedge:                        ; preds = %if.end51, %if.end74
   %qdict.0.ph.be = phi ptr [ %qdict.2, %if.end74 ], [ %qdict.1, %if.end51 ]
   %call356 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1024, ptr noundef %fp)
   %cmp4.not57 = icmp eq ptr %call356, null
-  br i1 %cmp4.not57, label %while.end, label %while.body.lr.ph, !llvm.loop !18
+  br i1 %cmp4.not57, label %while.end, label %while.body.lr.ph, !llvm.loop !19
 
 if.end56:                                         ; preds = %while.body, %if.else, %if.end39
   %count.2 = phi i32 [ %count.1, %if.end39 ], [ %count.0.ph64, %if.else ], [ %count.0.ph64, %while.body ]
@@ -980,7 +978,7 @@ for.cond:                                         ; preds = %config_parse_qdict_
   %arrayidx = getelementptr ptr, ptr %lists, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !19
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !20
 
 for.body:                                         ; preds = %entry, %for.cond
   %2 = phi ptr [ %1, %for.cond ], [ %0, %entry ]
@@ -1055,7 +1053,7 @@ for.cond.i:                                       ; preds = %if.end39.i
   %next.i = getelementptr inbounds i8, ptr %list_entry.047.i, i64 8
   %list_entry.0.i = load ptr, ptr %next.i, align 8
   %tobool24.not.i = icmp eq ptr %list_entry.0.i, null
-  br i1 %tobool24.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !20
+  br i1 %tobool24.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !21
 
 for.body.i:                                       ; preds = %if.end23.i, %for.cond.i
   %list_entry.047.i = phi ptr [ %list_entry.0.i, %for.cond.i ], [ %list_entry.044.i, %if.end23.i ]
@@ -1243,7 +1241,7 @@ attributes #16 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -1257,3 +1255,4 @@ attributes #16 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}

@@ -1446,17 +1446,15 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly %0, i1 noundef z
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not142 = icmp sgt i32 %6, 0
-  br i1 %.not142, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %.preheader139
+  tail call void @llvm.assume(i1 %.not142)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = icmp sgt i32 %2, -1
   %9 = uitofp nneg i32 %2 to double
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.079145.us = phi ptr [ %14, %.lr.ph.split.us ], [ null, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.preheader139, %.lr.ph.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.preheader139 ]
+  %.079145.us = phi ptr [ %14, %.lr.ph.split.us ], [ null, %.preheader139 ]
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
@@ -1468,10 +1466,10 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly %0, i1 noundef z
   %.not.us = icmp slt i64 %indvars.iv.next, %16
   br i1 %.not.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %28
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %28 ], [ 0, %.lr.ph ]
-  %.079145 = phi ptr [ %29, %28 ], [ null, %.lr.ph ]
-  %.083144 = phi double [ %26, %28 ], [ 1.000000e+00, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.preheader139, %28
+  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %28 ], [ 0, %.preheader139 ]
+  %.079145 = phi ptr [ %29, %28 ], [ null, %.preheader139 ]
+  %.083144 = phi double [ %26, %28 ], [ 1.000000e+00, %.preheader139 ]
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv224
   %19 = load ptr, ptr %18, align 8
@@ -1499,8 +1497,8 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %.not = icmp slt i64 %indvars.iv.next225, %31
   br i1 %.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %28, %.preheader139
-  %.079.lcssa = phi ptr [ null, %.preheader139 ], [ %29, %28 ], [ %14, %.lr.ph.split.us ]
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %28
+  %.079.lcssa = phi ptr [ %29, %28 ], [ %14, %.lr.ph.split.us ]
   %32 = getelementptr i8, ptr %.079.lcssa, i64 16
   %.079.val = load ptr, ptr %32, align 8
   %33 = load ptr, ptr %.079.val, align 8
@@ -1537,16 +1535,16 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %46 = getelementptr inbounds i8, ptr %.079.lcssa, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 1
-  br i1 %48, label %.lr.ph262, label %._crit_edge203
+  br i1 %48, label %.lr.ph, label %._crit_edge203
 
-.lr.ph262:                                        ; preds = %.lr.ph202.preheader, %._crit_edge178
+.lr.ph:                                           ; preds = %.lr.ph202.preheader, %._crit_edge178
   %.182200261 = phi ptr [ %.085.lcssa, %._crit_edge178 ], [ %.081.lcssa247, %.lr.ph202.preheader ]
   %indvars.iv239260 = phi i64 [ %indvars.iv.next240, %._crit_edge178 ], [ 1, %.lr.ph202.preheader ]
   %49 = getelementptr inbounds i8, ptr %.182200261, i64 4
   %.not103 = icmp eq ptr %.182200261, null
   br i1 %.not103, label %._crit_edge178, label %.lr.ph177
 
-.lr.ph177:                                        ; preds = %.lr.ph262
+.lr.ph177:                                        ; preds = %.lr.ph
   %50 = load ptr, ptr %32, align 8
   %51 = getelementptr %union.ListCell, ptr %50, i64 %indvars.iv239260
   %52 = load ptr, ptr %51, align 8
@@ -1605,13 +1603,13 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %77 = icmp slt i64 %indvars.iv.next234, %76
   br i1 %77, label %.lr.ph163, label %._crit_edge178, !llvm.loop !10
 
-._crit_edge178:                                   ; preds = %._crit_edge164.split, %.lr.ph163.lr.ph, %.lr.ph177, %.lr.ph177.split.split, %.lr.ph262
-  %.085.lcssa = phi ptr [ null, %.lr.ph262 ], [ null, %.lr.ph177.split.split ], [ null, %.lr.ph177 ], [ null, %.lr.ph163.lr.ph ], [ %split165, %._crit_edge164.split ]
+._crit_edge178:                                   ; preds = %._crit_edge164.split, %.lr.ph163.lr.ph, %.lr.ph177, %.lr.ph177.split.split, %.lr.ph
+  %.085.lcssa = phi ptr [ null, %.lr.ph ], [ null, %.lr.ph177.split.split ], [ null, %.lr.ph177 ], [ null, %.lr.ph163.lr.ph ], [ %split165, %._crit_edge164.split ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239260, 1
   %78 = load i32, ptr %46, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next240, %79
-  br i1 %80, label %.lr.ph262, label %._crit_edge203
+  br i1 %80, label %.lr.ph, label %._crit_edge203
 
 ._crit_edge203:                                   ; preds = %._crit_edge178, %.lr.ph202.preheader, %._crit_edge150
   %.182.lcssa = phi ptr [ %42, %._crit_edge150 ], [ %.081.lcssa247, %.lr.ph202.preheader ], [ %.085.lcssa, %._crit_edge178 ]

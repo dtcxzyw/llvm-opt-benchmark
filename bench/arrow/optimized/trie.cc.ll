@@ -391,12 +391,12 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow8internal11TrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-cond.true.i.i.i.i:
+_ZNKSt6vectorIN5arrow8internal4Trie4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %this, i8 0, i64 50, i1 false)
   %call5.i.i.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
           to label %invoke.cont3 unwind label %lpad
 
-invoke.cont3:                                     ; preds = %cond.true.i.i.i.i
+invoke.cont3:                                     ; preds = %_ZNKSt6vectorIN5arrow8internal4Trie4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 -1, ptr %call5.i.i.i.i.i.i1, align 2
@@ -410,7 +410,7 @@ invoke.cont3:                                     ; preds = %cond.true.i.i.i.i
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   ret void
 
-lpad:                                             ; preds = %cond.true.i.i.i.i
+lpad:                                             ; preds = %_ZNKSt6vectorIN5arrow8internal4Trie4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5arrow8internal4TrieD2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) #16

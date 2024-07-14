@@ -1741,13 +1741,11 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %2 to i64
   br label %do.body.i.i.i.i
 
-do.body.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %cond.true.i.i.i
-  %indvars.iv23.i.i.i.i = phi i32 [ %indvars.iv.next24.i.i.i.i, %if.end.i.i.i.i ], [ 1, %cond.true.i.i.i ]
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %if.end.i.i.i.i ], [ 0, %cond.true.i.i.i ]
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
+do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %cond.true.i.i.i
+  %indvars.iv23.i.i.i.i = phi i32 [ %indvars.iv.next24.i.i.i.i, %do.body.i.i.i.i ], [ 1, %cond.true.i.i.i ]
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %do.body.i.i.i.i ], [ 0, %cond.true.i.i.i ]
+  %exitcond.not.i.i.i.i = icmp ne i64 %indvars.iv.i.i.i.i, %wide.trip.count.i.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i.i)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %arrayidx.i2.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   %8 = load ptr, ptr %arrayidx.i2.i.i.i, align 8
@@ -1762,7 +1760,7 @@ if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %indvars.iv.next24.i.i.i.i = add nuw i32 %indvars.iv23.i.i.i.i, 1
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !7
 
-do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i
+do.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %arrayidx3.i.i.i.i.le = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   %conv6.i.i.i.i = trunc i64 %add.i.i.i.i to i8
   store i8 %conv6.i.i.i.i, ptr %arrayidx3.i.i.i.i.le, align 1
@@ -1794,43 +1792,38 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
   br label %cond.end.sink.split.i.i.i
 
 cond.end.sink.split.i.loopexit.i.i:               ; preds = %do.body10.i.i.i.i
-  %.pre.pre.i.i = load i64, ptr %btree_reader_, align 8
+  %.pre.i.i = load i64, ptr %btree_reader_, align 8
   br label %cond.end.sink.split.i.i.i
 
 cond.end.sink.split.i.i.i:                        ; preds = %cond.end.sink.split.i.loopexit.i.i, %cond.false.i.i.i
-  %.pre.i.i = phi i64 [ %4, %cond.false.i.i.i ], [ %.pre.pre.i.i, %cond.end.sink.split.i.loopexit.i.i ]
+  %14 = phi i64 [ %4, %cond.false.i.i.i ], [ %.pre.i.i, %cond.end.sink.split.i.loopexit.i.i ]
   %.lcssa.sink.i.i.i = phi ptr [ %5, %cond.false.i.i.i ], [ %12, %cond.end.sink.split.i.loopexit.i.i ]
   %conv.i15.i.lcssa.sink.i.i.i = phi i64 [ %conv6.i.i.i, %cond.false.i.i.i ], [ %conv.i15.i.i.i.i, %cond.end.sink.split.i.loopexit.i.i ]
   %edges_.i16.i.i.i.i = getelementptr inbounds i8, ptr %.lcssa.sink.i.i.i, i64 16
   %arrayidx.i17.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i16.i.i.i.i, i64 0, i64 %conv.i15.i.lcssa.sink.i.i.i
-  %14 = load ptr, ptr %arrayidx.i17.i.i.i.i, align 8
-  br label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
-
-_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i: ; preds = %do.body.i.i.i.i, %cond.end.sink.split.i.i.i
-  %15 = phi i64 [ %.pre.i.i, %cond.end.sink.split.i.i.i ], [ %4, %do.body.i.i.i.i ]
-  %cond.i.i.i = phi ptr [ %14, %cond.end.sink.split.i.i.i ], [ null, %do.body.i.i.i.i ]
-  %16 = load i64, ptr %cond.i.i.i, align 8
-  %sub.i.i = sub i64 %15, %16
+  %15 = load ptr, ptr %arrayidx.i17.i.i.i.i, align 8
+  %16 = load i64, ptr %15, align 8
+  %sub.i.i = sub i64 %14, %16
   store i64 %sub.i.i, ptr %btree_reader_, align 8
-  %17 = load i64, ptr %cond.i.i.i, align 8
-  %tag.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 12
+  %17 = load i64, ptr %15, align 8
+  %tag.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
   %18 = load i8, ptr %tag.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i8 %18, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
-  %start.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 16
+if.then.i.i.i:                                    ; preds = %cond.end.sink.split.i.i.i
+  %start.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load i64, ptr %start.i.i.i, align 8
-  %child.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 24
+  %child.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %20 = load ptr, ptr %child.i.i.i, align 8
   %tag.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %20, i64 12
   %.pre.i.i.i = load i8, ptr %tag.phi.trans.insert.i.i.i, align 4
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
-  %21 = phi i8 [ %.pre.i.i.i, %if.then.i.i.i ], [ %18, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
-  %offset.0.i.i.i = phi i64 [ %19, %if.then.i.i.i ], [ 0, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
-  %edge.addr.0.i.i.i = phi ptr [ %20, %if.then.i.i.i ], [ %cond.i.i.i, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
+if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %cond.end.sink.split.i.i.i
+  %21 = phi i8 [ %.pre.i.i.i, %if.then.i.i.i ], [ %18, %cond.end.sink.split.i.i.i ]
+  %offset.0.i.i.i = phi i64 [ %19, %if.then.i.i.i ], [ 0, %cond.end.sink.split.i.i.i ]
+  %edge.addr.0.i.i.i = phi ptr [ %20, %if.then.i.i.i ], [ %15, %cond.end.sink.split.i.i.i ]
   %cmp.i2.i.i = icmp ugt i8 %21, 5
   br i1 %cmp.i2.i.i, label %cond.true.i4.i.i, label %cond.false.i3.i.i
 
@@ -3909,13 +3902,11 @@ cond.true.i.i:                                    ; preds = %if.end.i
   %wide.trip.count.i.i.i = zext nneg i32 %smax.i.i.i to i64
   br label %do.body.i.i.i
 
-do.body.i.i.i:                                    ; preds = %if.end.i.i.i, %cond.true.i.i
-  %indvars.iv23.i.i.i = phi i32 [ %indvars.iv.next24.i.i.i, %if.end.i.i.i ], [ 1, %cond.true.i.i ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %if.end.i.i.i ], [ 0, %cond.true.i.i ]
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %do.body.i.i.i
+do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %cond.true.i.i
+  %indvars.iv23.i.i.i = phi i32 [ %indvars.iv.next24.i.i.i, %do.body.i.i.i ], [ 1, %cond.true.i.i ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %cond.true.i.i ]
+  %exitcond.not.i.i.i = icmp ne i64 %indvars.iv.i.i.i, %wide.trip.count.i.i.i
+  tail call void @llvm.assume(i1 %exitcond.not.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i2.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next.i.i.i
   %7 = load ptr, ptr %arrayidx.i2.i.i, align 8
@@ -3930,7 +3921,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %indvars.iv.next24.i.i.i = add nuw i32 %indvars.iv23.i.i.i, 1
   br i1 %cmp5.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !7
 
-do.end.i.i.i:                                     ; preds = %if.end.i.i.i
+do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %arrayidx3.i.i.i.le = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i.i
   %conv6.i.i.i = trunc i64 %add.i.i.i to i8
   store i8 %conv6.i.i.i, ptr %arrayidx3.i.i.i.le, align 1
@@ -3962,43 +3953,38 @@ cond.false.i.i:                                   ; preds = %if.end.i
   br label %cond.end.sink.split.i.i
 
 cond.end.sink.split.i.loopexit.i:                 ; preds = %do.body10.i.i.i
-  %.pre.pre.i = load i64, ptr %btree_reader_, align 8
+  %.pre.i = load i64, ptr %btree_reader_, align 8
   br label %cond.end.sink.split.i.i
 
 cond.end.sink.split.i.i:                          ; preds = %cond.end.sink.split.i.loopexit.i, %cond.false.i.i
-  %.pre.i = phi i64 [ %2, %cond.false.i.i ], [ %.pre.pre.i, %cond.end.sink.split.i.loopexit.i ]
+  %13 = phi i64 [ %2, %cond.false.i.i ], [ %.pre.i, %cond.end.sink.split.i.loopexit.i ]
   %.lcssa.sink.i.i = phi ptr [ %3, %cond.false.i.i ], [ %11, %cond.end.sink.split.i.loopexit.i ]
   %conv.i15.i.lcssa.sink.i.i = phi i64 [ %conv6.i.i, %cond.false.i.i ], [ %conv.i15.i.i.i, %cond.end.sink.split.i.loopexit.i ]
   %edges_.i16.i.i.i = getelementptr inbounds i8, ptr %.lcssa.sink.i.i, i64 16
   %arrayidx.i17.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i16.i.i.i, i64 0, i64 %conv.i15.i.lcssa.sink.i.i
-  %13 = load ptr, ptr %arrayidx.i17.i.i.i, align 8
-  br label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i
-
-_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i: ; preds = %do.body.i.i.i, %cond.end.sink.split.i.i
-  %14 = phi i64 [ %.pre.i, %cond.end.sink.split.i.i ], [ %2, %do.body.i.i.i ]
-  %cond.i.i = phi ptr [ %13, %cond.end.sink.split.i.i ], [ null, %do.body.i.i.i ]
-  %15 = load i64, ptr %cond.i.i, align 8
-  %sub.i = sub i64 %14, %15
+  %14 = load ptr, ptr %arrayidx.i17.i.i.i, align 8
+  %15 = load i64, ptr %14, align 8
+  %sub.i = sub i64 %13, %15
   store i64 %sub.i, ptr %btree_reader_, align 8
-  %16 = load i64, ptr %cond.i.i, align 8
-  %tag.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 12
+  %16 = load i64, ptr %14, align 8
+  %tag.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   %17 = load i8, ptr %tag.i.i.i, align 4
   %cmp.i.i.i = icmp eq i8 %17, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i
-  %start.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 16
+if.then.i.i:                                      ; preds = %cond.end.sink.split.i.i
+  %start.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i64, ptr %start.i.i, align 8
-  %child.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 24
+  %child.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %19 = load ptr, ptr %child.i.i, align 8
   %tag.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %19, i64 12
   %.pre.i.i = load i8, ptr %tag.phi.trans.insert.i.i, align 4
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i
-  %20 = phi i8 [ %.pre.i.i, %if.then.i.i ], [ %17, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
-  %offset.0.i.i = phi i64 [ %18, %if.then.i.i ], [ 0, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
-  %edge.addr.0.i.i = phi ptr [ %19, %if.then.i.i ], [ %cond.i.i, %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %cond.end.sink.split.i.i
+  %20 = phi i8 [ %.pre.i.i, %if.then.i.i ], [ %17, %cond.end.sink.split.i.i ]
+  %offset.0.i.i = phi i64 [ %18, %if.then.i.i ], [ 0, %cond.end.sink.split.i.i ]
+  %edge.addr.0.i.i = phi ptr [ %19, %if.then.i.i ], [ %14, %cond.end.sink.split.i.i ]
   %cmp.i2.i = icmp ugt i8 %20, 5
   br i1 %cmp.i2.i, label %cond.true.i4.i, label %cond.false.i3.i
 

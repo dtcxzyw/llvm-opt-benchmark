@@ -507,9 +507,9 @@ if.then.i.i.i104:                                 ; preds = %_ZN5eastl9allocator
   %call.i.i.i.i.i123 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 0, ptr %call.i.i.i.i.i123, align 4
   %call.i.i.i.i.i155 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %if.then.i.i.i168 unwind label %lpad71.thread
+          to label %if.end.i.i.i.i.i.i.i.i.i142 unwind label %lpad71.thread
 
-if.then.i.i.i168:                                 ; preds = %if.then.i.i.i104
+if.end.i.i.i.i.i.i.i.i.i142:                      ; preds = %if.then.i.i.i104
   %34 = load i32, ptr %call.i.i.i.i.i123, align 4
   store i32 %34, ptr %call.i.i.i.i.i155, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i144 = getelementptr inbounds i8, ptr %call.i.i.i.i.i155, i64 4
@@ -518,7 +518,7 @@ if.then.i.i.i168:                                 ; preds = %if.then.i.i.i104
   %call.i.i.i.i.i188 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 16, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont81 unwind label %lpad71
 
-invoke.cont81:                                    ; preds = %if.then.i.i.i168
+invoke.cont81:                                    ; preds = %if.end.i.i.i.i.i.i.i.i.i142
   %35 = load i64, ptr %call.i.i.i.i.i155, align 4
   store i64 %35, ptr %call.i.i.i.i.i188, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %call.i.i.i.i.i188, i64 8
@@ -549,14 +549,14 @@ if.then.i.i.i238:                                 ; preds = %invoke.cont91
   %call.i.i.i.i.i258 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 0, ptr %call.i.i.i.i.i258, align 4
   %call.i.i.i.i.i291 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %if.then.i.i.i304 unwind label %lpad99.thread504
+          to label %if.end.i.i.i.i.i.i.i.i.i278 unwind label %lpad99.thread504
 
 lpad99.thread504:                                 ; preds = %if.then.i.i.i238
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
 
-if.then.i.i.i304:                                 ; preds = %if.then.i.i.i238
+if.end.i.i.i.i.i.i.i.i.i278:                      ; preds = %if.then.i.i.i238
   %40 = load i32, ptr %call.i.i.i.i.i258, align 4
   store i32 %40, ptr %call.i.i.i.i.i291, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i280 = getelementptr inbounds i8, ptr %call.i.i.i.i.i291, i64 4
@@ -565,7 +565,7 @@ if.then.i.i.i304:                                 ; preds = %if.then.i.i.i238
   %call.i.i.i.i.i324 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 16, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont109 unwind label %lpad99
 
-invoke.cont109:                                   ; preds = %if.then.i.i.i304
+invoke.cont109:                                   ; preds = %if.end.i.i.i.i.i.i.i.i.i278
   %41 = load i64, ptr %call.i.i.i.i.i291, align 4
   store i64 %41, ptr %call.i.i.i.i.i324, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i313 = getelementptr inbounds i8, ptr %call.i.i.i.i.i324, i64 8
@@ -637,13 +637,13 @@ lpad71.thread:                                    ; preds = %invoke.cont91, %inv
           cleanup
   br label %eh.resume.sink.split
 
-lpad71:                                           ; preds = %if.then.i.i.i168
+lpad71:                                           ; preds = %if.end.i.i.i.i.i.i.i.i.i142
   %lpad.thr_comm.split-lp491 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
 
-lpad99:                                           ; preds = %if.then.i.i.i304, %invoke.cont114, %invoke.cont109
-  %v97.sroa.0.4 = phi ptr [ %call.i.i.i.i.i324, %invoke.cont114 ], [ %call.i.i.i.i.i324, %invoke.cont109 ], [ %call.i.i.i.i.i291, %if.then.i.i.i304 ]
+lpad99:                                           ; preds = %if.end.i.i.i.i.i.i.i.i.i278, %invoke.cont114, %invoke.cont109
+  %v97.sroa.0.4 = phi ptr [ %call.i.i.i.i.i324, %invoke.cont114 ], [ %call.i.i.i.i.i324, %invoke.cont109 ], [ %call.i.i.i.i.i291, %if.end.i.i.i.i.i.i.i.i.i278 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
@@ -2126,14 +2126,14 @@ _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit517:    ; preds = %_ZN5eastl9allocator
   %call.i.i.i.i.i555 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 0, ptr %call.i.i.i.i.i555, align 4
   %call.i.i.i.i.i589 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %if.then.i.i.i602 unwind label %lpad407.thread1281
+          to label %if.end.i.i.i.i.i.i.i.i.i574 unwind label %lpad407.thread1281
 
 lpad407.thread1281:                               ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit517
   %136 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i890
 
-if.then.i.i.i602:                                 ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit517
+if.end.i.i.i.i.i.i.i.i.i574:                      ; preds = %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit517
   %137 = load i32, ptr %call.i.i.i.i.i555, align 4
   store i32 %137, ptr %call.i.i.i.i.i589, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i576 = getelementptr inbounds i8, ptr %call.i.i.i.i.i589, i64 4
@@ -2142,7 +2142,7 @@ if.then.i.i.i602:                                 ; preds = %_ZN5eastl6vectorIiN
   %call.i.i.i.i.i624 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 16, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616 unwind label %lpad407
 
-_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616: ; preds = %if.then.i.i.i602
+_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616: ; preds = %if.end.i.i.i.i.i.i.i.i.i574
   %138 = load i64, ptr %call.i.i.i.i.i589, align 4
   store i64 %138, ptr %call.i.i.i.i.i624, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i611 = getelementptr inbounds i8, ptr %call.i.i.i.i.i624, i64 8
@@ -2160,14 +2160,14 @@ if.then.i.i.i647:                                 ; preds = %invoke.cont417
   %call.i.i.i.i.i669 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 0, ptr %call.i.i.i.i.i669, align 4
   %call.i.i.i.i.i704 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 8, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %if.then.i.i.i717 unwind label %lpad426.thread1287
+          to label %if.end.i.i.i.i.i.i.i.i.i689 unwind label %lpad426.thread1287
 
 lpad426.thread1287:                               ; preds = %if.then.i.i.i647
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i895
 
-if.then.i.i.i717:                                 ; preds = %if.then.i.i.i647
+if.end.i.i.i.i.i.i.i.i.i689:                      ; preds = %if.then.i.i.i647
   %140 = load i32, ptr %call.i.i.i.i.i669, align 4
   store i32 %140, ptr %call.i.i.i.i.i704, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i691 = getelementptr inbounds i8, ptr %call.i.i.i.i.i704, i64 4
@@ -2176,7 +2176,7 @@ if.then.i.i.i717:                                 ; preds = %if.then.i.i.i647
   %call.i.i.i.i.i739 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 16, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731 unwind label %lpad426
 
-_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731: ; preds = %if.then.i.i.i717
+_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731: ; preds = %if.end.i.i.i.i.i.i.i.i.i689
   %141 = load i64, ptr %call.i.i.i.i.i704, align 4
   store i64 %141, ptr %call.i.i.i.i.i739, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i726 = getelementptr inbounds i8, ptr %call.i.i.i.i.i739, i64 8
@@ -2317,8 +2317,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i874: ; preds = %ehcleanup380, %_ZN
   %cmp.not.i.i.i876 = icmp eq ptr %152, %intList
   br i1 %cmp.not.i.i.i876, label %common.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i874, !llvm.loop !46
 
-lpad407:                                          ; preds = %if.then.i.i.i602, %invoke.cont417, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616
-  %intVector406.sroa.0.3 = phi ptr [ %call.i.i.i.i.i624, %invoke.cont417 ], [ %call.i.i.i.i.i624, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616 ], [ %call.i.i.i.i.i589, %if.then.i.i.i602 ]
+lpad407:                                          ; preds = %if.end.i.i.i.i.i.i.i.i.i574, %invoke.cont417, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616
+  %intVector406.sroa.0.3 = phi ptr [ %call.i.i.i.i.i624, %invoke.cont417 ], [ %call.i.i.i.i.i624, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i616 ], [ %call.i.i.i.i.i589, %if.end.i.i.i.i.i.i.i.i.i574 ]
   %153 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i890
@@ -2329,8 +2329,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i890:  ; preds = %lpad407, %lpad407.t
   call void @_ZdaPv(ptr noundef nonnull %intVector406.sroa.0.31284) #11
   br label %common.resume
 
-lpad426:                                          ; preds = %if.then.i.i.i717, %invoke.cont436, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731
-  %intVector425.sroa.0.3 = phi ptr [ %call.i.i.i.i.i739, %invoke.cont436 ], [ %call.i.i.i.i.i739, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731 ], [ %call.i.i.i.i.i704, %if.then.i.i.i717 ]
+lpad426:                                          ; preds = %if.end.i.i.i.i.i.i.i.i.i689, %invoke.cont436, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731
+  %intVector425.sroa.0.3 = phi ptr [ %call.i.i.i.i.i739, %invoke.cont436 ], [ %call.i.i.i.i.i739, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i731 ], [ %call.i.i.i.i.i704, %if.end.i.i.i.i.i.i.i.i.i689 ]
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i895

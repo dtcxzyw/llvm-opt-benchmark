@@ -1707,53 +1707,43 @@ _ZN3euf13th_euf_solver10force_pushEv.exit:        ; preds = %for.body.i, %if.end
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(9136) %3, ptr noundef nonnull %e)
   %5 = load ptr, ptr %ctx, align 8
   %m_expr2enode.i.i = getelementptr inbounds i8, ptr %5, i64 1784
-  %6 = load ptr, ptr %m_expr2enode.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.i.i.i.i, label %_ZNK3euf6solver9get_enodeEP4expr.exit, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i
-
-_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i: ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit
+  %6 = load ptr, ptr %m_expr2enode.i.i, align 8, !nonnull !12, !noundef !12
   %7 = load i32, ptr %e, align 4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ugt i32 %8, %7
-  br i1 %cmp.not.i.i.i, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i, label %_ZNK3euf6solver9get_enodeEP4expr.exit
-
-_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i: ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %idxprom.i.i.i = zext i32 %7 to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
-  br label %_ZNK3euf6solver9get_enodeEP4expr.exit
-
-_ZNK3euf6solver9get_enodeEP4expr.exit:            ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i
-  %9 = phi ptr [ %.then.val.i.i, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i ], [ null, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i ], [ null, %_ZN3euf13th_euf_solver10force_pushEv.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bv.i)
-  %m_bool_var.i.i = getelementptr inbounds i8, ptr %9, i64 28
-  %10 = load i32, ptr %m_bool_var.i.i, align 4
-  %cmp.not.i6 = icmp eq i32 %10, 2147483647
+  %m_bool_var.i.i = getelementptr inbounds i8, ptr %.then.val.i.i, i64 28
+  %9 = load i32, ptr %m_bool_var.i.i, align 4
+  %cmp.not.i6 = icmp eq i32 %9, 2147483647
   br i1 %cmp.not.i6, label %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit, label %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread
 
-_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread: ; preds = %_ZNK3euf6solver9get_enodeEP4expr.exit
+_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread: ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bv.i)
   %m_next_split_phase13 = getelementptr inbounds i8, ptr %this, i64 488
   store i32 %phase, ptr %m_next_split_phase13, align 8
   br label %lor.lhs.false
 
-_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit: ; preds = %_ZNK3euf6solver9get_enodeEP4expr.exit
+_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit: ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit
   %m.i = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load ptr, ptr %m.i, align 8
-  call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %bv.i, ptr noundef nonnull align 8 dereferenceable(976) %11)
-  %12 = load ptr, ptr %ctx, align 8
-  %13 = load i32, ptr %bv.i, align 8
-  %m_id2solver.i.i = getelementptr inbounds i8, ptr %12, i64 2464
-  %14 = load ptr, ptr %m_id2solver.i.i, align 8, !nonnull !12, !noundef !12
-  %arrayidx.i.i.i.i7 = getelementptr inbounds i8, ptr %14, i64 -4
-  %15 = load i32, ptr %arrayidx.i.i.i.i7, align 4
-  %cmp.not.i.i.i8 = icmp ugt i32 %15, %13
+  %10 = load ptr, ptr %m.i, align 8
+  call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %bv.i, ptr noundef nonnull align 8 dereferenceable(976) %10)
+  %11 = load ptr, ptr %ctx, align 8
+  %12 = load i32, ptr %bv.i, align 8
+  %m_id2solver.i.i = getelementptr inbounds i8, ptr %11, i64 2464
+  %13 = load ptr, ptr %m_id2solver.i.i, align 8, !nonnull !12, !noundef !12
+  %arrayidx.i.i.i.i7 = getelementptr inbounds i8, ptr %13, i64 -4
+  %14 = load i32, ptr %arrayidx.i.i.i.i7, align 4
+  %cmp.not.i.i.i8 = icmp ugt i32 %14, %12
   call void @llvm.assume(i1 %cmp.not.i.i.i8)
-  %idxprom.i.i.i9 = zext i32 %13 to i64
-  %arrayidx.i.i.i10 = getelementptr inbounds ptr, ptr %14, i64 %idxprom.i.i.i9
+  %idxprom.i.i.i9 = zext i32 %12 to i64
+  %arrayidx.i.i.i10 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i.i.i9
   %.then.val.i.i11 = load ptr, ptr %arrayidx.i.i.i10, align 8
-  %call5.i = call noundef i32 @_ZNK2bv6solver7get_bitEjPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %.then.val.i.i11, i32 noundef %idx, ptr noundef nonnull %9)
+  %call5.i = call noundef i32 @_ZNK2bv6solver7get_bitEjPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %.then.val.i.i11, i32 noundef %idx, ptr noundef nonnull %.then.val.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bv.i)
   %m_next_split_phase = getelementptr inbounds i8, ptr %this, i64 488
   store i32 %phase, ptr %m_next_split_phase, align 8
@@ -1762,16 +1752,16 @@ _ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit: ; preds = %_ZNK3euf6
 
 lor.lhs.false:                                    ; preds = %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit
   %m_next_split_phase16 = phi ptr [ %m_next_split_phase13, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread ], [ %m_next_split_phase, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit ]
-  %retval.0.i15 = phi i32 [ %10, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread ], [ %call5.i, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit ]
+  %retval.0.i15 = phi i32 [ %9, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit.thread ], [ %call5.i, %_ZN11user_solver6solver13enode_to_boolEPN3euf5enodeEj.exit ]
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %m_solver.i, align 8
-  %m_assignment.i = getelementptr inbounds i8, ptr %16, i64 3440
+  %15 = load ptr, ptr %m_solver.i, align 8
+  %m_assignment.i = getelementptr inbounds i8, ptr %15, i64 3440
   %shl.i.i = shl i32 %retval.0.i15, 1
-  %17 = load ptr, ptr %m_assignment.i, align 8
+  %16 = load ptr, ptr %m_assignment.i, align 8
   %idxprom.i.i = zext i32 %shl.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i.i
-  %18 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp7.not = icmp eq i32 %18, 0
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %16, i64 %idxprom.i.i
+  %17 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp7.not = icmp eq i32 %17, 0
   br i1 %cmp7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %lor.lhs.false
@@ -2528,24 +2518,18 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i = lshr i32 %lit.coerce, 1
   %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver13bool_var2exprEj(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %shr.i)
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.end
+  %tobool.not.i = icmp ne ptr %call.i, null
+  tail call void @llvm.assume(i1 %tobool.not.i)
   %call2.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull %call.i)
-  br label %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit
-
-_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit:   ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %call2.i, %cond.true.i ], [ null, %if.end ]
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_id.i, align 4
-  %m_th_vars.i = getelementptr inbounds i8, ptr %cond.i, i64 88
+  %m_th_vars.i = getelementptr inbounds i8, ptr %call2.i, i64 88
   %bf.load.i.i.i.i = load i32, ptr %m_th_vars.i, align 8
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i.i, -257
   br i1 %cmp.i.i.i, label %_ZNK3euf5enode10get_th_varEi.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %if.end5.i.i
-  %l.0.i.i = phi ptr [ %2, %if.end5.i.i ], [ %m_th_vars.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit ]
+do.body.i.i:                                      ; preds = %if.end, %if.end5.i.i
+  %l.0.i.i = phi ptr [ %2, %if.end5.i.i ], [ %m_th_vars.i, %if.end ]
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
@@ -2562,8 +2546,8 @@ if.end5.i.i:                                      ; preds = %do.body.i.i
   %tobool.not.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i4, label %_ZNK3euf5enode10get_th_varEi.exit, label %do.body.i.i, !llvm.loop !17
 
-_ZNK3euf5enode10get_th_varEi.exit:                ; preds = %if.end5.i.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %if.then3.i.i
-  %retval.0.i.i = phi i32 [ %bf.ashr.i5.i.i, %if.then3.i.i ], [ -1, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit ], [ -1, %if.end5.i.i ]
+_ZNK3euf5enode10get_th_varEi.exit:                ; preds = %if.end5.i.i, %if.end, %if.then3.i.i
+  %retval.0.i.i = phi i32 [ %bf.ashr.i5.i.i, %if.then3.i.i ], [ -1, %if.end ], [ -1, %if.end5.i.i ]
   %m_id2justification = getelementptr inbounds i8, ptr %this, i64 448
   %3 = load ptr, ptr %m_id2justification, align 8
   %cmp.i.i5 = icmp eq ptr %3, null

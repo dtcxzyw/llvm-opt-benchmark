@@ -6460,7 +6460,7 @@ Vec_IntFree.exit:                                 ; preds = %18, %22
 23:                                               ; preds = %16, %11
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %.thread [
+  switch i32 %25, label %unreachable [
     i32 0, label %26
     i32 1, label %32
     i32 2, label %38
@@ -6503,9 +6503,11 @@ Vec_IntFree.exit:                                 ; preds = %18, %22
   %.not211 = icmp eq i32 %.pr, 1
   br i1 %.not211, label %Gia_ManDeriveDup.exit, label %.thread
 
-.thread:                                          ; preds = %23, %44
-  %.0200296 = phi ptr [ %.0200.ph, %44 ], [ null, %23 ]
-  %45 = getelementptr i8, ptr %.0200296, i64 64
+unreachable:                                      ; preds = %23
+  unreachable
+
+.thread:                                          ; preds = %44
+  %45 = getelementptr i8, ptr %.0200.ph, i64 64
   %.0200.val = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %.0200.val, i64 4
   %.0200.val.val = load i32, ptr %46, align 4
@@ -6526,9 +6528,8 @@ Vec_IntFree.exit:                                 ; preds = %18, %22
   br i1 %exitcond.not.i, label %Gia_ManDeriveDup.exit, label %.lr.ph.i, !llvm.loop !70
 
 Gia_ManDeriveDup.exit:                            ; preds = %.lr.ph.i, %.thread, %44
-  %.0200297 = phi ptr [ %.0200.ph, %44 ], [ %.0200296, %.thread ], [ %.0200296, %.lr.ph.i ]
   %.1 = phi ptr [ %.0193.ph, %44 ], [ %50, %.thread ], [ %50, %.lr.ph.i ]
-  %54 = tail call ptr @Gia_ManMiter(ptr noundef %.1, ptr noundef %.0200297, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
+  %54 = tail call ptr @Gia_ManMiter(ptr noundef %.1, ptr noundef %.0200.ph, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
   %55 = tail call ptr @Gia_ManToAigSimple(ptr noundef %54) #22
   %56 = getelementptr inbounds i8, ptr %55, i64 104
   store i32 0, ptr %56, align 8
@@ -6537,7 +6538,7 @@ Gia_ManDeriveDup.exit:                            ; preds = %.lr.ph.i, %.thread,
   %58 = tail call ptr @Cnf_Derive(ptr noundef %55, i32 noundef %.val.i) #22
   tail call void @Aig_ManStop(ptr noundef %55) #22
   tail call void @Gia_ManStop(ptr noundef %.1) #22
-  tail call void @Gia_ManStop(ptr noundef %.0200297) #22
+  tail call void @Gia_ManStop(ptr noundef %.0200.ph) #22
   %59 = tail call ptr @sat_solver_new() #22
   %60 = getelementptr inbounds i8, ptr %58, i64 8
   %61 = load i32, ptr %60, align 8

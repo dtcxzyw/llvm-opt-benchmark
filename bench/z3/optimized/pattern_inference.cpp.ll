@@ -5564,17 +5564,14 @@ if.then18:                                        ; preds = %if.else
   br i1 %cmp.not30.i.i, label %for.cond18.preheader.i.i, label %for.body.i.i
 
 for.cond18.preheader.i.i:                         ; preds = %for.inc.i.i, %if.then18
-  %cmp19.not32.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp19.not32.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %for.body20.i.i
+  %cmp19.not32.i.i = icmp ne i32 %and.i.i, 0
+  br label %for.body20.i.i
 
 for.body.i.i:                                     ; preds = %if.then18, %for.inc.i.i
   %curr.031.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %add.ptr.i.i26, %if.then18 ]
   %35 = load ptr, ptr %curr.031.i.i, align 8
-  %magicptr25.i.i = ptrtoint ptr %35 to i64
-  switch i64 %magicptr25.i.i, label %if.then.i.i28 [
-    i64 0, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit
-    i64 1, label %for.inc.i.i
-  ]
+  %cond = icmp eq ptr %35, inttoptr (i64 1 to ptr)
+  br i1 %cond, label %for.inc.i.i, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %for.body.i.i
   %m_hash.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 12
@@ -5584,19 +5581,18 @@ if.then.i.i28:                                    ; preds = %for.body.i.i
   %or.cond.i.i = and i1 %cmp.i.i.i.i.i29, %cmp8.i.i
   br i1 %or.cond.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.then.i.i28, %for.body.i.i
+for.inc.i.i:                                      ; preds = %for.body.i.i, %if.then.i.i28
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.031.i.i, i64 24
   %cmp.not.i.i27 = icmp eq ptr %incdec.ptr.i.i, %add.ptr5.i.i
   br i1 %cmp.not.i.i27, label %for.cond18.preheader.i.i, label %for.body.i.i, !llvm.loop !25
 
-for.body20.i.i:                                   ; preds = %for.cond18.preheader.i.i, %for.inc36.i.i
+for.body20.i.i:                                   ; preds = %for.inc36.i.i, %for.cond18.preheader.i.i
+  %cmp19.not.i.i.sink = phi i1 [ %cmp19.not.i.i, %for.inc36.i.i ], [ %cmp19.not32.i.i, %for.cond18.preheader.i.i ]
   %curr.133.i.i = phi ptr [ %incdec.ptr37.i.i, %for.inc36.i.i ], [ %34, %for.cond18.preheader.i.i ]
+  tail call void @llvm.assume(i1 %cmp19.not.i.i.sink)
   %37 = load ptr, ptr %curr.133.i.i, align 8
-  %magicptr27.i.i = ptrtoint ptr %37 to i64
-  switch i64 %magicptr27.i.i, label %if.then22.i.i [
-    i64 0, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit
-    i64 1, label %for.inc36.i.i
-  ]
+  %cond127 = icmp eq ptr %37, inttoptr (i64 1 to ptr)
+  br i1 %cond127, label %for.inc36.i.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %for.body20.i.i
   %m_hash.i.i.i22.i.i = getelementptr inbounds i8, ptr %37, i64 12
@@ -5606,13 +5602,13 @@ if.then22.i.i:                                    ; preds = %for.body20.i.i
   %or.cond26.i.i = and i1 %cmp.i.i.i23.i.i, %cmp24.i.i
   br i1 %or.cond26.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %for.inc36.i.i
 
-for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for.body20.i.i
+for.inc36.i.i:                                    ; preds = %for.body20.i.i, %if.then22.i.i
   %incdec.ptr37.i.i = getelementptr inbounds i8, ptr %curr.133.i.i, i64 24
-  %cmp19.not.i.i = icmp eq ptr %incdec.ptr37.i.i, %add.ptr.i.i26
-  br i1 %cmp19.not.i.i, label %_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit, label %for.body20.i.i, !llvm.loop !26
+  %cmp19.not.i.i = icmp ne ptr %incdec.ptr37.i.i, %add.ptr.i.i26
+  br label %for.body20.i.i
 
-_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %for.body.i.i, %if.then.i.i28, %for.body20.i.i, %if.then22.i.i, %for.inc36.i.i, %for.cond18.preheader.i.i
-  %retval.0.i.i = phi ptr [ null, %for.cond18.preheader.i.i ], [ null, %for.inc36.i.i ], [ %curr.133.i.i, %if.then22.i.i ], [ null, %for.body20.i.i ], [ null, %for.body.i.i ], [ %curr.031.i.i, %if.then.i.i28 ]
+_ZNK7obj_mapI4exprN21pattern_inference_cfg4infoEE9find_coreEPS0_.exit: ; preds = %if.then.i.i28, %if.then22.i.i
+  %retval.0.i.i = phi ptr [ %curr.133.i.i, %if.then22.i.i ], [ %curr.031.i.i, %if.then.i.i28 ]
   %m_value = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %39 = load ptr, ptr %m_value, align 8
   %cmp.i.i30 = icmp eq ptr %39, null

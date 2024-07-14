@@ -301,7 +301,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN3ue2
 
 _ZNSt6vectorIN3ue26ReportESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN3ue26ReportESaIS1_EE12_M_check_lenEmPKc.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i, %_ZNKSt6vectorIN3ue26ReportESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i4 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 72
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 72
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3ue26ReportESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %if.then.i41.i
 
@@ -311,7 +311,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN3ue26
 
 _ZNSt6vectorIN3ue26ReportESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3ue26ReportESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40.i, %if.then.i41.i
   store ptr %call5.i.i.i.i, ptr %reportIds.i, align 8
-  store ptr %incdec.ptr.i4, ptr %_M_finish.i.i, align 8
+  store ptr %incdec.ptr.i3, ptr %_M_finish.i.i, align 8
   %add.ptr19.i = getelementptr inbounds %"struct.ue2::Report", ptr %call5.i.i.i.i, i64 %add.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN3ue26ReportESaIS1_EE9push_backERKS1_.exit

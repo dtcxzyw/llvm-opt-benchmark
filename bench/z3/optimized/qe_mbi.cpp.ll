@@ -2399,8 +2399,9 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp.i.i, label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i, label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i:           ; preds = %if.end
-  %cmp.not.i = icmp eq i32 %add, 0
-  br i1 %cmp.not.i, label %_ZN6vectorI5lboolLb0EjE7reserveEjRKS0_.exit, label %while.cond.i.i.preheader
+  %cmp.not.i = icmp ne i32 %add, 0
+  call void @llvm.assume(i1 %cmp.not.i)
+  br label %while.cond.i.i.preheader
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i:    ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
@@ -2453,8 +2454,8 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %.pre = load ptr, ptr %m_is_shared, align 8
   br label %_ZN6vectorI5lboolLb0EjE7reserveEjRKS0_.exit
 
-_ZN6vectorI5lboolLb0EjE7reserveEjRKS0_.exit:      ; preds = %for.body.preheader.i.i, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i, %while.end.i.i
-  %13 = phi ptr [ %.pre, %for.body.preheader.i.i ], [ null, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i ], [ %3, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i ], [ %7, %while.end.i.i ]
+_ZN6vectorI5lboolLb0EjE7reserveEjRKS0_.exit:      ; preds = %for.body.preheader.i.i, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i, %while.end.i.i
+  %13 = phi ptr [ %.pre, %for.body.preheader.i.i ], [ %3, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.thread.i ], [ %7, %while.end.i.i ]
   %idxprom.i = zext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i, align 4
@@ -16915,11 +16916,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #19
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16940,8 +16941,8 @@ attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { noreturn }

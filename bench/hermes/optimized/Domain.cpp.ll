@@ -1431,28 +1431,21 @@ _ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN6hermes2vm6GCCellESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
-  br label %_ZNSt12_Vector_baseIPN6hermes2vm6GCCellESaIS3_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPN6hermes2vm6GCCellESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %cond, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN6hermes2vm6GCCellESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN6hermes2vm6GCCellESaIS3_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -1461,9 +1454,9 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6her
   br label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  store ptr %cond.i10.i.i, ptr %youngGenFinalizables_, align 8
+  store ptr %call5.i.i.i.i.i, ptr %youngGenFinalizables_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -1522,10 +1515,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN4llvh8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
   %2 = load ptr, ptr %this, align 8
   %3 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i = icmp eq i32 %3, 0
-  br i1 %cmp.i.i, label %if.end12, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then
+  %cmp.i.i = icmp ne i32 %3, 0
+  tail call void @llvm.assume(i1 %cmp.i.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %Lookup, align 4
   %mul.i.i.i.i.i = mul i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 37
   %sub.i.i = add i32 %3, -1
@@ -1536,12 +1527,12 @@ if.end.i.i:                                       ; preds = %if.then
   %cmp.i.i23.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i
   br i1 %cmp.i.i23.i.i, label %if.end12, label %if.end13.i.i
 
-if.end13.i.i:                                     ; preds = %if.end.i.i, %if.end21.i.i
-  %agg.tmp7.sroa.0.0.copyload28.i.i = phi i32 [ %agg.tmp7.sroa.0.0.copyload.i.i, %if.end21.i.i ], [ %agg.tmp7.sroa.0.0.copyload22.i.i, %if.end.i.i ]
-  %add.ptr27.i.i = phi ptr [ %add.ptr.i.i, %if.end21.i.i ], [ %add.ptr21.i.i, %if.end.i.i ]
-  %BucketNo.026.i.i = phi i32 [ %BucketNo.0.i.i, %if.end21.i.i ], [ %BucketNo.019.i.i, %if.end.i.i ]
-  %FoundTombstone.025.i.i = phi ptr [ %spec.select.i.i, %if.end21.i.i ], [ null, %if.end.i.i ]
-  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end21.i.i ], [ 1, %if.end.i.i ]
+if.end13.i.i:                                     ; preds = %if.then, %if.end21.i.i
+  %agg.tmp7.sroa.0.0.copyload28.i.i = phi i32 [ %agg.tmp7.sroa.0.0.copyload.i.i, %if.end21.i.i ], [ %agg.tmp7.sroa.0.0.copyload22.i.i, %if.then ]
+  %add.ptr27.i.i = phi ptr [ %add.ptr.i.i, %if.end21.i.i ], [ %add.ptr21.i.i, %if.then ]
+  %BucketNo.026.i.i = phi i32 [ %BucketNo.0.i.i, %if.end21.i.i ], [ %BucketNo.019.i.i, %if.then ]
+  %FoundTombstone.025.i.i = phi ptr [ %spec.select.i.i, %if.end21.i.i ], [ null, %if.then ]
+  %ProbeAmt.024.i.i = phi i32 [ %inc.i.i, %if.end21.i.i ], [ 1, %if.then ]
   %cmp.i.i15.i.i = icmp eq i32 %agg.tmp7.sroa.0.0.copyload28.i.i, 536870911
   br i1 %cmp.i.i15.i.i, label %if.then20.i.i, label %if.end21.i.i
 
@@ -1578,10 +1569,8 @@ if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
   %5 = load ptr, ptr %this, align 8
   %6 = load i32, ptr %NumBuckets.i.i, align 8
-  %cmp.i.i10 = icmp eq i32 %6, 0
-  br i1 %cmp.i.i10, label %if.end12, label %if.end.i.i11
-
-if.end.i.i11:                                     ; preds = %if.then10
+  %cmp.i.i10 = icmp ne i32 %6, 0
+  tail call void @llvm.assume(i1 %cmp.i.i10)
   %agg.tmp.sroa.0.0.copyload.i.i.i12 = load i32, ptr %Lookup, align 4
   %mul.i.i.i.i.i13 = mul i32 %agg.tmp.sroa.0.0.copyload.i.i.i12, 37
   %sub.i.i14 = add i32 %6, -1
@@ -1592,12 +1581,12 @@ if.end.i.i11:                                     ; preds = %if.then10
   %cmp.i.i23.i.i19 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload22.i.i18
   br i1 %cmp.i.i23.i.i19, label %if.end12, label %if.end13.i.i20
 
-if.end13.i.i20:                                   ; preds = %if.end.i.i11, %if.end21.i.i27
-  %agg.tmp7.sroa.0.0.copyload28.i.i21 = phi i32 [ %agg.tmp7.sroa.0.0.copyload.i.i37, %if.end21.i.i27 ], [ %agg.tmp7.sroa.0.0.copyload22.i.i18, %if.end.i.i11 ]
-  %add.ptr27.i.i22 = phi ptr [ %add.ptr.i.i36, %if.end21.i.i27 ], [ %add.ptr21.i.i17, %if.end.i.i11 ]
-  %BucketNo.026.i.i23 = phi i32 [ %BucketNo.0.i.i34, %if.end21.i.i27 ], [ %BucketNo.019.i.i15, %if.end.i.i11 ]
-  %FoundTombstone.025.i.i24 = phi ptr [ %spec.select.i.i31, %if.end21.i.i27 ], [ null, %if.end.i.i11 ]
-  %ProbeAmt.024.i.i25 = phi i32 [ %inc.i.i32, %if.end21.i.i27 ], [ 1, %if.end.i.i11 ]
+if.end13.i.i20:                                   ; preds = %if.then10, %if.end21.i.i27
+  %agg.tmp7.sroa.0.0.copyload28.i.i21 = phi i32 [ %agg.tmp7.sroa.0.0.copyload.i.i37, %if.end21.i.i27 ], [ %agg.tmp7.sroa.0.0.copyload22.i.i18, %if.then10 ]
+  %add.ptr27.i.i22 = phi ptr [ %add.ptr.i.i36, %if.end21.i.i27 ], [ %add.ptr21.i.i17, %if.then10 ]
+  %BucketNo.026.i.i23 = phi i32 [ %BucketNo.0.i.i34, %if.end21.i.i27 ], [ %BucketNo.019.i.i15, %if.then10 ]
+  %FoundTombstone.025.i.i24 = phi ptr [ %spec.select.i.i31, %if.end21.i.i27 ], [ null, %if.then10 ]
+  %ProbeAmt.024.i.i25 = phi i32 [ %inc.i.i32, %if.end21.i.i27 ], [ 1, %if.then10 ]
   %cmp.i.i15.i.i26 = icmp eq i32 %agg.tmp7.sroa.0.0.copyload28.i.i21, 536870911
   br i1 %cmp.i.i15.i.i26, label %if.then20.i.i41, label %if.end21.i.i27
 
@@ -1620,8 +1609,8 @@ if.end21.i.i27:                                   ; preds = %if.end13.i.i20
   %cmp.i.i.i.i38 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload.i.i37
   br i1 %cmp.i.i.i.i38, label %if.end12, label %if.end13.i.i20, !llvm.loop !7
 
-if.end12:                                         ; preds = %if.end21.i.i, %if.end21.i.i27, %if.then20.i.i41, %if.end.i.i11, %if.then10, %if.then20.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then20.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i43, %if.then20.i.i41 ], [ null, %if.then10 ], [ %add.ptr21.i.i17, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end21.i.i27 ], [ %add.ptr.i.i, %if.end21.i.i ]
+if.end12:                                         ; preds = %if.end21.i.i, %if.end21.i.i27, %if.then20.i.i41, %if.then10, %if.then20.i.i, %if.then, %if.else
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then20.i.i ], [ %add.ptr21.i.i, %if.then ], [ %cond.i.i43, %if.then20.i.i41 ], [ %add.ptr21.i.i17, %if.then10 ], [ %add.ptr.i.i36, %if.end21.i.i27 ], [ %add.ptr.i.i, %if.end21.i.i ]
   %7 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %7, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8

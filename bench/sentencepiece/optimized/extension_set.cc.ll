@@ -7686,7 +7686,7 @@ select.unfold17:                                  ; preds = %_ZNSt3mapIiN6google
 
 43:                                               ; preds = %42
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
-  br label %.critedge
+  unreachable
 
 44:                                               ; preds = %42, %40, %select.unfold17
   %45 = landingpad { ptr, i32 }
@@ -7694,8 +7694,8 @@ select.unfold17:                                  ; preds = %_ZNSt3mapIiN6google
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   resume { ptr, i32 } %45
 
-.critedge:                                        ; preds = %35, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i, %43
-  %.0.i20 = phi ptr [ null, %43 ], [ %21, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i ], [ %38, %35 ]
+.critedge:                                        ; preds = %35, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
+  %.0.i20 = phi ptr [ %21, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i ], [ %38, %35 ]
   %46 = getelementptr inbounds i8, ptr %.0.i20, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = zext i8 %47 to i64
@@ -7716,47 +7716,47 @@ select.unfold17:                                  ; preds = %_ZNSt3mapIiN6google
 
 51:                                               ; preds = %.critedge
   %52 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIiE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %52)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %52)
   br label %83
 
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIlE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
   br label %83
 
 55:                                               ; preds = %.critedge
   %56 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIjE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %56)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %56)
   br label %83
 
 57:                                               ; preds = %.critedge
   %58 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldImE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
+  tail call void @_ZN6google8protobuf13RepeatedFieldImE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
   br label %83
 
 59:                                               ; preds = %.critedge
   %60 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIfE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %60)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %60)
   br label %83
 
 61:                                               ; preds = %.critedge
   %62 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIdE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %83
 
 63:                                               ; preds = %.critedge
   %64 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIbE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %64)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIbE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %64)
   br label %83
 
 65:                                               ; preds = %.critedge
   %66 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIiE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %66)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(16) %66)
   br label %83
 
 67:                                               ; preds = %.critedge
   %68 = load ptr, ptr %.0.i20, align 8
-  call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(24) %68)
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10RemoveLastEv(ptr noundef nonnull align 8 dereferenceable(24) %68)
   br label %83
 
 69:                                               ; preds = %.critedge
@@ -7774,7 +7774,7 @@ select.unfold17:                                  ; preds = %_ZNSt3mapIiN6google
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %79)
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %79)
   br label %83
 
 83:                                               ; preds = %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %.critedge
@@ -8023,7 +8023,7 @@ select.unfold37:                                  ; preds = %_ZNSt3mapIiN6google
 
 45:                                               ; preds = %44
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
-  br label %.critedge
+  unreachable
 
 46:                                               ; preds = %44, %42, %select.unfold37
   %47 = landingpad { ptr, i32 }
@@ -8031,8 +8031,8 @@ select.unfold37:                                  ; preds = %_ZNSt3mapIiN6google
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   resume { ptr, i32 } %47
 
-.critedge:                                        ; preds = %37, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i, %45
-  %.0.i40 = phi ptr [ null, %45 ], [ %23, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i ], [ %40, %37 ]
+.critedge:                                        ; preds = %37, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i
+  %.0.i40 = phi ptr [ %23, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i ], [ %40, %37 ]
   %48 = getelementptr inbounds i8, ptr %.0.i40, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = zext i8 %49 to i64
@@ -8053,47 +8053,47 @@ select.unfold37:                                  ; preds = %_ZNSt3mapIiN6google
 
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIiE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %54, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %54, i32 noundef %2, i32 noundef %3)
   br label %82
 
 55:                                               ; preds = %.critedge
   %56 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIlE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIlE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef %2, i32 noundef %3)
   br label %82
 
 57:                                               ; preds = %.critedge
   %58 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIjE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %58, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIjE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %58, i32 noundef %2, i32 noundef %3)
   br label %82
 
 59:                                               ; preds = %.critedge
   %60 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldImE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldImE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %60, i32 noundef %2, i32 noundef %3)
   br label %82
 
 61:                                               ; preds = %.critedge
   %62 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIfE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIfE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %62, i32 noundef %2, i32 noundef %3)
   br label %82
 
 63:                                               ; preds = %.critedge
   %64 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIdE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIdE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %2, i32 noundef %3)
   br label %82
 
 65:                                               ; preds = %.critedge
   %66 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIbE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIbE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef %2, i32 noundef %3)
   br label %82
 
 67:                                               ; preds = %.critedge
   %68 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf13RepeatedFieldIiE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef %2, i32 noundef %3)
   br label %82
 
 69:                                               ; preds = %.critedge
   %70 = load ptr, ptr %.0.i40, align 8
-  call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(24) %70, i32 noundef %2, i32 noundef %3)
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(24) %70, i32 noundef %2, i32 noundef %3)
   br label %82
 
 71:                                               ; preds = %.critedge

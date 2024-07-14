@@ -1778,9 +1778,8 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_locate(ptr nocapture
   br i1 %.not, label %7, label %29
 
 7:                                                ; preds = %2
-  %.09.i = load ptr, ptr %4, align 8
-  %.not10.i = icmp eq ptr %.09.i, null
-  br i1 %.not10.i, label %index_tree_locate.exit, label %.lr.ph.i
+  %.09.i = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.012.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.09.i, %7 ]
@@ -1792,16 +1791,14 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_locate(ptr nocapture
   %.1.in.i = getelementptr inbounds i8, ptr %.012.i, i64 %.1.in.v.i
   %.0.i = load ptr, ptr %.1.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %index_tree_locate.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %index_tree_locate.exit, label %.lr.ph.i, !llvm.loop !14
 
-index_tree_locate.exit:                           ; preds = %.lr.ph.i, %7
-  %.07.lcssa.i = phi ptr [ null, %7 ], [ %.18.i, %.lr.ph.i ]
-  %10 = load i64, ptr %.07.lcssa.i, align 8
+index_tree_locate.exit:                           ; preds = %.lr.ph.i
+  %10 = load i64, ptr %.18.i, align 8
   %11 = sub i64 %1, %10
-  %12 = getelementptr inbounds i8, ptr %.07.lcssa.i, i64 56
-  %.09.i32 = load ptr, ptr %12, align 8
-  %.not10.i33 = icmp eq ptr %.09.i32, null
-  br i1 %.not10.i33, label %index_tree_locate.exit43, label %.lr.ph.i34
+  %12 = getelementptr inbounds i8, ptr %.18.i, i64 56
+  %.09.i32 = load ptr, ptr %12, align 8, !nonnull !13, !noundef !13
+  br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %index_tree_locate.exit, %.lr.ph.i34
   %.012.i35 = phi ptr [ %.0.i40, %.lr.ph.i34 ], [ %.09.i32, %index_tree_locate.exit ]
@@ -1813,17 +1810,16 @@ index_tree_locate.exit:                           ; preds = %.lr.ph.i, %7
   %.1.in.i39 = getelementptr inbounds i8, ptr %.012.i35, i64 %.1.in.v.i38
   %.0.i40 = load ptr, ptr %.1.in.i39, align 8
   %.not.i41 = icmp eq ptr %.0.i40, null
-  br i1 %.not.i41, label %index_tree_locate.exit43, label %.lr.ph.i34, !llvm.loop !13
+  br i1 %.not.i41, label %index_tree_locate.exit43, label %.lr.ph.i34, !llvm.loop !14
 
-index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_tree_locate.exit
-  %.07.lcssa.i42 = phi ptr [ null, %index_tree_locate.exit ], [ %.18.i37, %.lr.ph.i34 ]
-  %15 = getelementptr inbounds i8, ptr %.07.lcssa.i42, i64 56
+index_tree_locate.exit43:                         ; preds = %.lr.ph.i34
+  %15 = getelementptr inbounds i8, ptr %.18.i37, i64 56
   %16 = load i64, ptr %15, align 8
   %.not46 = icmp eq i64 %16, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %index_tree_locate.exit43
-  %17 = getelementptr inbounds i8, ptr %.07.lcssa.i42, i64 64
+  %17 = getelementptr inbounds i8, ptr %.18.i37, i64 64
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -1839,14 +1835,14 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   %.129 = select i1 %.not31, i64 %.02844, i64 %24
   %.1 = select i1 %.not31, i64 %21, i64 %.02745
   %25 = icmp ult i64 %.129, %.1
-  br i1 %25, label %18, label %._crit_edge, !llvm.loop !14
+  br i1 %25, label %18, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %18, %index_tree_locate.exit43
   %.028.lcssa = phi i64 [ 0, %index_tree_locate.exit43 ], [ %.129, %18 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 264
-  store ptr %.07.lcssa.i, ptr %26, align 8
+  store ptr %.18.i, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr %.07.lcssa.i42, ptr %27, align 8
+  store ptr %.18.i37, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 280
   store i64 %.028.lcssa, ptr %28, align 8
   tail call fastcc void @iter_set_info(ptr noundef %0)
@@ -1885,7 +1881,7 @@ define internal fastcc void @index_tree_node_end(ptr noundef %0, ptr noundef %1,
   br label %11
 
 11:                                               ; preds = %10, %7
-  tail call void %2(ptr noundef nonnull %0, ptr noundef %1) #16, !callees !15
+  tail call void %2(ptr noundef nonnull %0, ptr noundef %1) #16, !callees !16
   ret void
 }
 
@@ -1932,6 +1928,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!13 = !{}
 !14 = distinct !{!14, !6}
-!15 = !{ptr @index_stream_end, ptr @lzma_free}
+!15 = distinct !{!15, !6}
+!16 = !{ptr @index_stream_end, ptr @lzma_free}

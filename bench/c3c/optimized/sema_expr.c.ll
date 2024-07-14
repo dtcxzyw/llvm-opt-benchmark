@@ -20261,7 +20261,7 @@ sema_cast_ct_ident_rvalue.exit:                   ; preds = %sema_analyse_expr.e
 179:                                              ; preds = %.critedge2.thread, %.thread, %176
   %.in = phi i32 [ 40, %176 ], [ %175, %.thread ], [ %171, %.critedge2.thread ]
   %.0454 = phi ptr [ %178, %176 ], [ %172, %.thread ], [ %172, %.critedge2.thread ]
-  %180 = icmp eq i32 %.in, 40
+  %180 = icmp ne i32 %.in, 40
   %181 = getelementptr inbounds i8, ptr %.0454, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = load i32, ptr %182, align 8
@@ -21017,9 +21017,9 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   store ptr %.0460, ptr %8, align 8
   %555 = getelementptr inbounds i8, ptr %525, i64 72
   %556 = load ptr, ptr %555, align 8
-  %.not504 = icmp ne ptr %556, null
-  %brmerge.not = select i1 %.not504, i1 %180, i1 false
-  br i1 %brmerge.not, label %557, label %562
+  %.not504 = icmp eq ptr %556, null
+  %brmerge = select i1 %.not504, i1 true, i1 %180
+  br i1 %brmerge, label %562, label %557
 
 557:                                              ; preds = %554
   %558 = load i32, ptr %556, align 8
@@ -21363,7 +21363,7 @@ sema_expr_rewrite_to_typeid_property.exit:        ; preds = %232, %333, %333, %3
   store ptr %.0460, ptr %8, align 8
   %738 = getelementptr inbounds i8, ptr %.2552, i64 72
   %739 = load ptr, ptr %738, align 8
-  br i1 %180, label %740, label %745
+  br i1 %180, label %745, label %740
 
 740:                                              ; preds = %.critedge10
   %741 = load i32, ptr %739, align 8

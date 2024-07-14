@@ -1076,9 +1076,8 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   br i1 %150, label %._crit_edge.thread, label %151
 
 151:                                              ; preds = %._crit_edge
-  %152 = load ptr, ptr %14, align 8
-  %.not125144 = icmp eq ptr %152, null
-  br i1 %.not125144, label %._crit_edge149, label %.lr.ph148
+  %152 = load ptr, ptr %14, align 8, !nonnull !11, !noundef !11
+  br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %151, %185
   %.0123146 = phi ptr [ %.1, %185 ], [ null, %151 ]
@@ -1158,13 +1157,12 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   %.not125 = icmp eq ptr %186, null
   br i1 %.not125, label %._crit_edge149, label %.lr.ph148
 
-._crit_edge149:                                   ; preds = %185, %151
-  %.0123.lcssa = phi ptr [ null, %151 ], [ %.1, %185 ]
+._crit_edge149:                                   ; preds = %185
   %187 = getelementptr inbounds i8, ptr %11, i64 16
   %188 = getelementptr inbounds i8, ptr %11, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = load ptr, ptr %189, align 8
-  %191 = ptrtoint ptr %.0123.lcssa to i64
+  %191 = ptrtoint ptr %.1 to i64
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
   %194 = load ptr, ptr %187, align 8
@@ -1179,17 +1177,17 @@ _ZNSt10_HashtableIiSt4pairIKiP8MeshFaceESaIS4_ENSt8__detail10_Select1stESt8equal
   %.sroa.4100.0.copyload = load double, ptr %.sroa.4100.0..sroa_idx, align 8
   %197 = fsub double %.sroa.399.0.copyload, %.sroa.096.0.copyload
   %198 = fsub double %.sroa.4100.0.copyload, %.sroa.297.0.copyload
-  %199 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 96
-  %200 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 120
+  %199 = getelementptr inbounds i8, ptr %.1, i64 96
+  %200 = getelementptr inbounds i8, ptr %.1, i64 120
   %201 = load double, ptr %200, align 8
   %202 = load double, ptr %199, align 8
   %203 = fsub double %201, %202
-  %204 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 128
+  %204 = getelementptr inbounds i8, ptr %.1, i64 128
   %205 = load double, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 104
+  %206 = getelementptr inbounds i8, ptr %.1, i64 104
   %207 = load double, ptr %206, align 8
   %208 = fsub double %205, %207
-  %209 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 208
+  %209 = getelementptr inbounds i8, ptr %.1, i64 208
   %210 = getelementptr inbounds i8, ptr %2, i64 16
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %2, i64 8

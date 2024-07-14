@@ -708,7 +708,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0)
-  br label %68
+  br label %67
 
 6:                                                ; preds = %1
   %7 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
@@ -718,7 +718,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
 9:                                                ; preds = %6
   %10 = tail call i32 @fclose(ptr noundef nonnull %2)
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %0)
-  br label %68
+  br label %67
 
 12:                                               ; preds = %6
   %13 = load i8, ptr %7, align 1
@@ -728,7 +728,7 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
 15:                                               ; preds = %12
   %16 = tail call i32 @fclose(ptr noundef nonnull %2)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %68
+  br label %67
 
 17:                                               ; preds = %12
   %18 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
@@ -744,11 +744,11 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
-  %.03848 = phi ptr [ %7, %17 ], [ %65, %._crit_edge ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03848) #22
+  %.03845 = phi ptr [ %7, %17 ], [ %64, %._crit_edge ]
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.03845) #22
   %25 = add i64 %24, 1
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #21
-  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03848) #20
+  %27 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %.03845) #20
   %28 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
   %29 = tail call i32 @atoi(ptr nocapture noundef %28) #22
   %30 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
@@ -786,8 +786,8 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %.outer.i.preheader
 
-.outer.i.preheader:                               ; preds = %.outer.i.preheader.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.outer.i.preheader.preheader ], [ %indvars.iv.next, %61 ]
+.outer.i.preheader:                               ; preds = %.outer.i.preheader.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.outer.i.preheader.preheader ], [ %indvars.iv.next, %60 ]
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.preheader, %.split22.us.i
@@ -820,10 +820,8 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
 
 .outer.split.i:                                   ; preds = %.outer.i, %.outer.split.i.backedge
   %52 = tail call i32 @fgetc(ptr noundef nonnull %2)
-  switch i32 %52, label %.loopexit.i [
-    i32 -1, label %If_LibBoxGetToken.exit
-    i32 35, label %.preheader.i
-  ]
+  %cond = icmp eq i32 %52, 35
+  br i1 %cond, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.outer.split.i, %.preheader.i
   %53 = tail call i32 @fgetc(ptr noundef nonnull %2)
@@ -851,37 +849,36 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   store i8 %54, ptr %.0.ph.i, align 1
   br label %.outer.i, !llvm.loop !12
 
-If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i, %.outer.split.i
-  %56 = phi ptr [ null, %.outer.split.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.loopexit.us.i ], [ @If_LibBoxGetToken.pBuffer, %.outer.split.us.i ]
+If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i, %.loopexit.us.i
   store i8 0, ptr %.0.ph.i, align 1
-  %57 = load i8, ptr %56, align 16
-  %58 = icmp eq i8 %57, 45
-  br i1 %58, label %61, label %59
+  %56 = load i8, ptr @If_LibBoxGetToken.pBuffer, align 16
+  %57 = icmp eq i8 %56, 45
+  br i1 %57, label %60, label %58
 
-59:                                               ; preds = %If_LibBoxGetToken.exit
-  %60 = tail call i32 @atoi(ptr nocapture noundef nonnull %56) #22
-  br label %61
+58:                                               ; preds = %If_LibBoxGetToken.exit
+  %59 = tail call i32 @atoi(ptr nocapture noundef nonnull @If_LibBoxGetToken.pBuffer) #22
+  br label %60
 
-61:                                               ; preds = %If_LibBoxGetToken.exit, %59
-  %62 = phi i32 [ %60, %59 ], [ -1000000000, %If_LibBoxGetToken.exit ]
-  %63 = load ptr, ptr %47, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv
-  store i32 %62, ptr %64, align 4
+60:                                               ; preds = %If_LibBoxGetToken.exit, %58
+  %61 = phi i32 [ %59, %58 ], [ -1000000000, %If_LibBoxGetToken.exit ]
+  %62 = load ptr, ptr %47, align 8
+  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv
+  store i32 %61, ptr %63, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.outer.i.preheader, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %61, %Abc_UtilStrsav.exit
-  %65 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %66, label %Abc_UtilStrsav.exit, !llvm.loop !14
+._crit_edge:                                      ; preds = %60, %Abc_UtilStrsav.exit
+  %64 = tail call ptr @If_LibBoxGetToken(ptr noundef nonnull %2)
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %65, label %Abc_UtilStrsav.exit, !llvm.loop !14
 
-66:                                               ; preds = %._crit_edge
-  %67 = tail call i32 @fclose(ptr noundef nonnull %2)
-  br label %68
+65:                                               ; preds = %._crit_edge
+  %66 = tail call i32 @fclose(ptr noundef nonnull %2)
+  br label %67
 
-68:                                               ; preds = %66, %15, %9, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ null, %15 ], [ %18, %66 ]
+67:                                               ; preds = %65, %15, %9, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ null, %15 ], [ %18, %65 ]
   ret ptr %.0
 }
 

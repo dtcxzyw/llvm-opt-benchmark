@@ -175,30 +175,22 @@ entry:
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
   %context_ = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %context_, align 8
-  %cmp.i.i150 = icmp eq ptr %1, null
-  br i1 %cmp.i.i150, label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i151
-
-if.end.i151:                                      ; preds = %entry
+  %1 = load ptr, ptr %context_, align 8, !nonnull !5, !noundef !5
   %2 = load i64, ptr %1, align 8
   %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %2) #8
-  br label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
-
-_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.end.i151
-  %retval.i147.sroa.0.0 = phi ptr [ %call.i, %if.end.i151 ], [ null, %entry ]
-  call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i147.sroa.0.0) #8
+  call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #8
   %content_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %content_, align 8
   %cmp.i.i185 = icmp eq ptr %3, null
   br i1 %cmp.i.i185, label %if.end.i13, label %if.end.i186
 
-if.end.i186:                                      ; preds = %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
+if.end.i186:                                      ; preds = %entry
   %4 = load i64, ptr %3, align 8
   %call.i195 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %4) #8
   br label %if.end.i13
 
-if.end.i13:                                       ; preds = %if.end.i186, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
-  %retval.i182.sroa.0.0 = phi ptr [ %call.i195, %if.end.i186 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
+if.end.i13:                                       ; preds = %if.end.i186, %entry
+  %retval.i182.sroa.0.0 = phi ptr [ %call.i195, %if.end.i186 ], [ null, %entry ]
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
   %isolate_.i11 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i11, align 8
@@ -223,7 +215,7 @@ if.then:                                          ; preds = %_ZN4node9ToV8ValueE
   br label %cleanup
 
 if.end:                                           ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
-  %call33 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i182.sroa.0.0, ptr nonnull %retval.i147.sroa.0.0, ptr nonnull %call11.i) #8
+  %call33 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i182.sroa.0.0, ptr nonnull %call.i, ptr nonnull %call11.i) #8
   %cmp.i.i139.not = icmp eq ptr %call33, null
   br i1 %cmp.i.i139.not, label %if.then42, label %lor.rhs
 
@@ -252,9 +244,9 @@ if.end43:                                         ; preds = %if.end.i
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %utf8_value, ptr noundef nonnull %0, ptr nonnull %call33) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %buf_.i.i = getelementptr inbounds i8, ptr %utf8_value, i64 16
-  %10 = load ptr, ptr %buf_.i.i, align 8, !noalias !5
-  %11 = load i64, ptr %utf8_value, align 8, !noalias !5
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8, !noalias !5
+  %10 = load ptr, ptr %buf_.i.i, align 8, !noalias !6
+  %11 = load i64, ptr %utf8_value, align 8, !noalias !6
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8, !noalias !6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -275,7 +267,7 @@ if.then.i.i:                                      ; preds = %if.end43
 
 cleanup:                                          ; preds = %if.then.i.i, %if.end43, %if.then42, %if.then
   call void @_ZN4node6errors15PrinterTryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch) #8
-  call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i147.sroa.0.0) #8
+  call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #8
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   ret void
@@ -298,30 +290,22 @@ entry:
   tail call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
   %context_ = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %context_, align 8
-  %cmp.i.i174 = icmp eq ptr %1, null
-  br i1 %cmp.i.i174, label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %context_, align 8, !nonnull !5, !noundef !5
   %2 = load i64, ptr %1, align 8
   %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %2) #8
-  br label %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
-
-_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.end.i
-  %retval.i171.sroa.0.0 = phi ptr [ %call.i, %if.end.i ], [ null, %entry ]
-  call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i171.sroa.0.0) #8
+  call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #8
   %content_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %content_, align 8
   %cmp.i.i207 = icmp eq ptr %3, null
-  br i1 %cmp.i.i207, label %if.end.i14, label %if.end.i208
+  br i1 %cmp.i.i207, label %if.end.i, label %if.end.i208
 
-if.end.i208:                                      ; preds = %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
+if.end.i208:                                      ; preds = %entry
   %4 = load i64, ptr %3, align 8
   %call.i217 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef nonnull %0, i64 noundef %4) #8
-  br label %if.end.i14
+  br label %if.end.i
 
-if.end.i14:                                       ; preds = %if.end.i208, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
-  %retval.i204.sroa.0.0 = phi ptr [ %call.i217, %if.end.i208 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
+if.end.i:                                         ; preds = %if.end.i208, %entry
+  %retval.i204.sroa.0.0 = phi ptr [ %call.i217, %if.end.i208 ], [ null, %entry ]
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
   %isolate_.i13 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i13, align 8
@@ -330,27 +314,27 @@ if.end.i14:                                       ; preds = %if.end.i208, %_ZN2v
   %cmp5.i = icmp ugt i64 %field.coerce0, 536870887
   br i1 %cmp5.i, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
 
-_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread: ; preds = %if.end.i14
+_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread: ; preds = %if.end.i
   call void @_ZN4node21ThrowErrStringTooLongEPN2v87IsolateE(ptr noundef nonnull %0) #8
   br label %cleanup
 
-_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %if.end.i14
+_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %if.end.i
   %conv.i = trunc nuw i64 %field.coerce0 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %0, ptr noundef %field.coerce1, i32 noundef 0, i32 noundef %conv.i) #8
   %cmp.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
-  %call33 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %retval.i171.sroa.0.0, ptr nonnull %call11.i) #8
+  %call33 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %call.i, ptr nonnull %call11.i) #8
   %tobool.i228 = trunc i16 %call33 to i1
   %5 = and i16 %call33, 256
-  %.not23 = icmp ne i16 %5, 0
-  %brmerge.not = and i1 %.not23, %tobool.i228
-  %.mux22 = and i16 %call33, 1
+  %.not22 = icmp ne i16 %5, 0
+  %brmerge.not = and i1 %.not22, %tobool.i228
+  %.mux21 = and i16 %call33, 1
   br i1 %brmerge.not, label %if.end40, label %cleanup
 
 if.end40:                                         ; preds = %if.end
-  %call51 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %retval.i171.sroa.0.0, ptr nonnull %call11.i) #8
+  %call51 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0, ptr nonnull %call.i, ptr nonnull %call11.i) #8
   %cmp.i.i163.not = icmp eq ptr %call51, null
   br i1 %cmp.i.i163.not, label %cleanup, label %lor.rhs
 
@@ -365,9 +349,9 @@ if.end61:                                         ; preds = %lor.rhs
 
 cleanup:                                          ; preds = %if.end, %lor.rhs, %if.end40, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, %if.end61
   %retval.sroa.0.0 = phi i16 [ %6, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ 0, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
-  %retval.sroa.3.0 = phi i16 [ 1, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ %.mux22, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
+  %retval.sroa.3.0 = phi i16 [ 1, %if.end61 ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread ], [ 0, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit ], [ %.mux21, %if.end ], [ 0, %if.end40 ], [ 0, %lor.rhs ]
   call void @_ZN4node6errors15PrinterTryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch) #8
-  call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i171.sroa.0.0) #8
+  call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #8
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8
   %retval.sroa.3.0.insert.shift = shl nuw nsw i16 %retval.sroa.3.0, 8
@@ -451,6 +435,7 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZNK4node9Utf8Value8ToStringB5cxx11Ev: %agg.result"}
-!7 = distinct !{!7, !"_ZNK4node9Utf8Value8ToStringB5cxx11Ev"}
+!5 = !{}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZNK4node9Utf8Value8ToStringB5cxx11Ev: %agg.result"}
+!8 = distinct !{!8, !"_ZNK4node9Utf8Value8ToStringB5cxx11Ev"}

@@ -3917,24 +3917,16 @@ invoke.cont15:                                    ; preds = %_ZNK4decl13get_fami
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %t.val, i64 4
   %12 = load i32, ptr %m_kind.i.i.i, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %cond.false.i.i, label %if.end29
+  br i1 %13, label %_ZNK4decl18get_num_parametersEv.exit.i, label %if.end29
 
-cond.false.i.i:                                   ; preds = %invoke.cont15
+_ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %invoke.cont15
   %m_parameters.i.i.i = getelementptr inbounds i8, ptr %t.val, i64 8
-  %14 = load ptr, ptr %m_parameters.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %14, null
-  br i1 %cmp.i.i.i.i, label %_ZNK4decl18get_num_parametersEv.exit.i, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %cond.false.i.i
+  %14 = load ptr, ptr %m_parameters.i.i.i, align 8, !nonnull !10, !noundef !10
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %16 = add i32 %15, -1
   %17 = zext i32 %16 to i64
-  br label %_ZNK4decl18get_num_parametersEv.exit.i
-
-_ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %if.end.i.i.i.i, %cond.false.i.i
-  %cond.i.i = phi i64 [ %17, %if.end.i.i.i.i ], [ 4294967295, %cond.false.i.i ]
-  %arrayidx.i.i.i4.i = getelementptr inbounds %class.parameter, ptr %14, i64 %cond.i.i
+  %arrayidx.i.i.i4.i = getelementptr inbounds %class.parameter, ptr %14, i64 %17
   %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i4.i, i64 8
   %18 = load i8, ptr %_M_index.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i8 %18, 1
@@ -4140,7 +4132,7 @@ _ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !11
 
 _ZSt20uninitialized_move_nIP9parameterjS1_ESt4pairIT_T1_ES3_T0_S4_.exit: ; preds = %_ZSt10_ConstructI9parameterJS0_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
@@ -4562,4 +4554,5 @@ attributes #16 = { builtin nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!10 = !{}
+!11 = distinct !{!11, !5}
