@@ -145,31 +145,31 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx10CoordState23sampleUmbrellaGridpointERKNS_8BiasGridEiNS_8ArrayRefIKdEElli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2, ptr %3, ptr %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = load ptr, ptr %1, align 8
-  %10 = sext i32 %7 to i64
-  %11 = add i64 %6, 2
-  %12 = icmp eq ptr %3, %4
-  br i1 %12, label %13, label %14
+  %10 = ptrtoint ptr %4 to i64
+  %11 = ptrtoint ptr %3 to i64
+  %12 = sub i64 %10, %11
+  %13 = sext i32 %7 to i64
+  %14 = add i64 %6, 2
+  %15 = icmp eq ptr %3, %4
+  br i1 %15, label %16, label %17
 
-13:                                               ; preds = %8
+16:                                               ; preds = %8
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_125getSampleFromDistributionENS_8ArrayRefIKdEElllENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 104) #12
   unreachable
 
-14:                                               ; preds = %8
-  %15 = ptrtoint ptr %3 to i64
-  %16 = ptrtoint ptr %4 to i64
-  %17 = sub i64 %16, %15
-  %18 = ashr exact i64 %17, 3
+17:                                               ; preds = %8
+  %18 = ashr exact i64 %12, 3
   %19 = icmp ugt i64 %18, 1152921504606846975
   br i1 %19, label %.noexc.i, label %.noexc15.i
 
-.noexc.i:                                         ; preds = %14
+.noexc.i:                                         ; preds = %17
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #12
   unreachable
 
-.noexc15.i:                                       ; preds = %14
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #13
+.noexc15.i:                                       ; preds = %17
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #13
   store double 0.000000e+00, ptr %20, align 8
-  %21 = icmp eq i64 %17, 8
+  %21 = icmp eq i64 %12, 8
   br i1 %21, label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i, label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i:      ; preds = %.noexc15.i
@@ -179,7 +179,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i:      ; preds = %.noexc15.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc15.i
   %23 = getelementptr i8, ptr %20, i64 8
-  %24 = add nsw i64 %17, -8
+  %24 = add nsw i64 %12, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %24, i1 false)
   %25 = load double, ptr %3, align 8
   store double %25, ptr %20, align 8
@@ -205,7 +205,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %39, %._crit_edge.i
   resume { ptr, i32 } %33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i
-  %34 = getelementptr i8, ptr %20, i64 %17
+  %34 = getelementptr i8, ptr %20, i64 %12
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load double, ptr %35, align 8
   %37 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %36, double noundef 1.000000e+00, double noundef 1.000000e-02)
@@ -224,7 +224,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %39, %._crit_edge.i
 40:                                               ; preds = %38
   %41 = add i64 %6, %5
   %42 = xor i64 %6, 2004413935125301794
-  %43 = add nsw i64 %10, 36864
+  %43 = add nsw i64 %13, 36864
   %44 = add i64 %41, %43
   %45 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 16)
   %46 = xor i64 %45, %44
@@ -253,7 +253,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %39, %._crit_edge.i
   %69 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 21)
   %70 = xor i64 %69, %68
   %71 = add i64 %68, %42
-  %72 = add i64 %11, %70
+  %72 = add i64 %14, %70
   %73 = add i64 %71, %72
   %74 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 16)
   %75 = xor i64 %74, %73

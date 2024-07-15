@@ -29,31 +29,31 @@ define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6Bin
   br i1 %.not, label %._crit_edge, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %2, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
-  %.022 = phi i64 [ %34, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit ], [ 0, %2 ]
+  %.021 = phi i64 [ %34, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit ], [ 0, %2 ]
   %14 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #4
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.022
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.021
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %17, i64 %.022
+  %18 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %17, i64 %.021
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.022
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %.021
   %24 = load ptr, ptr %23, align 8
   store i32 %21, ptr %24, align 4
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %25, i64 %.022
+  %26 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %25, i64 %.021
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %.022
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %.021
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   store i32 %29, ptr %33, align 4
-  %34 = add nuw i64 %.022, 1
+  %34 = add nuw i64 %.021, 1
   %35 = load ptr, ptr %5, align 8
   %36 = load ptr, ptr %3, align 8
   %37 = ptrtoint ptr %35 to i64

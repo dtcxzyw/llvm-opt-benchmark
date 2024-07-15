@@ -26,11 +26,11 @@ define hidden void @_ZN4LIEF2PE14init_c_importsEP11Pe_Binary_tPNS0_6BinaryE(ptr 
   %8 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr null, ptr %8, align 8
   %.pre = load ptr, ptr %3, align 8
-  %.pre36 = load ptr, ptr %5, align 8
+  %.pre35 = load ptr, ptr %5, align 8
   br label %9
 
 9:                                                ; preds = %7, %2
-  %10 = phi ptr [ %.pre36, %7 ], [ %6, %2 ]
+  %10 = phi ptr [ %.pre35, %7 ], [ %6, %2 ]
   %11 = phi ptr [ %.pre, %7 ], [ %4, %2 ]
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
@@ -47,57 +47,57 @@ define hidden void @_ZN4LIEF2PE14init_c_importsEP11Pe_Binary_tPNS0_6BinaryE(ptr 
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 112
-  %.not34 = icmp eq ptr %20, %21
-  br i1 %.not34, label %._crit_edge, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
+  %.not33 = icmp eq ptr %20, %21
+  br i1 %.not33, label %._crit_edge, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
 
 _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit: ; preds = %9, %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
   %26 = phi ptr [ %65, %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit ], [ %21, %9 ]
-  %.033 = phi i64 [ %63, %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit ], [ 0, %9 ]
-  %27 = getelementptr inbounds %"class.LIEF::PE::Import", ptr %26, i64 %.033
+  %.032 = phi i64 [ %63, %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit ], [ 0, %9 ]
+  %27 = getelementptr inbounds %"class.LIEF::PE::Import", ptr %26, i64 %.032
   %28 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #5
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %.033
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %.032
   store ptr %28, ptr %30, align 8
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE6Import4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(106) %27)
   %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #6
   %33 = load ptr, ptr %19, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.033
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %.032
   %35 = load ptr, ptr %34, align 8
   store ptr %32, ptr %35, align 8
   %36 = tail call noundef i32 @_ZNK4LIEF2PE6Import15forwarder_chainEv(ptr noundef nonnull align 8 dereferenceable(106) %27)
   %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %.033
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %.032
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %36, ptr %40, align 8
   %41 = tail call noundef i32 @_ZNK4LIEF2PE6Import15forwarder_chainEv(ptr noundef nonnull align 8 dereferenceable(106) %27)
   %42 = load ptr, ptr %19, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %.033
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %.032
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 %41, ptr %45, align 4
   %46 = tail call noundef i32 @_ZNK4LIEF2PE6Import24import_address_table_rvaEv(ptr noundef nonnull align 8 dereferenceable(106) %27)
   %47 = load ptr, ptr %19, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %.033
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %.032
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   store i32 %46, ptr %50, align 8
   %51 = tail call noundef i32 @_ZNK4LIEF2PE6Import23import_lookup_table_rvaEv(ptr noundef nonnull align 8 dereferenceable(106) %27)
   %52 = load ptr, ptr %19, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %.033
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %.032
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 28
   store i32 %51, ptr %55, align 4
   %56 = load ptr, ptr %19, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.033
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %.032
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   store ptr null, ptr %59, align 8
   %60 = load ptr, ptr %19, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %.033
+  %61 = getelementptr inbounds ptr, ptr %60, i64 %.032
   %62 = load ptr, ptr %61, align 8
   tail call void @_ZN4LIEF2PE21init_c_import_entriesEP11Pe_Import_tRNS0_6ImportE(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(106) %27)
-  %63 = add nuw i64 %.033, 1
+  %63 = add nuw i64 %.032, 1
   %64 = load ptr, ptr %5, align 8
   %65 = load ptr, ptr %3, align 8
   %66 = ptrtoint ptr %64 to i64
@@ -108,11 +108,11 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal
   br i1 %70, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge.loopexit, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit
-  %.pre37 = load ptr, ptr %19, align 8
+  %.pre36 = load ptr, ptr %19, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %71 = phi ptr [ %18, %9 ], [ %.pre37, %._crit_edge.loopexit ]
+  %71 = phi ptr [ %18, %9 ], [ %.pre36, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ %25, %9 ], [ %69, %._crit_edge.loopexit ]
   %72 = getelementptr inbounds ptr, ptr %71, i64 %.lcssa
   store ptr null, ptr %72, align 8

@@ -9299,102 +9299,102 @@ define internal void @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35Refer
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %.val4 = load ptr, ptr %5, align 8
   %.val5 = load i32, ptr %2, align 4
-  %6 = ptrtoint ptr %.val3 to i64
+  %6 = ptrtoint ptr %.val4 to i64
+  %7 = ptrtoint ptr %.val3 to i64
+  %8 = sub i64 %6, %7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %7 = getelementptr inbounds i8, ptr %.val, i64 48
-  %8 = load double, ptr %7, align 8
-  store double %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %.val, i64 56
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
-  %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = ptrtoint ptr %11 to i64
-  %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %11, i64 %17
-  store ptr %18, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
-  %20 = getelementptr inbounds i8, ptr %.val, i64 80
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  %23 = getelementptr inbounds i8, ptr %.val, i64 88
-  %24 = load ptr, ptr %23, align 8
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %21 to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds i8, ptr %21, i64 %27
-  store ptr %28, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  %30 = getelementptr inbounds i8, ptr %.val, i64 104
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 48
-  %33 = getelementptr inbounds i8, ptr %.val, i64 112
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %31 to i64
-  %37 = sub i64 %35, %36
-  %38 = getelementptr inbounds i8, ptr %31, i64 %37
-  store ptr %38, ptr %32, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 56
-  %40 = getelementptr inbounds i8, ptr %.val, i64 128
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 64
-  %43 = getelementptr inbounds i8, ptr %.val, i64 136
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %41 to i64
-  %47 = sub i64 %45, %46
-  %48 = getelementptr inbounds i8, ptr %41, i64 %47
-  store ptr %48, ptr %42, align 8
-  %49 = getelementptr inbounds i8, ptr %.val, i64 40
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %9 = getelementptr inbounds i8, ptr %.val, i64 48
+  %10 = load double, ptr %9, align 8
+  store double %10, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds i8, ptr %.val, i64 56
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds i8, ptr %.val, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %13 to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds i8, ptr %13, i64 %19
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds i8, ptr %.val, i64 80
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds i8, ptr %.val, i64 88
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %23 to i64
+  %29 = sub i64 %27, %28
+  %30 = getelementptr inbounds i8, ptr %23, i64 %29
+  store ptr %30, ptr %24, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = getelementptr inbounds i8, ptr %.val, i64 104
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  %35 = getelementptr inbounds i8, ptr %.val, i64 112
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %33 to i64
+  %39 = sub i64 %37, %38
+  %40 = getelementptr inbounds i8, ptr %33, i64 %39
+  store ptr %40, ptr %34, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 56
+  %42 = getelementptr inbounds i8, ptr %.val, i64 128
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 64
+  %45 = getelementptr inbounds i8, ptr %.val, i64 136
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = ptrtoint ptr %43 to i64
+  %49 = sub i64 %47, %48
+  %50 = getelementptr inbounds i8, ptr %43, i64 %49
+  store ptr %50, ptr %44, align 8
+  %51 = getelementptr inbounds i8, ptr %.val, i64 40
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %3
-  %52 = getelementptr inbounds i8, ptr %.val, i64 208
-  br label %53
+  %54 = getelementptr inbounds i8, ptr %.val, i64 208
+  br label %55
 
-53:                                               ; preds = %53, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %53 ]
-  %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds float, ptr %.val3, i64 %indvars.iv.i.i.i.i
-  %56 = load float, ptr %55, align 4
-  %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %61 = call noundef float %59(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %60, float noundef %56, i32 noundef %.val5, ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %62 = fpext float %61 to double
-  %63 = load ptr, ptr %40, align 8
-  %64 = getelementptr inbounds double, ptr %63, i64 %indvars.iv.i.i.i.i
-  store double %62, ptr %64, align 8
+55:                                               ; preds = %55, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %55 ]
+  %56 = load ptr, ptr %54, align 8
+  %57 = getelementptr inbounds float, ptr %.val3, i64 %indvars.iv.i.i.i.i
+  %58 = load float, ptr %57, align 4
+  %59 = load ptr, ptr %56, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
+  %63 = call noundef float %61(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %62, float noundef %58, i32 noundef %.val5, ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %64 = fpext float %63 to double
+  %65 = load ptr, ptr %42, align 8
+  %66 = getelementptr inbounds double, ptr %65, i64 %indvars.iv.i.i.i.i
+  store double %64, ptr %66, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %65 = load i32, ptr %49, align 8
-  %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next.i.i.i.i, %66
-  br i1 %67, label %53, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !81
+  %67 = load i32, ptr %51, align 8
+  %68 = sext i32 %67 to i64
+  %69 = icmp slt i64 %indvars.iv.next.i.i.i.i, %68
+  br i1 %69, label %55, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !81
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %53
-  %.pre.i.i.i.i = load ptr, ptr %10, align 8
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %55
+  %.pre.i.i.i.i = load ptr, ptr %12, align 8
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %3
-  %68 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %3 ]
-  %69 = ptrtoint ptr %.val4 to i64
-  %70 = sub i64 %69, %6
-  %71 = ashr exact i64 %70, 2
+  %70 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %13, %3 ]
+  %71 = ashr exact i64 %8, 2
   %72 = icmp sgt i64 %71, 0
   br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx34VelocityScalingTemperatureCoupling21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_6OffsetENS0_13UseFullStepKEENS0_33ReportPreviousStepConservedEnergyERKNS0_13PropagatorTagEE3$_1JNS0_8ArrayRefIKfEENS0_35ReferenceTemperatureChangeAlgorithmEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EEST_E4typeEOSU_DpOSV_.exit"
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %68, %._crit_edge.i.i.i.i ]
+  %.09.i.i.i.i.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %70, %._crit_edge.i.i.i.i ]
   %.048.i.i.i.i.i.i.i.i.i = phi i64 [ %76, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %71, %._crit_edge.i.i.i.i ]
   %.sroa.05.07.i.i.i.i.i.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.val3, %._crit_edge.i.i.i.i ]
   %73 = load float, ptr %.sroa.05.07.i.i.i.i.i.i.i.i.i, align 4

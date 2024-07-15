@@ -1707,28 +1707,28 @@ _ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %
   br label %.body424
 
 531:                                              ; preds = %512
-  %532 = ptrtoint ptr %515 to i64
-  %533 = getelementptr inbounds i8, ptr %514, i64 8
-  %534 = load ptr, ptr %533, align 8
+  %532 = getelementptr inbounds i8, ptr %514, i64 8
+  %533 = load ptr, ptr %532, align 8
+  %534 = ptrtoint ptr %533 to i64
+  %535 = ptrtoint ptr %515 to i64
+  %536 = sub i64 %534, %535
   %sext.i = shl i64 %524, 30
-  %535 = ashr i64 %sext.i, 32
-  %536 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.57, i32 noundef 213, i64 noundef %535, i64 noundef 4)
+  %537 = ashr i64 %sext.i, 32
+  %538 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.57, i32 noundef 213, i64 noundef %537, i64 noundef 4)
           to label %.noexc471 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc471:                                        ; preds = %531
-  %537 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.57, i32 noundef 214, i64 noundef %535, i64 noundef 4)
+  %539 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.57, i32 noundef 214, i64 noundef %537, i64 noundef 4)
           to label %.noexc472 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc472:                                        ; preds = %.noexc471
   %sext74.i = add i64 %sext.i, 4294967296
-  %538 = ashr i64 %sext74.i, 32
-  %539 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.57, i32 noundef 215, i64 noundef %538, i64 noundef 4)
+  %540 = ashr i64 %sext74.i, 32
+  %541 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.57, i32 noundef 215, i64 noundef %540, i64 noundef 4)
           to label %.noexc473 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc473:                                        ; preds = %.noexc472
-  %540 = ptrtoint ptr %534 to i64
-  %541 = sub i64 %540, %532
-  %542 = ashr exact i64 %541, 2
+  %542 = ashr exact i64 %536, 2
   %543 = icmp sgt i64 %542, 0
   br i1 %543, label %.lr.ph.i469, label %._crit_edge.i465
 
@@ -1747,9 +1747,9 @@ _ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %
   %551 = getelementptr inbounds i8, ptr %548, i64 4
   %552 = load float, ptr %551, align 4
   %553 = sext i32 %.05175.i to i64
-  %554 = getelementptr inbounds float, ptr %536, i64 %553
+  %554 = getelementptr inbounds float, ptr %538, i64 %553
   store float %552, ptr %554, align 4
-  %555 = getelementptr inbounds i32, ptr %537, i64 %553
+  %555 = getelementptr inbounds i32, ptr %539, i64 %553
   store i32 %550, ptr %555, align 4
   %556 = add nsw i32 %.05175.i, 1
   br label %557
@@ -1795,7 +1795,7 @@ _ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %
 
 580:                                              ; preds = %.lr.ph82.i
   %581 = sext i32 %.05378.i to i64
-  %582 = getelementptr inbounds i32, ptr %539, i64 %581
+  %582 = getelementptr inbounds i32, ptr %541, i64 %581
   store i32 %.05577.i, ptr %582, align 4
   %583 = load i32, ptr %578, align 4
   %584 = add nsw i32 %.05378.i, 1
@@ -1823,7 +1823,7 @@ _ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %
   %.055.lcssa.i = phi i32 [ 0, %._crit_edge.i465 ], [ %588, %585 ]
   %.053.lcssa.i = phi i32 [ 0, %._crit_edge.i465 ], [ %.154.i, %585 ]
   %597 = sext i32 %.053.lcssa.i to i64
-  %598 = getelementptr inbounds i32, ptr %539, i64 %597
+  %598 = getelementptr inbounds i32, ptr %541, i64 %597
   store i32 %.055.lcssa.i, ptr %598, align 4
   %.not.i466 = icmp eq i32 %.053.lcssa.i, %.051.lcssa.i
   br i1 %.not.i466, label %611, label %599
@@ -2114,13 +2114,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit501:       ; preds = %644, %647
 672:                                              ; preds = %631, %651, %650, %428, %._crit_edge995
   %.1782 = phi ptr [ null, %651 ], [ null, %650 ], [ null, %631 ], [ %.0781, %._crit_edge995 ], [ %.0781, %428 ]
   %.3780 = phi ptr [ null, %651 ], [ null, %650 ], [ null, %631 ], [ %.2779, %._crit_edge995 ], [ %.2779, %428 ]
-  %.0776 = phi ptr [ %539, %651 ], [ %539, %650 ], [ %539, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
-  %.0775 = phi ptr [ %537, %651 ], [ %537, %650 ], [ %537, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
+  %.0776 = phi ptr [ %541, %651 ], [ %541, %650 ], [ %541, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
+  %.0775 = phi ptr [ %539, %651 ], [ %539, %650 ], [ %539, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
   %.2774 = phi ptr [ null, %651 ], [ null, %650 ], [ null, %631 ], [ %.1773, %._crit_edge995 ], [ %.1773, %428 ]
   %.2771 = phi ptr [ null, %651 ], [ null, %650 ], [ null, %631 ], [ %.1770, %._crit_edge995 ], [ %.1770, %428 ]
   %.1768 = phi ptr [ null, %651 ], [ null, %650 ], [ null, %631 ], [ %.0767, %._crit_edge995 ], [ %.0767, %428 ]
   %.0759 = phi ptr [ %613, %651 ], [ %613, %650 ], [ %613, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
-  %.0758 = phi ptr [ %536, %651 ], [ %536, %650 ], [ %536, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
+  %.0758 = phi ptr [ %538, %651 ], [ %538, %650 ], [ %538, %631 ], [ null, %._crit_edge995 ], [ null, %428 ]
   %.4 = phi i32 [ 0, %651 ], [ 0, %650 ], [ 0, %631 ], [ %.3, %._crit_edge995 ], [ %.3, %428 ]
   %.1 = phi i32 [ 0, %651 ], [ 0, %650 ], [ 0, %631 ], [ %.0, %._crit_edge995 ], [ %.0, %428 ]
   %.0342 = phi i32 [ %.051.lcssa.i, %651 ], [ %.051.lcssa.i, %650 ], [ %.051.lcssa.i, %631 ], [ 0, %._crit_edge995 ], [ 0, %428 ]

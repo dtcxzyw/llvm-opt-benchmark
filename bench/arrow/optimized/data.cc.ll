@@ -3192,24 +3192,21 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.sroa.0.i.i)
-  %retval.sroa.0.4.retval.sroa_idx.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
+  %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx3 = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx3, i8 0, i64 12, i1 false)
   store i32 %conv, ptr %retval.sroa.0.i.i, align 8
   %sext = shl i64 %v.coerce0, 32
   %conv.i.i = ashr exact i64 %sext, 32
-  %0 = icmp ugt i32 %conv, 11
-  %1 = sub nsw i64 12, %conv.i.i
-  %2 = select i1 %0, i64 0, i64 %1
-  %3 = getelementptr i8, ptr %retval.sroa.0.4.retval.sroa_idx.i.i, i64 %conv.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.retval.sroa_idx.i.i, ptr align 1 %v.coerce1, i64 %conv.i.i, i1 false)
-  %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i = load i64, ptr %retval.sroa.0.i.i, align 8
-  %retval.sroa.0.8..fca.1.gep.sroa_idx6.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 8
-  %retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i = load i64, ptr %retval.sroa.0.8..fca.1.gep.sroa_idx6.i.i, align 8
+  %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx, ptr align 1 %v.coerce1, i64 %conv.i.i, i1 false)
+  %retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i = load i64, ptr %retval.sroa.0.i.i, align 8
+  %retval.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 8
+  %retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i = load i64, ptr %retval.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i)
-  %retval.sroa.3.0.extract.shift.i = lshr i64 %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i, 32
+  %retval.sroa.3.0.extract.shift.i = lshr i64 %retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i, 32
   %retval.sroa.3.0.extract.trunc.i = trunc nuw i64 %retval.sroa.3.0.extract.shift.i to i32
-  %retval.sroa.5.8.extract.trunc.i = trunc i64 %retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i to i32
-  %retval.sroa.8.8.extract.shift.i = lshr i64 %retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i, 32
+  %retval.sroa.5.8.extract.trunc.i = trunc i64 %retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i to i32
+  %retval.sroa.8.8.extract.shift.i = lshr i64 %retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.i.i, 32
   %retval.sroa.8.8.extract.trunc.i = trunc nuw i64 %retval.sroa.8.8.extract.shift.i to i32
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit
 
@@ -3218,7 +3215,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit
 
 _ZN5arrow4util12ToBinaryViewEPKviii.exit:         ; preds = %if.then.i, %if.end.i
-  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i, %if.then.i ], [ %v.coerce0, %if.end.i ]
+  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..fca.0.load.i.i, %if.then.i ], [ %v.coerce0, %if.end.i ]
   %retval.sroa.3.0.i = phi i32 [ %retval.sroa.3.0.extract.trunc.i, %if.then.i ], [ %retval.sroa.3.4.copyload.i, %if.end.i ]
   %retval.sroa.5.0.i = phi i32 [ %retval.sroa.5.8.extract.trunc.i, %if.then.i ], [ %buffer_index, %if.end.i ]
   %retval.sroa.8.0.i = phi i32 [ %retval.sroa.8.8.extract.trunc.i, %if.then.i ], [ %offset, %if.end.i ]

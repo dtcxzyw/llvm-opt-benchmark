@@ -193,9 +193,8 @@ call.i.i.noexc24:                                 ; preds = %_ZN7rocksdb14GetVar
 
 lor.lhs.false7:                                   ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i21, %call.i.i.noexc24
   %retval.0.i10.i14 = phi ptr [ %add.ptr.i.i23, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i21 ], [ %call.i.i25, %call.i.i.noexc24 ]
-  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %add.ptr.i9 to i64
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %retval.0.i10.i14 to i64
-  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
+  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i16
   %add.ptr.i28 = getelementptr inbounds i8, ptr %retval.0.i10.i14, i64 %sub.ptr.sub.i17
   %cmp.i.i29 = icmp sgt i64 %sub.ptr.sub.i17, 0
   br i1 %cmp.i.i29, label %if.then.i.i38, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i30
@@ -296,9 +295,8 @@ lpad1:                                            ; preds = %lpad1.loopexit.spli
 
 if.end:                                           ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i40, %call.i.i.noexc43
   %retval.0.i10.i33 = phi ptr [ %add.ptr.i.i42, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i40 ], [ %call.i.i44, %call.i.i.noexc43 ]
-  %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i28 to i64
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %retval.0.i10.i33 to i64
-  %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
+  %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i35
   %14 = load i32, ptr %prefix_size, align 4
   %conv = zext i32 %14 to i64
   %add = add i64 %pos.0146, %conv

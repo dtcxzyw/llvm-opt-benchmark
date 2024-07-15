@@ -130,12 +130,8 @@ sw.bb31:                                          ; preds = %if.end18, %if.end18
 if.then37:                                        ; preds = %sw.bb31
   %conv = zext nneg i32 %spec.select to i64
   store ptr null, ptr %plain_ptr, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 64 %plain_data, i8 0, i64 %conv, i1 false)
   %conv40 = zext i32 %sig_len to i64
-  %.not = icmp ugt i32 %hash_len, %sig_len
-  %1 = sub nsw i64 %conv, %conv40
-  %2 = select i1 %.not, i64 %1, i64 0
-  %3 = getelementptr i8, ptr %plain_data, i64 %conv40
-  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %plain_data, ptr nonnull align 1 %sig, i64 %conv40, i1 false)
   br label %do.body41
 
@@ -155,8 +151,8 @@ do.cond48:                                        ; preds = %do.body41, %if.then
 
 do.end51:                                         ; preds = %do.cond48
   %cmp52 = icmp sgt i32 %ret.3, -1
-  %4 = load ptr, ptr %plain_ptr, align 8
-  %tobool = icmp ne ptr %4, null
+  %1 = load ptr, ptr %plain_ptr, align 8
+  %tobool = icmp ne ptr %1, null
   %or.cond6 = select i1 %cmp52, i1 %tobool, i1 false
   br i1 %or.cond6, label %if.then54, label %return
 
@@ -166,7 +162,7 @@ if.then54:                                        ; preds = %do.end51
 
 land.lhs.true57:                                  ; preds = %if.then54
   %conv58 = zext nneg i32 %hash_len to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %4, ptr %hash_data, i64 %conv58)
+  %bcmp = call i32 @bcmp(ptr nonnull %1, ptr %hash_data, i64 %conv58)
   %cmp60 = icmp eq i32 %bcmp, 0
   br i1 %cmp60, label %return, label %if.else
 

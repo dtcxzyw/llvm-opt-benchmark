@@ -4965,8 +4965,7 @@ while.end:                                        ; preds = %if.end, %entry
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i
   %call.i.i.i.i52 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN5arrow2io8internal15RangeCacheEntryES7_EET0_T_S9_S8_(ptr noundef %__first2.sroa.0.0.lcssa, ptr noundef %__last2.coerce, ptr noundef %add.ptr.i.i.i.i)
   %sub.ptr.lhs.cast.i.i.i53 = ptrtoint ptr %call.i.i.i.i52 to i64
-  %sub.ptr.rhs.cast.i.i.i54 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i53, %sub.ptr.rhs.cast.i.i.i54
+  %sub.ptr.sub.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i53, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i56 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i55
   ret ptr %add.ptr.i.i.i.i56
 }

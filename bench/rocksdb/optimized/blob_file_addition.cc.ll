@@ -313,9 +313,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i: ; preds =
 land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i
   %3 = phi i32 [ %conv.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %.pre.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
   %4 = phi ptr [ %add.ptr.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %call.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   store ptr %4, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8
   %conv.i = zext i32 %3 to i64
@@ -509,9 +508,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i102: ; pred
 land.lhs.true.i104:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i102, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i117
   %16 = phi i32 [ %conv.i.i.i118, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i117 ], [ %.pre.i103, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i102 ]
   %17 = phi ptr [ %add.ptr.i.i.i119, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i117 ], [ %call.i.i.i100, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i102 ]
-  %sub.ptr.lhs.cast.i.i105 = ptrtoint ptr %add.ptr.i.i97 to i64
   %sub.ptr.rhs.cast.i.i106 = ptrtoint ptr %17 to i64
-  %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i105, %sub.ptr.rhs.cast.i.i106
+  %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i80, %sub.ptr.rhs.cast.i.i106
   store ptr %17, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i107, ptr %size_.i.i, align 8
   %conv.i108 = zext i32 %16 to i64

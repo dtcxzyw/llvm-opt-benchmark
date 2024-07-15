@@ -103,9 +103,7 @@ do.body3.outer.i:                                 ; preds = %do.end46.i, %do.end
   %sub.ptr.rhs.cast5.i.i = ptrtoint ptr %sp.0.ph.i to i64
   %sub.ptr.rhs.cast21.i = ptrtoint ptr %op.0.ph.i to i64
   %sub.ptr.sub22.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast21.i
-  %add.ptr.i92.i = getelementptr i8, ptr %op.0.ph.i, i64 %sub.ptr.sub22.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %op.0.ph.i, i64 3
-  %sub.ptr.lhs.cast.i93.i = ptrtoint ptr %add.ptr.i92.i to i64
   %gepdiff.i.i = add nsw i64 %sub.ptr.sub22.i, -3
   %tobool.not.i.i94.i = icmp ne i32 %writeLitEntropy.0.ph.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i94.i, i64 200, i64 0
@@ -490,7 +488,7 @@ if.end39.i.i.i:                                   ; preds = %if.then32.i.i.i, %i
   %cLitSize.0.i.i.i = phi i64 [ %46, %if.then32.i.i.i ], [ 0, %if.end27.i.i.i ]
   %op.0.i.i.i = phi ptr [ %add.ptr34.i.i.i, %if.then32.i.i.i ], [ %add.ptr7.i.i.i, %if.end27.i.i.i ]
   %sub.ptr.rhs.cast.i.i109.i = ptrtoint ptr %op.0.i.i.i to i64
-  %sub.ptr.sub.i.i110.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast.i.i109.i
+  %sub.ptr.sub.i.i110.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast.i.i109.i
   br i1 %cmp8.not.i.i.i, label %cond.true43.i.i.i, label %cond.false45.i.i.i
 
 cond.true43.i.i.i:                                ; preds = %if.end39.i.i.i
@@ -594,7 +592,7 @@ do.end12.i.i:                                     ; preds = %ZSTD_compressSubBlo
 if.end14.i.i:                                     ; preds = %do.end12.i.i
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i, i64 %retval.0.i.i96.i
   %sub.ptr.rhs.cast17.i.i = ptrtoint ptr %add.ptr15.i.i to i64
-  %sub.ptr.sub18.i.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast17.i.i
+  %sub.ptr.sub18.i.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast17.i.i
   %cctxParams.val.i.i = load i32, ptr %16, align 4
   %cmp.i22.i.i = icmp ugt i32 %cctxParams.val.i.i, 57
   %conv.i23.i.i = zext i1 %cmp.i22.i.i to i32
@@ -643,7 +641,7 @@ if.end37.i.i.i:                                   ; preds = %if.end30.i.i.i, %if
 if.end53.i.i.i:                                   ; preds = %if.end37.i.i.i
   store i8 -4, ptr %op.03.i.i.i, align 1
   %sub.ptr.rhs.cast55.i.i.i = ptrtoint ptr %incdec.ptr38.i.i.i to i64
-  %sub.ptr.sub56.i.i.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast55.i.i.i
+  %sub.ptr.sub56.i.i.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast55.i.i.i
   %call60.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %incdec.ptr38.i.i.i, i64 noundef %sub.ptr.sub56.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1215.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
   %cmp.i.i.i107.i = icmp ult i64 %call60.i.i.i, -119
   br i1 %cmp.i.i.i107.i, label %do.end74.i.i.i, label %ZSTD_compressSubBlock_multi.exit
@@ -664,7 +662,7 @@ if.end53.thread.i.i.i:                            ; preds = %if.end37.i.i.i
   %54 = load i64, ptr %fseTablesSize.i.i.i, align 8
   %add.ptr51.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr38.i.i.i, i64 %54
   %sub.ptr.rhs.cast555.i.i.i = ptrtoint ptr %add.ptr51.i.i.i to i64
-  %sub.ptr.sub566.i.i.i = sub i64 %sub.ptr.lhs.cast.i93.i, %sub.ptr.rhs.cast555.i.i.i
+  %sub.ptr.sub566.i.i.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast555.i.i.i
   %call609.i.i.i = call i64 @ZSTD_encodeSequences(ptr noundef nonnull %add.ptr51.i.i.i, i64 noundef %sub.ptr.sub566.i.i.i, ptr noundef nonnull %matchlengthCTable.i.i.i, ptr noundef %mlCodePtr.0.ph.i, ptr noundef nonnull %fse.i.i, ptr noundef %ofCodePtr.0.ph.i, ptr noundef nonnull %litlengthCTable.i.i.i, ptr noundef %llCodePtr.0.ph.i, ptr noundef %sp.0.ph.i, i64 noundef %seqCount.1215.i, i32 noundef %conv.i23.i.i, i32 noundef %5) #4
   %cmp.i10.i.i.i = icmp ult i64 %call609.i.i.i, -119
   br i1 %cmp.i10.i.i.i, label %land.lhs.true.i.i.i, label %ZSTD_compressSubBlock_multi.exit

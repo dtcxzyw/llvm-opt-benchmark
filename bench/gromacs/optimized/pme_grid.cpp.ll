@@ -1899,9 +1899,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br label %85
 
 72:                                               ; preds = %55
-  %73 = ptrtoint ptr %60 to i64
-  %74 = ptrtoint ptr %62 to i64
-  %75 = sub i64 %74, %73
+  %73 = ptrtoint ptr %62 to i64
+  %74 = ptrtoint ptr %60 to i64
+  %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 2
   %77 = sext i32 %59 to i64
   %.not54 = icmp slt i64 %76, %77
@@ -1912,7 +1912,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   unreachable
 
 79:                                               ; preds = %72
-  %80 = and i64 %73, 15
+  %80 = and i64 %74, 15
   %81 = icmp eq i64 %80, 0
   %or.cond = or i1 %38, %81
   br i1 %or.cond, label %83, label %82

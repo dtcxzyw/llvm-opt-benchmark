@@ -1910,9 +1910,9 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %72, 
   br i1 %.not63.i, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit, label %.lr.ph.i
 
 .preheader60.i:                                   ; preds = %100
-  %106 = ptrtoint ptr %102 to i64
-  %107 = ptrtoint ptr %104 to i64
-  %108 = sub i64 %107, %106
+  %106 = ptrtoint ptr %104 to i64
+  %107 = ptrtoint ptr %102 to i64
+  %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 2
   %110 = icmp sgt i64 %109, 0
   br i1 %110, label %.lr.ph72.i, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit
@@ -2055,9 +2055,9 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %16 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %20, %19
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %21 = sub i64 %19, %20
   %22 = lshr exact i64 %21, 2
   %23 = trunc i64 %22 to i32
   store i32 %23, ptr %11, align 8

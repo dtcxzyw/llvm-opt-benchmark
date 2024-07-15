@@ -133,28 +133,28 @@ if.end13:                                         ; preds = %release.i.i
   %and = and i64 %add, -4096
   %sub = sub i64 %and, %7
   %add.ptr = getelementptr inbounds i8, ptr %call.i.i57, i64 %sub
-  %9 = ptrtoint ptr %add.ptr to i64
-  %add16 = add i64 %sub15, %9
+  %add16 = add i64 %sub15, %and
   %and18 = and i64 %add16, %add17
-  %sub19 = sub i64 %and18, %9
+  %sub19 = sub i64 %and18, %and
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub19
-  %10 = ptrtoint ptr %add.ptr20 to i64
-  %cmp22.not = icmp eq i64 %and18, %9
+  %9 = ptrtoint ptr %add.ptr20 to i64
+  %cmp22.not = icmp eq i64 %and, %9
   br i1 %cmp22.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.end13
+  %sub21 = sub i64 %9, %and
   %arena.val = load i32, ptr %5, align 32
   %call26 = tail call i64 @extent_sn_next(ptr noundef nonnull %pac) #6
   %tobool.mask = and i8 %8, 1
-  %11 = load i64, ptr %call, align 8
-  %and.i.i = and i64 %11, -17592454479872
+  %10 = load i64, ptr %call, align 8
+  %and.i.i = and i64 %10, -17592454479872
   store ptr %add.ptr, ptr %e_addr.i.i, align 8
-  %12 = load i64, ptr %6, align 8
-  %and.i12.i = and i64 %12, 4095
-  %or.i13.i = or i64 %and.i12.i, %sub19
+  %11 = load i64, ptr %6, align 8
+  %and.i12.i = and i64 %11, 4095
+  %or.i13.i = or i64 %and.i12.i, %sub21
   store i64 %or.i13.i, ptr %6, align 8
-  %13 = and i32 %arena.val, -268431361
-  %conv.i.masked.i = zext i32 %13 to i64
+  %12 = and i32 %arena.val, -268431361
+  %conv.i.masked.i = zext i32 %12 to i64
   store i64 %call26, ptr %e_sn.i.i, align 8
   %cmp.i58.not = icmp eq i8 %tobool.mask, 0
   %and.i14.i = select i1 %cmp.i58.not, i64 243277824, i64 17592429322240
@@ -174,14 +174,14 @@ lor.lhs.false:                                    ; preds = %if.end28
 
 if.end35:                                         ; preds = %lor.lhs.false
   %sub36 = sub i64 %size, %7
-  %add37 = add i64 %sub36, %10
+  %add37 = add i64 %sub36, %9
   %call.i = tail call ptr @sbrk(i64 noundef %add37) #6
   %cmp41 = icmp eq ptr %call.i, %call.i.i57
   br i1 %cmp41, label %release.i, label %if.end73
 
 release.i:                                        ; preds = %if.end35
-  %14 = ptrtoint ptr %add.ptr29 to i64
-  store atomic i64 %14, ptr @dss_max.0 release, align 8
+  %13 = ptrtoint ptr %add.ptr29 to i64
+  store atomic i64 %13, ptr @dss_max.0 release, align 8
   store atomic i8 0, ptr @dss_extending release, align 1
   br i1 %cmp22.not, label %if.else, label %if.then46
 
@@ -195,8 +195,8 @@ if.else:                                          ; preds = %release.i
   br label %if.end52
 
 if.end52:                                         ; preds = %if.else, %if.then46
-  %15 = load i8, ptr %commit, align 1
-  %tobool53 = trunc i8 %15 to i1
+  %14 = load i8, ptr %commit, align 1
+  %tobool53 = trunc i8 %14 to i1
   br i1 %tobool53, label %if.end57, label %if.then54
 
 if.then54:                                        ; preds = %if.end52
@@ -206,32 +206,32 @@ if.then54:                                        ; preds = %if.end52
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then54, %if.end52
-  %16 = phi i8 [ %frombool56, %if.then54 ], [ %15, %if.end52 ]
-  %17 = load i8, ptr %zero, align 1
-  %tobool58 = trunc i8 %17 to i1
+  %15 = phi i8 [ %frombool56, %if.then54 ], [ %14, %if.end52 ]
+  %16 = load i8, ptr %zero, align 1
+  %tobool58 = trunc i8 %16 to i1
   br i1 %tobool58, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end57
-  %tobool60 = trunc i8 %16 to i1
+  %tobool60 = trunc i8 %15 to i1
   br i1 %tobool60, label %if.then62, label %return
 
 if.then62:                                        ; preds = %land.lhs.true
-  %18 = getelementptr inbounds i8, ptr %edata, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 104, i1 false)
+  %17 = getelementptr inbounds i8, ptr %edata, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, i8 0, i64 104, i1 false)
   %call64 = tail call ptr @arena_get_ehooks(ptr noundef %arena) #6
   %arena.val56 = load i32, ptr %5, align 32
   %tobool66.not = icmp eq i64 %size, 0
-  %19 = and i8 %8, 1
+  %18 = and i8 %8, 1
   %e_addr.i.i60 = getelementptr inbounds i8, ptr %edata, i64 8
   store ptr %add.ptr20, ptr %e_addr.i.i60, align 8
-  %20 = getelementptr inbounds i8, ptr %edata, i64 16
-  store i64 %size, ptr %20, align 8
-  %21 = and i32 %arena.val56, -268431361
-  %conv.i.masked.i63 = zext i32 %21 to i64
+  %19 = getelementptr inbounds i8, ptr %edata, i64 16
+  store i64 %size, ptr %19, align 8
+  %20 = and i32 %arena.val56, -268431361
+  %conv.i.masked.i63 = zext i32 %20 to i64
   %shl.i.i = select i1 %tobool66.not, i64 0, i64 4096
   %e_sn.i.i65 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 232, ptr %e_sn.i.i65, align 8
-  %cmp.i67.not = icmp eq i8 %19, 0
+  %cmp.i67.not = icmp eq i8 %18, 0
   %or.i23.i68 = select i1 %cmp.i67.not, i64 8192, i64 17592186052608
   %and.i14.i64 = or disjoint i64 %or.i23.i68, %shl.i.i
   %and.i22.i66 = or disjoint i64 %and.i14.i64, %conv.i.masked.i63

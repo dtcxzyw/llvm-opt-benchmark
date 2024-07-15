@@ -11830,13 +11830,15 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
   %incdec.ptr1.i.i.i.i.i36.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i28.i, i64 8
   %dec.i.i.i.i.i37.i = add nsw i64 %__n.09.i.i.i.i.i27.i, -1
   %cmp.i.i.i.i.i38.i = icmp sgt i64 %__n.09.i.i.i.i.i27.i, 1
-  br i1 %cmp.i.i.i.i.i38.i, label %for.body.i.i.i.i.i26.i, label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit, !llvm.loop !83
+  br i1 %cmp.i.i.i.i.i38.i, label %for.body.i.i.i.i.i26.i, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit.i, !llvm.loop !83
 
-_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i
-  %__result.addr.0.lcssa.i.i.i.i.i21.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ], [ %incdec.ptr1.i.i.i.i.i36.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i ]
-  %sub.ptr.lhs.cast.i.i.i22.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i21.i to i64
-  %sub.ptr.rhs.cast.i.i.i23.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i23.i
+_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit.i: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34.i
+  %25 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i36.i to i64
+  br label %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit
+
+_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit: ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit.i
+  %__result.addr.0.lcssa.i.i.i.i.i21.i = phi i64 [ %sub.ptr.lhs.cast.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i ], [ %25, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit.i ]
+  %sub.ptr.sub.i.i.i24.i = sub i64 %__result.addr.0.lcssa.i.i.i.i.i21.i, %sub.ptr.lhs.cast.i.i.i.i
   %add.ptr.i.i.i.i25.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i24.i
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.lhs.cast.i.i.i.i.i16.i
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 3
@@ -12399,13 +12401,15 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
   %incdec.ptr1.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i28, i64 8
   %dec.i.i.i.i.i37 = add nsw i64 %__n.09.i.i.i.i.i27, -1
   %cmp.i.i.i.i.i38 = icmp sgt i64 %__n.09.i.i.i.i.i27, 1
-  br i1 %cmp.i.i.i.i.i38, label %for.body.i.i.i.i.i26, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39, !llvm.loop !83
+  br i1 %cmp.i.i.i.i.i38, label %for.body.i.i.i.i.i26, label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit, !llvm.loop !83
 
-_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i21 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %incdec.ptr1.i.i.i.i.i36, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34 ]
-  %sub.ptr.lhs.cast.i.i.i22 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i21 to i64
-  %sub.ptr.rhs.cast.i.i.i23 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i.i22, %sub.ptr.rhs.cast.i.i.i23
+_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i34
+  %14 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i36 to i64
+  br label %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39
+
+_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39: ; preds = %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i21 = phi i64 [ %sub.ptr.lhs.cast.i.i.i, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit ], [ %14, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit39.loopexit ]
+  %sub.ptr.sub.i.i.i24 = sub i64 %__result.addr.0.lcssa.i.i.i.i.i21, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i24
   ret ptr %add.ptr.i.i.i.i25
 }

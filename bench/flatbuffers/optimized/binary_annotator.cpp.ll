@@ -31319,13 +31319,15 @@ for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr1.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39, i64 160
   %dec.i.i.i.i.i58 = add nsw i64 %__n.09.i.i.i.i.i38, -1
   %cmp.i.i.i.i.i59 = icmp ugt i64 %__n.09.i.i.i.i.i38, 1
-  br i1 %cmp.i.i.i.i.i59, label %for.body.i.i.i.i.i37, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60, !llvm.loop !360
+  br i1 %cmp.i.i.i.i.i59, label %for.body.i.i.i.i.i37, label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60.loopexit, !llvm.loop !360
 
-_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60: ; preds = %for.body.i.i.i.i.i37, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i30 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %incdec.ptr1.i.i.i.i.i57, %for.body.i.i.i.i.i37 ]
-  %sub.ptr.lhs.cast.i.i.i31 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i30 to i64
-  %sub.ptr.rhs.cast.i.i.i32 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i31, %sub.ptr.rhs.cast.i.i.i32
+_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60.loopexit: ; preds = %for.body.i.i.i.i.i37
+  %13 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i57 to i64
+  br label %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60
+
+_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60: ; preds = %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60.loopexit, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i30 = phi i64 [ %sub.ptr.lhs.cast.i.i.i, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %13, %_ZSt4moveIPN11flatbuffers12BinaryRegionEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit60.loopexit ]
+  %sub.ptr.sub.i.i.i33 = sub i64 %__result.addr.0.lcssa.i.i.i.i.i30, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i33
   ret ptr %add.ptr.i.i.i.i34
 }

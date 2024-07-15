@@ -612,29 +612,29 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   store i32 %.0.lcssa.i, ptr %19, align 4
   %209 = load ptr, ptr %27, align 8
   %210 = load ptr, ptr %102, align 8
-  %211 = ptrtoint ptr %209 to i64
-  %212 = load i8, ptr @_ZZ11gmx_eneconviPPcE8bSetTime, align 1
-  %213 = trunc i8 %212 to i1
-  %214 = load i8, ptr @_ZZ11gmx_eneconviPPcE5bSort, align 1
+  %211 = ptrtoint ptr %210 to i64
+  %212 = ptrtoint ptr %209 to i64
+  %213 = sub i64 %211, %212
+  %214 = load i8, ptr @_ZZ11gmx_eneconviPPcE8bSetTime, align 1
   %215 = trunc i8 %214 to i1
+  %216 = load i8, ptr @_ZZ11gmx_eneconviPPcE5bSort, align 1
+  %217 = trunc i8 %216 to i1
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  %216 = ptrtoint ptr %210 to i64
-  %217 = sub i64 %216, %211
-  %218 = ashr exact i64 %217, 5
-  br i1 %213, label %220, label %.preheader.i
+  %218 = ashr exact i64 %213, 5
+  br i1 %215, label %220, label %.preheader.i
 
 .preheader.i:                                     ; preds = %208
   %219 = icmp sgt i64 %218, 0
   br i1 %219, label %.lr.ph.i173, label %.loopexit.i
 
 220:                                              ; preds = %208
-  %221 = icmp eq i64 %217, 32
+  %221 = icmp eq i64 %213, 32
   %222 = load ptr, ptr @stderr, align 8
-  br i1 %221, label %.thread102.i, label %226
+  br i1 %221, label %.thread103.i, label %226
 
-.thread102.i:                                     ; preds = %220
+.thread103.i:                                     ; preds = %220
   %223 = call i64 @fwrite(ptr nonnull @.str.68, i64 29, i64 1, ptr %222) #23
   %224 = load ptr, ptr @stderr, align 8
   %225 = call i64 @fwrite(ptr nonnull @.str.70, i64 115, i64 1, ptr %224) #23
@@ -647,11 +647,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   %230 = icmp sgt i64 %218, 0
   br i1 %230, label %.lr.ph84.i.preheader, label %._crit_edge85.i
 
-.lr.ph84.i.preheader:                             ; preds = %226, %.thread102.i
+.lr.ph84.i.preheader:                             ; preds = %226, %.thread103.i
   br label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i.preheader, %.thread.i
-  %.05182.i = phi i1 [ %.276.i, %.thread.i ], [ %215, %.lr.ph84.i.preheader ]
+  %.05182.i = phi i1 [ %.276.i, %.thread.i ], [ %217, %.lr.ph84.i.preheader ]
   %.05481.i = phi i64 [ %268, %.thread.i ], [ 0, %.lr.ph84.i.preheader ]
   %231 = load ptr, ptr @stderr, align 8
   %232 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %209, i64 %.05481.i
@@ -738,7 +738,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   br i1 %exitcond92.not.i, label %._crit_edge85.i, label %.lr.ph84.i, !llvm.loop !11
 
 ._crit_edge85.i:                                  ; preds = %.thread.i, %226
-  %.051.lcssa.i = phi i1 [ %215, %226 ], [ %.276.i, %.thread.i ]
+  %.051.lcssa.i = phi i1 [ %217, %226 ], [ %.276.i, %.thread.i ]
   %269 = load i32, ptr %132, align 4
   %.not.i174 = icmp eq i32 %269, 0
   br i1 %.not.i174, label %.loopexit.i, label %270
@@ -746,7 +746,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
 270:                                              ; preds = %._crit_edge85.i
   store i32 0, ptr %132, align 4
   store float 0.000000e+00, ptr %116, align 4
-  %.old = icmp ugt i64 %217, 32
+  %.old = icmp ugt i64 %218, 1
   %or.cond350 = select i1 %.051.lcssa.i, i1 %.old, i1 false
   br i1 %or.cond350, label %276, label %.loopexit._crit_edge.i
 
@@ -761,8 +761,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i173, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i173, %._crit_edge85.i, %.preheader.i
-  %.3.i = phi i1 [ %.051.lcssa.i, %._crit_edge85.i ], [ %215, %.preheader.i ], [ %215, %.lr.ph.i173 ]
-  %275 = icmp ugt i64 %217, 32
+  %.3.i = phi i1 [ %.051.lcssa.i, %._crit_edge85.i ], [ %217, %.preheader.i ], [ %217, %.lr.ph.i173 ]
+  %275 = icmp ugt i64 %218, 1
   %or.cond349 = select i1 %.3.i, i1 %275, i1 false
   br i1 %or.cond349, label %276, label %.loopexit._crit_edge.i
 

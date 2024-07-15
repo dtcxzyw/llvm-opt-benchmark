@@ -2885,14 +2885,14 @@ _ZL19clearDDStateIndicesP12gmx_domdec_tb.exit450: ; preds = %925, %930
   %.val427 = load ptr, ptr %931, align 8
   %932 = getelementptr i8, ptr %11, i64 792
   %.val428 = load ptr, ptr %932, align 8
-  %933 = ptrtoint ptr %.val427 to i64
-  %934 = getelementptr inbounds i8, ptr %137, i64 288
-  %935 = ptrtoint ptr %.val428 to i64
-  %936 = sub i64 %935, %933
-  %937 = ashr exact i64 %936, 2
+  %933 = ptrtoint ptr %.val428 to i64
+  %934 = ptrtoint ptr %.val427 to i64
+  %935 = sub i64 %933, %934
+  %936 = getelementptr inbounds i8, ptr %137, i64 288
+  %937 = ashr exact i64 %935, 2
   %938 = getelementptr inbounds i8, ptr %137, i64 296
   %939 = load ptr, ptr %938, align 8
-  %940 = load ptr, ptr %934, align 8
+  %940 = load ptr, ptr %936, align 8
   %941 = ptrtoint ptr %939 to i64
   %942 = ptrtoint ptr %940 to i64
   %943 = sub i64 %941, %942
@@ -2902,7 +2902,7 @@ _ZL19clearDDStateIndicesP12gmx_domdec_tb.exit450: ; preds = %925, %930
 
 946:                                              ; preds = %_ZL19clearDDStateIndicesP12gmx_domdec_tb.exit450
   %947 = sub nsw i64 %937, %944
-  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %934, i64 noundef %947)
+  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %936, i64 noundef %947)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 948:                                              ; preds = %_ZL19clearDDStateIndicesP12gmx_domdec_tb.exit450
@@ -2910,7 +2910,7 @@ _ZL19clearDDStateIndicesP12gmx_domdec_tb.exit450: ; preds = %925, %930
   br i1 %949, label %950, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 950:                                              ; preds = %948
-  %951 = getelementptr inbounds i8, ptr %940, i64 %936
+  %951 = getelementptr inbounds i8, ptr %940, i64 %935
   %.not.i.i.i = icmp eq ptr %939, %951
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i, label %952
 
@@ -2926,7 +2926,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %952, %950, %948, %9
   %.04.i = phi i64 [ %958, %.lr.ph.i452 ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
   %954 = getelementptr inbounds i32, ptr %.val427, i64 %.04.i
   %955 = load i32, ptr %954, align 4
-  %956 = load ptr, ptr %934, align 8
+  %956 = load ptr, ptr %936, align 8
   %957 = getelementptr inbounds i32, ptr %956, i64 %.04.i
   store i32 %955, ptr %957, align 4
   %958 = add nuw nsw i64 %.04.i, 1
@@ -2988,7 +2988,7 @@ _ZL17restoreAtomGroupsP12gmx_domdec_tPK7t_state.exit: ; preds = %970, %_ZN12DDAt
   %980 = load double, ptr %979, align 8
   %981 = fadd double %980, %978
   store double %981, ptr %979, align 8
-  %982 = load ptr, ptr %934, align 8
+  %982 = load ptr, ptr %936, align 8
   %983 = load i32, ptr %960, align 8
   %.not.i454 = icmp eq ptr %15, null
   br i1 %.not.i454, label %_ZL15dd_set_atominfoN3gmx8ArrayRefIKiEEiiP10t_forcerec.exit466, label %984
@@ -4445,9 +4445,9 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit.i: ; preds =
   %1782 = phi i32 [ %1777, %_ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit.i ], [ %.pre.i513, %1779 ]
   %1783 = load ptr, ptr %1733, align 8
   %1784 = load ptr, ptr %1770, align 8
-  %1785 = ptrtoint ptr %1783 to i64
-  %1786 = ptrtoint ptr %1784 to i64
-  %1787 = sub i64 %1786, %1785
+  %1785 = ptrtoint ptr %1784 to i64
+  %1786 = ptrtoint ptr %1783 to i64
+  %1787 = sub i64 %1785, %1786
   %1788 = ashr exact i64 %1787, 2
   %1789 = sext i32 %1782 to i64
   %1790 = icmp eq i64 %1788, %1789

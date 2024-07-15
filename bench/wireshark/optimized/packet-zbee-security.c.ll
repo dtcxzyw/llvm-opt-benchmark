@@ -1185,7 +1185,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   %13 = icmp ugt i32 %7, 16
   %14 = icmp ugt i32 %5, 1048575
   %or.cond = or i1 %14, %13
-  br i1 %or.cond, label %118, label %15
+  br i1 %or.cond, label %114, label %15
 
 15:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1194,7 +1194,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %16, ptr noundef nonnull align 1 dereferenceable(13) %1, i64 13, i1 false)
   %17 = call i32 @gcry_cipher_open(ptr noundef nonnull %12, i32 noundef 7, i32 noundef 6, i32 noundef 0) #11
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %118
+  br i1 %.not, label %18, label %114
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %12, align 8
@@ -1205,7 +1205,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 
 22:                                               ; preds = %18
   call void @gcry_cipher_close(ptr noundef %21) #11
-  br label %118
+  br label %114
 
 23:                                               ; preds = %18
   %24 = call i32 @gcry_cipher_setctr(ptr noundef %21, ptr noundef nonnull %9, i64 noundef 16) #11
@@ -1215,211 +1215,207 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 25:                                               ; preds = %23
   %26 = load ptr, ptr %12, align 8
   call void @gcry_cipher_close(ptr noundef %26) #11
-  br label %118
+  br label %114
 
 27:                                               ; preds = %23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %28 = zext i32 %6 to i64
   %29 = getelementptr i8, ptr %3, i64 %28
   %30 = zext nneg i32 %7 to i64
-  %31 = icmp ugt i32 %7, 15
-  %32 = sub nsw i64 16, %30
-  %33 = select i1 %31, i64 0, i64 %32
-  %34 = getelementptr i8, ptr %11, i64 %30
-  call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 1 %29, i64 %30, i1 false)
-  %35 = load ptr, ptr %12, align 8
-  %36 = call i32 @gcry_cipher_encrypt(ptr noundef %35, ptr noundef nonnull %11, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #11
-  %.not65 = icmp eq i32 %36, 0
+  %31 = load ptr, ptr %12, align 8
+  %32 = call i32 @gcry_cipher_encrypt(ptr noundef %31, ptr noundef nonnull %11, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #11
+  %.not65 = icmp eq i32 %32, 0
+  %33 = load ptr, ptr %12, align 8
+  br i1 %.not65, label %35, label %34
+
+34:                                               ; preds = %27
+  call void @gcry_cipher_close(ptr noundef %33) #11
+  br label %114
+
+35:                                               ; preds = %27
+  %36 = call i32 @gcry_cipher_encrypt(ptr noundef %33, ptr noundef %4, i64 noundef %28, ptr noundef %3, i64 noundef %28) #11
+  %.not66 = icmp eq i32 %36, 0
   %37 = load ptr, ptr %12, align 8
-  br i1 %.not65, label %39, label %38
-
-38:                                               ; preds = %27
   call void @gcry_cipher_close(ptr noundef %37) #11
-  br label %118
+  br i1 %.not66, label %38, label %114
 
-39:                                               ; preds = %27
-  %40 = call i32 @gcry_cipher_encrypt(ptr noundef %37, ptr noundef %4, i64 noundef %28, ptr noundef %3, i64 noundef %28) #11
-  %.not66 = icmp eq i32 %40, 0
-  %41 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %41) #11
-  br i1 %.not66, label %42, label %118
+38:                                               ; preds = %35
+  %39 = icmp eq i32 %7, 0
+  br i1 %39, label %114, label %40
 
-42:                                               ; preds = %39
-  %43 = icmp eq i32 %7, 0
-  br i1 %43, label %118, label %44
+40:                                               ; preds = %38
+  %41 = call i32 @gcry_cipher_open(ptr noundef nonnull %12, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
+  %.not67 = icmp eq i32 %41, 0
+  br i1 %.not67, label %42, label %114
 
-44:                                               ; preds = %42
-  %45 = call i32 @gcry_cipher_open(ptr noundef nonnull %12, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
-  %.not67 = icmp eq i32 %45, 0
-  br i1 %.not67, label %46, label %118
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %12, align 8
+  %44 = call i32 @gcry_cipher_setkey(ptr noundef %43, ptr noundef %0, i64 noundef 16) #11
+  %.not68 = icmp eq i32 %44, 0
+  br i1 %.not68, label %.critedge, label %45
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %12, align 8
-  %48 = call i32 @gcry_cipher_setkey(ptr noundef %47, ptr noundef %0, i64 noundef 16) #11
-  %.not68 = icmp eq i32 %48, 0
-  br i1 %.not68, label %.critedge, label %49
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %12, align 8
+  call void @gcry_cipher_close(ptr noundef %46) #11
+  br label %114
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %50) #11
-  br label %118
-
-.critedge:                                        ; preds = %46
-  %51 = shl nuw nsw i32 %7, 2
-  %52 = add nuw nsw i32 %51, 56
-  %53 = and i32 %52, 56
+.critedge:                                        ; preds = %42
+  %47 = shl nuw nsw i32 %7, 2
+  %48 = add nuw nsw i32 %47, 56
+  %49 = and i32 %48, 56
   %.not69 = icmp eq i32 %5, 0
-  %54 = select i1 %.not69, i32 0, i32 64
-  %55 = or disjoint i32 %53, %54
-  %56 = trunc nuw nsw i32 %55 to i8
-  %57 = or disjoint i8 %56, 1
-  store i8 %57, ptr %9, align 16
+  %50 = select i1 %.not69, i32 0, i32 64
+  %51 = or disjoint i32 %49, %50
+  %52 = trunc nuw nsw i32 %51 to i8
+  %53 = or disjoint i8 %52, 1
+  store i8 %53, ptr %9, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %16, ptr noundef nonnull align 1 dereferenceable(13) %1, i64 13, i1 false)
-  %58 = trunc i32 %6 to i8
-  %59 = getelementptr inbounds i8, ptr %9, i64 15
-  store i8 %58, ptr %59, align 1
-  %60 = lshr i32 %6, 8
-  %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %9, i64 14
-  store i8 %61, ptr %62, align 2
-  %63 = load ptr, ptr %12, align 8
-  %64 = call i32 @gcry_cipher_encrypt(ptr noundef %63, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
-  %.not70 = icmp eq i32 %64, 0
-  br i1 %.not70, label %67, label %65
+  %54 = trunc i32 %6 to i8
+  %55 = getelementptr inbounds i8, ptr %9, i64 15
+  store i8 %54, ptr %55, align 1
+  %56 = lshr i32 %6, 8
+  %57 = trunc i32 %56 to i8
+  %58 = getelementptr inbounds i8, ptr %9, i64 14
+  store i8 %57, ptr %58, align 2
+  %59 = load ptr, ptr %12, align 8
+  %60 = call i32 @gcry_cipher_encrypt(ptr noundef %59, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
+  %.not70 = icmp eq i32 %60, 0
+  br i1 %.not70, label %63, label %61
 
-65:                                               ; preds = %.critedge
-  %66 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %66) #11
-  br label %118
+61:                                               ; preds = %.critedge
+  %62 = load ptr, ptr %12, align 8
+  call void @gcry_cipher_close(ptr noundef %62) #11
+  br label %114
 
-67:                                               ; preds = %.critedge
-  br i1 %.not69, label %.loopexit, label %68
+63:                                               ; preds = %.critedge
+  br i1 %.not69, label %.loopexit, label %64
 
-68:                                               ; preds = %67
-  %69 = load i8, ptr %10, align 16
-  %70 = lshr i32 %5, 8
-  %71 = trunc i32 %70 to i8
-  %72 = xor i8 %69, %71
-  store i8 %72, ptr %9, align 16
-  %73 = getelementptr inbounds i8, ptr %10, i64 1
-  %74 = load i8, ptr %73, align 1
-  %75 = trunc i32 %5 to i8
-  %76 = xor i8 %74, %75
-  store i8 %76, ptr %16, align 1
+64:                                               ; preds = %63
+  %65 = load i8, ptr %10, align 16
+  %66 = lshr i32 %5, 8
+  %67 = trunc i32 %66 to i8
+  %68 = xor i8 %65, %67
+  store i8 %68, ptr %9, align 16
+  %69 = getelementptr inbounds i8, ptr %10, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = trunc i32 %5 to i8
+  %72 = xor i8 %70, %71
+  store i8 %72, ptr %16, align 1
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %78
+  br label %74
 
-.preheader74:                                     ; preds = %85
+.preheader74:                                     ; preds = %81
   %.not86 = icmp eq i32 %.1, 15
   br i1 %.not86, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader74
-  %scevgep93 = getelementptr i8, ptr %16, i64 %86
-  %scevgep95 = getelementptr i8, ptr %73, i64 %86
+  %scevgep93 = getelementptr i8, ptr %16, i64 %82
+  %scevgep95 = getelementptr i8, ptr %69, i64 %82
   %narrow110 = xor i32 %.1, 15
-  %77 = zext nneg i32 %narrow110 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i64 %77, i1 false)
+  %73 = zext nneg i32 %narrow110 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i64 %73, i1 false)
   br label %.loopexit
 
-78:                                               ; preds = %68, %85
-  %indvars.iv90 = phi i64 [ 0, %68 ], [ %indvars.iv.next91, %85 ]
-  %.079 = phi i32 [ 2, %68 ], [ %93, %85 ]
-  %79 = icmp ugt i32 %.079, 15
-  br i1 %79, label %80, label %85
+74:                                               ; preds = %64, %81
+  %indvars.iv90 = phi i64 [ 0, %64 ], [ %indvars.iv.next91, %81 ]
+  %.079 = phi i32 [ 2, %64 ], [ %89, %81 ]
+  %75 = icmp ugt i32 %.079, 15
+  br i1 %75, label %76, label %81
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %12, align 8
-  %82 = call i32 @gcry_cipher_encrypt(ptr noundef %81, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
-  %.not73 = icmp eq i32 %82, 0
-  br i1 %.not73, label %85, label %83
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %12, align 8
+  %78 = call i32 @gcry_cipher_encrypt(ptr noundef %77, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
+  %.not73 = icmp eq i32 %78, 0
+  br i1 %.not73, label %81, label %79
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %84) #11
-  br label %118
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %12, align 8
+  call void @gcry_cipher_close(ptr noundef %80) #11
+  br label %114
 
-85:                                               ; preds = %80, %78
-  %.1 = phi i32 [ %.079, %78 ], [ 0, %80 ]
-  %86 = zext nneg i32 %.1 to i64
-  %87 = getelementptr [16 x i8], ptr %10, i64 0, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = getelementptr i8, ptr %2, i64 %indvars.iv90
-  %90 = load i8, ptr %89, align 1
-  %91 = xor i8 %90, %88
-  %92 = getelementptr [16 x i8], ptr %9, i64 0, i64 %86
-  store i8 %91, ptr %92, align 1
+81:                                               ; preds = %76, %74
+  %.1 = phi i32 [ %.079, %74 ], [ 0, %76 ]
+  %82 = zext nneg i32 %.1 to i64
+  %83 = getelementptr [16 x i8], ptr %10, i64 0, i64 %82
+  %84 = load i8, ptr %83, align 1
+  %85 = getelementptr i8, ptr %2, i64 %indvars.iv90
+  %86 = load i8, ptr %85, align 1
+  %87 = xor i8 %86, %84
+  %88 = getelementptr [16 x i8], ptr %9, i64 0, i64 %82
+  store i8 %87, ptr %88, align 1
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %93 = add nuw nsw i32 %.1, 1
+  %89 = add nuw nsw i32 %.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader74, label %78, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader74, label %74, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader74, %67
-  %.3 = phi i32 [ 0, %67 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
+.loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader74, %63
+  %.3 = phi i32 [ 0, %63 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
   %.not87 = icmp eq i32 %6, 0
   br i1 %.not87, label %.preheader, label %.lr.ph83
 
-.preheader:                                       ; preds = %103, %.loopexit
-  %.4.lcssa = phi i32 [ %.3, %.loopexit ], [ %111, %103 ]
-  %94 = icmp ult i32 %.4.lcssa, 16
-  br i1 %94, label %.lr.ph85.preheader, label %._crit_edge
+.preheader:                                       ; preds = %99, %.loopexit
+  %.4.lcssa = phi i32 [ %.3, %.loopexit ], [ %107, %99 ]
+  %90 = icmp ult i32 %.4.lcssa, 16
+  br i1 %90, label %.lr.ph85.preheader, label %._crit_edge
 
 .lr.ph85.preheader:                               ; preds = %.preheader
-  %95 = zext nneg i32 %.4.lcssa to i64
-  %scevgep104 = getelementptr i8, ptr %9, i64 %95
-  %scevgep105 = getelementptr i8, ptr %10, i64 %95
+  %91 = zext nneg i32 %.4.lcssa to i64
+  %scevgep104 = getelementptr i8, ptr %9, i64 %91
+  %scevgep105 = getelementptr i8, ptr %10, i64 %91
   %narrow = sub nuw nsw i32 16, %.4.lcssa
-  %96 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep104, ptr align 1 %scevgep105, i64 %96, i1 false)
+  %92 = zext nneg i32 %narrow to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep104, ptr align 1 %scevgep105, i64 %92, i1 false)
   br label %._crit_edge
 
-.lr.ph83:                                         ; preds = %.loopexit, %103
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %103 ], [ 0, %.loopexit ]
-  %.482 = phi i32 [ %111, %103 ], [ %.3, %.loopexit ]
-  %97 = icmp ugt i32 %.482, 15
-  br i1 %97, label %98, label %103
+.lr.ph83:                                         ; preds = %.loopexit, %99
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %99 ], [ 0, %.loopexit ]
+  %.482 = phi i32 [ %107, %99 ], [ %.3, %.loopexit ]
+  %93 = icmp ugt i32 %.482, 15
+  br i1 %93, label %94, label %99
 
-98:                                               ; preds = %.lr.ph83
-  %99 = load ptr, ptr %12, align 8
-  %100 = call i32 @gcry_cipher_encrypt(ptr noundef %99, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
-  %.not72 = icmp eq i32 %100, 0
-  br i1 %.not72, label %103, label %101
+94:                                               ; preds = %.lr.ph83
+  %95 = load ptr, ptr %12, align 8
+  %96 = call i32 @gcry_cipher_encrypt(ptr noundef %95, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
+  %.not72 = icmp eq i32 %96, 0
+  br i1 %.not72, label %99, label %97
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %102) #11
-  br label %118
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %12, align 8
+  call void @gcry_cipher_close(ptr noundef %98) #11
+  br label %114
 
-103:                                              ; preds = %98, %.lr.ph83
-  %.5 = phi i32 [ %.482, %.lr.ph83 ], [ 0, %98 ]
-  %104 = zext nneg i32 %.5 to i64
-  %105 = getelementptr [16 x i8], ptr %10, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = getelementptr i8, ptr %4, i64 %indvars.iv99
-  %108 = load i8, ptr %107, align 1
-  %109 = xor i8 %108, %106
-  %110 = getelementptr [16 x i8], ptr %9, i64 0, i64 %104
-  store i8 %109, ptr %110, align 1
+99:                                               ; preds = %94, %.lr.ph83
+  %.5 = phi i32 [ %.482, %.lr.ph83 ], [ 0, %94 ]
+  %100 = zext nneg i32 %.5 to i64
+  %101 = getelementptr [16 x i8], ptr %10, i64 0, i64 %100
+  %102 = load i8, ptr %101, align 1
+  %103 = getelementptr i8, ptr %4, i64 %indvars.iv99
+  %104 = load i8, ptr %103, align 1
+  %105 = xor i8 %104, %102
+  %106 = getelementptr [16 x i8], ptr %9, i64 0, i64 %100
+  store i8 %105, ptr %106, align 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %111 = add nuw nsw i32 %.5, 1
+  %107 = add nuw nsw i32 %.5, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %28
   br i1 %exitcond103.not, label %.preheader, label %.lr.ph83, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph85.preheader, %.preheader
-  %112 = load ptr, ptr %12, align 8
-  %113 = call i32 @gcry_cipher_encrypt(ptr noundef %112, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
-  %.not71 = icmp eq i32 %113, 0
-  %114 = load ptr, ptr %12, align 8
-  call void @gcry_cipher_close(ptr noundef %114) #11
-  br i1 %.not71, label %115, label %118
+  %108 = load ptr, ptr %12, align 8
+  %109 = call i32 @gcry_cipher_encrypt(ptr noundef %108, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, i64 noundef 16) #11
+  %.not71 = icmp eq i32 %109, 0
+  %110 = load ptr, ptr %12, align 8
+  call void @gcry_cipher_close(ptr noundef %110) #11
+  br i1 %.not71, label %111, label %114
 
-115:                                              ; preds = %._crit_edge
+111:                                              ; preds = %._crit_edge
   %bcmp = call i32 @bcmp(ptr nonnull %10, ptr nonnull %11, i64 %30)
-  %116 = icmp eq i32 %bcmp, 0
-  %117 = zext i1 %116 to i32
-  br label %118
+  %112 = icmp eq i32 %bcmp, 0
+  %113 = zext i1 %112 to i32
+  br label %114
 
-118:                                              ; preds = %._crit_edge, %39, %44, %42, %15, %8, %115, %101, %83, %65, %49, %38, %25, %22
-  %.060 = phi i32 [ 0, %22 ], [ 0, %25 ], [ 0, %38 ], [ 0, %49 ], [ 0, %65 ], [ 0, %83 ], [ 0, %101 ], [ %117, %115 ], [ 0, %8 ], [ 0, %15 ], [ 1, %42 ], [ 0, %44 ], [ 0, %39 ], [ 0, %._crit_edge ]
+114:                                              ; preds = %._crit_edge, %35, %40, %38, %15, %8, %111, %97, %79, %61, %45, %34, %25, %22
+  %.060 = phi i32 [ 0, %22 ], [ 0, %25 ], [ 0, %34 ], [ 0, %45 ], [ 0, %61 ], [ 0, %79 ], [ 0, %97 ], [ %113, %111 ], [ 0, %8 ], [ 0, %15 ], [ 1, %38 ], [ 0, %40 ], [ 0, %35 ], [ 0, %._crit_edge ]
   ret i32 %.060
 }
 

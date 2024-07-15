@@ -753,11 +753,11 @@ define noundef i32 @_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi(ptr no
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %5 to i64
+  %10 = sub i64 %8, %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %9 = ptrtoint ptr %7 to i64
-  %10 = sub i64 %9, %8
   %11 = sdiv exact i64 %10, 48
   %.not.i = icmp eq ptr %7, %5
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -1097,9 +1097,9 @@ define noundef zeroext i1 @_ZNK3gmx8BiasGrid6coversEPKd(ptr nocapture noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = ptrtoint ptr %4 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub i64 %8, %7
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 48
   %11 = icmp eq ptr %6, %4
   br i1 %11, label %_ZN3gmxL13valueIsInGridEPKdNS_8ArrayRefIKNS_8GridAxisEEE.exit, label %.lr.ph.preheader.i
@@ -1397,10 +1397,10 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr nocapture noundef no
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %8 to i64
+  %10 = ptrtoint ptr %6 to i64
+  %11 = sub i64 %9, %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %10, %9
   %12 = sdiv exact i64 %11, 48
   %.not.i = icmp eq ptr %8, %6
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
@@ -3726,9 +3726,9 @@ _ZNSt6vectorIN3gmx8GridAxisESaIS1_EE12emplace_backIJRKdS6_iRibEEERS1_DpOT_.exit:
   %165 = getelementptr inbounds %"struct.gmx::GridPoint", ptr %164, i64 %.062258
   %166 = load ptr, ptr %13, align 8
   %167 = load ptr, ptr %123, align 8
-  %168 = ptrtoint ptr %166 to i64
-  %169 = ptrtoint ptr %167 to i64
-  %170 = sub i64 %169, %168
+  %168 = ptrtoint ptr %167 to i64
+  %169 = ptrtoint ptr %166 to i64
+  %170 = sub i64 %168, %169
   %171 = sdiv exact i64 %170, 48
   %172 = icmp eq ptr %167, %166
   br i1 %172, label %._crit_edge.thread.i, label %.lr.ph.preheader.i

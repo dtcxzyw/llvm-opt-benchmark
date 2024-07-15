@@ -325,9 +325,9 @@ while.cond.i.i52:                                 ; preds = %while.cond.i.i52, %
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i56:          ; preds = %while.cond.i.i52
   %msSTLName1 = getelementptr inbounds i8, ptr %call75, i64 24
+  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %pCurrent.0.i.i53 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call77 to i64
-  %sub.ptr.lhs.cast.i3.i57 = ptrtoint ptr %pCurrent.0.i.i53 to i64
-  %sub.ptr.sub.i5.i58 = sub i64 %sub.ptr.lhs.cast.i3.i57, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i
   %mRemainingSizeField.i.i.i.i59 = getelementptr inbounds i8, ptr %call75, i64 47
   %44 = load i8, ptr %mRemainingSizeField.i.i.i.i59, align 1
   %tobool.i.i.i.i60 = icmp slt i8 %44, 0
@@ -336,7 +336,7 @@ _ZN5eastl10CharStrlenIcEEmPKT_.exit.i56:          ; preds = %while.cond.i.i52
   %conv.i.i.i.i62 = zext nneg i8 %44 to i64
   %sub.i.i.i.i63 = sub nsw i64 23, %conv.i.i.i.i62
   %cond.i.i.i64 = select i1 %tobool.i.i.i.i60, i64 %45, i64 %sub.i.i.i.i63
-  %cmp.not.i.i65 = icmp ugt i64 %sub.ptr.sub.i5.i58, %cond.i.i.i64
+  %cmp.not.i.i65 = icmp ugt i64 %sub.ptr.sub.i.i58, %cond.i.i.i64
   br i1 %cmp.not.i.i65, label %if.else.i.i95, label %if.then.i.i66
 
 if.then.i.i66:                                    ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i56
@@ -346,7 +346,7 @@ if.then.i.i66:                                    ; preds = %_ZN5eastl10CharStrl
 if.then3.i.i68:                                   ; preds = %if.then.i.i66
   %46 = load ptr, ptr %msSTLName1, align 8
   %spec.select.i.i.i69 = select i1 %tobool.i.i.i.i60, ptr %46, ptr %msSTLName1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i69, ptr align 1 %call77, i64 %sub.ptr.sub.i5.i58, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i69, ptr align 1 %call77, i64 %sub.ptr.sub.i.i58, i1 false)
   %.pre.i.i70 = load i8, ptr %mRemainingSizeField.i.i.i.i59, align 1
   %.pre34.i.i71 = load i64, ptr %mnSize.i.i.i.i61, align 8
   %.pre35.i.i72 = zext nneg i8 %.pre.i.i70 to i64
@@ -360,7 +360,7 @@ if.end.i.i74:                                     ; preds = %if.then3.i.i68, %if
   %tobool.i.i11.i.i76 = icmp slt i8 %48, 0
   %49 = load ptr, ptr %msSTLName1, align 8
   %spec.select.i12.i.i77 = select i1 %tobool.i.i11.i.i76, ptr %49, ptr %msSTLName1
-  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %spec.select.i12.i.i77, i64 %sub.ptr.sub.i5.i58
+  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %spec.select.i12.i.i77, i64 %sub.ptr.sub.i.i58
   %add.ptr.i.i.i.i79 = getelementptr inbounds i8, ptr %49, i64 %47
   %add.ptr.i1.i.i.i80 = getelementptr inbounds i8, ptr %msSTLName1, i64 %sub.i.i.i.pre-phi.i.i75
   %cond.i16.i.i81 = select i1 %tobool.i.i11.i.i76, ptr %add.ptr.i.i.i.i79, ptr %add.ptr.i1.i.i.i80
@@ -393,7 +393,7 @@ cond.false.i.i.i.i92:                             ; preds = %if.then.i.i.i83
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit104
 
 if.else.i.i95:                                    ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i56
-  %add.ptr.i96 = getelementptr inbounds i8, ptr %call77, i64 %sub.ptr.sub.i5.i58
+  %add.ptr.i96 = getelementptr inbounds i8, ptr %call77, i64 %sub.ptr.sub.i.i58
   %54 = load ptr, ptr %msSTLName1, align 8
   %spec.select.i21.i.i97 = select i1 %tobool.i.i.i.i60, ptr %54, ptr %msSTLName1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i21.i.i97, ptr align 1 %call77, i64 %cond.i.i.i64, i1 false)

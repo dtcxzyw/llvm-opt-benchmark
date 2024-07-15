@@ -947,7 +947,7 @@ _ZNSt3__14findB8ne190000INS_11__wrap_iterIPN7mitsuba3refINS2_8AppenderEEEEES5_EE
   %23 = sub i64 %21, %22
   %24 = getelementptr inbounds i8, ptr %7, i64 %23
   %.not.i5 = icmp eq ptr %.0.lcssa.i.i.i, %9
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not1314.i = icmp eq ptr %25, %9
   %or.cond.i = select i1 %.not.i5, i1 true, i1 %.not1314.i
   br i1 %or.cond.i, label %_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7mitsuba3refINS2_8AppenderEEEEES5_EET_S8_S8_RKT0_.exit, label %.lr.ph.i
@@ -1039,19 +1039,19 @@ _ZN7mitsuba3refINS_8AppenderEEaSEOS2_.exit.i.i.i.i.i.i: ; preds = %54, %.lr.ph.i
 
 _ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i: ; preds = %_ZN7mitsuba3refINS_8AppenderEEaSEOS2_.exit.i.i.i.i.i.i
   %.pre.i7 = load ptr, ptr %8, align 8
+  %58 = ptrtoint ptr %57 to i64
   br label %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i
 
 _ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i: ; preds = %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i, %46
-  %58 = phi ptr [ %50, %46 ], [ %.pre.i7, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i ]
-  %storemerge.lcssa.i.i.i.i.i.i = phi ptr [ %45, %46 ], [ %57, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i ]
-  %59 = ptrtoint ptr %storemerge.lcssa.i.i.i.i.i.i to i64
-  %60 = sub i64 %59, %42
+  %59 = phi ptr [ %50, %46 ], [ %.pre.i7, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i ]
+  %storemerge.lcssa.i.i.i.i.i.i = phi i64 [ %42, %46 ], [ %58, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.loopexit.i ]
+  %60 = sub i64 %storemerge.lcssa.i.i.i.i.i.i, %42
   %61 = getelementptr inbounds i8, ptr %45, i64 %60
-  %.not6.i.i.i = icmp eq ptr %58, %61
+  %.not6.i.i.i = icmp eq ptr %59, %61
   br i1 %.not6.i.i.i, label %_ZNSt3__16vectorIN7mitsuba3refINS1_8AppenderEEENS_9allocatorIS4_EEE17__destruct_at_endB8ne190000EPS4_.exit.i, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i
-  %.07.i.i.i = phi ptr [ %62, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i ], [ %58, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i ]
+  %.07.i.i.i = phi ptr [ %62, %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_8AppenderEEEEEE7destroyB8ne190000IS5_TnNS_9enable_ifIXsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i ], [ %59, %_ZNSt3__14moveB8ne190000IPN7mitsuba3refINS1_8AppenderEEES5_EET0_T_S7_S6_.exit.i ]
   %62 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 -8
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i4.i = icmp eq ptr %63, null

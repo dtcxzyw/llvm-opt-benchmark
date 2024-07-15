@@ -191,11 +191,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
   %outlen.i = getelementptr inbounds i8, ptr %S, i64 180
   store i8 %conv, ptr %outlen.i, align 1
-  %6 = icmp ugt i64 %keylen, 63
-  %7 = sub nuw nsw i64 64, %keylen
-  %8 = select i1 %6, i64 0, i64 %7
-  %9 = getelementptr i8, ptr %block, i64 %keylen
-  call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %8, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %keylen, i1 false)
   %buflen.i = getelementptr inbounds i8, ptr %S, i64 176
   %buf19.i = getelementptr inbounds i8, ptr %S, i64 48
@@ -205,41 +201,41 @@ PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %PyBlake2_blake2s_init_param.exit
-  %10 = phi i32 [ %.pre.i, %PyBlake2_blake2s_init_param.exit ], [ %sub14.i, %if.end.i ]
+  %6 = phi i32 [ %.pre.i, %PyBlake2_blake2s_init_param.exit ], [ %sub14.i, %if.end.i ]
   %in.addr.029.i = phi ptr [ %block, %PyBlake2_blake2s_init_param.exit ], [ %in.addr.1.i, %if.end.i ]
   %inlen.addr.028.i = phi i64 [ 64, %PyBlake2_blake2s_init_param.exit ], [ %sub18.i, %if.end.i ]
-  %sub.i = sub i32 128, %10
+  %sub.i = sub i32 128, %6
   %conv.i = zext i32 %sub.i to i64
   %cmp1.i = icmp ugt i64 %inlen.addr.028.i, %conv.i
-  %idx.ext.i = zext i32 %10 to i64
+  %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr i8, ptr %buf19.i, i64 %idx.ext.i
   br i1 %cmp1.i, label %if.end.i, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.029.i, i64 %inlen.addr.028.i, i1 false)
   %conv23.i = trunc nuw i64 %inlen.addr.028.i to i32
-  %11 = load i32, ptr %buflen.i, align 1
-  %add25.i = add i32 %11, %conv23.i
+  %7 = load i32, ptr %buflen.i, align 1
+  %add25.i = add i32 %7, %conv23.i
   store i32 %add25.i, ptr %buflen.i, align 1
   br label %PyBlake2_blake2s_update.exit
 
 if.end.i:                                         ; preds = %while.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %in.addr.029.i, i64 %conv.i, i1 false)
-  %12 = load i32, ptr %buflen.i, align 1
-  %add.i = add i32 %12, %sub.i
+  %8 = load i32, ptr %buflen.i, align 1
+  %add.i = add i32 %8, %sub.i
   store i32 %add.i, ptr %buflen.i, align 1
-  %13 = load i32, ptr %3, align 1
-  %add.i.i = add i32 %13, 64
+  %9 = load i32, ptr %3, align 1
+  %add.i.i = add i32 %9, 64
   store i32 %add.i.i, ptr %3, align 1
-  %cmp.i.i = icmp ugt i32 %13, -65
+  %cmp.i.i = icmp ugt i32 %9, -65
   %conv.i.i = zext i1 %cmp.i.i to i32
-  %14 = load i32, ptr %arrayidx4.i.i, align 1
-  %add5.i.i = add i32 %14, %conv.i.i
+  %10 = load i32, ptr %arrayidx4.i.i, align 1
+  %add5.i.i = add i32 %10, %conv.i.i
   store i32 %add5.i.i, ptr %arrayidx4.i.i, align 1
   tail call fastcc void @PyBlake2_blake2s_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf19.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %buf19.i, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr12.i, i64 64, i1 false)
-  %15 = load i32, ptr %buflen.i, align 1
-  %sub14.i = add i32 %15, -64
+  %11 = load i32, ptr %buflen.i, align 1
+  %sub14.i = add i32 %11, -64
   %sub18.i = sub i64 %inlen.addr.028.i, %conv.i
   store i32 %sub14.i, ptr %buflen.i, align 1
   %in.addr.1.i = getelementptr i8, ptr %in.addr.029.i, i64 %conv.i

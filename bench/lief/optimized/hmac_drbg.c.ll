@@ -681,168 +681,165 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   br i1 %30, label %mbedtls_hmac_drbg_seed.exit.thread41, label %31
 
 31:                                               ; preds = %27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %2, i8 0, i64 384, i1 false)
   %32 = load i64, ptr @test_offset, align 8
   %33 = getelementptr inbounds i8, ptr @entropy_pr, i64 %32
-  %34 = icmp ugt i64 %28, 383
-  %35 = sub i64 384, %28
-  %36 = select i1 %34, i64 0, i64 %35
-  %37 = getelementptr i8, ptr %2, i64 %28
-  call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %36, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %33, i64 %28, i1 false)
-  %38 = add i64 %32, %28
-  %39 = lshr i64 %28, 1
-  %40 = getelementptr inbounds i8, ptr @entropy_pr, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull readonly align 1 %40, i64 %39, i1 false)
-  %41 = add i64 %38, %39
-  store i64 %41, ptr @test_offset, align 8
-  %42 = add i64 %39, %28
-  %43 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %42)
-  %.not37.i.i = icmp eq i32 %43, 0
-  br i1 %.not37.i.i, label %45, label %mbedtls_hmac_drbg_seed.exit
+  %34 = add i64 %32, %28
+  %35 = getelementptr inbounds i8, ptr %2, i64 %28
+  %36 = lshr i64 %28, 1
+  %37 = getelementptr inbounds i8, ptr @entropy_pr, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %37, i64 %36, i1 false)
+  %38 = add i64 %34, %36
+  store i64 %38, ptr @test_offset, align 8
+  %39 = add i64 %36, %28
+  %40 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %39)
+  %.not37.i.i = icmp eq i32 %40, 0
+  br i1 %.not37.i.i, label %42, label %mbedtls_hmac_drbg_seed.exit
 
 mbedtls_hmac_drbg_seed.exit.thread41:             ; preds = %27
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
   br label %mbedtls_hmac_drbg_seed.exit.thread
 
 mbedtls_hmac_drbg_seed.exit:                      ; preds = %31
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %42) #12
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %39) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
   br label %mbedtls_hmac_drbg_seed.exit.thread
 
 mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %11, %9, %mbedtls_hmac_drbg_seed.exit, %mbedtls_hmac_drbg_seed.exit.thread41
-  br i1 %.not, label %.critedge37, label %44
+  br i1 %.not, label %.critedge37, label %41
 
-44:                                               ; preds = %mbedtls_hmac_drbg_seed.exit.thread
+41:                                               ; preds = %mbedtls_hmac_drbg_seed.exit.thread
   %puts35 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %3, i64 88
-  store i32 1, ptr %46, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %42) #12
+42:                                               ; preds = %31
+  %43 = getelementptr inbounds i8, ptr %3, i64 88
+  store i32 1, ptr %43, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %39) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
-  %47 = getelementptr inbounds i8, ptr %3, i64 104
-  store i32 1, ptr %47, align 8
-  %48 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
-  %.not17 = icmp eq i32 %48, 0
-  br i1 %.not17, label %51, label %49
+  %44 = getelementptr inbounds i8, ptr %3, i64 104
+  store i32 1, ptr %44, align 8
+  %45 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
+  %.not17 = icmp eq i32 %45, 0
+  br i1 %.not17, label %48, label %46
 
-49:                                               ; preds = %45
-  br i1 %.not, label %.critedge37, label %50
+46:                                               ; preds = %42
+  br i1 %.not, label %.critedge37, label %47
 
-50:                                               ; preds = %49
+47:                                               ; preds = %46
   %puts34 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-51:                                               ; preds = %45
-  %52 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
-  %.not18 = icmp eq i32 %52, 0
-  br i1 %.not18, label %55, label %53
+48:                                               ; preds = %42
+  %49 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
+  %.not18 = icmp eq i32 %49, 0
+  br i1 %.not18, label %52, label %50
 
-53:                                               ; preds = %51
-  br i1 %.not, label %.critedge37, label %54
+50:                                               ; preds = %48
+  br i1 %.not, label %.critedge37, label %51
 
-54:                                               ; preds = %53
+51:                                               ; preds = %50
   %puts33 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-55:                                               ; preds = %51
+52:                                               ; preds = %48
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) %4, ptr noundef nonnull dereferenceable(80) @result_pr, i64 80)
   %.not19 = icmp eq i32 %bcmp, 0
-  br i1 %.not19, label %58, label %56
+  br i1 %.not19, label %55, label %53
 
-56:                                               ; preds = %55
-  br i1 %.not, label %.critedge37, label %57
+53:                                               ; preds = %52
+  br i1 %.not, label %.critedge37, label %54
 
-57:                                               ; preds = %56
+54:                                               ; preds = %53
   %puts32 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-58:                                               ; preds = %55
+55:                                               ; preds = %52
   call void @mbedtls_hmac_drbg_free(ptr noundef nonnull %3)
   call void @mbedtls_hmac_drbg_free(ptr noundef nonnull %3)
-  br i1 %.not, label %.critedge, label %59
+  br i1 %.not, label %.critedge, label %56
 
-59:                                               ; preds = %58
+56:                                               ; preds = %55
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
   br label %.critedge
 
-.critedge:                                        ; preds = %58, %59
+.critedge:                                        ; preds = %55, %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 10000, ptr %6, align 4
   store i64 0, ptr @test_offset, align 8
-  %61 = call i32 @mbedtls_hmac_drbg_seed(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull @hmac_drbg_self_test_entropy, ptr noundef nonnull @entropy_nopr, ptr noundef null, i64 noundef 0)
-  %.not20 = icmp eq i32 %61, 0
-  br i1 %.not20, label %64, label %62
+  %58 = call i32 @mbedtls_hmac_drbg_seed(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull @hmac_drbg_self_test_entropy, ptr noundef nonnull @entropy_nopr, ptr noundef null, i64 noundef 0)
+  %.not20 = icmp eq i32 %58, 0
+  br i1 %.not20, label %61, label %59
 
-62:                                               ; preds = %.critedge
-  br i1 %.not, label %.critedge37, label %63
+59:                                               ; preds = %.critedge
+  br i1 %.not, label %.critedge37, label %60
 
-63:                                               ; preds = %62
+60:                                               ; preds = %59
   %puts31 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-64:                                               ; preds = %.critedge
-  %65 = call i32 @mbedtls_hmac_drbg_reseed(ptr noundef nonnull %3, ptr noundef null, i64 noundef 0)
-  %.not21 = icmp eq i32 %65, 0
-  br i1 %.not21, label %68, label %66
+61:                                               ; preds = %.critedge
+  %62 = call i32 @mbedtls_hmac_drbg_reseed(ptr noundef nonnull %3, ptr noundef null, i64 noundef 0)
+  %.not21 = icmp eq i32 %62, 0
+  br i1 %.not21, label %65, label %63
 
-66:                                               ; preds = %64
-  br i1 %.not, label %.critedge37, label %67
+63:                                               ; preds = %61
+  br i1 %.not, label %.critedge37, label %64
 
-67:                                               ; preds = %66
+64:                                               ; preds = %63
   %puts30 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-68:                                               ; preds = %64
-  %69 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
-  %.not22 = icmp eq i32 %69, 0
-  br i1 %.not22, label %72, label %70
+65:                                               ; preds = %61
+  %66 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
+  %.not22 = icmp eq i32 %66, 0
+  br i1 %.not22, label %69, label %67
 
-70:                                               ; preds = %68
-  br i1 %.not, label %.critedge37, label %71
+67:                                               ; preds = %65
+  br i1 %.not, label %.critedge37, label %68
 
-71:                                               ; preds = %70
+68:                                               ; preds = %67
   %puts29 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-72:                                               ; preds = %68
-  %73 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
-  %.not23 = icmp eq i32 %73, 0
-  br i1 %.not23, label %76, label %74
+69:                                               ; preds = %65
+  %70 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
+  %.not23 = icmp eq i32 %70, 0
+  br i1 %.not23, label %73, label %71
 
-74:                                               ; preds = %72
-  br i1 %.not, label %.critedge37, label %75
+71:                                               ; preds = %69
+  br i1 %.not, label %.critedge37, label %72
 
-75:                                               ; preds = %74
+72:                                               ; preds = %71
   %puts28 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-76:                                               ; preds = %72
+73:                                               ; preds = %69
   %bcmp24 = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) %4, ptr noundef nonnull dereferenceable(80) @result_nopr, i64 80)
   %.not25 = icmp eq i32 %bcmp24, 0
-  br i1 %.not25, label %79, label %77
+  br i1 %.not25, label %76, label %74
 
-77:                                               ; preds = %76
-  br i1 %.not, label %.critedge37, label %78
+74:                                               ; preds = %73
+  br i1 %.not, label %.critedge37, label %75
 
-78:                                               ; preds = %77
+75:                                               ; preds = %74
   %puts27 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   br label %.critedge37
 
-79:                                               ; preds = %76
+76:                                               ; preds = %73
   call void @mbedtls_hmac_drbg_free(ptr noundef nonnull %3)
   call void @mbedtls_hmac_drbg_free(ptr noundef nonnull %3)
-  br i1 %.not, label %.critedge37, label %80
+  br i1 %.not, label %.critedge37, label %77
 
-80:                                               ; preds = %79
+77:                                               ; preds = %76
   %puts26 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %putchar = call i32 @putchar(i32 10)
   br label %.critedge37
 
-.critedge37:                                      ; preds = %80, %79, %77, %78, %74, %75, %70, %71, %66, %67, %62, %63, %56, %57, %53, %54, %49, %50, %mbedtls_hmac_drbg_seed.exit.thread, %44
-  %.0 = phi i32 [ 1, %44 ], [ 1, %mbedtls_hmac_drbg_seed.exit.thread ], [ 1, %50 ], [ 1, %49 ], [ 1, %54 ], [ 1, %53 ], [ 1, %57 ], [ 1, %56 ], [ 1, %63 ], [ 1, %62 ], [ 1, %67 ], [ 1, %66 ], [ 1, %71 ], [ 1, %70 ], [ 1, %75 ], [ 1, %74 ], [ 1, %78 ], [ 1, %77 ], [ 0, %79 ], [ 0, %80 ]
+.critedge37:                                      ; preds = %77, %76, %74, %75, %71, %72, %67, %68, %63, %64, %59, %60, %53, %54, %50, %51, %46, %47, %mbedtls_hmac_drbg_seed.exit.thread, %41
+  %.0 = phi i32 [ 1, %41 ], [ 1, %mbedtls_hmac_drbg_seed.exit.thread ], [ 1, %47 ], [ 1, %46 ], [ 1, %51 ], [ 1, %50 ], [ 1, %54 ], [ 1, %53 ], [ 1, %60 ], [ 1, %59 ], [ 1, %64 ], [ 1, %63 ], [ 1, %68 ], [ 1, %67 ], [ 1, %72 ], [ 1, %71 ], [ 1, %75 ], [ 1, %74 ], [ 0, %76 ], [ 0, %77 ]
   ret i32 %.0
 }
 

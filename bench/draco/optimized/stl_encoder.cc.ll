@@ -862,7 +862,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %276, %_ZSt22__
   store ptr %277, ptr %247, align 8
   br label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit65
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit65:      ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.i, %227, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %239
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit65:      ; preds = %227, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %239, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %278, label %217, !llvm.loop !30

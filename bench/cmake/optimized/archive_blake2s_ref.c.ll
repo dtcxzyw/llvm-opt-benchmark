@@ -92,14 +92,14 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
   %6 = alloca [64 x i8], align 16
   %7 = add i64 %1, -33
   %or.cond = icmp ult i64 %7, -32
-  br i1 %or.cond, label %65, label %8
+  br i1 %or.cond, label %61, label %8
 
 8:                                                ; preds = %4
   %9 = icmp eq ptr %2, null
   %10 = add i64 %3, -33
   %11 = icmp ult i64 %10, -32
   %or.cond5 = or i1 %9, %11
-  br i1 %or.cond5, label %65, label %12
+  br i1 %or.cond5, label %61, label %12
 
 12:                                               ; preds = %8
   %13 = trunc nuw nsw i64 %1 to i8
@@ -134,69 +134,65 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
 blake2s_init_param.exit:                          ; preds = %20
   %28 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %1, ptr %28, align 8
-  %29 = icmp ugt i64 %3, 63
-  %30 = sub nuw nsw i64 64, %3
-  %31 = select i1 %29, i64 0, i64 %30
-  %32 = getelementptr i8, ptr %6, i64 %3
-  call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %31, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %2, i64 %3, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
-  %34 = load i64, ptr %33, align 8
-  %35 = sub i64 64, %34
-  %36 = icmp ult i64 %35, 64
-  br i1 %36, label %37, label %blake2s_update.exit
+  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = load i64, ptr %29, align 8
+  %31 = sub i64 64, %30
+  %32 = icmp ult i64 %31, 64
+  br i1 %32, label %33, label %blake2s_update.exit
 
-37:                                               ; preds = %blake2s_init_param.exit
-  store i64 0, ptr %33, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
-  %39 = getelementptr inbounds i8, ptr %38, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 16 %6, i64 %35, i1 false)
-  %40 = load i32, ptr %19, align 8
-  %41 = add i32 %40, 64
-  store i32 %41, ptr %19, align 8
-  %42 = icmp ugt i32 %40, -65
-  %43 = zext i1 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %45, %43
-  store i32 %46, ptr %44, align 4
-  tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %38)
-  %47 = getelementptr inbounds i8, ptr %6, i64 %35
-  %48 = icmp ugt i64 %34, 64
-  br i1 %48, label %.lr.ph.i, label %blake2s_update.exit
+33:                                               ; preds = %blake2s_init_param.exit
+  store i64 0, ptr %29, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds i8, ptr %34, i64 %30
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 16 %6, i64 %31, i1 false)
+  %36 = load i32, ptr %19, align 8
+  %37 = add i32 %36, 64
+  store i32 %37, ptr %19, align 8
+  %38 = icmp ugt i32 %36, -65
+  %39 = zext i1 %38 to i32
+  %40 = getelementptr inbounds i8, ptr %0, i64 36
+  %41 = load i32, ptr %40, align 4
+  %42 = add i32 %41, %39
+  store i32 %42, ptr %40, align 4
+  tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %34)
+  %43 = getelementptr inbounds i8, ptr %6, i64 %31
+  %44 = icmp ugt i64 %30, 64
+  br i1 %44, label %.lr.ph.i, label %blake2s_update.exit
 
-.lr.ph.i:                                         ; preds = %37, %.lr.ph.i
-  %.034.i = phi i64 [ %56, %.lr.ph.i ], [ %34, %37 ]
-  %.02933.i = phi ptr [ %55, %.lr.ph.i ], [ %47, %37 ]
-  %49 = load i32, ptr %19, align 8
-  %50 = add i32 %49, 64
-  store i32 %50, ptr %19, align 8
-  %51 = icmp ugt i32 %49, -65
-  %52 = zext i1 %51 to i32
-  %53 = load i32, ptr %44, align 4
-  %54 = add i32 %53, %52
-  store i32 %54, ptr %44, align 4
+.lr.ph.i:                                         ; preds = %33, %.lr.ph.i
+  %.034.i = phi i64 [ %52, %.lr.ph.i ], [ %30, %33 ]
+  %.02933.i = phi ptr [ %51, %.lr.ph.i ], [ %43, %33 ]
+  %45 = load i32, ptr %19, align 8
+  %46 = add i32 %45, 64
+  store i32 %46, ptr %19, align 8
+  %47 = icmp ugt i32 %45, -65
+  %48 = zext i1 %47 to i32
+  %49 = load i32, ptr %40, align 4
+  %50 = add i32 %49, %48
+  store i32 %50, ptr %40, align 4
   call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %.02933.i)
-  %55 = getelementptr inbounds i8, ptr %.02933.i, i64 64
-  %56 = add i64 %.034.i, -64
-  %57 = icmp ugt i64 %56, 64
-  br i1 %57, label %.lr.ph.i, label %blake2s_update.exit, !llvm.loop !7
+  %51 = getelementptr inbounds i8, ptr %.02933.i, i64 64
+  %52 = add i64 %.034.i, -64
+  %53 = icmp ugt i64 %52, 64
+  br i1 %53, label %.lr.ph.i, label %blake2s_update.exit, !llvm.loop !7
 
-blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_init_param.exit, %37
-  %.130.i = phi ptr [ %6, %blake2s_init_param.exit ], [ %47, %37 ], [ %55, %.lr.ph.i ]
-  %.1.i = phi i64 [ 64, %blake2s_init_param.exit ], [ %34, %37 ], [ %56, %.lr.ph.i ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
-  %59 = load i64, ptr %33, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %.130.i, i64 %.1.i, i1 false)
-  %61 = load i64, ptr %33, align 8
-  %62 = add i64 %61, %.1.i
-  store i64 %62, ptr %33, align 8
-  %63 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
-  %64 = call ptr %63(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #8
-  br label %65
+blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_init_param.exit, %33
+  %.130.i = phi ptr [ %6, %blake2s_init_param.exit ], [ %43, %33 ], [ %51, %.lr.ph.i ]
+  %.1.i = phi i64 [ 64, %blake2s_init_param.exit ], [ %30, %33 ], [ %52, %.lr.ph.i ]
+  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = load i64, ptr %29, align 8
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %.130.i, i64 %.1.i, i1 false)
+  %57 = load i64, ptr %29, align 8
+  %58 = add i64 %57, %.1.i
+  store i64 %58, ptr %29, align 8
+  %59 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
+  %60 = call ptr %59(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #8
+  br label %61
 
-65:                                               ; preds = %8, %4, %blake2s_update.exit
+61:                                               ; preds = %8, %4, %blake2s_update.exit
   %.0 = phi i32 [ 0, %blake2s_update.exit ], [ -1, %4 ], [ -1, %8 ]
   ret i32 %.0
 }

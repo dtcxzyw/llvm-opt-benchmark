@@ -1710,24 +1710,20 @@ declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_u
 define internal i32 @http3_conn_info_hash(ptr noundef readonly %0) #0 {
   %2 = alloca [20 x i8], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %11, label %3
+  br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 8
   %narrow = tail call i8 @llvm.umin.i8(i8 %5, i8 20)
   %spec.select = zext nneg i8 %narrow to i64
-  %6 = icmp ugt i8 %5, 19
-  %7 = sub nsw i64 20, %spec.select
-  %8 = select i1 %6, i64 0, i64 %7
-  %9 = getelementptr i8, ptr %2, i64 %spec.select
-  call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %4, i64 %spec.select, i1 false)
-  %10 = call i32 @wmem_strong_hash(ptr noundef nonnull %2, i64 noundef 20) #11
-  br label %11
+  %6 = call i32 @wmem_strong_hash(ptr noundef nonnull %2, i64 noundef 20) #11
+  br label %7
 
-11:                                               ; preds = %3, %1
-  %.0 = phi i32 [ %10, %3 ], [ 0, %1 ]
+7:                                                ; preds = %3, %1
+  %.0 = phi i32 [ %6, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 

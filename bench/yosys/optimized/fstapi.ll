@@ -3956,31 +3956,27 @@ define void @fstWriterSetDate(ptr noundef %0, ptr nocapture noundef readonly %1)
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %4, %12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(119) %3, i8 0, i64 119, i1 false)
   %16 = tail call i32 @llvm.smin.i32(i32 %8, i32 119)
   %17 = sext i32 %16 to i64
-  %18 = icmp ugt i32 %16, 118
-  %19 = sub nsw i64 119, %17
-  %20 = select i1 %18, i64 0, i64 %19
-  %21 = getelementptr i8, ptr %3, i64 %17
-  call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %1, i64 %17, i1 false)
+  %18 = load ptr, ptr %0, align 8
+  %19 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 119, i64 noundef 1, ptr noundef %18)
+  %20 = load ptr, ptr %0, align 8
+  %21 = tail call i32 @fflush(ptr noundef %20)
   %22 = load ptr, ptr %0, align 8
-  %23 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 119, i64 noundef 1, ptr noundef %22)
-  %24 = load ptr, ptr %0, align 8
-  %25 = tail call i32 @fflush(ptr noundef %24)
-  %26 = load ptr, ptr %0, align 8
-  %27 = tail call i32 @fseeko(ptr noundef %26, i64 noundef %6, i32 noundef 0)
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13
+  %23 = tail call i32 @fseeko(ptr noundef %22, i64 noundef %6, i32 noundef 0)
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13
 
-29:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 300
-  %31 = load i8, ptr %30, align 4
-  %32 = or i8 %31, 1
-  store i8 %32, ptr %30, align 4
+25:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
+  %26 = getelementptr inbounds i8, ptr %0, i64 300
+  %27 = load i8, ptr %26, align 4
+  %28 = or i8 %27, 1
+  store i8 %28, ptr %26, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %29, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %2
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %25, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %2
   ret void
 }
 
@@ -4013,31 +4009,27 @@ define void @fstWriterSetVersion(ptr noundef %0, ptr noundef readonly %1) local_
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %6, %14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %18 = tail call i32 @llvm.smin.i32(i32 %10, i32 128)
   %19 = sext i32 %18 to i64
-  %20 = icmp ugt i32 %18, 127
-  %21 = sub nsw i64 128, %19
-  %22 = select i1 %20, i64 0, i64 %21
-  %23 = getelementptr i8, ptr %3, i64 %19
-  call void @llvm.memset.p0.i64(ptr align 1 %23, i8 0, i64 %22, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %1, i64 %19, i1 false)
+  %20 = load ptr, ptr %0, align 8
+  %21 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 1, ptr noundef %20)
+  %22 = load ptr, ptr %0, align 8
+  %23 = tail call i32 @fflush(ptr noundef %22)
   %24 = load ptr, ptr %0, align 8
-  %25 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 1, ptr noundef %24)
-  %26 = load ptr, ptr %0, align 8
-  %27 = tail call i32 @fflush(ptr noundef %26)
-  %28 = load ptr, ptr %0, align 8
-  %29 = tail call i32 @fseeko(ptr noundef %28, i64 noundef %8, i32 noundef 0)
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16
+  %25 = tail call i32 @fseeko(ptr noundef %24, i64 noundef %8, i32 noundef 0)
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16
 
-31:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 300
-  %33 = load i8, ptr %32, align 4
-  %34 = or i8 %33, 1
-  store i8 %34, ptr %32, align 4
+27:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
+  %28 = getelementptr inbounds i8, ptr %0, i64 300
+  %29 = load i8, ptr %28, align 4
+  %30 = or i8 %29, 1
+  store i8 %30, ptr %28, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16: ; preds = %31, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %2
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16: ; preds = %27, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %2
   ret void
 }
 

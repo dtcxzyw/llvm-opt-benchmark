@@ -1089,7 +1089,7 @@ if.then36:                                        ; preds = %if.end31.thread546,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i)
   %186 = sub nuw nsw i64 32, %rem32541553
   %187 = getelementptr i8, ptr %pad.i, i64 %rem32541553
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %187, i8 0, i64 %186, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32541553, i1 false)
   %in.val.i.i93 = load i64, ptr %pad.i, align 16
   %add.ptr3.i.i94 = getelementptr inbounds i8, ptr %pad.i, i64 8
@@ -1138,7 +1138,9 @@ if.then36:                                        ; preds = %if.end31.thread546,
   store i32 %in.sroa.3.8.extract.trunc.i65.i, ptr %add.ptr3.i29.i, align 8
   %add.ptr3.i70.i = getelementptr inbounds i8, ptr %pad.i, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i, ptr %add.ptr3.i70.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
+  %add.ptr32.i = getelementptr i8, ptr %pad.i, i64 %rem32541553
+  %sub.i = sub nuw nsw i64 32, %rem32541553
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.i, i8 0, i64 %sub.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32541553, i1 false)
   %in.val.i71.i = load i64, ptr %pad.i, align 16
   %add.ptr3.val.i73.i = load i64, ptr %add.ptr3.i.i94, align 8
@@ -1214,7 +1216,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i112)
   %228 = sub nuw nsw i64 32, %rem32541544
   %229 = getelementptr i8, ptr %pad.i112, i64 %rem32541544
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %229, i8 0, i64 %228, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i112, ptr readonly align 1 %add.ptr43, i64 %rem32541544, i1 false)
   %in.val.i.i113 = load i64, ptr %pad.i112, align 16
   %add.ptr3.i.i114 = getelementptr inbounds i8, ptr %pad.i112, i64 8
@@ -1263,7 +1265,9 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   store i32 %in.sroa.3.8.extract.trunc.i65.i147, ptr %add.ptr3.i29.i118, align 8
   %add.ptr3.i70.i151 = getelementptr inbounds i8, ptr %pad.i112, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i149, ptr %add.ptr3.i70.i151, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
+  %add.ptr32.i152 = getelementptr i8, ptr %pad.i112, i64 %rem32541544
+  %sub.i153 = sub nuw nsw i64 32, %rem32541544
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.i152, i8 0, i64 %sub.i153, i1 false)
   %in.val.i71.i154 = load i64, ptr %pad.i112, align 16
   %add.ptr3.val.i73.i155 = load i64, ptr %add.ptr3.i.i114, align 8
   %in.val.i76.i156 = load i64, ptr %add.ptr.i116, align 16

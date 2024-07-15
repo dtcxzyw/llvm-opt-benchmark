@@ -4497,9 +4497,9 @@ thread-pre-split:                                 ; preds = %.loopexit205
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %67, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %68 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %72, %71
+  %71 = ptrtoint ptr %70 to i64
+  %72 = ptrtoint ptr %68 to i64
+  %73 = sub i64 %71, %72
   %74 = lshr exact i64 %73, 2
   %75 = trunc i64 %74 to i32
   store i32 %75, ptr %4, align 4

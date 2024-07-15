@@ -104948,8 +104948,7 @@ _ZN4entt23meta_sequence_container13meta_iteratorC2IN9__gnu_cxx17__normal_iterato
   %vtable.i.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr @_ZZN4entt7type_idIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEERKNS_9type_infoEvE8instance, ptr %info.i.i.i13, align 8, !tbaa !189
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEPKvNS_8internal13any_operationERKS1_SB_, ptr %vtable.i.i.i14, align 8, !tbaa !196
-  %24 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %24, ptr %handle.i12, align 8, !tbaa !65
+  store i64 %agg.tmp2.sroa.0.0, ptr %handle.i12, align 8, !tbaa !65
   ret void
 }
 

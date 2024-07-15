@@ -121,13 +121,12 @@ if.then4:                                         ; preds = %_ZN7rocksdb14GetVar
 
 if.end7:                                          ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i16, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i5
   %retval.0.i10.i9 = phi ptr [ %add.ptr.i.i18, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i16 ], [ %call.i.i6, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i5 ]
-  %sub.ptr.lhs.cast.i10 = ptrtoint ptr %add.ptr.i3 to i64
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %retval.0.i10.i9 to i64
   %2 = load i32, ptr %this, align 8
   %conv11 = zext i32 %2 to i64
   %3 = shl nuw nsw i64 %conv11, 2
   %4 = add i64 %3, %sub.ptr.rhs.cast.i11
-  %sub = sub i64 %sub.ptr.lhs.cast.i10, %4
+  %sub = sub i64 %sub.ptr.lhs.cast.i, %4
   %conv12 = trunc i64 %sub to i32
   %sub_index_size_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv12, ptr %sub_index_size_, align 4

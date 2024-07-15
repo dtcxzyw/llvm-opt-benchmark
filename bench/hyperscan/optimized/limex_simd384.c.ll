@@ -298,11 +298,7 @@ if.then.i:                                        ; preds = %entry
   %stateSize.i = getelementptr inbounds i8, ptr %n, i64 388
   %1 = load i32, ptr %stateSize.i, align 4
   %conv.i118 = zext i32 %1 to i64
-  %2 = icmp ugt i32 %1, 47
-  %3 = sub nsw i64 48, %conv.i118
-  %4 = select i1 %2, i64 0, i64 %3
-  %5 = getelementptr i8, ptr %tmp.i, i64 %conv.i118
-  call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %tmp.i, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp.i, ptr align 1 %src, i64 %conv.i118, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %dest, ptr noundef nonnull align 16 dereferenceable(48) %tmp.i, i64 48, i1 false)
   br label %moNfaExpandState384.exit
@@ -312,23 +308,23 @@ if.else.i:                                        ; preds = %entry
   %add.ptr.i111 = getelementptr inbounds i8, ptr %n, i64 1600
   %idxprom.i107 = zext i8 %key to i64
   %arrayidx.i108 = getelementptr inbounds [256 x i8], ptr %add.ptr, i64 0, i64 %idxprom.i107
-  %6 = load i8, ptr %arrayidx.i108, align 1, !noalias !33
-  %idxprom1.i = zext i8 %6 to i64
+  %2 = load i8, ptr %arrayidx.i108, align 1, !noalias !33
+  %idxprom1.i = zext i8 %2 to i64
   %arrayidx2.i = getelementptr inbounds %struct.m384, ptr %add.ptr.i111, i64 %idxprom1.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx2.i, i64 16) ], !noalias !39
-  %7 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !39
-  store <2 x i64> %7, ptr %reachmask.i, align 16, !alias.scope !39
+  %3 = load <2 x i64>, ptr %arrayidx2.i, align 16, !noalias !39
+  store <2 x i64> %3, ptr %reachmask.i, align 16, !alias.scope !39
   %mid.i.i = getelementptr inbounds i8, ptr %reachmask.i, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i, i64 16) ], !noalias !39
-  %8 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !39
-  store <2 x i64> %8, ptr %mid.i.i, align 16, !alias.scope !39
+  %4 = load <2 x i64>, ptr %add.ptr.i.i, align 16, !noalias !39
+  store <2 x i64> %4, ptr %mid.i.i, align 16, !alias.scope !39
   %hi.i.i = getelementptr inbounds i8, ptr %reachmask.i, i64 32
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i.i, i64 16) ], !noalias !39
-  %9 = load <2 x i64>, ptr %add.ptr2.i.i, align 16, !noalias !39
-  store <2 x i64> %9, ptr %hi.i.i, align 16, !alias.scope !39
+  %5 = load <2 x i64>, ptr %add.ptr2.i.i, align 16, !noalias !39
+  store <2 x i64> %5, ptr %hi.i.i, align 16, !alias.scope !39
   %and6.i = and i32 %0, 2
   %tobool7.i.not = icmp eq i32 %and6.i, 0
   br i1 %tobool7.i.not, label %if.else12.i, label %if.then8.i
@@ -336,41 +332,41 @@ if.else.i:                                        ; preds = %entry
 if.then8.i:                                       ; preds = %if.else.i
   %compressMask.i = getelementptr inbounds i8, ptr %n, i64 784
   call void @llvm.assume(i1 true) [ "align"(ptr %compressMask.i, i64 16) ], !noalias !40
-  %10 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !40
+  %6 = load <2 x i64>, ptr %compressMask.i, align 16, !noalias !40
   %add.ptr.i50 = getelementptr inbounds i8, ptr %n, i64 800
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i50, i64 16) ], !noalias !40
-  %11 = load <2 x i64>, ptr %add.ptr.i50, align 16, !noalias !40
+  %7 = load <2 x i64>, ptr %add.ptr.i50, align 16, !noalias !40
   %add.ptr2.i53 = getelementptr inbounds i8, ptr %n, i64 816
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i53, i64 16) ], !noalias !40
-  %12 = load <2 x i64>, ptr %add.ptr2.i53, align 16, !noalias !40
-  %and.i290 = and <2 x i64> %10, %7
+  %8 = load <2 x i64>, ptr %add.ptr2.i53, align 16, !noalias !40
+  %and.i290 = and <2 x i64> %6, %3
   store <2 x i64> %and.i290, ptr %mask.i, align 16, !alias.scope !43
-  %and.i293 = and <2 x i64> %11, %8
+  %and.i293 = and <2 x i64> %7, %4
   %mid5.i76 = getelementptr inbounds i8, ptr %mask.i, i64 16
   store <2 x i64> %and.i293, ptr %mid5.i76, align 16, !alias.scope !43
-  %and.i296 = and <2 x i64> %12, %9
+  %and.i296 = and <2 x i64> %8, %5
   %hi8.i80 = getelementptr inbounds i8, ptr %mask.i, i64 32
   store <2 x i64> %and.i296, ptr %hi8.i80, align 16, !alias.scope !43
   %stateSize9.i = getelementptr inbounds i8, ptr %n, i64 388
-  %13 = load i32, ptr %stateSize9.i, align 4
-  call void @loadcompressed384(ptr noundef %dest, ptr noundef %src, ptr noundef nonnull %mask.i, i32 noundef %13) #11
+  %9 = load i32, ptr %stateSize9.i, align 4
+  call void @loadcompressed384(ptr noundef %dest, ptr noundef %src, ptr noundef nonnull %mask.i, i32 noundef %9) #11
   %initDS.i = getelementptr inbounds i8, ptr %n, i64 448
   call void @llvm.assume(i1 true) [ "align"(ptr %initDS.i, i64 16) ], !noalias !46
-  %14 = load <2 x i64>, ptr %initDS.i, align 16, !noalias !46
+  %10 = load <2 x i64>, ptr %initDS.i, align 16, !noalias !46
   %add.ptr.i42 = getelementptr inbounds i8, ptr %n, i64 464
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i42, i64 16) ], !noalias !46
-  %15 = load <2 x i64>, ptr %add.ptr.i42, align 16, !noalias !46
+  %11 = load <2 x i64>, ptr %add.ptr.i42, align 16, !noalias !46
   %add.ptr2.i45 = getelementptr inbounds i8, ptr %n, i64 480
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i45, i64 16) ], !noalias !46
-  %16 = load <2 x i64>, ptr %add.ptr2.i45, align 16, !noalias !46
+  %12 = load <2 x i64>, ptr %add.ptr2.i45, align 16, !noalias !46
   %.sroa.052.0.copyload = load <2 x i64>, ptr %dest, align 1
   %.sroa.253.0.dest.addr.i.0.8.sroa_idx = getelementptr inbounds i8, ptr %dest, i64 16
   %.sroa.253.0.copyload = load <2 x i64>, ptr %.sroa.253.0.dest.addr.i.0.8.sroa_idx, align 1
   %.sroa.354.0.dest.addr.i.0.8.sroa_idx = getelementptr inbounds i8, ptr %dest, i64 32
   %.sroa.354.0.copyload = load <2 x i64>, ptr %.sroa.354.0.dest.addr.i.0.8.sroa_idx, align 1
-  %or.i159 = or <2 x i64> %.sroa.052.0.copyload, %14
-  %or.i162 = or <2 x i64> %.sroa.253.0.copyload, %15
-  %or.i165 = or <2 x i64> %.sroa.354.0.copyload, %16
+  %or.i159 = or <2 x i64> %.sroa.052.0.copyload, %10
+  %or.i162 = or <2 x i64> %.sroa.253.0.copyload, %11
+  %or.i165 = or <2 x i64> %.sroa.354.0.copyload, %12
   store <2 x i64> %or.i159, ptr %dest, align 16
   store <2 x i64> %or.i162, ptr %.sroa.253.0.dest.addr.i.0.8.sroa_idx, align 16
   store <2 x i64> %or.i165, ptr %.sroa.354.0.dest.addr.i.0.8.sroa_idx, align 16
@@ -378,108 +374,108 @@ if.then8.i:                                       ; preds = %if.else.i
 
 if.else12.i:                                      ; preds = %if.else.i
   %stateSize13.i = getelementptr inbounds i8, ptr %n, i64 388
-  %17 = load i32, ptr %stateSize13.i, align 4
-  call void @loadcompressed384(ptr noundef %dest, ptr noundef %src, ptr noundef nonnull %reachmask.i, i32 noundef %17) #11
+  %13 = load i32, ptr %stateSize13.i, align 4
+  call void @loadcompressed384(ptr noundef %dest, ptr noundef %src, ptr noundef nonnull %reachmask.i, i32 noundef %13) #11
   br label %moNfaExpandState384.exit
 
 moNfaExpandState384.exit:                         ; preds = %if.then8.i, %if.else12.i, %if.then.i
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
-  %18 = load i32, ptr %repeatCount.i, align 4
-  %tobool.i5.not = icmp eq i32 %18, 0
+  %14 = load i32, ptr %repeatCount.i, align 4
+  %tobool.i5.not = icmp eq i32 %14, 0
   br i1 %tobool.i5.not, label %nfaExecLimEx384_Expand_Repeats.exit, label %if.end.i7
 
 if.end.i7:                                        ; preds = %moNfaExpandState384.exit
   %repeatCyclicMask.i = getelementptr inbounds i8, ptr %n, i64 880
   call void @llvm.assume(i1 true) [ "align"(ptr %repeatCyclicMask.i, i64 16) ], !noalias !49
-  %19 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16, !noalias !49
+  %15 = load <2 x i64>, ptr %repeatCyclicMask.i, align 16, !noalias !49
   %add.ptr.i34 = getelementptr inbounds i8, ptr %n, i64 896
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i34, i64 16) ], !noalias !49
-  %20 = load <2 x i64>, ptr %add.ptr.i34, align 16, !noalias !49
+  %16 = load <2 x i64>, ptr %add.ptr.i34, align 16, !noalias !49
   %add.ptr2.i37 = getelementptr inbounds i8, ptr %n, i64 912
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i37, i64 16) ], !noalias !49
-  %21 = load <2 x i64>, ptr %add.ptr2.i37, align 16, !noalias !49
+  %17 = load <2 x i64>, ptr %add.ptr2.i37, align 16, !noalias !49
   %.sroa.0.0.copyload = load <2 x i64>, ptr %dest, align 1
   %.sroa.2.0.dest.addr.i2.0..sroa_idx = getelementptr inbounds i8, ptr %dest, i64 16
   %.sroa.2.0.copyload = load <2 x i64>, ptr %.sroa.2.0.dest.addr.i2.0..sroa_idx, align 1
   %.sroa.3.0.dest.addr.i2.0..sroa_idx = getelementptr inbounds i8, ptr %dest, i64 32
   %.sroa.3.0.copyload = load <2 x i64>, ptr %.sroa.3.0.dest.addr.i2.0..sroa_idx, align 1
-  %and.i281 = and <2 x i64> %.sroa.0.0.copyload, %19
-  %and.i284 = and <2 x i64> %.sroa.2.0.copyload, %20
-  %and.i287 = and <2 x i64> %.sroa.3.0.copyload, %21
+  %and.i281 = and <2 x i64> %.sroa.0.0.copyload, %15
+  %and.i284 = and <2 x i64> %.sroa.2.0.copyload, %16
+  %and.i287 = and <2 x i64> %.sroa.3.0.copyload, %17
   %or.i153 = or <2 x i64> %and.i284, %and.i281
   %or.i156 = or <2 x i64> %or.i153, %and.i287
-  %22 = bitcast <2 x i64> %or.i156 to <16 x i8>
-  %23 = icmp ne <16 x i8> %22, zeroinitializer
-  %24 = bitcast <16 x i1> %23 to i16
-  %tobool.i172.not = icmp eq i16 %24, 0
+  %18 = bitcast <2 x i64> %or.i156 to <16 x i8>
+  %19 = icmp ne <16 x i8> %18, zeroinitializer
+  %20 = bitcast <16 x i1> %19 to i16
+  %tobool.i172.not = icmp eq i16 %20, 0
   br i1 %tobool.i172.not, label %nfaExecLimEx384_Expand_Repeats.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i7
   %add.ptr.i10 = getelementptr inbounds i8, ptr %dest, i64 48
   %stateSize.i8 = getelementptr inbounds i8, ptr %n, i64 388
-  %25 = load i32, ptr %stateSize.i8, align 4
-  %idx.ext.i = zext i32 %25 to i64
+  %21 = load i32, ptr %stateSize.i8, align 4
+  %idx.ext.i = zext i32 %21 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %idx.ext.i
   %repeatOffset1.i = getelementptr inbounds i8, ptr %n, i64 368
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.inc.i
-  %26 = phi i32 [ %18, %for.body.i.lr.ph ], [ %40, %for.inc.i ]
+  %22 = phi i32 [ %14, %for.body.i.lr.ph ], [ %36, %for.inc.i ]
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.inc.i ]
-  %27 = load i32, ptr %repeatOffset1.i, align 16
-  %idx.ext.i21 = zext i32 %27 to i64
+  %23 = load i32, ptr %repeatOffset1.i, align 16
+  %idx.ext.i21 = zext i32 %23 to i64
   %add.ptr.i22 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i21
   %arrayidx.i24 = getelementptr inbounds i32, ptr %add.ptr.i22, i64 %indvars.iv
-  %28 = load i32, ptr %arrayidx.i24, align 4
-  %idx.ext2.i = zext i32 %28 to i64
+  %24 = load i32, ptr %arrayidx.i24, align 4
+  %idx.ext2.i = zext i32 %24 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i
-  %29 = load i32, ptr %add.ptr3.i, align 4
-  %cmp.i82 = icmp ult i32 %29, 128
-  %cmp1.i = icmp ult i32 %29, 256
+  %25 = load i32, ptr %add.ptr3.i, align 4
+  %cmp.i82 = icmp ult i32 %25, 128
+  %cmp1.i = icmp ult i32 %25, 256
   %and.i284.and.i287 = select i1 %cmp1.i, <2 x i64> %and.i284, <2 x i64> %and.i287
   %sub.i.0 = select i1 %cmp.i82, <2 x i64> %and.i281, <2 x i64> %and.i284.and.i287
-  %rem.i96 = shl i32 %29, 6
+  %rem.i96 = shl i32 %25, 6
   %mul.i = and i32 %rem.i96, 448
   %add.i97 = add nuw nsw i32 %mul.i, 95
-  %rem.i = lshr i32 %29, 3
+  %rem.i = lshr i32 %25, 3
   %div.i70 = and i32 %rem.i, 15
   %sub.i98 = sub nuw nsw i32 %add.i97, %div.i70
   %idxprom.i99 = zext nneg i32 %sub.i98 to i64
   %arrayidx.i100 = getelementptr inbounds [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %idxprom.i99
-  %30 = load <2 x i64>, ptr %arrayidx.i100, align 1
-  %31 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %30, <2 x i64> %sub.i.0)
-  %tobool.i94.not = icmp eq i32 %31, 0
+  %26 = load <2 x i64>, ptr %arrayidx.i100, align 1
+  %27 = call i32 @llvm.x86.sse41.ptestz(<2 x i64> %26, <2 x i64> %sub.i.0)
+  %tobool.i94.not = icmp eq i32 %27, 0
   br i1 %tobool.i94.not, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 20
-  %32 = load i32, ptr %tugMaskOffset.i, align 4
-  %idx.ext9.i = zext i32 %32 to i64
+  %28 = load i32, ptr %tugMaskOffset.i, align 4
+  %idx.ext9.i = zext i32 %28 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 %idx.ext9.i
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr10.i, i64 16) ], !noalias !52
-  %33 = load <2 x i64>, ptr %add.ptr10.i, align 16, !noalias !52
+  %29 = load <2 x i64>, ptr %add.ptr10.i, align 16, !noalias !52
   %add.ptr.i28 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i28, i64 16) ], !noalias !52
-  %34 = load <2 x i64>, ptr %add.ptr.i28, align 16, !noalias !52
+  %30 = load <2 x i64>, ptr %add.ptr.i28, align 16, !noalias !52
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i, i64 16) ], !noalias !52
-  %35 = load <2 x i64>, ptr %add.ptr2.i, align 16, !noalias !52
-  %and.i272 = and <2 x i64> %33, %and.i281
-  %and.i275 = and <2 x i64> %34, %and.i284
-  %and.i278 = and <2 x i64> %35, %and.i287
+  %31 = load <2 x i64>, ptr %add.ptr2.i, align 16, !noalias !52
+  %and.i272 = and <2 x i64> %29, %and.i281
+  %and.i275 = and <2 x i64> %30, %and.i284
+  %and.i278 = and <2 x i64> %31, %and.i287
   %or.i = or <2 x i64> %and.i275, %and.i272
   %or.i150 = or <2 x i64> %or.i, %and.i278
-  %36 = bitcast <2 x i64> %or.i150 to <16 x i8>
-  %37 = icmp ne <16 x i8> %36, zeroinitializer
-  %38 = bitcast <16 x i1> %37 to i16
-  %tobool.i178.not = icmp eq i16 %38, 0
+  %32 = bitcast <2 x i64> %or.i150 to <16 x i8>
+  %33 = icmp ne <16 x i8> %32, zeroinitializer
+  %34 = bitcast <16 x i1> %33 to i16
+  %tobool.i178.not = icmp eq i16 %34, 0
   br i1 %tobool.i178.not, label %for.inc.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %land.lhs.true.i, %for.body.i
   %add.ptr.i26 = getelementptr inbounds i8, ptr %add.ptr3.i, i64 24
   %packedCtrlOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
-  %39 = load i32, ptr %packedCtrlOffset.i, align 4
-  %idx.ext24.i = zext i32 %39 to i64
+  %35 = load i32, ptr %packedCtrlOffset.i, align 4
+  %idx.ext24.i = zext i32 %35 to i64
   %add.ptr25.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext24.i
   %arrayidx.i = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i10, i64 %indvars.iv
   call void @repeatUnpack(ptr noundef %add.ptr25.i, ptr noundef nonnull %add.ptr.i26, i64 noundef %offset, ptr noundef nonnull %arrayidx.i) #11
@@ -487,10 +483,10 @@ if.end20.i:                                       ; preds = %land.lhs.true.i, %f
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %if.end20.i
-  %40 = phi i32 [ %26, %land.lhs.true.i ], [ %.pre, %if.end20.i ]
+  %36 = phi i32 [ %22, %land.lhs.true.i ], [ %.pre, %if.end20.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = zext i32 %40 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next, %41
+  %37 = zext i32 %36 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next, %37
   br i1 %cmp.i, label %for.body.i, label %nfaExecLimEx384_Expand_Repeats.exit, !llvm.loop !55
 
 nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %for.inc.i, %if.end.i7, %moNfaExpandState384.exit

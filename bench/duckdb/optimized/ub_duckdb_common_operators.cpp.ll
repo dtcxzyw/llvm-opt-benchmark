@@ -51218,10 +51218,6 @@ if.end10.i:                                       ; preds = %if.end.i, %if.end
   %scevgep = getelementptr i8, ptr %p.addr.0.i, i64 %4
   br label %land.rhs.i
 
-while.end.i.thread:                               ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i359 = ptrtoint ptr %scevgep to i64
-  br label %if.end63.i
-
 land.rhs.i:                                       ; preds = %while.body.i, %if.end10.i
   %p.addr.1.i404 = phi ptr [ %p.addr.0.i, %if.end10.i ], [ %incdec.ptr15.i, %while.body.i ]
   %i.0.i403 = phi i64 [ 0, %if.end10.i ], [ %add.i, %while.body.i ]
@@ -51237,7 +51233,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %add.i = add i64 %sub.i, %conv13.i
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %p.addr.1.i404, i64 1
   %cmp11.not.i = icmp eq ptr %incdec.ptr15.i, %last
-  br i1 %cmp11.not.i, label %while.end.i.thread, label %land.rhs.i, !llvm.loop !801
+  br i1 %cmp11.not.i, label %if.end63.i, label %land.rhs.i, !llvm.loop !801
 
 land.lhs.true17.i:                                ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.1.i404 to i64
@@ -51344,12 +51340,12 @@ while.end57.i:                                    ; preds = %while.end57.i.loope
   %sub62.i = sub nsw i64 %sub.ptr.sub.i, %sub.ptr.sub61.i
   br label %if.end63.i
 
-if.end63.i:                                       ; preds = %while.end57.i, %land.lhs.true17.i, %while.end.i.thread
-  %sub.ptr.lhs.cast.i362 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end57.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true17.i ], [ %sub.ptr.lhs.cast.i359, %while.end.i.thread ]
-  %exponent.0.i = phi i64 [ %sub.ptr.sub61.i, %while.end57.i ], [ 0, %land.lhs.true17.i ], [ 0, %while.end.i.thread ]
-  %digit_count.0.i = phi i64 [ %sub62.i, %while.end57.i ], [ %sub.ptr.sub.i, %land.lhs.true17.i ], [ %4, %while.end.i.thread ]
-  %i.3.i = phi i64 [ %i.2.i.lcssa, %while.end57.i ], [ %i.0.i403, %land.lhs.true17.i ], [ %add.i, %while.end.i.thread ]
-  %p.addr.4.i = phi ptr [ %p.addr.3.i.lcssa, %while.end57.i ], [ %p.addr.1.i404, %land.lhs.true17.i ], [ %scevgep, %while.end.i.thread ]
+if.end63.i:                                       ; preds = %while.body.i, %while.end57.i, %land.lhs.true17.i
+  %sub.ptr.lhs.cast.i362 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end57.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true17.i ], [ %last435, %while.body.i ]
+  %exponent.0.i = phi i64 [ %sub.ptr.sub61.i, %while.end57.i ], [ 0, %land.lhs.true17.i ], [ 0, %while.body.i ]
+  %digit_count.0.i = phi i64 [ %sub62.i, %while.end57.i ], [ %sub.ptr.sub.i, %land.lhs.true17.i ], [ %4, %while.body.i ]
+  %i.3.i = phi i64 [ %i.2.i.lcssa, %while.end57.i ], [ %i.0.i403, %land.lhs.true17.i ], [ %add.i, %while.body.i ]
+  %p.addr.4.i = phi ptr [ %p.addr.3.i.lcssa, %while.end57.i ], [ %p.addr.1.i404, %land.lhs.true17.i ], [ %scevgep, %while.body.i ]
   %cmp64.i = icmp eq i64 %digit_count.0.i, 0
   br i1 %cmp64.i, label %if.then1, label %if.end66.i
 
@@ -53561,10 +53557,6 @@ if.end10.i:                                       ; preds = %if.end.i, %if.end
   %scevgep = getelementptr i8, ptr %p.addr.0.i, i64 %4
   br label %land.rhs.i
 
-while.end.i.thread:                               ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i333 = ptrtoint ptr %scevgep to i64
-  br label %if.end63.i
-
 land.rhs.i:                                       ; preds = %while.body.i, %if.end10.i
   %p.addr.1.i378 = phi ptr [ %p.addr.0.i, %if.end10.i ], [ %incdec.ptr15.i, %while.body.i ]
   %i.0.i377 = phi i64 [ 0, %if.end10.i ], [ %add.i, %while.body.i ]
@@ -53580,7 +53572,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %add.i = add i64 %sub.i, %conv13.i
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %p.addr.1.i378, i64 1
   %cmp11.not.i = icmp eq ptr %incdec.ptr15.i, %last
-  br i1 %cmp11.not.i, label %while.end.i.thread, label %land.rhs.i, !llvm.loop !801
+  br i1 %cmp11.not.i, label %if.end63.i, label %land.rhs.i, !llvm.loop !801
 
 land.lhs.true17.i:                                ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.1.i378 to i64
@@ -53687,12 +53679,12 @@ while.end57.i:                                    ; preds = %while.end57.i.loope
   %sub62.i = sub nsw i64 %sub.ptr.sub.i, %sub.ptr.sub61.i
   br label %if.end63.i
 
-if.end63.i:                                       ; preds = %while.end57.i, %land.lhs.true17.i, %while.end.i.thread
-  %sub.ptr.lhs.cast.i336 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end57.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true17.i ], [ %sub.ptr.lhs.cast.i333, %while.end.i.thread ]
-  %exponent.0.i = phi i64 [ %sub.ptr.sub61.i, %while.end57.i ], [ 0, %land.lhs.true17.i ], [ 0, %while.end.i.thread ]
-  %digit_count.0.i = phi i64 [ %sub62.i, %while.end57.i ], [ %sub.ptr.sub.i, %land.lhs.true17.i ], [ %4, %while.end.i.thread ]
-  %i.3.i = phi i64 [ %i.2.i.lcssa, %while.end57.i ], [ %i.0.i377, %land.lhs.true17.i ], [ %add.i, %while.end.i.thread ]
-  %p.addr.4.i = phi ptr [ %p.addr.3.i.lcssa, %while.end57.i ], [ %p.addr.1.i378, %land.lhs.true17.i ], [ %scevgep, %while.end.i.thread ]
+if.end63.i:                                       ; preds = %while.body.i, %while.end57.i, %land.lhs.true17.i
+  %sub.ptr.lhs.cast.i336 = phi i64 [ %sub.ptr.lhs.cast.i, %while.end57.i ], [ %sub.ptr.lhs.cast.i, %land.lhs.true17.i ], [ %last409, %while.body.i ]
+  %exponent.0.i = phi i64 [ %sub.ptr.sub61.i, %while.end57.i ], [ 0, %land.lhs.true17.i ], [ 0, %while.body.i ]
+  %digit_count.0.i = phi i64 [ %sub62.i, %while.end57.i ], [ %sub.ptr.sub.i, %land.lhs.true17.i ], [ %4, %while.body.i ]
+  %i.3.i = phi i64 [ %i.2.i.lcssa, %while.end57.i ], [ %i.0.i377, %land.lhs.true17.i ], [ %add.i, %while.body.i ]
+  %p.addr.4.i = phi ptr [ %p.addr.3.i.lcssa, %while.end57.i ], [ %p.addr.1.i378, %land.lhs.true17.i ], [ %scevgep, %while.body.i ]
   %cmp64.i = icmp eq i64 %digit_count.0.i, 0
   br i1 %cmp64.i, label %if.then1, label %if.end66.i
 

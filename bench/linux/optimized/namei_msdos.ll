@@ -1251,12 +1251,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noca
   %106 = sub i64 %105, %101
   tail call void @llvm.memset.p0.i64(ptr align 1 %74, i8 32, i64 %106, i1 false)
   %107 = getelementptr i8, ptr %74, i64 %106
-  %.pre = ptrtoint ptr %107 to i64
-  %.pre69 = sub i64 %.pre, %18
   br label %108
 
 108:                                              ; preds = %104, %.thread12
-  %.pre-phi70 = phi i64 [ %.pre69, %104 ], [ %102, %.thread12 ]
+  %.pre-phi70 = phi i64 [ 8, %104 ], [ %102, %.thread12 ]
   %109 = phi ptr [ %107, %104 ], [ %74, %.thread12 ]
   %110 = icmp sgt i32 %.ph13, 0
   %111 = icmp slt i64 %.pre-phi70, 11

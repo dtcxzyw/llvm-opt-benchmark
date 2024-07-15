@@ -271,9 +271,8 @@ if.then10:                                        ; preds = %sw.bb
   br label %return
 
 if.end14:                                         ; preds = %sw.bb
-  %sub.ptr.lhs.cast.i23 = ptrtoint ptr %add.ptr.i19 to i64
   %sub.ptr.rhs.cast.i24 = ptrtoint ptr %call2.i20 to i64
-  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
+  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i24
   store ptr %call2.i20, ptr %src, align 8
   store i64 %sub.ptr.sub.i25, ptr %size_.i.i, align 8
   %7 = load i64, ptr %size, align 8

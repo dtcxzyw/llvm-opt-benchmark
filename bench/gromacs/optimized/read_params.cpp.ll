@@ -3014,11 +3014,11 @@ _ZN3gmx12_GLOBAL__N_128checkInputConsistencyAwhBiasERKNS_13AwhBiasParamsEP14Warn
   %151 = getelementptr inbounds %"class.gmx::AwhBiasParams", ptr %127, i64 %indvars.iv107.i
   %152 = load ptr, ptr %137, align 8
   %153 = load ptr, ptr %147, align 8
-  %154 = ptrtoint ptr %152 to i64
-  %155 = load ptr, ptr %151, align 8
-  %156 = ptrtoint ptr %153 to i64
-  %157 = sub i64 %156, %154
-  %158 = ashr exact i64 %157, 6
+  %154 = ptrtoint ptr %153 to i64
+  %155 = ptrtoint ptr %152 to i64
+  %156 = sub i64 %154, %155
+  %157 = load ptr, ptr %151, align 8
+  %158 = ashr exact i64 %156, 6
   %159 = icmp sgt i64 %158, 0
   br i1 %159, label %.lr.ph71.i, label %.._crit_edge_crit_edge.i
 
@@ -3027,11 +3027,11 @@ _ZN3gmx12_GLOBAL__N_128checkInputConsistencyAwhBiasERKNS_13AwhBiasParamsEP14Warn
   br label %._crit_edge.i
 
 .lr.ph71.i:                                       ; preds = %150
-  %160 = ptrtoint ptr %155 to i64
-  %161 = getelementptr inbounds i8, ptr %151, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = ptrtoint ptr %162 to i64
-  %164 = sub i64 %163, %160
+  %160 = getelementptr inbounds i8, ptr %151, i64 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = ptrtoint ptr %161 to i64
+  %163 = ptrtoint ptr %157 to i64
+  %164 = sub i64 %162, %163
   %.fr.i = freeze i64 %164
   %165 = ashr i64 %.fr.i, 6
   %166 = icmp sgt i64 %165, 0
@@ -3057,7 +3057,7 @@ _ZN3gmx12_GLOBAL__N_128checkInputConsistencyAwhBiasERKNS_13AwhBiasParamsEP14Warn
 
 172:                                              ; preds = %.preheader.us.us.i, %189
   %indvars.iv97.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next98.i, %189 ]
-  %173 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %155, i64 %indvars.iv97.i
+  %173 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %157, i64 %indvars.iv97.i
   %174 = load i32, ptr %173, align 8
   %175 = icmp eq i32 %174, 1
   %.not.us.us.i = icmp eq i64 %indvars.iv101.i, %indvars.iv97.i
@@ -3134,7 +3134,7 @@ _ZN3gmx12_GLOBAL__N_128checkInputConsistencyAwhBiasERKNS_13AwhBiasParamsEP14Warn
 
 200:                                              ; preds = %217, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %217 ], [ 0, %.preheader.us.i ]
-  %201 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %155, i64 %indvars.iv.i
+  %201 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %157, i64 %indvars.iv.i
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %217, label %204
@@ -4362,9 +4362,9 @@ _ZN3gmx12_GLOBAL__N_138checkFepLambdaDimDecouplingConsistencyERK10gmx_mtop_tP14W
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %196, i64 8
   %199 = load ptr, ptr %198, align 8
-  %200 = ptrtoint ptr %197 to i64
-  %201 = ptrtoint ptr %199 to i64
-  %202 = sub i64 %201, %200
+  %200 = ptrtoint ptr %199 to i64
+  %201 = ptrtoint ptr %197 to i64
+  %202 = sub i64 %200, %201
   %203 = ashr exact i64 %202, 6
   %204 = icmp sgt i64 %203, 0
   %205 = add nuw nsw i64 %indvars.iv47.i, 1

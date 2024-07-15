@@ -4896,9 +4896,9 @@ _ZNSt6vectorISt5tupleIJiiEESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIN3gmx1
 ._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %179
   %198 = phi ptr [ %.pre217, %._crit_edge209.loopexit ], [ %180, %179 ]
   %199 = phi ptr [ %.pre, %._crit_edge209.loopexit ], [ %178, %179 ]
-  %200 = ptrtoint ptr %199 to i64
-  %201 = ptrtoint ptr %198 to i64
-  %202 = sub i64 %201, %200
+  %200 = ptrtoint ptr %198 to i64
+  %201 = ptrtoint ptr %199 to i64
+  %202 = sub i64 %200, %201
   %203 = icmp ugt i64 %202, 9223372036854775804
   br i1 %203, label %204, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -4938,9 +4938,9 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i:           ; preds = %204, %_ZNSt12_Vecto
   %210 = load ptr, ptr %183, align 8
   %211 = getelementptr inbounds i8, ptr %12, i64 32
   %212 = load ptr, ptr %211, align 8
-  %213 = ptrtoint ptr %210 to i64
-  %214 = ptrtoint ptr %212 to i64
-  %215 = sub i64 %214, %213
+  %213 = ptrtoint ptr %212 to i64
+  %214 = ptrtoint ptr %210 to i64
+  %215 = sub i64 %213, %214
   %216 = icmp ugt i64 %215, 9223372036854775804
   br i1 %216, label %217, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i103
 

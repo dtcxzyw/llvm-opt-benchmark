@@ -386,17 +386,15 @@ if.end5:                                          ; preds = %if.then2
   br i1 %tobool8.not, label %err, label %if.end18
 
 if.else:                                          ; preds = %if.end
-  %4 = sub nuw nsw i64 16, %len
-  %5 = getelementptr i8, ptr %t, i64 %len
-  call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %t, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %t, ptr align 1 %in, i64 %len, i1 false)
   %arrayidx = getelementptr inbounds [16 x i8], ptr %t, i64 0, i64 %len
   store i8 -128, ptr %arrayidx, align 1
-  %6 = load i64, ptr %ctx, align 8
-  %or11.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %4 = load i64, ptr %ctx, align 8
+  %or11.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %7 = load i64, ptr %arrayidx.i.i, align 8
-  %or11.i.i8.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %5 = load i64, ptr %arrayidx.i.i, align 8
+  %or11.i.i8.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %isneg.i = icmp slt i64 %or11.i.i.i, 0
   %and3.i = select i1 %isneg.i, i64 135, i64 0
   %or.i = tail call i64 @llvm.fshl.i64(i64 %or11.i.i.i, i64 %or11.i.i8.i, i64 1)
@@ -406,12 +404,12 @@ if.else:                                          ; preds = %if.end
   store i64 %or11.i.i9.i, ptr %ctx, align 8
   %or11.i.i11.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i15)
   store i64 %or11.i.i11.i, ptr %arrayidx.i.i, align 8
-  %8 = load i64, ptr %t, align 16
-  %xor.i16 = xor i64 %8, %or11.i.i9.i
+  %6 = load i64, ptr %t, align 16
+  %xor.i16 = xor i64 %6, %or11.i.i9.i
   store i64 %xor.i16, ptr %t, align 16
   %arrayidx3.i18 = getelementptr inbounds i8, ptr %t, i64 8
-  %9 = load i64, ptr %arrayidx3.i18, align 8
-  %xor4.i19 = xor i64 %9, %or11.i.i11.i
+  %7 = load i64, ptr %arrayidx3.i18, align 8
+  %xor4.i19 = xor i64 %7, %or11.i.i11.i
   store i64 %xor4.i19, ptr %arrayidx3.i18, align 8
   %call14 = call i32 @EVP_MAC_update(ptr noundef nonnull %call, ptr noundef nonnull %t, i64 noundef 16) #9
   %tobool15.not = icmp eq i32 %call14, 0
@@ -420,8 +418,8 @@ if.else:                                          ; preds = %if.end
 if.end18:                                         ; preds = %if.else, %if.end5
   %call20 = call i32 @EVP_MAC_final(ptr noundef nonnull %call, ptr noundef %out, ptr noundef nonnull %out_len, i64 noundef 16) #9
   %tobool21 = icmp ne i32 %call20, 0
-  %10 = load i64, ptr %out_len, align 8
-  %cmp22 = icmp eq i64 %10, 16
+  %8 = load i64, ptr %out_len, align 8
+  %cmp22 = icmp eq i64 %8, 16
   %or.cond.not = select i1 %tobool21, i1 %cmp22, i1 false
   %spec.select = zext i1 %or.cond.not to i32
   br label %err

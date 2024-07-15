@@ -4848,11 +4848,10 @@ if.then17:                                        ; preds = %cond.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i
-  %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
   store ptr %add.ptr.i, ptr %handler, align 8
   %size_.i.i.i = getelementptr inbounds i8, ptr %handler, i64 8
   %8 = load i64, ptr %size_.i.i.i, align 8
-  %sub.i.i.i = add i64 %sub.ptr.sub.i.neg.i, %8
+  %sub.i.i.i = sub i64 %8, %sub.ptr.sub.i
   store i64 %sub.i.i.i, ptr %size_.i.i.i, align 8
   %or.cond.i = icmp ult i32 %6, 3
   br i1 %or.cond.i, label %cond.true.i, label %_ZN3fmt2v96detail21format_string_checkerIcNS1_13error_handlerEJPKcS5_iEE15on_format_specsEiS5_S5_.exit

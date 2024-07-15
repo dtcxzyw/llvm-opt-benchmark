@@ -3246,21 +3246,17 @@ define internal void @virtio_net_set_config(ptr noundef %vdev, ptr nocapture nou
 entry:
   %netcfg = alloca %struct.virtio_net_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %netcfg, i8 0, i64 24, i1 false)
   %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
   %config_size = getelementptr inbounds i8, ptr %call.i, i64 8960
   %1 = load i64, ptr %config_size, align 8
-  %2 = icmp ugt i64 %1, 23
-  %3 = sub i64 24, %1
-  %4 = select i1 %2, i64 0, i64 %3
-  %5 = getelementptr i8, ptr %netcfg, i64 %1
-  call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %4, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %netcfg, ptr align 1 %config, i64 %1, i1 false)
-  %6 = getelementptr i8, ptr %vdev, i64 184
-  %vdev.val11 = load i64, ptr %6, align 8
-  %7 = and i64 %vdev.val11, 4303355904
-  %or.cond.not = icmp eq i64 %7, 0
+  %2 = getelementptr i8, ptr %vdev, i64 184
+  %vdev.val11 = load i64, ptr %2, align 8
+  %3 = and i64 %vdev.val11, 4303355904
+  %or.cond.not = icmp eq i64 %3, 0
   br i1 %or.cond.not, label %land.lhs.true4, label %if.end
 
 land.lhs.true4:                                   ; preds = %entry
@@ -3271,27 +3267,27 @@ land.lhs.true4:                                   ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %mac5, ptr noundef nonnull align 1 dereferenceable(6) %netcfg, i64 6, i1 false)
-  %8 = load ptr, ptr %nic, align 8
-  %call13 = tail call ptr @qemu_get_queue(ptr noundef %8) #19
+  %4 = load ptr, ptr %nic, align 8
+  %call13 = tail call ptr @qemu_get_queue(ptr noundef %4) #19
   tail call void @qemu_format_nic_info_str(ptr noundef %call13, ptr noundef nonnull %mac5) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true4, %entry
   %peer = getelementptr inbounds i8, ptr %call1, i64 32
-  %9 = load ptr, ptr %peer, align 8
-  %tobool16.not = icmp eq ptr %9, null
+  %5 = load ptr, ptr %peer, align 8
+  %tobool16.not = icmp eq ptr %5, null
   br i1 %tobool16.not, label %if.end24, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %10, align 8
-  %cmp = icmp eq i32 %11, 13
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp eq i32 %7, 13
   br i1 %cmp, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %land.lhs.true17
-  %call21 = tail call ptr @get_vhost_net(ptr noundef nonnull %9) #19
-  %12 = load i64, ptr %config_size, align 8
-  %conv = trunc i64 %12 to i32
+  %call21 = tail call ptr @get_vhost_net(ptr noundef nonnull %5) #19
+  %8 = load i64, ptr %config_size, align 8
+  %conv = trunc i64 %8 to i32
   %call23 = call i32 @vhost_net_set_config(ptr noundef %call21, ptr noundef nonnull %netcfg, i32 noundef 0, i32 noundef %conv, i32 noundef 0) #19
   br label %if.end24
 

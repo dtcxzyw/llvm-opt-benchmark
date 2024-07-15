@@ -31903,13 +31903,15 @@ for.body.i.i.i.i.i25.i:                           ; preds = %_ZSt4moveIPN11flatb
   %incdec.ptr1.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i27.i, i64 64
   %dec.i.i.i.i.i35.i = add nsw i64 %__n.09.i.i.i.i.i26.i, -1
   %cmp.i.i.i.i.i36.i = icmp ugt i64 %__n.09.i.i.i.i.i26.i, 1
-  br i1 %cmp.i.i.i.i.i36.i, label %for.body.i.i.i.i.i25.i, label %_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit, !llvm.loop !154
+  br i1 %cmp.i.i.i.i.i36.i, label %for.body.i.i.i.i.i25.i, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i, !llvm.loop !154
 
-_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit: ; preds = %for.body.i.i.i.i.i25.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
-  %__result.addr.0.lcssa.i.i.i.i.i20.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i ], [ %incdec.ptr1.i.i.i.i.i34.i, %for.body.i.i.i.i.i25.i ]
-  %sub.ptr.lhs.cast.i.i.i21.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i20.i to i64
-  %sub.ptr.rhs.cast.i.i.i22.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i23.i = sub i64 %sub.ptr.lhs.cast.i.i.i21.i, %sub.ptr.rhs.cast.i.i.i22.i
+_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i: ; preds = %for.body.i.i.i.i.i25.i
+  %5 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i34.i to i64
+  br label %_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit
+
+_ZSt12__move_mergeIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit: ; preds = %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i
+  %__result.addr.0.lcssa.i.i.i.i.i20.i = phi i64 [ %sub.ptr.lhs.cast.i.i.i.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i ], [ %5, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i ]
+  %sub.ptr.sub.i.i.i23.i = sub i64 %__result.addr.0.lcssa.i.i.i.i.i20.i, %sub.ptr.lhs.cast.i.i.i.i
   %add.ptr.i.i.i.i24.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i23.i
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.lhs.cast.i.i.i.i.i15.i
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 6
@@ -32329,13 +32331,15 @@ for.body.i.i.i.i.i25:                             ; preds = %_ZSt4moveIPN11flatb
   %incdec.ptr1.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i27, i64 64
   %dec.i.i.i.i.i35 = add nsw i64 %__n.09.i.i.i.i.i26, -1
   %cmp.i.i.i.i.i36 = icmp ugt i64 %__n.09.i.i.i.i.i26, 1
-  br i1 %cmp.i.i.i.i.i36, label %for.body.i.i.i.i.i25, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37, !llvm.loop !154
+  br i1 %cmp.i.i.i.i.i36, label %for.body.i.i.i.i.i25, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit, !llvm.loop !154
 
-_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37: ; preds = %for.body.i.i.i.i.i25, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i20 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %incdec.ptr1.i.i.i.i.i34, %for.body.i.i.i.i.i25 ]
-  %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i20 to i64
-  %sub.ptr.rhs.cast.i.i.i22 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i.i21, %sub.ptr.rhs.cast.i.i.i22
+_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit: ; preds = %for.body.i.i.i.i.i25
+  %4 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i34 to i64
+  br label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37
+
+_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37: ; preds = %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i20 = phi i64 [ %sub.ptr.lhs.cast.i.i.i, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %4, %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit ]
+  %sub.ptr.sub.i.i.i23 = sub i64 %__result.addr.0.lcssa.i.i.i.i.i20, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i23
   ret ptr %add.ptr.i.i.i.i24
 }

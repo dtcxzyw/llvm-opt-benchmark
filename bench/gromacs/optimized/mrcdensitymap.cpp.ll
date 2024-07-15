@@ -1459,9 +1459,9 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i: ; preds = %_ZNK3gmx7extents
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %175, i64 1048
   %179 = load ptr, ptr %178, align 8
-  %180 = ptrtoint ptr %177 to i64
-  %181 = ptrtoint ptr %179 to i64
-  %182 = sub i64 %181, %180
+  %180 = ptrtoint ptr %179 to i64
+  %181 = ptrtoint ptr %177 to i64
+  %182 = sub i64 %180, %181
   %183 = ashr exact i64 %182, 2
   %.not = icmp eq i64 %171, %183
   br i1 %.not, label %205, label %184
@@ -2026,9 +2026,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %25, %22
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 1048
   %35 = load ptr, ptr %34, align 8
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %37, %36
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 2
   %40 = icmp sgt i64 %39, 0
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit

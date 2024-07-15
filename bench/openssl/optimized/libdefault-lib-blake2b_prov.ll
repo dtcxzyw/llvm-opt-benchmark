@@ -113,54 +113,50 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %blake2b_init_param.exit, label %for.body.i, !llvm.loop !4
 
 blake2b_init_param.exit:                          ; preds = %for.body.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %block, i8 0, i64 128, i1 false)
   %key_length = getelementptr inbounds i8, ptr %P, i64 1
   %3 = load i8, ptr %key_length, align 1
   %conv = zext i8 %3 to i64
-  %4 = icmp slt i8 %3, 0
-  %5 = sub nsw i64 128, %conv
-  %6 = select i1 %4, i64 0, i64 %5
-  %7 = getelementptr i8, ptr %block, i64 %conv
-  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv, i1 false)
   %buflen.i = getelementptr inbounds i8, ptr %c, i64 224
-  %8 = load i64, ptr %buflen.i, align 8
-  %sub.i = sub i64 128, %8
+  %4 = load i64, ptr %buflen.i, align 8
+  %sub.i = sub i64 128, %4
   %cmp.i = icmp ult i64 %sub.i, 128
   br i1 %cmp.i, label %if.then.i, label %ossl_blake2b_update.exit
 
 if.then.i:                                        ; preds = %blake2b_init_param.exit
-  %tobool.not.i = icmp eq i64 %8, 0
+  %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %ossl_blake2b_update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %buf.i = getelementptr inbounds i8, ptr %c, i64 96
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %buf.i, i64 %8
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %buf.i, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i3, ptr nonnull readonly align 16 %block, i64 %sub.i, i1 false)
   tail call fastcc void @blake2b_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 128)
   store i64 0, ptr %buflen.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %block, i64 %sub.i
-  %cmp9.i = icmp ugt i64 %8, 128
+  %cmp9.i = icmp ugt i64 %4, 128
   br i1 %cmp9.i, label %if.then10.i, label %ossl_blake2b_update.exit
 
 if.then10.i:                                      ; preds = %if.end.i
-  %rem.i = and i64 %8, 127
+  %rem.i = and i64 %4, 127
   %tobool11.not.i = icmp eq i64 %rem.i, 0
   %cond.i = select i1 %tobool11.not.i, i64 128, i64 %rem.i
-  %sub12.i = sub nuw i64 %8, %cond.i
+  %sub12.i = sub nuw i64 %4, %cond.i
   call fastcc void @blake2b_compress(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr7.i, i64 noundef %sub12.i)
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %sub12.i
   %.pre.i = load i64, ptr %buflen.i, align 8
   br label %ossl_blake2b_update.exit
 
 ossl_blake2b_update.exit:                         ; preds = %if.then.i, %blake2b_init_param.exit, %if.end.i, %if.then10.i
-  %9 = phi i64 [ %.pre.i, %if.then10.i ], [ 0, %if.end.i ], [ %8, %blake2b_init_param.exit ], [ 0, %if.then.i ]
+  %5 = phi i64 [ %.pre.i, %if.then10.i ], [ 0, %if.end.i ], [ %4, %blake2b_init_param.exit ], [ 0, %if.then.i ]
   %in.1.i = phi ptr [ %add.ptr13.i, %if.then10.i ], [ %add.ptr7.i, %if.end.i ], [ %block, %blake2b_init_param.exit ], [ %block, %if.then.i ]
-  %datalen.addr.1.i = phi i64 [ %cond.i, %if.then10.i ], [ %8, %if.end.i ], [ 128, %blake2b_init_param.exit ], [ 128, %if.then.i ]
+  %datalen.addr.1.i = phi i64 [ %cond.i, %if.then10.i ], [ %4, %if.end.i ], [ 128, %blake2b_init_param.exit ], [ 128, %if.then.i ]
   %buf16.i = getelementptr inbounds i8, ptr %c, i64 96
-  %add.ptr19.i = getelementptr inbounds i8, ptr %buf16.i, i64 %9
+  %add.ptr19.i = getelementptr inbounds i8, ptr %buf16.i, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull align 1 %in.1.i, i64 %datalen.addr.1.i, i1 false)
-  %10 = load i64, ptr %buflen.i, align 8
-  %add.i = add i64 %10, %datalen.addr.1.i
+  %6 = load i64, ptr %buflen.i, align 8
+  %add.i = add i64 %6, %datalen.addr.1.i
   store i64 %add.i, ptr %buflen.i, align 8
   call void @OPENSSL_cleanse(ptr noundef nonnull %block, i64 noundef 128) #10
   ret i32 1

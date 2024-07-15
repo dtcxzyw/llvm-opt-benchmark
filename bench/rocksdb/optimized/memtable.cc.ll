@@ -5160,9 +5160,8 @@ if.then19:                                        ; preds = %_ZN7rocksdb14GetVar
 if.end22:                                         ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i19.if.end22_crit_edge, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i30
   %4 = phi i32 [ %conv.i.i31, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i30 ], [ %.pre69, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i19.if.end22_crit_edge ]
   %retval.0.i10.i23 = phi ptr [ %add.ptr.i.i32, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i30 ], [ %call.i.i20, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i19.if.end22_crit_edge ]
-  %sub.ptr.lhs.cast.i24 = ptrtoint ptr %add.ptr.i17 to i64
   %sub.ptr.rhs.cast.i25 = ptrtoint ptr %retval.0.i10.i23 to i64
-  %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i25
+  %sub.ptr.sub.i26 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i25
   %conv23 = zext i32 %4 to i64
   %cmp25 = icmp ugt i64 %sub.ptr.sub.i26, %conv23
   br i1 %cmp25, label %if.then26, label %if.end29

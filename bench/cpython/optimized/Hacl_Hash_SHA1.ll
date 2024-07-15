@@ -208,11 +208,9 @@ entry:
   %0 = trunc i64 %add to i32
   %sub3 = sub i32 55, %0
   %rem4 = and i32 %sub3, 63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmp_twoblocks, i8 0, i64 128, i1 false)
   %idx.ext8 = zext nneg i32 %sub to i64
   %add.ptr9 = getelementptr i8, ptr %tmp_twoblocks, i64 %idx.ext8
-  %1 = sub nuw nsw i64 128, %idx.ext8
-  %2 = getelementptr i8, ptr %tmp_twoblocks, i64 %idx.ext8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, i8 0, i64 %1, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks, ptr align 1 %add.ptr, i64 %idx.ext8, i1 false)
   store i8 -128, ptr %add.ptr9, align 1
   %add.ptr.i = getelementptr i8, ptr %add.ptr9, i64 1
@@ -220,9 +218,9 @@ entry:
   br i1 %cmp7.not.i, label %legacy_pad.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %entry
-  %3 = sub i64 55, %add
-  %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %4, i1 false)
+  %1 = sub i64 55, %add
+  %2 = and i64 %1, 63
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %2, i1 false)
   br label %legacy_pad.exit
 
 legacy_pad.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -271,10 +269,9 @@ entry:
   %conv.i = zext i32 %sub2 to i64
   %sub3.i = sub i32 55, %input_len
   %rem4.i = and i32 %sub3.i, 63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmp_twoblocks.i, i8 0, i64 128, i1 false)
   %idx.ext8.i = zext nneg i32 %rem to i64
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %idx.ext8.i
-  %0 = sub nuw nsw i64 128, %idx.ext8.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %idx.ext8.i, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
@@ -282,9 +279,9 @@ entry:
   br i1 %cmp7.not.i.i, label %Hacl_Hash_SHA1_legacy_update_last.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %entry
-  %1 = sub nsw i64 55, %conv.i
-  %2 = and i64 %1, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %2, i1 false)
+  %0 = sub nsw i64 55, %conv.i
+  %1 = and i64 %0, 63
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %1, i1 false)
   br label %Hacl_Hash_SHA1_legacy_update_last.exit
 
 Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.preheader.i.i
@@ -299,13 +296,13 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %s, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %tmp_twoblocks.i)
-  %3 = load <4 x i32>, ptr %s, align 16
-  %4 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %3)
-  store <4 x i32> %4, ptr %dst, align 1
+  %2 = load <4 x i32>, ptr %s, align 16
+  %3 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %2)
+  store <4 x i32> %3, ptr %dst, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
   %arrayidx26.i = getelementptr inbounds i8, ptr %s, i64 16
-  %5 = load i32, ptr %arrayidx26.i, align 16
-  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
+  %4 = load i32, ptr %arrayidx26.i, align 16
+  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
   ret void
 }
@@ -503,9 +500,8 @@ entry:
   %1 = trunc i64 %scrut.sroa.3.0.copyload to i32
   %sub3.i = sub i32 55, %1
   %rem4.i = and i32 %sub3.i, 63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmp_twoblocks.i, i8 0, i64 128, i1 false)
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %0
-  %2 = sub nuw nsw i64 128, %0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %0, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
@@ -513,9 +509,9 @@ entry:
   br i1 %cmp7.not.i.i, label %Hacl_Hash_SHA1_legacy_update_last.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %entry
-  %3 = sub i64 55, %scrut.sroa.3.0.copyload
-  %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %4, i1 false)
+  %2 = sub i64 55, %scrut.sroa.3.0.copyload
+  %3 = and i64 %2, 63
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %3, i1 false)
   br label %Hacl_Hash_SHA1_legacy_update_last.exit
 
 Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.preheader.i.i
@@ -529,13 +525,13 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %tmp_twoblocks.i)
-  %5 = load <4 x i32>, ptr %tmp_block_state, align 16
-  %6 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %5)
-  store <4 x i32> %6, ptr %dst, align 1
+  %4 = load <4 x i32>, ptr %tmp_block_state, align 16
+  %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
+  store <4 x i32> %5, ptr %dst, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
   %arrayidx26.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
-  %7 = load i32, ptr %arrayidx26.i, align 16
-  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
+  %6 = load i32, ptr %arrayidx26.i, align 16
+  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
   ret void
 }

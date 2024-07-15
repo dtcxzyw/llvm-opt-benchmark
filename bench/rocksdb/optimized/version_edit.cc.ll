@@ -3062,9 +3062,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i: ; preds =
 land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i68
   %15 = phi i32 [ %conv.i.i.i69, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i68 ], [ %.pre.i60, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
   %16 = phi ptr [ %add.ptr.i.i.i70, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i68 ], [ %call.i.i.i72, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
-  %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %add.ptr.i.i56 to i64
   %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i61, %sub.ptr.rhs.cast.i.i62
+  %sub.ptr.sub.i.i63 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i.i62
   store ptr %16, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i63, ptr %size_.i.i.i, align 8
   %conv.i = zext i32 %15 to i64
@@ -3831,9 +3830,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i: ; preds =
 land.lhs.true.i:                                  ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i
   %8 = phi i32 [ %conv.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %.pre.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
   %9 = phi ptr [ %add.ptr.i.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i ], [ %call.i.i.i24, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i22 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   store ptr %9, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8
   %conv.i = zext i32 %8 to i64
@@ -3893,9 +3891,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i31: ; preds
 land.lhs.true.i33:                                ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i31, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i46
   %11 = phi i32 [ %conv.i.i.i47, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i46 ], [ %.pre.i32, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i31 ]
   %12 = phi ptr [ %add.ptr.i.i.i48, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i46 ], [ %call.i.i.i50, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i31 ]
-  %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %add.ptr.i.i27 to i64
   %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
+  %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i35
   store ptr %12, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i36, ptr %size_.i.i, align 8
   %conv.i37 = zext i32 %11 to i64
@@ -3933,9 +3930,8 @@ call2.i.noexc:                                    ; preds = %sw.bb18
   br i1 %cmp.i.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then21
 
 if.then21:                                        ; preds = %call2.i.noexc
-  %sub.ptr.lhs.cast.i55 = ptrtoint ptr %add.ptr.i53 to i64
   %sub.ptr.rhs.cast.i56 = ptrtoint ptr %call2.i58 to i64
-  %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.rhs.cast.i56
+  %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i56
   store ptr %call2.i58, ptr %input, align 8
   store i64 %sub.ptr.sub.i57, ptr %size_.i.i, align 8
   store i8 1, ptr %has_log_number_, align 2
@@ -3951,9 +3947,8 @@ call2.i.noexc66:                                  ; preds = %sw.bb24
   br i1 %cmp.i61.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then27
 
 if.then27:                                        ; preds = %call2.i.noexc66
-  %sub.ptr.lhs.cast.i63 = ptrtoint ptr %add.ptr.i60 to i64
   %sub.ptr.rhs.cast.i64 = ptrtoint ptr %call2.i67 to i64
-  %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i63, %sub.ptr.rhs.cast.i64
+  %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i64
   store ptr %call2.i67, ptr %input, align 8
   store i64 %sub.ptr.sub.i65, ptr %size_.i.i, align 8
   store i8 1, ptr %has_prev_log_number_, align 1
@@ -3969,9 +3964,8 @@ call2.i.noexc76:                                  ; preds = %sw.bb30
   br i1 %cmp.i71.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then33
 
 if.then33:                                        ; preds = %call2.i.noexc76
-  %sub.ptr.lhs.cast.i73 = ptrtoint ptr %add.ptr.i70 to i64
   %sub.ptr.rhs.cast.i74 = ptrtoint ptr %call2.i77 to i64
-  %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
+  %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i74
   store ptr %call2.i77, ptr %input, align 8
   store i64 %sub.ptr.sub.i75, ptr %size_.i.i, align 8
   store i8 1, ptr %has_next_file_number_, align 4
@@ -4003,9 +3997,8 @@ call.i.i.noexc95:                                 ; preds = %_ZN7rocksdb14GetVar
 
 if.then39:                                        ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i92, %call.i.i.noexc95
   %retval.0.i10.i85 = phi ptr [ %add.ptr.i.i94, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i92 ], [ %call.i.i96, %call.i.i.noexc95 ]
-  %sub.ptr.lhs.cast.i86 = ptrtoint ptr %add.ptr.i80 to i64
   %sub.ptr.rhs.cast.i87 = ptrtoint ptr %retval.0.i10.i85 to i64
-  %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i86, %sub.ptr.rhs.cast.i87
+  %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i87
   store ptr %retval.0.i10.i85, ptr %input, align 8
   store i64 %sub.ptr.sub.i88, ptr %size_.i.i, align 8
   store i8 1, ptr %has_max_column_family_, align 1
@@ -4021,9 +4014,8 @@ call2.i.noexc105:                                 ; preds = %sw.bb42
   br i1 %cmp.i100.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then45
 
 if.then45:                                        ; preds = %call2.i.noexc105
-  %sub.ptr.lhs.cast.i102 = ptrtoint ptr %add.ptr.i99 to i64
   %sub.ptr.rhs.cast.i103 = ptrtoint ptr %call2.i106 to i64
-  %sub.ptr.sub.i104 = sub i64 %sub.ptr.lhs.cast.i102, %sub.ptr.rhs.cast.i103
+  %sub.ptr.sub.i104 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i103
   store ptr %call2.i106, ptr %input, align 8
   store i64 %sub.ptr.sub.i104, ptr %size_.i.i, align 8
   store i8 1, ptr %has_min_log_number_to_keep_, align 2
@@ -4039,9 +4031,8 @@ call2.i.noexc115:                                 ; preds = %sw.bb48
   br i1 %cmp.i110.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %if.then51
 
 if.then51:                                        ; preds = %call2.i.noexc115
-  %sub.ptr.lhs.cast.i112 = ptrtoint ptr %add.ptr.i109 to i64
   %sub.ptr.rhs.cast.i113 = ptrtoint ptr %call2.i116 to i64
-  %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
+  %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i113
   store ptr %call2.i116, ptr %input, align 8
   store i64 %sub.ptr.sub.i114, ptr %size_.i.i, align 8
   store i8 1, ptr %has_last_sequence_, align 1
@@ -4079,9 +4070,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i: ; preds = %call
 if.then.i124:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i131
   %15 = phi i32 [ %conv.i.i.i132, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i131 ], [ %.pre.i123, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i ]
   %retval.0.i10.i.i = phi ptr [ %add.ptr.i.i.i133, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i131 ], [ %call.i.i.i135, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i ]
-  %sub.ptr.lhs.cast.i.i125 = ptrtoint ptr %add.ptr.i.i119 to i64
   %sub.ptr.rhs.cast.i.i126 = ptrtoint ptr %retval.0.i10.i.i to i64
-  %sub.ptr.sub.i.i127 = sub i64 %sub.ptr.lhs.cast.i.i125, %sub.ptr.rhs.cast.i.i126
+  %sub.ptr.sub.i.i127 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i126
   store ptr %retval.0.i10.i.i, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i127, ptr %size_.i.i, align 8
   %16 = load i32, ptr %this, align 8
@@ -4172,9 +4162,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i145: ; preds = %c
 if.then.i147:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i145, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i157
   %23 = phi i32 [ %conv.i.i.i158, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i157 ], [ %.pre.i146, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i145 ]
   %24 = phi ptr [ %add.ptr.i.i.i159, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i157 ], [ %call.i.i.i161, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i145 ]
-  %sub.ptr.lhs.cast.i.i149 = ptrtoint ptr %add.ptr.i.i141 to i64
   %sub.ptr.rhs.cast.i.i150 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i.i151 = sub i64 %sub.ptr.lhs.cast.i.i149, %sub.ptr.rhs.cast.i.i150
+  %sub.ptr.sub.i.i151 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i150
   store ptr %24, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i151, ptr %size_.i.i, align 8
   %25 = load i32, ptr %this, align 8
@@ -4200,9 +4189,8 @@ call2.i.noexc170:                                 ; preds = %land.lhs.true71
   br i1 %cmp.i165.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %call2.i.noexc170
-  %sub.ptr.lhs.cast.i167 = ptrtoint ptr %add.ptr.i164 to i64
   %sub.ptr.rhs.cast.i168 = ptrtoint ptr %call2.i171 to i64
-  %sub.ptr.sub.i169 = sub i64 %sub.ptr.lhs.cast.i167, %sub.ptr.rhs.cast.i168
+  %sub.ptr.sub.i169 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i168
   store ptr %call2.i171, ptr %input, align 8
   store i64 %sub.ptr.sub.i169, ptr %size_.i.i, align 8
   %26 = load i64, ptr %number, align 8
@@ -4245,9 +4233,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i181: ; preds = %c
 if.then.i183:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i181, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i193
   %28 = phi i32 [ %conv.i.i.i194, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i193 ], [ %.pre.i182, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i181 ]
   %29 = phi ptr [ %add.ptr.i.i.i195, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i193 ], [ %call.i.i.i197, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i181 ]
-  %sub.ptr.lhs.cast.i.i185 = ptrtoint ptr %add.ptr.i.i177 to i64
   %sub.ptr.rhs.cast.i.i186 = ptrtoint ptr %29 to i64
-  %sub.ptr.sub.i.i187 = sub i64 %sub.ptr.lhs.cast.i.i185, %sub.ptr.rhs.cast.i.i186
+  %sub.ptr.sub.i.i187 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i186
   store ptr %29, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i187, ptr %size_.i.i, align 8
   %30 = load i32, ptr %this, align 8
@@ -4273,9 +4260,8 @@ call2.i.noexc206:                                 ; preds = %land.lhs.true89
   br i1 %cmp.i201.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %call2.i.noexc206
-  %sub.ptr.lhs.cast.i203 = ptrtoint ptr %add.ptr.i200 to i64
   %sub.ptr.rhs.cast.i204 = ptrtoint ptr %call2.i207 to i64
-  %sub.ptr.sub.i205 = sub i64 %sub.ptr.lhs.cast.i203, %sub.ptr.rhs.cast.i204
+  %sub.ptr.sub.i205 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i204
   store ptr %call2.i207, ptr %input, align 8
   store i64 %sub.ptr.sub.i205, ptr %size_.i.i, align 8
   %add.ptr.i210 = getelementptr inbounds i8, ptr %call2.i207, i64 %sub.ptr.sub.i205
@@ -4288,7 +4274,7 @@ call2.i.noexc216:                                 ; preds = %land.lhs.true92
 
 land.lhs.true95:                                  ; preds = %call2.i.noexc216
   %sub.ptr.rhs.cast.i214 = ptrtoint ptr %call2.i217 to i64
-  %sub.ptr.sub.i215 = sub i64 %sub.ptr.lhs.cast.i203, %sub.ptr.rhs.cast.i214
+  %sub.ptr.sub.i215 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i214
   store ptr %call2.i217, ptr %input, align 8
   store i64 %sub.ptr.sub.i215, ptr %size_.i.i, align 8
   %call97 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
@@ -4366,9 +4352,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i228: ; preds = %c
 if.then.i230:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i228, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i240
   %35 = phi i32 [ %conv.i.i.i241, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i240 ], [ %.pre.i229, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i228 ]
   %36 = phi ptr [ %add.ptr.i.i.i242, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i240 ], [ %call.i.i.i244, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i228 ]
-  %sub.ptr.lhs.cast.i.i232 = ptrtoint ptr %add.ptr.i.i224 to i64
   %sub.ptr.rhs.cast.i.i233 = ptrtoint ptr %36 to i64
-  %sub.ptr.sub.i.i234 = sub i64 %sub.ptr.lhs.cast.i.i232, %sub.ptr.rhs.cast.i.i233
+  %sub.ptr.sub.i.i234 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i233
   store ptr %36, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i234, ptr %size_.i.i, align 8
   %37 = load i32, ptr %this, align 8
@@ -4394,9 +4379,8 @@ call2.i.noexc253:                                 ; preds = %land.lhs.true120
   br i1 %cmp.i248.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true123
 
 land.lhs.true123:                                 ; preds = %call2.i.noexc253
-  %sub.ptr.lhs.cast.i250 = ptrtoint ptr %add.ptr.i247 to i64
   %sub.ptr.rhs.cast.i251 = ptrtoint ptr %call2.i254 to i64
-  %sub.ptr.sub.i252 = sub i64 %sub.ptr.lhs.cast.i250, %sub.ptr.rhs.cast.i251
+  %sub.ptr.sub.i252 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i251
   store ptr %call2.i254, ptr %input, align 8
   store i64 %sub.ptr.sub.i252, ptr %size_.i.i, align 8
   %add.ptr.i257 = getelementptr inbounds i8, ptr %call2.i254, i64 %sub.ptr.sub.i252
@@ -4409,7 +4393,7 @@ call2.i.noexc263:                                 ; preds = %land.lhs.true123
 
 land.lhs.true126:                                 ; preds = %call2.i.noexc263
   %sub.ptr.rhs.cast.i261 = ptrtoint ptr %call2.i264 to i64
-  %sub.ptr.sub.i262 = sub i64 %sub.ptr.lhs.cast.i250, %sub.ptr.rhs.cast.i261
+  %sub.ptr.sub.i262 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i261
   store ptr %call2.i264, ptr %input, align 8
   store i64 %sub.ptr.sub.i262, ptr %size_.i.i, align 8
   %call129 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
@@ -4519,9 +4503,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i309: ; preds = %c
 if.then.i311:                                     ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i309, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i321
   %46 = phi i32 [ %conv.i.i.i322, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i321 ], [ %.pre.i310, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i309 ]
   %47 = phi ptr [ %add.ptr.i.i.i323, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i321 ], [ %call.i.i.i325, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.if.then_crit_edge.i309 ]
-  %sub.ptr.lhs.cast.i.i313 = ptrtoint ptr %add.ptr.i.i305 to i64
   %sub.ptr.rhs.cast.i.i314 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i.i315 = sub i64 %sub.ptr.lhs.cast.i.i313, %sub.ptr.rhs.cast.i.i314
+  %sub.ptr.sub.i.i315 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i314
   store ptr %47, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i315, ptr %size_.i.i, align 8
   %48 = load i32, ptr %this, align 8
@@ -4547,9 +4530,8 @@ call2.i.noexc334:                                 ; preds = %land.lhs.true163
   br i1 %cmp.i329.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true166
 
 land.lhs.true166:                                 ; preds = %call2.i.noexc334
-  %sub.ptr.lhs.cast.i331 = ptrtoint ptr %add.ptr.i328 to i64
   %sub.ptr.rhs.cast.i332 = ptrtoint ptr %call2.i335 to i64
-  %sub.ptr.sub.i333 = sub i64 %sub.ptr.lhs.cast.i331, %sub.ptr.rhs.cast.i332
+  %sub.ptr.sub.i333 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i332
   store ptr %call2.i335, ptr %input, align 8
   store i64 %sub.ptr.sub.i333, ptr %size_.i.i, align 8
   %add.ptr.i338 = getelementptr inbounds i8, ptr %call2.i335, i64 %sub.ptr.sub.i333
@@ -4578,7 +4560,7 @@ call.i.i.noexc353:                                ; preds = %_ZN7rocksdb14GetVar
 land.lhs.true169:                                 ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i350, %call.i.i.noexc353
   %retval.0.i10.i343 = phi ptr [ %add.ptr.i.i352, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i350 ], [ %call.i.i354, %call.i.i.noexc353 ]
   %sub.ptr.rhs.cast.i345 = ptrtoint ptr %retval.0.i10.i343 to i64
-  %sub.ptr.sub.i346 = sub i64 %sub.ptr.lhs.cast.i331, %sub.ptr.rhs.cast.i345
+  %sub.ptr.sub.i346 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i345
   store ptr %retval.0.i10.i343, ptr %input, align 8
   store i64 %sub.ptr.sub.i346, ptr %size_.i.i, align 8
   %add.ptr.i357 = getelementptr inbounds i8, ptr %retval.0.i10.i343, i64 %sub.ptr.sub.i346
@@ -4590,9 +4572,8 @@ call2.i.noexc363:                                 ; preds = %land.lhs.true169
   br i1 %cmp.i358.not, label %_ZN7rocksdb5SliceC2EPKc.exit, label %land.lhs.true172
 
 land.lhs.true172:                                 ; preds = %call2.i.noexc363
-  %sub.ptr.lhs.cast.i360 = ptrtoint ptr %add.ptr.i357 to i64
   %sub.ptr.rhs.cast.i361 = ptrtoint ptr %call2.i364 to i64
-  %sub.ptr.sub.i362 = sub i64 %sub.ptr.lhs.cast.i360, %sub.ptr.rhs.cast.i361
+  %sub.ptr.sub.i362 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i361
   store ptr %call2.i364, ptr %input, align 8
   store i64 %sub.ptr.sub.i362, ptr %size_.i.i, align 8
   %call175 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
@@ -5049,9 +5030,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i474: ; pred
 land.lhs.true.i476:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i474, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i489
   %85 = phi i32 [ %conv.i.i.i490, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i489 ], [ %.pre.i475, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i474 ]
   %86 = phi ptr [ %add.ptr.i.i.i491, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i489 ], [ %call.i.i.i493, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i474 ]
-  %sub.ptr.lhs.cast.i.i477 = ptrtoint ptr %add.ptr.i.i470 to i64
   %sub.ptr.rhs.cast.i.i478 = ptrtoint ptr %86 to i64
-  %sub.ptr.sub.i.i479 = sub i64 %sub.ptr.lhs.cast.i.i477, %sub.ptr.rhs.cast.i.i478
+  %sub.ptr.sub.i.i479 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i478
   store ptr %86, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i479, ptr %size_.i.i, align 8
   %conv.i480 = zext i32 %85 to i64
@@ -5252,9 +5232,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i562: ; pred
 land.lhs.true.i564:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i562, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i577
   %99 = phi i32 [ %conv.i.i.i578, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i577 ], [ %.pre.i563, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i562 ]
   %100 = phi ptr [ %add.ptr.i.i.i579, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i577 ], [ %call.i.i.i581, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i562 ]
-  %sub.ptr.lhs.cast.i.i565 = ptrtoint ptr %add.ptr.i.i558 to i64
   %sub.ptr.rhs.cast.i.i566 = ptrtoint ptr %100 to i64
-  %sub.ptr.sub.i.i567 = sub i64 %sub.ptr.lhs.cast.i.i565, %sub.ptr.rhs.cast.i.i566
+  %sub.ptr.sub.i.i567 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i566
   store ptr %100, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i567, ptr %size_.i.i, align 8
   %conv.i568 = zext i32 %99 to i64
@@ -5323,9 +5302,8 @@ call.i.i.noexc608:                                ; preds = %_ZN7rocksdb14GetVar
 
 invoke.cont313.thread:                            ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i605, %call.i.i.noexc608
   %retval.0.i10.i598 = phi ptr [ %add.ptr.i.i607, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i605 ], [ %call.i.i609, %call.i.i.noexc608 ]
-  %sub.ptr.lhs.cast.i599 = ptrtoint ptr %add.ptr.i593 to i64
   %sub.ptr.rhs.cast.i600 = ptrtoint ptr %retval.0.i10.i598 to i64
-  %sub.ptr.sub.i601 = sub i64 %sub.ptr.lhs.cast.i599, %sub.ptr.rhs.cast.i600
+  %sub.ptr.sub.i601 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i600
   store ptr %retval.0.i10.i598, ptr %input, align 8
   store i64 %sub.ptr.sub.i601, ptr %size_.i.i, align 8
   br label %sw.epilog
@@ -5362,9 +5340,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i617: ; pred
 land.lhs.true.i619:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i617, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i632
   %106 = phi i32 [ %conv.i.i.i633, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i632 ], [ %.pre.i618, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i617 ]
   %107 = phi ptr [ %add.ptr.i.i.i634, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i632 ], [ %call.i.i.i636, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i617 ]
-  %sub.ptr.lhs.cast.i.i620 = ptrtoint ptr %add.ptr.i.i613 to i64
   %sub.ptr.rhs.cast.i.i621 = ptrtoint ptr %107 to i64
-  %sub.ptr.sub.i.i622 = sub i64 %sub.ptr.lhs.cast.i.i620, %sub.ptr.rhs.cast.i.i621
+  %sub.ptr.sub.i.i622 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i621
   store ptr %107, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i622, ptr %size_.i.i, align 8
   %conv.i623 = zext i32 %106 to i64
@@ -5423,9 +5400,8 @@ call.i.i.noexc654:                                ; preds = %_ZN7rocksdb14GetVar
 
 invoke.cont334.thread:                            ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i651, %call.i.i.noexc654
   %retval.0.i10.i644 = phi ptr [ %add.ptr.i.i653, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i651 ], [ %call.i.i655, %call.i.i.noexc654 ]
-  %sub.ptr.lhs.cast.i645 = ptrtoint ptr %add.ptr.i639 to i64
   %sub.ptr.rhs.cast.i646 = ptrtoint ptr %retval.0.i10.i644 to i64
-  %sub.ptr.sub.i647 = sub i64 %sub.ptr.lhs.cast.i645, %sub.ptr.rhs.cast.i646
+  %sub.ptr.sub.i647 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i646
   store ptr %retval.0.i10.i644, ptr %input, align 8
   store i64 %sub.ptr.sub.i647, ptr %size_.i.i, align 8
   br label %sw.epilog
@@ -5462,9 +5438,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i663: ; pred
 land.lhs.true.i665:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i663, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i678
   %110 = phi i32 [ %conv.i.i.i679, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i678 ], [ %.pre.i664, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i663 ]
   %111 = phi ptr [ %add.ptr.i.i.i680, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i678 ], [ %call.i.i.i682, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i663 ]
-  %sub.ptr.lhs.cast.i.i666 = ptrtoint ptr %add.ptr.i.i659 to i64
   %sub.ptr.rhs.cast.i.i667 = ptrtoint ptr %111 to i64
-  %sub.ptr.sub.i.i668 = sub i64 %sub.ptr.lhs.cast.i.i666, %sub.ptr.rhs.cast.i.i667
+  %sub.ptr.sub.i.i668 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i667
   store ptr %111, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i668, ptr %size_.i.i, align 8
   %conv.i669 = zext i32 %110 to i64
@@ -5522,9 +5497,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i693: ; pred
 land.lhs.true.i695:                               ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i693, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i708
   %113 = phi i32 [ %conv.i.i.i709, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i708 ], [ %.pre.i694, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i693 ]
   %114 = phi ptr [ %add.ptr.i.i.i710, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i708 ], [ %call.i.i.i712, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i693 ]
-  %sub.ptr.lhs.cast.i.i696 = ptrtoint ptr %add.ptr.i.i689 to i64
   %sub.ptr.rhs.cast.i.i697 = ptrtoint ptr %114 to i64
-  %sub.ptr.sub.i.i698 = sub i64 %sub.ptr.lhs.cast.i.i696, %sub.ptr.rhs.cast.i.i697
+  %sub.ptr.sub.i.i698 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i697
   store ptr %114, ptr %input, align 8
   store i64 %sub.ptr.sub.i.i698, ptr %size_.i.i, align 8
   %conv.i699 = zext i32 %113 to i64
@@ -5590,9 +5564,8 @@ call.i.i.noexc731.lor.lhs.false_crit_edge:        ; preds = %call.i.i.noexc731
 lor.lhs.false:                                    ; preds = %call.i.i.noexc731.lor.lhs.false_crit_edge, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i728
   %117 = phi i32 [ %conv.i.i729, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i728 ], [ %.pre, %call.i.i.noexc731.lor.lhs.false_crit_edge ]
   %118 = phi ptr [ %add.ptr.i.i730, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i728 ], [ %call.i.i732, %call.i.i.noexc731.lor.lhs.false_crit_edge ]
-  %sub.ptr.lhs.cast.i722 = ptrtoint ptr %add.ptr.i716 to i64
   %sub.ptr.rhs.cast.i723 = ptrtoint ptr %118 to i64
-  %sub.ptr.sub.i724 = sub i64 %sub.ptr.lhs.cast.i722, %sub.ptr.rhs.cast.i723
+  %sub.ptr.sub.i724 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i723
   store ptr %118, ptr %input, align 8
   store i64 %sub.ptr.sub.i724, ptr %size_.i.i, align 8
   %conv377 = zext i32 %117 to i64

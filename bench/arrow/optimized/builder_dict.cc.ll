@@ -101,8 +101,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.274" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::ResizableBuffer>, std::allocator<std::shared_ptr<arrow::ResizableBuffer>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::ResizableBuffer>, std::allocator<std::shared_ptr<arrow::ResizableBuffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::ResizableBuffer>, std::allocator<std::shared_ptr<arrow::ResizableBuffer>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::ResizableBuffer>, std::allocator<std::shared_ptr<arrow::ResizableBuffer>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.anon.279 = type { i32, %"struct.std::array" }
-%"struct.std::array" = type { [12 x i8] }
 
 $_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImplC2EPNS_10MemoryPoolESt10shared_ptrINS_8DataTypeEE = comdat any
 
@@ -42980,8 +42978,8 @@ _ZN5arrow18TypedBufferBuilderINS_14BinaryViewType6c_typeEvED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow17BinaryViewBuilder12UnsafeAppendEPKhl(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %value, i64 noundef %length) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %retval.sroa.0.i.i.i = alloca %struct.anon.279, align 16
-  %retval.sroa.0.i.i = alloca %struct.anon.279, align 16
+  %retval.sroa.0.i.i.i.sroa.0 = alloca <2 x i64>, align 16
+  %retval.sroa.0.i.i.sroa.0 = alloca <2 x i64>, align 16
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %data_.i.i.i.i, align 8
   %bit_length_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -43006,19 +43004,16 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.sroa.0.i.i)
-  %retval.sroa.0.4.retval.sroa_idx.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
-  store i32 %conv.i, ptr %retval.sroa.0.i.i, align 16
-  %sext12.i = shl i64 %length, 32
-  %conv.i.i = ashr exact i64 %sext12.i, 32
-  %6 = icmp ugt i32 %conv.i, 11
-  %7 = sub nsw i64 12, %conv.i.i
-  %8 = select i1 %6, i64 0, i64 %7
-  %9 = getelementptr i8, ptr %retval.sroa.0.4.retval.sroa_idx.i.i, i64 %conv.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.retval.sroa_idx.i.i, ptr align 1 %value, i64 %conv.i.i, i1 false)
-  %10 = load <2 x i64>, ptr %retval.sroa.0.i.i, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.sroa.0)
+  %retval.sroa.0.i.i.sroa.0.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx7 = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.sroa.0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %retval.sroa.0.i.i.sroa.0.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx7, i8 0, i64 12, i1 false)
+  store i32 %conv.i, ptr %retval.sroa.0.i.i.sroa.0, align 16
+  %sext14.i = shl i64 %length, 32
+  %conv.i.i = ashr exact i64 %sext14.i, 32
+  %retval.sroa.0.i.i.sroa.0.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx6 = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.sroa.0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.sroa.0.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx6, ptr align 1 %value, i64 %conv.i.i, i1 false)
+  %retval.sroa.0.i.i.sroa.0.0.retval.sroa.0.i.i.sroa.0.0. = load <2 x i64>, ptr %retval.sroa.0.i.i.sroa.0, align 16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.sroa.0)
   br label %_ZN5arrow8internal17StringHeapBuilder6AppendILb0EEENSt11conditionalIXT_ENS_6ResultINS_14BinaryViewType6c_typeEEES6_E4typeEPKhl.exit
 
 if.end.i:                                         ; preds = %entry
@@ -43027,73 +43022,70 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i)
-  %retval.sroa.0.4.retval.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.i, i64 4
-  store i32 %conv.i, ptr %retval.sroa.0.i.i.i, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.sroa.0)
+  %retval.sroa.0.i.i.i.sroa.0.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx10 = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.i.sroa.0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %retval.sroa.0.i.i.i.sroa.0.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx10, i8 0, i64 12, i1 false)
+  store i32 %conv.i, ptr %retval.sroa.0.i.i.i.sroa.0, align 16
   %sext.i = shl i64 %length, 32
   %conv.i.i.i = ashr exact i64 %sext.i, 32
-  %11 = icmp ugt i32 %conv.i, 11
-  %12 = sub nsw i64 12, %conv.i.i.i
-  %13 = select i1 %11, i64 0, i64 %12
-  %14 = getelementptr i8, ptr %retval.sroa.0.4.retval.sroa_idx.i.i.i, i64 %conv.i.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %13, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.retval.sroa_idx.i.i.i, ptr align 1 %value, i64 %conv.i.i.i, i1 false)
-  %15 = load <2 x i64>, ptr %retval.sroa.0.i.i.i, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i)
-  %16 = lshr <2 x i64> %15, <i64 32, i64 32>
-  %17 = trunc nuw <2 x i64> %16 to <2 x i32>
+  %retval.sroa.0.i.i.i.sroa.0.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx9 = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.i.sroa.0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.sroa.0.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.retval.sroa_idx9, ptr align 1 %value, i64 %conv.i.i.i, i1 false)
+  %retval.sroa.0.i.i.i.sroa.0.0.retval.sroa.0.i.i.i.sroa.0.0. = load <2 x i64>, ptr %retval.sroa.0.i.i.i.sroa.0, align 16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.sroa.0.i.i.i.sroa.0)
+  %6 = lshr <2 x i64> %retval.sroa.0.i.i.i.sroa.0.0.retval.sroa.0.i.i.i.sroa.0.0., <i64 32, i64 32>
+  %7 = trunc nuw <2 x i64> %6 to <2 x i32>
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %18 = load i32, ptr %current_offset_.i, align 8
+  %8 = load i32, ptr %current_offset_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 232
-  %19 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %blocks_.i = getelementptr inbounds i8, ptr %this, i64 224
-  %20 = load ptr, ptr %blocks_.i, align 8
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
+  %10 = load ptr, ptr %blocks_.i, align 8
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 4
   %conv4.i = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
   %retval.sroa.3.4.copyload.i.i = load i32, ptr %value, align 1
-  %21 = insertelement <2 x i32> poison, i32 %retval.sroa.3.4.copyload.i.i, i64 0
-  %22 = insertelement <2 x i32> %21, i32 %18, i64 1
-  %23 = insertelement <2 x i64> poison, i64 %length, i64 0
-  %24 = insertelement <2 x i64> %23, i64 %conv4.i, i64 1
+  %11 = insertelement <2 x i32> poison, i32 %retval.sroa.3.4.copyload.i.i, i64 0
+  %12 = insertelement <2 x i32> %11, i32 %8, i64 1
+  %13 = insertelement <2 x i64> poison, i64 %length, i64 0
+  %14 = insertelement <2 x i64> %13, i64 %conv4.i, i64 1
   br label %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i
 
 _ZN5arrow4util12ToBinaryViewEPKviii.exit.i:       ; preds = %if.end.i.i, %if.then.i.i
-  %25 = phi <2 x i32> [ %17, %if.then.i.i ], [ %22, %if.end.i.i ]
-  %26 = phi <2 x i64> [ %15, %if.then.i.i ], [ %24, %if.end.i.i ]
-  %27 = zext <2 x i32> %25 to <2 x i64>
-  %28 = and <2 x i64> %26, <i64 4294967295, i64 4294967295>
-  %29 = shl nuw <2 x i64> %27, <i64 32, i64 32>
-  %30 = or disjoint <2 x i64> %29, %28
+  %15 = phi <2 x i32> [ %7, %if.then.i.i ], [ %12, %if.end.i.i ]
+  %16 = phi <2 x i64> [ %retval.sroa.0.i.i.i.sroa.0.0.retval.sroa.0.i.i.i.sroa.0.0., %if.then.i.i ], [ %14, %if.end.i.i ]
+  %17 = zext <2 x i32> %15 to <2 x i64>
+  %18 = and <2 x i64> %16, <i64 4294967295, i64 4294967295>
+  %19 = shl nuw <2 x i64> %17, <i64 32, i64 32>
+  %20 = or disjoint <2 x i64> %19, %18
   %current_out_buffer_.i = getelementptr inbounds i8, ptr %this, i64 256
-  %31 = load ptr, ptr %current_out_buffer_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %value, i64 %length, i1 false)
-  %32 = load ptr, ptr %current_out_buffer_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %32, i64 %length
+  %21 = load ptr, ptr %current_out_buffer_.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %value, i64 %length, i1 false)
+  %22 = load ptr, ptr %current_out_buffer_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %22, i64 %length
   store ptr %add.ptr.i, ptr %current_out_buffer_.i, align 8
   %current_remaining_bytes_.i = getelementptr inbounds i8, ptr %this, i64 264
-  %33 = load i64, ptr %current_remaining_bytes_.i, align 8
-  %sub8.i = sub nsw i64 %33, %length
+  %23 = load i64, ptr %current_remaining_bytes_.i, align 8
+  %sub8.i = sub nsw i64 %23, %length
   store i64 %sub8.i, ptr %current_remaining_bytes_.i, align 8
-  %34 = load i32, ptr %current_offset_.i, align 8
-  %add.i = add nsw i32 %34, %conv.i
+  %24 = load i32, ptr %current_offset_.i, align 8
+  %add.i = add nsw i32 %24, %conv.i
   store i32 %add.i, ptr %current_offset_.i, align 8
   br label %_ZN5arrow8internal17StringHeapBuilder6AppendILb0EEENSt11conditionalIXT_ENS_6ResultINS_14BinaryViewType6c_typeEEES6_E4typeEPKhl.exit
 
 _ZN5arrow8internal17StringHeapBuilder6AppendILb0EEENSt11conditionalIXT_ENS_6ResultINS_14BinaryViewType6c_typeEEES6_E4typeEPKhl.exit: ; preds = %if.then.i, %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i
-  %35 = phi <2 x i64> [ %10, %if.then.i ], [ %30, %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i ]
+  %25 = phi <2 x i64> [ %retval.sroa.0.i.i.sroa.0.0.retval.sroa.0.i.i.sroa.0.0., %if.then.i ], [ %20, %_ZN5arrow4util12ToBinaryViewEPKviii.exit.i ]
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %36 = load ptr, ptr %data_.i.i, align 8
+  %26 = load ptr, ptr %data_.i.i, align 8
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %37 = load i64, ptr %size_.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %36, i64 %37
-  store <2 x i64> %35, ptr %add.ptr.i.i, align 1
-  %38 = load i64, ptr %size_.i.i, align 8
-  %add.i.i = add nsw i64 %38, 16
+  %27 = load i64, ptr %size_.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %27
+  store <2 x i64> %25, ptr %add.ptr.i.i, align 1
+  %28 = load i64, ptr %size_.i.i, align 8
+  %add.i.i = add nsw i64 %28, 16
   store i64 %add.i.i, ptr %size_.i.i, align 8
   ret void
 }

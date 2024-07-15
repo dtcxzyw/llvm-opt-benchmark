@@ -2350,14 +2350,10 @@ entry:
   %last = alloca [128 x i8], align 16
   %0 = add i32 %len, -56
   %cmp = icmp ult i32 %0, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last, i8 0, i64 128, i1 false)
   %shl = shl i64 %totlen, 3
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl)
   %conv = zext i32 %len to i64
-  %1 = icmp ugt i32 %len, 127
-  %2 = sub nsw i64 128, %conv
-  %3 = select i1 %1, i64 0, i64 %2
-  %4 = getelementptr i8, ptr %last, i64 %conv
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last, ptr align 1 %b, i64 %conv, i1 false)
   %arrayidx = getelementptr [128 x i8], ptr %last, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
@@ -2412,16 +2408,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
   %0 = add i32 %len, -56
   %cmp.i = icmp ult i32 %0, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
   %shl.i = shl i64 %totlen, 3
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
   %conv.i = zext i32 %len to i64
-  %1 = icmp ugt i32 %len, 127
-  %2 = sub nsw i64 128, %conv.i
-  %3 = select i1 %1, i64 0, i64 %2
-  %4 = getelementptr i8, ptr %last.i, i64 %conv.i
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
-  store i8 -128, ptr %4, align 1
+  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %conv.i
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -5429,16 +5422,12 @@ entry:
   %last = alloca [256 x i8], align 16
   %0 = add i32 %len, -112
   %cmp = icmp ult i32 %0, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last, i8 0, i64 256, i1 false)
   %add.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i = shl i64 %totlen.coerce0, 3
   %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i)
   %or19.i3.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   %conv = zext i32 %len to i64
-  %1 = icmp ugt i32 %len, 255
-  %2 = sub nsw i64 256, %conv
-  %3 = select i1 %1, i64 0, i64 %2
-  %4 = getelementptr i8, ptr %last, i64 %conv
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last, ptr align 1 %b, i64 %conv, i1 false)
   %arrayidx = getelementptr [256 x i8], ptr %last, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
@@ -5556,18 +5545,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
   %0 = add i32 %len, -112
   %cmp.i = icmp ult i32 %0, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
   %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i.i = shl i64 %totlen.coerce0, 3
   %or19.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i.i)
   %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
   %conv.i = zext i32 %len to i64
-  %1 = icmp ugt i32 %len, 255
-  %2 = sub nsw i64 256, %conv.i
-  %3 = select i1 %1, i64 0, i64 %2
-  %4 = getelementptr i8, ptr %last.i, i64 %conv.i
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %b, i64 %conv.i, i1 false)
-  store i8 -128, ptr %4, align 1
+  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %conv.i
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
@@ -5868,13 +5854,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
   %1 = add nsw i32 %r.0, -56
   %cmp.i = icmp ult i32 %1, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
   %shl.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  %2 = sub nuw nsw i64 128, %idx.ext
-  %3 = getelementptr i8, ptr %last.i, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -5889,13 +5874,13 @@ if.then12.i:                                      ; preds = %entry
 Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
   %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
-  %4 = load <4 x i32>, ptr %tmp_block_state, align 16
-  %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
-  store <4 x i32> %5, ptr %dst, align 1
+  %2 = load <4 x i32>, ptr %tmp_block_state, align 16
+  %3 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %2)
+  store <4 x i32> %3, ptr %dst, align 1
   %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
-  %6 = load <4 x i32>, ptr %arrayidx30.i, align 16
-  %7 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %6)
-  store <4 x i32> %7, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
+  %4 = load <4 x i32>, ptr %arrayidx30.i, align 16
+  %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
+  store <4 x i32> %5, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
   ret void
 }
 
@@ -5949,13 +5934,12 @@ Hacl_SHA2_Scalar32_sha256_update_nblocks.exit:    ; preds = %for.body.i, %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i)
   %1 = add nsw i32 %rem1, -56
   %cmp.i = icmp ult i32 %1, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i, i8 0, i64 128, i1 false)
   %shl.i = shl nuw nsw i64 %conv, 3
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  %2 = sub nuw nsw i64 128, %idx.ext5
-  %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext5
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -5969,13 +5953,13 @@ if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_
 
 Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  %4 = load <4 x i32>, ptr %st, align 16
-  %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
-  store <4 x i32> %5, ptr %dst, align 1
+  %2 = load <4 x i32>, ptr %st, align 16
+  %3 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %2)
+  store <4 x i32> %3, ptr %dst, align 1
   %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
-  %6 = load <4 x i32>, ptr %arrayidx29.i, align 16
-  %7 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %6)
-  store <4 x i32> %7, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
+  %4 = load <4 x i32>, ptr %arrayidx29.i, align 16
+  %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
+  store <4 x i32> %5, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
   ret void
 }
 
@@ -6049,13 +6033,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i.i)
   %1 = add nsw i32 %r.0, -56
   %cmp.i.i = icmp ult i32 %1, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i.i, i8 0, i64 128, i1 false)
   %shl.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
-  %2 = sub nuw nsw i64 128, %idx.ext
-  %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
+  store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -6070,17 +6053,17 @@ if.then12.i.i:                                    ; preds = %entry
 Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
   %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
-  %4 = load i32, ptr %arrayidx30.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
+  %2 = load i32, ptr %arrayidx30.i, align 16
+  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 20
-  %5 = load i32, ptr %arrayidx38.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
+  %3 = load i32, ptr %arrayidx38.i, align 4
+  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
   %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
-  %6 = load i32, ptr %arrayidx46.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %7 = load <4 x i32>, ptr %tmp_block_state, align 16
-  %8 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %7)
-  store <4 x i32> %8, ptr %dst, align 1
+  %4 = load i32, ptr %arrayidx46.i, align 8
+  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
+  %5 = load <4 x i32>, ptr %tmp_block_state, align 16
+  %6 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %5)
+  store <4 x i32> %6, ptr %dst, align 1
   %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
   %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
@@ -6137,13 +6120,12 @@ sha224_update_nblocks.exit:                       ; preds = %for.body.i.i, %entr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %last.i.i)
   %1 = add nsw i32 %rem1, -56
   %cmp.i.i = icmp ult i32 %1, -65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %last.i.i, i8 0, i64 128, i1 false)
   %shl.i.i = shl nuw nsw i64 %conv, 3
   %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
-  %2 = sub nuw nsw i64 128, %idx.ext5
-  %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
+  store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
@@ -6159,15 +6141,15 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nbloc
   %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 24
   %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
-  %4 = load i32, ptr %arrayidx29.i, align 16
-  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %5 = load i32, ptr %arrayidx36.i, align 4
-  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %6 = load i32, ptr %arrayidx43.i, align 8
-  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %7 = load <4 x i32>, ptr %st, align 16
-  %8 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %7)
-  store <4 x i32> %8, ptr %dst, align 1
+  %2 = load i32, ptr %arrayidx29.i, align 16
+  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
+  %3 = load i32, ptr %arrayidx36.i, align 4
+  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
+  %4 = load i32, ptr %arrayidx43.i, align 8
+  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
+  %5 = load <4 x i32>, ptr %st, align 16
+  %6 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %5)
+  store <4 x i32> %6, ptr %dst, align 1
   %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
   %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
@@ -6446,15 +6428,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
   %2 = add nsw i32 %r.0, -112
   %cmp.i = icmp ult i32 %2, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
   %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i, 56
   %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
-  %3 = sub nuw nsw i64 256, %idx.ext
-  %4 = getelementptr i8, ptr %last.i, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  store i8 -128, ptr %4, align 1
+  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
@@ -6471,29 +6452,29 @@ if.then12.i:                                      ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
-  %5 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %3 = load i64, ptr %tmp_block_state, align 16
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
   %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
-  %6 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %4 = load i64, ptr %arrayidx6.i, align 8
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
-  %7 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %5 = load i64, ptr %arrayidx14.i, align 16
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
-  %8 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %6 = load i64, ptr %arrayidx22.i, align 8
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
-  %9 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %7 = load i64, ptr %arrayidx30.i, align 16
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
-  %10 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
+  %8 = load i64, ptr %arrayidx38.i, align 8
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 48
-  %11 = load i64, ptr %arrayidx46.i, align 16
-  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %11)
+  %9 = load i64, ptr %arrayidx46.i, align 16
+  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   %arrayidx54.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 56
-  %12 = load i64, ptr %arrayidx54.i, align 8
-  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %12)
+  %10 = load i64, ptr %arrayidx54.i, align 8
+  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6571,13 +6552,12 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i)
   %1 = add nsw i32 %rem1, -112
   %cmp.i = icmp ult i32 %1, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i, i8 0, i64 256, i1 false)
   %shl.i.i.i = shl nuw nsw i64 %conv, 3
   %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
-  %2 = sub nuw nsw i64 256, %idx.ext5
-  %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext5
+  store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
@@ -6594,22 +6574,22 @@ if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_
 
 Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
-  %4 = load i64, ptr %st, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %5 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %6 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %7 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %8 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %9 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
-  %10 = load i64, ptr %arrayidx43.i, align 16
-  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
-  %11 = load i64, ptr %arrayidx50.i, align 8
-  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %11)
+  %2 = load i64, ptr %st, align 16
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  %3 = load i64, ptr %arrayidx8.i, align 8
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %4 = load i64, ptr %arrayidx15.i, align 16
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
+  %5 = load i64, ptr %arrayidx22.i, align 8
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %6 = load i64, ptr %arrayidx29.i, align 16
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %7 = load i64, ptr %arrayidx36.i, align 8
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %8 = load i64, ptr %arrayidx43.i, align 16
+  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %9 = load i64, ptr %arrayidx50.i, align 8
+  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6726,15 +6706,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i.i)
   %2 = add nsw i32 %r.0, -112
   %cmp.i.i = icmp ult i32 %2, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i.i, i8 0, i64 256, i1 false)
   %add.i.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i.i, 56
   %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
-  %3 = sub nuw nsw i64 256, %idx.ext
-  %4 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr16, i64 %idx.ext, i1 false)
-  store i8 -128, ptr %4, align 1
+  %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
+  store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
@@ -6751,23 +6730,23 @@ if.then12.i.i:                                    ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
-  %5 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %3 = load i64, ptr %tmp_block_state, align 16
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
   %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
-  %6 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %4 = load i64, ptr %arrayidx6.i, align 8
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
-  %7 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %5 = load i64, ptr %arrayidx14.i, align 16
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
-  %8 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %6 = load i64, ptr %arrayidx22.i, align 8
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
-  %9 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %7 = load i64, ptr %arrayidx30.i, align 16
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
-  %10 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
+  %8 = load i64, ptr %arrayidx38.i, align 8
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6841,13 +6820,12 @@ Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entr
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %last.i.i)
   %1 = add nsw i32 %rem1, -112
   %cmp.i.i = icmp ult i32 %1, -129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %last.i.i, i8 0, i64 256, i1 false)
   %shl.i.i.i.i = shl nuw nsw i64 %conv, 3
   %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
-  %2 = sub nuw nsw i64 256, %idx.ext5
-  %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last.i.i, ptr readonly align 1 %add.ptr6, i64 %idx.ext5, i1 false)
-  store i8 -128, ptr %3, align 1
+  %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
+  store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
@@ -6864,18 +6842,18 @@ if.then12.i.i:                                    ; preds = %Hacl_SHA2_Scalar32_
 
 Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
-  %4 = load i64, ptr %st, align 16
-  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %5 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %6 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %7 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %8 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %9 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %2 = load i64, ptr %st, align 16
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  %3 = load i64, ptr %arrayidx8.i, align 8
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %4 = load i64, ptr %arrayidx15.i, align 16
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
+  %5 = load i64, ptr %arrayidx22.i, align 8
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %6 = load i64, ptr %arrayidx29.i, align 16
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %7 = load i64, ptr %arrayidx36.i, align 8
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1

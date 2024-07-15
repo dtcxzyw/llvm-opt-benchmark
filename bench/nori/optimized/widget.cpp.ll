@@ -1213,20 +1213,20 @@ _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4
   %54 = phi ptr [ %53, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit ], [ %5, %._crit_edge.i.i.i.i ]
   %.pre2430 = phi ptr [ %.pre24, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit ], [ %6, %._crit_edge.i.i.i.i ]
   %.pre26 = ptrtoint ptr %.pre2430 to i64
+  %55 = ptrtoint ptr %54 to i64
   br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
 
 ._crit_edge.i.i:                                  ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit
-  %55 = ptrtoint ptr %.sroa.013.2.i.i to i64
-  %56 = ptrtoint ptr %.pre24 to i64
-  %57 = sub i64 %55, %56
-  %58 = getelementptr inbounds i8, ptr %.pre24, i64 %57
-  store ptr %58, ptr %4, align 8
+  %56 = ptrtoint ptr %.sroa.013.2.i.i to i64
+  %57 = ptrtoint ptr %.pre24 to i64
+  %58 = sub i64 %56, %57
+  %59 = getelementptr inbounds i8, ptr %.pre24, i64 %58
+  store ptr %59, ptr %4, align 8
   br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
 
 _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit._ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit_crit_edge, %._crit_edge.i.i
-  %.pre-phi = phi i64 [ %.pre26, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit._ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit_crit_edge ], [ %56, %._crit_edge.i.i ]
-  %59 = phi ptr [ %54, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit._ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit_crit_edge ], [ %58, %._crit_edge.i.i ]
-  %60 = ptrtoint ptr %59 to i64
+  %.pre-phi = phi i64 [ %.pre26, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit._ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit_crit_edge ], [ %57, %._crit_edge.i.i ]
+  %60 = phi i64 [ %55, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPKS3_ET_SC_SC_RKT0_.exit._ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit_crit_edge ], [ %56, %._crit_edge.i.i ]
   %61 = sub i64 %60, %.pre-phi
   %62 = icmp eq i64 %61, %9
   br i1 %62, label %63, label %68

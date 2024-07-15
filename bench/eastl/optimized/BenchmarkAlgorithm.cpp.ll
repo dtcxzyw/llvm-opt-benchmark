@@ -7357,7 +7357,9 @@ lpad25:                                           ; preds = %invoke.cont207, %in
 if.end:                                           ; preds = %invoke.cont36, %invoke.cont30
   %14 = load ptr, ptr %stdVectorChar, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %16 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i103 = icmp eq i32 %16, 1
@@ -7392,9 +7394,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i111:        ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %tobool.not.i.i.i.i, label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i111
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
-  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 100, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %14, i8 100, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit.i:                 ; preds = %if.then.i.i.i3.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i111
@@ -7441,7 +7441,9 @@ invoke.cont49:                                    ; preds = %_ZN2EA4StdC9Stopwat
   %call.i133 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
   %24 = load ptr, ptr %stdVectorChar, align 8
   %25 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i141 = ptrtoint ptr %24 to i64
+  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %26 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i145 = icmp eq i32 %26, 1
@@ -7476,9 +7478,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i153:        ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %tobool.not.i.i.i.i155, label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160, label %if.then.i.i.i3.i156
 
 if.then.i.i.i3.i156:                              ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i153
-  %sub.ptr.lhs.cast.i.i.i.i158 = ptrtoint ptr %25 to i64
-  %sub.ptr.sub.i.i.i.i159 = sub i64 %sub.ptr.lhs.cast.i.i.i.i158, %sub.ptr.rhs.cast.i141
-  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 100, i64 %sub.ptr.sub.i.i.i.i159, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 100, i64 %sub.ptr.sub.i142, i1 false)
   br label %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160
 
 _ZSt4fillIPccEvT_S1_RKT0_.exit.i160:              ; preds = %if.then.i.i.i3.i156, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i153

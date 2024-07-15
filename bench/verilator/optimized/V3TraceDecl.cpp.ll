@@ -14003,15 +14003,17 @@ _ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 80
   %78 = add nsw i64 %.012.i.i.i.i.i21, -1
   %79 = icmp ugt i64 %.012.i.i.i.i.i21, 1
-  br i1 %79, label %.lr.ph.i.i.i.i.i20, label %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24, !llvm.loop !126
+  br i1 %79, label %.lr.ph.i.i.i.i.i20, label %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24.loopexit, !llvm.loop !126
 
-_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24: ; preds = %.lr.ph.i.i.i.i.i20, %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
-  %.08.lcssa.i.i.i.i.i18 = phi ptr [ %64, %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %77, %.lr.ph.i.i.i.i.i20 ]
-  %80 = ptrtoint ptr %.08.lcssa.i.i.i.i.i18 to i64
-  %81 = ptrtoint ptr %64 to i64
-  %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds i8, ptr %64, i64 %82
-  ret ptr %83
+_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
+  %80 = ptrtoint ptr %77 to i64
+  br label %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24
+
+_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24: ; preds = %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24.loopexit, %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
+  %.08.lcssa.i.i.i.i.i18 = phi i64 [ %61, %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit ], [ %80, %_ZSt4moveIPN16TraceDeclVisitor10TraceEntryEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit24.loopexit ]
+  %81 = sub i64 %.08.lcssa.i.i.i.i.i18, %61
+  %82 = getelementptr inbounds i8, ptr %64, i64 %81
+  ret ptr %82
 }
 
 ; Function Attrs: mustprogress uwtable

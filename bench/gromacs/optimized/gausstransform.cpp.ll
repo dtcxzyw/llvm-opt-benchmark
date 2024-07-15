@@ -1400,27 +1400,27 @@ _ZNK3gmx10IntegerBox5emptyEv.exit:                ; preds = %33
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %61, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = ptrtoint ptr %63 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 184
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %63 to i64
+  %68 = sub i64 %66, %67
+  %69 = getelementptr inbounds i8, ptr %0, i64 184
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 24
+  %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %70 to i64
-  %74 = ptrtoint ptr %65 to i64
-  %75 = sub i64 %74, %66
-  %76 = ashr exact i64 %75, 2
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %77, %73
-  %79 = ashr exact i64 %78, 2
+  %73 = getelementptr inbounds i8, ptr %70, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = ptrtoint ptr %74 to i64
+  %76 = ptrtoint ptr %72 to i64
+  %77 = sub i64 %75, %76
+  %78 = ashr exact i64 %68, 2
+  %79 = ashr exact i64 %77, 2
   br label %80
 
 80:                                               ; preds = %80, %58
   %81 = phi i1 [ true, %58 ], [ false, %80 ]
   %82 = phi i64 [ 1, %58 ], [ %79, %80 ]
   %.056.i.i.i = phi i64 [ 1, %58 ], [ %84, %80 ]
-  %83 = select i1 %81, i64 %76, i64 %82
+  %83 = select i1 %81, i64 %78, i64 %82
   %84 = mul nsw i64 %83, %.056.i.i.i
   br i1 %81, label %80, label %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv.exit.i.i, !llvm.loop !8
 
@@ -1459,11 +1459,11 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
   %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %79, ptr %.sroa.1.0..sroa_idx.i.i, align 8, !noalias !19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 %76, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !19
+  store i64 %78, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !19
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %100, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !19
-  %101 = icmp slt i64 %76, 1
-  %.not7.i.i = icmp eq ptr %70, %72
+  %101 = icmp slt i64 %78, 1
+  %.not7.i.i = icmp eq ptr %72, %74
   %or.cond.i = select i1 %101, i1 true, i1 %.not7.i.i
   br i1 %or.cond.i, label %_ZN3gmx21OuterProductEvaluatorclENS_8ArrayRefIKfEES3_.exit, label %.lr.ph.i.preheader.i
 
@@ -1479,18 +1479,18 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.09.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %105, %.lr.ph.i.preheader.i ]
-  %.sroa.05.08.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %70, %.lr.ph.i.preheader.i ]
+  %.sroa.05.08.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %72, %.lr.ph.i.preheader.i ]
   %106 = load float, ptr %.sroa.05.08.i.i, align 4, !noalias !19
   %107 = fmul float %103, %106
   store float %107, ptr %.09.i.i, align 4, !noalias !19
   %108 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i, i64 4
   %109 = getelementptr inbounds i8, ptr %.09.i.i, i64 4
-  %.not.i.i = icmp eq ptr %108, %72
+  %.not.i.i = icmp eq ptr %108, %74
   br i1 %.not.i.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit.i", label %.lr.ph.i.i, !llvm.loop !9
 
 "_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit.i": ; preds = %.lr.ph.i.i
   %110 = add nuw nsw i64 %.017.i, 1
-  %exitcond.not.i = icmp eq i64 %110, %76
+  %exitcond.not.i = icmp eq i64 %110, %78
   br i1 %exitcond.not.i, label %._crit_edge.loopexit18.i, label %.lr.ph.i.preheader.i, !llvm.loop !10
 
 ._crit_edge.loopexit18.i:                         ; preds = %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit.i"

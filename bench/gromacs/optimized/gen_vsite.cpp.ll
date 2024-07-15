@@ -6703,10 +6703,10 @@ _ZL18nitrogen_is_planarN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx11
 2232:                                             ; preds = %2231
   %2233 = load ptr, ptr %198, align 8
   %2234 = load ptr, ptr %961, align 8
-  %2235 = ptrtoint ptr %2233 to i64
+  %2235 = ptrtoint ptr %2234 to i64
+  %2236 = ptrtoint ptr %2233 to i64
+  %2237 = sub i64 %2235, %2236
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %97)
-  %2236 = ptrtoint ptr %2234 to i64
-  %2237 = sub i64 %2236, %2235
   %2238 = sdiv exact i64 %2237, 104
   %2239 = ashr i64 %2238, 2
   %2240 = icmp sgt i64 %2239, 0
@@ -6785,7 +6785,7 @@ _ZL18nitrogen_is_planarN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx11
 
 ._crit_edge.loopexit.i.i.i.i777:                  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0EclINS2_12ArrayRefIterIS5_EEEEbT_.exit20.thread.i.i.i.i"
   %.pre.i.i.i.i778 = ptrtoint ptr %2256 to i64
-  %.pre49.i.i.i.i = sub i64 %2236, %.pre.i.i.i.i778
+  %.pre49.i.i.i.i = sub i64 %2235, %.pre.i.i.i.i778
   br label %._crit_edge.i.i.i.i769
 
 ._crit_edge.i.i.i.i769:                           ; preds = %._crit_edge.loopexit.i.i.i.i777, %2232

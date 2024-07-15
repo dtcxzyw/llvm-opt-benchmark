@@ -6369,16 +6369,19 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS
   %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i28.i.i, %while.end.i.i ], [ %4, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.thread.i.i ], [ %3, %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__binary_pred.i.i)
   %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not.i = icmp eq ptr %retval.sroa.0.0.i.i, %5
+  br i1 %cmp.i.not.i, label %_ZNSt6vectorIN3ue211hwlmLiteralESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit
   %6 = load ptr, ptr %container, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i
-  %cmp.i.not.i = icmp eq ptr %retval.sroa.0.0.i.i, %5
-  br i1 %cmp.i.not.i, label %_ZNSt6vectorIN3ue211hwlmLiteralESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_.exit, label %for.body.i.i.i.i.i
+  br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit, %_ZSt8_DestroyIN3ue211hwlmLiteralEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i7, %_ZSt8_DestroyIN3ue211hwlmLiteralEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit ]
+for.body.i.i.i.i.i:                               ; preds = %if.then.i, %_ZSt8_DestroyIN3ue211hwlmLiteralEEvPT_.exit.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i7, %_ZSt8_DestroyIN3ue211hwlmLiteralEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i.i, %if.then.i ]
   %cmp.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 80
   %7 = load ptr, ptr %cmp.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -6512,16 +6515,19 @@ while.end.i.i:                                    ; preds = %if.end21.i.i, %if.e
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit: ; preds = %while.cond.i.i.i, %while.end.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEESt4lessIS3_EEvT_SB_T0_.exit
   %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i28.i.i, %while.end.i.i ], [ %3, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEESt4lessIS3_EEvT_SB_T0_.exit ], [ %4, %while.cond.i.i.i ]
   %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not.i = icmp eq ptr %retval.sroa.0.0.i.i, %5
+  br i1 %cmp.i.not.i, label %_ZNSt6vectorIN3ue211AccelStringESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit
   %6 = load ptr, ptr %container, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i
-  %cmp.i.not.i = icmp eq ptr %retval.sroa.0.0.i.i, %5
-  br i1 %cmp.i.not.i, label %_ZNSt6vectorIN3ue211AccelStringESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_.exit, label %for.body.i.i.i.i.i
+  br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit, %_ZSt8_DestroyIN3ue211AccelStringEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i7, %_ZSt8_DestroyIN3ue211AccelStringEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i.i, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEET_S9_S9_.exit ]
+for.body.i.i.i.i.i:                               ; preds = %if.then.i, %_ZSt8_DestroyIN3ue211AccelStringEEvPT_.exit.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i7, %_ZSt8_DestroyIN3ue211AccelStringEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i.i, %if.then.i ]
   %cmp.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
   %7 = load ptr, ptr %cmp.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null

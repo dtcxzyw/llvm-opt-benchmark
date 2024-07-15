@@ -187,29 +187,25 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   store i8 1, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 1080
   store i8 1, ptr %48, align 8
-  %49 = icmp ugt i64 %3, 63
-  %50 = sub nuw nsw i64 64, %3
-  %51 = select i1 %49, i64 0, i64 %50
-  %52 = getelementptr i8, ptr %7, i64 %3
-  call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %51, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
-  br label %53
+  br label %49
 
-53:                                               ; preds = %46, %53
-  %.138 = phi i64 [ 0, %46 ], [ %56, %53 ]
-  %54 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.138
-  %55 = call i32 @blake2s_update(ptr noundef %54, ptr noundef nonnull %7, i64 noundef 64) #7
-  %56 = add nuw nsw i64 %.138, 1
-  %exitcond39.not = icmp eq i64 %56, 8
-  br i1 %exitcond39.not, label %57, label %53, !llvm.loop !8
+49:                                               ; preds = %46, %49
+  %.138 = phi i64 [ 0, %46 ], [ %52, %49 ]
+  %50 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.138
+  %51 = call i32 @blake2s_update(ptr noundef %50, ptr noundef nonnull %7, i64 noundef 64) #7
+  %52 = add nuw nsw i64 %.138, 1
+  %exitcond39.not = icmp eq i64 %52, 8
+  br i1 %exitcond39.not, label %53, label %49, !llvm.loop !8
 
-57:                                               ; preds = %53
-  %58 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
-  %59 = call ptr %58(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 64) #7
+53:                                               ; preds = %49
+  %54 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
+  %55 = call ptr %54(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 64) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %13, %9, %4, %57
-  %.032 = phi i32 [ 0, %57 ], [ -1, %4 ], [ -1, %9 ], [ -1, %13 ], [ -1, %38 ]
+.loopexit:                                        ; preds = %38, %13, %9, %4, %53
+  %.032 = phi i32 [ 0, %53 ], [ -1, %4 ], [ -1, %9 ], [ -1, %13 ], [ -1, %38 ]
   ret i32 %.032
 }
 

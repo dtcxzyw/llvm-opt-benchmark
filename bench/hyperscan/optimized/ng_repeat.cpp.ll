@@ -41132,13 +41132,15 @@ _ZN3ue212_GLOBAL__N_113ReachSubgraphaSEOS1_.exit.i.i.i.i.i47.i: ; preds = %if.th
   %incdec.ptr1.i.i.i.i.i51.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39.i, i64 48
   %dec.i.i.i.i.i52.i = add nsw i64 %__n.09.i.i.i.i.i38.i, -1
   %cmp.i.i.i.i.i53.i = icmp sgt i64 %__n.09.i.i.i.i.i38.i, 1
-  br i1 %cmp.i.i.i.i.i53.i, label %for.body.i.i.i.i.i37.i, label %"_ZSt12__move_mergeIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_14analyseRepeatsERNS0_8NGHolderEPKNS0_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKSH_IjS6_IS6_INS0_9CharReachESaISR_EESaIST_EESJ_SaISK_ISL_SV_EEEPS6_INS0_17BoundedRepeatDataESaIS11_EEbbRKNS0_4GreyEPbE3$_1EEET0_T_S1C_S1C_S1C_S1B_T1_.exit", !llvm.loop !1329
+  br i1 %cmp.i.i.i.i.i53.i, label %for.body.i.i.i.i.i37.i, label %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit54.loopexit.i, !llvm.loop !1329
 
-"_ZSt12__move_mergeIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_14analyseRepeatsERNS0_8NGHolderEPKNS0_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKSH_IjS6_IS6_INS0_9CharReachESaISR_EESaIST_EESJ_SaISK_ISL_SV_EEEPS6_INS0_17BoundedRepeatDataESaIS11_EEbbRKNS0_4GreyEPbE3$_1EEET0_T_S1C_S1C_S1C_S1B_T1_.exit": ; preds = %_ZN3ue212_GLOBAL__N_113ReachSubgraphaSEOS1_.exit.i.i.i.i.i47.i, %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
-  %__result.addr.0.lcssa.i.i.i.i.i30.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i ], [ %incdec.ptr1.i.i.i.i.i51.i, %_ZN3ue212_GLOBAL__N_113ReachSubgraphaSEOS1_.exit.i.i.i.i.i47.i ]
-  %sub.ptr.lhs.cast.i.i.i31.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i30.i to i64
-  %sub.ptr.rhs.cast.i.i.i32.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i31.i, %sub.ptr.rhs.cast.i.i.i32.i
+_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit54.loopexit.i: ; preds = %_ZN3ue212_GLOBAL__N_113ReachSubgraphaSEOS1_.exit.i.i.i.i.i47.i
+  %31 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i51.i to i64
+  br label %"_ZSt12__move_mergeIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_14analyseRepeatsERNS0_8NGHolderEPKNS0_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKSH_IjS6_IS6_INS0_9CharReachESaISR_EESaIST_EESJ_SaISK_ISL_SV_EEEPS6_INS0_17BoundedRepeatDataESaIS11_EEbbRKNS0_4GreyEPbE3$_1EEET0_T_S1C_S1C_S1C_S1B_T1_.exit"
+
+"_ZSt12__move_mergeIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS0_14analyseRepeatsERNS0_8NGHolderEPKNS0_13ReportManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKSH_IjS6_IS6_INS0_9CharReachESaISR_EESaIST_EESJ_SaISK_ISL_SV_EEEPS6_INS0_17BoundedRepeatDataESaIS11_EEbbRKNS0_4GreyEPbE3$_1EEET0_T_S1C_S1C_S1C_S1B_T1_.exit": ; preds = %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit54.loopexit.i
+  %__result.addr.0.lcssa.i.i.i.i.i30.i = phi i64 [ %sub.ptr.lhs.cast.i.i.i23.i, %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i ], [ %31, %_ZSt4moveIPN3ue212_GLOBAL__N_113ReachSubgraphEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit54.loopexit.i ]
+  %sub.ptr.sub.i.i.i33.i = sub i64 %__result.addr.0.lcssa.i.i.i.i.i30.i, %sub.ptr.lhs.cast.i.i.i23.i
   %add.ptr.i.i.i.i34.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i33.i
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.lhs.cast.i.i.i.i.i26.i
   %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 48

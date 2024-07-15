@@ -2392,9 +2392,9 @@ define void @_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIiEEi(pt
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %1 to i64
-  %20 = ptrtoint ptr %2 to i64
-  %21 = sub i64 %20, %19
+  %19 = ptrtoint ptr %2 to i64
+  %20 = ptrtoint ptr %1 to i64
+  %21 = sub i64 %19, %20
   %22 = lshr exact i64 %21, 2
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr @TMPI_INT, align 8
@@ -2426,9 +2426,9 @@ define void @_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIlEEi(pt
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %1 to i64
-  %20 = ptrtoint ptr %2 to i64
-  %21 = sub i64 %20, %19
+  %19 = ptrtoint ptr %2 to i64
+  %20 = ptrtoint ptr %1 to i64
+  %21 = sub i64 %19, %20
   %22 = lshr exact i64 %21, 3
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr @TMPI_LONG, align 8
@@ -2458,9 +2458,9 @@ define void @_ZNK3gmx11BiasSharing23sumOverSharingMainRanksENS_8ArrayRefIdEEi(pt
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %1 to i64
-  %20 = ptrtoint ptr %2 to i64
-  %21 = sub i64 %20, %19
+  %19 = ptrtoint ptr %2 to i64
+  %20 = ptrtoint ptr %1 to i64
+  %21 = sub i64 %19, %20
   %22 = lshr exact i64 %21, 3
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr @TMPI_DOUBLE, align 8
@@ -2473,44 +2473,42 @@ _ZN3gmx18sumOverSimulationsIdEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIiEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = ptrtoint ptr %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 52
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ne i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp sgt i32 %12, 1
-  %or.cond.i = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond.i, label %26, label %14
+  %5 = ptrtoint ptr %2 to i64
+  %6 = ptrtoint ptr %1 to i64
+  %7 = sub i64 %5, %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 52
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ne i32 %11, 0
+  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 1
+  %or.cond.i = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond.i, label %26, label %16
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %2 to i64
-  %21 = sub i64 %20, %5
-  %22 = lshr exact i64 %21, 2
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %3 to i64
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = lshr exact i64 %7, 2
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr @TMPI_INT, align 8
-  %25 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef 2, ptr noundef %19)
+  %25 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef 2, ptr noundef %21)
   br label %26
 
-26:                                               ; preds = %14, %4
-  %27 = getelementptr inbounds i8, ptr %7, i64 4
+26:                                               ; preds = %16, %4
+  %27 = getelementptr inbounds i8, ptr %9, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 1
   br i1 %29, label %30, label %_ZN3gmx18sumOverSimulationsIiEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 30:                                               ; preds = %26
-  %31 = ptrtoint ptr %2 to i64
-  %32 = sub i64 %31, %5
-  %33 = getelementptr inbounds i8, ptr %7, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %32, ptr noundef %1, ptr noundef %34)
+  %31 = getelementptr inbounds i8, ptr %9, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %7, ptr noundef %1, ptr noundef %32)
   br label %_ZN3gmx18sumOverSimulationsIiEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 _ZN3gmx18sumOverSimulationsIiEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit: ; preds = %26, %30
@@ -2519,44 +2517,42 @@ _ZN3gmx18sumOverSimulationsIiEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIdEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = ptrtoint ptr %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 52
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ne i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp sgt i32 %12, 1
-  %or.cond.i = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond.i, label %26, label %14
+  %5 = ptrtoint ptr %2 to i64
+  %6 = ptrtoint ptr %1 to i64
+  %7 = sub i64 %5, %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 52
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ne i32 %11, 0
+  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 1
+  %or.cond.i = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond.i, label %26, label %16
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %2 to i64
-  %21 = sub i64 %20, %5
-  %22 = lshr exact i64 %21, 3
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %3 to i64
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = lshr exact i64 %7, 3
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr @TMPI_DOUBLE, align 8
-  %25 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef 2, ptr noundef %19)
+  %25 = tail call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef null, ptr noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef 2, ptr noundef %21)
   br label %26
 
-26:                                               ; preds = %14, %4
-  %27 = getelementptr inbounds i8, ptr %7, i64 4
+26:                                               ; preds = %16, %4
+  %27 = getelementptr inbounds i8, ptr %9, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 1
   br i1 %29, label %30, label %_ZN3gmx18sumOverSimulationsIdEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 30:                                               ; preds = %26
-  %31 = ptrtoint ptr %2 to i64
-  %32 = sub i64 %31, %5
-  %33 = getelementptr inbounds i8, ptr %7, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %32, ptr noundef %1, ptr noundef %34)
+  %31 = getelementptr inbounds i8, ptr %9, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %7, ptr noundef %1, ptr noundef %32)
   br label %_ZN3gmx18sumOverSimulationsIdEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit
 
 _ZN3gmx18sumOverSimulationsIdEEvNS_8ArrayRefIT_EEP10tmpi_comm_bRK9t_commrec.exit: ; preds = %26, %30
@@ -2630,9 +2626,9 @@ define void @_ZN3gmx47biasesAreCompatibleForSharingBetweenSimulationsERKNS_9AwhP
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %15 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %19, %18
+  %18 = ptrtoint ptr %17 to i64
+  %19 = ptrtoint ptr %15 to i64
+  %20 = sub i64 %18, %19
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %.lr.ph189, label %._crit_edge
 

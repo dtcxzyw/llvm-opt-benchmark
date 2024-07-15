@@ -19917,13 +19917,15 @@ for.body.i.i.i.i.i24.i:                           ; preds = %_ZSt4moveIPN4mold3e
   %incdec.ptr1.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i26.i, i64 16
   %dec.i.i.i.i.i33.i = add nsw i64 %__n.09.i.i.i.i.i25.i, -1
   %cmp.i.i.i.i.i34.i = icmp ugt i64 %__n.09.i.i.i.i.i25.i, 1
-  br i1 %cmp.i.i.i.i.i34.i, label %for.body.i.i.i.i.i24.i, label %_ZSt12__move_mergeIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterIZNS1_10ObjectFileIS3_E13parse_ehframeERNS1_7ContextIS3_EEEUlRKS4_SK_E_EEET0_T_SO_SO_SO_SN_T1_.exit, !llvm.loop !305
+  br i1 %cmp.i.i.i.i.i34.i, label %for.body.i.i.i.i.i24.i, label %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit.i, !llvm.loop !305
 
-_ZSt12__move_mergeIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterIZNS1_10ObjectFileIS3_E13parse_ehframeERNS1_7ContextIS3_EEEUlRKS4_SK_E_EEET0_T_SO_SO_SO_SN_T1_.exit: ; preds = %for.body.i.i.i.i.i24.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i
-  %__result.addr.0.lcssa.i.i.i.i.i19.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i ], [ %incdec.ptr1.i.i.i.i.i32.i, %for.body.i.i.i.i.i24.i ]
-  %sub.ptr.lhs.cast.i.i.i20.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i19.i to i64
-  %sub.ptr.rhs.cast.i.i.i21.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i.i20.i, %sub.ptr.rhs.cast.i.i.i21.i
+_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit.i: ; preds = %for.body.i.i.i.i.i24.i
+  %65 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i32.i to i64
+  br label %_ZSt12__move_mergeIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterIZNS1_10ObjectFileIS3_E13parse_ehframeERNS1_7ContextIS3_EEEUlRKS4_SK_E_EEET0_T_SO_SO_SO_SN_T1_.exit
+
+_ZSt12__move_mergeIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterIZNS1_10ObjectFileIS3_E13parse_ehframeERNS1_7ContextIS3_EEEUlRKS4_SK_E_EEET0_T_SO_SO_SO_SN_T1_.exit: ; preds = %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit.i
+  %__result.addr.0.lcssa.i.i.i.i.i19.i = phi i64 [ %sub.ptr.lhs.cast.i.i.i.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i ], [ %65, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit.i ]
+  %sub.ptr.sub.i.i.i22.i = sub i64 %__result.addr.0.lcssa.i.i.i.i.i19.i, %sub.ptr.lhs.cast.i.i.i.i
   %add.ptr.i.i.i.i23.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i22.i
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 4
@@ -20712,13 +20714,15 @@ for.body.i.i.i.i.i24:                             ; preds = %_ZSt4moveIPN4mold3e
   %incdec.ptr1.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i26, i64 16
   %dec.i.i.i.i.i33 = add nsw i64 %__n.09.i.i.i.i.i25, -1
   %cmp.i.i.i.i.i34 = icmp ugt i64 %__n.09.i.i.i.i.i25, 1
-  br i1 %cmp.i.i.i.i.i34, label %for.body.i.i.i.i.i24, label %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35, !llvm.loop !305
+  br i1 %cmp.i.i.i.i.i34, label %for.body.i.i.i.i.i24, label %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit, !llvm.loop !305
 
-_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35: ; preds = %for.body.i.i.i.i.i24, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit
-  %__result.addr.0.lcssa.i.i.i.i.i19 = phi ptr [ %add.ptr.i.i.i.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit ], [ %incdec.ptr1.i.i.i.i.i32, %for.body.i.i.i.i.i24 ]
-  %sub.ptr.lhs.cast.i.i.i20 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i19 to i64
-  %sub.ptr.rhs.cast.i.i.i21 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i20, %sub.ptr.rhs.cast.i.i.i21
+_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit: ; preds = %for.body.i.i.i.i.i24
+  %34 = ptrtoint ptr %incdec.ptr1.i.i.i.i.i32 to i64
+  br label %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35
+
+_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35: ; preds = %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit
+  %__result.addr.0.lcssa.i.i.i.i.i19 = phi i64 [ %sub.ptr.lhs.cast.i.i.i, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit ], [ %34, %_ZSt4moveIPN4mold3elf9FdeRecordINS1_5ARM32EEEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit35.loopexit ]
+  %sub.ptr.sub.i.i.i22 = sub i64 %__result.addr.0.lcssa.i.i.i.i.i19, %sub.ptr.lhs.cast.i.i.i
   %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %sub.ptr.sub.i.i.i22
   ret ptr %add.ptr.i.i.i.i23
 }

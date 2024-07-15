@@ -1490,10 +1490,10 @@ define linkonce_odr dso_local void @_ZZN18cmBasicUVStreambufIcSt11char_traitsIcE
   store ptr %20, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5egptrEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
+  %23 = ptrtoint ptr %22 to i64
+  %24 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5egptrEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  %25 = ptrtoint ptr %24 to i64
+  %26 = sub i64 %23, %25
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %26, ptr %27, align 8
   ret void

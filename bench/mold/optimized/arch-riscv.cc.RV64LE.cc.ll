@@ -5183,6 +5183,7 @@ if.then:                                          ; preds = %_ZSt11__remove_ifIN
 
 if.then._ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit_crit_edge: ; preds = %if.then
   %.pre29 = ptrtoint ptr %.pre to i64
+  %17 = ptrtoint ptr %retval.sroa.0.2.i to i64
   br label %_ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
@@ -5195,8 +5196,7 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 _ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %if.then._ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit_crit_edge, %if.then.i.i.i
   %sub.ptr.rhs.cast.i12.pre-phi = phi i64 [ %.pre29, %if.then._ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit_crit_edge ], [ %sub.ptr.rhs.cast.i.i, %if.then.i.i.i ]
-  %17 = phi ptr [ %retval.sroa.0.2.i, %if.then._ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit_crit_edge ], [ %add.ptr.i.i, %if.then.i.i.i ]
-  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %17 to i64
+  %sub.ptr.lhs.cast.i11 = phi i64 [ %17, %if.then._ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit_crit_edge ], [ %sub.ptr.lhs.cast.i.i, %if.then.i.i.i ]
   %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12.pre-phi
   %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 3
   %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i14

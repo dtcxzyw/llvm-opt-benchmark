@@ -31433,9 +31433,9 @@ define void @_Z11write_xpm_mP8_IO_FILE8t_matrix(ptr nocapture noundef %0, ptr no
   br i1 %60, label %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %61 = ptrtoint ptr %57 to i64
-  %62 = ptrtoint ptr %59 to i64
-  %63 = sub i64 %62, %61
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %57 to i64
+  %63 = sub i64 %61, %62
   %64 = ashr exact i64 %63, 2
   br label %.lr.ph.i
 
@@ -31479,9 +31479,9 @@ _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit: ; preds = %._crit_edge, 
   br i1 %83, label %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit43, label %.lr.ph.preheader.i37
 
 .lr.ph.preheader.i37:                             ; preds = %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit
-  %84 = ptrtoint ptr %80 to i64
-  %85 = ptrtoint ptr %82 to i64
-  %86 = sub i64 %85, %84
+  %84 = ptrtoint ptr %82 to i64
+  %85 = ptrtoint ptr %80 to i64
+  %86 = sub i64 %84, %85
   %87 = ashr exact i64 %86, 2
   br label %.lr.ph.i38
 

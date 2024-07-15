@@ -3861,21 +3861,21 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb0EEiRK12Ato
 .lr.ph36:                                         ; preds = %12
   %32 = getelementptr inbounds i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %20 to i64
-  %35 = getelementptr inbounds i8, ptr %3, i64 144
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq i32 %10, 0
-  %38 = getelementptr inbounds i8, ptr %16, i64 8
-  %39 = ptrtoint ptr %33 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = getelementptr inbounds i8, ptr %2, i64 40
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
-  %43 = sext i32 %10 to i64
-  %44 = ptrtoint ptr %36 to i64
-  %45 = sub i64 %44, %34
-  %46 = sdiv exact i64 %45, 52
-  %47 = icmp sle i64 %46, %43
-  %48 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %20, i64 %43, i32 1
+  %34 = getelementptr inbounds i8, ptr %3, i64 144
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %20 to i64
+  %38 = sub i64 %36, %37
+  %39 = icmp eq i32 %10, 0
+  %40 = getelementptr inbounds i8, ptr %16, i64 8
+  %41 = ptrtoint ptr %33 to i64
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %45 = sext i32 %10 to i64
+  %46 = sdiv exact i64 %38, 52
+  %47 = icmp sle i64 %46, %45
+  %48 = getelementptr inbounds %struct.DDPairInteractionRanges, ptr %20, i64 %45, i32 1
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = getelementptr inbounds i8, ptr %15, i64 4
   %51 = getelementptr inbounds i8, ptr %15, i64 8
@@ -3910,14 +3910,14 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb0EEiRK12Ato
   br i1 %.not, label %77, label %72
 
 72:                                               ; preds = %59
-  br i1 %37, label %73, label %.thread16
+  br i1 %39, label %73, label %.thread16
 
 73:                                               ; preds = %72
   store ptr %65, ptr %16, align 8
   %74 = ptrtoint ptr %65 to i64
-  %75 = sub i64 %39, %74
+  %75 = sub i64 %41, %74
   %76 = getelementptr inbounds i8, ptr %65, i64 %75
-  store ptr %76, ptr %38, align 8
+  store ptr %76, ptr %40, align 8
   call fastcc void @_ZL9add_vsiteRK11gmx_ga2la_tRK15reverse_ilist_tiibRK12AtomIndexSetN3gmx8ArrayRefIKiEEP22InteractionDefinitions(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %62, i32 noundef %68, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull byval(%"class.gmx::ArrayRef.267") align 8 %16, ptr noundef %9)
   br label %.thread16
 
@@ -3941,13 +3941,13 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb0EEiRK12Ato
   br label %.thread19
 
 84:                                               ; preds = %77
-  %85 = load i32, ptr %40, align 4
+  %85 = load i32, ptr %42, align 4
   %86 = getelementptr i8, ptr %64, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = add nsw i32 %87, %85
   %89 = load i32, ptr %23, align 4
   %90 = sub i32 %88, %89
-  %91 = load i8, ptr %41, align 8
+  %91 = load i8, ptr %43, align 8
   %92 = trunc i8 %91 to i1
   br i1 %92, label %93, label %100
 
@@ -3961,7 +3961,7 @@ define internal fastcc noundef i32 @_ZL25assignInteractionsForAtomILb0EEiRK12Ato
   br i1 %99, label %.thread16, label %_ZNK11gmx_ga2la_t4findEi.exit
 
 100:                                              ; preds = %84
-  %101 = load i32, ptr %42, align 8
+  %101 = load i32, ptr %44, align 8
   %102 = and i32 %101, %90
   %103 = load ptr, ptr %2, align 8
   br label %104
@@ -4076,11 +4076,11 @@ _ZL8dd_dist2PK5t_pbcN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEEii.exit: ; preds = %1
   br i1 %161, label %.lr.ph, label %.thread16
 
 .lr.ph:                                           ; preds = %160
-  %162 = load i32, ptr %40, align 4
+  %162 = load i32, ptr %42, align 4
   %163 = load i32, ptr %23, align 4
-  %164 = load i8, ptr %41, align 8
+  %164 = load i8, ptr %43, align 8
   %165 = trunc i8 %164 to i1
-  %166 = load i32, ptr %42, align 8
+  %166 = load i32, ptr %44, align 8
   %167 = load ptr, ptr %2, align 8
   %168 = load i32, ptr %3, align 8
   %169 = zext nneg i32 %68 to i64

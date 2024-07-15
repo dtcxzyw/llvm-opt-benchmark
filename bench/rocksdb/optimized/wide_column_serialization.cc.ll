@@ -343,9 +343,8 @@ if.end10thread-pre-split:                         ; preds = %_ZN7rocksdb14GetVar
 if.end10:                                         ; preds = %if.end10thread-pre-split, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i35
   %6 = phi i32 [ %.pr159, %if.end10thread-pre-split ], [ %conv.i.i36, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i35 ]
   %retval.0.i10.i28 = phi ptr [ %call.i.i25, %if.end10thread-pre-split ], [ %add.ptr.i.i37, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i35 ]
-  %sub.ptr.lhs.cast.i29 = ptrtoint ptr %add.ptr.i22 to i64
   %sub.ptr.rhs.cast.i30 = ptrtoint ptr %retval.0.i10.i28 to i64
-  %sub.ptr.sub.i31 = sub i64 %sub.ptr.lhs.cast.i29, %sub.ptr.rhs.cast.i30
+  %sub.ptr.sub.i31 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i30
   store ptr %retval.0.i10.i28, ptr %input, align 8
   store i64 %sub.ptr.sub.i31, ptr %size_.i.i, align 8
   %tobool.not = icmp eq i32 %6, 0

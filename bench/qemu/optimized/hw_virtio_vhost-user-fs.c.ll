@@ -351,20 +351,18 @@ define internal void @vuf_get_config(ptr noundef %vdev, ptr nocapture noundef wr
 entry:
   %fscfg = alloca %struct.virtio_fs_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %fscfg, i8 0, i64 36, i1 false)
   %tag1 = getelementptr inbounds i8, ptr %call.i, i64 576
   %0 = load ptr, ptr %tag1, align 8
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %add = add i64 %call4, 1
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 36)
-  %1 = sub nuw nsw i64 40, %cond
-  %2 = getelementptr i8, ptr %fscfg, i64 %cond
-  call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %1, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %fscfg, ptr align 1 %0, i64 %cond, i1 false)
   %num_request_queues6 = getelementptr inbounds i8, ptr %call.i, i64 584
-  %3 = load i16, ptr %num_request_queues6, align 8
-  %conv = zext i16 %3 to i32
-  %fscfg.36.fscfg.36.num_request_queues.sroa_idx = getelementptr inbounds i8, ptr %fscfg, i64 36
-  store i32 %conv, ptr %fscfg.36.fscfg.36.num_request_queues.sroa_idx, align 1
+  %1 = load i16, ptr %num_request_queues6, align 8
+  %conv = zext i16 %1 to i32
+  %fscfg.36.fscfg.36.fscfg.36.num_request_queues.sroa_idx = getelementptr inbounds i8, ptr %fscfg, i64 36
+  store i32 %conv, ptr %fscfg.36.fscfg.36.fscfg.36.num_request_queues.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %config, ptr noundef nonnull align 1 dereferenceable(40) %fscfg, i64 40, i1 false)
   ret void
 }

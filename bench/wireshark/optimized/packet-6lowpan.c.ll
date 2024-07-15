@@ -490,7 +490,7 @@ define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zer
   %11 = load ptr, ptr @lowpan_context_table, align 8
   %12 = icmp ne ptr %11, null
   %or.cond3 = select i1 %or.cond, i1 %12, i1 false
-  br i1 %or.cond3, label %13, label %52
+  br i1 %or.cond3, label %13, label %48
 
 13:                                               ; preds = %5
   store i16 %1, ptr %6, align 2
@@ -513,7 +513,7 @@ define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zer
   %24 = lshr i64 %23, 3
   %bcmp = call i32 @bcmp(ptr nonnull %22, ptr nonnull %3, i64 %24)
   %25 = icmp eq i32 %bcmp, 0
-  br i1 %25, label %52, label %26
+  br i1 %25, label %48, label %26
 
 26:                                               ; preds = %16, %21, %13
   %27 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %6, i64 noundef 4) #10
@@ -522,39 +522,35 @@ define hidden void @lowpan_context_insert(i8 noundef zeroext %0, i16 noundef zer
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   store i8 %2, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %28, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = lshr i64 %8, 3
-  %32 = icmp slt i8 %2, 0
-  %33 = sub nsw i64 16, %31
-  %34 = select i1 %32, i64 0, i64 %33
-  %35 = getelementptr i8, ptr %30, i64 %31
-  call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %34, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %3, i64 %31, i1 false)
-  %36 = and i64 %8, 7
-  %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %lowpan_pfxcpy.exit, label %37
+  %32 = and i64 %8, 7
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %lowpan_pfxcpy.exit, label %33
 
-37:                                               ; preds = %26
-  %38 = trunc nuw nsw i64 %36 to i16
-  %39 = lshr exact i16 -256, %38
-  %40 = getelementptr i8, ptr %3, i64 %31
-  %41 = load i8, ptr %40, align 1
-  %42 = trunc i16 %39 to i8
-  %43 = and i8 %41, %42
-  %44 = and i8 %42, 126
-  %45 = xor i8 %44, 127
-  %46 = getelementptr i8, ptr %30, i64 %31
-  %47 = load i8, ptr %46, align 1
-  %48 = and i8 %47, %45
-  %49 = or i8 %48, %43
-  store i8 %49, ptr %46, align 1
+33:                                               ; preds = %26
+  %34 = trunc nuw nsw i64 %32 to i16
+  %35 = lshr exact i16 -256, %34
+  %36 = getelementptr i8, ptr %3, i64 %31
+  %37 = load i8, ptr %36, align 1
+  %38 = trunc i16 %35 to i8
+  %39 = and i8 %37, %38
+  %40 = and i8 %38, 126
+  %41 = xor i8 %40, 127
+  %42 = getelementptr i8, ptr %30, i64 %31
+  %43 = load i8, ptr %42, align 1
+  %44 = and i8 %43, %41
+  %45 = or i8 %44, %39
+  store i8 %45, ptr %42, align 1
   br label %lowpan_pfxcpy.exit
 
-lowpan_pfxcpy.exit:                               ; preds = %26, %37
-  %50 = load ptr, ptr @lowpan_context_table, align 8
-  %51 = call i32 @g_hash_table_insert(ptr noundef %50, ptr noundef %27, ptr noundef nonnull %28) #10
-  br label %52
+lowpan_pfxcpy.exit:                               ; preds = %26, %33
+  %46 = load ptr, ptr @lowpan_context_table, align 8
+  %47 = call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %27, ptr noundef nonnull %28) #10
+  br label %48
 
-52:                                               ; preds = %21, %5, %lowpan_pfxcpy.exit
+48:                                               ; preds = %21, %5, %lowpan_pfxcpy.exit
   ret void
 }
 

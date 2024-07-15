@@ -1557,7 +1557,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr nocaptu
   br i1 %.not63, label %.loopexit78, label %12
 
 12:                                               ; preds = %.lr.ph121, %.loopexit
-  %13 = phi i8 [ %.pre, %.lr.ph121 ], [ %99, %.loopexit ]
+  %13 = phi i8 [ %.pre, %.lr.ph121 ], [ %98, %.loopexit ]
   %.1120 = phi ptr [ %.052.lcssa, %.lr.ph121 ], [ %.4115, %.loopexit ]
   %.sroa.0.0119 = phi i32 [ %.sroa.0.0.copyload, %.lr.ph121 ], [ %.sroa.0.1, %.loopexit ]
   %.sroa.3.0118 = phi i32 [ %.sroa.3.0.copyload, %.lr.ph121 ], [ %.sroa.3.1, %.loopexit ]
@@ -1607,7 +1607,7 @@ sf_parse_key.exit:                                ; preds = %21, %.lr.ph.i
 28:                                               ; preds = %25
   %29 = load i8, ptr %26, align 1
   %.not64 = icmp eq i8 %29, 61
-  br i1 %.not64, label %65, label %.lr.ph.i71
+  br i1 %.not64, label %64, label %.lr.ph.i71
 
 .lr.ph.i71:                                       ; preds = %28
   store i8 0, ptr %4, align 8
@@ -1700,116 +1700,115 @@ sf_parse_key.exit.i:                              ; preds = %44, %.lr.ph.i.i
 
 sf_parse_params.exit:                             ; preds = %61, %.sf_parse_params.exit.loopexit_crit_edge, %.thread
   %.pre-phi = phi i64 [ %10, %.thread ], [ %.pre140, %.sf_parse_params.exit.loopexit_crit_edge ], [ %10, %61 ]
-  %62 = ptrtoint ptr %26 to i64
-  %63 = sub i64 %.pre-phi, %62
-  %64 = icmp slt i64 %63, 0
-  br i1 %64, label %sf_parse_key.exit.thread, label %76
+  %62 = sub i64 %.pre-phi, %.pre.i
+  %63 = icmp slt i64 %62, 0
+  br i1 %63, label %sf_parse_key.exit.thread, label %75
 
-65:                                               ; preds = %28
-  %66 = getelementptr inbounds i8, ptr %26, i64 1
-  %67 = icmp eq ptr %66, %5
-  br i1 %67, label %sf_parse_key.exit.thread, label %68
+64:                                               ; preds = %28
+  %65 = getelementptr inbounds i8, ptr %26, i64 1
+  %66 = icmp eq ptr %65, %5
+  br i1 %66, label %sf_parse_key.exit.thread, label %67
 
-68:                                               ; preds = %65
-  %69 = load i8, ptr %66, align 1
-  %70 = icmp eq i8 %69, 40
-  br i1 %70, label %71, label %73
+67:                                               ; preds = %64
+  %68 = load i8, ptr %65, align 1
+  %69 = icmp eq i8 %68, 40
+  br i1 %69, label %70, label %72
 
-71:                                               ; preds = %68
-  %72 = call fastcc i64 @sf_parse_inner_list(ptr noundef nonnull %4, ptr noundef nonnull %66, ptr noundef %5)
+70:                                               ; preds = %67
+  %71 = call fastcc i64 @sf_parse_inner_list(ptr noundef nonnull %4, ptr noundef nonnull %65, ptr noundef %5)
   br label %sf_parse_item_or_inner_list.exit
 
-73:                                               ; preds = %68
-  %74 = call fastcc i64 @sf_parse_item(ptr noundef nonnull %4, ptr noundef nonnull %66, ptr noundef %5)
+72:                                               ; preds = %67
+  %73 = call fastcc i64 @sf_parse_item(ptr noundef nonnull %4, ptr noundef nonnull %65, ptr noundef %5)
   br label %sf_parse_item_or_inner_list.exit
 
-sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
-  %.0.i = phi i64 [ %72, %71 ], [ %74, %73 ]
-  %75 = icmp slt i64 %.0.i, 0
-  br i1 %75, label %sf_parse_key.exit.thread, label %76
+sf_parse_item_or_inner_list.exit:                 ; preds = %70, %72
+  %.0.i = phi i64 [ %71, %70 ], [ %73, %72 ]
+  %74 = icmp slt i64 %.0.i, 0
+  br i1 %74, label %sf_parse_key.exit.thread, label %75
 
-76:                                               ; preds = %sf_parse_item_or_inner_list.exit, %sf_parse_params.exit
-  %.053 = phi i64 [ %63, %sf_parse_params.exit ], [ %.0.i, %sf_parse_item_or_inner_list.exit ]
-  %.2 = phi ptr [ %26, %sf_parse_params.exit ], [ %66, %sf_parse_item_or_inner_list.exit ]
-  %77 = getelementptr inbounds i8, ptr %.2, i64 %.053
-  %78 = icmp eq i64 %23, 1
-  br i1 %78, label %79, label %92
+75:                                               ; preds = %sf_parse_item_or_inner_list.exit, %sf_parse_params.exit
+  %.053 = phi i64 [ %62, %sf_parse_params.exit ], [ %.0.i, %sf_parse_item_or_inner_list.exit ]
+  %.2 = phi ptr [ %26, %sf_parse_params.exit ], [ %65, %sf_parse_item_or_inner_list.exit ]
+  %76 = getelementptr inbounds i8, ptr %.2, i64 %.053
+  %77 = icmp eq i64 %23, 1
+  br i1 %77, label %78, label %91
 
-79:                                               ; preds = %76
-  %80 = load i8, ptr %.1120, align 1
-  switch i8 %80, label %92 [
-    i8 105, label %81
-    i8 117, label %85
+78:                                               ; preds = %75
+  %79 = load i8, ptr %.1120, align 1
+  switch i8 %79, label %91 [
+    i8 105, label %80
+    i8 117, label %84
   ]
 
-81:                                               ; preds = %79
-  %82 = load i8, ptr %4, align 8
-  %.not65 = icmp eq i8 %82, 0
-  br i1 %.not65, label %83, label %sf_parse_key.exit.thread
+80:                                               ; preds = %78
+  %81 = load i8, ptr %4, align 8
+  %.not65 = icmp eq i8 %81, 0
+  br i1 %.not65, label %82, label %sf_parse_key.exit.thread
 
-83:                                               ; preds = %81
-  %84 = load i32, ptr %11, align 8
-  br label %92
+82:                                               ; preds = %80
+  %83 = load i32, ptr %11, align 8
+  br label %91
 
-85:                                               ; preds = %79
-  %86 = load i8, ptr %4, align 8
-  %87 = icmp ne i8 %86, 1
-  %88 = load i64, ptr %11, align 8
-  %89 = icmp ugt i64 %88, 7
-  %or.cond5 = select i1 %87, i1 true, i1 %89
-  br i1 %or.cond5, label %sf_parse_key.exit.thread, label %90
+84:                                               ; preds = %78
+  %85 = load i8, ptr %4, align 8
+  %86 = icmp ne i8 %85, 1
+  %87 = load i64, ptr %11, align 8
+  %88 = icmp ugt i64 %87, 7
+  %or.cond5 = select i1 %86, i1 true, i1 %88
+  br i1 %or.cond5, label %sf_parse_key.exit.thread, label %89
 
-90:                                               ; preds = %85
-  %91 = trunc nuw nsw i64 %88 to i32
-  br label %92
+89:                                               ; preds = %84
+  %90 = trunc nuw nsw i64 %87 to i32
+  br label %91
 
-92:                                               ; preds = %79, %83, %90, %76
-  %.sroa.3.1 = phi i32 [ %.sroa.3.0118, %79 ], [ %.sroa.3.0118, %90 ], [ %84, %83 ], [ %.sroa.3.0118, %76 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0119, %79 ], [ %91, %90 ], [ %.sroa.0.0119, %83 ], [ %.sroa.0.0119, %76 ]
-  %93 = icmp eq ptr %77, %5
-  br i1 %93, label %.loopexit78, label %.lr.ph108
+91:                                               ; preds = %78, %82, %89, %75
+  %.sroa.3.1 = phi i32 [ %.sroa.3.0118, %78 ], [ %.sroa.3.0118, %89 ], [ %83, %82 ], [ %.sroa.3.0118, %75 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0119, %78 ], [ %90, %89 ], [ %.sroa.0.0119, %82 ], [ %.sroa.0.0119, %75 ]
+  %92 = icmp eq ptr %76, %5
+  br i1 %92, label %.loopexit78, label %.lr.ph108
 
-.lr.ph108:                                        ; preds = %92, %96
-  %.3107 = phi ptr [ %97, %96 ], [ %77, %92 ]
-  %94 = load i8, ptr %.3107, align 1
-  switch i8 %94, label %sf_parse_key.exit.thread [
-    i8 32, label %96
-    i8 9, label %96
+.lr.ph108:                                        ; preds = %91, %95
+  %.3107 = phi ptr [ %96, %95 ], [ %76, %91 ]
+  %93 = load i8, ptr %.3107, align 1
+  switch i8 %93, label %sf_parse_key.exit.thread [
+    i8 32, label %95
+    i8 9, label %95
     i8 44, label %.preheader
   ]
 
 .preheader:                                       ; preds = %.lr.ph108
   %.4114 = getelementptr inbounds i8, ptr %.3107, i64 1
-  %95 = icmp eq ptr %.4114, %5
-  br i1 %95, label %sf_parse_key.exit.thread, label %.lr.ph116
+  %94 = icmp eq ptr %.4114, %5
+  br i1 %94, label %sf_parse_key.exit.thread, label %.lr.ph116
 
-96:                                               ; preds = %.lr.ph108, %.lr.ph108
-  %97 = getelementptr inbounds i8, ptr %.3107, i64 1
-  %98 = icmp eq ptr %97, %5
-  br i1 %98, label %.loopexit78, label %.lr.ph108
+95:                                               ; preds = %.lr.ph108, %.lr.ph108
+  %96 = getelementptr inbounds i8, ptr %.3107, i64 1
+  %97 = icmp eq ptr %96, %5
+  br i1 %97, label %.loopexit78, label %.lr.ph108
 
-.lr.ph116:                                        ; preds = %.preheader, %100
-  %.4115 = phi ptr [ %.4, %100 ], [ %.4114, %.preheader ]
-  %99 = load i8, ptr %.4115, align 1
-  switch i8 %99, label %.loopexit [
-    i8 32, label %100
-    i8 9, label %100
+.lr.ph116:                                        ; preds = %.preheader, %99
+  %.4115 = phi ptr [ %.4, %99 ], [ %.4114, %.preheader ]
+  %98 = load i8, ptr %.4115, align 1
+  switch i8 %98, label %.loopexit [
+    i8 32, label %99
+    i8 9, label %99
   ]
 
-100:                                              ; preds = %.lr.ph116, %.lr.ph116
+99:                                               ; preds = %.lr.ph116, %.lr.ph116
   %.4 = getelementptr inbounds i8, ptr %.4115, i64 1
-  %101 = icmp eq ptr %.4, %5
-  br i1 %101, label %sf_parse_key.exit.thread, label %.lr.ph116
+  %100 = icmp eq ptr %.4, %5
+  br i1 %100, label %sf_parse_key.exit.thread, label %.lr.ph116
 
-.loopexit78:                                      ; preds = %8, %.loopexit, %92, %96, %.critedge
-  %.sroa.3.2 = phi i32 [ %.sroa.3.0.copyload, %.critedge ], [ %.sroa.3.1, %96 ], [ %.sroa.3.1, %92 ], [ %.sroa.3.1, %.loopexit ], [ %.sroa.3.0.copyload, %8 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload, %.critedge ], [ %.sroa.0.1, %96 ], [ %.sroa.0.1, %92 ], [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.0.copyload, %8 ]
+.loopexit78:                                      ; preds = %8, %.loopexit, %91, %95, %.critedge
+  %.sroa.3.2 = phi i32 [ %.sroa.3.0.copyload, %.critedge ], [ %.sroa.3.1, %95 ], [ %.sroa.3.1, %91 ], [ %.sroa.3.1, %.loopexit ], [ %.sroa.3.0.copyload, %8 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload, %.critedge ], [ %.sroa.0.1, %95 ], [ %.sroa.0.1, %91 ], [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.0.copyload, %8 ]
   store i32 %.sroa.0.2, ptr %0, align 4
   store i32 %.sroa.3.2, ptr %.sroa.3.0..sroa_idx, align 4
   br label %sf_parse_key.exit.thread
 
-sf_parse_key.exit.thread:                         ; preds = %12, %85, %81, %sf_parse_item_or_inner_list.exit, %65, %sf_parse_params.exit, %sf_parse_key.exit, %.preheader, %36, %56, %53, %sf_parse_key.exit.i, %.lr.ph108, %100, %.preheader.i73, %.loopexit78
-  %.0 = phi i32 [ 0, %.loopexit78 ], [ -501, %.preheader.i73 ], [ -501, %100 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %36 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %65 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %81 ], [ -501, %85 ], [ -501, %12 ]
+sf_parse_key.exit.thread:                         ; preds = %12, %84, %80, %sf_parse_item_or_inner_list.exit, %64, %sf_parse_params.exit, %sf_parse_key.exit, %.preheader, %36, %56, %53, %sf_parse_key.exit.i, %.lr.ph108, %99, %.preheader.i73, %.loopexit78
+  %.0 = phi i32 [ 0, %.loopexit78 ], [ -501, %.preheader.i73 ], [ -501, %99 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %36 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %64 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %80 ], [ -501, %84 ], [ -501, %12 ]
   ret i32 %.0
 }
 

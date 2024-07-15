@@ -94,9 +94,9 @@ define void @_Z29broadcastStateWithoutDynamicsP10tmpi_comm_bbP7t_state(ptr nound
   call void @_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE17resizeWithPaddingEl(ptr noundef nonnull align 8 dereferenceable(40) %15, i64 noundef %31)
   %32 = load ptr, ptr %16, align 8
   %33 = load ptr, ptr %17, align 8
-  %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %35, %34
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %32 to i64
+  %36 = sub i64 %34, %35
   call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef %36, ptr noundef %32, ptr noundef %0)
   br label %38
 

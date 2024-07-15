@@ -1204,24 +1204,24 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIP10In
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %38 to i64
-  %42 = load ptr, ptr %0, align 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %43, i64 %indvars.iv77
-  %45 = ptrtoint ptr %40 to i64
-  %46 = sub i64 %45, %41
-  %47 = lshr exact i64 %46, 2
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %38 to i64
+  %43 = sub i64 %41, %42
+  %44 = load ptr, ptr %0, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %45, i64 %indvars.iv77
+  %47 = lshr exact i64 %43, 2
   %48 = trunc i64 %47 to i32
-  store i32 %48, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
-  %sext = shl i64 %46, 30
+  store i32 %48, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %sext = shl i64 %43, 30
   %50 = ashr exact i64 %sext, 32
   %51 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 174, i64 noundef %50, i64 noundef 4)
           to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit70
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.lr.ph74
   store ptr %51, ptr %49, align 8
-  %52 = load i32, ptr %44, align 8
+  %52 = load i32, ptr %46, align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph, label %._crit_edge
 
@@ -1233,7 +1233,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.lr.ph74
   %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
   store i32 %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load i32, ptr %44, align 8
+  %58 = load i32, ptr %46, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !12
@@ -1246,7 +1246,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.lr.ph74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
   %.lcssa = phi i32 [ %52, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ], [ %58, %.lr.ph ]
-  %63 = getelementptr inbounds i8, ptr %44, i64 16
+  %63 = getelementptr inbounds i8, ptr %46, i64 16
   store i32 %.lcssa, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds %struct.IndexGroup, ptr %36, i64 %indvars.iv77

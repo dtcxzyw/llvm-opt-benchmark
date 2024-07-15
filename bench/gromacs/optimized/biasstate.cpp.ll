@@ -5770,25 +5770,25 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %._crit_edge121.thre
 _ZN3gmx12_GLOBAL__N_113sumHistogramsENS_8ArrayRefINS_10PointStateEEENS1_IdEEiPKNS_11BiasSharingEiRKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph115.i, %_ZNSt6vectorIdSaIdEED2Ev.exit45.i, %291, %292
   %311 = load ptr, ptr %20, align 8
   %312 = load ptr, ptr %22, align 8
-  %313 = load i32, ptr %86, align 4
-  %314 = load ptr, ptr %195, align 8
-  %315 = load i32, ptr %197, align 4
-  %316 = icmp eq i32 %313, 1
-  br i1 %316, label %_ZN3gmx12_GLOBAL__N_16sumPmfENS_8ArrayRefINS_10PointStateEEEiPKNS_11BiasSharingEi.exit, label %317
+  %313 = ptrtoint ptr %312 to i64
+  %314 = ptrtoint ptr %311 to i64
+  %315 = sub i64 %313, %314
+  %316 = load i32, ptr %86, align 4
+  %317 = load ptr, ptr %195, align 8
+  %318 = load i32, ptr %197, align 4
+  %319 = icmp eq i32 %316, 1
+  br i1 %319, label %_ZN3gmx12_GLOBAL__N_16sumPmfENS_8ArrayRefINS_10PointStateEEEiPKNS_11BiasSharingEi.exit, label %320
 
-317:                                              ; preds = %_ZN3gmx12_GLOBAL__N_113sumHistogramsENS_8ArrayRefINS_10PointStateEEENS1_IdEEiPKNS_11BiasSharingEiRKSt6vectorIiSaIiEE.exit
-  %318 = ptrtoint ptr %311 to i64
-  %319 = ptrtoint ptr %312 to i64
-  %320 = sub i64 %319, %318
-  %321 = sdiv exact i64 %320, 96
+320:                                              ; preds = %_ZN3gmx12_GLOBAL__N_113sumHistogramsENS_8ArrayRefINS_10PointStateEEENS1_IdEEiPKNS_11BiasSharingEiRKSt6vectorIiSaIiEE.exit
+  %321 = sdiv exact i64 %315, 96
   %322 = icmp ugt i64 %321, 1152921504606846975
   br i1 %322, label %.noexc.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
 
-.noexc.i:                                         ; preds = %317
+.noexc.i:                                         ; preds = %320
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #25
   unreachable
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %317
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %320
   %.not.i.i.i.i.i = icmp eq ptr %312, %311
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i94, label %.noexc21.i
 
@@ -5796,7 +5796,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %317
   %323 = shl nuw nsw i64 %321, 3
   %324 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %323) #26
   store double 0.000000e+00, ptr %324, align 8
-  %325 = icmp eq i64 %320, 96
+  %325 = icmp eq i64 %315, 96
   br i1 %325, label %.lr.ph.preheader.i91, label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
@@ -5837,11 +5837,11 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
   %342 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %328, %338 ]
   %.sroa.024.049.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %324, %338 ]
   %343 = getelementptr inbounds i8, ptr %.sroa.024.049.i, i64 %342
-  invoke void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIdEEi(ptr noundef nonnull align 8 dereferenceable(104) %314, ptr %.sroa.024.049.i, ptr %343, i32 noundef %315)
+  invoke void @_ZNK3gmx11BiasSharing25sumOverSharingSimulationsENS_8ArrayRefIdEEi(ptr noundef nonnull align 8 dereferenceable(104) %317, ptr %.sroa.024.049.i, ptr %343, i32 noundef %318)
           to label %344 unwind label %357
 
 344:                                              ; preds = %._crit_edge.i94
-  %345 = sitofp i32 %313 to double
+  %345 = sitofp i32 %316 to double
   %346 = fdiv double 1.000000e+00, %345
   br i1 %.not.i.i.i.i.i, label %._crit_edge43.i, label %.lr.ph42.preheader.i
 
@@ -7094,46 +7094,46 @@ define void @_ZN3gmx9BiasState17sampleCoordAndPmfERKSt6vectorINS_9DimParamsESaIS
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %16 to i64
-  %20 = tail call i64 @_ZNK3gmx8BiasGrid15lambdaAxisIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
-  %21 = and i64 %20, 4294967296
-  %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %22, label %23
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %21 = sub i64 %19, %20
+  %22 = tail call i64 @_ZNK3gmx8BiasGrid15lambdaAxisIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
+  %23 = and i64 %22, 4294967296
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %24, label %25
 
-22:                                               ; preds = %12
+24:                                               ; preds = %12
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_137calculateFELambdaMarginalDistributionERKNS_8BiasGridENS_8ArrayRefIKiEENS4_IKdEEENK3$_0clEv", ptr noundef nonnull @.str.3, i32 noundef 249) #25, !noalias !70
   unreachable
 
-23:                                               ; preds = %12
-  %24 = tail call noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
-  %25 = zext i32 %24 to i64
-  %26 = icmp slt i32 %24, 0
-  br i1 %26, label %.noexc.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
+25:                                               ; preds = %12
+  %26 = tail call noundef i32 @_ZNK3gmx8BiasGrid18numFepLambdaStatesEv(ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
+  %27 = zext i32 %26 to i64
+  %28 = icmp slt i32 %26, 0
+  br i1 %28, label %.noexc.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
 
-.noexc.i:                                         ; preds = %23
+.noexc.i:                                         ; preds = %25
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #25, !noalias !70
   unreachable
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %23
-  %.not.i.i.i.i.i = icmp eq i32 %24, 0
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %25
+  %.not.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %.noexc15.i
 
 .noexc15.i:                                       ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %27 = shl nuw nsw i64 %25, 3
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #26, !noalias !70
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false), !noalias !70
+  %29 = shl nuw nsw i64 %27, 3
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #26, !noalias !70
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %29, i1 false), !noalias !70
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc15.i
-  %.sroa.049.0 = phi ptr [ %28, %.noexc15.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.049.0 = phi ptr [ %30, %.noexc15.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.not22.i = icmp eq ptr %18, %16
   br i1 %.not22.i, label %_ZN3gmx12_GLOBAL__N_137calculateFELambdaMarginalDistributionERKNS_8BiasGridENS_8ArrayRefIKiEENS4_IKdEE.exit, label %_ZNKRSt8optionalIiE5valueEv.exit.lr.ph.i
 
 _ZNKRSt8optionalIiE5valueEv.exit.lr.ph.i:         ; preds = %.loopexit.i
-  %29 = ptrtoint ptr %18 to i64
-  %30 = sub i64 %29, %19
-  %31 = ashr exact i64 %30, 2
-  %sext.i = shl i64 %20, 32
+  %31 = ashr exact i64 %21, 2
+  %sext.i = shl i64 %22, 32
   %32 = ashr exact i64 %sext.i, 32
   %umax.i = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   %.pre.i = load ptr, ptr %2, align 8, !noalias !70

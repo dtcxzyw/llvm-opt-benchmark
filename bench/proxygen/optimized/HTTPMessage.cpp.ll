@@ -6115,7 +6115,6 @@ land.rhs4.i87:                                    ; preds = %for.cond2.i84
 
 _ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96: ; preds = %for.cond2.i84, %land.rhs4.i87
   %sp.sroa.7.0.lcssa.i90 = phi ptr [ %scevgep18.i83, %for.cond2.i84 ], [ %sp.sroa.7.0.i85, %land.rhs4.i87 ]
-  %sp.coerce115.i98 = ptrtoint ptr %add.ptr.i.i65 to i64
   %cmp.i12.i99 = icmp eq i64 %add15, %sub.ptr.sub.i.i.i34
   br i1 %cmp.i12.i99, label %for.end.i108, label %land.rhs.i102
 
@@ -6133,7 +6132,7 @@ for.inc.i121:                                     ; preds = %land.rhs.i102
 for.end.i108:                                     ; preds = %land.rhs.i102, %for.inc.i121, %_ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96
   %sp.sroa.0.0.lcssa.i110 = phi ptr [ %add.ptr.i63, %_ZN8proxygen11HTTPMessage4trimEN5folly5RangeIPKcEE.exit96 ], [ %add.ptr.i.i65, %for.inc.i121 ], [ %sp.sroa.0.013.i103, %land.rhs.i102 ]
   %sp.sroa.0.0.lcssa17.pre-phi.i109 = ptrtoint ptr %sp.sroa.0.0.lcssa.i110 to i64
-  %12 = sub i64 %sp.sroa.0.0.lcssa17.pre-phi.i109, %sp.coerce115.i98
+  %12 = sub i64 %sp.sroa.0.0.lcssa17.pre-phi.i109, %sub.ptr.lhs.cast.i.i.i32
   %scevgep18.i111 = getelementptr i8, ptr %add.ptr.i.i65, i64 %12
   br label %for.cond2.i112
 

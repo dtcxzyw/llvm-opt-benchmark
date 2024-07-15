@@ -1970,35 +1970,35 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZNSt6vectorIN3gmx1
   %193 = load ptr, ptr %31, align 8
   %194 = getelementptr inbounds i8, ptr %31, i64 8
   %195 = load ptr, ptr %194, align 8
-  %196 = ptrtoint ptr %193 to i64
+  %196 = ptrtoint ptr %195 to i64
+  %197 = ptrtoint ptr %193 to i64
+  %198 = sub i64 %196, %197
   %.not27.i = icmp eq ptr %193, %195
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %192, %.lr.ph.i
-  %.sroa.016.031.i = phi ptr [ %203, %.lr.ph.i ], [ %193, %192 ]
-  %.sroa.11.030.i = phi float [ %202, %.lr.ph.i ], [ 0.000000e+00, %192 ]
-  %197 = phi <2 x float> [ %199, %.lr.ph.i ], [ zeroinitializer, %192 ]
-  %198 = load <2 x float>, ptr %.sroa.016.031.i, align 4
-  %199 = fadd <2 x float> %197, %198
-  %200 = getelementptr inbounds i8, ptr %.sroa.016.031.i, i64 8
-  %201 = load float, ptr %200, align 4
-  %202 = fadd float %.sroa.11.030.i, %201
-  %203 = getelementptr inbounds i8, ptr %.sroa.016.031.i, i64 12
-  %.not.i = icmp eq ptr %203, %195
+  %.sroa.016.031.i = phi ptr [ %205, %.lr.ph.i ], [ %193, %192 ]
+  %.sroa.11.030.i = phi float [ %204, %.lr.ph.i ], [ 0.000000e+00, %192 ]
+  %199 = phi <2 x float> [ %201, %.lr.ph.i ], [ zeroinitializer, %192 ]
+  %200 = load <2 x float>, ptr %.sroa.016.031.i, align 4
+  %201 = fadd <2 x float> %199, %200
+  %202 = getelementptr inbounds i8, ptr %.sroa.016.031.i, i64 8
+  %203 = load float, ptr %202, align 4
+  %204 = fadd float %.sroa.11.030.i, %203
+  %205 = getelementptr inbounds i8, ptr %.sroa.016.031.i, i64 12
+  %.not.i = icmp eq ptr %205, %195
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %192
-  %.sroa.11.0.lcssa.i = phi float [ 0.000000e+00, %192 ], [ %202, %.lr.ph.i ]
-  %204 = phi <2 x float> [ zeroinitializer, %192 ], [ %199, %.lr.ph.i ]
-  %205 = ptrtoint ptr %195 to i64
-  %206 = sub i64 %205, %196
-  %207 = sdiv exact i64 %206, 12
+  %.sroa.11.0.lcssa.i = phi float [ 0.000000e+00, %192 ], [ %204, %.lr.ph.i ]
+  %206 = phi <2 x float> [ zeroinitializer, %192 ], [ %201, %.lr.ph.i ]
+  %207 = sdiv exact i64 %198, 12
   %208 = uitofp i64 %207 to double
   %209 = fdiv double 1.000000e+00, %208
   %210 = fptrunc double %209 to float
   %211 = insertelement <2 x float> poison, float %210, i64 0
   %212 = shufflevector <2 x float> %211, <2 x float> poison, <2 x i32> zeroinitializer
-  %213 = fmul <2 x float> %204, %212
+  %213 = fmul <2 x float> %206, %212
   %214 = fmul float %.sroa.11.0.lcssa.i, %210
   br i1 %.not27.i, label %_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph37.i
 

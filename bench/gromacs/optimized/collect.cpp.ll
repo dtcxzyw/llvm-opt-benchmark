@@ -69,56 +69,56 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   %13 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %14 = alloca [2 x i32], align 4
   %15 = alloca %"class.gmx::ArrayRef", align 8
-  %16 = ptrtoint ptr %3 to i64
+  %16 = ptrtoint ptr %4 to i64
+  %17 = ptrtoint ptr %3 to i64
+  %18 = sub i64 %16, %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 320
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1536
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp eq i64 %21, %17
-  br i1 %22, label %_ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit, label %23
+  %19 = sext i32 %1 to i64
+  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 1536
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp eq i64 %23, %19
+  br i1 %24, label %_ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit, label %25
 
-23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 328
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, %17
-  br i1 %26, label %27, label %36
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %0, i64 328
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp eq i64 %27, %19
+  br i1 %28, label %29, label %38
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 288
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
-  %31 = load i32, ptr %30, align 8
-  %32 = sext i32 %31 to i64
-  %.not.i.i = icmp eq ptr %29, null
-  %33 = getelementptr inbounds i32, ptr %29, i64 %32
-  %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %33
-  %34 = getelementptr inbounds i8, ptr %19, i64 1576
-  %35 = load i32, ptr %34, align 4
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %0, i64 288
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 280
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %.not.i.i = icmp eq ptr %31, null
+  %35 = getelementptr inbounds i32, ptr %31, i64 %34
+  %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %35
+  %36 = getelementptr inbounds i8, ptr %21, i64 1576
+  %37 = load i32, ptr %36, align 4
   %.pre141.i = ptrtoint ptr %spec.select.i.i to i64
-  %.pre142.i = ptrtoint ptr %29 to i64
+  %.pre142.i = ptrtoint ptr %31 to i64
   %.pre144.i = sub i64 %.pre141.i, %.pre142.i
   %.pre146.i = lshr exact i64 %.pre144.i, 2
   %.pre148.i = trunc i64 %.pre146.i to i32
   br label %55
 
-36:                                               ; preds = %23
-  %37 = icmp eq i32 %2, %1
-  br i1 %37, label %38, label %43
+38:                                               ; preds = %25
+  %39 = icmp eq i32 %2, %1
+  br i1 %39, label %40, label %43
 
-38:                                               ; preds = %36
-  %39 = ptrtoint ptr %4 to i64
-  %40 = sub i64 %39, %16
-  %41 = lshr exact i64 %40, 2
+40:                                               ; preds = %38
+  %41 = lshr exact i64 %18, 2
   %42 = trunc i64 %41 to i32
   br label %55
 
-43:                                               ; preds = %36
+43:                                               ; preds = %38
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %44 unwind label %47
@@ -160,10 +160,10 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
   resume { ptr, i32 } %.pn.pn.i
 
-55:                                               ; preds = %38, %27
-  %.pre-phi149.i = phi i32 [ %42, %38 ], [ %.pre148.i, %27 ]
-  %.sroa.0110.0.i = phi ptr [ %3, %38 ], [ %29, %27 ]
-  %.0.i = phi i32 [ %42, %38 ], [ %35, %27 ]
+55:                                               ; preds = %40, %29
+  %.pre-phi149.i = phi i32 [ %42, %40 ], [ %.pre148.i, %29 ]
+  %.sroa.0110.0.i = phi ptr [ %3, %40 ], [ %31, %29 ]
+  %.0.i = phi i32 [ %42, %40 ], [ %37, %29 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 200
   %57 = load ptr, ptr %56, align 8
   store i32 %.pre-phi149.i, ptr %14, align 4
@@ -333,9 +333,9 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   %151 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %.sink.i, ptr %151, align 8
   call void @_Z10dd_gathervIiEvPK12gmx_domdec_tiPKT_N3gmx8ArrayRefIKiEES9_PS3_(ptr noundef nonnull %0, i32 noundef %.pre-phi149.i, ptr noundef %.sroa.0110.0.i, ptr %.sroa.0106.0115121.i, ptr %.sink140.i, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %15, ptr noundef %150)
-  %152 = load ptr, ptr %18, align 8
+  %152 = load ptr, ptr %20, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 1536
-  store i64 %17, ptr %153, align 8
+  store i64 %19, ptr %153, align 8
   br label %_ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit
 
 _ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit: ; preds = %7, %149
@@ -359,7 +359,7 @@ _ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit: ; preds = %7, %149
   br i1 %161, label %171, label %162
 
 162:                                              ; preds = %158
-  %163 = load ptr, ptr %18, align 8
+  %163 = load ptr, ptr %20, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 1576
   %165 = load i32, ptr %164, align 4
   %166 = mul i32 %165, 12
@@ -534,7 +534,7 @@ _ZL13dd_collect_cgP12gmx_domdec_tiiN3gmx8ArrayRefIKiEE.exit: ; preds = %7, %149
   %250 = phi ptr [ %.pre46.i, %243 ], [ null, %239 ]
   %251 = phi i64 [ %246, %243 ], [ 0, %239 ]
   %252 = phi ptr [ %.pre.i21, %243 ], [ null, %239 ]
-  %253 = load ptr, ptr %18, align 8
+  %253 = load ptr, ptr %20, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 1576
   %255 = load i32, ptr %254, align 4
   %256 = ptrtoint ptr %252 to i64

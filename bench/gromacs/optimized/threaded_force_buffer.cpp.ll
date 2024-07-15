@@ -1659,9 +1659,9 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE14setupR
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %29 to i64
-  %33 = ptrtoint ptr %31 to i64
-  %34 = sub i64 %33, %32
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 4
   %36 = icmp eq i64 %35, %.pre
   br i1 %36, label %20, label %37
@@ -3631,9 +3631,9 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE14setupReductionEv(ptr n
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %29 to i64
-  %33 = ptrtoint ptr %31 to i64
-  %34 = sub i64 %33, %32
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 4
   %36 = icmp eq i64 %35, %.pre
   br i1 %36, label %20, label %37

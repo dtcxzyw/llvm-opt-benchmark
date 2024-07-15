@@ -664,9 +664,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %58, %_ZNSt6vectorIf
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %15, i64 2768
   %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %69 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %73, %72
+  %72 = ptrtoint ptr %71 to i64
+  %73 = ptrtoint ptr %69 to i64
+  %74 = sub i64 %72, %73
   %75 = icmp ugt i64 %74, 9223372036854775804
   br i1 %75, label %76, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -720,9 +720,9 @@ _ZNSt6vectorIiSaIiEEC2IN3gmx12ArrayRefIterIKiEEvEET_S7_RKS0_.exit: ; preds = %.n
   %86 = load ptr, ptr %67, align 8
   %87 = getelementptr inbounds i8, ptr %15, i64 2744
   %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %86 to i64
-  %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %90, %89
+  %89 = ptrtoint ptr %88 to i64
+  %90 = ptrtoint ptr %86 to i64
+  %91 = sub i64 %89, %90
   %92 = icmp ugt i64 %91, 9223372036854775804
   br i1 %92, label %93, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i72
 

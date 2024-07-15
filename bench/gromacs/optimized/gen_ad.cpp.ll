@@ -4878,9 +4878,9 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   %.val3.i.i.i = load ptr, ptr %.sroa.07.013.i.i, align 8
   %172 = getelementptr i8, ptr %.sroa.07.013.i.i, i64 8
   %.val4.i.i.i = load ptr, ptr %172, align 8
-  %173 = ptrtoint ptr %.val1.i.i.i to i64
-  %174 = ptrtoint ptr %.val2.i.i.i to i64
-  %175 = sub i64 %173, %174
+  %173 = ptrtoint ptr %.val2.i.i.i to i64
+  %174 = ptrtoint ptr %.val1.i.i.i to i64
+  %175 = sub i64 %174, %173
   %176 = icmp slt i64 %175, 0
   br i1 %176, label %.lr.ph.i.i.i.i.i, label %_ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i
 
@@ -4928,15 +4928,15 @@ define internal fastcc void @_ZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES
   %.1.i.i.i.i.i = phi i32 [ %187, %186 ], [ %.022.i.i.i.i.i, %188 ], [ %spec.select.i.i.i.i.i, %195 ]
   %203 = getelementptr inbounds i8, ptr %.sroa.0.021.i.i.i.i.i, i64 12
   %204 = ptrtoint ptr %203 to i64
-  %205 = sub i64 %204, %174
+  %205 = sub i64 %204, %173
   %206 = icmp slt i64 %205, 0
   br i1 %206, label %.lr.ph.i.i.i.i.i, label %_ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i, !llvm.loop !54
 
 _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.0.lcssa.i.i.i.i.i = phi i32 [ 0, %169 ], [ %.1.i.i.i.i.i, %202 ]
-  %207 = ptrtoint ptr %.val3.i.i.i to i64
-  %208 = ptrtoint ptr %.val4.i.i.i to i64
-  %209 = sub i64 %207, %208
+  %207 = ptrtoint ptr %.val4.i.i.i to i64
+  %208 = ptrtoint ptr %.val3.i.i.i to i64
+  %209 = sub i64 %208, %207
   %210 = icmp slt i64 %209, 0
   br i1 %210, label %.lr.ph.i8.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES6_P7t_atomsbbE3$_0EclINS2_12ArrayRefIterIS5_EESD_EEbT_T0_.exit.i.i"
 
@@ -4984,7 +4984,7 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.1.i13.i.i.i.i = phi i32 [ %221, %220 ], [ %.022.i9.i.i.i.i, %222 ], [ %spec.select.i15.i.i.i.i, %229 ]
   %237 = getelementptr inbounds i8, ptr %.sroa.0.021.i10.i.i.i.i, i64 12
   %238 = ptrtoint ptr %237 to i64
-  %239 = sub i64 %238, %208
+  %239 = sub i64 %238, %207
   %240 = icmp slt i64 %239, 0
   br i1 %240, label %.lr.ph.i8.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL9clean_dihN3gmx8ArrayRefIK17InteractionOfTypeEES6_P7t_atomsbbE3$_0EclINS2_12ArrayRefIterIS5_EESD_EEbT_T0_.exit.i.i", !llvm.loop !54
 
@@ -5014,10 +5014,10 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %250 = load ptr, ptr %.sroa.07.2.i.i, align 8
   %251 = getelementptr inbounds i8, ptr %.sroa.07.2.i.i, i64 8
   %252 = load ptr, ptr %251, align 8
-  %253 = ptrtoint ptr %250 to i64
-  %254 = load ptr, ptr %17, align 8
-  %255 = ptrtoint ptr %252 to i64
-  %256 = sub i64 %253, %255
+  %253 = ptrtoint ptr %252 to i64
+  %254 = ptrtoint ptr %250 to i64
+  %255 = load ptr, ptr %17, align 8
+  %256 = sub i64 %254, %253
   %257 = icmp slt i64 %256, 0
   br i1 %257, label %.lr.ph.i, label %.loopexit
 
@@ -5026,7 +5026,7 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.sroa.0.021.i = phi ptr [ %284, %283 ], [ %250, %249 ]
   %258 = load i32, ptr %.sroa.0.021.i, align 4
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds ptr, ptr %254, i64 %259
+  %260 = getelementptr inbounds ptr, ptr %255, i64 %259
   %261 = load ptr, ptr %260, align 8
   %262 = load ptr, ptr %261, align 8
   %263 = load i8, ptr %262, align 1
@@ -5065,7 +5065,7 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.1.i = phi i32 [ %268, %267 ], [ %.022.i, %269 ], [ %spec.select.i, %276 ]
   %284 = getelementptr inbounds i8, ptr %.sroa.0.021.i, i64 12
   %285 = ptrtoint ptr %284 to i64
-  %286 = sub i64 %285, %255
+  %286 = sub i64 %285, %253
   %287 = icmp slt i64 %286, 0
   br i1 %287, label %.lr.ph.i, label %.loopexit, !llvm.loop !54
 
@@ -5074,9 +5074,9 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %288 = load ptr, ptr %.sroa.089.0108, align 8
   %289 = getelementptr inbounds i8, ptr %.sroa.089.0108, i64 8
   %290 = load ptr, ptr %289, align 8
-  %291 = ptrtoint ptr %288 to i64
-  %292 = ptrtoint ptr %290 to i64
-  %293 = sub i64 %291, %292
+  %291 = ptrtoint ptr %290 to i64
+  %292 = ptrtoint ptr %288 to i64
+  %293 = sub i64 %292, %291
   %294 = icmp slt i64 %293, 0
   br i1 %294, label %.lr.ph.i40, label %_ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit48
 
@@ -5085,7 +5085,7 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.sroa.0.021.i42 = phi ptr [ %321, %320 ], [ %288, %.loopexit ]
   %295 = load i32, ptr %.sroa.0.021.i42, align 4
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %254, i64 %296
+  %297 = getelementptr inbounds ptr, ptr %255, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = load ptr, ptr %298, align 8
   %300 = load i8, ptr %299, align 1
@@ -5124,7 +5124,7 @@ _ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit.i.i.i.i:  ; preds = %202, %169
   %.1.i45 = phi i32 [ %305, %304 ], [ %.022.i41, %306 ], [ %spec.select.i47, %313 ]
   %321 = getelementptr inbounds i8, ptr %.sroa.0.021.i42, i64 12
   %322 = ptrtoint ptr %321 to i64
-  %323 = sub i64 %322, %292
+  %323 = sub i64 %322, %291
   %324 = icmp slt i64 %323, 0
   br i1 %324, label %.lr.ph.i40, label %_ZL7n_hydroN3gmx8ArrayRefIKiEEPPPc.exit48, !llvm.loop !54
 

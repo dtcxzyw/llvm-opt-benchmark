@@ -2842,9 +2842,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i42: ; preds
 land.lhs.true.i44:                                ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i42, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i57
   %6 = phi i32 [ %conv.i.i.i58, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i57 ], [ %.pre.i43, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i42 ]
   %7 = phi ptr [ %add.ptr.i.i.i59, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i57 ], [ %call.i.i.i40, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.land.lhs.true_crit_edge.i42 ]
-  %sub.ptr.lhs.cast.i.i45 = ptrtoint ptr %add.ptr.i.i37 to i64
   %sub.ptr.rhs.cast.i.i46 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i45, %sub.ptr.rhs.cast.i.i46
+  %sub.ptr.sub.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i46
   %conv.i48 = zext i32 %6 to i64
   %cmp.not.i49 = icmp ult i64 %sub.ptr.sub.i.i47, %conv.i48
   br i1 %cmp.not.i49, label %if.then20, label %if.end23

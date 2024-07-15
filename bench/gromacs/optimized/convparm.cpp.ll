@@ -1433,9 +1433,9 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit:
   %546 = load ptr, ptr %.sroa.02.013, align 8
   %547 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 8
   %548 = load ptr, ptr %547, align 8
-  %549 = ptrtoint ptr %546 to i64
-  %550 = ptrtoint ptr %548 to i64
-  %551 = sub i64 %550, %549
+  %549 = ptrtoint ptr %548 to i64
+  %550 = ptrtoint ptr %546 to i64
+  %551 = sub i64 %549, %550
   %552 = ashr exact i64 %551, 2
   %553 = load i32, ptr %40, align 16
   %554 = sext i32 %553 to i64

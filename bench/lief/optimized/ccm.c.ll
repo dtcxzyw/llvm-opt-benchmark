@@ -1009,14 +1009,14 @@ mbedtls_ccm_setkey.exit:                          ; preds = %11
 
 mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtls_ccm_setkey.exit
   %.not37 = icmp eq i32 %0, 0
-  br i1 %.not37, label %59, label %15
+  br i1 %.not37, label %55, label %15
 
 15:                                               ; preds = %mbedtls_ccm_setkey.exit.thread
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
-  br label %59
+  br label %55
 
-17:                                               ; preds = %.preheader, %55
-  %.045 = phi i64 [ 0, %.preheader ], [ %56, %55 ]
+17:                                               ; preds = %.preheader, %51
+  %.045 = phi i64 [ 0, %.preheader ], [ %52, %51 ]
   br i1 %.not29, label %22, label %18
 
 18:                                               ; preds = %17
@@ -1026,107 +1026,103 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
   br label %22
 
 22:                                               ; preds = %18, %17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds [3 x i64], ptr @msg_len_test_data, i64 0, i64 %.045
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %.045, 2
-  %26 = sub i64 24, %24
-  %27 = select i1 %25, i64 0, i64 %26
-  %28 = getelementptr i8, ptr %4, i64 %24
-  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %27, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 @msg_test_data, i64 %24, i1 false)
-  %29 = getelementptr inbounds [3 x i64], ptr @iv_len_test_data, i64 0, i64 %.045
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds [3 x i64], ptr @add_len_test_data, i64 0, i64 %.045
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 %24
-  %34 = getelementptr inbounds [3 x i64], ptr @tag_len_test_data, i64 0, i64 %.045
-  %35 = load i64, ptr %34, align 8
+  %25 = getelementptr inbounds [3 x i64], ptr @iv_len_test_data, i64 0, i64 %.045
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds [3 x i64], ptr @add_len_test_data, i64 0, i64 %.045
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 %24
+  %30 = getelementptr inbounds [3 x i64], ptr @tag_len_test_data, i64 0, i64 %.045
+  %31 = load i64, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %36 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull readonly @iv_test_data, i64 noundef %30)
-  %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %37, label %mbedtls_ccm_encrypt_and_tag.exit.thread
+  %32 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull readonly @iv_test_data, i64 noundef %26)
+  %.not.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i, label %33, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
-37:                                               ; preds = %22
-  %38 = call i32 @mbedtls_ccm_set_lengths(ptr noundef nonnull %3, i64 noundef %32, i64 noundef %24, i64 noundef %35)
-  %.not29.i.i = icmp eq i32 %38, 0
-  br i1 %.not29.i.i, label %39, label %mbedtls_ccm_encrypt_and_tag.exit.thread
+33:                                               ; preds = %22
+  %34 = call i32 @mbedtls_ccm_set_lengths(ptr noundef nonnull %3, i64 noundef %28, i64 noundef %24, i64 noundef %31)
+  %.not29.i.i = icmp eq i32 %34, 0
+  br i1 %.not29.i.i, label %35, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
-39:                                               ; preds = %37
-  %40 = call i32 @mbedtls_ccm_update_ad(ptr noundef nonnull %3, ptr noundef nonnull readonly @ad_test_data, i64 noundef %32)
-  %.not30.i.i = icmp eq i32 %40, 0
-  br i1 %.not30.i.i, label %41, label %mbedtls_ccm_encrypt_and_tag.exit.thread
+35:                                               ; preds = %33
+  %36 = call i32 @mbedtls_ccm_update_ad(ptr noundef nonnull %3, ptr noundef nonnull readonly @ad_test_data, i64 noundef %28)
+  %.not30.i.i = icmp eq i32 %36, 0
+  br i1 %.not30.i.i, label %37, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
-41:                                               ; preds = %39
-  %42 = call i32 @mbedtls_ccm_update(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i64 noundef %24, ptr noundef nonnull %5, i64 noundef %24, ptr noundef nonnull %2)
-  %.not31.i.i = icmp eq i32 %42, 0
+37:                                               ; preds = %35
+  %38 = call i32 @mbedtls_ccm_update(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i64 noundef %24, ptr noundef nonnull %5, i64 noundef %24, ptr noundef nonnull %2)
+  %.not31.i.i = icmp eq i32 %38, 0
   br i1 %.not31.i.i, label %mbedtls_ccm_encrypt_and_tag.exit, label %mbedtls_ccm_encrypt_and_tag.exit.thread
 
-mbedtls_ccm_encrypt_and_tag.exit.thread:          ; preds = %22, %37, %39, %41
+mbedtls_ccm_encrypt_and_tag.exit.thread:          ; preds = %22, %33, %35, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.loopexit
 
-mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %41
-  %43 = call i32 @mbedtls_ccm_finish(ptr noundef nonnull %3, ptr noundef nonnull %33, i64 noundef %35)
+mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %37
+  %39 = call i32 @mbedtls_ccm_finish(ptr noundef nonnull %3, ptr noundef nonnull %29, i64 noundef %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %.not30 = icmp eq i32 %43, 0
-  br i1 %.not30, label %44, label %.loopexit
+  %.not30 = icmp eq i32 %39, 0
+  br i1 %.not30, label %40, label %.loopexit
 
-44:                                               ; preds = %mbedtls_ccm_encrypt_and_tag.exit
-  %45 = getelementptr inbounds [3 x [32 x i8]], ptr @res_test_data, i64 0, i64 %.045
-  %46 = add i64 %35, %24
-  %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %45, i64 %46)
+40:                                               ; preds = %mbedtls_ccm_encrypt_and_tag.exit
+  %41 = getelementptr inbounds [3 x [32 x i8]], ptr @res_test_data, i64 0, i64 %.045
+  %42 = add i64 %31, %24
+  %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %41, i64 %42)
   %.not31 = icmp eq i32 %bcmp, 0
-  br i1 %.not31, label %48, label %.loopexit
+  br i1 %.not31, label %44, label %.loopexit
 
-.loopexit:                                        ; preds = %44, %mbedtls_ccm_encrypt_and_tag.exit, %mbedtls_ccm_encrypt_and_tag.exit.thread
-  br i1 %.not29, label %59, label %47
+.loopexit:                                        ; preds = %40, %mbedtls_ccm_encrypt_and_tag.exit, %mbedtls_ccm_encrypt_and_tag.exit.thread
+  br i1 %.not29, label %55, label %43
 
-47:                                               ; preds = %.loopexit
+43:                                               ; preds = %.loopexit
   %puts36 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %59
+  br label %55
 
-48:                                               ; preds = %44
+44:                                               ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %49 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull readonly @iv_test_data, i64 noundef %30, ptr noundef nonnull readonly @ad_test_data, i64 noundef %32, ptr noundef nonnull readonly %5, ptr noundef nonnull %4, ptr noundef nonnull readonly %33, i64 noundef %35)
-  %.not32 = icmp eq i32 %49, 0
-  br i1 %.not32, label %50, label %51
+  %45 = call fastcc i32 @ccm_auth_decrypt(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %24, ptr noundef nonnull readonly @iv_test_data, i64 noundef %26, ptr noundef nonnull readonly @ad_test_data, i64 noundef %28, ptr noundef nonnull readonly %5, ptr noundef nonnull %4, ptr noundef nonnull readonly %29, i64 noundef %31)
+  %.not32 = icmp eq i32 %45, 0
+  br i1 %.not32, label %46, label %47
 
-50:                                               ; preds = %48
+46:                                               ; preds = %44
   %bcmp33 = call i32 @bcmp(ptr nonnull %4, ptr nonnull @msg_test_data, i64 %24)
   %.not34 = icmp eq i32 %bcmp33, 0
-  br i1 %.not34, label %53, label %51
+  br i1 %.not34, label %49, label %47
 
-51:                                               ; preds = %50, %48
-  br i1 %.not29, label %59, label %52
+47:                                               ; preds = %46, %44
+  br i1 %.not29, label %55, label %48
 
-52:                                               ; preds = %51
+48:                                               ; preds = %47
   %puts35 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %59
+  br label %55
 
-53:                                               ; preds = %50
+49:                                               ; preds = %46
+  br i1 %.not29, label %51, label %50
+
+50:                                               ; preds = %49
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %51
+
+51:                                               ; preds = %49, %50
+  %52 = add nuw nsw i64 %.045, 1
+  %exitcond.not = icmp eq i64 %52, 3
+  br i1 %exitcond.not, label %53, label %17, !llvm.loop !15
+
+53:                                               ; preds = %51
+  call void @mbedtls_cipher_free(ptr noundef nonnull %12) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 168) #10
   br i1 %.not29, label %55, label %54
 
 54:                                               ; preds = %53
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %putchar = call i32 @putchar(i32 10)
   br label %55
 
-55:                                               ; preds = %53, %54
-  %56 = add nuw nsw i64 %.045, 1
-  %exitcond.not = icmp eq i64 %56, 3
-  br i1 %exitcond.not, label %57, label %17, !llvm.loop !15
-
-57:                                               ; preds = %55
-  call void @mbedtls_cipher_free(ptr noundef nonnull %12) #10
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 168) #10
-  br i1 %.not29, label %59, label %58
-
-58:                                               ; preds = %57
-  %putchar = call i32 @putchar(i32 10)
-  br label %59
-
-59:                                               ; preds = %57, %58, %51, %52, %.loopexit, %47, %mbedtls_ccm_setkey.exit.thread, %15
-  %.027 = phi i32 [ 1, %15 ], [ 1, %mbedtls_ccm_setkey.exit.thread ], [ 1, %47 ], [ 1, %.loopexit ], [ 1, %52 ], [ 1, %51 ], [ 0, %58 ], [ 0, %57 ]
+55:                                               ; preds = %53, %54, %47, %48, %.loopexit, %43, %mbedtls_ccm_setkey.exit.thread, %15
+  %.027 = phi i32 [ 1, %15 ], [ 1, %mbedtls_ccm_setkey.exit.thread ], [ 1, %43 ], [ 1, %.loopexit ], [ 1, %48 ], [ 1, %47 ], [ 0, %54 ], [ 0, %53 ]
   ret i32 %.027
 }
 
