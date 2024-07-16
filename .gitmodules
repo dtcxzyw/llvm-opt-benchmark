@@ -617,3 +617,6 @@
 [submodule "bench/wasmedge/WasmEdge"]
 	path = bench/wasmedge/WasmEdge
 	url = git@github.com:WasmEdge/WasmEdge.git
+[submodule "bench/lightgbm/LightGBM"]
+	path = bench/lightgbm/LightGBM
+	url = git@github.com:microsoft/LightGBM.git
