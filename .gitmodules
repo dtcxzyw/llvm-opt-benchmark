@@ -605,3 +605,9 @@
 [submodule "bench/pocketpy/pocketpy"]
 	path = bench/pocketpy/pocketpy
 	url = git@github.com:pocketpy/pocketpy.git
+[submodule "bench/opencv/opencv"]
+	path = bench/opencv/opencv
+	url = git@github.com:opencv/opencv.git
+[submodule "bench/opencv/contrib/opencv_contrib"]
+	path = bench/opencv/contrib/opencv_contrib
+	url = git@github.com:opencv/opencv_contrib.git

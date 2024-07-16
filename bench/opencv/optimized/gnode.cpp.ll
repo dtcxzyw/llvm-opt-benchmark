@@ -1,0 +1,719 @@
+; ModuleID = 'bench/opencv/original/gnode.cpp.ll'
+source_filename = "bench/opencv/original/gnode.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.cv::GCall" = type { %"class.std::shared_ptr" }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.cv::GNode" = type { %"class.std::shared_ptr.0" }
+%"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
+%"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
+%"class.cv::util::bad_variant_access" = type { %"class.std::exception" }
+%"class.std::exception" = type { ptr }
+%"struct.std::array.3" = type { [2 x ptr] }
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_ = comdat any
+
+$_ZN2cv5GNode4PrivD2Ev = comdat any
+
+$_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
+
+$_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
+
+$_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
+
+$_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
+
+$_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS2_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE = comdat any
+
+$_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE = comdat any
+
+$_ZN2cv4util11throw_errorINS0_18bad_variant_accessEEEvOT_ = comdat any
+
+$_ZN2cv4util18bad_variant_accessD2Ev = comdat any
+
+$_ZN2cv4util18bad_variant_accessD0Ev = comdat any
+
+$_ZNK2cv4util18bad_variant_access4whatEv = comdat any
+
+$_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSN2cv4util18bad_variant_accessE = comdat any
+
+$_ZTIN2cv4util18bad_variant_accessE = comdat any
+
+$_ZTVN2cv4util18bad_variant_accessE = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@__libc_single_threaded = external local_unnamed_addr global i8, align 1
+@_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant [68 x i8] c"St15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTISt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSN2cv4util18bad_variant_accessE = linkonce_odr hidden constant [31 x i8] c"N2cv4util18bad_variant_accessE\00", comdat, align 1
+@_ZTISt9exception = external constant ptr
+@_ZTIN2cv4util18bad_variant_accessE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN2cv4util18bad_variant_accessE, ptr @_ZTISt9exception }, comdat, align 8
+@_ZTVN2cv4util18bad_variant_accessE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2cv4util18bad_variant_accessE, ptr @_ZN2cv4util18bad_variant_accessD2Ev, ptr @_ZN2cv4util18bad_variant_accessD0Ev, ptr @_ZNK2cv4util18bad_variant_access4whatEv] }, comdat, align 8
+@.str = private unnamed_addr constant [19 x i8] c"Bad variant access\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_gnode.cpp, ptr null }]
+
+@_ZN2cv5GNode4PrivC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNode4PrivC2Ev
+@_ZN2cv5GNode4PrivC1ENS_5GCallE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN2cv5GNode4PrivC2ENS_5GCallE
+@_ZN2cv5GNode4PrivC1ENS1_8ParamTagE = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNode4PrivC2ENS1_8ParamTagE
+@_ZN2cv5GNode4PrivC1ENS1_8ConstTagE = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE
+@_ZN2cv5GNodeC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNodeC2Ev
+@_ZN2cv5GNodeC1ERKNS_5GCallE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN2cv5GNodeC2ERKNS_5GCallE
+@_ZN2cv5GNodeC1ENS0_8ParamTagE = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNodeC2ENS0_8ParamTagE
+@_ZN2cv5GNodeC1ENS0_8ConstTagE = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5GNodeC2ENS0_8ConstTagE
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv5GNode4PrivC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
+  store i32 0, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv5GNode4PrivC2ENS_5GCallE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  store i32 1, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load ptr, ptr %1, align 8
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEEC2IRS3_vEEOT_.exit, label %9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %11, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %15, label %12
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %10, align 4
+  %14 = add nsw i32 %13, 1
+  store i32 %14, ptr %10, align 4
+  br label %_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEEC2IRS3_vEEOT_.exit
+
+15:                                               ; preds = %9
+  %16 = atomicrmw volatile add ptr %10, i32 1 acq_rel, align 4
+  br label %_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEEC2IRS3_vEEOT_.exit
+
+_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEEC2IRS3_vEEOT_.exit: ; preds = %2, %12, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
+  store i32 2, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
+  store i32 3, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  store ptr %2, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  ret void
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cv::GCall", align 8
+  %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  %5 = load ptr, ptr %1, align 8
+  store ptr %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %.not.i.i.i.i = icmp eq ptr %8, null
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  br i1 %.not.i.i.i.i, label %_ZN2cv5GCallC2ERKS0_.exit.thread, label %12
+
+_ZN2cv5GCallC2ERKS0_.exit.thread:                 ; preds = %2
+  store i32 1, ptr %4, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %5, ptr %11, align 8
+  store ptr null, ptr %9, align 8
+  br label %29
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %14, 0
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv5GCallC2ERKS0_.exit, label %_ZN2cv5GCallC2ERKS0_.exit.thread6
+
+_ZN2cv5GCallC2ERKS0_.exit.thread6:                ; preds = %12
+  %17 = load i32, ptr %13, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %13, align 4
+  store i32 1, ptr %4, align 8
+  store i64 1, ptr %15, align 8
+  store ptr %5, ptr %16, align 8
+  store ptr %8, ptr %9, align 8
+  br label %20
+
+_ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
+  %.pre = load ptr, ptr %3, align 8
+  %.pre4 = load ptr, ptr %6, align 8
+  store i32 1, ptr %4, align 8
+  store i64 1, ptr %15, align 8
+  store ptr %.pre, ptr %16, align 8
+  store ptr %.pre4, ptr %9, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %.pre4, null
+  br i1 %.not.i.i.i.i.i.i.i, label %29, label %20
+
+20:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread6, %_ZN2cv5GCallC2ERKS0_.exit
+  %21 = phi ptr [ %8, %_ZN2cv5GCallC2ERKS0_.exit.thread6 ], [ %.pre4, %_ZN2cv5GCallC2ERKS0_.exit ]
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %23, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %27, label %24
+
+24:                                               ; preds = %20
+  %25 = load i32, ptr %22, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %22, align 4
+  br label %29
+
+27:                                               ; preds = %20
+  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
+  br label %29
+
+29:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread, %27, %24, %_ZN2cv5GCallC2ERKS0_.exit
+  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #12
+  store ptr %4, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %4)
+          to label %_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit unwind label %32
+
+_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit: ; preds = %29
+  call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret void
+
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  resume { ptr, i32 } %33
+}
+
+; Function Attrs: nounwind
+declare void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  store i32 2, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  store ptr %2, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  store i32 3, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  store ptr %2, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNode4CallERKNS_5GCallE(ptr dead_on_unwind noalias nonnull writable sret(%"class.cv::GNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+  tail call void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNode5ParamEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  store i32 2, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  store ptr %2, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %5, align 8
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #12
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  invoke void @__cxa_rethrow() #15
+          to label %17 unwind label %11
+
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  resume { ptr, i32 } %12
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #16
+  unreachable
+
+17:                                               ; preds = %7
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %20, align 8
+  store ptr %6, ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
+  store i32 3, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  store ptr %2, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %5, align 8
+  %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit unwind label %7
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #12
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #14
+  invoke void @__cxa_rethrow() #15
+          to label %17 unwind label %11
+
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %13 unwind label %14
+
+13:                                               ; preds = %11
+  resume { ptr, i32 } %12
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #16
+  unreachable
+
+17:                                               ; preds = %7
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exit: ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %19, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %20, align 8
+  store ptr %6, ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv5GNode4privEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+  %2 = load ptr, ptr %0, align 8
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv5GNode4privEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+  %2 = load ptr, ptr %0, align 8
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK2cv5GNode5shapeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+  %2 = load ptr, ptr %0, align 8
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK2cv5GNode4callEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.cv::util::bad_variant_access", align 8
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  %5 = load i64, ptr %4, align 8
+  %.not.i = icmp eq i64 %5, 1
+  br i1 %.not.i, label %_ZN2cv4util3getINS_5GCallEJNS0_9monostateES2_EEERKT_RKNS0_7variantIJDpT0_EEE.exit, label %6
+
+6:                                                ; preds = %1
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4util18bad_variant_accessE, i64 16), ptr %2, align 8
+  invoke void @_ZN2cv4util11throw_errorINS0_18bad_variant_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %2) #15
+          to label %7 unwind label %8
+
+7:                                                ; preds = %6
+  unreachable
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
+  resume { ptr, i32 } %9
+
+_ZN2cv4util3getINS_5GCallEJNS0_9monostateES2_EEERKT_RKNS0_7variantIJDpT0_EEE.exit: ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  ret ptr %10
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #16
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+declare void @_ZSt9terminatev() local_unnamed_addr
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr null, ptr %0, align 8
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
+          to label %4 unwind label %8
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 1, ptr %6, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %1, ptr %7, align 8
+  store ptr %3, ptr %0, align 8
+  ret void
+
+8:                                                ; preds = %2
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #12
+  %12 = icmp eq ptr %1, null
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %8
+  tail call void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #14
+  br label %14
+
+14:                                               ; preds = %13, %8
+  invoke void @__cxa_rethrow() #15
+          to label %21 unwind label %15
+
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %17 unwind label %18
+
+17:                                               ; preds = %15
+  resume { ptr, i32 } %16
+
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #16
+  unreachable
+
+21:                                               ; preds = %14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"struct.std::array.3", align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS2_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %5, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  invoke void %8(ptr noundef nonnull %9)
+          to label %_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEED2Ev.exit unwind label %10
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #16
+  unreachable
+
+_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEED2Ev.exit: ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  ret void
+}
+
+declare void @__cxa_rethrow() local_unnamed_addr
+
+declare void @__cxa_end_catch() local_unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"struct.std::array.3", align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %17, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS2_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %2, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %9, align 8
+  %10 = load i64, ptr %8, align 8
+  %11 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  invoke void %12(ptr noundef nonnull %13)
+          to label %_ZN2cv5GNode4PrivD2Ev.exit unwind label %14
+
+14:                                               ; preds = %6
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #16
+  unreachable
+
+_ZN2cv5GNode4PrivD2Ev.exit:                       ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #14
+  br label %17
+
+17:                                               ; preds = %_ZN2cv5GNode4PrivD2Ev.exit, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
+  ret ptr null
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS2_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE(ptr noundef %0) #3 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE(ptr noundef %0) #3 comdat align 2 {
+  tail call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  ret void
+}
+
+; Function Attrs: mustprogress noreturn uwtable
+define linkonce_odr hidden void @_ZN2cv4util11throw_errorINS0_18bad_variant_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_allocate_exception(i64 8) #12
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4util18bad_variant_accessE, i64 16), ptr %2, align 8
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN2cv4util18bad_variant_accessE, ptr nonnull @_ZN2cv4util18bad_variant_accessD2Ev) #15
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4util18bad_variant_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  ret void
+}
+
+declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
+
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2cv4util18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK2cv4util18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
+  ret ptr @.str
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_gnode.cpp() #10 section ".text.startup" {
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+
+attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind }
+attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
