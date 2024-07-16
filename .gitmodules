@@ -620,3 +620,6 @@
 [submodule "bench/lightgbm/LightGBM"]
 	path = bench/lightgbm/LightGBM
 	url = git@github.com:microsoft/LightGBM.git
+[submodule "bench/xgboost/xgboost"]
+	path = bench/xgboost/xgboost
+	url = git@github.com:dmlc/xgboost.git
