@@ -626,3 +626,6 @@
 [submodule "bench/libpng/libpng"]
 	path = bench/libpng/libpng
 	url = git@github.com:pnggroup/libpng.git
+[submodule "bench/libjpeg-turbo/libjpeg-turbo"]
+	path = bench/libjpeg-turbo/libjpeg-turbo
+	url = git@github.com:libjpeg-turbo/libjpeg-turbo.git
