@@ -1,0 +1,8686 @@
+; ModuleID = 'bench/openjdk/original/vm_version_x86.ll'
+source_filename = "bench/openjdk/original/vm_version_x86.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.VM_Version::CpuidInfo" = type { i32, i32, i32, i32, %"union.VM_Version::StdCpuid1Eax", %"union.VM_Version::StdCpuid1Ebx", %"union.VM_Version::StdCpuid1Ecx", %"union.VM_Version::StdCpuid1Edx", %"union.VM_Version::DcpCpuid4Eax", %"union.VM_Version::DcpCpuid4Ebx", i32, i32, %"union.VM_Version::SefCpuid7Eax", %"union.VM_Version::SefCpuid7Ebx", %"union.VM_Version::SefCpuid7Ecx", %"union.VM_Version::SefCpuid7Edx", %"union.VM_Version::SefCpuid7SubLeaf1Eax", %"union.VM_Version::SefCpuid7SubLeaf1Edx", i32, %"union.VM_Version::TplCpuidBEbx", i32, i32, i32, %"union.VM_Version::TplCpuidBEbx", i32, i32, i32, %"union.VM_Version::TplCpuidBEbx", i32, i32, i32, i32, i32, i32, i32, i32, %"union.VM_Version::ExtCpuid1Ecx", %"union.VM_Version::ExtCpuid1Edx", i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %"union.VM_Version::ExtCpuid5Ex", %"union.VM_Version::ExtCpuid5Ex", i32, i32, i32, %"union.VM_Version::ExtCpuid7Edx", i32, i32, %"union.VM_Version::ExtCpuid8Ecx", i32, i32, %"union.VM_Version::ExtCpuid1EEbx", i32, i32, %"union.VM_Version::XemXcr0Eax", i32, [32 x i32], [64 x i32], [2 x i64] }
+%"union.VM_Version::StdCpuid1Eax" = type { i32 }
+%"union.VM_Version::StdCpuid1Ebx" = type { i32 }
+%"union.VM_Version::StdCpuid1Ecx" = type { i32 }
+%"union.VM_Version::StdCpuid1Edx" = type { i32 }
+%"union.VM_Version::DcpCpuid4Eax" = type { i32 }
+%"union.VM_Version::DcpCpuid4Ebx" = type { i32 }
+%"union.VM_Version::SefCpuid7Eax" = type { i32 }
+%"union.VM_Version::SefCpuid7Ebx" = type { i32 }
+%"union.VM_Version::SefCpuid7Ecx" = type { i32 }
+%"union.VM_Version::SefCpuid7Edx" = type { i32 }
+%"union.VM_Version::SefCpuid7SubLeaf1Eax" = type { i32 }
+%"union.VM_Version::SefCpuid7SubLeaf1Edx" = type { i32 }
+%"union.VM_Version::TplCpuidBEbx" = type { i32 }
+%"union.VM_Version::ExtCpuid1Ecx" = type { i32 }
+%"union.VM_Version::ExtCpuid1Edx" = type { i32 }
+%"union.VM_Version::ExtCpuid5Ex" = type { i32 }
+%"union.VM_Version::ExtCpuid7Edx" = type { i32 }
+%"union.VM_Version::ExtCpuid8Ecx" = type { i32 }
+%"union.VM_Version::ExtCpuid1EEbx" = type { i32 }
+%"union.VM_Version::XemXcr0Eax" = type { i32 }
+%"class.XMMRegister::XMMRegisterImpl" = type { i8 }
+%class.CodeBuffer = type { ptr, %class.CodeSection, %class.CodeSection, %class.CodeSection, ptr, ptr, ptr, i32, ptr, %class.OopRecorder, ptr, ptr, ptr, ptr, ptr, i8, i32 }
+%class.CodeSection = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i8, ptr }
+%class.OopRecorder = type { %class.ValueRecorder, %class.ValueRecorder.18, ptr }
+%class.ValueRecorder = type <{ ptr, ptr, ptr, ptr, i8, [7 x i8] }>
+%class.ValueRecorder.18 = type <{ ptr, ptr, ptr, ptr, i8, [7 x i8] }>
+%class.VM_Version_StubGenerator = type { %class.StubCodeGenerator }
+%class.StubCodeGenerator = type { ptr, i8, ptr }
+%class.Address = type { %class.Register, %class.Register, %class.XMMRegister, i32, i32, i8, [3 x i8], %class.RelocationHolder }
+%class.Register = type { i32 }
+%class.XMMRegister = type { i32 }
+%class.RelocationHolder = type { [40 x i8] }
+%class.Label = type <{ i32, [4 x i32], i32, ptr, i8, [7 x i8] }>
+%class.StubCodeMark = type { ptr, ptr }
+
+$_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv = comdat any
+
+$_ZN24VM_Version_StubGenerator20generate_detect_virtEv = comdat any
+
+$_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv = comdat any
+
+$_ZN24VM_Version_StubGenerator19generate_vzeroupperER5Label = comdat any
+
+$_ZTV24VM_Version_StubGenerator = comdat any
+
+@_ZN10VM_Version4_cpuE = hidden local_unnamed_addr global i32 0, align 4
+@_ZN10VM_Version6_modelE = hidden local_unnamed_addr global i32 0, align 4
+@_ZN10VM_Version9_steppingE = hidden local_unnamed_addr global i32 0, align 4
+@_ZN10VM_Version22_has_intel_jcc_erratumE = hidden local_unnamed_addr global i8 0, align 1
+@_ZN10VM_Version11_cpuid_infoE = hidden global %"class.VM_Version::CpuidInfo" zeroinitializer, align 8
+@.str = private unnamed_addr constant [4 x i8] c"cx8\00", align 1
+@.str.4 = private unnamed_addr constant [5 x i8] c"cmov\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"fxsr\00", align 1
+@.str.6 = private unnamed_addr constant [3 x i8] c"ht\00", align 1
+@.str.7 = private unnamed_addr constant [4 x i8] c"mmx\00", align 1
+@.str.8 = private unnamed_addr constant [10 x i8] c"3dnowpref\00", align 1
+@.str.9 = private unnamed_addr constant [4 x i8] c"sse\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"sse2\00", align 1
+@.str.11 = private unnamed_addr constant [5 x i8] c"sse3\00", align 1
+@.str.12 = private unnamed_addr constant [6 x i8] c"ssse3\00", align 1
+@.str.13 = private unnamed_addr constant [6 x i8] c"sse4a\00", align 1
+@.str.14 = private unnamed_addr constant [7 x i8] c"sse4.1\00", align 1
+@.str.15 = private unnamed_addr constant [7 x i8] c"sse4.2\00", align 1
+@.str.16 = private unnamed_addr constant [7 x i8] c"popcnt\00", align 1
+@.str.17 = private unnamed_addr constant [6 x i8] c"lzcnt\00", align 1
+@.str.18 = private unnamed_addr constant [4 x i8] c"tsc\00", align 1
+@.str.19 = private unnamed_addr constant [10 x i8] c"tscinvbit\00", align 1
+@.str.20 = private unnamed_addr constant [7 x i8] c"tscinv\00", align 1
+@.str.21 = private unnamed_addr constant [4 x i8] c"avx\00", align 1
+@.str.22 = private unnamed_addr constant [5 x i8] c"avx2\00", align 1
+@.str.23 = private unnamed_addr constant [4 x i8] c"aes\00", align 1
+@.str.24 = private unnamed_addr constant [5 x i8] c"erms\00", align 1
+@.str.25 = private unnamed_addr constant [6 x i8] c"clmul\00", align 1
+@.str.26 = private unnamed_addr constant [5 x i8] c"bmi1\00", align 1
+@.str.27 = private unnamed_addr constant [5 x i8] c"bmi2\00", align 1
+@.str.28 = private unnamed_addr constant [4 x i8] c"rtm\00", align 1
+@.str.29 = private unnamed_addr constant [4 x i8] c"adx\00", align 1
+@.str.30 = private unnamed_addr constant [8 x i8] c"avx512f\00", align 1
+@.str.31 = private unnamed_addr constant [9 x i8] c"avx512dq\00", align 1
+@.str.32 = private unnamed_addr constant [9 x i8] c"avx512pf\00", align 1
+@.str.33 = private unnamed_addr constant [9 x i8] c"avx512er\00", align 1
+@.str.34 = private unnamed_addr constant [9 x i8] c"avx512cd\00", align 1
+@.str.35 = private unnamed_addr constant [9 x i8] c"avx512bw\00", align 1
+@.str.36 = private unnamed_addr constant [9 x i8] c"avx512vl\00", align 1
+@.str.37 = private unnamed_addr constant [4 x i8] c"sha\00", align 1
+@.str.38 = private unnamed_addr constant [4 x i8] c"fma\00", align 1
+@.str.39 = private unnamed_addr constant [11 x i8] c"vzeroupper\00", align 1
+@.str.40 = private unnamed_addr constant [17 x i8] c"avx512_vpopcntdq\00", align 1
+@.str.41 = private unnamed_addr constant [18 x i8] c"avx512_vpclmulqdq\00", align 1
+@.str.42 = private unnamed_addr constant [12 x i8] c"avx512_vaes\00", align 1
+@.str.43 = private unnamed_addr constant [12 x i8] c"avx512_vnni\00", align 1
+@.str.44 = private unnamed_addr constant [8 x i8] c"clflush\00", align 1
+@.str.45 = private unnamed_addr constant [11 x i8] c"clflushopt\00", align 1
+@.str.46 = private unnamed_addr constant [5 x i8] c"clwb\00", align 1
+@.str.47 = private unnamed_addr constant [13 x i8] c"avx512_vbmi2\00", align 1
+@.str.48 = private unnamed_addr constant [12 x i8] c"avx512_vbmi\00", align 1
+@.str.49 = private unnamed_addr constant [3 x i8] c"hv\00", align 1
+@.str.50 = private unnamed_addr constant [10 x i8] c"serialize\00", align 1
+@.str.51 = private unnamed_addr constant [7 x i8] c"rdtscp\00", align 1
+@.str.52 = private unnamed_addr constant [6 x i8] c"rdpid\00", align 1
+@.str.53 = private unnamed_addr constant [5 x i8] c"fsrm\00", align 1
+@.str.54 = private unnamed_addr constant [5 x i8] c"gfni\00", align 1
+@.str.55 = private unnamed_addr constant [14 x i8] c"avx512_bitalg\00", align 1
+@.str.56 = private unnamed_addr constant [5 x i8] c"f16c\00", align 1
+@.str.57 = private unnamed_addr constant [4 x i8] c"pku\00", align 1
+@.str.58 = private unnamed_addr constant [6 x i8] c"ospke\00", align 1
+@.str.59 = private unnamed_addr constant [8 x i8] c"cet_ibt\00", align 1
+@.str.60 = private unnamed_addr constant [7 x i8] c"cet_ss\00", align 1
+@.str.61 = private unnamed_addr constant [12 x i8] c"avx512_ifma\00", align 1
+@.str.62 = private unnamed_addr constant [9 x i8] c"avx_ifma\00", align 1
+@.str.63 = private unnamed_addr constant [6 x i8] c"apx_f\00", align 1
+@_ZN10VM_Version15_features_namesE = hidden global [61 x ptr] [ptr @.str, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63], align 16
+@_ZN10VM_Version18_cpuinfo_segv_addrE = hidden local_unnamed_addr global ptr null, align 8
+@_ZN10VM_Version18_cpuinfo_cont_addrE = hidden local_unnamed_addr global ptr null, align 8
+@_ZN10VM_Version22_cpuinfo_segv_addr_apxE = hidden local_unnamed_addr global ptr null, align 8
+@_ZN10VM_Version22_cpuinfo_cont_addr_apxE = hidden local_unnamed_addr global ptr null, align 8
+@_ZN19Abstract_VM_Version9_featuresE = external local_unnamed_addr global i64, align 8
+@_ZN19Abstract_VM_Version31_logical_processors_per_packageE = external local_unnamed_addr global i32, align 4
+@_ZN19Abstract_VM_Version24_L1_data_cache_line_sizeE = external local_unnamed_addr global i32, align 4
+@_ZL17get_cpu_info_stub = internal unnamed_addr global ptr null, align 8
+@_ZN19Abstract_VM_Version13_cpu_featuresE = external local_unnamed_addr global i64, align 8
+@_ZN19Abstract_VM_Version24_supports_atomic_getset4E = external local_unnamed_addr global i8, align 1
+@_ZN19Abstract_VM_Version24_supports_atomic_getadd4E = external local_unnamed_addr global i8, align 1
+@_ZN19Abstract_VM_Version24_supports_atomic_getset8E = external local_unnamed_addr global i8, align 1
+@_ZN19Abstract_VM_Version24_supports_atomic_getadd8E = external local_unnamed_addr global i8, align 1
+@.str.64 = private unnamed_addr constant [42 x i8] c"Unknown x64 processor: SSE2 not supported\00", align 1
+@UseSSE = external local_unnamed_addr global i32, align 4
+@g_assert_poison = external local_unnamed_addr global ptr, align 8
+@.str.65 = private unnamed_addr constant [39 x i8] c"src/hotspot/cpu/x86/vm_version_x86.cpp\00", align 1
+@.str.66 = private unnamed_addr constant [63 x i8] c"guarantee(_cpuid_info.std_cpuid1_edx.bits.clflush != 0) failed\00", align 1
+@.str.67 = private unnamed_addr constant [25 x i8] c"clflush is not supported\00", align 1
+@.str.68 = private unnamed_addr constant [68 x i8] c"guarantee(_cpuid_info.std_cpuid1_ebx.bits.clflush_size == 8) failed\00", align 1
+@.str.69 = private unnamed_addr constant [35 x i8] c"such clflush size is not supported\00", align 1
+@_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE = external local_unnamed_addr global i32, align 4
+@EnableX86ECoreOpts = external local_unnamed_addr global i8, align 1
+@UseAVX = external local_unnamed_addr global i32, align 4
+@.str.70 = private unnamed_addr constant [64 x i8] c"UseSSE=%d is not supported on this CPU, setting it to UseSSE=%d\00", align 1
+@.str.71 = private unnamed_addr constant [52 x i8] c"UseAVX=%d requires UseSSE=4, setting it to UseAVX=0\00", align 1
+@.str.72 = private unnamed_addr constant [64 x i8] c"UseAVX=%d is not supported on this CPU, setting it to UseAVX=%d\00", align 1
+@UseAPX = external local_unnamed_addr global i8, align 1
+@.str.73 = private unnamed_addr constant [57 x i8] c"UseAPX is not supported on this CPU, setting it to false\00", align 1
+@IntelJccErratumMitigation = external local_unnamed_addr global i8, align 1
+@.str.74 = private unnamed_addr constant [86 x i8] c"(%u cores per cpu, %u threads per core) family %d model %d stepping %d microcode 0x%x\00", align 1
+@_ZN19Abstract_VM_Version16_features_stringE = external local_unnamed_addr global ptr, align 8
+@UseAES = external local_unnamed_addr global i8, align 1
+@UseAESIntrinsics = external local_unnamed_addr global i8, align 1
+@.str.75 = private unnamed_addr constant [79 x i8] c"AES intrinsics require UseAES flag to be enabled. Intrinsics will be disabled.\00", align 1
+@.str.76 = private unnamed_addr constant [85 x i8] c"X86 AES intrinsics require SSE3 instructions or higher. Intrinsics will be disabled.\00", align 1
+@UseAESCTRIntrinsics = external local_unnamed_addr global i8, align 1
+@.str.77 = private unnamed_addr constant [93 x i8] c"AES-CTR intrinsics require UseAESIntrinsics flag to be enabled. Intrinsics will be disabled.\00", align 1
+@.str.78 = private unnamed_addr constant [91 x i8] c"X86 AES-CTR intrinsics require SSE4.1 instructions or higher. Intrinsics will be disabled.\00", align 1
+@.str.79 = private unnamed_addr constant [47 x i8] c"AES instructions are not available on this CPU\00", align 1
+@.str.80 = private unnamed_addr constant [45 x i8] c"AES intrinsics are not available on this CPU\00", align 1
+@.str.81 = private unnamed_addr constant [49 x i8] c"AES-CTR intrinsics are not available on this CPU\00", align 1
+@UseCLMUL = external local_unnamed_addr global i8, align 1
+@.str.82 = private unnamed_addr constant [72 x i8] c"CLMUL instructions not available on this CPU (AVX may also be required)\00", align 1
+@UseCRC32Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.83 = private unnamed_addr constant [73 x i8] c"CRC32 Intrinsics requires CLMUL instructions (not available on this CPU)\00", align 1
+@UseAdler32Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.84 = private unnamed_addr constant [74 x i8] c"Adler32 Intrinsics requires avx2 instructions (not available on this CPU)\00", align 1
+@UseCRC32CIntrinsics = external local_unnamed_addr global i8, align 1
+@.str.85 = private unnamed_addr constant [48 x i8] c"CRC32C intrinsics are not available on this CPU\00", align 1
+@UseGHASHIntrinsics = external local_unnamed_addr global i8, align 1
+@.str.86 = private unnamed_addr constant [65 x i8] c"GHASH intrinsic requires CLMUL and SSE2 instructions on this CPU\00", align 1
+@UseChaCha20Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.87 = private unnamed_addr constant [45 x i8] c"ChaCha20 intrinsic requires AVX instructions\00", align 1
+@UseBASE64Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.88 = private unnamed_addr constant [56 x i8] c"Base64 intrinsic requires EVEX instructions on this CPU\00", align 1
+@UseFMA = external local_unnamed_addr global i8, align 1
+@.str.89 = private unnamed_addr constant [47 x i8] c"FMA instructions are not available on this CPU\00", align 1
+@UseMD5Intrinsics = external local_unnamed_addr global i8, align 1
+@UseSHA = external local_unnamed_addr global i8, align 1
+@.str.90 = private unnamed_addr constant [47 x i8] c"SHA instructions are not available on this CPU\00", align 1
+@UseSHA1Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.91 = private unnamed_addr constant [70 x i8] c"Intrinsics for SHA-1 crypto hash functions not available on this CPU.\00", align 1
+@UseSHA256Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.92 = private unnamed_addr constant [84 x i8] c"Intrinsics for SHA-224 and SHA-256 crypto hash functions not available on this CPU.\00", align 1
+@UseSHA512Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.93 = private unnamed_addr constant [84 x i8] c"Intrinsics for SHA-384 and SHA-512 crypto hash functions not available on this CPU.\00", align 1
+@UseSHA3Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.94 = private unnamed_addr constant [106 x i8] c"Intrinsics for SHA3-224, SHA3-256, SHA3-384 and SHA3-512 crypto hash functions not available on this CPU.\00", align 1
+@UseFPUForSpilling = external local_unnamed_addr global i8, align 1
+@MaxVectorSize = external local_unnamed_addr global i64, align 8
+@.str.95 = private unnamed_addr constant [51 x i8] c"MaxVectorSize must be at least %i on this platform\00", align 1
+@.str.96 = private unnamed_addr constant [50 x i8] c"MaxVectorSize must be at most %i on this platform\00", align 1
+@.str.97 = private unnamed_addr constant [59 x i8] c"MaxVectorSize must be a power of 2, setting to default: %i\00", align 1
+@UsePoly1305Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.98 = private unnamed_addr constant [73 x i8] c"Intrinsics for Poly1305 crypto hash functions not available on this CPU.\00", align 1
+@UseIntPolyIntrinsics = external local_unnamed_addr global i8, align 1
+@.str.99 = private unnamed_addr constant [70 x i8] c"Intrinsics for Polynomial crypto functions not available on this CPU.\00", align 1
+@UseMultiplyToLenIntrinsic = external local_unnamed_addr global i8, align 1
+@UseSquareToLenIntrinsic = external local_unnamed_addr global i8, align 1
+@UseMulAddIntrinsic = external local_unnamed_addr global i8, align 1
+@UseMontgomeryMultiplyIntrinsic = external local_unnamed_addr global i8, align 1
+@UseMontgomerySquareIntrinsic = external local_unnamed_addr global i8, align 1
+@UseStoreImmI16 = external local_unnamed_addr global i8, align 1
+@UseAddressNop = external local_unnamed_addr global i8, align 1
+@UseXmmLoadAndClearUpper = external local_unnamed_addr global i8, align 1
+@UseXmmRegToRegMoveAll = external local_unnamed_addr global i8, align 1
+@MaxLoopPad = external local_unnamed_addr global i64, align 8
+@UseXMMForArrayCopy = external local_unnamed_addr global i8, align 1
+@UseUnalignedLoadStores = external local_unnamed_addr global i8, align 1
+@UseSSE42Intrinsics = external local_unnamed_addr global i8, align 1
+@.str.100 = private unnamed_addr constant [86 x i8] c"SSE4.2 intrinsics require SSE4.2 instructions or higher. Intrinsics will be disabled.\00", align 1
+@AllocatePrefetchInstr = external local_unnamed_addr global i64, align 8
+@UseNewLongLShift = external local_unnamed_addr global i8, align 1
+@UseXmmI2F = external local_unnamed_addr global i8, align 1
+@UseXmmI2D = external local_unnamed_addr global i8, align 1
+@AllocatePrefetchStyle = external local_unnamed_addr global i32, align 4
+@OptoScheduling = external local_unnamed_addr global i8, align 1
+@UseIncDec = external local_unnamed_addr global i8, align 1
+@ArrayOperationPartialInlineSize = external local_unnamed_addr global i64, align 8
+@AVX3Threshold = external local_unnamed_addr global i32, align 4
+@.str.101 = private unnamed_addr constant [46 x i8] c"Setting ArrayOperationPartialInlineSize as %d\00", align 1
+@.str.102 = private unnamed_addr constant [61 x i8] c"Setting ArrayOperationPartialInlineSize as MaxVectorSize%ld)\00", align 1
+@.str.103 = private unnamed_addr constant [47 x i8] c"Setting ArrayOperationPartialInlineSize as %ld\00", align 1
+@OptimizeFill = external local_unnamed_addr global i8, align 1
+@UseVectorizedMismatchIntrinsic = external local_unnamed_addr global i8, align 1
+@.str.104 = private unnamed_addr constant [60 x i8] c"vectorizedMismatch intrinsics are not available on this CPU\00", align 1
+@UseVectorizedHashCodeIntrinsic = external local_unnamed_addr global i8, align 1
+@.str.105 = private unnamed_addr constant [60 x i8] c"vectorizedHashCode intrinsics are not available on this CPU\00", align 1
+@UseCountLeadingZerosInstruction = external local_unnamed_addr global i8, align 1
+@.str.106 = private unnamed_addr constant [47 x i8] c"lzcnt instruction is not available on this CPU\00", align 1
+@UseBMI1Instructions = external local_unnamed_addr global i8, align 1
+@UseCountTrailingZerosInstruction = external local_unnamed_addr global i8, align 1
+@.str.107 = private unnamed_addr constant [47 x i8] c"tzcnt instruction is not available on this CPU\00", align 1
+@.str.108 = private unnamed_addr constant [71 x i8] c"BMI1 instructions are not available on this CPU (AVX is also required)\00", align 1
+@UseBMI2Instructions = external local_unnamed_addr global i8, align 1
+@.str.109 = private unnamed_addr constant [71 x i8] c"BMI2 instructions are not available on this CPU (AVX is also required)\00", align 1
+@UsePopCountInstruction = external local_unnamed_addr global i8, align 1
+@.str.110 = private unnamed_addr constant [48 x i8] c"POPCNT instruction is not available on this CPU\00", align 1
+@UseFastStosb = external local_unnamed_addr global i8, align 1
+@.str.111 = private unnamed_addr constant [53 x i8] c"fast-string operations are not available on this CPU\00", align 1
+@UseXMMForObjInit = external local_unnamed_addr global i8, align 1
+@.str.112 = private unnamed_addr constant [83 x i8] c"UseXMMForObjInit requires SSE2 and unaligned load/stores. Feature is switched off.\00", align 1
+@AlignVector = external local_unnamed_addr global i8, align 1
+@AllocatePrefetchStepSize = external local_unnamed_addr global i32, align 4
+@AllocatePrefetchDistance = external local_unnamed_addr global i32, align 4
+@.str.113 = private unnamed_addr constant [101 x i8] c"AllocatePrefetchDistance is set to 0 which disable prefetching. Ignoring AllocatePrefetchStyle flag.\00", align 1
+@AllocatePrefetchLines = external local_unnamed_addr global i32, align 4
+@PrefetchCopyIntervalInBytes = external local_unnamed_addr global i64, align 8
+@PrefetchScanIntervalInBytes = external local_unnamed_addr global i64, align 8
+@ContendedPaddingWidth = external local_unnamed_addr global i32, align 4
+@UseUnalignedAccesses = external local_unnamed_addr global i8, align 1
+@UseSignumIntrinsic = external local_unnamed_addr global i8, align 1
+@UseCopySignIntrinsic = external local_unnamed_addr global i8, align 1
+@.str.114 = private unnamed_addr constant [46 x i8] c"Xen hardware-assisted virtualization detected\00", align 1
+@.str.115 = private unnamed_addr constant [28 x i8] c"KVM virtualization detected\00", align 1
+@.str.116 = private unnamed_addr constant [31 x i8] c"VMWare virtualization detected\00", align 1
+@.str.117 = private unnamed_addr constant [32 x i8] c"Hyper-V virtualization detected\00", align 1
+@.str.118 = private unnamed_addr constant [22 x i8] c"Hyper-V role detected\00", align 1
+@_ZL16detect_virt_stub = internal unnamed_addr global ptr null, align 8
+@.str.119 = private unnamed_addr constant [13 x i8] c"VMwareVMware\00", align 1
+@_ZN19Abstract_VM_Version24_detected_virtualizationE = external local_unnamed_addr global i32, align 4
+@.str.120 = private unnamed_addr constant [13 x i8] c"Microsoft Hv\00", align 1
+@.str.121 = private unnamed_addr constant [10 x i8] c"KVMKVMKVM\00", align 1
+@.str.122 = private unnamed_addr constant [13 x i8] c"XenVMMXenVMM\00", align 1
+@_ZL25clear_apx_test_state_stub = internal unnamed_addr global ptr null, align 8
+@.str.123 = private unnamed_addr constant [16 x i8] c"VM_Version stub\00", align 1
+@_ZL9stub_blob = internal unnamed_addr global ptr null, align 8
+@.str.124 = private unnamed_addr constant [39 x i8] c"Unable to allocate stub for VM_Version\00", align 1
+@.str.125 = private unnamed_addr constant [25 x i8] c"getCPUIDBrandString_stub\00", align 1
+@_ZL28cpuid_brand_string_stub_blob = internal unnamed_addr global ptr null, align 8
+@.str.126 = private unnamed_addr constant [44 x i8] c"Unable to allocate getCPUIDBrandString_stub\00", align 1
+@_ZL24getCPUIDBrandString_stub = internal unnamed_addr global ptr null, align 8
+@_ZL21_model_id_pentium_pro = internal unnamed_addr constant [72 x ptr] [ptr @.str.131, ptr @.str.158, ptr @.str.131, ptr @.str.159, ptr @.str.131, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.131, ptr @.str.166, ptr @.str.131, ptr @.str.167, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.161, ptr @.str.167, ptr @.str.131, ptr @.str.131, ptr @.str.168, ptr @.str.169, ptr @.str.131, ptr @.str.167, ptr @.str.170, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.171, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.172, ptr @.str.131, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.177, ptr @.str.131, ptr @.str.178, ptr @.str.131, ptr @.str.179, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.178, ptr @.str.178, ptr null], align 16
+@_ZL17_cpu_brand_string = internal unnamed_addr global ptr null, align 8
+@_ZL9_brand_id = internal unnamed_addr constant [10 x ptr] [ptr @.str.131, ptr @.str.180, ptr @.str.181, ptr @.str.182, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.183, ptr null], align 16
+@_ZN19Abstract_VM_Version14_no_of_threadsE = external local_unnamed_addr global i32, align 4
+@_ZN19Abstract_VM_Version14_no_of_socketsE = external local_unnamed_addr global i32, align 4
+@_ZN19Abstract_VM_Version12_no_of_coresE = external local_unnamed_addr global i32, align 4
+@_ZL14_family_id_amd = internal unnamed_addr constant [24 x ptr] [ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.187, ptr @.str.188, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.189], align 16
+@_ZL16_family_id_intel = internal unnamed_addr constant [16 x ptr] [ptr @.str.190, ptr @.str.131, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.158, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.195], align 16
+@.str.127 = private unnamed_addr constant [7 x i8] c"Dhyana\00", align 1
+@.str.128 = private unnamed_addr constant [12 x i8] c"Unknown x86\00", align 1
+@.str.129 = private unnamed_addr constant [6 x i8] c"Intel\00", align 1
+@.str.130 = private unnamed_addr constant [9 x i8] c" Intel64\00", align 1
+@.str.131 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.132 = private unnamed_addr constant [4 x i8] c"AMD\00", align 1
+@.str.133 = private unnamed_addr constant [7 x i8] c" AMD64\00", align 1
+@.str.134 = private unnamed_addr constant [6 x i8] c"Hygon\00", align 1
+@.str.135 = private unnamed_addr constant [8 x i8] c" x86_64\00", align 1
+@.str.136 = private unnamed_addr constant [33 x i8] c"%s %s%s SSE SSE2%s%s%s%s%s%s%s%s\00", align 1
+@.str.137 = private unnamed_addr constant [6 x i8] c" (HT)\00", align 1
+@.str.138 = private unnamed_addr constant [6 x i8] c" SSE3\00", align 1
+@.str.139 = private unnamed_addr constant [7 x i8] c" SSSE3\00", align 1
+@.str.140 = private unnamed_addr constant [8 x i8] c" SSE4.1\00", align 1
+@.str.141 = private unnamed_addr constant [8 x i8] c" SSE4.2\00", align 1
+@.str.142 = private unnamed_addr constant [7 x i8] c" SSE4A\00", align 1
+@.str.143 = private unnamed_addr constant [10 x i8] c" Netburst\00", align 1
+@.str.144 = private unnamed_addr constant [6 x i8] c" Core\00", align 1
+@.str.145 = private unnamed_addr constant [33 x i8] c"guarantee(buf != nullptr) failed\00", align 1
+@.str.146 = private unnamed_addr constant [16 x i8] c"buffer is null!\00", align 1
+@.str.147 = private unnamed_addr constant [30 x i8] c"guarantee(buf_len > 0) failed\00", align 1
+@.str.148 = private unnamed_addr constant [23 x i8] c"buffer len not enough!\00", align 1
+@_ZL15_feature_edx_id = internal unnamed_addr constant [32 x ptr] [ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.131, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.131, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.131, ptr @.str.224], align 16
+@.str.149 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
+@.str.150 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@_ZL15_feature_ecx_id = internal unnamed_addr constant [32 x ptr] [ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.131, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.131, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.249, ptr @.str.250, ptr @.str.251, ptr @.str.252, ptr @.str.253, ptr @.str.131], align 16
+@_ZL24_feature_extended_ecx_id = internal unnamed_addr constant [32 x ptr] [ptr @.str.254, ptr @.str.255, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.256, ptr @.str.257, ptr @.str.258, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131], align 16
+@_ZL24_feature_extended_edx_id = internal unnamed_addr constant [32 x ptr] [ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.259, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.260, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.131, ptr @.str.261, ptr @.str.131, ptr @.str.262, ptr @.str.131, ptr @.str.131], align 16
+@.str.151 = private unnamed_addr constant [14 x i8] c"Invariant TSC\00", align 1
+@.str.152 = private unnamed_addr constant [10 x i8] c"<unknown>\00", align 1
+@.str.153 = private unnamed_addr constant [274 x i8] c"Brand: %s, Vendor: %s\0AFamily: %s (0x%x), Model: %s (0x%x), Stepping: 0x%x\0AExt. family: 0x%x, Ext. model: 0x%x, Type: 0x%x, Signature: 0x%8.8x\0AFeatures: ebx: 0x%8.8x, ecx: 0x%8.8x, edx: 0x%8.8x\0AExt. features: eax: 0x%8.8x, ebx: 0x%8.8x, ecx: 0x%8.8x, edx: 0x%8.8x\0ASupports: \00", align 1
+@_ZN19Abstract_VM_Version9_cpu_nameE = external global [256 x i8], align 16
+@_ZN19Abstract_VM_Version9_cpu_descE = external global [4096 x i8], align 16
+@_ZN19Abstract_VM_Version12_initializedE = external local_unnamed_addr global i8, align 1
+@_ZL28_max_qualified_cpu_frequency = internal unnamed_addr global i64 0, align 8
+@UseKNLSetting = external local_unnamed_addr global i8, align 1
+@_ZN6Thread12_thr_currentE = external thread_local local_unnamed_addr global ptr, align 8
+@_ZTV24VM_Version_StubGenerator = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN17StubCodeGenerator11stub_prologEP12StubCodeDesc, ptr @_ZN17StubCodeGenerator11stub_epilogEP12StubCodeDesc] }, comdat, align 8
+@.str.154 = private unnamed_addr constant [11 x i8] c"VM_Version\00", align 1
+@.str.155 = private unnamed_addr constant [18 x i8] c"get_cpu_info_stub\00", align 1
+@_ZTV10Relocation = external unnamed_addr constant { [11 x ptr] }, align 8
+@all_XMMRegisterImpls = external hidden global [33 x %"class.XMMRegister::XMMRegisterImpl"], align 16
+@.str.156 = private unnamed_addr constant [17 x i8] c"detect_virt_stub\00", align 1
+@.str.157 = private unnamed_addr constant [22 x i8] c"getCPUIDNameInfo_stub\00", align 1
+@.str.158 = private unnamed_addr constant [12 x i8] c"Pentium Pro\00", align 1
+@.str.159 = private unnamed_addr constant [19 x i8] c"Pentium II model 3\00", align 1
+@.str.160 = private unnamed_addr constant [32 x i8] c"Pentium II model 5/Xeon/Celeron\00", align 1
+@.str.161 = private unnamed_addr constant [8 x i8] c"Celeron\00", align 1
+@.str.162 = private unnamed_addr constant [29 x i8] c"Pentium III/Pentium III Xeon\00", align 1
+@.str.163 = private unnamed_addr constant [18 x i8] c"Pentium M model 9\00", align 1
+@.str.164 = private unnamed_addr constant [21 x i8] c"Pentium III, model A\00", align 1
+@.str.165 = private unnamed_addr constant [21 x i8] c"Pentium III, model B\00", align 1
+@.str.166 = private unnamed_addr constant [18 x i8] c"Pentium M model D\00", align 1
+@.str.167 = private unnamed_addr constant [7 x i8] c"Core 2\00", align 1
+@.str.168 = private unnamed_addr constant [8 x i8] c"Core i7\00", align 1
+@.str.169 = private unnamed_addr constant [5 x i8] c"Atom\00", align 1
+@.str.170 = private unnamed_addr constant [8 x i8] c"Nehalem\00", align 1
+@.str.171 = private unnamed_addr constant [9 x i8] c"Westmere\00", align 1
+@.str.172 = private unnamed_addr constant [13 x i8] c"Sandy Bridge\00", align 1
+@.str.173 = private unnamed_addr constant [12 x i8] c"Westmere-EP\00", align 1
+@.str.174 = private unnamed_addr constant [16 x i8] c"Sandy Bridge-EP\00", align 1
+@.str.175 = private unnamed_addr constant [11 x i8] c"Nehalem-EX\00", align 1
+@.str.176 = private unnamed_addr constant [12 x i8] c"Westmere-EX\00", align 1
+@.str.177 = private unnamed_addr constant [11 x i8] c"Ivy Bridge\00", align 1
+@.str.178 = private unnamed_addr constant [8 x i8] c"Haswell\00", align 1
+@.str.179 = private unnamed_addr constant [14 x i8] c"Ivy Bridge-EP\00", align 1
+@.str.180 = private unnamed_addr constant [18 x i8] c"Celeron processor\00", align 1
+@.str.181 = private unnamed_addr constant [22 x i8] c"Pentium III processor\00", align 1
+@.str.182 = private unnamed_addr constant [33 x i8] c"Intel Pentium III Xeon processor\00", align 1
+@.str.183 = private unnamed_addr constant [26 x i8] c"Intel Pentium 4 processor\00", align 1
+@_ZN2os16_processor_countE = external local_unnamed_addr global i32, align 4
+@.str.184 = private unnamed_addr constant [5 x i8] c"5x86\00", align 1
+@.str.185 = private unnamed_addr constant [6 x i8] c"K5/K6\00", align 1
+@.str.186 = private unnamed_addr constant [16 x i8] c"Athlon/AthlonXP\00", align 1
+@.str.187 = private unnamed_addr constant [17 x i8] c"Opteron/Athlon64\00", align 1
+@.str.188 = private unnamed_addr constant [18 x i8] c"Opteron QC/Phenom\00", align 1
+@.str.189 = private unnamed_addr constant [4 x i8] c"Zen\00", align 1
+@.str.190 = private unnamed_addr constant [10 x i8] c"8086/8088\00", align 1
+@.str.191 = private unnamed_addr constant [4 x i8] c"286\00", align 1
+@.str.192 = private unnamed_addr constant [4 x i8] c"386\00", align 1
+@.str.193 = private unnamed_addr constant [4 x i8] c"486\00", align 1
+@.str.194 = private unnamed_addr constant [8 x i8] c"Pentium\00", align 1
+@.str.195 = private unnamed_addr constant [10 x i8] c"Pentium 4\00", align 1
+@.str.196 = private unnamed_addr constant [12 x i8] c"On-Chip FPU\00", align 1
+@.str.197 = private unnamed_addr constant [24 x i8] c"Virtual Mode Extensions\00", align 1
+@.str.198 = private unnamed_addr constant [21 x i8] c"Debugging Extensions\00", align 1
+@.str.199 = private unnamed_addr constant [21 x i8] c"Page Size Extensions\00", align 1
+@.str.200 = private unnamed_addr constant [19 x i8] c"Time Stamp Counter\00", align 1
+@.str.201 = private unnamed_addr constant [25 x i8] c"Model Specific Registers\00", align 1
+@.str.202 = private unnamed_addr constant [27 x i8] c"Physical Address Extension\00", align 1
+@.str.203 = private unnamed_addr constant [25 x i8] c"Machine Check Exceptions\00", align 1
+@.str.204 = private unnamed_addr constant [22 x i8] c"CMPXCHG8B Instruction\00", align 1
+@.str.205 = private unnamed_addr constant [13 x i8] c"On-Chip APIC\00", align 1
+@.str.206 = private unnamed_addr constant [17 x i8] c"Fast System Call\00", align 1
+@.str.207 = private unnamed_addr constant [28 x i8] c"Memory Type Range Registers\00", align 1
+@.str.208 = private unnamed_addr constant [19 x i8] c"Page Global Enable\00", align 1
+@.str.209 = private unnamed_addr constant [27 x i8] c"Machine Check Architecture\00", align 1
+@.str.210 = private unnamed_addr constant [28 x i8] c"Conditional Mov Instruction\00", align 1
+@.str.211 = private unnamed_addr constant [21 x i8] c"Page Attribute Table\00", align 1
+@.str.212 = private unnamed_addr constant [27 x i8] c"36-bit Page Size Extension\00", align 1
+@.str.213 = private unnamed_addr constant [24 x i8] c"Processor Serial Number\00", align 1
+@.str.214 = private unnamed_addr constant [20 x i8] c"CLFLUSH Instruction\00", align 1
+@.str.215 = private unnamed_addr constant [26 x i8] c"Debug Trace Store feature\00", align 1
+@.str.216 = private unnamed_addr constant [28 x i8] c"ACPI registers in MSR space\00", align 1
+@.str.217 = private unnamed_addr constant [34 x i8] c"Intel Architecture MMX Technology\00", align 1
+@.str.218 = private unnamed_addr constant [34 x i8] c"Fast Float Point Save and Restore\00", align 1
+@.str.219 = private unnamed_addr constant [26 x i8] c"Streaming SIMD extensions\00", align 1
+@.str.220 = private unnamed_addr constant [28 x i8] c"Streaming SIMD extensions 2\00", align 1
+@.str.221 = private unnamed_addr constant [11 x i8] c"Self-Snoop\00", align 1
+@.str.222 = private unnamed_addr constant [16 x i8] c"Hyper Threading\00", align 1
+@.str.223 = private unnamed_addr constant [16 x i8] c"Thermal Monitor\00", align 1
+@.str.224 = private unnamed_addr constant [21 x i8] c"Pending Break Enable\00", align 1
+@.str.225 = private unnamed_addr constant [28 x i8] c"Streaming SIMD Extensions 3\00", align 1
+@.str.226 = private unnamed_addr constant [10 x i8] c"PCLMULQDQ\00", align 1
+@.str.227 = private unnamed_addr constant [15 x i8] c"64-bit DS Area\00", align 1
+@.str.228 = private unnamed_addr constant [27 x i8] c"MONITOR/MWAIT instructions\00", align 1
+@.str.229 = private unnamed_addr constant [26 x i8] c"CPL Qualified Debug Store\00", align 1
+@.str.230 = private unnamed_addr constant [27 x i8] c"Virtual Machine Extensions\00", align 1
+@.str.231 = private unnamed_addr constant [22 x i8] c"Safer Mode Extensions\00", align 1
+@.str.232 = private unnamed_addr constant [36 x i8] c"Enhanced Intel SpeedStep technology\00", align 1
+@.str.233 = private unnamed_addr constant [18 x i8] c"Thermal Monitor 2\00", align 1
+@.str.234 = private unnamed_addr constant [41 x i8] c"Supplemental Streaming SIMD Extensions 3\00", align 1
+@.str.235 = private unnamed_addr constant [14 x i8] c"L1 Context ID\00", align 1
+@.str.236 = private unnamed_addr constant [19 x i8] c"Fused Multiply-Add\00", align 1
+@.str.237 = private unnamed_addr constant [11 x i8] c"CMPXCHG16B\00", align 1
+@.str.238 = private unnamed_addr constant [20 x i8] c"xTPR Update Control\00", align 1
+@.str.239 = private unnamed_addr constant [29 x i8] c"Perfmon and Debug Capability\00", align 1
+@.str.240 = private unnamed_addr constant [28 x i8] c"Process-context identifiers\00", align 1
+@.str.241 = private unnamed_addr constant [20 x i8] c"Direct Cache Access\00", align 1
+@.str.242 = private unnamed_addr constant [30 x i8] c"Streaming SIMD extensions 4.1\00", align 1
+@.str.243 = private unnamed_addr constant [30 x i8] c"Streaming SIMD extensions 4.2\00", align 1
+@.str.244 = private unnamed_addr constant [7 x i8] c"x2APIC\00", align 1
+@.str.245 = private unnamed_addr constant [6 x i8] c"MOVBE\00", align 1
+@.str.246 = private unnamed_addr constant [21 x i8] c"Popcount instruction\00", align 1
+@.str.247 = private unnamed_addr constant [13 x i8] c"TSC-Deadline\00", align 1
+@.str.248 = private unnamed_addr constant [6 x i8] c"AESNI\00", align 1
+@.str.249 = private unnamed_addr constant [6 x i8] c"XSAVE\00", align 1
+@.str.250 = private unnamed_addr constant [8 x i8] c"OSXSAVE\00", align 1
+@.str.251 = private unnamed_addr constant [4 x i8] c"AVX\00", align 1
+@.str.252 = private unnamed_addr constant [5 x i8] c"F16C\00", align 1
+@.str.253 = private unnamed_addr constant [7 x i8] c"RDRAND\00", align 1
+@.str.254 = private unnamed_addr constant [30 x i8] c"LAHF/SAHF instruction support\00", align 1
+@.str.255 = private unnamed_addr constant [33 x i8] c"Core multi-processor legacy mode\00", align 1
+@.str.256 = private unnamed_addr constant [34 x i8] c"Advanced Bit Manipulations: LZCNT\00", align 1
+@.str.257 = private unnamed_addr constant [40 x i8] c"SSE4A: MOVNTSS, MOVNTSD, EXTRQ, INSERTQ\00", align 1
+@.str.258 = private unnamed_addr constant [20 x i8] c"Misaligned SSE mode\00", align 1
+@.str.259 = private unnamed_addr constant [15 x i8] c"SYSCALL/SYSRET\00", align 1
+@.str.260 = private unnamed_addr constant [20 x i8] c"Execute Disable Bit\00", align 1
+@.str.261 = private unnamed_addr constant [7 x i8] c"RDTSCP\00", align 1
+@.str.262 = private unnamed_addr constant [22 x i8] c"Intel 64 Architecture\00", align 1
+@llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version16supports_clflushEv() local_unnamed_addr #0 align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version22get_processor_featuresEv() local_unnamed_addr #1 align 2 {
+  %1 = alloca [1024 x i8], align 16
+  store i32 4, ptr @_ZN10VM_Version4_cpuE, align 4
+  store i32 0, ptr @_ZN10VM_Version6_modelE, align 4
+  store i32 0, ptr @_ZN10VM_Version9_steppingE, align 4
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 1, ptr @_ZN19Abstract_VM_Version31_logical_processors_per_packageE, align 4
+  store i32 16, ptr @_ZN19Abstract_VM_Version24_L1_data_cache_line_sizeE, align 4
+  %2 = load ptr, ptr @_ZL17get_cpu_info_stub, align 8
+  tail call void %2(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %4 = lshr i32 %3, 8
+  %5 = and i32 %4, 15
+  %6 = lshr i32 %3, 20
+  %7 = and i32 %6, 255
+  %8 = add nuw nsw i32 %5, %7
+  store i32 %8, ptr @_ZN10VM_Version4_cpuE, align 4
+  %9 = lshr i32 %3, 4
+  %10 = and i32 %9, 15
+  %11 = lshr i32 %3, 12
+  %12 = and i32 %11, 240
+  %13 = or disjoint i32 %10, %12
+  store i32 %13, ptr @_ZN10VM_Version6_modelE, align 4
+  %14 = and i32 %3, 15
+  store i32 %14, ptr @_ZN10VM_Version9_steppingE, align 4
+  %15 = icmp ugt i32 %8, 4
+  br i1 %15, label %16, label %._crit_edge
+
+._crit_edge:                                      ; preds = %0
+  %.pre = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %31
+
+16:                                               ; preds = %0
+  %17 = tail call noundef i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr noundef nonnull align 8 dereferenceable(672) @_ZN10VM_Version11_cpuid_infoE)
+  store i64 %17, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i64 %17, ptr @_ZN19Abstract_VM_Version13_cpu_featuresE, align 8
+  %18 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
+  store i32 %18, ptr @_ZN19Abstract_VM_Version31_logical_processors_per_packageE, align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %19, label %_ZN10VM_Version12L1_line_sizeEv.exit [
+    i32 1970169159, label %20
+    i32 1869052232, label %24
+    i32 1752462657, label %24
+    i32 1953391939, label %27
+    i32 1750278176, label %27
+  ]
+
+20:                                               ; preds = %16
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %22 = and i32 %21, 4095
+  %23 = add nuw nsw i32 %22, 1
+  br label %_ZN10VM_Version12L1_line_sizeEv.exit
+
+24:                                               ; preds = %16, %16
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %26 = and i32 %25, 255
+  br label %_ZN10VM_Version12L1_line_sizeEv.exit
+
+27:                                               ; preds = %16, %16
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %29 = and i32 %28, 4095
+  %30 = add nuw nsw i32 %29, 1
+  br label %_ZN10VM_Version12L1_line_sizeEv.exit
+
+_ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
+  %.0.i = phi i32 [ %23, %20 ], [ %26, %24 ], [ %30, %27 ], [ 0, %16 ]
+  %spec.store.select.i = tail call noundef range(i32 0, 4097) i32 @llvm.umax.i32(i32 %.0.i, i32 32)
+  store i32 %spec.store.select.i, ptr @_ZN19Abstract_VM_Version24_L1_data_cache_line_sizeE, align 4
+  br label %31
+
+31:                                               ; preds = %._crit_edge, %_ZN10VM_Version12L1_line_sizeEv.exit
+  %32 = phi i64 [ %.pre, %._crit_edge ], [ %17, %_ZN10VM_Version12L1_line_sizeEv.exit ]
+  store i8 1, ptr @_ZN19Abstract_VM_Version24_supports_atomic_getset4E, align 1
+  store i8 1, ptr @_ZN19Abstract_VM_Version24_supports_atomic_getadd4E, align 1
+  store i8 1, ptr @_ZN19Abstract_VM_Version24_supports_atomic_getset8E, align 1
+  store i8 1, ptr @_ZN19Abstract_VM_Version24_supports_atomic_getadd8E, align 1
+  %33 = and i64 %32, 128
+  %.not = icmp eq i64 %33, 0
+  br i1 %.not, label %34, label %35
+
+34:                                               ; preds = %31
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.64, ptr noundef null) #14
+  br label %35
+
+35:                                               ; preds = %34, %31
+  %36 = load i32, ptr @UseSSE, align 4
+  %37 = icmp slt i32 %36, 2
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %35
+  store i32 2, ptr @UseSSE, align 4
+  br label %39
+
+39:                                               ; preds = %35, %38
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %41 = and i32 %40, 524288
+  %.not78 = icmp eq i32 %41, 0
+  br i1 %.not78, label %42, label %44
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %43, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.65, i32 noundef 920, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #15
+  unreachable
+
+44:                                               ; preds = %39
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %46 = and i32 %45, 65280
+  %47 = icmp eq i32 %46, 2048
+  br i1 %47, label %50, label %48
+
+48:                                               ; preds = %44
+  %49 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %49, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.65, i32 noundef 922, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69) #15
+  unreachable
+
+50:                                               ; preds = %44
+  %51 = tail call noundef zeroext i1 @_ZN2os17supports_map_syncEv() #14
+  br i1 %51, label %52, label %56
+
+52:                                               ; preds = %50
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %54 = lshr i32 %53, 5
+  %55 = and i32 %54, 2040
+  store i32 %55, ptr @_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE, align 4
+  br label %56
+
+56:                                               ; preds = %52, %50
+  %57 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 26) #14
+  %58 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %59 = icmp eq i32 %58, 1970169159
+  %or.cond140 = select i1 %57, i1 %59, i1 false
+  %60 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %61 = icmp eq i32 %60, 6
+  %or.cond142 = select i1 %or.cond140, i1 %61, i1 false
+  br i1 %or.cond142, label %62, label %65
+
+62:                                               ; preds = %56
+  %63 = load i32, ptr @_ZN10VM_Version6_modelE, align 4
+  switch i32 %63, label %65 [
+    i32 175, label %64
+    i32 172, label %64
+    i32 170, label %64
+    i32 151, label %64
+  ]
+
+64:                                               ; preds = %62, %62, %62, %62
+  store i8 1, ptr @EnableX86ECoreOpts, align 1
+  br label %65
+
+65:                                               ; preds = %62, %64, %56
+  %66 = load i32, ptr @UseSSE, align 4
+  %67 = icmp slt i32 %66, 4
+  br i1 %67, label %68, label %.thread104
+
+68:                                               ; preds = %65
+  %69 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %70 = and i64 %69, -6145
+  store i64 %70, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %.not181 = icmp eq i32 %66, 3
+  br i1 %.not181, label %.thread104, label %71
+
+71:                                               ; preds = %68
+  %72 = and i64 %69, -7937
+  store i64 %72, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %73 = icmp slt i32 %66, 2
+  br i1 %73, label %74, label %.thread104
+
+74:                                               ; preds = %71
+  %75 = and i64 %69, -8065
+  store i64 %75, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %.not182 = icmp eq i32 %66, 1
+  br i1 %.not182, label %.thread104, label %76
+
+76:                                               ; preds = %74
+  %77 = and i64 %69, -8129
+  store i64 %77, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %.thread104
+
+.thread104:                                       ; preds = %65, %68, %71, %76, %74
+  switch i32 %58, label %81 [
+    i32 1953391939, label %78
+    i32 1750278176, label %78
+  ]
+
+78:                                               ; preds = %.thread104, %.thread104
+  %79 = and i32 %60, -2
+  %switch = icmp eq i32 %79, 6
+  br i1 %switch, label %80, label %81
+
+80:                                               ; preds = %78
+  store i32 0, ptr @UseAVX, align 4
+  br label %81
+
+81:                                               ; preds = %78, %.thread104, %80
+  %82 = icmp sgt i32 %66, 0
+  br i1 %82, label %83, label %93
+
+83:                                               ; preds = %81
+  %84 = icmp ugt i32 %66, 3
+  %85 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br i1 %84, label %86, label %88
+
+86:                                               ; preds = %83
+  %87 = and i64 %85, 2048
+  %.not184 = icmp eq i64 %87, 0
+  br i1 %.not184, label %.thread105, label %93
+
+88:                                               ; preds = %83
+  switch i32 %66, label %.thread106 [
+    i32 3, label %.thread105
+    i32 1, label %._crit_edge238
+  ]
+
+.thread105:                                       ; preds = %88, %86
+  %89 = and i64 %85, 256
+  %.not185 = icmp eq i64 %89, 0
+  br i1 %.not185, label %.thread106, label %93
+
+.thread106:                                       ; preds = %88, %.thread105
+  %90 = and i64 %85, 128
+  %.not186 = icmp eq i64 %90, 0
+  br i1 %.not186, label %._crit_edge238, label %93
+
+._crit_edge238:                                   ; preds = %88, %.thread106
+  %91 = trunc i64 %85 to i32
+  %92 = lshr i32 %91, 6
+  %spec.select143 = and i32 %92, 1
+  br label %93
+
+93:                                               ; preds = %._crit_edge238, %.thread106, %.thread105, %86, %81
+  %.0 = phi i32 [ 0, %81 ], [ 4, %86 ], [ 3, %.thread105 ], [ 2, %.thread106 ], [ %spec.select143, %._crit_edge238 ]
+  %94 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 5) #14
+  br i1 %94, label %.sink.split, label %95
+
+95:                                               ; preds = %93
+  %96 = load i32, ptr @UseSSE, align 4
+  %97 = icmp sgt i32 %96, %.0
+  br i1 %97, label %98, label %99
+
+98:                                               ; preds = %95
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.70, i32 noundef %96, i32 noundef %.0) #14
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %93, %98
+  store i32 %.0, ptr @UseSSE, align 4
+  br label %99
+
+99:                                               ; preds = %.sink.split, %95
+  %100 = phi i32 [ %96, %95 ], [ %.0, %.sink.split ]
+  %101 = load i32, ptr @UseAVX, align 4
+  %102 = icmp slt i32 %101, 1
+  %103 = icmp slt i32 %100, 4
+  %or.cond90 = select i1 %102, i1 true, i1 %103
+  br i1 %or.cond90, label %117, label %104
+
+104:                                              ; preds = %99
+  %105 = icmp ugt i32 %101, 2
+  br i1 %105, label %106, label %109
+
+106:                                              ; preds = %104
+  %107 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %108 = and i64 %107, 134217728
+  %.not188 = icmp eq i64 %108, 0
+  br i1 %.not188, label %.thread107, label %.thread108
+
+109:                                              ; preds = %104
+  %110 = icmp eq i32 %101, 2
+  %.pre241 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br i1 %110, label %.thread107, label %113
+
+.thread107:                                       ; preds = %109, %106
+  %111 = phi i64 [ %107, %106 ], [ %.pre241, %109 ]
+  %112 = and i64 %111, 524288
+  %.not189 = icmp eq i64 %112, 0
+  br i1 %.not189, label %113, label %117
+
+113:                                              ; preds = %109, %.thread107
+  %114 = phi i64 [ %.pre241, %109 ], [ %111, %.thread107 ]
+  %115 = trunc i64 %114 to i32
+  %116 = lshr i32 %115, 18
+  %spec.select144 = and i32 %116, 1
+  br label %117
+
+117:                                              ; preds = %113, %.thread107, %99
+  %.065 = phi i32 [ 0, %99 ], [ 2, %.thread107 ], [ %spec.select144, %113 ]
+  %118 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  br i1 %118, label %.sink.split263, label %138
+
+.thread108:                                       ; preds = %106
+  %119 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  br i1 %119, label %120, label %138
+
+120:                                              ; preds = %.thread108
+  %121 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %122 = icmp eq i32 %121, 1970169159
+  br i1 %122, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %.sink.split263
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %120
+  %123 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %124 = lshr i32 %123, 8
+  %125 = and i32 %124, 15
+  %126 = lshr i32 %123, 20
+  %127 = and i32 %126, 255
+  %128 = add nuw nsw i32 %125, %127
+  %129 = icmp eq i32 %128, 6
+  br i1 %129, label %_ZN10VM_Version16is_intel_skylakeEv.exit, label %.sink.split263
+
+_ZN10VM_Version16is_intel_skylakeEv.exit:         ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i
+  %130 = lshr i32 %123, 4
+  %131 = and i32 %130, 15
+  %132 = lshr i32 %123, 12
+  %133 = and i32 %132, 240
+  %134 = or disjoint i32 %131, %133
+  %135 = icmp eq i32 %134, 85
+  %136 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %137 = icmp slt i32 %136, 5
+  %or.cond7 = select i1 %135, i1 %137, i1 false
+  %spec.select337 = select i1 %or.cond7, i32 2, i32 3
+  br label %.sink.split263
+
+.sink.split263:                                   ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit, %117, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %120
+  %.sink = phi i32 [ %.065, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ], [ %spec.select337, %_ZN10VM_Version16is_intel_skylakeEv.exit ]
+  %.065110.ph = phi i32 [ %.065, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ], [ 3, %_ZN10VM_Version16is_intel_skylakeEv.exit ]
+  store i32 %.sink, ptr @UseAVX, align 4
+  br label %138
+
+138:                                              ; preds = %.sink.split263, %.thread108, %117
+  %.065110 = phi i32 [ 3, %.thread108 ], [ %.065, %117 ], [ %.065110.ph, %.sink.split263 ]
+  %139 = load i32, ptr @UseAVX, align 4
+  %140 = icmp sgt i32 %139, %.065110
+  br i1 %140, label %141, label %147
+
+141:                                              ; preds = %138
+  %142 = load i32, ptr @UseSSE, align 4
+  %143 = icmp slt i32 %142, 4
+  br i1 %143, label %144, label %145
+
+144:                                              ; preds = %141
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.71, i32 noundef %139) #14
+  br label %146
+
+145:                                              ; preds = %141
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.72, i32 noundef %139, i32 noundef %.065110) #14
+  br label %146
+
+146:                                              ; preds = %145, %144
+  store i32 %.065110, ptr @UseAVX, align 4
+  br label %147
+
+147:                                              ; preds = %146, %138
+  %148 = phi i32 [ %.065110, %146 ], [ %139, %138 ]
+  %149 = icmp slt i32 %148, 3
+  br i1 %149, label %150, label %153
+
+150:                                              ; preds = %147
+  %151 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %152 = and i64 %151, -1445710333963403265
+  store i64 %152, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %153
+
+153:                                              ; preds = %150, %147
+  %154 = load i8, ptr @UseAPX, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %153
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.73) #14
+  br label %.sink.split264
+
+157:                                              ; preds = %153
+  %158 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 7) #14
+  br i1 %158, label %.sink.split264, label %159
+
+.sink.split264:                                   ; preds = %157, %156
+  store i8 0, ptr @UseAPX, align 1
+  br label %159
+
+159:                                              ; preds = %.sink.split264, %157
+  %160 = load i32, ptr @UseAVX, align 4
+  %161 = icmp slt i32 %160, 2
+  br i1 %161, label %162, label %.thread117
+
+162:                                              ; preds = %159
+  %163 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %164 = and i64 %163, -576460752303947777
+  store i64 %164, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %.not191 = icmp eq i32 %160, 1
+  br i1 %.not191, label %.thread117, label %165
+
+165:                                              ; preds = %162
+  %166 = and i64 %163, -585468020278427649
+  store i64 %166, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %.thread117
+
+.thread117:                                       ; preds = %159, %165, %162
+  %167 = load i32, ptr @_ZN19Abstract_VM_Version31_logical_processors_per_packageE, align 4
+  %168 = icmp eq i32 %167, 1
+  br i1 %168, label %169, label %172
+
+169:                                              ; preds = %.thread117
+  %170 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %171 = and i64 %170, -9
+  store i64 %171, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %172
+
+172:                                              ; preds = %169, %.thread117
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %174 = icmp eq i32 %173, 1970169159
+  br i1 %174, label %175, label %_ZN10VM_Version17is_knights_familyEv.exit.thread118
+
+175:                                              ; preds = %172
+  %176 = load i8, ptr @UseKNLSetting, align 1
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %_ZN10VM_Version17is_knights_familyEv.exit.thread, label %178
+
+178:                                              ; preds = %175
+  %179 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %180 = icmp eq i32 %179, 6
+  br i1 %180, label %_ZN10VM_Version17is_knights_familyEv.exit, label %_ZN10VM_Version17is_knights_familyEv.exit.thread118
+
+_ZN10VM_Version17is_knights_familyEv.exit:        ; preds = %178
+  %181 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %182 = lshr i32 %181, 4
+  %183 = and i32 %182, 15
+  %184 = lshr i32 %181, 12
+  %185 = and i32 %184, 240
+  %186 = or disjoint i32 %183, %185
+  %trunc = trunc nuw i32 %186 to i8
+  switch i8 %trunc, label %_ZN10VM_Version17is_knights_familyEv.exit.thread118 [
+    i8 -123, label %_ZN10VM_Version17is_knights_familyEv.exit.thread
+    i8 87, label %_ZN10VM_Version17is_knights_familyEv.exit.thread
+  ]
+
+_ZN10VM_Version17is_knights_familyEv.exit.thread: ; preds = %_ZN10VM_Version17is_knights_familyEv.exit, %_ZN10VM_Version17is_knights_familyEv.exit, %175
+  %187 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %188 = and i64 %187, -871514642050973697
+  store i64 %188, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %_ZN10VM_Version17is_knights_familyEv.exit.thread118
+
+_ZN10VM_Version17is_knights_familyEv.exit.thread118: ; preds = %_ZN10VM_Version17is_knights_familyEv.exit, %178, %_ZN10VM_Version17is_knights_familyEv.exit.thread, %172
+  %189 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 28) #14
+  br i1 %189, label %190, label %228
+
+190:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit.thread118
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %192 = icmp eq i32 %191, 1970169159
+  br i1 %192, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i92, label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i92: ; preds = %190
+  %193 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %194 = lshr i32 %193, 8
+  %195 = and i32 %194, 15
+  %196 = lshr i32 %193, 20
+  %197 = and i32 %196, 255
+  %198 = add nuw nsw i32 %195, %197
+  %199 = icmp eq i32 %198, 6
+  br i1 %199, label %200, label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+200:                                              ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i92
+  %201 = load i32, ptr @_ZN10VM_Version6_modelE, align 4
+  switch i32 %201, label %226 [
+    i32 142, label %202
+    i32 78, label %205
+    i32 85, label %208
+    i32 94, label %213
+    i32 158, label %216
+    i32 165, label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+    i32 166, label %220
+    i32 174, label %223
+  ]
+
+202:                                              ; preds = %200
+  %203 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %204 = add i32 %203, -9
+  %spec.select.i93 = icmp ult i32 %204, 4
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+205:                                              ; preds = %200
+  %206 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %207 = icmp eq i32 %206, 3
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+208:                                              ; preds = %200
+  %209 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %210 = icmp eq i32 %209, 4
+  %211 = icmp eq i32 %209, 7
+  %212 = or i1 %210, %211
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+213:                                              ; preds = %200
+  %214 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %215 = icmp eq i32 %214, 3
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+216:                                              ; preds = %200
+  %217 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %218 = add i32 %217, -9
+  %or.cond7.i = icmp ult i32 %218, 3
+  %219 = icmp eq i32 %217, 13
+  %spec.select10.i = or i1 %219, %or.cond7.i
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+220:                                              ; preds = %200
+  %221 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %222 = icmp eq i32 %221, 0
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+223:                                              ; preds = %200
+  %224 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %225 = icmp eq i32 %224, 10
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+226:                                              ; preds = %200
+  br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+
+_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit: ; preds = %190, %_ZN10VM_Version20is_intel_family_coreEv.exit.i92, %200, %202, %205, %208, %213, %216, %220, %223, %226
+  %.0.i91 = phi i1 [ false, %226 ], [ %225, %223 ], [ %222, %220 ], [ %spec.select10.i, %216 ], [ %215, %213 ], [ %212, %208 ], [ %207, %205 ], [ %spec.select.i93, %202 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i92 ], [ true, %200 ], [ false, %190 ]
+  %227 = zext i1 %.0.i91 to i8
+  br label %231
+
+228:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit.thread118
+  %229 = load i8, ptr @IntelJccErratumMitigation, align 1
+  %230 = and i8 %229, 1
+  %.pre242 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  br label %231
+
+231:                                              ; preds = %228, %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
+  %232 = phi i32 [ %.pre242, %228 ], [ %191, %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit ]
+  %storemerge = phi i8 [ %230, %228 ], [ %227, %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit ]
+  store i8 %storemerge, ptr @_ZN10VM_Version22_has_intel_jcc_erratumE, align 1
+  switch i32 %232, label %_ZN10VM_Version13cores_per_cpuEv.exit [
+    i32 1970169159, label %233
+    i32 1869052232, label %247
+    i32 1752462657, label %247
+    i32 1953391939, label %251
+    i32 1750278176, label %251
+  ]
+
+233:                                              ; preds = %231
+  %234 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %235 = icmp ugt i32 %234, 10
+  br i1 %235, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %233
+  %236 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %237 = and i32 %236, 31
+  %238 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %239 = and i32 %238, 65535
+  %240 = or i32 %239, %237
+  %.not24.i = icmp eq i32 %240, 0
+  br i1 %.not24.i, label %.thread.i, label %241
+
+241:                                              ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
+  %242 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc.i = trunc i32 %242 to i16
+  %.rhs.trunc.i = trunc i32 %238 to i16
+  %243 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
+  %.zext.i = zext i16 %243 to i32
+  %.not25.i = icmp ugt i16 %.rhs.trunc.i, %.lhs.trunc.i
+  br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+.thread.i:                                        ; preds = %241, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %233
+  %244 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %245 = lshr i32 %244, 26
+  %246 = add nuw nsw i32 %245, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+247:                                              ; preds = %231, %231
+  %248 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %249 = and i32 %248, 255
+  %250 = add nuw nsw i32 %249, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+251:                                              ; preds = %231, %231
+  %252 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %253 = icmp ugt i32 %252, 10
+  br i1 %253, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %251
+  %254 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %255 = and i32 %254, 31
+  %256 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %257 = and i32 %256, 65535
+  %258 = or i32 %257, %255
+  %.not.i = icmp eq i32 %258, 0
+  br i1 %.not.i, label %.thread17.i, label %259
+
+259:                                              ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
+  %260 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc20.i = trunc i32 %260 to i16
+  %.rhs.trunc21.i = trunc i32 %256 to i16
+  %261 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
+  %.zext22.i = zext i16 %261 to i32
+  %.not23.i = icmp ugt i16 %.rhs.trunc21.i, %.lhs.trunc20.i
+  br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+.thread17.i:                                      ; preds = %259, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %251
+  %262 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %263 = lshr i32 %262, 26
+  %264 = add nuw nsw i32 %263, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+_ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread.i, %247, %259, %.thread17.i
+  %.2.i = phi i32 [ %246, %.thread.i ], [ %.zext.i, %241 ], [ %250, %247 ], [ %264, %.thread17.i ], [ %.zext22.i, %259 ], [ 1, %231 ]
+  %265 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
+  %266 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %267 = load i32, ptr @_ZN10VM_Version6_modelE, align 4
+  %268 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %269 = tail call noundef i32 @_ZN2os22cpu_microcode_revisionEv() #14
+  %270 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.74, i32 noundef %.2.i, i32 noundef %265, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269) #14
+  %271 = sext i32 %270 to i64
+  %272 = getelementptr inbounds i8, ptr %1, i64 %271
+  %273 = sub nsw i64 1024, %271
+  call void @_ZN19Abstract_VM_Version21insert_features_namesEPcmPPKc(ptr noundef nonnull %272, i64 noundef %273, ptr noundef nonnull @_ZN10VM_Version15_features_namesE) #14
+  %274 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %1, i8 noundef zeroext 9) #14
+  store ptr %274, ptr @_ZN19Abstract_VM_Version16_features_stringE, align 8
+  %275 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %276 = and i64 %275, 1048576
+  %.not192 = icmp eq i64 %276, 0
+  br i1 %.not192, label %320, label %277
+
+277:                                              ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit
+  %278 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 466) #14
+  br i1 %278, label %.thread, label %279
+
+.thread:                                          ; preds = %277
+  store i8 1, ptr @UseAES, align 1
+  br label %288
+
+279:                                              ; preds = %277
+  %.pre244 = load i8, ptr @UseAES, align 1
+  %280 = trunc i8 %.pre244 to i1
+  br i1 %280, label %288, label %281
+
+281:                                              ; preds = %279
+  %282 = load i8, ptr @UseAESIntrinsics, align 1
+  %283 = trunc i8 %282 to i1
+  br i1 %283, label %284, label %287
+
+284:                                              ; preds = %281
+  %285 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %285, label %287, label %286
+
+286:                                              ; preds = %284
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.75) #14
+  br label %287
+
+287:                                              ; preds = %286, %284, %281
+  store i8 0, ptr @UseAESIntrinsics, align 1
+  br label %343
+
+288:                                              ; preds = %.thread, %279
+  %289 = load i32, ptr @UseSSE, align 4
+  %290 = icmp sgt i32 %289, 2
+  br i1 %290, label %291, label %293
+
+291:                                              ; preds = %288
+  %292 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %292, label %.thread253, label %299
+
+.thread253:                                       ; preds = %291
+  store i8 1, ptr @UseAESIntrinsics, align 1
+  br label %307
+
+293:                                              ; preds = %288
+  %294 = load i8, ptr @UseAESIntrinsics, align 1
+  %295 = trunc i8 %294 to i1
+  br i1 %295, label %296, label %.thread254
+
+296:                                              ; preds = %293
+  %297 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %297, label %.thread254, label %298
+
+298:                                              ; preds = %296
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.76) #14
+  br label %.thread254
+
+.thread254:                                       ; preds = %293, %296, %298
+  store i8 0, ptr @UseAESIntrinsics, align 1
+  br label %301
+
+299:                                              ; preds = %291
+  %.pre246 = load i8, ptr @UseAESIntrinsics, align 1
+  %300 = trunc i8 %.pre246 to i1
+  br i1 %300, label %307, label %301
+
+301:                                              ; preds = %.thread254, %299
+  %302 = load i8, ptr @UseAESCTRIntrinsics, align 1
+  %303 = trunc i8 %302 to i1
+  br i1 %303, label %304, label %343
+
+304:                                              ; preds = %301
+  %305 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 497) #14
+  br i1 %305, label %343, label %306
+
+306:                                              ; preds = %304
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.77) #14
+  store i8 0, ptr @UseAESCTRIntrinsics, align 1
+  br label %343
+
+307:                                              ; preds = %.thread253, %299
+  %308 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %309 = and i64 %308, 2048
+  %.not193 = icmp eq i64 %309, 0
+  br i1 %.not193, label %313, label %310
+
+310:                                              ; preds = %307
+  %311 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 497) #14
+  br i1 %311, label %312, label %343
+
+312:                                              ; preds = %310
+  store i8 1, ptr @UseAESCTRIntrinsics, align 1
+  br label %343
+
+313:                                              ; preds = %307
+  %314 = load i8, ptr @UseAESCTRIntrinsics, align 1
+  %315 = trunc i8 %314 to i1
+  br i1 %315, label %316, label %319
+
+316:                                              ; preds = %313
+  %317 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 497) #14
+  br i1 %317, label %319, label %318
+
+318:                                              ; preds = %316
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.78) #14
+  br label %319
+
+319:                                              ; preds = %318, %316, %313
+  store i8 0, ptr @UseAESCTRIntrinsics, align 1
+  br label %343
+
+320:                                              ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit
+  %321 = load i8, ptr @UseAES, align 1
+  %322 = trunc i8 %321 to i1
+  br i1 %322, label %329, label %323
+
+323:                                              ; preds = %320
+  %324 = load i8, ptr @UseAESIntrinsics, align 1
+  %325 = trunc i8 %324 to i1
+  br i1 %325, label %.thread120, label %326
+
+326:                                              ; preds = %323
+  %327 = load i8, ptr @UseAESCTRIntrinsics, align 1
+  %328 = trunc i8 %327 to i1
+  br i1 %328, label %.thread120, label %343
+
+329:                                              ; preds = %320
+  %330 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 466) #14
+  br i1 %330, label %.thread120, label %331
+
+331:                                              ; preds = %329
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.79) #14
+  store i8 0, ptr @UseAES, align 1
+  br label %.thread120
+
+.thread120:                                       ; preds = %323, %326, %331, %329
+  %332 = load i8, ptr @UseAESIntrinsics, align 1
+  %333 = trunc i8 %332 to i1
+  br i1 %333, label %334, label %337
+
+334:                                              ; preds = %.thread120
+  %335 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %335, label %337, label %336
+
+336:                                              ; preds = %334
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.80) #14
+  store i8 0, ptr @UseAESIntrinsics, align 1
+  br label %337
+
+337:                                              ; preds = %336, %334, %.thread120
+  %338 = load i8, ptr @UseAESCTRIntrinsics, align 1
+  %339 = trunc i8 %338 to i1
+  br i1 %339, label %340, label %343
+
+340:                                              ; preds = %337
+  %341 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 497) #14
+  br i1 %341, label %343, label %342
+
+342:                                              ; preds = %340
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.81) #14
+  store i8 0, ptr @UseAESCTRIntrinsics, align 1
+  br label %343
+
+343:                                              ; preds = %326, %342, %340, %337, %287, %319, %312, %310, %301, %304, %306
+  %344 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %345 = and i64 %344, 4194304
+  %.not194 = icmp eq i64 %345, 0
+  br i1 %.not194, label %349, label %346
+
+346:                                              ; preds = %343
+  %347 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 9) #14
+  br i1 %347, label %348, label %._crit_edge247
+
+._crit_edge247:                                   ; preds = %346
+  %.pre248 = load i8, ptr @UseCLMUL, align 1
+  br label %355
+
+348:                                              ; preds = %346
+  store i8 1, ptr @UseCLMUL, align 1
+  br label %355
+
+349:                                              ; preds = %343
+  %350 = load i8, ptr @UseCLMUL, align 1
+  %351 = trunc i8 %350 to i1
+  br i1 %351, label %352, label %355
+
+352:                                              ; preds = %349
+  %353 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 9) #14
+  br i1 %353, label %.thread255, label %354
+
+354:                                              ; preds = %352
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.82) #14
+  br label %.thread255
+
+.thread255:                                       ; preds = %352, %354
+  store i8 0, ptr @UseCLMUL, align 1
+  br label %362
+
+355:                                              ; preds = %._crit_edge247, %349, %348
+  %356 = phi i8 [ %.pre248, %._crit_edge247 ], [ %350, %349 ], [ 1, %348 ]
+  %357 = trunc i8 %356 to i1
+  %358 = load i32, ptr @UseSSE, align 4
+  %359 = icmp sgt i32 %358, 2
+  %or.cond9 = select i1 %357, i1 %359, i1 false
+  br i1 %or.cond9, label %360, label %362
+
+360:                                              ; preds = %355
+  %361 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 504) #14
+  br i1 %361, label %.sink.split265, label %368
+
+362:                                              ; preds = %.thread255, %355
+  %363 = load i8, ptr @UseCRC32Intrinsics, align 1
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %365, label %368
+
+365:                                              ; preds = %362
+  %366 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 504) #14
+  br i1 %366, label %.sink.split265, label %367
+
+367:                                              ; preds = %365
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.83) #14
+  br label %.sink.split265
+
+.sink.split265:                                   ; preds = %365, %367, %360
+  %.sink266 = phi i8 [ 1, %360 ], [ 0, %367 ], [ 0, %365 ]
+  store i8 %.sink266, ptr @UseCRC32Intrinsics, align 1
+  br label %368
+
+368:                                              ; preds = %.sink.split265, %362, %360
+  %369 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %370 = and i64 %369, 524288
+  %.not195 = icmp eq i64 %370, 0
+  br i1 %.not195, label %373, label %371
+
+371:                                              ; preds = %368
+  %372 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 506) #14
+  br i1 %372, label %.sink.split267, label %379
+
+373:                                              ; preds = %368
+  %374 = load i8, ptr @UseAdler32Intrinsics, align 1
+  %375 = trunc i8 %374 to i1
+  br i1 %375, label %376, label %379
+
+376:                                              ; preds = %373
+  %377 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 506) #14
+  br i1 %377, label %.sink.split267, label %378
+
+378:                                              ; preds = %376
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.84) #14
+  br label %.sink.split267
+
+.sink.split267:                                   ; preds = %376, %378, %371
+  %.sink268 = phi i8 [ 1, %371 ], [ 0, %378 ], [ 0, %376 ]
+  store i8 %.sink268, ptr @UseAdler32Intrinsics, align 1
+  br label %379
+
+379:                                              ; preds = %.sink.split267, %373, %371
+  %380 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %381 = and i64 %380, 4198400
+  %or.cond146 = icmp eq i64 %381, 4198400
+  br i1 %or.cond146, label %382, label %384
+
+382:                                              ; preds = %379
+  %383 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 505) #14
+  br i1 %383, label %.sink.split269, label %390
+
+384:                                              ; preds = %379
+  %385 = load i8, ptr @UseCRC32CIntrinsics, align 1
+  %386 = trunc i8 %385 to i1
+  br i1 %386, label %387, label %390
+
+387:                                              ; preds = %384
+  %388 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 505) #14
+  br i1 %388, label %.sink.split269, label %389
+
+389:                                              ; preds = %387
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.85) #14
+  br label %.sink.split269
+
+.sink.split269:                                   ; preds = %387, %389, %382
+  %.sink270 = phi i8 [ 1, %382 ], [ 0, %389 ], [ 0, %387 ]
+  store i8 %.sink270, ptr @UseCRC32CIntrinsics, align 1
+  br label %390
+
+390:                                              ; preds = %.sink.split269, %384, %382
+  %391 = load i8, ptr @UseCLMUL, align 1
+  %392 = trunc i8 %391 to i1
+  %393 = load i32, ptr @UseSSE, align 4
+  %394 = icmp sgt i32 %393, 2
+  %or.cond11 = select i1 %392, i1 %394, i1 false
+  br i1 %or.cond11, label %395, label %397
+
+395:                                              ; preds = %390
+  %396 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 469) #14
+  br i1 %396, label %.sink.split271, label %403
+
+397:                                              ; preds = %390
+  %398 = load i8, ptr @UseGHASHIntrinsics, align 1
+  %399 = trunc i8 %398 to i1
+  br i1 %399, label %400, label %403
+
+400:                                              ; preds = %397
+  %401 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 469) #14
+  br i1 %401, label %.sink.split271, label %402
+
+402:                                              ; preds = %400
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.86) #14
+  br label %.sink.split271
+
+.sink.split271:                                   ; preds = %400, %402, %395
+  %.sink272 = phi i8 [ 1, %395 ], [ 0, %402 ], [ 0, %400 ]
+  store i8 %.sink272, ptr @UseGHASHIntrinsics, align 1
+  br label %403
+
+403:                                              ; preds = %.sink.split271, %397, %395
+  %404 = load i32, ptr @UseAVX, align 4
+  %405 = icmp sgt i32 %404, 0
+  br i1 %405, label %406, label %408
+
+406:                                              ; preds = %403
+  %407 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 498) #14
+  br i1 %407, label %.sink.split273, label %414
+
+408:                                              ; preds = %403
+  %409 = load i8, ptr @UseChaCha20Intrinsics, align 1
+  %410 = trunc i8 %409 to i1
+  br i1 %410, label %411, label %.thread121
+
+411:                                              ; preds = %408
+  %412 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 498) #14
+  br i1 %412, label %.sink.split273, label %413
+
+413:                                              ; preds = %411
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.87) #14
+  br label %.sink.split273
+
+.sink.split273:                                   ; preds = %411, %413, %406
+  %.sink274 = phi i8 [ 1, %406 ], [ 0, %413 ], [ 0, %411 ]
+  store i8 %.sink274, ptr @UseChaCha20Intrinsics, align 1
+  br label %414
+
+414:                                              ; preds = %.sink.split273, %406
+  %.pr = load i32, ptr @UseAVX, align 4
+  %415 = icmp sgt i32 %.pr, 1
+  br i1 %415, label %416, label %.thread121
+
+416:                                              ; preds = %414
+  %417 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 470) #14
+  br i1 %417, label %.sink.split275, label %423
+
+.thread121:                                       ; preds = %408, %414
+  %418 = load i8, ptr @UseBASE64Intrinsics, align 1
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %420, label %423
+
+420:                                              ; preds = %.thread121
+  %421 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 470) #14
+  br i1 %421, label %.sink.split275, label %422
+
+422:                                              ; preds = %420
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.88) #14
+  br label %.sink.split275
+
+.sink.split275:                                   ; preds = %420, %422, %416
+  %.sink276 = phi i8 [ 1, %416 ], [ 0, %422 ], [ 0, %420 ]
+  store i8 %.sink276, ptr @UseBASE64Intrinsics, align 1
+  br label %423
+
+423:                                              ; preds = %.sink.split275, %.thread121, %416
+  %424 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %425 = and i64 %424, 34360000512
+  %426 = icmp eq i64 %425, 34360000512
+  %427 = load i32, ptr @UseSSE, align 4
+  %428 = icmp sgt i32 %427, 1
+  %or.cond13 = select i1 %426, i1 %428, i1 false
+  br i1 %or.cond13, label %429, label %431
+
+429:                                              ; preds = %423
+  %430 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 467) #14
+  br i1 %430, label %.sink.split277, label %435
+
+431:                                              ; preds = %423
+  %432 = load i8, ptr @UseFMA, align 1
+  %433 = trunc i8 %432 to i1
+  br i1 %433, label %434, label %435
+
+434:                                              ; preds = %431
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.89) #14
+  br label %.sink.split277
+
+.sink.split277:                                   ; preds = %429, %434
+  %.sink278 = phi i8 [ 0, %434 ], [ 1, %429 ]
+  store i8 %.sink278, ptr @UseFMA, align 1
+  br label %435
+
+435:                                              ; preds = %.sink.split277, %431, %429
+  %436 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 499) #14
+  br i1 %436, label %437, label %438
+
+437:                                              ; preds = %435
+  store i8 1, ptr @UseMD5Intrinsics, align 1
+  br label %438
+
+438:                                              ; preds = %437, %435
+  %439 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %440 = and i64 %439, 17179869184
+  %.not196 = icmp ne i64 %440, 0
+  %441 = and i64 %439, 17301504
+  %or.cond148 = icmp eq i64 %441, 17301504
+  %or.cond229 = or i1 %.not196, %or.cond148
+  br i1 %or.cond229, label %442, label %444
+
+442:                                              ; preds = %438
+  %443 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 468) #14
+  br i1 %443, label %.sink.split279, label %448
+
+444:                                              ; preds = %438
+  %445 = load i8, ptr @UseSHA, align 1
+  %446 = trunc i8 %445 to i1
+  br i1 %446, label %447, label %448
+
+447:                                              ; preds = %444
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.90) #14
+  br label %.sink.split279
+
+.sink.split279:                                   ; preds = %442, %447
+  %.sink280 = phi i8 [ 0, %447 ], [ 1, %442 ]
+  store i8 %.sink280, ptr @UseSHA, align 1
+  br label %448
+
+448:                                              ; preds = %.sink.split279, %444, %442
+  %449 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %450 = and i64 %449, 17179871232
+  %or.cond150 = icmp eq i64 %450, 17179871232
+  br i1 %or.cond150, label %451, label %456
+
+451:                                              ; preds = %448
+  %452 = load i8, ptr @UseSHA, align 1
+  %453 = trunc i8 %452 to i1
+  br i1 %453, label %454, label %456
+
+454:                                              ; preds = %451
+  %455 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 500) #14
+  br i1 %455, label %.sink.split281, label %460
+
+456:                                              ; preds = %451, %448
+  %457 = load i8, ptr @UseSHA1Intrinsics, align 1
+  %458 = trunc i8 %457 to i1
+  br i1 %458, label %459, label %460
+
+459:                                              ; preds = %456
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.91) #14
+  br label %.sink.split281
+
+.sink.split281:                                   ; preds = %454, %459
+  %.sink282 = phi i8 [ 0, %459 ], [ 1, %454 ]
+  store i8 %.sink282, ptr @UseSHA1Intrinsics, align 1
+  br label %460
+
+460:                                              ; preds = %.sink.split281, %456, %454
+  %461 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %462 = and i64 %461, 2048
+  %.not197 = icmp eq i64 %462, 0
+  br i1 %.not197, label %468, label %463
+
+463:                                              ; preds = %460
+  %464 = load i8, ptr @UseSHA, align 1
+  %465 = trunc i8 %464 to i1
+  br i1 %465, label %466, label %468
+
+466:                                              ; preds = %463
+  %467 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 501) #14
+  br i1 %467, label %.sink.split283, label %472
+
+468:                                              ; preds = %463, %460
+  %469 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %470 = trunc i8 %469 to i1
+  br i1 %470, label %471, label %472
+
+471:                                              ; preds = %468
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.92) #14
+  br label %.sink.split283
+
+.sink.split283:                                   ; preds = %466, %471
+  %.sink284 = phi i8 [ 0, %471 ], [ 1, %466 ]
+  store i8 %.sink284, ptr @UseSHA256Intrinsics, align 1
+  br label %472
+
+472:                                              ; preds = %.sink.split283, %468, %466
+  %473 = load i8, ptr @UseSHA, align 1
+  %474 = trunc i8 %473 to i1
+  br i1 %474, label %475, label %480
+
+475:                                              ; preds = %472
+  %476 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %477 = and i64 %476, 17301504
+  %or.cond152 = icmp eq i64 %477, 17301504
+  br i1 %or.cond152, label %478, label %480
+
+478:                                              ; preds = %475
+  %479 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 502) #14
+  br i1 %479, label %.sink.split285, label %484
+
+480:                                              ; preds = %475, %472
+  %481 = load i8, ptr @UseSHA512Intrinsics, align 1
+  %482 = trunc i8 %481 to i1
+  br i1 %482, label %483, label %484
+
+483:                                              ; preds = %480
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.93) #14
+  br label %.sink.split285
+
+.sink.split285:                                   ; preds = %478, %483
+  %.sink286 = phi i8 [ 0, %483 ], [ 1, %478 ]
+  store i8 %.sink286, ptr @UseSHA512Intrinsics, align 1
+  br label %484
+
+484:                                              ; preds = %.sink.split285, %480, %478
+  %485 = load i8, ptr @UseSHA3Intrinsics, align 1
+  %486 = trunc i8 %485 to i1
+  br i1 %486, label %487, label %488
+
+487:                                              ; preds = %484
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.94) #14
+  store i8 0, ptr @UseSHA3Intrinsics, align 1
+  br label %488
+
+488:                                              ; preds = %487, %484
+  %489 = load i8, ptr @UseSHA1Intrinsics, align 1
+  %490 = trunc i8 %489 to i1
+  br i1 %490, label %498, label %491
+
+491:                                              ; preds = %488
+  %492 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %493 = trunc i8 %492 to i1
+  br i1 %493, label %498, label %494
+
+494:                                              ; preds = %491
+  %495 = load i8, ptr @UseSHA512Intrinsics, align 1
+  %496 = trunc i8 %495 to i1
+  br i1 %496, label %498, label %497
+
+497:                                              ; preds = %494
+  store i8 0, ptr @UseSHA, align 1
+  br label %498
+
+498:                                              ; preds = %497, %494, %491, %488
+  %499 = load i8, ptr @UseFPUForSpilling, align 1
+  %500 = trunc i8 %499 to i1
+  %501 = load i32, ptr @UseSSE, align 4
+  %502 = icmp slt i32 %501, 2
+  %or.cond36 = select i1 %500, i1 %502, i1 false
+  br i1 %or.cond36, label %.thread122, label %503
+
+.thread122:                                       ; preds = %498
+  store i8 0, ptr @UseFPUForSpilling, align 1
+  br label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+
+503:                                              ; preds = %498
+  br i1 %502, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit, label %504
+
+504:                                              ; preds = %503
+  %505 = load i32, ptr @UseAVX, align 4
+  %506 = icmp eq i32 %505, 0
+  br i1 %506, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit, label %507
+
+507:                                              ; preds = %504
+  %508 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %509 = and i64 %508, 134217728
+  %.not19.i = icmp eq i64 %509, 0
+  br i1 %.not19.i, label %513, label %.preheader23.i
+
+510:                                              ; preds = %.preheader23.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
+  br i1 %exitcond.not.i, label %.loopexit, label %.preheader23.i, !llvm.loop !6
+
+.preheader23.i:                                   ; preds = %507, %510
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %510 ], [ 0, %507 ]
+  %511 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv.i
+  %512 = load i32, ptr %511, align 4
+  %.not18.i = icmp eq i32 %512, -889275714
+  br i1 %.not18.i, label %510, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+
+513:                                              ; preds = %507
+  %514 = and i64 %508, 262144
+  %.not20.i = icmp eq i64 %514, 0
+  br i1 %.not20.i, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit, label %.preheader21.i
+
+515:                                              ; preds = %.preheader21.i
+  %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
+  %exitcond36.i = icmp eq i64 %indvars.iv.next34.i, 32
+  br i1 %exitcond36.i, label %.loopexit, label %.preheader21.i, !llvm.loop !8
+
+.preheader21.i:                                   ; preds = %513, %515
+  %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %515 ], [ 0, %513 ]
+  %516 = getelementptr inbounds [32 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33.i
+  %517 = load i32, ptr %516, align 4
+  %.not.i94 = icmp eq i32 %517, -889275714
+  br i1 %.not.i94, label %515, label %.preheader.i
+
+518:                                              ; preds = %.preheader.i
+  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
+  %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 64
+  br i1 %exitcond40.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !9
+
+.preheader.i:                                     ; preds = %.preheader21.i, %518
+  %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %518 ], [ 0, %.preheader21.i ]
+  %519 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37.i
+  %520 = load i32, ptr %519, align 4
+  %.not17.i = icmp eq i32 %520, -889275714
+  br i1 %.not17.i, label %518, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+
+.loopexit:                                        ; preds = %510, %515, %518
+  %or.cond15 = icmp ult i32 %505, 3
+  br i1 %or.cond15, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit, label %521
+
+521:                                              ; preds = %.loopexit
+  %522 = icmp sgt i32 %505, 2
+  %spec.select = select i1 %522, i32 64, i32 0
+  br label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+
+_ZN10VM_Version23os_supports_avx_vectorsEv.exit:  ; preds = %.preheader23.i, %.preheader.i, %513, %.thread122, %521, %.loopexit, %504, %503
+  %.067 = phi i32 [ 0, %503 ], [ 16, %504 ], [ 32, %.loopexit ], [ %spec.select, %521 ], [ 0, %.thread122 ], [ 16, %513 ], [ 16, %.preheader.i ], [ 16, %.preheader23.i ]
+  %523 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 164) #14
+  br i1 %523, label %541, label %524
+
+524:                                              ; preds = %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+  %525 = load i64, ptr @MaxVectorSize, align 8
+  %526 = icmp slt i64 %525, 4
+  br i1 %526, label %527, label %528
+
+527:                                              ; preds = %524
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.95, i32 noundef 4) #14
+  store i64 4, ptr @MaxVectorSize, align 8
+  br label %528
+
+528:                                              ; preds = %527, %524
+  %529 = phi i64 [ 4, %527 ], [ %525, %524 ]
+  %530 = zext nneg i32 %.067 to i64
+  %531 = icmp ugt i64 %529, %530
+  br i1 %531, label %532, label %533
+
+532:                                              ; preds = %528
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.96, i32 noundef %.067) #14
+  store i64 %530, ptr @MaxVectorSize, align 8
+  br label %533
+
+533:                                              ; preds = %532, %528
+  %534 = phi i64 [ %530, %532 ], [ %529, %528 ]
+  %535 = icmp ne i64 %534, 0
+  %536 = add nuw i64 %534, 9223372036854775807
+  %537 = and i64 %536, %534
+  %538 = icmp eq i64 %537, 0
+  %539 = select i1 %535, i1 %538, i1 false
+  br i1 %539, label %543, label %540
+
+540:                                              ; preds = %533
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.97, i32 noundef %.067) #14
+  br label %.sink.split287
+
+541:                                              ; preds = %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
+  %542 = zext nneg i32 %.067 to i64
+  br label %.sink.split287
+
+.sink.split287:                                   ; preds = %541, %540
+  %.sink288 = phi i64 [ %530, %540 ], [ %542, %541 ]
+  store i64 %.sink288, ptr @MaxVectorSize, align 8
+  br label %543
+
+543:                                              ; preds = %.sink.split287, %533
+  %544 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %545 = and i64 %544, 288230389170831360
+  %or.cond154 = icmp eq i64 %545, 288230389170831360
+  %546 = and i64 %544, 576460752303423488
+  %547 = icmp ne i64 %546, 0
+  %or.cond156 = or i1 %or.cond154, %547
+  br i1 %or.cond156, label %548, label %550
+
+548:                                              ; preds = %543
+  %549 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 471) #14
+  br i1 %549, label %.sink.split289, label %554
+
+550:                                              ; preds = %543
+  %551 = load i8, ptr @UsePoly1305Intrinsics, align 1
+  %552 = trunc i8 %551 to i1
+  br i1 %552, label %553, label %554
+
+553:                                              ; preds = %550
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.98) #14
+  br label %.sink.split289
+
+.sink.split289:                                   ; preds = %548, %553
+  %.sink290 = phi i8 [ 0, %553 ], [ 1, %548 ]
+  store i8 %.sink290, ptr @UsePoly1305Intrinsics, align 1
+  br label %554
+
+554:                                              ; preds = %.sink.split289, %550, %548
+  %555 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %556 = and i64 %555, 288230389170831360
+  %or.cond158 = icmp eq i64 %556, 288230389170831360
+  br i1 %or.cond158, label %557, label %559
+
+557:                                              ; preds = %554
+  %558 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 472) #14
+  br i1 %558, label %.sink.split291, label %563
+
+559:                                              ; preds = %554
+  %560 = load i8, ptr @UseIntPolyIntrinsics, align 1
+  %561 = trunc i8 %560 to i1
+  br i1 %561, label %562, label %563
+
+562:                                              ; preds = %559
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.99) #14
+  br label %.sink.split291
+
+.sink.split291:                                   ; preds = %557, %562
+  %.sink292 = phi i8 [ 0, %562 ], [ 1, %557 ]
+  store i8 %.sink292, ptr @UseIntPolyIntrinsics, align 1
+  br label %563
+
+563:                                              ; preds = %.sink.split291, %559, %557
+  %564 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 343) #14
+  br i1 %564, label %565, label %566
+
+565:                                              ; preds = %563
+  store i8 1, ptr @UseMultiplyToLenIntrinsic, align 1
+  br label %566
+
+566:                                              ; preds = %565, %563
+  %567 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 344) #14
+  br i1 %567, label %568, label %569
+
+568:                                              ; preds = %566
+  store i8 1, ptr @UseSquareToLenIntrinsic, align 1
+  br label %569
+
+569:                                              ; preds = %568, %566
+  %570 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 345) #14
+  br i1 %570, label %571, label %572
+
+571:                                              ; preds = %569
+  store i8 1, ptr @UseMulAddIntrinsic, align 1
+  br label %572
+
+572:                                              ; preds = %571, %569
+  %573 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 346) #14
+  br i1 %573, label %574, label %575
+
+574:                                              ; preds = %572
+  store i8 1, ptr @UseMontgomeryMultiplyIntrinsic, align 1
+  br label %575
+
+575:                                              ; preds = %574, %572
+  %576 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 347) #14
+  br i1 %576, label %577, label %578
+
+577:                                              ; preds = %575
+  store i8 1, ptr @UseMontgomerySquareIntrinsic, align 1
+  br label %578
+
+578:                                              ; preds = %577, %575
+  %579 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %579, label %632 [
+    i32 1953391939, label %580
+    i32 1750278176, label %580
+  ]
+
+580:                                              ; preds = %578, %578
+  %581 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 4) #14
+  br i1 %581, label %582, label %583
+
+582:                                              ; preds = %580
+  store i8 0, ptr @UseStoreImmI16, align 1
+  br label %583
+
+583:                                              ; preds = %582, %580
+  %584 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %585 = and i32 %584, -2
+  %switch176 = icmp eq i32 %585, 6
+  br i1 %switch176, label %586, label %589
+
+586:                                              ; preds = %583
+  %587 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 12) #14
+  br i1 %587, label %588, label %589
+
+588:                                              ; preds = %586
+  store i8 1, ptr @UseAddressNop, align 1
+  br label %589
+
+589:                                              ; preds = %583, %586, %588
+  %590 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 13) #14
+  br i1 %590, label %591, label %592
+
+591:                                              ; preds = %589
+  store i8 1, ptr @UseXmmLoadAndClearUpper, align 1
+  br label %592
+
+592:                                              ; preds = %591, %589
+  %593 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 14) #14
+  br i1 %593, label %.sink.split293, label %597
+
+.sink.split293:                                   ; preds = %592
+  %594 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %595 = lshr i64 %594, 8
+  %596 = trunc i64 %595 to i8
+  %. = and i8 %596, 1
+  store i8 %., ptr @UseXmmRegToRegMoveAll, align 1
+  br label %597
+
+597:                                              ; preds = %.sink.split293, %592
+  %598 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %599 = and i32 %598, -2
+  %switch178 = icmp eq i32 %599, 6
+  br i1 %switch178, label %600, label %626
+
+600:                                              ; preds = %597
+  %601 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %602 = and i64 %601, 256
+  %.not199 = icmp eq i64 %602, 0
+  br i1 %.not199, label %626, label %603
+
+603:                                              ; preds = %600
+  %604 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 163) #14
+  br i1 %604, label %605, label %606
+
+605:                                              ; preds = %603
+  store i64 11, ptr @MaxLoopPad, align 8
+  br label %606
+
+606:                                              ; preds = %605, %603
+  %607 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 630) #14
+  br i1 %607, label %608, label %609
+
+608:                                              ; preds = %606
+  store i8 1, ptr @UseXMMForArrayCopy, align 1
+  br label %609
+
+609:                                              ; preds = %608, %606
+  %610 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %611 = and i64 %610, 4096
+  %.not200 = icmp eq i64 %611, 0
+  br i1 %.not200, label %615, label %612
+
+612:                                              ; preds = %609
+  %613 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %613, label %614, label %615
+
+614:                                              ; preds = %612
+  store i8 1, ptr @UseUnalignedLoadStores, align 1
+  br label %615
+
+615:                                              ; preds = %612, %614, %609
+  %616 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %617 = and i64 %616, 4096
+  %.not201 = icmp eq i64 %617, 0
+  br i1 %.not201, label %620, label %618
+
+618:                                              ; preds = %615
+  %619 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 22) #14
+  br i1 %619, label %.sink.split295, label %626
+
+620:                                              ; preds = %615
+  %621 = load i8, ptr @UseSSE42Intrinsics, align 1
+  %622 = trunc i8 %621 to i1
+  br i1 %622, label %623, label %.sink.split295
+
+623:                                              ; preds = %620
+  %624 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %624, label %.sink.split295, label %625
+
+625:                                              ; preds = %623
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.100) #14
+  br label %.sink.split295
+
+.sink.split295:                                   ; preds = %620, %623, %625, %618
+  %.sink296 = phi i8 [ 1, %618 ], [ 0, %625 ], [ 0, %623 ], [ 0, %620 ]
+  store i8 %.sink296, ptr @UseSSE42Intrinsics, align 1
+  br label %626
+
+626:                                              ; preds = %.sink.split295, %597, %618, %600
+  %627 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %627, label %628, label %thread-pre-split
+
+628:                                              ; preds = %626
+  %629 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %630 = and i64 %629, 32
+  %.not202 = icmp eq i64 %630, 0
+  br i1 %.not202, label %thread-pre-split, label %631
+
+631:                                              ; preds = %628
+  store i64 3, ptr @AllocatePrefetchInstr, align 8
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %631, %628, %626
+  %.pr257 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  br label %632
+
+632:                                              ; preds = %thread-pre-split, %578
+  %633 = phi i32 [ %.pr257, %thread-pre-split ], [ %579, %578 ]
+  switch i32 %633, label %721 [
+    i32 1869052232, label %634
+    i32 1752462657, label %634
+  ]
+
+634:                                              ; preds = %632, %632
+  %635 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %636 = and i64 %635, 128
+  %.not203 = icmp eq i64 %636, 0
+  br i1 %.not203, label %640, label %637
+
+637:                                              ; preds = %634
+  %638 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 12) #14
+  br i1 %638, label %639, label %640
+
+639:                                              ; preds = %637
+  store i8 1, ptr @UseAddressNop, align 1
+  br label %640
+
+640:                                              ; preds = %639, %637, %634
+  %641 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %642 = and i64 %641, 128
+  %.not204 = icmp eq i64 %642, 0
+  br i1 %.not204, label %646, label %643
+
+643:                                              ; preds = %640
+  %644 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 11) #14
+  br i1 %644, label %645, label %646
+
+645:                                              ; preds = %643
+  store i8 1, ptr @UseNewLongLShift, align 1
+  br label %646
+
+646:                                              ; preds = %645, %643, %640
+  %647 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 13) #14
+  br i1 %647, label %.sink.split297, label %651
+
+.sink.split297:                                   ; preds = %646
+  %648 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %649 = lshr i64 %648, 10
+  %650 = trunc i64 %649 to i8
+  %.332 = and i8 %650, 1
+  store i8 %.332, ptr @UseXmmLoadAndClearUpper, align 1
+  br label %651
+
+651:                                              ; preds = %.sink.split297, %646
+  %652 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 14) #14
+  br i1 %652, label %.sink.split299, label %656
+
+.sink.split299:                                   ; preds = %651
+  %653 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %654 = lshr i64 %653, 10
+  %655 = trunc i64 %654 to i8
+  %.333 = and i8 %655, 1
+  store i8 %.333, ptr @UseXmmRegToRegMoveAll, align 1
+  br label %656
+
+656:                                              ; preds = %.sink.split299, %651
+  %657 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 16) #14
+  br i1 %657, label %.sink.split301, label %661
+
+.sink.split301:                                   ; preds = %656
+  %658 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %659 = lshr i64 %658, 10
+  %660 = trunc i64 %659 to i8
+  %.334 = and i8 %660, 1
+  store i8 %.334, ptr @UseXmmI2F, align 1
+  br label %661
+
+661:                                              ; preds = %.sink.split301, %656
+  %662 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 15) #14
+  %.pre249 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br i1 %662, label %.sink.split303, label %665
+
+.sink.split303:                                   ; preds = %661
+  %663 = lshr i64 %.pre249, 10
+  %664 = trunc i64 %663 to i8
+  %.335 = and i8 %664, 1
+  store i8 %.335, ptr @UseXmmI2D, align 1
+  br label %665
+
+665:                                              ; preds = %.sink.split303, %661
+  %666 = and i64 %.pre249, 4096
+  %.not209 = icmp eq i64 %666, 0
+  br i1 %.not209, label %669, label %667
+
+667:                                              ; preds = %665
+  %668 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 22) #14
+  br i1 %668, label %.sink.split305, label %675
+
+669:                                              ; preds = %665
+  %670 = load i8, ptr @UseSSE42Intrinsics, align 1
+  %671 = trunc i8 %670 to i1
+  br i1 %671, label %672, label %.sink.split305
+
+672:                                              ; preds = %669
+  %673 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %673, label %.sink.split305, label %674
+
+674:                                              ; preds = %672
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.100) #14
+  br label %.sink.split305
+
+.sink.split305:                                   ; preds = %669, %672, %674, %667
+  %.sink306 = phi i8 [ 1, %667 ], [ 0, %674 ], [ 0, %672 ], [ 0, %669 ]
+  store i8 %.sink306, ptr @UseSSE42Intrinsics, align 1
+  br label %675
+
+675:                                              ; preds = %.sink.split305, %667
+  %676 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %677 = icmp eq i32 %676, 21
+  br i1 %677, label %678, label %696
+
+678:                                              ; preds = %675
+  %679 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 744) #14
+  br i1 %679, label %680, label %681
+
+680:                                              ; preds = %678
+  store i32 0, ptr @AllocatePrefetchStyle, align 4
+  br label %681
+
+681:                                              ; preds = %680, %678
+  %682 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %682, label %683, label %684
+
+683:                                              ; preds = %681
+  store i64 3, ptr @AllocatePrefetchInstr, align 8
+  br label %684
+
+684:                                              ; preds = %683, %681
+  %685 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %686 = and i64 %685, 128
+  %.not210 = icmp eq i64 %686, 0
+  br i1 %.not210, label %690, label %687
+
+687:                                              ; preds = %684
+  %688 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 630) #14
+  br i1 %688, label %689, label %690
+
+689:                                              ; preds = %687
+  store i8 1, ptr @UseXMMForArrayCopy, align 1
+  br label %690
+
+690:                                              ; preds = %689, %687, %684
+  %691 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %692 = and i64 %691, 128
+  %.not211 = icmp eq i64 %692, 0
+  br i1 %.not211, label %thread-pre-split124, label %693
+
+693:                                              ; preds = %690
+  %694 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %694, label %695, label %thread-pre-split124
+
+695:                                              ; preds = %693
+  store i8 1, ptr @UseUnalignedLoadStores, align 1
+  br label %thread-pre-split124
+
+thread-pre-split124:                              ; preds = %695, %693, %690
+  %.pr125 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  br label %696
+
+696:                                              ; preds = %thread-pre-split124, %675
+  %697 = phi i32 [ %.pr125, %thread-pre-split124 ], [ %676, %675 ]
+  %698 = icmp slt i32 %697, 23
+  %699 = load i64, ptr @MaxVectorSize, align 8
+  %700 = icmp sgt i64 %699, 16
+  %or.cond17 = select i1 %698, i1 %700, i1 false
+  br i1 %or.cond17, label %.thread126, label %701
+
+.thread126:                                       ; preds = %696
+  store i64 16, ptr @MaxVectorSize, align 8
+  br label %thread-pre-split127
+
+701:                                              ; preds = %696
+  %702 = icmp sgt i32 %697, 22
+  br i1 %702, label %703, label %thread-pre-split127
+
+703:                                              ; preds = %701
+  %704 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %705 = and i64 %704, 128
+  %.not212 = icmp eq i64 %705, 0
+  br i1 %.not212, label %709, label %706
+
+706:                                              ; preds = %703
+  %707 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 630) #14
+  br i1 %707, label %708, label %709
+
+708:                                              ; preds = %706
+  store i8 1, ptr @UseXMMForArrayCopy, align 1
+  br label %709
+
+709:                                              ; preds = %708, %706, %703
+  %710 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %711 = and i64 %710, 128
+  %.not213 = icmp eq i64 %711, 0
+  br i1 %.not213, label %715, label %712
+
+712:                                              ; preds = %709
+  %713 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %713, label %714, label %715
+
+714:                                              ; preds = %712
+  store i8 1, ptr @UseUnalignedLoadStores, align 1
+  br label %715
+
+715:                                              ; preds = %714, %712, %709
+  %716 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %717 = and i64 %716, 4096
+  %.not214 = icmp eq i64 %717, 0
+  br i1 %.not214, label %thread-pre-split127, label %718
+
+718:                                              ; preds = %715
+  %719 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
+  br i1 %719, label %720, label %thread-pre-split127
+
+720:                                              ; preds = %718
+  store i8 1, ptr @UseFPUForSpilling, align 1
+  br label %thread-pre-split127
+
+thread-pre-split127:                              ; preds = %715, %718, %720, %701, %.thread126
+  %.pr128 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  br label %721
+
+721:                                              ; preds = %632, %thread-pre-split127
+  %722 = phi i32 [ %.pr128, %thread-pre-split127 ], [ %633, %632 ]
+  %723 = icmp eq i32 %722, 1970169159
+  br i1 %723, label %724, label %841
+
+724:                                              ; preds = %721
+  %725 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 4) #14
+  br i1 %725, label %726, label %727
+
+726:                                              ; preds = %724
+  store i8 0, ptr @UseStoreImmI16, align 1
+  br label %727
+
+727:                                              ; preds = %726, %724
+  %728 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  switch i32 %728, label %732 [
+    i32 6, label %729
+    i32 15, label %729
+  ]
+
+729:                                              ; preds = %727, %727
+  %730 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 12) #14
+  br i1 %730, label %731, label %732
+
+731:                                              ; preds = %729
+  store i8 1, ptr @UseAddressNop, align 1
+  br label %732
+
+732:                                              ; preds = %727, %729, %731
+  %733 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 13) #14
+  br i1 %733, label %734, label %735
+
+734:                                              ; preds = %732
+  store i8 1, ptr @UseXmmLoadAndClearUpper, align 1
+  br label %735
+
+735:                                              ; preds = %734, %732
+  %736 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 14) #14
+  br i1 %736, label %.sink.split307, label %740
+
+.sink.split307:                                   ; preds = %735
+  %737 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %738 = lshr i64 %737, 8
+  %739 = trunc i64 %738 to i8
+  %.336 = and i8 %739, 1
+  store i8 %.336, ptr @UseXmmRegToRegMoveAll, align 1
+  br label %740
+
+740:                                              ; preds = %.sink.split307, %735
+  %741 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %742 = icmp eq i32 %741, 6
+  br i1 %742, label %743, label %.thread132
+
+743:                                              ; preds = %740
+  %744 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %745 = and i64 %744, 256
+  %.not216 = icmp eq i64 %745, 0
+  br i1 %.not216, label %771, label %746
+
+746:                                              ; preds = %743
+  %747 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 163) #14
+  br i1 %747, label %748, label %749
+
+748:                                              ; preds = %746
+  store i64 11, ptr @MaxLoopPad, align 8
+  br label %749
+
+749:                                              ; preds = %748, %746
+  %750 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 630) #14
+  br i1 %750, label %751, label %752
+
+751:                                              ; preds = %749
+  store i8 1, ptr @UseXMMForArrayCopy, align 1
+  br label %752
+
+752:                                              ; preds = %751, %749
+  %753 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %754 = and i64 %753, 4104
+  %or.cond160 = icmp eq i64 %754, 4104
+  %755 = and i64 %753, 262144
+  %756 = icmp ne i64 %755, 0
+  %or.cond162 = or i1 %or.cond160, %756
+  br i1 %or.cond162, label %757, label %760
+
+757:                                              ; preds = %752
+  %758 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %758, label %759, label %760
+
+759:                                              ; preds = %757
+  store i8 1, ptr @UseUnalignedLoadStores, align 1
+  br label %760
+
+760:                                              ; preds = %752, %757, %759
+  %761 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %762 = and i64 %761, 4096
+  %.not217 = icmp eq i64 %762, 0
+  br i1 %.not217, label %765, label %763
+
+763:                                              ; preds = %760
+  %764 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 22) #14
+  br i1 %764, label %.sink.split309, label %771
+
+765:                                              ; preds = %760
+  %766 = load i8, ptr @UseSSE42Intrinsics, align 1
+  %767 = trunc i8 %766 to i1
+  br i1 %767, label %768, label %.sink.split309
+
+768:                                              ; preds = %765
+  %769 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 496) #14
+  br i1 %769, label %.sink.split309, label %770
+
+770:                                              ; preds = %768
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.100) #14
+  br label %.sink.split309
+
+.sink.split309:                                   ; preds = %765, %768, %770, %763
+  %.sink310 = phi i8 [ 1, %763 ], [ 0, %770 ], [ 0, %768 ], [ 0, %765 ]
+  store i8 %.sink310, ptr @UseSSE42Intrinsics, align 1
+  br label %771
+
+771:                                              ; preds = %.sink.split309, %763, %743
+  %.pr130 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %772 = icmp eq i32 %.pr130, 6
+  br i1 %772, label %773, label %.thread258
+
+773:                                              ; preds = %771
+  %774 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %775 = lshr i32 %774, 4
+  %776 = and i32 %775, 15
+  %777 = lshr i32 %774, 12
+  %778 = and i32 %777, 240
+  %779 = or disjoint i32 %776, %778
+  %trunc.i = trunc nuw i32 %779 to i8
+  switch i8 %trunc.i, label %780 [
+    i8 54, label %_ZN10VM_Version14is_atom_familyEv.exit
+    i8 55, label %_ZN10VM_Version14is_atom_familyEv.exit
+    i8 77, label %_ZN10VM_Version14is_atom_familyEv.exit
+  ]
+
+780:                                              ; preds = %773
+  %781 = load i8, ptr @UseKNLSetting, align 1
+  %782 = trunc i8 %781 to i1
+  br i1 %782, label %_ZN10VM_Version14is_atom_familyEv.exit, label %787
+
+.thread258:                                       ; preds = %771
+  %783 = load i8, ptr @UseKNLSetting, align 1
+  %784 = trunc i8 %783 to i1
+  br i1 %784, label %_ZN10VM_Version14is_atom_familyEv.exit, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+
+.thread132:                                       ; preds = %740
+  %785 = load i8, ptr @UseKNLSetting, align 1
+  %786 = trunc i8 %785 to i1
+  br i1 %786, label %_ZN10VM_Version14is_atom_familyEv.exit, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+
+787:                                              ; preds = %780
+  br i1 %772, label %_ZN10VM_Version17is_knights_familyEv.exit97, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+
+_ZN10VM_Version17is_knights_familyEv.exit97:      ; preds = %787
+  %788 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %789 = lshr i32 %788, 4
+  %790 = and i32 %789, 15
+  %791 = lshr i32 %788, 12
+  %792 = and i32 %791, 240
+  %793 = or disjoint i32 %790, %792
+  %trunc218 = trunc nuw i32 %793 to i8
+  switch i8 %trunc218, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138 [
+    i8 -123, label %_ZN10VM_Version14is_atom_familyEv.exit
+    i8 87, label %_ZN10VM_Version14is_atom_familyEv.exit
+  ]
+
+_ZN10VM_Version14is_atom_familyEv.exit:           ; preds = %.thread258, %_ZN10VM_Version17is_knights_familyEv.exit97, %_ZN10VM_Version17is_knights_familyEv.exit97, %.thread132, %780, %773, %773, %773
+  %794 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 229) #14
+  br i1 %794, label %795, label %796
+
+795:                                              ; preds = %_ZN10VM_Version14is_atom_familyEv.exit
+  store i8 1, ptr @OptoScheduling, align 1
+  br label %796
+
+796:                                              ; preds = %795, %_ZN10VM_Version14is_atom_familyEv.exit
+  %797 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %798 = and i64 %797, 4096
+  %.not219 = icmp eq i64 %798, 0
+  br i1 %.not219, label %802, label %799
+
+799:                                              ; preds = %796
+  %800 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 17) #14
+  br i1 %800, label %801, label %802
+
+801:                                              ; preds = %799
+  store i8 1, ptr @UseUnalignedLoadStores, align 1
+  br label %802
+
+802:                                              ; preds = %799, %801, %796
+  %803 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 10) #14
+  br i1 %803, label %804, label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+
+804:                                              ; preds = %802
+  store i8 0, ptr @UseIncDec, align 1
+  br label %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+
+_ZN10VM_Version17is_knights_familyEv.exit97.thread138: ; preds = %.thread258, %_ZN10VM_Version17is_knights_familyEv.exit97, %.thread132, %787, %802, %804
+  %805 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %805, label %806, label %810
+
+806:                                              ; preds = %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+  %807 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %808 = and i64 %807, 32
+  %.not220 = icmp eq i64 %808, 0
+  br i1 %.not220, label %810, label %809
+
+809:                                              ; preds = %806
+  store i64 3, ptr @AllocatePrefetchInstr, align 8
+  br label %810
+
+810:                                              ; preds = %809, %806, %_ZN10VM_Version17is_knights_familyEv.exit97.thread138
+  %811 = load i32, ptr @UseAVX, align 4
+  %812 = icmp sgt i32 %811, 2
+  br i1 %812, label %813, label %841
+
+813:                                              ; preds = %810
+  %814 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+  br i1 %814, label %818, label %815
+
+815:                                              ; preds = %813
+  %816 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+  %.pre250 = load i64, ptr @ArrayOperationPartialInlineSize, align 8
+  br i1 %816, label %832, label %switch.early.test
+
+switch.early.test:                                ; preds = %815
+  %817 = call i64 @llvm.fshl.i64(i64 %.pre250, i64 %.pre250, i64 60)
+  switch i64 %817, label %818 [
+    i64 4, label %832
+    i64 2, label %832
+    i64 1, label %832
+    i64 0, label %832
+  ]
+
+818:                                              ; preds = %switch.early.test, %813
+  %819 = load i64, ptr @MaxVectorSize, align 8
+  %820 = icmp sgt i64 %819, 63
+  %821 = load i32, ptr @AVX3Threshold, align 4
+  %822 = icmp eq i32 %821, 0
+  %or.cond27 = select i1 %820, i1 %822, i1 false
+  br i1 %or.cond27, label %827, label %823
+
+823:                                              ; preds = %818
+  %824 = icmp sgt i64 %819, 31
+  br i1 %824, label %827, label %825
+
+825:                                              ; preds = %823
+  %826 = icmp sgt i64 %819, 15
+  %spec.select85 = select i1 %826, i32 16, i32 0
+  br label %827
+
+827:                                              ; preds = %825, %823, %818
+  %.066 = phi i32 [ 64, %818 ], [ 32, %823 ], [ %spec.select85, %825 ]
+  %828 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
+  br i1 %828, label %830, label %829
+
+829:                                              ; preds = %827
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.101, i32 noundef %.066) #14
+  br label %830
+
+830:                                              ; preds = %829, %827
+  %831 = zext nneg i32 %.066 to i64
+  store i64 %831, ptr @ArrayOperationPartialInlineSize, align 8
+  br label %832
+
+832:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %815, %830
+  %833 = phi i64 [ %.pre250, %switch.early.test ], [ %.pre250, %switch.early.test ], [ %.pre250, %switch.early.test ], [ %.pre250, %switch.early.test ], [ %.pre250, %815 ], [ %831, %830 ]
+  %834 = load i64, ptr @MaxVectorSize, align 8
+  %835 = icmp sgt i64 %833, %834
+  br i1 %835, label %836, label %841
+
+836:                                              ; preds = %832
+  %837 = icmp slt i64 %834, 16
+  %838 = select i1 %837, i64 0, i64 %834
+  store i64 %838, ptr @ArrayOperationPartialInlineSize, align 8
+  br i1 %837, label %840, label %839
+
+839:                                              ; preds = %836
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.102, i64 noundef %834) #14
+  br label %841
+
+840:                                              ; preds = %836
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.103, i64 noundef 0) #14
+  br label %841
+
+841:                                              ; preds = %810, %839, %840, %832, %721
+  %842 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 210) #14
+  br i1 %842, label %843, label %851
+
+843:                                              ; preds = %841
+  %844 = load i64, ptr @MaxVectorSize, align 8
+  %845 = icmp slt i64 %844, 32
+  br i1 %845, label %850, label %846
+
+846:                                              ; preds = %843
+  %847 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %848 = and i64 %847, 13019119616
+  %849 = icmp eq i64 %848, 13019119616
+  br i1 %849, label %851, label %850
+
+850:                                              ; preds = %846, %843
+  store i8 0, ptr @OptimizeFill, align 1
+  br label %851
+
+851:                                              ; preds = %846, %850, %841
+  %852 = load i8, ptr @UseSSE42Intrinsics, align 1
+  %853 = trunc i8 %852 to i1
+  br i1 %853, label %854, label %856
+
+854:                                              ; preds = %851
+  %855 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
+  br i1 %855, label %.sink.split311, label %862
+
+856:                                              ; preds = %851
+  %857 = load i8, ptr @UseVectorizedMismatchIntrinsic, align 1
+  %858 = trunc i8 %857 to i1
+  br i1 %858, label %859, label %862
+
+859:                                              ; preds = %856
+  %860 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 507) #14
+  br i1 %860, label %.sink.split311, label %861
+
+861:                                              ; preds = %859
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.104) #14
+  br label %.sink.split311
+
+.sink.split311:                                   ; preds = %859, %861, %854
+  %.sink312 = phi i8 [ 1, %854 ], [ 0, %861 ], [ 0, %859 ]
+  store i8 %.sink312, ptr @UseVectorizedMismatchIntrinsic, align 1
+  br label %862
+
+862:                                              ; preds = %.sink.split311, %856, %854
+  %863 = load i32, ptr @UseAVX, align 4
+  %864 = icmp sgt i32 %863, 1
+  br i1 %864, label %.sink.split313, label %865
+
+865:                                              ; preds = %862
+  %866 = load i8, ptr @UseVectorizedHashCodeIntrinsic, align 1
+  %867 = trunc i8 %866 to i1
+  br i1 %867, label %868, label %871
+
+868:                                              ; preds = %865
+  %869 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 508) #14
+  br i1 %869, label %.sink.split313, label %870
+
+870:                                              ; preds = %868
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.105) #14
+  br label %.sink.split313
+
+.sink.split313:                                   ; preds = %868, %870, %862
+  %.sink314 = phi i8 [ 1, %862 ], [ 0, %870 ], [ 0, %868 ]
+  store i8 %.sink314, ptr @UseVectorizedHashCodeIntrinsic, align 1
+  br label %871
+
+871:                                              ; preds = %.sink.split313, %865
+  %872 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %873 = and i64 %872, 16384
+  %.not221 = icmp eq i64 %873, 0
+  br i1 %.not221, label %876, label %874
+
+874:                                              ; preds = %871
+  %875 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 20) #14
+  br i1 %875, label %.sink.split315, label %880
+
+876:                                              ; preds = %871
+  %877 = load i8, ptr @UseCountLeadingZerosInstruction, align 1
+  %878 = trunc i8 %877 to i1
+  br i1 %878, label %879, label %880
+
+879:                                              ; preds = %876
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.106) #14
+  br label %.sink.split315
+
+.sink.split315:                                   ; preds = %874, %879
+  %.sink316 = phi i8 [ 0, %879 ], [ 1, %874 ]
+  store i8 %.sink316, ptr @UseCountLeadingZerosInstruction, align 1
+  br label %880
+
+880:                                              ; preds = %.sink.split315, %876, %874
+  %881 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %882 = and i64 %881, 8388608
+  %.not222 = icmp eq i64 %882, 0
+  br i1 %.not222, label %891, label %883
+
+883:                                              ; preds = %880
+  %884 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 21) #14
+  br i1 %884, label %885, label %895
+
+885:                                              ; preds = %883
+  %886 = load i8, ptr @UseBMI1Instructions, align 1
+  %887 = trunc i8 %886 to i1
+  br i1 %887, label %890, label %888
+
+888:                                              ; preds = %885
+  %889 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
+  br i1 %889, label %890, label %.sink.split317
+
+890:                                              ; preds = %888, %885
+  br label %.sink.split317
+
+891:                                              ; preds = %880
+  %892 = load i8, ptr @UseCountTrailingZerosInstruction, align 1
+  %893 = trunc i8 %892 to i1
+  br i1 %893, label %894, label %895
+
+894:                                              ; preds = %891
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.107) #14
+  br label %.sink.split317
+
+.sink.split317:                                   ; preds = %888, %890, %894
+  %.sink318 = phi i8 [ 0, %894 ], [ 1, %890 ], [ 0, %888 ]
+  store i8 %.sink318, ptr @UseCountTrailingZerosInstruction, align 1
+  br label %895
+
+895:                                              ; preds = %.sink.split317, %891, %883
+  %896 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %897 = and i64 %896, 8650752
+  %or.cond164 = icmp eq i64 %897, 8650752
+  br i1 %or.cond164, label %898, label %900
+
+898:                                              ; preds = %895
+  %899 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 23) #14
+  br i1 %899, label %.sink.split319, label %904
+
+900:                                              ; preds = %895
+  %901 = load i8, ptr @UseBMI1Instructions, align 1
+  %902 = trunc i8 %901 to i1
+  br i1 %902, label %903, label %904
+
+903:                                              ; preds = %900
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.108) #14
+  br label %.sink.split319
+
+.sink.split319:                                   ; preds = %898, %903
+  %.sink320 = phi i8 [ 0, %903 ], [ 1, %898 ]
+  store i8 %.sink320, ptr @UseBMI1Instructions, align 1
+  br label %904
+
+904:                                              ; preds = %.sink.split319, %900, %898
+  %905 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %906 = and i64 %905, 17039360
+  %or.cond166 = icmp eq i64 %906, 17039360
+  br i1 %or.cond166, label %907, label %909
+
+907:                                              ; preds = %904
+  %908 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 24) #14
+  br i1 %908, label %.sink.split321, label %913
+
+909:                                              ; preds = %904
+  %910 = load i8, ptr @UseBMI2Instructions, align 1
+  %911 = trunc i8 %910 to i1
+  br i1 %911, label %912, label %913
+
+912:                                              ; preds = %909
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.109) #14
+  br label %.sink.split321
+
+.sink.split321:                                   ; preds = %907, %912
+  %.sink322 = phi i8 [ 0, %912 ], [ 1, %907 ]
+  store i8 %.sink322, ptr @UseBMI2Instructions, align 1
+  br label %913
+
+913:                                              ; preds = %.sink.split321, %909, %907
+  %914 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %915 = and i64 %914, 8192
+  %.not223 = icmp eq i64 %915, 0
+  br i1 %.not223, label %918, label %916
+
+916:                                              ; preds = %913
+  %917 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 673) #14
+  br i1 %917, label %.sink.split323, label %922
+
+918:                                              ; preds = %913
+  %919 = load i8, ptr @UsePopCountInstruction, align 1
+  %920 = trunc i8 %919 to i1
+  br i1 %920, label %921, label %922
+
+921:                                              ; preds = %918
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.110) #14
+  br label %.sink.split323
+
+.sink.split323:                                   ; preds = %916, %921
+  %.sink324 = phi i8 [ 0, %921 ], [ 1, %916 ]
+  store i8 %.sink324, ptr @UsePopCountInstruction, align 1
+  br label %922
+
+922:                                              ; preds = %.sink.split323, %918, %916
+  %923 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %924 = and i64 %923, 2097152
+  %.not224 = icmp eq i64 %924, 0
+  br i1 %.not224, label %927, label %925
+
+925:                                              ; preds = %922
+  %926 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %926, label %.sink.split325, label %931
+
+927:                                              ; preds = %922
+  %928 = load i8, ptr @UseFastStosb, align 1
+  %929 = trunc i8 %928 to i1
+  br i1 %929, label %930, label %931
+
+930:                                              ; preds = %927
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.111) #14
+  br label %.sink.split325
+
+.sink.split325:                                   ; preds = %925, %930
+  %.sink326 = phi i8 [ 0, %930 ], [ 1, %925 ]
+  store i8 %.sink326, ptr @UseFastStosb, align 1
+  br label %931
+
+931:                                              ; preds = %.sink.split325, %927, %925
+  %932 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %933 = icmp eq i32 %932, 1752462657
+  %934 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %935 = icmp sgt i32 %934, 24
+  %or.cond168 = select i1 %933, i1 %935, i1 false
+  br i1 %or.cond168, label %936, label %939
+
+936:                                              ; preds = %931
+  %937 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %937, label %938, label %939
+
+938:                                              ; preds = %936
+  store i8 0, ptr @UseFastStosb, align 1
+  br label %939
+
+939:                                              ; preds = %936, %938, %931
+  %940 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %941 = icmp eq i32 %940, 1970169159
+  %942 = load i64, ptr @MaxVectorSize, align 8
+  %943 = icmp sgt i64 %942, 16
+  %or.cond29 = select i1 %941, i1 %943, i1 false
+  br i1 %or.cond29, label %944, label %947
+
+944:                                              ; preds = %939
+  %945 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 19) #14
+  br i1 %945, label %946, label %947
+
+946:                                              ; preds = %944
+  store i8 0, ptr @UseFastStosb, align 1
+  br label %947
+
+947:                                              ; preds = %944, %946, %939
+  %948 = load i8, ptr @UseFastStosb, align 1
+  %949 = trunc i8 %948 to i1
+  %950 = load i32, ptr @UseSSE, align 4
+  %951 = icmp slt i32 %950, 2
+  %or.cond32.not = select i1 %949, i1 true, i1 %951
+  br i1 %or.cond32.not, label %957, label %952
+
+952:                                              ; preds = %947
+  %953 = load i8, ptr @UseUnalignedLoadStores, align 1
+  %954 = trunc i8 %953 to i1
+  br i1 %954, label %955, label %957
+
+955:                                              ; preds = %952
+  %956 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 18) #14
+  br i1 %956, label %.sink.split327, label %961
+
+957:                                              ; preds = %952, %947
+  %958 = load i8, ptr @UseXMMForObjInit, align 1
+  %959 = trunc i8 %958 to i1
+  br i1 %959, label %960, label %961
+
+960:                                              ; preds = %957
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.112) #14
+  br label %.sink.split327
+
+.sink.split327:                                   ; preds = %955, %960
+  %.sink328 = phi i8 [ 0, %960 ], [ 1, %955 ]
+  store i8 %.sink328, ptr @UseXMMForObjInit, align 1
+  br label %961
+
+961:                                              ; preds = %.sink.split327, %957, %955
+  %962 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 166) #14
+  br i1 %962, label %963, label %967
+
+963:                                              ; preds = %961
+  %964 = load i8, ptr @UseUnalignedLoadStores, align 1
+  %965 = and i8 %964, 1
+  %966 = xor i8 %965, 1
+  store i8 %966, ptr @AlignVector, align 1
+  br label %967
+
+967:                                              ; preds = %963, %961
+  %968 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 749) #14
+  br i1 %968, label %969, label %975
+
+969:                                              ; preds = %967
+  %970 = load i64, ptr @AllocatePrefetchInstr, align 8
+  %971 = icmp eq i64 %970, 3
+  %.pre251 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %972 = and i64 %.pre251, 32
+  %.not225 = icmp eq i64 %972, 0
+  %or.cond329 = select i1 %971, i1 %.not225, i1 false
+  br i1 %or.cond329, label %.sink.split330, label %973
+
+973:                                              ; preds = %969
+  %974 = and i64 %.pre251, 96
+  %or.cond170 = icmp eq i64 %974, 32
+  br i1 %or.cond170, label %.sink.split330, label %975
+
+.sink.split330:                                   ; preds = %973, %969
+  %.sink331 = phi i64 [ 0, %969 ], [ 3, %973 ]
+  store i64 %.sink331, ptr @AllocatePrefetchInstr, align 8
+  br label %975
+
+975:                                              ; preds = %.sink.split330, %973, %967
+  %976 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %976, label %_ZN10VM_Version18prefetch_data_sizeEv.exit [
+    i32 1970169159, label %977
+    i32 1869052232, label %981
+    i32 1752462657, label %981
+    i32 1953391939, label %984
+    i32 1750278176, label %984
+  ]
+
+977:                                              ; preds = %975
+  %978 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %979 = and i32 %978, 4095
+  %980 = add nuw nsw i32 %979, 1
+  br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
+
+981:                                              ; preds = %975, %975
+  %982 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %983 = and i32 %982, 255
+  br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
+
+984:                                              ; preds = %975, %975
+  %985 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %986 = and i32 %985, 4095
+  %987 = add nuw nsw i32 %986, 1
+  br label %_ZN10VM_Version18prefetch_data_sizeEv.exit
+
+_ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %975, %977, %981, %984
+  %.0.i.i = phi i32 [ %980, %977 ], [ %983, %981 ], [ %987, %984 ], [ 0, %975 ]
+  %spec.store.select.i.i = call noundef range(i32 0, 4097) i32 @llvm.umax.i32(i32 %.0.i.i, i32 32)
+  %988 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 748) #14
+  %989 = load i32, ptr @AllocatePrefetchStepSize, align 4
+  %990 = icmp sgt i32 %spec.store.select.i.i, %989
+  %or.cond = select i1 %988, i1 %990, i1 false
+  br i1 %or.cond, label %991, label %992
+
+991:                                              ; preds = %_ZN10VM_Version18prefetch_data_sizeEv.exit
+  store i32 %spec.store.select.i.i, ptr @AllocatePrefetchStepSize, align 4
+  br label %992
+
+992:                                              ; preds = %991, %_ZN10VM_Version18prefetch_data_sizeEv.exit
+  %993 = load i32, ptr @AllocatePrefetchDistance, align 4
+  %994 = icmp eq i32 %993, 0
+  %995 = load i32, ptr @AllocatePrefetchStyle, align 4
+  %996 = icmp ne i32 %995, 0
+  %or.cond34 = select i1 %994, i1 %996, i1 false
+  br i1 %or.cond34, label %997, label %1001
+
+997:                                              ; preds = %992
+  %998 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 744) #14
+  br i1 %998, label %1000, label %999
+
+999:                                              ; preds = %997
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.113) #14
+  br label %1000
+
+1000:                                             ; preds = %999, %997
+  store i32 0, ptr @AllocatePrefetchStyle, align 4
+  br label %1001
+
+1001:                                             ; preds = %1000, %992
+  %1002 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 745) #14
+  %.pre252 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  br i1 %1002, label %1003, label %1023
+
+1003:                                             ; preds = %1001
+  %1004 = load i32, ptr @AllocatePrefetchStyle, align 4
+  %1005 = icmp eq i32 %1004, 2
+  switch i32 %.pre252, label %1009 [
+    i32 1869052232, label %1006
+    i32 1752462657, label %1006
+  ]
+
+1006:                                             ; preds = %1003, %1003
+  %1007 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1008 = and i64 %1007, 128
+  %.not.i98 = icmp eq i64 %1008, 0
+  %..i = select i1 %.not.i98, i32 128, i32 256
+  br label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit
+
+1009:                                             ; preds = %1003
+  %1010 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1011 = and i64 %1010, 256
+  %1012 = icmp ne i64 %1011, 0
+  %1013 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1014 = icmp eq i32 %1013, 6
+  %or.cond.i = select i1 %1012, i1 %1014, i1 false
+  br i1 %or.cond.i, label %1015, label %1021
+
+1015:                                             ; preds = %1009
+  %1016 = and i64 %1010, 4096
+  %.not4.i = icmp eq i64 %1016, 0
+  br i1 %.not4.i, label %1020, label %1017
+
+1017:                                             ; preds = %1015
+  %1018 = and i64 %1010, 8
+  %1019 = icmp ne i64 %1018, 0
+  %brmerge.i = or i1 %1005, %1019
+  %.mux.i = select i1 %1019, i32 192, i32 384
+  br i1 %brmerge.i, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1021
+
+1020:                                             ; preds = %1015
+  br i1 %1005, label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, label %1021
+
+1021:                                             ; preds = %1020, %1017, %1009
+  %1022 = and i64 %1010, 128
+  %.not5.i = icmp eq i64 %1022, 0
+  %.2.i100 = select i1 %1014, i32 256, i32 512
+  %spec.select.i101 = select i1 %.not5.i, i32 128, i32 %.2.i100
+  br label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit
+
+_ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1006, %1017, %1020, %1021
+  %.0.i99 = phi i32 [ %..i, %1006 ], [ %.mux.i, %1017 ], [ 384, %1020 ], [ %spec.select.i101, %1021 ]
+  store i32 %.0.i99, ptr @AllocatePrefetchDistance, align 4
+  br label %1023
+
+1023:                                             ; preds = %_ZN10VM_Version26allocate_prefetch_distanceEb.exit, %1001
+  %1024 = icmp eq i32 %.pre252, 1970169159
+  %1025 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1026 = icmp eq i32 %1025, 6
+  %or.cond172 = select i1 %1024, i1 %1026, i1 false
+  br i1 %or.cond172, label %1027, label %1042
+
+1027:                                             ; preds = %1023
+  %1028 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1029 = and i64 %1028, 256
+  %.not226 = icmp eq i64 %1029, 0
+  br i1 %.not226, label %1042, label %1030
+
+1030:                                             ; preds = %1027
+  %1031 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 746) #14
+  br i1 %1031, label %1032, label %1036
+
+1032:                                             ; preds = %1030
+  %1033 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1034 = and i64 %1033, 4104
+  %or.cond174 = icmp eq i64 %1034, 4104
+  br i1 %or.cond174, label %1035, label %1036
+
+1035:                                             ; preds = %1032
+  store i32 4, ptr @AllocatePrefetchLines, align 4
+  br label %1036
+
+1036:                                             ; preds = %1035, %1032, %1030
+  %1037 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
+  br i1 %1037, label %1038, label %1042
+
+1038:                                             ; preds = %1036
+  %1039 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1040 = and i64 %1039, 4096
+  %.not227 = icmp eq i64 %1040, 0
+  br i1 %.not227, label %1042, label %1041
+
+1041:                                             ; preds = %1038
+  store i8 1, ptr @UseFPUForSpilling, align 1
+  br label %1042
+
+1042:                                             ; preds = %1036, %1038, %1041, %1027, %1023
+  %1043 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %1043, label %1053 [
+    i32 1953391939, label %1044
+    i32 1750278176, label %1044
+  ]
+
+1044:                                             ; preds = %1042, %1042
+  %1045 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %1046 = and i32 %1045, -2
+  %switch180 = icmp eq i32 %1046, 6
+  br i1 %switch180, label %1047, label %1053
+
+1047:                                             ; preds = %1044
+  %1048 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %1049 = and i64 %1048, 4096
+  %.not228 = icmp eq i64 %1049, 0
+  br i1 %.not228, label %1053, label %1050
+
+1050:                                             ; preds = %1047
+  %1051 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 218) #14
+  br i1 %1051, label %1052, label %1053
+
+1052:                                             ; preds = %1050
+  store i8 1, ptr @UseFPUForSpilling, align 1
+  br label %1053
+
+1053:                                             ; preds = %1044, %1042, %1050, %1052, %1047
+  %1054 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1171) #14
+  br i1 %1054, label %1055, label %1056
+
+1055:                                             ; preds = %1053
+  store i64 576, ptr @PrefetchCopyIntervalInBytes, align 8
+  br label %1056
+
+1056:                                             ; preds = %1055, %1053
+  %1057 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1172) #14
+  br i1 %1057, label %1058, label %1059
+
+1058:                                             ; preds = %1056
+  store i64 576, ptr @PrefetchScanIntervalInBytes, align 8
+  br label %1059
+
+1059:                                             ; preds = %1058, %1056
+  %1060 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 632) #14
+  %1061 = load i32, ptr @ContendedPaddingWidth, align 4
+  %1062 = icmp sgt i32 %spec.store.select.i.i, %1061
+  %or.cond88 = select i1 %1060, i1 %1062, i1 false
+  br i1 %or.cond88, label %1063, label %1064
+
+1063:                                             ; preds = %1059
+  store i32 %spec.store.select.i.i, ptr @ContendedPaddingWidth, align 4
+  br label %1064
+
+1064:                                             ; preds = %1063, %1059
+  %1065 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 897) #14
+  br i1 %1065, label %1066, label %1067
+
+1066:                                             ; preds = %1064
+  store i8 1, ptr @UseUnalignedAccesses, align 1
+  br label %1067
+
+1067:                                             ; preds = %1066, %1064
+  %1068 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 510) #14
+  br i1 %1068, label %1069, label %1070
+
+1069:                                             ; preds = %1067
+  store i8 1, ptr @UseSignumIntrinsic, align 1
+  br label %1070
+
+1070:                                             ; preds = %1069, %1067
+  %1071 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 509) #14
+  br i1 %1071, label %1072, label %1073
+
+1072:                                             ; preds = %1070
+  store i8 1, ptr @UseCopySignIntrinsic, align 1
+  br label %1073
+
+1073:                                             ; preds = %1072, %1070
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef i64 @_ZNK10VM_Version9CpuidInfo13feature_flagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(672) %0) local_unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = load i32, ptr %2, align 4
+  %4 = lshr i32 %3, 8
+  %.lobit = and i32 %4, 1
+  %5 = lshr i32 %3, 14
+  %6 = and i32 %5, 2
+  %.1161 = or disjoint i32 %.lobit, %6
+  %.1 = zext nneg i32 %.1161 to i64
+  %7 = and i32 %3, 524288
+  %8 = zext nneg i32 %7 to i64
+  %9 = shl nuw nsw i64 %8, 22
+  %.2 = or disjoint i64 %9, %.1
+  %10 = and i32 %3, 16777216
+  %.not68 = icmp eq i32 %10, 0
+  br i1 %.not68, label %11, label %17
+
+11:                                               ; preds = %1
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %12, label %19 [
+    i32 1869052232, label %13
+    i32 1752462657, label %13
+  ]
+
+13:                                               ; preds = %11, %11
+  %14 = getelementptr inbounds i8, ptr %0, i64 148
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, 16777216
+  %.not69 = icmp eq i32 %16, 0
+  br i1 %.not69, label %19, label %17
+
+17:                                               ; preds = %13, %1
+  %18 = or disjoint i64 %.2, 4
+  br label %19
+
+19:                                               ; preds = %11, %17, %13
+  %.3 = phi i64 [ %18, %17 ], [ %.2, %13 ], [ %.2, %11 ]
+  %20 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
+  %21 = icmp ugt i32 %20, 1
+  %22 = or i64 %.3, 8
+  %spec.select137 = select i1 %21, i64 %22, i64 %.3
+  %23 = and i32 %3, 8388608
+  %.not70 = icmp eq i32 %23, 0
+  br i1 %.not70, label %24, label %30
+
+24:                                               ; preds = %19
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %25, label %32 [
+    i32 1869052232, label %26
+    i32 1752462657, label %26
+  ]
+
+26:                                               ; preds = %24, %24
+  %27 = getelementptr inbounds i8, ptr %0, i64 148
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, 8388608
+  %.not71 = icmp eq i32 %29, 0
+  br i1 %.not71, label %32, label %30
+
+30:                                               ; preds = %26, %19
+  %31 = or i64 %spec.select137, 16
+  br label %32
+
+32:                                               ; preds = %24, %30, %26
+  %.5 = phi i64 [ %31, %30 ], [ %spec.select137, %26 ], [ %spec.select137, %24 ]
+  %33 = lshr i32 %3, 19
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = load i32, ptr %34, align 8
+  %36 = shl i32 %35, 8
+  %37 = and i32 %36, 256
+  %38 = zext nneg i32 %37 to i64
+  %39 = and i32 %35, 512
+  %40 = zext nneg i32 %39 to i64
+  %41 = lshr i32 %35, 8
+  %42 = and i32 %41, 2048
+  %43 = zext nneg i32 %42 to i64
+  %44 = and i32 %41, 4096
+  %45 = zext nneg i32 %44 to i64
+  %46 = lshr i32 %35, 10
+  %47 = and i32 %46, 8192
+  %48 = zext nneg i32 %47 to i64
+  %spec.select138164 = and i32 %33, 192
+  %spec.select138 = zext nneg i32 %spec.select138164 to i64
+  %.7 = or i64 %.5, %spec.select138
+  %.8 = or i64 %.7, %40
+  %.9 = or i64 %.8, %38
+  %.10 = or i64 %.9, %43
+  %.11 = or i64 %.10, %45
+  %.12 = or i64 %.11, %48
+  %49 = getelementptr inbounds i8, ptr %0, i64 68
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, 2097152
+  %.not79 = icmp eq i32 %51, 0
+  %52 = getelementptr inbounds i8, ptr %0, i64 264
+  %53 = load i32, ptr %52, align 8
+  %54 = and i32 %53, 524288
+  %55 = zext nneg i32 %54 to i64
+  %56 = shl nuw nsw i64 %55, 41
+  %spec.select139 = select i1 %.not79, i64 0, i64 %56
+  %.13 = or i64 %.12, %spec.select139
+  %57 = and i32 %35, 402653184
+  %or.cond.not = icmp eq i32 %57, 402653184
+  %58 = and i32 %53, 6
+  %or.cond140.not = icmp eq i32 %58, 6
+  %or.cond171 = select i1 %or.cond.not, i1 %or.cond140.not, i1 false
+  br i1 %or.cond171, label %59, label %119
+
+59:                                               ; preds = %32
+  %60 = and i32 %35, 536870912
+  %.not85 = icmp eq i32 %60, 0
+  %spec.select141.v = select i1 %.not85, i64 68719738880, i64 9007267974479872
+  %spec.select141 = or i64 %.13, %spec.select141.v
+  %61 = getelementptr inbounds i8, ptr %0, i64 52
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 32
+  %.not86 = icmp eq i32 %63, 0
+  br i1 %.not86, label %68, label %64
+
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %66 = load i32, ptr %65, align 8
+  %67 = and i32 %66, 8388608
+  %.not87 = icmp eq i32 %67, 0
+  %spec.select142.v = select i1 %.not87, i64 524288, i64 576460752303947776
+  %spec.select142 = or i64 %spec.select142.v, %spec.select141
+  br label %68
+
+68:                                               ; preds = %64, %59
+  %.15 = phi i64 [ %spec.select141, %59 ], [ %spec.select142, %64 ]
+  %69 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = load i32, ptr %69, align 8
+  %71 = and i32 %70, 256
+  %72 = zext nneg i32 %71 to i64
+  %73 = shl nuw nsw i64 %72, 43
+  %spec.select143 = or i64 %73, %.15
+  %74 = and i32 %62, 65536
+  %.not89 = icmp ne i32 %74, 0
+  %75 = and i32 %53, 224
+  %or.cond145.not = icmp eq i32 %75, 224
+  %or.cond = and i1 %or.cond145.not, %.not89
+  br i1 %or.cond, label %76, label %119
+
+76:                                               ; preds = %68
+  %77 = and i32 %62, 268435456
+  %.not93 = icmp eq i32 %77, 0
+  %spec.select146.v = select i1 %.not93, i64 134217728, i64 2281701376
+  %78 = shl i32 %62, 11
+  %79 = and i32 %78, 268435456
+  %80 = zext nneg i32 %79 to i64
+  %81 = or disjoint i64 %spec.select146.v, %80
+  %82 = and i32 %62, 2097152
+  %83 = zext nneg i32 %82 to i64
+  %84 = shl nuw nsw i64 %83, 37
+  %85 = or disjoint i64 %81, %84
+  %86 = shl i32 %62, 3
+  %87 = and i32 %86, 536870912
+  %88 = zext nneg i32 %87 to i64
+  %89 = or disjoint i64 %85, %88
+  %90 = and i32 %86, 1073741824
+  %91 = zext nneg i32 %90 to i64
+  %92 = or disjoint i64 %89, %91
+  %93 = and i32 %62, 1073741824
+  %94 = zext nneg i32 %93 to i64
+  %95 = shl nuw nsw i64 %94, 2
+  %96 = or disjoint i64 %92, %95
+  %.22 = or i64 %spec.select143, %96
+  %97 = or i64 %.22, 8589934592
+  %.not99162 = icmp slt i32 %62, 0
+  %.23 = select i1 %.not99162, i64 %97, i64 %.22
+  %98 = and i32 %70, 16384
+  %99 = zext nneg i32 %98 to i64
+  %100 = shl nuw nsw i64 %99, 23
+  %101 = and i32 %70, 1024
+  %102 = zext nneg i32 %101 to i64
+  %103 = shl nuw nsw i64 %102, 28
+  %104 = and i32 %70, 512
+  %105 = zext nneg i32 %104 to i64
+  %106 = shl nuw nsw i64 %105, 30
+  %107 = and i32 %70, 2048
+  %108 = zext nneg i32 %107 to i64
+  %109 = shl nuw nsw i64 %108, 29
+  %110 = and i32 %70, 4096
+  %111 = zext nneg i32 %110 to i64
+  %112 = shl nuw nsw i64 %111, 40
+  %113 = and i32 %70, 2
+  %114 = zext nneg i32 %113 to i64
+  %115 = shl nuw nsw i64 %114, 44
+  %116 = and i32 %70, 64
+  %117 = zext nneg i32 %116 to i64
+  %118 = shl nuw nsw i64 %117, 38
+  %.24 = or disjoint i64 %103, %100
+  %.25 = or disjoint i64 %.24, %106
+  %.26 = or disjoint i64 %.25, %109
+  %.27 = or disjoint i64 %.26, %112
+  %.28 = or disjoint i64 %118, %115
+  %.29 = or i64 %.28, %.23
+  %spec.select154 = or i64 %.29, %.27
+  br label %119
+
+119:                                              ; preds = %76, %68, %32
+  %.30 = phi i64 [ %spec.select143, %68 ], [ %.13, %32 ], [ %spec.select154, %76 ]
+  %120 = or i64 %.30, 70368744177664
+  %.not107163 = icmp slt i32 %35, 0
+  %spec.select147 = select i1 %.not107163, i64 %120, i64 %.30
+  %121 = getelementptr inbounds i8, ptr %0, i64 52
+  %122 = load i32, ptr %121, align 4
+  %123 = shl i32 %122, 20
+  %124 = and i32 %123, 8388608
+  %125 = zext nneg i32 %124 to i64
+  %126 = shl i32 %3, 11
+  %127 = and i32 %126, 32768
+  %128 = getelementptr inbounds i8, ptr %0, i64 228
+  %129 = load i32, ptr %128, align 4
+  %130 = shl i32 %129, 8
+  %131 = and i32 %130, 65536
+  %132 = zext nneg i32 %131 to i64
+  %133 = lshr i32 %35, 5
+  %134 = and i32 %133, 1048576
+  %135 = shl i32 %122, 12
+  %136 = and i32 %135, 2097152
+  %137 = zext nneg i32 %136 to i64
+  %138 = getelementptr inbounds i8, ptr %0, i64 60
+  %139 = load i32, ptr %138, align 4
+  %140 = and i32 %139, 16
+  %141 = zext nneg i32 %140 to i64
+  %142 = shl nuw nsw i64 %141, 46
+  %143 = shl i32 %35, 21
+  %144 = and i32 %143, 4194304
+  %145 = shl i32 %122, 14
+  %146 = and i32 %145, 33554432
+  %147 = zext nneg i32 %146 to i64
+  %148 = shl i32 %122, 7
+  %149 = and i32 %148, 67108864
+  %150 = zext nneg i32 %149 to i64
+  %151 = shl i32 %122, 16
+  %152 = and i32 %151, 16777216
+  %153 = zext nneg i32 %152 to i64
+  %154 = and i32 %122, 536870912
+  %155 = zext nneg i32 %154 to i64
+  %156 = shl nuw nsw i64 %155, 5
+  %157 = and i32 %35, 4096
+  %158 = zext nneg i32 %157 to i64
+  %159 = shl nuw nsw i64 %158, 23
+  %160 = and i32 %122, 8388608
+  %161 = zext nneg i32 %160 to i64
+  %162 = shl nuw nsw i64 %161, 19
+  %163 = getelementptr inbounds i8, ptr %0, i64 148
+  %164 = load i32, ptr %163, align 4
+  %165 = and i32 %164, 134217728
+  %166 = zext nneg i32 %165 to i64
+  %167 = shl nuw nsw i64 %166, 21
+  %168 = getelementptr inbounds i8, ptr %0, i64 56
+  %169 = load i32, ptr %168, align 8
+  %170 = and i32 %169, 4194304
+  %171 = zext nneg i32 %170 to i64
+  %172 = shl nuw nsw i64 %171, 27
+  %.33165 = or disjoint i32 %134, %127
+  %.32166 = or disjoint i32 %.33165, %144
+  %.32 = zext nneg i32 %.32166 to i64
+  %.34 = or disjoint i64 %159, %.32
+  %.35 = or i64 %spec.select147, %125
+  %.36 = or i64 %.35, %137
+  %.37 = or i64 %.36, %147
+  %.38 = or i64 %.37, %150
+  %.39 = or i64 %.38, %153
+  %.40 = or i64 %.39, %156
+  %.41 = or i64 %.40, %162
+  %.42 = or i64 %.41, %132
+  %.43 = or i64 %.42, %142
+  %.44 = or i64 %.43, %.34
+  %.45 = or i64 %.44, %167
+  %.46 = or i64 %.45, %172
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %173, label %200 [
+    i32 1869052232, label %.thread
+    i32 1752462657, label %.thread
+    i32 1970169159, label %.thread169
+  ]
+
+.thread:                                          ; preds = %119, %119
+  %.not123 = icmp sgt i32 %164, -1
+  %174 = getelementptr inbounds i8, ptr %0, i64 144
+  %175 = load i32, ptr %174, align 8
+  %176 = and i32 %175, 256
+  %.not124 = icmp eq i32 %176, 0
+  %or.cond172 = select i1 %.not123, i1 %.not124, i1 false
+  %177 = or i64 %.46, 32
+  %.47 = select i1 %or.cond172, i64 %.46, i64 %177
+  %178 = shl i32 %175, 9
+  %179 = and i32 %178, 16384
+  %180 = zext nneg i32 %179 to i64
+  %spec.select148 = or i64 %.47, %180
+  %181 = shl i32 %175, 4
+  %182 = and i32 %181, 1024
+  %183 = zext nneg i32 %182 to i64
+  %spec.select152 = or i64 %spec.select148, %183
+  br label %200
+
+.thread169:                                       ; preds = %119
+  %184 = getelementptr inbounds i8, ptr %0, i64 144
+  %185 = load i32, ptr %184, align 8
+  %186 = shl i32 %185, 9
+  %187 = and i32 %186, 16384
+  %188 = lshr i32 %185, 3
+  %189 = and i32 %188, 32
+  %190 = or disjoint i32 %187, %189
+  %191 = zext nneg i32 %190 to i64
+  %192 = and i32 %122, 16777216
+  %193 = zext nneg i32 %192 to i64
+  %194 = shl nuw nsw i64 %193, 19
+  %195 = or disjoint i64 %194, %191
+  %196 = and i32 %139, 16384
+  %197 = zext nneg i32 %196 to i64
+  %198 = shl nuw nsw i64 %197, 33
+  %199 = or disjoint i64 %195, %198
+  %spec.select155 = or i64 %199, %.46
+  br label %210
+
+200:                                              ; preds = %119, %.thread
+  %.53 = phi i64 [ %spec.select152, %.thread ], [ %.46, %119 ]
+  switch i32 %173, label %210 [
+    i32 1953391939, label %201
+    i32 1750278176, label %201
+  ]
+
+201:                                              ; preds = %200, %200
+  %202 = getelementptr inbounds i8, ptr %0, i64 144
+  %203 = load i32, ptr %202, align 8
+  %204 = shl i32 %203, 9
+  %205 = and i32 %204, 16384
+  %206 = lshr i32 %203, 3
+  %207 = and i32 %206, 32
+  %208 = or disjoint i32 %205, %207
+  %209 = zext nneg i32 %208 to i64
+  %spec.select153 = or i64 %.53, %209
+  br label %210
+
+210:                                              ; preds = %.thread169, %200, %201
+  %211 = phi i1 [ false, %200 ], [ false, %201 ], [ true, %.thread169 ]
+  %.55 = phi i64 [ %.53, %200 ], [ %spec.select153, %201 ], [ %spec.select155, %.thread169 ]
+  %212 = and i32 %169, 128
+  %213 = zext nneg i32 %212 to i64
+  %214 = shl nuw nsw i64 %213, 50
+  %215 = and i32 %139, 1048576
+  %216 = zext nneg i32 %215 to i64
+  %217 = shl nuw nsw i64 %216, 36
+  %reass.add167 = and i32 %169, 24
+  %reass.add = zext nneg i32 %reass.add167 to i64
+  %reass.mul = shl nuw nsw i64 %reass.add, 51
+  %.57 = or disjoint i64 %214, %217
+  %.58 = or disjoint i64 %.57, %reass.mul
+  %.59 = or i64 %.58, %.55
+  %218 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %219 = and i64 %218, 65536
+  %.not = icmp eq i64 %219, 0
+  br i1 %.not, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit, label %220
+
+220:                                              ; preds = %210
+  switch i32 %173, label %228 [
+    i32 1752462657, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+    i32 1869052232, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+  ]
+
+_ZN10VM_Version16is_amd_BarcelonaEv.exit:         ; preds = %220
+  %221 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %222 = lshr i32 %221, 8
+  %223 = and i32 %222, 15
+  %224 = lshr i32 %221, 20
+  %225 = and i32 %224, 255
+  %226 = add nuw nsw i32 %223, %225
+  %227 = icmp eq i32 %226, 17
+  br i1 %227, label %228, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+
+228:                                              ; preds = %220, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+  br i1 %211, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %228
+  %229 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %230 = lshr i32 %229, 8
+  %231 = and i32 %230, 15
+  %232 = lshr i32 %229, 20
+  %233 = and i32 %232, 255
+  %234 = add nuw nsw i32 %231, %233
+  %235 = icmp eq i32 %234, 6
+  br i1 %235, label %236, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
+
+236:                                              ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i
+  %237 = lshr i32 %229, 4
+  %238 = and i32 %237, 15
+  %239 = lshr i32 %229, 12
+  %240 = and i32 %239, 240
+  %241 = or disjoint i32 %238, %240
+  %trunc.i = trunc nuw i32 %241 to i8
+  switch i8 %trunc.i, label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit [
+    i8 58, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+    i8 45, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+    i8 44, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+    i8 26, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread
+  ]
+
+_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread:  ; preds = %220, %236, %236, %236, %236, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+  %242 = or i64 %.59, 131072
+  br label %_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit
+
+_ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %236, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %228, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread, %210
+  %.60 = phi i64 [ %242, %_ZN10VM_Version16is_amd_BarcelonaEv.exit.thread ], [ %.59, %210 ], [ %.59, %228 ], [ %.59, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ %.59, %236 ]
+  ret i64 %.60
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef range(i32 0, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %1, label %13 [
+    i32 1970169159, label %2
+    i32 1869052232, label %6
+    i32 1752462657, label %6
+    i32 1953391939, label %9
+    i32 1750278176, label %9
+  ]
+
+2:                                                ; preds = %0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %4 = and i32 %3, 4095
+  %5 = add nuw nsw i32 %4, 1
+  br label %13
+
+6:                                                ; preds = %0, %0
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 208), align 8
+  %8 = and i32 %7, 255
+  br label %13
+
+9:                                                ; preds = %0, %0
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 36), align 4
+  %11 = and i32 %10, 4095
+  %12 = add nuw nsw i32 %11, 1
+  br label %13
+
+13:                                               ; preds = %0, %6, %9, %2
+  %.0 = phi i32 [ %5, %2 ], [ %8, %6 ], [ %12, %9 ], [ 0, %0 ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0, i32 32)
+  ret i32 %spec.store.select
+}
+
+declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn
+declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+
+declare noundef zeroext i1 @_ZN2os17supports_map_syncEv() local_unnamed_addr #4
+
+declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) local_unnamed_addr #4
+
+declare void @_Z7warningPKcz(ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version21os_supports_apx_egprsEv() local_unnamed_addr #0 align 2 {
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version29compute_has_intel_jcc_erratumEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %4 = lshr i32 %3, 8
+  %5 = and i32 %4, 15
+  %6 = lshr i32 %3, 20
+  %7 = and i32 %6, 255
+  %8 = add nuw nsw i32 %5, %7
+  %9 = icmp eq i32 %8, 6
+  br i1 %9, label %10, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+10:                                               ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit
+  %11 = load i32, ptr @_ZN10VM_Version6_modelE, align 4
+  switch i32 %11, label %36 [
+    i32 142, label %12
+    i32 78, label %15
+    i32 85, label %18
+    i32 94, label %23
+    i32 158, label %26
+    i32 165, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+    i32 166, label %30
+    i32 174, label %33
+  ]
+
+12:                                               ; preds = %10
+  %13 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %14 = add i32 %13, -9
+  %spec.select = icmp ult i32 %14, 4
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+15:                                               ; preds = %10
+  %16 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %17 = icmp eq i32 %16, 3
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+18:                                               ; preds = %10
+  %19 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %20 = icmp eq i32 %19, 4
+  %21 = icmp eq i32 %19, 7
+  %22 = or i1 %20, %21
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+23:                                               ; preds = %10
+  %24 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %25 = icmp eq i32 %24, 3
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+26:                                               ; preds = %10
+  %27 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %28 = add i32 %27, -9
+  %or.cond7 = icmp ult i32 %28, 3
+  %29 = icmp eq i32 %27, 13
+  %spec.select10 = or i1 %29, %or.cond7
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+30:                                               ; preds = %10
+  %31 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %32 = icmp eq i32 %31, 0
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+33:                                               ; preds = %10
+  %34 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %35 = icmp eq i32 %34, 10
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+36:                                               ; preds = %10
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %0, %10, %_ZN10VM_Version20is_intel_family_coreEv.exit, %36, %33, %30, %26, %23, %18, %15, %12
+  %.0 = phi i1 [ false, %36 ], [ %35, %33 ], [ %32, %30 ], [ %spec.select10, %26 ], [ %25, %23 ], [ %22, %18 ], [ %17, %15 ], [ %spec.select, %12 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ], [ true, %10 ], [ false, %0 ]
+  ret i1 %.0
+}
+
+declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version13cores_per_cpuEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %1, label %34 [
+    i32 1970169159, label %2
+    i32 1869052232, label %16
+    i32 1752462657, label %16
+    i32 1953391939, label %20
+    i32 1750278176, label %20
+  ]
+
+2:                                                ; preds = %0
+  %3 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %4 = icmp ugt i32 %3, 10
+  br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit, label %.thread
+
+_ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %2
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %6 = and i32 %5, 31
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %8 = and i32 %7, 65535
+  %9 = or i32 %8, %6
+  %.not24 = icmp eq i32 %9, 0
+  br i1 %.not24, label %.thread, label %10
+
+10:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc = trunc i32 %11 to i16
+  %.rhs.trunc = trunc i32 %7 to i16
+  %12 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext i16 %12 to i32
+  %.not25 = icmp ugt i16 %.rhs.trunc, %.lhs.trunc
+  br i1 %.not25, label %.thread, label %34
+
+.thread:                                          ; preds = %2, %_ZN10VM_Version27supports_processor_topologyEv.exit, %10
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %14 = lshr i32 %13, 26
+  %15 = add nuw nsw i32 %14, 1
+  br label %34
+
+16:                                               ; preds = %0, %0
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %18 = and i32 %17, 255
+  %19 = add nuw nsw i32 %18, 1
+  br label %34
+
+20:                                               ; preds = %0, %0
+  %21 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %22 = icmp ugt i32 %21, 10
+  br i1 %22, label %_ZN10VM_Version27supports_processor_topologyEv.exit13, label %.thread17
+
+_ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %24 = and i32 %23, 31
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %26 = and i32 %25, 65535
+  %27 = or i32 %26, %24
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %.thread17, label %28
+
+28:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc20 = trunc i32 %29 to i16
+  %.rhs.trunc21 = trunc i32 %25 to i16
+  %30 = udiv i16 %.lhs.trunc20, %.rhs.trunc21
+  %.zext22 = zext i16 %30 to i32
+  %.not23 = icmp ugt i16 %.rhs.trunc21, %.lhs.trunc20
+  br i1 %.not23, label %.thread17, label %34
+
+.thread17:                                        ; preds = %20, %_ZN10VM_Version27supports_processor_topologyEv.exit13, %28
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %32 = lshr i32 %31, 26
+  %33 = add nuw nsw i32 %32, 1
+  br label %34
+
+34:                                               ; preds = %0, %16, %.thread17, %28, %.thread, %10
+  %.2 = phi i32 [ %15, %.thread ], [ %.zext, %10 ], [ %19, %16 ], [ %33, %.thread17 ], [ %.zext22, %28 ], [ 1, %0 ]
+  ret i32 %.2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef range(i32 0, 65536) i32 @_ZN10VM_Version16threads_per_coreEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  %3 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %4 = icmp ugt i32 %3, 10
+  %or.cond = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond, label %_ZN10VM_Version27supports_processor_topologyEv.exit, label %_ZN10VM_Version27supports_processor_topologyEv.exit.thread
+
+_ZN10VM_Version27supports_processor_topologyEv.exit: ; preds = %0
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %6 = and i32 %5, 31
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %8 = and i32 %7, 65535
+  %9 = or i32 %8, %6
+  %.not4 = icmp eq i32 %9, 0
+  br i1 %.not4, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread, label %59
+
+_ZN10VM_Version27supports_processor_topologyEv.exit.thread: ; preds = %0
+  switch i32 %1, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread [
+    i32 1953391939, label %10
+    i32 1750278176, label %10
+  ]
+
+10:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.thread, %_ZN10VM_Version27supports_processor_topologyEv.exit.thread
+  br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit2, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread
+
+_ZN10VM_Version27supports_processor_topologyEv.exit2: ; preds = %10
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %12 = and i32 %11, 31
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %14 = and i32 %13, 65535
+  %15 = or i32 %14, %12
+  %.not5 = icmp eq i32 %15, 0
+  br i1 %.not5, label %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread, label %59
+
+_ZN10VM_Version27supports_processor_topologyEv.exit2.thread: ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit, %_ZN10VM_Version27supports_processor_topologyEv.exit.thread, %10, %_ZN10VM_Version27supports_processor_topologyEv.exit2
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %17 = and i32 %16, 268435456
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %59, label %18
+
+18:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread
+  %19 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %20 = icmp sgt i32 %19, 22
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %18
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 252), align 4
+  %23 = lshr i32 %22, 8
+  %24 = and i32 %23, 255
+  %25 = add nuw nsw i32 %24, 1
+  br label %59
+
+26:                                               ; preds = %18
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %28 = lshr i32 %27, 16
+  switch i32 %1, label %_ZN10VM_Version13cores_per_cpuEv.exit [
+    i32 1970169159, label %29
+    i32 1869052232, label %41
+    i32 1752462657, label %41
+    i32 1953391939, label %45
+    i32 1750278176, label %45
+  ]
+
+29:                                               ; preds = %26
+  br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %29
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %31 = and i32 %30, 31
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %33 = and i32 %32, 65535
+  %34 = or i32 %33, %31
+  %.not24.i = icmp eq i32 %34, 0
+  br i1 %.not24.i, label %.thread.i, label %35
+
+35:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc.i = trunc i32 %36 to i16
+  %.rhs.trunc.i = trunc i32 %32 to i16
+  %37 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
+  %.zext.i = zext i16 %37 to i32
+  %.not25.i = icmp ugt i16 %.rhs.trunc.i, %.lhs.trunc.i
+  br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+.thread.i:                                        ; preds = %35, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %29
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %39 = lshr i32 %38, 26
+  %40 = add nuw nsw i32 %39, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+41:                                               ; preds = %26, %26
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %43 = and i32 %42, 255
+  %44 = add nuw nsw i32 %43, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+45:                                               ; preds = %26, %26
+  br i1 %4, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %45
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %47 = and i32 %46, 31
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %49 = and i32 %48, 65535
+  %50 = or i32 %49, %47
+  %.not.i = icmp eq i32 %50, 0
+  br i1 %.not.i, label %.thread17.i, label %51
+
+51:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc20.i = trunc i32 %52 to i16
+  %.rhs.trunc21.i = trunc i32 %48 to i16
+  %53 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
+  %.zext22.i = zext i16 %53 to i32
+  %.not23.i = icmp ugt i16 %.rhs.trunc21.i, %.lhs.trunc20.i
+  br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+.thread17.i:                                      ; preds = %51, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %45
+  %54 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %55 = lshr i32 %54, 26
+  %56 = add nuw nsw i32 %55, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+_ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %26, %35, %.thread.i, %41, %51, %.thread17.i
+  %.2.i = phi i32 [ %40, %.thread.i ], [ %.zext.i, %35 ], [ %44, %41 ], [ %56, %.thread17.i ], [ %.zext22.i, %51 ], [ 1, %26 ]
+  %57 = trunc nuw i32 %28 to i16
+  %.lhs.trunc = and i16 %57, 255
+  %.rhs.trunc = trunc nuw i32 %.2.i to i16
+  %58 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext nneg i16 %58 to i32
+  br label %59
+
+59:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit2, %_ZN10VM_Version27supports_processor_topologyEv.exit, %21, %_ZN10VM_Version13cores_per_cpuEv.exit, %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread
+  %.0 = phi i32 [ %25, %21 ], [ %.zext, %_ZN10VM_Version13cores_per_cpuEv.exit ], [ 1, %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread ], [ %8, %_ZN10VM_Version27supports_processor_topologyEv.exit ], [ %14, %_ZN10VM_Version27supports_processor_topologyEv.exit2 ]
+  %60 = tail call i32 @llvm.umax.i32(i32 %.0, i32 1)
+  ret i32 %60
+}
+
+declare noundef i32 @_ZN2os22cpu_microcode_revisionEv() local_unnamed_addr #4
+
+declare void @_ZN19Abstract_VM_Version21insert_features_namesEPcmPPKc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+
+declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() local_unnamed_addr #3 align 2 {
+  %1 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %2 = and i64 %1, 134217728
+  %.not19 = icmp eq i64 %2, 0
+  br i1 %.not19, label %5, label %.preheader23
+
+.preheader23:                                     ; preds = %0, %.preheader23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader23 ], [ 0, %0 ]
+  %3 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv
+  %4 = load i32, ptr %3, align 4
+  %.not18 = icmp eq i32 %4, -889275714
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, 64
+  %or.cond.not = select i1 %.not18, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.preheader23, label %.critedge, !llvm.loop !6
+
+5:                                                ; preds = %0
+  %6 = and i64 %1, 262144
+  %.not20 = icmp eq i64 %6, 0
+  br i1 %.not20, label %.critedge, label %.preheader21
+
+7:                                                ; preds = %.preheader21
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36 = icmp eq i64 %indvars.iv.next34, 32
+  br i1 %exitcond36, label %.critedge, label %.preheader21, !llvm.loop !8
+
+.preheader21:                                     ; preds = %5, %7
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %7 ], [ 0, %5 ]
+  %8 = getelementptr inbounds [32 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 0, i64 %indvars.iv33
+  %9 = load i32, ptr %8, align 4
+  %.not = icmp eq i32 %9, -889275714
+  br i1 %.not, label %7, label %.preheader
+
+.preheader:                                       ; preds = %.preheader21, %.preheader
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %.preheader21 ]
+  %10 = getelementptr inbounds [64 x i32], ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 0, i64 %indvars.iv37
+  %11 = load i32, ptr %10, align 4
+  %.not17 = icmp eq i32 %11, -889275714
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond40.not = icmp ne i64 %indvars.iv.next38, 64
+  %or.cond47.not = select i1 %.not17, i1 %exitcond40.not, i1 false
+  br i1 %or.cond47.not, label %.preheader, label %.critedge, !llvm.loop !9
+
+.critedge:                                        ; preds = %.preheader23, %7, %.preheader, %5
+  %.1 = phi i1 [ false, %5 ], [ %.not17, %.preheader ], [ true, %7 ], [ %.not18, %.preheader23 ]
+  ret i1 %.1
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef range(i32 128, 513) i32 @_ZN10VM_Version26allocate_prefetch_distanceEb(i1 noundef zeroext %0) local_unnamed_addr #3 align 2 {
+  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %2, label %6 [
+    i32 1869052232, label %3
+    i32 1752462657, label %3
+  ]
+
+3:                                                ; preds = %1, %1
+  %4 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %5 = and i64 %4, 128
+  %.not = icmp eq i64 %5, 0
+  %. = select i1 %.not, i32 128, i32 256
+  br label %20
+
+6:                                                ; preds = %1
+  %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %8 = and i64 %7, 256
+  %9 = icmp ne i64 %8, 0
+  %10 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %11 = icmp eq i32 %10, 6
+  %or.cond = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %18
+
+12:                                               ; preds = %6
+  %13 = and i64 %7, 4096
+  %.not4 = icmp eq i64 %13, 0
+  br i1 %.not4, label %17, label %14
+
+14:                                               ; preds = %12
+  %15 = and i64 %7, 8
+  %16 = icmp ne i64 %15, 0
+  %brmerge = or i1 %16, %0
+  %.mux = select i1 %16, i32 192, i32 384
+  br i1 %brmerge, label %20, label %18
+
+17:                                               ; preds = %12
+  br i1 %0, label %20, label %18
+
+18:                                               ; preds = %14, %17, %6
+  %19 = and i64 %7, 128
+  %.not5 = icmp eq i64 %19, 0
+  %.2 = select i1 %11, i32 256, i32 512
+  %spec.select = select i1 %.not5, i32 128, i32 %.2
+  br label %20
+
+20:                                               ; preds = %18, %14, %17, %3
+  %.0 = phi i32 [ %., %3 ], [ %.mux, %14 ], [ 384, %17 ], [ %spec.select, %18 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version34print_platform_virtualization_infoEP12outputStream(ptr noundef %0) local_unnamed_addr #1 align 2 {
+  %2 = load i32, ptr @_ZN19Abstract_VM_Version24_detected_virtualizationE, align 4
+  switch i32 %2, label %8 [
+    i32 1, label %3
+    i32 3, label %4
+    i32 4, label %5
+    i32 5, label %6
+    i32 6, label %7
+  ]
+
+3:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.114) #14
+  br label %8
+
+4:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.115) #14
+  br label %8
+
+5:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.116) #14
+  tail call void @_ZN21VirtualizationSupport25print_virtualization_infoEP12outputStream(ptr noundef nonnull %0) #14
+  br label %8
+
+6:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.117) #14
+  br label %8
+
+7:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.118) #14
+  br label %8
+
+8:                                                ; preds = %1, %4, %6, %7, %5, %3
+  ret void
+}
+
+declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #4
+
+declare void @_ZN21VirtualizationSupport25print_virtualization_infoEP12outputStream(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version21check_virtualizationsEv() local_unnamed_addr #1 align 2 {
+  %1 = alloca [4 x i32], align 16
+  %2 = alloca [13 x i8], align 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  br label %4
+
+4:                                                ; preds = %0, %17
+  %.06 = phi i32 [ 1073741824, %0 ], [ %18, %17 ]
+  %5 = load ptr, ptr @_ZL16detect_virt_stub, align 8
+  call void %5(i32 noundef %.06, ptr noundef nonnull %1) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.119, ptr noundef nonnull dereferenceable(12) %2, i64 12)
+  %6 = icmp eq i32 %bcmp, 0
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %4
+  store i32 4, ptr @_ZN19Abstract_VM_Version24_detected_virtualizationE, align 4
+  call void @_ZN21VirtualizationSupport10initializeEv() #14
+  br label %17
+
+8:                                                ; preds = %4
+  %bcmp3 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.120, ptr noundef nonnull dereferenceable(12) %2, i64 12)
+  %9 = icmp eq i32 %bcmp3, 0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %8
+  store i32 5, ptr @_ZN19Abstract_VM_Version24_detected_virtualizationE, align 4
+  br label %17
+
+11:                                               ; preds = %8
+  %bcmp4 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.121, ptr noundef nonnull dereferenceable(9) %2, i64 9)
+  %12 = icmp eq i32 %bcmp4, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %11
+  store i32 3, ptr @_ZN19Abstract_VM_Version24_detected_virtualizationE, align 4
+  br label %17
+
+14:                                               ; preds = %11
+  %bcmp5 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @.str.122, ptr noundef nonnull dereferenceable(12) %2, i64 12)
+  %15 = icmp eq i32 %bcmp5, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %14
+  store i32 1, ptr @_ZN19Abstract_VM_Version24_detected_virtualizationE, align 4
+  br label %17
+
+17:                                               ; preds = %7, %13, %16, %14, %10
+  %18 = add nuw nsw i32 %.06, 256
+  %19 = icmp ult i32 %.06, 1073807104
+  br i1 %19, label %4, label %20, !llvm.loop !10
+
+20:                                               ; preds = %17
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+
+declare void @_ZN21VirtualizationSupport10initializeEv() local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version29is_default_intel_cascade_lakeEv() local_unnamed_addr #1 align 2 {
+  %1 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  br i1 %1, label %2, label %27
+
+2:                                                ; preds = %0
+  %3 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 164) #14
+  %4 = load i32, ptr @UseAVX, align 4
+  %5 = icmp sgt i32 %4, 2
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %27
+
+6:                                                ; preds = %2
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %8 = icmp eq i32 %7, 1970169159
+  br i1 %8, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21is_intel_cascade_lakeEv.exit
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %6
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %10 = lshr i32 %9, 8
+  %11 = and i32 %10, 15
+  %12 = lshr i32 %9, 20
+  %13 = and i32 %12, 255
+  %14 = add nuw nsw i32 %11, %13
+  %15 = icmp eq i32 %14, 6
+  br i1 %15, label %16, label %_ZN10VM_Version21is_intel_cascade_lakeEv.exit
+
+16:                                               ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i
+  %17 = lshr i32 %9, 4
+  %18 = and i32 %17, 15
+  %19 = lshr i32 %9, 12
+  %20 = and i32 %19, 240
+  %21 = or disjoint i32 %18, %20
+  %22 = icmp eq i32 %21, 85
+  br label %_ZN10VM_Version21is_intel_cascade_lakeEv.exit
+
+_ZN10VM_Version21is_intel_cascade_lakeEv.exit:    ; preds = %6, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, %16
+  %23 = phi i1 [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i ], [ %22, %16 ], [ false, %6 ]
+  %24 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %25 = icmp sgt i32 %24, 4
+  %26 = select i1 %23, i1 %25, i1 false
+  br label %27
+
+27:                                               ; preds = %_ZN10VM_Version21is_intel_cascade_lakeEv.exit, %2, %0
+  %28 = phi i1 [ false, %2 ], [ false, %0 ], [ %26, %_ZN10VM_Version21is_intel_cascade_lakeEv.exit ]
+  ret i1 %28
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version21is_intel_cascade_lakeEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i, label %_ZN10VM_Version16is_intel_skylakeEv.exit
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.i:   ; preds = %0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %4 = lshr i32 %3, 8
+  %5 = and i32 %4, 15
+  %6 = lshr i32 %3, 20
+  %7 = and i32 %6, 255
+  %8 = add nuw nsw i32 %5, %7
+  %9 = icmp eq i32 %8, 6
+  br i1 %9, label %10, label %_ZN10VM_Version16is_intel_skylakeEv.exit
+
+10:                                               ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit.i
+  %11 = lshr i32 %3, 4
+  %12 = and i32 %11, 15
+  %13 = lshr i32 %3, 12
+  %14 = and i32 %13, 240
+  %15 = or disjoint i32 %12, %14
+  %16 = icmp eq i32 %15, 85
+  br label %_ZN10VM_Version16is_intel_skylakeEv.exit
+
+_ZN10VM_Version16is_intel_skylakeEv.exit:         ; preds = %0, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %10
+  %17 = phi i1 [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ %16, %10 ], [ false, %0 ]
+  %18 = load i32, ptr @_ZN10VM_Version9_steppingE, align 4
+  %19 = icmp sgt i32 %18, 4
+  %20 = select i1 %17, i1 %19, i1 false
+  ret i1 %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN10VM_Version14avx3_thresholdEv() local_unnamed_addr #1 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %4 = lshr i32 %3, 8
+  %5 = and i32 %4, 15
+  %6 = lshr i32 %3, 20
+  %7 = and i32 %6, 255
+  %8 = add nuw nsw i32 %5, %7
+  %9 = icmp eq i32 %8, 6
+  br i1 %9, label %10, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+10:                                               ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit
+  %11 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %12 = and i64 %11, 140737488355328
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread, label %13
+
+13:                                               ; preds = %10
+  %14 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 27) #14
+  br i1 %14, label %16, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %0, %13, %10, %_ZN10VM_Version20is_intel_family_coreEv.exit
+  %15 = load i32, ptr @AVX3Threshold, align 4
+  br label %16
+
+16:                                               ; preds = %13, %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+  %17 = phi i32 [ %15, %_ZN10VM_Version20is_intel_family_coreEv.exit.thread ], [ 0, %13 ]
+  ret i32 %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version20clear_apx_test_stateEv() local_unnamed_addr #1 align 2 {
+  %1 = load ptr, ptr @_ZL25clear_apx_test_state_stub, align 8
+  tail call void %1() #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version10initializeEv() local_unnamed_addr #1 align 2 {
+  %1 = alloca %class.CodeBuffer, align 8
+  %2 = alloca %class.VM_Version_StubGenerator, align 8
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.123, i32 noundef 2000) #14
+  store ptr %15, ptr @_ZL9stub_blob, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %0
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.124, ptr noundef null) #14
+  %.pre = load ptr, ptr @_ZL9stub_blob, align 8
+  br label %18
+
+18:                                               ; preds = %17, %0
+  %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
+  call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
+  %20 = call noundef ptr @_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %20, ptr @_ZL17get_cpu_info_stub, align 8
+  %21 = call noundef ptr @_ZN24VM_Version_StubGenerator20generate_detect_virtEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %21, ptr @_ZL16detect_virt_stub, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i8, ptr @UseAPX, align 1
+  %29 = and i8 %28, 1
+  %30 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %31 = or i64 %30, 1152921504606846976
+  store i64 %31, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i8 1, ptr @UseAPX, align 1
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 16, i64 noundef 0) #14
+  %32 = load ptr, ptr %22, align 8
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 31, i64 noundef 0) #14
+  store i8 %29, ptr @UseAPX, align 1
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %33 = load ptr, ptr %22, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 0) #14
+  store ptr %27, ptr @_ZL25clear_apx_test_state_stub, align 8
+  call void @_ZN10VM_Version22get_processor_featuresEv()
+  call void @_ZN9Assembler23precompute_instructionsEv() #14
+  %34 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %35 = and i64 %34, 70368744177664
+  %.not = icmp eq i64 %35, 0
+  br i1 %.not, label %37, label %36
+
+36:                                               ; preds = %18
+  call void @_ZN10VM_Version21check_virtualizationsEv()
+  br label %37
+
+37:                                               ; preds = %36, %18
+  call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
+  call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #14
+  %38 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i, label %40, label %39
+
+39:                                               ; preds = %37
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #14
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #14
+  br label %40
+
+40:                                               ; preds = %39, %37
+  %41 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %41, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %42
+
+42:                                               ; preds = %40
+  store ptr %8, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
+  store ptr %12, ptr %11, align 8
+  br label %_ZN12ResourceMarkD2Ev.exit
+
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %42
+  ret void
+}
+
+declare noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = alloca %class.Address, align 8
+  %3 = alloca %class.Address, align 8
+  %4 = alloca %class.Address, align 8
+  %5 = alloca %class.Address, align 8
+  %6 = alloca %class.Address, align 8
+  %7 = alloca %class.Address, align 8
+  %8 = alloca %class.Address, align 8
+  %9 = alloca %class.Address, align 8
+  %10 = alloca %class.Address, align 8
+  %11 = alloca %class.Address, align 8
+  %12 = alloca %class.Address, align 8
+  %13 = alloca %class.Address, align 8
+  %14 = alloca %class.Address, align 8
+  %15 = alloca %class.Address, align 8
+  %16 = alloca %class.Address, align 8
+  %17 = alloca %class.Address, align 8
+  %18 = alloca %class.Address, align 8
+  %19 = alloca %class.Address, align 8
+  %20 = alloca %class.Address, align 8
+  %21 = alloca %class.Address, align 8
+  %22 = alloca %class.Address, align 8
+  %23 = alloca %class.Address, align 8
+  %24 = alloca %class.Address, align 8
+  %25 = alloca %class.Address, align 8
+  %26 = alloca %class.Address, align 8
+  %27 = alloca %class.Address, align 8
+  %28 = alloca %class.Address, align 8
+  %29 = alloca %class.Label, align 8
+  %30 = alloca %class.Label, align 8
+  %31 = alloca %class.Label, align 8
+  %32 = alloca %class.Label, align 8
+  %33 = alloca %class.Label, align 8
+  %34 = alloca %class.Label, align 8
+  %35 = alloca %class.Label, align 8
+  %36 = alloca %class.Label, align 8
+  %37 = alloca %class.Label, align 8
+  %38 = alloca %class.Label, align 8
+  %39 = alloca %class.Label, align 8
+  %40 = alloca %class.Label, align 8
+  %41 = alloca %class.Label, align 8
+  %42 = alloca %class.Label, align 8
+  %43 = alloca %class.Label, align 8
+  %44 = alloca %class.Label, align 8
+  %45 = alloca %class.Label, align 8
+  %46 = alloca %class.Label, align 8
+  %47 = alloca %class.Label, align 8
+  %48 = alloca %class.StubCodeMark, align 8
+  %49 = alloca %class.Address, align 16
+  %50 = alloca %class.Address, align 16
+  %51 = alloca %class.Address, align 16
+  %52 = alloca %class.Address, align 16
+  %53 = alloca %class.Address, align 16
+  %54 = alloca %class.Address, align 16
+  %55 = alloca %class.Address, align 16
+  %56 = alloca %class.Address, align 16
+  %57 = alloca %class.Address, align 16
+  %58 = alloca %class.Address, align 16
+  %59 = alloca %class.Address, align 16
+  %60 = alloca %class.Address, align 16
+  %61 = alloca %class.Address, align 16
+  %62 = alloca %class.Address, align 16
+  %63 = alloca %class.Address, align 16
+  %64 = alloca %class.Address, align 16
+  %65 = alloca %class.Address, align 16
+  %66 = alloca %class.Address, align 16
+  %67 = alloca %class.Address, align 16
+  %68 = alloca %class.Address, align 16
+  %69 = alloca %class.Address, align 16
+  %70 = alloca %class.Address, align 16
+  %71 = alloca %class.Address, align 16
+  %72 = alloca %class.Address, align 16
+  %73 = alloca %class.Address, align 16
+  %74 = alloca %class.Address, align 16
+  %75 = alloca %class.Address, align 16
+  %76 = alloca %class.Address, align 16
+  %77 = alloca %class.Address, align 16
+  %78 = alloca %class.Address, align 16
+  %79 = alloca %class.Address, align 16
+  %80 = alloca %class.Address, align 16
+  %81 = alloca %class.Address, align 16
+  %82 = alloca %class.Address, align 16
+  %83 = alloca %class.Address, align 16
+  %84 = alloca %class.Address, align 16
+  %85 = alloca %class.Address, align 16
+  %86 = alloca %class.Address, align 16
+  %87 = alloca %class.Address, align 16
+  %88 = alloca %class.Address, align 16
+  %89 = alloca %class.Address, align 16
+  %90 = alloca %class.Address, align 16
+  %91 = alloca %class.Address, align 16
+  %92 = alloca %class.Address, align 16
+  %93 = alloca %class.Address, align 16
+  %94 = alloca %class.Address, align 16
+  %95 = alloca %class.Address, align 16
+  %96 = alloca %class.Address, align 16
+  %97 = alloca %class.Address, align 16
+  %98 = alloca %class.Address, align 16
+  %99 = alloca %class.Address, align 16
+  %100 = alloca %class.Address, align 16
+  %101 = alloca %class.Address, align 16
+  %102 = alloca %class.Address, align 16
+  %103 = alloca %class.Address, align 16
+  %104 = alloca %class.Address, align 16
+  %105 = alloca %class.Address, align 16
+  %106 = alloca %class.Address, align 16
+  %107 = alloca %class.Address, align 16
+  %108 = alloca %class.Address, align 16
+  %109 = alloca %class.Address, align 16
+  %110 = alloca %class.Address, align 16
+  %111 = alloca %class.Address, align 16
+  %112 = alloca %class.Address, align 16
+  %113 = alloca %class.Address, align 16
+  %114 = alloca %class.Address, align 16
+  %115 = alloca %class.Address, align 16
+  %116 = alloca %class.Address, align 16
+  %117 = alloca %class.Address, align 16
+  %118 = alloca %class.Address, align 16
+  %119 = alloca %class.Address, align 16
+  %120 = alloca %class.Address, align 16
+  %121 = alloca %class.Address, align 16
+  %122 = alloca %class.Address, align 16
+  %123 = alloca %class.Address, align 16
+  %124 = alloca %class.Address, align 16
+  %125 = alloca %class.Address, align 16
+  %126 = alloca %class.Address, align 16
+  %127 = alloca %class.Address, align 16
+  %128 = alloca %class.Address, align 16
+  %129 = alloca %class.Address, align 16
+  %130 = alloca %class.Address, align 16
+  %131 = alloca %class.Address, align 16
+  %132 = alloca %class.Address, align 16
+  %133 = alloca %class.Address, align 16
+  %134 = alloca %class.Address, align 16
+  %135 = alloca %class.Address, align 16
+  %136 = alloca %class.Address, align 16
+  %137 = alloca %class.Address, align 16
+  %138 = alloca %class.Address, align 16
+  %139 = alloca %class.Address, align 16
+  %140 = alloca %class.Address, align 16
+  %141 = alloca %class.Address, align 16
+  %142 = alloca %class.Address, align 16
+  %143 = alloca %class.Address, align 16
+  %144 = alloca %class.Address, align 16
+  %145 = alloca %class.Address, align 16
+  %146 = alloca %class.Address, align 16
+  %147 = alloca %class.Address, align 16
+  %148 = alloca %class.Address, align 16
+  %149 = alloca %class.Address, align 16
+  %150 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  %151 = load i32, ptr @UseAVX, align 4
+  %152 = icmp sgt i32 %151, 2
+  %153 = select i1 %150, i1 true, i1 %152
+  store i32 -1, ptr %29, align 8
+  %154 = getelementptr inbounds i8, ptr %29, i64 20
+  store i32 0, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %29, i64 24
+  store ptr null, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %29, i64 32
+  store i8 0, ptr %156, align 8
+  store i32 -1, ptr %30, align 8
+  %157 = getelementptr inbounds i8, ptr %30, i64 20
+  store i32 0, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr null, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %30, i64 32
+  store i8 0, ptr %159, align 8
+  store i32 -1, ptr %31, align 8
+  %160 = getelementptr inbounds i8, ptr %31, i64 20
+  store i32 0, ptr %160, align 4
+  %161 = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr null, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %31, i64 32
+  store i8 0, ptr %162, align 8
+  store i32 -1, ptr %32, align 8
+  %163 = getelementptr inbounds i8, ptr %32, i64 20
+  store i32 0, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %32, i64 24
+  store ptr null, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %32, i64 32
+  store i8 0, ptr %165, align 8
+  store i32 -1, ptr %33, align 8
+  %166 = getelementptr inbounds i8, ptr %33, i64 20
+  store i32 0, ptr %166, align 4
+  %167 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr null, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %33, i64 32
+  store i8 0, ptr %168, align 8
+  store i32 -1, ptr %34, align 8
+  %169 = getelementptr inbounds i8, ptr %34, i64 20
+  store i32 0, ptr %169, align 4
+  %170 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr null, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %34, i64 32
+  store i8 0, ptr %171, align 8
+  store i32 -1, ptr %35, align 8
+  %172 = getelementptr inbounds i8, ptr %35, i64 20
+  store i32 0, ptr %172, align 4
+  %173 = getelementptr inbounds i8, ptr %35, i64 24
+  store ptr null, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %35, i64 32
+  store i8 0, ptr %174, align 8
+  store i32 -1, ptr %36, align 8
+  %175 = getelementptr inbounds i8, ptr %36, i64 20
+  store i32 0, ptr %175, align 4
+  %176 = getelementptr inbounds i8, ptr %36, i64 24
+  store ptr null, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %36, i64 32
+  store i8 0, ptr %177, align 8
+  store i32 -1, ptr %37, align 8
+  %178 = getelementptr inbounds i8, ptr %37, i64 20
+  store i32 0, ptr %178, align 4
+  %179 = getelementptr inbounds i8, ptr %37, i64 24
+  store ptr null, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %37, i64 32
+  store i8 0, ptr %180, align 8
+  store i32 -1, ptr %38, align 8
+  %181 = getelementptr inbounds i8, ptr %38, i64 20
+  store i32 0, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr null, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %38, i64 32
+  store i8 0, ptr %183, align 8
+  store i32 -1, ptr %39, align 8
+  %184 = getelementptr inbounds i8, ptr %39, i64 20
+  store i32 0, ptr %184, align 4
+  %185 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr null, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %39, i64 32
+  store i8 0, ptr %186, align 8
+  store i32 -1, ptr %40, align 8
+  %187 = getelementptr inbounds i8, ptr %40, i64 20
+  store i32 0, ptr %187, align 4
+  %188 = getelementptr inbounds i8, ptr %40, i64 24
+  store ptr null, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %40, i64 32
+  store i8 0, ptr %189, align 8
+  store i32 -1, ptr %41, align 8
+  %190 = getelementptr inbounds i8, ptr %41, i64 20
+  store i32 0, ptr %190, align 4
+  %191 = getelementptr inbounds i8, ptr %41, i64 24
+  store ptr null, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %41, i64 32
+  store i8 0, ptr %192, align 8
+  store i32 -1, ptr %42, align 8
+  %193 = getelementptr inbounds i8, ptr %42, i64 20
+  store i32 0, ptr %193, align 4
+  %194 = getelementptr inbounds i8, ptr %42, i64 24
+  store ptr null, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %42, i64 32
+  store i8 0, ptr %195, align 8
+  store i32 -1, ptr %43, align 8
+  %196 = getelementptr inbounds i8, ptr %43, i64 20
+  store i32 0, ptr %196, align 4
+  %197 = getelementptr inbounds i8, ptr %43, i64 24
+  store ptr null, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %43, i64 32
+  store i8 0, ptr %198, align 8
+  store i32 -1, ptr %44, align 8
+  %199 = getelementptr inbounds i8, ptr %44, i64 20
+  store i32 0, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %44, i64 24
+  store ptr null, ptr %200, align 8
+  %201 = getelementptr inbounds i8, ptr %44, i64 32
+  store i8 0, ptr %201, align 8
+  store i32 -1, ptr %45, align 8
+  %202 = getelementptr inbounds i8, ptr %45, i64 20
+  store i32 0, ptr %202, align 4
+  %203 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr null, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %45, i64 32
+  store i8 0, ptr %204, align 8
+  store i32 -1, ptr %46, align 8
+  %205 = getelementptr inbounds i8, ptr %46, i64 20
+  store i32 0, ptr %205, align 4
+  %206 = getelementptr inbounds i8, ptr %46, i64 24
+  store ptr null, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %46, i64 32
+  store i8 0, ptr %207, align 8
+  store i32 -1, ptr %47, align 8
+  %208 = getelementptr inbounds i8, ptr %47, i64 20
+  store i32 0, ptr %208, align 4
+  %209 = getelementptr inbounds i8, ptr %47, i64 24
+  store ptr null, ptr %209, align 8
+  %210 = getelementptr inbounds i8, ptr %47, i64 32
+  store i8 0, ptr %210, align 8
+  call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %0, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155) #14
+  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 16
+  %216 = load ptr, ptr %215, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %212, i32 5) #14
+  %217 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %217, i32 5, i32 7) #14
+  %218 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %218, i32 3) #14
+  %219 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %219, i32 6) #14
+  %220 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %220) #14
+  %221 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %221, i32 0) #14
+  %222 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %222, i32 0) #14
+  %223 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %223, i32 1, i32 0) #14
+  %224 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %224, i32 0, i32 noundef 262144) #14
+  %225 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %225, i32 0) #14
+  %226 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %226) #14
+  %227 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %227) #14
+  %228 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %228, i32 0) #14
+  %229 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %229, i32 0, i32 1) #14
+  %230 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %230, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %29, ptr noundef nonnull @.str.65, i32 noundef 178) #14
+  %231 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %231, i32 0, i32 noundef 768) #14
+  %232 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %49, align 16
+  %233 = getelementptr inbounds i8, ptr %49, i64 16
+  store i32 16, ptr %233, align 16
+  %234 = getelementptr inbounds i8, ptr %49, i64 20
+  store i8 0, ptr %234, align 4
+  %235 = getelementptr inbounds i8, ptr %49, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %235, align 8
+  %236 = getelementptr inbounds i8, ptr %49, i64 32
+  store ptr null, ptr %236, align 16
+  %237 = getelementptr inbounds i8, ptr %49, i64 40
+  store i32 0, ptr %237, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %232, ptr noundef nonnull %49, i32 0) #14
+  %238 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %238, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #14
+  %239 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %239, ptr noundef nonnull align 8 dereferenceable(33) %29) #14
+  %240 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %240, i32 0, i32 1) #14
+  %241 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %241, i32 0, i32 noundef 2097152) #14
+  %242 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %242, i32 0) #14
+  %243 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %243) #14
+  %244 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %244) #14
+  %245 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %245, i32 0) #14
+  %246 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %246, i32 1, i32 0) #14
+  %247 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %247, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %31, ptr noundef nonnull @.str.65, i32 noundef 196) #14
+  %248 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef nonnull align 8 dereferenceable(33) %30) #14
+  %249 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %249, i32 0, i32 noundef 1024) #14
+  %250 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %50, align 16
+  %251 = getelementptr inbounds i8, ptr %50, i64 16
+  store i32 16, ptr %251, align 16
+  %252 = getelementptr inbounds i8, ptr %50, i64 20
+  store i8 0, ptr %252, align 4
+  %253 = getelementptr inbounds i8, ptr %50, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr null, ptr %254, align 16
+  %255 = getelementptr inbounds i8, ptr %50, i64 40
+  store i32 0, ptr %255, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %250, ptr noundef nonnull %50, i32 0) #14
+  %256 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %256, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #14
+  %257 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(33) %31) #14
+  %258 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %258, i32 0, i32 0) #14
+  %259 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %259) #14
+  %260 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %260, i32 0, i32 0) #14
+  %261 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %261, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %30, i1 noundef zeroext true) #14
+  %262 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %51, align 16
+  %263 = getelementptr inbounds i8, ptr %51, i64 16
+  store i32 0, ptr %263, align 16
+  %264 = getelementptr inbounds i8, ptr %51, i64 20
+  store i8 0, ptr %264, align 4
+  %265 = getelementptr inbounds i8, ptr %51, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %265, align 8
+  %266 = getelementptr inbounds i8, ptr %51, i64 32
+  store ptr null, ptr %266, align 16
+  %267 = getelementptr inbounds i8, ptr %51, i64 40
+  store i32 0, ptr %267, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %28, ptr noundef nonnull align 16 dereferenceable(21) %51, i64 21, i1 false)
+  %268 = getelementptr inbounds i8, ptr %28, i64 24
+  %269 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %265, ptr noundef nonnull align 8 dereferenceable(40) %268) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %262, i32 6, ptr noundef nonnull %28) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
+  %270 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %52, align 16
+  %271 = getelementptr inbounds i8, ptr %52, i64 16
+  store i32 0, ptr %271, align 16
+  %272 = getelementptr inbounds i8, ptr %52, i64 20
+  store i8 0, ptr %272, align 4
+  %273 = getelementptr inbounds i8, ptr %52, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %273, align 8
+  %274 = getelementptr inbounds i8, ptr %52, i64 32
+  store ptr null, ptr %274, align 16
+  %275 = getelementptr inbounds i8, ptr %52, i64 40
+  store i32 0, ptr %275, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %270, ptr noundef nonnull %52, i32 0) #14
+  %276 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %53, align 16
+  %277 = getelementptr inbounds i8, ptr %53, i64 16
+  store i32 4, ptr %277, align 16
+  %278 = getelementptr inbounds i8, ptr %53, i64 20
+  store i8 0, ptr %278, align 4
+  %279 = getelementptr inbounds i8, ptr %53, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %279, align 8
+  %280 = getelementptr inbounds i8, ptr %53, i64 32
+  store ptr null, ptr %280, align 16
+  %281 = getelementptr inbounds i8, ptr %53, i64 40
+  store i32 0, ptr %281, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %276, ptr noundef nonnull %53, i32 3) #14
+  %282 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %54, align 16
+  %283 = getelementptr inbounds i8, ptr %54, i64 16
+  store i32 8, ptr %283, align 16
+  %284 = getelementptr inbounds i8, ptr %54, i64 20
+  store i8 0, ptr %284, align 4
+  %285 = getelementptr inbounds i8, ptr %54, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %285, align 8
+  %286 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %286, align 16
+  %287 = getelementptr inbounds i8, ptr %54, i64 40
+  store i32 0, ptr %287, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull %54, i32 1) #14
+  %288 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %55, align 16
+  %289 = getelementptr inbounds i8, ptr %55, i64 16
+  store i32 12, ptr %289, align 16
+  %290 = getelementptr inbounds i8, ptr %55, i64 20
+  store i8 0, ptr %290, align 4
+  %291 = getelementptr inbounds i8, ptr %55, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %291, align 8
+  %292 = getelementptr inbounds i8, ptr %55, i64 32
+  store ptr null, ptr %292, align 16
+  %293 = getelementptr inbounds i8, ptr %55, i64 40
+  store i32 0, ptr %293, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %288, ptr noundef nonnull %55, i32 2) #14
+  %294 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %294, i32 0, i32 noundef 10) #14
+  %295 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %295, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %33, ptr noundef nonnull @.str.65, i32 noundef 220) #14
+  %296 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %296, i32 0, i32 noundef 11) #14
+  %297 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %297, i32 1, i32 1) #14
+  %298 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %298) #14
+  %299 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %56, align 16
+  %300 = getelementptr inbounds i8, ptr %56, i64 16
+  store i32 72, ptr %300, align 16
+  %301 = getelementptr inbounds i8, ptr %56, i64 20
+  store i8 0, ptr %301, align 4
+  %302 = getelementptr inbounds i8, ptr %56, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %302, align 8
+  %303 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr null, ptr %303, align 16
+  %304 = getelementptr inbounds i8, ptr %56, i64 40
+  store i32 0, ptr %304, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef nonnull align 16 dereferenceable(21) %56, i64 21, i1 false)
+  %305 = getelementptr inbounds i8, ptr %27, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %302, ptr noundef nonnull align 8 dereferenceable(40) %305) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %299, i32 6, ptr noundef nonnull %27) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
+  %306 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %57, align 16
+  %307 = getelementptr inbounds i8, ptr %57, i64 16
+  store i32 0, ptr %307, align 16
+  %308 = getelementptr inbounds i8, ptr %57, i64 20
+  store i8 0, ptr %308, align 4
+  %309 = getelementptr inbounds i8, ptr %57, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %309, align 8
+  %310 = getelementptr inbounds i8, ptr %57, i64 32
+  store ptr null, ptr %310, align 16
+  %311 = getelementptr inbounds i8, ptr %57, i64 40
+  store i32 0, ptr %311, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %306, ptr noundef nonnull %57, i32 0) #14
+  %312 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %58, align 16
+  %313 = getelementptr inbounds i8, ptr %58, i64 16
+  store i32 4, ptr %313, align 16
+  %314 = getelementptr inbounds i8, ptr %58, i64 20
+  store i8 0, ptr %314, align 4
+  %315 = getelementptr inbounds i8, ptr %58, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %315, align 8
+  %316 = getelementptr inbounds i8, ptr %58, i64 32
+  store ptr null, ptr %316, align 16
+  %317 = getelementptr inbounds i8, ptr %58, i64 40
+  store i32 0, ptr %317, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %312, ptr noundef nonnull %58, i32 3) #14
+  %318 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %59, align 16
+  %319 = getelementptr inbounds i8, ptr %59, i64 16
+  store i32 8, ptr %319, align 16
+  %320 = getelementptr inbounds i8, ptr %59, i64 20
+  store i8 0, ptr %320, align 4
+  %321 = getelementptr inbounds i8, ptr %59, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %321, align 8
+  %322 = getelementptr inbounds i8, ptr %59, i64 32
+  store ptr null, ptr %322, align 16
+  %323 = getelementptr inbounds i8, ptr %59, i64 40
+  store i32 0, ptr %323, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %318, ptr noundef nonnull %59, i32 1) #14
+  %324 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %60, align 16
+  %325 = getelementptr inbounds i8, ptr %60, i64 16
+  store i32 12, ptr %325, align 16
+  %326 = getelementptr inbounds i8, ptr %60, i64 20
+  store i8 0, ptr %326, align 4
+  %327 = getelementptr inbounds i8, ptr %60, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %327, align 8
+  %328 = getelementptr inbounds i8, ptr %60, i64 32
+  store ptr null, ptr %328, align 16
+  %329 = getelementptr inbounds i8, ptr %60, i64 40
+  store i32 0, ptr %329, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %324, ptr noundef nonnull %60, i32 2) #14
+  %330 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %330, i32 0, i32 noundef 11) #14
+  %331 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %331, i32 1, i32 noundef 1) #14
+  %332 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %332) #14
+  %333 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %333, i32 0) #14
+  %334 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %334, i32 0, i32 noundef 31) #14
+  %335 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %335, i32 0, i32 3) #14
+  %336 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %336, i32 0, i32 noundef 65535) #14
+  %337 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %337, i32 0) #14
+  %338 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %338, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %33, ptr noundef nonnull @.str.65, i32 noundef 243) #14
+  %339 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %61, align 16
+  %340 = getelementptr inbounds i8, ptr %61, i64 16
+  store i32 88, ptr %340, align 16
+  %341 = getelementptr inbounds i8, ptr %61, i64 20
+  store i8 0, ptr %341, align 4
+  %342 = getelementptr inbounds i8, ptr %61, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %342, align 8
+  %343 = getelementptr inbounds i8, ptr %61, i64 32
+  store ptr null, ptr %343, align 16
+  %344 = getelementptr inbounds i8, ptr %61, i64 40
+  store i32 0, ptr %344, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %26, ptr noundef nonnull align 16 dereferenceable(21) %61, i64 21, i1 false)
+  %345 = getelementptr inbounds i8, ptr %26, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %342, ptr noundef nonnull align 8 dereferenceable(40) %345) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %339, i32 6, ptr noundef nonnull %26) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
+  %346 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %62, align 16
+  %347 = getelementptr inbounds i8, ptr %62, i64 16
+  store i32 0, ptr %347, align 16
+  %348 = getelementptr inbounds i8, ptr %62, i64 20
+  store i8 0, ptr %348, align 4
+  %349 = getelementptr inbounds i8, ptr %62, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %349, align 8
+  %350 = getelementptr inbounds i8, ptr %62, i64 32
+  store ptr null, ptr %350, align 16
+  %351 = getelementptr inbounds i8, ptr %62, i64 40
+  store i32 0, ptr %351, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %346, ptr noundef nonnull %62, i32 0) #14
+  %352 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %63, align 16
+  %353 = getelementptr inbounds i8, ptr %63, i64 16
+  store i32 4, ptr %353, align 16
+  %354 = getelementptr inbounds i8, ptr %63, i64 20
+  store i8 0, ptr %354, align 4
+  %355 = getelementptr inbounds i8, ptr %63, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
+  %356 = getelementptr inbounds i8, ptr %63, i64 32
+  store ptr null, ptr %356, align 16
+  %357 = getelementptr inbounds i8, ptr %63, i64 40
+  store i32 0, ptr %357, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %352, ptr noundef nonnull %63, i32 3) #14
+  %358 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %64, align 16
+  %359 = getelementptr inbounds i8, ptr %64, i64 16
+  store i32 8, ptr %359, align 16
+  %360 = getelementptr inbounds i8, ptr %64, i64 20
+  store i8 0, ptr %360, align 4
+  %361 = getelementptr inbounds i8, ptr %64, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %361, align 8
+  %362 = getelementptr inbounds i8, ptr %64, i64 32
+  store ptr null, ptr %362, align 16
+  %363 = getelementptr inbounds i8, ptr %64, i64 40
+  store i32 0, ptr %363, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %358, ptr noundef nonnull %64, i32 1) #14
+  %364 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %65, align 16
+  %365 = getelementptr inbounds i8, ptr %65, i64 16
+  store i32 12, ptr %365, align 16
+  %366 = getelementptr inbounds i8, ptr %65, i64 20
+  store i8 0, ptr %366, align 4
+  %367 = getelementptr inbounds i8, ptr %65, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %367, align 8
+  %368 = getelementptr inbounds i8, ptr %65, i64 32
+  store ptr null, ptr %368, align 16
+  %369 = getelementptr inbounds i8, ptr %65, i64 40
+  store i32 0, ptr %369, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %364, ptr noundef nonnull %65, i32 2) #14
+  %370 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %370, i32 0, i32 noundef 11) #14
+  %371 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %371, i32 1, i32 noundef 2) #14
+  %372 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %372) #14
+  %373 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %373, i32 0) #14
+  %374 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %374, i32 0, i32 noundef 31) #14
+  %375 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %375, i32 0, i32 3) #14
+  %376 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %376, i32 0, i32 noundef 65535) #14
+  %377 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %377, i32 0) #14
+  %378 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %378, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %33, ptr noundef nonnull @.str.65, i32 noundef 259) #14
+  %379 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %66, align 16
+  %380 = getelementptr inbounds i8, ptr %66, i64 16
+  store i32 104, ptr %380, align 16
+  %381 = getelementptr inbounds i8, ptr %66, i64 20
+  store i8 0, ptr %381, align 4
+  %382 = getelementptr inbounds i8, ptr %66, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %382, align 8
+  %383 = getelementptr inbounds i8, ptr %66, i64 32
+  store ptr null, ptr %383, align 16
+  %384 = getelementptr inbounds i8, ptr %66, i64 40
+  store i32 0, ptr %384, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %25, ptr noundef nonnull align 16 dereferenceable(21) %66, i64 21, i1 false)
+  %385 = getelementptr inbounds i8, ptr %25, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %382, ptr noundef nonnull align 8 dereferenceable(40) %385) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %379, i32 6, ptr noundef nonnull %25) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
+  %386 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %67, align 16
+  %387 = getelementptr inbounds i8, ptr %67, i64 16
+  store i32 0, ptr %387, align 16
+  %388 = getelementptr inbounds i8, ptr %67, i64 20
+  store i8 0, ptr %388, align 4
+  %389 = getelementptr inbounds i8, ptr %67, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %389, align 8
+  %390 = getelementptr inbounds i8, ptr %67, i64 32
+  store ptr null, ptr %390, align 16
+  %391 = getelementptr inbounds i8, ptr %67, i64 40
+  store i32 0, ptr %391, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %386, ptr noundef nonnull %67, i32 0) #14
+  %392 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %68, align 16
+  %393 = getelementptr inbounds i8, ptr %68, i64 16
+  store i32 4, ptr %393, align 16
+  %394 = getelementptr inbounds i8, ptr %68, i64 20
+  store i8 0, ptr %394, align 4
+  %395 = getelementptr inbounds i8, ptr %68, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %68, i64 32
+  store ptr null, ptr %396, align 16
+  %397 = getelementptr inbounds i8, ptr %68, i64 40
+  store i32 0, ptr %397, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %392, ptr noundef nonnull %68, i32 3) #14
+  %398 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %69, align 16
+  %399 = getelementptr inbounds i8, ptr %69, i64 16
+  store i32 8, ptr %399, align 16
+  %400 = getelementptr inbounds i8, ptr %69, i64 20
+  store i8 0, ptr %400, align 4
+  %401 = getelementptr inbounds i8, ptr %69, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %401, align 8
+  %402 = getelementptr inbounds i8, ptr %69, i64 32
+  store ptr null, ptr %402, align 16
+  %403 = getelementptr inbounds i8, ptr %69, i64 40
+  store i32 0, ptr %403, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %398, ptr noundef nonnull %69, i32 1) #14
+  %404 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %70, align 16
+  %405 = getelementptr inbounds i8, ptr %70, i64 16
+  store i32 12, ptr %405, align 16
+  %406 = getelementptr inbounds i8, ptr %70, i64 20
+  store i8 0, ptr %406, align 4
+  %407 = getelementptr inbounds i8, ptr %70, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %407, align 8
+  %408 = getelementptr inbounds i8, ptr %70, i64 32
+  store ptr null, ptr %408, align 16
+  %409 = getelementptr inbounds i8, ptr %70, i64 40
+  store i32 0, ptr %409, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %404, ptr noundef nonnull %70, i32 2) #14
+  %410 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %410, ptr noundef nonnull align 8 dereferenceable(33) %33) #14
+  %411 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %411, i32 0, i32 noundef 4) #14
+  %412 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %71, align 16
+  %413 = getelementptr inbounds i8, ptr %71, i64 16
+  store i32 0, ptr %413, align 16
+  %414 = getelementptr inbounds i8, ptr %71, i64 20
+  store i8 0, ptr %414, align 4
+  %415 = getelementptr inbounds i8, ptr %71, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %415, align 8
+  %416 = getelementptr inbounds i8, ptr %71, i64 32
+  store ptr null, ptr %416, align 16
+  %417 = getelementptr inbounds i8, ptr %71, i64 40
+  store i32 0, ptr %417, align 8
+  call void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %412, i32 0, ptr noundef nonnull %71) #14
+  %418 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %418, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(33) %32, ptr noundef nonnull @.str.65, i32 noundef 273) #14
+  %419 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %419, i32 1, i32 1) #14
+  %420 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %420) #14
+  %421 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %421, i32 0) #14
+  %422 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %422, i32 0, i32 noundef 31) #14
+  %423 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %423, i32 0, i32 0) #14
+  %424 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %424, i32 0) #14
+  %425 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %425, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %32, ptr noundef nonnull @.str.65, i32 noundef 281) #14
+  %426 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %72, align 16
+  %427 = getelementptr inbounds i8, ptr %72, i64 16
+  store i32 32, ptr %427, align 16
+  %428 = getelementptr inbounds i8, ptr %72, i64 20
+  store i8 0, ptr %428, align 4
+  %429 = getelementptr inbounds i8, ptr %72, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %429, align 8
+  %430 = getelementptr inbounds i8, ptr %72, i64 32
+  store ptr null, ptr %430, align 16
+  %431 = getelementptr inbounds i8, ptr %72, i64 40
+  store i32 0, ptr %431, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %24, ptr noundef nonnull align 16 dereferenceable(21) %72, i64 21, i1 false)
+  %432 = getelementptr inbounds i8, ptr %24, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %429, ptr noundef nonnull align 8 dereferenceable(40) %432) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %426, i32 6, ptr noundef nonnull %24) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
+  %433 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %73, align 16
+  %434 = getelementptr inbounds i8, ptr %73, i64 16
+  store i32 0, ptr %434, align 16
+  %435 = getelementptr inbounds i8, ptr %73, i64 20
+  store i8 0, ptr %435, align 4
+  %436 = getelementptr inbounds i8, ptr %73, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %436, align 8
+  %437 = getelementptr inbounds i8, ptr %73, i64 32
+  store ptr null, ptr %437, align 16
+  %438 = getelementptr inbounds i8, ptr %73, i64 40
+  store i32 0, ptr %438, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %433, ptr noundef nonnull %73, i32 0) #14
+  %439 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %74, align 16
+  %440 = getelementptr inbounds i8, ptr %74, i64 16
+  store i32 4, ptr %440, align 16
+  %441 = getelementptr inbounds i8, ptr %74, i64 20
+  store i8 0, ptr %441, align 4
+  %442 = getelementptr inbounds i8, ptr %74, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
+  %443 = getelementptr inbounds i8, ptr %74, i64 32
+  store ptr null, ptr %443, align 16
+  %444 = getelementptr inbounds i8, ptr %74, i64 40
+  store i32 0, ptr %444, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %439, ptr noundef nonnull %74, i32 3) #14
+  %445 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %75, align 16
+  %446 = getelementptr inbounds i8, ptr %75, i64 16
+  store i32 8, ptr %446, align 16
+  %447 = getelementptr inbounds i8, ptr %75, i64 20
+  store i8 0, ptr %447, align 4
+  %448 = getelementptr inbounds i8, ptr %75, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %448, align 8
+  %449 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %449, align 16
+  %450 = getelementptr inbounds i8, ptr %75, i64 40
+  store i32 0, ptr %450, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %445, ptr noundef nonnull %75, i32 1) #14
+  %451 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %76, align 16
+  %452 = getelementptr inbounds i8, ptr %76, i64 16
+  store i32 12, ptr %452, align 16
+  %453 = getelementptr inbounds i8, ptr %76, i64 20
+  store i8 0, ptr %453, align 4
+  %454 = getelementptr inbounds i8, ptr %76, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %454, align 8
+  %455 = getelementptr inbounds i8, ptr %76, i64 32
+  store ptr null, ptr %455, align 16
+  %456 = getelementptr inbounds i8, ptr %76, i64 40
+  store i32 0, ptr %456, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %451, ptr noundef nonnull %76, i32 2) #14
+  %457 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %457, ptr noundef nonnull align 8 dereferenceable(33) %32) #14
+  %458 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %458, i32 0, i32 noundef 1) #14
+  %459 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %459) #14
+  %460 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %77, align 16
+  %461 = getelementptr inbounds i8, ptr %77, i64 16
+  store i32 16, ptr %461, align 16
+  %462 = getelementptr inbounds i8, ptr %77, i64 20
+  store i8 0, ptr %462, align 4
+  %463 = getelementptr inbounds i8, ptr %77, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %463, align 8
+  %464 = getelementptr inbounds i8, ptr %77, i64 32
+  store ptr null, ptr %464, align 16
+  %465 = getelementptr inbounds i8, ptr %77, i64 40
+  store i32 0, ptr %465, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %23, ptr noundef nonnull align 16 dereferenceable(21) %77, i64 21, i1 false)
+  %466 = getelementptr inbounds i8, ptr %23, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %463, ptr noundef nonnull align 8 dereferenceable(40) %466) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %460, i32 6, ptr noundef nonnull %23) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
+  %467 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %78, align 16
+  %468 = getelementptr inbounds i8, ptr %78, i64 16
+  store i32 0, ptr %468, align 16
+  %469 = getelementptr inbounds i8, ptr %78, i64 20
+  store i8 0, ptr %469, align 4
+  %470 = getelementptr inbounds i8, ptr %78, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %470, align 8
+  %471 = getelementptr inbounds i8, ptr %78, i64 32
+  store ptr null, ptr %471, align 16
+  %472 = getelementptr inbounds i8, ptr %78, i64 40
+  store i32 0, ptr %472, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %467, ptr noundef nonnull %78, i32 0) #14
+  %473 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %79, align 16
+  %474 = getelementptr inbounds i8, ptr %79, i64 16
+  store i32 4, ptr %474, align 16
+  %475 = getelementptr inbounds i8, ptr %79, i64 20
+  store i8 0, ptr %475, align 4
+  %476 = getelementptr inbounds i8, ptr %79, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %476, align 8
+  %477 = getelementptr inbounds i8, ptr %79, i64 32
+  store ptr null, ptr %477, align 16
+  %478 = getelementptr inbounds i8, ptr %79, i64 40
+  store i32 0, ptr %478, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %473, ptr noundef nonnull %79, i32 3) #14
+  %479 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %80, align 16
+  %480 = getelementptr inbounds i8, ptr %80, i64 16
+  store i32 8, ptr %480, align 16
+  %481 = getelementptr inbounds i8, ptr %80, i64 20
+  store i8 0, ptr %481, align 4
+  %482 = getelementptr inbounds i8, ptr %80, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %482, align 8
+  %483 = getelementptr inbounds i8, ptr %80, i64 32
+  store ptr null, ptr %483, align 16
+  %484 = getelementptr inbounds i8, ptr %80, i64 40
+  store i32 0, ptr %484, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %479, ptr noundef nonnull %80, i32 1) #14
+  %485 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %81, align 16
+  %486 = getelementptr inbounds i8, ptr %81, i64 16
+  store i32 12, ptr %486, align 16
+  %487 = getelementptr inbounds i8, ptr %81, i64 20
+  store i8 0, ptr %487, align 4
+  %488 = getelementptr inbounds i8, ptr %81, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %488, align 8
+  %489 = getelementptr inbounds i8, ptr %81, i64 32
+  store ptr null, ptr %489, align 16
+  %490 = getelementptr inbounds i8, ptr %81, i64 40
+  store i32 0, ptr %490, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %485, ptr noundef nonnull %81, i32 2) #14
+  %491 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %491, i32 1, i32 noundef 402653184) #14
+  %492 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %492, i32 1, i32 noundef 402653184) #14
+  %493 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %493, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %34, ptr noundef nonnull @.str.65, i32 noundef 307) #14
+  %494 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %494, i32 1, i32 1) #14
+  %495 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6xgetbvEv(ptr noundef nonnull align 8 dereferenceable(40) %495) #14
+  %496 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %82, align 16
+  %497 = getelementptr inbounds i8, ptr %82, i64 16
+  store i32 264, ptr %497, align 16
+  %498 = getelementptr inbounds i8, ptr %82, i64 20
+  store i8 0, ptr %498, align 4
+  %499 = getelementptr inbounds i8, ptr %82, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %499, align 8
+  %500 = getelementptr inbounds i8, ptr %82, i64 32
+  store ptr null, ptr %500, align 16
+  %501 = getelementptr inbounds i8, ptr %82, i64 40
+  store i32 0, ptr %501, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %22, ptr noundef nonnull align 16 dereferenceable(21) %82, i64 21, i1 false)
+  %502 = getelementptr inbounds i8, ptr %22, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %499, ptr noundef nonnull align 8 dereferenceable(40) %502) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %496, i32 6, ptr noundef nonnull %22) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
+  %503 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %83, align 16
+  %504 = getelementptr inbounds i8, ptr %83, i64 16
+  store i32 0, ptr %504, align 16
+  %505 = getelementptr inbounds i8, ptr %83, i64 20
+  store i8 0, ptr %505, align 4
+  %506 = getelementptr inbounds i8, ptr %83, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %506, align 8
+  %507 = getelementptr inbounds i8, ptr %83, i64 32
+  store ptr null, ptr %507, align 16
+  %508 = getelementptr inbounds i8, ptr %83, i64 40
+  store i32 0, ptr %508, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %503, ptr noundef nonnull %83, i32 0) #14
+  %509 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %84, align 16
+  %510 = getelementptr inbounds i8, ptr %84, i64 16
+  store i32 4, ptr %510, align 16
+  %511 = getelementptr inbounds i8, ptr %84, i64 20
+  store i8 0, ptr %511, align 4
+  %512 = getelementptr inbounds i8, ptr %84, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %512, align 8
+  %513 = getelementptr inbounds i8, ptr %84, i64 32
+  store ptr null, ptr %513, align 16
+  %514 = getelementptr inbounds i8, ptr %84, i64 40
+  store i32 0, ptr %514, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %509, ptr noundef nonnull %84, i32 2) #14
+  %515 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %515, ptr noundef nonnull align 8 dereferenceable(33) %34) #14
+  %516 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %516, i32 0, i32 noundef 7) #14
+  %517 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %85, align 16
+  %518 = getelementptr inbounds i8, ptr %85, i64 16
+  store i32 0, ptr %518, align 16
+  %519 = getelementptr inbounds i8, ptr %85, i64 20
+  store i8 0, ptr %519, align 4
+  %520 = getelementptr inbounds i8, ptr %85, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %520, align 8
+  %521 = getelementptr inbounds i8, ptr %85, i64 32
+  store ptr null, ptr %521, align 16
+  %522 = getelementptr inbounds i8, ptr %85, i64 40
+  store i32 0, ptr %522, align 8
+  call void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %517, i32 0, ptr noundef nonnull %85) #14
+  %523 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %523, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(33) %36, ptr noundef nonnull @.str.65, i32 noundef 324) #14
+  %524 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %524, i32 1, i32 1) #14
+  %525 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %525) #14
+  %526 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %86, align 16
+  %527 = getelementptr inbounds i8, ptr %86, i64 16
+  store i32 48, ptr %527, align 16
+  %528 = getelementptr inbounds i8, ptr %86, i64 20
+  store i8 0, ptr %528, align 4
+  %529 = getelementptr inbounds i8, ptr %86, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %529, align 8
+  %530 = getelementptr inbounds i8, ptr %86, i64 32
+  store ptr null, ptr %530, align 16
+  %531 = getelementptr inbounds i8, ptr %86, i64 40
+  store i32 0, ptr %531, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %21, ptr noundef nonnull align 16 dereferenceable(21) %86, i64 21, i1 false)
+  %532 = getelementptr inbounds i8, ptr %21, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %529, ptr noundef nonnull align 8 dereferenceable(40) %532) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %526, i32 6, ptr noundef nonnull %21) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
+  %533 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %87, align 16
+  %534 = getelementptr inbounds i8, ptr %87, i64 16
+  store i32 0, ptr %534, align 16
+  %535 = getelementptr inbounds i8, ptr %87, i64 20
+  store i8 0, ptr %535, align 4
+  %536 = getelementptr inbounds i8, ptr %87, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %536, align 8
+  %537 = getelementptr inbounds i8, ptr %87, i64 32
+  store ptr null, ptr %537, align 16
+  %538 = getelementptr inbounds i8, ptr %87, i64 40
+  store i32 0, ptr %538, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %533, ptr noundef nonnull %87, i32 0) #14
+  %539 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %88, align 16
+  %540 = getelementptr inbounds i8, ptr %88, i64 16
+  store i32 4, ptr %540, align 16
+  %541 = getelementptr inbounds i8, ptr %88, i64 20
+  store i8 0, ptr %541, align 4
+  %542 = getelementptr inbounds i8, ptr %88, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %542, align 8
+  %543 = getelementptr inbounds i8, ptr %88, i64 32
+  store ptr null, ptr %543, align 16
+  %544 = getelementptr inbounds i8, ptr %88, i64 40
+  store i32 0, ptr %544, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %539, ptr noundef nonnull %88, i32 3) #14
+  %545 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %89, align 16
+  %546 = getelementptr inbounds i8, ptr %89, i64 16
+  store i32 8, ptr %546, align 16
+  %547 = getelementptr inbounds i8, ptr %89, i64 20
+  store i8 0, ptr %547, align 4
+  %548 = getelementptr inbounds i8, ptr %89, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %548, align 8
+  %549 = getelementptr inbounds i8, ptr %89, i64 32
+  store ptr null, ptr %549, align 16
+  %550 = getelementptr inbounds i8, ptr %89, i64 40
+  store i32 0, ptr %550, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %545, ptr noundef nonnull %89, i32 1) #14
+  %551 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %90, align 16
+  %552 = getelementptr inbounds i8, ptr %90, i64 16
+  store i32 12, ptr %552, align 16
+  %553 = getelementptr inbounds i8, ptr %90, i64 20
+  store i8 0, ptr %553, align 4
+  %554 = getelementptr inbounds i8, ptr %90, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %554, align 8
+  %555 = getelementptr inbounds i8, ptr %90, i64 32
+  store ptr null, ptr %555, align 16
+  %556 = getelementptr inbounds i8, ptr %90, i64 40
+  store i32 0, ptr %556, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %551, ptr noundef nonnull %90, i32 2) #14
+  %557 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %557, ptr noundef nonnull align 8 dereferenceable(33) %35) #14
+  %558 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %558, i32 0, i32 noundef 7) #14
+  %559 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %559, i32 1, i32 noundef 1) #14
+  %560 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %560) #14
+  %561 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %91, align 16
+  %562 = getelementptr inbounds i8, ptr %91, i64 16
+  store i32 64, ptr %562, align 16
+  %563 = getelementptr inbounds i8, ptr %91, i64 20
+  store i8 0, ptr %563, align 4
+  %564 = getelementptr inbounds i8, ptr %91, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %564, align 8
+  %565 = getelementptr inbounds i8, ptr %91, i64 32
+  store ptr null, ptr %565, align 16
+  %566 = getelementptr inbounds i8, ptr %91, i64 40
+  store i32 0, ptr %566, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %20, ptr noundef nonnull align 16 dereferenceable(21) %91, i64 21, i1 false)
+  %567 = getelementptr inbounds i8, ptr %20, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %564, ptr noundef nonnull align 8 dereferenceable(40) %567) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %561, i32 6, ptr noundef nonnull %20) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
+  %568 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %92, align 16
+  %569 = getelementptr inbounds i8, ptr %92, i64 16
+  store i32 0, ptr %569, align 16
+  %570 = getelementptr inbounds i8, ptr %92, i64 20
+  store i8 0, ptr %570, align 4
+  %571 = getelementptr inbounds i8, ptr %92, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %571, align 8
+  %572 = getelementptr inbounds i8, ptr %92, i64 32
+  store ptr null, ptr %572, align 16
+  %573 = getelementptr inbounds i8, ptr %92, i64 40
+  store i32 0, ptr %573, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %568, ptr noundef nonnull %92, i32 0) #14
+  %574 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %93, align 16
+  %575 = getelementptr inbounds i8, ptr %93, i64 16
+  store i32 4, ptr %575, align 16
+  %576 = getelementptr inbounds i8, ptr %93, i64 20
+  store i8 0, ptr %576, align 4
+  %577 = getelementptr inbounds i8, ptr %93, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %577, align 8
+  %578 = getelementptr inbounds i8, ptr %93, i64 32
+  store ptr null, ptr %578, align 16
+  %579 = getelementptr inbounds i8, ptr %93, i64 40
+  store i32 0, ptr %579, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %574, ptr noundef nonnull %93, i32 2) #14
+  %580 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %580, ptr noundef nonnull align 8 dereferenceable(33) %36) #14
+  %581 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %581, i32 0, i32 noundef -2147483648) #14
+  %582 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %582) #14
+  %583 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %583, i32 0, i32 noundef -2147483648) #14
+  %584 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %584, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #14
+  %585 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %585, i32 0, i32 noundef -2147483644) #14
+  %586 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %586, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %37, i1 noundef zeroext true) #14
+  %587 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %587, i32 0, i32 noundef -2147483642) #14
+  %588 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %588, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %38, ptr noundef nonnull @.str.65, i32 noundef 356) #14
+  %589 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %589, i32 0, i32 noundef -2147483641) #14
+  %590 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %590, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %39, ptr noundef nonnull @.str.65, i32 noundef 358) #14
+  %591 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %591, i32 0, i32 noundef -2147483640) #14
+  %592 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %592, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull @.str.65, i32 noundef 360) #14
+  %593 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %593, i32 0, i32 noundef -2147483618) #14
+  %594 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %594, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull @.str.65, i32 noundef 362) #14
+  %595 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %595, i32 0, i32 noundef -2147483618) #14
+  %596 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %596) #14
+  %597 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %94, align 16
+  %598 = getelementptr inbounds i8, ptr %94, i64 16
+  store i32 248, ptr %598, align 16
+  %599 = getelementptr inbounds i8, ptr %94, i64 20
+  store i8 0, ptr %599, align 4
+  %600 = getelementptr inbounds i8, ptr %94, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %600, align 8
+  %601 = getelementptr inbounds i8, ptr %94, i64 32
+  store ptr null, ptr %601, align 16
+  %602 = getelementptr inbounds i8, ptr %94, i64 40
+  store i32 0, ptr %602, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %19, ptr noundef nonnull align 16 dereferenceable(21) %94, i64 21, i1 false)
+  %603 = getelementptr inbounds i8, ptr %19, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %600, ptr noundef nonnull align 8 dereferenceable(40) %603) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %597, i32 6, ptr noundef nonnull %19) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
+  %604 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %95, align 16
+  %605 = getelementptr inbounds i8, ptr %95, i64 16
+  store i32 0, ptr %605, align 16
+  %606 = getelementptr inbounds i8, ptr %95, i64 20
+  store i8 0, ptr %606, align 4
+  %607 = getelementptr inbounds i8, ptr %95, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %607, align 8
+  %608 = getelementptr inbounds i8, ptr %95, i64 32
+  store ptr null, ptr %608, align 16
+  %609 = getelementptr inbounds i8, ptr %95, i64 40
+  store i32 0, ptr %609, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %604, ptr noundef nonnull %95, i32 0) #14
+  %610 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %96, align 16
+  %611 = getelementptr inbounds i8, ptr %96, i64 16
+  store i32 4, ptr %611, align 16
+  %612 = getelementptr inbounds i8, ptr %96, i64 20
+  store i8 0, ptr %612, align 4
+  %613 = getelementptr inbounds i8, ptr %96, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %613, align 8
+  %614 = getelementptr inbounds i8, ptr %96, i64 32
+  store ptr null, ptr %614, align 16
+  %615 = getelementptr inbounds i8, ptr %96, i64 40
+  store i32 0, ptr %615, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %610, ptr noundef nonnull %96, i32 3) #14
+  %616 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %97, align 16
+  %617 = getelementptr inbounds i8, ptr %97, i64 16
+  store i32 8, ptr %617, align 16
+  %618 = getelementptr inbounds i8, ptr %97, i64 20
+  store i8 0, ptr %618, align 4
+  %619 = getelementptr inbounds i8, ptr %97, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %619, align 8
+  %620 = getelementptr inbounds i8, ptr %97, i64 32
+  store ptr null, ptr %620, align 16
+  %621 = getelementptr inbounds i8, ptr %97, i64 40
+  store i32 0, ptr %621, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %616, ptr noundef nonnull %97, i32 1) #14
+  %622 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %98, align 16
+  %623 = getelementptr inbounds i8, ptr %98, i64 16
+  store i32 12, ptr %623, align 16
+  %624 = getelementptr inbounds i8, ptr %98, i64 20
+  store i8 0, ptr %624, align 4
+  %625 = getelementptr inbounds i8, ptr %98, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %625, align 8
+  %626 = getelementptr inbounds i8, ptr %98, i64 32
+  store ptr null, ptr %626, align 16
+  %627 = getelementptr inbounds i8, ptr %98, i64 40
+  store i32 0, ptr %627, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %622, ptr noundef nonnull %98, i32 2) #14
+  %628 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %628, ptr noundef nonnull align 8 dereferenceable(33) %40) #14
+  %629 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %629, i32 0, i32 noundef -2147483640) #14
+  %630 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %630) #14
+  %631 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %99, align 16
+  %632 = getelementptr inbounds i8, ptr %99, i64 16
+  store i32 232, ptr %632, align 16
+  %633 = getelementptr inbounds i8, ptr %99, i64 20
+  store i8 0, ptr %633, align 4
+  %634 = getelementptr inbounds i8, ptr %99, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %634, align 8
+  %635 = getelementptr inbounds i8, ptr %99, i64 32
+  store ptr null, ptr %635, align 16
+  %636 = getelementptr inbounds i8, ptr %99, i64 40
+  store i32 0, ptr %636, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %18, ptr noundef nonnull align 16 dereferenceable(21) %99, i64 21, i1 false)
+  %637 = getelementptr inbounds i8, ptr %18, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %634, ptr noundef nonnull align 8 dereferenceable(40) %637) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %631, i32 6, ptr noundef nonnull %18) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
+  %638 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %100, align 16
+  %639 = getelementptr inbounds i8, ptr %100, i64 16
+  store i32 0, ptr %639, align 16
+  %640 = getelementptr inbounds i8, ptr %100, i64 20
+  store i8 0, ptr %640, align 4
+  %641 = getelementptr inbounds i8, ptr %100, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %641, align 8
+  %642 = getelementptr inbounds i8, ptr %100, i64 32
+  store ptr null, ptr %642, align 16
+  %643 = getelementptr inbounds i8, ptr %100, i64 40
+  store i32 0, ptr %643, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %638, ptr noundef nonnull %100, i32 0) #14
+  %644 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %101, align 16
+  %645 = getelementptr inbounds i8, ptr %101, i64 16
+  store i32 4, ptr %645, align 16
+  %646 = getelementptr inbounds i8, ptr %101, i64 20
+  store i8 0, ptr %646, align 4
+  %647 = getelementptr inbounds i8, ptr %101, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %647, align 8
+  %648 = getelementptr inbounds i8, ptr %101, i64 32
+  store ptr null, ptr %648, align 16
+  %649 = getelementptr inbounds i8, ptr %101, i64 40
+  store i32 0, ptr %649, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %644, ptr noundef nonnull %101, i32 3) #14
+  %650 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %102, align 16
+  %651 = getelementptr inbounds i8, ptr %102, i64 16
+  store i32 8, ptr %651, align 16
+  %652 = getelementptr inbounds i8, ptr %102, i64 20
+  store i8 0, ptr %652, align 4
+  %653 = getelementptr inbounds i8, ptr %102, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %653, align 8
+  %654 = getelementptr inbounds i8, ptr %102, i64 32
+  store ptr null, ptr %654, align 16
+  %655 = getelementptr inbounds i8, ptr %102, i64 40
+  store i32 0, ptr %655, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %650, ptr noundef nonnull %102, i32 1) #14
+  %656 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %103, align 16
+  %657 = getelementptr inbounds i8, ptr %103, i64 16
+  store i32 12, ptr %657, align 16
+  %658 = getelementptr inbounds i8, ptr %103, i64 20
+  store i8 0, ptr %658, align 4
+  %659 = getelementptr inbounds i8, ptr %103, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %659, align 8
+  %660 = getelementptr inbounds i8, ptr %103, i64 32
+  store ptr null, ptr %660, align 16
+  %661 = getelementptr inbounds i8, ptr %103, i64 40
+  store i32 0, ptr %661, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %656, ptr noundef nonnull %103, i32 2) #14
+  %662 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %662, ptr noundef nonnull align 8 dereferenceable(33) %39) #14
+  %663 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %663, i32 0, i32 noundef -2147483641) #14
+  %664 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %664) #14
+  %665 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %104, align 16
+  %666 = getelementptr inbounds i8, ptr %104, i64 16
+  store i32 216, ptr %666, align 16
+  %667 = getelementptr inbounds i8, ptr %104, i64 20
+  store i8 0, ptr %667, align 4
+  %668 = getelementptr inbounds i8, ptr %104, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %668, align 8
+  %669 = getelementptr inbounds i8, ptr %104, i64 32
+  store ptr null, ptr %669, align 16
+  %670 = getelementptr inbounds i8, ptr %104, i64 40
+  store i32 0, ptr %670, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %17, ptr noundef nonnull align 16 dereferenceable(21) %104, i64 21, i1 false)
+  %671 = getelementptr inbounds i8, ptr %17, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %668, ptr noundef nonnull align 8 dereferenceable(40) %671) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %665, i32 6, ptr noundef nonnull %17) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  %672 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %105, align 16
+  %673 = getelementptr inbounds i8, ptr %105, i64 16
+  store i32 0, ptr %673, align 16
+  %674 = getelementptr inbounds i8, ptr %105, i64 20
+  store i8 0, ptr %674, align 4
+  %675 = getelementptr inbounds i8, ptr %105, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %675, align 8
+  %676 = getelementptr inbounds i8, ptr %105, i64 32
+  store ptr null, ptr %676, align 16
+  %677 = getelementptr inbounds i8, ptr %105, i64 40
+  store i32 0, ptr %677, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %672, ptr noundef nonnull %105, i32 0) #14
+  %678 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %106, align 16
+  %679 = getelementptr inbounds i8, ptr %106, i64 16
+  store i32 4, ptr %679, align 16
+  %680 = getelementptr inbounds i8, ptr %106, i64 20
+  store i8 0, ptr %680, align 4
+  %681 = getelementptr inbounds i8, ptr %106, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %681, align 8
+  %682 = getelementptr inbounds i8, ptr %106, i64 32
+  store ptr null, ptr %682, align 16
+  %683 = getelementptr inbounds i8, ptr %106, i64 40
+  store i32 0, ptr %683, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %678, ptr noundef nonnull %106, i32 3) #14
+  %684 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %107, align 16
+  %685 = getelementptr inbounds i8, ptr %107, i64 16
+  store i32 8, ptr %685, align 16
+  %686 = getelementptr inbounds i8, ptr %107, i64 20
+  store i8 0, ptr %686, align 4
+  %687 = getelementptr inbounds i8, ptr %107, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %687, align 8
+  %688 = getelementptr inbounds i8, ptr %107, i64 32
+  store ptr null, ptr %688, align 16
+  %689 = getelementptr inbounds i8, ptr %107, i64 40
+  store i32 0, ptr %689, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %684, ptr noundef nonnull %107, i32 1) #14
+  %690 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %108, align 16
+  %691 = getelementptr inbounds i8, ptr %108, i64 16
+  store i32 12, ptr %691, align 16
+  %692 = getelementptr inbounds i8, ptr %108, i64 20
+  store i8 0, ptr %692, align 4
+  %693 = getelementptr inbounds i8, ptr %108, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %693, align 8
+  %694 = getelementptr inbounds i8, ptr %108, i64 32
+  store ptr null, ptr %694, align 16
+  %695 = getelementptr inbounds i8, ptr %108, i64 40
+  store i32 0, ptr %695, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %690, ptr noundef nonnull %108, i32 2) #14
+  %696 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %696, ptr noundef nonnull align 8 dereferenceable(33) %38) #14
+  %697 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %697, i32 0, i32 noundef -2147483643) #14
+  %698 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %698) #14
+  %699 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %109, align 16
+  %700 = getelementptr inbounds i8, ptr %109, i64 16
+  store i32 200, ptr %700, align 16
+  %701 = getelementptr inbounds i8, ptr %109, i64 20
+  store i8 0, ptr %701, align 4
+  %702 = getelementptr inbounds i8, ptr %109, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %702, align 8
+  %703 = getelementptr inbounds i8, ptr %109, i64 32
+  store ptr null, ptr %703, align 16
+  %704 = getelementptr inbounds i8, ptr %109, i64 40
+  store i32 0, ptr %704, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %16, ptr noundef nonnull align 16 dereferenceable(21) %109, i64 21, i1 false)
+  %705 = getelementptr inbounds i8, ptr %16, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %702, ptr noundef nonnull align 8 dereferenceable(40) %705) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %699, i32 6, ptr noundef nonnull %16) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
+  %706 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %110, align 16
+  %707 = getelementptr inbounds i8, ptr %110, i64 16
+  store i32 0, ptr %707, align 16
+  %708 = getelementptr inbounds i8, ptr %110, i64 20
+  store i8 0, ptr %708, align 4
+  %709 = getelementptr inbounds i8, ptr %110, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %709, align 8
+  %710 = getelementptr inbounds i8, ptr %110, i64 32
+  store ptr null, ptr %710, align 16
+  %711 = getelementptr inbounds i8, ptr %110, i64 40
+  store i32 0, ptr %711, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %706, ptr noundef nonnull %110, i32 0) #14
+  %712 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %111, align 16
+  %713 = getelementptr inbounds i8, ptr %111, i64 16
+  store i32 4, ptr %713, align 16
+  %714 = getelementptr inbounds i8, ptr %111, i64 20
+  store i8 0, ptr %714, align 4
+  %715 = getelementptr inbounds i8, ptr %111, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %715, align 8
+  %716 = getelementptr inbounds i8, ptr %111, i64 32
+  store ptr null, ptr %716, align 16
+  %717 = getelementptr inbounds i8, ptr %111, i64 40
+  store i32 0, ptr %717, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %712, ptr noundef nonnull %111, i32 3) #14
+  %718 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %112, align 16
+  %719 = getelementptr inbounds i8, ptr %112, i64 16
+  store i32 8, ptr %719, align 16
+  %720 = getelementptr inbounds i8, ptr %112, i64 20
+  store i8 0, ptr %720, align 4
+  %721 = getelementptr inbounds i8, ptr %112, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %721, align 8
+  %722 = getelementptr inbounds i8, ptr %112, i64 32
+  store ptr null, ptr %722, align 16
+  %723 = getelementptr inbounds i8, ptr %112, i64 40
+  store i32 0, ptr %723, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %718, ptr noundef nonnull %112, i32 1) #14
+  %724 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %113, align 16
+  %725 = getelementptr inbounds i8, ptr %113, i64 16
+  store i32 12, ptr %725, align 16
+  %726 = getelementptr inbounds i8, ptr %113, i64 20
+  store i8 0, ptr %726, align 4
+  %727 = getelementptr inbounds i8, ptr %113, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %727, align 8
+  %728 = getelementptr inbounds i8, ptr %113, i64 32
+  store ptr null, ptr %728, align 16
+  %729 = getelementptr inbounds i8, ptr %113, i64 40
+  store i32 0, ptr %729, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %724, ptr noundef nonnull %113, i32 2) #14
+  %730 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %730, ptr noundef nonnull align 8 dereferenceable(33) %37) #14
+  %731 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %731, i32 0, i32 noundef -2147483647) #14
+  %732 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %732) #14
+  %733 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %114, align 16
+  %734 = getelementptr inbounds i8, ptr %114, i64 16
+  store i32 136, ptr %734, align 16
+  %735 = getelementptr inbounds i8, ptr %114, i64 20
+  store i8 0, ptr %735, align 4
+  %736 = getelementptr inbounds i8, ptr %114, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %736, align 8
+  %737 = getelementptr inbounds i8, ptr %114, i64 32
+  store ptr null, ptr %737, align 16
+  %738 = getelementptr inbounds i8, ptr %114, i64 40
+  store i32 0, ptr %738, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 16 dereferenceable(21) %114, i64 21, i1 false)
+  %739 = getelementptr inbounds i8, ptr %15, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %736, ptr noundef nonnull align 8 dereferenceable(40) %739) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %733, i32 6, ptr noundef nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
+  %740 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %115, align 16
+  %741 = getelementptr inbounds i8, ptr %115, i64 16
+  store i32 0, ptr %741, align 16
+  %742 = getelementptr inbounds i8, ptr %115, i64 20
+  store i8 0, ptr %742, align 4
+  %743 = getelementptr inbounds i8, ptr %115, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %743, align 8
+  %744 = getelementptr inbounds i8, ptr %115, i64 32
+  store ptr null, ptr %744, align 16
+  %745 = getelementptr inbounds i8, ptr %115, i64 40
+  store i32 0, ptr %745, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %740, ptr noundef nonnull %115, i32 0) #14
+  %746 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %116, align 16
+  %747 = getelementptr inbounds i8, ptr %116, i64 16
+  store i32 4, ptr %747, align 16
+  %748 = getelementptr inbounds i8, ptr %116, i64 20
+  store i8 0, ptr %748, align 4
+  %749 = getelementptr inbounds i8, ptr %116, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %749, align 8
+  %750 = getelementptr inbounds i8, ptr %116, i64 32
+  store ptr null, ptr %750, align 16
+  %751 = getelementptr inbounds i8, ptr %116, i64 40
+  store i32 0, ptr %751, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %746, ptr noundef nonnull %116, i32 3) #14
+  %752 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %117, align 16
+  %753 = getelementptr inbounds i8, ptr %117, i64 16
+  store i32 8, ptr %753, align 16
+  %754 = getelementptr inbounds i8, ptr %117, i64 20
+  store i8 0, ptr %754, align 4
+  %755 = getelementptr inbounds i8, ptr %117, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %755, align 8
+  %756 = getelementptr inbounds i8, ptr %117, i64 32
+  store ptr null, ptr %756, align 16
+  %757 = getelementptr inbounds i8, ptr %117, i64 40
+  store i32 0, ptr %757, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %752, ptr noundef nonnull %117, i32 1) #14
+  %758 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %118, align 16
+  %759 = getelementptr inbounds i8, ptr %118, i64 16
+  store i32 12, ptr %759, align 16
+  %760 = getelementptr inbounds i8, ptr %118, i64 20
+  store i8 0, ptr %760, align 4
+  %761 = getelementptr inbounds i8, ptr %118, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %761, align 8
+  %762 = getelementptr inbounds i8, ptr %118, i64 32
+  store ptr null, ptr %762, align 16
+  %763 = getelementptr inbounds i8, ptr %118, i64 40
+  store i32 0, ptr %763, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %758, ptr noundef nonnull %118, i32 2) #14
+  %764 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %119, align 16
+  %765 = getelementptr inbounds i8, ptr %119, i64 16
+  store i32 64, ptr %765, align 16
+  %766 = getelementptr inbounds i8, ptr %119, i64 20
+  store i8 0, ptr %766, align 4
+  %767 = getelementptr inbounds i8, ptr %119, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %767, align 8
+  %768 = getelementptr inbounds i8, ptr %119, i64 32
+  store ptr null, ptr %768, align 16
+  %769 = getelementptr inbounds i8, ptr %119, i64 40
+  store i32 0, ptr %769, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %14, ptr noundef nonnull align 16 dereferenceable(21) %119, i64 21, i1 false)
+  %770 = getelementptr inbounds i8, ptr %14, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %767, ptr noundef nonnull align 8 dereferenceable(40) %770) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %764, i32 6, ptr noundef nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
+  %771 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %771, i32 0, i32 noundef 2097152) #14
+  %772 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %120, align 16
+  %773 = getelementptr inbounds i8, ptr %120, i64 16
+  store i32 4, ptr %773, align 16
+  %774 = getelementptr inbounds i8, ptr %120, i64 20
+  store i8 0, ptr %774, align 4
+  %775 = getelementptr inbounds i8, ptr %120, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %775, align 8
+  %776 = getelementptr inbounds i8, ptr %120, i64 32
+  store ptr null, ptr %776, align 16
+  %777 = getelementptr inbounds i8, ptr %120, i64 40
+  store i32 0, ptr %777, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %772, i32 0, ptr noundef nonnull %120) #14
+  %778 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %778, i32 0, i32 noundef 2097152) #14
+  %779 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %779, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %43, i1 noundef zeroext true) #14
+  %780 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %780, i32 0, i32 noundef 524288) #14
+  %781 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %121, align 16
+  %782 = getelementptr inbounds i8, ptr %121, i64 16
+  store i32 264, ptr %782, align 16
+  %783 = getelementptr inbounds i8, ptr %121, i64 20
+  store i8 0, ptr %783, align 4
+  %784 = getelementptr inbounds i8, ptr %121, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %784, align 8
+  %785 = getelementptr inbounds i8, ptr %121, i64 32
+  store ptr null, ptr %785, align 16
+  %786 = getelementptr inbounds i8, ptr %121, i64 40
+  store i32 0, ptr %786, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %781, i32 0, ptr noundef nonnull %121) #14
+  %787 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %787, i32 0, i32 noundef 524288) #14
+  %788 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %788, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %43, i1 noundef zeroext true) #14
+  %789 = load i8, ptr @UseAPX, align 1
+  %790 = and i8 %789, 1
+  %791 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %792 = or i64 %791, 1152921504606846976
+  store i64 %792, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i8 1, ptr @UseAPX, align 1
+  %793 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %793, i32 16, i64 noundef -3819410105351357762) #14
+  %794 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %794, i32 31, i64 noundef -3819410105351357762) #14
+  %795 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %795, i32 6, i32 6) #14
+  %796 = load ptr, ptr %211, align 8
+  %797 = getelementptr inbounds i8, ptr %796, i64 8
+  %798 = load ptr, ptr %797, align 8
+  %799 = getelementptr inbounds i8, ptr %798, i64 16
+  %800 = load ptr, ptr %799, align 8
+  store ptr %800, ptr @_ZN10VM_Version22_cpuinfo_segv_addr_apxE, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %122, align 16
+  %801 = getelementptr inbounds i8, ptr %122, i64 16
+  store i32 0, ptr %801, align 16
+  %802 = getelementptr inbounds i8, ptr %122, i64 20
+  store i8 0, ptr %802, align 4
+  %803 = getelementptr inbounds i8, ptr %122, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %803, align 8
+  %804 = getelementptr inbounds i8, ptr %122, i64 32
+  store ptr null, ptr %804, align 16
+  %805 = getelementptr inbounds i8, ptr %122, i64 40
+  store i32 0, ptr %805, align 8
+  call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %796, i32 0, ptr noundef nonnull %122) #14
+  %806 = load ptr, ptr %211, align 8
+  %807 = getelementptr inbounds i8, ptr %806, i64 8
+  %808 = load ptr, ptr %807, align 8
+  %809 = getelementptr inbounds i8, ptr %808, i64 16
+  %810 = load ptr, ptr %809, align 8
+  store ptr %810, ptr @_ZN10VM_Version22_cpuinfo_cont_addr_apxE, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %123, align 16
+  %811 = getelementptr inbounds i8, ptr %123, i64 16
+  store i32 656, ptr %811, align 16
+  %812 = getelementptr inbounds i8, ptr %123, i64 20
+  store i8 0, ptr %812, align 4
+  %813 = getelementptr inbounds i8, ptr %123, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %813, align 8
+  %814 = getelementptr inbounds i8, ptr %123, i64 32
+  store ptr null, ptr %814, align 16
+  %815 = getelementptr inbounds i8, ptr %123, i64 40
+  store i32 0, ptr %815, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 16 dereferenceable(21) %123, i64 21, i1 false)
+  %816 = getelementptr inbounds i8, ptr %13, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %813, ptr noundef nonnull align 8 dereferenceable(40) %816) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %806, i32 6, ptr noundef nonnull %13) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  %817 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %124, align 16
+  %818 = getelementptr inbounds i8, ptr %124, i64 16
+  store i32 0, ptr %818, align 16
+  %819 = getelementptr inbounds i8, ptr %124, i64 20
+  store i8 0, ptr %819, align 4
+  %820 = getelementptr inbounds i8, ptr %124, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %820, align 8
+  %821 = getelementptr inbounds i8, ptr %124, i64 32
+  store ptr null, ptr %821, align 16
+  %822 = getelementptr inbounds i8, ptr %124, i64 40
+  store i32 0, ptr %822, align 8
+  call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %817, ptr noundef nonnull %124, i32 16) #14
+  %823 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %125, align 16
+  %824 = getelementptr inbounds i8, ptr %125, i64 16
+  store i32 8, ptr %824, align 16
+  %825 = getelementptr inbounds i8, ptr %125, i64 20
+  store i8 0, ptr %825, align 4
+  %826 = getelementptr inbounds i8, ptr %125, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %826, align 8
+  %827 = getelementptr inbounds i8, ptr %125, i64 32
+  store ptr null, ptr %827, align 16
+  %828 = getelementptr inbounds i8, ptr %125, i64 40
+  store i32 0, ptr %828, align 8
+  call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %823, ptr noundef nonnull %125, i32 31) #14
+  store i8 %790, ptr @UseAPX, align 1
+  %829 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %829, ptr noundef nonnull align 8 dereferenceable(33) %43) #14
+  %830 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %126, align 16
+  %831 = getelementptr inbounds i8, ptr %126, i64 16
+  store i32 16, ptr %831, align 16
+  %832 = getelementptr inbounds i8, ptr %126, i64 20
+  store i8 0, ptr %832, align 4
+  %833 = getelementptr inbounds i8, ptr %126, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %833, align 8
+  %834 = getelementptr inbounds i8, ptr %126, i64 32
+  store ptr null, ptr %834, align 16
+  %835 = getelementptr inbounds i8, ptr %126, i64 40
+  store i32 0, ptr %835, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 16 dereferenceable(21) %126, i64 21, i1 false)
+  %836 = getelementptr inbounds i8, ptr %12, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %833, ptr noundef nonnull align 8 dereferenceable(40) %836) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %830, i32 6, ptr noundef nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  %837 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %837, i32 1, i32 noundef 402653184) #14
+  %838 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %127, align 16
+  %839 = getelementptr inbounds i8, ptr %127, i64 16
+  store i32 8, ptr %839, align 16
+  %840 = getelementptr inbounds i8, ptr %127, i64 20
+  store i8 0, ptr %840, align 4
+  %841 = getelementptr inbounds i8, ptr %127, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %841, align 8
+  %842 = getelementptr inbounds i8, ptr %127, i64 32
+  store ptr null, ptr %842, align 16
+  %843 = getelementptr inbounds i8, ptr %127, i64 40
+  store i32 0, ptr %843, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %838, i32 1, ptr noundef nonnull %127) #14
+  %844 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %844, i32 1, i32 noundef 402653184) #14
+  %845 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %845, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull @.str.65, i32 noundef 466) #14
+  %846 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %846, i32 0, i32 noundef 6) #14
+  %847 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %128, align 16
+  %848 = getelementptr inbounds i8, ptr %128, i64 16
+  store i32 264, ptr %848, align 16
+  %849 = getelementptr inbounds i8, ptr %128, i64 20
+  store i8 0, ptr %849, align 4
+  %850 = getelementptr inbounds i8, ptr %128, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %850, align 8
+  %851 = getelementptr inbounds i8, ptr %128, i64 32
+  store ptr null, ptr %851, align 16
+  %852 = getelementptr inbounds i8, ptr %128, i64 40
+  store i32 0, ptr %852, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %847, i32 0, ptr noundef nonnull %128) #14
+  %853 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %853, i32 0, i32 noundef 6) #14
+  %854 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %854, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %47, ptr noundef nonnull @.str.65, i32 noundef 471) #14
+  %855 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %855, ptr noundef nonnull align 8 dereferenceable(33) %41) #14
+  %856 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %856, ptr noundef nonnull align 8 dereferenceable(33) %42, i1 noundef zeroext true) #14
+  %857 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %857, ptr noundef nonnull align 8 dereferenceable(33) %47) #14
+  %858 = load i32, ptr @UseAVX, align 4
+  %859 = load i32, ptr @UseSSE, align 4
+  br i1 %153, label %860, label %914
+
+860:                                              ; preds = %1
+  %861 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %129, align 16
+  %862 = getelementptr inbounds i8, ptr %129, i64 16
+  store i32 48, ptr %862, align 16
+  %863 = getelementptr inbounds i8, ptr %129, i64 20
+  store i8 0, ptr %863, align 4
+  %864 = getelementptr inbounds i8, ptr %129, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %864, align 8
+  %865 = getelementptr inbounds i8, ptr %129, i64 32
+  store ptr null, ptr %865, align 16
+  %866 = getelementptr inbounds i8, ptr %129, i64 40
+  store i32 0, ptr %866, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 16 dereferenceable(21) %129, i64 21, i1 false)
+  %867 = getelementptr inbounds i8, ptr %11, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %864, ptr noundef nonnull align 8 dereferenceable(40) %867) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %861, i32 6, ptr noundef nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  %868 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %868, i32 0, i32 noundef 65536) #14
+  %869 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %130, align 16
+  %870 = getelementptr inbounds i8, ptr %130, i64 16
+  store i32 4, ptr %870, align 16
+  %871 = getelementptr inbounds i8, ptr %130, i64 20
+  store i8 0, ptr %871, align 4
+  %872 = getelementptr inbounds i8, ptr %130, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %872, align 8
+  %873 = getelementptr inbounds i8, ptr %130, i64 32
+  store ptr null, ptr %873, align 16
+  %874 = getelementptr inbounds i8, ptr %130, i64 40
+  store i32 0, ptr %874, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %869, i32 0, ptr noundef nonnull %130) #14
+  %875 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %875, i32 0, i32 noundef 65536) #14
+  %876 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %876, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %44, ptr noundef nonnull @.str.65, i32 noundef 494) #14
+  %877 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %877, i32 0, i32 noundef 224) #14
+  %878 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %131, align 16
+  %879 = getelementptr inbounds i8, ptr %131, i64 16
+  store i32 264, ptr %879, align 16
+  %880 = getelementptr inbounds i8, ptr %131, i64 20
+  store i8 0, ptr %880, align 4
+  %881 = getelementptr inbounds i8, ptr %131, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %881, align 8
+  %882 = getelementptr inbounds i8, ptr %131, i64 32
+  store ptr null, ptr %882, align 16
+  %883 = getelementptr inbounds i8, ptr %131, i64 40
+  store i32 0, ptr %883, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %878, i32 0, ptr noundef nonnull %131) #14
+  %884 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %884, i32 0, i32 noundef 224) #14
+  %885 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %885, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %44, ptr noundef nonnull @.str.65, i32 noundef 501) #14
+  %886 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  br i1 %886, label %887, label %903
+
+887:                                              ; preds = %860
+  %888 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %132, align 16
+  %889 = getelementptr inbounds i8, ptr %132, i64 16
+  store i32 16, ptr %889, align 16
+  %890 = getelementptr inbounds i8, ptr %132, i64 20
+  store i8 0, ptr %890, align 4
+  %891 = getelementptr inbounds i8, ptr %132, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %891, align 8
+  %892 = getelementptr inbounds i8, ptr %132, i64 32
+  store ptr null, ptr %892, align 16
+  %893 = getelementptr inbounds i8, ptr %132, i64 40
+  store i32 0, ptr %893, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 16 dereferenceable(21) %132, i64 21, i1 false)
+  %894 = getelementptr inbounds i8, ptr %10, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %891, ptr noundef nonnull align 8 dereferenceable(40) %894) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %888, i32 6, ptr noundef nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  %895 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %133, align 16
+  %896 = getelementptr inbounds i8, ptr %133, i64 16
+  store i32 0, ptr %896, align 16
+  %897 = getelementptr inbounds i8, ptr %133, i64 20
+  store i8 0, ptr %897, align 4
+  %898 = getelementptr inbounds i8, ptr %133, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %898, align 8
+  %899 = getelementptr inbounds i8, ptr %133, i64 32
+  store ptr null, ptr %899, align 16
+  %900 = getelementptr inbounds i8, ptr %133, i64 40
+  store i32 0, ptr %900, align 8
+  call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %895, i32 0, ptr noundef nonnull %133) #14
+  %901 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %901, i32 0, i32 noundef 329300) #14
+  %902 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %902, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %44, i1 noundef zeroext true) #14
+  br label %903
+
+903:                                              ; preds = %887, %860
+  store i64 68853694656, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 3, ptr @UseAVX, align 4
+  store i32 2, ptr @UseSSE, align 4
+  %904 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %904, i32 1, i32 noundef -889275714) #14
+  %905 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %905, i32 0, i32 1) #14
+  %906 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler12vpbroadcastdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %906, i32 0, i32 0, i32 noundef 2) #14
+  %.not.i = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 8) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  br i1 %.not.i, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit, label %907
+
+907:                                              ; preds = %903
+  %908 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %908, i32 7, i32 0, i32 noundef 2) #14
+  br label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit
+
+_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit: ; preds = %903, %907
+  %.not.i337 = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 9) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  br i1 %.not.i337, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit338, label %909
+
+909:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit
+  %910 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %910, i32 8, i32 0, i32 noundef 2) #14
+  br label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit338
+
+_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit338: ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit, %909
+  %.not.i339 = icmp eq i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 32) to i32), ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  br i1 %.not.i339, label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit340, label %911
+
+911:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit338
+  %912 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %912, i32 31, i32 0, i32 noundef 2) #14
+  br label %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit340
+
+_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit340: ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit338, %911
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %913 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %913, ptr noundef nonnull align 8 dereferenceable(33) %45, i1 noundef zeroext true) #14
+  br label %914
+
+914:                                              ; preds = %_ZN14MacroAssembler9evmovdqulE11XMMRegisterS0_i.exit340, %1
+  %915 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %915, ptr noundef nonnull align 8 dereferenceable(33) %44) #14
+  store i64 68719739072, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 1, ptr @UseAVX, align 4
+  store i32 2, ptr @UseSSE, align 4
+  %916 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %916, i32 1, i32 noundef -889275714) #14
+  %917 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %917, i32 0, i32 1) #14
+  %918 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %918, i32 0, i32 0, i32 noundef 0) #14
+  %919 = load ptr, ptr %211, align 8
+  %920 = load i32, ptr @UseAVX, align 4
+  %921 = icmp sgt i32 %920, 2
+  br i1 %921, label %922, label %927
+
+922:                                              ; preds = %914
+  %923 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %924 = and i64 %923, 8724152320
+  %925 = icmp eq i64 %924, 134217728
+  br i1 %925, label %926, label %927
+
+926:                                              ; preds = %922
+  call void @_ZN9Assembler12vinsertf32x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %919, i32 0, i32 0, i32 0, i8 noundef zeroext 1) #14
+  br label %_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit
+
+927:                                              ; preds = %922, %914
+  call void @_ZN9Assembler11vinsertf128E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %919, i32 0, i32 0, i32 0, i8 noundef zeroext 1) #14
+  br label %_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit
+
+_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit: ; preds = %926, %927
+  %928 = load ptr, ptr %211, align 8
+  call void @_ZN14MacroAssembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %928, i32 7, i32 0) #14
+  %929 = load ptr, ptr %211, align 8
+  call void @_ZN14MacroAssembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %929, i32 8, i32 0) #14
+  %930 = load ptr, ptr %211, align 8
+  call void @_ZN14MacroAssembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %930, i32 15, i32 0) #14
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %931 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %931, ptr noundef nonnull align 8 dereferenceable(33) %45) #14
+  %932 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %932, i32 6, i32 6) #14
+  %933 = load ptr, ptr %211, align 8
+  %934 = getelementptr inbounds i8, ptr %933, i64 8
+  %935 = load ptr, ptr %934, align 8
+  %936 = getelementptr inbounds i8, ptr %935, i64 16
+  %937 = load ptr, ptr %936, align 8
+  store ptr %937, ptr @_ZN10VM_Version18_cpuinfo_segv_addrE, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %134, align 16
+  %938 = getelementptr inbounds i8, ptr %134, i64 16
+  store i32 0, ptr %938, align 16
+  %939 = getelementptr inbounds i8, ptr %134, i64 20
+  store i8 0, ptr %939, align 4
+  %940 = getelementptr inbounds i8, ptr %134, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %940, align 8
+  %941 = getelementptr inbounds i8, ptr %134, i64 32
+  store ptr null, ptr %941, align 16
+  %942 = getelementptr inbounds i8, ptr %134, i64 40
+  store i32 0, ptr %942, align 8
+  call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %933, i32 0, ptr noundef nonnull %134) #14
+  %943 = load ptr, ptr %211, align 8
+  %944 = getelementptr inbounds i8, ptr %943, i64 8
+  %945 = load ptr, ptr %944, align 8
+  %946 = getelementptr inbounds i8, ptr %945, i64 16
+  %947 = load ptr, ptr %946, align 8
+  store ptr %947, ptr @_ZN10VM_Version18_cpuinfo_cont_addrE, align 8
+  br i1 %153, label %948, label %1027
+
+948:                                              ; preds = %_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %135, align 16
+  %949 = getelementptr inbounds i8, ptr %135, i64 16
+  store i32 48, ptr %949, align 16
+  %950 = getelementptr inbounds i8, ptr %135, i64 20
+  store i8 0, ptr %950, align 4
+  %951 = getelementptr inbounds i8, ptr %135, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %951, align 8
+  %952 = getelementptr inbounds i8, ptr %135, i64 32
+  store ptr null, ptr %952, align 16
+  %953 = getelementptr inbounds i8, ptr %135, i64 40
+  store i32 0, ptr %953, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 16 dereferenceable(21) %135, i64 21, i1 false)
+  %954 = getelementptr inbounds i8, ptr %9, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %951, ptr noundef nonnull align 8 dereferenceable(40) %954) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %943, i32 6, ptr noundef nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  %955 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %955, i32 0, i32 noundef 65536) #14
+  %956 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %136, align 16
+  %957 = getelementptr inbounds i8, ptr %136, i64 16
+  store i32 4, ptr %957, align 16
+  %958 = getelementptr inbounds i8, ptr %136, i64 20
+  store i8 0, ptr %958, align 4
+  %959 = getelementptr inbounds i8, ptr %136, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %959, align 8
+  %960 = getelementptr inbounds i8, ptr %136, i64 32
+  store ptr null, ptr %960, align 16
+  %961 = getelementptr inbounds i8, ptr %136, i64 40
+  store i32 0, ptr %961, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %956, i32 0, ptr noundef nonnull %136) #14
+  %962 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %962, i32 0, i32 noundef 65536) #14
+  %963 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %963, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %46, i1 noundef zeroext true) #14
+  %964 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %964, i32 0, i32 noundef 224) #14
+  %965 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %137, align 16
+  %966 = getelementptr inbounds i8, ptr %137, i64 16
+  store i32 264, ptr %966, align 16
+  %967 = getelementptr inbounds i8, ptr %137, i64 20
+  store i8 0, ptr %967, align 4
+  %968 = getelementptr inbounds i8, ptr %137, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %968, align 8
+  %969 = getelementptr inbounds i8, ptr %137, i64 32
+  store ptr null, ptr %969, align 16
+  %970 = getelementptr inbounds i8, ptr %137, i64 40
+  store i32 0, ptr %970, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %965, i32 0, ptr noundef nonnull %137) #14
+  %971 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %971, i32 0, i32 noundef 224) #14
+  %972 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %972, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %46, i1 noundef zeroext true) #14
+  %973 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
+  br i1 %973, label %974, label %990
+
+974:                                              ; preds = %948
+  %975 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %138, align 16
+  %976 = getelementptr inbounds i8, ptr %138, i64 16
+  store i32 16, ptr %976, align 16
+  %977 = getelementptr inbounds i8, ptr %138, i64 20
+  store i8 0, ptr %977, align 4
+  %978 = getelementptr inbounds i8, ptr %138, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %978, align 8
+  %979 = getelementptr inbounds i8, ptr %138, i64 32
+  store ptr null, ptr %979, align 16
+  %980 = getelementptr inbounds i8, ptr %138, i64 40
+  store i32 0, ptr %980, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 16 dereferenceable(21) %138, i64 21, i1 false)
+  %981 = getelementptr inbounds i8, ptr %8, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %978, ptr noundef nonnull align 8 dereferenceable(40) %981) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %975, i32 6, ptr noundef nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  %982 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %139, align 16
+  %983 = getelementptr inbounds i8, ptr %139, i64 16
+  store i32 0, ptr %983, align 16
+  %984 = getelementptr inbounds i8, ptr %139, i64 20
+  store i8 0, ptr %984, align 4
+  %985 = getelementptr inbounds i8, ptr %139, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %985, align 8
+  %986 = getelementptr inbounds i8, ptr %139, i64 32
+  store ptr null, ptr %986, align 16
+  %987 = getelementptr inbounds i8, ptr %139, i64 40
+  store i32 0, ptr %987, align 8
+  call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %982, i32 0, ptr noundef nonnull %139) #14
+  %988 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %988, i32 0, i32 noundef 329300) #14
+  %989 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %989, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %46, i1 noundef zeroext true) #14
+  br label %990
+
+990:                                              ; preds = %974, %948
+  store i64 68853694656, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 3, ptr @UseAVX, align 4
+  store i32 2, ptr @UseSSE, align 4
+  %991 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %140, align 16
+  %992 = getelementptr inbounds i8, ptr %140, i64 16
+  store i32 400, ptr %992, align 16
+  %993 = getelementptr inbounds i8, ptr %140, i64 20
+  store i8 0, ptr %993, align 4
+  %994 = getelementptr inbounds i8, ptr %140, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %994, align 8
+  %995 = getelementptr inbounds i8, ptr %140, i64 32
+  store ptr null, ptr %995, align 16
+  %996 = getelementptr inbounds i8, ptr %140, i64 40
+  store i32 0, ptr %996, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 16 dereferenceable(21) %140, i64 21, i1 false)
+  %997 = getelementptr inbounds i8, ptr %7, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %994, ptr noundef nonnull align 8 dereferenceable(40) %997) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %991, i32 6, ptr noundef nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  %998 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %141, align 16
+  %999 = getelementptr inbounds i8, ptr %141, i64 16
+  store i32 0, ptr %999, align 16
+  %1000 = getelementptr inbounds i8, ptr %141, i64 20
+  store i8 0, ptr %1000, align 4
+  %1001 = getelementptr inbounds i8, ptr %141, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1001, align 8
+  %1002 = getelementptr inbounds i8, ptr %141, i64 32
+  store ptr null, ptr %1002, align 16
+  %1003 = getelementptr inbounds i8, ptr %141, i64 40
+  store i32 0, ptr %1003, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 16 dereferenceable(21) %141, i64 21, i1 false)
+  %1004 = getelementptr inbounds i8, ptr %6, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %1001, ptr noundef nonnull align 8 dereferenceable(40) %1004) #14
+  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %998, ptr noundef nonnull %6, i32 0, i32 noundef 2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  %1005 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %142, align 16
+  %1006 = getelementptr inbounds i8, ptr %142, i64 16
+  store i32 64, ptr %1006, align 16
+  %1007 = getelementptr inbounds i8, ptr %142, i64 20
+  store i8 0, ptr %1007, align 4
+  %1008 = getelementptr inbounds i8, ptr %142, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1008, align 8
+  %1009 = getelementptr inbounds i8, ptr %142, i64 32
+  store ptr null, ptr %1009, align 16
+  %1010 = getelementptr inbounds i8, ptr %142, i64 40
+  store i32 0, ptr %1010, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 16 dereferenceable(21) %142, i64 21, i1 false)
+  %1011 = getelementptr inbounds i8, ptr %5, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %1008, ptr noundef nonnull align 8 dereferenceable(40) %1011) #14
+  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1005, ptr noundef nonnull %5, i32 7, i32 noundef 2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  %1012 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %143, align 16
+  %1013 = getelementptr inbounds i8, ptr %143, i64 16
+  store i32 128, ptr %1013, align 16
+  %1014 = getelementptr inbounds i8, ptr %143, i64 20
+  store i8 0, ptr %1014, align 4
+  %1015 = getelementptr inbounds i8, ptr %143, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1015, align 8
+  %1016 = getelementptr inbounds i8, ptr %143, i64 32
+  store ptr null, ptr %1016, align 16
+  %1017 = getelementptr inbounds i8, ptr %143, i64 40
+  store i32 0, ptr %1017, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 16 dereferenceable(21) %143, i64 21, i1 false)
+  %1018 = getelementptr inbounds i8, ptr %4, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %1015, ptr noundef nonnull align 8 dereferenceable(40) %1018) #14
+  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1012, ptr noundef nonnull %4, i32 8, i32 noundef 2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  %1019 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %144, align 16
+  %1020 = getelementptr inbounds i8, ptr %144, i64 16
+  store i32 192, ptr %1020, align 16
+  %1021 = getelementptr inbounds i8, ptr %144, i64 20
+  store i8 0, ptr %1021, align 4
+  %1022 = getelementptr inbounds i8, ptr %144, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1022, align 8
+  %1023 = getelementptr inbounds i8, ptr %144, i64 32
+  store ptr null, ptr %1023, align 16
+  %1024 = getelementptr inbounds i8, ptr %144, i64 40
+  store i32 0, ptr %1024, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 16 dereferenceable(21) %144, i64 21, i1 false)
+  %1025 = getelementptr inbounds i8, ptr %3, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %1022, ptr noundef nonnull align 8 dereferenceable(40) %1025) #14
+  call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1019, ptr noundef nonnull %3, i32 31, i32 noundef 2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @_ZN24VM_Version_StubGenerator19generate_vzeroupperER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %42)
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 %858, ptr @UseAVX, align 4
+  store i32 %859, ptr @UseSSE, align 4
+  %1026 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1026, ptr noundef nonnull align 8 dereferenceable(33) %42, i1 noundef zeroext true) #14
+  %.pre = load ptr, ptr %211, align 8
+  br label %1027
+
+1027:                                             ; preds = %990, %_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit
+  %1028 = phi ptr [ %.pre, %990 ], [ %943, %_ZN14MacroAssembler16vinsertf128_highE11XMMRegisterS0_.exit ]
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1028, ptr noundef nonnull align 8 dereferenceable(33) %46) #14
+  store i64 68719739072, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 1, ptr @UseAVX, align 4
+  store i32 2, ptr @UseSSE, align 4
+  %1029 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %145, align 16
+  %1030 = getelementptr inbounds i8, ptr %145, i64 16
+  store i32 272, ptr %1030, align 16
+  %1031 = getelementptr inbounds i8, ptr %145, i64 20
+  store i8 0, ptr %1031, align 4
+  %1032 = getelementptr inbounds i8, ptr %145, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1032, align 8
+  %1033 = getelementptr inbounds i8, ptr %145, i64 32
+  store ptr null, ptr %1033, align 16
+  %1034 = getelementptr inbounds i8, ptr %145, i64 40
+  store i32 0, ptr %1034, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 16 dereferenceable(21) %145, i64 21, i1 false)
+  %1035 = getelementptr inbounds i8, ptr %2, i64 24
+  call void %269(ptr noundef nonnull align 8 dereferenceable(20) %1032, ptr noundef nonnull align 8 dereferenceable(40) %1035) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1029, i32 6, ptr noundef nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  %1036 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %146, align 16
+  %1037 = getelementptr inbounds i8, ptr %146, i64 16
+  store i32 0, ptr %1037, align 16
+  %1038 = getelementptr inbounds i8, ptr %146, i64 20
+  store i8 0, ptr %1038, align 4
+  %1039 = getelementptr inbounds i8, ptr %146, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1039, align 8
+  %1040 = getelementptr inbounds i8, ptr %146, i64 32
+  store ptr null, ptr %1040, align 16
+  %1041 = getelementptr inbounds i8, ptr %146, i64 40
+  store i32 0, ptr %1041, align 8
+  call void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1036, ptr noundef nonnull %146, i32 0) #14
+  %1042 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %147, align 16
+  %1043 = getelementptr inbounds i8, ptr %147, i64 16
+  store i32 32, ptr %1043, align 16
+  %1044 = getelementptr inbounds i8, ptr %147, i64 20
+  store i8 0, ptr %1044, align 4
+  %1045 = getelementptr inbounds i8, ptr %147, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1045, align 8
+  %1046 = getelementptr inbounds i8, ptr %147, i64 32
+  store ptr null, ptr %1046, align 16
+  %1047 = getelementptr inbounds i8, ptr %147, i64 40
+  store i32 0, ptr %1047, align 8
+  call void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1042, ptr noundef nonnull %147, i32 7) #14
+  %1048 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %148, align 16
+  %1049 = getelementptr inbounds i8, ptr %148, i64 16
+  store i32 64, ptr %1049, align 16
+  %1050 = getelementptr inbounds i8, ptr %148, i64 20
+  store i8 0, ptr %1050, align 4
+  %1051 = getelementptr inbounds i8, ptr %148, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1051, align 8
+  %1052 = getelementptr inbounds i8, ptr %148, i64 32
+  store ptr null, ptr %1052, align 16
+  %1053 = getelementptr inbounds i8, ptr %148, i64 40
+  store i32 0, ptr %1053, align 8
+  call void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1048, ptr noundef nonnull %148, i32 8) #14
+  %1054 = load ptr, ptr %211, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %149, align 16
+  %1055 = getelementptr inbounds i8, ptr %149, i64 16
+  store i32 96, ptr %1055, align 16
+  %1056 = getelementptr inbounds i8, ptr %149, i64 20
+  store i8 0, ptr %1056, align 4
+  %1057 = getelementptr inbounds i8, ptr %149, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1057, align 8
+  %1058 = getelementptr inbounds i8, ptr %149, i64 32
+  store ptr null, ptr %1058, align 16
+  %1059 = getelementptr inbounds i8, ptr %149, i64 40
+  store i32 0, ptr %1059, align 8
+  call void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1054, ptr noundef nonnull %149, i32 15) #14
+  call void @_ZN24VM_Version_StubGenerator19generate_vzeroupperER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %42)
+  store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  store i32 %858, ptr @UseAVX, align 4
+  store i32 %859, ptr @UseSSE, align 4
+  %1060 = load ptr, ptr %211, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1060, ptr noundef nonnull align 8 dereferenceable(33) %42) #14
+  %1061 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %1061) #14
+  %1062 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1062, i32 6) #14
+  %1063 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1063, i32 3) #14
+  %1064 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1064, i32 5) #14
+  %1065 = load ptr, ptr %211, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %1065, i32 noundef 0) #14
+  call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #14
+  ret ptr %216
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator20generate_detect_virtEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = alloca %class.StubCodeMark, align 8
+  %3 = alloca %class.Address, align 16
+  %4 = alloca %class.Address, align 16
+  %5 = alloca %class.Address, align 16
+  %6 = alloca %class.Address, align 16
+  call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.156) #14
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 5) #14
+  %13 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 3) #14
+  %14 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 6) #14
+  %15 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 0, i32 7) #14
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 6, i32 6) #14
+  %17 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %17) #14
+  %18 = load ptr, ptr %7, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %3, align 16
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 0, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %3, i64 20
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %22, align 16
+  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 0, ptr %23, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %3, i32 0) #14
+  %24 = load ptr, ptr %7, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %4, align 16
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 4, ptr %25, align 16
+  %26 = getelementptr inbounds i8, ptr %4, i64 20
+  store i8 0, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %28, align 16
+  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 0, ptr %29, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %4, i32 3) #14
+  %30 = load ptr, ptr %7, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %5, align 16
+  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 8, ptr %31, align 16
+  %32 = getelementptr inbounds i8, ptr %5, i64 20
+  store i8 0, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %34, align 16
+  %35 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 0, ptr %35, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull %5, i32 1) #14
+  %36 = load ptr, ptr %7, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %6, align 16
+  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 12, ptr %37, align 16
+  %38 = getelementptr inbounds i8, ptr %6, i64 20
+  store i8 0, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %40, align 16
+  %41 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 0, ptr %41, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull %6, i32 2) #14
+  %42 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %42, i32 6) #14
+  %43 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %43, i32 3) #14
+  %44 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %44, i32 5) #14
+  %45 = load ptr, ptr %7, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %45, i32 noundef 0) #14
+  call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  ret ptr %12
+}
+
+declare void @_ZN9Assembler23precompute_instructionsEv() local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1 align 2 {
+  %1 = alloca %class.CodeBuffer, align 8
+  %2 = alloca %class.VM_Version_StubGenerator, align 8
+  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.125, i32 noundef 550) #14
+  store ptr %15, ptr @_ZL28cpuid_brand_string_stub_blob, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %0
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.126, ptr noundef null) #14
+  %.pre = load ptr, ptr @_ZL28cpuid_brand_string_stub_blob, align 8
+  br label %18
+
+18:                                               ; preds = %17, %0
+  %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
+  call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
+  %20 = call noundef ptr @_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %20, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
+  call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #14
+  %21 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %23, label %22
+
+22:                                               ; preds = %18
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #14
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #14
+  br label %23
+
+23:                                               ; preds = %22, %18
+  %24 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %24, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+
+25:                                               ; preds = %23
+  store ptr %8, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
+  store ptr %12, ptr %11, align 8
+  br label %_ZN12ResourceMarkD2Ev.exit
+
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = alloca %class.Address, align 8
+  %3 = alloca %class.Address, align 8
+  %4 = alloca %class.Address, align 8
+  %5 = alloca %class.Address, align 8
+  %6 = alloca %class.Address, align 8
+  %7 = alloca %class.Address, align 8
+  %8 = alloca %class.Address, align 8
+  %9 = alloca %class.Address, align 8
+  %10 = alloca %class.Address, align 8
+  %11 = alloca %class.Address, align 8
+  %12 = alloca %class.Address, align 8
+  %13 = alloca %class.Address, align 8
+  %14 = alloca %class.Label, align 8
+  %15 = alloca %class.Label, align 8
+  %16 = alloca %class.Label, align 8
+  %17 = alloca %class.Label, align 8
+  %18 = alloca %class.Label, align 8
+  %19 = alloca %class.StubCodeMark, align 8
+  %20 = alloca %class.Address, align 16
+  %21 = alloca %class.Address, align 16
+  %22 = alloca %class.Address, align 16
+  %23 = alloca %class.Address, align 16
+  %24 = alloca %class.Address, align 16
+  %25 = alloca %class.Address, align 16
+  %26 = alloca %class.Address, align 16
+  %27 = alloca %class.Address, align 16
+  %28 = alloca %class.Address, align 16
+  %29 = alloca %class.Address, align 16
+  %30 = alloca %class.Address, align 16
+  %31 = alloca %class.Address, align 16
+  %32 = alloca %class.Address, align 16
+  %33 = alloca %class.Address, align 16
+  %34 = alloca %class.Address, align 16
+  %35 = alloca %class.Address, align 16
+  %36 = alloca %class.Address, align 16
+  %37 = alloca %class.Address, align 16
+  %38 = alloca %class.Address, align 16
+  %39 = alloca %class.Address, align 16
+  %40 = alloca %class.Address, align 16
+  %41 = alloca %class.Address, align 16
+  %42 = alloca %class.Address, align 16
+  %43 = alloca %class.Address, align 16
+  store i32 -1, ptr %14, align 8
+  %44 = getelementptr inbounds i8, ptr %14, i64 20
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %14, i64 32
+  store i8 0, ptr %46, align 8
+  store i32 -1, ptr %15, align 8
+  %47 = getelementptr inbounds i8, ptr %15, i64 20
+  store i32 0, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %15, i64 32
+  store i8 0, ptr %49, align 8
+  store i32 -1, ptr %16, align 8
+  %50 = getelementptr inbounds i8, ptr %16, i64 20
+  store i32 0, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %16, i64 24
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %16, i64 32
+  store i8 0, ptr %52, align 8
+  store i32 -1, ptr %17, align 8
+  %53 = getelementptr inbounds i8, ptr %17, i64 20
+  store i32 0, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %17, i64 24
+  store ptr null, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %17, i64 32
+  store i8 0, ptr %55, align 8
+  store i32 -1, ptr %18, align 8
+  %56 = getelementptr inbounds i8, ptr %18, i64 20
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr null, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %18, i64 32
+  store i8 0, ptr %58, align 8
+  call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %0, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.157) #14
+  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 5) #14
+  %65 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %65, i32 5, i32 7) #14
+  %66 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %66, i32 3) #14
+  %67 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %67, i32 6) #14
+  %68 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %68) #14
+  %69 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 0) #14
+  %70 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %70, i32 0) #14
+  %71 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 1, i32 0) #14
+  %72 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 0, i32 noundef 262144) #14
+  %73 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %73, i32 0) #14
+  %74 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %74) #14
+  %75 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %75) #14
+  %76 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %76, i32 0) #14
+  %77 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %77, i32 0, i32 1) #14
+  %78 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %78, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef nonnull @.str.65, i32 noundef 767) #14
+  %79 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 0, i32 noundef 768) #14
+  %80 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #14
+  %81 = load ptr, ptr %59, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(33) %14) #14
+  %82 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 0, i32 1) #14
+  %83 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %83, i32 0, i32 noundef 2097152) #14
+  %84 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 0) #14
+  %85 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %85) #14
+  %86 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40) %86) #14
+  %87 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %87, i32 0) #14
+  %88 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %88, i32 1, i32 0) #14
+  %89 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %89, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull @.str.65, i32 noundef 784) #14
+  %90 = load ptr, ptr %59, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(33) %15) #14
+  %91 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %91, i32 0, i32 noundef 1024) #14
+  %92 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #14
+  %93 = load ptr, ptr %59, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(33) %16) #14
+  %94 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %94, i32 0, i32 0) #14
+  %95 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %95) #14
+  %96 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %96, i32 0, i32 0) #14
+  %97 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %97, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %15, i1 noundef zeroext true) #14
+  %98 = load ptr, ptr %59, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(33) %18) #14
+  %99 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %99, i32 0, i32 noundef -2147483648) #14
+  %100 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %100) #14
+  %101 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %101, i32 0, i32 noundef -2147483644) #14
+  %102 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %102, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #14
+  %103 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %103, i32 0, i32 noundef -2147483646) #14
+  %104 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %104) #14
+  %105 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %20, align 16
+  %106 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 152, ptr %106, align 16
+  %107 = getelementptr inbounds i8, ptr %20, i64 20
+  store i8 0, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %20, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr null, ptr %109, align 16
+  %110 = getelementptr inbounds i8, ptr %20, i64 40
+  store i32 0, ptr %110, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 16 dereferenceable(21) %20, i64 21, i1 false)
+  %111 = getelementptr inbounds i8, ptr %13, i64 24
+  %112 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %108, ptr noundef nonnull align 8 dereferenceable(40) %111) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %105, i32 6, ptr noundef nonnull %13) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  %113 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %21, align 16
+  %114 = getelementptr inbounds i8, ptr %21, i64 16
+  store i32 0, ptr %114, align 16
+  %115 = getelementptr inbounds i8, ptr %21, i64 20
+  store i8 0, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr null, ptr %117, align 16
+  %118 = getelementptr inbounds i8, ptr %21, i64 40
+  store i32 0, ptr %118, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %113, ptr noundef nonnull %21, i32 0) #14
+  %119 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %22, align 16
+  %120 = getelementptr inbounds i8, ptr %22, i64 16
+  store i32 156, ptr %120, align 16
+  %121 = getelementptr inbounds i8, ptr %22, i64 20
+  store i8 0, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %22, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr null, ptr %123, align 16
+  %124 = getelementptr inbounds i8, ptr %22, i64 40
+  store i32 0, ptr %124, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 16 dereferenceable(21) %22, i64 21, i1 false)
+  %125 = getelementptr inbounds i8, ptr %12, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %122, ptr noundef nonnull align 8 dereferenceable(40) %125) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %119, i32 6, ptr noundef nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  %126 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %23, align 16
+  %127 = getelementptr inbounds i8, ptr %23, i64 16
+  store i32 0, ptr %127, align 16
+  %128 = getelementptr inbounds i8, ptr %23, i64 20
+  store i8 0, ptr %128, align 4
+  %129 = getelementptr inbounds i8, ptr %23, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %23, i64 32
+  store ptr null, ptr %130, align 16
+  %131 = getelementptr inbounds i8, ptr %23, i64 40
+  store i32 0, ptr %131, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef nonnull %23, i32 3) #14
+  %132 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %24, align 16
+  %133 = getelementptr inbounds i8, ptr %24, i64 16
+  store i32 160, ptr %133, align 16
+  %134 = getelementptr inbounds i8, ptr %24, i64 20
+  store i8 0, ptr %134, align 4
+  %135 = getelementptr inbounds i8, ptr %24, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %24, i64 32
+  store ptr null, ptr %136, align 16
+  %137 = getelementptr inbounds i8, ptr %24, i64 40
+  store i32 0, ptr %137, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 16 dereferenceable(21) %24, i64 21, i1 false)
+  %138 = getelementptr inbounds i8, ptr %11, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %135, ptr noundef nonnull align 8 dereferenceable(40) %138) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %132, i32 6, ptr noundef nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  %139 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %25, align 16
+  %140 = getelementptr inbounds i8, ptr %25, i64 16
+  store i32 0, ptr %140, align 16
+  %141 = getelementptr inbounds i8, ptr %25, i64 20
+  store i8 0, ptr %141, align 4
+  %142 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr null, ptr %143, align 16
+  %144 = getelementptr inbounds i8, ptr %25, i64 40
+  store i32 0, ptr %144, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %139, ptr noundef nonnull %25, i32 1) #14
+  %145 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %26, align 16
+  %146 = getelementptr inbounds i8, ptr %26, i64 16
+  store i32 164, ptr %146, align 16
+  %147 = getelementptr inbounds i8, ptr %26, i64 20
+  store i8 0, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %26, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %26, i64 32
+  store ptr null, ptr %149, align 16
+  %150 = getelementptr inbounds i8, ptr %26, i64 40
+  store i32 0, ptr %150, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 16 dereferenceable(21) %26, i64 21, i1 false)
+  %151 = getelementptr inbounds i8, ptr %10, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %151) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %145, i32 6, ptr noundef nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  %152 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %27, align 16
+  %153 = getelementptr inbounds i8, ptr %27, i64 16
+  store i32 0, ptr %153, align 16
+  %154 = getelementptr inbounds i8, ptr %27, i64 20
+  store i8 0, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %27, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr null, ptr %156, align 16
+  %157 = getelementptr inbounds i8, ptr %27, i64 40
+  store i32 0, ptr %157, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull %27, i32 2) #14
+  %158 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %158, i32 0, i32 noundef -2147483645) #14
+  %159 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %159) #14
+  %160 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %28, align 16
+  %161 = getelementptr inbounds i8, ptr %28, i64 16
+  store i32 168, ptr %161, align 16
+  %162 = getelementptr inbounds i8, ptr %28, i64 20
+  store i8 0, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %28, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr null, ptr %164, align 16
+  %165 = getelementptr inbounds i8, ptr %28, i64 40
+  store i32 0, ptr %165, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 16 dereferenceable(21) %28, i64 21, i1 false)
+  %166 = getelementptr inbounds i8, ptr %9, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %163, ptr noundef nonnull align 8 dereferenceable(40) %166) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %160, i32 6, ptr noundef nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  %167 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %29, align 16
+  %168 = getelementptr inbounds i8, ptr %29, i64 16
+  store i32 0, ptr %168, align 16
+  %169 = getelementptr inbounds i8, ptr %29, i64 20
+  store i8 0, ptr %169, align 4
+  %170 = getelementptr inbounds i8, ptr %29, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr null, ptr %171, align 16
+  %172 = getelementptr inbounds i8, ptr %29, i64 40
+  store i32 0, ptr %172, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %167, ptr noundef nonnull %29, i32 0) #14
+  %173 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %30, align 16
+  %174 = getelementptr inbounds i8, ptr %30, i64 16
+  store i32 172, ptr %174, align 16
+  %175 = getelementptr inbounds i8, ptr %30, i64 20
+  store i8 0, ptr %175, align 4
+  %176 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr null, ptr %177, align 16
+  %178 = getelementptr inbounds i8, ptr %30, i64 40
+  store i32 0, ptr %178, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 16 dereferenceable(21) %30, i64 21, i1 false)
+  %179 = getelementptr inbounds i8, ptr %8, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %176, ptr noundef nonnull align 8 dereferenceable(40) %179) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %173, i32 6, ptr noundef nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  %180 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %31, align 16
+  %181 = getelementptr inbounds i8, ptr %31, i64 16
+  store i32 0, ptr %181, align 16
+  %182 = getelementptr inbounds i8, ptr %31, i64 20
+  store i8 0, ptr %182, align 4
+  %183 = getelementptr inbounds i8, ptr %31, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %31, i64 32
+  store ptr null, ptr %184, align 16
+  %185 = getelementptr inbounds i8, ptr %31, i64 40
+  store i32 0, ptr %185, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef nonnull %31, i32 3) #14
+  %186 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %32, align 16
+  %187 = getelementptr inbounds i8, ptr %32, i64 16
+  store i32 176, ptr %187, align 16
+  %188 = getelementptr inbounds i8, ptr %32, i64 20
+  store i8 0, ptr %188, align 4
+  %189 = getelementptr inbounds i8, ptr %32, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr null, ptr %190, align 16
+  %191 = getelementptr inbounds i8, ptr %32, i64 40
+  store i32 0, ptr %191, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 16 dereferenceable(21) %32, i64 21, i1 false)
+  %192 = getelementptr inbounds i8, ptr %7, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %189, ptr noundef nonnull align 8 dereferenceable(40) %192) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %186, i32 6, ptr noundef nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  %193 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %33, align 16
+  %194 = getelementptr inbounds i8, ptr %33, i64 16
+  store i32 0, ptr %194, align 16
+  %195 = getelementptr inbounds i8, ptr %33, i64 20
+  store i8 0, ptr %195, align 4
+  %196 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr null, ptr %197, align 16
+  %198 = getelementptr inbounds i8, ptr %33, i64 40
+  store i32 0, ptr %198, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %193, ptr noundef nonnull %33, i32 1) #14
+  %199 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %34, align 16
+  %200 = getelementptr inbounds i8, ptr %34, i64 16
+  store i32 180, ptr %200, align 16
+  %201 = getelementptr inbounds i8, ptr %34, i64 20
+  store i8 0, ptr %201, align 4
+  %202 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %202, align 8
+  %203 = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr null, ptr %203, align 16
+  %204 = getelementptr inbounds i8, ptr %34, i64 40
+  store i32 0, ptr %204, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 16 dereferenceable(21) %34, i64 21, i1 false)
+  %205 = getelementptr inbounds i8, ptr %6, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %202, ptr noundef nonnull align 8 dereferenceable(40) %205) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %199, i32 6, ptr noundef nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  %206 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %35, align 16
+  %207 = getelementptr inbounds i8, ptr %35, i64 16
+  store i32 0, ptr %207, align 16
+  %208 = getelementptr inbounds i8, ptr %35, i64 20
+  store i8 0, ptr %208, align 4
+  %209 = getelementptr inbounds i8, ptr %35, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
+  %210 = getelementptr inbounds i8, ptr %35, i64 32
+  store ptr null, ptr %210, align 16
+  %211 = getelementptr inbounds i8, ptr %35, i64 40
+  store i32 0, ptr %211, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %206, ptr noundef nonnull %35, i32 2) #14
+  %212 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %212, i32 0, i32 noundef -2147483644) #14
+  %213 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40) %213) #14
+  %214 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %36, align 16
+  %215 = getelementptr inbounds i8, ptr %36, i64 16
+  store i32 184, ptr %215, align 16
+  %216 = getelementptr inbounds i8, ptr %36, i64 20
+  store i8 0, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %36, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %36, i64 32
+  store ptr null, ptr %218, align 16
+  %219 = getelementptr inbounds i8, ptr %36, i64 40
+  store i32 0, ptr %219, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 16 dereferenceable(21) %36, i64 21, i1 false)
+  %220 = getelementptr inbounds i8, ptr %5, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %217, ptr noundef nonnull align 8 dereferenceable(40) %220) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %214, i32 6, ptr noundef nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  %221 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %37, align 16
+  %222 = getelementptr inbounds i8, ptr %37, i64 16
+  store i32 0, ptr %222, align 16
+  %223 = getelementptr inbounds i8, ptr %37, i64 20
+  store i8 0, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %37, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %37, i64 32
+  store ptr null, ptr %225, align 16
+  %226 = getelementptr inbounds i8, ptr %37, i64 40
+  store i32 0, ptr %226, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %221, ptr noundef nonnull %37, i32 0) #14
+  %227 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %38, align 16
+  %228 = getelementptr inbounds i8, ptr %38, i64 16
+  store i32 188, ptr %228, align 16
+  %229 = getelementptr inbounds i8, ptr %38, i64 20
+  store i8 0, ptr %229, align 4
+  %230 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %230, align 8
+  %231 = getelementptr inbounds i8, ptr %38, i64 32
+  store ptr null, ptr %231, align 16
+  %232 = getelementptr inbounds i8, ptr %38, i64 40
+  store i32 0, ptr %232, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 16 dereferenceable(21) %38, i64 21, i1 false)
+  %233 = getelementptr inbounds i8, ptr %4, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %230, ptr noundef nonnull align 8 dereferenceable(40) %233) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 6, ptr noundef nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  %234 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %39, align 16
+  %235 = getelementptr inbounds i8, ptr %39, i64 16
+  store i32 0, ptr %235, align 16
+  %236 = getelementptr inbounds i8, ptr %39, i64 20
+  store i8 0, ptr %236, align 4
+  %237 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %237, align 8
+  %238 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr null, ptr %238, align 16
+  %239 = getelementptr inbounds i8, ptr %39, i64 40
+  store i32 0, ptr %239, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %234, ptr noundef nonnull %39, i32 3) #14
+  %240 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %40, align 16
+  %241 = getelementptr inbounds i8, ptr %40, i64 16
+  store i32 192, ptr %241, align 16
+  %242 = getelementptr inbounds i8, ptr %40, i64 20
+  store i8 0, ptr %242, align 4
+  %243 = getelementptr inbounds i8, ptr %40, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %40, i64 32
+  store ptr null, ptr %244, align 16
+  %245 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 0, ptr %245, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 16 dereferenceable(21) %40, i64 21, i1 false)
+  %246 = getelementptr inbounds i8, ptr %3, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %243, ptr noundef nonnull align 8 dereferenceable(40) %246) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %240, i32 6, ptr noundef nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  %247 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %41, align 16
+  %248 = getelementptr inbounds i8, ptr %41, i64 16
+  store i32 0, ptr %248, align 16
+  %249 = getelementptr inbounds i8, ptr %41, i64 20
+  store i8 0, ptr %249, align 4
+  %250 = getelementptr inbounds i8, ptr %41, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %251, align 16
+  %252 = getelementptr inbounds i8, ptr %41, i64 40
+  store i32 0, ptr %252, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %247, ptr noundef nonnull %41, i32 1) #14
+  %253 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %42, align 16
+  %254 = getelementptr inbounds i8, ptr %42, i64 16
+  store i32 196, ptr %254, align 16
+  %255 = getelementptr inbounds i8, ptr %42, i64 20
+  store i8 0, ptr %255, align 4
+  %256 = getelementptr inbounds i8, ptr %42, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %256, align 8
+  %257 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr null, ptr %257, align 16
+  %258 = getelementptr inbounds i8, ptr %42, i64 40
+  store i32 0, ptr %258, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 16 dereferenceable(21) %42, i64 21, i1 false)
+  %259 = getelementptr inbounds i8, ptr %2, i64 24
+  call void %112(ptr noundef nonnull align 8 dereferenceable(20) %256, ptr noundef nonnull align 8 dereferenceable(40) %259) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %253, i32 6, ptr noundef nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  %260 = load ptr, ptr %59, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %43, align 16
+  %261 = getelementptr inbounds i8, ptr %43, i64 16
+  store i32 0, ptr %261, align 16
+  %262 = getelementptr inbounds i8, ptr %43, i64 20
+  store i8 0, ptr %262, align 4
+  %263 = getelementptr inbounds i8, ptr %43, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %263, align 8
+  %264 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %264, align 16
+  %265 = getelementptr inbounds i8, ptr %43, i64 40
+  store i32 0, ptr %265, align 8
+  call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %260, ptr noundef nonnull %43, i32 2) #14
+  %266 = load ptr, ptr %59, align 8
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %266, ptr noundef nonnull align 8 dereferenceable(33) %17) #14
+  %267 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %267) #14
+  %268 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %268, i32 6) #14
+  %269 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %269, i32 3) #14
+  %270 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %270, i32 5) #14
+  %271 = load ptr, ptr %59, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %271, i32 noundef 0) #14
+  call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #14
+  ret ptr %64
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZN10VM_Version21cpu_model_descriptionEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %2 = lshr i32 %1, 8
+  %3 = and i32 %2, 15
+  %4 = lshr i32 %1, 20
+  %5 = and i32 %4, 255
+  %6 = add nuw nsw i32 %3, %5
+  %7 = icmp eq i32 %6, 6
+  br i1 %7, label %.preheader.preheader, label %.loopexit
+
+.preheader.preheader:                             ; preds = %0
+  %8 = lshr i32 %1, 12
+  %9 = and i32 %8, 240
+  %10 = lshr i32 %1, 4
+  %11 = and i32 %10, 15
+  %12 = or disjoint i32 %9, %11
+  %13 = icmp ugt i32 %12, 70
+  br i1 %13, label %.loopexit, label %.loopexit.split.loop.exit10
+
+.loopexit.split.loop.exit10:                      ; preds = %.preheader.preheader
+  %14 = zext nneg i32 %12 to i64
+  %15 = getelementptr inbounds [72 x ptr], ptr @_ZL21_model_id_pentium_pro, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader.preheader, %.loopexit.split.loop.exit10, %0
+  %.1 = phi ptr [ null, %0 ], [ %16, %.loopexit.split.loop.exit10 ], [ null, %.preheader.preheader ]
+  ret ptr %.1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef ptr @_ZN10VM_Version16cpu_brand_stringEv() local_unnamed_addr #1 align 2 {
+  %1 = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %3, label %31
+
+3:                                                ; preds = %0
+  %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 49, i8 noundef zeroext 9, i32 noundef 1) #14
+  store ptr %4, ptr @_ZL17_cpu_brand_string, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %31, label %6
+
+6:                                                ; preds = %3
+  %7 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  tail call void %7(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  store i32 %8, ptr %4, align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %9, ptr %10, align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %11, ptr %12, align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %13, ptr %14, align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %15, ptr %16, align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %17, ptr %18, align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %19, ptr %20, align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %21, ptr %22, align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %23, ptr %24, align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %26 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 %25, ptr %26, align 4
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %27, ptr %28, align 4
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 %29, ptr %30, align 4
+  %.pre = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  br label %31
+
+31:                                               ; preds = %0, %6, %3
+  %.0 = phi ptr [ null, %3 ], [ %.pre, %6 ], [ %1, %0 ]
+  ret ptr %.0
+}
+
+declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+  %3 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  tail call void %3(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  store i32 %4, ptr %0, align 4
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %5, ptr %6, align 4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %7, ptr %8, align 4
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %9, ptr %10, align 4
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %11, ptr %12, align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %13, ptr %14, align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %15, ptr %16, align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %17, ptr %18, align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %19, ptr %20, align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %21, ptr %22, align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %23, ptr %24, align 4
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %25, ptr %26, align 4
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %2 = and i32 %1, 255
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.loopexit, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %0
+  %umin = tail call i32 @llvm.umin.i32(i32 %2, i32 9)
+  %3 = add nuw nsw i32 %umin, 1
+  %wide.trip.count = zext nneg i32 %3 to i64
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
+
+.loopexit.loopexit:                               ; preds = %.preheader
+  %4 = getelementptr inbounds [10 x ptr], ptr @_ZL9_brand_id, i64 0, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %0
+  %.1 = phi ptr [ null, %0 ], [ %5, %.loopexit.loopexit ]
+  ret ptr %.1
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version12cpu_is_em64tEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %2 = and i32 %1, 536870912
+  %3 = icmp ne i32 %2, 0
+  ret i1 %3
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version11is_netburstEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  br i1 %2, label %3, label %11
+
+3:                                                ; preds = %0
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %5 = lshr i32 %4, 8
+  %6 = and i32 %5, 15
+  %7 = lshr i32 %4, 20
+  %8 = and i32 %7, 255
+  %9 = add nuw nsw i32 %6, %8
+  %10 = icmp eq i32 %9, 15
+  br label %11
+
+11:                                               ; preds = %3, %0
+  %12 = phi i1 [ false, %0 ], [ %10, %3 ]
+  ret i1 %12
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version19supports_tscinv_extEv() local_unnamed_addr #3 align 2 {
+  %1 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %2 = and i64 %1, 65536
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %switch.edge, label %3
+
+3:                                                ; preds = %0
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %4, label %12 [
+    i32 1970169159, label %switch.edge
+    i32 1752462657, label %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+    i32 1869052232, label %switch.edge
+  ]
+
+_ZN10VM_Version16is_amd_BarcelonaEv.exit:         ; preds = %3
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %6 = lshr i32 %5, 8
+  %7 = and i32 %6, 15
+  %8 = lshr i32 %5, 20
+  %9 = and i32 %8, 255
+  %10 = add nuw nsw i32 %7, %9
+  %11 = icmp ne i32 %10, 17
+  br label %switch.edge
+
+12:                                               ; preds = %3
+  br label %switch.edge
+
+switch.edge:                                      ; preds = %3, %3, %12, %0, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
+  %.0 = phi i1 [ %11, %_ZN10VM_Version16is_amd_BarcelonaEv.exit ], [ false, %0 ], [ true, %3 ], [ false, %12 ], [ true, %3 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+define hidden void @_ZN10VM_Version31resolve_cpu_information_detailsEv() local_unnamed_addr #9 align 2 {
+  %1 = load i32, ptr @_ZN2os16_processor_countE, align 4
+  store i32 %1, ptr @_ZN19Abstract_VM_Version14_no_of_threadsE, align 4
+  %2 = tail call noundef i32 @_ZN10VM_Version16threads_per_coreEv()
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  switch i32 %3, label %_ZN10VM_Version13cores_per_cpuEv.exit [
+    i32 1970169159, label %4
+    i32 1869052232, label %18
+    i32 1752462657, label %18
+    i32 1953391939, label %22
+    i32 1750278176, label %22
+  ]
+
+4:                                                ; preds = %0
+  %5 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %6 = icmp ugt i32 %5, 10
+  br i1 %6, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i, label %.thread.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit.i: ; preds = %4
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %8 = and i32 %7, 31
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %10 = and i32 %9, 65535
+  %11 = or i32 %10, %8
+  %.not24.i = icmp eq i32 %11, 0
+  br i1 %.not24.i, label %.thread.i, label %12
+
+12:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc.i = trunc i32 %13 to i16
+  %.rhs.trunc.i = trunc i32 %9 to i16
+  %14 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
+  %.zext.i = zext i16 %14 to i32
+  %.not25.i = icmp ugt i16 %.rhs.trunc.i, %.lhs.trunc.i
+  br i1 %.not25.i, label %.thread.i, label %_ZN10VM_Version13cores_per_cpuEv.exit.thread
+
+.thread.i:                                        ; preds = %12, %_ZN10VM_Version27supports_processor_topologyEv.exit.i, %4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %16 = lshr i32 %15, 26
+  %17 = add nuw nsw i32 %16, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit.thread
+
+18:                                               ; preds = %0, %0
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %20 = and i32 %19, 255
+  %21 = add nuw nsw i32 %20, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+22:                                               ; preds = %0, %0
+  %23 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %24 = icmp ugt i32 %23, 10
+  br i1 %24, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, label %.thread17.i
+
+_ZN10VM_Version27supports_processor_topologyEv.exit13.i: ; preds = %22
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %26 = and i32 %25, 31
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %28 = and i32 %27, 65535
+  %29 = or i32 %28, %26
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %.thread17.i, label %30
+
+30:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc20.i = trunc i32 %31 to i16
+  %.rhs.trunc21.i = trunc i32 %27 to i16
+  %32 = udiv i16 %.lhs.trunc20.i, %.rhs.trunc21.i
+  %.zext22.i = zext i16 %32 to i32
+  %.not23.i = icmp ugt i16 %.rhs.trunc21.i, %.lhs.trunc20.i
+  br i1 %.not23.i, label %.thread17.i, label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+.thread17.i:                                      ; preds = %30, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i, %22
+  %33 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %34 = lshr i32 %33, 26
+  %35 = add nuw nsw i32 %34, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit
+
+_ZN10VM_Version13cores_per_cpuEv.exit.thread:     ; preds = %12, %.thread.i
+  %.2.i.ph = phi i32 [ %.zext.i, %12 ], [ %17, %.thread.i ]
+  %36 = mul nuw i32 %.2.i.ph, %2
+  %37 = sdiv i32 %1, %36
+  %spec.store.select18 = tail call i32 @llvm.umax.i32(i32 %37, i32 1)
+  store i32 %spec.store.select18, ptr @_ZN19Abstract_VM_Version14_no_of_socketsE, align 4
+  br label %40
+
+_ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %0, %18, %30, %.thread17.i
+  %.2.i = phi i32 [ %21, %18 ], [ %35, %.thread17.i ], [ %.zext22.i, %30 ], [ 1, %0 ]
+  %38 = mul nuw i32 %.2.i, %2
+  %39 = sdiv i32 %1, %38
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
+  store i32 %spec.store.select, ptr @_ZN19Abstract_VM_Version14_no_of_socketsE, align 4
+  switch i32 %3, label %_ZN10VM_Version13cores_per_cpuEv.exit16 [
+    i32 1970169159, label %_ZN10VM_Version13cores_per_cpuEv.exit._crit_edge
+    i32 1869052232, label %54
+    i32 1752462657, label %54
+    i32 1953391939, label %58
+    i32 1750278176, label %58
+  ]
+
+_ZN10VM_Version13cores_per_cpuEv.exit._crit_edge: ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit
+  %.pre = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  br label %40
+
+40:                                               ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit._crit_edge, %_ZN10VM_Version13cores_per_cpuEv.exit.thread
+  %41 = phi i32 [ %5, %_ZN10VM_Version13cores_per_cpuEv.exit.thread ], [ %.pre, %_ZN10VM_Version13cores_per_cpuEv.exit._crit_edge ]
+  %spec.store.select19 = phi i32 [ %spec.store.select18, %_ZN10VM_Version13cores_per_cpuEv.exit.thread ], [ %spec.store.select, %_ZN10VM_Version13cores_per_cpuEv.exit._crit_edge ]
+  %42 = icmp ugt i32 %41, 10
+  br i1 %42, label %_ZN10VM_Version27supports_processor_topologyEv.exit.i10, label %.thread.i9
+
+_ZN10VM_Version27supports_processor_topologyEv.exit.i10: ; preds = %40
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %44 = and i32 %43, 31
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %46 = and i32 %45, 65535
+  %47 = or i32 %46, %44
+  %.not24.i11 = icmp eq i32 %47, 0
+  br i1 %.not24.i11, label %.thread.i9, label %48
+
+48:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit.i10
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc.i12 = trunc i32 %49 to i16
+  %.rhs.trunc.i13 = trunc i32 %45 to i16
+  %50 = udiv i16 %.lhs.trunc.i12, %.rhs.trunc.i13
+  %.zext.i14 = zext i16 %50 to i32
+  %.not25.i15 = icmp ugt i16 %.rhs.trunc.i13, %.lhs.trunc.i12
+  br i1 %.not25.i15, label %.thread.i9, label %_ZN10VM_Version13cores_per_cpuEv.exit16
+
+.thread.i9:                                       ; preds = %48, %_ZN10VM_Version27supports_processor_topologyEv.exit.i10, %40
+  %51 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %52 = lshr i32 %51, 26
+  %53 = add nuw nsw i32 %52, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit16
+
+54:                                               ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit, %_ZN10VM_Version13cores_per_cpuEv.exit
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 240), align 8
+  %56 = and i32 %55, 255
+  %57 = add nuw nsw i32 %56, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit16
+
+58:                                               ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit, %_ZN10VM_Version13cores_per_cpuEv.exit
+  %59 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8
+  %60 = icmp ugt i32 %59, 10
+  br i1 %60, label %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3, label %.thread17.i1
+
+_ZN10VM_Version27supports_processor_topologyEv.exit13.i3: ; preds = %58
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 72), align 8
+  %62 = and i32 %61, 31
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 76), align 4
+  %64 = and i32 %63, 65535
+  %65 = or i32 %64, %62
+  %.not.i4 = icmp eq i32 %65, 0
+  br i1 %.not.i4, label %.thread17.i1, label %66
+
+66:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 92), align 4
+  %.lhs.trunc20.i5 = trunc i32 %67 to i16
+  %.rhs.trunc21.i6 = trunc i32 %63 to i16
+  %68 = udiv i16 %.lhs.trunc20.i5, %.rhs.trunc21.i6
+  %.zext22.i7 = zext i16 %68 to i32
+  %.not23.i8 = icmp ugt i16 %.rhs.trunc21.i6, %.lhs.trunc20.i5
+  br i1 %.not23.i8, label %.thread17.i1, label %_ZN10VM_Version13cores_per_cpuEv.exit16
+
+.thread17.i1:                                     ; preds = %66, %_ZN10VM_Version27supports_processor_topologyEv.exit13.i3, %58
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 32), align 8
+  %70 = lshr i32 %69, 26
+  %71 = add nuw nsw i32 %70, 1
+  br label %_ZN10VM_Version13cores_per_cpuEv.exit16
+
+_ZN10VM_Version13cores_per_cpuEv.exit16:          ; preds = %_ZN10VM_Version13cores_per_cpuEv.exit, %48, %.thread.i9, %54, %66, %.thread17.i1
+  %spec.store.select20 = phi i32 [ %spec.store.select19, %.thread.i9 ], [ %spec.store.select19, %48 ], [ %spec.store.select, %54 ], [ %spec.store.select, %.thread17.i1 ], [ %spec.store.select, %66 ], [ %spec.store.select, %_ZN10VM_Version13cores_per_cpuEv.exit ]
+  %.2.i2 = phi i32 [ %53, %.thread.i9 ], [ %.zext.i14, %48 ], [ %57, %54 ], [ %71, %.thread17.i1 ], [ %.zext22.i7, %66 ], [ 1, %_ZN10VM_Version13cores_per_cpuEv.exit ]
+  %72 = mul i32 %.2.i2, %spec.store.select20
+  store i32 %72, ptr @_ZN19Abstract_VM_Version12_no_of_coresE, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %2 = lshr i32 %1, 8
+  %3 = and i32 %2, 15
+  %4 = lshr i32 %1, 20
+  %5 = and i32 %4, 255
+  %6 = add nuw nsw i32 %3, %5
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %8 = icmp eq i32 %7, 1752462657
+  %9 = icmp ult i32 %6, 24
+  %or.cond = and i1 %8, %9
+  br i1 %or.cond, label %10, label %14
+
+10:                                               ; preds = %0
+  %11 = zext nneg i32 %6 to i64
+  %12 = getelementptr inbounds [24 x ptr], ptr @_ZL14_family_id_amd, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+14:                                               ; preds = %0
+  %15 = icmp eq i32 %7, 1970169159
+  br i1 %15, label %16, label %33
+
+16:                                               ; preds = %14
+  %17 = icmp eq i32 %6, 6
+  br i1 %17, label %.preheader.preheader.i, label %27
+
+.preheader.preheader.i:                           ; preds = %16
+  %18 = lshr i32 %1, 12
+  %19 = and i32 %18, 240
+  %20 = lshr i32 %1, 4
+  %21 = and i32 %20, 15
+  %22 = or disjoint i32 %19, %21
+  %23 = icmp ugt i32 %22, 70
+  br i1 %23, label %_ZN10VM_Version21cpu_model_descriptionEv.exit, label %.loopexit.split.loop.exit10.i
+
+.loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
+  %24 = zext nneg i32 %22 to i64
+  %25 = getelementptr inbounds [72 x ptr], ptr @_ZL21_model_id_pentium_pro, i64 0, i64 %24
+  %26 = load ptr, ptr %25, align 8
+  br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+27:                                               ; preds = %16
+  %28 = icmp ult i32 %6, 16
+  br i1 %28, label %29, label %33
+
+29:                                               ; preds = %27
+  %30 = zext nneg i32 %6 to i64
+  %31 = getelementptr inbounds [16 x ptr], ptr @_ZL16_family_id_intel, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+33:                                               ; preds = %27, %14
+  %34 = icmp eq i32 %7, 1869052232
+  %.str.127..str.128 = select i1 %34, ptr @.str.127, ptr @.str.128
+  br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+_ZN10VM_Version21cpu_model_descriptionEv.exit:    ; preds = %.loopexit.split.loop.exit10.i, %.preheader.preheader.i, %33, %29, %10
+  %.0 = phi ptr [ %13, %10 ], [ %32, %29 ], [ %.str.127..str.128, %33 ], [ %26, %.loopexit.split.loop.exit10.i ], [ null, %.preheader.preheader.i ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %4 = icmp eq i32 %3, 1970169159
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  br i1 %4, label %9, label %6
+
+6:                                                ; preds = %2
+  switch i32 %3, label %8 [
+    i32 1752462657, label %9
+    i32 1869052232, label %7
+  ]
+
+7:                                                ; preds = %6
+  br label %9
+
+8:                                                ; preds = %6
+  br label %9
+
+9:                                                ; preds = %6, %2, %8, %7
+  %.str.133.sink = phi ptr [ @.str.135, %8 ], [ @.str.133, %7 ], [ @.str.130, %2 ], [ @.str.133, %6 ]
+  %.03 = phi ptr [ @.str.128, %8 ], [ @.str.134, %7 ], [ @.str.129, %2 ], [ @.str.132, %6 ]
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %11 = lshr i32 %10, 8
+  %12 = and i32 %11, 15
+  %13 = lshr i32 %10, 20
+  %14 = and i32 %13, 255
+  %15 = add nuw nsw i32 %12, %14
+  %.fr = freeze i32 %15
+  %16 = icmp eq i32 %3, 1752462657
+  %17 = icmp ult i32 %.fr, 24
+  %or.cond.i = and i1 %16, %17
+  br i1 %or.cond.i, label %18, label %22
+
+18:                                               ; preds = %9
+  %19 = zext nneg i32 %.fr to i64
+  %20 = getelementptr inbounds [24 x ptr], ptr @_ZL14_family_id_amd, i64 0, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+22:                                               ; preds = %9
+  br i1 %4, label %23, label %40
+
+23:                                               ; preds = %22
+  %24 = icmp eq i32 %.fr, 6
+  br i1 %24, label %.preheader.preheader.i.i, label %34
+
+.preheader.preheader.i.i:                         ; preds = %23
+  %25 = lshr i32 %10, 12
+  %26 = and i32 %25, 240
+  %27 = lshr i32 %10, 4
+  %28 = and i32 %27, 15
+  %29 = or disjoint i32 %26, %28
+  %30 = icmp ugt i32 %29, 70
+  br i1 %30, label %_ZN10VM_Version22cpu_family_descriptionEv.exit, label %.loopexit.split.loop.exit10.i.i
+
+.loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds [72 x ptr], ptr @_ZL21_model_id_pentium_pro, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+34:                                               ; preds = %23
+  %35 = icmp ult i32 %.fr, 16
+  br i1 %35, label %36, label %40
+
+36:                                               ; preds = %34
+  %37 = zext nneg i32 %.fr to i64
+  %38 = getelementptr inbounds [16 x ptr], ptr @_ZL16_family_id_intel, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+40:                                               ; preds = %34, %22
+  %41 = icmp eq i32 %3, 1869052232
+  %.str.127..str.128.i = select i1 %41, ptr @.str.127, ptr @.str.128
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+_ZN10VM_Version22cpu_family_descriptionEv.exit:   ; preds = %18, %.preheader.preheader.i.i, %.loopexit.split.loop.exit10.i.i, %36, %40
+  %.0.i = phi ptr [ %21, %18 ], [ %39, %36 ], [ %.str.127..str.128.i, %40 ], [ %33, %.loopexit.split.loop.exit10.i.i ], [ null, %.preheader.preheader.i.i ]
+  %42 = and i32 %5, 536870912
+  %.not10 = icmp eq i32 %42, 0
+  %43 = select i1 %.not10, ptr @.str.131, ptr %.str.133.sink
+  %44 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %45 = and i64 %44, 8
+  %.not11 = icmp eq i64 %45, 0
+  %46 = select i1 %.not11, ptr @.str.131, ptr @.str.137
+  %47 = and i64 %44, 256
+  %.not12 = icmp eq i64 %47, 0
+  %48 = select i1 %.not12, ptr @.str.131, ptr @.str.138
+  %49 = and i64 %44, 512
+  %.not13 = icmp eq i64 %49, 0
+  %50 = select i1 %.not13, ptr @.str.131, ptr @.str.139
+  %51 = and i64 %44, 2048
+  %.not14 = icmp eq i64 %51, 0
+  %52 = select i1 %.not14, ptr @.str.131, ptr @.str.140
+  %53 = and i64 %44, 4096
+  %.not15 = icmp eq i64 %53, 0
+  %54 = select i1 %.not15, ptr @.str.131, ptr @.str.141
+  %55 = and i64 %44, 1024
+  %.not16 = icmp eq i64 %55, 0
+  %56 = select i1 %.not16, ptr @.str.131, ptr @.str.142
+  %57 = icmp eq i32 %.fr, 15
+  %58 = icmp eq i32 %.fr, 6
+  %59 = and i1 %4, %57
+  %60 = select i1 %59, ptr @.str.143, ptr @.str.131
+  %61 = and i1 %4, %58
+  %62 = select i1 %61, ptr @.str.144, ptr @.str.131
+  %63 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.136, ptr noundef nonnull %.03, ptr noundef %.0.i, ptr noundef nonnull %46, ptr noundef nonnull %48, ptr noundef nonnull %50, ptr noundef nonnull %52, ptr noundef nonnull %54, ptr noundef nonnull %56, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %43) #14
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %5
+
+3:                                                ; preds = %2
+  %4 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %4, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.65, i32 noundef 2755, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146) #15
+  unreachable
+
+5:                                                ; preds = %2
+  %.not107 = icmp eq i64 %1, 0
+  br i1 %.not107, label %6, label %.preheader122
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %7, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.65, i32 noundef 2756, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.148) #15
+  unreachable
+
+.preheader122:                                    ; preds = %5, %37
+  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %5 ]
+  %.083134 = phi i32 [ %38, %37 ], [ 1, %5 ]
+  %.088132 = phi i64 [ %.189, %37 ], [ 0, %5 ]
+  %.092131 = phi ptr [ %.193, %37 ], [ @.str.131, %5 ]
+  switch i32 %.083134, label %19 [
+    i32 268435456, label %8
+    i32 2048, label %12
+  ]
+
+8:                                                ; preds = %.preheader122
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %10 = and i32 %9, 16646144
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %37, label %19
+
+12:                                               ; preds = %.preheader122
+  %13 = load i32, ptr @_ZN10VM_Version4_cpuE, align 4
+  %14 = icmp eq i32 %13, 6
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %12
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %17 = and i32 %16, 255
+  %18 = icmp ult i32 %17, 51
+  br i1 %18, label %37, label %19
+
+19:                                               ; preds = %8, %.preheader122, %12, %15
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %21 = and i32 %20, %.083134
+  %.not116 = icmp eq i32 %21, 0
+  br i1 %.not116, label %37, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds [32 x ptr], ptr @_ZL15_feature_edx_id, i64 0, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8
+  %char0117 = load i8, ptr %24, align 1
+  %.not118 = icmp eq i8 %char0117, 0
+  br i1 %.not118, label %37, label %25
+
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 %.088132
+  %27 = sub i64 %1, %.088132
+  %28 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.149, ptr noundef %.092131, ptr noundef nonnull %24) #14
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %25
+  %31 = add i64 %1, -1
+  br label %112
+
+32:                                               ; preds = %25
+  %33 = zext nneg i32 %28 to i64
+  %34 = add i64 %.088132, %33
+  %35 = load i8, ptr %.092131, align 1
+  %36 = icmp eq i8 %35, 0
+  %spec.store.select = select i1 %36, ptr @.str.150, ptr %.092131
+  br label %37
+
+37:                                               ; preds = %19, %22, %32, %15, %8
+  %.193 = phi ptr [ %.092131, %8 ], [ %.092131, %15 ], [ %spec.store.select, %32 ], [ %.092131, %22 ], [ %.092131, %19 ]
+  %.189 = phi i64 [ %.088132, %8 ], [ %.088132, %15 ], [ %34, %32 ], [ %.088132, %22 ], [ %.088132, %19 ]
+  %38 = shl nuw nsw i32 %.083134, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 30
+  br i1 %exitcond.not, label %.preheader121.preheader, label %.preheader122, !llvm.loop !12
+
+.preheader121.preheader:                          ; preds = %37
+  %.pre160 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  br label %.preheader121
+
+.preheader121:                                    ; preds = %.preheader121.preheader, %56
+  %39 = phi i32 [ %.pre160, %.preheader121.preheader ], [ %57, %56 ]
+  %indvars.iv148 = phi i64 [ 0, %.preheader121.preheader ], [ %indvars.iv.next149, %56 ]
+  %.1138 = phi i32 [ 1, %.preheader121.preheader ], [ %58, %56 ]
+  %.290136 = phi i64 [ %.189, %.preheader121.preheader ], [ %.391, %56 ]
+  %.294135 = phi ptr [ %.193, %.preheader121.preheader ], [ %.395, %56 ]
+  %40 = and i32 %39, %.1138
+  %.not113 = icmp eq i32 %40, 0
+  br i1 %.not113, label %56, label %41
+
+41:                                               ; preds = %.preheader121
+  %42 = getelementptr inbounds [32 x ptr], ptr @_ZL15_feature_ecx_id, i64 0, i64 %indvars.iv148
+  %43 = load ptr, ptr %42, align 8
+  %char0114 = load i8, ptr %43, align 1
+  %.not115 = icmp eq i8 %char0114, 0
+  br i1 %.not115, label %56, label %44
+
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %0, i64 %.290136
+  %46 = sub i64 %1, %.290136
+  %47 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.149, ptr noundef %.294135, ptr noundef nonnull %43) #14
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %51
+
+49:                                               ; preds = %44
+  %50 = add i64 %1, -1
+  br label %112
+
+51:                                               ; preds = %44
+  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  %52 = zext nneg i32 %47 to i64
+  %53 = add i64 %.290136, %52
+  %54 = load i8, ptr %.294135, align 1
+  %55 = icmp eq i8 %54, 0
+  %spec.store.select1 = select i1 %55, ptr @.str.150, ptr %.294135
+  br label %56
+
+56:                                               ; preds = %.preheader121, %41, %51
+  %57 = phi i32 [ %.pre, %51 ], [ %39, %41 ], [ %39, %.preheader121 ]
+  %.395 = phi ptr [ %spec.store.select1, %51 ], [ %.294135, %41 ], [ %.294135, %.preheader121 ]
+  %.391 = phi i64 [ %53, %51 ], [ %.290136, %41 ], [ %.290136, %.preheader121 ]
+  %58 = shl nuw nsw i32 %.1138, 1
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond151.not = icmp eq i64 %indvars.iv.next149, 30
+  br i1 %exitcond151.not, label %.preheader120.preheader, label %.preheader121, !llvm.loop !13
+
+.preheader120.preheader:                          ; preds = %56
+  %.pre162 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  br label %.preheader120
+
+.preheader120:                                    ; preds = %.preheader120.preheader, %76
+  %59 = phi i32 [ %.pre162, %.preheader120.preheader ], [ %77, %76 ]
+  %indvars.iv152 = phi i64 [ 0, %.preheader120.preheader ], [ %indvars.iv.next153, %76 ]
+  %.2142 = phi i32 [ 1, %.preheader120.preheader ], [ %78, %76 ]
+  %.4140 = phi i64 [ %.391, %.preheader120.preheader ], [ %.5, %76 ]
+  %.496139 = phi ptr [ %.395, %.preheader120.preheader ], [ %.597, %76 ]
+  %60 = and i32 %59, %.2142
+  %.not110 = icmp eq i32 %60, 0
+  br i1 %.not110, label %76, label %61
+
+61:                                               ; preds = %.preheader120
+  %62 = getelementptr inbounds [32 x ptr], ptr @_ZL24_feature_extended_ecx_id, i64 0, i64 %indvars.iv152
+  %63 = load ptr, ptr %62, align 8
+  %char0111 = load i8, ptr %63, align 1
+  %.not112 = icmp eq i8 %char0111, 0
+  br i1 %.not112, label %76, label %64
+
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %0, i64 %.4140
+  %66 = sub i64 %1, %.4140
+  %67 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %65, i64 noundef %66, ptr noundef nonnull @.str.149, ptr noundef %.496139, ptr noundef nonnull %63) #14
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %64
+  %70 = add i64 %1, -1
+  br label %112
+
+71:                                               ; preds = %64
+  %.pre161 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  %72 = zext nneg i32 %67 to i64
+  %73 = add i64 %.4140, %72
+  %74 = load i8, ptr %.496139, align 1
+  %75 = icmp eq i8 %74, 0
+  %spec.store.select2 = select i1 %75, ptr @.str.150, ptr %.496139
+  br label %76
+
+76:                                               ; preds = %.preheader120, %61, %71
+  %77 = phi i32 [ %.pre161, %71 ], [ %59, %61 ], [ %59, %.preheader120 ]
+  %.597 = phi ptr [ %spec.store.select2, %71 ], [ %.496139, %61 ], [ %.496139, %.preheader120 ]
+  %.5 = phi i64 [ %73, %71 ], [ %.4140, %61 ], [ %.4140, %.preheader120 ]
+  %78 = shl nuw nsw i32 %.2142, 1
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next153, 30
+  br i1 %exitcond155.not, label %.preheader.preheader, label %.preheader120, !llvm.loop !14
+
+.preheader.preheader:                             ; preds = %76
+  %.pre164 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %96
+  %79 = phi i32 [ %.pre164, %.preheader.preheader ], [ %97, %96 ]
+  %indvars.iv156 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next157, %96 ]
+  %.3146 = phi i32 [ 1, %.preheader.preheader ], [ %98, %96 ]
+  %.6144 = phi i64 [ %.5, %.preheader.preheader ], [ %.7, %96 ]
+  %.698143 = phi ptr [ %.597, %.preheader.preheader ], [ %.799, %96 ]
+  %80 = and i32 %79, %.3146
+  %.not108 = icmp eq i32 %80, 0
+  br i1 %.not108, label %96, label %81
+
+81:                                               ; preds = %.preheader
+  %82 = getelementptr inbounds [32 x ptr], ptr @_ZL24_feature_extended_edx_id, i64 0, i64 %indvars.iv156
+  %83 = load ptr, ptr %82, align 8
+  %char0 = load i8, ptr %83, align 1
+  %.not109 = icmp eq i8 %char0, 0
+  br i1 %.not109, label %96, label %84
+
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %0, i64 %.6144
+  %86 = sub i64 %1, %.6144
+  %87 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %85, i64 noundef %86, ptr noundef nonnull @.str.149, ptr noundef %.698143, ptr noundef nonnull %83) #14
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %91
+
+89:                                               ; preds = %84
+  %90 = add i64 %1, -1
+  br label %112
+
+91:                                               ; preds = %84
+  %.pre163 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %92 = zext nneg i32 %87 to i64
+  %93 = add i64 %.6144, %92
+  %94 = load i8, ptr %.698143, align 1
+  %95 = icmp eq i8 %94, 0
+  %spec.store.select3 = select i1 %95, ptr @.str.150, ptr %.698143
+  br label %96
+
+96:                                               ; preds = %.preheader, %81, %91
+  %97 = phi i32 [ %.pre163, %91 ], [ %79, %81 ], [ %79, %.preheader ]
+  %.799 = phi ptr [ %spec.store.select3, %91 ], [ %.698143, %81 ], [ %.698143, %.preheader ]
+  %.7 = phi i64 [ %93, %91 ], [ %.6144, %81 ], [ %.6144, %.preheader ]
+  %98 = shl nuw nsw i32 %.3146, 1
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond159.not = icmp eq i64 %indvars.iv.next157, 30
+  br i1 %exitcond159.not, label %99, label %.preheader, !llvm.loop !15
+
+99:                                               ; preds = %96
+  %100 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %101 = and i64 %100, 65536
+  %.not119 = icmp eq i64 %101, 0
+  br i1 %.not119, label %112, label %102
+
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %0, i64 %.7
+  %104 = sub i64 %1, %.7
+  %105 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %103, i64 noundef %104, ptr noundef nonnull @.str.149, ptr noundef %.799, ptr noundef nonnull @.str.151) #14
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %107, label %109
+
+107:                                              ; preds = %102
+  %108 = add i64 %1, -1
+  br label %112
+
+109:                                              ; preds = %102
+  %110 = zext nneg i32 %105 to i64
+  %111 = add i64 %.7, %110
+  br label %112
+
+112:                                              ; preds = %99, %109, %107, %89, %69, %49, %30
+  %.0 = phi i64 [ %31, %30 ], [ %50, %49 ], [ %70, %69 ], [ %90, %89 ], [ %108, %107 ], [ %111, %109 ], [ %.7, %99 ]
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descriptionEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+  %3 = alloca [13 x i8], align 4
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %5 = lshr i32 %4, 8
+  %6 = and i32 %5, 15
+  %7 = lshr i32 %4, 20
+  %8 = and i32 %7, 255
+  %9 = add nuw nsw i32 %6, %8
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %11 = icmp eq i32 %10, 1752462657
+  %12 = icmp ult i32 %9, 24
+  %or.cond.i = and i1 %11, %12
+  br i1 %or.cond.i, label %13, label %17
+
+13:                                               ; preds = %2
+  %14 = zext nneg i32 %9 to i64
+  %15 = getelementptr inbounds [24 x ptr], ptr @_ZL14_family_id_amd, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+17:                                               ; preds = %2
+  %18 = icmp eq i32 %10, 1970169159
+  br i1 %18, label %19, label %36
+
+19:                                               ; preds = %17
+  %20 = icmp eq i32 %9, 6
+  br i1 %20, label %.preheader.preheader.i.i, label %30
+
+.preheader.preheader.i.i:                         ; preds = %19
+  %21 = lshr i32 %4, 12
+  %22 = and i32 %21, 240
+  %23 = lshr i32 %4, 4
+  %24 = and i32 %23, 15
+  %25 = or disjoint i32 %22, %24
+  %26 = icmp ugt i32 %25, 70
+  br i1 %26, label %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread, label %.loopexit.split.loop.exit10.i.i
+
+.loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
+  %27 = zext nneg i32 %25 to i64
+  %28 = getelementptr inbounds [72 x ptr], ptr @_ZL21_model_id_pentium_pro, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread
+
+30:                                               ; preds = %19
+  %31 = icmp ult i32 %9, 16
+  br i1 %31, label %32, label %36
+
+32:                                               ; preds = %30
+  %33 = zext nneg i32 %9 to i64
+  %34 = getelementptr inbounds [16 x ptr], ptr @_ZL16_family_id_intel, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+36:                                               ; preds = %30, %17
+  %37 = icmp eq i32 %10, 1869052232
+  %.str.127..str.128.i = select i1 %37, ptr @.str.127, ptr @.str.128
+  br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
+
+_ZN10VM_Version22cpu_family_descriptionEv.exit.thread: ; preds = %.preheader.preheader.i.i, %.loopexit.split.loop.exit10.i.i
+  %.0.i.ph = phi ptr [ null, %.preheader.preheader.i.i ], [ %29, %.loopexit.split.loop.exit10.i.i ]
+  %38 = icmp eq ptr %.0.i.ph, null
+  %spec.select36 = select i1 %38, ptr @.str.152, ptr %.0.i.ph
+  br label %.preheader.preheader.i
+
+_ZN10VM_Version22cpu_family_descriptionEv.exit:   ; preds = %13, %32, %36
+  %.0.i = phi ptr [ %16, %13 ], [ %35, %32 ], [ %.str.127..str.128.i, %36 ]
+  %39 = icmp eq ptr %.0.i, null
+  %spec.select = select i1 %39, ptr @.str.152, ptr %.0.i
+  %40 = icmp eq i32 %9, 6
+  br i1 %40, label %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge, label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge: ; preds = %_ZN10VM_Version22cpu_family_descriptionEv.exit
+  %.pre = lshr i32 %4, 12
+  %.pre43 = and i32 %.pre, 240
+  %.pre45 = lshr i32 %4, 4
+  %.pre47 = and i32 %.pre45, 15
+  %.pre49 = or disjoint i32 %.pre43, %.pre47
+  br label %.preheader.preheader.i
+
+.preheader.preheader.i:                           ; preds = %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread
+  %.pre-phi50 = phi i32 [ %.pre49, %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge ], [ %25, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread ]
+  %spec.select38 = phi ptr [ %spec.select, %_ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge ], [ %spec.select36, %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread ]
+  %41 = icmp ugt i32 %.pre-phi50, 70
+  br i1 %41, label %_ZN10VM_Version21cpu_model_descriptionEv.exit, label %.loopexit.split.loop.exit10.i
+
+.loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
+  %42 = zext nneg i32 %.pre-phi50 to i64
+  %43 = getelementptr inbounds [72 x ptr], ptr @_ZL21_model_id_pentium_pro, i64 0, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
+
+_ZN10VM_Version21cpu_model_descriptionEv.exit:    ; preds = %_ZN10VM_Version22cpu_family_descriptionEv.exit, %.preheader.preheader.i, %.loopexit.split.loop.exit10.i
+  %spec.select37 = phi ptr [ %spec.select, %_ZN10VM_Version22cpu_family_descriptionEv.exit ], [ %spec.select38, %.loopexit.split.loop.exit10.i ], [ %spec.select38, %.preheader.preheader.i ]
+  %.1.i = phi ptr [ null, %_ZN10VM_Version22cpu_family_descriptionEv.exit ], [ %44, %.loopexit.split.loop.exit10.i ], [ null, %.preheader.preheader.i ]
+  %45 = icmp eq ptr %.1.i, null
+  %.022 = select i1 %45, ptr @.str.152, ptr %.1.i
+  %46 = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread40
+
+48:                                               ; preds = %_ZN10VM_Version21cpu_model_descriptionEv.exit
+  %49 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 49, i8 noundef zeroext 9, i32 noundef 1) #14
+  store ptr %49, ptr @_ZL17_cpu_brand_string, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %_ZN10VM_Version16cpu_brand_stringEv.exit
+
+_ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %48
+  %51 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  tail call void %51(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
+  %52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  store i32 %52, ptr %49, align 4
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %54 = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 %53, ptr %54, align 4
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  store i32 %55, ptr %56, align 4
+  %57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %58 = getelementptr inbounds i8, ptr %49, i64 12
+  store i32 %57, ptr %58, align 4
+  %59 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %60 = getelementptr inbounds i8, ptr %49, i64 16
+  store i32 %59, ptr %60, align 4
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %62 = getelementptr inbounds i8, ptr %49, i64 20
+  store i32 %61, ptr %62, align 4
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %64 = getelementptr inbounds i8, ptr %49, i64 24
+  store i32 %63, ptr %64, align 4
+  %65 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %66 = getelementptr inbounds i8, ptr %49, i64 28
+  store i32 %65, ptr %66, align 4
+  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %68 = getelementptr inbounds i8, ptr %49, i64 32
+  store i32 %67, ptr %68, align 4
+  %69 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %70 = getelementptr inbounds i8, ptr %49, i64 36
+  store i32 %69, ptr %70, align 4
+  %71 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %72 = getelementptr inbounds i8, ptr %49, i64 40
+  store i32 %71, ptr %72, align 4
+  %73 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %74 = getelementptr inbounds i8, ptr %49, i64 44
+  store i32 %73, ptr %74, align 4
+  %.pre.i = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  %75 = icmp eq ptr %.pre.i, null
+  br i1 %75, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread40
+
+_ZN10VM_Version16cpu_brand_stringEv.exit.thread:  ; preds = %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %77 = and i32 %76, 255
+  %.not.i = icmp eq i32 %77, 0
+  br i1 %.not.i, label %_ZN10VM_Version9cpu_brandEv.exit, label %.preheader.preheader.i33
+
+.preheader.preheader.i33:                         ; preds = %_ZN10VM_Version16cpu_brand_stringEv.exit.thread
+  %78 = and i32 %76, 255
+  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 9)
+  %umin = zext nneg i32 %79 to i64
+  %80 = getelementptr inbounds [10 x ptr], ptr @_ZL9_brand_id, i64 0, i64 %umin
+  %81 = load ptr, ptr %80, align 8
+  br label %_ZN10VM_Version9cpu_brandEv.exit
+
+_ZN10VM_Version9cpu_brandEv.exit:                 ; preds = %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, %.preheader.preheader.i33
+  %.1.i34 = phi ptr [ null, %_ZN10VM_Version16cpu_brand_stringEv.exit.thread ], [ %81, %.preheader.preheader.i33 ]
+  %82 = icmp eq ptr %.1.i34, null
+  %spec.select31 = select i1 %82, ptr @.str.152, ptr %.1.i34
+  br label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread40
+
+_ZN10VM_Version16cpu_brand_stringEv.exit.thread40: ; preds = %_ZN10VM_Version21cpu_model_descriptionEv.exit, %_ZN10VM_Version9cpu_brandEv.exit, %_ZN10VM_Version16cpu_brand_stringEv.exit
+  %.021 = phi ptr [ %.pre.i, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %spec.select31, %_ZN10VM_Version9cpu_brandEv.exit ], [ %46, %_ZN10VM_Version21cpu_model_descriptionEv.exit ]
+  %83 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  store i32 %83, ptr %3, align 4
+  %84 = getelementptr inbounds i8, ptr %3, i64 4
+  %85 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 8), align 8
+  %86 = shufflevector <2 x i32> %85, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i32> %86, ptr %84, align 4
+  %87 = getelementptr inbounds i8, ptr %3, i64 12
+  store i8 0, ptr %87, align 4
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %89 = lshr i32 %88, 8
+  %90 = and i32 %89, 15
+  %91 = lshr i32 %88, 20
+  %92 = and i32 %91, 255
+  %93 = add nuw nsw i32 %90, %92
+  %94 = lshr i32 %88, 4
+  %95 = and i32 %94, 15
+  %96 = lshr i32 %88, 12
+  %97 = and i32 %96, 240
+  %98 = or disjoint i32 %95, %97
+  %99 = and i32 %88, 15
+  %100 = lshr i32 %88, 16
+  %101 = and i32 %100, 15
+  %102 = and i32 %96, 3
+  %103 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 20), align 4
+  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
+  %105 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 28), align 4
+  %106 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 136), align 8
+  %107 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 140), align 4
+  %.sroa.01.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
+  %.sroa.0.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
+  %108 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.153, ptr noundef nonnull %.021, ptr noundef nonnull %3, ptr noundef nonnull %spec.select37, i32 noundef %93, ptr noundef nonnull %.022, i32 noundef %98, i32 noundef %99, i32 noundef %92, i32 noundef %101, i32 noundef %102, i32 noundef %88, i32 noundef %103, i32 noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef %107, i32 %.sroa.01.0.copyload, i32 %.sroa.0.0.copyload) #14
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %113, label %110
+
+110:                                              ; preds = %_ZN10VM_Version16cpu_brand_stringEv.exit.thread40
+  %111 = zext nneg i32 %108 to i64
+  %112 = add i64 %1, -1
+  %.not = icmp ugt i64 %112, %111
+  br i1 %.not, label %116, label %.thread
+
+113:                                              ; preds = %_ZN10VM_Version16cpu_brand_stringEv.exit.thread40
+  %.not30 = icmp eq i64 %1, 0
+  br i1 %.not30, label %120, label %.thread
+
+.thread:                                          ; preds = %110, %113
+  %114 = getelementptr i8, ptr %0, i64 %1
+  %115 = getelementptr i8, ptr %114, i64 -1
+  store i8 0, ptr %115, align 1
+  br label %120
+
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds i8, ptr %0, i64 %111
+  %118 = sub i64 %1, %111
+  %119 = call noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr noundef %117, i64 noundef %118)
+  br label %120
+
+120:                                              ; preds = %113, %.thread, %116
+  %.0 = phi i32 [ 0, %116 ], [ -1, %.thread ], [ -1, %113 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN10VM_Version26initialize_cpu_informationEv() local_unnamed_addr #1 align 2 {
+  tail call void @_ZN10VM_Version31resolve_cpu_information_detailsEv()
+  %1 = tail call noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef nonnull @_ZN19Abstract_VM_Version9_cpu_nameE, i64 noundef 256)
+  %2 = tail call noundef i32 @_ZN10VM_Version24cpu_detailed_descriptionEPcm(ptr noundef nonnull @_ZN19Abstract_VM_Version9_cpu_descE, i64 noundef 4096)
+  store i8 1, ptr @_ZN19Abstract_VM_Version12_initializedE, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN10VM_Version40max_qualified_cpu_freq_from_brand_stringEv() local_unnamed_addr #1 align 2 {
+  %1 = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %3, label %.preheader.preheader
+
+3:                                                ; preds = %0
+  %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 49, i8 noundef zeroext 9, i32 noundef 1) #14
+  store ptr %4, ptr @_ZL17_cpu_brand_string, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %_ZN10VM_Version16cpu_brand_stringEv.exit
+
+_ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
+  %6 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  tail call void %6(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
+  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8
+  store i32 %7, ptr %4, align 4
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 156), align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 160), align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %10, ptr %11, align 4
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 164), align 4
+  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %12, ptr %13, align 4
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 168), align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %14, ptr %15, align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 172), align 4
+  %17 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %16, ptr %17, align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 176), align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %18, ptr %19, align 4
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 180), align 4
+  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %20, ptr %21, align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 184), align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %22, ptr %23, align 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 188), align 4
+  %25 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 %24, ptr %25, align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 192), align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %26, ptr %27, align 4
+  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 196), align 4
+  %29 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 %28, ptr %29, align 4
+  %.pre.i = load ptr, ptr @_ZL17_cpu_brand_string, align 8
+  %30 = icmp eq ptr %.pre.i, null
+  br i1 %30, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %0, %_ZN10VM_Version16cpu_brand_stringEv.exit
+  %.0.i60 = phi ptr [ %.pre.i, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %1, %0 ]
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %43 ]
+  %31 = getelementptr i8, ptr %.0.i60, i64 %indvars.iv
+  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 72
+  br i1 %34, label %35, label %43
+
+35:                                               ; preds = %.preheader
+  %36 = getelementptr inbounds i8, ptr %31, i64 2
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 122
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %35
+  %40 = load i8, ptr %31, align 1
+  switch i8 %40, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread [
+    i8 77, label %44
+    i8 71, label %41
+    i8 84, label %42
+  ]
+
+41:                                               ; preds = %39
+  br label %44
+
+42:                                               ; preds = %39
+  br label %44
+
+43:                                               ; preds = %.preheader, %35
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 46
+  br i1 %exitcond.not, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %.preheader, !llvm.loop !16
+
+44:                                               ; preds = %41, %42, %39
+  %.042.ph = phi i64 [ 1000000, %39 ], [ 1000000000000, %42 ], [ 1000000000, %41 ]
+  %45 = getelementptr i8, ptr %31, i64 -3
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 46
+  br i1 %47, label %48, label %68
+
+48:                                               ; preds = %44
+  %49 = getelementptr i8, ptr %31, i64 -4
+  %50 = load i8, ptr %49, align 1
+  %51 = sext i8 %50 to i64
+  %52 = add nsw i64 %51, -48
+  %53 = mul nsw i64 %52, %.042.ph
+  %54 = getelementptr i8, ptr %31, i64 -2
+  %55 = load i8, ptr %54, align 1
+  %56 = sext i8 %55 to i64
+  %57 = add nsw i64 %56, -48
+  %58 = mul nsw i64 %57, %.042.ph
+  %59 = sdiv i64 %58, 10
+  %60 = add nsw i64 %59, %53
+  %61 = getelementptr i8, ptr %31, i64 -1
+  %62 = load i8, ptr %61, align 1
+  %63 = sext i8 %62 to i64
+  %64 = add nsw i64 %63, -48
+  %65 = mul nsw i64 %64, %.042.ph
+  %66 = sdiv i64 %65, 100
+  %67 = add nsw i64 %60, %66
+  br label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread
+
+68:                                               ; preds = %44
+  %69 = sext i8 %46 to i64
+  %70 = getelementptr i8, ptr %31, i64 -4
+  %71 = load i8, ptr %70, align 1
+  %72 = sext i8 %71 to i64
+  %73 = mul nsw i64 %72, 1000
+  %74 = mul nsw i64 %69, 100
+  %75 = getelementptr i8, ptr %31, i64 -2
+  %76 = load i8, ptr %75, align 1
+  %77 = sext i8 %76 to i64
+  %78 = mul nsw i64 %77, 10
+  %79 = getelementptr i8, ptr %31, i64 -1
+  %80 = load i8, ptr %79, align 1
+  %81 = sext i8 %80 to i64
+  %82 = add nsw i64 %74, -53328
+  %83 = add nsw i64 %82, %73
+  %84 = add nsw i64 %83, %78
+  %85 = add nsw i64 %84, %81
+  %86 = mul nsw i64 %85, %.042.ph
+  br label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread
+
+_ZN10VM_Version16cpu_brand_stringEv.exit.thread:  ; preds = %43, %39, %3, %68, %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
+  %.043 = phi i64 [ 0, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %67, %48 ], [ %86, %68 ], [ 0, %3 ], [ 0, %39 ], [ 0, %43 ]
+  ret i64 %.043
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN10VM_Version31maximum_qualified_cpu_frequencyEv() local_unnamed_addr #1 align 2 {
+  %1 = load i64, ptr @_ZL28_max_qualified_cpu_frequency, align 8
+  %2 = icmp eq i64 %1, 0
+  br i1 %2, label %3, label %5
+
+3:                                                ; preds = %0
+  %4 = tail call noundef i64 @_ZN10VM_Version40max_qualified_cpu_freq_from_brand_stringEv()
+  store i64 %4, ptr @_ZL28_max_qualified_cpu_frequency, align 8
+  br label %5
+
+5:                                                ; preds = %3, %0
+  %6 = phi i64 [ %4, %3 ], [ %1, %0 ]
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version28is_intel_tsc_synched_at_initEv() local_unnamed_addr #3 align 2 {
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %2 = icmp eq i32 %1, 1970169159
+  br i1 %2, label %_ZN10VM_Version20is_intel_family_coreEv.exit, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
+  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %4 = lshr i32 %3, 8
+  %5 = and i32 %4, 15
+  %6 = lshr i32 %3, 20
+  %7 = and i32 %6, 255
+  %8 = add nuw nsw i32 %5, %7
+  %9 = icmp eq i32 %8, 6
+  br i1 %9, label %10, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+10:                                               ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit
+  %11 = lshr i32 %3, 4
+  %12 = and i32 %11, 15
+  %13 = lshr i32 %3, 12
+  %14 = and i32 %13, 240
+  %15 = or disjoint i32 %12, %14
+  %16 = icmp ult i32 %15, 59
+  br i1 %16, label %switch.lookup, label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+switch.lookup:                                    ; preds = %10
+  %switch.cast = zext nneg i32 %15 to i59
+  %switch.downshift = lshr i59 -288177599526469632, %switch.cast
+  %switch.masked = trunc i59 %switch.downshift to i1
+  br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
+
+_ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %_ZN10VM_Version20is_intel_family_coreEv.exit, %0, %10, %switch.lookup
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ false, %10 ], [ false, %0 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @_ZN10VM_Version22is_intrinsic_supportedE13vmIntrinsicID(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %.off = add i32 %0, -67
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %2, label %5
+
+2:                                                ; preds = %1
+  %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %4 = and i64 %3, 9007207844675584
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %1, %2
+  br label %6
+
+6:                                                ; preds = %2, %5
+  %.0 = phi i1 [ true, %5 ], [ false, %2 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+
+declare void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i1 noundef zeroext) unnamed_addr #4
+
+declare void @_ZN17StubCodeGenerator11stub_prologEP12StubCodeDesc(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #4
+
+declare void @_ZN17StubCodeGenerator11stub_epilogEP12StubCodeDesc(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #4
+
+declare void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #4
+
+declare void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40), i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler5pushfEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40), i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+
+declare void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) local_unnamed_addr #4
+
+declare void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler5cpuidEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler6xgetbvEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40), i32, i64 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler12vpbroadcastdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN14MacroAssembler7vmovdquE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN24VM_Version_StubGenerator19generate_vzeroupperER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) local_unnamed_addr #1 comdat align 2 {
+  %3 = alloca %class.Address, align 8
+  %4 = alloca %class.Address, align 8
+  %5 = alloca %class.Address, align 16
+  %6 = alloca %class.Address, align 16
+  %7 = alloca %class.Address, align 16
+  %8 = alloca %class.Address, align 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %5, align 16
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 0, ptr %11, align 16
+  %12 = getelementptr inbounds i8, ptr %5, i64 20
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %14, align 16
+  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 0, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 16 dereferenceable(21) %5, i64 21, i1 false)
+  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(40) %16) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 6, ptr noundef nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  %18 = load ptr, ptr %9, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %6, align 16
+  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 4, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %6, i64 20
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %22, align 16
+  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 0, ptr %23, align 8
+  call void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %6, i32 noundef 1970169159) #14
+  %24 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #14
+  %25 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 1, i32 noundef 268374000) #14
+  %26 = load ptr, ptr %9, align 8
+  store <4 x i32> <i32 5, i32 -1, i32 -1, i32 -1>, ptr %7, align 16
+  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 16, ptr %27, align 16
+  %28 = getelementptr inbounds i8, ptr %7, i64 20
+  store i8 0, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %30, align 16
+  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 0, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 16 dereferenceable(21) %7, i64 21, i1 false)
+  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  call void %17(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(40) %32) #14
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %26, i32 6, ptr noundef nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  %33 = load ptr, ptr %9, align 8
+  store <4 x i32> <i32 6, i32 -1, i32 -1, i32 -1>, ptr %8, align 16
+  %34 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 0, ptr %34, align 16
+  %35 = getelementptr inbounds i8, ptr %8, i64 20
+  store i8 0, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %37, align 16
+  %38 = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 0, ptr %38, align 8
+  call void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 1, ptr noundef nonnull %8) #14
+  %39 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %39, i32 1, i32 noundef 329328) #14
+  %40 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #14
+  %41 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %41, i32 1, i32 noundef 525904) #14
+  %42 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #14
+  %43 = load ptr, ptr %9, align 8
+  call void @_ZN9Assembler19vzeroupper_uncachedEv(ptr noundef nonnull align 8 dereferenceable(40) %43) #14
+  ret void
+}
+
+declare void @_ZN14MacroAssembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
+
+declare void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #4
+
+declare void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40), i32, ptr noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler9evmovdqulE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler12vinsertf32x4E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i8 noundef zeroext) local_unnamed_addr #4
+
+declare void @_ZN9Assembler11vinsertf128E11XMMRegisterS0_S0_h(ptr noundef nonnull align 8 dereferenceable(40), i32, i32, i32, i8 noundef zeroext) local_unnamed_addr #4
+
+declare void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @_ZN9Assembler19vzeroupper_uncachedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #8
+
+declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #4
+
+declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

@@ -1,0 +1,954 @@
+; ModuleID = 'bench/openjdk/original/imageDecompressor.ll'
+source_filename = "bench/openjdk/original/imageDecompressor.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.ResourceHeader = type { i32, i64, i64, i32, i32, i8 }
+
+$_ZTS17ImageDecompressor = comdat any
+
+$_ZTI17ImageDecompressor = comdat any
+
+@_ZN17ImageDecompressor18_decompressors_numE = hidden local_unnamed_addr global i32 0, align 4
+@_ZN17ImageDecompressor14_decompressorsE = hidden local_unnamed_addr global ptr null, align 8
+@.str = private unnamed_addr constant [17 x i8] c"ZIP_InflateFully\00", align 1
+@_ZL15ZipInflateFully = internal unnamed_addr global ptr null, align 8
+@.str.1 = private unnamed_addr constant [4 x i8] c"zip\00", align 1
+@.str.2 = private unnamed_addr constant [11 x i8] c"compact-cp\00", align 1
+@_ZN24SharedStringDecompressor5sizesE = hidden local_unnamed_addr constant [19 x i8] c"\00\00\00\04\04\08\08\02\02\04\04\04\04\00\00\03\02\00\04", align 16
+@.str.3 = private unnamed_addr constant [42 x i8] c"Failure, expecting %llu but getting %llu\0A\00", align 1
+@_ZTV15ZipDecompressor = hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr @_ZTI15ZipDecompressor, ptr @_ZN15ZipDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings] }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTS15ZipDecompressor = hidden constant [18 x i8] c"15ZipDecompressor\00", align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTS17ImageDecompressor = linkonce_odr hidden constant [20 x i8] c"17ImageDecompressor\00", comdat, align 1
+@_ZTI17ImageDecompressor = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS17ImageDecompressor }, comdat, align 8
+@_ZTI15ZipDecompressor = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15ZipDecompressor, ptr @_ZTI17ImageDecompressor }, align 8
+@_ZTV24SharedStringDecompressor = hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr @_ZTI24SharedStringDecompressor, ptr @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings] }, align 8
+@_ZTS24SharedStringDecompressor = hidden constant [27 x i8] c"24SharedStringDecompressor\00", align 1
+@_ZTI24SharedStringDecompressor = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS24SharedStringDecompressor, ptr @_ZTI17ImageDecompressor }, align 8
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN17ImageDecompressor23image_decompressor_initEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %1 = load ptr, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %3, label %15
+
+3:                                                ; preds = %0
+  %4 = tail call ptr @JVM_LoadZipLibrary()
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %8, label %6
+
+6:                                                ; preds = %3
+  %7 = tail call ptr @dlsym(ptr noundef nonnull %4, ptr noundef nonnull @.str) #11
+  br label %8
+
+8:                                                ; preds = %6, %3
+  %.0.i = phi ptr [ %7, %6 ], [ null, %3 ]
+  store ptr %.0.i, ptr @_ZL15ZipInflateFully, align 8
+  store i32 2, ptr @_ZN17ImageDecompressor18_decompressors_numE, align 4
+  %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #12
+  store ptr %9, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
+  %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr @.str.1, ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
+  store ptr %10, ptr %9, align 8
+  %12 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.2, ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %12, ptr %14, align 8
+  br label %15
+
+15:                                               ; preds = %8, %0
+  ret void
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17ImageDecompressor24image_decompressor_closeEv() local_unnamed_addr #2 align 2 {
+  %1 = load ptr, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %4, label %3
+
+3:                                                ; preds = %0
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
+  br label %4
+
+4:                                                ; preds = %3, %0
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %4, label %_ZN17ImageDecompressor23image_decompressor_initEv.exit
+
+4:                                                ; preds = %1
+  %5 = tail call ptr @JVM_LoadZipLibrary()
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread, label %7
+
+7:                                                ; preds = %4
+  %8 = tail call ptr @dlsym(ptr noundef nonnull %5, ptr noundef nonnull @.str) #11
+  br label %_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread
+
+_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread: ; preds = %4, %7
+  %.0.i.i = phi ptr [ %8, %7 ], [ null, %4 ]
+  store ptr %.0.i.i, ptr @_ZL15ZipInflateFully, align 8
+  store i32 2, ptr @_ZN17ImageDecompressor18_decompressors_numE, align 4
+  %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #12
+  store ptr %9, ptr @_ZN17ImageDecompressor14_decompressorsE, align 8
+  %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr @.str.1, ptr %11, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ZipDecompressor, i64 16), ptr %10, align 8
+  store ptr %10, ptr %9, align 8
+  %12 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.2, ptr %13, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24SharedStringDecompressor, i64 16), ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %12, ptr %14, align 8
+  br label %.lr.ph
+
+_ZN17ImageDecompressor23image_decompressor_initEv.exit: ; preds = %1
+  %.pre = load i32, ptr @_ZN17ImageDecompressor18_decompressors_numE, align 4
+  %15 = icmp sgt i32 %.pre, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread, %_ZN17ImageDecompressor23image_decompressor_initEv.exit
+  %16 = phi i32 [ 2, %_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread ], [ %.pre, %_ZN17ImageDecompressor23image_decompressor_initEv.exit ]
+  %17 = phi ptr [ %9, %_ZN17ImageDecompressor23image_decompressor_initEv.exit.thread ], [ %2, %_ZN17ImageDecompressor23image_decompressor_initEv.exit ]
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %19
+
+18:                                               ; preds = %19
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !6
+
+19:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #14
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %._crit_edge, label %18
+
+._crit_edge:                                      ; preds = %19, %18, %_ZN17ImageDecompressor23image_decompressor_initEv.exit
+  %.0 = phi ptr [ null, %_ZN17ImageDecompressor23image_decompressor_initEv.exit ], [ null, %18 ], [ %21, %19 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef i64 @_ZN17ImageDecompressor5getU8EPhP6Endian(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+  %3 = load i32, ptr %0, align 1
+  %4 = sext i32 %3 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = load i8, ptr %5, align 1
+  %7 = zext i8 %6 to i64
+  %8 = shl nuw nsw i64 %7, 32
+  %9 = or i64 %8, %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i64
+  %13 = shl nuw nsw i64 %12, 40
+  %14 = or i64 %9, %13
+  %15 = getelementptr inbounds i8, ptr %0, i64 6
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i64
+  %18 = shl nuw nsw i64 %17, 48
+  %19 = or i64 %14, %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 7
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i64
+  %23 = shl nuw i64 %22, 56
+  %24 = or i64 %19, %23
+  ret i64 %24
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef i32 @_ZN17ImageDecompressor5getU4EPhP6Endian(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+  %3 = load i32, ptr %0, align 1
+  ret i32 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 2 {
+  %6 = alloca %struct.ResourceHeader, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  br label %11
+
+11:                                               ; preds = %.backedge, %5
+  %.035 = phi ptr [ %0, %5 ], [ %66, %.backedge ]
+  %12 = load i32, ptr %.035, align 1
+  store i32 %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %.035, i64 4
+  %14 = load i32, ptr %13, align 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %.035, i64 8
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i64
+  %19 = shl nuw nsw i64 %18, 32
+  %20 = or i64 %19, %15
+  %21 = getelementptr inbounds i8, ptr %.035, i64 9
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i64
+  %24 = shl nuw nsw i64 %23, 40
+  %25 = or i64 %20, %24
+  %26 = getelementptr inbounds i8, ptr %.035, i64 10
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, 48
+  %30 = or i64 %25, %29
+  %31 = getelementptr inbounds i8, ptr %.035, i64 11
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i64
+  %34 = shl nuw i64 %33, 56
+  %35 = or i64 %30, %34
+  store i64 %35, ptr %7, align 8
+  %36 = getelementptr inbounds i8, ptr %.035, i64 12
+  %37 = load i32, ptr %36, align 1
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %.035, i64 16
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i64
+  %42 = shl nuw nsw i64 %41, 32
+  %43 = or i64 %42, %38
+  %44 = getelementptr inbounds i8, ptr %.035, i64 17
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i64
+  %47 = shl nuw nsw i64 %46, 40
+  %48 = or i64 %43, %47
+  %49 = getelementptr inbounds i8, ptr %.035, i64 18
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i64
+  %52 = shl nuw nsw i64 %51, 48
+  %53 = or i64 %48, %52
+  %54 = getelementptr inbounds i8, ptr %.035, i64 19
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i64
+  %57 = shl nuw i64 %56, 56
+  %58 = or i64 %53, %57
+  store i64 %58, ptr %8, align 8
+  %59 = getelementptr inbounds i8, ptr %.035, i64 20
+  %60 = load <2 x i32>, ptr %59, align 1
+  store <2 x i32> %60, ptr %9, align 8
+  %61 = getelementptr inbounds i8, ptr %.035, i64 28
+  %62 = load i8, ptr %61, align 1
+  store i8 %62, ptr %10, align 8
+  %63 = icmp eq i32 %12, -889259270
+  br i1 %63, label %64, label %75
+
+64:                                               ; preds = %11
+  %65 = getelementptr inbounds i8, ptr %.035, i64 29
+  %66 = call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #12
+  %67 = load ptr, ptr %3, align 8
+  %68 = extractelement <2 x i32> %60, i64 0
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %67, i64 %69
+  %71 = call noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr noundef %70)
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %6, ptr noundef nonnull %3)
+  %.not = icmp eq ptr %.035, %0
+  br i1 %.not, label %.backedge, label %74
+
+.backedge:                                        ; preds = %64, %74
+  br label %11, !llvm.loop !8
+
+74:                                               ; preds = %64
+  call void @_ZdaPv(ptr noundef nonnull %.035) #13
+  br label %.backedge
+
+75:                                               ; preds = %11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.035, i64 %2, i1 false)
+  call void @_ZdaPv(ptr noundef nonnull %.035) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN15ZipDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 {
+  %6 = alloca ptr, align 8
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = load i64, ptr %9, align 8
+  %11 = load ptr, ptr @_ZL15ZipInflateFully, align 8
+  %12 = call noundef zeroext i8 %11(ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %10, ptr noundef nonnull %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i8 @_ZN15ZipDecompressor10decompressEPvyS0_yPPc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+  %6 = load ptr, ptr @_ZL15ZipInflateFully, align 8
+  %7 = tail call noundef zeroext i8 %6(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
+  ret i8 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) %1, i64 10, i1 false)
+  %6 = getelementptr inbounds i8, ptr %2, i64 10
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = tail call noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef nonnull %7)
+  %9 = getelementptr inbounds i8, ptr %1, i64 10
+  %10 = zext i16 %8 to i32
+  %11 = icmp ugt i16 %8, 1
+  br i1 %11, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %5, %294
+  %.0194 = phi ptr [ %.5, %294 ], [ %6, %5 ]
+  %.0108193 = phi i32 [ %295, %294 ], [ 1, %5 ]
+  %.0185192 = phi ptr [ %.2187, %294 ], [ %9, %5 ]
+  %12 = load i8, ptr %.0185192, align 1
+  %13 = getelementptr inbounds i8, ptr %.0185192, i64 1
+  switch i8 %12, label %286 [
+    i8 23, label %14
+    i8 25, label %65
+    i8 1, label %277
+    i8 5, label %284
+    i8 6, label %284
+  ]
+
+14:                                               ; preds = %.lr.ph
+  store i8 1, ptr %.0194, align 1
+  %15 = getelementptr inbounds i8, ptr %.0194, i64 1
+  %16 = load i8, ptr %13, align 1
+  %17 = icmp slt i8 %16, 0
+  br i1 %17, label %18, label %38
+
+18:                                               ; preds = %14
+  %19 = lshr i8 %16, 5
+  %20 = and i8 %19, 3
+  %21 = zext nneg i8 %20 to i32
+  %22 = and i8 %16, 31
+  %23 = icmp eq i8 %20, 1
+  %24 = zext nneg i8 %22 to i32
+  br i1 %23, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit, label %25
+
+25:                                               ; preds = %18
+  %26 = shl nuw nsw i32 %21, 3
+  %27 = add nsw i32 %26, -8
+  %28 = shl nuw nsw i32 %24, %27
+  %.not.i = icmp eq i8 %20, 0
+  br i1 %.not.i, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %25
+  %wide.trip.count.i = zext nneg i8 %20 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.02326.i = phi i32 [ %28, %.lr.ph.preheader.i ], [ %37, %.lr.ph.i ]
+  %29 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %33 = xor i32 %32, -1
+  %34 = add nsw i32 %33, %21
+  %35 = shl nsw i32 %34, 3
+  %36 = shl i32 %31, %35
+  %37 = or i32 %36, %.02326.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit, label %.lr.ph.i, !llvm.loop !9
+
+38:                                               ; preds = %14
+  %39 = zext nneg i8 %16 to i32
+  %40 = shl nuw nsw i32 %39, 24
+  %41 = getelementptr inbounds i8, ptr %.0185192, i64 2
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw nsw i32 %43, 16
+  %45 = or disjoint i32 %44, %40
+  %46 = getelementptr inbounds i8, ptr %.0185192, i64 3
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = shl nuw nsw i32 %48, 8
+  %50 = or disjoint i32 %45, %49
+  %51 = getelementptr inbounds i8, ptr %.0185192, i64 4
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = or disjoint i32 %50, %53
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %.lr.ph.i, %18, %25, %38
+  %.1.i = phi i32 [ %54, %38 ], [ %28, %25 ], [ %24, %18 ], [ %37, %.lr.ph.i ]
+  %.022.i = phi i32 [ 4, %38 ], [ 0, %25 ], [ 1, %18 ], [ %21, %.lr.ph.i ]
+  %55 = zext nneg i32 %.022.i to i64
+  %56 = getelementptr inbounds i8, ptr %13, i64 %55
+  %57 = load ptr, ptr %4, align 8
+  %58 = zext i32 %.1.i to i64
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #14
+  %61 = trunc i64 %60 to i16
+  tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %15, i16 noundef zeroext %61)
+  %62 = getelementptr inbounds i8, ptr %.0194, i64 3
+  %sext124 = shl i64 %60, 32
+  %63 = ashr exact i64 %sext124, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %59, i64 %63, i1 false)
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  br label %294
+
+65:                                               ; preds = %.lr.ph
+  store i8 1, ptr %.0194, align 1
+  %66 = getelementptr inbounds i8, ptr %.0194, i64 1
+  %67 = load i8, ptr %13, align 1
+  %68 = icmp slt i8 %67, 0
+  br i1 %68, label %69, label %89
+
+69:                                               ; preds = %65
+  %70 = lshr i8 %67, 5
+  %71 = and i8 %70, 3
+  %72 = zext nneg i8 %71 to i32
+  %73 = and i8 %67, 31
+  %74 = icmp eq i8 %71, 1
+  %75 = zext nneg i8 %73 to i32
+  br i1 %74, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135, label %76
+
+76:                                               ; preds = %69
+  %77 = shl nuw nsw i32 %72, 3
+  %78 = add nsw i32 %77, -8
+  %79 = shl nuw nsw i32 %75, %78
+  %.not.i127 = icmp eq i8 %71, 0
+  br i1 %.not.i127, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135, label %.lr.ph.preheader.i128
+
+.lr.ph.preheader.i128:                            ; preds = %76
+  %wide.trip.count.i129 = zext nneg i8 %71 to i64
+  br label %.lr.ph.i130
+
+.lr.ph.i130:                                      ; preds = %.lr.ph.i130, %.lr.ph.preheader.i128
+  %indvars.iv.i131 = phi i64 [ 1, %.lr.ph.preheader.i128 ], [ %indvars.iv.next.i133, %.lr.ph.i130 ]
+  %.02326.i132 = phi i32 [ %79, %.lr.ph.preheader.i128 ], [ %88, %.lr.ph.i130 ]
+  %80 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i131
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv.i131 to i32
+  %84 = xor i32 %83, -1
+  %85 = add nsw i32 %84, %72
+  %86 = shl nsw i32 %85, 3
+  %87 = shl i32 %82, %86
+  %88 = or i32 %87, %.02326.i132
+  %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i131, 1
+  %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count.i129
+  br i1 %exitcond.not.i134, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135, label %.lr.ph.i130, !llvm.loop !9
+
+89:                                               ; preds = %65
+  %90 = zext nneg i8 %67 to i32
+  %91 = shl nuw nsw i32 %90, 24
+  %92 = getelementptr inbounds i8, ptr %.0185192, i64 2
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 16
+  %96 = or disjoint i32 %95, %91
+  %97 = getelementptr inbounds i8, ptr %.0185192, i64 3
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i32
+  %100 = shl nuw nsw i32 %99, 8
+  %101 = or disjoint i32 %96, %100
+  %102 = getelementptr inbounds i8, ptr %.0185192, i64 4
+  %103 = load i8, ptr %102, align 1
+  %104 = zext i8 %103 to i32
+  %105 = or disjoint i32 %101, %104
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit135: ; preds = %.lr.ph.i130, %69, %76, %89
+  %.1.i125 = phi i32 [ %105, %89 ], [ %79, %76 ], [ %75, %69 ], [ %88, %.lr.ph.i130 ]
+  %.022.i126 = phi i32 [ 4, %89 ], [ 0, %76 ], [ 1, %69 ], [ %72, %.lr.ph.i130 ]
+  %106 = zext nneg i32 %.022.i126 to i64
+  %107 = getelementptr inbounds i8, ptr %13, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = icmp slt i8 %108, 0
+  br i1 %109, label %110, label %130
+
+110:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
+  %111 = lshr i8 %108, 5
+  %112 = and i8 %111, 3
+  %113 = zext nneg i8 %112 to i32
+  %114 = and i8 %108, 31
+  %115 = icmp eq i8 %112, 1
+  %116 = zext nneg i8 %114 to i32
+  br i1 %115, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146, label %117
+
+117:                                              ; preds = %110
+  %118 = shl nuw nsw i32 %113, 3
+  %119 = add nsw i32 %118, -8
+  %120 = shl nuw nsw i32 %116, %119
+  %.not.i138 = icmp eq i8 %112, 0
+  br i1 %.not.i138, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146, label %.lr.ph.preheader.i139
+
+.lr.ph.preheader.i139:                            ; preds = %117
+  %wide.trip.count.i140 = zext nneg i8 %112 to i64
+  br label %.lr.ph.i141
+
+.lr.ph.i141:                                      ; preds = %.lr.ph.i141, %.lr.ph.preheader.i139
+  %indvars.iv.i142 = phi i64 [ 1, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i144, %.lr.ph.i141 ]
+  %.02326.i143 = phi i32 [ %120, %.lr.ph.preheader.i139 ], [ %129, %.lr.ph.i141 ]
+  %121 = getelementptr inbounds i8, ptr %107, i64 %indvars.iv.i142
+  %122 = load i8, ptr %121, align 1
+  %123 = zext i8 %122 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.i142 to i32
+  %125 = xor i32 %124, -1
+  %126 = add nsw i32 %125, %113
+  %127 = shl nsw i32 %126, 3
+  %128 = shl i32 %123, %127
+  %129 = or i32 %128, %.02326.i143
+  %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i142, 1
+  %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %wide.trip.count.i140
+  br i1 %exitcond.not.i145, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146, label %.lr.ph.i141, !llvm.loop !9
+
+130:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
+  %131 = zext nneg i8 %108 to i32
+  %132 = shl nuw nsw i32 %131, 24
+  %133 = getelementptr inbounds i8, ptr %107, i64 1
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 16
+  %137 = or disjoint i32 %136, %132
+  %138 = getelementptr inbounds i8, ptr %107, i64 2
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = shl nuw nsw i32 %140, 8
+  %142 = or disjoint i32 %137, %141
+  %143 = getelementptr inbounds i8, ptr %107, i64 3
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = or disjoint i32 %142, %145
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %.lr.ph.i141, %110, %117, %130
+  %.1.i136 = phi i32 [ %146, %130 ], [ %120, %117 ], [ %116, %110 ], [ %129, %.lr.ph.i141 ]
+  %.022.i137 = phi i32 [ 4, %130 ], [ 0, %117 ], [ 1, %110 ], [ %113, %.lr.ph.i141 ]
+  %147 = zext nneg i32 %.022.i137 to i64
+  %148 = getelementptr inbounds i8, ptr %107, i64 %147
+  %149 = getelementptr inbounds i8, ptr %.0194, i64 3
+  %150 = load ptr, ptr %4, align 8
+  %151 = zext i32 %.1.i125 to i64
+  %152 = getelementptr inbounds i8, ptr %150, i64 %151
+  %153 = icmp sgt i32 %.1.i136, 0
+  br i1 %153, label %154, label %270
+
+154:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
+  %155 = zext nneg i32 %.1.i136 to i64
+  %156 = load i8, ptr %152, align 1
+  br label %157
+
+157:                                              ; preds = %267, %154
+  %.0183 = phi ptr [ %148, %154 ], [ %.1184, %267 ]
+  %.0116 = phi i8 [ %156, %154 ], [ %269, %267 ]
+  %.0115 = phi ptr [ %152, %154 ], [ %268, %267 ]
+  %.0111 = phi i32 [ 0, %154 ], [ %.2113, %267 ]
+  %.1 = phi ptr [ %149, %154 ], [ %.3, %267 ]
+  store i8 %.0116, ptr %.1, align 1
+  %158 = getelementptr inbounds i8, ptr %.1, i64 1
+  %159 = add nsw i32 %.0111, 1
+  %160 = icmp eq i8 %.0116, 76
+  br i1 %160, label %161, label %267
+
+161:                                              ; preds = %157
+  %162 = load i8, ptr %.0183, align 1
+  %163 = icmp slt i8 %162, 0
+  br i1 %163, label %164, label %184
+
+164:                                              ; preds = %161
+  %165 = lshr i8 %162, 5
+  %166 = and i8 %165, 3
+  %167 = zext nneg i8 %166 to i32
+  %168 = and i8 %162, 31
+  %169 = icmp eq i8 %166, 1
+  %170 = zext nneg i8 %168 to i32
+  br i1 %169, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %171
+
+171:                                              ; preds = %164
+  %172 = shl nuw nsw i32 %167, 3
+  %173 = add nsw i32 %172, -8
+  %174 = shl nuw nsw i32 %170, %173
+  %.not.i149 = icmp eq i8 %166, 0
+  br i1 %.not.i149, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %.lr.ph.preheader.i150
+
+.lr.ph.preheader.i150:                            ; preds = %171
+  %wide.trip.count.i151 = zext nneg i8 %166 to i64
+  br label %.lr.ph.i152
+
+.lr.ph.i152:                                      ; preds = %.lr.ph.i152, %.lr.ph.preheader.i150
+  %indvars.iv.i153 = phi i64 [ 1, %.lr.ph.preheader.i150 ], [ %indvars.iv.next.i155, %.lr.ph.i152 ]
+  %.02326.i154 = phi i32 [ %174, %.lr.ph.preheader.i150 ], [ %183, %.lr.ph.i152 ]
+  %175 = getelementptr inbounds i8, ptr %.0183, i64 %indvars.iv.i153
+  %176 = load i8, ptr %175, align 1
+  %177 = zext i8 %176 to i32
+  %178 = trunc nuw nsw i64 %indvars.iv.i153 to i32
+  %179 = xor i32 %178, -1
+  %180 = add nsw i32 %179, %167
+  %181 = shl nsw i32 %180, 3
+  %182 = shl i32 %177, %181
+  %183 = or i32 %182, %.02326.i154
+  %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i153, 1
+  %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i151
+  br i1 %exitcond.not.i156, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %.lr.ph.i152, !llvm.loop !9
+
+184:                                              ; preds = %161
+  %185 = zext nneg i8 %162 to i32
+  %186 = shl nuw nsw i32 %185, 24
+  %187 = getelementptr inbounds i8, ptr %.0183, i64 1
+  %188 = load i8, ptr %187, align 1
+  %189 = zext i8 %188 to i32
+  %190 = shl nuw nsw i32 %189, 16
+  %191 = or disjoint i32 %190, %186
+  %192 = getelementptr inbounds i8, ptr %.0183, i64 2
+  %193 = load i8, ptr %192, align 1
+  %194 = zext i8 %193 to i32
+  %195 = shl nuw nsw i32 %194, 8
+  %196 = or disjoint i32 %191, %195
+  %197 = getelementptr inbounds i8, ptr %.0183, i64 3
+  %198 = load i8, ptr %197, align 1
+  %199 = zext i8 %198 to i32
+  %200 = or disjoint i32 %196, %199
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %.lr.ph.i152, %164, %171, %184
+  %.1.i147 = phi i32 [ %200, %184 ], [ %174, %171 ], [ %170, %164 ], [ %183, %.lr.ph.i152 ]
+  %.022.i148 = phi i32 [ 4, %184 ], [ 0, %171 ], [ 1, %164 ], [ %167, %.lr.ph.i152 ]
+  %201 = zext nneg i32 %.022.i148 to i64
+  %202 = getelementptr inbounds i8, ptr %.0183, i64 %201
+  %203 = load ptr, ptr %4, align 8
+  %204 = zext i32 %.1.i147 to i64
+  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+  %206 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #14
+  %207 = trunc i64 %206 to i32
+  %208 = icmp sgt i32 %207, 0
+  br i1 %208, label %209, label %217
+
+209:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
+  %210 = add nuw nsw i32 %207, 1
+  %211 = zext nneg i32 %210 to i64
+  %212 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %211) #12
+  %213 = and i64 %206, 2147483647
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr align 1 %205, i64 %213, i1 false)
+  %214 = getelementptr inbounds i8, ptr %212, i64 %213
+  store i8 47, ptr %214, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, ptr noundef nonnull align 1 dereferenceable(1) %212, i64 %211, i1 false)
+  %215 = getelementptr inbounds i8, ptr %158, i64 %211
+  tail call void @_ZdaPv(ptr noundef nonnull %212) #13
+  %216 = add nsw i32 %210, %159
+  br label %217
+
+217:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, %209
+  %.1112 = phi i32 [ %216, %209 ], [ %159, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %.2 = phi ptr [ %215, %209 ], [ %158, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %218 = load i8, ptr %202, align 1
+  %219 = icmp slt i8 %218, 0
+  br i1 %219, label %220, label %240
+
+220:                                              ; preds = %217
+  %221 = lshr i8 %218, 5
+  %222 = and i8 %221, 3
+  %223 = zext nneg i8 %222 to i32
+  %224 = and i8 %218, 31
+  %225 = icmp eq i8 %222, 1
+  %226 = zext nneg i8 %224 to i32
+  br i1 %225, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %227
+
+227:                                              ; preds = %220
+  %228 = shl nuw nsw i32 %223, 3
+  %229 = add nsw i32 %228, -8
+  %230 = shl nuw nsw i32 %226, %229
+  %.not.i160 = icmp eq i8 %222, 0
+  br i1 %.not.i160, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %.lr.ph.preheader.i161
+
+.lr.ph.preheader.i161:                            ; preds = %227
+  %wide.trip.count.i162 = zext nneg i8 %222 to i64
+  br label %.lr.ph.i163
+
+.lr.ph.i163:                                      ; preds = %.lr.ph.i163, %.lr.ph.preheader.i161
+  %indvars.iv.i164 = phi i64 [ 1, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i166, %.lr.ph.i163 ]
+  %.02326.i165 = phi i32 [ %230, %.lr.ph.preheader.i161 ], [ %239, %.lr.ph.i163 ]
+  %231 = getelementptr inbounds i8, ptr %202, i64 %indvars.iv.i164
+  %232 = load i8, ptr %231, align 1
+  %233 = zext i8 %232 to i32
+  %234 = trunc nuw nsw i64 %indvars.iv.i164 to i32
+  %235 = xor i32 %234, -1
+  %236 = add nsw i32 %235, %223
+  %237 = shl nsw i32 %236, 3
+  %238 = shl i32 %233, %237
+  %239 = or i32 %238, %.02326.i165
+  %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i164, 1
+  %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, %wide.trip.count.i162
+  br i1 %exitcond.not.i167, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %.lr.ph.i163, !llvm.loop !9
+
+240:                                              ; preds = %217
+  %241 = zext nneg i8 %218 to i32
+  %242 = shl nuw nsw i32 %241, 24
+  %243 = getelementptr inbounds i8, ptr %202, i64 1
+  %244 = load i8, ptr %243, align 1
+  %245 = zext i8 %244 to i32
+  %246 = shl nuw nsw i32 %245, 16
+  %247 = or disjoint i32 %246, %242
+  %248 = getelementptr inbounds i8, ptr %202, i64 2
+  %249 = load i8, ptr %248, align 1
+  %250 = zext i8 %249 to i32
+  %251 = shl nuw nsw i32 %250, 8
+  %252 = or disjoint i32 %247, %251
+  %253 = getelementptr inbounds i8, ptr %202, i64 3
+  %254 = load i8, ptr %253, align 1
+  %255 = zext i8 %254 to i32
+  %256 = or disjoint i32 %252, %255
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %.lr.ph.i163, %220, %227, %240
+  %.1.i158 = phi i32 [ %256, %240 ], [ %230, %227 ], [ %226, %220 ], [ %239, %.lr.ph.i163 ]
+  %.022.i159 = phi i32 [ 4, %240 ], [ 0, %227 ], [ 1, %220 ], [ %223, %.lr.ph.i163 ]
+  %257 = zext nneg i32 %.022.i159 to i64
+  %258 = getelementptr inbounds i8, ptr %202, i64 %257
+  %259 = load ptr, ptr %4, align 8
+  %260 = zext i32 %.1.i158 to i64
+  %261 = getelementptr inbounds i8, ptr %259, i64 %260
+  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %261) #14
+  %263 = trunc i64 %262 to i32
+  %sext122 = shl i64 %262, 32
+  %264 = ashr exact i64 %sext122, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %261, i64 %264, i1 false)
+  %265 = getelementptr inbounds i8, ptr %.2, i64 %264
+  %266 = add nsw i32 %.1112, %263
+  br label %267
+
+267:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, %157
+  %.1184 = phi ptr [ %258, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %.0183, %157 ]
+  %.2113 = phi i32 [ %266, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %159, %157 ]
+  %.3 = phi ptr [ %265, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %158, %157 ]
+  %268 = getelementptr inbounds i8, ptr %.0115, i64 1
+  %269 = load i8, ptr %268, align 1
+  %.not123 = icmp eq i8 %269, 0
+  br i1 %.not123, label %.loopexit.loopexit, label %157, !llvm.loop !10
+
+270:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
+  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #14
+  %272 = trunc i64 %271 to i32
+  %sext121 = shl i64 %271, 32
+  %273 = ashr exact i64 %sext121, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr align 1 %152, i64 %273, i1 false)
+  %274 = getelementptr inbounds i8, ptr %149, i64 %273
+  br label %.loopexit
+
+.loopexit.loopexit:                               ; preds = %267
+  %275 = getelementptr inbounds i8, ptr %148, i64 %155
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %270
+  %.1186 = phi ptr [ %148, %270 ], [ %275, %.loopexit.loopexit ]
+  %.3114 = phi i32 [ %272, %270 ], [ %.2113, %.loopexit.loopexit ]
+  %.4 = phi ptr [ %274, %270 ], [ %.3, %.loopexit.loopexit ]
+  %276 = trunc i32 %.3114 to i16
+  tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %66, i16 noundef zeroext %276)
+  br label %294
+
+277:                                              ; preds = %.lr.ph
+  store i8 1, ptr %.0194, align 1
+  %278 = getelementptr inbounds i8, ptr %.0194, i64 1
+  %279 = tail call noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef nonnull %13)
+  %280 = zext i16 %279 to i64
+  %281 = add nuw nsw i64 %280, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %278, ptr noundef nonnull align 1 dereferenceable(1) %13, i64 %281, i1 false)
+  %282 = getelementptr inbounds i8, ptr %278, i64 %281
+  %283 = getelementptr inbounds i8, ptr %13, i64 %281
+  br label %294
+
+284:                                              ; preds = %.lr.ph, %.lr.ph
+  %285 = add nsw i32 %.0108193, 1
+  br label %286
+
+286:                                              ; preds = %284, %.lr.ph
+  %.1109 = phi i32 [ %.0108193, %.lr.ph ], [ %285, %284 ]
+  store i8 %12, ptr %.0194, align 1
+  %287 = getelementptr inbounds i8, ptr %.0194, i64 1
+  %288 = zext i8 %12 to i64
+  %289 = getelementptr inbounds [19 x i8], ptr @_ZN24SharedStringDecompressor5sizesE, i64 0, i64 %288
+  %290 = load i8, ptr %289, align 1
+  %291 = zext i8 %290 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %287, ptr nonnull align 1 %13, i64 %291, i1 false)
+  %292 = getelementptr inbounds i8, ptr %287, i64 %291
+  %293 = getelementptr inbounds i8, ptr %13, i64 %291
+  br label %294
+
+294:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit, %.loopexit, %277, %286
+  %.2187 = phi ptr [ %293, %286 ], [ %283, %277 ], [ %.1186, %.loopexit ], [ %56, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
+  %.2110 = phi i32 [ %.1109, %286 ], [ %.0108193, %277 ], [ %.0108193, %.loopexit ], [ %.0108193, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
+  %.5 = phi ptr [ %292, %286 ], [ %282, %277 ], [ %.4, %.loopexit ], [ %64, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ]
+  %295 = add nsw i32 %.2110, 1
+  %296 = icmp slt i32 %295, %10
+  br i1 %296, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %294, %5
+  %.0185.lcssa = phi ptr [ %9, %5 ], [ %.2187, %294 ]
+  %.0.lcssa = phi ptr [ %6, %5 ], [ %.5, %294 ]
+  %297 = getelementptr inbounds i8, ptr %3, i64 8
+  %298 = load i64, ptr %297, align 8
+  %299 = ptrtoint ptr %.0185.lcssa to i64
+  %300 = ptrtoint ptr %1 to i64
+  %301 = sub i64 %299, %300
+  %sext = shl i64 %301, 32
+  %302 = ashr exact i64 %sext, 32
+  %303 = sub i64 %298, %302
+  %304 = ptrtoint ptr %.0.lcssa to i64
+  %305 = ptrtoint ptr %2 to i64
+  %306 = sub i64 %304, %305
+  %307 = add i64 %303, %306
+  %308 = getelementptr inbounds i8, ptr %3, i64 16
+  %309 = load i64, ptr %308, align 8
+  %.not = icmp eq i64 %309, %307
+  br i1 %.not, label %312, label %310
+
+310:                                              ; preds = %._crit_edge
+  %311 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %309, i64 noundef %307)
+  br label %312
+
+312:                                              ; preds = %310, %._crit_edge
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.lcssa, ptr nonnull align 1 %.0185.lcssa, i64 %303, i1 false)
+  ret void
+}
+
+declare noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden noundef i32 @_ZN24SharedStringDecompressor14decompress_intERPh(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp slt i8 %3, 0
+  br i1 %4, label %5, label %25
+
+5:                                                ; preds = %1
+  %6 = lshr i8 %3, 5
+  %7 = and i8 %6, 3
+  %8 = zext nneg i8 %7 to i32
+  %9 = and i8 %3, 31
+  %10 = icmp eq i8 %7, 1
+  %11 = zext nneg i8 %9 to i32
+  br i1 %10, label %.loopexit, label %12
+
+12:                                               ; preds = %5
+  %13 = shl nuw nsw i32 %8, 3
+  %14 = add nsw i32 %13, -8
+  %15 = shl nuw nsw i32 %11, %14
+  %.not = icmp eq i8 %7, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %12
+  %wide.trip.count = zext nneg i8 %7 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.02326 = phi i32 [ %15, %.lr.ph.preheader ], [ %24, %.lr.ph ]
+  %16 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %20 = xor i32 %19, -1
+  %21 = add nsw i32 %20, %8
+  %22 = shl nsw i32 %21, 3
+  %23 = shl i32 %18, %22
+  %24 = or i32 %23, %.02326
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !9
+
+25:                                               ; preds = %1
+  %26 = zext nneg i8 %3 to i32
+  %27 = shl nuw nsw i32 %26, 24
+  %28 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i32
+  %31 = shl nuw nsw i32 %30, 16
+  %32 = or disjoint i32 %31, %27
+  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw nsw i32 %35, 8
+  %37 = or disjoint i32 %32, %36
+  %38 = getelementptr inbounds i8, ptr %2, i64 3
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = or disjoint i32 %37, %40
+  br label %.loopexit
+
+.loopexit.loopexit:                               ; preds = %.lr.ph
+  %42 = zext nneg i8 %7 to i64
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %5, %12, %25
+  %.1 = phi i32 [ %41, %25 ], [ %15, %12 ], [ %11, %5 ], [ %24, %.loopexit.loopexit ]
+  %.022 = phi i64 [ 4, %25 ], [ 0, %12 ], [ 1, %5 ], [ %42, %.loopexit.loopexit ]
+  %43 = getelementptr inbounds i8, ptr %2, i64 %.022
+  store ptr %43, ptr %0, align 8
+  ret i32 %.1
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+
+declare void @_ZN6Endian8set_javaEPht(ptr noundef, i16 noundef zeroext) local_unnamed_addr #7
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+
+declare ptr @JVM_LoadZipLibrary() local_unnamed_addr #7
+
+; Function Attrs: nounwind
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #10
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { builtin nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

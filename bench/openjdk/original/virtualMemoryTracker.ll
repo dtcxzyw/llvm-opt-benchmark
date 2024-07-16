@@ -1,0 +1,6316 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%class.VirtualMemorySnapshot = type { [28 x %class.VirtualMemory] }
+%class.VirtualMemory = type { i64, i64, i64 }
+%"struct.std::nothrow_t" = type { i8 }
+%class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
+%class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
+%class.LogDecorators = type { i32 }
+%"struct.NMTUtil::S" = type { ptr, ptr }
+%class.NativeCallStack = type { [4 x ptr] }
+%"struct.Atomic::CmpxchgImpl" = type { i8 }
+%class.SnapshotThreadStackWalker = type { %class.VirtualMemoryWalker }
+%class.VirtualMemoryWalker = type { ptr }
+%class.CommittedMemoryRegion = type { %class.VirtualMemoryRegion, %class.NativeCallStack }
+%class.VirtualMemoryRegion = type { ptr, i64 }
+%class.ReservedMemoryRegion = type <{ %class.VirtualMemoryRegion, %class.SortedLinkedList, %class.NativeCallStack, i8, [7 x i8] }>
+%class.SortedLinkedList = type { %class.LinkedListImpl }
+%class.LinkedListImpl = type { %class.LinkedList, ptr }
+%class.LinkedList = type { ptr, ptr }
+%class.LinkedListNode = type { %class.CommittedMemoryRegion, ptr }
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%class.LinkedListIterator = type { ptr }
+%class.LinkedListNode.3 = type { %class.ReservedMemoryRegion, ptr }
+%class.RegionIterator = type { ptr, i64, ptr }
+%class.ThreadCritical = type { i8 }
+%class.LinkedList.2 = type { ptr, ptr }
+%class.PrintRegionWalker = type { %class.VirtualMemoryWalker, ptr, ptr, %class.NativeCallStackPrinter }
+%class.NativeCallStackPrinter = type { %class.Arena, %class.ResourceHashtable, ptr }
+%class.Arena = type { i8, i8, i64, ptr, ptr, ptr, ptr }
+%class.ResourceHashtable = type { %class.ResourceHashtableBase.base, [4 x i8] }
+%class.ResourceHashtableBase.base = type <{ %class.FixedResourceHashtableStorage, i32 }>
+%class.FixedResourceHashtableStorage = type { [293 x ptr] }
+%"struct.Atomic::LoadImpl" = type { i8 }
+%"struct.Atomic::PlatformLoad" = type { i8 }
+%class.ResourceHashtableNode = type { i32, ptr, ptr, ptr }
+%"struct.Atomic::PlatformCmpxchg" = type { i8 }
+%class.LinkedListImpl.1 = type { %class.LinkedList.2, ptr }
+
+$_Z12jdouble_castl = comdat any
+
+$_Z11jfloat_casti = comdat any
+
+$_ZN21VirtualMemorySnapshotC2Ev = comdat any
+
+$_ZNK13VirtualMemory9peak_sizeEv = comdat any
+
+$_ZN6Atomic7cmpxchgImmmEET_PVS1_T0_T1_19atomic_memory_order = comdat any
+
+$_ZN20VirtualMemorySummary11as_snapshotEv = comdat any
+
+$_ZN21VirtualMemorySnapshot7copy_toEPS_ = comdat any
+
+$_ZNK19VirtualMemoryRegion7compareERKS_ = comdat any
+
+$_ZNK10LinkedListI21CommittedMemoryRegionE4headEv = comdat any
+
+$_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv = comdat any
+
+$_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv = comdat any
+
+$_ZNK19VirtualMemoryRegion14overlap_regionEPhm = comdat any
+
+$_ZN20VirtualMemorySummary23record_committed_memoryEm8MEMFLAGS = comdat any
+
+$_ZNK20ReservedMemoryRegion4flagEv = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN20ReservedMemoryRegion20add_committed_regionERK21CommittedMemoryRegion = comdat any
+
+$_ZN21CommittedMemoryRegionC2EPhmRK15NativeCallStack = comdat any
+
+$_ZNK19VirtualMemoryRegion4baseEv = comdat any
+
+$_ZNK19VirtualMemoryRegion3endEv = comdat any
+
+$_ZN19VirtualMemoryRegion14exclude_regionEPhm = comdat any
+
+$_ZNK21CommittedMemoryRegion10call_stackEv = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_ = comdat any
+
+$_ZNK20ReservedMemoryRegion10call_stackEv = comdat any
+
+$_ZNK19VirtualMemoryRegion11same_regionEPhm = comdat any
+
+$_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS = comdat any
+
+$_ZNK19VirtualMemoryRegion4sizeEv = comdat any
+
+$_ZNK19VirtualMemoryRegion14contain_regionEPhm = comdat any
+
+$_ZNK19VirtualMemoryRegion15contain_addressEPh = comdat any
+
+$_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_ = comdat any
+
+$_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN20VirtualMemorySummary20move_reserved_memoryE8MEMFLAGSS0_m = comdat any
+
+$_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev = comdat any
+
+$_ZN20ReservedMemoryRegionC2EPhmRK15NativeCallStack8MEMFLAGS = comdat any
+
+$_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE = comdat any
+
+$_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
+
+$_ZNK20ReservedMemoryRegion9flag_nameEv = comdat any
+
+$_Z3p2iPVKv = comdat any
+
+$_ZN20VirtualMemorySummary22record_reserved_memoryEm8MEMFLAGS = comdat any
+
+$_ZN20ReservedMemoryRegion14set_call_stackERK15NativeCallStack = comdat any
+
+$_ZN20VirtualMemorySummary22record_released_memoryEm8MEMFLAGS = comdat any
+
+$_ZN20ReservedMemoryRegionaSERKS_ = comdat any
+
+$_ZN10MemTracker14tracking_levelEv = comdat any
+
+$_ZN20ReservedMemoryRegionD2Ev = comdat any
+
+$_ZN20ReservedMemoryRegionC2EPhm = comdat any
+
+$_ZN20ReservedMemoryRegionC2ERKS_ = comdat any
+
+$_ZN14LinkedListNodeI20ReservedMemoryRegionE4dataEv = comdat any
+
+$_ZNK14RegionIterator3endEv = comdat any
+
+$_ZN2os12vm_page_sizeEv = comdat any
+
+$_ZN25SnapshotThreadStackWalkerC2Ev = comdat any
+
+$_ZNK10LinkedListI20ReservedMemoryRegionE4headEv = comdat any
+
+$_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv = comdat any
+
+$_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv = comdat any
+
+$_ZN17PrintRegionWalkerC2EPKvP12outputStream = comdat any
+
+$_ZN17PrintRegionWalkerD2Ev = comdat any
+
+$_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
+
+$_ZN9LogPrefixILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
+
+$_ZN13VirtualMemoryC2Ev = comdat any
+
+$_ZN6Atomic4loadImEET_PVKS1_ = comdat any
+
+$_ZNK6Atomic8LoadImplImNS_12PlatformLoadILm8EEEvEclEPVKm = comdat any
+
+$_ZNK6Atomic12PlatformLoadILm8EEclImEET_PVKS3_ = comdat any
+
+$_ZNK15NativeCallStack6equalsERKS_ = comdat any
+
+$_ZNK15NativeCallStack7compareERKS_ = comdat any
+
+$_Z4MAX2IPhET_S1_S1_ = comdat any
+
+$_Z4MIN2IPhET_S1_S1_ = comdat any
+
+$_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS = comdat any
+
+$_ZN13VirtualMemory13commit_memoryEm = comdat any
+
+$_ZN7NMTUtil13flag_to_indexE8MEMFLAGS = comdat any
+
+$_ZN19VirtualMemoryRegion13expand_regionEPhm = comdat any
+
+$_ZNK19VirtualMemoryRegion11adjacent_toEPhm = comdat any
+
+$_ZN19VirtualMemoryRegion8set_baseEPh = comdat any
+
+$_ZN19VirtualMemoryRegion8set_sizeEm = comdat any
+
+$_ZN19VirtualMemoryRegionC2EPhm = comdat any
+
+$_ZN13VirtualMemory15uncommit_memoryEm = comdat any
+
+$_ZN13VirtualMemory14release_memoryEm = comdat any
+
+$_ZN13VirtualMemory14reserve_memoryEm = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E = comdat any
+
+$_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_ = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_ = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_ = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv = comdat any
+
+$_ZN10LinkedListI21CommittedMemoryRegionEC2Ev = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_ = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_ = comdat any
+
+$_ZN10LinkedListI21CommittedMemoryRegionED2Ev = comdat any
+
+$_ZN10LinkedListI21CommittedMemoryRegionED0Ev = comdat any
+
+$_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_ = comdat any
+
+$_ZN14LinkedListNodeI21CommittedMemoryRegionEC2ERKS0_ = comdat any
+
+$_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv = comdat any
+
+$_ZNK14LinkedListNodeI21CommittedMemoryRegionE6equalsERKS0_ = comdat any
+
+$_ZN14LinkedListNodeI21CommittedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E = comdat any
+
+$_ZNK19VirtualMemoryRegion6equalsERKS_ = comdat any
+
+$_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv = comdat any
+
+$_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN7NMTUtil12flag_to_nameE8MEMFLAGS = comdat any
+
+$_ZNK20ReservedMemoryRegion25iterate_committed_regionsEv = comdat any
+
+$_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv = comdat any
+
+$_ZN18LinkedListIteratorI21CommittedMemoryRegionEC2EP14LinkedListNodeIS0_E = comdat any
+
+$_ZN15NativeCallStack11empty_stackEv = comdat any
+
+$_ZN15NativeCallStackC2Ev = comdat any
+
+$_ZN6OSInfo12vm_page_sizeEv = comdat any
+
+$_ZN19VirtualMemoryWalkerC2Ev = comdat any
+
+$_ZN25SnapshotThreadStackWalker18do_allocation_siteEPK20ReservedMemoryRegion = comdat any
+
+$_ZN19VirtualMemoryWalker18do_allocation_siteEPK20ReservedMemoryRegion = comdat any
+
+$_Z8align_upImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_ = comdat any
+
+$_ZN14RegionIteratorC2EPhm = comdat any
+
+$_Z12checked_castImmET_T0_ = comdat any
+
+$_Z10align_downImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_ = comdat any
+
+$_ZN17PrintRegionWalker18do_allocation_siteEPK20ReservedMemoryRegion = comdat any
+
+$_ZN7NMTUtil17flag_to_enum_nameE8MEMFLAGS = comdat any
+
+$_ZN22NativeCallStackPrinterD2Ev = comdat any
+
+$_ZN17ResourceHashtableIPhPKcLj293ELN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEED2Ev = comdat any
+
+$_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEED2Ev = comdat any
+
+$_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE5tableEv = comdat any
+
+$_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE10table_sizeEv = comdat any
+
+$_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE9bucket_atEj = comdat any
+
+$_ZNK29FixedResourceHashtableStorageILj293EPhPKcE5tableEv = comdat any
+
+$_ZNK29FixedResourceHashtableStorageILj293EPhPKcE10table_sizeEv = comdat any
+
+$_ZNK6Atomic11CmpxchgImplImmmvEclEPVmmm19atomic_memory_order = comdat any
+
+$_ZNK6Atomic15PlatformCmpxchgILm8EEclImEET_PVS3_S3_S3_19atomic_memory_order = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_ = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E = comdat any
+
+$_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_ = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_ = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_ = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv = comdat any
+
+$_ZN10LinkedListI20ReservedMemoryRegionEC2Ev = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_ = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_ = comdat any
+
+$_ZN10LinkedListI20ReservedMemoryRegionED2Ev = comdat any
+
+$_ZN10LinkedListI20ReservedMemoryRegionED0Ev = comdat any
+
+$_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_ = comdat any
+
+$_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_ = comdat any
+
+$_ZN14LinkedListNodeI20ReservedMemoryRegionEC2ERKS0_ = comdat any
+
+$_ZNK14LinkedListNodeI20ReservedMemoryRegionE6equalsERKS0_ = comdat any
+
+$_ZN14LinkedListNodeI20ReservedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E = comdat any
+
+$_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv = comdat any
+
+$_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E = comdat any
+
+$_ZN14LinkedListNodeI20ReservedMemoryRegionED2Ev = comdat any
+
+$_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6tagsetEv = comdat any
+
+$_ZNK9LogTagSet8is_levelEN8LogLevel4typeE = comdat any
+
+$_ZNK13LogOutputList8is_levelEN8LogLevel4typeE = comdat any
+
+$_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6vwriteEN8LogLevel4typeEPKcP13__va_list_tag = comdat any
+
+$_ZTV16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = comdat any
+
+$_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = comdat any
+
+$_ZTV10LinkedListI21CommittedMemoryRegionE = comdat any
+
+$_ZTV25SnapshotThreadStackWalker = comdat any
+
+$_ZTV19VirtualMemoryWalker = comdat any
+
+$_ZTV17PrintRegionWalker = comdat any
+
+$_ZTV16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = comdat any
+
+$_ZTV14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = comdat any
+
+$_ZTV10LinkedListI20ReservedMemoryRegionE = comdat any
+
+@_ZL11min_jdouble = internal global double 0.000000e+00, align 8
+@_ZL11max_jdouble = internal global double 0.000000e+00, align 8
+@_ZL10min_jfloat = internal global float 0.000000e+00, align 4
+@_ZL10max_jfloat = internal global float 0.000000e+00, align 4
+@_ZN20VirtualMemorySummary9_snapshotE = hidden global %class.VirtualMemorySnapshot zeroinitializer, align 8
+@_ZN20VirtualMemoryTracker17_reserved_regionsE = hidden global ptr null, align 8
+@_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
+@.str = private unnamed_addr constant [41 x i8] c"Add reserved region '%s' (0x%016lx, %lu)\00", align 1
+@CheckJNICalls = external global i8, align 1
+@g_assert_poison = external global ptr, align 8
+@.str.5 = private unnamed_addr constant [47 x i8] c"src/hotspot/share/nmt/virtualMemoryTracker.cpp\00", align 1
+@.str.6 = private unnamed_addr constant [33 x i8] c"guarantee(!CheckJNICalls) failed\00", align 1
+@.str.7 = private unnamed_addr constant [50 x i8] c"Attached JNI thread exited without being detached\00", align 1
+@.str.8 = private unnamed_addr constant [52 x i8] c"CDS reserved region '%s' as a whole (0x%016lx, %lu)\00", align 1
+@tty = external global ptr, align 8
+@.str.9 = private unnamed_addr constant [103 x i8] c"Error: existing region: [0x%016lx-0x%016lx), flag %u.\0A       new region: [0x%016lx-0x%016lx), flag %u.\00", align 1
+@.str.10 = private unnamed_addr constant [32 x i8] c"Existing region allocated from:\00", align 1
+@.str.11 = private unnamed_addr constant [27 x i8] c"New region allocated from:\00", align 1
+@.str.12 = private unnamed_addr constant [73 x i8] c"Add committed region '%s', No reserved region found for  (0x%016lx, %lu)\00", align 1
+@.str.13 = private unnamed_addr constant [44 x i8] c"Add committed region '%s'(0x%016lx, %lu) %s\00", align 1
+@.str.14 = private unnamed_addr constant [10 x i8] c"Succeeded\00", align 1
+@.str.15 = private unnamed_addr constant [7 x i8] c"Failed\00", align 1
+@.str.16 = private unnamed_addr constant [51 x i8] c"Removed uncommitted region '%s' (0x%016lx, %lu) %s\00", align 1
+@.str.17 = private unnamed_addr constant [11 x i8] c" Succeeded\00", align 1
+@.str.18 = private unnamed_addr constant [50 x i8] c"Remove uncommitted region '%s' (0x%016lx, %lu) %s\00", align 1
+@.str.19 = private unnamed_addr constant [62 x i8] c"Removed region '%s' (0x%016lx, %lu) from _reserved_regions %s\00", align 1
+@.str.20 = private unnamed_addr constant [46 x i8] c"No reserved region found for (0x%016lx, %lu)!\00", align 1
+@.str.21 = private unnamed_addr constant [49 x i8] c"Split region '%s' (0x%016lx, %lu)  with size %lu\00", align 1
+@_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden global %class.LogTagSet zeroinitializer, comdat, align 8
+@_ZGVN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden global i64 0, comdat($_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE), align 8
+@_ZTV16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = linkonce_odr hidden unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E, ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv] }, comdat, align 8
+@_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = linkonce_odr hidden unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv] }, comdat, align 8
+@_ZTV10LinkedListI21CommittedMemoryRegionE = linkonce_odr hidden unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr @_ZN10LinkedListI21CommittedMemoryRegionED2Ev, ptr @_ZN10LinkedListI21CommittedMemoryRegionED0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@_ZN7NMTUtil8_stringsE = external global [28 x %"struct.NMTUtil::S"], align 16
+@_ZN10MemTracker15_tracking_levelE = external global i32, align 4
+@_ZN15NativeCallStack12_empty_stackE = external global %class.NativeCallStack, align 8
+@_ZN6OSInfo13_vm_page_sizeE = external global i64, align 8
+@_ZTV25SnapshotThreadStackWalker = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN25SnapshotThreadStackWalker18do_allocation_siteEPK20ReservedMemoryRegion] }, comdat, align 8
+@_ZTV19VirtualMemoryWalker = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN19VirtualMemoryWalker18do_allocation_siteEPK20ReservedMemoryRegion] }, comdat, align 8
+@_ZTV17PrintRegionWalker = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN17PrintRegionWalker18do_allocation_siteEPK20ReservedMemoryRegion] }, comdat, align 8
+@.str.23 = private unnamed_addr constant [63 x i8] c"0x%016lx in mmap'd memory region [0x%016lx - 0x%016lx], tag %s\00", align 1
+@_ZTV16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = linkonce_odr hidden unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E, ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv] }, comdat, align 8
+@_ZTV14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE = linkonce_odr hidden unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E, ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv] }, comdat, align 8
+@_ZTV10LinkedListI20ReservedMemoryRegionE = linkonce_odr hidden unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr @_ZN10LinkedListI20ReservedMemoryRegionED2Ev, ptr @_ZN10LinkedListI20ReservedMemoryRegionED0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.22, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_virtualMemoryTracker.cpp, ptr null }]
+@llvm.used = appending global [1 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  %1 = call noundef double @_Z12jdouble_castl(i64 noundef 1)
+  store double %1, ptr @_ZL11min_jdouble, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef double @_Z12jdouble_castl(i64 noundef %0) #1 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load double, ptr %2, align 8
+  ret double %3
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
+  %1 = call noundef double @_Z12jdouble_castl(i64 noundef 9218868437227405311)
+  store double %1, ptr @_ZL11max_jdouble, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
+  %1 = call noundef float @_Z11jfloat_casti(i32 noundef 1)
+  store float %1, ptr @_ZL10min_jfloat, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef float @_Z11jfloat_casti(i32 noundef %0) #1 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load float, ptr %2, align 4
+  ret float %3
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
+  %1 = call noundef float @_Z11jfloat_casti(i32 noundef 2139095039)
+  store float %1, ptr @_ZL10max_jfloat, align 4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.4() #0 section ".text.startup" {
+  call void @_ZN21VirtualMemorySnapshotC2Ev(ptr noundef nonnull align 8 dereferenceable(672) @_ZN20VirtualMemorySummary9_snapshotE)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN21VirtualMemorySnapshotC2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.VirtualMemorySnapshot, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [28 x %class.VirtualMemory], ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %class.VirtualMemory, ptr %5, i64 28
+  br label %7
+
+7:                                                ; preds = %7, %1
+  %8 = phi ptr [ %5, %1 ], [ %9, %7 ]
+  call void @_ZN13VirtualMemoryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %9 = getelementptr inbounds %class.VirtualMemory, ptr %8, i64 1
+  %10 = icmp eq ptr %9, %6
+  br i1 %10, label %11, label %7
+
+11:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = call noundef i64 @_ZNK13VirtualMemory9peak_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  store i64 %8, ptr %5, align 8
+  br label %9
+
+9:                                                ; preds = %24, %2
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %4, align 8
+  %12 = icmp ult i64 %10, %11
+  br i1 %12, label %13, label %25
+
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds %class.VirtualMemory, ptr %7, i32 0, i32 2
+  %15 = load i64, ptr %5, align 8
+  %16 = load i64, ptr %4, align 8
+  %17 = call noundef i64 @_ZN6Atomic7cmpxchgImmmEET_PVS1_T0_T1_19atomic_memory_order(ptr noundef %14, i64 noundef %15, i64 noundef %16, i32 noundef 0)
+  store i64 %17, ptr %6, align 8
+  %18 = load i64, ptr %6, align 8
+  %19 = load i64, ptr %5, align 8
+  %20 = icmp eq i64 %18, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  br label %25
+
+22:                                               ; preds = %13
+  %23 = load i64, ptr %6, align 8
+  store i64 %23, ptr %5, align 8
+  br label %24
+
+24:                                               ; preds = %22
+  br label %9, !llvm.loop !6
+
+25:                                               ; preds = %21, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK13VirtualMemory9peak_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.VirtualMemory, ptr %3, i32 0, i32 2
+  %5 = call noundef i64 @_ZN6Atomic4loadImEET_PVKS1_(ptr noundef %4)
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN6Atomic7cmpxchgImmmEET_PVS1_T0_T1_19atomic_memory_order(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.Atomic::CmpxchgImpl", align 1
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  %14 = call noundef i64 @_ZNK6Atomic11CmpxchgImplImmmvEclEPVmmm19atomic_memory_order(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i32 noundef %13)
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN20VirtualMemorySummary8snapshotEP21VirtualMemorySnapshot(ptr noundef %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv()
+  %3 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %4 = load ptr, ptr %2, align 8
+  call void @_ZN21VirtualMemorySnapshot7copy_toEPS_(ptr noundef nonnull align 8 dereferenceable(672) %3, ptr noundef %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv() #1 align 2 {
+  %1 = alloca %class.SnapshotThreadStackWalker, align 8
+  call void @_ZN25SnapshotThreadStackWalkerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %2 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker(ptr noundef %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv() #1 comdat align 2 {
+  ret ptr @_ZN20VirtualMemorySummary9_snapshotE
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN21VirtualMemorySnapshot7copy_toEPS_(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  store i32 0, ptr %5, align 4
+  br label %7
+
+7:                                                ; preds = %20, %2
+  %8 = load i32, ptr %5, align 4
+  %9 = icmp slt i32 %8, 28
+  br i1 %9, label %10, label %23
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %class.VirtualMemorySnapshot, ptr %6, i32 0, i32 0
+  %12 = load i32, ptr %5, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [28 x %class.VirtualMemory], ptr %11, i64 0, i64 %13
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %class.VirtualMemorySnapshot, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %5, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [28 x %class.VirtualMemory], ptr %16, i64 0, i64 %18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %14, i64 24, i1 true)
+  br label %20
+
+20:                                               ; preds = %10
+  %21 = load i32, ptr %5, align 4
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %5, align 4
+  br label %7, !llvm.loop !8
+
+23:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i32 @_ZNK19VirtualMemoryRegion7compareERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK19VirtualMemoryRegion7compareERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %11 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion14overlap_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %8, i64 noundef %10)
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %20
+
+13:                                               ; preds = %2
+  %14 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %15 = load ptr, ptr %5, align 8
+  %16 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %17 = icmp uge ptr %14, %16
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %13
+  store i32 1, ptr %3, align 4
+  br label %20
+
+19:                                               ; preds = %13
+  store i32 -1, ptr %3, align 4
+  br label %20
+
+20:                                               ; preds = %19, %18, %12
+  %21 = load i32, ptr %3, align 4
+  ret i32 %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_Z28compare_reserved_region_baseRK20ReservedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i32 @_ZNK19VirtualMemoryRegion7compareERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #1 align 2 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %class.CommittedMemoryRegion, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %13, i32 0, i32 1
+  %15 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef ptr @_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh(ptr noundef %15, ptr noundef %16)
+  store ptr %17, ptr %10, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %10, align 8
+  %22 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
+  br label %26
+
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %13, i32 0, i32 1
+  %25 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  br label %26
+
+26:                                               ; preds = %23, %20
+  %27 = phi ptr [ %22, %20 ], [ %25, %23 ]
+  store ptr %27, ptr %11, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %70
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %11, align 8
+  %32 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %31)
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i64, ptr %8, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = call noundef zeroext i1 @_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack(ptr noundef %32, ptr noundef %33, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %30
+  store i1 true, ptr %5, align 1
+  br label %99
+
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %11, align 8
+  %40 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %39)
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  %43 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion14overlap_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %41, i64 noundef %42)
+  br i1 %43, label %44, label %69
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i64, ptr %8, align 8
+  %47 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef %45, i64 noundef %46)
+  %48 = load ptr, ptr %10, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %10, align 8
+  br label %55
+
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %13, i32 0, i32 1
+  %54 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %53)
+  br label %55
+
+55:                                               ; preds = %52, %50
+  %56 = phi ptr [ %51, %50 ], [ %54, %52 ]
+  %57 = load ptr, ptr %7, align 8
+  %58 = call noundef ptr @_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh(ptr noundef %56, ptr noundef %57)
+  store ptr %58, ptr %10, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %64
+
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %10, align 8
+  %63 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %62)
+  br label %67
+
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %13, i32 0, i32 1
+  %66 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
+  br label %67
+
+67:                                               ; preds = %64, %61
+  %68 = phi ptr [ %63, %61 ], [ %66, %64 ]
+  store ptr %68, ptr %11, align 8
+  br label %69
+
+69:                                               ; preds = %67, %38
+  br label %70
+
+70:                                               ; preds = %69, %26
+  %71 = load i64, ptr %8, align 8
+  %72 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %13)
+  call void @_ZN20VirtualMemorySummary23record_committed_memoryEm8MEMFLAGS(i64 noundef %71, i8 noundef zeroext %72)
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i64, ptr %8, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = call noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionEPhmRK15NativeCallStack(ptr noundef %73, ptr noundef %74, i64 noundef %75, ptr noundef nonnull align 8 dereferenceable(32) %76)
+  br i1 %77, label %78, label %87
+
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %10, align 8
+  %80 = load ptr, ptr %11, align 8
+  %81 = call noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionES2_(ptr noundef %79, ptr noundef %80)
+  br i1 %81, label %82, label %86
+
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %13, i32 0, i32 1
+  %84 = load ptr, ptr %10, align 8
+  %85 = call noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef %84)
+  br label %86
+
+86:                                               ; preds = %82, %78
+  store i1 true, ptr %5, align 1
+  br label %99
+
+87:                                               ; preds = %70
+  %88 = load ptr, ptr %11, align 8
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i64, ptr %8, align 8
+  %91 = load ptr, ptr %9, align 8
+  %92 = call noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionEPhmRK15NativeCallStack(ptr noundef %88, ptr noundef %89, i64 noundef %90, ptr noundef nonnull align 8 dereferenceable(32) %91)
+  br i1 %92, label %93, label %94
+
+93:                                               ; preds = %87
+  store i1 true, ptr %5, align 1
+  br label %99
+
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %7, align 8
+  %96 = load i64, ptr %8, align 8
+  %97 = load ptr, ptr %9, align 8
+  call void @_ZN21CommittedMemoryRegionC2EPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %95, i64 noundef %96, ptr noundef nonnull align 8 dereferenceable(32) %97)
+  %98 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionERK21CommittedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  store i1 %98, ptr %5, align 1
+  br label %99
+
+99:                                               ; preds = %94, %93, %86, %37
+  %100 = load i1, ptr %5, align 1
+  ret i1 %100
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef ptr @_ZL24find_preceding_node_fromP14LinkedListNodeI21CommittedMemoryRegionEPh(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  store ptr null, ptr %5, align 8
+  %8 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %6, align 8
+  br label %9
+
+9:                                                ; preds = %22, %2
+  %10 = load ptr, ptr %6, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %25
+
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %17 = load ptr, ptr %4, align 8
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %12
+  br label %25
+
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %6, align 8
+  store ptr %21, ptr %5, align 8
+  br label %22
+
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %23)
+  store ptr %24, ptr %6, align 8
+  br label %9, !llvm.loop !9
+
+25:                                               ; preds = %19, %9
+  %26 = load ptr, ptr %5, align 8
+  ret ptr %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedList, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZL10is_same_asP21CommittedMemoryRegionPhmRK15NativeCallStack(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  %12 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion11same_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10, i64 noundef %11)
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef ptr @_ZNK21CommittedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call noundef zeroext i1 @_ZNK15NativeCallStack6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br label %18
+
+18:                                               ; preds = %13, %4
+  %19 = phi i1 [ false, %4 ], [ %17, %13 ]
+  ret i1 %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode, ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion14overlap_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %10 = call noundef ptr @_Z4MAX2IPhET_S1_S1_(ptr noundef %8, ptr noundef %9)
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %14 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %15 = call noundef ptr @_Z4MIN2IPhET_S1_S1_(ptr noundef %13, ptr noundef %14)
+  %16 = icmp ult ptr %10, %15
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, i64 noundef %2) #1 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %class.CommittedMemoryRegion, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN21CommittedMemoryRegionC2EPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %16, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i64, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  store ptr %21, ptr %9, align 8
+  %22 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %15, i32 0, i32 1
+  %23 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  store ptr %23, ptr %10, align 8
+  store ptr null, ptr %11, align 8
+  br label %24
+
+24:                                               ; preds = %104, %47, %3
+  %25 = load ptr, ptr %10, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %108
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %10, align 8
+  %29 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
+  store ptr %29, ptr %12, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i64, ptr %7, align 8
+  %33 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion11same_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %31, i64 noundef %32)
+  br i1 %33, label %34, label %41
+
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %12, align 8
+  %36 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %37 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %36, i8 noundef zeroext %37)
+  %38 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %15, i32 0, i32 1
+  %39 = load ptr, ptr %11, align 8
+  %40 = call noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %39)
+  store i1 true, ptr %4, align 1
+  br label %109
+
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %12, align 8
+  %43 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %44 = load ptr, ptr %12, align 8
+  %45 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44)
+  %46 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion14contain_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %43, i64 noundef %45)
+  br i1 %46, label %47, label %56
+
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %12, align 8
+  %49 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
+  %50 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %49, i8 noundef zeroext %50)
+  %51 = load ptr, ptr %10, align 8
+  %52 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %51)
+  store ptr %52, ptr %10, align 8
+  %53 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %15, i32 0, i32 1
+  %54 = load ptr, ptr %11, align 8
+  %55 = call noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef %54)
+  br label %24, !llvm.loop !10
+
+56:                                               ; preds = %41
+  %57 = load ptr, ptr %12, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef %58)
+  br i1 %59, label %60, label %85
+
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %12, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 -1
+  %64 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %63)
+  br i1 %64, label %65, label %72
+
+65:                                               ; preds = %60
+  %66 = load i64, ptr %7, align 8
+  %67 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %66, i8 noundef zeroext %67)
+  %68 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = load i64, ptr %7, align 8
+  %71 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef %68, ptr noundef %69, i64 noundef %70)
+  store i1 %71, ptr %4, align 1
+  br label %109
+
+72:                                               ; preds = %60
+  %73 = load ptr, ptr %12, align 8
+  %74 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
+  %75 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %76 = ptrtoint ptr %74 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  store i64 %78, ptr %13, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i64, ptr %13, align 8
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %80, i64 noundef %81)
+  %82 = load i64, ptr %13, align 8
+  %83 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %82, i8 noundef zeroext %83)
+  br label %84
+
+84:                                               ; preds = %72
+  br label %104
+
+85:                                               ; preds = %56
+  %86 = load ptr, ptr %12, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 -1
+  %89 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef %88)
+  br i1 %89, label %90, label %103
+
+90:                                               ; preds = %85
+  %91 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %92 = load ptr, ptr %12, align 8
+  %93 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %92)
+  %94 = ptrtoint ptr %91 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  store i64 %96, ptr %14, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load ptr, ptr %12, align 8
+  %99 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %98)
+  %100 = load i64, ptr %14, align 8
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef %99, i64 noundef %100)
+  %101 = load i64, ptr %14, align 8
+  %102 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %101, i8 noundef zeroext %102)
+  store i1 true, ptr %4, align 1
+  br label %109
+
+103:                                              ; preds = %85
+  br label %104
+
+104:                                              ; preds = %103, %84
+  %105 = load ptr, ptr %10, align 8
+  store ptr %105, ptr %11, align 8
+  %106 = load ptr, ptr %10, align 8
+  %107 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %106)
+  store ptr %107, ptr %10, align 8
+  br label %24, !llvm.loop !10
+
+108:                                              ; preds = %24
+  store i1 true, ptr %4, align 1
+  br label %109
+
+109:                                              ; preds = %108, %90, %65, %34
+  %110 = load i1, ptr %4, align 1
+  ret i1 %110
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary23record_committed_memoryEm8MEMFLAGS(i64 noundef %0, i8 noundef zeroext %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  store i64 %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %6 = load i8, ptr %4, align 1
+  %7 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %5, i8 noundef zeroext %6)
+  %8 = load i64, ptr %3, align 8
+  call void @_ZN13VirtualMemory13commit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %3, i32 0, i32 3
+  %5 = load i8, ptr %4, align 8
+  ret i8 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionEPhmRK15NativeCallStack(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #1 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %26
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
+  store ptr %15, ptr %10, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i64, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call noundef zeroext i1 @_ZL17is_mergeable_withP21CommittedMemoryRegionPhmRK15NativeCallStack(ptr noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %10, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i64, ptr %8, align 8
+  call void @_ZN19VirtualMemoryRegion13expand_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23, i64 noundef %24)
+  store i1 true, ptr %5, align 1
+  br label %27
+
+25:                                               ; preds = %13
+  br label %26
+
+26:                                               ; preds = %25, %4
+  store i1 false, ptr %5, align 1
+  br label %27
+
+27:                                               ; preds = %26, %21
+  %28 = load i1, ptr %5, align 1
+  ret i1 %28
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionES2_(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %21
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %11)
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %16 = load ptr, ptr %6, align 8
+  %17 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = load ptr, ptr %6, align 8
+  %19 = call noundef ptr @_ZNK21CommittedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
+  %20 = call noundef zeroext i1 @_ZL14try_merge_withP14LinkedListNodeI21CommittedMemoryRegionEPhmRK15NativeCallStack(ptr noundef %13, ptr noundef %15, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  store i1 %20, ptr %3, align 1
+  br label %21
+
+21:                                               ; preds = %10, %9
+  %22 = load i1, ptr %3, align 1
+  ret i1 %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %2
+  %11 = call noundef ptr @_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr %11, ptr %6, align 8
+  br label %22
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8
+  %14 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+  store ptr %14, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %20)
+  br label %21
+
+21:                                               ; preds = %17, %12
+  br label %22
+
+22:                                               ; preds = %21, %10
+  %23 = load ptr, ptr %6, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %26)
+  store i1 true, ptr %3, align 1
+  br label %28
+
+27:                                               ; preds = %22
+  store i1 false, ptr %3, align 1
+  br label %28
+
+28:                                               ; preds = %27, %25
+  %29 = load i1, ptr %3, align 1
+  ret i1 %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionERK21CommittedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %9 = icmp ne ptr %8, null
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN21CommittedMemoryRegionC2EPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  call void @_ZN19VirtualMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10, i64 noundef %11)
+  %12 = getelementptr inbounds %class.CommittedMemoryRegion, ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 2 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca %class.CommittedMemoryRegion, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  store ptr %19, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %22 = load ptr, ptr %8, align 8
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %31, label %24
+
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %10, align 8
+  %26 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i64, ptr %9, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  %30 = icmp eq ptr %26, %29
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %24, %4
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load i64, ptr %9, align 8
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %33, i64 noundef %34)
+  store i1 true, ptr %5, align 1
+  br label %63
+
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %10, align 8
+  %37 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
+  store ptr %37, ptr %11, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %38)
+  %40 = load ptr, ptr %8, align 8
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  store i64 %43, ptr %12, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i64, ptr %12, align 8
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef %45, i64 noundef %46)
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i64, ptr %9, align 8
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  store ptr %49, ptr %13, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %13, align 8
+  %52 = ptrtoint ptr %50 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  store i64 %54, ptr %14, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load i64, ptr %14, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = call noundef ptr @_ZNK21CommittedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(48) %57)
+  call void @_ZN21CommittedMemoryRegionC2EPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %55, i64 noundef %56, ptr noundef nonnull align 8 dereferenceable(32) %58)
+  %59 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %17, i32 0, i32 1
+  %60 = call noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  store ptr %60, ptr %16, align 8
+  %61 = load ptr, ptr %16, align 8
+  %62 = icmp ne ptr %61, null
+  store i1 %62, ptr %5, align 1
+  br label %63
+
+63:                                               ; preds = %35, %31
+  %64 = load i1, ptr %5, align 1
+  ret i1 %64
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %6 = getelementptr inbounds i8, ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = load i64, ptr %6, align 8
+  %11 = sub i64 %9, %10
+  store i64 %11, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i64, ptr %6, align 8
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  call void @_ZN19VirtualMemoryRegion8set_baseEPh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %18)
+  br label %19
+
+19:                                               ; preds = %15, %3
+  %20 = load i64, ptr %7, align 8
+  call void @_ZN19VirtualMemoryRegion8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %20)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK21CommittedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.CommittedMemoryRegion, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %3, i32 0, i32 2
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion11same_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %6, align 8
+  %13 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %14 = icmp eq i64 %12, %13
+  br label %15
+
+15:                                               ; preds = %11, %3
+  %16 = phi i1 [ false, %3 ], [ %14, %11 ]
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %0, i8 noundef zeroext %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  store i64 %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %6 = load i8, ptr %4, align 1
+  %7 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %5, i8 noundef zeroext %6)
+  %8 = load i64, ptr %3, align 8
+  call void @_ZN13VirtualMemory15uncommit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion14contain_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
+  br i1 %9, label %10, label %16
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %14 = getelementptr inbounds i8, ptr %13, i64 -1
+  %15 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
+  br label %16
+
+16:                                               ; preds = %10, %3
+  %17 = phi i1 [ false, %3 ], [ %15, %10 ]
+  ret i1 %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %8 = icmp uge ptr %6, %7
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %12 = icmp ult ptr %10, %11
+  br label %13
+
+13:                                               ; preds = %9, %2
+  %14 = phi i1 [ false, %2 ], [ %12, %9 ]
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN20ReservedMemoryRegion22move_committed_regionsEPhRS_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(73) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %9, i32 0, i32 1
+  %11 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store ptr %11, ptr %7, align 8
+  store ptr null, ptr %8, align 8
+  br label %12
+
+12:                                               ; preds = %22, %3
+  %13 = load ptr, ptr %7, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %26
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %18 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp uge ptr %18, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15
+  br label %26
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %7, align 8
+  store ptr %23, ptr %8, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %24)
+  store ptr %25, ptr %7, align 8
+  br label %12, !llvm.loop !11
+
+26:                                               ; preds = %21, %12
+  %27 = load ptr, ptr %7, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %39
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %36
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %34)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef %35)
+  br label %38
+
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %9, i32 0, i32 1
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef null)
+  br label %38
+
+38:                                               ; preds = %36, %32
+  br label %39
+
+39:                                               ; preds = %38, %26
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %7, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %42)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.LinkedListNode, ptr %5, i32 0, i32 1
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.LinkedList, ptr %5, i32 0, i32 1
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i64 @_ZNK20ReservedMemoryRegion14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  store i64 0, ptr %3, align 8
+  %6 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 1
+  %7 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %7, ptr %4, align 8
+  br label %8
+
+8:                                                ; preds = %11, %1
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %19
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %14 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %15 = load i64, ptr %3, align 8
+  %16 = add i64 %15, %14
+  store i64 %16, ptr %3, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  store ptr %18, ptr %4, align 8
+  br label %8, !llvm.loop !12
+
+19:                                               ; preds = %8
+  %20 = load i64, ptr %3, align 8
+  ret i64 %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %0, i8 noundef zeroext %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %5)
+  %7 = load i8, ptr %4, align 1
+  %8 = icmp ne i8 %6, %7
+  br i1 %8, label %9, label %18
+
+9:                                                ; preds = %2
+  %10 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %5)
+  %11 = load i8, ptr %4, align 1
+  %12 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN20VirtualMemorySummary20move_reserved_memoryE8MEMFLAGSS0_m(i8 noundef zeroext %10, i8 noundef zeroext %11, i64 noundef %12)
+  %13 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %5)
+  %14 = load i8, ptr %4, align 1
+  %15 = call noundef i64 @_ZNK20ReservedMemoryRegion14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(73) %5)
+  call void @_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m(i8 noundef zeroext %13, i8 noundef zeroext %14, i64 noundef %15)
+  %16 = load i8, ptr %4, align 1
+  %17 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 3
+  store i8 %16, ptr %17, align 8
+  br label %18
+
+18:                                               ; preds = %9, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary20move_reserved_memoryE8MEMFLAGSS0_m(i8 noundef zeroext %0, i8 noundef zeroext %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  store i8 %0, ptr %4, align 1
+  store i8 %1, ptr %5, align 1
+  store i64 %2, ptr %6, align 8
+  %7 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %8 = load i8, ptr %4, align 1
+  %9 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %7, i8 noundef zeroext %8)
+  %10 = load i64, ptr %6, align 8
+  call void @_ZN13VirtualMemory14release_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
+  %11 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %12 = load i8, ptr %5, align 1
+  %13 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %11, i8 noundef zeroext %12)
+  %14 = load i64, ptr %6, align 8
+  call void @_ZN13VirtualMemory14reserve_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %14)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary21move_committed_memoryE8MEMFLAGSS0_m(i8 noundef zeroext %0, i8 noundef zeroext %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  store i8 %0, ptr %4, align 1
+  store i8 %1, ptr %5, align 1
+  store i64 %2, ptr %6, align 8
+  %7 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %8 = load i8, ptr %4, align 1
+  %9 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %7, i8 noundef zeroext %8)
+  %10 = load i64, ptr %6, align 8
+  call void @_ZN13VirtualMemory15uncommit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
+  %11 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %12 = load i8, ptr %5, align 1
+  %13 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %11, i8 noundef zeroext %12)
+  %14 = load i64, ptr %6, align 8
+  call void @_ZN13VirtualMemory13commit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %14)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef ptr @_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 1
+  %9 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %3, align 8
+  %10 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr %10, ptr %4, align 8
+  %11 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %12 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  store ptr %13, ptr %5, align 8
+  br label %14
+
+14:                                               ; preds = %39, %1
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %40
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %3, align 8
+  %19 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  %20 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %21 = load ptr, ptr %3, align 8
+  %22 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
+  %23 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %24 = getelementptr inbounds i8, ptr %20, i64 %23
+  store ptr %24, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = icmp ult ptr %25, %26
+  br i1 %27, label %28, label %38
+
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %3, align 8
+  %30 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %29)
+  %31 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %32 = load ptr, ptr %3, align 8
+  %33 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %32)
+  %34 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
+  %35 = getelementptr inbounds i8, ptr %31, i64 %34
+  store ptr %35, ptr %4, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
+  store ptr %37, ptr %3, align 8
+  br label %39
+
+38:                                               ; preds = %17
+  br label %40
+
+39:                                               ; preds = %28
+  br label %14, !llvm.loop !13
+
+40:                                               ; preds = %38, %14
+  %41 = load ptr, ptr %4, align 8
+  ret ptr %41
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker10initializeE17NMT_TrackingLevel(i32 noundef %0) #1 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp sge i32 %4, 2
+  br i1 %5, label %6, label %14
+
+6:                                                ; preds = %1
+  %7 = call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #10
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %6
+  call void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  br label %10
+
+10:                                               ; preds = %9, %6
+  %11 = phi ptr [ %7, %9 ], [ null, %6 ]
+  store ptr %11, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %12 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %13 = icmp ne ptr %12, null
+  store i1 %13, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 true, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %10
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i8 noundef zeroext) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef zeroext %3) #1 align 2 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca %class.ReservedMemoryRegion, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i8 %3, ptr %9, align 1
+  %13 = load ptr, ptr %6, align 8
+  %14 = load i64, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i8, ptr %9, align 1
+  call void @_ZN20ReservedMemoryRegionC2EPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %10, ptr noundef %13, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef zeroext %16)
+  %17 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 7
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(73) %10)
+  store ptr %21, ptr %11, align 8
+  %22 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %4
+  br label %29
+
+24:                                               ; preds = %4
+  %25 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %10)
+  %26 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %27 = call noundef i64 @_Z3p2iPVKv(ptr noundef %26)
+  %28 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str, ptr noundef %25, i64 noundef %27, i64 noundef %28)
+  br label %29
+
+29:                                               ; preds = %24, %23
+  %30 = load ptr, ptr %11, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %41
+
+32:                                               ; preds = %29
+  %33 = load i64, ptr %7, align 8
+  %34 = load i8, ptr %9, align 1
+  call void @_ZN20VirtualMemorySummary22record_reserved_memoryEm8MEMFLAGS(i64 noundef %33, i8 noundef zeroext %34)
+  %35 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(73) %10)
+  %40 = icmp ne ptr %39, null
+  store i1 %40, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+41:                                               ; preds = %29
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %7, align 8
+  %45 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion11same_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef %43, i64 noundef %44)
+  br i1 %45, label %46, label %60
+
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %11, align 8
+  %48 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %47)
+  %49 = load i8, ptr %9, align 1
+  %50 = icmp eq i8 %48, %49
+  br i1 %50, label %55, label %51
+
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %11, align 8
+  %53 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %52)
+  %54 = icmp eq i8 %53, 27
+  br i1 %54, label %55, label %60
+
+55:                                               ; preds = %51, %46
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %8, align 8
+  call void @_ZN20ReservedMemoryRegion14set_call_stackERK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %56, ptr noundef nonnull align 8 dereferenceable(32) %57)
+  %58 = load ptr, ptr %11, align 8
+  %59 = load i8, ptr %9, align 1
+  call void @_ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %58, i8 noundef zeroext %59)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+60:                                               ; preds = %51, %41
+  %61 = load ptr, ptr %11, align 8
+  %62 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %61)
+  %63 = icmp eq i8 %62, 3
+  br i1 %63, label %64, label %85
+
+64:                                               ; preds = %60
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load i8, ptr @CheckJNICalls, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %70
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %69, align 1
+  call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef @.str.5, i32 noundef 366, ptr noundef @.str.6, ptr noundef @.str.7) #11
+  unreachable
+
+70:                                               ; preds = %65
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %11, align 8
+  %74 = call noundef i64 @_ZNK20ReservedMemoryRegion14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(73) %73)
+  %75 = load ptr, ptr %11, align 8
+  %76 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %75)
+  call void @_ZN20VirtualMemorySummary25record_uncommitted_memoryEm8MEMFLAGS(i64 noundef %74, i8 noundef zeroext %76)
+  %77 = load ptr, ptr %11, align 8
+  %78 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %77)
+  %79 = load ptr, ptr %11, align 8
+  %80 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %79)
+  call void @_ZN20VirtualMemorySummary22record_released_memoryEm8MEMFLAGS(i64 noundef %78, i8 noundef zeroext %80)
+  %81 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %82 = load i8, ptr %9, align 1
+  call void @_ZN20VirtualMemorySummary22record_reserved_memoryEm8MEMFLAGS(i64 noundef %81, i8 noundef zeroext %82)
+  %83 = load ptr, ptr %11, align 8
+  %84 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN20ReservedMemoryRegionaSERKS_(ptr noundef nonnull align 8 dereferenceable(73) %83, ptr noundef nonnull align 8 dereferenceable(73) %10)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+85:                                               ; preds = %60
+  %86 = load ptr, ptr %11, align 8
+  %87 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %86)
+  %88 = icmp eq i8 %87, 13
+  br i1 %88, label %89, label %101
+
+89:                                               ; preds = %85
+  %90 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %90, label %92, label %91
+
+91:                                               ; preds = %89
+  br label %100
+
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %11, align 8
+  %94 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %93)
+  %95 = load ptr, ptr %11, align 8
+  %96 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %95)
+  %97 = call noundef i64 @_Z3p2iPVKv(ptr noundef %96)
+  %98 = load ptr, ptr %11, align 8
+  %99 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %98)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.8, ptr noundef %94, i64 noundef %97, i64 noundef %99)
+  br label %100
+
+100:                                              ; preds = %92, %91
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+101:                                              ; preds = %85
+  %102 = load ptr, ptr %11, align 8
+  %103 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %102)
+  %104 = icmp eq i8 %103, 0
+  br i1 %104, label %105, label %117
+
+105:                                              ; preds = %101
+  %106 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %106, label %108, label %107
+
+107:                                              ; preds = %105
+  br label %116
+
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %11, align 8
+  %110 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %109)
+  %111 = load ptr, ptr %11, align 8
+  %112 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %111)
+  %113 = call noundef i64 @_Z3p2iPVKv(ptr noundef %112)
+  %114 = load ptr, ptr %11, align 8
+  %115 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %114)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.8, ptr noundef %110, i64 noundef %113, i64 noundef %115)
+  br label %116
+
+116:                                              ; preds = %108, %107
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+117:                                              ; preds = %101
+  %118 = load ptr, ptr @tty, align 8
+  %119 = load ptr, ptr %11, align 8
+  %120 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %119)
+  %121 = call noundef i64 @_Z3p2iPVKv(ptr noundef %120)
+  %122 = load ptr, ptr %11, align 8
+  %123 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %122)
+  %124 = call noundef i64 @_Z3p2iPVKv(ptr noundef %123)
+  %125 = load ptr, ptr %11, align 8
+  %126 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %125)
+  %127 = zext i8 %126 to i32
+  %128 = load ptr, ptr %6, align 8
+  %129 = call noundef i64 @_Z3p2iPVKv(ptr noundef %128)
+  %130 = load ptr, ptr %6, align 8
+  %131 = load i64, ptr %7, align 8
+  %132 = getelementptr inbounds i8, ptr %130, i64 %131
+  %133 = call noundef i64 @_Z3p2iPVKv(ptr noundef %132)
+  %134 = load i8, ptr %9, align 1
+  %135 = zext i8 %134 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %118, ptr noundef @.str.9, i64 noundef %121, i64 noundef %124, i32 noundef %127, i64 noundef %129, i64 noundef %133, i32 noundef %135)
+  %136 = call noundef i32 @_ZN10MemTracker14tracking_levelEv()
+  %137 = icmp eq i32 %136, 3
+  br i1 %137, label %138, label %146
+
+138:                                              ; preds = %117
+  %139 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %139, ptr noundef @.str.10)
+  %140 = load ptr, ptr %11, align 8
+  %141 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %140)
+  %142 = load ptr, ptr @tty, align 8
+  call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef %142)
+  %143 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef @.str.11)
+  %144 = load ptr, ptr %8, align 8
+  %145 = load ptr, ptr @tty, align 8
+  call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef %145)
+  br label %146
+
+146:                                              ; preds = %138, %117
+  br label %147
+
+147:                                              ; preds = %146
+  %148 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %148, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef @.str.5, i32 noundef 410) #11
+  unreachable
+
+149:                                              ; No predecessors!
+  br label %150
+
+150:                                              ; preds = %149
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %151
+
+151:                                              ; preds = %150, %116, %100, %72, %55, %32
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %10) #10
+  %152 = load i1, ptr %5, align 1
+  ret i1 %152
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20ReservedMemoryRegionC2EPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef zeroext %4) unnamed_addr #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store i8 %4, ptr %10, align 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i64, ptr %8, align 8
+  call void @_ZN19VirtualMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12, i64 noundef %13)
+  %14 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %11, i32 0, i32 1
+  call void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %15 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 32, i1 false)
+  %17 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %11, i32 0, i32 3
+  %18 = load i8, ptr %10, align 1
+  store i8 %18, ptr %17, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef %0) #1 comdat align 2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6tagsetEv()
+  %4 = load i32, ptr %2, align 4
+  %5 = call noundef zeroext i1 @_ZNK9LogTagSet8is_levelEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(112) %3, i32 noundef %4)
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  store ptr %0, ptr %2, align 8
+  %4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %4)
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(i32 noundef 2, ptr noundef %5, ptr noundef %6)
+  %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %3, i32 0, i32 3
+  %5 = load i8, ptr %4, align 8
+  %6 = call noundef ptr @_ZN7NMTUtil12flag_to_nameE8MEMFLAGS(i8 noundef zeroext %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_Z3p2iPVKv(ptr noundef %0) #1 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary22record_reserved_memoryEm8MEMFLAGS(i64 noundef %0, i8 noundef zeroext %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  store i64 %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %6 = load i8, ptr %4, align 1
+  %7 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %5, i8 noundef zeroext %6)
+  %8 = load i64, ptr %3, align 8
+  call void @_ZN13VirtualMemory14reserve_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20ReservedMemoryRegion14set_call_stackERK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: noreturn
+declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20VirtualMemorySummary22record_released_memoryEm8MEMFLAGS(i64 noundef %0, i8 noundef zeroext %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i8, align 1
+  store i64 %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %5 = call noundef ptr @_ZN20VirtualMemorySummary11as_snapshotEv()
+  %6 = load i8, ptr %4, align 1
+  %7 = call noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %5, i8 noundef zeroext %6)
+  %8 = load i64, ptr %3, align 8
+  call void @_ZN13VirtualMemory14release_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(73) ptr @_ZN20ReservedMemoryRegionaSERKS_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.LinkedListIterator, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN19VirtualMemoryRegion8set_baseEPh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %9)
+  %10 = load ptr, ptr %4, align 8
+  %11 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  call void @_ZN19VirtualMemoryRegion8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %11)
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %12)
+  %14 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %13, i64 32, i1 false)
+  %15 = load ptr, ptr %4, align 8
+  %16 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %15)
+  %17 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 3
+  store i8 %16, ptr %17, align 8
+  %18 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 1
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %19 = load ptr, ptr %4, align 8
+  %20 = call ptr @_ZNK20ReservedMemoryRegion25iterate_committed_regionsEv(ptr noundef nonnull align 8 dereferenceable(73) %19)
+  %21 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = call noundef ptr @_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr %22, ptr %6, align 8
+  br label %23
+
+23:                                               ; preds = %26, %2
+  %24 = load ptr, ptr %6, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %31
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 1
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(48) %28)
+  %30 = call noundef ptr @_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr %30, ptr %6, align 8
+  br label %23, !llvm.loop !14
+
+31:                                               ; preds = %23
+  ret ptr %7
+}
+
+declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN10MemTracker14tracking_levelEv() #1 comdat align 2 {
+  %1 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  ret i32 %1
+}
+
+declare void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #4
+
+; Function Attrs: noreturn
+declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %3, i32 0, i32 1
+  call void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(ptr noundef %0, i8 noundef zeroext %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca %class.ReservedMemoryRegion, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef %7, i64 noundef 1)
+  %8 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 7
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(73) %5)
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8
+  %17 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %16)
+  %18 = load i8, ptr %4, align 1
+  %19 = icmp ne i8 %17, %18
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i8, ptr %4, align 1
+  call void @_ZN20ReservedMemoryRegion8set_flagE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %21, i8 noundef zeroext %22)
+  br label %23
+
+23:                                               ; preds = %20, %15
+  br label %24
+
+24:                                               ; preds = %23, %2
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZN19VirtualMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, i64 noundef %9)
+  %10 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 1
+  call void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 2
+  %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN15NativeCallStack11empty_stackEv()
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 32, i1 false)
+  %13 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %7, i32 0, i32 3
+  store i8 27, ptr %13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker20add_committed_regionEPhmRK15NativeCallStack(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.ReservedMemoryRegion, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i64, ptr %5, align 8
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %7, ptr noundef %10, i64 noundef %11)
+  %12 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(73) %7)
+  store ptr %16, ptr %8, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %28
+
+19:                                               ; preds = %3
+  %20 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %20, label %22, label %21
+
+21:                                               ; preds = %19
+  br label %27
+
+22:                                               ; preds = %19
+  %23 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %7)
+  %24 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %25 = call noundef i64 @_Z3p2iPVKv(ptr noundef %24)
+  %26 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.12, ptr noundef %23, i64 noundef %25, i64 noundef %26)
+  br label %27
+
+27:                                               ; preds = %22, %21
+  br label %28
+
+28:                                               ; preds = %27, %3
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = load i64, ptr %5, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %29, ptr noundef %30, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %34 = zext i1 %33 to i8
+  store i8 %34, ptr %9, align 1
+  %35 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %28
+  br label %46
+
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %8, align 8
+  %39 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %38)
+  %40 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %41 = call noundef i64 @_Z3p2iPVKv(ptr noundef %40)
+  %42 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %43 = load i8, ptr %9, align 1
+  %44 = trunc i8 %43 to i1
+  %45 = select i1 %44, ptr @.str.14, ptr @.str.15
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.13, ptr noundef %39, i64 noundef %41, i64 noundef %42, ptr noundef %45)
+  br label %46
+
+46:                                               ; preds = %37, %36
+  %47 = load i8, ptr %9, align 1
+  %48 = trunc i8 %47 to i1
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %7) #10
+  ret i1 %48
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker25remove_uncommitted_regionEPhm(ptr noundef %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %class.ReservedMemoryRegion, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = load i64, ptr %4, align 8
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef %9, i64 noundef %10)
+  %11 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds ptr, ptr %12, i64 7
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(73) %5)
+  store ptr %15, ptr %6, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %16)
+  store ptr %17, ptr %7, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i64, ptr %4, align 8
+  %21 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %18, ptr noundef %19, i64 noundef %20)
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %8, align 1
+  %23 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %2
+  br label %33
+
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = call noundef i64 @_Z3p2iPVKv(ptr noundef %27)
+  %29 = load i64, ptr %4, align 8
+  %30 = load i8, ptr %8, align 1
+  %31 = trunc i8 %30 to i1
+  %32 = select i1 %31, ptr @.str.17, ptr @.str.15
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.16, ptr noundef %26, i64 noundef %28, i64 noundef %29, ptr noundef %32)
+  br label %33
+
+33:                                               ; preds = %25, %24
+  %34 = load i8, ptr %8, align 1
+  %35 = trunc i8 %34 to i1
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #10
+  ret i1 %35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef %0) #1 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca %class.ReservedMemoryRegion, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN20ReservedMemoryRegionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(73) %4, ptr noundef nonnull align 8 dereferenceable(73) %7)
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %11 = load ptr, ptr %3, align 8
+  %12 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %13 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef %10, i64 noundef %12)
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %5, align 1
+  %15 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %1
+  br label %25
+
+17:                                               ; preds = %1
+  %18 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %4)
+  %19 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %20 = call noundef i64 @_Z3p2iPVKv(ptr noundef %19)
+  %21 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %22 = load i8, ptr %5, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %23, ptr @.str.14, ptr @.str.15
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.18, ptr noundef %18, i64 noundef %20, i64 noundef %21, ptr noundef %24)
+  br label %25
+
+25:                                               ; preds = %17, %16
+  %26 = load i8, ptr %5, align 1
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %25
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %54
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %3, align 8
+  %31 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %32 = load ptr, ptr %3, align 8
+  %33 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %32)
+  call void @_ZN20VirtualMemorySummary22record_released_memoryEm8MEMFLAGS(i64 noundef %31, i8 noundef zeroext %33)
+  %34 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %34, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 10
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(73) %35)
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %5, align 1
+  %41 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %29
+  br label %51
+
+43:                                               ; preds = %29
+  %44 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %4)
+  %45 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %46 = call noundef i64 @_Z3p2iPVKv(ptr noundef %45)
+  %47 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %48 = load i8, ptr %5, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.14, ptr @.str.15
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.19, ptr noundef %44, i64 noundef %46, i64 noundef %47, ptr noundef %50)
+  br label %51
+
+51:                                               ; preds = %43, %42
+  %52 = load i8, ptr %5, align 1
+  %53 = trunc i8 %52 to i1
+  store i1 %53, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %54
+
+54:                                               ; preds = %51, %28
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #10
+  %55 = load i1, ptr %2, align 1
+  ret i1 %55
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN20ReservedMemoryRegionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN19VirtualMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7, i64 noundef %9)
+  %10 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 1
+  call void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %5, i32 0, i32 2
+  call void @_ZN15NativeCallStackC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN20ReservedMemoryRegionaSERKS_(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef nonnull align 8 dereferenceable(73) %12)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEPhm(ptr noundef %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %class.ReservedMemoryRegion, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %class.ReservedMemoryRegion, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %class.ReservedMemoryRegion, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i64, ptr %5, align 8
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %6, ptr noundef %15, i64 noundef %16)
+  %17 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 7
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(73) %6)
+  store ptr %21, ptr %7, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %32
+
+24:                                               ; preds = %2
+  %25 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %25, label %27, label %26
+
+26:                                               ; preds = %24
+  br label %31
+
+27:                                               ; preds = %24
+  %28 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %29 = call noundef i64 @_Z3p2iPVKv(ptr noundef %28)
+  %30 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.20, i64 noundef %29, i64 noundef %30)
+  br label %31
+
+31:                                               ; preds = %27, %26
+  br label %32
+
+32:                                               ; preds = %31, %2
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i64, ptr %5, align 8
+  %36 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion11same_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %34, i64 noundef %35)
+  br i1 %36, label %37, label %40
+
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %7, align 8
+  %39 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef %38)
+  store i1 %39, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %136
+
+40:                                               ; preds = %32
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = load i64, ptr %5, align 8
+  %44 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion25remove_uncommitted_regionEPhm(ptr noundef nonnull align 8 dereferenceable(73) %41, ptr noundef %42, i64 noundef %43)
+  br i1 %44, label %46, label %45
+
+45:                                               ; preds = %40
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %136
+
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %7, align 8
+  %48 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %47)
+  %49 = icmp eq i8 %48, 13
+  br i1 %49, label %50, label %80
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = load i64, ptr %5, align 8
+  %54 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion14contain_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef %52, i64 noundef %53)
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %50
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %136
+
+56:                                               ; preds = %50
+  %57 = load i64, ptr %5, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58)
+  %60 = icmp ugt i64 %57, %59
+  br i1 %60, label %61, label %79
+
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %4, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63)
+  %65 = getelementptr inbounds i8, ptr %62, i64 %64
+  %66 = load i64, ptr %5, align 8
+  %67 = load ptr, ptr %7, align 8
+  %68 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67)
+  %69 = sub i64 %66, %68
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef %65, i64 noundef %69)
+  %70 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 7
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(73) %9)
+  store ptr %74, ptr %10, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef %75)
+  %77 = load ptr, ptr %10, align 8
+  %78 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef %77)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %9) #10
+  br label %136
+
+79:                                               ; preds = %56
+  br label %80
+
+80:                                               ; preds = %79, %46
+  %81 = load i64, ptr %5, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %82)
+  call void @_ZN20VirtualMemorySummary22record_released_memoryEm8MEMFLAGS(i64 noundef %81, i8 noundef zeroext %83)
+  %84 = load ptr, ptr %7, align 8
+  %85 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %84)
+  %86 = load ptr, ptr %4, align 8
+  %87 = icmp eq ptr %85, %86
+  br i1 %87, label %95, label %88
+
+88:                                               ; preds = %80
+  %89 = load ptr, ptr %7, align 8
+  %90 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %89)
+  %91 = load ptr, ptr %4, align 8
+  %92 = load i64, ptr %5, align 8
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  %94 = icmp eq ptr %90, %93
+  br i1 %94, label %95, label %99
+
+95:                                               ; preds = %88, %80
+  %96 = load ptr, ptr %7, align 8
+  %97 = load ptr, ptr %4, align 8
+  %98 = load i64, ptr %5, align 8
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef %97, i64 noundef %98)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %136
+
+99:                                               ; preds = %88
+  %100 = load ptr, ptr %7, align 8
+  %101 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %100)
+  store ptr %101, ptr %11, align 8
+  %102 = load ptr, ptr %4, align 8
+  %103 = load i64, ptr %5, align 8
+  %104 = getelementptr inbounds i8, ptr %102, i64 %103
+  store ptr %104, ptr %12, align 8
+  %105 = load ptr, ptr %12, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %12, align 8
+  %108 = ptrtoint ptr %106 to i64
+  %109 = ptrtoint ptr %107 to i64
+  %110 = sub i64 %108, %109
+  %111 = load ptr, ptr %7, align 8
+  %112 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %111)
+  %113 = load ptr, ptr %7, align 8
+  %114 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %113)
+  call void @_ZN20ReservedMemoryRegionC2EPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef %105, i64 noundef %110, ptr noundef nonnull align 8 dereferenceable(32) %112, i8 noundef zeroext %114)
+  %115 = load ptr, ptr %7, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = load ptr, ptr %11, align 8
+  %118 = load ptr, ptr %4, align 8
+  %119 = ptrtoint ptr %117 to i64
+  %120 = ptrtoint ptr %118 to i64
+  %121 = sub i64 %119, %120
+  call void @_ZN19VirtualMemoryRegion14exclude_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef %116, i64 noundef %121)
+  %122 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds ptr, ptr %123, i64 3
+  %125 = load ptr, ptr %124, align 8
+  %126 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(73) %13)
+  store ptr %126, ptr %14, align 8
+  %127 = load ptr, ptr %14, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %99
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %135
+
+130:                                              ; preds = %99
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %4, align 8
+  %133 = load ptr, ptr %14, align 8
+  %134 = call noundef ptr @_ZN14LinkedListNodeI20ReservedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(88) %133)
+  call void @_ZN20ReservedMemoryRegion22move_committed_regionsEPhRS_(ptr noundef nonnull align 8 dereferenceable(73) %131, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(73) %134)
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %135
+
+135:                                              ; preds = %130, %129
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %13) #10
+  br label %136
+
+136:                                              ; preds = %135, %95, %61, %55, %45, %37
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %6) #10
+  %137 = load i1, ptr %3, align 1
+  ret i1 %137
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListNodeI20ReservedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode.3, ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker21split_reserved_regionEPhmm8MEMFLAGSS1_(ptr noundef %0, i64 noundef %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #1 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca %class.ReservedMemoryRegion, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %class.NativeCallStack, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i8 %3, ptr %9, align 1
+  store i8 %4, ptr %10, align 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i64, ptr %7, align 8
+  call void @_ZN20ReservedMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(73) %11, ptr noundef %16, i64 noundef %17)
+  %18 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 7
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(73) %11)
+  store ptr %22, ptr %12, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %23)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %24, i64 32, i1 false)
+  %25 = load ptr, ptr %12, align 8
+  %26 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %25)
+  store i8 %26, ptr %14, align 1
+  %27 = load ptr, ptr %12, align 8
+  %28 = call noundef ptr @_ZNK20ReservedMemoryRegion9flag_nameEv(ptr noundef nonnull align 8 dereferenceable(73) %27)
+  store ptr %28, ptr %15, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker22remove_released_regionEP20ReservedMemoryRegion(ptr noundef %29)
+  %31 = call noundef zeroext i1 @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE8is_levelEN8LogLevel4typeE(i32 noundef 2)
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %5
+  br label %39
+
+33:                                               ; preds = %5
+  %34 = load ptr, ptr %15, align 8
+  %35 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %36 = call noundef i64 @_Z3p2iPVKv(ptr noundef %35)
+  %37 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %38 = load i64, ptr %8, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef @.str.21, ptr noundef %34, i64 noundef %36, i64 noundef %37, i64 noundef %38)
+  br label %39
+
+39:                                               ; preds = %33, %32
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = load i8, ptr %9, align 1
+  %43 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef %40, i64 noundef %41, ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef zeroext %42)
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i64, ptr %8, align 8
+  %46 = getelementptr inbounds i8, ptr %44, i64 %45
+  %47 = load i64, ptr %7, align 8
+  %48 = load i64, ptr %8, align 8
+  %49 = sub i64 %47, %48
+  %50 = load i8, ptr %10, align 1
+  %51 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef %46, i64 noundef %49, ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef zeroext %50)
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %11) #10
+  ret i1 true
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN14RegionIterator14next_committedERPhRm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #1 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call noundef ptr @_ZNK14RegionIterator3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %12 = getelementptr inbounds %class.RegionIterator, ptr %10, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ule ptr %11, %13
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  store i1 false, ptr %4, align 1
+  br label %38
+
+16:                                               ; preds = %3
+  %17 = call noundef i64 @_ZN2os12vm_page_sizeEv()
+  store i64 %17, ptr %8, align 8
+  %18 = call noundef ptr @_ZNK14RegionIterator3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %19 = getelementptr inbounds %class.RegionIterator, ptr %10, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %18 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  store i64 %23, ptr %9, align 8
+  %24 = getelementptr inbounds %class.RegionIterator, ptr %10, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i64, ptr %9, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = call noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef %25, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+  br i1 %29, label %30, label %37
+
+30:                                               ; preds = %16
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %36 = getelementptr inbounds %class.RegionIterator, ptr %10, i32 0, i32 2
+  store ptr %35, ptr %36, align 8
+  store i1 true, ptr %4, align 1
+  br label %38
+
+37:                                               ; preds = %16
+  store i1 false, ptr %4, align 1
+  br label %38
+
+38:                                               ; preds = %37, %30, %15
+  %39 = load i1, ptr %4, align 1
+  ret i1 %39
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14RegionIterator3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.RegionIterator, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %class.RegionIterator, ptr %3, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 %7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN2os12vm_page_sizeEv() #1 comdat align 2 {
+  %1 = call noundef i64 @_ZN6OSInfo12vm_page_sizeEv()
+  ret i64 %1
+}
+
+declare noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN25SnapshotThreadStackWalkerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN19VirtualMemoryWalkerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTV25SnapshotThreadStackWalker, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker(ptr noundef %0) #1 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca %class.ThreadCritical, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %8 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %30
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
+  %12 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  store ptr %12, ptr %5, align 8
+  br label %13
+
+13:                                               ; preds = %26, %10
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %29
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %17)
+  store ptr %18, ptr %6, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %20)
+  br i1 %24, label %26, label %25
+
+25:                                               ; preds = %16
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %31
+
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %27)
+  store ptr %28, ptr %5, align 8
+  br label %13, !llvm.loop !15
+
+29:                                               ; preds = %13
+  br label %30
+
+30:                                               ; preds = %29, %1
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %31
+
+31:                                               ; preds = %30, %25
+  call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
+  %32 = load i1, ptr %2, align 1
+  ret i1 %32
+}
+
+declare void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedList.2, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode.3, ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode.3, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: nounwind
+declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker23print_containing_regionEPKvP12outputStream(ptr noundef %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.PrintRegionWalker, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN17PrintRegionWalkerC2EPKvP12outputStream(ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr noundef %6, ptr noundef %7)
+  %8 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker(ptr noundef %5)
+  %9 = xor i1 %8, true
+  call void @_ZN17PrintRegionWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(2432) %5) #10
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17PrintRegionWalkerC2EPKvP12outputStream(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN19VirtualMemoryWalkerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTV17PrintRegionWalker, i32 0, i32 0, i32 2), ptr %7, align 8
+  %8 = getelementptr inbounds %class.PrintRegionWalker, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.PrintRegionWalker, ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.PrintRegionWalker, ptr %7, i32 0, i32 3
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %12, ptr noundef %13)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17PrintRegionWalkerD2Ev(ptr noundef nonnull align 8 dereferenceable(2432) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTV17PrintRegionWalker, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %class.PrintRegionWalker, ptr %3, i32 0, i32 3
+  call void @_ZN22NativeCallStackPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(2408) %4) #10
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.22() #0 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
+  %1 = load i8, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %4
+
+3:                                                ; preds = %0
+  store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef @_ZN9LogPrefixILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 95, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  br label %4
+
+4:                                                ; preds = %3, %0
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  ret i64 0
+}
+
+declare void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN13VirtualMemoryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.VirtualMemory, ptr %3, i32 0, i32 0
+  store i64 0, ptr %4, align 8
+  %5 = getelementptr inbounds %class.VirtualMemory, ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds %class.VirtualMemory, ptr %3, i32 0, i32 2
+  store volatile i64 0, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN6Atomic4loadImEET_PVKS1_(ptr noundef %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.Atomic::LoadImpl", align 1
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef i64 @_ZNK6Atomic8LoadImplImNS_12PlatformLoadILm8EEEvEclEPVKm(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK6Atomic8LoadImplImNS_12PlatformLoadILm8EEEvEclEPVKm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.Atomic::PlatformLoad", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i64 @_ZNK6Atomic12PlatformLoadILm8EEclImEET_PVKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK6Atomic12PlatformLoadILm8EEclImEET_PVKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load volatile i64, ptr %5, align 8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK15NativeCallStack6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i32 @_ZNK15NativeCallStack7compareERKS_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK15NativeCallStack7compareERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.NativeCallStack, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [4 x ptr], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %class.NativeCallStack, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 0
+  %11 = call i32 @memcmp(ptr noundef %7, ptr noundef %10, i64 noundef 32) #12
+  ret i32 %11
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_Z4MAX2IPhET_S1_S1_(ptr noundef %0, ptr noundef %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8
+  br label %12
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  br label %12
+
+12:                                               ; preds = %10, %8
+  %13 = phi ptr [ %9, %8 ], [ %11, %10 ]
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_Z4MIN2IPhET_S1_S1_(ptr noundef %0, ptr noundef %1) #1 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = icmp ult ptr %5, %6
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %3, align 8
+  br label %12
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8
+  br label %12
+
+12:                                               ; preds = %10, %8
+  %13 = phi ptr [ %9, %8 ], [ %11, %10 ]
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN21VirtualMemorySnapshot7by_typeE8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(672) %0, i8 noundef zeroext %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i8 %1, ptr %4, align 1
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i8, ptr %4, align 1
+  %8 = call noundef i32 @_ZN7NMTUtil13flag_to_indexE8MEMFLAGS(i8 noundef zeroext %7)
+  store i32 %8, ptr %5, align 4
+  %9 = getelementptr inbounds %class.VirtualMemorySnapshot, ptr %6, i32 0, i32 0
+  %10 = load i32, ptr %5, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [28 x %class.VirtualMemory], ptr %9, i64 0, i64 %11
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN13VirtualMemory13commit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemory, ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.VirtualMemory, ptr %5, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN7NMTUtil13flag_to_indexE8MEMFLAGS(i8 noundef zeroext %0) #1 comdat align 2 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = zext i8 %3 to i32
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZL17is_mergeable_withP21CommittedMemoryRegionPhmRK15NativeCallStack(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #1 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  %12 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion11adjacent_toEPhm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10, i64 noundef %11)
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef ptr @_ZNK21CommittedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %16 = load ptr, ptr %8, align 8
+  %17 = call noundef zeroext i1 @_ZNK15NativeCallStack6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br label %18
+
+18:                                               ; preds = %13, %4
+  %19 = phi i1 [ false, %4 ], [ %17, %13 ]
+  ret i1 %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryRegion13expand_regionEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %12 = icmp eq ptr %8, %11
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZN19VirtualMemoryRegion8set_baseEPh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
+  br label %15
+
+15:                                               ; preds = %13, %3
+  %16 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %17 = load i64, ptr %6, align 8
+  %18 = add i64 %16, %17
+  call void @_ZN19VirtualMemoryRegion8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %18)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion11adjacent_toEPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef ptr @_ZNK19VirtualMemoryRegion3endEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %17, label %11
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %15 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %16 = icmp eq ptr %14, %15
+  br label %17
+
+17:                                               ; preds = %11, %3
+  %18 = phi i1 [ true, %3 ], [ %16, %11 ]
+  ret i1 %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryRegion8set_baseEPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %5, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryRegion8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryRegionC2EPhm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.VirtualMemoryRegion, ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN13VirtualMemory15uncommit_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemory, ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = sub i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN13VirtualMemory14release_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemory, ptr %5, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  %9 = sub i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN13VirtualMemory14reserve_memoryEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %class.VirtualMemory, ptr %5, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %class.LinkedListImpl, ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  call void @_ZN6AnyObjdlEPv(ptr noundef %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %11, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 4
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12)
+  br label %7, !llvm.loop !16
+
+16:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %5, align 8
+  store ptr null, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %26
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
+  %16 = load ptr, ptr %4, align 8
+  %17 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(56) %16)
+  %18 = call noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp sge i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  br label %26
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %5, align 8
+  store ptr %23, ptr %6, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %24)
+  store ptr %25, ptr %5, align 8
+  br label %10, !llvm.loop !17
+
+26:                                               ; preds = %21, %10
+  %27 = load ptr, ptr %6, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %35
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %31)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef %32)
+  %33 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef %34)
+  br label %39
+
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %4, align 8
+  %37 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef %37)
+  %38 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %29
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %27, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %30
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
+  %16 = load ptr, ptr %5, align 8
+  %17 = call noundef i32 @_Z24compare_committed_regionRK21CommittedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %16)
+  store i32 %17, ptr %7, align 4
+  %18 = load i32, ptr %7, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %6, align 8
+  store ptr %21, ptr %3, align 8
+  br label %31
+
+22:                                               ; preds = %13
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %22
+  store ptr null, ptr %3, align 8
+  br label %31
+
+26:                                               ; preds = %22
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
+  store ptr %29, ptr %6, align 8
+  br label %10, !llvm.loop !18
+
+30:                                               ; preds = %10
+  store ptr null, ptr %3, align 8
+  br label %31
+
+31:                                               ; preds = %30, %25, %20
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  br label %18
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8
+  %17 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %16)
+  br label %18
+
+18:                                               ; preds = %15, %14
+  %19 = phi ptr [ null, %14 ], [ %17, %15 ]
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  store ptr %12, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %46
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef %22)
+  %23 = load ptr, ptr %8, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %23)
+  br label %44
+
+24:                                               ; preds = %16
+  %25 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store ptr %25, ptr %9, align 8
+  br label %26
+
+26:                                               ; preds = %36, %24
+  %27 = load ptr, ptr %9, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %9, align 8
+  %31 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %30)
+  %32 = load ptr, ptr %7, align 8
+  %33 = icmp ne ptr %31, %32
+  br label %34
+
+34:                                               ; preds = %29, %26
+  %35 = phi i1 [ false, %26 ], [ %33, %29 ]
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %9, align 8
+  %38 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %37)
+  store ptr %38, ptr %9, align 8
+  br label %26, !llvm.loop !19
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef %41)
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %8, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef %43)
+  br label %44
+
+44:                                               ; preds = %39, %20
+  %45 = load ptr, ptr %8, align 8
+  store ptr %45, ptr %4, align 8
+  br label %46
+
+46:                                               ; preds = %44, %15
+  %47 = load ptr, ptr %4, align 8
+  ret ptr %47
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef ptr @_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  store ptr %11, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %22
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %18)
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %20)
+  %21 = load ptr, ptr %8, align 8
+  store ptr %21, ptr %4, align 8
+  br label %22
+
+22:                                               ; preds = %15, %14
+  %23 = load ptr, ptr %4, align 8
+  ret ptr %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  br label %10
+
+10:                                               ; preds = %23, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %27
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = call noundef zeroext i1 @_ZNK14LinkedListNodeI21CommittedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %18)
+  store i1 %22, ptr %3, align 1
+  br label %28
+
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %6, align 8
+  store ptr %24, ptr %7, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %25)
+  store ptr %26, ptr %6, align 8
+  br label %10, !llvm.loop !20
+
+27:                                               ; preds = %10
+  store i1 false, ptr %3, align 1
+  br label %28
+
+28:                                               ; preds = %27, %17
+  %29 = load i1, ptr %3, align 1
+  ret i1 %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr %8, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %15)
+  store i1 true, ptr %3, align 1
+  br label %39
+
+16:                                               ; preds = %2
+  br label %17
+
+17:                                               ; preds = %27, %16
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8
+  %22 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %21)
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp ne ptr %22, %23
+  br label %25
+
+25:                                               ; preds = %20, %17
+  %26 = phi i1 [ false, %17 ], [ %24, %20 ]
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
+  store ptr %29, ptr %6, align 8
+  br label %17, !llvm.loop !21
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %6, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %38
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %35)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef %36)
+  %37 = load ptr, ptr %5, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %37)
+  store i1 true, ptr %3, align 1
+  br label %39
+
+38:                                               ; preds = %30
+  store i1 false, ptr %3, align 1
+  br label %39
+
+39:                                               ; preds = %38, %33, %12
+  %40 = load i1, ptr %3, align 1
+  ret i1 %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store ptr %10, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  store ptr null, ptr %8, align 8
+  br label %11
+
+11:                                               ; preds = %20, %2
+  %12 = load ptr, ptr %6, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %15, %16
+  br label %18
+
+18:                                               ; preds = %14, %11
+  %19 = phi i1 [ false, %11 ], [ %17, %14 ]
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %7, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %23)
+  store ptr %24, ptr %6, align 8
+  br label %11, !llvm.loop !22
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %28, %25
+  store i1 false, ptr %3, align 1
+  br label %44
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %7, align 8
+  %37 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %37)
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %40)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef %41)
+  br label %42
+
+42:                                               ; preds = %38, %35
+  %43 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %43)
+  store i1 true, ptr %3, align 1
+  br label %44
+
+44:                                               ; preds = %42, %31
+  %45 = load i1, ptr %3, align 1
+  ret i1 %45
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store ptr %6, ptr %3, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
+  br label %7
+
+7:                                                ; preds = %10, %1
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %14)
+  br label %7, !llvm.loop !23
+
+15:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI21CommittedMemoryRegionEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV10LinkedListI21CommittedMemoryRegionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %class.LinkedList, ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds ptr, ptr %4, i64 14
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZN10LinkedListI21CommittedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  call void @_ZN6AnyObjdlEPv(ptr noundef %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %7, ptr %5, align 8
+  br label %8
+
+8:                                                ; preds = %17, %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  %14 = icmp ne ptr %13, null
+  br label %15
+
+15:                                               ; preds = %11, %8
+  %16 = phi i1 [ false, %8 ], [ %14, %11 ]
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %5, align 8
+  %19 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %18)
+  store ptr %19, ptr %5, align 8
+  br label %8, !llvm.loop !24
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  %25 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %25)
+  br label %30
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef %29)
+  br label %30
+
+30:                                               ; preds = %26, %23
+  %31 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  store ptr %8, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 4
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12)
+  br label %16
+
+16:                                               ; preds = %11, %2
+  %17 = load ptr, ptr %5, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %7)
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %25
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(56) %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 3
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  store i1 false, ptr %3, align 1
+  br label %26
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %23)
+  store ptr %24, ptr %6, align 8
+  br label %10, !llvm.loop !25
+
+25:                                               ; preds = %10
+  store i1 true, ptr %3, align 1
+  br label %26
+
+26:                                               ; preds = %25, %21
+  %27 = load i1, ptr %3, align 1
+  ret i1 %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %7, ptr %5, align 8
+  br label %8
+
+8:                                                ; preds = %18, %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef zeroext i1 @_ZNK14LinkedListNodeI21CommittedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %15 = xor i1 %14, true
+  br label %16
+
+16:                                               ; preds = %11, %8
+  %17 = phi i1 [ false, %8 ], [ %15, %11 ]
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %5, align 8
+  %20 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
+  store ptr %20, ptr %5, align 8
+  br label %8, !llvm.loop !26
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI21CommittedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI21CommittedMemoryRegionED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #13
+  unreachable
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #7
+
+; Function Attrs: nounwind
+declare void @_ZN6AnyObjdlEPv(ptr noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #10
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %9, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListNodeI21CommittedMemoryRegionEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  br label %9
+
+9:                                                ; preds = %7, %2
+  %10 = phi ptr [ %5, %7 ], [ null, %2 ]
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListNodeI21CommittedMemoryRegionEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LinkedListNode, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 48, i1 false)
+  %8 = getelementptr inbounds %class.LinkedListNode, ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode, ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK14LinkedListNodeI21CommittedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca { i64, i64 }, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %class.LinkedListNode, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8
+  store { i64, i64 } zeroinitializer, ptr %5, align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = call noundef zeroext i1 @_ZN14LinkedListNodeI21CommittedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %10, i64 %12)
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListNodeI21CommittedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 %2, i64 %3) #1 comdat align 2 {
+  %5 = alloca { i64, i64 }, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { i64, i64 }, align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %3, ptr %10, align 8
+  %11 = load { i64, i64 }, ptr %5, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store { i64, i64 } %11, ptr %8, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK19VirtualMemoryRegion6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i32 @_ZNK19VirtualMemoryRegion7compareERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN10LinkedListI21CommittedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %9)
+  call void @_ZN10LinkedListI21CommittedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %8, %1
+  %12 = load ptr, ptr %3, align 8
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %2
+  call void @_ZN6AnyObjdlEPv(ptr noundef %5) #10
+  br label %8
+
+8:                                                ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN7NMTUtil12flag_to_nameE8MEMFLAGS(i8 noundef zeroext %0) #1 comdat align 2 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = call noundef i32 @_ZN7NMTUtil13flag_to_indexE8MEMFLAGS(i8 noundef zeroext %3)
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %5
+  %7 = getelementptr inbounds %"struct.NMTUtil::S", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNK20ReservedMemoryRegion25iterate_committed_regionsEv(ptr noundef nonnull align 8 dereferenceable(73) %0) #1 comdat align 2 {
+  %2 = alloca %class.LinkedListIterator, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %class.ReservedMemoryRegion, ptr %4, i32 0, i32 1
+  %6 = call noundef ptr @_ZNK10LinkedListI21CommittedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN18LinkedListIteratorI21CommittedMemoryRegionEC2EP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6)
+  %7 = getelementptr inbounds %class.LinkedListIterator, ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN18LinkedListIteratorI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %19
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef ptr @_ZN14LinkedListNodeI21CommittedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+  store ptr %13, ptr %4, align 8
+  %14 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZNK14LinkedListNodeI21CommittedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %15)
+  %17 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = load ptr, ptr %4, align 8
+  store ptr %18, ptr %2, align 8
+  br label %19
+
+19:                                               ; preds = %10, %9
+  %20 = load ptr, ptr %2, align 8
+  ret ptr %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN18LinkedListIteratorI21CommittedMemoryRegionEC2EP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LinkedListIterator, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN15NativeCallStack11empty_stackEv() #1 comdat align 2 {
+  ret ptr @_ZN15NativeCallStack12_empty_stackE
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN15NativeCallStackC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.NativeCallStack, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN6OSInfo12vm_page_sizeEv() #1 comdat align 2 {
+  %1 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN19VirtualMemoryWalkerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTV19VirtualMemoryWalker, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN25SnapshotThreadStackWalker18do_allocation_siteEPK20ReservedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %class.NativeCallStack, align 8
+  %12 = alloca %class.RegionIterator, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %13)
+  %15 = icmp eq i8 %14, 3
+  br i1 %15, label %16, label %58
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = call noundef ptr @_ZNK20ReservedMemoryRegion31thread_stack_uncommitted_bottomEv(ptr noundef nonnull align 8 dereferenceable(73) %17)
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %21 = load ptr, ptr %4, align 8
+  %22 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %23 = getelementptr inbounds i8, ptr %20, i64 %22
+  %24 = load ptr, ptr %5, align 8
+  %25 = ptrtoint ptr %23 to i64
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  store i64 %27, ptr %8, align 8
+  %28 = load i64, ptr %8, align 8
+  %29 = call noundef i64 @_ZN2os12vm_page_sizeEv()
+  %30 = call noundef i64 @_Z8align_upImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_(i64 noundef %28, i64 noundef %29)
+  store i64 %30, ptr %9, align 8
+  %31 = load ptr, ptr %4, align 8
+  store ptr %31, ptr %10, align 8
+  call void @_ZN15NativeCallStackC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i64, ptr %9, align 8
+  call void @_ZN14RegionIteratorC2EPhm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %32, i64 noundef %33)
+  br label %34
+
+34:                                               ; preds = %52, %16
+  %35 = call noundef zeroext i1 @_ZN14RegionIterator14next_committedERPhRm(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br i1 %35, label %36, label %57
+
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %5, align 8
+  %38 = load i64, ptr %8, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i64, ptr %7, align 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 %41
+  %43 = icmp ult ptr %39, %42
+  br i1 %43, label %44, label %52
+
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i64, ptr %8, align 8
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
+  %48 = load ptr, ptr %6, align 8
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  store i64 %51, ptr %7, align 8
+  br label %52
+
+52:                                               ; preds = %44, %36
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i64, ptr %7, align 8
+  %56 = call noundef zeroext i1 @_ZN20ReservedMemoryRegion20add_committed_regionEPhmRK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(73) %53, ptr noundef %54, i64 noundef %55, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  br label %34, !llvm.loop !27
+
+57:                                               ; preds = %34
+  br label %58
+
+58:                                               ; preds = %57, %2
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN19VirtualMemoryWalker18do_allocation_siteEPK20ReservedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_Z8align_upImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_(i64 noundef %0, i64 noundef %1) #1 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load i64, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef i64 @_ZL14alignment_maskImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_(i64 noundef %7)
+  %9 = add i64 %6, %8
+  %10 = call noundef i64 @_Z12checked_castImmET_T0_(i64 noundef %9)
+  store i64 %10, ptr %5, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %4, align 8
+  %13 = call noundef i64 @_Z10align_downImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_(i64 noundef %11, i64 noundef %12)
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14RegionIteratorC2EPhm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %class.RegionIterator, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.RegionIterator, ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.RegionIterator, ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_Z12checked_castImmET_T0_(i64 noundef %0) #1 comdat {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %4 = load i64, ptr %2, align 8
+  store i64 %4, ptr %3, align 8
+  %5 = load i64, ptr %3, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i64 @_ZL14alignment_maskImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_(i64 noundef %0) #1 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = sub i64 %3, 1
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_Z10align_downImmTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_T0_(i64 noundef %0, i64 noundef %1) #1 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load i64, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef i64 @_ZL14alignment_maskImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EES1_S1_(i64 noundef %7)
+  %9 = xor i64 %8, -1
+  %10 = and i64 %6, %9
+  store i64 %10, ptr %5, align 8
+  %11 = load i64, ptr %5, align 8
+  ret i64 %11
+}
+
+declare void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408), ptr noundef) unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN17PrintRegionWalker18do_allocation_siteEPK20ReservedMemoryRegion(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds %class.PrintRegionWalker, ptr %6, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion15contain_addressEPh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %9)
+  br i1 %10, label %11, label %38
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %class.PrintRegionWalker, ptr %6, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %class.PrintRegionWalker, ptr %6, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @_Z3p2iPVKv(ptr noundef %15)
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = call noundef i64 @_Z3p2iPVKv(ptr noundef %18)
+  %20 = load ptr, ptr %5, align 8
+  %21 = call noundef ptr @_ZNK19VirtualMemoryRegion4baseEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %22 = load ptr, ptr %5, align 8
+  %23 = call noundef i64 @_ZNK19VirtualMemoryRegion4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  %25 = call noundef i64 @_Z3p2iPVKv(ptr noundef %24)
+  %26 = load ptr, ptr %5, align 8
+  %27 = call noundef zeroext i8 @_ZNK20ReservedMemoryRegion4flagEv(ptr noundef nonnull align 8 dereferenceable(73) %26)
+  %28 = call noundef ptr @_ZN7NMTUtil17flag_to_enum_nameE8MEMFLAGS(i8 noundef zeroext %27)
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef @.str.23, i64 noundef %16, i64 noundef %19, i64 noundef %25, ptr noundef %28)
+  %29 = call noundef i32 @_ZN10MemTracker14tracking_levelEv()
+  %30 = icmp eq i32 %29, 3
+  br i1 %30, label %31, label %37
+
+31:                                               ; preds = %11
+  %32 = getelementptr inbounds %class.PrintRegionWalker, ptr %6, i32 0, i32 3
+  %33 = load ptr, ptr %5, align 8
+  %34 = call noundef ptr @_ZNK20ReservedMemoryRegion10call_stackEv(ptr noundef nonnull align 8 dereferenceable(73) %33)
+  call void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(2408) %32, ptr noundef %34)
+  %35 = getelementptr inbounds %class.PrintRegionWalker, ptr %6, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %36)
+  br label %37
+
+37:                                               ; preds = %31, %11
+  store i1 false, ptr %3, align 1
+  br label %39
+
+38:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %39
+
+39:                                               ; preds = %38, %37
+  %40 = load i1, ptr %3, align 1
+  ret i1 %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN7NMTUtil17flag_to_enum_nameE8MEMFLAGS(i8 noundef zeroext %0) #1 comdat align 2 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = call noundef i32 @_ZN7NMTUtil13flag_to_indexE8MEMFLAGS(i8 noundef zeroext %3)
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %5
+  %7 = getelementptr inbounds %"struct.NMTUtil::S", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 16
+  ret ptr %8
+}
+
+declare void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(2408), ptr noundef) #4
+
+declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN22NativeCallStackPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(2408) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.NativeCallStackPrinter, ptr %3, i32 0, i32 1
+  call void @_ZN17ResourceHashtableIPhPKcLj293ELN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(2348) %4) #10
+  %5 = getelementptr inbounds %class.NativeCallStackPrinter, ptr %3, i32 0, i32 0
+  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17ResourceHashtableIPhPKcLj293ELN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(2348) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(2348) %3) #10
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(2348) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE5tableEv(ptr noundef nonnull align 8 dereferenceable(2348) %7)
+  store ptr %8, ptr %3, align 8
+  %9 = call noundef i32 @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE10table_sizeEv(ptr noundef nonnull align 8 dereferenceable(2348) %7)
+  store i32 %9, ptr %4, align 4
+  br label %10
+
+10:                                               ; preds = %30, %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = load i32, ptr %4, align 4
+  %13 = call noundef ptr @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE9bucket_atEj(ptr noundef nonnull align 8 dereferenceable(2348) %7, i32 noundef %12)
+  %14 = icmp ult ptr %11, %13
+  br i1 %14, label %15, label %33
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %3, align 8
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %5, align 8
+  br label %18
+
+18:                                               ; preds = %29, %15
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %30
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %5, align 8
+  store ptr %22, ptr %6, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %class.ResourceHashtableNode, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %5, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %21
+  call void @_ZN6AnyObjdlEPv(ptr noundef %26) #10
+  br label %29
+
+29:                                               ; preds = %28, %21
+  br label %18, !llvm.loop !28
+
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds ptr, ptr %31, i32 1
+  store ptr %32, ptr %3, align 8
+  br label %10, !llvm.loop !29
+
+33:                                               ; preds = %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE5tableEv(ptr noundef nonnull align 8 dereferenceable(2348) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK29FixedResourceHashtableStorageILj293EPhPKcE5tableEv(ptr noundef nonnull align 8 dereferenceable(2344) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE10table_sizeEv(ptr noundef nonnull align 8 dereferenceable(2348) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK29FixedResourceHashtableStorageILj293EPhPKcE10table_sizeEv(ptr noundef nonnull align 8 dereferenceable(2344) %3)
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE9bucket_atEj(ptr noundef nonnull align 8 dereferenceable(2348) %0, i32 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE5tableEv(ptr noundef nonnull align 8 dereferenceable(2348) %6)
+  store ptr %7, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %4, align 4
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK29FixedResourceHashtableStorageILj293EPhPKcE5tableEv(ptr noundef nonnull align 8 dereferenceable(2344) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.FixedResourceHashtableStorage, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [293 x ptr], ptr %4, i64 0, i64 0
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK29FixedResourceHashtableStorageILj293EPhPKcE10table_sizeEv(ptr noundef nonnull align 8 dereferenceable(2344) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i32 293
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK6Atomic11CmpxchgImplImmmvEclEPVmmm19atomic_memory_order(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.Atomic::PlatformCmpxchg", align 1
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store i32 %4, ptr %10, align 4
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i64, ptr %8, align 8
+  %14 = load i64, ptr %9, align 8
+  %15 = load i32, ptr %10, align 4
+  %16 = call noundef i64 @_ZNK6Atomic15PlatformCmpxchgILm8EEclImEET_PVS3_S3_S3_19atomic_memory_order(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i32 noundef %15)
+  ret i64 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZNK6Atomic15PlatformCmpxchgILm8EEclImEET_PVS3_S3_S3_19atomic_memory_order(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  store i32 %4, ptr %10, align 4
+  %11 = load i64, ptr %9, align 8
+  %12 = load i64, ptr %8, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = call i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, i64 %12, ptr %13) #10, !srcloc !30
+  store i64 %14, ptr %9, align 8
+  %15 = load i64, ptr %9, align 8
+  ret i64 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %class.LinkedListImpl.1, ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  call void @_ZN6AnyObjdlEPv(ptr noundef %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %11, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 4
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12)
+  br label %7, !llvm.loop !31
+
+16:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(73) %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %5, align 8
+  store ptr null, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %26
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
+  %16 = load ptr, ptr %4, align 8
+  %17 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %16)
+  %18 = call noundef i32 @_Z28compare_reserved_region_baseRK20ReservedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef nonnull align 8 dereferenceable(73) %17)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp sge i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  br label %26
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %5, align 8
+  store ptr %23, ptr %6, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %24)
+  store ptr %25, ptr %5, align 8
+  br label %10, !llvm.loop !32
+
+26:                                               ; preds = %21, %10
+  %27 = load ptr, ptr %6, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %35
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %4, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %31)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef %32)
+  %33 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef %34)
+  br label %39
+
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %4, align 8
+  %37 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef %37)
+  %38 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %38)
+  br label %39
+
+39:                                               ; preds = %35, %29
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI20ReservedMemoryRegionXadL_Z28compare_reserved_region_baseRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %27, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %30
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
+  %16 = load ptr, ptr %5, align 8
+  %17 = call noundef i32 @_Z28compare_reserved_region_baseRK20ReservedMemoryRegionS1_(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef nonnull align 8 dereferenceable(73) %16)
+  store i32 %17, ptr %7, align 4
+  %18 = load i32, ptr %7, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %6, align 8
+  store ptr %21, ptr %3, align 8
+  br label %31
+
+22:                                               ; preds = %13
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %22
+  store ptr null, ptr %3, align 8
+  br label %31
+
+26:                                               ; preds = %22
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %28)
+  store ptr %29, ptr %6, align 8
+  br label %10, !llvm.loop !33
+
+30:                                               ; preds = %10
+  store ptr null, ptr %3, align 8
+  br label %31
+
+31:                                               ; preds = %30, %25, %20
+  %32 = load ptr, ptr %3, align 8
+  ret ptr %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4findERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 6
+  %10 = load ptr, ptr %9, align 8
+  %11 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(73) %7)
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  br label %18
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8
+  %17 = call noundef ptr @_ZN14LinkedListNodeI20ReservedMemoryRegionE4dataEv(ptr noundef nonnull align 8 dereferenceable(88) %16)
+  br label %18
+
+18:                                               ; preds = %15, %14
+  %19 = phi ptr [ null, %14 ], [ %17, %15 ]
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13insert_beforeERKS0_P14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(73) %11)
+  store ptr %12, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %46
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef %22)
+  %23 = load ptr, ptr %8, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %23)
+  br label %44
+
+24:                                               ; preds = %16
+  %25 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  store ptr %25, ptr %9, align 8
+  br label %26
+
+26:                                               ; preds = %36, %24
+  %27 = load ptr, ptr %9, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %9, align 8
+  %31 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %30)
+  %32 = load ptr, ptr %7, align 8
+  %33 = icmp ne ptr %31, %32
+  br label %34
+
+34:                                               ; preds = %29, %26
+  %35 = phi i1 [ false, %26 ], [ %33, %29 ]
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %9, align 8
+  %38 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %37)
+  store ptr %38, ptr %9, align 8
+  br label %26, !llvm.loop !34
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %40, ptr noundef %41)
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %8, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %42, ptr noundef %43)
+  br label %44
+
+44:                                               ; preds = %39, %20
+  %45 = load ptr, ptr %8, align 8
+  store ptr %45, ptr %4, align 8
+  br label %46
+
+46:                                               ; preds = %44, %15
+  %47 = load ptr, ptr %4, align 8
+  ret ptr %47
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12insert_afterERKS0_P14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef ptr @_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(73) %10)
+  store ptr %11, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %22
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %17)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %18)
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef %20)
+  %21 = load ptr, ptr %8, align 8
+  store ptr %21, ptr %4, align 8
+  br label %22
+
+22:                                               ; preds = %15, %14
+  %23 = load ptr, ptr %4, align 8
+  ret ptr %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  br label %10
+
+10:                                               ; preds = %23, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %27
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = call noundef zeroext i1 @_ZNK14LinkedListNodeI20ReservedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(73) %15)
+  br i1 %16, label %17, label %23
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %18)
+  store i1 %22, ptr %3, align 1
+  br label %28
+
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %6, align 8
+  store ptr %24, ptr %7, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %25)
+  store ptr %26, ptr %6, align 8
+  br label %10, !llvm.loop !35
+
+27:                                               ; preds = %10
+  store i1 false, ptr %3, align 1
+  br label %28
+
+28:                                               ; preds = %27, %17
+  %29 = load i1, ptr %3, align 1
+  ret i1 %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE6removeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr %8, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %13)
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %15)
+  store i1 true, ptr %3, align 1
+  br label %39
+
+16:                                               ; preds = %2
+  br label %17
+
+17:                                               ; preds = %27, %16
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8
+  %22 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %21)
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp ne ptr %22, %23
+  br label %25
+
+25:                                               ; preds = %20, %17
+  %26 = phi i1 [ false, %17 ], [ %24, %20 ]
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %6, align 8
+  %29 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %28)
+  store ptr %29, ptr %6, align 8
+  br label %17, !llvm.loop !36
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %6, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %38
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %35)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %36)
+  %37 = load ptr, ptr %5, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %37)
+  store i1 true, ptr %3, align 1
+  br label %39
+
+38:                                               ; preds = %30
+  store i1 false, ptr %3, align 1
+  br label %39
+
+39:                                               ; preds = %38, %33, %12
+  %40 = load i1, ptr %3, align 1
+  ret i1 %40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE13remove_beforeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store ptr %10, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  store ptr null, ptr %8, align 8
+  br label %11
+
+11:                                               ; preds = %20, %2
+  %12 = load ptr, ptr %6, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ne ptr %15, %16
+  br label %18
+
+18:                                               ; preds = %14, %11
+  %19 = phi i1 [ false, %11 ], [ %17, %14 ]
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  store ptr %22, ptr %7, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %23)
+  store ptr %24, ptr %6, align 8
+  br label %11, !llvm.loop !37
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %28, %25
+  store i1 false, ptr %3, align 1
+  br label %44
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %7, align 8
+  %37 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %36)
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %37)
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %40)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef %41)
+  br label %42
+
+42:                                               ; preds = %38, %35
+  %43 = load ptr, ptr %7, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %43)
+  store i1 true, ptr %3, align 1
+  br label %44
+
+44:                                               ; preds = %42, %31
+  %45 = load i1, ptr %3, align 1
+  ret i1 %45
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %2
+  %11 = call noundef ptr @_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr %11, ptr %6, align 8
+  br label %22
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8
+  %14 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %13)
+  store ptr %14, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %19)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef %20)
+  br label %21
+
+21:                                               ; preds = %17, %12
+  br label %22
+
+22:                                               ; preds = %21, %10
+  %23 = load ptr, ptr %6, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %6, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %26)
+  store i1 true, ptr %3, align 1
+  br label %28
+
+27:                                               ; preds = %22
+  store i1 false, ptr %3, align 1
+  br label %28
+
+28:                                               ; preds = %27, %25
+  %29 = load i1, ptr %3, align 1
+  ret i1 %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store ptr %6, ptr %3, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
+  br label %7
+
+7:                                                ; preds = %10, %1
+  %8 = load ptr, ptr %3, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %3, align 8
+  store ptr %11, ptr %4, align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %12)
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %14)
+  br label %7, !llvm.loop !38
+
+15:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI20ReservedMemoryRegionEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTV10LinkedListI20ReservedMemoryRegionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %class.LinkedList.2, ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds ptr, ptr %4, i64 14
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZN10LinkedListI20ReservedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  call void @_ZN6AnyObjdlEPv(ptr noundef %3) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE4moveEP10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %7, ptr %5, align 8
+  br label %8
+
+8:                                                ; preds = %17, %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %12)
+  %14 = icmp ne ptr %13, null
+  br label %15
+
+15:                                               ; preds = %11, %8
+  %16 = phi i1 [ false, %8 ], [ %14, %11 ]
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %5, align 8
+  %19 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %18)
+  store ptr %19, ptr %5, align 8
+  br label %8, !llvm.loop !39
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %5, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  %25 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %25)
+  br label %30
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef %29)
+  br label %30
+
+30:                                               ; preds = %26, %23
+  %31 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(73) %7)
+  store ptr %8, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 4
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %12)
+  br label %16
+
+16:                                               ; preds = %11, %2
+  %17 = load ptr, ptr %5, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %7)
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addEPK10LinkedListIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %9, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %22, %2
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %25
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4peekEv(ptr noundef nonnull align 8 dereferenceable(88) %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 3
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(73) %15)
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %13
+  store i1 false, ptr %3, align 1
+  br label %26
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %23)
+  store ptr %24, ptr %6, align 8
+  br label %10, !llvm.loop !40
+
+25:                                               ; preds = %10
+  store i1 true, ptr %3, align 1
+  br label %26
+
+26:                                               ; preds = %25, %21
+  %27 = load i1, ptr %3, align 1
+  ret i1 %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE9find_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store ptr %7, ptr %5, align 8
+  br label %8
+
+8:                                                ; preds = %18, %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef zeroext i1 @_ZNK14LinkedListNodeI20ReservedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(73) %13)
+  %15 = xor i1 %14, true
+  br label %16
+
+16:                                               ; preds = %11, %8
+  %17 = phi i1 [ false, %8 ], [ %15, %11 ]
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %5, align 8
+  %20 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %19)
+  store ptr %20, ptr %5, align 8
+  br label %8, !llvm.loop !41
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI20ReservedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI20ReservedMemoryRegionED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.LinkedList.2, ptr %5, i32 0, i32 1
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListNodeI20ReservedMemoryRegionE8set_nextEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %class.LinkedListNode.3, ptr %5, i32 0, i32 1
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 88, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #10
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %9, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(73) %8)
+  br label %9
+
+9:                                                ; preds = %7, %2
+  %10 = phi ptr [ %5, %7 ], [ null, %2 ]
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListNodeI20ReservedMemoryRegionEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LinkedListNode.3, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN20ReservedMemoryRegionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(73) %6, ptr noundef nonnull align 8 dereferenceable(73) %7)
+  %8 = getelementptr inbounds %class.LinkedListNode.3, ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK14LinkedListNodeI20ReservedMemoryRegionE6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca { i64, i64 }, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %class.LinkedListNode.3, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8
+  store { i64, i64 } zeroinitializer, ptr %5, align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = call noundef zeroext i1 @_ZN14LinkedListNodeI20ReservedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E(ptr noundef nonnull align 8 dereferenceable(73) %7, ptr noundef nonnull align 8 dereferenceable(73) %8, i64 %10, i64 %12)
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListNodeI20ReservedMemoryRegionE5equalIS0_EEbRKT_S5_MS3_KFbS5_E(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, i64 %2, i64 %3) #1 comdat align 2 {
+  %5 = alloca { i64, i64 }, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca { i64, i64 }, align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %3, ptr %10, align 8
+  %11 = load { i64, i64 }, ptr %5, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store { i64, i64 } %11, ptr %8, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = call noundef zeroext i1 @_ZNK19VirtualMemoryRegion6equalsERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZN10LinkedListI20ReservedMemoryRegionE11unlink_headEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZNK10LinkedListI20ReservedMemoryRegionE4headEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef ptr @_ZNK14LinkedListNodeI20ReservedMemoryRegionE4nextEv(ptr noundef nonnull align 8 dereferenceable(88) %9)
+  call void @_ZN10LinkedListI20ReservedMemoryRegionE8set_headEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %8, %1
+  %12 = load ptr, ptr %3, align 8
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %2
+  call void @_ZN14LinkedListNodeI20ReservedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #10
+  call void @_ZN6AnyObjdlEPv(ptr noundef %5) #10
+  br label %8
+
+8:                                                ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LinkedListNodeI20ReservedMemoryRegionED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %class.LinkedListNode.3, ptr %3, i32 0, i32 0
+  call void @_ZN20ReservedMemoryRegionD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6tagsetEv() #1 comdat align 2 {
+  ret ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK9LogTagSet8is_levelEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LogTagSet, ptr %5, i32 0, i32 4
+  %7 = load i32, ptr %4, align 4
+  %8 = call noundef zeroext i1 @_ZNK13LogOutputList8is_levelEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %7)
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK13LogOutputList8is_levelEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %class.LogOutputList, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %8
+  %10 = load volatile ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  ret i1 %11
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(i32 noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN16LogTagSetMappingILN6LogTag4typeE95ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6tagsetEv()
+  %8 = load i32, ptr %4, align 4
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) %7, i32 noundef %8, ptr noundef %9, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
+declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nounwind uwtable
+define internal void @_GLOBAL__sub_I_virtualMemoryTracker.cpp() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  call void @__cxx_global_var_init.1()
+  call void @__cxx_global_var_init.2()
+  call void @__cxx_global_var_init.3()
+  call void @__cxx_global_var_init.4()
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = !{i64 2145412694}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}

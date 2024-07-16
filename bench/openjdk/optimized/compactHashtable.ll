@@ -1,0 +1,2118 @@
+; ModuleID = 'bench/openjdk/original/compactHashtable.ll'
+source_filename = "bench/openjdk/original/compactHashtable.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
+%class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
+%class.LogDecorators = type { i32 }
+%"class.CompactHashtableWriter::Entry" = type { i32, i32 }
+%class.NumberSeq = type { %class.AbsSeq, double, double }
+%class.AbsSeq = type { ptr, i32, double, double, double, double, double }
+%class.LogMessageTemplate = type { %class.LogMessageImpl.base, [7 x i8] }
+%class.LogMessageImpl.base = type <{ %class.LogMessageBuffer, ptr, i8 }>
+%class.LogMessageBuffer = type { ptr, i64, i64, ptr, i64, i64, ptr, i8, i32, ptr }
+%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
+%struct.timespec = type { i64, i64 }
+
+$_ZN17HashtableTextDump7get_numEcPi = comdat any
+
+$_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
+
+$_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
+
+$_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
+
+$_ZN9LogPrefixILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
+
+$_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag = comdat any
+
+$_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
+
+$_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi = comdat any
+
+$_ZTV14LogMessageImpl = comdat any
+
+$_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE = comdat any
+
+@.str = private unnamed_addr constant [68 x i8] c"CompactHashtableWriter::allocate_table: Overflow! Too many entries.\00", align 1
+@SharedBaseAddress = external local_unnamed_addr global i64, align 8
+@.str.4 = private unnamed_addr constant [46 x i8] c"Shared %s table stats -------- base: 0x%016lx\00", align 1
+@.str.5 = private unnamed_addr constant [30 x i8] c"Number of entries       : %9d\00", align 1
+@.str.6 = private unnamed_addr constant [30 x i8] c"Total bytes used        : %9d\00", align 1
+@.str.7 = private unnamed_addr constant [32 x i8] c"Average bytes per entry : %9.3f\00", align 1
+@.str.8 = private unnamed_addr constant [32 x i8] c"Average bucket size     : %9.3f\00", align 1
+@.str.9 = private unnamed_addr constant [32 x i8] c"Variance of bucket size : %9.3f\00", align 1
+@.str.10 = private unnamed_addr constant [32 x i8] c"Std. dev. of bucket size: %9.3f\00", align 1
+@.str.11 = private unnamed_addr constant [30 x i8] c"Maximum bucket size     : %9d\00", align 1
+@.str.12 = private unnamed_addr constant [30 x i8] c"Empty buckets           : %9d\00", align 1
+@.str.13 = private unnamed_addr constant [30 x i8] c"Value_Only buckets      : %9d\00", align 1
+@.str.14 = private unnamed_addr constant [30 x i8] c"Other buckets           : %9d\00", align 1
+@.str.15 = private unnamed_addr constant [39 x i8] c"Unable to get hashtable dump file size\00", align 1
+@.str.16 = private unnamed_addr constant [35 x i8] c"Unable to open hashtable dump file\00", align 1
+@.str.17 = private unnamed_addr constant [34 x i8] c"Unable to map hashtable dump file\00", align 1
+@.str.18 = private unnamed_addr constant [39 x i8] c"%s. Corrupted at line %d (file pos %d)\00", align 1
+@.str.19 = private unnamed_addr constant [21 x i8] c"Unexpected character\00", align 1
+@.str.20 = private unnamed_addr constant [10 x i8] c"Truncated\00", align 1
+@.str.21 = private unnamed_addr constant [37 x i8] c"wrong version of hashtable dump file\00", align 1
+@.str.22 = private unnamed_addr constant [16 x i8] c"SECTION: String\00", align 1
+@.str.23 = private unnamed_addr constant [16 x i8] c"SECTION: Symbol\00", align 1
+@tty = external local_unnamed_addr global ptr, align 8
+@.str.24 = private unnamed_addr constant [33 x i8] c"Shared input data type: Unknown.\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"Unknown data type\00", align 1
+@.str.26 = private unnamed_addr constant [31 x i8] c"Wrong prefix format for string\00", align 1
+@.str.27 = private unnamed_addr constant [31 x i8] c"Wrong prefix format for symbol\00", align 1
+@g_assert_poison = external local_unnamed_addr global ptr, align 8
+@.str.28 = private unnamed_addr constant [49 x i8] c"src/hotspot/share/classfile/compactHashtable.cpp\00", align 1
+@.str.29 = private unnamed_addr constant [22 x i8] c"Unsupported character\00", align 1
+@.str.30 = private unnamed_addr constant [3 x i8] c"\\t\00", align 1
+@.str.31 = private unnamed_addr constant [3 x i8] c"\\r\00", align 1
+@.str.32 = private unnamed_addr constant [3 x i8] c"\\n\00", align 1
+@.str.33 = private unnamed_addr constant [3 x i8] c"\\\\\00", align 1
+@.str.34 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
+@.str.35 = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
+@_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden global %class.LogTagSet zeroinitializer, comdat, align 8
+@_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden local_unnamed_addr global i64 0, comdat($_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE), align 8
+@_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden global %class.LogTagSet zeroinitializer, comdat, align 8
+@_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden local_unnamed_addr global i64 0, comdat($_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE), align 8
+@SharedSymbolTableBucketSize = external local_unnamed_addr global i32, align 4
+@_ZTV14LogMessageImpl = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag] }, comdat, align 8
+@.str.38 = private unnamed_addr constant [13 x i8] c"Num overflow\00", align 1
+@.str.39 = private unnamed_addr constant [20 x i8] c"Unrecognized format\00", align 1
+@.str.40 = private unnamed_addr constant [17 x i8] c"Incorrect format\00", align 1
+@.str.41 = private unnamed_addr constant [49 x i8] c"src/hotspot/share/classfile/compactHashtable.hpp\00", align 1
+@_ZN14ArchiveBuilder8_currentE = external local_unnamed_addr global ptr, align 8
+@_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag] }, comdat, align 8
+@llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.36, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.37, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
+@llvm.used = appending global [2 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
+@switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
+@switch.table._ZN17HashtableTextDump8get_utf8EPci = private unnamed_addr constant [55 x i8] c"\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\C9\C9\C9\C9\C9\C9\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\D0\A9\A9\A9\A9\A9\A9", align 1
+
+@_ZN22CompactHashtableWriterC1EiP21CompactHashtableStats = hidden unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN22CompactHashtableWriterC2EiP21CompactHashtableStats
+@_ZN22CompactHashtableWriterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22CompactHashtableWriterD2Ev
+@_ZN17HashtableTextDumpC1EPKc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN17HashtableTextDumpC2EPKc
+@_ZN17HashtableTextDumpD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17HashtableTextDumpD2Ev
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriterC2EiP21CompactHashtableStats(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+  %4 = load i32, ptr @SharedSymbolTableBucketSize, align 4
+  %5 = udiv i32 %1, %4
+  %6 = tail call noundef i32 @llvm.smax.i32(i32 %5, i32 1)
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %6, ptr %7, align 4
+  store i32 0, ptr %0, align 8
+  %8 = zext nneg i32 %6 to i64
+  %9 = shl nuw nsw i64 %8, 3
+  %10 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i8 noundef zeroext 11, i32 noundef 0) #14
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %10, ptr %11, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %3, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %3 ]
+  %14 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 11) #14
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %21, label %16
+
+16:                                               ; preds = %.lr.ph
+  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 0, i32 noundef 8, i8 noundef zeroext 11) #14
+  store i32 0, ptr %14, align 4
+  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %17, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 23, ptr %20, align 8
+  br label %21
+
+21:                                               ; preds = %16, %.lr.ph
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  store ptr %14, ptr %23, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %24 = load i32, ptr %7, align 4
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %21, %3
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %2, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %31, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  ret void
+}
+
+declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %6
+
+6:                                                ; preds = %.lr.ph, %17
+  %7 = phi i32 [ %3, %.lr.ph ], [ %18, %17 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
+
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 1
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit, label %16
+
+16:                                               ; preds = %12
+  store i32 0, ptr %10, align 4
+  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
+
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit: ; preds = %12, %16
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %10) #14
+  %.pre = load i32, ptr %2, align 4
+  br label %17
+
+17:                                               ; preds = %6, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
+  %18 = phi i32 [ %7, %6 ], [ %.pre, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %6, label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %17, %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8
+  tail call void @_Z8FreeHeapPv(ptr noundef %22) #14
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #2
+
+declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden noundef i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %2 = load i32, ptr @SharedSymbolTableBucketSize, align 4
+  %3 = udiv i32 %0, %2
+  %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
+  %5 = zext nneg i32 %4 to i64
+  %6 = shl nuw nsw i64 %5, 2
+  %7 = add nuw nsw i64 %6, 15
+  %8 = and i64 %7, 17179869176
+  %9 = shl nsw i32 %0, 1
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
+  %11 = add nsw i32 %10, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = shl nuw nsw i64 %12, 2
+  %14 = add nuw nsw i64 %13, 15
+  %15 = and i64 %14, 17179869176
+  %16 = add nuw nsw i64 %15, 40
+  %17 = add nuw nsw i64 %16, %8
+  ret i64 %17
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef i64 @_ZN22SimpleCompactHashtable21calculate_header_sizeEv() local_unnamed_addr #4 align 2 {
+  ret i64 40
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = urem i32 %1, %5
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = sext i32 %6 to i64
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
+
+.lr.ph.i.i:                                       ; preds = %3
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext nneg i32 %12 to i64
+  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, %2
+  %20 = load i32, ptr %15, align 4
+  %21 = icmp eq i32 %20, %1
+  %22 = select i1 %19, i1 %21, i1 false
+  br i1 %22, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %23
+  %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i.i, %23 ], [ 0, %.lr.ph.i.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i7.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %16
+  br i1 %exitcond.not.i.i, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i, label %23, !llvm.loop !9
+
+23:                                               ; preds = %.lr.ph.i
+  %24 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %15, i64 %indvars.iv.next.i.i
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, %2
+  %28 = load i32, ptr %24, align 4
+  %29 = icmp eq i32 %28, %1
+  %30 = select i1 %27, i1 %29, i1 false
+  br i1 %30, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, label %.lr.ph.i, !llvm.loop !9
+
+_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i: ; preds = %23
+  %31 = icmp ult i64 %indvars.iv.next.i.i, %16
+  br i1 %31, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
+
+_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i: ; preds = %.lr.ph.i, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, %3
+  %32 = getelementptr inbounds i8, ptr %11, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %12, %33
+  br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+35:                                               ; preds = %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
+  %36 = add nsw i32 %12, 1
+  %37 = icmp sgt i32 %12, -1
+  %38 = xor i32 %12, -2147483648
+  %39 = and i32 %38, %36
+  %40 = icmp eq i32 %39, 0
+  %41 = and i1 %37, %40
+  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %43 = sub nuw nsw i32 32, %42
+  %44 = shl nuw i32 1, %43
+  %.0.i.i.i.i.i = select i1 %41, i32 %36, i32 %44
+  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %11, align 8
+  br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %35, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
+  %45 = phi i32 [ %.pre.i.i, %35 ], [ %12, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i ]
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %11, align 8
+  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i32 %45 to i64
+  %50 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %48, i64 %49
+  %.sroa.3.0.insert.ext = zext i32 %2 to i64
+  %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
+  %.sroa.0.0.insert.ext = zext i32 %1 to i64
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
+  store i64 %.sroa.0.0.insert.insert, ptr %50, align 4
+  br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
+
+_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %.lr.ph.i.i, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
+  %51 = load i32, ptr %0, align 8
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge.thread
+
+.lr.ph:                                           ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8
+  %wide.trip.count = zext nneg i32 %3 to i64
+  br label %7
+
+7:                                                ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
+  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %7
+  %13 = add nuw nsw i32 %.015, 1
+  br label %19
+
+14:                                               ; preds = %7
+  %15 = icmp sgt i32 %10, 1
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %14
+  %17 = shl nuw nsw i32 %10, 1
+  %18 = add nuw nsw i32 %17, %.015
+  br label %19
+
+19:                                               ; preds = %12, %16, %14
+  %.1 = phi i32 [ %13, %12 ], [ %18, %16 ], [ %.015, %14 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %19
+  %.not = icmp ult i32 %.1, 1073741824
+  br i1 %.not, label %._crit_edge.thread, label %20
+
+20:                                               ; preds = %._crit_edge
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str, ptr noundef null) #14
+  %.pre = load i32, ptr %2, align 4
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %1, %20, %._crit_edge
+  %.0.lcssa19 = phi i32 [ %.1, %20 ], [ %.1, %._crit_edge ], [ 0, %1 ]
+  %21 = phi i32 [ %.pre, %20 ], [ %3, %._crit_edge ], [ %3, %1 ]
+  %22 = add nsw i32 %21, 1
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
+  %24 = add nsw i32 %23, -1
+  %25 = zext nneg i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 2
+  %27 = add nuw nsw i64 %26, 8
+  %28 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 336
+  %30 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %29, i64 noundef %27) #14
+  store i32 %22, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %30, ptr %31, align 8
+  %32 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa19, i32 1)
+  %33 = add nsw i32 %32, -1
+  %34 = zext nneg i32 %33 to i64
+  %35 = shl nuw nsw i64 %34, 2
+  %36 = add nuw nsw i64 %35, 8
+  %37 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 336
+  %39 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %38, i64 noundef %36) #14
+  store i32 %.0.lcssa19, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %39, ptr %40, align 8
+  %41 = load i32, ptr %2, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 %41, ptr %44, align 4
+  %45 = load ptr, ptr %31, align 8
+  %46 = load i32, ptr %45, align 4
+  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
+  %48 = shl i32 %47, 2
+  %tr.sh.diff = add i32 %48, 11
+  %49 = and i32 %tr.sh.diff, -8
+  %50 = load ptr, ptr %42, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 12
+  store i32 %49, ptr %51, align 4
+  %52 = load i32, ptr %0, align 8
+  %53 = load ptr, ptr %42, align 8
+  store i32 %52, ptr %53, align 4
+  %54 = load ptr, ptr %40, align 8
+  %55 = load i32, ptr %54, align 4
+  %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 1)
+  %57 = shl i32 %56, 2
+  %tr.sh.diff13 = add i32 %57, 11
+  %58 = and i32 %tr.sh.diff13, -8
+  %59 = load ptr, ptr %42, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 %58, ptr %60, align 4
+  ret void
+}
+
+declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph37, label %.._crit_edge38_crit_edge
+
+.._crit_edge38_crit_edge:                         ; preds = %2
+  %.pre = sext i32 %4 to i64
+  br label %._crit_edge38
+
+.lr.ph37:                                         ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %12
+
+12:                                               ; preds = %.lr.ph37, %60
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next45, %60 ]
+  %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.2, %60 ]
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv44
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 1
+  %18 = load ptr, ptr %7, align 8
+  %19 = and i32 %.02235, 1073741823
+  br i1 %17, label %20, label %34
+
+20:                                               ; preds = %12
+  %21 = or disjoint i32 %19, 1073741824
+  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv44
+  store i32 %21, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i64, ptr %25, align 4
+  %.sroa.1.0.extract.shift = lshr i64 %26, 32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
+  %27 = load ptr, ptr %8, align 8
+  %28 = add i32 %.02235, 1
+  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = sext i32 %.02235 to i64
+  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  store i32 %.sroa.1.0.extract.trunc, ptr %31, align 4
+  %32 = load i32, ptr %11, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %11, align 4
+  br label %60
+
+34:                                               ; preds = %12
+  %35 = getelementptr inbounds i8, ptr %18, i64 4
+  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv44
+  store i32 %19, ptr %36, align 4
+  %37 = icmp sgt i32 %16, 0
+  br i1 %37, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %15, i64 8
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %39
+
+39:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
+  %.132 = phi i32 [ %.02235, %.lr.ph ], [ %49, %39 ]
+  %40 = load ptr, ptr %38, align 8
+  %41 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %40, i64 %indvars.iv
+  %42 = load i64, ptr %41, align 4
+  %.sroa.0.0.extract.trunc = trunc i64 %42 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %42, 32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %43 = load ptr, ptr %8, align 8
+  %44 = add i32 %.132, 1
+  %45 = getelementptr inbounds i8, ptr %43, i64 4
+  %46 = sext i32 %.132 to i64
+  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  store i32 %.sroa.0.0.extract.trunc, ptr %47, align 4
+  %48 = load ptr, ptr %8, align 8
+  %49 = add i32 %.132, 2
+  %50 = getelementptr inbounds i8, ptr %48, i64 4
+  %51 = sext i32 %44 to i64
+  %52 = getelementptr inbounds i32, ptr %50, i64 %51
+  store i32 %.sroa.2.0.extract.trunc, ptr %52, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %39, %34
+  %.1.lcssa = phi i32 [ %.02235, %34 ], [ %49, %39 ]
+  %53 = icmp eq i32 %16, 0
+  br i1 %53, label %54, label %57
+
+54:                                               ; preds = %._crit_edge
+  %55 = load i32, ptr %10, align 8
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %10, align 8
+  br label %60
+
+57:                                               ; preds = %._crit_edge
+  %58 = load i32, ptr %9, align 8
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %9, align 8
+  br label %60
+
+60:                                               ; preds = %54, %57, %20
+  %.2 = phi i32 [ %28, %20 ], [ %.1.lcssa, %54 ], [ %.1.lcssa, %57 ]
+  %61 = sitofp i32 %16 to double
+  %62 = load ptr, ptr %1, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %61) #14
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %65 = load i32, ptr %3, align 4
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next45, %66
+  br i1 %67, label %12, label %._crit_edge38.loopexit, !llvm.loop !12
+
+._crit_edge38.loopexit:                           ; preds = %60
+  %68 = or i32 %.2, -1073741824
+  br label %._crit_edge38
+
+._crit_edge38:                                    ; preds = %.._crit_edge38_crit_edge, %._crit_edge38.loopexit
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge38_crit_edge ], [ %66, %._crit_edge38.loopexit ]
+  %.022.lcssa = phi i32 [ -1073741824, %.._crit_edge38_crit_edge ], [ %68, %._crit_edge38.loopexit ]
+  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %72 = getelementptr inbounds i32, ptr %71, i64 %.pre-phi
+  store i32 %.022.lcssa, ptr %72, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = alloca %class.NumberSeq, align 8
+  %5 = alloca %class.LogMessageTemplate, align 8
+  call void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef 3.000000e-01) #14
+  call void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  call void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %4)
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = load i64, ptr @SharedBaseAddress, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load <2 x i32>, ptr %0, align 8
+  %17 = shufflevector <2 x i32> %16, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load <2 x ptr>, ptr %14, align 8
+  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 4, i64 4>
+  store <2 x i32> %17, ptr %15, align 8
+  store ptr %13, ptr %1, align 8
+  store <2 x ptr> %20, ptr %18, align 8
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  %21 = getelementptr inbounds i8, ptr %5, i64 72
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  store i8 0, ptr %22, align 8
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %5, align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %.thread, label %24
+
+.thread:                                          ; preds = %3
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %5, align 8
+  br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
+
+24:                                               ; preds = %3
+  %25 = add nsw i32 %11, %9
+  %26 = load i32, ptr %0, align 8
+  %27 = icmp sgt i32 %26, 0
+  %28 = sitofp i32 %25 to double
+  %29 = uitofp nneg i32 %26 to double
+  %30 = fdiv double %28, %29
+  %.0 = select i1 %27, double %30, double 0.000000e+00
+  %31 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.4, ptr noundef %2, i64 noundef %12) #14
+  %32 = load i32, ptr %0, align 8
+  %33 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.5, i32 noundef %32) #14
+  %34 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.6, i32 noundef %25) #14
+  %35 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.7, double noundef %.0) #14
+  %36 = call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %37 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.8, double noundef %36) #14
+  %38 = call noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %39 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.9, double noundef %38) #14
+  %40 = call noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %41 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.10, double noundef %40) #14
+  %42 = getelementptr inbounds i8, ptr %4, i64 64
+  %43 = load double, ptr %42, align 8
+  %44 = fptosi double %43 to i32
+  %45 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.11, i32 noundef %44) #14
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.12, i32 noundef %47) #14
+  %49 = getelementptr inbounds i8, ptr %0, i64 12
+  %50 = load i32, ptr %49, align 4
+  %51 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.13, i32 noundef %50) #14
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.14, i32 noundef %53) #14
+  %.pre = load i8, ptr %22, align 8
+  %55 = trunc i8 %.pre to i1
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %5, align 8
+  br i1 %55, label %56, label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
+
+56:                                               ; preds = %24
+  %57 = load ptr, ptr %21, align 8
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %57, ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  store i8 0, ptr %22, align 8
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
+
+_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %.thread, %24, %56
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  ret void
+}
+
+declare void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72), double noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define hidden void @_ZN22SimpleCompactHashtable4initEPhjjPjS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 align 2 {
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %3, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %2, ptr %8, align 4
+  store ptr %1, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %4, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %5, ptr %10, align 8
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ...) local_unnamed_addr #1
+
+declare noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
+
+declare noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
+
+declare noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN22SimpleCompactHashtable16serialize_headerEP16SerializeClosure(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = load ptr, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load ptr, ptr %5, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3) #14
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7) #14
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %1, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11) #14
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %15) #14
+  %19 = load ptr, ptr %1, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %2
+  %23 = load i64, ptr @SharedBaseAddress, align 8
+  %24 = inttoptr i64 %23 to ptr
+  store ptr %24, ptr %0, align 8
+  br label %25
+
+25:                                               ; preds = %22, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDumpC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca %struct.stat, align 8
+  store i32 -1, ptr %0, align 8
+  %4 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %1, ptr noundef nonnull %3) #14
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %6, label %5
+
+5:                                                ; preds = %2
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.15, ptr noundef %1) #14
+  br label %6
+
+6:                                                ; preds = %5, %2
+  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %8, ptr %9, align 8
+  %10 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef %1, i32 noundef 0, i32 noundef 0) #14
+  store i32 %10, ptr %0, align 8
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %6
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.16, ptr noundef %1) #14
+  %.pre = load i32, ptr %0, align 8
+  br label %13
+
+13:                                               ; preds = %12, %6
+  %14 = phi i32 [ %.pre, %12 ], [ %10, %6 ]
+  %15 = load i64, ptr %9, align 8
+  %16 = call noundef ptr @_ZN2os10map_memoryEiPKcmPcmbb8MEMFLAGS(i32 noundef %14, ptr noundef %1, i64 noundef 0, ptr noundef null, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, i8 noundef zeroext 27) #14
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %16, ptr %17, align 8
+  %18 = icmp eq ptr %16, null
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %13
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.17, ptr noundef %1) #14
+  %.pre8 = load ptr, ptr %17, align 8
+  br label %20
+
+20:                                               ; preds = %19, %13
+  %21 = phi ptr [ %.pre8, %19 ], [ %16, %13 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %21, ptr %22, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 4, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %28, align 4
+  ret void
+}
+
+declare noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump4quitEPKcS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %1, ptr noundef %2) #14
+  ret void
+}
+
+declare noundef i32 @_ZN2os4openEPKcii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare noundef ptr @_ZN2os10map_memoryEiPKcmPcmbb8MEMFLAGS(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDumpD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = load i64, ptr %4, align 8
+  %6 = tail call noundef zeroext i1 @_ZN2os12unmap_memoryEPcm(ptr noundef %3, i64 noundef %5) #14
+  %7 = load i32, ptr %0, align 8
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %1
+  %10 = tail call i32 @close(i32 noundef %7) #14
+  br label %11
+
+11:                                               ; preds = %9, %1
+  ret void
+}
+
+declare noundef zeroext i1 @_ZN2os12unmap_memoryEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @close(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump9corruptedEPKcS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = alloca [100 x i8], align 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %1 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = trunc i64 %11 to i32
+  %13 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef %2, i32 noundef %6, i32 noundef %12) #14
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %15) #14
+  ret void
+}
+
+declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef zeroext i1 @_ZN17HashtableTextDump12skip_newlineEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+  %2 = alloca [100 x i8], align 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i8, ptr %4, align 1
+  switch i8 %5, label %.thread [
+    i8 13, label %6
+    i8 10, label %12
+  ]
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 10
+  br i1 %9, label %10, label %.thread
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %4, i64 2
+  store ptr %11, ptr %3, align 8
+  br label %25
+
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  store ptr %13, ptr %3, align 8
+  br label %25
+
+.thread:                                          ; preds = %1, %6
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = ptrtoint ptr %4 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = trunc i64 %20 to i32
+  %22 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %15, i32 noundef %21) #14
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %24) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  br label %25
+
+25:                                               ; preds = %12, %.thread, %10
+  %26 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = load i32, ptr %26, align 4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %26, align 4
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN17HashtableTextDump4skipEc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %1) local_unnamed_addr #0 align 2 {
+  %3 = alloca [100 x i8], align 16
+  %4 = alloca [100 x i8], align 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %6 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = trunc i64 %11 to i32
+  %13 = icmp slt i32 %12, 1
+  br i1 %13, label %14, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = sub i64 %10, %19
+  %21 = trunc i64 %20 to i32
+  %22 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %21) #14
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %24) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  %.pre = load ptr, ptr %7, align 8
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %14
+  %25 = phi ptr [ %8, %2 ], [ %.pre, %14 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %7, align 8
+  %27 = load i8, ptr %25, align 1
+  %.not = icmp eq i8 %27, %1
+  br i1 %.not, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit1, label %28
+
+28:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %26 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = trunc i64 %35 to i32
+  %37 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %30, i32 noundef %36) #14
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = load ptr, ptr %38, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %39) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit1
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit1:  ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit, %28
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump9skip_pastEc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %1) local_unnamed_addr #0 align 2 {
+  %3 = alloca [100 x i8], align 16
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre = load ptr, ptr %5, align 8
+  br label %9
+
+9:                                                ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit, %2
+  %10 = phi ptr [ %26, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ], [ %.pre, %2 ]
+  %11 = load ptr, ptr %4, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %13 = ptrtoint ptr %10 to i64
+  %14 = sub i64 %12, %13
+  %15 = trunc i64 %14 to i32
+  %16 = icmp slt i32 %15, 1
+  br i1 %16, label %17, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+17:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  %18 = load i32, ptr %6, align 4
+  %19 = load ptr, ptr %7, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = sub i64 %13, %20
+  %22 = trunc i64 %21 to i32
+  %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %18, i32 noundef %22) #14
+  %24 = load ptr, ptr %8, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %24) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  %.pre1 = load ptr, ptr %5, align 8
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %9, %17
+  %25 = phi ptr [ %10, %9 ], [ %.pre1, %17 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %5, align 8
+  %27 = load i8, ptr %25, align 1
+  %28 = icmp eq i8 %27, %1
+  br i1 %28, label %29, label %9, !llvm.loop !13
+
+29:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump13check_versionEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+  %3 = alloca [100 x i8], align 16
+  %4 = alloca [100 x i8], align 16
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %6 = trunc i64 %5 to i32
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %8 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = trunc i64 %13 to i32
+  %15 = icmp slt i32 %14, %6
+  br i1 %15, label %16, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %22 = sub i64 %12, %21
+  %23 = trunc i64 %22 to i32
+  %24 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %18, i32 noundef %23) #14
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %26) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  %.pre = load ptr, ptr %9, align 8
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %16
+  %27 = phi ptr [ %10, %2 ], [ %.pre, %16 ]
+  %sext = shl i64 %5, 32
+  %28 = ashr exact i64 %sext, 32
+  %29 = call i32 @strncmp(ptr noundef %27, ptr noundef %1, i64 noundef %28) #15
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %33, label %30
+
+30:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = load ptr, ptr %31, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.21, ptr noundef %32) #14
+  %.pre5 = load ptr, ptr %9, align 8
+  br label %33
+
+33:                                               ; preds = %30, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %34 = phi ptr [ %.pre5, %30 ], [ %27, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ]
+  %35 = getelementptr inbounds i8, ptr %34, i64 %28
+  store ptr %35, ptr %9, align 8
+  %36 = load i8, ptr %35, align 1
+  switch i8 %36, label %.thread.i [
+    i8 13, label %37
+    i8 10, label %43
+  ]
+
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %35, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 10
+  br i1 %40, label %41, label %.thread.i
+
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %35, i64 2
+  store ptr %42, ptr %9, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+43:                                               ; preds = %33
+  %44 = getelementptr inbounds i8, ptr %35, i64 1
+  store ptr %44, ptr %9, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+.thread.i:                                        ; preds = %37, %33
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  %45 = getelementptr inbounds i8, ptr %0, i64 52
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = ptrtoint ptr %35 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
+  %53 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %46, i32 noundef %52) #14
+  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = load ptr, ptr %54, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %55) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+_ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %41, %43, %.thread.i
+  %56 = getelementptr inbounds i8, ptr %0, i64 52
+  %57 = load i32, ptr %56, align 4
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %56, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+  %2 = alloca [100 x i8], align 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  store ptr %5, ptr %3, align 8
+  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.22, i64 noundef 15) #15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.sink.split, label %8
+
+8:                                                ; preds = %1
+  %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(16) @.str.23, i64 noundef 15) #15
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %.sink.split, label %12
+
+.sink.split:                                      ; preds = %8, %1
+  %.sink.ph = phi i32 [ 2, %1 ], [ 1, %8 ]
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %11, ptr %3, align 8
+  br label %12
+
+12:                                               ; preds = %.sink.split, %8
+  %.sink = phi i32 [ 4, %8 ], [ %.sink.ph, %.sink.split ]
+  %13 = phi ptr [ %5, %8 ], [ %11, %.sink.split ]
+  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %.sink, ptr %14, align 8
+  %15 = load i8, ptr %13, align 1
+  switch i8 %15, label %.thread.i [
+    i8 13, label %16
+    i8 10, label %22
+  ]
+
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %13, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 10
+  br i1 %19, label %20, label %.thread.i
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %13, i64 2
+  store ptr %21, ptr %3, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %23, ptr %3, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+.thread.i:                                        ; preds = %16, %12
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  %24 = getelementptr inbounds i8, ptr %0, i64 52
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %13 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = trunc i64 %30 to i32
+  %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %25, i32 noundef %31) #14
+  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %34) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+_ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %20, %22, %.thread.i
+  %35 = getelementptr inbounds i8, ptr %0, i64 52
+  %36 = load i32, ptr %35, align 4
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN17HashtableTextDump11scan_prefixEPi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+  %3 = alloca [100 x i8], align 16
+  %4 = alloca [100 x i8], align 16
+  %5 = alloca i32, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 64
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  tail call void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  br label %11
+
+11:                                               ; preds = %10, %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load i32, ptr %12, align 8
+  switch i32 %13, label %34 [
+    i32 1, label %14
+    i32 2, label %16
+  ]
+
+14:                                               ; preds = %11
+  %15 = tail call noundef i32 @_ZN17HashtableTextDump18scan_symbol_prefixEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  store i32 %15, ptr %1, align 4
+  br label %48
+
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  store i32 0, ptr %5, align 4
+  call void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext 58, ptr noundef nonnull %5)
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i8, ptr %17, align 1
+  %.not.i = icmp eq i8 %18, 32
+  br i1 %.not.i, label %_ZN17HashtableTextDump18scan_string_prefixEv.exit, label %19
+
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %17 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %28 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.26, i32 noundef %21, i32 noundef %27) #14
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %30) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  %.pre.i = load ptr, ptr %6, align 8
+  br label %_ZN17HashtableTextDump18scan_string_prefixEv.exit
+
+_ZN17HashtableTextDump18scan_string_prefixEv.exit: ; preds = %16, %19
+  %31 = phi ptr [ %.pre.i, %19 ], [ %17, %16 ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  store ptr %32, ptr %6, align 8
+  %33 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  store i32 %33, ptr %1, align 4
+  br label %48
+
+34:                                               ; preds = %11
+  %35 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @.str.24) #14
+  %36 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  %37 = getelementptr inbounds i8, ptr %0, i64 52
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %36 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = trunc i64 %43 to i32
+  %45 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.25, i32 noundef %38, i32 noundef %44) #14
+  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = load ptr, ptr %46, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %47) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  br label %48
+
+48:                                               ; preds = %34, %_ZN17HashtableTextDump18scan_string_prefixEv.exit, %14
+  %49 = load i32, ptr %12, align 8
+  ret i32 %49
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN17HashtableTextDump18scan_symbol_prefixEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+  %2 = alloca [100 x i8], align 16
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 0, ptr %3, align 4
+  call void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext 32, ptr noundef nonnull %3)
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 45
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  store ptr %10, ptr %5, align 8
+  br label %11
+
+11:                                               ; preds = %9, %1
+  call void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext 58, ptr noundef nonnull %4)
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i8, ptr %12, align 1
+  %.not = icmp eq i8 %13, 32
+  br i1 %.not, label %26, label %14
+
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %12 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %22 = trunc i64 %21 to i32
+  %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.27, i32 noundef %16, i32 noundef %22) #14
+  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %25) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  %.pre = load ptr, ptr %5, align 8
+  br label %26
+
+26:                                               ; preds = %14, %11
+  %27 = phi ptr [ %.pre, %14 ], [ %12, %11 ]
+  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  store ptr %28, ptr %5, align 8
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef i32 @_ZN17HashtableTextDump18scan_string_prefixEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+  %2 = alloca [100 x i8], align 16
+  %3 = alloca i32, align 4
+  store i32 0, ptr %3, align 4
+  call void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext 58, ptr noundef nonnull %3)
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i8, ptr %5, align 1
+  %.not = icmp eq i8 %6, 32
+  br i1 %.not, label %19, label %7
+
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = ptrtoint ptr %5 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %12, %13
+  %15 = trunc i64 %14 to i32
+  %16 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.26, i32 noundef %9, i32 noundef %15) #14
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %18) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  %.pre = load ptr, ptr %4, align 8
+  br label %19
+
+19:                                               ; preds = %7, %1
+  %20 = phi ptr [ %.pre, %7 ], [ %5, %1 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  store ptr %21, ptr %4, align 8
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
+}
+
+declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
+  %4 = alloca [100 x i8], align 16
+  %5 = alloca [100 x i8], align 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ult ptr %7, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %14
+
+14:                                               ; preds = %.lr.ph, %48
+  %.021 = phi ptr [ %7, %.lr.ph ], [ %15, %48 ]
+  %.01520 = phi i64 [ 0, %.lr.ph ], [ %.1, %48 ]
+  %15 = getelementptr inbounds i8, ptr %.021, i64 1
+  %16 = load i8, ptr %.021, align 1
+  %17 = add i8 %16, -48
+  %or.cond = icmp ult i8 %17, 10
+  br i1 %or.cond, label %18, label %34
+
+18:                                               ; preds = %14
+  %19 = mul i64 %.01520, 10
+  %20 = and i8 %16, 15
+  %21 = zext nneg i8 %20 to i64
+  %22 = add i64 %19, %21
+  %23 = icmp ugt i64 %22, 2147483647
+  br i1 %23, label %24, label %48
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  %26 = load i32, ptr %11, align 4
+  %27 = load ptr, ptr %12, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = trunc i64 %30 to i32
+  %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.38, i32 noundef %26, i32 noundef %31) #14
+  %33 = load ptr, ptr %13, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %33) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  br label %48
+
+34:                                               ; preds = %14
+  %35 = icmp eq i8 %16, %1
+  br i1 %35, label %36, label %38
+
+36:                                               ; preds = %34
+  store ptr %15, ptr %6, align 8
+  %37 = trunc i64 %.01520 to i32
+  store i32 %37, ptr %2, align 4
+  ret void
+
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  %40 = load i32, ptr %11, align 4
+  %41 = load ptr, ptr %12, align 8
+  %42 = ptrtoint ptr %39 to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = trunc i64 %44 to i32
+  %46 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.39, i32 noundef %40, i32 noundef %45) #14
+  %47 = load ptr, ptr %13, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %47) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  br label %48
+
+48:                                               ; preds = %18, %24, %38
+  %.1 = phi i64 [ %22, %24 ], [ %22, %18 ], [ %.01520, %38 ]
+  %exitcond.not = icmp eq ptr %15, %9
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %14, !llvm.loop !14
+
+._crit_edge.loopexit:                             ; preds = %48
+  %.pre = load ptr, ptr %8, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %49 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %3 ]
+  call void @_ZN17HashtableTextDump9corruptedEPKcS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %49, ptr noundef nonnull @.str.40)
+  %50 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %50, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.41, i32 noundef 424) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef range(i32 -2147483648, 2147483600) i32 @_ZN17HashtableTextDump8unescapeEPKcS1_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+  %5 = alloca [100 x i8], align 16
+  %6 = sext i32 %3 to i64
+  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %8 = icmp ugt ptr %7, %2
+  br i1 %8, label %9, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  %12 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = ptrtoint ptr %11 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = trunc i64 %18 to i32
+  %20 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %13, i32 noundef %19) #14
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %22) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %4, %9
+  %23 = icmp sgt i32 %3, 0
+  br i1 %23, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit, %switch.lookup
+  %.020 = phi ptr [ %24, %switch.lookup ], [ %1, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ]
+  %.01519 = phi i32 [ %33, %switch.lookup ], [ 0, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ]
+  %.01618 = phi i32 [ %.1, %switch.lookup ], [ 0, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ]
+  %24 = getelementptr inbounds i8, ptr %.020, i64 1
+  %25 = load i8, ptr %.020, align 1
+  %26 = sext i8 %25 to i32
+  %switch.tableidx = add i8 %25, -48
+  %27 = icmp ult i8 %switch.tableidx, 55
+  br i1 %27, label %switch.hole_check, label %28
+
+28:                                               ; preds = %switch.hole_check, %.lr.ph
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.28, i32 noundef 390) #16
+  unreachable
+
+switch.hole_check:                                ; preds = %.lr.ph
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i64
+  %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %28
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %30 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i, i64 0, i64 %30
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %31 = shl i32 %.01618, 4
+  %32 = add i32 %31, %switch.load
+  %.1 = add i32 %32, %26
+  %33 = add nuw nsw i32 %.01519, 1
+  %exitcond.not = icmp eq i32 %33, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+
+._crit_edge:                                      ; preds = %switch.lookup, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %.016.lcssa = phi i32 [ 0, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit ], [ %.1, %switch.lookup ]
+  ret i32 %.016.lcssa
+}
+
+; Function Attrs: noreturn
+declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = alloca [100 x i8], align 16
+  %5 = alloca [100 x i8], align 16
+  %6 = alloca [100 x i8], align 16
+  %7 = alloca [100 x i8], align 16
+  %8 = alloca [100 x i8], align 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp sgt i32 %2, 0
+  %14 = icmp ult ptr %10, %12
+  %15 = select i1 %13, i1 %14, i1 false
+  br i1 %15, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %3
+  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %19
+
+19:                                               ; preds = %.lr.ph, %80
+  %.034 = phi ptr [ %10, %.lr.ph ], [ %.1, %80 ]
+  %.02533 = phi ptr [ %1, %.lr.ph ], [ %.126, %80 ]
+  %.02732 = phi i32 [ %2, %.lr.ph ], [ %81, %80 ]
+  %20 = load i8, ptr %.034, align 1
+  %.not = icmp eq i8 %20, 92
+  br i1 %.not, label %24, label %21
+
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %.034, i64 1
+  %23 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 %20, ptr %.02533, align 1
+  br label %80
+
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %.034, i64 2
+  %26 = icmp ugt ptr %25, %12
+  br i1 %26, label %27, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8)
+  %29 = load i32, ptr %16, align 4
+  %30 = load ptr, ptr %17, align 8
+  %31 = ptrtoint ptr %28 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = trunc i64 %33 to i32
+  %35 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %29, i32 noundef %34) #14
+  %36 = load ptr, ptr %18, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %8, ptr noundef %36) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
+  %37 = getelementptr inbounds i8, ptr %.034, i64 1
+  %38 = load i8, ptr %37, align 1
+  switch i8 %38, label %70 [
+    i8 120, label %39
+    i8 116, label %62
+    i8 110, label %64
+    i8 114, label %66
+    i8 92, label %68
+  ]
+
+39:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %40 = getelementptr inbounds i8, ptr %.034, i64 4
+  %41 = icmp ugt ptr %40, %12
+  br i1 %41, label %42, label %.lr.ph.i.preheader
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
+  %44 = load i32, ptr %16, align 4
+  %45 = load ptr, ptr %17, align 8
+  %46 = ptrtoint ptr %43 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = trunc i64 %48 to i32
+  %50 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %44, i32 noundef %49) #14
+  %51 = load ptr, ptr %18, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %7, ptr noundef %51) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
+  br label %.lr.ph.i.preheader
+
+.lr.ph.i.preheader:                               ; preds = %42, %39
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %switch.lookup
+  %.020.i = phi ptr [ %52, %switch.lookup ], [ %25, %.lr.ph.i.preheader ]
+  %.01519.i = phi i32 [ %60, %switch.lookup ], [ 0, %.lr.ph.i.preheader ]
+  %.01618.i = phi i8 [ %.1.i, %switch.lookup ], [ 0, %.lr.ph.i.preheader ]
+  %52 = getelementptr inbounds i8, ptr %.020.i, i64 1
+  %53 = load i8, ptr %.020.i, align 1
+  %switch.tableidx = add i8 %53, -48
+  %54 = icmp ult i8 %switch.tableidx, 55
+  br i1 %54, label %switch.hole_check, label %55
+
+55:                                               ; preds = %switch.hole_check, %.lr.ph.i
+  %56 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %56, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.28, i32 noundef 390) #16
+  unreachable
+
+switch.hole_check:                                ; preds = %.lr.ph.i
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i64
+  %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %55
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %57 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x i8], ptr @switch.table._ZN17HashtableTextDump8get_utf8EPci, i64 0, i64 %57
+  %switch.load = load i8, ptr %switch.gep, align 1
+  %58 = shl i8 %.01618.i, 4
+  %59 = add i8 %53, %58
+  %.1.i = add i8 %59, %switch.load
+  %60 = add nuw nsw i32 %.01519.i, 1
+  %exitcond.not.i = icmp eq i32 %60, 2
+  br i1 %exitcond.not.i, label %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit, label %.lr.ph.i, !llvm.loop !15
+
+_ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
+  %61 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 %.1.i, ptr %.02533, align 1
+  br label %80
+
+62:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %63 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 9, ptr %.02533, align 1
+  br label %80
+
+64:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %65 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 10, ptr %.02533, align 1
+  br label %80
+
+66:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %67 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 13, ptr %.02533, align 1
+  br label %80
+
+68:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %69 = getelementptr inbounds i8, ptr %.02533, i64 1
+  store i8 92, ptr %.02533, align 1
+  br label %80
+
+70:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
+  %71 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6)
+  %72 = load i32, ptr %16, align 4
+  %73 = load ptr, ptr %17, align 8
+  %74 = ptrtoint ptr %71 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %77 = trunc i64 %76 to i32
+  %78 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, i32 noundef %72, i32 noundef %77) #14
+  %79 = load ptr, ptr %18, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %6, ptr noundef %79) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
+  br label %80
+
+80:                                               ; preds = %21, %70, %68, %66, %64, %62, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit
+  %.126 = phi ptr [ %23, %21 ], [ %.02533, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ]
+  %.1 = phi ptr [ %22, %21 ], [ %25, %70 ], [ %25, %68 ], [ %25, %66 ], [ %25, %64 ], [ %25, %62 ], [ %40, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit ]
+  %81 = add nsw i32 %.02732, -1
+  %82 = icmp sgt i32 %.02732, 1
+  %83 = icmp ult ptr %.1, %12
+  %84 = select i1 %82, i1 %83, i1 false
+  br i1 %84, label %19, label %._crit_edge, !llvm.loop !16
+
+._crit_edge:                                      ; preds = %80, %3
+  %.0.lcssa = phi ptr [ %10, %3 ], [ %.1, %80 ]
+  %.lcssa = phi i1 [ %13, %3 ], [ %82, %80 ]
+  br i1 %.lcssa, label %85, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+
+85:                                               ; preds = %._crit_edge
+  %86 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  %87 = getelementptr inbounds i8, ptr %0, i64 52
+  %88 = load i32, ptr %87, align 4
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = ptrtoint ptr %86 to i64
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = trunc i64 %93 to i32
+  %95 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %88, i32 noundef %94) #14
+  %96 = getelementptr inbounds i8, ptr %0, i64 32
+  %97 = load ptr, ptr %96, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %97) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+
+_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %85
+  store ptr %.0.lcssa, ptr %9, align 8
+  %98 = load i8, ptr %.0.lcssa, align 1
+  switch i8 %98, label %.thread.i [
+    i8 13, label %99
+    i8 10, label %105
+  ]
+
+99:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+  %100 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %101 = load i8, ptr %100, align 1
+  %102 = icmp eq i8 %101, 10
+  br i1 %102, label %103, label %.thread.i
+
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds i8, ptr %.0.lcssa, i64 2
+  store ptr %104, ptr %9, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+105:                                              ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+  %106 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  store ptr %106, ptr %9, align 8
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+.thread.i:                                        ; preds = %99, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  %107 = getelementptr inbounds i8, ptr %0, i64 52
+  %108 = load i32, ptr %107, align 4
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %.0.lcssa to i64
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %114 = trunc i64 %113 to i32
+  %115 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %108, i32 noundef %114) #14
+  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %117 = load ptr, ptr %116, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %117) #14
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  br label %_ZN17HashtableTextDump12skip_newlineEv.exit
+
+_ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %103, %105, %.thread.i
+  %118 = getelementptr inbounds i8, ptr %0, i64 52
+  %119 = load i32, ptr %118, align 4
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %118, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = sext i32 %2 to i64
+  %5 = getelementptr inbounds i8, ptr %1, i64 %4
+  %6 = icmp sgt i32 %2, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %3, %18
+  %.015 = phi ptr [ %19, %18 ], [ %1, %3 ]
+  %7 = load i8, ptr %.015, align 1
+  %8 = sext i8 %7 to i32
+  switch i8 %7, label %13 [
+    i8 9, label %9
+    i8 13, label %10
+    i8 10, label %11
+    i8 92, label %12
+  ]
+
+9:                                                ; preds = %.lr.ph
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.30) #14
+  br label %18
+
+10:                                               ; preds = %.lr.ph
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.31) #14
+  br label %18
+
+11:                                               ; preds = %.lr.ph
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.32) #14
+  br label %18
+
+12:                                               ; preds = %.lr.ph
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33) #14
+  br label %18
+
+13:                                               ; preds = %.lr.ph
+  %14 = tail call i32 @isprint(i32 noundef %8) #15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %16, label %15
+
+15:                                               ; preds = %13
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34, i32 noundef %8) #14
+  br label %18
+
+16:                                               ; preds = %13
+  %17 = and i32 %8, 255
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35, i32 noundef %17) #14
+  br label %18
+
+18:                                               ; preds = %9, %10, %11, %12, %16, %15
+  %19 = getelementptr inbounds i8, ptr %.015, i64 1
+  %20 = icmp ult ptr %19, %5
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+
+._crit_edge:                                      ; preds = %18, %3
+  ret void
+}
+
+declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare i32 @isprint(i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.36() #9 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
+  %1 = load i8, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %4
+
+3:                                                ; preds = %0
+  store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 14, i32 noundef 129, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  br label %4
+
+4:                                                ; preds = %3, %0
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
+  ret i64 0
+}
+
+declare void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init.37() #9 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
+  %1 = load i8, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %4
+
+3:                                                ; preds = %0
+  store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 14, i32 noundef 51, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  br label %4
+
+4:                                                ; preds = %3, %0
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
+  ret i64 0
+}
+
+; Function Attrs: nounwind
+declare void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %14, label %8
+
+8:                                                ; preds = %4
+  store i8 1, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %12, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %8, %4
+  tail call void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #14
+  ret void
+}
+
+declare void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
+
+declare void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
+
+declare void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+
+declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4
+  %4 = load i32, ptr %0, align 8
+  %5 = icmp eq i32 %4, %3
+  br i1 %5, label %32, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  store i32 %4, ptr %2, align 4
+  %9 = icmp sgt i32 %4, 0
+  br i1 %9, label %10, label %.loopexit
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %10
+  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #14
+  br label %.lr.ph.preheader
+
+16:                                               ; preds = %10
+  %17 = and i64 %12, 1
+  %.not.i = icmp eq i64 %17, 0
+  br i1 %.not.i, label %22, label %18
+
+18:                                               ; preds = %16
+  %19 = lshr i64 %12, 1
+  %20 = trunc i64 %19 to i8
+  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %4, i32 noundef 8, i8 noundef zeroext %20) #14
+  br label %.lr.ph.preheader
+
+22:                                               ; preds = %16
+  %23 = inttoptr i64 %12 to ptr
+  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %4, i32 noundef 8, ptr noundef nonnull %23) #14
+  br label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %22, %18, %14
+  %.0.i = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
+  %wide.trip.count = zext nneg i32 %4 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %25 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %8, i64 %indvars.iv
+  %27 = load i64, ptr %26, align 4
+  store i64 %27, ptr %25, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !18
+
+.loopexit:                                        ; preds = %6
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %.loopexit.thread
+
+.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
+  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %29, 1
+  %.not.i22 = icmp eq i64 %30, 0
+  br i1 %.not.i22, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %31
+
+31:                                               ; preds = %.loopexit.thread
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
+
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
+  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01828, ptr %7, align 8
+  br label %32
+
+32:                                               ; preds = %1, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
+  ret void
+}
+
+declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %9
+
+7:                                                ; preds = %2
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+
+9:                                                ; preds = %2
+  %10 = and i64 %5, 1
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %15, label %11
+
+11:                                               ; preds = %9
+  %12 = lshr i64 %5, 1
+  %13 = trunc i64 %12 to i8
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+
+15:                                               ; preds = %9
+  %16 = inttoptr i64 %5 to ptr
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit: ; preds = %7, %11, %15
+  %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
+  %18 = load i32, ptr %0, align 8
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %.preheader16
+
+.lr.ph:                                           ; preds = %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %23
+
+.preheader16:                                     ; preds = %23, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %31
+
+23:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %24 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %.0.i, i64 %indvars.iv
+  %25 = load ptr, ptr %20, align 8
+  %26 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %25, i64 %indvars.iv
+  %27 = load i64, ptr %26, align 4
+  store i64 %27, ptr %24, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %23, label %.preheader16, !llvm.loop !19
+
+31:                                               ; preds = %.preheader16
+  %32 = load i64, ptr %4, align 8
+  %33 = and i64 %32, 1
+  %.not.i15 = icmp eq i64 %33, 0
+  br i1 %.not.i15, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %34
+
+34:                                               ; preds = %31
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %22) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
+
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit: ; preds = %34, %31, %.preheader16
+  store ptr %.0.i, ptr %21, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+
+declare noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
+
+declare void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

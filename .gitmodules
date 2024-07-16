@@ -611,3 +611,6 @@
 [submodule "bench/opencv/contrib/opencv_contrib"]
 	path = bench/opencv/contrib/opencv_contrib
 	url = git@github.com:opencv/opencv_contrib.git
+[submodule "bench/openjdk/jdk"]
+	path = bench/openjdk/jdk
+	url = git@github.com:openjdk/jdk.git
