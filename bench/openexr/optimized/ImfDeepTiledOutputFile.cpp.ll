@@ -850,11 +850,11 @@ catch.dispatch:                                   ; preds = %lpad12, %lpad8
   %matches = icmp eq i32 %ehselector.slot.0, %24
   %25 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #21
   %26 = load ptr, ptr %_data, align 8
-  %tobool83.not = icmp eq ptr %26, null
   br i1 %matches, label %catch80, label %catch
 
 catch80:                                          ; preds = %catch.dispatch
-  br i1 %tobool83.not, label %do.body, label %land.lhs.true84
+  %tobool83.not.not = icmp eq ptr %26, null
+  br i1 %tobool83.not.not, label %do.body, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %catch80
   %_streamData86 = getelementptr inbounds i8, ptr %26, i64 448
@@ -869,15 +869,12 @@ land.lhs.true88:                                  ; preds = %land.lhs.true84
   br i1 %tobool92.not, label %land.lhs.true105, label %if.end102
 
 catch:                                            ; preds = %catch.dispatch
-  br i1 %tobool83.not, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %catch
   %_streamData48 = getelementptr inbounds i8, ptr %26, i64 448
   %29 = load ptr, ptr %_streamData48, align 8
   %tobool49.not = icmp eq ptr %29, null
   br i1 %tobool49.not, label %if.end, label %land.lhs.true50
 
-land.lhs.true50:                                  ; preds = %land.lhs.true
+land.lhs.true50:                                  ; preds = %catch
   %os53 = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load ptr, ptr %os53, align 8
   %tobool54.not = icmp eq ptr %30, null
@@ -891,8 +888,8 @@ delete.notnull:                                   ; preds = %land.lhs.true50
   %.pre = load ptr, ptr %_data, align 8
   br label %if.end
 
-if.end:                                           ; preds = %delete.notnull, %land.lhs.true50, %land.lhs.true, %catch
-  %32 = phi ptr [ %.pre, %delete.notnull ], [ %26, %land.lhs.true50 ], [ %26, %land.lhs.true ], [ null, %catch ]
+if.end:                                           ; preds = %delete.notnull, %land.lhs.true50, %catch
+  %32 = phi ptr [ %.pre, %delete.notnull ], [ %26, %land.lhs.true50 ], [ %26, %catch ]
   %_streamData61 = getelementptr inbounds i8, ptr %32, i64 448
   %33 = load ptr, ptr %_streamData61, align 8
   %tobool62.not = icmp eq ptr %33, null

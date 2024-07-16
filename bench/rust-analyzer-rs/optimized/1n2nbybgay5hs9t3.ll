@@ -1534,7 +1534,7 @@ define hidden void @_ZN14cargo_metadata24deserialize_rust_version17hf458d69513d9
   br label %154
 
 53:                                               ; preds = %92, %50
-  %.sroa.070.0 = phi ptr [ %29, %50 ], [ %.sroa.070.4.ph, %92 ]
+  %.sroa.070.0 = phi ptr [ %29, %50 ], [ %.sroa.070.1.ph, %92 ]
   %54 = icmp eq ptr %.sroa.070.0, %51
   br i1 %54, label %.thread103, label %55
 
@@ -1606,7 +1606,7 @@ define hidden void @_ZN14cargo_metadata24deserialize_rust_version17hf458d69513d9
           to label %157 unwind label %155
 
 92:                                               ; preds = %69, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit13.i"
-  %.sroa.070.4.ph = phi ptr [ %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit13.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i" ], [ %56, %69 ]
+  %.sroa.070.1.ph = phi ptr [ %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit13.i" ], [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i" ], [ %56, %69 ]
   %.sroa.4.0.i.ph = phi i32 [ %67, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit13.i" ], [ %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i" ], [ %90, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i" ], [ %70, %69 ]
   switch i32 %.sroa.4.0.i.ph, label %53 [
     i32 1114112, label %.thread103

@@ -300,11 +300,11 @@ _ZN11hb_buffer_t13replace_glyphEj.exit:           ; preds = %.backedge, %_ZN11hb
   %wide.trip.count.i = zext i32 %150 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %232, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %232 ]
-  %.08.i = phi i32 [ 3, %.lr.ph.preheader.i ], [ %.1.i, %232 ]
-  %.0377.i = phi i32 [ 2, %.lr.ph.preheader.i ], [ %.138.i, %232 ]
-  %.0396.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.140.i, %232 ]
+.lr.ph.i:                                         ; preds = %229, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %229 ]
+  %.08.i = phi i32 [ 3, %.lr.ph.preheader.i ], [ %.1.i, %229 ]
+  %.0377.i = phi i32 [ 2, %.lr.ph.preheader.i ], [ %.138.i, %229 ]
+  %.0396.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.140.i, %229 ]
   %151 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i
   %152 = load i32, ptr %151, align 4
   %153 = icmp eq i32 %152, 3633
@@ -360,7 +360,7 @@ _ZL18get_consonant_typej.exit.i:                  ; preds = %.fold.split.i.i, %1
   %169 = getelementptr inbounds [5 x i32], ptr @_ZL22thai_below_start_state, i64 0, i64 %.0.i46.i
   %170 = load i32, ptr %169, align 4
   %171 = trunc nuw i64 %indvars.iv.i to i32
-  br label %232
+  br label %229
 
 select.unfold.i:                                  ; preds = %159, %156, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i
   %.0.i.ph.i = phi i64 [ 0, %switch.early.test.i.i ], [ 0, %switch.early.test.i.i ], [ 1, %156 ], [ 0, %.lr.ph.i ], [ 0, %switch.early.test.i.i ], [ 2, %159 ]
@@ -415,7 +415,7 @@ select.unfold.i:                                  ; preds = %159, %156, %switch.
   %202 = zext i16 %201 to i32
   %203 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %202, i32 noundef 0, ptr noundef nonnull %5)
   %.not16.i.i = icmp eq i32 %203, 0
-  %spec.select.i = select i1 %.not16.i.i, i32 %190, i32 %202
+  %spec.select.i.i = select i1 %.not16.i.i, i32 %190, i32 %202
   br label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i
 
 204:                                              ; preds = %.lr.ph.i.i55
@@ -425,86 +425,81 @@ select.unfold.i:                                  ; preds = %159, %156, %switch.
   br i1 %.not.i.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i, label %.lr.ph.i.i55, !llvm.loop !9
 
 _ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i: ; preds = %204, %199, %194
-  %.013.i.i = phi i32 [ %197, %194 ], [ %spec.select.i, %199 ], [ %190, %204 ]
+  %.013.i.i = phi i32 [ %197, %194 ], [ %spec.select.i.i, %199 ], [ %190, %204 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i32 %.013.i.i, ptr %189, align 4
-  br label %232
+  br label %229
 
 207:                                              ; preds = %183
   %208 = load i32, ptr %151, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  switch i32 %184, label %212 [
-    i32 0, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i
-    i32 1, label %209
-    i32 3, label %210
-    i32 2, label %211
+  switch i32 %184, label %unreachable.i.i [
+    i32 0, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i
+    i32 1, label %211
+    i32 3, label %209
+    i32 2, label %210
   ]
 
 209:                                              ; preds = %207
-  br label %212
+  br label %211
 
 210:                                              ; preds = %207
-  br label %212
+  br label %211
 
-211:                                              ; preds = %207
-  br label %212
+unreachable.i.i:                                  ; preds = %207
+  unreachable
 
-212:                                              ; preds = %211, %210, %209, %207
-  %.0.i49.i = phi ptr [ null, %207 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SL_mappings, %211 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE12SDL_mappings, %210 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SD_mappings, %209 ]
-  %213 = load i16, ptr %.0.i49.i, align 16
-  %.not18.i.i = icmp eq i16 %213, 0
-  br i1 %.not18.i.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i, label %.lr.ph.i50.i
+211:                                              ; preds = %210, %209, %207
+  %.0.i49.i = phi ptr [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SL_mappings, %210 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE12SDL_mappings, %209 ], [ @_ZZL14thai_pua_shapej13thai_action_tP9hb_font_tE11SD_mappings, %207 ]
+  %212 = load i16, ptr %.0.i49.i, align 16
+  %.not18.i.i = icmp eq i16 %212, 0
+  br i1 %.not18.i.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i, label %.lr.ph.i50.i
 
-.lr.ph.i50.i:                                     ; preds = %212, %227
-  %214 = phi i16 [ %229, %227 ], [ %213, %212 ]
-  %.119.i51.i = phi ptr [ %228, %227 ], [ %.0.i49.i, %212 ]
-  %215 = zext i16 %214 to i32
-  %216 = icmp eq i32 %208, %215
-  br i1 %216, label %217, label %227
+.lr.ph.i50.i:                                     ; preds = %211, %226
+  %213 = phi i16 [ %228, %226 ], [ %212, %211 ]
+  %.119.i51.i = phi ptr [ %227, %226 ], [ %.0.i49.i, %211 ]
+  %214 = zext i16 %213 to i32
+  %215 = icmp eq i32 %208, %214
+  br i1 %215, label %216, label %226
 
-217:                                              ; preds = %.lr.ph.i50.i
-  %218 = getelementptr inbounds i8, ptr %.119.i51.i, i64 2
-  %219 = load i16, ptr %218, align 2
-  %220 = zext i16 %219 to i32
-  %221 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %220, i32 noundef 0, ptr noundef nonnull %4)
-  %.not15.i54.i = icmp eq i32 %221, 0
-  br i1 %.not15.i54.i, label %222, label %.loopexit.sink.split.i55.i
+216:                                              ; preds = %.lr.ph.i50.i
+  %217 = getelementptr inbounds i8, ptr %.119.i51.i, i64 2
+  %218 = load i16, ptr %217, align 2
+  %219 = zext i16 %218 to i32
+  %220 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %219, i32 noundef 0, ptr noundef nonnull %4)
+  %.not15.i54.i = icmp eq i32 %220, 0
+  br i1 %.not15.i54.i, label %221, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i
 
-222:                                              ; preds = %217
-  %223 = getelementptr inbounds i8, ptr %.119.i51.i, i64 4
-  %224 = load i16, ptr %223, align 2
-  %225 = zext i16 %224 to i32
-  %226 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %225, i32 noundef 0, ptr noundef nonnull %4)
-  %.not16.i57.i = icmp eq i32 %226, 0
-  br i1 %.not16.i57.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i, label %.loopexit.sink.split.i55.i
+221:                                              ; preds = %216
+  %222 = getelementptr inbounds i8, ptr %.119.i51.i, i64 4
+  %223 = load i16, ptr %222, align 2
+  %224 = zext i16 %223 to i32
+  %225 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %224, i32 noundef 0, ptr noundef nonnull %4)
+  %.not16.i55.i = icmp eq i32 %225, 0
+  %spec.select.i56.i = select i1 %.not16.i55.i, i32 %208, i32 %224
+  br label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i
 
-227:                                              ; preds = %.lr.ph.i50.i
-  %228 = getelementptr inbounds i8, ptr %.119.i51.i, i64 6
-  %229 = load i16, ptr %228, align 2
-  %.not.i52.i = icmp eq i16 %229, 0
-  br i1 %.not.i52.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i, label %.lr.ph.i50.i, !llvm.loop !9
+226:                                              ; preds = %.lr.ph.i50.i
+  %227 = getelementptr inbounds i8, ptr %.119.i51.i, i64 6
+  %228 = load i16, ptr %227, align 2
+  %.not.i52.i = icmp eq i16 %228, 0
+  br i1 %.not.i52.i, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i, label %.lr.ph.i50.i, !llvm.loop !9
 
-.loopexit.sink.split.i55.i:                       ; preds = %222, %217
-  %.sink22.i56.i = phi ptr [ %218, %217 ], [ %223, %222 ]
-  %230 = load i16, ptr %.sink22.i56.i, align 2
-  %231 = zext i16 %230 to i32
-  br label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i
-
-_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i: ; preds = %227, %.loopexit.sink.split.i55.i, %222, %212, %207
-  %.013.i53.i = phi i32 [ %208, %207 ], [ %208, %222 ], [ %208, %212 ], [ %231, %.loopexit.sink.split.i55.i ], [ %208, %227 ]
+_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i: ; preds = %226, %221, %216, %211, %207
+  %.013.i53.i = phi i32 [ %208, %207 ], [ %208, %211 ], [ %219, %216 ], [ %spec.select.i56.i, %221 ], [ %208, %226 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %.013.i53.i, ptr %151, align 4
-  br label %232
+  br label %229
 
-232:                                              ; preds = %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i, %_ZL18get_consonant_typej.exit.i
-  %.140.i = phi i32 [ %171, %_ZL18get_consonant_typej.exit.i ], [ %.0396.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %.0396.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i ]
-  %.138.i = phi i32 [ %170, %_ZL18get_consonant_typej.exit.i ], [ %179, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %179, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i ]
-  %.1.i = phi i32 [ %168, %_ZL18get_consonant_typej.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit58.i ]
+229:                                              ; preds = %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i, %_ZL18get_consonant_typej.exit.i
+  %.140.i = phi i32 [ %171, %_ZL18get_consonant_typej.exit.i ], [ %.0396.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %.0396.i, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i ]
+  %.138.i = phi i32 [ %170, %_ZL18get_consonant_typej.exit.i ], [ %179, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %179, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i ]
+  %.1.i = phi i32 [ %168, %_ZL18get_consonant_typej.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit, label %.lr.ph.i, !llvm.loop !10
 
-_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit: ; preds = %232, %147, %143, %_ZN11hb_buffer_t13replace_glyphEj.exit
+_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit: ; preds = %229, %147, %143, %_ZN11hb_buffer_t13replace_glyphEj.exit
   ret void
 }
 

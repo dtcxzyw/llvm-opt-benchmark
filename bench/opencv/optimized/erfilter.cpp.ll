@@ -18601,219 +18601,214 @@ _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i107:
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %15, align 8
   %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-          to label %20 unwind label %.thread
+          to label %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i124 unwind label %.thread
 
-20:                                               ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i107
-  %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %18, i64 %21, i32 5
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
+_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i124: ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i107
+  %20 = sext i32 %17 to i64
+  %21 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %18, i64 %20, i32 5
+  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !alias.scope !199
   tail call void @_ZdlPv(ptr noundef nonnull %11) #32
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 4
-  %26 = sext i32 %25 to i64
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds %"class.std::vector", ptr %27, i64 %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr %28, align 8
-  %32 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
-          to label %33 unwind label %92
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = load i32, ptr %23, align 4
+  %25 = sext i32 %24 to i64
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds %"class.std::vector", ptr %26, i64 %25
+  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %29 = load i32, ptr %28, align 4
+  %30 = load ptr, ptr %27, align 8
+  %31 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
+          to label %32 unwind label %76
 
-33:                                               ; preds = %20
-  %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %31, i64 %34, i32 5
-  %36 = getelementptr inbounds i8, ptr %32, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %32, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !alias.scope !203
+32:                                               ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i124
+  %33 = sext i32 %29 to i64
+  %34 = getelementptr inbounds %"struct.cv::text::ERStat", ptr %30, i64 %33, i32 5
+  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %31, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !alias.scope !203
   tail call void @_ZdlPv(ptr noundef nonnull %19) #32
-  %37 = load i64, ptr %32, align 4
-  %.sroa.0200.0.extract.trunc = trunc i64 %37 to i32
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
-  %39 = load i32, ptr %38, align 4
-  %.sroa_idx192 = getelementptr inbounds i8, ptr %32, i64 20
-  %40 = getelementptr inbounds i8, ptr %32, i64 32
-  %41 = load i32, ptr %40, align 4
-  %.sroa_idx = getelementptr inbounds i8, ptr %32, i64 36
-  %.sroa.speculated197 = tail call i32 @llvm.smin.i32(i32 %39, i32 %.sroa.0200.0.extract.trunc)
-  %.sroa.speculated190 = tail call i32 @llvm.smin.i32(i32 %41, i32 %.sroa.speculated197)
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
-  %43 = getelementptr inbounds i8, ptr %1, i64 56
-  store i32 %.sroa.speculated190, ptr %43, align 4
-  %44 = load i32, ptr %32, align 4
-  %45 = getelementptr inbounds i8, ptr %32, i64 8
-  %46 = load i32, ptr %45, align 4
-  %47 = add nsw i32 %46, %44
-  %48 = getelementptr inbounds i8, ptr %32, i64 4
-  %49 = getelementptr inbounds i8, ptr %32, i64 12
-  %50 = load i32, ptr %38, align 4
-  %51 = getelementptr inbounds i8, ptr %32, i64 24
+  %36 = load i64, ptr %31, align 4
+  %.sroa.0200.0.extract.trunc = trunc i64 %36 to i32
+  %37 = getelementptr inbounds i8, ptr %31, i64 16
+  %38 = load i32, ptr %37, align 4
+  %.sroa_idx192 = getelementptr inbounds i8, ptr %31, i64 20
+  %39 = getelementptr inbounds i8, ptr %31, i64 32
+  %40 = load i32, ptr %39, align 4
+  %.sroa_idx = getelementptr inbounds i8, ptr %31, i64 36
+  %.sroa.speculated197 = tail call i32 @llvm.smin.i32(i32 %38, i32 %.sroa.0200.0.extract.trunc)
+  %.sroa.speculated190 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.sroa.speculated197)
+  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds i8, ptr %1, i64 56
+  store i32 %.sroa.speculated190, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %31, i64 8
+  %44 = load i32, ptr %43, align 4
+  %45 = add nsw i32 %44, %.sroa.0200.0.extract.trunc
+  %46 = getelementptr inbounds i8, ptr %31, i64 12
+  %47 = getelementptr inbounds i8, ptr %31, i64 24
+  %48 = load i32, ptr %47, align 4
+  %49 = add nsw i32 %48, %38
+  %50 = getelementptr inbounds i8, ptr %31, i64 28
+  %51 = getelementptr inbounds i8, ptr %31, i64 40
   %52 = load i32, ptr %51, align 4
-  %53 = add nsw i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %32, i64 28
-  %55 = load i32, ptr %40, align 4
-  %56 = getelementptr inbounds i8, ptr %32, i64 40
-  %57 = load i32, ptr %56, align 4
-  %58 = add nsw i32 %57, %55
-  %59 = getelementptr inbounds i8, ptr %32, i64 44
-  %.sroa.speculated182 = tail call i32 @llvm.smax.i32(i32 %47, i32 %53)
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated182, i32 %58)
-  %60 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 %.sroa.speculated, ptr %60, align 4
-  %61 = load i32, ptr %49, align 4
-  %62 = load i32, ptr %54, align 4
-  %63 = tail call i32 @llvm.smax.i32(i32 %61, i32 %62)
-  %64 = load i32, ptr %59, align 4
-  %65 = tail call i32 @llvm.smax.i32(i32 %63, i32 %64)
-  %66 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %65, ptr %66, align 4
-  %67 = load i32, ptr %32, align 4
-  %68 = load i32, ptr %45, align 4
-  %69 = add nsw i32 %68, %67
-  %70 = load i32, ptr %48, align 4
-  %71 = load i32, ptr %49, align 4
-  %72 = add nsw i32 %71, %70
-  %.sroa.2.0.insert.ext.i153 = zext i32 %72 to i64
+  %53 = add nsw i32 %52, %40
+  %54 = getelementptr inbounds i8, ptr %31, i64 44
+  %.sroa.speculated182 = tail call i32 @llvm.smax.i32(i32 %45, i32 %49)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated182, i32 %53)
+  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 %.sroa.speculated, ptr %55, align 4
+  %56 = load i32, ptr %46, align 4
+  %57 = load i32, ptr %50, align 4
+  %58 = tail call i32 @llvm.smax.i32(i32 %56, i32 %57)
+  %59 = load i32, ptr %54, align 4
+  %60 = tail call i32 @llvm.smax.i32(i32 %58, i32 %59)
+  %61 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 %60, ptr %61, align 4
+  %62 = lshr i64 %36, 32
+  %63 = trunc nuw i64 %62 to i32
+  %64 = add nsw i32 %56, %63
+  %.sroa.2.0.insert.ext.i153 = zext i32 %64 to i64
   %.sroa.2.0.insert.shift.i154 = shl nuw i64 %.sroa.2.0.insert.ext.i153, 32
-  %.sroa.0.0.insert.ext.i155 = zext i32 %69 to i64
+  %.sroa.0.0.insert.ext.i155 = zext i32 %45 to i64
   %.sroa.0.0.insert.insert.i156 = or disjoint i64 %.sroa.2.0.insert.shift.i154, %.sroa.0.0.insert.ext.i155
-  %73 = load i32, ptr %38, align 4
-  %74 = load i32, ptr %51, align 4
-  %75 = add nsw i32 %74, %73
-  %76 = load i32, ptr %.sroa_idx192, align 4
-  %77 = load i32, ptr %54, align 4
-  %78 = add nsw i32 %77, %76
-  %.sroa.2.0.insert.ext.i157 = zext i32 %78 to i64
+  %65 = load i32, ptr %.sroa_idx192, align 4
+  %66 = add nsw i32 %57, %65
+  %.sroa.2.0.insert.ext.i157 = zext i32 %66 to i64
   %.sroa.2.0.insert.shift.i158 = shl nuw i64 %.sroa.2.0.insert.ext.i157, 32
-  %.sroa.0.0.insert.ext.i159 = zext i32 %75 to i64
+  %.sroa.0.0.insert.ext.i159 = zext i32 %49 to i64
   %.sroa.0.0.insert.insert.i160 = or disjoint i64 %.sroa.2.0.insert.shift.i158, %.sroa.0.0.insert.ext.i159
-  %79 = load i32, ptr %40, align 4
-  %80 = load i32, ptr %56, align 4
-  %81 = add nsw i32 %80, %79
-  %82 = load i32, ptr %.sroa_idx, align 4
-  %83 = load i32, ptr %59, align 4
-  %84 = add nsw i32 %83, %82
-  %.sroa.2.0.insert.ext.i161 = zext i32 %84 to i64
+  %67 = load i32, ptr %.sroa_idx, align 4
+  %68 = add nsw i32 %59, %67
+  %.sroa.2.0.insert.ext.i161 = zext i32 %68 to i64
   %.sroa.2.0.insert.shift.i162 = shl nuw i64 %.sroa.2.0.insert.ext.i161, 32
-  %.sroa.0.0.insert.ext.i163 = zext i32 %81 to i64
+  %.sroa.0.0.insert.ext.i163 = zext i32 %53 to i64
   %.sroa.0.0.insert.insert.i164 = or disjoint i64 %.sroa.2.0.insert.shift.i162, %.sroa.0.0.insert.ext.i163
-  %85 = getelementptr inbounds i8, ptr %1, i64 40
-  %86 = getelementptr inbounds i8, ptr %1, i64 44
-  %87 = tail call noundef float @_ZN2cv4text10fitLineLMSENS_6Point_IiEES2_S2_RfS3_(i64 %.sroa.0.0.insert.insert.i156, i64 %.sroa.0.0.insert.insert.i160, i64 %.sroa.0.0.insert.insert.i164, ptr noundef nonnull align 4 dereferenceable(4) %85, ptr noundef nonnull align 4 dereferenceable(4) %86)
-  %88 = load float, ptr %85, align 4
-  %89 = fcmp une float %88, -1.000000e+00
-  %90 = load float, ptr %86, align 4
-  %91 = fcmp une float %90, 0.000000e+00
-  %or.cond.not = select i1 %89, i1 true, i1 %91
-  br i1 %or.cond.not, label %93, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167
+  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %70 = getelementptr inbounds i8, ptr %1, i64 44
+  %71 = tail call noundef float @_ZN2cv4text10fitLineLMSENS_6Point_IiEES2_S2_RfS3_(i64 %.sroa.0.0.insert.insert.i156, i64 %.sroa.0.0.insert.insert.i160, i64 %.sroa.0.0.insert.insert.i164, ptr noundef nonnull align 4 dereferenceable(4) %69, ptr noundef nonnull align 4 dereferenceable(4) %70)
+  %72 = load float, ptr %69, align 4
+  %73 = fcmp une float %72, -1.000000e+00
+  %74 = load float, ptr %70, align 4
+  %75 = fcmp une float %74, 0.000000e+00
+  %or.cond.not = select i1 %73, i1 true, i1 %75
+  br i1 %or.cond.not, label %77, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167
 
 .thread:                                          ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i107
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
-92:                                               ; preds = %20
+76:                                               ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i124
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.thread, %92
-  %lpad.phi252 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %92 ]
-  %.sroa.0202.3251 = phi ptr [ %11, %.thread ], [ %19, %92 ]
+_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.thread, %76
+  %lpad.phi252 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %76 ]
+  %.sroa.0202.3251 = phi ptr [ %11, %.thread ], [ %19, %76 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0202.3251) #32
   resume { ptr, i32 } %lpad.phi252
 
-93:                                               ; preds = %33
-  %94 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %90, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 28
-  store float %90, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %1, i64 36
-  store float %90, ptr %96, align 4
-  %97 = tail call noundef float @llvm.fabs.f32(float %87)
-  %98 = load i32, ptr %66, align 4
-  %99 = sitofp i32 %98 to float
-  %100 = fdiv float %99, 6.000000e+00
-  %101 = fcmp ogt float %97, %100
-  %102 = fadd float %87, %88
-  %.sink = select i1 %101, float %102, float %88
-  %103 = getelementptr inbounds i8, ptr %1, i64 48
-  store float %.sink, ptr %103, align 4
-  %104 = load i64, ptr %32, align 4
-  %105 = load i64, ptr %38, align 4
-  %.sroa.139.0.extract.shift = lshr i64 %104, 32
-  %.sroa.139.0.extract.trunc = trunc nuw i64 %.sroa.139.0.extract.shift to i32
-  %.sroa.137.0.extract.shift = lshr i64 %105, 32
+77:                                               ; preds = %32
+  %78 = getelementptr inbounds i8, ptr %1, i64 52
+  store float %74, ptr %78, align 4
+  %79 = getelementptr inbounds i8, ptr %1, i64 28
+  store float %74, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %1, i64 36
+  store float %74, ptr %80, align 4
+  %81 = tail call noundef float @llvm.fabs.f32(float %71)
+  %82 = load i32, ptr %61, align 4
+  %83 = sitofp i32 %82 to float
+  %84 = fdiv float %83, 6.000000e+00
+  %85 = fcmp ogt float %81, %84
+  %86 = fadd float %71, %72
+  %.sink = select i1 %85, float %86, float %72
+  %87 = getelementptr inbounds i8, ptr %1, i64 48
+  store float %.sink, ptr %87, align 4
+  %88 = load i64, ptr %37, align 4
+  %.sroa.137.0.extract.shift = lshr i64 %88, 32
   %.sroa.137.0.extract.trunc = trunc nuw i64 %.sroa.137.0.extract.shift to i32
-  %106 = sub nsw i32 %.sroa.139.0.extract.trunc, %.sroa.137.0.extract.trunc
-  %107 = tail call i32 @llvm.abs.i32(i32 %106, i1 true)
-  %108 = load i64, ptr %40, align 4
-  %.sroa.131.0.extract.shift = lshr i64 %108, 32
+  %89 = sub nsw i32 %63, %.sroa.137.0.extract.trunc
+  %90 = tail call i32 @llvm.abs.i32(i32 %89, i1 true)
+  %91 = load i64, ptr %39, align 4
+  %.sroa.131.0.extract.shift = lshr i64 %91, 32
   %.sroa.131.0.extract.trunc = trunc nuw i64 %.sroa.131.0.extract.shift to i32
-  %109 = sub nsw i32 %.sroa.139.0.extract.trunc, %.sroa.131.0.extract.trunc
-  %110 = tail call i32 @llvm.abs.i32(i32 %109, i1 true)
-  %111 = sub nsw i32 %.sroa.137.0.extract.trunc, %.sroa.131.0.extract.trunc
-  %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
-  %113 = icmp ult i32 %107, %110
-  %114 = icmp ult i32 %107, %112
-  %or.cond104 = select i1 %113, i1 %114, i1 false
-  br i1 %or.cond104, label %115, label %118
+  %92 = sub nsw i32 %63, %.sroa.131.0.extract.trunc
+  %93 = tail call i32 @llvm.abs.i32(i32 %92, i1 true)
+  %94 = sub nsw i32 %.sroa.137.0.extract.trunc, %.sroa.131.0.extract.trunc
+  %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
+  %96 = icmp ult i32 %90, %93
+  %97 = icmp ult i32 %90, %95
+  %or.cond104 = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond104, label %98, label %108
 
-115:                                              ; preds = %93
-  %.sroa.023.0.extract.trunc = trunc i64 %104 to i32
-  %.sroa.021.0.extract.trunc = trunc i64 %105 to i32
-  %116 = add nsw i32 %.sroa.021.0.extract.trunc, %.sroa.023.0.extract.trunc
-  %117 = add nsw i32 %.sroa.137.0.extract.trunc, %.sroa.139.0.extract.trunc
+98:                                               ; preds = %77
+  %.sroa.021.0.extract.trunc = trunc i64 %88 to i32
+  %99 = add nsw i32 %.sroa.021.0.extract.trunc, %.sroa.0200.0.extract.trunc
+  %100 = sdiv i32 %99, 2
+  %101 = add nsw i32 %.sroa.137.0.extract.trunc, %63
+  %102 = sdiv i32 %101, 2
+  %103 = sitofp i32 %102 to float
+  %104 = sitofp i32 %100 to float
+  %105 = tail call float @llvm.fmuladd.f32(float %104, float %74, float %72)
+  %106 = fsub float %103, %105
+  %107 = fadd float %72, %106
+  store float %107, ptr %41, align 4
+  %.sroa.0174.0.extract.trunc = trunc i64 %91 to i32
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split
 
-118:                                              ; preds = %93
-  %119 = icmp ult i32 %110, %112
-  %.sroa.012.0.extract.trunc = trunc i64 %108 to i32
-  br i1 %119, label %120, label %123
+108:                                              ; preds = %77
+  %109 = icmp ult i32 %93, %95
+  br i1 %109, label %110, label %120
 
-120:                                              ; preds = %118
-  %.sroa.014.0.extract.trunc = trunc i64 %104 to i32
-  %121 = add nsw i32 %.sroa.012.0.extract.trunc, %.sroa.014.0.extract.trunc
-  %122 = add nsw i32 %.sroa.131.0.extract.trunc, %.sroa.139.0.extract.trunc
+110:                                              ; preds = %108
+  %.sroa.012.0.extract.trunc = trunc i64 %91 to i32
+  %111 = add nsw i32 %.sroa.012.0.extract.trunc, %.sroa.0200.0.extract.trunc
+  %112 = sdiv i32 %111, 2
+  %113 = add nsw i32 %.sroa.131.0.extract.trunc, %63
+  %114 = sdiv i32 %113, 2
+  %115 = sitofp i32 %114 to float
+  %116 = sitofp i32 %112 to float
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float %74, float %72)
+  %118 = fsub float %115, %117
+  %119 = fadd float %72, %118
+  store float %119, ptr %41, align 4
+  %.sroa.0170.0.extract.trunc = trunc i64 %88 to i32
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split
 
-123:                                              ; preds = %118
-  %.sroa.05.0.extract.trunc = trunc i64 %105 to i32
-  %124 = add nsw i32 %.sroa.012.0.extract.trunc, %.sroa.05.0.extract.trunc
-  %125 = add nsw i32 %.sroa.131.0.extract.trunc, %.sroa.137.0.extract.trunc
+120:                                              ; preds = %108
+  %.sroa.05.0.extract.trunc = trunc i64 %88 to i32
+  %.sroa.04.0.extract.trunc = trunc i64 %91 to i32
+  %121 = add nsw i32 %.sroa.04.0.extract.trunc, %.sroa.05.0.extract.trunc
+  %122 = sdiv i32 %121, 2
+  %123 = add nsw i32 %.sroa.131.0.extract.trunc, %.sroa.137.0.extract.trunc
+  %124 = sdiv i32 %123, 2
+  %125 = sitofp i32 %124 to float
+  %126 = sitofp i32 %122 to float
+  %127 = tail call float @llvm.fmuladd.f32(float %126, float %74, float %72)
+  %128 = fsub float %125, %127
+  %129 = fadd float %72, %128
+  store float %129, ptr %41, align 4
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split
 
-_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split: ; preds = %120, %123, %115
-  %.sink274 = phi i32 [ %122, %120 ], [ %125, %123 ], [ %117, %115 ]
-  %.sink272.in = phi i32 [ %121, %120 ], [ %124, %123 ], [ %116, %115 ]
-  %.sink266 = phi ptr [ %38, %120 ], [ %32, %123 ], [ %40, %115 ]
-  %.sink272 = sdiv i32 %.sink272.in, 2
-  %126 = sdiv i32 %.sink274, 2
-  %127 = sitofp i32 %126 to float
-  %128 = sitofp i32 %.sink272 to float
-  %129 = tail call float @llvm.fmuladd.f32(float %128, float %90, float %88)
-  %130 = fsub float %127, %129
-  %131 = fadd float %88, %130
-  store float %131, ptr %42, align 4
-  %132 = load i64, ptr %.sink266, align 4
-  %.sroa.0170.0.extract.trunc = trunc i64 %132 to i32
-  %.sroa.4172.0.extract.shift = lshr i64 %132, 32
-  %.sroa.4172.0.extract.trunc = trunc nuw i64 %.sroa.4172.0.extract.shift to i32
-  %133 = sitofp i32 %.sroa.4172.0.extract.trunc to float
-  %134 = sitofp i32 %.sroa.0170.0.extract.trunc to float
-  %135 = tail call float @llvm.fmuladd.f32(float %134, float %90, float %131)
-  %136 = fsub float %133, %135
-  %137 = tail call noundef float @llvm.fabs.f32(float %136)
-  %138 = fcmp ogt float %137, %100
-  %139 = fadd float %136, %131
-  %.sink275 = select i1 %138, float %139, float %131
-  %140 = getelementptr inbounds i8, ptr %1, i64 32
-  store float %.sink275, ptr %140, align 4
+_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split: ; preds = %110, %120, %98
+  %.sroa.137.0.extract.trunc.sink = phi i32 [ %.sroa.137.0.extract.trunc, %110 ], [ %63, %120 ], [ %.sroa.131.0.extract.trunc, %98 ]
+  %.sroa.0170.0.extract.trunc.sink = phi i32 [ %.sroa.0170.0.extract.trunc, %110 ], [ %.sroa.0200.0.extract.trunc, %120 ], [ %.sroa.0174.0.extract.trunc, %98 ]
+  %.sink263 = phi float [ %119, %110 ], [ %129, %120 ], [ %107, %98 ]
+  %130 = sitofp i32 %.sroa.137.0.extract.trunc.sink to float
+  %131 = sitofp i32 %.sroa.0170.0.extract.trunc.sink to float
+  %132 = tail call float @llvm.fmuladd.f32(float %131, float %74, float %.sink263)
+  %133 = fsub float %130, %132
+  %134 = tail call noundef float @llvm.fabs.f32(float %133)
+  %135 = fcmp ogt float %134, %84
+  %136 = fadd float %133, %.sink263
+  %.sink264 = select i1 %135, float %136, float %.sink263
+  %137 = getelementptr inbounds i8, ptr %1, i64 32
+  store float %.sink264, ptr %137, align 4
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167
 
-_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167:  ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split, %33
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #32
+_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167:  ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit167.sink.split, %32
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #32
   ret i1 %or.cond.not
 }
 

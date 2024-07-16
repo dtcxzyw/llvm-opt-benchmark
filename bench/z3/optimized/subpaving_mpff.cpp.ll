@@ -24072,7 +24072,8 @@ sw.bb18:                                          ; preds = %for.body
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit: ; preds = %sw.bb18
   %cmp23 = icmp eq i32 %33, 0
-  br i1 %cmp23, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, label %if.end25
+  call void @llvm.assume(i1 %cmp23)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread: ; preds = %sw.bb18
   %arrayidx.i43 = getelementptr inbounds i8, ptr %35, i64 -8
@@ -24080,7 +24081,7 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_confi
   %cmp2379 = icmp eq i64 %41, %conv
   br i1 %cmp2379, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, label %if.end25
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread
   %cond.i.i = phi i64 [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit ], [ %conv, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ]
   %cmp.i44 = icmp eq i64 %cond.i.i, 0
   %mul.i = mul nuw nsw i64 %cond.i.i, 3
@@ -24114,8 +24115,8 @@ _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_confi
   call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %45, i64 noundef %add.i14.i, ptr noundef nonnull %arrayidx.i.i.i)
   br label %if.end25
 
-if.end25:                                         ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit
-  %vs.0 = phi ptr [ null, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit ], [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
+if.end25:                                         ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread
+  %vs.0 = phi ptr [ %35, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %31, i64 8
   %46 = load ptr, ptr %m_elem26, align 8
   %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv

@@ -351,18 +351,14 @@ land.lhs.true34:                                  ; preds = %lor.lhs.false32
   br i1 %cmp35, label %if.then45, label %land.lhs.true55
 
 land.lhs.true38:                                  ; preds = %lor.lhs.false32
-  %9 = load ptr, ptr %ctx, align 8
-  %cmp40.not = icmp eq ptr %9, null
-  br i1 %cmp40.not, label %if.end87, label %land.lhs.true41
-
-land.lhs.true41:                                  ; preds = %land.lhs.true38
+  %9 = load ptr, ptr %ctx, align 8, !nonnull !4, !noundef !4
   %origin43 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load i32, ptr %origin43, align 8
   %cmp44 = icmp eq i32 %10, 2
   br i1 %cmp44, label %if.then45, label %if.end87
 
-if.then45:                                        ; preds = %if.end25.if.then45_crit_edge, %land.lhs.true41, %land.lhs.true34
-  %11 = phi ptr [ %.pre227, %if.end25.if.then45_crit_edge ], [ %9, %land.lhs.true41 ], [ %.pre228, %land.lhs.true34 ]
+if.then45:                                        ; preds = %if.end25.if.then45_crit_edge, %land.lhs.true38, %land.lhs.true34
+  %11 = phi ptr [ %.pre227, %if.end25.if.then45_crit_edge ], [ %9, %land.lhs.true38 ], [ %.pre228, %land.lhs.true34 ]
   %fetched_cipher = getelementptr inbounds i8, ptr %ctx, i64 176
   %12 = load ptr, ptr %fetched_cipher, align 8
   %cmp47 = icmp eq ptr %11, %12
@@ -452,8 +448,8 @@ if.then77:                                        ; preds = %land.lhs.true73
   store i64 %21, ptr %flags78, align 8
   br label %if.end87
 
-if.end87:                                         ; preds = %land.lhs.true41, %land.lhs.true38, %land.lhs.true55, %land.lhs.true73, %if.then77
-  %cipher.addr.0 = phi ptr [ %cipher, %if.then77 ], [ %cipher, %land.lhs.true73 ], [ %cipher, %land.lhs.true55 ], [ null, %land.lhs.true38 ], [ %9, %land.lhs.true41 ]
+if.end87:                                         ; preds = %land.lhs.true38, %land.lhs.true55, %land.lhs.true73, %if.then77
+  %cipher.addr.0 = phi ptr [ %cipher, %if.then77 ], [ %cipher, %land.lhs.true73 ], [ %cipher, %land.lhs.true55 ], [ %9, %land.lhs.true38 ]
   %prov = getelementptr inbounds i8, ptr %cipher.addr.0, i64 120
   %22 = load ptr, ptr %prov, align 8
   %cmp88 = icmp eq ptr %22, null
@@ -1907,7 +1903,7 @@ if.then69:                                        ; preds = %cond.end61
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.052, 1
   %exitcond.not = icmp eq i32 %inc, %conv63
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %cond.end61, %for.cond
   %i.052 = phi i32 [ %inc, %for.cond ], [ 0, %cond.end61 ]
@@ -1942,7 +1938,7 @@ for.body87:                                       ; preds = %for.body87.preheade
   store i8 %17, ptr %arrayidx92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond56.not, label %if.end97, label %for.body87, !llvm.loop !6
+  br i1 %exitcond56.not, label %if.end97, label %for.body87, !llvm.loop !7
 
 if.end97:                                         ; preds = %for.body87, %for.end, %if.end46
   %storemerge = phi i32 [ 0, %if.end46 ], [ %sub83, %for.end ], [ %sub83, %for.body87 ]
@@ -3731,7 +3727,7 @@ for.inc:                                          ; preds = %for.cond, %if.end16
   %fnciphcnt.1 = phi i32 [ %fnciphcnt.0, %sw.bb96 ], [ %fnciphcnt.0, %if.end99 ], [ %fnciphcnt.0, %sw.bb90 ], [ %fnciphcnt.0, %if.end93 ], [ %fnciphcnt.0, %sw.bb84 ], [ %fnciphcnt.0, %if.end87 ], [ %fnciphcnt.0, %sw.bb78 ], [ %fnciphcnt.0, %if.end81 ], [ %fnciphcnt.0, %sw.bb72 ], [ %fnciphcnt.0, %if.end75 ], [ %fnciphcnt.0, %sw.bb66 ], [ %fnciphcnt.0, %if.end69 ], [ %fnciphcnt.0, %sw.bb60 ], [ %fnciphcnt.0, %if.end63 ], [ %fnciphcnt.0, %sw.bb53 ], [ %fnciphcnt.0, %if.end56 ], [ %fnciphcnt.0, %sw.bb47 ], [ %fnciphcnt.0, %if.end50 ], [ %fnciphcnt.0, %sw.bb40 ], [ %inc46, %if.end43 ], [ %fnciphcnt.0, %sw.bb33 ], [ %inc39, %if.end36 ], [ %fnciphcnt.0, %sw.bb26 ], [ %inc32, %if.end29 ], [ %fnciphcnt.0, %sw.bb19 ], [ %inc25, %if.end22 ], [ %fnciphcnt.0, %sw.bb ], [ %fnciphcnt.0, %if.end16 ], [ %fnciphcnt.0, %for.cond ]
   %fnctxcnt.1 = phi i32 [ %fnctxcnt.0, %sw.bb96 ], [ %fnctxcnt.0, %if.end99 ], [ %fnctxcnt.0, %sw.bb90 ], [ %fnctxcnt.0, %if.end93 ], [ %fnctxcnt.0, %sw.bb84 ], [ %fnctxcnt.0, %if.end87 ], [ %fnctxcnt.0, %sw.bb78 ], [ %fnctxcnt.0, %if.end81 ], [ %fnctxcnt.0, %sw.bb72 ], [ %fnctxcnt.0, %if.end75 ], [ %fnctxcnt.0, %sw.bb66 ], [ %fnctxcnt.0, %if.end69 ], [ %fnctxcnt.0, %sw.bb60 ], [ %fnctxcnt.0, %if.end63 ], [ %fnctxcnt.0, %sw.bb53 ], [ %inc59, %if.end56 ], [ %fnctxcnt.0, %sw.bb47 ], [ %fnctxcnt.0, %if.end50 ], [ %fnctxcnt.0, %sw.bb40 ], [ %fnctxcnt.0, %if.end43 ], [ %fnctxcnt.0, %sw.bb33 ], [ %fnctxcnt.0, %if.end36 ], [ %fnctxcnt.0, %sw.bb26 ], [ %fnctxcnt.0, %if.end29 ], [ %fnctxcnt.0, %sw.bb19 ], [ %fnctxcnt.0, %if.end22 ], [ %fnctxcnt.0, %sw.bb ], [ %inc, %if.end16 ], [ %fnctxcnt.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
-  br label %for.cond, !llvm.loop !7
+  br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
   switch i32 %fnciphcnt.0, label %lor.lhs.false.i105 [
@@ -3997,7 +3993,8 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

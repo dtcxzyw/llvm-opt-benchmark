@@ -48889,18 +48889,18 @@ define hidden void @"_ZN81_$LT$typst..foundations..dict..Dict$u20$as$u20$typst..
 
 .thread15.i:                                      ; preds = %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i", %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i.i"
   %.sroa.4.0.i.ph19.i = phi i32 [ %58, %48 ], [ %37, %36 ], [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i.i" ]
-  %.sroa.0.3.ph18.i = phi ptr [ %50, %48 ], [ %23, %36 ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i" ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i.i" ]
+  %.sroa.0.0.ph18.i = phi ptr [ %50, %48 ], [ %23, %36 ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i" ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i.i" ]
   %60 = tail call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h9786866cf3c6de21E(i32 noundef %.sroa.4.0.i.ph19.i), !noalias !10226
   %61 = icmp eq i32 %.sroa.4.0.i.ph19.i, 95
   %.02.i.i = or i1 %61, %60
   br i1 %.02.i.i, label %62, label %.loopexit
 
 62:                                               ; preds = %.thread15.i
-  %63 = icmp eq ptr %.sroa.0.3.ph18.i, %20
+  %63 = icmp eq ptr %.sroa.0.0.ph18.i, %20
   br i1 %63, label %_ZN12typst_syntax5lexer8is_ident17h8309d7c2b479ef53E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %62, %.backedge.i.i.i
-  %64 = phi ptr [ %100, %.backedge.i.i.i ], [ %.sroa.0.3.ph18.i, %62 ]
+  %64 = phi ptr [ %100, %.backedge.i.i.i ], [ %.sroa.0.0.ph18.i, %62 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 1
   %66 = load i8, ptr %64, align 1, !alias.scope !10220, !noalias !10229, !noundef !4
   %67 = icmp sgt i8 %66, -1

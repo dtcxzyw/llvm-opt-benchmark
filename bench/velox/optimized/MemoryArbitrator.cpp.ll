@@ -1558,17 +1558,14 @@ _ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoo
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %14 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 384307168202282325)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 384307168202282325, i64 %14
-  %cmp.not.i.i.i.i24 = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i24, label %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i24 = icmp ne i64 %cond.i.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i.i24)
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 24
   %call5.i.i.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #33
-          to label %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i unwind label %lpad24.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad24.loopexit
 
-_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i28, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %struct.Candidate, ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i28, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %10, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %.pr.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
@@ -1576,9 +1573,9 @@ _ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10Mem
   store i64 %call21, ptr %reservedBytes.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val.i.i.i, %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i28, %call5.i.i.i.i.i.i.noexc ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
@@ -1595,8 +1592,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !43
 
-_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i28, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i.i25 = icmp eq ptr %this.val.i.i.i, null
   br i1 %tobool.not.i.i.i.i25, label %_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %if.then.i26.i.i.i
@@ -1606,9 +1603,9 @@ if.then.i26.i.i.i:                                ; preds = %_ZNSt6vectorIZN8fac
   br label %_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %if.then.i26.i.i.i, %_ZNSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25.i.i.i
-  store ptr %cond.i12.i.i.i, ptr %candidates, align 8
+  store ptr %call5.i.i.i.i.i.i28, ptr %candidates, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds %struct.Candidate, ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds %struct.Candidate, ptr %call5.i.i.i.i.i.i28, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %2, align 8
   br label %_ZNSt10shared_ptrIN8facebook5velox6memory10MemoryPoolEED2Ev.exit
 
@@ -1637,7 +1634,7 @@ lpad19:                                           ; preds = %if.then15
           cleanup
   br label %ehcleanup
 
-lpad24.loopexit:                                  ; preds = %cond.true.i.i.i.i
+lpad24.loopexit:                                  ; preds = %_ZNKSt6vectorIZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS2_10MemoryPoolEmmRNS3_5StatsEE9CandidateSaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit63 = landingpad { ptr, i32 }
           cleanup
   br label %lpad24

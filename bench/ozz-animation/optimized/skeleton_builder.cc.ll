@@ -69,7 +69,7 @@ define dso_local void @_ZNK3ozz9animation7offline15SkeletonBuilderclERKNS1_11Raw
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
           to label %.noexc.i unwind label %36
 
 .noexc.i:                                         ; preds = %20
@@ -97,7 +97,7 @@ define dso_local void @_ZNK3ozz9animation7offline15SkeletonBuilderclERKNS1_11Raw
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #14
+  tail call void @__clang_call_terminate(ptr %34) #15
   unreachable
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m.exit.i.i: ; preds = %26
@@ -110,7 +110,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0
 36:                                               ; preds = %20
   %37 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  call fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   br label %.body
 
 _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerC2Ei.exit: ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE13_M_deallocateEPS5_m.exit.i.i, %21
@@ -147,7 +147,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %47 = landingpad { ptr, i32 }
           cleanup
   %.val280 = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr %.val280) #15
+  tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev(ptr %.val280) #16
   br label %.body
 
 _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit._crit_edge: ; preds = %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit.preheader
@@ -184,7 +184,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   store ptr %.0273287, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %53, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0273287, ptr noundef nonnull dereferenceable(1) %57) #15
+  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0273287, ptr noundef nonnull dereferenceable(1) %57) #16
   %59 = getelementptr inbounds i8, ptr %53, i64 32
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 1
@@ -372,12 +372,12 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  tail call void @__clang_call_terminate(ptr %185) #14
+  tail call void @__clang_call_terminate(ptr %185) #15
   unreachable
 
 .body:                                            ; preds = %44, %36, %46
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %37, %36 ]
-  tail call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   resume { ptr, i32 } %.pn
 
 _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %179, %._crit_edge, %9
@@ -415,7 +415,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_111JointListe
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #14
+  tail call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev.exit: ; preds = %0, %3
@@ -429,7 +429,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonEN
   br i1 %.not, label %_ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #15
+  tail call void @_ZN3ozz9animation8SkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #16
   %4 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %.noexc unwind label %8
 
@@ -448,7 +448,7 @@ _ZNK3ozz7DeleterINS_9animation8SkeletonEEclEPS2_.exit: ; preds = %.noexc, %1
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #14
+  tail call void @__clang_call_terminate(ptr %10) #15
   unreachable
 }
 
@@ -457,8 +457,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -487,7 +487,7 @@ define internal fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_11
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #14
+  tail call void @__clang_call_terminate(ptr %10) #15
   unreachable
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEED2Ev.exit: ; preds = %1, %4
@@ -525,8 +525,8 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit
-  %10 = phi ptr [ %6, %.lr.ph ], [ %70, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
+  %10 = phi ptr [ %6, %.lr.ph ], [ %68, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %66, %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit ]
   %11 = getelementptr inbounds %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %10, i64 %.010
   br i1 %.not.i, label %..loopexit_crit_edge.i, label %12
 
@@ -582,7 +582,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
   br i1 %33, label %34, label %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i
 
 34:                                               ; preds = %29
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #13
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
   unreachable
 
 _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %29
@@ -593,87 +593,84 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12Std
   %38 = icmp ult i64 %37, %35
   %39 = tail call i64 @llvm.umin.i64(i64 %37, i64 576460752303423487)
   %40 = select i1 %38, i64 576460752303423487, i64 %39
-  %.not.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i, label %52, label %41
+  %.not.i.i.i.i = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %41 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %42 unwind label %48
 
-41:                                               ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i
-  %42 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %43 unwind label %49
+42:                                               ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i
+  %43 = shl nuw nsw i64 %40, 4
+  %44 = load ptr, ptr %41, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %41, i64 noundef %43, i64 noundef 8)
+          to label %51 unwind label %48
 
-43:                                               ; preds = %41
-  %44 = shl nuw nsw i64 %40, 4
-  %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %44, i64 noundef 8)
-          to label %52 unwind label %49
-
-49:                                               ; preds = %43, %41
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %42, %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #14
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #15
   unreachable
 
-52:                                               ; preds = %43, %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i
-  %53 = phi ptr [ null, %_ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE12_M_check_lenEmPKc.exit.i.i.i ], [ %48, %43 ]
-  %54 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %53, i64 %35
-  store ptr %11, ptr %54, align 8
-  %.sroa.3.0..sroa_idx13.i = getelementptr inbounds i8, ptr %54, i64 8
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds i8, ptr %47, i64 %32
+  store ptr %11, ptr %52, align 8
+  %.sroa.3.0..sroa_idx13.i = getelementptr inbounds i8, ptr %52, i64 8
   store i16 %.08.i, ptr %.sroa.3.0..sroa_idx13.i, align 8
   br i1 %36, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %52, %.lr.ph.i.i.i.i.i
-  %.04.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %53, %52 ]
-  %.sroa.01.03.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i ], [ %.val.i.i.i, %52 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %51, %.lr.ph.i.i.i.i.i
+  %.04.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %47, %51 ]
+  %.sroa.01.03.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %.val.i.i.i, %51 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.01.03.i.i.i.i.i, i64 16, i1 false)
-  %55 = getelementptr inbounds i8, ptr %.sroa.01.03.i.i.i.i.i, i64 16
-  %56 = getelementptr inbounds i8, ptr %.04.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %55, %24
+  %53 = getelementptr inbounds i8, ptr %.sroa.01.03.i.i.i.i.i, i64 16
+  %54 = getelementptr inbounds i8, ptr %.04.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %53, %24
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %52
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %53, %52 ], [ %56, %.lr.ph.i.i.i.i.i ]
-  %57 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %51
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %47, %51 ], [ %54, %.lr.ph.i.i.i.i.i ]
+  %55 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i39.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i39.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i, label %58
+  br i1 %.not.i39.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i, label %56
 
-58:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i
-  %59 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %60 unwind label %64
+56:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i
+  %57 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %58 unwind label %62
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %.val.i.i.i)
-          to label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i unwind label %64
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %.val.i.i.i)
+          to label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i unwind label %62
 
-64:                                               ; preds = %60, %58
-  %65 = landingpad { ptr, i32 }
+62:                                               ; preds = %58, %56
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #14
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #15
   unreachable
 
-_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i: ; preds = %60, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i
-  store ptr %53, ptr %2, align 8
-  store ptr %57, ptr %7, align 8
-  %67 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %53, i64 %40
-  store ptr %67, ptr %8, align 8
+_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i: ; preds = %58, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointES6_NS0_12StdAllocatorIS5_EEET0_T_SA_S9_RT1_.exit38.i.i.i
+  store ptr %47, ptr %2, align 8
+  store ptr %55, ptr %7, align 8
+  %65 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %47, i64 %40
+  store ptr %65, ptr %8, align 8
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit: ; preds = %26, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_111JointLister5JointENS0_12StdAllocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i.i
   tail call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHierarchyRecurseDFINS2_11JointListerEEEvRKSt6vectorINS1_11RawSkeleton5JointENS_12StdAllocatorIS7_EEEPKS7_RT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %68 = add nuw i64 %.010, 1
-  %69 = load ptr, ptr %4, align 8
-  %70 = load ptr, ptr %0, align 8
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = sdiv exact i64 %73, 96
-  %75 = icmp ult i64 %68, %74
-  br i1 %75, label %9, label %._crit_edge, !llvm.loop !16
+  %66 = add nuw i64 %.010, 1
+  %67 = load ptr, ptr %4, align 8
+  %68 = load ptr, ptr %0, align 8
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = sdiv exact i64 %71, 96
+  %73 = icmp ult i64 %66, %72
+  br i1 %73, label %9, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5JointEPS6_.exit, %3
   ret void
@@ -682,8 +679,11 @@ _ZN3ozz9animation7offline12_GLOBAL__N_111JointListerclERKNS1_11RawSkeleton5Joint
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -700,10 +700,11 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { noreturn }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { noreturn }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

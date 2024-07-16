@@ -73,7 +73,7 @@ define void @mca_pml_ob1_recv_request_process_pending() local_unnamed_addr #0 {
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %8
 
 8:                                                ; preds = %.lr.ph, %6
@@ -103,7 +103,7 @@ opal_list_remove_first.exit:                      ; preds = %8, %11
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %opal_list_remove_first.exit
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %25
 
 25:                                               ; preds = %opal_list_remove_first.exit, %23
@@ -215,7 +215,7 @@ define internal void @mca_pml_ob1_recv_request_construct(ptr noundef %0) #0 {
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void @opal_class_initialize(ptr noundef nonnull @opal_mutex_t_class) #9
+  tail call void @opal_class_initialize(ptr noundef nonnull @opal_mutex_t_class) #10
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -231,7 +231,7 @@ define internal void @mca_pml_ob1_recv_request_construct(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %15 = phi ptr [ %17, %.lr.ph.i ], [ %14, %10 ]
   %.07.i = phi ptr [ %16, %.lr.ph.i ], [ %13, %10 ]
-  tail call void %15(ptr noundef nonnull %11) #9
+  tail call void %15(ptr noundef nonnull %11) #10
   %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
@@ -254,7 +254,7 @@ define internal void @mca_pml_ob1_recv_request_destruct(ptr noundef %0) #0 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %1 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %1 ]
-  tail call void %7(ptr noundef nonnull %2) #9
+  tail call void %7(ptr noundef nonnull %2) #10
   %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -273,7 +273,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %.val, i64 264
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %.val, ptr noundef nonnull %11) #9
+  %18 = tail call i32 %17(ptr noundef %.val, ptr noundef nonnull %11) #10
   store ptr null, ptr %10, align 8
   br label %19
 
@@ -289,7 +289,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture
   %.val11 = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %.val, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef %.val, ptr noundef %.val11, i8 noundef zeroext -1, i64 noundef 40, i32 noundef 71) #9
+  %12 = tail call ptr %11(ptr noundef %.val, ptr noundef %.val11, i8 noundef zeroext -1, i64 noundef 40, i32 noundef 71) #10
   %13 = icmp eq ptr %12, null
   br i1 %13, label %38, label %14
 
@@ -317,7 +317,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture
   %27 = getelementptr inbounds i8, ptr %25, i64 192
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %9, align 8
-  %30 = tail call i32 %28(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %12, i8 noundef zeroext 68) #9
+  %30 = tail call i32 %28(ptr noundef %25, ptr noundef %29, ptr noundef nonnull %12, i8 noundef zeroext 68) #10
   %31 = icmp eq i32 %30, -4
   %32 = icmp sgt i32 %30, -1
   %33 = or i1 %31, %32
@@ -327,7 +327,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture
   %.val12 = load ptr, ptr %8, align 8
   %35 = getelementptr inbounds i8, ptr %.val12, i64 176
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 %36(ptr noundef %.val12, ptr noundef nonnull %12) #9
+  %37 = tail call i32 %36(ptr noundef %.val12, ptr noundef nonnull %12) #10
   br label %38
 
 38:                                               ; preds = %14, %7, %34
@@ -344,7 +344,7 @@ define internal void @mca_pml_ob1_recv_ctl_completion(ptr nocapture readnone %0,
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %6) #9
+  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %6) #10
   br label %9
 
 9:                                                ; preds = %8, %4
@@ -362,7 +362,7 @@ define internal void @mca_pml_ob1_recv_ctl_completion(ptr nocapture readnone %0,
   br i1 %.not4, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %6) #9
+  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %6) #10
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -371,7 +371,7 @@ define internal void @mca_pml_ob1_recv_ctl_completion(ptr nocapture readnone %0,
   br i1 %.not5, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void @mca_pml_ob1_process_pending_rdma() #9
+  tail call void @mca_pml_ob1_process_pending_rdma() #10
   br label %18
 
 18:                                               ; preds = %15, %17
@@ -410,7 +410,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) l
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr i8, ptr %5, i64 16
   %.val31 = load ptr, ptr %19, align 8
-  %20 = tail call ptr %9(ptr noundef nonnull %7, ptr noundef %.val31, ptr noundef %16, i64 noundef %18, i32 noundef 5) #9
+  %20 = tail call ptr %9(ptr noundef nonnull %7, ptr noundef %.val31, ptr noundef %16, i64 noundef %18, i32 noundef 5) #10
   store ptr %20, ptr %.phi.trans.insert, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.sink.split, label %.thread
@@ -437,7 +437,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) l
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 %34(ptr noundef %32, ptr noundef %36, ptr noundef %26, i64 noundef %28, ptr noundef %.024, ptr noundef nonnull %29, i64 noundef %31, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @mca_pml_ob1_rget_completion, ptr noundef nonnull %5, ptr noundef nonnull %0) #9
+  %37 = tail call i32 %34(ptr noundef %32, ptr noundef %36, ptr noundef %26, i64 noundef %28, ptr noundef %.024, ptr noundef nonnull %29, i64 noundef %31, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @mca_pml_ob1_rget_completion, ptr noundef nonnull %5, ptr noundef nonnull %0) #10
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.sink.split, label %40
 
@@ -472,7 +472,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_f
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %15
 
@@ -494,7 +494,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_f
   br i1 %24, label %25, label %opal_free_list_return.exit
 
 25:                                               ; preds = %15
-  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %opal_free_list_return.exit
 
 27:                                               ; preds = %8, %2
@@ -516,7 +516,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_f
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   %.pre28 = load i8, ptr @opal_uses_threads, align 1
   br label %40
 
@@ -538,7 +538,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_f
   br i1 %49, label %50, label %opal_free_list_return.exit
 
 50:                                               ; preds = %40
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %opal_free_list_return.exit
 
 52:                                               ; preds = %27
@@ -561,7 +561,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_f
   %.val = load ptr, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %.val, i64 264
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 %67(ptr noundef %.val, ptr noundef nonnull %61) #9
+  %68 = tail call i32 %67(ptr noundef %.val, ptr noundef nonnull %61) #10
   store ptr null, ptr %60, align 8
   br label %69
 
@@ -654,11 +654,11 @@ define internal void @mca_pml_ob1_rget_completion(ptr nocapture readnone %0, ptr
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %14, %16
   %18 = load i32, ptr @mca_pml_ob1_output, align 4
-  %19 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %18, i32 noundef 1) #9
+  %19 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %18, i32 noundef 1) #10
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %12
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.mca_pml_ob1_rget_completion, i32 noundef %11) #9
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.mca_pml_ob1_rget_completion, i32 noundef %11) #10
   br label %21
 
 21:                                               ; preds = %12, %20
@@ -707,7 +707,7 @@ opal_thread_add_fetch_size_t.exit39:              ; preds = %39, %41
   %47 = getelementptr inbounds i8, ptr %5, i64 96
   %48 = load i64, ptr %35, align 8
   %49 = load i64, ptr %47, align 8
-  %50 = tail call i32 @mca_pml_ob1_send_fin(ptr noundef %46, ptr noundef %4, i64 %49, i64 noundef %48, i8 noundef zeroext 0, i32 noundef 0) #9
+  %50 = tail call i32 @mca_pml_ob1_send_fin(ptr noundef %46, ptr noundef %4, i64 %49, i64 noundef %48, i8 noundef zeroext 0, i32 noundef 0) #10
   br label %opal_thread_add_fetch_size_t.exit
 
 opal_thread_add_fetch_size_t.exit:                ; preds = %29, %27, %10, %opal_thread_add_fetch_size_t.exit39
@@ -765,7 +765,7 @@ recv_request_pml_complete_check.exit:             ; preds = %opal_thread_add_fet
   %.val = load ptr, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %.val, i64 264
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i32 %79(ptr noundef %.val, ptr noundef nonnull %73) #9
+  %80 = tail call i32 %79(ptr noundef %.val, ptr noundef nonnull %73) #10
   store ptr null, ptr %72, align 8
   br label %81
 
@@ -840,7 +840,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   br i1 %.not34, label %112, label %111
 
 111:                                              ; preds = %opal_free_list_return.exit
-  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %4) #9
+  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %4) #10
   br label %112
 
 112:                                              ; preds = %111, %opal_free_list_return.exit
@@ -858,7 +858,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   br i1 %.not36, label %118, label %117
 
 117:                                              ; preds = %115
-  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %4) #9
+  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %4) #10
   br label %118
 
 118:                                              ; preds = %117, %115
@@ -867,7 +867,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   br i1 %.not37, label %121, label %120
 
 120:                                              ; preds = %118
-  tail call void @mca_pml_ob1_process_pending_rdma() #9
+  tail call void @mca_pml_ob1_process_pending_rdma() #10
   br label %121
 
 121:                                              ; preds = %118, %120
@@ -952,7 +952,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
 
 39:                                               ; preds = %._crit_edge
   %40 = getelementptr inbounds i8, ptr %0, i64 600
-  %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #9
+  %41 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %40) #10
   br label %42
 
 42:                                               ; preds = %._crit_edge, %39
@@ -995,18 +995,18 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   br label %opal_convertor_set_position.exit
 
 62:                                               ; preds = %55
-  %63 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %43, ptr noundef nonnull %5) #9
+  %63 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %43, ptr noundef nonnull %5) #10
   br label %opal_convertor_set_position.exit
 
 opal_convertor_set_position.exit:                 ; preds = %46, %51, %61, %62
-  %64 = call i32 @opal_convertor_unpack(ptr noundef nonnull %43, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %64 = call i32 @opal_convertor_unpack(ptr noundef nonnull %43, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %65 = load i8, ptr @opal_uses_threads, align 1
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %opal_convertor_set_position.exit
   %68 = getelementptr inbounds i8, ptr %0, i64 600
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %68) #9
+  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %68) #10
   br label %70
 
 70:                                               ; preds = %mca_pml_ob1_compute_segment_length_base.exit, %opal_convertor_set_position.exit, %67
@@ -1208,7 +1208,7 @@ define internal fastcc void @opal_convertor_set_position(ptr noundef %0, ptr nou
   br label %25
 
 23:                                               ; preds = %15
-  %24 = tail call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
+  %24 = tail call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
   br label %25
 
 25:                                               ; preds = %11, %23, %21, %6
@@ -1308,7 +1308,7 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %5
 
 44:                                               ; preds = %._crit_edge
   %45 = getelementptr inbounds i8, ptr %0, i64 600
-  %46 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %45) #9
+  %46 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %45) #10
   br label %47
 
 47:                                               ; preds = %._crit_edge, %44
@@ -1351,11 +1351,11 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %5
   br label %opal_convertor_set_position.exit
 
 67:                                               ; preds = %60
-  %68 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %48, ptr noundef nonnull %6) #9
+  %68 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %48, ptr noundef nonnull %6) #10
   br label %opal_convertor_set_position.exit
 
 opal_convertor_set_position.exit:                 ; preds = %51, %56, %66, %67
-  %69 = call i32 @opal_convertor_unpack(ptr noundef nonnull %48, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  %69 = call i32 @opal_convertor_unpack(ptr noundef nonnull %48, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %70 = load i64, ptr %9, align 8
   %71 = load i8, ptr @opal_uses_threads, align 1
   %72 = trunc i8 %71 to i1
@@ -1363,7 +1363,7 @@ opal_convertor_set_position.exit:                 ; preds = %51, %56, %66, %67
 
 73:                                               ; preds = %opal_convertor_set_position.exit
   %74 = getelementptr inbounds i8, ptr %0, i64 600
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #9
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #10
   br label %76
 
 76:                                               ; preds = %mca_pml_ob1_compute_segment_length_base.exit.thread, %mca_pml_ob1_compute_segment_length_base.exit, %opal_convertor_set_position.exit, %73
@@ -1373,13 +1373,13 @@ opal_convertor_set_position.exit:                 ; preds = %51, %56, %66, %67
   %78 = inttoptr i64 %.030 to ptr
   %79 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr %78, ptr %79, align 8
-  %80 = call i32 @mca_pml_ob1_record_htod_event(ptr noundef nonnull @.str.1, ptr noundef %4) #9
+  %80 = call i32 @mca_pml_ob1_record_htod_event(ptr noundef nonnull @.str.1, ptr noundef %4) #10
   %.not33 = icmp eq i32 %80, 0
   br i1 %.not33, label %82, label %81
 
 81:                                               ; preds = %76
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 647) #9
-  call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef null) #10
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 647) #10
+  call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef null) #11
   unreachable
 
 82:                                               ; preds = %76
@@ -1402,7 +1402,7 @@ define void @mca_pml_ob1_recv_request_frag_copy_finished(ptr nocapture noundef r
   %9 = ptrtoint ptr %8 to i64
   %10 = getelementptr inbounds i8, ptr %2, i64 72
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef null, ptr noundef null, ptr noundef %2, i32 noundef 0) #9
+  tail call void %11(ptr noundef null, ptr noundef null, ptr noundef %2, i32 noundef 0) #10
   %12 = getelementptr inbounds i8, ptr %6, i64 536
   %13 = load i8, ptr @opal_uses_threads, align 1
   %14 = trunc i8 %13 to i1
@@ -1605,7 +1605,7 @@ opal_convertor_need_buffers.exit:                 ; preds = %23
   br i1 %or.cond.i.not, label %opal_convertor_need_buffers.exit.thread, label %opal_convertor_need_buffers.exit.thread105
 
 opal_convertor_need_buffers.exit.thread105:       ; preds = %4, %opal_convertor_need_buffers.exit
-  %29 = tail call i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef nonnull %0, ptr noundef %1) #9
+  %29 = tail call i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef nonnull %0, ptr noundef %1) #10
   %.not77 = icmp eq i32 %29, 0
   br i1 %.not77, label %opal_convertor_need_buffers.exit.thread, label %30
 
@@ -1627,14 +1627,14 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %23, %opal_convertor
   br i1 %38, label %39, label %.thread.i
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   %.pr.i = load ptr, ptr %33, align 8
   %41 = icmp eq ptr %.pr.i, null
   br i1 %41, label %.thread.i, label %44
 
 .thread.i:                                        ; preds = %39, %36
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
-  %43 = tail call i32 %42(ptr noundef nonnull %32) #9
+  %43 = tail call i32 %42(ptr noundef nonnull %32) #10
   br label %44
 
 44:                                               ; preds = %.thread.i, %39
@@ -1643,7 +1643,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %23, %opal_convertor
   br i1 %46, label %47, label %mca_bml_base_get_endpoint.exit
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %opal_convertor_need_buffers.exit.thread, %44, %47
@@ -1675,35 +1675,34 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %opal_convertor_need
   %61 = load i32, ptr %19, align 4
   %62 = and i32 %61, 4194304
   %.not78 = icmp eq i32 %62, 0
-  br i1 %.not78, label %77, label %63
+  br i1 %.not78, label %77, label %.lr.ph.i86
 
-63:                                               ; preds = %.loopexit117
-  %64 = getelementptr inbounds i8, ptr %49, i64 136
-  %65 = load i64, ptr %64, align 8
-  %.not.i85 = icmp eq i64 %65, 0
-  br i1 %.not.i85, label %mca_bml_base_btl_array_find.exit90, label %.lr.ph.i86
+.lr.ph.i86:                                       ; preds = %.loopexit117
+  %63 = getelementptr inbounds i8, ptr %49, i64 136
+  %64 = load i64, ptr %63, align 8
+  %.not.i85 = icmp ne i64 %64, 0
+  tail call void @llvm.assume(i1 %.not.i85)
+  %65 = getelementptr inbounds i8, ptr %49, i64 160
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, %1
+  br i1 %69, label %mca_bml_base_btl_array_find.exit90, label %.lr.ph
 
-.lr.ph.i86:                                       ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %49, i64 160
-  %67 = load ptr, ptr %66, align 8
-  br label %70
-
-68:                                               ; preds = %70
-  %69 = add nuw i64 %.09.i87, 1
-  %exitcond.not.i88 = icmp eq i64 %69, %65
-  br i1 %exitcond.not.i88, label %mca_bml_base_btl_array_find.exit90, label %70, !llvm.loop !12
-
-70:                                               ; preds = %68, %.lr.ph.i86
-  %.09.i87 = phi i64 [ 0, %.lr.ph.i86 ], [ %69, %68 ]
-  %71 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %67, i64 %.09.i87
+.lr.ph:                                           ; preds = %.lr.ph.i86, %.lr.ph
+  %.09.i87120 = phi i64 [ %70, %.lr.ph ], [ 0, %.lr.ph.i86 ]
+  %70 = add nuw i64 %.09.i87120, 1
+  %exitcond.not.i88 = icmp ne i64 %70, %64
+  tail call void @llvm.assume(i1 %exitcond.not.i88)
+  %71 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %66, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %1
-  br i1 %74, label %mca_bml_base_btl_array_find.exit90, label %68
+  br i1 %74, label %mca_bml_base_btl_array_find.exit90, label %.lr.ph
 
-mca_bml_base_btl_array_find.exit90:               ; preds = %68, %70, %63
-  %.08.i89 = phi ptr [ null, %63 ], [ %71, %70 ], [ null, %68 ]
-  %75 = load i32, ptr %.08.i89, align 8
+mca_bml_base_btl_array_find.exit90:               ; preds = %.lr.ph, %.lr.ph.i86
+  %.lcssa = phi ptr [ %66, %.lr.ph.i86 ], [ %71, %.lr.ph ]
+  %75 = load i32, ptr %.lcssa, align 8
   %76 = and i32 %75, 2048
   %.not79 = icmp eq i32 %76, 0
   br i1 %.not79, label %mca_bml_base_btl_array_find.exit, label %.loopexit116
@@ -1713,12 +1712,12 @@ mca_bml_base_btl_array_find.exit90:               ; preds = %68, %70, %63
   br label %.loopexit
 
 mca_bml_base_btl_array_find.exit:                 ; preds = %mca_bml_base_btl_array_find.exit90
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 740) #9
-  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef null) #10
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 740) #10
+  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef null) #11
   unreachable
 
 .loopexit116:                                     ; preds = %56, %mca_bml_base_btl_array_find.exit90
-  %78 = phi ptr [ %.08.i89, %mca_bml_base_btl_array_find.exit90 ], [ %57, %56 ]
+  %78 = phi ptr [ %.lcssa, %mca_bml_base_btl_array_find.exit90 ], [ %57, %56 ]
   %79 = load i64, ptr %7, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 520
   %81 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1741,7 +1740,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %mca_bml_base_btl_ar
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %0, i64 600
-  %93 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %92) #9
+  %93 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %92) #10
   br label %94
 
 94:                                               ; preds = %88, %91
@@ -1781,7 +1780,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %mca_bml_base_btl_ar
   br label %opal_convertor_set_position.exit
 
 111:                                              ; preds = %105
-  %112 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %18, ptr noundef nonnull %5) #9
+  %112 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %18, ptr noundef nonnull %5) #10
   %.pre = load i64, ptr %102, align 8
   br label %opal_convertor_set_position.exit
 
@@ -1801,7 +1800,7 @@ opal_convertor_set_position.exit:                 ; preds = %97, %101, %110, %11
 
 124:                                              ; preds = %opal_convertor_set_position.exit
   %125 = getelementptr inbounds i8, ptr %0, i64 600
-  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %125) #9
+  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %125) #10
   br label %127
 
 127:                                              ; preds = %opal_convertor_set_position.exit, %124
@@ -1811,15 +1810,15 @@ opal_convertor_set_position.exit:                 ; preds = %97, %101, %110, %11
   %.073.val83 = load ptr, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %.073.val, i64 256
   %131 = load ptr, ptr %130, align 8
-  %132 = call ptr %131(ptr noundef %.073.val, ptr noundef %.073.val83, ptr noundef %121, i64 noundef %79, i32 noundef 5) #9
+  %132 = call ptr %131(ptr noundef %.073.val, ptr noundef %.073.val83, ptr noundef %121, i64 noundef %79, i32 noundef 5) #10
   store ptr %132, ptr %128, align 8
   br label %133
 
 133:                                              ; preds = %127, %.loopexit116
-  %.not81119 = icmp eq i64 %79, 0
-  br i1 %.not81119, label %.loopexit, label %.lr.ph
+  %.not81121 = icmp eq i64 %79, 0
+  br i1 %.not81121, label %.loopexit, label %.lr.ph123
 
-.lr.ph:                                           ; preds = %133
+.lr.ph123:                                        ; preds = %133
   %134 = getelementptr inbounds i8, ptr %6, i64 48
   %135 = getelementptr inbounds i8, ptr %1, i64 80
   %136 = getelementptr inbounds i8, ptr %6, i64 40
@@ -1830,12 +1829,12 @@ opal_convertor_set_position.exit:                 ; preds = %97, %101, %110, %11
   %141 = getelementptr inbounds i8, ptr %0, i64 232
   %142 = getelementptr inbounds i8, ptr %0, i64 656
   %143 = getelementptr i8, ptr %78, i64 16
-  %.phi.trans.insert125 = getelementptr inbounds i8, ptr %0, i64 656
+  %.phi.trans.insert130 = getelementptr inbounds i8, ptr %0, i64 656
   %144 = getelementptr inbounds i8, ptr %78, i64 16
   br label %145
 
-145:                                              ; preds = %.lr.ph, %mca_pml_ob1_recv_request_get_frag.exit.thread
-  %.0120 = phi i64 [ %79, %.lr.ph ], [ %218, %mca_pml_ob1_recv_request_get_frag.exit.thread ]
+145:                                              ; preds = %.lr.ph123, %mca_pml_ob1_recv_request_get_frag.exit.thread
+  %.0122 = phi i64 [ %79, %.lr.ph123 ], [ %218, %mca_pml_ob1_recv_request_get_frag.exit.thread ]
   %146 = call fastcc ptr @opal_free_list_wait()
   %147 = getelementptr inbounds i8, ptr %146, i64 224
   %148 = load i64, ptr %135, align 8
@@ -1850,12 +1849,12 @@ opal_convertor_set_position.exit:                 ; preds = %97, %101, %110, %11
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %145
-  %156 = call i32 @pthread_mutex_lock(ptr noundef nonnull %137) #9
-  %.pre122 = load i64, ptr %5, align 8
+  %156 = call i32 @pthread_mutex_lock(ptr noundef nonnull %137) #10
+  %.pre127 = load i64, ptr %5, align 8
   br label %157
 
 157:                                              ; preds = %145, %155
-  %158 = phi i64 [ %150, %145 ], [ %.pre122, %155 ]
+  %158 = phi i64 [ %150, %145 ], [ %.pre127, %155 ]
   %159 = load i64, ptr %138, align 8
   %.not.i94 = icmp ugt i64 %159, %158
   br i1 %.not.i94, label %163, label %160
@@ -1889,12 +1888,12 @@ opal_convertor_set_position.exit:                 ; preds = %97, %101, %110, %11
   br label %opal_convertor_set_position.exit99
 
 172:                                              ; preds = %166
-  %173 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %18, ptr noundef nonnull %5) #9
-  %.pre123 = load i64, ptr %139, align 8
+  %173 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %18, ptr noundef nonnull %5) #10
+  %.pre128 = load i64, ptr %139, align 8
   br label %opal_convertor_set_position.exit99
 
 opal_convertor_set_position.exit99:               ; preds = %160, %163, %171, %172
-  %174 = phi i64 [ %159, %160 ], [ %158, %163 ], [ %158, %171 ], [ %.pre123, %172 ]
+  %174 = phi i64 [ %159, %160 ], [ %158, %163 ], [ %158, %171 ], [ %.pre128, %172 ]
   %175 = getelementptr inbounds i8, ptr %146, i64 200
   %176 = load ptr, ptr %140, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 %174
@@ -1908,7 +1907,7 @@ opal_convertor_set_position.exit99:               ; preds = %160, %163, %171, %1
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %opal_convertor_set_position.exit99
-  %185 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %137) #9
+  %185 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %137) #10
   br label %186
 
 186:                                              ; preds = %opal_convertor_set_position.exit99, %184
@@ -1930,7 +1929,7 @@ opal_convertor_set_position.exit99:               ; preds = %160, %163, %171, %1
   %195 = load ptr, ptr %84, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 88
   %197 = load i64, ptr %196, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %.0120, i64 %197)
+  %spec.select = call i64 @llvm.umin.i64(i64 %.0122, i64 %197)
   %198 = getelementptr inbounds i8, ptr %146, i64 152
   store i64 %spec.select, ptr %198, align 8
   %199 = load ptr, ptr %84, align 8
@@ -1947,30 +1946,30 @@ opal_convertor_set_position.exit99:               ; preds = %160, %163, %171, %1
 204:                                              ; preds = %202
   %205 = load ptr, ptr %175, align 8
   %.val31.i = load ptr, ptr %143, align 8
-  %206 = call ptr %201(ptr noundef nonnull %199, ptr noundef %.val31.i, ptr noundef %205, i64 noundef %spec.select, i32 noundef 5) #9
+  %206 = call ptr %201(ptr noundef nonnull %199, ptr noundef %.val31.i, ptr noundef %205, i64 noundef %spec.select, i32 noundef 5) #10
   store ptr %206, ptr %192, align 8
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %mca_pml_ob1_recv_request_get_frag.exit, label %..thread.i101_crit_edge127
+  br i1 %207, label %mca_pml_ob1_recv_request_get_frag.exit, label %..thread.i101_crit_edge132
 
-..thread.i101_crit_edge127:                       ; preds = %204
-  %.pre128 = load i64, ptr %198, align 8
-  %.pre129 = load ptr, ptr %84, align 8
+..thread.i101_crit_edge132:                       ; preds = %204
+  %.pre133 = load i64, ptr %198, align 8
+  %.pre134 = load ptr, ptr %84, align 8
   br label %.thread.i101
 
 ..thread33.i_crit_edge:                           ; preds = %186
-  %.pre126 = load ptr, ptr %.phi.trans.insert125, align 8
+  %.pre131 = load ptr, ptr %.phi.trans.insert130, align 8
   br label %.thread.i101
 
-.thread.i101:                                     ; preds = %202, %..thread33.i_crit_edge, %..thread.i101_crit_edge127
-  %208 = phi ptr [ %.pre129, %..thread.i101_crit_edge127 ], [ %199, %..thread33.i_crit_edge ], [ %199, %202 ]
-  %209 = phi i64 [ %.pre128, %..thread.i101_crit_edge127 ], [ %spec.select, %..thread33.i_crit_edge ], [ %spec.select, %202 ]
-  %.024.i = phi ptr [ %206, %..thread.i101_crit_edge127 ], [ %.pre126, %..thread33.i_crit_edge ], [ %203, %202 ]
+.thread.i101:                                     ; preds = %202, %..thread33.i_crit_edge, %..thread.i101_crit_edge132
+  %208 = phi ptr [ %.pre134, %..thread.i101_crit_edge132 ], [ %199, %..thread33.i_crit_edge ], [ %199, %202 ]
+  %209 = phi i64 [ %.pre133, %..thread.i101_crit_edge132 ], [ %spec.select, %..thread33.i_crit_edge ], [ %spec.select, %202 ]
+  %.024.i = phi ptr [ %206, %..thread.i101_crit_edge132 ], [ %.pre131, %..thread33.i_crit_edge ], [ %203, %202 ]
   %210 = load ptr, ptr %175, align 8
   %211 = load i64, ptr %152, align 8
   %212 = getelementptr inbounds i8, ptr %208, i64 216
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr %144, align 8
-  %215 = call i32 %213(ptr noundef %208, ptr noundef %214, ptr noundef %210, i64 noundef %211, ptr noundef %.024.i, ptr noundef nonnull %147, i64 noundef %209, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @mca_pml_ob1_rget_completion, ptr noundef nonnull %78, ptr noundef nonnull %146) #9
+  %215 = call i32 %213(ptr noundef %208, ptr noundef %214, ptr noundef %210, i64 noundef %211, ptr noundef %.024.i, ptr noundef nonnull %147, i64 noundef %209, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @mca_pml_ob1_rget_completion, ptr noundef nonnull %78, ptr noundef nonnull %146) #10
   %216 = icmp slt i32 %215, 0
   br i1 %216, label %mca_pml_ob1_recv_request_get_frag.exit, label %mca_pml_ob1_recv_request_get_frag.exit.thread
 
@@ -1980,7 +1979,7 @@ mca_pml_ob1_recv_request_get_frag.exit:           ; preds = %204, %.thread.i101
   br i1 %.not82, label %mca_pml_ob1_recv_request_get_frag.exit.thread, label %.loopexit
 
 mca_pml_ob1_recv_request_get_frag.exit.thread:    ; preds = %.thread.i101, %mca_pml_ob1_recv_request_get_frag.exit
-  %218 = sub i64 %.0120, %spec.select
+  %218 = sub i64 %.0122, %spec.select
   %219 = load i64, ptr %5, align 8
   %220 = add i64 %219, %spec.select
   store i64 %220, ptr %5, align 8
@@ -2008,14 +2007,14 @@ define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef %0, ptr no
   br i1 %12, label %13, label %.thread.i
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   %.pr.i = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %.pr.i, null
   br i1 %15, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %13, %10
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %6) #9
+  %17 = tail call i32 %16(ptr noundef nonnull %6) #10
   br label %18
 
 18:                                               ; preds = %.thread.i, %13
@@ -2024,7 +2023,7 @@ define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef %0, ptr no
   br i1 %20, label %21, label %mca_bml_base_get_endpoint.exit
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %4, %18, %21
@@ -2037,7 +2036,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %4, %18, %21
   br i1 %27, label %28, label %88
 
 28:                                               ; preds = %mca_bml_base_get_endpoint.exit
-  %29 = tail call i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr noundef %23) #9
+  %29 = tail call i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr noundef %23) #10
   %30 = getelementptr inbounds i8, ptr %0, i64 192
   %31 = getelementptr inbounds i8, ptr %0, i64 212
   %32 = load i32, ptr %31, align 4
@@ -2097,7 +2096,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %35
   %62 = getelementptr inbounds i8, ptr %0, i64 512
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 664
-  %65 = tail call i64 @mca_pml_ob1_rdma_btls(ptr noundef %23, ptr noundef %61, i64 noundef %63, ptr noundef nonnull %64) #9
+  %65 = tail call i64 @mca_pml_ob1_rdma_btls(ptr noundef %23, ptr noundef %61, i64 noundef %63, ptr noundef nonnull %64) #10
   %66 = trunc i64 %65 to i32
   %67 = getelementptr inbounds i8, ptr %0, i64 568
   store i32 %66, ptr %67, align 8
@@ -2127,7 +2126,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %35
   %80 = load i64, ptr %24, align 8
   %81 = sub i64 %80, %3
   %82 = getelementptr inbounds i8, ptr %0, i64 664
-  %83 = tail call i64 @mca_pml_ob1_rdma_pipeline_btls(ptr noundef nonnull %23, i64 noundef %81, ptr noundef nonnull %82) #9
+  %83 = tail call i64 @mca_pml_ob1_rdma_pipeline_btls(ptr noundef nonnull %23, i64 noundef %81, ptr noundef nonnull %82) #10
   %84 = trunc i64 %83 to i32
   store i32 %84, ptr %71, align 8
   br label %opal_convertor_need_buffers.exit.thread56
@@ -2247,7 +2246,7 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
-  %28 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
+  %28 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
   %.not1.i = icmp eq i32 %28, 0
   br i1 %.not1.i, label %29, label %75
 
@@ -2259,7 +2258,7 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
 
 32:                                               ; preds = %29
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 400), align 16
-  %34 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304), i64 noundef %33, ptr noundef nonnull %8) #9
+  %34 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304), i64 noundef %33, ptr noundef nonnull %8) #10
   %.not19.i = icmp eq i32 %34, 0
   br i1 %.not19.i, label %66, label %35
 
@@ -2291,21 +2290,21 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   %47 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 552), align 8
   %48 = add nsw i32 %47, -1
   store volatile i32 %48, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 552), align 8
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
-  %50 = call i32 @opal_progress() #9
-  %51 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
+  %50 = call i32 @opal_progress() #10
+  %51 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
   br label %opal_condition_wait.exit.i
 
 .lr.ph3.i.i:                                      ; preds = %.preheader.i.i, %.lr.ph3.i.i
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
-  %53 = call i32 @opal_progress() #9
-  %54 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
+  %53 = call i32 @opal_progress() #10
+  %54 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
   %55 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 556), align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.lr.ph3.i.i, label %.loopexit.i.i, !llvm.loop !14
 
 .lr.ph.i21.i:                                     ; preds = %.preheader1.i.i, %.lr.ph.i21.i
-  %57 = call i32 @opal_progress() #9
+  %57 = call i32 @opal_progress() #10
   %58 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 556), align 4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.lr.ph.i21.i, label %.loopexit.i.i, !llvm.loop !15
@@ -2349,11 +2348,11 @@ opal_condition_wait.exit.i:                       ; preds = %.loopexit.i.i, %46
   br label %opal_condition_signal.exit.i
 
 75:                                               ; preds = %.lr.ph.i
-  %76 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
+  %76 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
   br label %opal_condition_signal.exit.i
 
 opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, %66, %opal_condition_wait.exit.i
-  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #9
+  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 488)) #10
   %78 = load ptr, ptr %8, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %opal_free_list_wait_mt.exit
@@ -2462,12 +2461,12 @@ opal_lifo_pop.exit.i:                             ; preds = %99
 
 109:                                              ; preds = %.lr.ph.i4
   %110 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 400), align 16
-  %111 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304), i64 noundef %110, ptr noundef nonnull %3) #9
+  %111 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304), i64 noundef %110, ptr noundef nonnull %3) #10
   %.not6.i = icmp eq i32 %111, 0
   br i1 %.not6.i, label %114, label %112
 
 112:                                              ; preds = %109, %.lr.ph.i4
-  %113 = call i32 @opal_progress() #9
+  %113 = call i32 @opal_progress() #10
   br label %114
 
 114:                                              ; preds = %112, %109
@@ -2681,7 +2680,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
 
 51:                                               ; preds = %._crit_edge
   %52 = getelementptr inbounds i8, ptr %0, i64 600
-  %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %52) #9
+  %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %52) #10
   br label %54
 
 54:                                               ; preds = %._crit_edge, %51
@@ -2724,18 +2723,18 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   br label %opal_convertor_set_position.exit
 
 74:                                               ; preds = %67
-  %75 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %55, ptr noundef nonnull %5) #9
+  %75 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %55, ptr noundef nonnull %5) #10
   br label %opal_convertor_set_position.exit
 
 opal_convertor_set_position.exit:                 ; preds = %58, %63, %73, %74
-  %76 = call i32 @opal_convertor_unpack(ptr noundef nonnull %55, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %76 = call i32 @opal_convertor_unpack(ptr noundef nonnull %55, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %77 = load i8, ptr @opal_uses_threads, align 1
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %opal_convertor_set_position.exit
   %80 = getelementptr inbounds i8, ptr %0, i64 600
-  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %80) #9
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %80) #10
   br label %82
 
 82:                                               ; preds = %29, %opal_convertor_set_position.exit, %79
@@ -2906,7 +2905,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
   br i1 %.not52, label %171, label %166
 
 166:                                              ; preds = %162
-  %167 = call ptr @mca_pml_ob1_get_htod_stream() #9
+  %167 = call ptr @mca_pml_ob1_get_htod_stream() #10
   %168 = load i32, ptr %159, align 4
   %169 = or i32 %168, 8388608
   store i32 %169, ptr %159, align 4
@@ -3010,7 +3009,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds i8, ptr %0, i64 600
-  %45 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #9
+  %45 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #10
   br label %46
 
 46:                                               ; preds = %._crit_edge, %43
@@ -3053,18 +3052,18 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
   br label %opal_convertor_set_position.exit
 
 66:                                               ; preds = %59
-  %67 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %47, ptr noundef nonnull %5) #9
+  %67 = call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %47, ptr noundef nonnull %5) #10
   br label %opal_convertor_set_position.exit
 
 opal_convertor_set_position.exit:                 ; preds = %50, %55, %65, %66
-  %68 = call i32 @opal_convertor_unpack(ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %68 = call i32 @opal_convertor_unpack(ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %69 = load i8, ptr @opal_uses_threads, align 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %opal_convertor_set_position.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 600
-  %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #9
+  %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %72) #10
   br label %74
 
 74:                                               ; preds = %mca_pml_ob1_compute_segment_length_base.exit, %opal_convertor_set_position.exit, %71
@@ -3110,7 +3109,7 @@ define internal fastcc void @recv_request_pml_complete(ptr noundef %0) unnamed_a
   %.val = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %.val, i64 264
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %.val, ptr noundef nonnull %15) #9
+  %21 = tail call i32 %20(ptr noundef %.val, ptr noundef nonnull %15) #10
   %.pre = load i32, ptr %8, align 8
   br label %22
 
@@ -3136,7 +3135,7 @@ define internal fastcc void @recv_request_pml_complete(ptr noundef %0) unnamed_a
 
 33:                                               ; preds = %30
   store i32 7, ptr %2, align 4
-  call void (ptr, ptr, ...) @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #9
+  call void (ptr, ptr, ...) @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #10
   br label %34
 
 34:                                               ; preds = %33, %30
@@ -3236,7 +3235,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %59, %49
   %.val34 = load ptr, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %.val34, i64 264
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 %81(ptr noundef %.val34, ptr noundef nonnull %75) #9
+  %82 = tail call i32 %81(ptr noundef %.val34, ptr noundef nonnull %75) #10
   store ptr null, ptr %74, align 8
   br label %83
 
@@ -3248,7 +3247,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %59, %49
 
 86:                                               ; preds = %83
   store ptr null, ptr %84, align 8
-  %87 = tail call i32 %85(ptr noundef nonnull %0) #9
+  %87 = tail call i32 %85(ptr noundef nonnull %0) #10
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %.critedge.i, label %opal_free_list_return.exit
 
@@ -3314,10 +3313,10 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %105, %102
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %97, i64 56
-  %117 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %116) #9
+  %117 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %116) #10
   %118 = getelementptr inbounds i8, ptr %97, i64 8
-  %119 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %118) #9
-  %120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %116) #9
+  %119 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %118) #10
+  %120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %116) #10
   %121 = getelementptr inbounds i8, ptr %97, i64 112
   store volatile i8 0, ptr %121, align 8
   br label %opal_free_list_return.exit
@@ -3465,7 +3464,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef 
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %44 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %45
 
 45:                                               ; preds = %40, %43
@@ -3497,7 +3496,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef 
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %58
-  %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %.critedge
 
 63:                                               ; preds = %.lr.ph167, %37
@@ -3534,7 +3533,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef 
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %73
-  %83 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #9
+  %83 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #10
   br label %84
 
 84:                                               ; preds = %73, %82
@@ -3572,7 +3571,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef 
   br label %opal_convertor_set_position.exit
 
 99:                                               ; preds = %93
-  %100 = tail call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %27, ptr noundef nonnull %7) #9
+  %100 = tail call i32 @opal_convertor_set_position_nocheck(ptr noundef nonnull %27, ptr noundef nonnull %7) #10
   %.pre = load i64, ptr %30, align 8
   br label %opal_convertor_set_position.exit
 
@@ -3589,7 +3588,7 @@ opal_convertor_set_position.exit:                 ; preds = %87, %90, %98, %99
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %opal_convertor_set_position.exit
-  %111 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #9
+  %111 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #10
   br label %112
 
 112:                                              ; preds = %opal_convertor_set_position.exit, %110
@@ -3605,7 +3604,7 @@ opal_convertor_set_position.exit:                 ; preds = %87, %90, %98, %99
   %.val101 = load ptr, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %.val, i64 256
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call ptr %119(ptr noundef %.val, ptr noundef %.val101, ptr noundef %107, i64 noundef %.0, i32 noundef 4) #9
+  %120 = tail call ptr %119(ptr noundef %.val, ptr noundef %.val101, ptr noundef %107, i64 noundef %.0, i32 noundef 4) #10
   store ptr %120, ptr %116, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %154
@@ -3738,7 +3737,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %170, %172
   %.val102 = load ptr, ptr %184, align 8
   %185 = getelementptr inbounds i8, ptr %.val102, i64 264
   %186 = load ptr, ptr %185, align 8
-  %187 = tail call i32 %186(ptr noundef %.val102, ptr noundef nonnull %181) #9
+  %187 = tail call i32 %186(ptr noundef %.val102, ptr noundef nonnull %181) #10
   store ptr null, ptr %180, align 8
   br label %188
 
@@ -3851,7 +3850,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %10, %12
   %.val = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.val, i64 264
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %.val, ptr noundef nonnull %17) #9
+  %23 = tail call i32 %22(ptr noundef %.val, ptr noundef nonnull %17) #10
   store ptr null, ptr %16, align 8
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %24
@@ -4086,7 +4085,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
   br i1 %.not18, label %135, label %134
 
 134:                                              ; preds = %mca_pml_ob1_recv_request_schedule.exit
-  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %6) #9
+  tail call void @mca_pml_ob1_process_pending_packets(ptr noundef %6) #10
   br label %135
 
 135:                                              ; preds = %134, %mca_pml_ob1_recv_request_schedule.exit
@@ -4104,7 +4103,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
   br i1 %.not20, label %141, label %140
 
 140:                                              ; preds = %138
-  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %6) #9
+  tail call void @mca_pml_ob1_send_request_process_pending(ptr noundef %6) #10
   br label %141
 
 141:                                              ; preds = %140, %138
@@ -4113,7 +4112,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
   br i1 %.not21, label %144, label %143
 
 143:                                              ; preds = %141
-  tail call void @mca_pml_ob1_process_pending_rdma() #9
+  tail call void @mca_pml_ob1_process_pending_rdma() #10
   br label %144
 
 144:                                              ; preds = %141, %143
@@ -4147,7 +4146,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mca_pml_ob1_recv_request_p
   %.val31 = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 168
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %7, ptr noundef %.val31, i8 noundef zeroext -1, i64 noundef %16, i32 noundef 71) #9
+  %20 = tail call ptr %19(ptr noundef nonnull %7, ptr noundef %.val31, i8 noundef zeroext -1, i64 noundef %16, i32 noundef 71) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %62, label %22
 
@@ -4196,7 +4195,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mca_pml_ob1_recv_request_p
   %51 = getelementptr inbounds i8, ptr %49, i64 192
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %17, align 8
-  %54 = tail call i32 %52(ptr noundef %49, ptr noundef %53, ptr noundef nonnull %20, i8 noundef zeroext 72) #9
+  %54 = tail call i32 %52(ptr noundef %49, ptr noundef %53, ptr noundef nonnull %20, i8 noundef zeroext 72) #10
   %55 = icmp ne i32 %54, -4
   %56 = icmp slt i32 %54, 0
   %57 = and i1 %55, %56
@@ -4206,7 +4205,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mca_pml_ob1_recv_request_p
   %.val32 = load ptr, ptr %6, align 8
   %59 = getelementptr inbounds i8, ptr %.val32, i64 176
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(ptr noundef %.val32, ptr noundef nonnull %20) #9
+  %61 = tail call i32 %60(ptr noundef %.val32, ptr noundef nonnull %20) #10
   br label %62
 
 62:                                               ; preds = %22, %15, %58
@@ -4257,7 +4256,7 @@ define void @mca_pml_ob1_recv_req_start(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %21, %1
   %24 = getelementptr inbounds i8, ptr %5, i64 40
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #9
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #10
   br label %26
 
 26:                                               ; preds = %.sink.split, %21
@@ -4312,7 +4311,7 @@ define void @mca_pml_ob1_recv_req_start(ptr noundef %0) local_unnamed_addr #0 {
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %5, i64 40
-  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #9
+  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #10
   br label %opal_free_list_return.exit
 
 60:                                               ; preds = %53
@@ -4322,7 +4321,7 @@ define void @mca_pml_ob1_recv_req_start(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %5, i64 40
-  %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #9
+  %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #10
   br label %opal_free_list_return.exit
 
 66:                                               ; preds = %43, %46, %26
@@ -4449,7 +4448,7 @@ recv_req_match_specific_proc.exit.i:              ; preds = %106, %100, %102, %9
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %133, ptr %134, align 8
-  %135 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %125, ptr noundef nonnull %114, i64 noundef %118, ptr noundef %124) #9
+  %135 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %125, ptr noundef nonnull %114, i64 noundef %118, ptr noundef %124) #10
   %136 = getelementptr inbounds i8, ptr %0, i64 216
   %137 = load i64, ptr %136, align 8
   store i64 %137, ptr %9, align 8
@@ -4560,7 +4559,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %195, ptr %196, align 8
-  %197 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %187, ptr noundef nonnull %176, i64 noundef %180, ptr noundef %186) #9
+  %197 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %187, ptr noundef nonnull %176, i64 noundef %180, ptr noundef %186) #10
   %198 = getelementptr inbounds i8, ptr %0, i64 216
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %9, align 8
@@ -4618,7 +4617,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %232, ptr %233, align 8
-  %234 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %224, ptr noundef nonnull %213, i64 noundef %217, ptr noundef %223) #9
+  %234 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %224, ptr noundef nonnull %213, i64 noundef %217, ptr noundef %223) #10
   %235 = getelementptr inbounds i8, ptr %0, i64 216
   %236 = load i64, ptr %235, align 8
   store i64 %236, ptr %9, align 8
@@ -4639,7 +4638,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   br i1 %243, label %244, label %246
 
 244:                                              ; preds = %241
-  %245 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %224) #9
+  %245 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %224) #10
   br label %246
 
 246:                                              ; preds = %244, %241
@@ -4657,7 +4656,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   br i1 %.not.i106, label %255, label %254
 
 254:                                              ; preds = %249
-  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str.11) #10
+  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str.11) #11
   unreachable
 
 255:                                              ; preds = %249
@@ -4670,7 +4669,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   br i1 %261, label %262, label %264
 
 262:                                              ; preds = %255
-  %263 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %3, ptr noundef nonnull %250, i32 noundef %68) #9
+  %263 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %3, ptr noundef nonnull %250, i32 noundef %68) #10
   %.pre.i = load ptr, ptr %256, align 8
   br label %264
 
@@ -4760,7 +4759,7 @@ recv_req_match_specific_proc.exit:                ; preds = %.lr.ph.i107, %290, 
   %313 = load ptr, ptr %312, align 8
   %314 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %313, ptr %314, align 8
-  %315 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %305, ptr noundef nonnull %294, i64 noundef %298, ptr noundef %304) #9
+  %315 = tail call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %305, ptr noundef nonnull %294, i64 noundef %298, ptr noundef %304) #10
   %316 = getelementptr inbounds i8, ptr %0, i64 216
   %317 = load i64, ptr %316, align 8
   store i64 %317, ptr %9, align 8
@@ -4781,7 +4780,7 @@ recv_req_match_specific_proc.exit:                ; preds = %.lr.ph.i107, %290, 
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %322
-  %326 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %305) #9
+  %326 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %305) #10
   br label %327
 
 327:                                              ; preds = %325, %322
@@ -4830,7 +4829,7 @@ prepare_recv_req_converter.exit.thread:           ; preds = %246, %219, %208, %p
 
 348:                                              ; preds = %344
   %349 = getelementptr inbounds i8, ptr %5, i64 40
-  %350 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %349) #9
+  %350 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %349) #10
   br label %opal_free_list_return.exit
 
 351:                                              ; preds = %344
@@ -4840,14 +4839,14 @@ prepare_recv_req_converter.exit.thread:           ; preds = %246, %219, %208, %p
 
 354:                                              ; preds = %351
   %355 = getelementptr inbounds i8, ptr %5, i64 40
-  %356 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %355) #9
+  %356 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %355) #10
   br label %opal_free_list_return.exit
 
 prepare_recv_req_converter.exit.thread140.sink.split.sink.split: ; preds = %204, %142
   %.sink = phi ptr [ %125, %142 ], [ %187, %204 ]
   %.0145.ph.ph = phi ptr [ %.018.i.ph.i, %142 ], [ %.018.i49.i, %204 ]
   %.1144.ph.ph = phi ptr [ %85, %142 ], [ %147, %204 ]
-  %357 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %.sink) #9
+  %357 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %.sink) #10
   br label %prepare_recv_req_converter.exit.thread140.sink.split
 
 prepare_recv_req_converter.exit.thread140.sink.split: ; preds = %prepare_recv_req_converter.exit.thread140.sink.split.sink.split, %204, %142
@@ -4896,7 +4895,7 @@ prepare_recv_req_converter.exit.thread140:        ; preds = %prepare_recv_req_co
 
 .sink.split235:                                   ; preds = %379, %362
   %382 = getelementptr inbounds i8, ptr %5, i64 40
-  %383 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %382) #9
+  %383 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %382) #10
   br label %384
 
 384:                                              ; preds = %.sink.split235, %379
@@ -4941,7 +4940,7 @@ prepare_recv_req_converter.exit.thread140:        ; preds = %prepare_recv_req_co
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %.0145, i64 424
   %408 = load ptr, ptr %407, align 8
-  tail call void %406(ptr noundef %404, ptr noundef %408) #9
+  tail call void %406(ptr noundef %404, ptr noundef %408) #10
   br label %409
 
 409:                                              ; preds = %403, %397
@@ -5039,7 +5038,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %432, %424
 
 .sink.split236:                                   ; preds = %451, %436
   %454 = getelementptr inbounds i8, ptr %5, i64 40
-  %455 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %454) #9
+  %455 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %454) #10
   br label %456
 
 456:                                              ; preds = %.sink.split236, %451
@@ -5104,7 +5103,7 @@ mca_pml_ob1_recv_request_matched_probe.exit:      ; preds = %456, %463, %mca_pml
 
 .sink.split237:                                   ; preds = %479, %476
   %482 = getelementptr inbounds i8, ptr %5, i64 40
-  %483 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %482) #9
+  %483 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %482) #10
   br label %484
 
 484:                                              ; preds = %.sink.split237, %479
@@ -5265,7 +5264,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
 
 .sink.split:                                      ; preds = %9, %2
   %12 = getelementptr inbounds i8, ptr %6, i64 40
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #9
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #10
   br label %14
 
 14:                                               ; preds = %.sink.split, %9
@@ -5281,7 +5280,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %6, i64 40
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #9
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #10
   br label %119
 
 24:                                               ; preds = %18
@@ -5291,7 +5290,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %6, i64 40
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #9
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #10
   br label %119
 
 30:                                               ; preds = %14
@@ -5329,7 +5328,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
   br i1 %.not.i, label %54, label %53
 
 53:                                               ; preds = %48
-  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str.11) #10
+  tail call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str.11) #11
   unreachable
 
 54:                                               ; preds = %48
@@ -5342,7 +5341,7 @@ define internal noundef i32 @mca_pml_ob1_recv_request_cancel(ptr noundef %0, i32
   br i1 %60, label %61, label %mca_pml_ob1_peer_lookup.exit
 
 61:                                               ; preds = %54
-  %62 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %4, ptr noundef nonnull %49, i32 noundef %36) #9
+  %62 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %4, ptr noundef nonnull %49, i32 noundef %36) #10
   %.pre.i = load ptr, ptr %55, align 8
   br label %mca_pml_ob1_peer_lookup.exit
 
@@ -5381,17 +5380,17 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %54, %61
 
 .sink.split34:                                    ; preds = %81, %75
   %84 = getelementptr inbounds i8, ptr %6, i64 40
-  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %84) #9
+  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %84) #10
   br label %86
 
 86:                                               ; preds = %.sink.split34, %81
   %87 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  %88 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %87) #9
+  %88 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %87) #10
   br i1 %88, label %89, label %117
 
 89:                                               ; preds = %86
   %90 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %90, ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #9
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %90, ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #10
   br label %117
 
 91:                                               ; preds = %30
@@ -5406,7 +5405,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %54, %61
 
 .sink.split36:                                    ; preds = %94, %91
   %97 = getelementptr inbounds i8, ptr %6, i64 40
-  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %97) #9
+  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %97) #10
   br label %99
 
 99:                                               ; preds = %.sink.split36, %94
@@ -5416,9 +5415,9 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %54, %61
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 1
   %105 = icmp ne i32 %104, 0
-  %106 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %4, i32 noundef %101, i1 noundef zeroext %105) #9
+  %106 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %4, i32 noundef %101, i1 noundef zeroext %105) #10
   %107 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  %108 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %107) #9
+  %108 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %107) #10
   br i1 %106, label %109, label %113
 
 109:                                              ; preds = %99
@@ -5427,7 +5426,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %54, %61
 110:                                              ; preds = %109
   %111 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %112 = load i32, ptr %100, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %111, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, i32 noundef %112) #9
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %111, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, i32 noundef %112) #10
   br label %119
 
 113:                                              ; preds = %99
@@ -5436,7 +5435,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %54, %61
 114:                                              ; preds = %113
   %115 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %116 = load i32, ptr %100, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %115, ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %116) #9
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %115, ptr noundef nonnull @.str.8, ptr noundef nonnull %0, i32 noundef %116) #10
   br label %117
 
 117:                                              ; preds = %113, %114, %89, %86
@@ -5461,7 +5460,7 @@ define internal fastcc void @mca_pml_ob1_recv_request_fini(ptr noundef %0) unnam
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_request_f_to_c_table, i32 noundef %4, ptr noundef null) #9
+  %6 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_request_f_to_c_table, i32 noundef %4, ptr noundef null) #10
   store i32 -32766, ptr %3, align 8
   br label %7
 
@@ -5502,7 +5501,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %13, %16
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %27 = phi ptr [ %29, %.lr.ph.i ], [ %26, %21 ]
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %25, %21 ]
-  tail call void %27(ptr noundef nonnull %22) #9
+  tail call void %27(ptr noundef nonnull %22) #10
   %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
@@ -5514,7 +5513,7 @@ opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %21
   %30 = phi ptr [ %.pre, %opal_obj_run_destructors.exit.loopexit ], [ %22, %21 ]
-  tail call void @free(ptr noundef %30) #9
+  tail call void @free(ptr noundef %30) #10
   store ptr null, ptr %8, align 8
   br label %31
 
@@ -5562,7 +5561,7 @@ opal_thread_add_fetch_32.exit26:                  ; preds = %40, %43
 .lr.ph.i28:                                       ; preds = %48, %.lr.ph.i28
   %54 = phi ptr [ %56, %.lr.ph.i28 ], [ %53, %48 ]
   %.07.i29 = phi ptr [ %55, %.lr.ph.i28 ], [ %52, %48 ]
-  tail call void %54(ptr noundef nonnull %49) #9
+  tail call void %54(ptr noundef nonnull %49) #10
   %55 = getelementptr inbounds i8, ptr %.07.i29, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i30 = icmp eq ptr %56, null
@@ -5574,7 +5573,7 @@ opal_obj_run_destructors.exit31.loopexit:         ; preds = %.lr.ph.i28
 
 opal_obj_run_destructors.exit31:                  ; preds = %opal_obj_run_destructors.exit31.loopexit, %48
   %57 = phi ptr [ %.pre32, %opal_obj_run_destructors.exit31.loopexit ], [ %49, %48 ]
-  tail call void @free(ptr noundef %57) #9
+  tail call void @free(ptr noundef %57) #10
   store ptr null, ptr %32, align 8
   br label %58
 
@@ -5587,7 +5586,7 @@ opal_obj_run_destructors.exit31:                  ; preds = %opal_obj_run_destru
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %0, i64 272
   %64 = load ptr, ptr %63, align 8
-  tail call void @free(ptr noundef %64) #9
+  tail call void @free(ptr noundef %64) #10
   %65 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %65, ptr %63, align 8
   store i32 5, ptr %59, align 8
@@ -5612,7 +5611,7 @@ opal_convertor_cleanup.exit:                      ; preds = %58, %62
   %.val = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %.val, i64 264
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 %76(ptr noundef %.val, ptr noundef nonnull %70) #9
+  %77 = tail call i32 %76(ptr noundef %.val, ptr noundef nonnull %70) #10
   store ptr null, ptr %69, align 8
   br label %78
 
@@ -5654,14 +5653,14 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send(p
   br i1 %17, label %18, label %.thread.i
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   %.pr.i = load ptr, ptr %12, align 8
   %20 = icmp eq ptr %.pr.i, null
   br i1 %20, label %.thread.i, label %23
 
 .thread.i:                                        ; preds = %18, %15
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
-  %22 = tail call i32 %21(ptr noundef nonnull %1) #9
+  %22 = tail call i32 %21(ptr noundef nonnull %1) #10
   br label %23
 
 23:                                               ; preds = %.thread.i, %18
@@ -5670,7 +5669,7 @@ define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send(p
   br i1 %25, label %26, label %mca_bml_base_get_endpoint.exit
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #9
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %7, %23, %26
@@ -5721,7 +5720,7 @@ mca_bml_base_btl_array_get_next.exit._crit_edge:  ; preds = %mca_bml_base_btl_ar
   %.val11.i = load ptr, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %.val.i.pre, i64 168
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr %48(ptr noundef %.val.i.pre, ptr noundef %.val11.i, i8 noundef zeroext -1, i64 noundef 40, i32 noundef 71) #9
+  %49 = tail call ptr %48(ptr noundef %.val.i.pre, ptr noundef %.val11.i, i8 noundef zeroext -1, i64 noundef 40, i32 noundef 71) #10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %mca_pml_ob1_recv_request_ack_send_btl.exit.thread, label %51
 
@@ -5748,7 +5747,7 @@ mca_bml_base_btl_array_get_next.exit._crit_edge:  ; preds = %mca_bml_base_btl_ar
   %63 = getelementptr inbounds i8, ptr %61, i64 192
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %46, align 8
-  %66 = tail call i32 %64(ptr noundef %61, ptr noundef %65, ptr noundef nonnull %49, i8 noundef zeroext 68) #9
+  %66 = tail call i32 %64(ptr noundef %61, ptr noundef %65, ptr noundef nonnull %49, i8 noundef zeroext 68) #10
   %67 = icmp eq i32 %66, -4
   %68 = icmp sgt i32 %66, -1
   %69 = or i1 %67, %68
@@ -5758,7 +5757,7 @@ mca_bml_base_btl_array_get_next.exit._crit_edge:  ; preds = %mca_bml_base_btl_ar
   %.val12.i = load ptr, ptr %45, align 8
   %71 = getelementptr inbounds i8, ptr %.val12.i, i64 176
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i32 %72(ptr noundef %.val12.i, ptr noundef nonnull %49) #9
+  %73 = tail call i32 %72(ptr noundef %.val12.i, ptr noundef nonnull %49) #10
   br label %mca_pml_ob1_recv_request_ack_send_btl.exit.thread
 
 mca_pml_ob1_recv_request_ack_send_btl.exit.thread: ; preds = %mca_bml_base_btl_array_get_next.exit, %mca_bml_base_btl_array_get_next.exit._crit_edge, %70
@@ -5841,10 +5840,10 @@ opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   store ptr null, ptr %11, align 8
-  %95 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1192)) #9
+  %95 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1192)) #10
   %96 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1104), align 16
-  %97 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008), i64 noundef %96, ptr noundef nonnull %11) #9
-  %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1192)) #9
+  %97 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008), i64 noundef %96, ptr noundef nonnull %11) #10
+  %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1192)) #10
   %.pre.i.i = load ptr, ptr %11, align 8
   br label %opal_free_list_get_mt.exit.i
 
@@ -5873,7 +5872,7 @@ opal_lifo_pop_st.exit.i.i:                        ; preds = %100
 108:                                              ; preds = %100
   store ptr null, ptr %8, align 8
   %109 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1104), align 16
-  %110 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008), i64 noundef %109, ptr noundef nonnull %8) #9
+  %110 = call i32 @opal_free_list_grow_st(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008), i64 noundef %109, ptr noundef nonnull %8) #10
   %.pre.i3.i = load ptr, ptr %8, align 8
   br label %opal_free_list_get_st.exit.i
 
@@ -5903,7 +5902,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %opal_free_list_get.exit
-  %122 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %122 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %123
 
@@ -5925,7 +5924,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
   br i1 %132, label %133, label %mca_pml_ob1_recv_request_ack_send_btl.exit
 
 133:                                              ; preds = %123
-  %134 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #9
+  %134 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 256)) #10
   br label %mca_pml_ob1_recv_request_ack_send_btl.exit
 
 mca_pml_ob1_recv_request_ack_send_btl.exit:       ; preds = %51, %123, %133
@@ -5973,8 +5972,11 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5984,9 +5986,10 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

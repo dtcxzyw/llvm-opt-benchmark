@@ -5519,328 +5519,326 @@ define internal void @sccp_mark_feasible_successors(ptr noundef %0, i32 noundef 
 
 27:                                               ; preds = %15
   %28 = load i32, ptr %4, align 4
-  %.not.i = icmp eq i32 %28, -1
-  br i1 %.not.i, label %get_op1_value.exit, label %29
-
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
-  %31 = load ptr, ptr %30, align 8
-  %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %31, i64 %32
+  %.not.i = icmp ne i32 %28, -1
+  tail call void @llvm.assume(i1 %.not.i)
+  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %30, i64 %31
   br label %get_op1_value.exit
 
-get_op1_value.exit:                               ; preds = %19, %27, %29
-  %.0.i = phi ptr [ %26, %19 ], [ %33, %29 ], [ null, %27 ]
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %35 = load i8, ptr %34, align 8
-  %36 = icmp eq i8 %35, -2
-  br i1 %36, label %37, label %.thread
+get_op1_value.exit:                               ; preds = %19, %27
+  %.0.i = phi ptr [ %26, %19 ], [ %32, %27 ]
+  %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %34 = load i8, ptr %33, align 8
+  %35 = icmp eq i8 %34, -2
+  br i1 %35, label %36, label %.thread
 
-37:                                               ; preds = %get_op1_value.exit
-  %38 = load i32, ptr %4, align 4
-  %39 = icmp sgt i32 %38, -1
-  tail call void @llvm.assume(i1 %39)
-  %40 = call fastcc ptr @value_from_type_and_range(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %6)
-  %.not = icmp eq ptr %40, null
-  br i1 %.not, label %42, label %..thread_crit_edge
+36:                                               ; preds = %get_op1_value.exit
+  %37 = load i32, ptr %4, align 4
+  %38 = icmp sgt i32 %37, -1
+  tail call void @llvm.assume(i1 %38)
+  %39 = call fastcc ptr @value_from_type_and_range(ptr noundef nonnull %0, i32 noundef %37, ptr noundef nonnull %6)
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %41, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %37
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %40, i64 8
+..thread_crit_edge:                               ; preds = %36
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %39, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %get_op1_value.exit
-  %41 = phi i8 [ %.pre, %..thread_crit_edge ], [ %35, %get_op1_value.exit ]
-  %.0137 = phi ptr [ %40, %..thread_crit_edge ], [ %.0.i, %get_op1_value.exit ]
-  switch i8 %41, label %52 [
-    i8 -2, label %42
+  %40 = phi i8 [ %.pre, %..thread_crit_edge ], [ %34, %get_op1_value.exit ]
+  %.0137 = phi ptr [ %39, %..thread_crit_edge ], [ %.0.i, %get_op1_value.exit ]
+  switch i8 %40, label %51 [
+    i8 -2, label %41
     i8 -1, label %.loopexit
   ]
 
-42:                                               ; preds = %.thread, %37
-  %43 = getelementptr inbounds i8, ptr %2, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph143, label %.loopexit
+41:                                               ; preds = %.thread, %36
+  %42 = getelementptr inbounds i8, ptr %2, i64 20
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph143, label %.loopexit
 
-.lr.ph143:                                        ; preds = %42, %.lr.ph143
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph143 ], [ 0, %42 ]
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv146
-  %48 = load i32, ptr %47, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %48) #13
+.lr.ph143:                                        ; preds = %41, %.lr.ph143
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph143 ], [ 0, %41 ]
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv146
+  %47 = load i32, ptr %46, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %47) #13
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %49 = load i32, ptr %43, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next147, %50
-  br i1 %51, label %.lr.ph143, label %.loopexit
+  %48 = load i32, ptr %42, align 4
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next147, %49
+  br i1 %50, label %.lr.ph143, label %.loopexit
 
-52:                                               ; preds = %.thread
+51:                                               ; preds = %.thread
   switch i8 %8, label %.preheader [
-    i8 43, label %56
-    i8 46, label %56
-    i8 44, label %76
-    i8 47, label %76
-    i8 -104, label %76
-    i8 -87, label %96
-    i8 -58, label %99
-    i8 77, label %102
-    i8 125, label %102
-    i8 -69, label %115
-    i8 -68, label %115
-    i8 -61, label %115
+    i8 43, label %55
+    i8 46, label %55
+    i8 44, label %75
+    i8 47, label %75
+    i8 -104, label %75
+    i8 -87, label %95
+    i8 -58, label %98
+    i8 77, label %101
+    i8 125, label %101
+    i8 -69, label %114
+    i8 -68, label %114
+    i8 -61, label %114
   ]
 
-.preheader:                                       ; preds = %52
-  %53 = getelementptr inbounds i8, ptr %2, i64 20
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %51
+  %52 = getelementptr inbounds i8, ptr %2, i64 20
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph, label %.loopexit
 
-56:                                               ; preds = %52, %52
-  %57 = icmp eq i8 %41, -3
-  br i1 %57, label %58, label %63
+55:                                               ; preds = %51, %51
+  %56 = icmp eq i8 %40, -3
+  br i1 %56, label %57, label %62
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %.0137, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 28
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %66, label %72
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %.0137, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %65, label %71
 
-63:                                               ; preds = %56
-  %64 = call i32 @zend_is_true(ptr noundef nonnull %.0137) #13
-  %.not.i128 = icmp eq i32 %64, 0
-  %65 = select i1 %.not.i128, i32 2, i32 3
-  br label %72
+62:                                               ; preds = %55
+  %63 = call i32 @zend_is_true(ptr noundef nonnull %.0137) #13
+  %.not.i128 = icmp eq i32 %63, 0
+  %64 = select i1 %.not.i128, i32 2, i32 3
+  br label %71
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %2, align 8
-  %68 = load i32, ptr %67, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %68) #13
-  %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %71) #13
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %2, align 8
+  %67 = load i32, ptr %66, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %67) #13
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = load i32, ptr %69, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %70) #13
   br label %.loopexit
 
-72:                                               ; preds = %63, %58
-  %.sink.i = phi i32 [ %65, %63 ], [ 3, %58 ]
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.sink.i, ptr %73, align 8
-  %74 = icmp eq i32 %.sink.i, 3
-  %75 = zext i1 %74 to i32
-  br label %203
+71:                                               ; preds = %62, %57
+  %.sink.i = phi i32 [ %64, %62 ], [ 3, %57 ]
+  %72 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %.sink.i, ptr %72, align 8
+  %73 = icmp eq i32 %.sink.i, 3
+  %74 = zext i1 %73 to i32
+  br label %202
 
-76:                                               ; preds = %52, %52, %52
-  %77 = icmp eq i8 %41, -3
-  br i1 %77, label %78, label %83
+75:                                               ; preds = %51, %51, %51
+  %76 = icmp eq i8 %40, -3
+  br i1 %76, label %77, label %82
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %.0137, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 28
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %86, label %92
+77:                                               ; preds = %75
+  %78 = load ptr, ptr %.0137, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 28
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %85, label %91
 
-83:                                               ; preds = %76
-  %84 = call i32 @zend_is_true(ptr noundef nonnull %.0137) #13
-  %.not.i130 = icmp eq i32 %84, 0
-  %85 = select i1 %.not.i130, i32 2, i32 3
-  br label %92
+82:                                               ; preds = %75
+  %83 = call i32 @zend_is_true(ptr noundef nonnull %.0137) #13
+  %.not.i130 = icmp eq i32 %83, 0
+  %84 = select i1 %.not.i130, i32 2, i32 3
+  br label %91
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr %2, align 8
-  %88 = load i32, ptr %87, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %88) #13
-  %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
-  %91 = load i32, ptr %90, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %91) #13
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %2, align 8
+  %87 = load i32, ptr %86, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %87) #13
+  %88 = load ptr, ptr %2, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %90 = load i32, ptr %89, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %90) #13
   br label %.loopexit
 
-92:                                               ; preds = %83, %78
-  %.sink.i132 = phi i32 [ %85, %83 ], [ 3, %78 ]
-  %93 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.sink.i132, ptr %93, align 8
-  %94 = icmp eq i32 %.sink.i132, 2
-  %95 = zext i1 %94 to i32
-  br label %203
+91:                                               ; preds = %82, %77
+  %.sink.i132 = phi i32 [ %84, %82 ], [ 3, %77 ]
+  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %.sink.i132, ptr %92, align 8
+  %93 = icmp eq i32 %.sink.i132, 2
+  %94 = zext i1 %93 to i32
+  br label %202
 
-96:                                               ; preds = %52
-  %97 = icmp eq i8 %41, 1
-  %98 = zext i1 %97 to i32
-  br label %203
+95:                                               ; preds = %51
+  %96 = icmp eq i8 %40, 1
+  %97 = zext i1 %96 to i32
+  br label %202
 
-99:                                               ; preds = %52
-  %100 = icmp ne i8 %41, 1
-  %101 = zext i1 %100 to i32
-  br label %203
+98:                                               ; preds = %51
+  %99 = icmp ne i8 %40, 1
+  %100 = zext i1 %99 to i32
+  br label %202
 
-102:                                              ; preds = %52, %52
-  %.not126 = icmp eq i8 %41, 7
-  br i1 %.not126, label %109, label %103
+101:                                              ; preds = %51, %51
+  %.not126 = icmp eq i8 %40, 7
+  br i1 %.not126, label %108, label %102
 
-103:                                              ; preds = %102
-  %104 = load ptr, ptr %2, align 8
-  %105 = load i32, ptr %104, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %105) #13
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
-  %108 = load i32, ptr %107, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %108) #13
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %2, align 8
+  %104 = load i32, ptr %103, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %104) #13
+  %105 = load ptr, ptr %2, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %107) #13
   br label %.loopexit
 
-109:                                              ; preds = %102
-  %110 = load ptr, ptr %.0137, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 28
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp ne i32 %112, 0
-  %114 = zext i1 %113 to i32
-  br label %203
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %.0137, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 28
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp ne i32 %111, 0
+  %113 = zext i1 %112 to i32
+  br label %202
 
-115:                                              ; preds = %52, %52, %52
-  %116 = icmp eq i8 %8, -61
-  %117 = icmp eq i8 %8, -69
-  %118 = icmp eq i8 %41, 4
-  %or.cond = and i1 %117, %118
-  br i1 %or.cond, label %.critedge.thread, label %129
+114:                                              ; preds = %51, %51, %51
+  %115 = icmp eq i8 %8, -61
+  %116 = icmp eq i8 %8, -69
+  %117 = icmp eq i8 %40, 4
+  %or.cond = and i1 %116, %117
+  br i1 %or.cond, label %.critedge.thread, label %128
 
-.critedge.thread:                                 ; preds = %115
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 176
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 12
-  %125 = load i32, ptr %124, align 4
-  %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds %struct._zval_struct, ptr %123, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  br label %143
+.critedge.thread:                                 ; preds = %114
+  %118 = load ptr, ptr %0, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %118, i64 176
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %3, i64 12
+  %124 = load i32, ptr %123, align 4
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds %struct._zval_struct, ptr %122, i64 %125
+  %127 = load ptr, ptr %126, align 8
+  br label %142
 
-129:                                              ; preds = %115
-  %130 = icmp eq i8 %8, -68
-  %131 = icmp eq i8 %41, 6
-  %or.cond5 = and i1 %130, %131
-  %132 = or i1 %118, %131
-  %spec.select = and i1 %116, %132
+128:                                              ; preds = %114
+  %129 = icmp eq i8 %8, -68
+  %130 = icmp eq i8 %40, 6
+  %or.cond5 = and i1 %129, %130
+  %131 = or i1 %117, %130
+  %spec.select = and i1 %115, %131
   %or.cond127 = or i1 %or.cond5, %spec.select
-  br i1 %or.cond127, label %.critedge, label %174
+  br i1 %or.cond127, label %.critedge, label %173
 
-.critedge:                                        ; preds = %129
-  %133 = load ptr, ptr %0, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 176
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %3, i64 12
-  %139 = load i32, ptr %138, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds %struct._zval_struct, ptr %137, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  br i1 %118, label %143, label %149
+.critedge:                                        ; preds = %128
+  %132 = load ptr, ptr %0, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %132, i64 176
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %3, i64 12
+  %138 = load i32, ptr %137, align 4
+  %139 = zext i32 %138 to i64
+  %140 = getelementptr inbounds %struct._zval_struct, ptr %136, i64 %139
+  %141 = load ptr, ptr %140, align 8
+  br i1 %117, label %142, label %148
 
-143:                                              ; preds = %.critedge.thread, %.critedge
-  %144 = phi ptr [ %128, %.critedge.thread ], [ %142, %.critedge ]
-  %145 = phi ptr [ %121, %.critedge.thread ], [ %135, %.critedge ]
-  %146 = phi ptr [ %119, %.critedge.thread ], [ %133, %.critedge ]
-  %147 = load i64, ptr %.0137, align 8
-  %148 = call ptr @zend_hash_index_find(ptr noundef %144, i64 noundef %147) #13
-  br label %152
+142:                                              ; preds = %.critedge.thread, %.critedge
+  %143 = phi ptr [ %127, %.critedge.thread ], [ %141, %.critedge ]
+  %144 = phi ptr [ %120, %.critedge.thread ], [ %134, %.critedge ]
+  %145 = phi ptr [ %118, %.critedge.thread ], [ %132, %.critedge ]
+  %146 = load i64, ptr %.0137, align 8
+  %147 = call ptr @zend_hash_index_find(ptr noundef %143, i64 noundef %146) #13
+  br label %151
 
-149:                                              ; preds = %.critedge
-  %150 = load ptr, ptr %.0137, align 8
-  %151 = call ptr @zend_hash_find(ptr noundef %142, ptr noundef %150) #13
-  br label %152
+148:                                              ; preds = %.critedge
+  %149 = load ptr, ptr %.0137, align 8
+  %150 = call ptr @zend_hash_find(ptr noundef %141, ptr noundef %149) #13
+  br label %151
 
-152:                                              ; preds = %149, %143
-  %153 = phi ptr [ %145, %143 ], [ %135, %149 ]
-  %154 = phi ptr [ %146, %143 ], [ %133, %149 ]
-  %155 = phi ptr [ %148, %143 ], [ %151, %149 ]
-  %.not125 = icmp eq ptr %155, null
-  %156 = getelementptr inbounds i8, ptr %153, i64 24
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %154, i64 88
-  %159 = load ptr, ptr %158, align 8
-  %160 = ptrtoint ptr %159 to i64
-  br i1 %.not125, label %164, label %161
+151:                                              ; preds = %148, %142
+  %152 = phi ptr [ %144, %142 ], [ %134, %148 ]
+  %153 = phi ptr [ %145, %142 ], [ %132, %148 ]
+  %154 = phi ptr [ %147, %142 ], [ %150, %148 ]
+  %.not125 = icmp eq ptr %154, null
+  %155 = getelementptr inbounds i8, ptr %152, i64 24
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %153, i64 88
+  %158 = load ptr, ptr %157, align 8
+  %159 = ptrtoint ptr %158 to i64
+  br i1 %.not125, label %163, label %160
 
-161:                                              ; preds = %152
-  %162 = load i64, ptr %155, align 8
-  %sext = shl i64 %162, 32
-  %163 = ashr exact i64 %sext, 32
-  br label %168
+160:                                              ; preds = %151
+  %161 = load i64, ptr %154, align 8
+  %sext = shl i64 %161, 32
+  %162 = ashr exact i64 %sext, 32
+  br label %167
 
-164:                                              ; preds = %152
-  %165 = getelementptr inbounds i8, ptr %3, i64 20
-  %166 = load i32, ptr %165, align 4
-  %167 = sext i32 %166 to i64
-  br label %168
+163:                                              ; preds = %151
+  %164 = getelementptr inbounds i8, ptr %3, i64 20
+  %165 = load i32, ptr %164, align 4
+  %166 = sext i32 %165 to i64
+  br label %167
 
-168:                                              ; preds = %164, %161
-  %.sink = phi i64 [ %167, %164 ], [ %163, %161 ]
-  %169 = getelementptr inbounds i8, ptr %3, i64 %.sink
-  %170 = ptrtoint ptr %169 to i64
-  %171 = sub i64 %170, %160
-  %172 = ashr exact i64 %171, 3
-  %173 = getelementptr inbounds i8, ptr %157, i64 %172
-  %.0122 = load i32, ptr %173, align 4
+167:                                              ; preds = %163, %160
+  %.sink = phi i64 [ %166, %163 ], [ %162, %160 ]
+  %168 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  %169 = ptrtoint ptr %168 to i64
+  %170 = sub i64 %169, %159
+  %171 = ashr exact i64 %170, 3
+  %172 = getelementptr inbounds i8, ptr %156, i64 %171
+  %.0122 = load i32, ptr %172, align 4
   call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0122) #13
   br label %.loopexit
 
-174:                                              ; preds = %129
-  br i1 %116, label %175, label %193
+173:                                              ; preds = %128
+  br i1 %115, label %174, label %192
 
-175:                                              ; preds = %174
-  %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %3, i64 20
-  %182 = load i32, ptr %181, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr %3, i64 %183
-  %185 = getelementptr inbounds i8, ptr %176, i64 88
-  %186 = load ptr, ptr %185, align 8
-  %187 = ptrtoint ptr %184 to i64
-  %188 = ptrtoint ptr %186 to i64
-  %189 = sub i64 %187, %188
-  %190 = ashr exact i64 %189, 3
-  %191 = getelementptr inbounds i8, ptr %180, i64 %190
-  %192 = load i32, ptr %191, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %192) #13
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %0, align 8
+  %176 = getelementptr inbounds i8, ptr %0, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 24
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %3, i64 20
+  %181 = load i32, ptr %180, align 4
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds i8, ptr %3, i64 %182
+  %184 = getelementptr inbounds i8, ptr %175, i64 88
+  %185 = load ptr, ptr %184, align 8
+  %186 = ptrtoint ptr %183 to i64
+  %187 = ptrtoint ptr %185 to i64
+  %188 = sub i64 %186, %187
+  %189 = ashr exact i64 %188, 3
+  %190 = getelementptr inbounds i8, ptr %179, i64 %189
+  %191 = load i32, ptr %190, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %191) #13
   br label %.loopexit
 
-193:                                              ; preds = %174
-  %194 = getelementptr inbounds i8, ptr %2, i64 20
-  %195 = load i32, ptr %194, align 4
-  %196 = add nsw i32 %195, -1
-  br label %203
+192:                                              ; preds = %173
+  %193 = getelementptr inbounds i8, ptr %2, i64 20
+  %194 = load i32, ptr %193, align 4
+  %195 = add nsw i32 %194, -1
+  br label %202
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %197 = load ptr, ptr %2, align 8
-  %198 = getelementptr inbounds i32, ptr %197, i64 %indvars.iv
-  %199 = load i32, ptr %198, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %199) #13
+  %196 = load ptr, ptr %2, align 8
+  %197 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv
+  %198 = load i32, ptr %197, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %198) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %200 = load i32, ptr %53, align 4
-  %201 = sext i32 %200 to i64
-  %202 = icmp slt i64 %indvars.iv.next, %201
-  br i1 %202, label %.lr.ph, label %.loopexit
+  %199 = load i32, ptr %52, align 4
+  %200 = sext i32 %199 to i64
+  %201 = icmp slt i64 %indvars.iv.next, %200
+  br i1 %201, label %.lr.ph, label %.loopexit
 
-203:                                              ; preds = %193, %109, %99, %96, %92, %72
-  %.2 = phi i32 [ %196, %193 ], [ %114, %109 ], [ %101, %99 ], [ %98, %96 ], [ %95, %92 ], [ %75, %72 ]
-  %204 = load ptr, ptr %2, align 8
-  %205 = sext i32 %.2 to i64
-  %206 = getelementptr inbounds i32, ptr %204, i64 %205
-  %207 = load i32, ptr %206, align 4
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %207) #13
+202:                                              ; preds = %192, %108, %98, %95, %91, %71
+  %.2 = phi i32 [ %195, %192 ], [ %113, %108 ], [ %100, %98 ], [ %97, %95 ], [ %94, %91 ], [ %74, %71 ]
+  %203 = load ptr, ptr %2, align 8
+  %204 = sext i32 %.2 to i64
+  %205 = getelementptr inbounds i32, ptr %203, i64 %204
+  %206 = load i32, ptr %205, align 4
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %206) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph143, %.preheader, %42, %.thread, %203, %175, %168, %103, %86, %66, %9
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph143, %.preheader, %41, %.thread, %202, %174, %167, %102, %85, %65, %9
   ret void
 }
 

@@ -120217,7 +120217,7 @@ _ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i46: ; preds = %24
 
 .lr.ph:                                           ; preds = %28, %_ZNK7QCPBars8barBelowEv.exit49
   %33 = phi ptr [ %42, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %31, %28 ]
-  %storemerge4299 = phi ptr [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %29, %28 ]
+  %storemerge4299 = phi ptr [ %38, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %29, %28 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load atomic i32, ptr %34 monotonic, align 4
   %36 = icmp eq i32 %35, 0
@@ -120231,15 +120231,15 @@ _ZNK7QCPBars8barBelowEv.exit:                     ; preds = %.lr.ph
 
 _ZNK7QCPBars8barBelowEv.exit49:                   ; preds = %_ZNK7QCPBars8barBelowEv.exit
   %39 = load atomic i32, ptr %34 monotonic, align 4
-  %40 = icmp eq i32 %39, 0
-  %spec.select = select i1 %40, ptr null, ptr %38
-  %41 = getelementptr inbounds i8, ptr %spec.select, i64 248
+  %40 = icmp ne i32 %39, 0
+  call void @llvm.assume(i1 %40)
+  %41 = getelementptr inbounds i8, ptr %38, i64 248
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZNK7QCPBars8barBelowEv.exit.thread, label %.lr.ph
 
 _ZNK7QCPBars8barBelowEv.exit.thread:              ; preds = %_ZNK7QCPBars8barBelowEv.exit, %.lr.ph, %_ZNK7QCPBars8barBelowEv.exit49, %28
-  %storemerge42.lcssa = phi ptr [ %29, %28 ], [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %storemerge4299, %.lr.ph ], [ %storemerge4299, %_ZNK7QCPBars8barBelowEv.exit ]
+  %storemerge42.lcssa = phi ptr [ %29, %28 ], [ %38, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %storemerge4299, %.lr.ph ], [ %storemerge4299, %_ZNK7QCPBars8barBelowEv.exit ]
   %44 = load i64, ptr %17, align 8
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %46, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit.thread
@@ -120285,7 +120285,7 @@ _ZN5QListIPK7QCPBarsE6appendES2_.exit:            ; preds = %_ZNK23QListSpecialM
 
 .lr.ph107:                                        ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit, %_ZNK7QCPBars8barBelowEv.exit52
   %60 = phi ptr [ %69, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %22, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
-  %storemerge106 = phi ptr [ %spec.select136, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
+  %storemerge106 = phi ptr [ %65, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = load atomic i32, ptr %61 monotonic, align 4
   %63 = icmp eq i32 %62, 0
@@ -120299,15 +120299,15 @@ _ZNK7QCPBars8barBelowEv.exit51:                   ; preds = %.lr.ph107
 
 _ZNK7QCPBars8barBelowEv.exit52:                   ; preds = %_ZNK7QCPBars8barBelowEv.exit51
   %66 = load atomic i32, ptr %61 monotonic, align 4
-  %67 = icmp eq i32 %66, 0
-  %spec.select136 = select i1 %67, ptr null, ptr %65
-  %68 = getelementptr inbounds i8, ptr %spec.select136, i64 248
+  %67 = icmp ne i32 %66, 0
+  call void @llvm.assume(i1 %67)
+  %68 = getelementptr inbounds i8, ptr %65, i64 248
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %.lr.ph107
 
 _ZNK7QCPBars8barBelowEv.exit51.thread:            ; preds = %_ZNK7QCPBars8barBelowEv.exit51, %.lr.ph107, %_ZNK7QCPBars8barBelowEv.exit52, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit
-  %storemerge.lcssa = phi ptr [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ], [ %spec.select136, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %storemerge106, %.lr.ph107 ], [ %storemerge106, %_ZNK7QCPBars8barBelowEv.exit51 ]
+  %storemerge.lcssa = phi ptr [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ], [ %65, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %storemerge106, %.lr.ph107 ], [ %storemerge106, %_ZNK7QCPBars8barBelowEv.exit51 ]
   %71 = getelementptr inbounds i8, ptr %5, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = icmp sgt i64 %72, 0

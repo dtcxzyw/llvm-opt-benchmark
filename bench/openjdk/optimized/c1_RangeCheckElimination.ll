@@ -6084,7 +6084,7 @@ define hidden void @_ZN20RangeCheckEliminator21insert_deoptimizationEP10ValueSta
 
 37:                                               ; preds = %28, %34, %32, %24
   %.0 = phi ptr [ %29, %28 ], [ %33, %32 ], [ %36, %34 ], [ %2, %24 ]
-  br i1 %25, label %38, label %238
+  br i1 %25, label %38, label %231
 
 38:                                               ; preds = %37
   %.not79 = icmp eq ptr %4, null
@@ -6246,7 +6246,7 @@ _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationRes
 
 129:                                              ; preds = %128
   %130 = tail call noundef ptr @_ZN20RangeCheckEliminator24predicate_cmp_with_constEP11InstructionNS0_9ConditionEiP10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.067, i32 noundef 3, i32 noundef %8, ptr noundef %1, ptr noundef %.1, i32 poison)
-  br label %238
+  br label %231
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds i8, ptr %7, i64 24
@@ -6256,7 +6256,7 @@ _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationRes
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(16) %133) #13
   %.not80 = icmp eq ptr %137, null
-  br i1 %.not80, label %227, label %138
+  br i1 %.not80, label %220, label %138
 
 138:                                              ; preds = %131
   %139 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -6283,154 +6283,141 @@ _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationRes
 
 155:                                              ; preds = %138
   %156 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %145, i64 noundef 112, i32 noundef 0) #13
+  %.pre88 = load ptr, ptr %139, align 8
   br label %_ZN11InstructionnwEm.exit83
 
 _ZN11InstructionnwEm.exit83:                      ; preds = %153, %155
+  %157 = phi ptr [ %140, %153 ], [ %.pre88, %155 ]
   %.0.i.i.i82 = phi ptr [ %149, %153 ], [ %156, %155 ]
-  %157 = icmp eq ptr %.0.i.i.i82, null
-  br i1 %157, label %_ZN11InstructionnwEm.exit83._crit_edge, label %158
-
-_ZN11InstructionnwEm.exit83._crit_edge:           ; preds = %_ZN11InstructionnwEm.exit83
-  %.pre89 = load i32, ptr inttoptr (i64 56 to ptr), align 8
-  br label %207
-
-158:                                              ; preds = %_ZN11InstructionnwEm.exit83
-  %159 = load ptr, ptr %139, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1808
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 128
+  %158 = icmp ne ptr %.0.i.i.i82, null
+  tail call void @llvm.assume(i1 %158)
+  %159 = getelementptr inbounds i8, ptr %157, i64 1808
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 128
+  %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %162, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 40
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %164, i64 32
-  %168 = load ptr, ptr %167, align 8
-  %169 = ptrtoint ptr %166 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %.not.i.i.i.i84 = icmp ult i64 %171, 88
-  br i1 %.not.i.i.i.i84, label %174, label %172
+  %164 = getelementptr inbounds i8, ptr %163, i64 40
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %163, i64 32
+  %167 = load ptr, ptr %166, align 8
+  %168 = ptrtoint ptr %165 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %.not.i.i.i.i84 = icmp ult i64 %170, 88
+  br i1 %.not.i.i.i.i84, label %173, label %171
 
-172:                                              ; preds = %158
-  %173 = getelementptr inbounds i8, ptr %168, i64 88
-  store ptr %173, ptr %167, align 8
+171:                                              ; preds = %_ZN11InstructionnwEm.exit83
+  %172 = getelementptr inbounds i8, ptr %167, i64 88
+  store ptr %172, ptr %166, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit.i85
 
-174:                                              ; preds = %158
-  %175 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %164, i64 noundef 88, i32 noundef 0) #13
+173:                                              ; preds = %_ZN11InstructionnwEm.exit83
+  %174 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %163, i64 noundef 88, i32 noundef 0) #13
   br label %_ZN22CompilationResourceObjnwEm.exit.i85
 
-_ZN22CompilationResourceObjnwEm.exit.i85:         ; preds = %174, %172
-  %.0.i.i.i.i86 = phi ptr [ %168, %172 ], [ %175, %174 ]
-  %176 = icmp eq ptr %.0.i.i.i.i86, null
-  br i1 %176, label %_ZN10ValueStack4copyEv.exit87, label %177
+_ZN22CompilationResourceObjnwEm.exit.i85:         ; preds = %173, %171
+  %.0.i.i.i.i86 = phi ptr [ %167, %171 ], [ %174, %173 ]
+  %175 = icmp eq ptr %.0.i.i.i.i86, null
+  br i1 %175, label %_ZN10ValueStack4copyEv.exit87, label %176
 
-177:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i85
-  %178 = getelementptr inbounds i8, ptr %1, i64 20
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i8, ptr %1, i64 16
-  %181 = load i32, ptr %180, align 8
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i86, ptr noundef nonnull %1, i32 noundef %179, i32 noundef %181) #13
+176:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i85
+  %177 = getelementptr inbounds i8, ptr %1, i64 20
+  %178 = load i32, ptr %177, align 4
+  %179 = getelementptr inbounds i8, ptr %1, i64 16
+  %180 = load i32, ptr %179, align 8
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i86, ptr noundef nonnull %1, i32 noundef %178, i32 noundef %180) #13
   br label %_ZN10ValueStack4copyEv.exit87
 
-_ZN10ValueStack4copyEv.exit87:                    ; preds = %_ZN22CompilationResourceObjnwEm.exit.i85, %177
-  %182 = load ptr, ptr @intType, align 8
+_ZN10ValueStack4copyEv.exit87:                    ; preds = %_ZN22CompilationResourceObjnwEm.exit.i85, %176
+  %181 = load ptr, ptr @intType, align 8
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i82, align 8
-  %183 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 8
-  %184 = load ptr, ptr %139, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 1808
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 128
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 8
-  %190 = load i32, ptr %189, align 8
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %189, align 8
-  store i32 %190, ptr %183, align 8
-  %192 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 12
-  store i32 0, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 16
-  store i32 0, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 24
-  store ptr %182, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 32
-  %196 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, i8 0, i64 16, i1 false)
-  %197 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  store i64 %197, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 56
-  store i32 0, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 64
-  store ptr %.0.i.i.i.i86, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
+  %182 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 8
+  %183 = load ptr, ptr %139, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 1808
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 128
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %189 = load i32, ptr %188, align 8
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %188, align 8
+  store i32 %189, ptr %182, align 8
+  %191 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 12
+  store i32 0, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 16
+  store i32 0, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 24
+  store ptr %181, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 32
+  %195 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, i8 0, i64 16, i1 false)
+  %196 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  store i64 %196, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 56
+  store i32 0, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 64
+  store ptr %.0.i.i.i.i86, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
   tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i82, ptr noundef %.0.i.i.i.i86) #13
-  %201 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 96
-  store ptr %7, ptr %201, align 8
-  %202 = load i32, ptr %198, align 8
+  %200 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 96
+  store ptr %7, ptr %200, align 8
+  %201 = load i32, ptr %197, align 8
+  %202 = load i32, ptr %192, align 8
   %203 = or i32 %202, 1
-  %204 = load i32, ptr %193, align 8
-  %205 = or i32 %204, 1
-  store i32 %205, ptr %193, align 8
+  store i32 %203, ptr %192, align 8
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11ArrayLength, i64 16), ptr %.0.i.i.i82, align 8
-  %206 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 104
-  store ptr null, ptr %206, align 8
-  br label %207
+  %204 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 104
+  store ptr null, ptr %204, align 8
+  %205 = or i32 %201, 524289
+  store i32 %205, ptr %197, align 8
+  %206 = load ptr, ptr %198, align 8
+  %207 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 72
+  store ptr %206, ptr %207, align 8
+  %208 = getelementptr inbounds i8, ptr %.1, i64 32
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds i8, ptr %.1, i64 88
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 88
+  store ptr %211, ptr %212, align 8
+  %213 = or i32 %201, 589825
+  store i32 %213, ptr %197, align 8
+  store ptr %.0.i.i.i82, ptr %208, align 8
+  %214 = load ptr, ptr %212, align 8
+  %215 = getelementptr inbounds i8, ptr %209, i64 88
+  store ptr %214, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %209, i64 56
+  %217 = load i32, ptr %216, align 8
+  %218 = or i32 %217, 65536
+  store i32 %218, ptr %216, align 8
+  store ptr %209, ptr %194, align 8
+  %219 = load ptr, ptr %208, align 8
+  br label %220
 
-207:                                              ; preds = %_ZN11InstructionnwEm.exit83._crit_edge, %_ZN10ValueStack4copyEv.exit87
-  %208 = phi i32 [ %.pre89, %_ZN11InstructionnwEm.exit83._crit_edge ], [ %203, %_ZN10ValueStack4copyEv.exit87 ]
-  %209 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 56
-  %210 = or i32 %208, 524288
-  store i32 %210, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 64
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 72
-  store ptr %212, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %.1, i64 32
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %.1, i64 88
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 88
-  store ptr %217, ptr %218, align 8
-  %219 = or i32 %208, 589824
-  store i32 %219, ptr %209, align 8
-  store ptr %.0.i.i.i82, ptr %214, align 8
-  %220 = load ptr, ptr %218, align 8
-  %221 = getelementptr inbounds i8, ptr %215, i64 88
-  store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %215, i64 56
-  %223 = load i32, ptr %222, align 8
-  %224 = or i32 %223, 65536
-  store i32 %224, ptr %222, align 8
-  %225 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 32
-  store ptr %215, ptr %225, align 8
-  %226 = load ptr, ptr %214, align 8
-  br label %227
+220:                                              ; preds = %_ZN10ValueStack4copyEv.exit87, %131
+  %.068 = phi ptr [ %.0.i.i.i82, %_ZN10ValueStack4copyEv.exit87 ], [ %7, %131 ]
+  %.2 = phi ptr [ %219, %_ZN10ValueStack4copyEv.exit87 ], [ %.1, %131 ]
+  %221 = icmp eq i32 %8, 0
+  br i1 %221, label %222, label %224
 
-227:                                              ; preds = %207, %131
-  %.068 = phi ptr [ %.0.i.i.i82, %207 ], [ %7, %131 ]
-  %.2 = phi ptr [ %226, %207 ], [ %.1, %131 ]
-  %228 = icmp eq i32 %8, 0
-  br i1 %228, label %229, label %231
+222:                                              ; preds = %220
+  %223 = tail call noundef ptr @_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.068, i32 noundef 5, ptr noundef nonnull %.067, ptr noundef %1, ptr noundef %.2, i32 poison)
+  br label %231
 
-229:                                              ; preds = %227
-  %230 = tail call noundef ptr @_ZN20RangeCheckEliminator9predicateEP11InstructionNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.068, i32 noundef 5, ptr noundef nonnull %.067, ptr noundef %1, ptr noundef %.2, i32 poison)
-  br label %238
+224:                                              ; preds = %220
+  %225 = icmp slt i32 %8, 0
+  br i1 %225, label %226, label %228
 
-231:                                              ; preds = %227
-  %232 = icmp slt i32 %8, 0
-  br i1 %232, label %233, label %235
+226:                                              ; preds = %224
+  %227 = tail call noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.068, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %.067, ptr noundef %1, ptr noundef %.2, i32 poison)
+  br label %231
 
-233:                                              ; preds = %231
-  %234 = tail call noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.068, i32 noundef %8, i32 noundef 5, ptr noundef nonnull %.067, ptr noundef %1, ptr noundef %.2, i32 poison)
-  br label %238
+228:                                              ; preds = %224
+  %229 = sub nsw i32 0, %8
+  %230 = tail call noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.067, i32 noundef %229, i32 noundef 3, ptr noundef nonnull %.068, ptr noundef %1, ptr noundef %.2, i32 poison)
+  br label %231
 
-235:                                              ; preds = %231
-  %236 = sub nsw i32 0, %8
-  %237 = tail call noundef ptr @_ZN20RangeCheckEliminator13predicate_addEP11InstructioniNS0_9ConditionES1_P10ValueStackS1_i(ptr nonnull align 8 poison, ptr noundef nonnull %.067, i32 noundef %236, i32 noundef 3, ptr noundef nonnull %.068, ptr noundef %1, ptr noundef %.2, i32 poison)
-  br label %238
-
-238:                                              ; preds = %229, %235, %233, %37, %129
+231:                                              ; preds = %222, %228, %226, %37, %129
   ret void
 }
 

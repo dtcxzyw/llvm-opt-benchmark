@@ -21340,25 +21340,22 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4ab
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %18 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %18
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 4
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #30
-          to label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i unwind label %lpad5
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad5
 
-_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i8, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.299", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
@@ -21371,8 +21368,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !267
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
@@ -21382,9 +21379,9 @@ if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i
-  store ptr %cond.i12.i.i.i, ptr %tests_, align 8
+  store ptr %call5.i.i.i.i.i.i8, ptr %tests_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.299", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.299", ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEED2Ev.exit
 
@@ -21397,7 +21394,7 @@ ehcleanup7.thread:                                ; preds = %entry
           cleanup
   br label %cleanup.action
 
-lpad5:                                            ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i
+lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #28
@@ -37615,25 +37612,22 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4ab
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %18 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %18
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 4
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #30
-          to label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i unwind label %lpad5
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad5
 
-_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i8, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.479", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !617)
   call void @llvm.experimental.noalias.scope.decl(metadata !620)
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
@@ -37646,8 +37640,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !622
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
@@ -37657,9 +37651,9 @@ if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i
-  store ptr %cond.i12.i.i.i, ptr %tests_, align 8
+  store ptr %call5.i.i.i.i.i.i8, ptr %tests_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.479", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.479", ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEED2Ev.exit
 
@@ -37672,7 +37666,7 @@ ehcleanup7.thread:                                ; preds = %entry
           cleanup
   br label %cleanup.action
 
-lpad5:                                            ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i
+lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #28
@@ -49783,19 +49777,17 @@ entry:
   call void @_ZN4absl15cordrep_testing18CreateRandomStringB5cxx11Em(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %data, i64 noundef 216)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %data) #28
   %0 = extractvalue { i64, ptr } %call, 0
-  %cmp.i117 = icmp eq i64 %0, 0
-  br i1 %cmp.i117, label %invoke.cont8, label %invoke.cont.preheader
-
-invoke.cont.preheader:                            ; preds = %entry
   %1 = extractvalue { i64, ptr } %call, 1
+  %cmp.i117 = icmp ne i64 %0, 0
+  call void @llvm.assume(i1 %cmp.i117)
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %invoke.cont.preheader, %for.inc
-  %flats.sroa.0.0122 = phi ptr [ %flats.sroa.0.1, %for.inc ], [ null, %invoke.cont.preheader ]
-  %flats.sroa.9.0121 = phi ptr [ %flats.sroa.9.1, %for.inc ], [ null, %invoke.cont.preheader ]
-  %s.sroa.0.0120 = phi i64 [ %sub.i, %for.inc ], [ %0, %invoke.cont.preheader ]
-  %s.sroa.5.0119 = phi ptr [ %add.ptr.i, %for.inc ], [ %1, %invoke.cont.preheader ]
-  %flats.sroa.15.0118 = phi ptr [ %flats.sroa.15.1, %for.inc ], [ null, %invoke.cont.preheader ]
+invoke.cont:                                      ; preds = %entry, %for.inc
+  %flats.sroa.0.0122 = phi ptr [ %flats.sroa.0.1, %for.inc ], [ null, %entry ]
+  %flats.sroa.9.0121 = phi ptr [ %flats.sroa.9.1, %for.inc ], [ null, %entry ]
+  %s.sroa.0.0120 = phi i64 [ %sub.i, %for.inc ], [ %0, %entry ]
+  %s.sroa.5.0119 = phi ptr [ %add.ptr.i, %for.inc ], [ %1, %entry ]
+  %flats.sroa.15.0118 = phi ptr [ %flats.sroa.15.1, %for.inc ], [ null, %entry ]
   %call4.i.i.i22 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -49805,7 +49797,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i64 25769803778, ptr %2, align 8
   store i64 %.sroa.speculated.i, ptr %call4.i.i.i22, align 8
   %storage.i.i = getelementptr inbounds i8, ptr %call4.i.i.i22, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storage.i.i, ptr noundef nonnull align 1 dereferenceable(1) %s.sroa.5.0119, i64 %.sroa.speculated.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storage.i.i, ptr align 1 %s.sroa.5.0119, i64 %.sroa.speculated.i, i1 false)
   %cmp.not.i.i = icmp eq ptr %flats.sroa.9.0121, %flats.sroa.15.0118
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -49897,15 +49889,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
   br label %ehcleanup81
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i61, %if.end.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, %if.then.i.i.i.i
-  %flats.sroa.0.0114 = phi ptr [ %flats.sroa.0.0.lcssa, %if.then.i61 ], [ %flats.sroa.0.0.lcssa, %if.end.i ], [ %flats.sroa.0.0.lcssa, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %flats.sroa.0.0122, %if.then.i.i.i.i ]
+  %flats.sroa.0.0114 = phi ptr [ %flats.sroa.0.1, %if.then.i61 ], [ %flats.sroa.0.1, %if.end.i ], [ %flats.sroa.0.1, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %flats.sroa.0.0122, %if.then.i.i.i.i ]
   %lpad.loopexit.split-lp101 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup81
 
-invoke.cont8:                                     ; preds = %for.inc, %entry
-  %flats.sroa.9.0.lcssa = phi ptr [ null, %entry ], [ %flats.sroa.9.1, %for.inc ]
-  %flats.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %flats.sroa.0.1, %for.inc ]
-  %4 = load ptr, ptr %flats.sroa.0.0.lcssa, align 8, !nonnull !735, !noundef !735
+invoke.cont8:                                     ; preds = %for.inc
+  %4 = load ptr, ptr %flats.sroa.0.1, align 8, !nonnull !735, !noundef !735
   %refcount.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw add ptr %refcount.i, i32 2 monotonic, align 4
   %tag.i.i = getelementptr inbounds i8, ptr %4, i64 12
@@ -49946,8 +49936,8 @@ if.end.i:                                         ; preds = %_ZN4absl13cord_inte
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %if.end.i, %call.i.i.noexc
   %retval.0.i = phi ptr [ %call.i.i28, %call.i.i.noexc ], [ %call2.i29, %if.end.i ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %flats.sroa.9.0.lcssa to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %flats.sroa.0.0.lcssa to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %flats.sroa.9.1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %flats.sroa.0.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp124 = icmp ugt i64 %sub.ptr.div.i, 1
@@ -49966,7 +49956,7 @@ for.cond26.preheader.lr.ph:                       ; preds = %for.cond22.preheade
 invoke.cont16:                                    ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %invoke.cont18
   %node.0126 = phi ptr [ %retval.0.i38, %invoke.cont18 ], [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
   %i.0125 = phi i64 [ %inc, %invoke.cont18 ], [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %flats.sroa.0.0.lcssa, i64 %i.0125
+  %add.ptr.i30 = getelementptr inbounds ptr, ptr %flats.sroa.0.1, i64 %i.0125
   %10 = load ptr, ptr %add.ptr.i30, align 8, !nonnull !735, !noundef !735
   %refcount.i32 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = atomicrmw add ptr %refcount.i32, i32 2 monotonic, align 4
@@ -50197,11 +50187,11 @@ if.then.i61:                                      ; preds = %for.end67
           to label %invoke.cont68 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %for.end67, %if.then.i61
-  %cmp.i65.not135 = icmp eq ptr %flats.sroa.0.0.lcssa, %flats.sroa.9.0.lcssa
+  %cmp.i65.not135 = icmp eq ptr %flats.sroa.0.1, %flats.sroa.9.1
   br i1 %cmp.i65.not135, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit, label %for.body74
 
 for.body74:                                       ; preds = %invoke.cont68, %for.inc78
-  %__begin2.sroa.0.0136 = phi ptr [ %incdec.ptr.i, %for.inc78 ], [ %flats.sroa.0.0.lcssa, %invoke.cont68 ]
+  %__begin2.sroa.0.0136 = phi ptr [ %incdec.ptr.i, %for.inc78 ], [ %flats.sroa.0.1, %invoke.cont68 ]
   %31 = load ptr, ptr %__begin2.sroa.0.0136, align 8
   %refcount.i66 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = atomicrmw sub ptr %refcount.i66, i32 2 acq_rel, align 4
@@ -50214,23 +50204,23 @@ if.then.i69:                                      ; preds = %for.body74
 
 for.inc78:                                        ; preds = %for.body74, %if.then.i69
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0136, i64 8
-  %cmp.i65.not = icmp eq ptr %incdec.ptr.i, %flats.sroa.9.0.lcssa
+  %cmp.i65.not = icmp eq ptr %__begin2.sroa.0.0136, %add.ptr.i.i.i.i.i.i.pn
   br i1 %cmp.i65.not, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit, label %for.body74
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit: ; preds = %for.inc78, %invoke.cont68
-  call void @_ZdlPv(ptr noundef nonnull %flats.sroa.0.0.lcssa) #31
+  call void @_ZdlPv(ptr noundef nonnull %flats.sroa.0.1) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data) #28
   ret void
 
 ehcleanup81:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup60, %ehcleanup46
-  %flats.sroa.0.0106 = phi ptr [ %flats.sroa.0.0.lcssa, %ehcleanup60 ], [ %flats.sroa.0.0.lcssa, %ehcleanup46 ], [ %flats.sroa.0.0.lcssa, %lpad.loopexit ], [ %flats.sroa.0.0.lcssa, %lpad.loopexit.split-lp.loopexit ], [ %flats.sroa.0.0122, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %flats.sroa.0.0114, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %flats.sroa.0.0106 = phi ptr [ %flats.sroa.0.1, %ehcleanup60 ], [ %flats.sroa.0.1, %ehcleanup46 ], [ %flats.sroa.0.1, %lpad.loopexit ], [ %flats.sroa.0.1, %lpad.loopexit.split-lp.loopexit ], [ %flats.sroa.0.0122, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %flats.sroa.0.0114, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn20 = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup60 ], [ %.pn.pn.pn, %ehcleanup46 ], [ %lpad.loopexit92, %lpad.loopexit ], [ %lpad.loopexit94, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit100, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp101, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i74 = icmp eq ptr %flats.sroa.0.0106, null
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit76, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %ehcleanup81.thread, %ehcleanup81
   %.pn20143 = phi { ptr, i32 } [ %lpad.loopexit97, %ehcleanup81.thread ], [ %.pn20, %ehcleanup81 ]
-  %flats.sroa.0.0106142 = phi ptr [ %flats.sroa.0.0.lcssa, %ehcleanup81.thread ], [ %flats.sroa.0.0106, %ehcleanup81 ]
+  %flats.sroa.0.0106142 = phi ptr [ %flats.sroa.0.1, %ehcleanup81.thread ], [ %flats.sroa.0.0106, %ehcleanup81 ]
   call void @_ZdlPv(ptr noundef nonnull %flats.sroa.0.0106142) #31
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EED2Ev.exit76
 
@@ -64552,25 +64542,22 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4ab
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %18 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %18
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 4
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #30
-          to label %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i unwind label %lpad5
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad5
 
-_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i12.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i8, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr.700", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ]
+  %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1081)
   call void @llvm.experimental.noalias.scope.decl(metadata !1084)
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
@@ -64583,8 +64570,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %15
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !1086
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
@@ -64594,9 +64581,9 @@ if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit23.i.i.i
-  store ptr %cond.i12.i.i.i, ptr %tests_, align 8
+  store ptr %call5.i.i.i.i.i.i8, ptr %tests_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.700", ptr %cond.i12.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.700", ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEED2Ev.exit
 
@@ -64609,7 +64596,7 @@ ehcleanup7.thread:                                ; preds = %entry
           cleanup
   br label %cleanup.action
 
-lpad5:                                            ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i
+lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #28

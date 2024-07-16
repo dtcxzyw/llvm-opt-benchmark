@@ -2738,7 +2738,7 @@ define noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem
   %27 = alloca ptr, align 8
   %28 = alloca %"class.cxx20::expected", align 4
   %29 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
-          to label %.noexc unwind label %596
+          to label %.noexc unwind label %594
 
 .noexc:                                           ; preds = %1
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -2848,7 +2848,7 @@ _ZN8WasmEdge6Loader13SharedLibrary3getIFPKNS_6Plugin6Plugin16PluginDescriptorEvE
 
 72:                                               ; preds = %_ZN8WasmEdge6Loader13SharedLibrary3getIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEENS_6SymbolIT_EEPKc.exit
   %73 = invoke noundef ptr %56()
-          to label %_ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit unwind label %596
+          to label %_ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit unwind label %594
 
 _ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit: ; preds = %72
   %74 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin14registerPluginEPKNS1_16PluginDescriptorE(ptr noundef %73) #25
@@ -2925,7 +2925,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit: ; preds = %91, %104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %109 = trunc nuw i8 %.08 to i1
-  br i1 %109, label %528, label %110
+  br i1 %109, label %526, label %110
 
 110:                                              ; preds = %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit
   %111 = call noundef ptr @_ZNK8WasmEdge6Loader13SharedLibrary13getSymbolAddrEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.13) #25, !noalias !28
@@ -2968,19 +2968,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
 
 _ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit: ; preds = %118
   %.not55 = icmp eq ptr %111, null
-  br i1 %.not55, label %495, label %127
+  br i1 %.not55, label %493, label %127
 
 127:                                              ; preds = %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit
   %128 = invoke noundef ptr %111()
-          to label %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit unwind label %596
+          to label %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit unwind label %594
 
 _ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit: ; preds = %127
   %.not = icmp eq ptr %128, null
-  br i1 %.not, label %495, label %129
+  br i1 %.not, label %493, label %129
 
 129:                                              ; preds = %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit
   %130 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29
-          to label %.noexc18 unwind label %596
+          to label %.noexc18 unwind label %594
 
 .noexc18:                                         ; preds = %129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !37
@@ -3796,7 +3796,7 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
 
 472:                                              ; preds = %466
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.191) #27
-          to label %.noexc20 unwind label %596
+          to label %.noexc20 unwind label %594
 
 .noexc20:                                         ; preds = %472
   unreachable
@@ -3809,291 +3809,288 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister
   %476 = icmp ult i64 %475, %473
   %477 = call i64 @llvm.umin.i64(i64 %475, i64 1152921504606846975)
   %478 = select i1 %476, i64 1152921504606846975, i64 %477
-  %.not.i.i.i = icmp eq i64 %478, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, label %479
+  %.not.i.i.i = icmp ne i64 %478, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %479 = shl nuw nsw i64 %478, 3
+  %480 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %479) #29
+          to label %.noexc21 unwind label %594
 
-479:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
-  %480 = shl nuw nsw i64 %478, 3
-  %481 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %480) #29
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i unwind label %596
-
-_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i: ; preds = %479, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
-  %482 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i ], [ %481, %479 ]
-  %483 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %482, i64 %473
-  %484 = ptrtoint ptr %130 to i64
-  store i64 %484, ptr %483, align 8
+.noexc21:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
+  %481 = getelementptr inbounds i8, ptr %480, i64 %470
+  %482 = ptrtoint ptr %130 to i64
+  store i64 %482, ptr %481, align 8
   br i1 %474, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %486, %.lr.ph.i.i.i.i.i ], [ %482, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %485, %.lr.ph.i.i.i.i.i ], [ %467, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.noexc21, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %484, %.lr.ph.i.i.i.i.i ], [ %480, %.noexc21 ]
+  %.092.i.i.i.i.i = phi ptr [ %483, %.lr.ph.i.i.i.i.i ], [ %467, %.noexc21 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %.val.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.092.i.i.i.i.i, align 8, !alias.scope !45, !noalias !42
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i, ptr %.03.i.i.i.i.i, align 8, !alias.scope !42, !noalias !45
   store ptr null, ptr %.092.i.i.i.i.i, align 8, !alias.scope !45, !noalias !42
-  %485 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
-  %486 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i19 = icmp eq ptr %485, %460
+  %483 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
+  %484 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i19 = icmp eq ptr %483, %460
   br i1 %.not.i.i.i.i.i19, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %482, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i ], [ %486, %.lr.ph.i.i.i.i.i ]
-  %487 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc21
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %480, %.noexc21 ], [ %484, %.lr.ph.i.i.i.i.i ]
+  %485 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i25.i.i = icmp eq ptr %467, null
-  br i1 %.not.i25.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %488
+  br i1 %.not.i25.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %486
 
-488:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
-  %489 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
-  %490 = ptrtoint ptr %489 to i64
-  %491 = sub i64 %490, %469
-  call void @_ZdlPvm(ptr noundef nonnull %467, i64 noundef %491) #24
+486:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
+  %487 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
+  %488 = ptrtoint ptr %487 to i64
+  %489 = sub i64 %488, %469
+  call void @_ZdlPvm(ptr noundef nonnull %467, i64 noundef %489) #24
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %488, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
-  store ptr %482, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, align 8
-  store ptr %487, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 8), align 8
-  %492 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %482, i64 %478
-  store ptr %492, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %486, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
+  store ptr %480, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, align 8
+  store ptr %485, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 8), align 8
+  %490 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %480, i64 %478
+  store ptr %490, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit: ; preds = %462, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
-  %493 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i ], [ %464, %462 ]
-  %.val10 = load ptr, ptr %493, align 8
-  %494 = getelementptr i8, ptr %.val10, i64 128
-  %.val11 = load i8, ptr %494, align 8
-  br label %495
+  %491 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i ], [ %464, %462 ]
+  %.val10 = load ptr, ptr %491, align 8
+  %492 = getelementptr i8, ptr %.val10, i64 128
+  %.val11 = load i8, ptr %492, align 8
+  br label %493
 
-495:                                              ; preds = %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit, %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit, %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit
+493:                                              ; preds = %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit, %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit, %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit
   %.19 = phi i8 [ %.val11, %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit ], [ %.08, %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit ], [ %.08, %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit ]
   %cond = phi i1 [ true, %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit ], [ false, %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit ], [ false, %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit ]
-  %496 = load atomic i64, ptr %115 acquire, align 8
-  %497 = icmp eq i64 %496, 4294967297
-  %498 = trunc i64 %496 to i32
-  br i1 %497, label %499, label %504
+  %494 = load atomic i64, ptr %115 acquire, align 8
+  %495 = icmp eq i64 %494, 4294967297
+  %496 = trunc i64 %494 to i32
+  br i1 %495, label %497, label %502
 
-499:                                              ; preds = %495
+497:                                              ; preds = %493
   store i32 0, ptr %115, align 8
-  %500 = getelementptr inbounds i8, ptr %112, i64 12
-  store i32 0, ptr %500, align 4
-  %501 = load ptr, ptr %112, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 16
-  %503 = load ptr, ptr %502, align 8
-  call void %503(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
+  %498 = getelementptr inbounds i8, ptr %112, i64 12
+  store i32 0, ptr %498, align 4
+  %499 = load ptr, ptr %112, align 8
+  %500 = getelementptr inbounds i8, ptr %499, i64 16
+  %501 = load ptr, ptr %500, align 8
+  call void %501(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28
 
-504:                                              ; preds = %495
-  %505 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i24 = icmp eq i8 %505, 0
-  br i1 %.not.i.i.i.i.i24, label %508, label %506
+502:                                              ; preds = %493
+  %503 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i24 = icmp eq i8 %503, 0
+  br i1 %.not.i.i.i.i.i24, label %506, label %504
 
-506:                                              ; preds = %504
-  %507 = add nsw i32 %498, -1
-  store i32 %507, ptr %115, align 4
-  br label %510
+504:                                              ; preds = %502
+  %505 = add nsw i32 %496, -1
+  store i32 %505, ptr %115, align 4
+  br label %508
 
-508:                                              ; preds = %504
-  %509 = atomicrmw volatile add ptr %115, i32 -1 acq_rel, align 4
-  br label %510
+506:                                              ; preds = %502
+  %507 = atomicrmw volatile add ptr %115, i32 -1 acq_rel, align 4
+  br label %508
 
-510:                                              ; preds = %508, %506
-  %.0.i.i.i.i.i25 = phi i32 [ %498, %506 ], [ %509, %508 ]
-  %511 = icmp eq i32 %.0.i.i.i.i.i25, 1
-  br i1 %511, label %512, label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
+508:                                              ; preds = %506, %504
+  %.0.i.i.i.i.i25 = phi i32 [ %496, %504 ], [ %507, %506 ]
+  %509 = icmp eq i32 %.0.i.i.i.i.i25, 1
+  br i1 %509, label %510, label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
 
-512:                                              ; preds = %510
-  %513 = load ptr, ptr %112, align 8
-  %514 = getelementptr inbounds i8, ptr %513, i64 16
-  %515 = load ptr, ptr %514, align 8
-  call void %515(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
-  %516 = getelementptr inbounds i8, ptr %112, i64 12
-  %517 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i26 = icmp eq i8 %517, 0
-  br i1 %.not.i.i.i.i.i.i.i26, label %521, label %518
+510:                                              ; preds = %508
+  %511 = load ptr, ptr %112, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 16
+  %513 = load ptr, ptr %512, align 8
+  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
+  %514 = getelementptr inbounds i8, ptr %112, i64 12
+  %515 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i26 = icmp eq i8 %515, 0
+  br i1 %.not.i.i.i.i.i.i.i26, label %519, label %516
 
-518:                                              ; preds = %512
-  %519 = load i32, ptr %516, align 4
-  %520 = add nsw i32 %519, -1
-  store i32 %520, ptr %516, align 4
-  br label %523
+516:                                              ; preds = %510
+  %517 = load i32, ptr %514, align 4
+  %518 = add nsw i32 %517, -1
+  store i32 %518, ptr %514, align 4
+  br label %521
 
-521:                                              ; preds = %512
-  %522 = atomicrmw volatile add ptr %516, i32 -1 acq_rel, align 4
-  br label %523
+519:                                              ; preds = %510
+  %520 = atomicrmw volatile add ptr %514, i32 -1 acq_rel, align 4
+  br label %521
 
-523:                                              ; preds = %521, %518
-  %.0.i.i.i.i.i.i.i27 = phi i32 [ %519, %518 ], [ %522, %521 ]
-  %524 = icmp eq i32 %.0.i.i.i.i.i.i.i27, 1
-  br i1 %524, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28, label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
+521:                                              ; preds = %519, %516
+  %.0.i.i.i.i.i.i.i27 = phi i32 [ %517, %516 ], [ %520, %519 ]
+  %522 = icmp eq i32 %.0.i.i.i.i.i.i.i27, 1
+  br i1 %522, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28, label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28: ; preds = %523, %499
-  %525 = load ptr, ptr %112, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i64 24
-  %527 = load ptr, ptr %526, align 8
-  call void %527(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28: ; preds = %521, %497
+  %523 = load ptr, ptr %112, align 8
+  %524 = getelementptr inbounds i8, ptr %523, i64 24
+  %525 = load ptr, ptr %524, align 8
+  call void %525(ptr noundef nonnull align 8 dereferenceable(16) %112) #25
   br label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
 
-_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit: ; preds = %510, %523, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28
-  br i1 %cond, label %528, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit: ; preds = %508, %521, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i28
+  br i1 %cond, label %526, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
 
-528:                                              ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit
+526:                                              ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit
   %.2 = phi i8 [ %.08, %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit ], [ %.19, %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit ]
-  %529 = trunc i8 %.2 to i1
-  br i1 %529, label %530, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+  %527 = trunc i8 %.2 to i1
+  br i1 %527, label %528, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
 
-530:                                              ; preds = %528
-  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin6Plugin14PluginRegistryE, i64 8), align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 -224
-  %533 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %532, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %534 unwind label %596
+528:                                              ; preds = %526
+  %529 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin6Plugin14PluginRegistryE, i64 8), align 8
+  %530 = getelementptr inbounds i8, ptr %529, i64 -224
+  %531 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %530, ptr noundef nonnull align 8 dereferenceable(40) %0)
+          to label %532 unwind label %594
 
-534:                                              ; preds = %530
-  %535 = getelementptr inbounds i8, ptr %531, i64 -176
-  store ptr %32, ptr %535, align 8
-  %536 = getelementptr inbounds i8, ptr %531, i64 -168
-  %537 = load ptr, ptr %536, align 8
-  store ptr %29, ptr %536, align 8
-  %.not.i.i.i.i29 = icmp eq ptr %537, null
-  br i1 %.not.i.i.i.i29, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit, label %538
+532:                                              ; preds = %528
+  %533 = getelementptr inbounds i8, ptr %529, i64 -176
+  store ptr %32, ptr %533, align 8
+  %534 = getelementptr inbounds i8, ptr %529, i64 -168
+  %535 = load ptr, ptr %534, align 8
+  store ptr %29, ptr %534, align 8
+  %.not.i.i.i.i29 = icmp eq ptr %535, null
+  br i1 %.not.i.i.i.i29, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit, label %536
 
-538:                                              ; preds = %534
-  %539 = getelementptr inbounds i8, ptr %537, i64 8
-  %540 = load atomic i64, ptr %539 acquire, align 8
-  %541 = icmp eq i64 %540, 4294967297
-  %542 = trunc i64 %540 to i32
-  br i1 %541, label %543, label %545
+536:                                              ; preds = %532
+  %537 = getelementptr inbounds i8, ptr %535, i64 8
+  %538 = load atomic i64, ptr %537 acquire, align 8
+  %539 = icmp eq i64 %538, 4294967297
+  %540 = trunc i64 %538 to i32
+  br i1 %539, label %541, label %543
 
-543:                                              ; preds = %538
-  store i32 0, ptr %539, align 8
-  %544 = getelementptr inbounds i8, ptr %537, i64 12
+541:                                              ; preds = %536
+  store i32 0, ptr %537, align 8
+  %542 = getelementptr inbounds i8, ptr %535, i64 12
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split
 
-545:                                              ; preds = %538
-  %546 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i30 = icmp eq i8 %546, 0
-  br i1 %.not.i.i.i.i.i30, label %549, label %547
+543:                                              ; preds = %536
+  %544 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i30 = icmp eq i8 %544, 0
+  br i1 %.not.i.i.i.i.i30, label %547, label %545
 
-547:                                              ; preds = %545
-  %548 = add nsw i32 %542, -1
-  store i32 %548, ptr %539, align 4
-  br label %551
+545:                                              ; preds = %543
+  %546 = add nsw i32 %540, -1
+  store i32 %546, ptr %537, align 4
+  br label %549
 
-549:                                              ; preds = %545
-  %550 = atomicrmw volatile add ptr %539, i32 -1 acq_rel, align 4
-  br label %551
+547:                                              ; preds = %543
+  %548 = atomicrmw volatile add ptr %537, i32 -1 acq_rel, align 4
+  br label %549
 
-551:                                              ; preds = %549, %547
-  %.0.i.i.i.i.i31 = phi i32 [ %542, %547 ], [ %550, %549 ]
-  %552 = icmp eq i32 %.0.i.i.i.i.i31, 1
-  br i1 %552, label %553, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+549:                                              ; preds = %547, %545
+  %.0.i.i.i.i.i31 = phi i32 [ %540, %545 ], [ %548, %547 ]
+  %550 = icmp eq i32 %.0.i.i.i.i.i31, 1
+  br i1 %550, label %551, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-553:                                              ; preds = %551
-  %554 = load ptr, ptr %537, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 16
-  %556 = load ptr, ptr %555, align 8
-  call void %556(ptr noundef nonnull align 8 dereferenceable(16) %537) #25
-  %557 = getelementptr inbounds i8, ptr %537, i64 12
-  %558 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i32 = icmp eq i8 %558, 0
-  br i1 %.not.i.i.i.i.i.i.i32, label %562, label %559
+551:                                              ; preds = %549
+  %552 = load ptr, ptr %535, align 8
+  %553 = getelementptr inbounds i8, ptr %552, i64 16
+  %554 = load ptr, ptr %553, align 8
+  call void %554(ptr noundef nonnull align 8 dereferenceable(16) %535) #25
+  %555 = getelementptr inbounds i8, ptr %535, i64 12
+  %556 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i32 = icmp eq i8 %556, 0
+  br i1 %.not.i.i.i.i.i.i.i32, label %560, label %557
 
-559:                                              ; preds = %553
-  %560 = load i32, ptr %557, align 4
-  %561 = add nsw i32 %560, -1
-  store i32 %561, ptr %557, align 4
-  br label %564
+557:                                              ; preds = %551
+  %558 = load i32, ptr %555, align 4
+  %559 = add nsw i32 %558, -1
+  store i32 %559, ptr %555, align 4
+  br label %562
 
-562:                                              ; preds = %553
-  %563 = atomicrmw volatile add ptr %557, i32 -1 acq_rel, align 4
-  br label %564
+560:                                              ; preds = %551
+  %561 = atomicrmw volatile add ptr %555, i32 -1 acq_rel, align 4
+  br label %562
 
-564:                                              ; preds = %562, %559
-  %.0.i.i.i.i.i.i.i33 = phi i32 [ %560, %559 ], [ %563, %562 ]
-  %565 = icmp eq i32 %.0.i.i.i.i.i.i.i33, 1
-  br i1 %565, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+562:                                              ; preds = %560, %557
+  %.0.i.i.i.i.i.i.i33 = phi i32 [ %558, %557 ], [ %561, %560 ]
+  %563 = icmp eq i32 %.0.i.i.i.i.i.i.i33, 1
+  br i1 %563, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit: ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %52, %528
-  %566 = load atomic i64, ptr %30 acquire, align 8
-  %567 = icmp eq i64 %566, 4294967297
-  %568 = trunc i64 %566 to i32
-  br i1 %567, label %569, label %570
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit: ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %52, %526
+  %564 = load atomic i64, ptr %30 acquire, align 8
+  %565 = icmp eq i64 %564, 4294967297
+  %566 = trunc i64 %564 to i32
+  br i1 %565, label %567, label %568
 
-569:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+567:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
   store i32 0, ptr %30, align 8
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split
 
-570:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
-  %571 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i36 = icmp eq i8 %571, 0
-  br i1 %.not.i.i.i.i36, label %574, label %572
+568:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+  %569 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i36 = icmp eq i8 %569, 0
+  br i1 %.not.i.i.i.i36, label %572, label %570
 
-572:                                              ; preds = %570
-  %573 = add nsw i32 %568, -1
-  store i32 %573, ptr %30, align 4
-  br label %576
+570:                                              ; preds = %568
+  %571 = add nsw i32 %566, -1
+  store i32 %571, ptr %30, align 4
+  br label %574
 
-574:                                              ; preds = %570
-  %575 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
-  br label %576
+572:                                              ; preds = %568
+  %573 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
+  br label %574
 
-576:                                              ; preds = %574, %572
-  %.0.i.i.i.i = phi i32 [ %568, %572 ], [ %575, %574 ]
-  %577 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %577, label %578, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+574:                                              ; preds = %572, %570
+  %.0.i.i.i.i = phi i32 [ %566, %570 ], [ %573, %572 ]
+  %575 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %575, label %576, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-578:                                              ; preds = %576
-  %579 = load ptr, ptr %29, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 16
-  %581 = load ptr, ptr %580, align 8
-  call void %581(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
-  %582 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i37 = icmp eq i8 %582, 0
-  br i1 %.not.i.i.i.i.i.i37, label %586, label %583
+576:                                              ; preds = %574
+  %577 = load ptr, ptr %29, align 8
+  %578 = getelementptr inbounds i8, ptr %577, i64 16
+  %579 = load ptr, ptr %578, align 8
+  call void %579(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
+  %580 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i37 = icmp eq i8 %580, 0
+  br i1 %.not.i.i.i.i.i.i37, label %584, label %581
 
-583:                                              ; preds = %578
-  %584 = load i32, ptr %31, align 4
-  %585 = add nsw i32 %584, -1
-  store i32 %585, ptr %31, align 4
-  br label %588
+581:                                              ; preds = %576
+  %582 = load i32, ptr %31, align 4
+  %583 = add nsw i32 %582, -1
+  store i32 %583, ptr %31, align 4
+  br label %586
 
-586:                                              ; preds = %578
-  %587 = atomicrmw volatile add ptr %31, i32 -1 acq_rel, align 4
-  br label %588
+584:                                              ; preds = %576
+  %585 = atomicrmw volatile add ptr %31, i32 -1 acq_rel, align 4
+  br label %586
 
-588:                                              ; preds = %586, %583
-  %.0.i.i.i.i.i.i = phi i32 [ %584, %583 ], [ %587, %586 ]
-  %589 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %589, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+586:                                              ; preds = %584, %581
+  %.0.i.i.i.i.i.i = phi i32 [ %582, %581 ], [ %585, %584 ]
+  %587 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %587, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split: ; preds = %543, %569
-  %.sink67 = phi ptr [ %31, %569 ], [ %544, %543 ]
-  %.sink66 = phi ptr [ %29, %569 ], [ %537, %543 ]
-  %.153.ph.ph = phi i1 [ false, %569 ], [ true, %543 ]
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split: ; preds = %541, %567
+  %.sink67 = phi ptr [ %31, %567 ], [ %542, %541 ]
+  %.sink66 = phi ptr [ %29, %567 ], [ %535, %541 ]
+  %.153.ph.ph = phi i1 [ false, %567 ], [ true, %541 ]
   store i32 0, ptr %.sink67, align 4
-  %590 = load ptr, ptr %.sink66, align 8
-  %591 = getelementptr inbounds i8, ptr %590, i64 16
-  %592 = load ptr, ptr %591, align 8
-  call void %592(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #25
+  %588 = load ptr, ptr %.sink66, align 8
+  %589 = getelementptr inbounds i8, ptr %588, i64 16
+  %590 = load ptr, ptr %589, align 8
+  call void %590(ptr noundef nonnull align 8 dereferenceable(16) %.sink66) #25
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split, %588, %564
-  %.sink62 = phi ptr [ %537, %564 ], [ %29, %588 ], [ %.sink66, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
-  %.153.ph = phi i1 [ true, %564 ], [ false, %588 ], [ %.153.ph.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
-  %593 = load ptr, ptr %.sink62, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 24
-  %595 = load ptr, ptr %594, align 8
-  call void %595(ptr noundef nonnull align 8 dereferenceable(16) %.sink62) #25
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split, %586, %562
+  %.sink62 = phi ptr [ %535, %562 ], [ %29, %586 ], [ %.sink66, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
+  %.153.ph = phi i1 [ true, %562 ], [ false, %586 ], [ %.153.ph.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
+  %591 = load ptr, ptr %.sink62, align 8
+  %592 = getelementptr inbounds i8, ptr %591, i64 24
+  %593 = load ptr, ptr %592, align 8
+  call void %593(ptr noundef nonnull align 8 dereferenceable(16) %.sink62) #25
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, %564, %551, %534, %576, %588
-  %.153 = phi i1 [ false, %576 ], [ false, %588 ], [ true, %534 ], [ true, %551 ], [ true, %564 ], [ %.153.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, %562, %549, %532, %574, %586
+  %.153 = phi i1 [ false, %574 ], [ false, %586 ], [ true, %532 ], [ true, %549 ], [ true, %562 ], [ %.153.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
   ret i1 %.153
 
-596:                                              ; preds = %479, %472, %129, %127, %72, %1, %530
-  %597 = landingpad { ptr, i32 }
+594:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i, %472, %129, %127, %72, %1, %528
+  %595 = landingpad { ptr, i32 }
           catch ptr null
-  %598 = extractvalue { ptr, i32 } %597, 0
-  call void @__clang_call_terminate(ptr %598) #26
+  %596 = extractvalue { ptr, i32 } %595, 0
+  call void @__clang_call_terminate(ptr %596) #26
   unreachable
 }
 

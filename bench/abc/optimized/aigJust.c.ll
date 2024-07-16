@@ -487,219 +487,211 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %16 = getelementptr i8, ptr %15, i64 4
   %.val5491 = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val5491, 0
-  br i1 %17, label %.lr.ph, label %.critedge
+  br i1 %17, label %Aig_ManObj.exit.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Abc_Clock.exit
-  %18 = getelementptr i8, ptr %0, i64 32
-  %19 = getelementptr i8, ptr %15, i64 8
-  br label %20
-
-20:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.097 = phi i32 [ 0, %.lr.ph ], [ %.1, %69 ]
-  %.04296 = phi i32 [ 0, %.lr.ph ], [ %.143, %69 ]
-  %.04495 = phi i32 [ 0, %.lr.ph ], [ %.145, %69 ]
-  %.04694 = phi i32 [ 0, %.lr.ph ], [ %.147, %69 ]
-  %.04893 = phi i32 [ 0, %.lr.ph ], [ %.149, %69 ]
-  %.val56 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %.val56, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %21
-
-21:                                               ; preds = %20
-  %.val55 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i8, ptr %.val56, i64 8
-  %.val.i = load ptr, ptr %24, align 8
-  %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds ptr, ptr %.val.i, i64 %25
-  %27 = load ptr, ptr %26, align 8
+Aig_ManObj.exit.lr.ph:                            ; preds = %Abc_Clock.exit
+  %18 = getelementptr i8, ptr %15, i64 8
+  %19 = getelementptr i8, ptr %0, i64 32
   br label %Aig_ManObj.exit
 
-Aig_ManObj.exit:                                  ; preds = %20, %21
-  %28 = phi ptr [ %27, %21 ], [ null, %20 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, 8
-  %.not = icmp eq i64 %31, 0
-  %32 = and i64 %30, 7
-  %.not23.i62 = icmp eq i64 %32, 3
-  br i1 %.not, label %51, label %33
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %66
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.097 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.1, %66 ]
+  %.04296 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.143, %66 ]
+  %.04495 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.145, %66 ]
+  %.04694 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.147, %66 ]
+  %.04893 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.149, %66 ]
+  %.val55 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4
+  %.val56 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
+  %22 = getelementptr i8, ptr %.val56, i64 8
+  %.val.i = load ptr, ptr %22, align 8
+  %23 = sext i32 %21 to i64
+  %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 8
+  %.not = icmp eq i64 %28, 0
+  %29 = and i64 %27, 7
+  %.not23.i62 = icmp eq i64 %29, 3
+  br i1 %.not, label %48, label %30
 
-33:                                               ; preds = %Aig_ManObj.exit
+30:                                               ; preds = %Aig_ManObj.exit
   br i1 %.not23.i62, label %tailrecurse.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %tailrecurse.i, %33
-  %.tr19.lcssa.i = phi ptr [ %28, %33 ], [ %37, %tailrecurse.i ]
-  %.tr20.lcssa.i = phi i32 [ 0, %33 ], [ %40, %tailrecurse.i ]
-  br label %45
+.preheader.i:                                     ; preds = %tailrecurse.i, %30
+  %.tr19.lcssa.i = phi ptr [ %25, %30 ], [ %34, %tailrecurse.i ]
+  %.tr20.lcssa.i = phi i32 [ 0, %30 ], [ %37, %tailrecurse.i ]
+  br label %42
 
-tailrecurse.i:                                    ; preds = %33, %tailrecurse.i
-  %.tr2025.i = phi i32 [ %40, %tailrecurse.i ], [ 0, %33 ]
-  %.tr1924.i = phi ptr [ %37, %tailrecurse.i ], [ %28, %33 ]
-  %34 = getelementptr i8, ptr %.tr1924.i, i64 8
-  %.val.i59 = load ptr, ptr %34, align 8
-  %35 = ptrtoint ptr %.val.i59 to i64
-  %36 = and i64 %35, -2
-  %37 = inttoptr i64 %36 to ptr
-  %38 = trunc i64 %35 to i32
-  %39 = and i32 %38, 1
-  %40 = xor i32 %39, %.tr2025.i
-  %41 = getelementptr i8, ptr %37, i64 24
-  %.val18.i = load i64, ptr %41, align 8
-  %42 = and i64 %.val18.i, 7
-  %.not.i60 = icmp eq i64 %42, 3
+tailrecurse.i:                                    ; preds = %30, %tailrecurse.i
+  %.tr2025.i = phi i32 [ %37, %tailrecurse.i ], [ 0, %30 ]
+  %.tr1924.i = phi ptr [ %34, %tailrecurse.i ], [ %25, %30 ]
+  %31 = getelementptr i8, ptr %.tr1924.i, i64 8
+  %.val.i59 = load ptr, ptr %31, align 8
+  %32 = ptrtoint ptr %.val.i59 to i64
+  %33 = and i64 %32, -2
+  %34 = inttoptr i64 %33 to ptr
+  %35 = trunc i64 %32 to i32
+  %36 = and i32 %35, 1
+  %37 = xor i32 %36, %.tr2025.i
+  %38 = getelementptr i8, ptr %34, i64 24
+  %.val18.i = load i64, ptr %38, align 8
+  %39 = and i64 %.val18.i, 7
+  %.not.i60 = icmp eq i64 %39, 3
   br i1 %.not.i60, label %tailrecurse.i, label %.preheader.i
 
-43:                                               ; preds = %45
-  %44 = add nuw nsw i32 %.027.i, 1
-  %exitcond.not.i = icmp eq i32 %44, 8
-  br i1 %exitcond.not.i, label %49, label %45, !llvm.loop !4
+40:                                               ; preds = %42
+  %41 = add nuw nsw i32 %.027.i, 1
+  %exitcond.not.i = icmp eq i32 %41, 8
+  br i1 %exitcond.not.i, label %46, label %42, !llvm.loop !4
 
-45:                                               ; preds = %43, %.preheader.i
-  %.027.i = phi i32 [ 0, %.preheader.i ], [ %44, %43 ]
+42:                                               ; preds = %40, %.preheader.i
+  %.027.i = phi i32 [ 0, %.preheader.i ], [ %41, %40 ]
   store i32 0, ptr %11, align 4
   call void @Aig_ManIncrementTravId(ptr noundef %0) #13
-  %46 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i, i32 noundef %.tr20.lcssa.i, ptr noundef nonnull %10, i32 noundef %.027.i)
-  %.not16.i = icmp eq i32 %46, 0
-  br i1 %.not16.i, label %43, label %Aig_ObjFindSatAssign.exit
+  %43 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i, i32 noundef %.tr20.lcssa.i, ptr noundef nonnull %10, i32 noundef %.027.i)
+  %.not16.i = icmp eq i32 %43, 0
+  br i1 %.not16.i, label %40, label %Aig_ObjFindSatAssign.exit
 
-Aig_ObjFindSatAssign.exit:                        ; preds = %45
-  %47 = add nsw i32 %.04893, 1
+Aig_ObjFindSatAssign.exit:                        ; preds = %42
+  %44 = add nsw i32 %.04893, 1
   %.val53 = load i32, ptr %11, align 4
-  %48 = add nsw i32 %.val53, %.097
+  %45 = add nsw i32 %.val53, %.097
   call void @Aig_ManPackAddPattern(ptr noundef %14, ptr noundef nonnull %10) #13
-  br label %69
+  br label %66
 
-49:                                               ; preds = %43
-  %50 = add nsw i32 %.04694, 1
-  br label %69
+46:                                               ; preds = %40
+  %47 = add nsw i32 %.04694, 1
+  br label %66
 
-51:                                               ; preds = %Aig_ManObj.exit
+48:                                               ; preds = %Aig_ManObj.exit
   br i1 %.not23.i62, label %tailrecurse.i70, label %.preheader.i63
 
-.preheader.i63:                                   ; preds = %tailrecurse.i70, %51
-  %.tr19.lcssa.i64 = phi ptr [ %28, %51 ], [ %55, %tailrecurse.i70 ]
-  %.tr20.lcssa.i65 = phi i32 [ 1, %51 ], [ %58, %tailrecurse.i70 ]
-  br label %63
+.preheader.i63:                                   ; preds = %tailrecurse.i70, %48
+  %.tr19.lcssa.i64 = phi ptr [ %25, %48 ], [ %52, %tailrecurse.i70 ]
+  %.tr20.lcssa.i65 = phi i32 [ 1, %48 ], [ %55, %tailrecurse.i70 ]
+  br label %60
 
-tailrecurse.i70:                                  ; preds = %51, %tailrecurse.i70
-  %.tr2025.i71 = phi i32 [ %58, %tailrecurse.i70 ], [ 1, %51 ]
-  %.tr1924.i72 = phi ptr [ %55, %tailrecurse.i70 ], [ %28, %51 ]
-  %52 = getelementptr i8, ptr %.tr1924.i72, i64 8
-  %.val.i73 = load ptr, ptr %52, align 8
-  %53 = ptrtoint ptr %.val.i73 to i64
-  %54 = and i64 %53, -2
-  %55 = inttoptr i64 %54 to ptr
-  %56 = trunc i64 %53 to i32
-  %57 = and i32 %56, 1
-  %58 = xor i32 %57, %.tr2025.i71
-  %59 = getelementptr i8, ptr %55, i64 24
-  %.val18.i74 = load i64, ptr %59, align 8
-  %60 = and i64 %.val18.i74, 7
-  %.not.i75 = icmp eq i64 %60, 3
+tailrecurse.i70:                                  ; preds = %48, %tailrecurse.i70
+  %.tr2025.i71 = phi i32 [ %55, %tailrecurse.i70 ], [ 1, %48 ]
+  %.tr1924.i72 = phi ptr [ %52, %tailrecurse.i70 ], [ %25, %48 ]
+  %49 = getelementptr i8, ptr %.tr1924.i72, i64 8
+  %.val.i73 = load ptr, ptr %49, align 8
+  %50 = ptrtoint ptr %.val.i73 to i64
+  %51 = and i64 %50, -2
+  %52 = inttoptr i64 %51 to ptr
+  %53 = trunc i64 %50 to i32
+  %54 = and i32 %53, 1
+  %55 = xor i32 %54, %.tr2025.i71
+  %56 = getelementptr i8, ptr %52, i64 24
+  %.val18.i74 = load i64, ptr %56, align 8
+  %57 = and i64 %.val18.i74, 7
+  %.not.i75 = icmp eq i64 %57, 3
   br i1 %.not.i75, label %tailrecurse.i70, label %.preheader.i63
 
-61:                                               ; preds = %63
-  %62 = add nuw nsw i32 %.027.i66, 1
-  %exitcond.not.i69 = icmp eq i32 %62, 8
-  br i1 %exitcond.not.i69, label %67, label %63, !llvm.loop !4
+58:                                               ; preds = %60
+  %59 = add nuw nsw i32 %.027.i66, 1
+  %exitcond.not.i69 = icmp eq i32 %59, 8
+  br i1 %exitcond.not.i69, label %64, label %60, !llvm.loop !4
 
-63:                                               ; preds = %61, %.preheader.i63
-  %.027.i66 = phi i32 [ 0, %.preheader.i63 ], [ %62, %61 ]
+60:                                               ; preds = %58, %.preheader.i63
+  %.027.i66 = phi i32 [ 0, %.preheader.i63 ], [ %59, %58 ]
   store i32 0, ptr %11, align 4
   call void @Aig_ManIncrementTravId(ptr noundef %0) #13
-  %64 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i64, i32 noundef %.tr20.lcssa.i65, ptr noundef nonnull %10, i32 noundef %.027.i66)
-  %.not16.i67 = icmp eq i32 %64, 0
-  br i1 %.not16.i67, label %61, label %Aig_ObjFindSatAssign.exit76
+  %61 = call i32 @Aig_NtkFindSatAssign_rec(ptr noundef %0, ptr noundef %.tr19.lcssa.i64, i32 noundef %.tr20.lcssa.i65, ptr noundef nonnull %10, i32 noundef %.027.i66)
+  %.not16.i67 = icmp eq i32 %61, 0
+  br i1 %.not16.i67, label %58, label %Aig_ObjFindSatAssign.exit76
 
-Aig_ObjFindSatAssign.exit76:                      ; preds = %63
-  %65 = add nsw i32 %.04495, 1
+Aig_ObjFindSatAssign.exit76:                      ; preds = %60
+  %62 = add nsw i32 %.04495, 1
   %.val = load i32, ptr %11, align 4
-  %66 = add nsw i32 %.val, %.097
+  %63 = add nsw i32 %.val, %.097
   call void @Aig_ManPackAddPattern(ptr noundef %14, ptr noundef nonnull %10) #13
-  br label %69
+  br label %66
 
-67:                                               ; preds = %61
-  %68 = add nsw i32 %.04296, 1
-  br label %69
+64:                                               ; preds = %58
+  %65 = add nsw i32 %.04296, 1
+  br label %66
 
-69:                                               ; preds = %49, %Aig_ObjFindSatAssign.exit, %67, %Aig_ObjFindSatAssign.exit76
-  %.149 = phi i32 [ %47, %Aig_ObjFindSatAssign.exit ], [ %.04893, %49 ], [ %.04893, %Aig_ObjFindSatAssign.exit76 ], [ %.04893, %67 ]
-  %.147 = phi i32 [ %.04694, %Aig_ObjFindSatAssign.exit ], [ %50, %49 ], [ %.04694, %Aig_ObjFindSatAssign.exit76 ], [ %.04694, %67 ]
-  %.145 = phi i32 [ %.04495, %Aig_ObjFindSatAssign.exit ], [ %.04495, %49 ], [ %65, %Aig_ObjFindSatAssign.exit76 ], [ %.04495, %67 ]
-  %.143 = phi i32 [ %.04296, %Aig_ObjFindSatAssign.exit ], [ %.04296, %49 ], [ %.04296, %Aig_ObjFindSatAssign.exit76 ], [ %68, %67 ]
-  %.1 = phi i32 [ %48, %Aig_ObjFindSatAssign.exit ], [ %.097, %49 ], [ %66, %Aig_ObjFindSatAssign.exit76 ], [ %.097, %67 ]
+66:                                               ; preds = %46, %Aig_ObjFindSatAssign.exit, %64, %Aig_ObjFindSatAssign.exit76
+  %.149 = phi i32 [ %44, %Aig_ObjFindSatAssign.exit ], [ %.04893, %46 ], [ %.04893, %Aig_ObjFindSatAssign.exit76 ], [ %.04893, %64 ]
+  %.147 = phi i32 [ %.04694, %Aig_ObjFindSatAssign.exit ], [ %47, %46 ], [ %.04694, %Aig_ObjFindSatAssign.exit76 ], [ %.04694, %64 ]
+  %.145 = phi i32 [ %.04495, %Aig_ObjFindSatAssign.exit ], [ %.04495, %46 ], [ %62, %Aig_ObjFindSatAssign.exit76 ], [ %.04495, %64 ]
+  %.143 = phi i32 [ %.04296, %Aig_ObjFindSatAssign.exit ], [ %.04296, %46 ], [ %.04296, %Aig_ObjFindSatAssign.exit76 ], [ %65, %64 ]
+  %.1 = phi i32 [ %45, %Aig_ObjFindSatAssign.exit ], [ %.097, %46 ], [ %63, %Aig_ObjFindSatAssign.exit76 ], [ %.097, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load i32, ptr %16, align 4
-  %70 = sext i32 %.val54 to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %20, label %.critedge.loopexit, !llvm.loop !7
+  %67 = sext i32 %.val54 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %Aig_ManObj.exit, label %.critedge.loopexit, !llvm.loop !8
 
-.critedge.loopexit:                               ; preds = %69
+.critedge.loopexit:                               ; preds = %66
   %.pre = load ptr, ptr %13, align 8
-  %72 = sitofp i32 %.1 to double
+  %69 = sitofp i32 %.1 to double
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Abc_Clock.exit
-  %73 = phi ptr [ %12, %Abc_Clock.exit ], [ %.pre, %.critedge.loopexit ]
+  %70 = phi ptr [ %12, %Abc_Clock.exit ], [ %.pre, %.critedge.loopexit ]
   %.048.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.149, %.critedge.loopexit ]
   %.046.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.147, %.critedge.loopexit ]
   %.044.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.145, %.critedge.loopexit ]
   %.042.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.143, %.critedge.loopexit ]
-  %.0.lcssa = phi double [ 0.000000e+00, %Abc_Clock.exit ], [ %72, %.critedge.loopexit ]
-  %.not.i77 = icmp eq ptr %73, null
-  br i1 %.not.i77, label %Vec_IntFree.exit, label %74
+  %.0.lcssa = phi double [ 0.000000e+00, %Abc_Clock.exit ], [ %69, %.critedge.loopexit ]
+  %.not.i77 = icmp eq ptr %70, null
+  br i1 %.not.i77, label %Vec_IntFree.exit, label %71
 
-74:                                               ; preds = %.critedge
-  call void @free(ptr noundef nonnull %73) #13
+71:                                               ; preds = %.critedge
+  call void @free(ptr noundef nonnull %70) #13
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %74
+Vec_IntFree.exit:                                 ; preds = %.critedge, %71
   call void @free(ptr noundef nonnull %10) #13
-  %75 = getelementptr i8, ptr %0, i64 140
-  %.val57 = load i32, ptr %75, align 4
-  %76 = add nsw i32 %.044.lcssa, %.048.lcssa
-  %77 = sitofp i32 %76 to double
-  %78 = fmul double %77, 1.000000e+02
-  %79 = sitofp i32 %.val57 to double
-  %80 = fdiv double %78, %79
-  %81 = fdiv double %.0.lcssa, %77
-  %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.val57, i32 noundef %.048.lcssa, i32 noundef %.046.lcssa, i32 noundef %.044.lcssa, i32 noundef %.042.lcssa, double noundef %80, double noundef %81)
+  %72 = getelementptr i8, ptr %0, i64 140
+  %.val57 = load i32, ptr %72, align 4
+  %73 = add nsw i32 %.044.lcssa, %.048.lcssa
+  %74 = sitofp i32 %73 to double
+  %75 = fmul double %74, 1.000000e+02
+  %76 = sitofp i32 %.val57 to double
+  %77 = fdiv double %75, %76
+  %78 = fdiv double %.0.lcssa, %74
+  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.val57, i32 noundef %.048.lcssa, i32 noundef %.046.lcssa, i32 noundef %.044.lcssa, i32 noundef %.042.lcssa, double noundef %77, double noundef %78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %83 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #13
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %Abc_Clock.exit79, label %85
+  %80 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #13
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %Abc_Clock.exit79, label %82
 
-85:                                               ; preds = %Vec_IntFree.exit
-  %86 = load i64, ptr %2, align 8
-  %87 = mul nsw i64 %86, 1000000
-  %88 = getelementptr inbounds i8, ptr %2, i64 8
-  %89 = load i64, ptr %88, align 8
-  %90 = sdiv i64 %89, 1000
-  %91 = add nsw i64 %90, %87
+82:                                               ; preds = %Vec_IntFree.exit
+  %83 = load i64, ptr %2, align 8
+  %84 = mul nsw i64 %83, 1000000
+  %85 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = load i64, ptr %85, align 8
+  %87 = sdiv i64 %86, 1000
+  %88 = add nsw i64 %87, %84
   br label %Abc_Clock.exit79
 
-Abc_Clock.exit79:                                 ; preds = %Vec_IntFree.exit, %85
-  %.0.i78 = phi i64 [ %91, %85 ], [ -1, %Vec_IntFree.exit ]
+Abc_Clock.exit79:                                 ; preds = %Vec_IntFree.exit, %82
+  %.0.i78 = phi i64 [ %88, %82 ], [ -1, %Vec_IntFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %92 = add i64 %.0.i78, %.0.i.neg
+  %89 = add i64 %.0.i78, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1)
-  %93 = sitofp i64 %92 to double
-  %94 = fdiv double %93, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %94)
+  %90 = sitofp i64 %89 to double
+  %91 = fdiv double %90, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %91)
   call void @Aig_ManCleanMarkAB(ptr noundef nonnull %0) #13
   call void @Aig_ManPackStop(ptr noundef %14) #13
-  %95 = getelementptr inbounds i8, ptr %15, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %.not.i80 = icmp eq ptr %96, null
-  br i1 %.not.i80, label %Vec_IntFree.exit81, label %97
+  %92 = getelementptr inbounds i8, ptr %15, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %.not.i80 = icmp eq ptr %93, null
+  br i1 %.not.i80, label %Vec_IntFree.exit81, label %94
 
-97:                                               ; preds = %Abc_Clock.exit79
-  call void @free(ptr noundef nonnull %96) #13
+94:                                               ; preds = %Abc_Clock.exit79
+  call void @free(ptr noundef nonnull %93) #13
   br label %Vec_IntFree.exit81
 
-Vec_IntFree.exit81:                               ; preds = %Abc_Clock.exit79, %97
+Vec_IntFree.exit81:                               ; preds = %Abc_Clock.exit79, %94
   call void @free(ptr noundef nonnull %15) #13
   ret void
 }
@@ -813,4 +805,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!7 = !{}
+!8 = distinct !{!8, !5}

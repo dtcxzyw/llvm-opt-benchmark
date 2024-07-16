@@ -62681,9 +62681,10 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %38, %_ZSt11stabl
   br i1 %61, label %.thread514, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit221
 
 .thread:                                          ; preds = %_ZSt11stable_sortIPdEvT_S1_.exit
-  br i1 %48, label %.thread514, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit221
+  tail call void @llvm.assume(i1 %48)
+  br label %.thread514
 
-.thread514:                                       ; preds = %58, %.thread
+.thread514:                                       ; preds = %.thread, %58
   %.sroa.41.1508529 = phi ptr [ null, %.thread ], [ %60, %58 ]
   %.sroa.0427.3510525 = phi ptr [ null, %.thread ], [ %57, %58 ]
   %.sroa.21.1512523 = phi ptr [ null, %.thread ], [ %59, %58 ]
@@ -63242,10 +63243,10 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216: ; preds = %268, %_
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0427.6.lcssa.ph) #32
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit221
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit221:       ; preds = %58, %.thread, %250, %269, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216, %.loopexit802
-  %.sroa.0427.12 = phi ptr [ %.sroa.0427.6.lcssa.ph, %.loopexit802 ], [ %.sroa.0427.6.lcssa.ph, %250 ], [ %265, %269 ], [ %265, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ null, %.thread ], [ %57, %58 ]
-  %.sroa.21.10 = phi ptr [ %.sroa.21.4.lcssa.ph, %.loopexit802 ], [ %.sroa.21.9, %250 ], [ %.sroa.21.9, %269 ], [ %.sroa.21.9, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ null, %.thread ], [ %59, %58 ]
-  %.sroa.0455.12 = phi ptr [ %.sroa.0455.6.lcssa.ph, %.loopexit802 ], [ %.sroa.0455.11, %250 ], [ %.sroa.0455.11, %269 ], [ %.sroa.0455.11, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ null, %.thread ], [ %55, %58 ]
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit221:       ; preds = %58, %250, %269, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216, %.loopexit802
+  %.sroa.0427.12 = phi ptr [ %.sroa.0427.6.lcssa.ph, %.loopexit802 ], [ %.sroa.0427.6.lcssa.ph, %250 ], [ %265, %269 ], [ %265, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ %57, %58 ]
+  %.sroa.21.10 = phi ptr [ %.sroa.21.4.lcssa.ph, %.loopexit802 ], [ %.sroa.21.9, %250 ], [ %.sroa.21.9, %269 ], [ %.sroa.21.9, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ %59, %58 ]
+  %.sroa.0455.12 = phi ptr [ %.sroa.0455.6.lcssa.ph, %.loopexit802 ], [ %.sroa.0455.11, %250 ], [ %.sroa.0455.11, %269 ], [ %.sroa.0455.11, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i216 ], [ %55, %58 ]
   %270 = load double, ptr %.sroa.0455.12, align 8
   %271 = getelementptr inbounds i8, ptr %0, i64 136
   store double %270, ptr %271, align 8

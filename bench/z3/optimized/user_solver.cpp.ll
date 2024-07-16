@@ -2528,24 +2528,18 @@ entry:
 if.end:                                           ; preds = %entry
   %shr.i = lshr i32 %lit.coerce, 1
   %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver13bool_var2exprEj(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %shr.i)
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %if.end
+  %tobool.not.i = icmp ne ptr %call.i, null
+  tail call void @llvm.assume(i1 %tobool.not.i)
   %call2.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull %call.i)
-  br label %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit
-
-_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit:   ; preds = %if.end, %cond.true.i
-  %cond.i = phi ptr [ %call2.i, %cond.true.i ], [ null, %if.end ]
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %m_id.i, align 4
-  %m_th_vars.i = getelementptr inbounds i8, ptr %cond.i, i64 88
+  %m_th_vars.i = getelementptr inbounds i8, ptr %call2.i, i64 88
   %bf.load.i.i.i.i = load i32, ptr %m_th_vars.i, align 8
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i.i, -257
   br i1 %cmp.i.i.i, label %_ZNK3euf5enode10get_th_varEi.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %if.end5.i.i
-  %l.0.i.i = phi ptr [ %2, %if.end5.i.i ], [ %m_th_vars.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit ]
+do.body.i.i:                                      ; preds = %if.end, %if.end5.i.i
+  %l.0.i.i = phi ptr [ %2, %if.end5.i.i ], [ %m_th_vars.i, %if.end ]
   %bf.load.i.i.i = load i32, ptr %l.0.i.i, align 8
   %bf.shl.i.i.i = shl i32 %bf.load.i.i.i, 24
   %bf.ashr.i.i.i = ashr exact i32 %bf.shl.i.i.i, 24
@@ -2562,8 +2556,8 @@ if.end5.i.i:                                      ; preds = %do.body.i.i
   %tobool.not.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i4, label %_ZNK3euf5enode10get_th_varEi.exit, label %do.body.i.i, !llvm.loop !17
 
-_ZNK3euf5enode10get_th_varEi.exit:                ; preds = %if.end5.i.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %if.then3.i.i
-  %retval.0.i.i = phi i32 [ %bf.ashr.i5.i.i, %if.then3.i.i ], [ -1, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit ], [ -1, %if.end5.i.i ]
+_ZNK3euf5enode10get_th_varEi.exit:                ; preds = %if.end5.i.i, %if.end, %if.then3.i.i
+  %retval.0.i.i = phi i32 [ %bf.ashr.i5.i.i, %if.then3.i.i ], [ -1, %if.end ], [ -1, %if.end5.i.i ]
   %m_id2justification = getelementptr inbounds i8, ptr %this, i64 448
   %3 = load ptr, ptr %m_id2justification, align 8
   %cmp.i.i5 = icmp eq ptr %3, null

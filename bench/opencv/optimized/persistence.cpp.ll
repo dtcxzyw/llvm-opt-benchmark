@@ -18116,7 +18116,7 @@ define void @_ZN2cv16FileNodeIteratorC2ERKNS_8FileNodeEb(ptr nocapture noundef n
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  br label %89
+  br label %87
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -18183,7 +18183,7 @@ _ZNK2cv8FileNode6isNoneEv.exit:                   ; preds = %_ZNK2cv8FileNode3pt
 _ZNK2cv8FileNode6isNoneEv.exit.thread:            ; preds = %8, %_ZNK2cv8FileNode5isSeqEv.exit.thread, %_ZNK2cv8FileNode5isMapEv.exit, %_ZNK2cv8FileNode3ptrEv.exit.i.i27, %_ZNK2cv8FileNode6isNoneEv.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %34, align 8
-  br label %80
+  br label %78
 
 35:                                               ; preds = %_ZNK2cv8FileNode6isNoneEv.exit
   br i1 %.ph, label %42, label %36
@@ -18191,7 +18191,7 @@ _ZNK2cv8FileNode6isNoneEv.exit.thread:            ; preds = %8, %_ZNK2cv8FileNod
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 1, ptr %37, align 8
-  br i1 %2, label %38, label %80
+  br i1 %2, label %38, label %78
 
 38:                                               ; preds = %36
   store i64 1, ptr %5, align 8
@@ -18199,7 +18199,7 @@ _ZNK2cv8FileNode6isNoneEv.exit.thread:            ; preds = %8, %_ZNK2cv8FileNod
   %40 = load i64, ptr %14, align 8
   %41 = add i64 %40, %39
   store i64 %41, ptr %14, align 8
-  br label %80
+  br label %78
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %1, align 8
@@ -18240,58 +18240,50 @@ _ZNK2cv8FileNode4sizeEv.exit:                     ; preds = %42, %_ZNK2cv8FileNo
   %.0.i = phi i64 [ %55, %51 ], [ %59, %56 ], [ 0, %_ZNK2cv8FileNode3ptrEv.exit.i ], [ 0, %42 ]
   %60 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.0.i, ptr %60, align 8
-  %61 = load ptr, ptr %1, align 8
-  %.not.i31 = icmp eq ptr %61, null
-  br i1 %.not.i31, label %_ZNK2cv8FileNode3ptrEv.exit, label %62
-
-62:                                               ; preds = %_ZNK2cv8FileNode4sizeEv.exit
-  %63 = load i64, ptr %9, align 8
-  %64 = load i64, ptr %12, align 8
-  %65 = tail call noundef ptr @_ZNK2cv11FileStorage4Impl10getNodePtrEmm(ptr noundef nonnull align 8 dereferenceable(700) %61, i64 noundef %63, i64 noundef %64)
-  br label %_ZNK2cv8FileNode3ptrEv.exit
-
-_ZNK2cv8FileNode3ptrEv.exit:                      ; preds = %_ZNK2cv8FileNode4sizeEv.exit, %62
-  %66 = phi ptr [ %65, %62 ], [ null, %_ZNK2cv8FileNode4sizeEv.exit ]
-  %67 = load i8, ptr %66, align 1
-  %68 = and i8 %67, 32
-  %.not21 = icmp eq i8 %68, 0
+  %61 = load ptr, ptr %1, align 8, !nonnull !86, !noundef !86
+  %62 = load i64, ptr %9, align 8
+  %63 = load i64, ptr %12, align 8
+  %64 = tail call noundef ptr @_ZNK2cv11FileStorage4Impl10getNodePtrEmm(ptr noundef nonnull align 8 dereferenceable(700) %61, i64 noundef %62, i64 noundef %63)
+  %65 = load i8, ptr %64, align 1
+  %66 = and i8 %65, 32
+  %.not21 = icmp eq i8 %66, 0
   %spec.select.v = select i1 %.not21, i64 1, i64 5
-  br i1 %2, label %73, label %69
+  br i1 %2, label %71, label %67
 
-69:                                               ; preds = %_ZNK2cv8FileNode3ptrEv.exit
-  %70 = or disjoint i64 %spec.select.v, 8
-  %71 = load i64, ptr %14, align 8
-  %72 = add i64 %70, %71
-  store i64 %72, ptr %14, align 8
-  br label %80
+67:                                               ; preds = %_ZNK2cv8FileNode4sizeEv.exit
+  %68 = or disjoint i64 %spec.select.v, 8
+  %69 = load i64, ptr %14, align 8
+  %70 = add i64 %68, %69
+  store i64 %70, ptr %14, align 8
+  br label %78
 
-73:                                               ; preds = %_ZNK2cv8FileNode3ptrEv.exit
-  %spec.select = getelementptr inbounds i8, ptr %66, i64 %spec.select.v
+71:                                               ; preds = %_ZNK2cv8FileNode4sizeEv.exit
+  %spec.select = getelementptr inbounds i8, ptr %64, i64 %spec.select.v
   %spec.select.val = load i32, ptr %spec.select, align 1
-  %74 = zext i32 %spec.select.val to i64
-  %75 = add nuw nsw i64 %spec.select.v, 4
-  %76 = add nuw nsw i64 %75, %74
-  %77 = load i64, ptr %14, align 8
-  %78 = add i64 %76, %77
-  store i64 %78, ptr %14, align 8
-  %79 = load i64, ptr %60, align 8
-  store i64 %79, ptr %5, align 8
-  br label %80
+  %72 = zext i32 %spec.select.val to i64
+  %73 = add nuw nsw i64 %spec.select.v, 4
+  %74 = add nuw nsw i64 %73, %72
+  %75 = load i64, ptr %14, align 8
+  %76 = add i64 %74, %75
+  store i64 %76, ptr %14, align 8
+  %77 = load i64, ptr %60, align 8
+  store i64 %77, ptr %5, align 8
+  br label %78
 
-80:                                               ; preds = %38, %36, %73, %69, %_ZNK2cv8FileNode6isNoneEv.exit.thread
-  %81 = load ptr, ptr %0, align 8
-  tail call void @_ZNK2cv11FileStorage4Impl16normalizeNodeOfsERmS2_(ptr noundef nonnull align 8 dereferenceable(700) %81, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 536
-  %84 = load i64, ptr %11, align 8
-  %85 = load ptr, ptr %83, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %84
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %87, ptr %88, align 8
-  br label %89
+78:                                               ; preds = %38, %36, %71, %67, %_ZNK2cv8FileNode6isNoneEv.exit.thread
+  %79 = load ptr, ptr %0, align 8
+  tail call void @_ZNK2cv11FileStorage4Impl16normalizeNodeOfsERmS2_(ptr noundef nonnull align 8 dereferenceable(700) %79, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 536
+  %82 = load i64, ptr %11, align 8
+  %83 = load ptr, ptr %81, align 8
+  %84 = getelementptr inbounds i64, ptr %83, i64 %82
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %85, ptr %86, align 8
+  br label %87
 
-89:                                               ; preds = %80, %6
+87:                                               ; preds = %78, %6
   ret void
 }
 

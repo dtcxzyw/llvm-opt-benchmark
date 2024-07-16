@@ -3993,18 +3993,18 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_syntax5lexer8is_ident17h83
 
 .thread15:                                        ; preds = %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i", %31
   %.sroa.4.0.i.ph19 = phi i32 [ %41, %31 ], [ %20, %19 ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i" ], [ %17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i" ]
-  %.sroa.0.3.ph18 = phi ptr [ %33, %31 ], [ %6, %19 ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i" ], [ %12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i" ]
+  %.sroa.0.0.ph18 = phi ptr [ %33, %31 ], [ %6, %19 ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i" ], [ %12, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i" ]
   %43 = tail call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h9786866cf3c6de21E(i32 noundef %.sroa.4.0.i.ph19), !noalias !685
   %44 = icmp eq i32 %.sroa.4.0.i.ph19, 95
   %.02.i = or i1 %44, %43
   br i1 %.02.i, label %45, label %"_ZN12typst_syntax5lexer8is_ident28_$u7b$$u7b$closure$u7d$$u7d$17hb830cca5f3cac00cE.exit"
 
 45:                                               ; preds = %.thread15
-  %46 = icmp eq ptr %.sroa.0.3.ph18, %3
+  %46 = icmp eq ptr %.sroa.0.0.ph18, %3
   br i1 %46, label %"_ZN12typst_syntax5lexer8is_ident28_$u7b$$u7b$closure$u7d$$u7d$17hb830cca5f3cac00cE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %45, %.backedge.i.i
-  %47 = phi ptr [ %83, %.backedge.i.i ], [ %.sroa.0.3.ph18, %45 ]
+  %47 = phi ptr [ %83, %.backedge.i.i ], [ %.sroa.0.0.ph18, %45 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 1
   %49 = load i8, ptr %47, align 1, !noalias !688, !noundef !12
   %50 = icmp sgt i8 %49, -1

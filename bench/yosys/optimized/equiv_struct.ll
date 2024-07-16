@@ -22999,20 +22999,20 @@ _ZNKSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key
 
 254:                                              ; preds = %.noexc12
   %255 = getelementptr inbounds i8, ptr %253, i64 144
-  br i1 %223, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i31.i, label %.lr.ph.i.i.i.i.i28.i
+  br i1 %223, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i28.i, label %.lr.ph.i.i.i.i.i25.i
 
-.lr.ph.i.i.i.i.i28.i:                             ; preds = %254, %.lr.ph.i.i.i.i.i28.i
-  %.05.i.i.i.i.i29.i = phi ptr [ %256, %.lr.ph.i.i.i.i.i28.i ], [ %.val.i.i.i, %254 ]
-  call fastcc void @_ZNSt4pairIN12_GLOBAL__N_117EquivStructWorker11merge_key_tEN5Yosys7hashlib4poolINS3_5RTLIL8IdStringENS4_8hash_opsIS7_EEEEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %.05.i.i.i.i.i29.i) #24
-  %256 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i29.i, i64 144
-  %.not.i.i.i.i.i30.i = icmp eq ptr %256, %169
-  br i1 %.not.i.i.i.i.i30.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i31.i, label %.lr.ph.i.i.i.i.i28.i, !llvm.loop !22
+.lr.ph.i.i.i.i.i25.i:                             ; preds = %254, %.lr.ph.i.i.i.i.i25.i
+  %.05.i.i.i.i.i26.i = phi ptr [ %256, %.lr.ph.i.i.i.i.i25.i ], [ %.val.i.i.i, %254 ]
+  call fastcc void @_ZNSt4pairIN12_GLOBAL__N_117EquivStructWorker11merge_key_tEN5Yosys7hashlib4poolINS3_5RTLIL8IdStringENS4_8hash_opsIS7_EEEEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %.05.i.i.i.i.i26.i) #24
+  %256 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i26.i, i64 144
+  %.not.i.i.i.i.i27.i = icmp eq ptr %256, %169
+  br i1 %.not.i.i.i.i.i27.i, label %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i28.i, label %.lr.ph.i.i.i.i.i25.i, !llvm.loop !22
 
-_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i31.i: ; preds = %.lr.ph.i.i.i.i.i28.i, %254
-  %.not.i34.i.i32.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i34.i.i32.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESaISE_EE17_M_realloc_insertIJSt4pairIS5_SB_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i, label %257
+_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i28.i: ; preds = %.lr.ph.i.i.i.i.i25.i, %254
+  %.not.i34.i.i29.i = icmp eq ptr %.val.i.i.i, null
+  br i1 %.not.i34.i.i29.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESaISE_EE17_M_realloc_insertIJSt4pairIS5_SB_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i, label %257
 
-257:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i31.i
+257:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i28.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #25
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESaISE_EE17_M_realloc_insertIJSt4pairIS5_SB_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i
 
@@ -23042,7 +23042,7 @@ _ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_ke
 266:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit39.thread.i.i20.i
   unreachable
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESaISE_EE17_M_realloc_insertIJSt4pairIS5_SB_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i: ; preds = %257, %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i31.i
+_ZNSt6vectorIN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESaISE_EE17_M_realloc_insertIJSt4pairIS5_SB_ERiEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i: ; preds = %257, %_ZSt8_DestroyIPN5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS1_4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS8_EEEENS9_IS5_EEE7entry_tESE_EvT_SG_RSaIT0_E.exit.i.i28.i
   store ptr %229, ptr %164, align 8
   store ptr %255, ptr %168, align 8
   %267 = getelementptr inbounds %"struct.Yosys::hashlib::dict<(anonymous namespace)::EquivStructWorker::merge_key_t, Yosys::hashlib::pool<Yosys::RTLIL::IdString>>::entry_t", ptr %229, i64 %227

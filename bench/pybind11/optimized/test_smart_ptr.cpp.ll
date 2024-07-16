@@ -21578,128 +21578,123 @@ define internal void @_ZN12_GLOBAL__N_111ElementList3addERKSt10shared_ptrINS_11E
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
-  %.val3.i = load ptr, ptr %1, align 8
-  br i1 %.not.i, label %21, label %7
+  br i1 %.not.i, label %22, label %7
 
 7:                                                ; preds = %2
-  store ptr %.val3.i, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %11
+  %8 = load ptr, ptr %1, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %17, label %14
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4
+15:                                               ; preds = %12
+  %16 = load i32, ptr %13, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %13, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
 
-17:                                               ; preds = %11
-  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+18:                                               ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %17, %14, %7
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %20, ptr %3, align 8
+_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %18, %15, %7
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr %21, ptr %3, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE9push_backERKS3_.exit
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val4.i = load ptr, ptr %22, align 8
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val4.i = load ptr, ptr %23, align 8
   %.val16.i.i = load ptr, ptr %0, align 8
-  %23 = ptrtoint ptr %4 to i64
-  %24 = ptrtoint ptr %.val16.i.i to i64
-  %25 = sub i64 %23, %24
-  %26 = icmp eq i64 %25, 9223372036854775792
-  br i1 %26, label %27, label %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %24 = ptrtoint ptr %4 to i64
+  %25 = ptrtoint ptr %.val16.i.i to i64
+  %26 = sub i64 %24, %25
+  %27 = icmp eq i64 %26, 9223372036854775792
+  br i1 %27, label %28, label %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-27:                                               ; preds = %21
+28:                                               ; preds = %22
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.128) #31
   unreachable
 
-_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %21
-  %28 = ashr exact i64 %25, 4
-  %29 = icmp eq ptr %4, %.val16.i.i
-  %.sroa.speculated.i.i.i = select i1 %29, i64 1, i64 %28
-  %30 = add nsw i64 %.sroa.speculated.i.i.i, %28
-  %31 = icmp ult i64 %30, %28
-  %32 = tail call i64 @llvm.umin.i64(i64 %30, i64 576460752303423487)
-  %33 = select i1 %31, i64 576460752303423487, i64 %32
-  %.not.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_M_allocateEm.exit.i.i, label %34
-
-34:                                               ; preds = %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %35 = shl nuw nsw i64 %33, 4
+_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %22
+  %.val3.i = load ptr, ptr %1, align 8
+  %29 = ashr exact i64 %26, 4
+  %30 = icmp eq ptr %4, %.val16.i.i
+  %.sroa.speculated.i.i.i = select i1 %30, i64 1, i64 %29
+  %31 = add nsw i64 %.sroa.speculated.i.i.i, %29
+  %32 = icmp ult i64 %31, %29
+  %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 576460752303423487)
+  %34 = select i1 %32, i64 576460752303423487, i64 %33
+  %.not.i.i.i = icmp ne i64 %34, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %35 = shl nuw nsw i64 %34, 4
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #32
-  br label %_ZNSt12_Vector_baseISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %34, %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %37 = phi ptr [ %36, %34 ], [ null, %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %38 = getelementptr inbounds %"class.std::shared_ptr.561", ptr %37, i64 %28
-  store ptr %.val3.i, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %.val4.i, ptr %39, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 %26
+  store ptr %.val3.i, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %.val4.i, ptr %38, align 8
   %.not.i.i.i.i.i.i5.i = icmp eq ptr %.val4.i, null
-  br i1 %.not.i.i.i.i.i.i5.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %40
+  br i1 %.not.i.i.i.i.i.i5.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %39
 
-40:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_M_allocateEm.exit.i.i
-  %41 = getelementptr inbounds i8, ptr %.val4.i, i64 8
-  %42 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %46, label %43
+39:                                               ; preds = %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %40 = getelementptr inbounds i8, ptr %.val4.i, i64 8
+  %41 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %45, label %42
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %41, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %41, align 4
+42:                                               ; preds = %39
+  %43 = load i32, ptr %40, align 4
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %40, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
-46:                                               ; preds = %40
-  %47 = atomicrmw volatile add ptr %41, i32 1 acq_rel, align 4
+45:                                               ; preds = %39
+  %46 = atomicrmw volatile add ptr %40, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %46, %43, %_ZNSt12_Vector_baseISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_M_allocateEm.exit.i.i
-  br i1 %29, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %.lr.ph.i.i.i.i.i
+_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %45, %42, %_ZNKSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %30, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %37, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %.val16.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
+  %.03.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %36, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i ], [ %.val16.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !950)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
-  %48 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
-  %49 = load <2 x ptr>, ptr %.092.i.i.i.i.i, align 8, !alias.scope !953, !noalias !950
-  store ptr null, ptr %48, align 8, !alias.scope !953, !noalias !950
-  store <2 x ptr> %49, ptr %.03.i.i.i.i.i, align 8, !alias.scope !950, !noalias !953
+  %47 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
+  %48 = load <2 x ptr>, ptr %.092.i.i.i.i.i, align 8, !alias.scope !953, !noalias !950
+  store ptr null, ptr %47, align 8, !alias.scope !953, !noalias !950
+  store <2 x ptr> %48, ptr %.03.i.i.i.i.i, align 8, !alias.scope !950, !noalias !953
   store ptr null, ptr %.092.i.i.i.i.i, align 8, !alias.scope !953, !noalias !950
-  %50 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
-  %51 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %50, %4
+  %49 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
+  %50 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %49, %4
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !955
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %37, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ], [ %51, %.lr.ph.i.i.i.i.i ]
-  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %36, %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i ], [ %50, %.lr.ph.i.i.i.i.i ]
+  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i27.i.i = icmp eq ptr %.val16.i.i, null
-  br i1 %.not.i27.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %53
+  br i1 %.not.i27.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %52
 
-53:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
+52:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val16.i.i) #33
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
-  store ptr %37, ptr %0, align 8
-  store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds %"class.std::shared_ptr.561", ptr %37, i64 %33
-  store ptr %54, ptr %5, align 8
+_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
+  store ptr %36, ptr %0, align 8
+  store ptr %51, ptr %3, align 8
+  %53 = getelementptr inbounds %"class.std::shared_ptr.561", ptr %36, i64 %34
+  store ptr %53, ptr %5, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_111ElementBaseEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i

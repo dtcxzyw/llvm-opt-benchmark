@@ -84,31 +84,28 @@ define void @_Z19make_bspline_moduliiiii(ptr dead_on_unwind noalias writable sre
   %7 = alloca %"class.std::vector", align 16
   %8 = alloca %"class.std::vector", align 16
   %9 = add nsw i32 %4, -1
-  %10 = sext i32 %9 to i64
-  %11 = icmp slt i32 %4, 1
-  br i1 %11, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %10 = icmp slt i32 %4, 1
+  br i1 %10, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %5
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
   unreachable
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
-  %.not.i.i.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i.i.i, label %.preheader, label %.noexc35
-
-.noexc35:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %12 = shl nuw nsw i64 %10, 3
+  %11 = sext i32 %9 to i64
+  %.not.i.i.i.i = icmp ne i32 %9, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %12 = shl nuw nsw i64 %11, 3
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #18
   store double 0.000000e+00, ptr %13, align 8
   %14 = icmp eq i32 %9, 1
   br i1 %14, label %.preheader, label %.lr.ph73.preheader
 
-.preheader:                                       ; preds = %.noexc35, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.052.0.ph = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %13, %.noexc35 ]
-  store double 1.000000e+00, ptr %.sroa.052.0.ph, align 8
+.preheader:                                       ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  store double 1.000000e+00, ptr %13, align 8
   br label %._crit_edge
 
-.lr.ph73.preheader:                               ; preds = %.noexc35
+.lr.ph73.preheader:                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = getelementptr i8, ptr %13, i64 8
   %16 = add nsw i64 %12, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %16, i1 false)
@@ -159,9 +156,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph73, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %38, %.preheader
-  %.sroa.052.08289 = phi ptr [ %.sroa.052.0.ph, %.preheader ], [ %13, %38 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr nonnull %.sroa.052.08289, i32 noundef %9, i32 noundef %1)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr nonnull %13, i32 noundef %9, i32 noundef %1)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %55
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge
@@ -172,7 +168,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge
   %44 = load ptr, ptr %43, align 16
   store ptr %44, ptr %41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %.sroa.052.08289, i32 noundef %9, i32 noundef %2)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %13, i32 noundef %9, i32 noundef %2)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit39 unwind label %55
 
 _ZNSt6vectorIfSaIfEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -184,7 +180,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIfSaIfE
   %49 = load ptr, ptr %48, align 16
   store ptr %49, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull %.sroa.052.08289, i32 noundef %9, i32 noundef %3)
+  invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull %13, i32 noundef %9, i32 noundef %3)
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %55
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39
@@ -195,7 +191,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %53 = getelementptr inbounds i8, ptr %8, i64 16
   %54 = load ptr, ptr %53, align 16
   store ptr %54, ptr %51, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.052.08289) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   ret void
 
 55:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge
@@ -220,7 +216,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %62, %58
   br i1 %63, label %_ZNSt6vectorIdSaIdEED2Ev.exit47, label %58
 
 _ZNSt6vectorIdSaIdEED2Ev.exit47:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.052.08289) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   resume { ptr, i32 } %56
 }
 
@@ -1153,17 +1149,17 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -1179,9 +1175,9 @@ attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protec
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }

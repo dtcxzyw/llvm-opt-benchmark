@@ -5807,10 +5807,10 @@ thread-pre-split:                                 ; preds = %59, %36, %30, %26, 
 
 67:                                               ; preds = %thread-pre-split, %5
   %68 = phi i32 [ %.pr, %thread-pre-split ], [ %6, %5 ]
-  switch i32 %68, label %115 [
+  switch i32 %68, label %114 [
     i32 51, label %69
     i32 303, label %76
-    i32 22, label %80
+    i32 22, label %.lr.ph.i46
   ]
 
 69:                                               ; preds = %67
@@ -5829,76 +5829,72 @@ thread-pre-split:                                 ; preds = %59, %36, %30, %26, 
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %76, %fix_alternative_subplan.exit
-  %.tr.be = phi ptr [ %78, %76 ], [ %.0.lcssa.i, %fix_alternative_subplan.exit ]
+  %.tr.be = phi ptr [ %78, %76 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %79 = icmp eq ptr %.tr.be, null
   br i1 %79, label %.loopexit, label %5
 
-80:                                               ; preds = %67
-  %81 = load ptr, ptr %1, align 8
-  %82 = load double, ptr %4, align 8
-  %83 = getelementptr i8, ptr %.tr60, i64 8
-  %.val = load ptr, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.val, i64 4
-  %.not.i45 = icmp eq ptr %.val, null
-  br i1 %.not.i45, label %fix_alternative_subplan.exit, label %.lr.ph.i46
-
-.lr.ph.i46:                                       ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %.val, i64 16
-  %86 = getelementptr inbounds i8, ptr %81, i64 656
-  %87 = load i32, ptr %84, align 4
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+.lr.ph.i46:                                       ; preds = %67
+  %80 = load ptr, ptr %1, align 8
+  %81 = load double, ptr %4, align 8
+  %82 = getelementptr i8, ptr %.tr60, i64 8
+  %.val = load ptr, ptr %82, align 8, !nonnull !7, !noundef !7
+  %83 = getelementptr inbounds i8, ptr %.val, i64 4
+  %84 = getelementptr inbounds i8, ptr %.val, i64 16
+  %85 = getelementptr inbounds i8, ptr %80, i64 656
+  %86 = load i32, ptr %83, align 4
+  %87 = icmp sgt i32 %86, 0
+  tail call void @llvm.assume(i1 %87)
+  br label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %.lr.ph.i46, %.lr.ph12.i
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.lr.ph12.i ], [ 0, %.lr.ph.i46 ]
   %.019410.i = phi double [ %.120.i, %.lr.ph12.i ], [ 0.000000e+00, %.lr.ph.i46 ]
   %.059.i = phi ptr [ %.1.i, %.lr.ph12.i ], [ null, %.lr.ph.i46 ]
-  %89 = load ptr, ptr %85, align 8
-  %90 = getelementptr %union.ListCell, ptr %89, i64 %indvars.iv.i48
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 80
-  %93 = load double, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 88
-  %95 = load double, ptr %94, align 8
-  %96 = tail call double @llvm.fmuladd.f64(double %82, double %95, double %93)
-  %97 = icmp ne ptr %.059.i, null
-  %98 = fcmp ugt double %96, %.019410.i
-  %or.cond.i = select i1 %97, i1 %98, i1 false
-  %.120.i = select i1 %or.cond.i, double %.019410.i, double %96
-  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %91
-  %99 = load ptr, ptr %86, align 8
-  %100 = getelementptr inbounds i8, ptr %91, i64 24
-  %101 = load i32, ptr %100, align 8
-  %102 = add i32 %101, -1
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr i8, ptr %99, i64 %103
-  store i8 1, ptr %104, align 1
+  %88 = load ptr, ptr %84, align 8
+  %89 = getelementptr %union.ListCell, ptr %88, i64 %indvars.iv.i48
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 80
+  %92 = load double, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %90, i64 88
+  %94 = load double, ptr %93, align 8
+  %95 = tail call double @llvm.fmuladd.f64(double %81, double %94, double %92)
+  %96 = icmp ne ptr %.059.i, null
+  %97 = fcmp ugt double %95, %.019410.i
+  %or.cond.i = select i1 %96, i1 %97, i1 false
+  %.120.i = select i1 %or.cond.i, double %.019410.i, double %95
+  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %90
+  %98 = load ptr, ptr %85, align 8
+  %99 = getelementptr inbounds i8, ptr %90, i64 24
+  %100 = load i32, ptr %99, align 8
+  %101 = add i32 %100, -1
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr i8, ptr %98, i64 %102
+  store i8 1, ptr %103, align 1
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
-  %105 = load i32, ptr %84, align 4
-  %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next.i49, %106
-  br i1 %107, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+  %104 = load i32, ptr %83, align 4
+  %105 = sext i32 %104 to i64
+  %106 = icmp slt i64 %indvars.iv.next.i49, %105
+  br i1 %106, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i, %80, %.lr.ph.i46
-  %.0.lcssa.i = phi ptr [ null, %80 ], [ null, %.lr.ph.i46 ], [ %.1.i, %.lr.ph12.i ]
-  %108 = getelementptr inbounds i8, ptr %81, i64 664
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 24
-  %111 = load i32, ptr %110, align 8
-  %112 = add i32 %111, -1
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr i8, ptr %109, i64 %113
-  store i8 1, ptr %114, align 1
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
+  %107 = getelementptr inbounds i8, ptr %80, i64 664
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %110 = load i32, ptr %109, align 8
+  %111 = add i32 %110, -1
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr i8, ptr %108, i64 %112
+  store i8 1, ptr %113, align 1
   br label %tailrecurse.backedge
 
-115:                                              ; preds = %67
-  %116 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %116, ptr noundef nonnull %.tr60)
-  %117 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr60, ptr noundef nonnull @fix_scan_expr_mutator, ptr noundef nonnull %1) #8
+114:                                              ; preds = %67
+  %115 = load ptr, ptr %1, align 8
+  tail call fastcc void @fix_expr_common(ptr noundef %115, ptr noundef nonnull %.tr60)
+  %116 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr60, ptr noundef nonnull @fix_scan_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %2, %16, %19, %115, %69, %65, %23
-  %.0 = phi ptr [ %25, %23 ], [ %66, %65 ], [ %70, %69 ], [ %117, %115 ], [ %8, %19 ], [ %8, %16 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %2, %16, %19, %114, %69, %65, %23
+  %.0 = phi ptr [ %25, %23 ], [ %66, %65 ], [ %70, %69 ], [ %116, %114 ], [ %8, %19 ], [ %8, %16 ], [ null, %2 ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -6060,7 +6056,7 @@ define internal ptr @fix_upper_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %28, %fix_alternative_subplan.exit
-  %.tr.be = phi ptr [ %30, %28 ], [ %.0.lcssa.i, %fix_alternative_subplan.exit ]
+  %.tr.be = phi ptr [ %30, %28 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %31 = icmp eq ptr %.tr.be, null
   br i1 %31, label %.loopexit, label %8
 
@@ -6186,74 +6182,70 @@ thread-pre-split:                                 ; preds = %82, %59, %53, %49, 
 90:                                               ; preds = %thread-pre-split, %search_indexed_tlist_for_non_var.exit.thread
   %91 = phi i32 [ %.pr, %thread-pre-split ], [ %45, %search_indexed_tlist_for_non_var.exit.thread ]
   %92 = icmp eq i32 %91, 22
-  br i1 %92, label %93, label %.thread
+  br i1 %92, label %.lr.ph.i60, label %.thread
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %1, align 8
-  %95 = load double, ptr %7, align 8
-  %96 = getelementptr i8, ptr %.tr78, i64 8
-  %.val = load ptr, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %.val, i64 4
-  %.not.i59 = icmp eq ptr %.val, null
-  br i1 %.not.i59, label %fix_alternative_subplan.exit, label %.lr.ph.i60
-
-.lr.ph.i60:                                       ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %.val, i64 16
-  %99 = getelementptr inbounds i8, ptr %94, i64 656
-  %100 = load i32, ptr %97, align 4
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+.lr.ph.i60:                                       ; preds = %90
+  %93 = load ptr, ptr %1, align 8
+  %94 = load double, ptr %7, align 8
+  %95 = getelementptr i8, ptr %.tr78, i64 8
+  %.val = load ptr, ptr %95, align 8, !nonnull !7, !noundef !7
+  %96 = getelementptr inbounds i8, ptr %.val, i64 4
+  %97 = getelementptr inbounds i8, ptr %.val, i64 16
+  %98 = getelementptr inbounds i8, ptr %93, i64 656
+  %99 = load i32, ptr %96, align 4
+  %100 = icmp sgt i32 %99, 0
+  tail call void @llvm.assume(i1 %100)
+  br label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %.lr.ph.i60, %.lr.ph12.i
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %.lr.ph12.i ], [ 0, %.lr.ph.i60 ]
   %.019410.i = phi double [ %.120.i, %.lr.ph12.i ], [ 0.000000e+00, %.lr.ph.i60 ]
   %.059.i = phi ptr [ %.1.i, %.lr.ph12.i ], [ null, %.lr.ph.i60 ]
-  %102 = load ptr, ptr %98, align 8
-  %103 = getelementptr %union.ListCell, ptr %102, i64 %indvars.iv.i62
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 80
-  %106 = load double, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 88
-  %108 = load double, ptr %107, align 8
-  %109 = tail call double @llvm.fmuladd.f64(double %95, double %108, double %106)
-  %110 = icmp ne ptr %.059.i, null
-  %111 = fcmp ugt double %109, %.019410.i
-  %or.cond.i = select i1 %110, i1 %111, i1 false
-  %.120.i = select i1 %or.cond.i, double %.019410.i, double %109
-  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %104
-  %112 = load ptr, ptr %99, align 8
-  %113 = getelementptr inbounds i8, ptr %104, i64 24
-  %114 = load i32, ptr %113, align 8
-  %115 = add i32 %114, -1
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr i8, ptr %112, i64 %116
-  store i8 1, ptr %117, align 1
+  %101 = load ptr, ptr %97, align 8
+  %102 = getelementptr %union.ListCell, ptr %101, i64 %indvars.iv.i62
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 80
+  %105 = load double, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %103, i64 88
+  %107 = load double, ptr %106, align 8
+  %108 = tail call double @llvm.fmuladd.f64(double %94, double %107, double %105)
+  %109 = icmp ne ptr %.059.i, null
+  %110 = fcmp ugt double %108, %.019410.i
+  %or.cond.i = select i1 %109, i1 %110, i1 false
+  %.120.i = select i1 %or.cond.i, double %.019410.i, double %108
+  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %103
+  %111 = load ptr, ptr %98, align 8
+  %112 = getelementptr inbounds i8, ptr %103, i64 24
+  %113 = load i32, ptr %112, align 8
+  %114 = add i32 %113, -1
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr i8, ptr %111, i64 %115
+  store i8 1, ptr %116, align 1
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
-  %118 = load i32, ptr %97, align 4
-  %119 = sext i32 %118 to i64
-  %120 = icmp slt i64 %indvars.iv.next.i63, %119
-  br i1 %120, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+  %117 = load i32, ptr %96, align 4
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next.i63, %118
+  br i1 %119, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i, %93, %.lr.ph.i60
-  %.0.lcssa.i = phi ptr [ null, %93 ], [ null, %.lr.ph.i60 ], [ %.1.i, %.lr.ph12.i ]
-  %121 = getelementptr inbounds i8, ptr %94, i64 664
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 24
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %124, -1
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr i8, ptr %122, i64 %126
-  store i8 1, ptr %127, align 1
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
+  %120 = getelementptr inbounds i8, ptr %93, i64 664
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %123 = load i32, ptr %122, align 8
+  %124 = add i32 %123, -1
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr i8, ptr %121, i64 %125
+  store i8 1, ptr %126, align 1
   br label %tailrecurse.backedge
 
 .thread:                                          ; preds = %36, %90
-  %128 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %128, ptr noundef nonnull %.tr78)
-  %129 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr78, ptr noundef nonnull @fix_upper_expr_mutator, ptr noundef nonnull %1) #8
+  %127 = load ptr, ptr %1, align 8
+  tail call fastcc void @fix_expr_common(ptr noundef %127, ptr noundef nonnull %.tr78)
+  %128 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr78, ptr noundef nonnull @fix_upper_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %24, %2, %search_indexed_tlist_for_non_var.exit, %11, %.thread, %88, %46
-  %.0 = phi ptr [ %48, %46 ], [ %89, %88 ], [ %129, %.thread ], [ %16, %11 ], [ %42, %search_indexed_tlist_for_non_var.exit ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %27, %24 ]
+  %.0 = phi ptr [ %48, %46 ], [ %89, %88 ], [ %128, %.thread ], [ %16, %11 ], [ %42, %search_indexed_tlist_for_non_var.exit ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %27, %24 ]
   ret ptr %.0
 }
 
@@ -6663,7 +6655,7 @@ define internal ptr @fix_join_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %62, %fix_alternative_subplan.exit
-  %.tr.be = phi ptr [ %64, %62 ], [ %.0.lcssa.i, %fix_alternative_subplan.exit ]
+  %.tr.be = phi ptr [ %64, %62 ], [ %.1.i, %fix_alternative_subplan.exit ]
   %65 = icmp eq ptr %.tr.be, null
   br i1 %65, label %.loopexit, label %8
 
@@ -6726,7 +6718,7 @@ search_indexed_tlist_for_non_var.exit101.thread:  ; preds = %86, %79, %search_in
   %.pr = load i32, ptr %.tr116, align 4
   switch i32 %.pr, label %search_indexed_tlist_for_non_var.exit101.thread.thread [
     i32 8, label %92
-    i32 22, label %95
+    i32 22, label %.lr.ph.i
   ]
 
 92:                                               ; preds = %search_indexed_tlist_for_non_var.exit101.thread
@@ -6734,72 +6726,68 @@ search_indexed_tlist_for_non_var.exit101.thread:  ; preds = %86, %79, %search_in
   %94 = tail call fastcc ptr @fix_param_node(ptr noundef %93, ptr noundef nonnull %.tr116)
   br label %.loopexit
 
-95:                                               ; preds = %search_indexed_tlist_for_non_var.exit101.thread
-  %96 = load ptr, ptr %1, align 8
-  %97 = load double, ptr %7, align 8
-  %98 = getelementptr i8, ptr %.tr116, i64 8
-  %.val = load ptr, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.val, i64 4
-  %.not.i102 = icmp eq ptr %.val, null
-  br i1 %.not.i102, label %fix_alternative_subplan.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %.val, i64 16
-  %101 = getelementptr inbounds i8, ptr %96, i64 656
-  %102 = load i32, ptr %99, align 4
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+.lr.ph.i:                                         ; preds = %search_indexed_tlist_for_non_var.exit101.thread
+  %95 = load ptr, ptr %1, align 8
+  %96 = load double, ptr %7, align 8
+  %97 = getelementptr i8, ptr %.tr116, i64 8
+  %.val = load ptr, ptr %97, align 8, !nonnull !7, !noundef !7
+  %98 = getelementptr inbounds i8, ptr %.val, i64 4
+  %99 = getelementptr inbounds i8, ptr %.val, i64 16
+  %100 = getelementptr inbounds i8, ptr %95, i64 656
+  %101 = load i32, ptr %98, align 4
+  %102 = icmp sgt i32 %101, 0
+  tail call void @llvm.assume(i1 %102)
+  br label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %.lr.ph.i, %.lr.ph12.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph12.i ], [ 0, %.lr.ph.i ]
   %.019410.i = phi double [ %.120.i, %.lr.ph12.i ], [ 0.000000e+00, %.lr.ph.i ]
   %.059.i = phi ptr [ %.1.i, %.lr.ph12.i ], [ null, %.lr.ph.i ]
-  %104 = load ptr, ptr %100, align 8
-  %105 = getelementptr %union.ListCell, ptr %104, i64 %indvars.iv.i
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 80
-  %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 88
-  %110 = load double, ptr %109, align 8
-  %111 = tail call double @llvm.fmuladd.f64(double %97, double %110, double %108)
-  %112 = icmp ne ptr %.059.i, null
-  %113 = fcmp ugt double %111, %.019410.i
-  %or.cond.i = select i1 %112, i1 %113, i1 false
-  %.120.i = select i1 %or.cond.i, double %.019410.i, double %111
-  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %106
-  %114 = load ptr, ptr %101, align 8
-  %115 = getelementptr inbounds i8, ptr %106, i64 24
-  %116 = load i32, ptr %115, align 8
-  %117 = add i32 %116, -1
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr i8, ptr %114, i64 %118
-  store i8 1, ptr %119, align 1
+  %103 = load ptr, ptr %99, align 8
+  %104 = getelementptr %union.ListCell, ptr %103, i64 %indvars.iv.i
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 80
+  %107 = load double, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %105, i64 88
+  %109 = load double, ptr %108, align 8
+  %110 = tail call double @llvm.fmuladd.f64(double %96, double %109, double %107)
+  %111 = icmp ne ptr %.059.i, null
+  %112 = fcmp ugt double %110, %.019410.i
+  %or.cond.i = select i1 %111, i1 %112, i1 false
+  %.120.i = select i1 %or.cond.i, double %.019410.i, double %110
+  %.1.i = select i1 %or.cond.i, ptr %.059.i, ptr %105
+  %113 = load ptr, ptr %100, align 8
+  %114 = getelementptr inbounds i8, ptr %105, i64 24
+  %115 = load i32, ptr %114, align 8
+  %116 = add i32 %115, -1
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr i8, ptr %113, i64 %117
+  store i8 1, ptr %118, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %120 = load i32, ptr %99, align 4
-  %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next.i, %121
-  br i1 %122, label %.lr.ph12.i, label %fix_alternative_subplan.exit
+  %119 = load i32, ptr %98, align 4
+  %120 = sext i32 %119 to i64
+  %121 = icmp slt i64 %indvars.iv.next.i, %120
+  br i1 %121, label %.lr.ph12.i, label %fix_alternative_subplan.exit
 
-fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i, %95, %.lr.ph.i
-  %.0.lcssa.i = phi ptr [ null, %95 ], [ null, %.lr.ph.i ], [ %.1.i, %.lr.ph12.i ]
-  %123 = getelementptr inbounds i8, ptr %96, i64 664
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 24
-  %126 = load i32, ptr %125, align 8
-  %127 = add i32 %126, -1
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr i8, ptr %124, i64 %128
-  store i8 1, ptr %129, align 1
+fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
+  %122 = getelementptr inbounds i8, ptr %95, i64 664
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %125 = load i32, ptr %124, align 8
+  %126 = add i32 %125, -1
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr i8, ptr %123, i64 %127
+  store i8 1, ptr %128, align 1
   br label %tailrecurse.backedge
 
 search_indexed_tlist_for_non_var.exit101.thread.thread: ; preds = %83, %search_indexed_tlist_for_non_var.exit101.thread
-  %130 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %130, ptr noundef nonnull %.tr116)
-  %131 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr116, ptr noundef nonnull @fix_join_expr_mutator, ptr noundef nonnull %1) #8
+  %129 = load ptr, ptr %1, align 8
+  tail call fastcc void @fix_expr_common(ptr noundef %129, ptr noundef nonnull %.tr116)
+  %130 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr116, ptr noundef nonnull @fix_join_expr_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %50, %59, %2, %search_indexed_tlist_for_non_var.exit101, %search_indexed_tlist_for_non_var.exit, %30, %39, %19, %12, %search_indexed_tlist_for_non_var.exit101.thread.thread, %92
-  %.0 = phi ptr [ %94, %92 ], [ %131, %search_indexed_tlist_for_non_var.exit101.thread.thread ], [ %16, %12 ], [ %23, %19 ], [ %31, %39 ], [ %31, %30 ], [ %75, %search_indexed_tlist_for_non_var.exit ], [ %89, %search_indexed_tlist_for_non_var.exit101 ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %52, %50 ], [ %61, %59 ]
+  %.0 = phi ptr [ %94, %92 ], [ %130, %search_indexed_tlist_for_non_var.exit101.thread.thread ], [ %16, %12 ], [ %23, %19 ], [ %31, %39 ], [ %31, %30 ], [ %75, %search_indexed_tlist_for_non_var.exit ], [ %89, %search_indexed_tlist_for_non_var.exit101 ], [ null, %2 ], [ null, %tailrecurse.backedge ], [ %52, %50 ], [ %61, %59 ]
   ret ptr %.0
 }
 

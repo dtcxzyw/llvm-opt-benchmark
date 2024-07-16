@@ -37331,7 +37331,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i.i.i.i3.i.i, label %while.cond, label %while.cond.us
 
 while.cond.us:                                    ; preds = %while.cond.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
-  %__beg.sroa.0.0.us = phi ptr [ %__beg.sroa.0.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce0, %while.cond.preheader ]
+  %__beg.sroa.0.0.us = phi ptr [ %__beg.sroa.0.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce0, %while.cond.preheader ]
   %__beg.sroa.11.0.us = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce1, %while.cond.preheader ]
   %__len.0.us = phi i64 [ %inc.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ 0, %while.cond.preheader ]
   %tobool.not.i.i.i.i.us = icmp ne ptr %__beg.sroa.0.0.us, null
@@ -37360,18 +37360,17 @@ while.body.us:                                    ; preds = %_ZNKSt19istreambuf_
 
 land.lhs.true2.i.i.us:                            ; preds = %while.body.us
   %call4.i.i.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1.us)
-  %cmp.i.i2.i.i.us = icmp eq i32 %call4.i.i.us, -1
-  %spec.select67.us = select i1 %cmp.i.i2.i.i.us, ptr null, ptr %__beg.sroa.0.1.us
+  %cmp.i.i2.i.i.us = icmp ne i32 %call4.i.i.us, -1
+  tail call void @llvm.assume(i1 %cmp.i.i2.i.i.us)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %land.lhs.true2.i.i.us, %while.body.us
-  %__beg.sroa.0.2.us = phi ptr [ %__beg.sroa.0.1.us, %while.body.us ], [ %spec.select67.us, %land.lhs.true2.i.i.us ]
-  %__ret.0.i.i.us = phi i32 [ %__beg.sroa.11.0.us, %while.body.us ], [ %call4.i.i.us, %land.lhs.true2.i.i.us ]
+  %__ret.0.i.i.us = phi i32 [ %call4.i.i.us, %land.lhs.true2.i.i.us ], [ %__beg.sroa.11.0.us, %while.body.us ]
   %conv.i.i.us = trunc i32 %__ret.0.i.i.us to i8
   %inc.us = add nuw nsw i64 %__len.0.us, 1
   %arrayidx.us = getelementptr inbounds i8, ptr %call.i, i64 %__len.0.us
   store i8 %conv.i.i.us, ptr %arrayidx.us, align 1
-  %call.i9.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2.us)
+  %call.i9.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1.us)
   br label %while.cond.us, !llvm.loop !355
 
 terminate.lpad.i:                                 ; preds = %entry
@@ -37382,7 +37381,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %__beg.sroa.0.0 = phi ptr [ %__beg.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce0, %while.cond.preheader ]
+  %__beg.sroa.0.0 = phi ptr [ %__beg.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce0, %while.cond.preheader ]
   %__end.sroa.0.0 = phi ptr [ %__end.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__end.coerce0, %while.cond.preheader ]
   %__beg.sroa.11.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce1, %while.cond.preheader ]
   %__len.0 = phi i64 [ %inc, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ 0, %while.cond.preheader ]
@@ -37426,33 +37425,32 @@ while.body:                                       ; preds = %_ZStneIcSt11char_tr
 
 land.lhs.true2.i.i:                               ; preds = %while.body
   %call4.i.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1)
-  %cmp.i.i2.i.i = icmp eq i32 %call4.i.i, -1
-  %spec.select67 = select i1 %cmp.i.i2.i.i, ptr null, ptr %__beg.sroa.0.1
+  %cmp.i.i2.i.i = icmp ne i32 %call4.i.i, -1
+  tail call void @llvm.assume(i1 %cmp.i.i2.i.i)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %land.lhs.true2.i.i, %while.body
-  %__beg.sroa.0.2 = phi ptr [ %__beg.sroa.0.1, %while.body ], [ %spec.select67, %land.lhs.true2.i.i ]
-  %__ret.0.i.i = phi i32 [ %__beg.sroa.11.0, %while.body ], [ %call4.i.i, %land.lhs.true2.i.i ]
+  %__ret.0.i.i = phi i32 [ %call4.i.i, %land.lhs.true2.i.i ], [ %__beg.sroa.11.0, %while.body ]
   %conv.i.i = trunc i32 %__ret.0.i.i to i8
   %inc = add nuw nsw i64 %__len.0, 1
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %__len.0
   store i8 %conv.i.i, ptr %arrayidx, align 1
-  %call.i9 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2)
+  %call.i9 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1)
   br label %while.cond, !llvm.loop !355
 
 while.end:                                        ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
   %.us-phi = phi ptr [ %__end.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__end.coerce0, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi76 = phi ptr [ %__beg.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.0.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi78 = phi i32 [ %__beg.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi79 = phi i64 [ %__len.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__len.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi72 = phi ptr [ %__beg.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.0.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi74 = phi i32 [ %__beg.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi75 = phi i64 [ %__len.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__len.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   store ptr %this, ptr %__guard, align 8
   br label %while.cond5
 
 while.cond5:                                      ; preds = %invoke.cont21, %while.end
-  %__beg.sroa.0.3 = phi ptr [ %.us-phi76, %while.end ], [ %__beg.sroa.0.5, %invoke.cont21 ]
+  %__beg.sroa.0.3 = phi ptr [ %.us-phi72, %while.end ], [ %__beg.sroa.0.4, %invoke.cont21 ]
   %__end.sroa.0.2 = phi ptr [ %.us-phi, %while.end ], [ %__end.sroa.0.361, %invoke.cont21 ]
-  %__beg.sroa.11.1 = phi i32 [ %.us-phi78, %while.end ], [ -1, %invoke.cont21 ]
-  %__len.1 = phi i64 [ %.us-phi79, %while.end ], [ %inc19, %invoke.cont21 ]
+  %__beg.sroa.11.1 = phi i32 [ %.us-phi74, %while.end ], [ -1, %invoke.cont21 ]
+  %__len.1 = phi i64 [ %.us-phi75, %while.end ], [ %inc19, %invoke.cont21 ]
   %tobool.not.i.i.i.i11 = icmp ne ptr %__beg.sroa.0.3, null
   %cmp.i.i.i.i.i.i12 = icmp eq i32 %__beg.sroa.11.1, -1
   %or.cond.i.i.i.i13 = select i1 %tobool.not.i.i.i.i11, i1 %cmp.i.i.i.i.i.i12, i1 false
@@ -37464,11 +37462,11 @@ land.lhs.true2.i.i.i.i27:                         ; preds = %while.cond5
 
 call4.i.i.i.i28.noexc:                            ; preds = %land.lhs.true2.i.i.i.i27
   %cmp.i.i2.i.i.i.i29 = icmp eq i32 %call4.i.i.i.i2831, -1
-  %spec.select69 = select i1 %cmp.i.i2.i.i.i.i29, ptr null, ptr %__beg.sroa.0.3
+  %spec.select67 = select i1 %cmp.i.i2.i.i.i.i29, ptr null, ptr %__beg.sroa.0.3
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i14
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i14: ; preds = %call4.i.i.i.i28.noexc, %while.cond5
-  %__beg.sroa.0.4 = phi ptr [ %__beg.sroa.0.3, %while.cond5 ], [ %spec.select69, %call4.i.i.i.i28.noexc ]
+  %__beg.sroa.0.4 = phi ptr [ %__beg.sroa.0.3, %while.cond5 ], [ %spec.select67, %call4.i.i.i.i28.noexc ]
   %__ret.0.i.i.i.i15 = phi i32 [ %__beg.sroa.11.1, %while.cond5 ], [ %call4.i.i.i.i2831, %call4.i.i.i.i28.noexc ]
   %tobool.not.i.i2.i.i17 = icmp ne ptr %__end.sroa.0.2, null
   %or.cond.i.i4.i.i19 = and i1 %tobool.not.i.i2.i.i17, %cmp.i.i.i.i3.i.i
@@ -37528,17 +37526,17 @@ invoke.cont15:                                    ; preds = %invoke.cont14
           to label %if.end unwind label %lpad.loopexit
 
 lpad.loopexit:                                    ; preds = %if.then, %invoke.cont9, %invoke.cont11, %invoke.cont13, %invoke.cont14, %invoke.cont15, %if.end, %land.lhs.true2.i.i.i.i27, %land.lhs.true2.i.i7.i.i23, %land.lhs.true2.i.i40, %invoke.cont21
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %while.end25
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit73, %lpad.loopexit ], [ %lpad.loopexit.split-lp74, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit69, %lpad.loopexit ], [ %lpad.loopexit.split-lp70, %lpad.loopexit.split-lp ]
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istreambuf_iteratorIcS2_EEEvT_S8_St18input_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #22
   resume { ptr, i32 } %lpad.phi
 
@@ -37556,18 +37554,17 @@ land.lhs.true2.i.i40:                             ; preds = %invoke.cont17
           to label %call4.i.i41.noexc unwind label %lpad.loopexit
 
 call4.i.i41.noexc:                                ; preds = %land.lhs.true2.i.i40
-  %cmp.i.i2.i.i42 = icmp eq i32 %call4.i.i4144, -1
-  %spec.select71 = select i1 %cmp.i.i2.i.i42, ptr null, ptr %__beg.sroa.0.4
+  %cmp.i.i2.i.i42 = icmp ne i32 %call4.i.i4144, -1
+  call void @llvm.assume(i1 %cmp.i.i2.i.i42)
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %call4.i.i41.noexc, %invoke.cont17
-  %__beg.sroa.0.5 = phi ptr [ %__beg.sroa.0.4, %invoke.cont17 ], [ %spec.select71, %call4.i.i41.noexc ]
-  %__ret.0.i.i38 = phi i32 [ %__beg.sroa.11.1, %invoke.cont17 ], [ %call4.i.i4144, %call4.i.i41.noexc ]
+  %__ret.0.i.i38 = phi i32 [ %call4.i.i4144, %call4.i.i41.noexc ], [ %__beg.sroa.11.1, %invoke.cont17 ]
   %conv.i.i39 = trunc i32 %__ret.0.i.i38 to i8
   %arrayidx20 = getelementptr inbounds i8, ptr %call18, i64 %__len.1
   %inc19 = add i64 %__len.1, 1
   store i8 %conv.i.i39, ptr %arrayidx20, align 1
-  %call.i4648 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.5)
+  %call.i4648 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.4)
           to label %while.cond5 unwind label %lpad.loopexit
 
 while.end25:                                      ; preds = %if.then.i.i10.i.i26, %call4.i.i8.i.i24.noexc.invoke.cont_crit_edge, %invoke.cont

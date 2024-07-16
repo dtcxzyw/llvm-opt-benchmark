@@ -257,7 +257,7 @@ define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr nounde
   %24 = load i8, ptr %23, align 8
   switch i8 %24, label %25 [
     i8 0, label %spl_object_storage_get_hash.exit.thread
-    i8 6, label %31
+    i8 6, label %32
   ]
 
 25:                                               ; preds = %17
@@ -272,195 +272,185 @@ define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr nounde
   %30 = zext i32 %29 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %35
+  %31 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %0, i64 noundef %30) #10
+  %.not22.i = icmp eq ptr %31, null
+  br i1 %.not22.i, label %62, label %35
 
 spl_object_storage_get_hash.exit.thread:          ; preds = %25, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %spl_object_storage_free_hash.exit172
 
-31:                                               ; preds = %17
-  %32 = load ptr, ptr %5, align 8
+32:                                               ; preds = %17
+  %33 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.not.i168 = icmp eq ptr %32, null
-  br i1 %.not.i168, label %35, label %33
-
-33:                                               ; preds = %31
-  %34 = call ptr @zend_hash_find(ptr noundef nonnull %0, ptr noundef nonnull %32) #10
+  %34 = call ptr @zend_hash_find(ptr noundef nonnull %0, ptr noundef nonnull %33) #10
   %.not23.i = icmp eq ptr %34, null
-  br i1 %.not23.i, label %64, label %37
+  br i1 %.not23.i, label %62, label %35
 
-35:                                               ; preds = %.thread, %31
-  %.sroa.0.0185 = phi i64 [ %30, %.thread ], [ undef, %31 ]
-  %36 = call ptr @zend_hash_index_find(ptr noundef nonnull %0, i64 noundef %.sroa.0.0185) #10
-  %.not22.i = icmp eq ptr %36, null
-  br i1 %.not22.i, label %64, label %37
-
-37:                                               ; preds = %35, %33
-  %.not.i168188 = phi i1 [ false, %33 ], [ true, %35 ]
-  %.sroa.3.0174182 = phi ptr [ %32, %33 ], [ null, %35 ]
-  %.sink.i = phi ptr [ %34, %33 ], [ %36, %35 ]
-  %38 = load ptr, ptr %.sink.i, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
-  %42 = load i32, ptr %41, align 8
-  store ptr %40, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %42, ptr %43, align 8
+35:                                               ; preds = %.thread, %32
+  %.sroa.3.0174182 = phi ptr [ %33, %32 ], [ null, %.thread ]
+  %.sink.i = phi ptr [ %34, %32 ], [ %31, %.thread ]
+  %36 = load ptr, ptr %.sink.i, align 8, !nonnull !4, !noundef !4
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %40 = load i32, ptr %39, align 8
+  store ptr %38, ptr %8, align 8
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %40, ptr %41, align 8
   %.not163 = icmp eq ptr %2, null
-  br i1 %.not163, label %52, label %44
+  br i1 %.not163, label %50, label %42
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  %47 = load i32, ptr %46, align 8
-  store ptr %45, ptr %39, align 8
-  store i32 %47, ptr %41, align 8
-  %48 = and i32 %47, 65280
-  %.not164 = icmp eq i32 %48, 0
-  br i1 %.not164, label %53, label %49
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = load i32, ptr %44, align 8
+  store ptr %43, ptr %37, align 8
+  store i32 %45, ptr %39, align 8
+  %46 = and i32 %45, 65280
+  %.not164 = icmp eq i32 %46, 0
+  br i1 %.not164, label %51, label %47
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %45, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %45, align 4
-  br label %53
+47:                                               ; preds = %42
+  %48 = load i32, ptr %43, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %43, align 4
+  br label %51
 
-52:                                               ; preds = %37
-  store i32 1, ptr %41, align 8
-  br label %53
+50:                                               ; preds = %35
+  store i32 1, ptr %39, align 8
+  br label %51
 
-53:                                               ; preds = %49, %44, %52
-  br i1 %.not.i168188, label %spl_object_storage_free_hash.exit, label %54
+51:                                               ; preds = %47, %42, %50
+  br i1 %.not.i, label %spl_object_storage_free_hash.exit, label %52
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %.sroa.3.0174182, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 64
-  %.not9.i = icmp eq i32 %57, 0
-  br i1 %.not9.i, label %58, label %spl_object_storage_free_hash.exit
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %.sroa.3.0174182, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = and i32 %54, 64
+  %.not9.i = icmp eq i32 %55, 0
+  br i1 %.not9.i, label %56, label %spl_object_storage_free_hash.exit
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr %.sroa.3.0174182, align 4
-  %60 = icmp ne i32 %59, 0
-  call void @llvm.assume(i1 %60)
-  %61 = add i32 %59, -1
-  store i32 %61, ptr %.sroa.3.0174182, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %spl_object_storage_free_hash.exit
+56:                                               ; preds = %52
+  %57 = load i32, ptr %.sroa.3.0174182, align 4
+  %58 = icmp ne i32 %57, 0
+  call void @llvm.assume(i1 %58)
+  %59 = add i32 %57, -1
+  store i32 %59, ptr %.sroa.3.0174182, align 4
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %spl_object_storage_free_hash.exit
 
-63:                                               ; preds = %58
+61:                                               ; preds = %56
   call void @_efree(ptr noundef nonnull %.sroa.3.0174182) #10
   br label %spl_object_storage_free_hash.exit
 
-spl_object_storage_free_hash.exit:                ; preds = %53, %54, %58, %63
+spl_object_storage_free_hash.exit:                ; preds = %51, %52, %56, %61
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
   br label %spl_object_storage_free_hash.exit172
 
-64:                                               ; preds = %33, %35
-  %.not.i168189.ph = phi i1 [ true, %35 ], [ false, %33 ]
-  %.sroa.0.0187.ph = phi i64 [ %.sroa.0.0185, %35 ], [ undef, %33 ]
-  %.sroa.3.0174183.ph = phi ptr [ null, %35 ], [ %32, %33 ]
-  %65 = load i32, ptr %1, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %1, align 4
+62:                                               ; preds = %32, %.thread
+  %.sroa.0.0187.ph = phi i64 [ %30, %.thread ], [ undef, %32 ]
+  %.sroa.3.0174183.ph = phi ptr [ null, %.thread ], [ %33, %32 ]
+  %63 = load i32, ptr %1, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %1, align 4
   %.not158 = icmp eq ptr %2, null
-  br i1 %.not158, label %75, label %67
+  br i1 %.not158, label %73, label %65
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 65280
-  %.not159 = icmp eq i32 %71, 0
-  br i1 %.not159, label %75, label %72
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = load i32, ptr %67, align 8
+  %69 = and i32 %68, 65280
+  %.not159 = icmp eq i32 %69, 0
+  br i1 %.not159, label %73, label %70
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr %68, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %68, align 4
-  br label %75
+70:                                               ; preds = %65
+  %71 = load i32, ptr %66, align 4
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %66, align 4
+  br label %73
 
-75:                                               ; preds = %64, %72, %67
-  %.sroa.4.0 = phi i32 [ %70, %72 ], [ %70, %67 ], [ 1, %64 ]
-  %.sroa.3.0 = phi ptr [ %68, %72 ], [ %68, %67 ], [ undef, %64 ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, 128
-  %.not161 = icmp eq i32 %78, 0
-  br i1 %.not.i168189.ph, label %84, label %79
+73:                                               ; preds = %62, %70, %65
+  %.sroa.4.0 = phi i32 [ %68, %70 ], [ %68, %65 ], [ 1, %62 ]
+  %.sroa.3.0 = phi ptr [ %66, %70 ], [ %66, %65 ], [ undef, %62 ]
+  %74 = getelementptr inbounds i8, ptr %0, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 128
+  %.not161 = icmp eq i32 %76, 0
+  br i1 %.not.i, label %82, label %77
 
-79:                                               ; preds = %75
-  br i1 %.not161, label %82, label %80
+77:                                               ; preds = %73
+  br i1 %.not161, label %80, label %78
 
-80:                                               ; preds = %79
-  %81 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #11
-  br label %92
+78:                                               ; preds = %77
+  %79 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #11
+  br label %90
 
-82:                                               ; preds = %79
-  %83 = call noalias ptr @_emalloc_24() #10
-  br label %92
+80:                                               ; preds = %77
+  %81 = call noalias ptr @_emalloc_24() #10
+  br label %90
 
-84:                                               ; preds = %75
-  br i1 %.not161, label %87, label %85
+82:                                               ; preds = %73
+  br i1 %.not161, label %85, label %83
 
-85:                                               ; preds = %84
-  %86 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #11
+83:                                               ; preds = %82
+  %84 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #11
   br label %.thread199
 
-87:                                               ; preds = %84
-  %88 = call noalias ptr @_emalloc_24() #10
+85:                                               ; preds = %82
+  %86 = call noalias ptr @_emalloc_24() #10
   br label %.thread199
 
-.thread199:                                       ; preds = %85, %87
-  %89 = phi ptr [ %86, %85 ], [ %88, %87 ]
-  store ptr %1, ptr %89, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
+.thread199:                                       ; preds = %83, %85
+  %87 = phi ptr [ %84, %83 ], [ %86, %85 ]
+  store ptr %1, ptr %87, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 16
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
-  store ptr %89, ptr %6, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 13, ptr %90, align 8
-  %91 = call ptr @zend_hash_index_update(ptr noundef nonnull %0, i64 noundef %.sroa.0.0187.ph, ptr noundef nonnull %6) #10
-  %.0146201 = load ptr, ptr %91, align 8, !nonnull !4, !noundef !4
+  store ptr %87, ptr %6, align 8
+  %88 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 13, ptr %88, align 8
+  %89 = call ptr @zend_hash_index_update(ptr noundef nonnull %0, i64 noundef %.sroa.0.0187.ph, ptr noundef nonnull %6) #10
+  %.0146201 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
   br label %spl_object_storage_free_hash.exit172
 
-92:                                               ; preds = %82, %80
-  %93 = phi ptr [ %81, %80 ], [ %83, %82 ]
-  store ptr %1, ptr %93, align 1
-  %.sroa.3.0..sroa_idx148 = getelementptr inbounds i8, ptr %93, i64 8
+90:                                               ; preds = %80, %78
+  %91 = phi ptr [ %79, %78 ], [ %81, %80 ]
+  store ptr %1, ptr %91, align 1
+  %.sroa.3.0..sroa_idx148 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx148, align 1
-  %.sroa.4.0..sroa_idx150 = getelementptr inbounds i8, ptr %93, i64 16
+  %.sroa.4.0..sroa_idx150 = getelementptr inbounds i8, ptr %91, i64 16
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx150, align 1
-  store ptr %93, ptr %7, align 8
-  %94 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 13, ptr %94, align 8
-  %95 = call ptr @zend_hash_update(ptr noundef nonnull %0, ptr noundef nonnull %.sroa.3.0174183.ph, ptr noundef nonnull %7) #10
-  %.0146 = load ptr, ptr %95, align 8, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds i8, ptr %.sroa.3.0174183.ph, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = and i32 %97, 64
-  %.not9.i171 = icmp eq i32 %98, 0
-  br i1 %.not9.i171, label %99, label %spl_object_storage_free_hash.exit172
+  store ptr %91, ptr %7, align 8
+  %92 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 13, ptr %92, align 8
+  %93 = call ptr @zend_hash_update(ptr noundef nonnull %0, ptr noundef nonnull %.sroa.3.0174183.ph, ptr noundef nonnull %7) #10
+  %.0146 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
+  %94 = getelementptr inbounds i8, ptr %.sroa.3.0174183.ph, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = and i32 %95, 64
+  %.not9.i171 = icmp eq i32 %96, 0
+  br i1 %.not9.i171, label %97, label %spl_object_storage_free_hash.exit172
 
-99:                                               ; preds = %92
-  %100 = load i32, ptr %.sroa.3.0174183.ph, align 4
-  %101 = icmp ne i32 %100, 0
-  call void @llvm.assume(i1 %101)
-  %102 = add i32 %100, -1
-  store i32 %102, ptr %.sroa.3.0174183.ph, align 4
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %spl_object_storage_free_hash.exit172
+97:                                               ; preds = %90
+  %98 = load i32, ptr %.sroa.3.0174183.ph, align 4
+  %99 = icmp ne i32 %98, 0
+  call void @llvm.assume(i1 %99)
+  %100 = add i32 %98, -1
+  store i32 %100, ptr %.sroa.3.0174183.ph, align 4
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %spl_object_storage_free_hash.exit172
 
-104:                                              ; preds = %99
+102:                                              ; preds = %97
   call void @_efree(ptr noundef nonnull %.sroa.3.0174183.ph) #10
   br label %spl_object_storage_free_hash.exit172
 
-spl_object_storage_free_hash.exit172:             ; preds = %104, %99, %92, %.thread199, %spl_object_storage_get_hash.exit.thread, %spl_object_storage_free_hash.exit, %12
-  %.0 = phi ptr [ %13, %12 ], [ %38, %spl_object_storage_free_hash.exit ], [ null, %spl_object_storage_get_hash.exit.thread ], [ %.0146201, %.thread199 ], [ %.0146, %92 ], [ %.0146, %99 ], [ %.0146, %104 ]
+spl_object_storage_free_hash.exit172:             ; preds = %102, %97, %90, %.thread199, %spl_object_storage_get_hash.exit.thread, %spl_object_storage_free_hash.exit, %12
+  %.0 = phi ptr [ %13, %12 ], [ %36, %spl_object_storage_free_hash.exit ], [ null, %spl_object_storage_get_hash.exit.thread ], [ %.0146201, %.thread199 ], [ %.0146, %90 ], [ %.0146, %97 ], [ %.0146, %102 ]
   ret ptr %.0
 }
 

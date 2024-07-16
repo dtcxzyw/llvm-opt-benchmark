@@ -7092,140 +7092,138 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i105: ; preds = %.noexc109
   %158 = ptrtoint ptr %156 to i64
   %159 = sub i64 %157, %158
   %.not172181 = icmp eq i64 %159, 4
-  br i1 %.not172181, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %.lr.ph171.preheader
+  tail call void @llvm.assume(i1 %.not172181)
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit117
 
-.lr.ph171.preheader:                              ; preds = %.preheader.thread, %.preheader
-  %160 = phi ptr [ %156, %.preheader.thread ], [ %151, %.preheader ]
-  %.sroa.0141.0177182 = phi ptr [ null, %.preheader.thread ], [ %146, %.preheader ]
-  %.pre = load float, ptr %.sroa.0141.0177182, align 4
+.lr.ph171.preheader:                              ; preds = %.preheader
+  %.pre = load float, ptr %146, align 4
   %.pre174 = load float, ptr %5, align 4
   br label %.lr.ph171
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit
-  %.sroa.0137.0169 = phi ptr [ %161, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit ], [ %141, %.lr.ph.preheader ]
-  %.sroa.0139.0168 = phi ptr [ %170, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit ], [ %146, %.lr.ph.preheader ]
-  %161 = getelementptr inbounds i8, ptr %.sroa.0137.0169, i64 4
-  %.not9.i.i = icmp eq ptr %161, %140
-  %162 = load float, ptr %.sroa.0137.0169, align 4
+  %.sroa.0137.0169 = phi ptr [ %160, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit ], [ %141, %.lr.ph.preheader ]
+  %.sroa.0139.0168 = phi ptr [ %169, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit ], [ %146, %.lr.ph.preheader ]
+  %160 = getelementptr inbounds i8, ptr %.sroa.0137.0169, i64 4
+  %.not9.i.i = icmp eq ptr %160, %140
+  %161 = load float, ptr %.sroa.0137.0169, align 4
   br i1 %.not9.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit.thread, label %.lr.ph.i.i111
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit.thread: ; preds = %.lr.ph
-  store float %162, ptr %.sroa.0139.0168, align 4
+  store float %161, ptr %.sroa.0139.0168, align 4
   br label %.preheader
 
 .lr.ph.i.i111:                                    ; preds = %.lr.ph, %.lr.ph.i.i111
-  %163 = phi float [ %167, %.lr.ph.i.i111 ], [ %162, %.lr.ph ]
-  %164 = phi ptr [ %168, %.lr.ph.i.i111 ], [ %161, %.lr.ph ]
+  %162 = phi float [ %166, %.lr.ph.i.i111 ], [ %161, %.lr.ph ]
+  %163 = phi ptr [ %167, %.lr.ph.i.i111 ], [ %160, %.lr.ph ]
   %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i112, %.lr.ph.i.i111 ], [ %.sroa.0137.0169, %.lr.ph ]
-  %165 = load float, ptr %164, align 4
-  %166 = fcmp olt float %163, %165
-  %167 = select i1 %166, float %165, float %163
-  %spec.select.i.i112 = select i1 %166, ptr %164, ptr %.sroa.02.010.i.i
-  %168 = getelementptr inbounds i8, ptr %164, i64 4
-  %.not.i.i113 = icmp eq ptr %168, %140
+  %164 = load float, ptr %163, align 4
+  %165 = fcmp olt float %162, %164
+  %166 = select i1 %165, float %164, float %162
+  %spec.select.i.i112 = select i1 %165, ptr %163, ptr %.sroa.02.010.i.i
+  %167 = getelementptr inbounds i8, ptr %163, i64 4
+  %.not.i.i113 = icmp eq ptr %167, %140
   br i1 %.not.i.i113, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit, label %.lr.ph.i.i111, !llvm.loop !46
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i111
-  %169 = load float, ptr %spec.select.i.i112, align 4
-  store float %169, ptr %.sroa.0139.0168, align 4
-  %170 = getelementptr inbounds i8, ptr %.sroa.0139.0168, i64 4
+  %168 = load float, ptr %spec.select.i.i112, align 4
+  store float %168, ptr %.sroa.0139.0168, align 4
+  %169 = getelementptr inbounds i8, ptr %.sroa.0139.0168, i64 4
   br i1 %.not9.i.i, label %.preheader, label %.lr.ph, !llvm.loop !47
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
-  %171 = phi float [ %187, %.lr.ph171 ], [ %.pre174, %.lr.ph171.preheader ]
-  %172 = phi float [ %181, %.lr.ph171 ], [ %.pre, %.lr.ph171.preheader ]
-  %173 = phi ptr [ %189, %.lr.ph171 ], [ %160, %.lr.ph171.preheader ]
-  %.079170 = phi i64 [ %174, %.lr.ph171 ], [ 0, %.lr.ph171.preheader ]
-  %174 = add nuw i64 %.079170, 1
-  %175 = getelementptr inbounds float, ptr %173, i64 %174
-  %176 = load float, ptr %175, align 4
-  %177 = getelementptr inbounds float, ptr %173, i64 %.079170
-  %178 = load float, ptr %177, align 4
-  %179 = fsub float %176, %178
-  %180 = getelementptr inbounds float, ptr %.sroa.0141.0177182, i64 %174
-  %181 = load float, ptr %180, align 4
-  %182 = fmul float %179, 5.000000e-01
-  %183 = fsub float %181, %172
-  %184 = tail call noundef float @llvm.fabs.f32(float %183)
-  %185 = fmul float %182, %184
-  %186 = tail call float @llvm.fmuladd.f32(float %179, float %181, float %185)
-  %187 = fadd float %171, %186
-  store float %187, ptr %5, align 4
-  %188 = load ptr, ptr %61, align 8
-  %189 = load ptr, ptr %4, align 8
+  %170 = phi float [ %186, %.lr.ph171 ], [ %.pre174, %.lr.ph171.preheader ]
+  %171 = phi float [ %180, %.lr.ph171 ], [ %.pre, %.lr.ph171.preheader ]
+  %172 = phi ptr [ %188, %.lr.ph171 ], [ %151, %.lr.ph171.preheader ]
+  %.079170 = phi i64 [ %173, %.lr.ph171 ], [ 0, %.lr.ph171.preheader ]
+  %173 = add nuw i64 %.079170, 1
+  %174 = getelementptr inbounds float, ptr %172, i64 %173
+  %175 = load float, ptr %174, align 4
+  %176 = getelementptr inbounds float, ptr %172, i64 %.079170
+  %177 = load float, ptr %176, align 4
+  %178 = fsub float %175, %177
+  %179 = getelementptr inbounds float, ptr %146, i64 %173
+  %180 = load float, ptr %179, align 4
+  %181 = fmul float %178, 5.000000e-01
+  %182 = fsub float %180, %171
+  %183 = tail call noundef float @llvm.fabs.f32(float %182)
+  %184 = fmul float %181, %183
+  %185 = tail call float @llvm.fmuladd.f32(float %178, float %180, float %184)
+  %186 = fadd float %170, %185
+  store float %186, ptr %5, align 4
+  %187 = load ptr, ptr %61, align 8
+  %188 = load ptr, ptr %4, align 8
+  %189 = ptrtoint ptr %187 to i64
   %190 = ptrtoint ptr %188 to i64
-  %191 = ptrtoint ptr %189 to i64
-  %192 = sub i64 %190, %191
-  %193 = ashr exact i64 %192, 2
-  %194 = add nsw i64 %193, -1
-  %195 = icmp ult i64 %174, %194
-  br i1 %195, label %.lr.ph171, label %._crit_edge, !llvm.loop !48
+  %191 = sub i64 %189, %190
+  %192 = ashr exact i64 %191, 2
+  %193 = add nsw i64 %192, -1
+  %194 = icmp ult i64 %173, %193
+  br i1 %194, label %.lr.ph171, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph171, %.preheader
-  %.sroa.0141.0177183 = phi ptr [ %146, %.preheader ], [ %.sroa.0141.0177182, %.lr.ph171 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0141.0177183) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %146) #27
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit117
 
 .preheader164:                                    ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit102, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127
-  %.078166 = phi float [ %222, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127 ], [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE6resizeEm.exit102 ]
-  %196 = load ptr, ptr %4, align 8
-  %197 = load ptr, ptr %3, align 8
-  %198 = load ptr, ptr %61, align 8
-  br label %199
+  %.078166 = phi float [ %221, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127 ], [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE6resizeEm.exit102 ]
+  %195 = load ptr, ptr %4, align 8
+  %196 = load ptr, ptr %3, align 8
+  %197 = load ptr, ptr %61, align 8
+  br label %198
 
-199:                                              ; preds = %202, %.preheader164
-  %.sroa.0131.0 = phi ptr [ %196, %.preheader164 ], [ %203, %202 ]
-  %.sroa.0130.0 = phi ptr [ %197, %.preheader164 ], [ %204, %202 ]
-  %200 = load float, ptr %.sroa.0131.0, align 4
-  %201 = fcmp olt float %200, %.078166
-  br i1 %201, label %202, label %206
+198:                                              ; preds = %201, %.preheader164
+  %.sroa.0131.0 = phi ptr [ %195, %.preheader164 ], [ %202, %201 ]
+  %.sroa.0130.0 = phi ptr [ %196, %.preheader164 ], [ %203, %201 ]
+  %199 = load float, ptr %.sroa.0131.0, align 4
+  %200 = fcmp olt float %199, %.078166
+  br i1 %200, label %201, label %205
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %.sroa.0131.0, i64 4
-  %204 = getelementptr inbounds i8, ptr %.sroa.0130.0, i64 4
-  %205 = icmp eq ptr %203, %198
-  br i1 %205, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %199, !llvm.loop !49
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds i8, ptr %.sroa.0131.0, i64 4
+  %203 = getelementptr inbounds i8, ptr %.sroa.0130.0, i64 4
+  %204 = icmp eq ptr %202, %197
+  br i1 %204, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %198, !llvm.loop !49
 
-206:                                              ; preds = %199
-  %207 = icmp eq ptr %.sroa.0131.0, %198
-  br i1 %207, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %208
+205:                                              ; preds = %198
+  %206 = icmp eq ptr %.sroa.0131.0, %197
+  br i1 %206, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %207
 
-208:                                              ; preds = %206
-  %209 = load ptr, ptr %43, align 8
-  %210 = icmp eq ptr %.sroa.0130.0, %209
-  %211 = getelementptr inbounds i8, ptr %.sroa.0130.0, i64 4
-  %.not9.i.i118 = icmp eq ptr %211, %209
-  %or.cond.i.i119 = select i1 %210, i1 true, i1 %.not9.i.i118
+207:                                              ; preds = %205
+  %208 = load ptr, ptr %43, align 8
+  %209 = icmp eq ptr %.sroa.0130.0, %208
+  %210 = getelementptr inbounds i8, ptr %.sroa.0130.0, i64 4
+  %.not9.i.i118 = icmp eq ptr %210, %208
+  %or.cond.i.i119 = select i1 %209, i1 true, i1 %.not9.i.i118
   br i1 %or.cond.i.i119, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127, label %.lr.ph.preheader.i.i120
 
-.lr.ph.preheader.i.i120:                          ; preds = %208
+.lr.ph.preheader.i.i120:                          ; preds = %207
   %.pre.i.i121 = load float, ptr %.sroa.0130.0, align 4
   br label %.lr.ph.i.i122
 
 .lr.ph.i.i122:                                    ; preds = %.lr.ph.i.i122, %.lr.ph.preheader.i.i120
-  %212 = phi float [ %216, %.lr.ph.i.i122 ], [ %.pre.i.i121, %.lr.ph.preheader.i.i120 ]
-  %213 = phi ptr [ %217, %.lr.ph.i.i122 ], [ %211, %.lr.ph.preheader.i.i120 ]
+  %211 = phi float [ %215, %.lr.ph.i.i122 ], [ %.pre.i.i121, %.lr.ph.preheader.i.i120 ]
+  %212 = phi ptr [ %216, %.lr.ph.i.i122 ], [ %210, %.lr.ph.preheader.i.i120 ]
   %.sroa.02.010.i.i123 = phi ptr [ %spec.select.i.i124, %.lr.ph.i.i122 ], [ %.sroa.0130.0, %.lr.ph.preheader.i.i120 ]
-  %214 = load float, ptr %213, align 4
-  %215 = fcmp olt float %212, %214
-  %216 = select i1 %215, float %214, float %212
-  %spec.select.i.i124 = select i1 %215, ptr %213, ptr %.sroa.02.010.i.i123
-  %217 = getelementptr inbounds i8, ptr %213, i64 4
-  %.not.i.i125 = icmp eq ptr %217, %209
+  %213 = load float, ptr %212, align 4
+  %214 = fcmp olt float %211, %213
+  %215 = select i1 %214, float %213, float %211
+  %spec.select.i.i124 = select i1 %214, ptr %212, ptr %.sroa.02.010.i.i123
+  %216 = getelementptr inbounds i8, ptr %212, i64 4
+  %.not.i.i125 = icmp eq ptr %216, %208
   br i1 %.not.i.i125, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127, label %.lr.ph.i.i122, !llvm.loop !46
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127: ; preds = %.lr.ph.i.i122, %208
-  %.sroa.02.2.i.i126 = phi ptr [ %.sroa.0130.0, %208 ], [ %spec.select.i.i124, %.lr.ph.i.i122 ]
-  %218 = load float, ptr %.sroa.02.2.i.i126, align 4
-  %219 = fdiv float %218, 1.100000e+01
-  %220 = load float, ptr %5, align 4
-  %221 = fadd float %220, %219
-  store float %221, ptr %5, align 4
-  %222 = fadd float %.078166, 0x3FB99999A0000000
-  %223 = fcmp ugt float %222, 1.000000e+00
-  br i1 %223, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %.preheader164, !llvm.loop !50
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127: ; preds = %.lr.ph.i.i122, %207
+  %.sroa.02.2.i.i126 = phi ptr [ %.sroa.0130.0, %207 ], [ %spec.select.i.i124, %.lr.ph.i.i122 ]
+  %217 = load float, ptr %.sroa.02.2.i.i126, align 4
+  %218 = fdiv float %217, 1.100000e+01
+  %219 = load float, ptr %5, align 4
+  %220 = fadd float %219, %218
+  store float %220, ptr %5, align 4
+  %221 = fadd float %.078166, 0x3FB99999A0000000
+  %222 = fcmp ugt float %221, 1.000000e+00
+  br i1 %222, label %_ZNSt6vectorIfSaIfEED2Ev.exit117, label %.preheader164, !llvm.loop !50
 
-_ZNSt6vectorIfSaIfEED2Ev.exit117:                 ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127, %206, %202, %.preheader.thread, %._crit_edge
+_ZNSt6vectorIfSaIfEED2Ev.exit117:                 ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit127, %205, %201, %.preheader.thread, %._crit_edge
   ret void
 }
 

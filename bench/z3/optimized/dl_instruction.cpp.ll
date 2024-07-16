@@ -9611,7 +9611,8 @@ _ZNK7datalog17execution_context3regEj.exit86.thread: ; preds = %if.end10
   %m_delta203 = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load i32, ptr %m_delta203, align 8
   %cmp.not204 = icmp eq i32 %19, -1
-  br i1 %cmp.not204, label %if.else70, label %if.end22
+  tail call void @llvm.assume(i1 %cmp.not204)
+  br label %if.else70
 
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89: ; preds = %_ZNK7datalog17execution_context3regEj.exit86
   %cmp.not.i91 = icmp ugt i32 %16, %18
@@ -9624,25 +9625,21 @@ _ZNK7datalog17execution_context3regEj.exit96:     ; preds = %_ZNK6vectorIPN7data
   %tobool15.not = icmp eq ptr %20, null
   br i1 %tobool15.not, label %if.end22, label %cond.true
 
-if.end22:                                         ; preds = %_ZNK7datalog17execution_context3regEj.exit96, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89, %_ZNK7datalog17execution_context3regEj.exit86.thread
-  %m_delta208212219 = phi ptr [ %m_delta, %_ZNK7datalog17execution_context3regEj.exit96 ], [ %m_delta, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89 ], [ %m_delta203, %_ZNK7datalog17execution_context3regEj.exit86.thread ]
-  %retval.0.i82205213218 = phi ptr [ %retval.0.i82, %_ZNK7datalog17execution_context3regEj.exit96 ], [ %retval.0.i82, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89 ], [ null, %_ZNK7datalog17execution_context3regEj.exit86.thread ]
-  %m_plugin.i97 = getelementptr inbounds i8, ptr %retval.0.i82205213218, i64 8
+if.end22:                                         ; preds = %_ZNK7datalog17execution_context3regEj.exit96, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i89
+  %m_plugin.i97 = getelementptr inbounds i8, ptr %retval.0.i82, i64 8
   %21 = load ptr, ptr %m_plugin.i97, align 8
   %vtable18 = load ptr, ptr %21, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 56
   %22 = load ptr, ptr %vfn19, align 8
-  %call20 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82205213218)
-  %23 = load i32, ptr %m_delta208212219, align 8
+  %call20 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82)
+  %23 = load i32, ptr %m_delta, align 8
   tail call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %23, ptr noundef %call20)
-  %.pr.pre = load i32, ptr %m_delta208212219, align 8
+  %.pr.pre = load i32, ptr %m_delta, align 8
   %cmp24.not = icmp eq i32 %.pr.pre, -1
   br i1 %cmp24.not, label %if.else70, label %cond.true
 
 cond.true:                                        ; preds = %_ZNK7datalog17execution_context3regEj.exit96, %if.end22
-  %retval.0.i82206.ph285 = phi ptr [ %retval.0.i82205213218, %if.end22 ], [ %retval.0.i82, %_ZNK7datalog17execution_context3regEj.exit96 ]
-  %m_delta209.ph284 = phi ptr [ %m_delta208212219, %if.end22 ], [ %m_delta, %_ZNK7datalog17execution_context3regEj.exit96 ]
-  %.pr283 = phi i32 [ %.pr.pre, %if.end22 ], [ %18, %_ZNK7datalog17execution_context3regEj.exit96 ]
+  %.pr281 = phi i32 [ %.pr.pre, %if.end22 ], [ %18, %_ZNK7datalog17execution_context3regEj.exit96 ]
   %24 = load ptr, ptr %m_registers.i, align 8
   %cmp.i.i99 = icmp eq ptr %24, null
   br i1 %cmp.i.i99, label %if.else70, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100
@@ -9650,11 +9647,11 @@ cond.true:                                        ; preds = %_ZNK7datalog17execu
 _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100: ; preds = %cond.true
   %arrayidx.i.i101 = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx.i.i101, align 4
-  %cmp.not.i102 = icmp ugt i32 %25, %.pr283
+  %cmp.not.i102 = icmp ugt i32 %25, %.pr281
   br i1 %cmp.not.i102, label %cond.end, label %if.else70
 
 cond.end:                                         ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100
-  %idxprom.i.i105 = zext i32 %.pr283 to i64
+  %idxprom.i.i105 = zext i32 %.pr281 to i64
   %arrayidx.i2.i106 = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i.i105
   %26 = load ptr, ptr %arrayidx.i2.i106, align 8
   %tobool27.not = icmp eq ptr %26, null
@@ -9662,7 +9659,7 @@ cond.end:                                         ; preds = %_ZNK6vectorIPN7data
 
 if.then28:                                        ; preds = %cond.end
   %m_fn_cache.i = getelementptr inbounds i8, ptr %this, i64 48
-  %m_kind.i.i = getelementptr inbounds i8, ptr %retval.0.i82206.ph285, i64 24
+  %m_kind.i.i = getelementptr inbounds i8, ptr %retval.0.i82, i64 24
   %27 = load i32, ptr %m_kind.i.i, align 8
   %m_kind.i1.i = getelementptr inbounds i8, ptr %retval.0.i62.ph, i64 24
   %28 = load i32, ptr %m_kind.i1.i, align 8
@@ -9746,7 +9743,7 @@ _ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE8
   %vtable119254 = load ptr, ptr %38, align 8
   %vfn120255 = getelementptr inbounds i8, ptr %vtable119254, i64 16
   %39 = load ptr, ptr %vfn120255, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82206.ph285, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
   br label %land.lhs.true122
 
 if.then30:                                        ; preds = %for.body.i.i.i.i, %for.inc36.i.i.i.i, %for.body20.i.i.i.i, %for.cond18.preheader.i.i.i.i
@@ -9760,11 +9757,11 @@ if.then30:                                        ; preds = %for.body.i.i.i.i, %
   br i1 %tobool31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then30
-  %call34 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %42, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82206.ph285, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
+  %call34 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_widen_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %42, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
   br label %if.end37
 
 if.else:                                          ; preds = %if.then30
-  %call36 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %42, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82206.ph285, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
+  %call36 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %42, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else, %if.then32
@@ -9779,7 +9776,7 @@ if.then39:                                        ; preds = %if.end37
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then39
-  %m_plugin.i110 = getelementptr inbounds i8, ptr %retval.0.i82206.ph285, i64 8
+  %m_plugin.i110 = getelementptr inbounds i8, ptr %retval.0.i82, i64 8
   %43 = load ptr, ptr %m_plugin.i110, align 8
   %m_name.i = getelementptr inbounds i8, ptr %43, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %m_name.i, align 8
@@ -9839,8 +9836,8 @@ cleanup.action:                                   ; preds = %invoke.cont61
   call void @__cxa_free_exception(ptr %exception) #19
   br label %eh.resume
 
-if.else70:                                        ; preds = %_ZNK7datalog17execution_context3regEj.exit86, %_ZNK7datalog17execution_context3regEj.exit86.thread, %cond.true, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100, %if.end22, %cond.end
-  %retval.0.i82206226231 = phi ptr [ %retval.0.i82206.ph285, %cond.end ], [ %retval.0.i82206.ph285, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100 ], [ %retval.0.i82206.ph285, %cond.true ], [ %retval.0.i82205213218, %if.end22 ], [ %retval.0.i82, %_ZNK7datalog17execution_context3regEj.exit86 ], [ null, %_ZNK7datalog17execution_context3regEj.exit86.thread ]
+if.else70:                                        ; preds = %_ZNK7datalog17execution_context3regEj.exit86.thread, %_ZNK7datalog17execution_context3regEj.exit86, %cond.true, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100, %if.end22, %cond.end
+  %retval.0.i82206226231 = phi ptr [ %retval.0.i82, %cond.end ], [ %retval.0.i82, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i100 ], [ %retval.0.i82, %cond.true ], [ %retval.0.i82, %if.end22 ], [ %retval.0.i82, %_ZNK7datalog17execution_context3regEj.exit86 ], [ null, %_ZNK7datalog17execution_context3regEj.exit86.thread ]
   %m_fn_cache.i124 = getelementptr inbounds i8, ptr %this, i64 48
   %m_kind.i.i125 = getelementptr inbounds i8, ptr %retval.0.i82206226231, i64 24
   %49 = load i32, ptr %m_kind.i.i125, align 8
@@ -10039,7 +10036,7 @@ if.end118:                                        ; preds = %if.end37
   %vtable119 = load ptr, ptr %storemerge52, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 16
   %75 = load ptr, ptr %vfn120, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %storemerge52, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82206.ph285, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %storemerge52, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i82, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i62.ph, ptr noundef nonnull %26)
   br label %land.lhs.true122
 
 land.lhs.true122:                                 ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE8union_fnEEEbRKNS_13relation_baseES8_S8_RPT_.exit, %if.end118
@@ -10050,7 +10047,7 @@ land.lhs.true122:                                 ; preds = %_ZNK7datalog11instr
   br i1 %call125, label %if.then126, label %return
 
 if.then126:                                       ; preds = %land.lhs.true122
-  %77 = load i32, ptr %m_delta209.ph284, align 8
+  %77 = load i32, ptr %m_delta, align 8
   %78 = load ptr, ptr %m_registers.i, align 8
   %cmp.i.i.i = icmp eq ptr %78, null
   br i1 %cmp.i.i.i, label %return, label %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.i.i

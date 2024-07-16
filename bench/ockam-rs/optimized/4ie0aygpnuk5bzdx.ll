@@ -2825,8 +2825,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !27, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.assume(i1 %trunc)
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %4
 }
 

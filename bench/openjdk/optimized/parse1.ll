@@ -9456,10 +9456,11 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %89
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %90, align 8
   store ptr %63, ptr %78, align 8
-  %.not8.i = icmp eq ptr %63, null
-  br i1 %.not8.i, label %_ZN4Node7set_reqEjPS_.exit, label %96
+  %.not8.i = icmp ne ptr %63, null
+  tail call void @llvm.assume(i1 %.not8.i)
+  br label %96
 
-96:                                               ; preds = %_ZN4Node7del_outEPS_.exit.i.thread, %_ZN4Node7del_outEPS_.exit.i
+96:                                               ; preds = %_ZN4Node7del_outEPS_.exit.i, %_ZN4Node7del_outEPS_.exit.i.thread
   %97 = getelementptr inbounds i8, ptr %63, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
@@ -9489,8 +9490,8 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %89
   store ptr %.036100, ptr %112, align 8
   br label %_ZN4Node7set_reqEjPS_.exit
 
-_ZN4Node7set_reqEjPS_.exit:                       ; preds = %107, %96, %_ZN4Node7del_outEPS_.exit.i, %53
-  %.139 = phi ptr [ %.038.ph105, %53 ], [ null, %_ZN4Node7del_outEPS_.exit.i ], [ %63, %96 ], [ %63, %107 ]
+_ZN4Node7set_reqEjPS_.exit:                       ; preds = %107, %96, %53
+  %.139 = phi ptr [ %.038.ph105, %53 ], [ %63, %96 ], [ %63, %107 ]
   tail call void @_ZN12MergeMemNode13set_memory_atEjP4Node(ptr noundef nonnull align 8 dereferenceable(52) %.139, i32 noundef %.sroa.7.2, ptr noundef %37) #14
   %113 = add nsw i32 %.sroa.7.2, 1
   %114 = icmp slt i32 %113, %17

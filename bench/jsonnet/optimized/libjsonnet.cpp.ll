@@ -8250,12 +8250,12 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %.preheader unwind label %25
 
 .preheader:                                       ; preds = %5
-  %.fr55 = freeze i32 %4
-  %9 = icmp eq i32 %.fr55, -1
+  %.fr51 = freeze i32 %4
+  %9 = icmp eq i32 %.fr51, -1
   br i1 %9, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
-  %.sroa.031.0.us = phi ptr [ %.sroa.031.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
+  %.sroa.031.0.us = phi ptr [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
   %.sroa.11.0.us = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %2, %.preheader ]
   %.0.us = phi i64 [ %22, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ 0, %.preheader ]
   %.not.i.i.i.i.us = icmp ne ptr %.sroa.031.0.us, null
@@ -8284,18 +8284,17 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
 
 18:                                               ; preds = %17
   %19 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
-  %20 = icmp eq i32 %19, -1
-  %spec.select44.us = select i1 %20, ptr null, ptr %.sroa.031.1.us
+  %20 = icmp ne i32 %19, -1
+  tail call void @llvm.assume(i1 %20)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
-  %.sroa.031.2.us = phi ptr [ %.sroa.031.1.us, %17 ], [ %spec.select44.us, %18 ]
-  %.0.i.i.us = phi i32 [ %.sroa.11.0.us, %17 ], [ %19, %18 ]
+  %.0.i.i.us = phi i32 [ %19, %18 ], [ %.sroa.11.0.us, %17 ]
   %21 = trunc i32 %.0.i.i.us to i8
   %22 = add nuw nsw i64 %.0.us, 1
   %23 = getelementptr inbounds i8, ptr %8, i64 %.0.us
   store i8 %21, ptr %23, align 1
-  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
+  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
   br label %.preheader.split.us, !llvm.loop !60
 
 25:                                               ; preds = %5
@@ -8306,7 +8305,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   unreachable
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %.sroa.031.0 = phi ptr [ %.sroa.031.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
+  %.sroa.031.0 = phi ptr [ %.sroa.031.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %3, %.preheader ]
   %.sroa.11.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %2, %.preheader ]
   %.0 = phi i64 [ %45, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ 0, %.preheader ]
@@ -8350,33 +8349,32 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
 
 41:                                               ; preds = %40
   %42 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
-  %43 = icmp eq i32 %42, -1
-  %spec.select44 = select i1 %43, ptr null, ptr %.sroa.031.1
+  %43 = icmp ne i32 %42, -1
+  tail call void @llvm.assume(i1 %43)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %41, %40
-  %.sroa.031.2 = phi ptr [ %.sroa.031.1, %40 ], [ %spec.select44, %41 ]
-  %.0.i.i = phi i32 [ %.sroa.11.0, %40 ], [ %42, %41 ]
+  %.0.i.i = phi i32 [ %42, %41 ], [ %.sroa.11.0, %40 ]
   %44 = trunc i32 %.0.i.i to i8
   %45 = add nuw nsw i64 %.0, 1
   %46 = getelementptr inbounds i8, ptr %8, i64 %.0
   store i8 %44, ptr %46, align 1
-  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
+  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
   br label %.preheader.split, !llvm.loop !60
 
 .split.us:                                        ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
   %.us-phi = phi ptr [ %.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %3, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi51 = phi ptr [ %.sroa.031.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi53 = phi i32 [ %.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi54 = phi i64 [ %.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi47 = phi ptr [ %.sroa.031.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi49 = phi i32 [ %.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi50 = phi i64 [ %.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   store ptr %0, ptr %7, align 8
   br label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
 
 _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit: ; preds = %79, %.split.us
-  %.sroa.031.3 = phi ptr [ %.us-phi51, %.split.us ], [ %.sroa.031.5, %79 ]
+  %.sroa.031.3 = phi ptr [ %.us-phi47, %.split.us ], [ %.sroa.031.4, %79 ]
   %.sroa.0.2 = phi ptr [ %.us-phi, %.split.us ], [ %.sroa.0.340, %79 ]
-  %.sroa.11.1 = phi i32 [ %.us-phi53, %.split.us ], [ -1, %79 ]
-  %.1 = phi i64 [ %.us-phi54, %.split.us ], [ %82, %79 ]
+  %.sroa.11.1 = phi i32 [ %.us-phi49, %.split.us ], [ -1, %79 ]
+  %.1 = phi i64 [ %.us-phi50, %.split.us ], [ %82, %79 ]
   %.not.i.i.i.i14 = icmp ne ptr %.sroa.031.3, null
   %48 = icmp eq i32 %.sroa.11.1, -1
   %or.cond.i.i.i.i15 = select i1 %.not.i.i.i.i14, i1 %48, i1 false
@@ -8388,11 +8386,11 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit: ; preds = %79, %.split
 
 .noexc:                                           ; preds = %49
   %51 = icmp eq i32 %50, -1
-  %spec.select46 = select i1 %51, ptr null, ptr %.sroa.031.3
+  %spec.select44 = select i1 %51, ptr null, ptr %.sroa.031.3
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds = %.noexc, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
-  %.sroa.031.4 = phi ptr [ %.sroa.031.3, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select46, %.noexc ]
+  %.sroa.031.4 = phi ptr [ %.sroa.031.3, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select44, %.noexc ]
   %.0.i.i.i.i17 = phi i32 [ %.sroa.11.1, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %50, %.noexc ]
   %.not.i.i2.i.i18 = icmp ne ptr %.sroa.0.2, null
   %or.cond.i.i3.i.i19 = and i1 %.not.i.i2.i.i18, %9
@@ -8480,18 +8478,17 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds
           to label %.noexc26 unwind label %.loopexit
 
 .noexc26:                                         ; preds = %76
-  %78 = icmp eq i32 %77, -1
-  %spec.select48 = select i1 %78, ptr null, ptr %.sroa.031.4
+  %78 = icmp ne i32 %77, -1
+  call void @llvm.assume(i1 %78)
   br label %79
 
 79:                                               ; preds = %.noexc26, %75
-  %.sroa.031.5 = phi ptr [ %.sroa.031.4, %75 ], [ %spec.select48, %.noexc26 ]
-  %.0.i.i25 = phi i32 [ %.sroa.11.1, %75 ], [ %77, %.noexc26 ]
+  %.0.i.i25 = phi i32 [ %77, %.noexc26 ], [ %.sroa.11.1, %75 ]
   %80 = trunc i32 %.0.i.i25 to i8
   %81 = getelementptr inbounds i8, ptr %74, i64 %.1
   %82 = add i64 %.1, 1
   store i8 %80, ptr %81, align 1
-  %83 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.5)
+  %83 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.4)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit unwind label %.loopexit
 
 84:                                               ; preds = %55, %.noexc21._crit_edge, %56

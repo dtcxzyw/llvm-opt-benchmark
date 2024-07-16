@@ -1340,11 +1340,12 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   %498 = and i64 %497, 7
   %499 = icmp ult i32 %405, 8
   %500 = and i64 %497, 4294967288
-  %501 = icmp eq i64 %498, 0
+  %501 = icmp ne i64 %498, 0
   br i1 %499, label %.split.us, label %.preheader41
 
 .split.us:                                        ; preds = %490
-  br i1 %501, label %.loopexit38, label %.preheader39.us
+  call void @llvm.assume(i1 %501)
+  br label %.preheader39.us
 
 .preheader39.us:                                  ; preds = %.split.us, %.loopexit40.us
   %502 = phi i64 [ %520, %.loopexit40.us ], [ 0, %.split.us ]
@@ -1439,7 +1440,7 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   br i1 %574, label %.loopexit42, label %530, !llvm.loop !148
 
 .loopexit42:                                      ; preds = %530
-  br i1 %501, label %.loopexit40, label %.preheader39
+  br i1 %501, label %.preheader39, label %.loopexit40
 
 .preheader39:                                     ; preds = %.loopexit42, %.preheader39
   %575 = phi i64 [ %583, %.preheader39 ], [ %500, %.loopexit42 ]
@@ -1500,8 +1501,8 @@ define hidden noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef read
   call void @llvm.assume(i1 %610)
   br label %.loopexit38
 
-.loopexit38:                                      ; preds = %.loopexit40, %.loopexit40.us, %.loopexit35, %.split.us, %598, %326
-  %611 = phi double [ 0.000000e+00, %326 ], [ 0.000000e+00, %598 ], [ undef, %.split.us ], [ %487, %.loopexit35 ], [ %517, %.loopexit40.us ], [ %586, %.loopexit40 ]
+.loopexit38:                                      ; preds = %.loopexit40, %.loopexit40.us, %.loopexit35, %598, %326
+  %611 = phi double [ 0.000000e+00, %326 ], [ 0.000000e+00, %598 ], [ %487, %.loopexit35 ], [ %517, %.loopexit40.us ], [ %586, %.loopexit40 ]
   %612 = load ptr, ptr @stdout, align 8, !tbaa !7
   %613 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %612, ptr noundef nonnull @.str.35, double noundef %611) #20
   %614 = load ptr, ptr @stdout, align 8, !tbaa !7

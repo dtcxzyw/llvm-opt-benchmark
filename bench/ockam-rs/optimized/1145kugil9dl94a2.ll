@@ -97802,8 +97802,8 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h167451b1d118232dE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #42 {
   %2 = load i64, ptr %0, align 8, !range !178, !noundef !7
   %trunc = trunc nuw i64 %2 to i1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.assume(i1 %trunc)
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   ret ptr %3
 }
 
@@ -97812,8 +97812,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !178, !noundef !7
   %trunc = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.assume(i1 %trunc)
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %4
 }
 
@@ -97822,8 +97822,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !178, !noundef !7
   %trunc = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.assume(i1 %trunc)
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %4
 }
 
@@ -97832,8 +97832,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !178, !noundef !7
   %trunc = trunc nuw i64 %3 to i1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.assume(i1 %trunc)
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %4
 }
 

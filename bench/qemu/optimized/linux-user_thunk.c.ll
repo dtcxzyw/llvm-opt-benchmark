@@ -89,10 +89,10 @@ sw.bb4.i:                                         ; preds = %tailrecurse.i
   br label %thunk_type_next.exit
 
 thunk_type_next.exit.loopexit:                    ; preds = %tailrecurse.i
-  br label %thunk_type_next.exit
+  unreachable
 
-thunk_type_next.exit:                             ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %thunk_type_next.exit.loopexit, %sw.bb4.i
-  %retval.0.i = phi ptr [ %add.ptr5.i, %sw.bb4.i ], [ null, %thunk_type_next.exit.loopexit ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ]
+thunk_type_next.exit:                             ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %sw.bb4.i
+  %retval.0.i = phi ptr [ %add.ptr5.i, %sw.bb4.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ], [ %incdec.ptr.i, %tailrecurse.i ]
   %inc = add i32 %nb_fields.094, 1
   %4 = load i32, ptr %retval.0.i, align 4
   %cmp1.not = icmp eq i32 %4, 0
@@ -136,8 +136,8 @@ tailrecurse.i37.us:                               ; preds = %tailrecurse.i37.pre
   %type_ptr.tr.i38.us = phi ptr [ %add.ptr.i40.us, %sw.bb9.i.us ], [ %type_ptr.199.us, %tailrecurse.i37.preheader.us ]
   %7 = load i32, ptr %type_ptr.tr.i38.us, align 4
   switch i32 %7, label %do.body.i [
-    i32 1, label %thunk_type_size.exit.us.loopexit200
-    i32 2, label %thunk_type_size.exit.us.loopexit200
+    i32 1, label %thunk_type_size.exit.us.loopexit202
+    i32 2, label %thunk_type_size.exit.us.loopexit202
     i32 3, label %thunk_type_size.exit.us.loopexit141
     i32 7, label %thunk_type_size.exit.loopexit.us
     i32 8, label %thunk_type_size.exit.loopexit.us
@@ -169,11 +169,11 @@ sw.bb9.i.us:                                      ; preds = %tailrecurse.i37.us
 thunk_type_size.exit.us.loopexit141:              ; preds = %tailrecurse.i37.us
   br label %thunk_type_size.exit.us
 
-thunk_type_size.exit.us.loopexit200:              ; preds = %tailrecurse.i37.us, %tailrecurse.i37.us
+thunk_type_size.exit.us.loopexit202:              ; preds = %tailrecurse.i37.us, %tailrecurse.i37.us
   br label %thunk_type_size.exit.us
 
-thunk_type_size.exit.us:                          ; preds = %tailrecurse.i37.us, %thunk_type_size.exit.us.loopexit200, %thunk_type_size.exit.us.loopexit141, %thunk_type_size.exit.loopexit.us, %sw.bb10.i.us
-  %retval.0.i39.us = phi i32 [ %10, %sw.bb10.i.us ], [ 4, %thunk_type_size.exit.us.loopexit141 ], [ 8, %thunk_type_size.exit.loopexit.us ], [ %7, %thunk_type_size.exit.us.loopexit200 ], [ %..i.us, %tailrecurse.i37.us ]
+thunk_type_size.exit.us:                          ; preds = %tailrecurse.i37.us, %thunk_type_size.exit.us.loopexit202, %thunk_type_size.exit.us.loopexit141, %thunk_type_size.exit.loopexit.us, %sw.bb10.i.us
+  %retval.0.i39.us = phi i32 [ %10, %sw.bb10.i.us ], [ 4, %thunk_type_size.exit.us.loopexit141 ], [ 8, %thunk_type_size.exit.loopexit.us ], [ %7, %thunk_type_size.exit.us.loopexit202 ], [ %..i.us, %tailrecurse.i37.us ]
   %accumulator.ret.tr.i.us = mul i32 %retval.0.i39.us, %accumulator.tr.i.us
   br label %tailrecurse.i41.us
 
@@ -181,8 +181,8 @@ tailrecurse.i41.us:                               ; preds = %sw.bb15.i.us, %thun
   %type_ptr.tr.i42.us = phi ptr [ %type_ptr.199.us, %thunk_type_size.exit.us ], [ %add.ptr.i47.us, %sw.bb15.i.us ]
   %12 = load i32, ptr %type_ptr.tr.i42.us, align 4
   switch i32 %12, label %do.body.i49 [
-    i32 1, label %thunk_type_align.exit.us.loopexit199
-    i32 2, label %thunk_type_align.exit.us.loopexit199
+    i32 1, label %thunk_type_align.exit.us.loopexit201
+    i32 2, label %thunk_type_align.exit.us.loopexit201
     i32 3, label %thunk_type_align.exit.us.loopexit140
     i32 7, label %thunk_type_align.exit.loopexit.us
     i32 8, label %thunk_type_align.exit.loopexit.us
@@ -211,11 +211,11 @@ sw.bb15.i.us:                                     ; preds = %tailrecurse.i41.us
 thunk_type_align.exit.us.loopexit140:             ; preds = %tailrecurse.i41.us
   br label %thunk_type_align.exit.us
 
-thunk_type_align.exit.us.loopexit199:             ; preds = %tailrecurse.i41.us, %tailrecurse.i41.us
+thunk_type_align.exit.us.loopexit201:             ; preds = %tailrecurse.i41.us, %tailrecurse.i41.us
   br label %thunk_type_align.exit.us
 
-thunk_type_align.exit.us:                         ; preds = %tailrecurse.i41.us, %thunk_type_align.exit.us.loopexit199, %thunk_type_align.exit.us.loopexit140, %thunk_type_align.exit.loopexit.us, %sw.bb17.i.us
-  %retval.0.i46.us = phi i32 [ %15, %sw.bb17.i.us ], [ 8, %thunk_type_align.exit.loopexit.us ], [ 4, %thunk_type_align.exit.us.loopexit140 ], [ %12, %thunk_type_align.exit.us.loopexit199 ], [ %..i.us, %tailrecurse.i41.us ]
+thunk_type_align.exit.us:                         ; preds = %tailrecurse.i41.us, %thunk_type_align.exit.us.loopexit201, %thunk_type_align.exit.us.loopexit140, %thunk_type_align.exit.loopexit.us, %sw.bb17.i.us
+  %retval.0.i46.us = phi i32 [ %15, %sw.bb17.i.us ], [ 8, %thunk_type_align.exit.loopexit.us ], [ 4, %thunk_type_align.exit.us.loopexit140 ], [ %12, %thunk_type_align.exit.us.loopexit201 ], [ %..i.us, %tailrecurse.i41.us ]
   %add.us = add i32 %offset.097.us, -1
   %sub.us = add i32 %add.us, %retval.0.i46.us
   %not.us = sub i32 0, %retval.0.i46.us

@@ -14441,7 +14441,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils20last_line
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.sroa.5.022 = phi ptr [ %.sroa.5.6.ph, %.critedge ], [ %.old, %.lr.ph.preheader ]
+  %.sroa.5.022 = phi ptr [ %.sroa.5.3.ph, %.critedge ], [ %.old, %.lr.ph.preheader ]
   %5 = getelementptr inbounds i8, ptr %.sroa.5.022, i64 -1
   %6 = load i8, ptr %5, align 1, !noalias !2476, !noundef !14
   %7 = icmp sgt i8 %6, -1
@@ -14462,7 +14462,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils20last_line
   br label %41
 
 16:                                               ; preds = %27, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i"
-  %.sroa.5.2 = phi ptr [ %.sroa.5.4, %27 ], [ %9, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i" ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %27 ], [ %9, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i" ]
   %.013.i = phi i32 [ %31, %27 ], [ %12, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i" ]
   %17 = shl nuw nsw i32 %.013.i, 6
   %18 = and i8 %6, 63
@@ -14481,7 +14481,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils20last_line
   br i1 %26, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i", label %27
 
 27:                                               ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i"
-  %.sroa.5.4 = phi ptr [ %33, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i" ], [ %22, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i" ]
+  %.sroa.5.2 = phi ptr [ %33, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i" ], [ %22, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i" ]
   %.1.i = phi i32 [ %40, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i" ], [ %25, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i" ]
   %28 = shl nuw nsw i32 %.1.i, 6
   %29 = and i8 %10, 63
@@ -14503,7 +14503,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils20last_line
   br label %27
 
 41:                                               ; preds = %16, %14
-  %.sroa.5.6.ph = phi ptr [ %.sroa.5.2, %16 ], [ %5, %14 ]
+  %.sroa.5.3.ph = phi ptr [ %.sroa.5.1, %16 ], [ %5, %14 ]
   %.sroa.4.0.i.ph = phi i32 [ %20, %16 ], [ %15, %14 ]
   switch i32 %.sroa.4.0.i.ph, label %43 [
     i32 1114112, label %.critedge12
@@ -14518,7 +14518,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils20last_line
   ]
 
 .critedge:                                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit, %43, %41, %41, %41, %41, %41, %41, %41
-  %42 = icmp eq ptr %.sroa.5.6.ph, %0
+  %42 = icmp eq ptr %.sroa.5.3.ph, %0
   br i1 %42, label %.critedge12, label %.lr.ph
 
 .critedge12:                                      ; preds = %41, %41, %45, %_ZN4core7unicode12unicode_data11white_space6lookup17hbdbd8751fc957fe0E.exit, %47, %.critedge, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit.thread", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3b564e2d007c0689E.exit"

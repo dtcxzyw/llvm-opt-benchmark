@@ -2135,7 +2135,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit, %36
-  %.sroa.024.0.lcssa = phi ptr [ %37, %36 ], [ %.sroa.024.4, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit ]
+  %.sroa.024.0.lcssa = phi ptr [ %37, %36 ], [ %.sroa.024.1, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit ]
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %.sroa.024.0.lcssa to i64
   %.neg = sub i64 %17, %39
@@ -2144,7 +2144,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
 
 .lr.ph:                                           ; preds = %36, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit
   %.sroa.07.042 = phi i64 [ %42, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit ], [ 0, %36 ]
-  %.sroa.024.041 = phi ptr [ %.sroa.024.4, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit ], [ %37, %36 ]
+  %.sroa.024.041 = phi ptr [ %.sroa.024.1, %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit ], [ %37, %36 ]
   %42 = add nuw i64 %.sroa.07.042, 1
   %43 = icmp eq ptr %.sroa.024.041, %38
   br i1 %43, label %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit, label %44
@@ -2171,7 +2171,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
   br label %_ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit
 
 _ZN4core3str11validations15next_code_point17h4d63e38fa3b3e1ddE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i", %44, %.lr.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i"
-  %.sroa.024.4 = phi ptr [ %.sroa.024.041, %.lr.ph ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i" ], [ %45, %44 ], [ %spec.select, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i" ]
+  %.sroa.024.1 = phi ptr [ %.sroa.024.041, %.lr.ph ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i" ], [ %45, %44 ], [ %spec.select, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i" ]
   %exitcond.not = icmp eq i64 %42, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 

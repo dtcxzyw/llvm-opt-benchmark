@@ -4167,7 +4167,7 @@ define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18par
 
 30:                                               ; preds = %.lr.ph, %103
   %.0160 = phi i8 [ 0, %.lr.ph ], [ %.1, %103 ]
-  %.sroa.0.0159 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.4.ph, %103 ]
+  %.sroa.0.0159 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.1.ph, %103 ]
   %31 = getelementptr inbounds i8, ptr %.sroa.0.0159, i64 1
   %32 = load i8, ptr %.sroa.0.0159, align 1, !noalias !623, !noundef !4
   %33 = icmp sgt i8 %32, -1
@@ -4220,7 +4220,7 @@ define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18par
   br label %66
 
 66:                                               ; preds = %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i"
-  %.sroa.0.4.ph = phi ptr [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i" ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i" ], [ %57, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i" ], [ %31, %44 ]
+  %.sroa.0.1.ph = phi ptr [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i" ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i" ], [ %57, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i" ], [ %31, %44 ]
   %.sroa.4.0.i.ph = phi i32 [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit13.i" ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit15.i" ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d62cf49803c472E.exit17.i" ], [ %45, %44 ]
   switch i32 %.sroa.4.0.i.ph, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit [
     i32 1114112, label %.thread.loopexit
@@ -4391,7 +4391,7 @@ switch.lookup:                                    ; preds = %74
 
 103:                                              ; preds = %66, %117, %115, %113, %111, %109, %107, %105, %101, %97, %78
   %.1 = phi i8 [ %.0160, %117 ], [ %.0160, %97 ], [ %.0160, %115 ], [ %.0160, %113 ], [ %.0160, %111 ], [ %.0160, %109 ], [ %.0160, %107 ], [ %.0160, %78 ], [ %.0160, %105 ], [ %.0160, %101 ], [ 1, %66 ]
-  %104 = icmp eq ptr %.sroa.0.4.ph, %20
+  %104 = icmp eq ptr %.sroa.0.1.ph, %20
   br i1 %104, label %.thread.loopexit, label %30
 
 105:                                              ; preds = %_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E.exit.thread.i, %switch.lookup

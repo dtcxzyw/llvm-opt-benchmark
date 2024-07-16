@@ -119,7 +119,7 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 
 56:                                               ; preds = %52
   %57 = icmp ult i32 %54, 10
-  br i1 %57, label %.thread60, label %58
+  br i1 %57, label %.thread57, label %58
 
 58:                                               ; preds = %56
   %59 = or i32 %49, 32
@@ -130,40 +130,40 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 62:                                               ; preds = %52, %58
   %.0.i = phi i32 [ %61, %58 ], [ %54, %52 ]
   %63 = icmp ult i32 %.0.i, %53
-  br i1 %63, label %.thread60, label %.thread
+  br i1 %63, label %.thread57, label %.thread
 
-.thread60:                                        ; preds = %56, %62
+.thread57:                                        ; preds = %56, %62
   %.in = phi i32 [ %.0.i, %62 ], [ %54, %56 ]
   %64 = trunc i32 %.in to i8
   store i32 1114113, ptr %3, align 8
   %switch.i = icmp eq i8 %1, 8
   %..i34 = select i1 %switch.i, i8 3, i8 2
-  %.promoted76 = load ptr, ptr %0, align 8, !alias.scope !34, !noalias !43
+  %.promoted73 = load ptr, ptr %0, align 8, !alias.scope !34, !noalias !43
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8, !nonnull !10
   br label %68
 
-.thread64:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39", %.thread71, %120, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread80"
-  %.026.lcssa = phi i8 [ %.02678, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread80" ], [ %.02678, %120 ], [ %124, %.thread71 ], [ %.02678, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39" ]
+.thread61:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39", %.thread68, %120, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread77"
+  %.026.lcssa = phi i8 [ %.02675, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread77" ], [ %.02675, %120 ], [ %124, %.thread68 ], [ %.02675, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39" ]
   %67 = zext i8 %.026.lcssa to i32
   br label %.thread
 
-68:                                               ; preds = %.thread71, %.thread60
-  %.02678 = phi i8 [ %64, %.thread60 ], [ %124, %.thread71 ]
-  %.sroa.04.077 = phi i8 [ 1, %.thread60 ], [ %70, %.thread71 ]
-  %69 = phi ptr [ %.promoted76, %.thread60 ], [ %112, %.thread71 ]
-  %70 = add nuw nsw i8 %.sroa.04.077, 1
+68:                                               ; preds = %.thread68, %.thread57
+  %.02675 = phi i8 [ %64, %.thread57 ], [ %124, %.thread68 ]
+  %.sroa.04.074 = phi i8 [ 1, %.thread57 ], [ %70, %.thread68 ]
+  %69 = phi ptr [ %.promoted73, %.thread57 ], [ %112, %.thread68 ]
+  %70 = add nuw nsw i8 %.sroa.04.074, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %71 = icmp eq ptr %69, %66
-  br i1 %71, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread80", label %72
+  br i1 %71, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread77", label %72
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread80": ; preds = %68
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread77": ; preds = %68
   store i32 1114112, ptr %3, align 8, !alias.scope !43, !noalias !45
-  br label %.thread64
+  br label %.thread61
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %69, i64 1
@@ -208,8 +208,8 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i35", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i37", %86
   %.ph = phi ptr [ %73, %86 ], [ %89, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i37" ], [ %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i35" ]
-  %.ph79 = phi i32 [ %87, %86 ], [ %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i37" ], [ %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i35" ]
-  store i32 %.ph79, ptr %3, align 8, !alias.scope !43, !noalias !45
+  %.ph76 = phi i32 [ %87, %86 ], [ %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i37" ], [ %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i35" ]
+  store i32 %.ph76, ptr %3, align 8, !alias.scope !43, !noalias !45
   br label %110
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i37"
@@ -229,17 +229,17 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
   %108 = icmp ne i32 %107, 1114113
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i32 %107, 1114112
-  br i1 %109, label %.thread64, label %110
+  br i1 %109, label %.thread61, label %110
 
 110:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39"
-  %111 = phi i32 [ %.ph79, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread" ], [ %107, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39" ]
+  %111 = phi i32 [ %.ph76, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread" ], [ %107, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39" ]
   %112 = phi ptr [ %.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39.thread" ], [ %99, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit39" ]
   %113 = add nsw i32 %111, -48
   br i1 %55, label %114, label %120
 
 114:                                              ; preds = %110
   %115 = icmp ult i32 %113, 10
-  br i1 %115, label %.thread71, label %116
+  br i1 %115, label %.thread68, label %116
 
 116:                                              ; preds = %114
   %117 = or i32 %111, 32
@@ -250,20 +250,20 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 120:                                              ; preds = %110, %116
   %.0.i40 = phi i32 [ %119, %116 ], [ %113, %110 ]
   %121 = icmp ult i32 %.0.i40, %53
-  br i1 %121, label %.thread71, label %.thread64
+  br i1 %121, label %.thread68, label %.thread61
 
-.thread:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit", %62, %.thread64
-  %.0 = phi i32 [ %67, %.thread64 ], [ 1114112, %62 ], [ 1114112, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit" ]
+.thread:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit", %62, %.thread61
+  %.0 = phi i32 [ %67, %.thread61 ], [ 1114112, %62 ], [ 1114112, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit" ]
   ret i32 %.0
 
-.thread71:                                        ; preds = %114, %120
-  %.sroa.4.1.i4275 = phi i32 [ %.0.i40, %120 ], [ %113, %114 ]
-  %122 = mul i8 %.02678, %1
-  %123 = trunc i32 %.sroa.4.1.i4275 to i8
+.thread68:                                        ; preds = %114, %120
+  %.sroa.4.1.i4272 = phi i32 [ %.0.i40, %120 ], [ %113, %114 ]
+  %122 = mul i8 %.02675, %1
+  %123 = trunc i32 %.sroa.4.1.i4272 to i8
   %124 = add i8 %122, %123
   store i32 1114113, ptr %3, align 8
   %exitcond.not = icmp eq i8 %70, %..i34
-  br i1 %exitcond.not, label %.thread64, label %68
+  br i1 %exitcond.not, label %.thread61, label %68
 }
 
 ; Function Attrs: nonlazybind uwtable

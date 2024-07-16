@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [53 x i8] c"[drm] *ERROR* Timed out waiting for DSI PLL to lock\0A\00", align 1
 @.str.11 = private unnamed_addr constant [36 x i8] c"[drm] *ERROR* DSI CLK Out of Range\0A\00", align 1
 @lfsr_converts = internal unnamed_addr constant [39 x i16] [i16 426, i16 469, i16 234, i16 373, i16 442, i16 221, i16 110, i16 311, i16 411, i16 461, i16 486, i16 243, i16 377, i16 188, i16 350, i16 175, i16 343, i16 427, i16 213, i16 106, i16 53, i16 282, i16 397, i16 454, i16 227, i16 113, i16 56, i16 284, i16 142, i16 71, i16 35, i16 273, i16 136, i16 324, i16 418, i16 465, i16 488, i16 500, i16 506], align 16
-@.str.12 = private unnamed_addr constant [32 x i8] c"[drm] *ERROR* wrong P1 divisor\0A\00", align 1
 @.str.13 = private unnamed_addr constant [39 x i8] c"[drm] *ERROR* wrong m_seed programmed\0A\00", align 1
 @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2 = internal global ptr @__SCK__might_resched, section ".discard.addressable", align 8
 @__SCK__might_resched = external dso_local global %struct.static_call_key, align 8
@@ -67,10 +66,10 @@ define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocaptur
 
 21:                                               ; preds = %13
   %22 = icmp eq ptr %3, null
-  br i1 %22, label %.thread10, label %69
+  br i1 %22, label %.thread14, label %69
 
-.thread10:                                        ; preds = %21
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef null, ptr noundef nonnull @.str.11) #4
+.thread14:                                        ; preds = %21
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef null, ptr noundef nonnull @.str.11) #5
   br label %74
 
 23:                                               ; preds = %13
@@ -134,15 +133,15 @@ define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocaptur
 69:                                               ; preds = %21
   %70 = getelementptr inbounds i8, ptr %3, i64 8
   %71 = load ptr, ptr %70, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.11) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.11) #5
   %72 = getelementptr inbounds i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8
   br label %74
 
-74:                                               ; preds = %.thread10, %69
-  %75 = phi ptr [ %73, %69 ], [ null, %.thread10 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %75, i32 noundef 2, ptr noundef nonnull @.str) #5
-  br label %117
+74:                                               ; preds = %.thread14, %69
+  %75 = phi ptr [ %73, %69 ], [ null, %.thread14 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %75, i32 noundef 2, ptr noundef nonnull @.str) #6
+  br label %167
 
 76:                                               ; preds = %67, %23
   %77 = phi i32 [ %31, %23 ], [ %56, %67 ]
@@ -150,7 +149,7 @@ define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocaptur
   %79 = shl nuw i32 1, %78
   %80 = getelementptr inbounds i8, ptr %1, i64 1352
   store i32 %79, ptr %80, align 8
-  %81 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 -1) #6, !srcloc !9
+  %81 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 -1) #7, !srcloc !9
   %82 = shl i32 %81, 16
   %83 = add i32 %77, -62
   %84 = zext i32 %83 to i64
@@ -191,149 +190,113 @@ define dso_local noundef range(i32 -44, 1) i32 @vlv_dsi_pll_compute(ptr nocaptur
 
 107:                                              ; preds = %104, %96
   %108 = phi ptr [ %106, %104 ], [ null, %96 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %108, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %88, i32 noundef %102) #5
-  %109 = tail call fastcc i32 @vlv_dsi_pclk(ptr noundef %0, ptr noundef %1)
-  %110 = getelementptr inbounds i8, ptr %1, i64 1448
-  store i32 %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 636
-  store i32 %109, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %0, i64 583
-  %113 = load i8, ptr %112, align 1
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %117, label %115
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %108, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %88, i32 noundef %102) #6
+  %109 = load ptr, ptr %0, align 8
+  %110 = load i32, ptr %6, align 4
+  switch i32 %110, label %113 [
+    i32 0, label %.preheader.preheader.i
+    i32 1, label %.preheader.preheader.i
+    i32 2, label %111
+    i32 3, label %112
+  ]
 
-115:                                              ; preds = %107
-  %116 = shl i32 %109, 1
-  store i32 %116, ptr %111, align 4
-  br label %117
+111:                                              ; preds = %107
+  br label %.preheader.preheader.i
 
-117:                                              ; preds = %115, %107, %74
-  %118 = phi i32 [ -44, %74 ], [ 0, %115 ], [ 0, %107 ]
-  ret i32 %118
+112:                                              ; preds = %107
+  br label %.preheader.preheader.i
+
+113:                                              ; preds = %107
+  br label %.preheader.preheader.i
+
+.preheader.preheader.i:                           ; preds = %113, %112, %111, %107, %107
+  %114 = phi i32 [ -22, %113 ], [ 16, %112 ], [ 18, %111 ], [ 24, %107 ], [ 24, %107 ]
+  %115 = getelementptr inbounds i8, ptr %109, i64 7184
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 16777216
+  %118 = icmp eq i32 %117, 0
+  %119 = select i1 %118, i32 25000, i32 100000
+  %120 = load i32, ptr %80, align 8
+  %121 = load i32, ptr %89, align 4
+  %122 = lshr i32 %120, 15
+  %123 = and i32 %122, 2044
+  %124 = lshr i32 %121, 16
+  %125 = and i32 %124, 3
+  %126 = and i32 %121, 511
+  %127 = icmp eq i32 %123, 0
+  %128 = lshr exact i32 %123, 1
+  %129 = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %128, i1 true)
+  %130 = sub nuw nsw i32 32, %129
+  %131 = select i1 %127, i32 -1, i32 %130
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %137, %.preheader.preheader.i
+  %132 = phi i64 [ %138, %137 ], [ 0, %.preheader.preheader.i ]
+  %133 = getelementptr [39 x i16], ptr @lfsr_converts, i64 0, i64 %132
+  %134 = load i16, ptr %133, align 2
+  %135 = zext i16 %134 to i32
+  %136 = icmp eq i32 %126, %135
+  br i1 %136, label %140, label %137
+
+137:                                              ; preds = %.preheader.i
+  %138 = add nuw nsw i64 %132, 1
+  %139 = icmp eq i64 %138, 39
+  br i1 %139, label %.thread.i, label %.preheader.i, !llvm.loop !10
+
+140:                                              ; preds = %.preheader.i
+  %141 = trunc i64 %132 to i32
+  %142 = icmp eq i32 %141, 39
+  br i1 %142, label %.thread.i, label %149
+
+.thread.i:                                        ; preds = %137, %140
+  %143 = icmp eq ptr %109, null
+  br i1 %143, label %147, label %144
+
+144:                                              ; preds = %.thread.i
+  %145 = getelementptr inbounds i8, ptr %109, i64 8
+  %146 = load ptr, ptr %145, align 8
+  br label %147
+
+147:                                              ; preds = %144, %.thread.i
+  %148 = phi ptr [ %146, %144 ], [ null, %.thread.i ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %148, ptr noundef nonnull @.str.13) #5
+  br label %vlv_dsi_pclk.exit
+
+149:                                              ; preds = %140
+  %150 = add nuw nsw i32 %141, 62
+  %151 = mul nsw i32 %150, %119
+  %152 = shl nsw i32 %131, %125
+  %153 = udiv i32 %151, %152
+  %154 = load i32, ptr %8, align 4
+  %155 = mul i32 %154, %153
+  %156 = ashr exact i32 %114, 1
+  %157 = add i32 %155, %156
+  %158 = udiv i32 %157, %114
+  br label %vlv_dsi_pclk.exit
+
+vlv_dsi_pclk.exit:                                ; preds = %147, %149
+  %159 = phi i32 [ 0, %147 ], [ %158, %149 ]
+  %160 = getelementptr inbounds i8, ptr %1, i64 1448
+  store i32 %159, ptr %160, align 8
+  %161 = getelementptr inbounds i8, ptr %1, i64 636
+  store i32 %159, ptr %161, align 4
+  %162 = getelementptr inbounds i8, ptr %0, i64 583
+  %163 = load i8, ptr %162, align 1
+  %164 = icmp eq i8 %163, 0
+  br i1 %164, label %167, label %165
+
+165:                                              ; preds = %vlv_dsi_pclk.exit
+  %166 = shl i32 %159, 1
+  store i32 %166, ptr %161, align 4
+  br label %167
+
+167:                                              ; preds = %165, %vlv_dsi_pclk.exit, %74
+  %168 = phi i32 [ -44, %74 ], [ 0, %165 ], [ 0, %vlv_dsi_pclk.exit ]
+  ret i32 %168
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vlv_dsi_pclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 572
-  %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %8 [
-    i32 0, label %9
-    i32 1, label %9
-    i32 2, label %6
-    i32 3, label %7
-  ]
-
-6:                                                ; preds = %2
-  br label %9
-
-7:                                                ; preds = %2
-  br label %9
-
-8:                                                ; preds = %2
-  br label %9
-
-9:                                                ; preds = %8, %7, %6, %2, %2
-  %10 = phi i32 [ -22, %8 ], [ 16, %7 ], [ 18, %6 ], [ 24, %2 ], [ 24, %2 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 7184
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 16777216
-  %14 = icmp eq i32 %13, 0
-  %15 = select i1 %14, i32 25000, i32 100000
-  %16 = getelementptr inbounds i8, ptr %1, i64 1352
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 1356
-  %19 = load i32, ptr %18, align 4
-  %20 = lshr i32 %17, 15
-  %21 = and i32 %20, 2044
-  %22 = lshr i32 %19, 16
-  %23 = and i32 %22, 3
-  %24 = and i32 %19, 511
-  %25 = icmp eq i32 %21, 0
-  br i1 %25, label %.preheader.preheader, label %.preheader4
-
-.preheader4:                                      ; preds = %9, %.preheader4
-  %26 = phi i32 [ %29, %.preheader4 ], [ 0, %9 ]
-  %27 = phi i32 [ %28, %.preheader4 ], [ %21, %9 ]
-  %28 = lshr i32 %27, 1
-  %29 = add nuw nsw i32 %26, 1
-  %30 = icmp ult i32 %27, 2
-  br i1 %30, label %.loopexit, label %.preheader4, !llvm.loop !10
-
-.loopexit:                                        ; preds = %.preheader4
-  %31 = icmp eq i32 %26, 0
-  br i1 %31, label %33, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %9, %.loopexit
-  %32 = phi i32 [ %26, %.loopexit ], [ -1, %9 ]
-  br label %.preheader
-
-33:                                               ; preds = %.loopexit
-  %34 = icmp eq ptr %3, null
-  br i1 %34, label %38, label %35
-
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = load ptr, ptr %36, align 8
-  br label %38
-
-38:                                               ; preds = %35, %33
-  %39 = phi ptr [ %37, %35 ], [ null, %33 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.12) #4
-  br label %68
-
-.preheader:                                       ; preds = %.preheader.preheader, %45
-  %40 = phi i64 [ %46, %45 ], [ 0, %.preheader.preheader ]
-  %41 = getelementptr [39 x i16], ptr @lfsr_converts, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2
-  %43 = zext i16 %42 to i32
-  %44 = icmp eq i32 %24, %43
-  br i1 %44, label %48, label %45
-
-45:                                               ; preds = %.preheader
-  %46 = add nuw nsw i64 %40, 1
-  %47 = icmp eq i64 %46, 39
-  br i1 %47, label %.thread, label %.preheader, !llvm.loop !11
-
-48:                                               ; preds = %.preheader
-  %49 = trunc i64 %40 to i32
-  %50 = icmp eq i32 %49, 39
-  br i1 %50, label %.thread, label %57
-
-.thread:                                          ; preds = %45, %48
-  %51 = icmp eq ptr %3, null
-  br i1 %51, label %55, label %52
-
-52:                                               ; preds = %.thread
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
-  %54 = load ptr, ptr %53, align 8
-  br label %55
-
-55:                                               ; preds = %52, %.thread
-  %56 = phi ptr [ %54, %52 ], [ null, %.thread ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %56, ptr noundef nonnull @.str.13) #4
-  br label %68
-
-57:                                               ; preds = %48
-  %58 = add nuw nsw i32 %49, 62
-  %59 = mul nsw i32 %58, %15
-  %60 = shl i32 %32, %23
-  %61 = udiv i32 %59, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 564
-  %63 = load i32, ptr %62, align 4
-  %64 = mul i32 %63, %61
-  %65 = ashr exact i32 %10, 1
-  %66 = add i32 %64, %65
-  %67 = udiv i32 %66, %10
-  br label %68
-
-68:                                               ; preds = %57, %55, %38
-  %69 = phi i32 [ 0, %55 ], [ %67, %57 ], [ 0, %38 ]
-  ret i32 %69
-}
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
@@ -348,26 +311,26 @@ define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ null, %2 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #5
-  tail call void @vlv_iosf_sb_get(ptr noundef %3, i64 noundef 2) #5
-  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef 0) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #6
+  tail call void @vlv_iosf_sb_get(ptr noundef %3, i64 noundef 2) #6
+  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef 0) #6
   %10 = getelementptr inbounds i8, ptr %1, i64 1352
   %11 = getelementptr inbounds i8, ptr %1, i64 1356
   %12 = load i32, ptr %11, align 4
-  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 76, i32 noundef %12) #5
+  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 76, i32 noundef %12) #6
   %13 = load i32, ptr %10, align 8
   %14 = and i32 %13, 2147483647
-  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef %14) #5
-  tail call void @usleep_range_state(i64 noundef 10, i64 noundef 50, i32 noundef 2) #5
+  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef %14) #6
+  tail call void @usleep_range_state(i64 noundef 10, i64 noundef 50, i32 noundef 2) #6
   %15 = load i32, ptr %10, align 8
-  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef %15) #5
-  %16 = tail call i64 @ktime_get_raw() #5
+  tail call void @vlv_cck_write(ptr noundef %3, i32 noundef 72, i32 noundef %15) #6
+  %16 = tail call i64 @ktime_get_raw() #6
   %17 = add i64 %16, 20000000
-  %18 = tail call i32 @__SCT__might_resched() #5
-  %19 = tail call i64 @ktime_get_raw() #5
+  %18 = tail call i32 @__SCT__might_resched() #6
+  %19 = tail call i64 @ktime_get_raw() #6
   %20 = icmp sle i64 %19, %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
-  %21 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !11
+  %21 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #6
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, i1 %20, i1 false
@@ -376,13 +339,13 @@ define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %25 = phi i64 [ %28, %.lr.ph ], [ 10, %8 ]
   %26 = shl i64 %25, 1
-  tail call void @usleep_range_state(i64 noundef %25, i64 noundef %26, i32 noundef 2) #5
+  tail call void @usleep_range_state(i64 noundef %25, i64 noundef %26, i32 noundef 2) #6
   %27 = icmp slt i64 %25, 1000
   %28 = select i1 %27, i64 %26, i64 %25
-  %29 = tail call i64 @ktime_get_raw() #5
+  %29 = tail call i64 @ktime_get_raw() #6
   %30 = icmp sle i64 %29, %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !12
-  %31 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !11
+  %31 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #6
   %32 = and i32 %31, 1
   %33 = icmp eq i32 %32, 0
   %34 = select i1 %33, i1 %30, i1 false
@@ -390,7 +353,7 @@ define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.lcssa = phi i1 [ %23, %8 ], [ %33, %.lr.ph ]
-  tail call void @vlv_iosf_sb_put(ptr noundef %3, i64 noundef 2) #5
+  tail call void @vlv_iosf_sb_put(ptr noundef %3, i64 noundef 2) #6
   br i1 %.lcssa, label %35, label %41
 
 35:                                               ; preds = %._crit_edge
@@ -403,7 +366,7 @@ define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 39:                                               ; preds = %36, %35
   %40 = phi ptr [ %38, %36 ], [ null, %35 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.3) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.3) #5
   br label %47
 
 41:                                               ; preds = %._crit_edge
@@ -416,7 +379,7 @@ define dso_local void @vlv_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 45:                                               ; preds = %42, %41
   %46 = phi ptr [ %44, %42 ], [ null, %41 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.4) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.4) #6
   br label %47
 
 47:                                               ; preds = %45, %39
@@ -448,13 +411,13 @@ define dso_local void @vlv_dsi_pll_disable(ptr nocapture noundef readonly %0) lo
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ null, %1 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.2) #5
-  tail call void @vlv_iosf_sb_get(ptr noundef %2, i64 noundef 2) #5
-  %9 = tail call i32 @vlv_cck_read(ptr noundef %2, i32 noundef 72) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.2) #6
+  tail call void @vlv_iosf_sb_get(ptr noundef %2, i64 noundef 2) #6
+  %9 = tail call i32 @vlv_cck_read(ptr noundef %2, i32 noundef 72) #6
   %10 = and i32 %9, 1073741823
   %11 = or disjoint i32 %10, 1073741824
-  tail call void @vlv_cck_write(ptr noundef %2, i32 noundef 72, i32 noundef %11) #5
-  tail call void @vlv_iosf_sb_put(ptr noundef %2, i64 noundef 2) #5
+  tail call void @vlv_cck_write(ptr noundef %2, i32 noundef 72, i32 noundef %11) #6
+  tail call void @vlv_iosf_sb_put(ptr noundef %2, i64 noundef 2) #6
   ret void
 }
 
@@ -463,13 +426,13 @@ define dso_local noundef zeroext i1 @bxt_dsi_pll_is_enabled(ptr noundef %0) loca
   %2 = getelementptr inbounds i8, ptr %0, i64 7368
   %3 = getelementptr inbounds i8, ptr %0, i64 7512
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 %4(ptr noundef %2, i32 286848, i1 noundef zeroext true) #5
+  %5 = tail call i32 %4(ptr noundef %2, i32 286848, i1 noundef zeroext true) #6
   %6 = icmp ugt i32 %5, -1073741825
   br i1 %6, label %7, label %30
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
-  %9 = tail call i32 %8(ptr noundef %2, i32 1445888, i1 noundef zeroext true) #5
+  %9 = tail call i32 %8(ptr noundef %2, i32 1445888, i1 noundef zeroext true) #6
   %10 = getelementptr inbounds i8, ptr %0, i64 7184
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435456
@@ -502,7 +465,7 @@ define dso_local noundef zeroext i1 @bxt_dsi_pll_is_enabled(ptr noundef %0) loca
 
 28:                                               ; preds = %25, %23, %17
   %29 = phi ptr [ null, %17 ], [ null, %23 ], [ %27, %25 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %9) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %9) #6
   br label %30
 
 30:                                               ; preds = %28, %19, %16, %1
@@ -523,16 +486,16 @@ define dso_local void @bxt_dsi_pll_disable(ptr nocapture noundef readonly %0) lo
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ null, %1 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.2) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.2) #6
   %9 = getelementptr inbounds i8, ptr %2, i64 7368
   %10 = getelementptr inbounds i8, ptr %2, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 286848, i1 noundef zeroext true) #5
+  %12 = tail call i32 %11(ptr noundef %9, i32 286848, i1 noundef zeroext true) #6
   %13 = and i32 %12, 2147483647
   %14 = getelementptr inbounds i8, ptr %2, i64 7544
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef %9, i32 286848, i32 noundef %13, i1 noundef zeroext true) #5
-  %16 = tail call i32 @__intel_wait_for_register(ptr noundef %9, i32 286848, i32 noundef 1073741824, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #5
+  tail call void %15(ptr noundef %9, i32 286848, i32 noundef %13, i1 noundef zeroext true) #6
+  %16 = tail call i32 @__intel_wait_for_register(ptr noundef %9, i32 286848, i32 noundef 1073741824, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %24, label %18
 
@@ -546,7 +509,7 @@ define dso_local void @bxt_dsi_pll_disable(ptr nocapture noundef readonly %0) lo
 
 22:                                               ; preds = %19, %18
   %23 = phi ptr [ %21, %19 ], [ null, %18 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.6) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.6) #5
   br label %24
 
 24:                                               ; preds = %22, %7
@@ -554,7 +517,7 @@ define dso_local void @bxt_dsi_pll_disable(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vlv_dsi_get_pclk(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @vlv_dsi_get_pclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -566,18 +529,102 @@ define dso_local i32 @vlv_dsi_get_pclk(ptr nocapture noundef readonly %0, ptr no
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ null, %2 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #5
-  tail call void @vlv_iosf_sb_get(ptr noundef %3, i64 noundef 2) #5
-  %10 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #5
-  %11 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 76) #5
-  tail call void @vlv_iosf_sb_put(ptr noundef %3, i64 noundef 2) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #6
+  tail call void @vlv_iosf_sb_get(ptr noundef %3, i64 noundef 2) #6
+  %10 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 72) #6
+  %11 = tail call i32 @vlv_cck_read(ptr noundef %3, i32 noundef 76) #6
+  tail call void @vlv_iosf_sb_put(ptr noundef %3, i64 noundef 2) #6
   %12 = and i32 %10, -2
   %13 = getelementptr inbounds i8, ptr %1, i64 1352
   store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 1356
   store i32 %11, ptr %14, align 4
-  %15 = tail call fastcc i32 @vlv_dsi_pclk(ptr noundef %0, ptr noundef %1)
-  ret i32 %15
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 572
+  %17 = load i32, ptr %16, align 4
+  switch i32 %17, label %20 [
+    i32 0, label %.preheader.preheader.i
+    i32 1, label %.preheader.preheader.i
+    i32 2, label %18
+    i32 3, label %19
+  ]
+
+18:                                               ; preds = %8
+  br label %.preheader.preheader.i
+
+19:                                               ; preds = %8
+  br label %.preheader.preheader.i
+
+20:                                               ; preds = %8
+  br label %.preheader.preheader.i
+
+.preheader.preheader.i:                           ; preds = %20, %19, %18, %8, %8
+  %21 = phi i32 [ -22, %20 ], [ 16, %19 ], [ 18, %18 ], [ 24, %8 ], [ 24, %8 ]
+  %22 = getelementptr inbounds i8, ptr %15, i64 7184
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, 16777216
+  %25 = icmp eq i32 %24, 0
+  %26 = select i1 %25, i32 25000, i32 100000
+  %27 = lshr i32 %10, 15
+  %28 = and i32 %27, 2044
+  %29 = lshr i32 %11, 16
+  %30 = and i32 %29, 3
+  %31 = and i32 %11, 511
+  %32 = icmp eq i32 %28, 0
+  %33 = lshr exact i32 %28, 1
+  %34 = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
+  %35 = sub nuw nsw i32 32, %34
+  %36 = select i1 %32, i32 -1, i32 %35
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %42, %.preheader.preheader.i
+  %37 = phi i64 [ %43, %42 ], [ 0, %.preheader.preheader.i ]
+  %38 = getelementptr [39 x i16], ptr @lfsr_converts, i64 0, i64 %37
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = icmp eq i32 %31, %40
+  br i1 %41, label %45, label %42
+
+42:                                               ; preds = %.preheader.i
+  %43 = add nuw nsw i64 %37, 1
+  %44 = icmp eq i64 %43, 39
+  br i1 %44, label %.thread.i, label %.preheader.i, !llvm.loop !10
+
+45:                                               ; preds = %.preheader.i
+  %46 = trunc i64 %37 to i32
+  %47 = icmp eq i32 %46, 39
+  br i1 %47, label %.thread.i, label %54
+
+.thread.i:                                        ; preds = %42, %45
+  %48 = icmp eq ptr %15, null
+  br i1 %48, label %52, label %49
+
+49:                                               ; preds = %.thread.i
+  %50 = getelementptr inbounds i8, ptr %15, i64 8
+  %51 = load ptr, ptr %50, align 8
+  br label %52
+
+52:                                               ; preds = %49, %.thread.i
+  %53 = phi ptr [ %51, %49 ], [ null, %.thread.i ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.13) #5
+  br label %vlv_dsi_pclk.exit
+
+54:                                               ; preds = %45
+  %55 = add nuw nsw i32 %46, 62
+  %56 = mul nsw i32 %55, %26
+  %57 = shl nsw i32 %36, %30
+  %58 = udiv i32 %56, %57
+  %59 = getelementptr inbounds i8, ptr %0, i64 564
+  %60 = load i32, ptr %59, align 4
+  %61 = mul i32 %60, %58
+  %62 = ashr exact i32 %21, 1
+  %63 = add i32 %61, %62
+  %64 = udiv i32 %63, %21
+  br label %vlv_dsi_pclk.exit
+
+vlv_dsi_pclk.exit:                                ; preds = %52, %54
+  %65 = phi i32 [ 0, %52 ], [ %64, %54 ]
+  ret i32 %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -586,7 +633,7 @@ define dso_local noundef i32 @bxt_dsi_get_pclk(ptr nocapture noundef readonly %0
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 1445888, i1 noundef zeroext true) #5
+  %7 = tail call i32 %6(ptr noundef %4, i32 1445888, i1 noundef zeroext true) #6
   %8 = getelementptr inbounds i8, ptr %1, i64 1352
   store i32 %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 572
@@ -627,7 +674,7 @@ define dso_local noundef i32 @bxt_dsi_get_pclk(ptr nocapture noundef readonly %0
   %27 = ashr exact i32 %15, 1
   %28 = add i32 %26, %27
   %29 = udiv i32 %28, %15
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %29) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %29) #6
   ret i32 %29
 }
 
@@ -642,7 +689,7 @@ define dso_local void @vlv_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
   %9 = getelementptr inbounds i8, ptr %3, i64 7368
   %10 = getelementptr inbounds i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #5
+  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #6
   %13 = load i32, ptr %5, align 8
   %14 = add i32 %13, %7
   %15 = and i32 %12, -97
@@ -653,7 +700,7 @@ define dso_local void @vlv_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
   %20 = or i32 %19, %15
   %21 = getelementptr inbounds i8, ptr %3, i64 7544
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %9, i32 %14, i32 noundef %20, i1 noundef zeroext true) #5
+  tail call void %22(ptr noundef %9, i32 %14, i32 noundef %20, i1 noundef zeroext true) #6
   ret void
 }
 
@@ -713,7 +760,7 @@ define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocaptur
 
 36:                                               ; preds = %33, %32
   %37 = phi ptr [ %35, %33 ], [ null, %32 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.8) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.8) #5
   br label %73
 
 38:                                               ; preds = %13
@@ -726,7 +773,7 @@ define dso_local noundef range(i32 -44, 1) i32 @bxt_dsi_pll_compute(ptr nocaptur
 
 42:                                               ; preds = %39, %38
   %43 = phi ptr [ %41, %39 ], [ null, %38 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 2, ptr noundef nonnull @.str.9) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 2, ptr noundef nonnull @.str.9) #6
   %44 = or disjoint i32 %27, 1280
   %45 = getelementptr inbounds i8, ptr %1, i64 1352
   store i32 %44, ptr %45, align 8
@@ -800,16 +847,16 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ null, %2 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #6
   %10 = getelementptr inbounds i8, ptr %1, i64 1352
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 7368
   %13 = getelementptr inbounds i8, ptr %3, i64 7544
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef %12, i32 1445888, i32 noundef %11, i1 noundef zeroext true) #5
+  tail call void %14(ptr noundef %12, i32 1445888, i32 noundef %11, i1 noundef zeroext true) #6
   %15 = getelementptr inbounds i8, ptr %3, i64 7512
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %12, i32 1445888, i1 noundef zeroext false) #5
+  %17 = tail call i32 %16(ptr noundef %12, i32 1445888, i1 noundef zeroext false) #6
   %18 = getelementptr inbounds i8, ptr %3, i64 7184
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 67108864
@@ -834,7 +881,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   %33 = getelementptr inbounds i8, ptr %32, i64 7368
   %34 = getelementptr inbounds i8, ptr %32, i64 7512
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef %33, i32 286864, i1 noundef zeroext true) #5
+  %36 = tail call i32 %35(ptr noundef %33, i32 286864, i1 noundef zeroext true) #6
   %37 = icmp eq i64 %25, 0
   %38 = select i1 %37, i32 59047935, i32 -64636
   %39 = and i32 %36, %38
@@ -864,13 +911,13 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   %63 = or i32 %60, %62
   %64 = getelementptr inbounds i8, ptr %32, i64 7544
   %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef %33, i32 286864, i32 noundef %63, i1 noundef zeroext true) #5
+  tail call void %65(ptr noundef %33, i32 286864, i32 noundef %63, i1 noundef zeroext true) #6
   br label %66
 
 66:                                               ; preds = %31, %24
   %67 = add nuw nsw i64 %25, 1
   %68 = icmp eq i64 %67, 9
-  br i1 %68, label %.loopexit, label %24, !llvm.loop !13
+  br i1 %68, label %.loopexit, label %24, !llvm.loop !12
 
 69:                                               ; preds = %8
   %70 = load ptr, ptr %0, align 8
@@ -932,21 +979,21 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
   %106 = getelementptr inbounds i8, ptr %70, i64 7368
   %107 = getelementptr inbounds i8, ptr %70, i64 7544
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef %106, i32 1441796, i32 noundef %105, i1 noundef zeroext true) #5
+  tail call void %108(ptr noundef %106, i32 1441796, i32 noundef %105, i1 noundef zeroext true) #6
   %109 = add nsw i32 %102, -1
   %110 = shl nuw nsw i32 1, %109
   %111 = and i32 %110, 1023
   %112 = load ptr, ptr %107, align 8
-  tail call void %112(ptr noundef %106, i32 1441800, i32 noundef %111, i1 noundef zeroext true) #5
+  tail call void %112(ptr noundef %106, i32 1441800, i32 noundef %111, i1 noundef zeroext true) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %97
   %113 = load ptr, ptr %15, align 8
-  %114 = tail call i32 %113(ptr noundef %12, i32 286848, i1 noundef zeroext true) #5
+  %114 = tail call i32 %113(ptr noundef %12, i32 286848, i1 noundef zeroext true) #6
   %115 = or i32 %114, -2147483648
   %116 = load ptr, ptr %13, align 8
-  tail call void %116(ptr noundef %12, i32 286848, i32 noundef %115, i1 noundef zeroext true) #5
-  %117 = tail call i32 @__intel_wait_for_register(ptr noundef %12, i32 286848, i32 noundef 1073741824, i32 noundef 1073741824, i32 noundef 2, i32 noundef 1, ptr noundef null) #5
+  tail call void %116(ptr noundef %12, i32 286848, i32 noundef %115, i1 noundef zeroext true) #6
+  %117 = tail call i32 @__intel_wait_for_register(ptr noundef %12, i32 286848, i32 noundef 1073741824, i32 noundef 1073741824, i32 noundef 2, i32 noundef 1, ptr noundef null) #6
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %125, label %119
 
@@ -960,7 +1007,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 123:                                              ; preds = %120, %119
   %124 = phi ptr [ %122, %120 ], [ null, %119 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %124, ptr noundef nonnull @.str.10) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %124, ptr noundef nonnull @.str.10) #5
   br label %131
 
 125:                                              ; preds = %.loopexit
@@ -973,7 +1020,7 @@ define dso_local void @bxt_dsi_pll_enable(ptr nocapture noundef readonly %0, ptr
 
 129:                                              ; preds = %126, %125
   %130 = phi ptr [ %128, %126 ], [ null, %125 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %130, i32 noundef 2, ptr noundef nonnull @.str.4) #5
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %130, i32 noundef 2, ptr noundef nonnull @.str.4) #6
   br label %131
 
 131:                                              ; preds = %129, %123
@@ -993,26 +1040,26 @@ define dso_local void @bxt_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
   br i1 %7, label %18, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call i32 %10(ptr noundef %8, i32 286864, i1 noundef zeroext true) #5
+  %12 = tail call i32 %10(ptr noundef %8, i32 286864, i1 noundef zeroext true) #6
   %13 = icmp eq i32 %1, 0
   %14 = select i1 %13, i32 59047935, i32 -64636
   %15 = and i32 %12, %14
   %16 = getelementptr inbounds i8, ptr %3, i64 7544
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef %8, i32 286864, i32 noundef %15, i1 noundef zeroext true) #5
+  tail call void %17(ptr noundef %8, i32 286864, i32 noundef %15, i1 noundef zeroext true) #6
   br label %27
 
 18:                                               ; preds = %2
-  %19 = tail call i32 %10(ptr noundef %8, i32 1441796, i1 noundef zeroext true) #5
+  %19 = tail call i32 %10(ptr noundef %8, i32 1441796, i1 noundef zeroext true) #6
   %20 = and i32 %19, -1024
   %21 = getelementptr inbounds i8, ptr %3, i64 7544
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %8, i32 1441796, i32 noundef %20, i1 noundef zeroext true) #5
+  tail call void %22(ptr noundef %8, i32 1441796, i32 noundef %20, i1 noundef zeroext true) #6
   %23 = load ptr, ptr %9, align 8
-  %24 = tail call i32 %23(ptr noundef %8, i32 1441800, i1 noundef zeroext true) #5
+  %24 = tail call i32 %23(ptr noundef %8, i32 1441800, i1 noundef zeroext true) #6
   %25 = and i32 %24, -1024
   %26 = load ptr, ptr %21, align 8
-  tail call void %26(ptr noundef %8, i32 1441800, i32 noundef %25, i1 noundef zeroext true) #5
+  tail call void %26(ptr noundef %8, i32 1441800, i32 noundef %25, i1 noundef zeroext true) #6
   br label %27
 
 27:                                               ; preds = %18, %11
@@ -1023,7 +1070,7 @@ define dso_local void @bxt_dsi_reset_clocks(ptr nocapture noundef readonly %0, i
   %32 = add i32 %30, %31
   %33 = getelementptr inbounds i8, ptr %3, i64 7544
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %8, i32 %32, i32 noundef 2, i1 noundef zeroext true) #5
+  tail call void %34(ptr noundef %8, i32 %32, i32 noundef 2, i1 noundef zeroext true) #6
   ret void
 }
 
@@ -1035,25 +1082,25 @@ define dso_local void @assert_dsi_pll_enabled(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @assert_dsi_pll(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
-  tail call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 2) #5
-  %3 = tail call i32 @vlv_cck_read(ptr noundef %0, i32 noundef 72) #5
+  tail call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 2) #6
+  %3 = tail call i32 @vlv_cck_read(ptr noundef %0, i32 noundef 72) #6
   %4 = icmp slt i32 %3, 0
-  tail call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 2) #5
+  tail call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 2) #6
   %5 = icmp sgt i32 %3, -1
   %6 = xor i1 %5, %1
-  br i1 %6, label %34, label %7, !prof !14
+  br i1 %6, label %34, label %7, !prof !13
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 6795
-  %9 = load i8, ptr %8, align 1, !range !15, !noundef !16
+  %9 = load i8, ptr %8, align 1, !range !14, !noundef !15
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %25, label %11, !prof !14
+  br i1 %10, label %25, label %11, !prof !13
 
 11:                                               ; preds = %7
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #5, !srcloc !17
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #6, !srcloc !16
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @dev_driver_string(ptr noundef %13) #5
+  %14 = tail call ptr @dev_driver_string(ptr noundef %13) #6
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
@@ -1068,11 +1115,11 @@ define internal fastcc void @assert_dsi_pll(ptr noundef %0, i1 noundef zeroext %
   %22 = phi ptr [ %20, %19 ], [ %17, %11 ]
   %23 = select i1 %1, ptr @.str.17, ptr @.str.18
   %24 = select i1 %4, ptr @.str.17, ptr @.str.18
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %14, ptr noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #5
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #5, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 603, i32 2313, i64 12) #5, !srcloc !19
-  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #5, !srcloc !20
-  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #5, !srcloc !21
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %14, ptr noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #6
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #6, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 603, i32 2313, i64 12) #6, !srcloc !18
+  tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #6, !srcloc !19
+  tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #6, !srcloc !20
   br label %34
 
 25:                                               ; preds = %7
@@ -1088,7 +1135,7 @@ define internal fastcc void @assert_dsi_pll(ptr noundef %0, i1 noundef zeroext %
   %31 = phi ptr [ %29, %27 ], [ null, %25 ]
   %32 = select i1 %1, ptr @.str.17, ptr @.str.18
   %33 = select i1 %4, ptr @.str.17, ptr @.str.18
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull %32, ptr noundef nonnull %33) #4
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull %32, ptr noundef nonnull %33) #5
   br label %34
 
 34:                                               ; preds = %30, %21, %2
@@ -1131,13 +1178,17 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { cold nounwind }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind memory(read) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1152,14 +1203,13 @@ attributes #6 = { nounwind memory(read) }
 !8 = distinct !{!8, !6, !7}
 !9 = !{i64 311086}
 !10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i64 2161599057}
-!13 = distinct !{!13, !6, !7}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = !{i64 2161625243, i64 2161625052, i64 2161625104, i64 2161625150, i64 2161625178}
-!18 = !{i64 2161625801, i64 2161625610, i64 2161625662, i64 2161625708, i64 2161625736}
-!19 = !{i64 2161625875, i64 2161625904, i64 2161625950, i64 2161626008, i64 2161626062, i64 2161626116, i64 2161626171, i64 2161626202, i64 2161626510, i64 2161626516, i64 2161626563, i64 2161626586, i64 2161626612}
-!20 = !{i64 2161627087, i64 2161626898, i64 2161626948, i64 2161626994, i64 2161627022}
-!21 = !{i64 2161627393, i64 2161627204, i64 2161627254, i64 2161627300, i64 2161627328}
+!11 = !{i64 2161599057}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{i64 2161625243, i64 2161625052, i64 2161625104, i64 2161625150, i64 2161625178}
+!17 = !{i64 2161625801, i64 2161625610, i64 2161625662, i64 2161625708, i64 2161625736}
+!18 = !{i64 2161625875, i64 2161625904, i64 2161625950, i64 2161626008, i64 2161626062, i64 2161626116, i64 2161626171, i64 2161626202, i64 2161626510, i64 2161626516, i64 2161626563, i64 2161626586, i64 2161626612}
+!19 = !{i64 2161627087, i64 2161626898, i64 2161626948, i64 2161626994, i64 2161627022}
+!20 = !{i64 2161627393, i64 2161627204, i64 2161627254, i64 2161627300, i64 2161627328}

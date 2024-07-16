@@ -2253,33 +2253,28 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
 
 36:                                               ; preds = %5
   %37 = trunc i64 %8 to i32
-  %38 = lshr i32 %37, 6
-  %.not23.i = icmp ult i32 %37, 64
-  br i1 %.not23.i, label %Llb_ObjGetFanoutPath.exit.thread, label %.lr.ph.i
+  %.not21.i = icmp ult i32 %37, 64
+  br i1 %.not21.i, label %Llb_ObjGetFanoutPath.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 36
-  %40 = getelementptr i8, ptr %0, i64 32
-  %.val16.i = load ptr, ptr %40, align 8
-  %.not.i.i = icmp eq ptr %.val16.i, null
-  br i1 %.not.i.i, label %Llb_ObjGetFanoutPath.exit.thread, label %.lr.ph.split.i
-
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %41 = getelementptr i8, ptr %0, i64 176
+  %38 = lshr i32 %37, 6
+  %39 = getelementptr i8, ptr %0, i64 176
+  %40 = getelementptr inbounds i8, ptr %1, i64 36
+  %41 = getelementptr i8, ptr %0, i64 32
+  %.val16.i = load ptr, ptr %41, align 8, !nonnull !31, !noundef !31
   %42 = getelementptr i8, ptr %.val16.i, i64 8
   %.val.i.i = load ptr, ptr %42, align 8
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %38, i32 1)
-  %.val15.sink.i = load ptr, ptr %41, align 8
+  %.val15.sink.i = load ptr, ptr %39, align 8
   br label %45
 
 43:                                               ; preds = %Aig_ManObj.exit.i
   %44 = add nuw nsw i32 %.01318.i, 1
-  %exitcond.not.i = icmp eq i32 %44, %umax.i
-  br i1 %exitcond.not.i, label %Llb_ObjGetFanoutPath.exit.thread, label %45, !llvm.loop !31
+  %exitcond.not.i = icmp eq i32 %44, %38
+  br i1 %exitcond.not.i, label %Llb_ObjGetFanoutPath.exit.thread, label %45, !llvm.loop !32
 
-45:                                               ; preds = %43, %.lr.ph.split.i
-  %.019.i = phi i32 [ -1, %.lr.ph.split.i ], [ %57, %43 ]
-  %.01318.i = phi i32 [ 0, %.lr.ph.split.i ], [ %44, %43 ]
+45:                                               ; preds = %43, %.lr.ph.i
+  %.019.i = phi i32 [ -1, %.lr.ph.i ], [ %57, %43 ]
+  %.01318.i = phi i32 [ 0, %.lr.ph.i ], [ %44, %43 ]
   %.not.i = icmp eq i32 %.01318.i, 0
   br i1 %.not.i, label %52, label %46
 
@@ -2292,13 +2287,13 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   br label %Aig_ManObj.exit.i
 
 52:                                               ; preds = %45
-  %53 = load i32, ptr %39, align 4
+  %53 = load i32, ptr %40, align 4
   %54 = mul nsw i32 %53, 5
   br label %Aig_ManObj.exit.i
 
 Aig_ManObj.exit.i:                                ; preds = %52, %46
-  %.sink25.i = phi i32 [ %54, %52 ], [ %51, %46 ]
-  %55 = sext i32 %.sink25.i to i64
+  %.sink22.i = phi i32 [ %54, %52 ], [ %51, %46 ]
+  %55 = sext i32 %.sink22.i to i64
   %56 = getelementptr inbounds i32, ptr %.val15.sink.i, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = ashr i32 %57, 1
@@ -2356,8 +2351,8 @@ Llb_ObjGetFanoutPath.exit:                        ; preds = %Aig_ManObj.exit.i
   store ptr null, ptr %64, align 8
   br label %Llb_ObjGetFanoutPath.exit.thread
 
-Llb_ObjGetFanoutPath.exit.thread:                 ; preds = %43, %.lr.ph.i, %36, %84, %12, %26, %2, %86, %80, %70, %32, %22, %11
-  %.0 = phi i32 [ 1, %70 ], [ 1, %80 ], [ 1, %86 ], [ 1, %11 ], [ 1, %22 ], [ 1, %32 ], [ 0, %2 ], [ 0, %26 ], [ 0, %12 ], [ 0, %84 ], [ 0, %36 ], [ 0, %.lr.ph.i ], [ 0, %43 ]
+Llb_ObjGetFanoutPath.exit.thread:                 ; preds = %43, %36, %84, %12, %26, %2, %86, %80, %70, %32, %22, %11
+  %.0 = phi i32 [ 1, %70 ], [ 1, %80 ], [ 1, %86 ], [ 1, %11 ], [ 1, %22 ], [ 1, %32 ], [ 0, %2 ], [ 0, %26 ], [ 0, %12 ], [ 0, %84 ], [ 0, %36 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -2426,7 +2421,7 @@ define void @Llb_ManFlowUpdateCut(ptr noundef %0, ptr nocapture noundef %1) loca
   %.val45 = load i32, ptr %3, align 4
   %9 = sext i32 %.val45 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %6, label %.critedge, !llvm.loop !32
+  br i1 %10, label %6, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %6, %2
   store i32 0, ptr %3, align 4
@@ -2659,7 +2654,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   %.val44 = load i32, ptr %116, align 4
   %117 = sext i32 %.val44 to i64
   %118 = icmp slt i64 %indvars.iv.next84, %117
-  br i1 %118, label %16, label %.critedge2, !llvm.loop !33
+  br i1 %118, label %16, label %.critedge2, !llvm.loop !34
 
 .critedge2:                                       ; preds = %114, %.critedge
   ret void
@@ -2808,7 +2803,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val19 = load i32, ptr %63, align 4
   %64 = sext i32 %.val19 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %17, label %.critedge, !llvm.loop !34
+  br i1 %65, label %17, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %61, %Vec_PtrAlloc.exit
   ret ptr %3
@@ -2902,13 +2897,13 @@ define range(i32 0, 2) i32 @Llb_ManFlowVerifyCut(ptr noundef %0, ptr nocapture n
   %.val20 = load i32, ptr %3, align 4
   %15 = sext i32 %.val20 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %11, label %.critedge.preheader, !llvm.loop !35
+  br i1 %16, label %11, label %.critedge.preheader, !llvm.loop !36
 
 .critedge:                                        ; preds = %19
   %17 = add nuw nsw i32 %.128, 1
   %.val23 = load i32, ptr %8, align 8
   %18 = icmp slt i32 %17, %.val23
-  br i1 %18, label %19, label %.critedge2, !llvm.loop !36
+  br i1 %18, label %19, label %.critedge2, !llvm.loop !37
 
 19:                                               ; preds = %.lr.ph29, %.critedge
   %.128 = phi i32 [ 0, %.lr.ph29 ], [ %17, %.critedge ]
@@ -3012,7 +3007,7 @@ define noalias noundef ptr @Llb_ManFlow(ptr noundef %0, ptr nocapture noundef re
   %.val57 = load i32, ptr %4, align 4
   %39 = sext i32 %.val57 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %7, label %.critedge, !llvm.loop !37
+  br i1 %40, label %7, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %38, %3
   %.043.lcssa = phi i32 [ 0, %3 ], [ %.2, %38 ]
@@ -3083,7 +3078,7 @@ define noalias noundef ptr @Llb_ManFlow(ptr noundef %0, ptr nocapture noundef re
   %.val56 = load i32, ptr %4, align 4
   %73 = sext i32 %.val56 to i64
   %74 = icmp slt i64 %indvars.iv.next79, %73
-  br i1 %74, label %45, label %.critedge2, !llvm.loop !38
+  br i1 %74, label %45, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %72, %42
   %75 = tail call ptr @Llb_ManFlowMinCut(ptr noundef %0)
@@ -3120,13 +3115,13 @@ define noalias noundef ptr @Llb_ManFlow(ptr noundef %0, ptr nocapture noundef re
   store i32 %.val21.pre.i, ptr %88, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %80
-  br i1 %exitcond.not, label %.critedge.preheader.i, label %85, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge.preheader.i, label %85, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %91
   %89 = add nuw nsw i32 %.128.i, 1
   %.val23.i = load i32, ptr %82, align 8
   %90 = icmp slt i32 %89, %.val23.i
-  br i1 %90, label %91, label %Llb_ManFlowVerifyCut.exit.thread, !llvm.loop !36
+  br i1 %90, label %91, label %Llb_ManFlowVerifyCut.exit.thread, !llvm.loop !37
 
 91:                                               ; preds = %.critedge.i, %.lr.ph29.i
   %.128.i = phi i32 [ 0, %.lr.ph29.i ], [ %89, %.critedge.i ]
@@ -3242,7 +3237,7 @@ define noalias noundef ptr @Llb_ManFlowCompute(ptr noundef %0) local_unnamed_add
   %.val62 = load i32, ptr %43, align 4
   %44 = sext i32 %.val62 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !39
+  br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %41, %1
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #21
@@ -3317,7 +3312,7 @@ define noalias noundef ptr @Llb_ManFlowCompute(ptr noundef %0) local_unnamed_add
   %.val61 = load i32, ptr %84, align 4
   %85 = sext i32 %.val61 to i64
   %86 = icmp slt i64 %indvars.iv.next84, %85
-  br i1 %86, label %.lr.ph81, label %.critedge2, !llvm.loop !40
+  br i1 %86, label %.lr.ph81, label %.critedge2, !llvm.loop !41
 
 .critedge2:                                       ; preds = %82, %.critedge
   %87 = tail call ptr @Llb_ManFlowMinCut(ptr noundef nonnull %0)
@@ -3355,13 +3350,13 @@ define noalias noundef ptr @Llb_ManFlowCompute(ptr noundef %0) local_unnamed_add
   store i32 %.val21.pre.i, ptr %100, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %92
-  br i1 %exitcond.not, label %.critedge.preheader.i, label %97, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge.preheader.i, label %97, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %103
   %101 = add nuw nsw i32 %.128.i, 1
   %.val23.i = load i32, ptr %94, align 8
   %102 = icmp slt i32 %101, %.val23.i
-  br i1 %102, label %103, label %Llb_ManFlowVerifyCut.exit.thread, !llvm.loop !36
+  br i1 %102, label %103, label %Llb_ManFlowVerifyCut.exit.thread, !llvm.loop !37
 
 103:                                              ; preds = %.critedge.i, %.lr.ph29.i
   %.128.i = phi i32 [ 0, %.lr.ph29.i ], [ %101, %.critedge.i ]
@@ -3501,7 +3496,7 @@ define void @Llb_ManFlowPrepareCut(ptr nocapture noundef readonly %0, ptr nocapt
   %.val39 = load i32, ptr %20, align 4
   %21 = sext i32 %.val39 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !41
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %18, %3
   %23 = getelementptr i8, ptr %0, i64 48
@@ -3544,7 +3539,7 @@ define void @Llb_ManFlowPrepareCut(ptr nocapture noundef readonly %0, ptr nocapt
   %.val38 = load i32, ptr %42, align 4
   %43 = sext i32 %.val38 to i64
   %44 = icmp slt i64 %indvars.iv.next54, %43
-  br i1 %44, label %.lr.ph45, label %.critedge2.preheader, !llvm.loop !42
+  br i1 %44, label %.lr.ph45, label %.critedge2.preheader, !llvm.loop !43
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %45 = getelementptr i8, ptr %1, i64 4
@@ -3566,7 +3561,7 @@ define void @Llb_ManFlowPrepareCut(ptr nocapture noundef readonly %0, ptr nocapt
   %.val37 = load i32, ptr %31, align 4
   %50 = sext i32 %.val37 to i64
   %51 = icmp slt i64 %indvars.iv.next57, %50
-  br i1 %51, label %.critedge2, label %.critedge4.preheader, !llvm.loop !43
+  br i1 %51, label %.critedge2, label %.critedge4.preheader, !llvm.loop !44
 
 .critedge4:                                       ; preds = %.lr.ph51, %.critedge4
   %indvars.iv59 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next60, %.critedge4 ]
@@ -3578,7 +3573,7 @@ define void @Llb_ManFlowPrepareCut(ptr nocapture noundef readonly %0, ptr nocapt
   %.val36 = load i32, ptr %45, align 4
   %54 = sext i32 %.val36 to i64
   %55 = icmp slt i64 %indvars.iv.next60, %54
-  br i1 %55, label %.critedge4, label %.critedge6, !llvm.loop !44
+  br i1 %55, label %.critedge4, label %.critedge6, !llvm.loop !45
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   ret void
@@ -3608,7 +3603,7 @@ define void @Llb_ManFlowUnmarkCone(ptr nocapture noundef readnone %0, ptr nocapt
   %.val5 = load i32, ptr %3, align 4
   %12 = sext i32 %.val5 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %6, label %.critedge, !llvm.loop !45
+  br i1 %13, label %6, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %6, %2
   ret void
@@ -3779,7 +3774,7 @@ Aig_ManObj.exit:                                  ; preds = %64, %68
   %77 = trunc i64 %76 to i32
   %78 = lshr i32 %77, 6
   %79 = icmp ult i32 %75, %78
-  br i1 %79, label %54, label %.critedge, !llvm.loop !46
+  br i1 %79, label %54, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %Aig_ManObj.exit, %48, %Saig_ObjIsLi.exit.thread, %Saig_ObjIsLi.exit
   ret void
@@ -3808,7 +3803,7 @@ define void @Llb_ManFlowCollectAndMarkCone(ptr nocapture noundef readonly %0, pt
   %.val8 = load i32, ptr %5, align 4
   %11 = sext i32 %.val8 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %8, label %.critedge, !llvm.loop !47
+  br i1 %12, label %8, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %8, %3
   ret void
@@ -3904,7 +3899,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val7 = load i32, ptr %42, align 4
   %43 = sext i32 %.val7 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !48
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %1
   ret ptr %2
@@ -4030,7 +4025,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val20 = phi i32 [ %.val2026, %24 ], [ %.val2026, %11 ], [ %.val20.pre, %Vec_PtrPush.exit ]
   %55 = add nuw nsw i32 %.025, 1
   %56 = icmp slt i32 %55, %.val20
-  br i1 %56, label %11, label %.critedge, !llvm.loop !49
+  br i1 %56, label %11, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %54, %1
   ret ptr %2
@@ -4122,7 +4117,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %15, ptr %43, align 8
   %44 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %44, %3
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %5
   ret void
@@ -4307,7 +4302,7 @@ Vec_PtrPush.exit.i:                               ; preds = %74, %Vec_PtrGrow.ex
   store ptr %52, ptr %79, align 8
   %80 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %80, %.080181
-  br i1 %exitcond.not.i, label %Llb_ManFlowGetObjSet.exit, label %47, !llvm.loop !50
+  br i1 %exitcond.not.i, label %Llb_ManFlowGetObjSet.exit, label %47, !llvm.loop !51
 
 Llb_ManFlowGetObjSet.exit:                        ; preds = %Vec_PtrPush.exit.i
   store i32 0, ptr %32, align 4
@@ -4327,7 +4322,7 @@ Llb_ManFlowGetObjSet.exit:                        ; preds = %Vec_PtrPush.exit.i
   tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef readonly %0, ptr noundef %84, ptr noundef nonnull %31)
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i96, %82
-  br i1 %exitcond.not, label %Llb_ManFlowCollectAndMarkCone.exit, label %.lr.ph.i93, !llvm.loop !47
+  br i1 %exitcond.not, label %Llb_ManFlowCollectAndMarkCone.exit, label %.lr.ph.i93, !llvm.loop !48
 
 Llb_ManFlowCollectAndMarkCone.exit:               ; preds = %.lr.ph.i93
   %.val85.pr = load i32, ptr %32, align 4
@@ -4354,7 +4349,7 @@ Llb_ManFlowCollectAndMarkCone.exit:               ; preds = %.lr.ph.i93
   store i64 %94, ptr %92, align 8
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next.i101, %89
-  br i1 %exitcond197.not, label %Llb_ManFlowUnmarkCone.exit, label %.lr.ph.i98, !llvm.loop !45
+  br i1 %exitcond197.not, label %Llb_ManFlowUnmarkCone.exit, label %.lr.ph.i98, !llvm.loop !46
 
 Llb_ManFlowUnmarkCone.exit:                       ; preds = %.lr.ph.i98, %86
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #21
@@ -4486,7 +4481,7 @@ Llb_ManFlowCollectAndMarkCone.exit.thread:        ; preds = %Llb_ManFlowGetObjSe
   %133 = add nuw nsw i32 %.079174, 1
   %.val86 = load i32, ptr %10, align 4
   %134 = icmp slt i32 %133, %.val86
-  br i1 %134, label %.lr.ph, label %.critedge, !llvm.loop !51
+  br i1 %134, label %.lr.ph, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %Llb_ManFlowCollectAndMarkCone.exit.thread
   %135 = icmp sgt i32 %.377, -1
@@ -4500,7 +4495,7 @@ Llb_ManFlowCollectAndMarkCone.exit.thread:        ; preds = %Llb_ManFlowGetObjSe
   %136 = add nuw nsw i32 %.080181, 5
   %.val87 = load i32, ptr %39, align 8
   %137 = icmp slt i32 %136, %.val87
-  br i1 %137, label %.preheader, label %._crit_edge, !llvm.loop !52
+  br i1 %137, label %.preheader, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.critedge.thread
   %138 = icmp eq i32 %.175.lcssa209, -1
@@ -4542,7 +4537,7 @@ Vec_PtrFree.exit139:                              ; preds = %._crit_edge.thread,
   tail call void @Llb_ManFlowCollectAndMarkCone_rec(ptr noundef readonly %0, ptr noundef %145, ptr noundef nonnull %31)
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i145, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next.i147, %143
-  br i1 %exitcond200.not, label %Llb_ManFlowCollectAndMarkCone.exit149, label %.lr.ph.i144, !llvm.loop !47
+  br i1 %exitcond200.not, label %Llb_ManFlowCollectAndMarkCone.exit149, label %.lr.ph.i144, !llvm.loop !48
 
 Llb_ManFlowCollectAndMarkCone.exit149:            ; preds = %.lr.ph.i144, %.thread
   %146 = tail call ptr @Llb_ManFlowCompute(ptr noundef %0)
@@ -4565,7 +4560,7 @@ Llb_ManFlowCollectAndMarkCone.exit149:            ; preds = %.lr.ph.i144, %.thre
   store i64 %153, ptr %151, align 8
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next.i155, %148
-  br i1 %exitcond201.not, label %Llb_ManFlowUnmarkCone.exit157.thread, label %.lr.ph.i152, !llvm.loop !45
+  br i1 %exitcond201.not, label %Llb_ManFlowUnmarkCone.exit157.thread, label %.lr.ph.i152, !llvm.loop !46
 
 Llb_ManFlowUnmarkCone.exit157:                    ; preds = %Llb_ManFlowCollectAndMarkCone.exit149
   %.not.i158 = icmp eq ptr %.pre, null
@@ -4730,7 +4725,7 @@ Llb_ManCutVolume.exit:                            ; preds = %.critedge.i, %.crit
 .critedge68:                                      ; preds = %48, %53, %Llb_ManCutVolume.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !55
 
 .critedge:                                        ; preds = %48, %.critedge70
   %.3 = phi ptr [ %51, %.critedge70 ], [ %49, %48 ]
@@ -4789,7 +4784,7 @@ Vec_PtrPush.exit94:                               ; preds = %Vec_PtrPush.exit94.
   store ptr %70, ptr %71, align 8
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
   %72 = icmp sgt i64 %indvars.iv.next139, %66
-  br i1 %72, label %68, label %._crit_edge, !llvm.loop !55
+  br i1 %72, label %68, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %68, %Vec_PtrPush.exit94
   %73 = and i64 %indvars.iv, 4294967295
@@ -4937,7 +4932,7 @@ Vec_PtrFree.exit.i:                               ; preds = %22, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = sext i32 %.val.i to i64
   %25 = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %25, label %16, label %.critedge.i, !llvm.loop !56
+  br i1 %25, label %16, label %.critedge.i, !llvm.loop !57
 
 .critedge.i:                                      ; preds = %23, %2
   %26 = getelementptr inbounds i8, ptr %11, i64 8
@@ -5111,7 +5106,7 @@ attributes #22 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!31 = !{}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
@@ -5132,8 +5127,9 @@ attributes #22 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5, !53}
-!53 = !{!"llvm.loop.unswitch.partial.disable"}
-!54 = distinct !{!54, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5, !54}
+!54 = !{!"llvm.loop.unswitch.partial.disable"}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}

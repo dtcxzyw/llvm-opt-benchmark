@@ -3822,7 +3822,7 @@ define void @_ZN12regex_syntax11escape_into17h2320ac412f50d906E(ptr noalias noun
   br label %12
 
 12:                                               ; preds = %.lr.ph, %51
-  %.sroa.0.016 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.4.ph14, %51 ]
+  %.sroa.0.016 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1.ph14, %51 ]
   %13 = getelementptr inbounds i8, ptr %.sroa.0.016, i64 1
   %14 = load i8, ptr %.sroa.0.016, align 1, !noalias !527, !noundef !4
   %15 = icmp sgt i8 %14, -1
@@ -3880,13 +3880,13 @@ define void @_ZN12regex_syntax11escape_into17h2320ac412f50d906E(ptr noalias noun
 
 .thread11:                                        ; preds = %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i", %38
   %.sroa.4.0.i.ph15 = phi i32 [ %48, %38 ], [ %27, %26 ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i" ]
-  %.sroa.0.4.ph14 = phi ptr [ %40, %38 ], [ %13, %26 ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i" ]
+  %.sroa.0.1.ph14 = phi ptr [ %40, %38 ], [ %13, %26 ], [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i" ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit13.i" ]
   %50 = tail call noundef zeroext i1 @_ZN12regex_syntax17is_meta_character17h7072eaeb7bb36e96E(i32 noundef %.sroa.4.0.i.ph15)
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit, %.thread11
   tail call fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.4.0.i.ph15)
-  %52 = icmp eq ptr %.sroa.0.4.ph14, %10
+  %52 = icmp eq ptr %.sroa.0.1.ph14, %10
   br i1 %52, label %.thread, label %12
 
 53:                                               ; preds = %.thread11

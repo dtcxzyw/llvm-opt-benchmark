@@ -6020,137 +6020,131 @@ _ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEm
   %90 = icmp ult i64 %89, %88
   %91 = call i64 @llvm.umin.i64(i64 %89, i64 67818912035696880)
   %92 = select i1 %90, i64 67818912035696880, i64 %91
-  %.not.i.i.i = icmp eq i64 %92, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i, label %93
-
-93:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %94 = mul nuw nsw i64 %92, 136
-  %95 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #19
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %93, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %96 = phi ptr [ %95, %93 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %97 = getelementptr inbounds %"struct.(anonymous namespace)::FunctionCompiler::Control", ptr %96, i64 %88
-  %98 = getelementptr inbounds i8, ptr %4, i64 16
-  %99 = load ptr, ptr %98, align 8
+  %.not.i.i.i = icmp ne i64 %92, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %93 = mul nuw nsw i64 %92, 136
+  %94 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %93) #19
+  %95 = getelementptr inbounds i8, ptr %94, i64 %85
+  %96 = getelementptr inbounds i8, ptr %4, i64 16
+  %97 = load ptr, ptr %96, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %100 = getelementptr inbounds i8, ptr %5, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 24
-  %103 = getelementptr inbounds i8, ptr %5, i64 40
-  %104 = getelementptr inbounds i8, ptr %6, i64 16
-  %105 = getelementptr inbounds i8, ptr %97, i64 8
-  %106 = getelementptr inbounds i8, ptr %97, i64 16
-  %107 = getelementptr inbounds i8, ptr %97, i64 24
-  %108 = getelementptr inbounds i8, ptr %97, i64 32
-  %109 = getelementptr inbounds i8, ptr %97, i64 40
-  %110 = getelementptr inbounds i8, ptr %97, i64 48
-  %111 = getelementptr inbounds i8, ptr %97, i64 56
-  %112 = getelementptr inbounds i8, ptr %97, i64 64
-  %113 = load <2 x ptr>, ptr %5, align 8
+  %98 = getelementptr inbounds i8, ptr %5, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %5, i64 24
+  %101 = getelementptr inbounds i8, ptr %5, i64 40
+  %102 = getelementptr inbounds i8, ptr %6, i64 16
+  %103 = getelementptr inbounds i8, ptr %95, i64 8
+  %104 = getelementptr inbounds i8, ptr %95, i64 16
+  %105 = getelementptr inbounds i8, ptr %95, i64 24
+  %106 = getelementptr inbounds i8, ptr %95, i64 32
+  %107 = getelementptr inbounds i8, ptr %95, i64 40
+  %108 = getelementptr inbounds i8, ptr %95, i64 48
+  %109 = getelementptr inbounds i8, ptr %95, i64 56
+  %110 = getelementptr inbounds i8, ptr %95, i64 64
+  %111 = load <2 x ptr>, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %114 = load ptr, ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %97, i64 80
-  %116 = getelementptr inbounds i8, ptr %97, i64 88
-  %117 = load <2 x ptr>, ptr %102, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
-  %118 = load ptr, ptr %104, align 8
-  %119 = getelementptr inbounds i8, ptr %97, i64 104
-  %120 = getelementptr inbounds i8, ptr %97, i64 112
-  %121 = load <2 x ptr>, ptr %6, align 8
+  %112 = load ptr, ptr %101, align 8
+  %113 = getelementptr inbounds i8, ptr %95, i64 80
+  %114 = getelementptr inbounds i8, ptr %95, i64 88
+  %115 = load <2 x ptr>, ptr %100, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  %116 = load ptr, ptr %102, align 8
+  %117 = getelementptr inbounds i8, ptr %95, i64 104
+  %118 = getelementptr inbounds i8, ptr %95, i64 112
+  %119 = load <2 x ptr>, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store i64 %51, ptr %97, align 8
-  store i8 %41, ptr %105, align 8
-  store i64 %.val5, ptr %106, align 8
-  store i64 %.val6, ptr %107, align 8
-  store i64 %.val7, ptr %108, align 8
-  store ptr %34, ptr %109, align 8
-  store ptr %35, ptr %110, align 8
-  store ptr %99, ptr %111, align 8
-  store <2 x ptr> %113, ptr %112, align 8
-  store ptr %101, ptr %115, align 8
-  store <2 x ptr> %117, ptr %116, align 8
-  store ptr %114, ptr %119, align 8
-  store <2 x ptr> %121, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %97, i64 128
-  store ptr %118, ptr %122, align 8
+  store i64 %51, ptr %95, align 8
+  store i8 %41, ptr %103, align 8
+  store i64 %.val5, ptr %104, align 8
+  store i64 %.val6, ptr %105, align 8
+  store i64 %.val7, ptr %106, align 8
+  store ptr %34, ptr %107, align 8
+  store ptr %35, ptr %108, align 8
+  store ptr %97, ptr %109, align 8
+  store <2 x ptr> %111, ptr %110, align 8
+  store ptr %99, ptr %113, align 8
+  store <2 x ptr> %115, ptr %114, align 8
+  store ptr %112, ptr %117, align 8
+  store <2 x ptr> %119, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %95, i64 128
+  store ptr %116, ptr %120, align 8
   br i1 %38, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %153, %.lr.ph.i.i.i.i.i ], [ %96, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %152, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %151, %.lr.ph.i.i.i.i.i ], [ %94, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %150, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !779)
   call void @llvm.experimental.noalias.scope.decl(metadata !782)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.092.i.i.i.i.i, i64 9, i1 false), !alias.scope !784
-  %123 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
-  %124 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
-  %125 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 24
-  %126 = load <2 x ptr>, ptr %124, align 8, !alias.scope !782, !noalias !779
-  store ptr null, ptr %124, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %126, ptr %123, align 8, !alias.scope !779, !noalias !782
-  store ptr null, ptr %125, align 8, !alias.scope !782, !noalias !779
-  %127 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 32
-  %128 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 32
-  %129 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 40
-  %130 = load <2 x ptr>, ptr %128, align 8, !alias.scope !782, !noalias !779
-  store ptr null, ptr %128, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %130, ptr %127, align 8, !alias.scope !779, !noalias !782
-  %131 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 48
-  %132 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 48
-  %133 = load <2 x ptr>, ptr %132, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %133, ptr %131, align 8, !alias.scope !779, !noalias !782
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
-  %134 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 64
-  %135 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 64
-  %136 = load <2 x ptr>, ptr %135, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %136, ptr %134, align 8, !alias.scope !779, !noalias !782
-  %137 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 80
-  %138 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 80
-  %139 = load ptr, ptr %138, align 8, !alias.scope !782, !noalias !779
-  store ptr %139, ptr %137, align 8, !alias.scope !779, !noalias !782
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
-  %140 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 88
-  %141 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 88
-  %142 = load <2 x ptr>, ptr %141, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %142, ptr %140, align 8, !alias.scope !779, !noalias !782
-  %143 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 104
-  %144 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 104
-  %145 = load ptr, ptr %144, align 8, !alias.scope !782, !noalias !779
-  store ptr %145, ptr %143, align 8, !alias.scope !779, !noalias !782
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
-  %146 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 112
-  %147 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 112
-  %148 = load <2 x ptr>, ptr %147, align 8, !alias.scope !782, !noalias !779
-  store <2 x ptr> %148, ptr %146, align 8, !alias.scope !779, !noalias !782
-  %149 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 128
-  %150 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 128
-  %151 = load ptr, ptr %150, align 8, !alias.scope !782, !noalias !779
-  store ptr %151, ptr %149, align 8, !alias.scope !779, !noalias !782
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
+  %121 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 16
+  %122 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 16
+  %123 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 24
+  %124 = load <2 x ptr>, ptr %122, align 8, !alias.scope !782, !noalias !779
+  store ptr null, ptr %122, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %124, ptr %121, align 8, !alias.scope !779, !noalias !782
+  store ptr null, ptr %123, align 8, !alias.scope !782, !noalias !779
+  %125 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 32
+  %126 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 32
+  %127 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 40
+  %128 = load <2 x ptr>, ptr %126, align 8, !alias.scope !782, !noalias !779
+  store ptr null, ptr %126, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %128, ptr %125, align 8, !alias.scope !779, !noalias !782
+  %129 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 48
+  %130 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 48
+  %131 = load <2 x ptr>, ptr %130, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %131, ptr %129, align 8, !alias.scope !779, !noalias !782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
+  %132 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 64
+  %133 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 64
+  %134 = load <2 x ptr>, ptr %133, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %134, ptr %132, align 8, !alias.scope !779, !noalias !782
+  %135 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 80
+  %136 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 80
+  %137 = load ptr, ptr %136, align 8, !alias.scope !782, !noalias !779
+  store ptr %137, ptr %135, align 8, !alias.scope !779, !noalias !782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
+  %138 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 88
+  %139 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 88
+  %140 = load <2 x ptr>, ptr %139, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %140, ptr %138, align 8, !alias.scope !779, !noalias !782
+  %141 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 104
+  %142 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 104
+  %143 = load ptr, ptr %142, align 8, !alias.scope !782, !noalias !779
+  store ptr %143, ptr %141, align 8, !alias.scope !779, !noalias !782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
+  %144 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 112
+  %145 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 112
+  %146 = load <2 x ptr>, ptr %145, align 8, !alias.scope !782, !noalias !779
+  store <2 x ptr> %146, ptr %144, align 8, !alias.scope !779, !noalias !782
+  %147 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 128
+  %148 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 128
+  %149 = load ptr, ptr %148, align 8, !alias.scope !782, !noalias !779
+  store ptr %149, ptr %147, align 8, !alias.scope !779, !noalias !782
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false), !alias.scope !782, !noalias !779
   call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler7ControlD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(136) %.092.i.i.i.i.i) #16, !noalias !779
-  %152 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 136
-  %153 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 136
-  %.not.i.i.i.i.i = icmp eq ptr %152, %.val2.i
+  %150 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 136
+  %151 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 136
+  %.not.i.i.i.i.i = icmp eq ptr %150, %.val2.i
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !785
 
-_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %96, %_ZNSt12_Vector_baseIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_M_allocateEm.exit.i.i ], [ %153, %.lr.ph.i.i.i.i.i ]
-  %154 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
+_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %94, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %151, %.lr.ph.i.i.i.i.i ]
+  %152 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
   %.not.i39.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i39.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %155
+  br i1 %.not.i39.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %153
 
-155:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i
-  %156 = load ptr, ptr %52, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %158 = sub i64 %157, %84
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %158) #18
+153:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i
+  %154 = load ptr, ptr %52, align 8
+  %155 = ptrtoint ptr %154 to i64
+  %156 = sub i64 %155, %84
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %156) #18
   br label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %155, %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i
-  store ptr %96, ptr %36, align 8
-  store ptr %154, ptr %37, align 8
-  %159 = getelementptr inbounds %"struct.(anonymous namespace)::FunctionCompiler::Control", ptr %96, i64 %92
-  store ptr %159, ptr %52, align 8
+_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i
+  store ptr %94, ptr %36, align 8
+  store ptr %152, ptr %37, align 8
+  %157 = getelementptr inbounds %"struct.(anonymous namespace)::FunctionCompiler::Control", ptr %94, i64 %92
+  store ptr %157, ptr %52, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12emplace_backIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12emplace_backIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEERS2_DpOT_.exit: ; preds = %54, %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i

@@ -2954,7 +2954,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   br label %277
 
 277:                                              ; preds = %.thread68, %273
-  %.sroa.026.0 = phi ptr [ %274, %273 ], [ %.sroa.026.4.ph71, %.thread68 ]
+  %.sroa.026.0 = phi ptr [ %274, %273 ], [ %.sroa.026.1.ph71, %.thread68 ]
   %278 = icmp eq ptr %.sroa.026.0, %276
   br i1 %278, label %.thread65, label %279
 
@@ -2996,6 +2996,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %304 = icmp ugt i8 %281, -17
   br i1 %304, label %305, label %.thread68
 
+.body:                                            ; preds = %325
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5aff32a292d2a8e3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #16
+          to label %253 unwind label %174
+
 305:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i"
   %306 = icmp ne ptr %296, %276
   call void @llvm.assume(i1 %306)
@@ -3010,10 +3014,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %315 = or disjoint i32 %314, %310
   %316 = icmp eq i32 %315, 1114112
   br i1 %316, label %.thread65, label %.thread68
-
-.body:                                            ; preds = %325
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5aff32a292d2a8e3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #16
-          to label %253 unwind label %174
 
 .thread65:                                        ; preds = %277, %305
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !557
@@ -3033,7 +3033,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
 
 .thread68:                                        ; preds = %293, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit13.i", %305
   %.sroa.4.0.i.ph72 = phi i32 [ %315, %305 ], [ %294, %293 ], [ %303, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i" ], [ %291, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit13.i" ]
-  %.sroa.026.4.ph71 = phi ptr [ %307, %305 ], [ %280, %293 ], [ %296, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i" ], [ %286, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit13.i" ]
+  %.sroa.026.1.ph71 = phi ptr [ %307, %305 ], [ %280, %293 ], [ %296, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i" ], [ %286, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit13.i" ]
   %321 = icmp eq i32 %.sroa.4.0.i.ph72, %256
   br i1 %321, label %324, label %277
 

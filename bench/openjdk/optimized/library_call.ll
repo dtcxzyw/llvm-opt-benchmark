@@ -53518,7 +53518,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit20generate_method_callE13vmIntrins
 _ZN4NodenwEm.exit:                                ; preds = %66, %68
   %.0.i.i.i = phi ptr [ %62, %66 ], [ %69, %68 ]
   %70 = icmp eq ptr %.0.i.i.i, null
-  br i1 %70, label %158, label %71
+  br i1 %70, label %156, label %71
 
 71:                                               ; preds = %_ZN4NodenwEm.exit
   %72 = load ptr, ptr %10, align 8
@@ -53528,7 +53528,7 @@ _ZN4NodenwEm.exit:                                ; preds = %66, %68
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %73, i64 %76
   tail call void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncPhP8ciMethod(ptr noundef nonnull align 8 dereferenceable(145) %.0.i.i.i, ptr noundef %72, ptr noundef %.028, ptr noundef %77, ptr noundef nonnull %9)
-  br label %158
+  br label %156
 
 78:                                               ; preds = %49
   br i1 %2, label %79, label %128
@@ -53574,7 +53574,7 @@ _ZN4NodenwEm.exit:                                ; preds = %66, %68
 _ZN4NodenwEm.exit34:                              ; preds = %100, %102
   %.0.i.i.i33 = phi ptr [ %96, %100 ], [ %103, %102 ]
   %104 = icmp eq ptr %.0.i.i.i33, null
-  br i1 %104, label %158, label %105
+  br i1 %104, label %156, label %105
 
 105:                                              ; preds = %_ZN4NodenwEm.exit34
   %106 = load ptr, ptr @_ZN13SharedRuntime26_resolve_virtual_call_blobE, align 8
@@ -53613,7 +53613,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %100, %102
   %127 = getelementptr inbounds i8, ptr %.0.i.i.i33, i64 148
   store i32 %.0, ptr %127, align 4
   store i32 47, ptr %116, align 4
-  br label %158
+  br label %156
 
 128:                                              ; preds = %78
   %129 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -53645,46 +53645,41 @@ _ZN4NodenwEm.exit34:                              ; preds = %100, %102
 
 _ZN4NodenwEm.exit37:                              ; preds = %144, %146
   %.0.i.i.i36 = phi ptr [ %140, %144 ], [ %147, %146 ]
-  %148 = icmp eq ptr %.0.i.i.i36, null
-  br i1 %148, label %156, label %149
-
-149:                                              ; preds = %_ZN4NodenwEm.exit37
-  %150 = load ptr, ptr %10, align 8
-  %151 = load ptr, ptr @_ZN13SharedRuntime30_resolve_opt_virtual_call_blobE, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 36
-  %153 = load i32, ptr %152, align 4
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i8, ptr %151, i64 %154
-  tail call void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncPhP8ciMethod(ptr noundef nonnull align 8 dereferenceable(145) %.0.i.i.i36, ptr noundef %150, ptr noundef %.028, ptr noundef %155, ptr noundef nonnull %9)
+  %148 = icmp ne ptr %.0.i.i.i36, null
+  tail call void @llvm.assume(i1 %148)
+  %149 = load ptr, ptr %10, align 8
+  %150 = load ptr, ptr @_ZN13SharedRuntime30_resolve_opt_virtual_call_blobE, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 36
+  %152 = load i32, ptr %151, align 4
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %150, i64 %153
+  tail call void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncPhP8ciMethod(ptr noundef nonnull align 8 dereferenceable(145) %.0.i.i.i36, ptr noundef %149, ptr noundef %.028, ptr noundef %154, ptr noundef nonnull %9)
+  %155 = getelementptr inbounds i8, ptr %.0.i.i.i36, i64 128
+  store i8 1, ptr %155, align 8
   br label %156
 
-156:                                              ; preds = %149, %_ZN4NodenwEm.exit37
-  %157 = getelementptr inbounds i8, ptr %.0.i.i.i36, i64 128
-  store i8 1, ptr %157, align 8
-  br label %158
-
-158:                                              ; preds = %_ZN4NodenwEm.exit34, %105, %_ZN4NodenwEm.exit, %71, %156
-  %.027 = phi ptr [ %.0.i.i.i36, %156 ], [ %.0.i.i.i, %71 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i33, %105 ], [ null, %_ZN4NodenwEm.exit34 ]
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
+156:                                              ; preds = %_ZN4NodenwEm.exit34, %105, %_ZN4NodenwEm.exit, %71, %_ZN4NodenwEm.exit37
+  %.027 = phi ptr [ %.0.i.i.i36, %_ZN4NodenwEm.exit37 ], [ %.0.i.i.i, %71 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i33, %105 ], [ null, %_ZN4NodenwEm.exit34 ]
+  %157 = getelementptr inbounds i8, ptr %0, i64 64
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 40
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 40
+  %161 = getelementptr inbounds i8, ptr %160, i64 56
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 56
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 36
-  %166 = load i32, ptr %165, align 4
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = tail call noundef zeroext i1 @_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodiS1_(ptr noundef %160, i32 noundef %166, ptr noundef %169) #13
-  br i1 %170, label %171, label %173
+  %163 = getelementptr inbounds i8, ptr %162, i64 36
+  %164 = load i32, ptr %163, align 4
+  %165 = load ptr, ptr %6, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = tail call noundef zeroext i1 @_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodiS1_(ptr noundef %158, i32 noundef %164, ptr noundef %167) #13
+  br i1 %168, label %169, label %171
 
-171:                                              ; preds = %158
-  %172 = getelementptr inbounds i8, ptr %.027, i64 130
-  store i8 1, ptr %172, align 2
-  br label %173
+169:                                              ; preds = %156
+  %170 = getelementptr inbounds i8, ptr %.027, i64 130
+  store i8 1, ptr %170, align 2
+  br label %171
 
-173:                                              ; preds = %171, %158
+171:                                              ; preds = %169, %156
   tail call void @_ZN8GraphKit27set_arguments_for_java_callEP12CallJavaNode(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.027) #13
   tail call void @_ZN8GraphKit23set_edges_for_java_callEP12CallJavaNodebb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.027, i1 noundef zeroext false, i1 noundef zeroext false) #13
   ret ptr %.027

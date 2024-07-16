@@ -85857,82 +85857,78 @@ _ZSt4fillISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlE
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZSt4fillISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEiEvT_S9_RKT0_.exit
-  %.not.i.i.i.i.i = icmp eq ptr %37, %35
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i, label %.noexc17.i
-
-.noexc17.i:                                       ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.not.i.i.i.i.i = icmp ne ptr %37, %35
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #27
   %42 = getelementptr i8, ptr %41, i64 %39
   store i64 0, ptr %41, align 8
   %43 = getelementptr i8, ptr %41, i64 8
   %44 = icmp eq i64 %39, 8
-  br i1 %44, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %44, label %46, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
-_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc17.i
+_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %45 = add nsw i64 %39, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %45, i1 false)
-  br label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i
+  br label %46
 
-_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc17.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.2.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %41, %.noexc17.i ], [ %41, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
-  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %42, %.noexc17.i ], [ %42, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %43, %.noexc17.i ], [ %42, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
-  %46 = getelementptr inbounds i8, ptr %37, i64 -8
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 -8
-  store i64 %47, ptr %48, align 8
-  %49 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %50 = ptrtoint ptr %.sroa.2.0 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 3
-  %.018.i = add nsw i64 %52, -1
+46:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.0.i.i.i.i.i.i = phi ptr [ %43, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %42, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
+  %47 = getelementptr inbounds i8, ptr %37, i64 -8
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 -8
+  store i64 %48, ptr %49, align 8
+  %50 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
+  %51 = ptrtoint ptr %41 to i64
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 3
+  %.018.i = add nsw i64 %53, -1
   %.not19.i = icmp eq i64 %.018.i, 0
   br i1 %.not19.i, label %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i
-  %53 = load ptr, ptr %2, align 8
-  %54 = add i64 %51, -8
-  %scevgep31 = getelementptr i8, ptr %.sroa.2.0, i64 %54
+.lr.ph.i.preheader:                               ; preds = %46
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr i8, ptr %41, i64 %52
+  %scevgep31 = getelementptr i8, ptr %55, i64 -8
   %load_initial = load i64, ptr %scevgep31, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.preheader ], [ %64, %.lr.ph.i ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.preheader ], [ %65, %.lr.ph.i ]
   %.021.i = phi i64 [ %.018.i, %.lr.ph.i.preheader ], [ %.0.i, %.lr.ph.i ]
-  %.0.in20.i = phi i64 [ %52, %.lr.ph.i.preheader ], [ %.021.i, %.lr.ph.i ]
-  %55 = add i64 %.0.in20.i, -2
-  %56 = getelementptr inbounds i64, ptr %53, i64 %.021.i
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i64, ptr %35, i64 %55
-  %59 = load i64, ptr %58, align 8
-  %60 = add nsw i64 %store_forwarded, %59
-  %61 = getelementptr inbounds i64, ptr %35, i64 %.021.i
-  %62 = load i64, ptr %61, align 8
-  %63 = mul nsw i64 %62, %57
-  %64 = sub i64 %60, %63
-  %65 = getelementptr inbounds i64, ptr %.sroa.2.0, i64 %55
-  store i64 %64, ptr %65, align 8
+  %.0.in20.i = phi i64 [ %53, %.lr.ph.i.preheader ], [ %.021.i, %.lr.ph.i ]
+  %56 = add i64 %.0.in20.i, -2
+  %57 = getelementptr inbounds i64, ptr %54, i64 %.021.i
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds i64, ptr %35, i64 %56
+  %60 = load i64, ptr %59, align 8
+  %61 = add nsw i64 %store_forwarded, %60
+  %62 = getelementptr inbounds i64, ptr %35, i64 %.021.i
+  %63 = load i64, ptr %62, align 8
+  %64 = mul nsw i64 %63, %58
+  %65 = sub i64 %61, %64
+  %66 = getelementptr inbounds i64, ptr %41, i64 %56
+  store i64 %65, ptr %66, align 8
   %.0.i = add i64 %.021.i, -1
   %.not.i = icmp eq i64 %.0.i, 0
   br i1 %.not.i, label %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit, label %.lr.ph.i, !llvm.loop !2392
 
-_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit: ; preds = %.lr.ph.i, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i
+_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit: ; preds = %.lr.ph.i, %46
   store ptr %36, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
-  %69 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %.sroa.2.0, ptr %66, align 8
-  store ptr %.0.i.i.i.i.i.i, ptr %68, align 8
-  store ptr %.sroa.10.0, ptr %69, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN8pybind116detail15common_iteratorD2Ev.exit, label %70
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %41, ptr %67, align 8
+  store ptr %.0.i.i.i.i.i.i, ptr %69, align 8
+  store ptr %42, ptr %70, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN8pybind116detail15common_iteratorD2Ev.exit, label %71
 
-70:                                               ; preds = %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %67) #28
+71:                                               ; preds = %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %68) #28
   br label %_ZN8pybind116detail15common_iteratorD2Ev.exit
 
-_ZN8pybind116detail15common_iteratorD2Ev.exit:    ; preds = %70, %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit
+_ZN8pybind116detail15common_iteratorD2Ev.exit:    ; preds = %71, %_ZN8pybind116detail15common_iteratorC2EPvRKSt6vectorIlSaIlEES7_.exit
   ret void
 }
 

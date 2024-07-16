@@ -537,9 +537,8 @@ while.body7.i.i:                                  ; preds = %while.body7.i.i, %w
   br i1 %cmp.not.i.i, label %if.end5.i, label %while.body7.i.i, !llvm.loop !9
 
 move_waiters.exit.i:                              ; preds = %if.then.i
-  %.pr.i = load ptr, ptr %to_pop.i, align 8
-  %cmp3.i = icmp eq ptr %.pr.i, null
-  br i1 %cmp3.i, label %pop_waiter.exit, label %if.end5.i
+  %.pr.i = load ptr, ptr %to_pop.i, align 8, !nonnull !10, !noundef !10
+  br label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body7.i.i, %move_waiters.exit.i, %if.then
   %22 = phi ptr [ %.pr.i, %move_waiters.exit.i ], [ %17, %if.then ], [ %reversed.sroa.0.08.i.i, %while.body7.i.i ]
@@ -547,16 +546,12 @@ if.end5.i:                                        ; preds = %while.body7.i.i, %m
   %23 = load ptr, ptr %next.i20, align 8
   store ptr %23, ptr %to_pop.i, align 8
   store ptr null, ptr %next.i20, align 8
-  br label %pop_waiter.exit
-
-pop_waiter.exit:                                  ; preds = %move_waiters.exit.i, %if.end5.i
-  %retval.0.i = phi ptr [ %22, %if.end5.i ], [ null, %move_waiters.exit.i ]
-  %24 = load ptr, ptr %retval.0.i, align 8
+  %24 = load ptr, ptr %22, align 8
   %cmp14 = icmp eq ptr %24, %call
   br i1 %cmp14, label %if.then15, label %if.end19
 
-if.then15:                                        ; preds = %pop_waiter.exit
-  %cmp16 = icmp eq ptr %retval.0.i, %w
+if.then15:                                        ; preds = %if.end5.i
+  %cmp16 = icmp eq ptr %22, %w
   br i1 %cmp16, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then15
@@ -568,8 +563,8 @@ if.end:                                           ; preds = %if.then15
   store ptr %ctx, ptr %ctx18, align 8
   br label %return
 
-if.end19:                                         ; preds = %pop_waiter.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+if.end19:                                         ; preds = %if.end5.i
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %ctx.i = getelementptr inbounds i8, ptr %24, i64 40
   %25 = load ptr, ptr %ctx.i, align 8
   %ctx1.i = getelementptr inbounds i8, ptr %mutex, i64 8
@@ -741,7 +736,7 @@ if.then15:                                        ; preds = %move_waiters.exit.i
   store ptr %16, ptr %to_pop.i, align 8
   store ptr null, ptr %next.i, align 8
   %17 = load ptr, ptr %15, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %ctx.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load ptr, ptr %ctx.i, align 8
   store ptr %18, ptr %ctx, align 8
@@ -813,7 +808,7 @@ return:                                           ; preds = %if.end7, %trace_qem
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_co_mutex_wake(ptr nocapture noundef writeonly %mutex, ptr noundef %co) #1 {
 entry:
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %ctx = getelementptr inbounds i8, ptr %co, i64 40
   %0 = load ptr, ptr %ctx, align 8
   %ctx1 = getelementptr inbounds i8, ptr %mutex, i64 8
@@ -1370,4 +1365,5 @@ attributes #10 = { noreturn nounwind }
 !7 = !{i64 2150570081}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 2150559902}
+!10 = !{}
+!11 = !{i64 2150559902}

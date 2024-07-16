@@ -1839,7 +1839,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 48, i64 noundef 8) #12
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.then
@@ -1862,7 +1862,7 @@ if.then4:                                         ; preds = %entry
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str, ptr %ref.tmp5, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
@@ -1891,7 +1891,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i, i64 4)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef nonnull @.str.1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef nonnull @.str.1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -1966,7 +1966,7 @@ if.then12:                                        ; preds = %_ZSt11lower_boundIP
   br i1 %cmp9.i.i.i2481, label %if.then.i.i.i2485, label %if.end.i.i.i2482
 
 if.then.i.i.i2485:                                ; preds = %if.then12
-  %call11.i.i.i2486 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 48, i64 noundef 8) #12
+  %call11.i.i.i2486 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit2487
 
 if.end.i.i.i2482:                                 ; preds = %if.then12
@@ -2019,7 +2019,7 @@ while.body.i.i.i.i2516:                           ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i2530: ; preds = %while.body.i.i.i.i2516
   %.sroa.speculated.i.i.i.i.i.i.i2528 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2527, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2531 = load ptr, ptr %39, align 8
-  %call.i4.i.i.i.i.i.i.i2532 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2531, ptr noundef nonnull @.str.2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2528) #13
+  %call.i4.i.i.i.i.i.i.i2532 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2531, ptr noundef nonnull @.str.2, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2528) #14
   %tobool.i.not.i.i.i.i.i.i.i2533 = icmp eq i32 %call.i4.i.i.i.i.i.i.i2532, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2533, label %if.end.i.i.i.i.i.i.i.i2543, label %if.then.i.i.i.i.i.i.i.i2534
 
@@ -2095,7 +2095,7 @@ while.body.i.i.i.i2569:                           ; preds = %_ZN4llvh16dyn_cast_
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i2583: ; preds = %while.body.i.i.i.i2569
   %.sroa.speculated.i.i.i.i.i.i.i2581 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2580, i64 3)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2584 = load ptr, ptr %47, align 8
-  %call.i4.i.i.i.i.i.i.i2585 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2584, ptr noundef nonnull @.str.3, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2581) #13
+  %call.i4.i.i.i.i.i.i.i2585 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2584, ptr noundef nonnull @.str.3, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2581) #14
   %tobool.i.not.i.i.i.i.i.i.i2586 = icmp eq i32 %call.i4.i.i.i.i.i.i.i2585, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2586, label %if.end.i.i.i.i.i.i.i.i2596, label %if.then.i.i.i.i.i.i.i.i2587
 
@@ -2173,7 +2173,7 @@ while.body.i.i.i.i2627:                           ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i2641: ; preds = %while.body.i.i.i.i2627
   %.sroa.speculated.i.i.i.i.i.i.i2639 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2638, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2642 = load ptr, ptr %55, align 8
-  %call.i4.i.i.i.i.i.i.i2643 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2642, ptr noundef nonnull @.str.4, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2639) #13
+  %call.i4.i.i.i.i.i.i.i2643 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2642, ptr noundef nonnull @.str.4, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2639) #14
   %tobool.i.not.i.i.i.i.i.i.i2644 = icmp eq i32 %call.i4.i.i.i.i.i.i.i2643, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2644, label %if.end.i.i.i.i.i.i.i.i2654, label %if.then.i.i.i.i.i.i.i.i2645
 
@@ -2359,7 +2359,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then96, %_ZN9__g
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %74, align 8
-  %call.i4.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr noundef nonnull @.str.865, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr noundef nonnull @.str.865, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -2440,7 +2440,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i2692, %_ZN
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i, i64 7)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %84, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly @.str.136, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
@@ -2524,7 +2524,7 @@ while.body.i.i.i.i.i45.i:                         ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i: ; preds = %while.body.i.i.i.i.i45.i
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i = load ptr, ptr %93, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull readonly @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #13
+  %call.i4.i.i.i.i.i.i.i.i61.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i, ptr noundef nonnull readonly @.str.138, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i62.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i, label %if.end.i.i.i.i.i.i.i.i.i72.i, label %if.then.i.i.i.i.i.i.i.i.i63.i
 
@@ -2613,7 +2613,7 @@ if.end14.i:                                       ; preds = %_ZNK6hermes6parser1
   br i1 %cmp9.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end14.i
-  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 64, i64 noundef 8) #12
+  %call11.i.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 64, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end14.i
@@ -2654,7 +2654,7 @@ while.body.i.i.i.i104.i:                          ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i118.i: ; preds = %while.body.i.i.i.i104.i
   %.sroa.speculated.i.i.i.i.i.i.i116.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i115.i, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i119.i = load ptr, ptr %112, align 8
-  %call.i4.i.i.i.i.i.i.i120.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i119.i, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i116.i) #13
+  %call.i4.i.i.i.i.i.i.i120.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i119.i, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i116.i) #14
   %tobool.i.not.i.i.i.i.i.i.i121.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i120.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i121.i, label %if.end.i.i.i.i.i.i.i.i131.i, label %if.then.i.i.i.i.i.i.i.i122.i
 
@@ -2744,7 +2744,7 @@ sw.bb.i:                                          ; preds = %if.end26.i
   br i1 %cmp9.i.i.i148.i, label %if.then.i.i.i152.i, label %if.end.i.i.i149.i
 
 if.then.i.i.i152.i:                               ; preds = %sw.bb.i
-  %call11.i.i.i153.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #12
+  %call11.i.i.i153.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit154.i
 
 if.end.i.i.i149.i:                                ; preds = %sw.bb.i
@@ -2790,7 +2790,7 @@ sw.bb33.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i167.i, label %if.then.i.i.i171.i, label %if.end.i.i.i168.i
 
 if.then.i.i.i171.i:                               ; preds = %sw.bb33.i
-  %call11.i.i.i172.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #12
+  %call11.i.i.i172.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit173.i
 
 if.end.i.i.i168.i:                                ; preds = %sw.bb33.i
@@ -2837,7 +2837,7 @@ sw.bb39.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i188.i, label %if.then.i.i.i192.i, label %if.end.i.i.i189.i
 
 if.then.i.i.i192.i:                               ; preds = %sw.bb39.i
-  %call11.i.i.i193.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 48, i64 noundef 8) #12
+  %call11.i.i.i193.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 48, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit194.i
 
 if.end.i.i.i189.i:                                ; preds = %sw.bb39.i
@@ -2879,7 +2879,7 @@ sw.bb43.i:                                        ; preds = %if.end26.i
   br i1 %cmp9.i.i.i207.i, label %if.then.i.i.i211.i, label %if.end.i.i.i208.i
 
 if.then.i.i.i211.i:                               ; preds = %sw.bb43.i
-  %call11.i.i.i212.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #12
+  %call11.i.i.i212.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val, i64 noundef 56, i64 noundef 8) #13
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit213.i
 
 if.end.i.i.i208.i:                                ; preds = %sw.bb43.i
@@ -2912,7 +2912,7 @@ if.then100:                                       ; preds = %sw.default.i, %if.t
   %LHSKind.i219.i.sink = phi ptr [ %LHSKind.i219.i, %sw.default.i ], [ %LHSKind.i134.i, %if.then21.i ], [ %LHSKind.i75.i, %if.then9.i ], [ %LHSKind.i.i, %if.then5.i ]
   %ref.tmp51.i.sink = phi ptr [ %ref.tmp51.i, %sw.default.i ], [ %ref.tmp24.i, %if.then21.i ], [ %ref.tmp12.i, %if.then9.i ], [ %ref.tmp.i, %if.then5.i ]
   store i8 3, ptr %LHSKind.i219.i.sink, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2464, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp51.i.sink, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2464, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp51.i.sink, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp12.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp24.i)
@@ -2963,7 +2963,7 @@ while.body.i.i.i.i.i.i2846:                       ; preds = %if.then108, %_ZN9__
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i2859: ; preds = %while.body.i.i.i.i.i.i2846
   %.sroa.speculated.i.i.i.i.i.i.i.i.i2860 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i2857, i64 4)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861 = load ptr, ptr %164, align 8
-  %call.i4.i.i.i.i.i.i.i.i.i2862 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861, ptr noundef nonnull readonly @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i2860) #13
+  %call.i4.i.i.i.i.i.i.i.i.i2862 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i2861, ptr noundef nonnull readonly @.str.262, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i2860) #14
   %tobool.i.not.i.i.i.i.i.i.i.i.i2863 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i.i2862, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i2863, label %if.end.i.i.i.i.i.i.i.i.i.i2873, label %if.then.i.i.i.i.i.i.i.i.i.i2864
 
@@ -3046,7 +3046,7 @@ while.body.i.i.i.i.i2809:                         ; preds = %if.end.i, %_ZN9__gn
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2822: ; preds = %while.body.i.i.i.i.i2809
   %.sroa.speculated.i.i.i.i.i.i.i.i2823 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i2820, i64 5)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i2824 = load ptr, ptr %173, align 8
-  %call.i4.i.i.i.i.i.i.i.i2825 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i2824, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i2823) #13
+  %call.i4.i.i.i.i.i.i.i.i2825 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i2824, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i2823) #14
   %tobool.i.not.i.i.i.i.i.i.i.i2826 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i2825, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i2826, label %if.end.i.i.i.i.i.i.i.i.i2836, label %if.then.i.i.i.i.i.i.i.i.i2827
 
@@ -3134,7 +3134,7 @@ while.body.i.i.i.i.i45.i2780:                     ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i59.i2793: ; preds = %while.body.i.i.i.i.i45.i2780
   %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794 = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i56.i2791, i64 6)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795 = load ptr, ptr %183, align 8
-  %call.i4.i.i.i.i.i.i.i.i61.i2796 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795, ptr noundef nonnull readonly @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794) #13
+  %call.i4.i.i.i.i.i.i.i.i61.i2796 = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i60.i2795, ptr noundef nonnull readonly @.str.264, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i57.i2794) #14
   %tobool.i.not.i.i.i.i.i.i.i.i62.i2797 = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i61.i2796, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i62.i2797, label %if.end.i.i.i.i.i.i.i.i.i72.i2807, label %if.then.i.i.i.i.i.i.i.i.i63.i2798
 
@@ -3218,7 +3218,7 @@ while.body.i.i.i.i.i105.i:                        ; preds = %_ZN4llvh9StringRefC
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i119.i: ; preds = %while.body.i.i.i.i.i105.i
   %.sroa.speculated.i.i.i.i.i.i.i.i117.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i116.i, i64 3)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i = load ptr, ptr %192, align 8
-  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull readonly @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #13
+  %call.i4.i.i.i.i.i.i.i.i121.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i120.i, ptr noundef nonnull readonly @.str.266, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i117.i) #14
   %tobool.i.not.i.i.i.i.i.i.i.i122.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i.i121.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i122.i, label %if.end.i.i.i.i.i.i.i.i.i132.i, label %if.then.i.i.i.i.i.i.i.i.i123.i
 
@@ -3307,7 +3307,7 @@ if.end27.i:                                       ; preds = %_ZNK6hermes6parser1
   br i1 %cmp9.i.i.i.i2763, label %if.then.i.i.i.i2770, label %if.end.i.i.i.i2764
 
 if.then.i.i.i.i2770:                              ; preds = %if.end27.i
-  %call11.i.i.i.i2771 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val2465, i64 noundef 72, i64 noundef 8) #12
+  %call11.i.i.i.i2771 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %this.val2465, i64 noundef 72, i64 noundef 8) #13
   br label %if.end113
 
 if.end.i.i.i.i2764:                               ; preds = %if.end27.i
@@ -3320,7 +3320,7 @@ if.then112:                                       ; preds = %if.then6.i, %if.the
   %LHSKind.i14.i.sink = phi ptr [ %LHSKind.i14.i, %if.then6.i ], [ %LHSKind.i135.i, %if.then22.i ], [ %LHSKind.i74.i, %if.then14.i ], [ %LHSKind.i.i2718, %if.then.i2717 ]
   %ref.tmp9.i.sink = phi ptr [ %ref.tmp9.i, %if.then6.i ], [ %ref.tmp25.i, %if.then22.i ], [ %ref.tmp17.i, %if.then14.i ], [ %ref.tmp.i2700, %if.then.i2717 ]
   store i8 3, ptr %LHSKind.i14.i.sink, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2466, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9.i.sink, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %this.val2466, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9.i.sink, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i2700)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp17.i)
@@ -3415,7 +3415,7 @@ if.then139:                                       ; preds = %if.then136
   store i8 1, ptr %RHSKind.i2890, align 1
   store ptr @.str.15, ptr %ref.tmp142, align 8
   store i8 3, ptr %LHSKind.i2889, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %215, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp142, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %215, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp142, i32 noundef 0) #13
   br label %return
 
 if.end144:                                        ; preds = %if.then136
@@ -3457,7 +3457,7 @@ if.then165:                                       ; preds = %if.then152
   store i8 1, ptr %RHSKind.i2899, align 1
   store ptr @.str.20, ptr %ref.tmp168, align 8
   store i8 3, ptr %LHSKind.i2898, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %218, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp168, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %218, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp168, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6782:                ; preds = %if.then152
@@ -3472,7 +3472,7 @@ if.then173:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2904, align 1
   store ptr @.str.21, ptr %ref.tmp176, align 8
   store i8 3, ptr %LHSKind.i2903, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %219, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp176, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %219, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp176, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6792:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6782
@@ -3490,7 +3490,7 @@ if.then208:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2909, align 1
   store ptr @.str.29, ptr %ref.tmp211, align 8
   store i8 3, ptr %LHSKind.i2908, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %220, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp211, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %220, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp211, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6832:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6792
@@ -3505,7 +3505,7 @@ if.then216:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2914, align 1
   store ptr @.str.31, ptr %ref.tmp219, align 8
   store i8 3, ptr %LHSKind.i2913, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %221, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp219, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %221, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp219, i32 noundef 0) #13
   br label %return
 
 if.end221:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit6832
@@ -3556,7 +3556,7 @@ if.then251:                                       ; preds = %if.then231
   store i8 1, ptr %RHSKind.i2923, align 1
   store ptr @.str.34, ptr %ref.tmp254, align 8
   store i8 3, ptr %LHSKind.i2922, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %231, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp254, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %231, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp254, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6872:                ; preds = %if.then231
@@ -3571,7 +3571,7 @@ if.then259:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2928, align 1
   store ptr @.str.35, ptr %ref.tmp262, align 8
   store i8 3, ptr %LHSKind.i2927, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %232, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp262, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %232, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp262, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6882:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6872
@@ -3589,7 +3589,7 @@ if.then294:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2933, align 1
   store ptr @.str.40, ptr %ref.tmp297, align 8
   store i8 3, ptr %LHSKind.i2932, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %233, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp297, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %233, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp297, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6922:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6882
@@ -3604,7 +3604,7 @@ if.then302:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2938, align 1
   store ptr @.str.41, ptr %ref.tmp305, align 8
   store i8 3, ptr %LHSKind.i2937, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %234, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp305, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %234, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp305, i32 noundef 0) #13
   br label %return
 
 if.end307:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit6922
@@ -3655,7 +3655,7 @@ if.then337:                                       ; preds = %if.then317
   store i8 1, ptr %RHSKind.i2947, align 1
   store ptr @.str.44, ptr %ref.tmp340, align 8
   store i8 3, ptr %LHSKind.i2946, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %244, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp340, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %244, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp340, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6962:                ; preds = %if.then317
@@ -3670,7 +3670,7 @@ if.then345:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2952, align 1
   store ptr @.str.45, ptr %ref.tmp348, align 8
   store i8 3, ptr %LHSKind.i2951, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %245, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp348, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %245, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp348, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6972:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6962
@@ -3688,7 +3688,7 @@ if.then380:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2957, align 1
   store ptr @.str.49, ptr %ref.tmp383, align 8
   store i8 3, ptr %LHSKind.i2956, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %246, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp383, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %246, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp383, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7012:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6972
@@ -3703,7 +3703,7 @@ if.then388:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2962, align 1
   store ptr @.str.50, ptr %ref.tmp391, align 8
   store i8 3, ptr %LHSKind.i2961, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %247, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp391, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %247, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp391, i32 noundef 0) #13
   br label %return
 
 if.end393:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7012
@@ -3762,7 +3762,7 @@ if.then411:                                       ; preds = %if.then403
   store i8 1, ptr %RHSKind.i2971, align 1
   store ptr @.str.52, ptr %ref.tmp414, align 8
   store i8 3, ptr %LHSKind.i2970, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %257, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp414, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %257, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp414, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7042:                ; preds = %if.then403
@@ -3777,7 +3777,7 @@ if.then419:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2976, align 1
   store ptr @.str.53, ptr %ref.tmp422, align 8
   store i8 3, ptr %LHSKind.i2975, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %258, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp422, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %258, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp422, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7052:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7042
@@ -3792,7 +3792,7 @@ if.then427:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2981, align 1
   store ptr @.str.54, ptr %ref.tmp430, align 8
   store i8 3, ptr %LHSKind.i2980, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %259, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp430, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %259, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp430, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7062:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7052
@@ -3831,7 +3831,7 @@ if.then463:                                       ; preds = %if.then458
   store i8 1, ptr %RHSKind.i2989, align 1
   store ptr @.str.59, ptr %ref.tmp466, align 8
   store i8 3, ptr %LHSKind.i2988, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %266, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp466, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %266, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp466, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7102:                ; preds = %if.then458
@@ -3846,7 +3846,7 @@ if.then471:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i2994, align 1
   store ptr @.str.61, ptr %ref.tmp474, align 8
   store i8 3, ptr %LHSKind.i2993, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %267, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp474, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %267, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp474, i32 noundef 0) #13
   br label %return
 
 if.end476:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7102
@@ -3891,7 +3891,7 @@ if.then489:                                       ; preds = %if.then484
   store i8 1, ptr %RHSKind.i3002, align 1
   store ptr @.str.63, ptr %ref.tmp492, align 8
   store i8 3, ptr %LHSKind.i3001, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %273, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp492, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %273, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp492, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7132:                ; preds = %if.then484
@@ -3906,7 +3906,7 @@ if.then497:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3007, align 1
   store ptr @.str.64, ptr %ref.tmp500, align 8
   store i8 3, ptr %LHSKind.i3006, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %274, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp500, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %274, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp500, i32 noundef 0) #13
   br label %return
 
 if.end502:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7132
@@ -3952,7 +3952,7 @@ if.then516:                                       ; preds = %if.then510
   store i8 1, ptr %RHSKind.i3019, align 1
   store ptr @.str.67, ptr %ref.tmp519, align 8
   store i8 3, ptr %LHSKind.i3018, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %280, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp519, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %280, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp519, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7162:                ; preds = %if.then510
@@ -3967,7 +3967,7 @@ if.then524:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3024, align 1
   store ptr @.str.69, ptr %ref.tmp527, align 8
   store i8 3, ptr %LHSKind.i3023, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %281, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp527, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %281, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp527, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7172:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7162
@@ -3982,7 +3982,7 @@ if.then532:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3029, align 1
   store ptr @.str.70, ptr %ref.tmp535, align 8
   store i8 3, ptr %LHSKind.i3028, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %282, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp535, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %282, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp535, i32 noundef 0) #13
   br label %return
 
 if.end537:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7172
@@ -4032,7 +4032,7 @@ if.then552:                                       ; preds = %if.then545
   store i8 1, ptr %RHSKind.i3040, align 1
   store ptr @.str.72, ptr %ref.tmp555, align 8
   store i8 3, ptr %LHSKind.i3039, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %289, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp555, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %289, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp555, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7202:                ; preds = %if.then545
@@ -4047,7 +4047,7 @@ if.then560:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3045, align 1
   store ptr @.str.73, ptr %ref.tmp563, align 8
   store i8 3, ptr %LHSKind.i3044, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %290, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp563, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %290, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp563, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7212:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7202
@@ -4062,7 +4062,7 @@ if.then568:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3050, align 1
   store ptr @.str.74, ptr %ref.tmp571, align 8
   store i8 3, ptr %LHSKind.i3049, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %291, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp571, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %291, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp571, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7222:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7212
@@ -4077,7 +4077,7 @@ if.then576:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3055, align 1
   store ptr @.str.76, ptr %ref.tmp579, align 8
   store i8 3, ptr %LHSKind.i3054, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %292, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp579, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %292, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp579, i32 noundef 0) #13
   br label %return
 
 if.end581:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7222
@@ -4135,7 +4135,7 @@ if.then624:                                       ; preds = %if.then590
   store i8 1, ptr %RHSKind.i3068, align 1
   store ptr @.str.83, ptr %ref.tmp627, align 8
   store i8 3, ptr %LHSKind.i3067, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %300, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp627, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %300, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp627, i32 noundef 0) #13
   br label %return
 
 if.end629:                                        ; preds = %if.then590
@@ -4227,7 +4227,7 @@ if.then657:                                       ; preds = %if.then653
   store i8 1, ptr %RHSKind.i3091, align 1
   store ptr @.str.87, ptr %ref.tmp660, align 8
   store i8 3, ptr %LHSKind.i3090, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %312, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp660, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %312, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp660, i32 noundef 0) #13
   br label %return
 
 if.end662:                                        ; preds = %if.then653
@@ -4313,7 +4313,7 @@ if.then710:                                       ; preds = %if.then706
   store i8 1, ptr %RHSKind.i3110, align 1
   store ptr @.str.95, ptr %ref.tmp713, align 8
   store i8 3, ptr %LHSKind.i3109, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %323, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp713, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %323, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp713, i32 noundef 0) #13
   br label %return
 
 if.end715:                                        ; preds = %if.then706
@@ -4378,7 +4378,7 @@ if.then746:                                       ; preds = %if.then741
   store i8 1, ptr %RHSKind.i3126, align 1
   store ptr @.str.100, ptr %ref.tmp749, align 8
   store i8 3, ptr %LHSKind.i3125, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %330, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp749, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %330, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp749, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7422:                ; preds = %if.then741
@@ -4393,7 +4393,7 @@ if.then754:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3131, align 1
   store ptr @.str.101, ptr %ref.tmp757, align 8
   store i8 3, ptr %LHSKind.i3130, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %331, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp757, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %331, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp757, i32 noundef 0) #13
   br label %return
 
 if.end759:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7422
@@ -4438,7 +4438,7 @@ if.then772:                                       ; preds = %if.then767
   store i8 1, ptr %RHSKind.i3143, align 1
   store ptr @.str.104, ptr %ref.tmp775, align 8
   store i8 3, ptr %LHSKind.i3142, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %336, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp775, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %336, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp775, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7452:                ; preds = %if.then767
@@ -4453,7 +4453,7 @@ if.then780:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3148, align 1
   store ptr @.str.106, ptr %ref.tmp783, align 8
   store i8 3, ptr %LHSKind.i3147, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %337, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp783, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %337, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp783, i32 noundef 0) #13
   br label %return
 
 if.end785:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7452
@@ -4487,7 +4487,7 @@ if.then798:                                       ; preds = %if.then793
   store i8 1, ptr %RHSKind.i3156, align 1
   store ptr @.str.108, ptr %ref.tmp801, align 8
   store i8 3, ptr %LHSKind.i3155, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %341, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp801, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %341, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp801, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7482:                ; preds = %if.then793
@@ -4502,7 +4502,7 @@ if.then806:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3161, align 1
   store ptr @.str.109, ptr %ref.tmp809, align 8
   store i8 3, ptr %LHSKind.i3160, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %342, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp809, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %342, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp809, i32 noundef 0) #13
   br label %return
 
 if.end811:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7482
@@ -4547,7 +4547,7 @@ if.then824:                                       ; preds = %if.then819
   store i8 1, ptr %RHSKind.i3173, align 1
   store ptr @.str.111, ptr %ref.tmp827, align 8
   store i8 3, ptr %LHSKind.i3172, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %348, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp827, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %348, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp827, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7512:                ; preds = %if.then819
@@ -4592,7 +4592,7 @@ if.then852:                                       ; preds = %if.then846
   store i8 1, ptr %RHSKind.i3183, align 1
   store ptr @.str.116, ptr %ref.tmp855, align 8
   store i8 3, ptr %LHSKind.i3182, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %353, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp855, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %353, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp855, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7542:                ; preds = %if.then846
@@ -4641,7 +4641,7 @@ if.then889:                                       ; preds = %if.then883
   store i8 1, ptr %RHSKind.i3193, align 1
   store ptr @.str.122, ptr %ref.tmp892, align 8
   store i8 3, ptr %LHSKind.i3192, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %359, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp892, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %359, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp892, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7582:                ; preds = %if.then883
@@ -4656,7 +4656,7 @@ if.then897:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3198, align 1
   store ptr @.str.124, ptr %ref.tmp900, align 8
   store i8 3, ptr %LHSKind.i3197, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %360, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp900, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %360, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp900, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7592:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7582
@@ -4722,7 +4722,7 @@ if.then931:                                       ; preds = %if.then927
   store i8 1, ptr %RHSKind.i3214, align 1
   store ptr @.str.130, ptr %ref.tmp934, align 8
   store i8 3, ptr %LHSKind.i3213, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %368, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp934, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %368, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp934, i32 noundef 0) #13
   br label %return
 
 if.end936:                                        ; preds = %if.then927
@@ -4762,7 +4762,7 @@ if.then949:                                       ; preds = %if.then945
   store i8 1, ptr %RHSKind.i3226, align 1
   store ptr @.str.132, ptr %ref.tmp952, align 8
   store i8 3, ptr %LHSKind.i3225, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %372, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp952, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %372, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp952, i32 noundef 0) #13
   br label %return
 
 if.end954:                                        ; preds = %if.then945
@@ -4801,7 +4801,7 @@ if.then966:                                       ; preds = %if.then962
   store i8 1, ptr %RHSKind.i3237, align 1
   store ptr @.str.134, ptr %ref.tmp969, align 8
   store i8 3, ptr %LHSKind.i3236, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %376, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp969, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %376, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp969, i32 noundef 0) #13
   br label %return
 
 if.end971:                                        ; preds = %if.then962
@@ -4841,7 +4841,7 @@ if.then984:                                       ; preds = %if.then979
   store i8 1, ptr %RHSKind.i3248, align 1
   store ptr @.str.137, ptr %ref.tmp987, align 8
   store i8 3, ptr %LHSKind.i3247, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %380, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp987, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %380, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp987, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7692:                ; preds = %if.then979
@@ -4856,7 +4856,7 @@ if.then992:                                       ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3253, align 1
   store ptr @.str.139, ptr %ref.tmp995, align 8
   store i8 3, ptr %LHSKind.i3252, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %381, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp995, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %381, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp995, i32 noundef 0) #13
   br label %return
 
 if.end997:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit7692
@@ -4898,7 +4898,7 @@ if.then1009:                                      ; preds = %if.then1005
   store i8 1, ptr %RHSKind.i3263, align 1
   store ptr @.str.142, ptr %ref.tmp1012, align 8
   store i8 3, ptr %LHSKind.i3262, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %386, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1012, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %386, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1012, i32 noundef 0) #13
   br label %return
 
 if.end1014:                                       ; preds = %if.then1005
@@ -4979,7 +4979,7 @@ if.then1042:                                      ; preds = %if.then1038
   store i8 1, ptr %RHSKind.i3284, align 1
   store ptr @.str.147, ptr %ref.tmp1045, align 8
   store i8 3, ptr %LHSKind.i3283, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %394, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1045, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %394, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1045, i32 noundef 0) #13
   br label %return
 
 if.end1047:                                       ; preds = %if.then1038
@@ -5013,7 +5013,7 @@ if.then1059:                                      ; preds = %if.then1055
   store i8 1, ptr %RHSKind.i3293, align 1
   store ptr @.str.150, ptr %ref.tmp1062, align 8
   store i8 3, ptr %LHSKind.i3292, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %397, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1062, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %397, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1062, i32 noundef 0) #13
   br label %return
 
 if.end1064:                                       ; preds = %if.then1055
@@ -5048,7 +5048,7 @@ if.then1077:                                      ; preds = %if.then1072
   store i8 1, ptr %RHSKind.i3302, align 1
   store ptr @.str.153, ptr %ref.tmp1080, align 8
   store i8 3, ptr %LHSKind.i3301, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %400, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1080, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %400, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1080, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7802:                ; preds = %if.then1072
@@ -5063,7 +5063,7 @@ if.then1085:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3307, align 1
   store ptr @.str.155, ptr %ref.tmp1088, align 8
   store i8 3, ptr %LHSKind.i3306, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %401, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1088, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %401, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1088, i32 noundef 0) #13
   br label %return
 
 if.end1090:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7802
@@ -5097,7 +5097,7 @@ if.then1103:                                      ; preds = %if.then1099
   store i8 1, ptr %RHSKind.i3315, align 1
   store ptr @.str.156, ptr %ref.tmp1106, align 8
   store i8 3, ptr %LHSKind.i3314, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %405, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1106, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %405, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1106, i32 noundef 0) #13
   br label %return
 
 if.end1108:                                       ; preds = %if.then1099
@@ -5140,7 +5140,7 @@ if.then1122:                                      ; preds = %if.then1116
   store i8 1, ptr %RHSKind.i3327, align 1
   store ptr @.str.159, ptr %ref.tmp1125, align 8
   store i8 3, ptr %LHSKind.i3326, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %409, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1125, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %409, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1125, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7852:                ; preds = %if.then1116
@@ -5156,7 +5156,7 @@ if.then1139:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3332, align 1
   store ptr @.str.163, ptr %ref.tmp1142, align 8
   store i8 3, ptr %LHSKind.i3331, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %410, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1142, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %410, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1142, i32 noundef 0) #13
   br label %return
 
 if.end1144:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7852
@@ -5221,7 +5221,7 @@ if.then1185:                                      ; preds = %if.then1181
   store i8 1, ptr %RHSKind.i3347, align 1
   store ptr @.str.169, ptr %ref.tmp1188, align 8
   store i8 3, ptr %LHSKind.i3346, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %420, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1188, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %420, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1188, i32 noundef 0) #13
   br label %return
 
 if.end1190:                                       ; preds = %if.then1181
@@ -5261,7 +5261,7 @@ if.then1203:                                      ; preds = %if.then1198
   store i8 1, ptr %RHSKind.i3358, align 1
   store ptr @.str.172, ptr %ref.tmp1206, align 8
   store i8 3, ptr %LHSKind.i3357, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %424, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1206, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %424, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1206, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7942:                ; preds = %if.then1198
@@ -5308,7 +5308,7 @@ if.then1231:                                      ; preds = %if.then1225
   store i8 1, ptr %RHSKind.i3369, align 1
   store ptr @.str.176, ptr %ref.tmp1234, align 8
   store i8 3, ptr %LHSKind.i3368, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %429, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1234, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %429, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1234, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7972:                ; preds = %if.then1225
@@ -5324,7 +5324,7 @@ if.then1248:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3374, align 1
   store ptr @.str.178, ptr %ref.tmp1251, align 8
   store i8 3, ptr %LHSKind.i3373, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %430, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1251, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %430, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1251, i32 noundef 0) #13
   br label %return
 
 if.end1253:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7972
@@ -5375,7 +5375,7 @@ if.then1268:                                      ; preds = %if.then1261
   store i8 1, ptr %RHSKind.i3383, align 1
   store ptr @.str.180, ptr %ref.tmp1271, align 8
   store i8 3, ptr %LHSKind.i3382, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %435, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1271, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %435, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1271, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8012:                ; preds = %if.then1261
@@ -5391,7 +5391,7 @@ if.then1285:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3388, align 1
   store ptr @.str.182, ptr %ref.tmp1288, align 8
   store i8 3, ptr %LHSKind.i3387, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %436, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1288, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %436, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1288, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8032:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8012
@@ -5406,7 +5406,7 @@ if.then1293:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3393, align 1
   store ptr @.str.184, ptr %ref.tmp1296, align 8
   store i8 3, ptr %LHSKind.i3392, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %437, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1296, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %437, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1296, i32 noundef 0) #13
   br label %return
 
 if.end1298:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8032
@@ -5448,7 +5448,7 @@ if.then1313:                                      ; preds = %if.then1307
   store i8 1, ptr %RHSKind.i3401, align 1
   store ptr @.str.187, ptr %ref.tmp1316, align 8
   store i8 3, ptr %LHSKind.i3400, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %443, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1316, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %443, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1316, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8062:                ; preds = %if.then1307
@@ -5463,7 +5463,7 @@ if.then1321:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3406, align 1
   store ptr @.str.188, ptr %ref.tmp1324, align 8
   store i8 3, ptr %LHSKind.i3405, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %444, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1324, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %444, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1324, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8072:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8062
@@ -5478,7 +5478,7 @@ if.then1329:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3411, align 1
   store ptr @.str.189, ptr %ref.tmp1332, align 8
   store i8 3, ptr %LHSKind.i3410, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %445, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1332, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %445, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1332, i32 noundef 0) #13
   br label %return
 
 if.end1334:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8072
@@ -5525,7 +5525,7 @@ if.then1348:                                      ; preds = %if.then1342
   store i8 1, ptr %RHSKind.i3423, align 1
   store ptr @.str.191, ptr %ref.tmp1351, align 8
   store i8 3, ptr %LHSKind.i3422, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %451, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1351, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %451, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1351, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8102:                ; preds = %if.then1342
@@ -5540,7 +5540,7 @@ if.then1356:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3428, align 1
   store ptr @.str.192, ptr %ref.tmp1359, align 8
   store i8 3, ptr %LHSKind.i3427, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %452, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1359, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %452, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1359, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8112:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8102
@@ -5555,7 +5555,7 @@ if.then1364:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3433, align 1
   store ptr @.str.194, ptr %ref.tmp1367, align 8
   store i8 3, ptr %LHSKind.i3432, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %453, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1367, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %453, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1367, i32 noundef 0) #13
   br label %return
 
 if.end1369:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8112
@@ -5603,7 +5603,7 @@ if.then1384:                                      ; preds = %if.then1378
   store i8 1, ptr %RHSKind.i3446, align 1
   store ptr @.str.196, ptr %ref.tmp1387, align 8
   store i8 3, ptr %LHSKind.i3445, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %459, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1387, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %459, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1387, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8142:                ; preds = %if.then1378
@@ -5618,7 +5618,7 @@ if.then1392:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3451, align 1
   store ptr @.str.197, ptr %ref.tmp1395, align 8
   store i8 3, ptr %LHSKind.i3450, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %460, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1395, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %460, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1395, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8152:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8142
@@ -5633,7 +5633,7 @@ if.then1400:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3456, align 1
   store ptr @.str.198, ptr %ref.tmp1403, align 8
   store i8 3, ptr %LHSKind.i3455, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %461, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1403, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %461, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1403, i32 noundef 0) #13
   br label %return
 
 if.end1405:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8152
@@ -5681,7 +5681,7 @@ if.then1420:                                      ; preds = %if.then1414
   store i8 1, ptr %RHSKind.i3470, align 1
   store ptr @.str.200, ptr %ref.tmp1423, align 8
   store i8 3, ptr %LHSKind.i3469, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %467, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1423, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %467, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1423, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8182:                ; preds = %if.then1414
@@ -5696,7 +5696,7 @@ if.then1428:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3475, align 1
   store ptr @.str.202, ptr %ref.tmp1431, align 8
   store i8 3, ptr %LHSKind.i3474, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %468, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1431, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %468, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1431, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8192:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8182
@@ -5711,7 +5711,7 @@ if.then1436:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3480, align 1
   store ptr @.str.204, ptr %ref.tmp1439, align 8
   store i8 3, ptr %LHSKind.i3479, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %469, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1439, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %469, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1439, i32 noundef 0) #13
   br label %return
 
 if.end1441:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8192
@@ -5764,7 +5764,7 @@ if.then1457:                                      ; preds = %if.then1450
   store i8 1, ptr %RHSKind.i3492, align 1
   store ptr @.str.206, ptr %ref.tmp1460, align 8
   store i8 3, ptr %LHSKind.i3491, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %475, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1460, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %475, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1460, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8222:                ; preds = %if.then1450
@@ -5779,7 +5779,7 @@ if.then1465:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3497, align 1
   store ptr @.str.207, ptr %ref.tmp1468, align 8
   store i8 3, ptr %LHSKind.i3496, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %476, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1468, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %476, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1468, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8232:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8222
@@ -5794,7 +5794,7 @@ if.then1473:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3502, align 1
   store ptr @.str.208, ptr %ref.tmp1476, align 8
   store i8 3, ptr %LHSKind.i3501, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %477, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1476, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %477, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1476, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8242:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8232
@@ -5809,7 +5809,7 @@ if.then1481:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3507, align 1
   store ptr @.str.209, ptr %ref.tmp1484, align 8
   store i8 3, ptr %LHSKind.i3506, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %478, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1484, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %478, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1484, i32 noundef 0) #13
   br label %return
 
 if.end1486:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8242
@@ -5865,7 +5865,7 @@ if.then1502:                                      ; preds = %if.then1496
   store i8 1, ptr %RHSKind.i3521, align 1
   store ptr @.str.211, ptr %ref.tmp1505, align 8
   store i8 3, ptr %LHSKind.i3520, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %485, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1505, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %485, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1505, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8272:                ; preds = %if.then1496
@@ -5880,7 +5880,7 @@ if.then1510:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3526, align 1
   store ptr @.str.212, ptr %ref.tmp1513, align 8
   store i8 3, ptr %LHSKind.i3525, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %486, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1513, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %486, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1513, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8282:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8272
@@ -5895,7 +5895,7 @@ if.then1518:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3531, align 1
   store ptr @.str.213, ptr %ref.tmp1521, align 8
   store i8 3, ptr %LHSKind.i3530, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %487, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1521, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %487, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1521, i32 noundef 0) #13
   br label %return
 
 if.end1523:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8282
@@ -5967,7 +5967,7 @@ if.then1537:                                      ; preds = %if.then1531
   store i8 1, ptr %RHSKind.i3544, align 1
   store ptr @.str.215, ptr %ref.tmp1540, align 8
   store i8 3, ptr %LHSKind.i3543, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %493, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1540, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %493, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1540, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8312:                ; preds = %if.then1531
@@ -5982,7 +5982,7 @@ if.then1545:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3549, align 1
   store ptr @.str.216, ptr %ref.tmp1548, align 8
   store i8 3, ptr %LHSKind.i3548, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %494, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1548, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %494, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1548, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8322:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8312
@@ -5997,7 +5997,7 @@ if.then1553:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3554, align 1
   store ptr @.str.217, ptr %ref.tmp1556, align 8
   store i8 3, ptr %LHSKind.i3553, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %495, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1556, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %495, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1556, i32 noundef 0) #13
   br label %return
 
 if.end1558:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8322
@@ -6044,7 +6044,7 @@ if.then1572:                                      ; preds = %if.then1566
   store i8 1, ptr %RHSKind.i3567, align 1
   store ptr @.str.219, ptr %ref.tmp1575, align 8
   store i8 3, ptr %LHSKind.i3566, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %501, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1575, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %501, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1575, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8352:                ; preds = %if.then1566
@@ -6059,7 +6059,7 @@ if.then1580:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3572, align 1
   store ptr @.str.220, ptr %ref.tmp1583, align 8
   store i8 3, ptr %LHSKind.i3571, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %502, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1583, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %502, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1583, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8362:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8352
@@ -6074,7 +6074,7 @@ if.then1588:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3577, align 1
   store ptr @.str.221, ptr %ref.tmp1591, align 8
   store i8 3, ptr %LHSKind.i3576, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %503, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1591, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %503, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1591, i32 noundef 0) #13
   br label %return
 
 if.end1593:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8362
@@ -6142,7 +6142,7 @@ if.then1605:                                      ; preds = %if.then1601
   store i8 1, ptr %RHSKind.i3590, align 1
   store ptr @.str.223, ptr %ref.tmp1608, align 8
   store i8 3, ptr %LHSKind.i3589, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %509, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1608, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %509, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1608, i32 noundef 0) #13
   br label %return
 
 if.end1610:                                       ; preds = %if.then1601
@@ -6181,7 +6181,7 @@ if.then1622:                                      ; preds = %if.then1618
   store i8 1, ptr %RHSKind.i3602, align 1
   store ptr @.str.225, ptr %ref.tmp1625, align 8
   store i8 3, ptr %LHSKind.i3601, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %513, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1625, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %513, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1625, i32 noundef 0) #13
   br label %return
 
 if.end1627:                                       ; preds = %if.then1618
@@ -6222,7 +6222,7 @@ if.then1641:                                      ; preds = %if.then1635
   store i8 1, ptr %RHSKind.i3613, align 1
   store ptr @.str.228, ptr %ref.tmp1644, align 8
   store i8 3, ptr %LHSKind.i3612, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %517, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1644, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %517, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1644, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8432:                ; preds = %if.then1635
@@ -6238,7 +6238,7 @@ if.then1658:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3618, align 1
   store ptr @.str.231, ptr %ref.tmp1661, align 8
   store i8 3, ptr %LHSKind.i3617, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %518, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1661, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %518, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1661, i32 noundef 0) #13
   br label %return
 
 if.end1663:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8432
@@ -6289,7 +6289,7 @@ if.then1676:                                      ; preds = %if.then1672
   store i8 1, ptr %RHSKind.i3630, align 1
   store ptr @.str.233, ptr %ref.tmp1679, align 8
   store i8 3, ptr %LHSKind.i3629, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %524, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1679, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %524, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1679, i32 noundef 0) #13
   br label %return
 
 if.end1681:                                       ; preds = %if.then1672
@@ -6329,7 +6329,7 @@ if.then1694:                                      ; preds = %if.then1689
   store i8 1, ptr %RHSKind.i3640, align 1
   store ptr @.str.236, ptr %ref.tmp1697, align 8
   store i8 3, ptr %LHSKind.i3639, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %528, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1697, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %528, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1697, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8492:                ; preds = %if.then1689
@@ -6344,7 +6344,7 @@ if.then1702:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3645, align 1
   store ptr @.str.237, ptr %ref.tmp1705, align 8
   store i8 3, ptr %LHSKind.i3644, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %529, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1705, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %529, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1705, i32 noundef 0) #13
   br label %return
 
 if.end1707:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8492
@@ -6390,7 +6390,7 @@ if.then1729:                                      ; preds = %if.then1715
   store i8 1, ptr %RHSKind.i3657, align 1
   store ptr @.str.240, ptr %ref.tmp1732, align 8
   store i8 3, ptr %LHSKind.i3656, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %534, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1732, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %534, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1732, i32 noundef 0) #13
   br label %return
 
 if.end1734:                                       ; preds = %if.then1715
@@ -6425,7 +6425,7 @@ if.then1756:                                      ; preds = %if.then1742
   store i8 1, ptr %RHSKind.i3665, align 1
   store ptr @.str.244, ptr %ref.tmp1759, align 8
   store i8 3, ptr %LHSKind.i3664, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %538, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1759, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %538, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1759, i32 noundef 0) #13
   br label %return
 
 if.end1761:                                       ; preds = %if.then1742
@@ -6476,7 +6476,7 @@ if.then1783:                                      ; preds = %if.then1769
   store i8 1, ptr %RHSKind.i3676, align 1
   store ptr @.str.247, ptr %ref.tmp1786, align 8
   store i8 3, ptr %LHSKind.i3675, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %543, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1786, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %543, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1786, i32 noundef 0) #13
   br label %return
 
 if.end1788:                                       ; preds = %if.then1769
@@ -6540,7 +6540,7 @@ if.then1801:                                      ; preds = %if.then1796
   store i8 1, ptr %RHSKind.i3689, align 1
   store ptr @.str.250, ptr %ref.tmp1804, align 8
   store i8 3, ptr %LHSKind.i3688, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %548, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1804, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %548, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1804, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8612:                ; preds = %if.then1796
@@ -6555,7 +6555,7 @@ if.then1809:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3694, align 1
   store ptr @.str.252, ptr %ref.tmp1812, align 8
   store i8 3, ptr %LHSKind.i3693, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %549, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1812, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %549, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1812, i32 noundef 0) #13
   br label %return
 
 if.end1814:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8612
@@ -6593,7 +6593,7 @@ if.then1827:                                      ; preds = %if.then1822
   store i8 1, ptr %RHSKind.i3704, align 1
   store ptr @.str.255, ptr %ref.tmp1830, align 8
   store i8 3, ptr %LHSKind.i3703, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %553, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1830, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %553, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1830, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8642:                ; preds = %if.then1822
@@ -6608,7 +6608,7 @@ if.then1835:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3709, align 1
   store ptr @.str.256, ptr %ref.tmp1838, align 8
   store i8 3, ptr %LHSKind.i3708, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %554, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1838, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %554, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1838, i32 noundef 0) #13
   br label %return
 
 if.end1840:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8642
@@ -6679,7 +6679,7 @@ if.then1853:                                      ; preds = %if.then1848
   store i8 1, ptr %RHSKind.i3717, align 1
   store ptr @.str.259, ptr %ref.tmp1856, align 8
   store i8 3, ptr %LHSKind.i3716, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %557, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1856, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %557, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1856, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8672:                ; preds = %if.then1848
@@ -6694,7 +6694,7 @@ if.then1861:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3722, align 1
   store ptr @.str.261, ptr %ref.tmp1864, align 8
   store i8 3, ptr %LHSKind.i3721, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %558, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1864, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %558, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1864, i32 noundef 0) #13
   br label %return
 
 if.end1866:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8672
@@ -6759,7 +6759,7 @@ if.then1880:                                      ; preds = %if.then1874
   store i8 1, ptr %RHSKind.i3732, align 1
   store ptr @.str.263, ptr %ref.tmp1883, align 8
   store i8 3, ptr %LHSKind.i3731, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %563, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1883, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %563, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1883, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8702:                ; preds = %if.then1874
@@ -6775,7 +6775,7 @@ if.then1897:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3738, align 1
   store ptr @.str.267, ptr %ref.tmp1900, align 8
   store i8 3, ptr %LHSKind.i3737, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %564, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1900, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %564, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1900, i32 noundef 0) #13
   br label %return
 
 if.end1902:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8702
@@ -6846,7 +6846,7 @@ if.then1920:                                      ; preds = %if.then1911
   store i8 1, ptr %RHSKind.i3749, align 1
   store ptr @.str.270, ptr %ref.tmp1923, align 8
   store i8 3, ptr %LHSKind.i3748, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %570, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1923, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %570, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1923, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8742:                ; preds = %if.then1911
@@ -6861,7 +6861,7 @@ if.then1928:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3754, align 1
   store ptr @.str.271, ptr %ref.tmp1931, align 8
   store i8 3, ptr %LHSKind.i3753, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %571, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1931, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %571, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1931, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8752:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8742
@@ -6876,7 +6876,7 @@ if.then1936:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3759, align 1
   store ptr @.str.272, ptr %ref.tmp1939, align 8
   store i8 3, ptr %LHSKind.i3758, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %572, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1939, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %572, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1939, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8762:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8752
@@ -6891,7 +6891,7 @@ if.then1944:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3764, align 1
   store ptr @.str.273, ptr %ref.tmp1947, align 8
   store i8 3, ptr %LHSKind.i3763, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %573, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1947, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %573, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1947, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8772:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8762
@@ -6906,7 +6906,7 @@ if.then1952:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3769, align 1
   store ptr @.str.275, ptr %ref.tmp1955, align 8
   store i8 3, ptr %LHSKind.i3768, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %574, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1955, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %574, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1955, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8782:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8772
@@ -6921,7 +6921,7 @@ if.then1960:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3774, align 1
   store ptr @.str.277, ptr %ref.tmp1963, align 8
   store i8 3, ptr %LHSKind.i3773, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %575, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1963, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %575, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp1963, i32 noundef 0) #13
   br label %return
 
 if.end1965:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8782
@@ -6992,7 +6992,7 @@ if.then2022:                                      ; preds = %if.then1976
   store i8 1, ptr %RHSKind.i3790, align 1
   store ptr @.str.286, ptr %ref.tmp2025, align 8
   store i8 3, ptr %LHSKind.i3789, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %584, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2025, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %584, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2025, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8852:                ; preds = %if.then1976
@@ -7007,7 +7007,7 @@ if.then2030:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3795, align 1
   store ptr @.str.288, ptr %ref.tmp2033, align 8
   store i8 3, ptr %LHSKind.i3794, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %585, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2033, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %585, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2033, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8862:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8852
@@ -7022,7 +7022,7 @@ if.then2038:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3800, align 1
   store ptr @.str.289, ptr %ref.tmp2041, align 8
   store i8 3, ptr %LHSKind.i3799, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %586, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2041, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %586, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2041, i32 noundef 0) #13
   br label %return
 
 if.end2043:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8862
@@ -7095,7 +7095,7 @@ if.then2097:                                      ; preds = %if.then2051
   store i8 1, ptr %RHSKind.i3810, align 1
   store ptr @.str.295, ptr %ref.tmp2100, align 8
   store i8 3, ptr %LHSKind.i3809, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %594, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2100, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %594, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2100, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8932:                ; preds = %if.then2051
@@ -7110,7 +7110,7 @@ if.then2105:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3815, align 1
   store ptr @.str.296, ptr %ref.tmp2108, align 8
   store i8 3, ptr %LHSKind.i3814, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %595, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2108, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %595, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2108, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8942:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8932
@@ -7125,7 +7125,7 @@ if.then2113:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3820, align 1
   store ptr @.str.297, ptr %ref.tmp2116, align 8
   store i8 3, ptr %LHSKind.i3819, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %596, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2116, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %596, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2116, i32 noundef 0) #13
   br label %return
 
 if.end2118:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit8942
@@ -7167,7 +7167,7 @@ if.then2130:                                      ; preds = %if.then2126
   store i8 1, ptr %RHSKind.i3829, align 1
   store ptr @.str.299, ptr %ref.tmp2133, align 8
   store i8 3, ptr %LHSKind.i3828, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %604, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2133, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %604, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2133, i32 noundef 0) #13
   br label %return
 
 if.end2135:                                       ; preds = %if.then2126
@@ -7210,7 +7210,7 @@ if.then2154:                                      ; preds = %if.then2143
   store i8 1, ptr %RHSKind.i3837, align 1
   store ptr @.str.301, ptr %ref.tmp2157, align 8
   store i8 3, ptr %LHSKind.i3836, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %607, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2157, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %607, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2157, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8992:                ; preds = %if.then2143
@@ -7226,7 +7226,7 @@ if.then2171:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3842, align 1
   store ptr @.str.303, ptr %ref.tmp2174, align 8
   store i8 3, ptr %LHSKind.i3841, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %608, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2174, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %608, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2174, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9012:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8992
@@ -7241,7 +7241,7 @@ if.then2179:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3847, align 1
   store ptr @.str.305, ptr %ref.tmp2182, align 8
   store i8 3, ptr %LHSKind.i3846, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %609, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2182, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %609, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2182, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9022:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9012
@@ -7256,7 +7256,7 @@ if.then2187:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3852, align 1
   store ptr @.str.307, ptr %ref.tmp2190, align 8
   store i8 3, ptr %LHSKind.i3851, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %610, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2190, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %610, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2190, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9032:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9022
@@ -7271,7 +7271,7 @@ if.then2195:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3857, align 1
   store ptr @.str.308, ptr %ref.tmp2198, align 8
   store i8 3, ptr %LHSKind.i3856, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %611, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2198, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %611, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2198, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9042:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9032
@@ -7369,7 +7369,7 @@ if.then2250:                                      ; preds = %if.then2239
   store i8 1, ptr %RHSKind.i3875, align 1
   store ptr @.str.315, ptr %ref.tmp2253, align 8
   store i8 3, ptr %LHSKind.i3874, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %623, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2253, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %623, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2253, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9092:                ; preds = %if.then2239
@@ -7385,7 +7385,7 @@ if.then2267:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3880, align 1
   store ptr @.str.317, ptr %ref.tmp2270, align 8
   store i8 3, ptr %LHSKind.i3879, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %624, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2270, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %624, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2270, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9112:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9092
@@ -7400,7 +7400,7 @@ if.then2275:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3885, align 1
   store ptr @.str.318, ptr %ref.tmp2278, align 8
   store i8 3, ptr %LHSKind.i3884, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %625, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2278, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %625, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2278, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9122:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9112
@@ -7415,7 +7415,7 @@ if.then2283:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3890, align 1
   store ptr @.str.319, ptr %ref.tmp2286, align 8
   store i8 3, ptr %LHSKind.i3889, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %626, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2286, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %626, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2286, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9132:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9122
@@ -7507,7 +7507,7 @@ if.then2334:                                      ; preds = %if.then2326
   store i8 1, ptr %RHSKind.i3911, align 1
   store ptr @.str.324, ptr %ref.tmp2337, align 8
   store i8 3, ptr %LHSKind.i3910, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %637, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2337, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %637, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2337, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9182:                ; preds = %if.then2326
@@ -7522,7 +7522,7 @@ if.then2342:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3916, align 1
   store ptr @.str.325, ptr %ref.tmp2345, align 8
   store i8 3, ptr %LHSKind.i3915, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %638, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2345, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %638, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2345, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9192:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9182
@@ -7537,7 +7537,7 @@ if.then2350:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3921, align 1
   store ptr @.str.326, ptr %ref.tmp2353, align 8
   store i8 3, ptr %LHSKind.i3920, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %639, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2353, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %639, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2353, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9202:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9192
@@ -7552,7 +7552,7 @@ if.then2358:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3926, align 1
   store ptr @.str.327, ptr %ref.tmp2361, align 8
   store i8 3, ptr %LHSKind.i3925, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %640, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2361, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %640, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2361, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9212:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9202
@@ -7567,7 +7567,7 @@ if.then2366:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3931, align 1
   store ptr @.str.328, ptr %ref.tmp2369, align 8
   store i8 3, ptr %LHSKind.i3930, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %641, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2369, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %641, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2369, i32 noundef 0) #13
   br label %return
 
 if.end2371:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9212
@@ -7648,7 +7648,7 @@ if.then2388:                                      ; preds = %if.then2381
   store i8 1, ptr %RHSKind.i3950, align 1
   store ptr @.str.331, ptr %ref.tmp2391, align 8
   store i8 3, ptr %LHSKind.i3949, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %649, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2391, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %649, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2391, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9242:                ; preds = %if.then2381
@@ -7663,7 +7663,7 @@ if.then2396:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3955, align 1
   store ptr @.str.332, ptr %ref.tmp2399, align 8
   store i8 3, ptr %LHSKind.i3954, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %650, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2399, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %650, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2399, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9252:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9242
@@ -7679,7 +7679,7 @@ if.then2413:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3960, align 1
   store ptr @.str.336, ptr %ref.tmp2416, align 8
   store i8 3, ptr %LHSKind.i3959, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %651, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2416, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %651, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2416, i32 noundef 0) #13
   br label %return
 
 if.end2418:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9252
@@ -7737,7 +7737,7 @@ if.then2432:                                      ; preds = %if.then2426
   store i8 1, ptr %RHSKind.i3968, align 1
   store ptr @.str.339, ptr %ref.tmp2435, align 8
   store i8 3, ptr %LHSKind.i3967, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %656, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2435, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %656, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2435, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9292:                ; preds = %if.then2426
@@ -7752,7 +7752,7 @@ if.then2440:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3973, align 1
   store ptr @.str.341, ptr %ref.tmp2443, align 8
   store i8 3, ptr %LHSKind.i3972, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %657, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2443, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %657, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2443, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9302:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9292
@@ -7767,7 +7767,7 @@ if.then2448:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i3978, align 1
   store ptr @.str.342, ptr %ref.tmp2451, align 8
   store i8 3, ptr %LHSKind.i3977, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %658, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2451, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %658, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2451, i32 noundef 0) #13
   br label %return
 
 if.end2453:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9302
@@ -7833,7 +7833,7 @@ if.then2465:                                      ; preds = %if.then2461
   store i8 1, ptr %RHSKind.i3988, align 1
   store ptr @.str.344, ptr %ref.tmp2468, align 8
   store i8 3, ptr %LHSKind.i3987, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %664, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2468, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %664, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2468, i32 noundef 0) #13
   br label %return
 
 if.end2470:                                       ; preds = %if.then2461
@@ -7875,7 +7875,7 @@ if.then2482:                                      ; preds = %if.then2478
   store i8 1, ptr %RHSKind.i3999, align 1
   store ptr @.str.346, ptr %ref.tmp2485, align 8
   store i8 3, ptr %LHSKind.i3998, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %668, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2485, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %668, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2485, i32 noundef 0) #13
   br label %return
 
 if.end2487:                                       ; preds = %if.then2478
@@ -7937,7 +7937,7 @@ if.then2500:                                      ; preds = %if.then2495
   store i8 1, ptr %RHSKind.i4010, align 1
   store ptr @.str.348, ptr %ref.tmp2503, align 8
   store i8 3, ptr %LHSKind.i4009, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %672, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2503, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %672, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2503, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9372:                ; preds = %if.then2495
@@ -7952,7 +7952,7 @@ if.then2508:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4015, align 1
   store ptr @.str.349, ptr %ref.tmp2511, align 8
   store i8 3, ptr %LHSKind.i4014, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %673, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2511, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %673, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2511, i32 noundef 0) #13
   br label %return
 
 if.end2513:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9372
@@ -8003,7 +8003,7 @@ if.then2537:                                      ; preds = %if.then2521
   store i8 1, ptr %RHSKind.i4028, align 1
   store ptr @.str.353, ptr %ref.tmp2540, align 8
   store i8 3, ptr %LHSKind.i4027, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %678, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2540, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %678, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2540, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9412:                ; preds = %if.then2521
@@ -8019,7 +8019,7 @@ if.then2554:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4033, align 1
   store ptr @.str.356, ptr %ref.tmp2557, align 8
   store i8 3, ptr %LHSKind.i4032, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %679, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2557, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %679, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2557, i32 noundef 0) #13
   br label %return
 
 if.end2559:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9412
@@ -8058,7 +8058,7 @@ if.then2572:                                      ; preds = %if.then2567
   store i8 1, ptr %RHSKind.i4041, align 1
   store ptr @.str.359, ptr %ref.tmp2575, align 8
   store i8 3, ptr %LHSKind.i4040, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %685, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2575, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %685, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2575, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9452:                ; preds = %if.then2567
@@ -8073,7 +8073,7 @@ if.then2580:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4046, align 1
   store ptr @.str.360, ptr %ref.tmp2583, align 8
   store i8 3, ptr %LHSKind.i4045, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %686, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2583, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %686, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2583, i32 noundef 0) #13
   br label %return
 
 if.end2585:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9452
@@ -8118,7 +8118,7 @@ if.then2597:                                      ; preds = %if.then2593
   store i8 1, ptr %RHSKind.i4057, align 1
   store ptr @.str.362, ptr %ref.tmp2600, align 8
   store i8 3, ptr %LHSKind.i4056, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %691, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2600, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %691, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2600, i32 noundef 0) #13
   br label %return
 
 if.end2602:                                       ; preds = %if.then2593
@@ -8157,7 +8157,7 @@ if.then2614:                                      ; preds = %if.then2610
   store i8 1, ptr %RHSKind.i4068, align 1
   store ptr @.str.364, ptr %ref.tmp2617, align 8
   store i8 3, ptr %LHSKind.i4067, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %695, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2617, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %695, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2617, i32 noundef 0) #13
   br label %return
 
 if.end2619:                                       ; preds = %if.then2610
@@ -8200,7 +8200,7 @@ if.then2632:                                      ; preds = %if.then2627
   store i8 1, ptr %RHSKind.i4078, align 1
   store ptr @.str.366, ptr %ref.tmp2635, align 8
   store i8 3, ptr %LHSKind.i4077, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %699, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2635, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %699, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2635, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9522:                ; preds = %if.then2627
@@ -8215,7 +8215,7 @@ if.then2640:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4083, align 1
   store ptr @.str.367, ptr %ref.tmp2643, align 8
   store i8 3, ptr %LHSKind.i4082, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %700, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2643, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %700, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2643, i32 noundef 0) #13
   br label %return
 
 if.end2645:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9522
@@ -8263,7 +8263,7 @@ if.then2658:                                      ; preds = %if.then2653
   store i8 1, ptr %RHSKind.i4095, align 1
   store ptr @.str.369, ptr %ref.tmp2661, align 8
   store i8 3, ptr %LHSKind.i4094, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %705, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2661, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %705, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2661, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9552:                ; preds = %if.then2653
@@ -8300,7 +8300,7 @@ if.then2685:                                      ; preds = %if.then2680
   store i8 1, ptr %RHSKind.i4104, align 1
   store ptr @.str.372, ptr %ref.tmp2688, align 8
   store i8 3, ptr %LHSKind.i4103, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %709, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2688, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %709, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2688, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9582:                ; preds = %if.then2680
@@ -8337,7 +8337,7 @@ if.then2711:                                      ; preds = %if.then2707
   store i8 1, ptr %RHSKind.i4112, align 1
   store ptr @.str.374, ptr %ref.tmp2714, align 8
   store i8 3, ptr %LHSKind.i4111, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %713, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2714, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %713, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2714, i32 noundef 0) #13
   br label %return
 
 if.end2716:                                       ; preds = %if.then2707
@@ -8380,7 +8380,7 @@ if.then2729:                                      ; preds = %if.then2724
   store i8 1, ptr %RHSKind.i4123, align 1
   store ptr @.str.376, ptr %ref.tmp2732, align 8
   store i8 3, ptr %LHSKind.i4122, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %717, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2732, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %717, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2732, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9632:                ; preds = %if.then2724
@@ -8395,7 +8395,7 @@ if.then2737:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4128, align 1
   store ptr @.str.377, ptr %ref.tmp2740, align 8
   store i8 3, ptr %LHSKind.i4127, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %718, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2740, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %718, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2740, i32 noundef 0) #13
   br label %return
 
 if.end2742:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9632
@@ -8440,7 +8440,7 @@ if.then2754:                                      ; preds = %if.then2750
   store i8 1, ptr %RHSKind.i4140, align 1
   store ptr @.str.379, ptr %ref.tmp2757, align 8
   store i8 3, ptr %LHSKind.i4139, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %723, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2757, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %723, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2757, i32 noundef 0) #13
   br label %return
 
 if.end2759:                                       ; preds = %if.then2750
@@ -8483,7 +8483,7 @@ if.then2772:                                      ; preds = %if.then2767
   store i8 1, ptr %RHSKind.i4151, align 1
   store ptr @.str.381, ptr %ref.tmp2775, align 8
   store i8 3, ptr %LHSKind.i4150, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %727, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2775, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %727, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2775, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9682:                ; preds = %if.then2767
@@ -8498,7 +8498,7 @@ if.then2780:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4156, align 1
   store ptr @.str.382, ptr %ref.tmp2783, align 8
   store i8 3, ptr %LHSKind.i4155, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %728, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2783, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %728, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2783, i32 noundef 0) #13
   br label %return
 
 if.end2785:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9682
@@ -8544,7 +8544,7 @@ if.then2798:                                      ; preds = %if.then2793
   store i8 1, ptr %RHSKind.i4168, align 1
   store ptr @.str.385, ptr %ref.tmp2801, align 8
   store i8 3, ptr %LHSKind.i4167, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %733, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2801, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %733, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2801, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9712:                ; preds = %if.then2793
@@ -8559,7 +8559,7 @@ if.then2806:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4173, align 1
   store ptr @.str.386, ptr %ref.tmp2809, align 8
   store i8 3, ptr %LHSKind.i4172, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %734, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2809, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %734, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2809, i32 noundef 0) #13
   br label %return
 
 if.end2811:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9712
@@ -8627,7 +8627,7 @@ if.then2831:                                      ; preds = %if.then2827
   store i8 1, ptr %RHSKind.i4189, align 1
   store ptr @.str.389, ptr %ref.tmp2834, align 8
   store i8 3, ptr %LHSKind.i4188, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %741, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2834, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %741, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2834, i32 noundef 0) #13
   br label %return
 
 if.end2836:                                       ; preds = %if.then2827
@@ -8669,7 +8669,7 @@ if.then2848:                                      ; preds = %if.then2844
   store i8 1, ptr %RHSKind.i4200, align 1
   store ptr @.str.391, ptr %ref.tmp2851, align 8
   store i8 3, ptr %LHSKind.i4199, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %745, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2851, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %745, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2851, i32 noundef 0) #13
   br label %return
 
 if.end2853:                                       ; preds = %if.then2844
@@ -8716,7 +8716,7 @@ if.then2868:                                      ; preds = %if.then2861
   store i8 1, ptr %RHSKind.i4212, align 1
   store ptr @.str.393, ptr %ref.tmp2871, align 8
   store i8 3, ptr %LHSKind.i4211, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %749, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2871, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %749, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2871, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9792:                ; preds = %if.then2861
@@ -8731,7 +8731,7 @@ if.then2876:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4217, align 1
   store ptr @.str.394, ptr %ref.tmp2879, align 8
   store i8 3, ptr %LHSKind.i4216, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %750, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2879, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %750, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2879, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9802:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9792
@@ -8746,7 +8746,7 @@ if.then2884:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4222, align 1
   store ptr @.str.396, ptr %ref.tmp2887, align 8
   store i8 3, ptr %LHSKind.i4221, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %751, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2887, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %751, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2887, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9812:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9802
@@ -8783,7 +8783,7 @@ if.then2911:                                      ; preds = %if.then2907
   store i8 1, ptr %RHSKind.i4230, align 1
   store ptr @.str.399, ptr %ref.tmp2914, align 8
   store i8 3, ptr %LHSKind.i4229, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %757, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2914, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %757, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2914, i32 noundef 0) #13
   br label %return
 
 if.end2916:                                       ; preds = %if.then2907
@@ -8823,7 +8823,7 @@ if.then2929:                                      ; preds = %if.then2924
   store i8 1, ptr %RHSKind.i4241, align 1
   store ptr @.str.401, ptr %ref.tmp2932, align 8
   store i8 3, ptr %LHSKind.i4240, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %761, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2932, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %761, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2932, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9862:                ; preds = %if.then2924
@@ -8869,7 +8869,7 @@ if.then2955:                                      ; preds = %if.then2951
   store i8 1, ptr %RHSKind.i4253, align 1
   store ptr @.str.404, ptr %ref.tmp2958, align 8
   store i8 3, ptr %LHSKind.i4252, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %766, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2958, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %766, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2958, i32 noundef 0) #13
   br label %return
 
 if.end2960:                                       ; preds = %if.then2951
@@ -8912,7 +8912,7 @@ if.then2973:                                      ; preds = %if.then2968
   store i8 1, ptr %RHSKind.i4265, align 1
   store ptr @.str.406, ptr %ref.tmp2976, align 8
   store i8 3, ptr %LHSKind.i4264, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %770, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2976, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %770, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2976, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9912:                ; preds = %if.then2968
@@ -8927,7 +8927,7 @@ if.then2981:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4270, align 1
   store ptr @.str.407, ptr %ref.tmp2984, align 8
   store i8 3, ptr %LHSKind.i4269, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %771, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2984, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %771, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2984, i32 noundef 0) #13
   br label %return
 
 if.end2986:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9912
@@ -8991,7 +8991,7 @@ if.then2999:                                      ; preds = %if.then2994
   store i8 1, ptr %RHSKind.i4283, align 1
   store ptr @.str.409, ptr %ref.tmp3002, align 8
   store i8 3, ptr %LHSKind.i4282, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %776, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3002, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %776, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3002, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9942:                ; preds = %if.then2994
@@ -9006,7 +9006,7 @@ if.then3007:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4288, align 1
   store ptr @.str.410, ptr %ref.tmp3010, align 8
   store i8 3, ptr %LHSKind.i4287, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %777, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3010, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %777, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3010, i32 noundef 0) #13
   br label %return
 
 if.end3012:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit9942
@@ -9073,7 +9073,7 @@ if.then3026:                                      ; preds = %if.then3020
   store i8 1, ptr %RHSKind.i4301, align 1
   store ptr @.str.413, ptr %ref.tmp3029, align 8
   store i8 3, ptr %LHSKind.i4300, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %782, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3029, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %782, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3029, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9972:                ; preds = %if.then3020
@@ -9088,7 +9088,7 @@ if.then3034:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4306, align 1
   store ptr @.str.415, ptr %ref.tmp3037, align 8
   store i8 3, ptr %LHSKind.i4305, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %783, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3037, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %783, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3037, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9982:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9972
@@ -9130,7 +9130,7 @@ if.then3062:                                      ; preds = %if.then3056
   store i8 1, ptr %RHSKind.i4315, align 1
   store ptr @.str.420, ptr %ref.tmp3065, align 8
   store i8 3, ptr %LHSKind.i4314, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %788, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3065, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %788, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3065, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10012:               ; preds = %if.then3056
@@ -9145,7 +9145,7 @@ if.then3070:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4320, align 1
   store ptr @.str.421, ptr %ref.tmp3073, align 8
   store i8 3, ptr %LHSKind.i4319, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %789, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3073, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %789, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3073, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10022:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10012
@@ -9160,7 +9160,7 @@ if.then3078:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4325, align 1
   store ptr @.str.423, ptr %ref.tmp3081, align 8
   store i8 3, ptr %LHSKind.i4324, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %790, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3081, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %790, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3081, i32 noundef 0) #13
   br label %return
 
 if.end3083:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10022
@@ -9332,7 +9332,7 @@ if.then3144:                                      ; preds = %if.then3139
   store i8 1, ptr %RHSKind.i4364, align 1
   store ptr @.str.431, ptr %ref.tmp3147, align 8
   store i8 3, ptr %LHSKind.i4363, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %807, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3147, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %807, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3147, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10112:               ; preds = %if.then3139
@@ -9347,7 +9347,7 @@ if.then3152:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4370, align 1
   store ptr @.str.432, ptr %ref.tmp3155, align 8
   store i8 3, ptr %LHSKind.i4369, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %808, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3155, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %808, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3155, i32 noundef 0) #13
   br label %return
 
 if.end3157:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10112
@@ -9390,7 +9390,7 @@ if.then3170:                                      ; preds = %if.then3165
   store i8 1, ptr %RHSKind.i4382, align 1
   store ptr @.str.434, ptr %ref.tmp3173, align 8
   store i8 3, ptr %LHSKind.i4381, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %813, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3173, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %813, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3173, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10142:               ; preds = %if.then3165
@@ -9405,7 +9405,7 @@ if.then3178:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4387, align 1
   store ptr @.str.435, ptr %ref.tmp3181, align 8
   store i8 3, ptr %LHSKind.i4386, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %814, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3181, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %814, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3181, i32 noundef 0) #13
   br label %return
 
 if.end3183:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10142
@@ -9450,7 +9450,7 @@ if.then3195:                                      ; preds = %if.then3191
   store i8 1, ptr %RHSKind.i4399, align 1
   store ptr @.str.437, ptr %ref.tmp3198, align 8
   store i8 3, ptr %LHSKind.i4398, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %819, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3198, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %819, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3198, i32 noundef 0) #13
   br label %return
 
 if.end3200:                                       ; preds = %if.then3191
@@ -9519,7 +9519,7 @@ if.then3221:                                      ; preds = %if.then3216
   store i8 1, ptr %RHSKind.i4415, align 1
   store ptr @.str.440, ptr %ref.tmp3224, align 8
   store i8 3, ptr %LHSKind.i4414, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %825, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3224, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %825, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3224, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10202:               ; preds = %if.then3216
@@ -9534,7 +9534,7 @@ if.then3229:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4420, align 1
   store ptr @.str.441, ptr %ref.tmp3232, align 8
   store i8 3, ptr %LHSKind.i4419, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %826, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3232, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %826, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3232, i32 noundef 0) #13
   br label %return
 
 if.end3234:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10202
@@ -9739,7 +9739,7 @@ if.then3299:                                      ; preds = %if.then3291
   store i8 1, ptr %RHSKind.i4464, align 1
   store ptr @.str.449, ptr %ref.tmp3302, align 8
   store i8 3, ptr %LHSKind.i4463, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %843, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3302, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %843, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3302, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10292:               ; preds = %if.then3291
@@ -9755,7 +9755,7 @@ if.then3316:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4469, align 1
   store ptr @.str.452, ptr %ref.tmp3319, align 8
   store i8 3, ptr %LHSKind.i4468, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %844, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3319, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %844, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3319, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10312:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10292
@@ -9799,7 +9799,7 @@ if.then3362:                                      ; preds = %if.then3347
   store i8 1, ptr %RHSKind.i4477, align 1
   store ptr @.str.458, ptr %ref.tmp3365, align 8
   store i8 3, ptr %LHSKind.i4476, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %851, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3365, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %851, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3365, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10362:               ; preds = %if.then3347
@@ -9814,7 +9814,7 @@ if.then3370:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4482, align 1
   store ptr @.str.459, ptr %ref.tmp3373, align 8
   store i8 3, ptr %LHSKind.i4481, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %852, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3373, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %852, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3373, i32 noundef 0) #13
   br label %return
 
 if.end3375:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10362
@@ -9868,7 +9868,7 @@ if.then3391:                                      ; preds = %if.then3384
   store i8 1, ptr %RHSKind.i4497, align 1
   store ptr @.str.461, ptr %ref.tmp3394, align 8
   store i8 3, ptr %LHSKind.i4496, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %858, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3394, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %858, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3394, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10392:               ; preds = %if.then3384
@@ -9912,7 +9912,7 @@ if.then3446:                                      ; preds = %if.then3431
   store i8 1, ptr %RHSKind.i4505, align 1
   store ptr @.str.467, ptr %ref.tmp3449, align 8
   store i8 3, ptr %LHSKind.i4504, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %864, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3449, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %864, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3449, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10452:               ; preds = %if.then3431
@@ -9927,7 +9927,7 @@ if.then3454:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4510, align 1
   store ptr @.str.468, ptr %ref.tmp3457, align 8
   store i8 3, ptr %LHSKind.i4509, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %865, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3457, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %865, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3457, i32 noundef 0) #13
   br label %return
 
 if.end3459:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10452
@@ -9973,7 +9973,7 @@ if.then3472:                                      ; preds = %if.then3468
   store i8 1, ptr %RHSKind.i4524, align 1
   store ptr @.str.470, ptr %ref.tmp3475, align 8
   store i8 3, ptr %LHSKind.i4523, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %871, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3475, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %871, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3475, i32 noundef 0) #13
   br label %return
 
 if.end3477:                                       ; preds = %if.then3468
@@ -10016,7 +10016,7 @@ if.then3490:                                      ; preds = %if.then3485
   store i8 1, ptr %RHSKind.i4535, align 1
   store ptr @.str.473, ptr %ref.tmp3493, align 8
   store i8 3, ptr %LHSKind.i4534, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %875, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3493, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %875, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3493, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10502:               ; preds = %if.then3485
@@ -10031,7 +10031,7 @@ if.then3498:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4540, align 1
   store ptr @.str.474, ptr %ref.tmp3501, align 8
   store i8 3, ptr %LHSKind.i4539, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %876, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3501, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %876, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3501, i32 noundef 0) #13
   br label %return
 
 if.end3503:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10502
@@ -10076,7 +10076,7 @@ if.then3515:                                      ; preds = %if.then3511
   store i8 1, ptr %RHSKind.i4551, align 1
   store ptr @.str.476, ptr %ref.tmp3518, align 8
   store i8 3, ptr %LHSKind.i4550, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %881, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3518, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %881, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3518, i32 noundef 0) #13
   br label %return
 
 if.end3520:                                       ; preds = %if.then3511
@@ -10118,7 +10118,7 @@ if.then3532:                                      ; preds = %if.then3528
   store i8 1, ptr %RHSKind.i4562, align 1
   store ptr @.str.478, ptr %ref.tmp3535, align 8
   store i8 3, ptr %LHSKind.i4561, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %885, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3535, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %885, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3535, i32 noundef 0) #13
   br label %return
 
 if.end3537:                                       ; preds = %if.then3528
@@ -10158,7 +10158,7 @@ if.then3550:                                      ; preds = %if.then3545
   store i8 1, ptr %RHSKind.i4573, align 1
   store ptr @.str.480, ptr %ref.tmp3553, align 8
   store i8 3, ptr %LHSKind.i4572, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %889, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3553, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %889, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3553, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10572:               ; preds = %if.then3545
@@ -10173,7 +10173,7 @@ if.then3558:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4578, align 1
   store ptr @.str.481, ptr %ref.tmp3561, align 8
   store i8 3, ptr %LHSKind.i4577, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %890, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3561, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %890, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3561, i32 noundef 0) #13
   br label %return
 
 if.end3563:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10572
@@ -10219,7 +10219,7 @@ if.then3576:                                      ; preds = %if.then3571
   store i8 1, ptr %RHSKind.i4590, align 1
   store ptr @.str.483, ptr %ref.tmp3579, align 8
   store i8 3, ptr %LHSKind.i4589, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %895, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3579, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %895, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3579, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10602:               ; preds = %if.then3571
@@ -10234,7 +10234,7 @@ if.then3584:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4595, align 1
   store ptr @.str.484, ptr %ref.tmp3587, align 8
   store i8 3, ptr %LHSKind.i4594, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %896, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3587, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %896, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3587, i32 noundef 0) #13
   br label %return
 
 if.end3589:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10602
@@ -10281,7 +10281,7 @@ if.then3601:                                      ; preds = %if.then3597
   store i8 1, ptr %RHSKind.i4608, align 1
   store ptr @.str.487, ptr %ref.tmp3604, align 8
   store i8 3, ptr %LHSKind.i4607, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %901, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3604, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %901, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3604, i32 noundef 0) #13
   br label %return
 
 if.end3606:                                       ; preds = %if.then3597
@@ -10318,7 +10318,7 @@ if.then3628:                                      ; preds = %if.then3614
   store i8 1, ptr %RHSKind.i4616, align 1
   store ptr @.str.490, ptr %ref.tmp3631, align 8
   store i8 3, ptr %LHSKind.i4615, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %904, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3631, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %904, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3631, i32 noundef 0) #13
   br label %return
 
 if.end3633:                                       ; preds = %if.then3614
@@ -10366,7 +10366,7 @@ if.then3648:                                      ; preds = %if.then3641
   store i8 1, ptr %RHSKind.i4628, align 1
   store ptr @.str.492, ptr %ref.tmp3651, align 8
   store i8 3, ptr %LHSKind.i4627, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %909, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3651, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %909, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3651, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10682:               ; preds = %if.then3641
@@ -10381,7 +10381,7 @@ if.then3656:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4633, align 1
   store ptr @.str.494, ptr %ref.tmp3659, align 8
   store i8 3, ptr %LHSKind.i4632, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %910, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3659, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %910, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3659, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10692:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10682
@@ -10396,7 +10396,7 @@ if.then3664:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4638, align 1
   store ptr @.str.495, ptr %ref.tmp3667, align 8
   store i8 3, ptr %LHSKind.i4637, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %911, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3667, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %911, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3667, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10702:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10692
@@ -10449,7 +10449,7 @@ if.then3691:                                      ; preds = %if.then3687
   store i8 1, ptr %RHSKind.i4652, align 1
   store ptr @.str.498, ptr %ref.tmp3694, align 8
   store i8 3, ptr %LHSKind.i4651, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %918, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3694, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %918, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3694, i32 noundef 0) #13
   br label %return
 
 if.end3696:                                       ; preds = %if.then3687
@@ -10488,7 +10488,7 @@ if.then3708:                                      ; preds = %if.then3704
   store i8 1, ptr %RHSKind.i4663, align 1
   store ptr @.str.501, ptr %ref.tmp3711, align 8
   store i8 3, ptr %LHSKind.i4662, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %922, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3711, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %922, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3711, i32 noundef 0) #13
   br label %return
 
 if.end3713:                                       ; preds = %if.then3704
@@ -10529,7 +10529,7 @@ if.then3725:                                      ; preds = %if.then3721
   store i8 1, ptr %RHSKind.i4674, align 1
   store ptr @.str.503, ptr %ref.tmp3728, align 8
   store i8 3, ptr %LHSKind.i4673, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %926, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3728, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %926, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3728, i32 noundef 0) #13
   br label %return
 
 if.end3730:                                       ; preds = %if.then3721
@@ -10567,7 +10567,7 @@ if.then3742:                                      ; preds = %if.then3738
   store i8 1, ptr %RHSKind.i4683, align 1
   store ptr @.str.505, ptr %ref.tmp3745, align 8
   store i8 3, ptr %LHSKind.i4682, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %929, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3745, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %929, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3745, i32 noundef 0) #13
   br label %return
 
 if.end3747:                                       ; preds = %if.then3738
@@ -10603,7 +10603,7 @@ if.then3760:                                      ; preds = %if.then3755
   store i8 1, ptr %RHSKind.i4691, align 1
   store ptr @.str.507, ptr %ref.tmp3763, align 8
   store i8 3, ptr %LHSKind.i4690, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %932, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3763, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %932, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3763, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10812:               ; preds = %if.then3755
@@ -10650,7 +10650,7 @@ if.then3787:                                      ; preds = %if.then3782
   store i8 1, ptr %RHSKind.i4702, align 1
   store ptr @.str.511, ptr %ref.tmp3790, align 8
   store i8 3, ptr %LHSKind.i4701, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %937, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3790, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %937, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3790, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10842:               ; preds = %if.then3782
@@ -10665,7 +10665,7 @@ if.then3795:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4707, align 1
   store ptr @.str.513, ptr %ref.tmp3798, align 8
   store i8 3, ptr %LHSKind.i4706, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %938, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3798, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %938, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3798, i32 noundef 0) #13
   br label %return
 
 if.end3800:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10842
@@ -10712,7 +10712,7 @@ if.then3814:                                      ; preds = %if.then3808
   store i8 1, ptr %RHSKind.i4717, align 1
   store ptr @.str.515, ptr %ref.tmp3817, align 8
   store i8 3, ptr %LHSKind.i4716, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %943, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3817, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %943, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3817, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10872:               ; preds = %if.then3808
@@ -10727,7 +10727,7 @@ if.then3822:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4722, align 1
   store ptr @.str.516, ptr %ref.tmp3825, align 8
   store i8 3, ptr %LHSKind.i4721, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %944, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3825, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %944, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3825, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10882:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10872
@@ -10742,7 +10742,7 @@ if.then3830:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4727, align 1
   store ptr @.str.517, ptr %ref.tmp3833, align 8
   store i8 3, ptr %LHSKind.i4726, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %945, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3833, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %945, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3833, i32 noundef 0) #13
   br label %return
 
 if.end3835:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10882
@@ -10791,7 +10791,7 @@ if.then3851:                                      ; preds = %if.then3844
   store i8 1, ptr %RHSKind.i4741, align 1
   store ptr @.str.520, ptr %ref.tmp3854, align 8
   store i8 3, ptr %LHSKind.i4740, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %951, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3854, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %951, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3854, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10912:               ; preds = %if.then3844
@@ -10806,7 +10806,7 @@ if.then3859:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4746, align 1
   store ptr @.str.522, ptr %ref.tmp3862, align 8
   store i8 3, ptr %LHSKind.i4745, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %952, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3862, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %952, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3862, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10922:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10912
@@ -10821,7 +10821,7 @@ if.then3867:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4751, align 1
   store ptr @.str.524, ptr %ref.tmp3870, align 8
   store i8 3, ptr %LHSKind.i4750, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %953, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3870, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %953, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3870, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10932:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10922
@@ -10836,7 +10836,7 @@ if.then3875:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4756, align 1
   store ptr @.str.526, ptr %ref.tmp3878, align 8
   store i8 3, ptr %LHSKind.i4755, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %954, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3878, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %954, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3878, i32 noundef 0) #13
   br label %return
 
 if.end3880:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10932
@@ -10889,7 +10889,7 @@ if.then3894:                                      ; preds = %if.then3888
   store i8 1, ptr %RHSKind.i4766, align 1
   store ptr @.str.529, ptr %ref.tmp3897, align 8
   store i8 3, ptr %LHSKind.i4765, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %961, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3897, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %961, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3897, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10962:               ; preds = %if.then3888
@@ -10905,7 +10905,7 @@ if.then3911:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4771, align 1
   store ptr @.str.532, ptr %ref.tmp3914, align 8
   store i8 3, ptr %LHSKind.i4770, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %962, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3914, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %962, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3914, i32 noundef 0) #13
   br label %return
 
 if.end3916:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit10962
@@ -10957,7 +10957,7 @@ if.then3930:                                      ; preds = %if.then3925
   store i8 1, ptr %RHSKind.i4784, align 1
   store ptr @.str.535, ptr %ref.tmp3933, align 8
   store i8 3, ptr %LHSKind.i4783, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %968, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3933, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %968, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3933, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11002:               ; preds = %if.then3925
@@ -10996,7 +10996,7 @@ if.then3958:                                      ; preds = %if.then3952
   store i8 1, ptr %RHSKind.i4792, align 1
   store ptr @.str.538, ptr %ref.tmp3961, align 8
   store i8 3, ptr %LHSKind.i4791, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %972, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3961, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %972, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3961, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11032:               ; preds = %if.then3952
@@ -11012,7 +11012,7 @@ if.then3975:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4797, align 1
   store ptr @.str.540, ptr %ref.tmp3978, align 8
   store i8 3, ptr %LHSKind.i4796, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %973, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3978, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %973, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3978, i32 noundef 0) #13
   br label %return
 
 if.end3980:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11032
@@ -11063,7 +11063,7 @@ if.then3995:                                      ; preds = %if.then3988
   store i8 1, ptr %RHSKind.i4810, align 1
   store ptr @.str.542, ptr %ref.tmp3998, align 8
   store i8 3, ptr %LHSKind.i4809, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %979, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3998, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %979, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3998, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11072:               ; preds = %if.then3988
@@ -11079,7 +11079,7 @@ if.then4012:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4815, align 1
   store ptr @.str.545, ptr %ref.tmp4015, align 8
   store i8 3, ptr %LHSKind.i4814, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %980, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4015, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %980, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4015, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11072
@@ -11137,7 +11137,7 @@ if.then4041:                                      ; preds = %if.then4034
   store i8 1, ptr %RHSKind.i4828, align 1
   store ptr @.str.549, ptr %ref.tmp4044, align 8
   store i8 3, ptr %LHSKind.i4827, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %987, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4044, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %987, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4044, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11122:               ; preds = %if.then4034
@@ -11153,7 +11153,7 @@ if.then4058:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4833, align 1
   store ptr @.str.551, ptr %ref.tmp4061, align 8
   store i8 3, ptr %LHSKind.i4832, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %988, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4061, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %988, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4061, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11142:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11122
@@ -11168,7 +11168,7 @@ if.then4066:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4838, align 1
   store ptr @.str.552, ptr %ref.tmp4069, align 8
   store i8 3, ptr %LHSKind.i4837, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %989, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4069, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %989, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4069, i32 noundef 0) #13
   br label %return
 
 if.end4071:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11142
@@ -11208,7 +11208,7 @@ if.then4085:                                      ; preds = %if.then4079
   store i8 1, ptr %RHSKind.i4846, align 1
   store ptr @.str.554, ptr %ref.tmp4088, align 8
   store i8 3, ptr %LHSKind.i4845, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %995, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4088, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %995, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4088, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11172:               ; preds = %if.then4079
@@ -11224,7 +11224,7 @@ if.then4102:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4851, align 1
   store ptr @.str.556, ptr %ref.tmp4105, align 8
   store i8 3, ptr %LHSKind.i4850, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %996, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4105, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %996, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4105, i32 noundef 0) #13
   br label %return
 
 if.end4107:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11172
@@ -11275,7 +11275,7 @@ if.then4122:                                      ; preds = %if.then4115
   store i8 1, ptr %RHSKind.i4864, align 1
   store ptr @.str.558, ptr %ref.tmp4125, align 8
   store i8 3, ptr %LHSKind.i4863, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1002, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4125, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1002, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4125, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11212:               ; preds = %if.then4115
@@ -11334,7 +11334,7 @@ if.then4169:                                      ; preds = %if.then4162
   store i8 1, ptr %RHSKind.i4879, align 1
   store ptr @.str.563, ptr %ref.tmp4172, align 8
   store i8 3, ptr %LHSKind.i4878, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1009, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4172, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1009, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4172, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11262:               ; preds = %if.then4162
@@ -11350,7 +11350,7 @@ if.then4186:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4884, align 1
   store ptr @.str.565, ptr %ref.tmp4189, align 8
   store i8 3, ptr %LHSKind.i4883, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1010, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4189, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1010, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4189, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11282:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11262
@@ -11365,7 +11365,7 @@ if.then4194:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4889, align 1
   store ptr @.str.566, ptr %ref.tmp4197, align 8
   store i8 3, ptr %LHSKind.i4888, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1011, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4197, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1011, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4197, i32 noundef 0) #13
   br label %return
 
 if.end4199:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11282
@@ -11411,7 +11411,7 @@ if.then4216:                                      ; preds = %if.then4207
   store i8 1, ptr %RHSKind.i4900, align 1
   store ptr @.str.568, ptr %ref.tmp4219, align 8
   store i8 3, ptr %LHSKind.i4899, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1017, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4219, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1017, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4219, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11312:               ; preds = %if.then4207
@@ -11427,7 +11427,7 @@ if.then4233:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4905, align 1
   store ptr @.str.570, ptr %ref.tmp4236, align 8
   store i8 3, ptr %LHSKind.i4904, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1018, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4236, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1018, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4236, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11332:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11312
@@ -11442,7 +11442,7 @@ if.then4241:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4910, align 1
   store ptr @.str.571, ptr %ref.tmp4244, align 8
   store i8 3, ptr %LHSKind.i4909, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1019, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4244, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1019, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4244, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11342:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11332
@@ -11457,7 +11457,7 @@ if.then4249:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4915, align 1
   store ptr @.str.573, ptr %ref.tmp4252, align 8
   store i8 3, ptr %LHSKind.i4914, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1020, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4252, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1020, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4252, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11352:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11342
@@ -11472,7 +11472,7 @@ if.then4257:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4920, align 1
   store ptr @.str.574, ptr %ref.tmp4260, align 8
   store i8 3, ptr %LHSKind.i4919, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1021, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4260, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1021, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4260, i32 noundef 0) #13
   br label %return
 
 if.end4262:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11352
@@ -11511,7 +11511,7 @@ if.then4275:                                      ; preds = %if.then4270
   store i8 1, ptr %RHSKind.i4928, align 1
   store ptr @.str.576, ptr %ref.tmp4278, align 8
   store i8 3, ptr %LHSKind.i4927, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1027, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4278, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1027, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4278, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11382:               ; preds = %if.then4270
@@ -11563,7 +11563,7 @@ if.then4305:                                      ; preds = %if.then4297
   store i8 1, ptr %RHSKind.i4940, align 1
   store ptr @.str.579, ptr %ref.tmp4308, align 8
   store i8 3, ptr %LHSKind.i4939, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1032, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4308, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1032, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4308, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11412:               ; preds = %if.then4297
@@ -11578,7 +11578,7 @@ if.then4313:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4945, align 1
   store ptr @.str.580, ptr %ref.tmp4316, align 8
   store i8 3, ptr %LHSKind.i4944, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1033, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4316, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1033, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4316, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11422:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11412
@@ -11621,7 +11621,7 @@ if.then4358:                                      ; preds = %if.then4353
   store i8 1, ptr %RHSKind.i4953, align 1
   store ptr @.str.585, ptr %ref.tmp4361, align 8
   store i8 3, ptr %LHSKind.i4952, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1040, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4361, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1040, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4361, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11472:               ; preds = %if.then4353
@@ -11636,7 +11636,7 @@ if.then4366:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4958, align 1
   store ptr @.str.586, ptr %ref.tmp4369, align 8
   store i8 3, ptr %LHSKind.i4957, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1041, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4369, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1041, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4369, i32 noundef 0) #13
   br label %return
 
 if.end4371:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11472
@@ -11682,7 +11682,7 @@ if.then4384:                                      ; preds = %if.then4379
   store i8 1, ptr %RHSKind.i4970, align 1
   store ptr @.str.588, ptr %ref.tmp4387, align 8
   store i8 3, ptr %LHSKind.i4969, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1046, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4387, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1046, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4387, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11502:               ; preds = %if.then4379
@@ -11697,7 +11697,7 @@ if.then4392:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4975, align 1
   store ptr @.str.589, ptr %ref.tmp4395, align 8
   store i8 3, ptr %LHSKind.i4974, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1047, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4395, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1047, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4395, i32 noundef 0) #13
   br label %return
 
 if.end4397:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11502
@@ -11748,7 +11748,7 @@ if.then4421:                                      ; preds = %if.then4405
   store i8 1, ptr %RHSKind.i4988, align 1
   store ptr @.str.592, ptr %ref.tmp4424, align 8
   store i8 3, ptr %LHSKind.i4987, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1052, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4424, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1052, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4424, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11542:               ; preds = %if.then4405
@@ -11764,7 +11764,7 @@ if.then4438:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i4993, align 1
   store ptr @.str.595, ptr %ref.tmp4441, align 8
   store i8 3, ptr %LHSKind.i4992, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1053, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4441, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1053, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4441, i32 noundef 0) #13
   br label %return
 
 if.end4443:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11542
@@ -11803,7 +11803,7 @@ if.then4456:                                      ; preds = %if.then4452
   store i8 1, ptr %RHSKind.i5001, align 1
   store ptr @.str.597, ptr %ref.tmp4459, align 8
   store i8 3, ptr %LHSKind.i5000, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1059, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4459, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1059, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4459, i32 noundef 0) #13
   br label %return
 
 if.end4461:                                       ; preds = %if.then4452
@@ -11848,7 +11848,7 @@ if.then4475:                                      ; preds = %if.then4469
   store i8 1, ptr %RHSKind.i5012, align 1
   store ptr @.str.599, ptr %ref.tmp4478, align 8
   store i8 3, ptr %LHSKind.i5011, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1063, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4478, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1063, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4478, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11602:               ; preds = %if.then4469
@@ -11863,7 +11863,7 @@ if.then4483:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5017, align 1
   store ptr @.str.600, ptr %ref.tmp4486, align 8
   store i8 3, ptr %LHSKind.i5016, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1064, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4486, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1064, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4486, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11612:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11602
@@ -11878,7 +11878,7 @@ if.then4491:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5022, align 1
   store ptr @.str.601, ptr %ref.tmp4494, align 8
   store i8 3, ptr %LHSKind.i5021, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1065, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4494, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1065, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4494, i32 noundef 0) #13
   br label %return
 
 if.end4496:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11612
@@ -11926,7 +11926,7 @@ if.then4508:                                      ; preds = %if.then4504
   store i8 1, ptr %RHSKind.i5035, align 1
   store ptr @.str.603, ptr %ref.tmp4511, align 8
   store i8 3, ptr %LHSKind.i5034, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1071, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4511, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1071, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4511, i32 noundef 0) #13
   br label %return
 
 if.end4513:                                       ; preds = %if.then4504
@@ -11969,7 +11969,7 @@ if.then4526:                                      ; preds = %if.then4521
   store i8 1, ptr %RHSKind.i5046, align 1
   store ptr @.str.605, ptr %ref.tmp4529, align 8
   store i8 3, ptr %LHSKind.i5045, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1075, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4529, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1075, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4529, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11662:               ; preds = %if.then4521
@@ -12016,7 +12016,7 @@ if.then4553:                                      ; preds = %if.then4548
   store i8 1, ptr %RHSKind.i5058, align 1
   store ptr @.str.608, ptr %ref.tmp4556, align 8
   store i8 3, ptr %LHSKind.i5057, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1080, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4556, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1080, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4556, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11692:               ; preds = %if.then4548
@@ -12062,7 +12062,7 @@ if.then4579:                                      ; preds = %if.then4575
   store i8 1, ptr %RHSKind.i5070, align 1
   store ptr @.str.611, ptr %ref.tmp4582, align 8
   store i8 3, ptr %LHSKind.i5069, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1085, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4582, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1085, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4582, i32 noundef 0) #13
   br label %return
 
 if.end4584:                                       ; preds = %if.then4575
@@ -12117,7 +12117,7 @@ if.then4601:                                      ; preds = %if.then4592
   store i8 1, ptr %RHSKind.i5085, align 1
   store ptr @.str.613, ptr %ref.tmp4604, align 8
   store i8 3, ptr %LHSKind.i5084, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1089, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4604, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1089, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4604, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11742:               ; preds = %if.then4592
@@ -12132,7 +12132,7 @@ if.then4609:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5090, align 1
   store ptr @.str.615, ptr %ref.tmp4612, align 8
   store i8 3, ptr %LHSKind.i5089, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1090, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4612, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1090, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4612, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11752:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11742
@@ -12147,7 +12147,7 @@ if.then4617:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5095, align 1
   store ptr @.str.617, ptr %ref.tmp4620, align 8
   store i8 3, ptr %LHSKind.i5094, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1091, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4620, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1091, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4620, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11762:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11752
@@ -12162,7 +12162,7 @@ if.then4625:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5100, align 1
   store ptr @.str.619, ptr %ref.tmp4628, align 8
   store i8 3, ptr %LHSKind.i5099, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1092, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4628, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1092, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4628, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11772:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11762
@@ -12177,7 +12177,7 @@ if.then4633:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5105, align 1
   store ptr @.str.621, ptr %ref.tmp4636, align 8
   store i8 3, ptr %LHSKind.i5104, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1093, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4636, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1093, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4636, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11782:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11772
@@ -12192,7 +12192,7 @@ if.then4641:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5110, align 1
   store ptr @.str.623, ptr %ref.tmp4644, align 8
   store i8 3, ptr %LHSKind.i5109, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1094, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4644, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1094, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4644, i32 noundef 0) #13
   br label %return
 
 if.end4646:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11782
@@ -12238,7 +12238,7 @@ if.then4667:                                      ; preds = %if.then4656
   store i8 1, ptr %RHSKind.i5118, align 1
   store ptr @.str.625, ptr %ref.tmp4670, align 8
   store i8 3, ptr %LHSKind.i5117, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1099, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4670, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1099, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4670, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11812:               ; preds = %if.then4656
@@ -12253,7 +12253,7 @@ if.then4675:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5123, align 1
   store ptr @.str.626, ptr %ref.tmp4678, align 8
   store i8 3, ptr %LHSKind.i5122, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1100, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4678, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1100, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4678, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11822:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11812
@@ -12268,7 +12268,7 @@ if.then4683:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5128, align 1
   store ptr @.str.627, ptr %ref.tmp4686, align 8
   store i8 3, ptr %LHSKind.i5127, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1101, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4686, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1101, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4686, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11832:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11822
@@ -12283,7 +12283,7 @@ if.then4691:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5133, align 1
   store ptr @.str.628, ptr %ref.tmp4694, align 8
   store i8 3, ptr %LHSKind.i5132, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1102, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4694, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1102, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4694, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11842:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11832
@@ -12298,7 +12298,7 @@ if.then4699:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5138, align 1
   store ptr @.str.629, ptr %ref.tmp4702, align 8
   store i8 3, ptr %LHSKind.i5137, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1103, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4702, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1103, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4702, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11852:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11842
@@ -12313,7 +12313,7 @@ if.then4707:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5143, align 1
   store ptr @.str.631, ptr %ref.tmp4710, align 8
   store i8 3, ptr %LHSKind.i5142, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1104, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4710, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1104, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4710, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11862:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11852
@@ -12329,7 +12329,7 @@ if.then4724:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5148, align 1
   store ptr @.str.633, ptr %ref.tmp4727, align 8
   store i8 3, ptr %LHSKind.i5147, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1105, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4727, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1105, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4727, i32 noundef 0) #13
   br label %return
 
 if.end4729:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11862
@@ -12396,7 +12396,7 @@ if.then4745:                                      ; preds = %if.then4741
   store i8 1, ptr %RHSKind.i5169, align 1
   store ptr @.str.635, ptr %ref.tmp4748, align 8
   store i8 3, ptr %LHSKind.i5168, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1116, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4748, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1116, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4748, i32 noundef 0) #13
   br label %return
 
 if.end4750:                                       ; preds = %if.then4741
@@ -12442,7 +12442,7 @@ if.then4766:                                      ; preds = %if.then4758
   store i8 1, ptr %RHSKind.i5180, align 1
   store ptr @.str.637, ptr %ref.tmp4769, align 8
   store i8 3, ptr %LHSKind.i5179, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1120, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4769, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1120, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4769, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11922:               ; preds = %if.then4758
@@ -12457,7 +12457,7 @@ if.then4774:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5185, align 1
   store ptr @.str.638, ptr %ref.tmp4777, align 8
   store i8 3, ptr %LHSKind.i5184, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1121, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4777, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1121, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4777, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11932:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11922
@@ -12472,7 +12472,7 @@ if.then4782:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5190, align 1
   store ptr @.str.639, ptr %ref.tmp4785, align 8
   store i8 3, ptr %LHSKind.i5189, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1122, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4785, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1122, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4785, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11942:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11932
@@ -12487,7 +12487,7 @@ if.then4790:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5195, align 1
   store ptr @.str.640, ptr %ref.tmp4793, align 8
   store i8 3, ptr %LHSKind.i5194, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1123, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4793, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1123, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4793, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11952:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11942
@@ -12502,7 +12502,7 @@ if.then4798:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5200, align 1
   store ptr @.str.641, ptr %ref.tmp4801, align 8
   store i8 3, ptr %LHSKind.i5199, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1124, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4801, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1124, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4801, i32 noundef 0) #13
   br label %return
 
 if.end4803:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11952
@@ -12557,7 +12557,7 @@ if.then4819:                                      ; preds = %if.then4814
   store i8 1, ptr %RHSKind.i5218, align 1
   store ptr @.str.643, ptr %ref.tmp4822, align 8
   store i8 3, ptr %LHSKind.i5217, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1132, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4822, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1132, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4822, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11982:               ; preds = %if.then4814
@@ -12572,7 +12572,7 @@ if.then4827:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5223, align 1
   store ptr @.str.644, ptr %ref.tmp4830, align 8
   store i8 3, ptr %LHSKind.i5222, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1133, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4830, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1133, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4830, i32 noundef 0) #13
   br label %return
 
 if.end4832:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit11982
@@ -12624,7 +12624,7 @@ if.then4858:                                      ; preds = %if.then4841
   store i8 1, ptr %RHSKind.i5236, align 1
   store ptr @.str.647, ptr %ref.tmp4861, align 8
   store i8 3, ptr %LHSKind.i5235, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1138, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4861, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1138, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4861, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12022:               ; preds = %if.then4841
@@ -12639,7 +12639,7 @@ if.then4866:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5241, align 1
   store ptr @.str.648, ptr %ref.tmp4869, align 8
   store i8 3, ptr %LHSKind.i5240, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1139, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4869, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1139, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4869, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12032:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12022
@@ -12654,7 +12654,7 @@ if.then4874:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5246, align 1
   store ptr @.str.649, ptr %ref.tmp4877, align 8
   store i8 3, ptr %LHSKind.i5245, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1140, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4877, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1140, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4877, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12042:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12032
@@ -12714,7 +12714,7 @@ if.then4905:                                      ; preds = %if.then4897
   store i8 1, ptr %RHSKind.i5262, align 1
   store ptr @.str.653, ptr %ref.tmp4908, align 8
   store i8 3, ptr %LHSKind.i5261, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1148, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4908, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1148, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4908, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12072:               ; preds = %if.then4897
@@ -12729,7 +12729,7 @@ if.then4913:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5267, align 1
   store ptr @.str.655, ptr %ref.tmp4916, align 8
   store i8 3, ptr %LHSKind.i5266, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1149, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4916, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1149, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4916, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12082:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12072
@@ -12744,7 +12744,7 @@ if.then4921:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5272, align 1
   store ptr @.str.657, ptr %ref.tmp4924, align 8
   store i8 3, ptr %LHSKind.i5271, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1150, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4924, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1150, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4924, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12082
@@ -12800,7 +12800,7 @@ if.then4956:                                      ; preds = %if.then4952
   store i8 1, ptr %RHSKind.i5285, align 1
   store ptr @.str.661, ptr %ref.tmp4959, align 8
   store i8 3, ptr %LHSKind.i5284, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1158, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4959, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1158, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4959, i32 noundef 0) #13
   br label %return
 
 if.end4961:                                       ; preds = %if.then4952
@@ -12844,7 +12844,7 @@ if.then4973:                                      ; preds = %if.then4969
   store i8 1, ptr %RHSKind.i5297, align 1
   store ptr @.str.663, ptr %ref.tmp4976, align 8
   store i8 3, ptr %LHSKind.i5296, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1162, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4976, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1162, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4976, i32 noundef 0) #13
   br label %return
 
 if.end4978:                                       ; preds = %if.then4969
@@ -12883,7 +12883,7 @@ if.then4994:                                      ; preds = %if.then4986
   store i8 1, ptr %RHSKind.i5305, align 1
   store ptr @.str.665, ptr %ref.tmp4997, align 8
   store i8 3, ptr %LHSKind.i5304, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1165, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4997, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1165, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4997, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12172:               ; preds = %if.then4986
@@ -12901,7 +12901,7 @@ if.then5029:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5310, align 1
   store ptr @.str.671, ptr %ref.tmp5032, align 8
   store i8 3, ptr %LHSKind.i5309, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1166, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5032, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1166, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5032, i32 noundef 0) #13
   br label %return
 
 if.end5034:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12172
@@ -12958,7 +12958,7 @@ if.then5047:                                      ; preds = %if.then5043
   store i8 1, ptr %RHSKind.i5324, align 1
   store ptr @.str.673, ptr %ref.tmp5050, align 8
   store i8 3, ptr %LHSKind.i5323, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1174, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5050, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1174, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5050, i32 noundef 0) #13
   br label %return
 
 if.end5052:                                       ; preds = %if.then5043
@@ -12994,7 +12994,7 @@ if.then5065:                                      ; preds = %if.then5060
   store i8 1, ptr %RHSKind.i5332, align 1
   store ptr @.str.675, ptr %ref.tmp5068, align 8
   store i8 3, ptr %LHSKind.i5331, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1177, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5068, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1177, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5068, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12252:               ; preds = %if.then5060
@@ -13009,7 +13009,7 @@ if.then5073:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5337, align 1
   store ptr @.str.676, ptr %ref.tmp5076, align 8
   store i8 3, ptr %LHSKind.i5336, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1178, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5076, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1178, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5076, i32 noundef 0) #13
   br label %return
 
 if.end5078:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12252
@@ -13052,7 +13052,7 @@ if.then5091:                                      ; preds = %if.then5086
   store i8 1, ptr %RHSKind.i5349, align 1
   store ptr @.str.678, ptr %ref.tmp5094, align 8
   store i8 3, ptr %LHSKind.i5348, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1183, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5094, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1183, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5094, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12282:               ; preds = %if.then5086
@@ -13067,7 +13067,7 @@ if.then5099:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5354, align 1
   store ptr @.str.679, ptr %ref.tmp5102, align 8
   store i8 3, ptr %LHSKind.i5353, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1184, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5102, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1184, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5102, i32 noundef 0) #13
   br label %return
 
 if.end5104:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12282
@@ -13132,7 +13132,7 @@ if.then5124:                                      ; preds = %if.then5120
   store i8 1, ptr %RHSKind.i5371, align 1
   store ptr @.str.682, ptr %ref.tmp5127, align 8
   store i8 3, ptr %LHSKind.i5370, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1191, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5127, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1191, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5127, i32 noundef 0) #13
   br label %return
 
 if.end5129:                                       ; preds = %if.then5120
@@ -13175,7 +13175,7 @@ if.then5142:                                      ; preds = %if.then5137
   store i8 1, ptr %RHSKind.i5382, align 1
   store ptr @.str.684, ptr %ref.tmp5145, align 8
   store i8 3, ptr %LHSKind.i5381, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1195, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5145, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1195, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5145, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12342:               ; preds = %if.then5137
@@ -13190,7 +13190,7 @@ if.then5150:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5387, align 1
   store ptr @.str.685, ptr %ref.tmp5153, align 8
   store i8 3, ptr %LHSKind.i5386, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1196, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5153, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1196, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5153, i32 noundef 0) #13
   br label %return
 
 if.end5155:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12342
@@ -13239,7 +13239,7 @@ if.then5169:                                      ; preds = %if.then5163
   store i8 1, ptr %RHSKind.i5400, align 1
   store ptr @.str.688, ptr %ref.tmp5172, align 8
   store i8 3, ptr %LHSKind.i5399, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1201, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5172, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1201, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5172, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12372:               ; preds = %if.then5163
@@ -13254,7 +13254,7 @@ if.then5177:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5405, align 1
   store ptr @.str.690, ptr %ref.tmp5180, align 8
   store i8 3, ptr %LHSKind.i5404, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1202, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5180, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1202, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5180, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12382:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12372
@@ -13269,7 +13269,7 @@ if.then5185:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5410, align 1
   store ptr @.str.692, ptr %ref.tmp5188, align 8
   store i8 3, ptr %LHSKind.i5409, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1203, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5188, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1203, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5188, i32 noundef 0) #13
   br label %return
 
 if.end5190:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12382
@@ -13309,7 +13309,7 @@ if.then5206:                                      ; preds = %if.then5200
   store i8 1, ptr %RHSKind.i5419, align 1
   store ptr @.str.694, ptr %ref.tmp5209, align 8
   store i8 3, ptr %LHSKind.i5418, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1208, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5209, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1208, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5209, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12412:               ; preds = %if.then5200
@@ -13324,7 +13324,7 @@ if.then5214:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5424, align 1
   store ptr @.str.695, ptr %ref.tmp5217, align 8
   store i8 3, ptr %LHSKind.i5423, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1209, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5217, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1209, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5217, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12422:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12412
@@ -13339,7 +13339,7 @@ if.then5222:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5429, align 1
   store ptr @.str.696, ptr %ref.tmp5225, align 8
   store i8 3, ptr %LHSKind.i5428, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1210, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5225, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1210, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5225, i32 noundef 0) #13
   br label %return
 
 if.end5227:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12422
@@ -13382,7 +13382,7 @@ if.then5243:                                      ; preds = %if.then5237
   store i8 1, ptr %RHSKind.i5438, align 1
   store ptr @.str.698, ptr %ref.tmp5246, align 8
   store i8 3, ptr %LHSKind.i5437, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1215, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5246, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1215, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5246, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12452:               ; preds = %if.then5237
@@ -13397,7 +13397,7 @@ if.then5251:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5443, align 1
   store ptr @.str.699, ptr %ref.tmp5254, align 8
   store i8 3, ptr %LHSKind.i5442, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1216, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5254, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1216, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5254, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12462:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12452
@@ -13412,7 +13412,7 @@ if.then5259:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5448, align 1
   store ptr @.str.700, ptr %ref.tmp5262, align 8
   store i8 3, ptr %LHSKind.i5447, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1217, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5262, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1217, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5262, i32 noundef 0) #13
   br label %return
 
 if.end5264:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12462
@@ -13454,7 +13454,7 @@ if.then5279:                                      ; preds = %if.then5274
   store i8 1, ptr %RHSKind.i5457, align 1
   store ptr @.str.702, ptr %ref.tmp5282, align 8
   store i8 3, ptr %LHSKind.i5456, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1222, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5282, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1222, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5282, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12492:               ; preds = %if.then5274
@@ -13469,7 +13469,7 @@ if.then5287:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5462, align 1
   store ptr @.str.703, ptr %ref.tmp5290, align 8
   store i8 3, ptr %LHSKind.i5461, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1223, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5290, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1223, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5290, i32 noundef 0) #13
   br label %return
 
 if.end5292:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12492
@@ -13506,7 +13506,7 @@ if.then5305:                                      ; preds = %if.then5301
   store i8 1, ptr %RHSKind.i5470, align 1
   store ptr @.str.705, ptr %ref.tmp5308, align 8
   store i8 3, ptr %LHSKind.i5469, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1227, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5308, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1227, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5308, i32 noundef 0) #13
   br label %return
 
 if.end5310:                                       ; preds = %if.then5301
@@ -13549,7 +13549,7 @@ if.then5323:                                      ; preds = %if.then5318
   store i8 1, ptr %RHSKind.i5481, align 1
   store ptr @.str.707, ptr %ref.tmp5326, align 8
   store i8 3, ptr %LHSKind.i5480, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1231, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5326, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1231, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5326, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12542:               ; preds = %if.then5318
@@ -13564,7 +13564,7 @@ if.then5331:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5486, align 1
   store ptr @.str.708, ptr %ref.tmp5334, align 8
   store i8 3, ptr %LHSKind.i5485, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1232, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5334, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1232, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5334, i32 noundef 0) #13
   br label %return
 
 if.end5336:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12542
@@ -13607,7 +13607,7 @@ if.then5349:                                      ; preds = %if.then5344
   store i8 1, ptr %RHSKind.i5498, align 1
   store ptr @.str.710, ptr %ref.tmp5352, align 8
   store i8 3, ptr %LHSKind.i5497, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1237, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5352, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1237, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5352, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12572:               ; preds = %if.then5344
@@ -13622,7 +13622,7 @@ if.then5357:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5503, align 1
   store ptr @.str.711, ptr %ref.tmp5360, align 8
   store i8 3, ptr %LHSKind.i5502, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1238, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5360, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1238, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5360, i32 noundef 0) #13
   br label %return
 
 if.end5362:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12572
@@ -13668,7 +13668,7 @@ if.then5375:                                      ; preds = %if.then5370
   store i8 1, ptr %RHSKind.i5515, align 1
   store ptr @.str.713, ptr %ref.tmp5378, align 8
   store i8 3, ptr %LHSKind.i5514, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1243, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5378, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1243, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5378, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12602:               ; preds = %if.then5370
@@ -13683,7 +13683,7 @@ if.then5383:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5520, align 1
   store ptr @.str.714, ptr %ref.tmp5386, align 8
   store i8 3, ptr %LHSKind.i5519, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1244, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5386, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1244, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5386, i32 noundef 0) #13
   br label %return
 
 if.end5388:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12602
@@ -13730,7 +13730,7 @@ if.then5402:                                      ; preds = %if.then5396
   store i8 1, ptr %RHSKind.i5532, align 1
   store ptr @.str.716, ptr %ref.tmp5405, align 8
   store i8 3, ptr %LHSKind.i5531, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1249, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5405, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1249, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5405, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12632:               ; preds = %if.then5396
@@ -13745,7 +13745,7 @@ if.then5410:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5537, align 1
   store ptr @.str.717, ptr %ref.tmp5413, align 8
   store i8 3, ptr %LHSKind.i5536, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1250, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5413, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1250, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5413, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12642:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12632
@@ -13760,7 +13760,7 @@ if.then5418:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5542, align 1
   store ptr @.str.718, ptr %ref.tmp5421, align 8
   store i8 3, ptr %LHSKind.i5541, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1251, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5421, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1251, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5421, i32 noundef 0) #13
   br label %return
 
 if.end5423:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12642
@@ -13809,7 +13809,7 @@ if.then5436:                                      ; preds = %if.then5432
   store i8 1, ptr %RHSKind.i5556, align 1
   store ptr @.str.720, ptr %ref.tmp5439, align 8
   store i8 3, ptr %LHSKind.i5555, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1257, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5439, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1257, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5439, i32 noundef 0) #13
   br label %return
 
 if.end5441:                                       ; preds = %if.then5432
@@ -14098,7 +14098,7 @@ if.then5541:                                      ; preds = %if.then5537
   store i8 1, ptr %RHSKind.i5622, align 1
   store ptr @.str.734, ptr %ref.tmp5544, align 8
   store i8 3, ptr %LHSKind.i5621, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1283, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5544, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1283, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5544, i32 noundef 0) #13
   br label %return
 
 if.end5546:                                       ; preds = %if.then5537
@@ -14141,7 +14141,7 @@ if.then5559:                                      ; preds = %if.then5554
   store i8 1, ptr %RHSKind.i5632, align 1
   store ptr @.str.736, ptr %ref.tmp5562, align 8
   store i8 3, ptr %LHSKind.i5631, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1287, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5562, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1287, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5562, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12822:               ; preds = %if.then5554
@@ -14156,7 +14156,7 @@ if.then5567:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5637, align 1
   store ptr @.str.737, ptr %ref.tmp5570, align 8
   store i8 3, ptr %LHSKind.i5636, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1288, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5570, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1288, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5570, i32 noundef 0) #13
   br label %return
 
 if.end5572:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit12822
@@ -14201,7 +14201,7 @@ if.then5584:                                      ; preds = %if.then5580
   store i8 1, ptr %RHSKind.i5649, align 1
   store ptr @.str.739, ptr %ref.tmp5587, align 8
   store i8 3, ptr %LHSKind.i5648, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1293, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5587, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1293, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5587, i32 noundef 0) #13
   br label %return
 
 if.end5589:                                       ; preds = %if.then5580
@@ -14244,7 +14244,7 @@ if.then5602:                                      ; preds = %if.then5597
   store i8 1, ptr %RHSKind.i5660, align 1
   store ptr @.str.742, ptr %ref.tmp5605, align 8
   store i8 3, ptr %LHSKind.i5659, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1297, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5605, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1297, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5605, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12872:               ; preds = %if.then5597
@@ -14288,7 +14288,7 @@ if.then5629:                                      ; preds = %if.then5624
   store i8 1, ptr %RHSKind.i5671, align 1
   store ptr @.str.745, ptr %ref.tmp5632, align 8
   store i8 3, ptr %LHSKind.i5670, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1302, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5632, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1302, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5632, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12902:               ; preds = %if.then5624
@@ -14338,7 +14338,7 @@ if.then5657:                                      ; preds = %if.then5651
   store i8 1, ptr %RHSKind.i5684, align 1
   store ptr @.str.748, ptr %ref.tmp5660, align 8
   store i8 3, ptr %LHSKind.i5683, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1307, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5660, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1307, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5660, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12932:               ; preds = %if.then5651
@@ -14353,7 +14353,7 @@ if.then5665:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5689, align 1
   store ptr @.str.749, ptr %ref.tmp5668, align 8
   store i8 3, ptr %LHSKind.i5688, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1308, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5668, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1308, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5668, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12942:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12932
@@ -14395,7 +14395,7 @@ if.then5693:                                      ; preds = %if.then5687
   store i8 1, ptr %RHSKind.i5698, align 1
   store ptr @.str.752, ptr %ref.tmp5696, align 8
   store i8 3, ptr %LHSKind.i5697, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1313, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5696, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1313, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5696, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12972:               ; preds = %if.then5687
@@ -14410,7 +14410,7 @@ if.then5701:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5703, align 1
   store ptr @.str.753, ptr %ref.tmp5704, align 8
   store i8 3, ptr %LHSKind.i5702, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1314, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5704, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1314, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5704, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12982:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12972
@@ -14449,7 +14449,7 @@ if.then5728:                                      ; preds = %if.then5723
   store i8 1, ptr %RHSKind.i5711, align 1
   store ptr @.str.756, ptr %ref.tmp5731, align 8
   store i8 3, ptr %LHSKind.i5710, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1319, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5731, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1319, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5731, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13012:               ; preds = %if.then5723
@@ -14464,7 +14464,7 @@ if.then5736:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5716, align 1
   store ptr @.str.757, ptr %ref.tmp5739, align 8
   store i8 3, ptr %LHSKind.i5715, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1320, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5739, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1320, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5739, i32 noundef 0) #13
   br label %return
 
 if.end5741:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13012
@@ -14511,7 +14511,7 @@ if.then5753:                                      ; preds = %if.then5749
   store i8 1, ptr %RHSKind.i5729, align 1
   store ptr @.str.760, ptr %ref.tmp5756, align 8
   store i8 3, ptr %LHSKind.i5728, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1325, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5756, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1325, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5756, i32 noundef 0) #13
   br label %return
 
 if.end5758:                                       ; preds = %if.then5749
@@ -14547,7 +14547,7 @@ if.then5771:                                      ; preds = %if.then5766
   store i8 1, ptr %RHSKind.i5737, align 1
   store ptr @.str.762, ptr %ref.tmp5774, align 8
   store i8 3, ptr %LHSKind.i5736, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1328, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5774, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1328, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5774, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13062:               ; preds = %if.then5766
@@ -14562,7 +14562,7 @@ if.then5779:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5742, align 1
   store ptr @.str.763, ptr %ref.tmp5782, align 8
   store i8 3, ptr %LHSKind.i5741, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1329, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5782, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1329, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5782, i32 noundef 0) #13
   br label %return
 
 if.end5784:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13062
@@ -14608,7 +14608,7 @@ if.then5797:                                      ; preds = %if.then5792
   store i8 1, ptr %RHSKind.i5754, align 1
   store ptr @.str.765, ptr %ref.tmp5800, align 8
   store i8 3, ptr %LHSKind.i5753, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1334, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5800, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1334, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5800, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13092:               ; preds = %if.then5792
@@ -14623,7 +14623,7 @@ if.then5805:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5759, align 1
   store ptr @.str.766, ptr %ref.tmp5808, align 8
   store i8 3, ptr %LHSKind.i5758, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1335, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5808, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1335, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5808, i32 noundef 0) #13
   br label %return
 
 if.end5810:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13092
@@ -14672,7 +14672,7 @@ if.then5826:                                      ; preds = %if.then5818
   store i8 1, ptr %RHSKind.i5771, align 1
   store ptr @.str.769, ptr %ref.tmp5829, align 8
   store i8 3, ptr %LHSKind.i5770, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1340, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5829, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1340, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5829, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13122:               ; preds = %if.then5818
@@ -14688,7 +14688,7 @@ if.then5843:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5776, align 1
   store ptr @.str.773, ptr %ref.tmp5846, align 8
   store i8 3, ptr %LHSKind.i5775, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1342, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5846, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1342, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5846, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13142:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13122
@@ -14703,7 +14703,7 @@ if.then5851:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5781, align 1
   store ptr @.str.774, ptr %ref.tmp5854, align 8
   store i8 3, ptr %LHSKind.i5780, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1343, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5854, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1343, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5854, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13152:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13142
@@ -14718,7 +14718,7 @@ if.then5859:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5786, align 1
   store ptr @.str.776, ptr %ref.tmp5862, align 8
   store i8 3, ptr %LHSKind.i5785, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1344, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5862, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1344, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5862, i32 noundef 0) #13
   br label %return
 
 if.end5864:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13152
@@ -14777,7 +14777,7 @@ if.then5881:                                      ; preds = %if.then5875
   store i8 1, ptr %RHSKind.i5800, align 1
   store ptr @.str.778, ptr %ref.tmp5884, align 8
   store i8 3, ptr %LHSKind.i5799, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1352, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5884, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1352, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5884, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13182:               ; preds = %if.then5875
@@ -14793,7 +14793,7 @@ if.then5898:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5805, align 1
   store ptr @.str.780, ptr %ref.tmp5901, align 8
   store i8 3, ptr %LHSKind.i5804, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1353, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5901, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1353, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5901, i32 noundef 0) #13
   br label %return
 
 if.end5903:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13182
@@ -14843,7 +14843,7 @@ if.then5918:                                      ; preds = %if.then5911
   store i8 1, ptr %RHSKind.i5819, align 1
   store ptr @.str.782, ptr %ref.tmp5921, align 8
   store i8 3, ptr %LHSKind.i5818, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1359, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5921, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1359, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5921, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13222:               ; preds = %if.then5911
@@ -14858,7 +14858,7 @@ if.then5926:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5824, align 1
   store ptr @.str.783, ptr %ref.tmp5929, align 8
   store i8 3, ptr %LHSKind.i5823, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1360, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5929, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1360, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5929, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13232:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13222
@@ -14873,7 +14873,7 @@ if.then5934:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5829, align 1
   store ptr @.str.784, ptr %ref.tmp5937, align 8
   store i8 3, ptr %LHSKind.i5828, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1361, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5937, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1361, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5937, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13242:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13232
@@ -14913,7 +14913,7 @@ if.then5961:                                      ; preds = %if.then5956
   store i8 1, ptr %RHSKind.i5837, align 1
   store ptr @.str.787, ptr %ref.tmp5964, align 8
   store i8 3, ptr %LHSKind.i5836, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1367, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5964, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1367, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5964, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13272:               ; preds = %if.then5956
@@ -14961,7 +14961,7 @@ if.then5987:                                      ; preds = %if.then5983
   store i8 1, ptr %RHSKind.i5850, align 1
   store ptr @.str.790, ptr %ref.tmp5990, align 8
   store i8 3, ptr %LHSKind.i5849, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1372, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5990, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1372, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5990, i32 noundef 0) #13
   br label %return
 
 if.end5992:                                       ; preds = %if.then5983
@@ -14999,7 +14999,7 @@ if.then6005:                                      ; preds = %if.then6000
   store i8 1, ptr %RHSKind.i5859, align 1
   store ptr @.str.792, ptr %ref.tmp6008, align 8
   store i8 3, ptr %LHSKind.i5858, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1375, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6008, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1375, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6008, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13322:               ; preds = %if.then6000
@@ -15014,7 +15014,7 @@ if.then6013:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5864, align 1
   store ptr @.str.793, ptr %ref.tmp6016, align 8
   store i8 3, ptr %LHSKind.i5863, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1376, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6016, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1376, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6016, i32 noundef 0) #13
   br label %return
 
 if.end6018:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13322
@@ -15048,7 +15048,7 @@ if.then6031:                                      ; preds = %if.then6026
   store i8 1, ptr %RHSKind.i5872, align 1
   store ptr @.str.795, ptr %ref.tmp6034, align 8
   store i8 3, ptr %LHSKind.i5871, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1380, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6034, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1380, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6034, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13352:               ; preds = %if.then6026
@@ -15095,7 +15095,7 @@ if.then6058:                                      ; preds = %if.then6053
   store i8 1, ptr %RHSKind.i5883, align 1
   store ptr @.str.799, ptr %ref.tmp6061, align 8
   store i8 3, ptr %LHSKind.i5882, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1385, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6061, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1385, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6061, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13382:               ; preds = %if.then6053
@@ -15110,7 +15110,7 @@ if.then6066:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5888, align 1
   store ptr @.str.800, ptr %ref.tmp6069, align 8
   store i8 3, ptr %LHSKind.i5887, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1386, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6069, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1386, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6069, i32 noundef 0) #13
   br label %return
 
 if.end6071:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13382
@@ -15157,7 +15157,7 @@ if.then6083:                                      ; preds = %if.then6079
   store i8 1, ptr %RHSKind.i5901, align 1
   store ptr @.str.802, ptr %ref.tmp6086, align 8
   store i8 3, ptr %LHSKind.i5900, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1391, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6086, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1391, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6086, i32 noundef 0) #13
   br label %return
 
 if.end6088:                                       ; preds = %if.then6079
@@ -15193,7 +15193,7 @@ if.then6101:                                      ; preds = %if.then6096
   store i8 1, ptr %RHSKind.i5909, align 1
   store ptr @.str.804, ptr %ref.tmp6104, align 8
   store i8 3, ptr %LHSKind.i5908, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1394, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6104, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1394, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6104, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13432:               ; preds = %if.then6096
@@ -15241,7 +15241,7 @@ if.then6127:                                      ; preds = %if.then6123
   store i8 1, ptr %RHSKind.i5922, align 1
   store ptr @.str.807, ptr %ref.tmp6130, align 8
   store i8 3, ptr %LHSKind.i5921, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1399, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6130, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1399, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6130, i32 noundef 0) #13
   br label %return
 
 if.end6132:                                       ; preds = %if.then6123
@@ -15278,7 +15278,7 @@ if.then6146:                                      ; preds = %if.then6140
   store i8 1, ptr %RHSKind.i5930, align 1
   store ptr @.str.809, ptr %ref.tmp6149, align 8
   store i8 3, ptr %LHSKind.i5929, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1402, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6149, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1402, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6149, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13482:               ; preds = %if.then6140
@@ -15330,7 +15330,7 @@ if.then6181:                                      ; preds = %if.then6177
   store i8 1, ptr %RHSKind.i5943, align 1
   store ptr @.str.814, ptr %ref.tmp6184, align 8
   store i8 3, ptr %LHSKind.i5942, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1408, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6184, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1408, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6184, i32 noundef 0) #13
   br label %return
 
 if.end6186:                                       ; preds = %if.then6177
@@ -15367,7 +15367,7 @@ if.then6198:                                      ; preds = %if.then6194
   store i8 1, ptr %RHSKind.i5952, align 1
   store ptr @.str.816, ptr %ref.tmp6201, align 8
   store i8 3, ptr %LHSKind.i5951, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1411, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6201, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1411, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6201, i32 noundef 0) #13
   br label %return
 
 if.end6203:                                       ; preds = %if.then6194
@@ -15404,7 +15404,7 @@ if.then6215:                                      ; preds = %if.then6211
   store i8 1, ptr %RHSKind.i5961, align 1
   store ptr @.str.818, ptr %ref.tmp6218, align 8
   store i8 3, ptr %LHSKind.i5960, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1414, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6218, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1414, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6218, i32 noundef 0) #13
   br label %return
 
 if.end6220:                                       ; preds = %if.then6211
@@ -15439,7 +15439,7 @@ if.then6232:                                      ; preds = %if.then6228
   store i8 1, ptr %RHSKind.i5969, align 1
   store ptr @.str.821, ptr %ref.tmp6235, align 8
   store i8 3, ptr %LHSKind.i5968, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1417, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6235, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1417, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6235, i32 noundef 0) #13
   br label %return
 
 if.end6237:                                       ; preds = %if.then6228
@@ -15484,7 +15484,7 @@ if.then6252:                                      ; preds = %if.then6245
   store i8 1, ptr %RHSKind.i5979, align 1
   store ptr @.str.823, ptr %ref.tmp6255, align 8
   store i8 3, ptr %LHSKind.i5978, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1421, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6255, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1421, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6255, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13602:               ; preds = %if.then6245
@@ -15499,7 +15499,7 @@ if.then6260:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5984, align 1
   store ptr @.str.824, ptr %ref.tmp6263, align 8
   store i8 3, ptr %LHSKind.i5983, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1422, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6263, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1422, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6263, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13612:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13602
@@ -15514,7 +15514,7 @@ if.then6268:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5989, align 1
   store ptr @.str.825, ptr %ref.tmp6271, align 8
   store i8 3, ptr %LHSKind.i5988, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1423, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6271, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1423, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6271, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13622:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13612
@@ -15529,7 +15529,7 @@ if.then6276:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i5994, align 1
   store ptr @.str.826, ptr %ref.tmp6279, align 8
   store i8 3, ptr %LHSKind.i5993, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1424, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6279, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1424, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6279, i32 noundef 0) #13
   br label %return
 
 if.end6281:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13622
@@ -15582,7 +15582,7 @@ if.then6293:                                      ; preds = %if.then6289
   store i8 1, ptr %RHSKind.i6009, align 1
   store ptr @.str.828, ptr %ref.tmp6296, align 8
   store i8 3, ptr %LHSKind.i6008, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1431, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6296, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1431, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6296, i32 noundef 0) #13
   br label %return
 
 if.end6298:                                       ; preds = %if.then6289
@@ -15624,7 +15624,7 @@ if.then6317:                                      ; preds = %if.then6306
   store i8 1, ptr %RHSKind.i6017, align 1
   store ptr @.str.830, ptr %ref.tmp6320, align 8
   store i8 3, ptr %LHSKind.i6016, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1434, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6320, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1434, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6320, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13672:               ; preds = %if.then6306
@@ -15641,7 +15641,7 @@ if.then6343:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6022, align 1
   store ptr @.str.833, ptr %ref.tmp6346, align 8
   store i8 3, ptr %LHSKind.i6021, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1435, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6346, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1435, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6346, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13702:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13672
@@ -15656,7 +15656,7 @@ if.then6351:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6027, align 1
   store ptr @.str.834, ptr %ref.tmp6354, align 8
   store i8 3, ptr %LHSKind.i6026, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1436, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6354, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1436, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6354, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13712:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13702
@@ -15671,7 +15671,7 @@ if.then6359:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6032, align 1
   store ptr @.str.835, ptr %ref.tmp6362, align 8
   store i8 3, ptr %LHSKind.i6031, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1437, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6362, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1437, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6362, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13722:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13712
@@ -15686,7 +15686,7 @@ if.then6367:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6037, align 1
   store ptr @.str.836, ptr %ref.tmp6370, align 8
   store i8 3, ptr %LHSKind.i6036, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1438, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6370, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1438, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6370, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13732:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13722
@@ -15701,7 +15701,7 @@ if.then6375:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6042, align 1
   store ptr @.str.837, ptr %ref.tmp6378, align 8
   store i8 3, ptr %LHSKind.i6041, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1439, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6378, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1439, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6378, i32 noundef 0) #13
   br label %return
 
 if.end6380:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13732
@@ -15774,7 +15774,7 @@ if.then6400:                                      ; preds = %if.then6393
   store i8 1, ptr %RHSKind.i6065, align 1
   store ptr @.str.839, ptr %ref.tmp6403, align 8
   store i8 3, ptr %LHSKind.i6064, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1450, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6403, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1450, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6403, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13762:               ; preds = %if.then6393
@@ -15789,7 +15789,7 @@ if.then6408:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6070, align 1
   store ptr @.str.840, ptr %ref.tmp6411, align 8
   store i8 3, ptr %LHSKind.i6069, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1451, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6411, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1451, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6411, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13772:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13762
@@ -15805,7 +15805,7 @@ if.then6425:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6075, align 1
   store ptr @.str.842, ptr %ref.tmp6428, align 8
   store i8 3, ptr %LHSKind.i6074, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1452, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6428, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1452, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6428, i32 noundef 0) #13
   br label %return
 
 if.end6430:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13772
@@ -15847,7 +15847,7 @@ if.then6444:                                      ; preds = %if.then6439
   store i8 1, ptr %RHSKind.i6084, align 1
   store ptr @.str.845, ptr %ref.tmp6447, align 8
   store i8 3, ptr %LHSKind.i6083, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1458, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6447, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1458, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6447, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13812:               ; preds = %if.then6439
@@ -15887,7 +15887,7 @@ if.then6471:                                      ; preds = %if.then6466
   store i8 1, ptr %RHSKind.i6093, align 1
   store ptr @.str.848, ptr %ref.tmp6474, align 8
   store i8 3, ptr %LHSKind.i6092, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1462, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6474, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1462, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6474, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13842:               ; preds = %if.then6466
@@ -15925,7 +15925,7 @@ if.then6498:                                      ; preds = %if.then6493
   store i8 1, ptr %RHSKind.i6101, align 1
   store ptr @.str.851, ptr %ref.tmp6501, align 8
   store i8 3, ptr %LHSKind.i6100, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1466, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6501, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1466, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6501, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13872:               ; preds = %if.then6493
@@ -15940,7 +15940,7 @@ if.then6506:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6106, align 1
   store ptr @.str.852, ptr %ref.tmp6509, align 8
   store i8 3, ptr %LHSKind.i6105, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1467, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6509, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1467, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6509, i32 noundef 0) #13
   br label %return
 
 if.end6511:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13872
@@ -16032,7 +16032,7 @@ if.then6540:                                      ; preds = %if.then6536
   store i8 1, ptr %RHSKind.i6129, align 1
   store ptr @.str.856, ptr %ref.tmp6543, align 8
   store i8 3, ptr %LHSKind.i6128, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1476, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6543, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1476, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6543, i32 noundef 0) #13
   br label %return
 
 if.end6545:                                       ; preds = %if.then6536
@@ -16071,7 +16071,7 @@ if.then6557:                                      ; preds = %if.then6553
   store i8 1, ptr %RHSKind.i6140, align 1
   store ptr @.str.858, ptr %ref.tmp6560, align 8
   store i8 3, ptr %LHSKind.i6139, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1481, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6560, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1481, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6560, i32 noundef 0) #13
   br label %return
 
 if.end6562:                                       ; preds = %if.then6553
@@ -16115,7 +16115,7 @@ if.then6576:                                      ; preds = %if.then6570
   store i8 1, ptr %RHSKind.i6150, align 1
   store ptr @.str.860, ptr %ref.tmp6579, align 8
   store i8 3, ptr %LHSKind.i6149, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1486, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6579, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1486, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6579, i32 noundef 0) #13
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13962:               ; preds = %if.then6570
@@ -16131,7 +16131,7 @@ if.then6593:                                      ; preds = %_ZN4llvh9StringRefC
   store i8 1, ptr %RHSKind.i6155, align 1
   store ptr @.str.862, ptr %ref.tmp6596, align 8
   store i8 3, ptr %LHSKind.i6154, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1487, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6596, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1487, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6596, i32 noundef 0) #13
   br label %return
 
 if.end6598:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit13962
@@ -16179,7 +16179,7 @@ if.end6603:                                       ; preds = %if.end.i.i18978, %i
   store ptr @.str.864, ptr %ref.tmp6610, align 8
   store i8 3, ptr %LHSKind.i6174, align 8
   call void @_ZN4llvhplERKNS_5TwineES2_(ptr nonnull sret(%"class.llvh::Twine") align 8 %ref.tmp6606, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6607, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6610)
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1493, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6606, i32 noundef 0) #12
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1493, i32 noundef 0, ptr null, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6606, i32 noundef 0) #13
   br label %return
 
 return:                                           ; preds = %if.end6603, %if.end6598, %if.then6593, %if.then6576, %if.end6562, %if.then6557, %if.end6545, %if.then6540, %if.then6528, %if.then6520, %if.end6511, %if.then6506, %if.then6498, %_ZN4llvh9StringRefC2EPKc.exit13842, %if.then6471, %_ZN4llvh9StringRefC2EPKc.exit13812, %if.then6444, %if.end6430, %if.then6425, %if.then6408, %if.then6400, %if.end6380, %if.then6375, %if.then6367, %if.then6359, %if.then6351, %if.then6343, %if.then6317, %if.end6298, %if.then6293, %if.end6281, %if.then6276, %if.then6268, %if.then6260, %if.then6252, %if.end6237, %if.then6232, %if.end6220, %if.then6215, %if.end6203, %if.then6198, %if.end6186, %if.then6181, %_ZN4llvh9StringRefC2EPKc.exit13482, %if.then6146, %if.end6132, %if.then6127, %_ZN4llvh9StringRefC2EPKc.exit13432, %if.then6101, %if.end6088, %if.then6083, %if.end6071, %if.then6066, %if.then6058, %_ZN4llvh9StringRefC2EPKc.exit13352, %if.then6031, %if.end6018, %if.then6013, %if.then6005, %if.end5992, %if.then5987, %_ZN4llvh9StringRefC2EPKc.exit13272, %if.then5961, %_ZN4llvh9StringRefC2EPKc.exit13242, %if.then5934, %if.then5926, %if.then5918, %if.end5903, %if.then5898, %if.then5881, %if.end5864, %if.then5859, %if.then5851, %if.then5843, %if.then5826, %if.end5810, %if.then5805, %if.then5797, %if.end5784, %if.then5779, %if.then5771, %if.end5758, %if.then5753, %if.end5741, %if.then5736, %if.then5728, %_ZN4llvh9StringRefC2EPKc.exit12982, %if.then5701, %if.then5693, %_ZN4llvh9StringRefC2EPKc.exit12942, %if.then5665, %if.then5657, %_ZN4llvh9StringRefC2EPKc.exit12902, %if.then5629, %_ZN4llvh9StringRefC2EPKc.exit12872, %if.then5602, %if.end5589, %if.then5584, %if.end5572, %if.then5567, %if.then5559, %if.end5546, %if.then5541, %if.then5529, %if.then5521, %if.then5513, %if.then5505, %if.then5497, %if.then5489, %if.then5481, %if.then5473, %if.then5465, %if.then5457, %if.then5449, %if.end5441, %if.then5436, %if.end5423, %if.then5418, %if.then5410, %if.then5402, %if.end5388, %if.then5383, %if.then5375, %if.end5362, %if.then5357, %if.then5349, %if.end5336, %if.then5331, %if.then5323, %if.end5310, %if.then5305, %if.end5292, %if.then5287, %if.then5279, %if.end5264, %if.then5259, %if.then5251, %if.then5243, %if.end5227, %if.then5222, %if.then5214, %if.then5206, %if.end5190, %if.then5185, %if.then5177, %if.then5169, %if.end5155, %if.then5150, %if.then5142, %if.end5129, %if.then5124, %if.then5112, %if.end5104, %if.then5099, %if.then5091, %if.end5078, %if.then5073, %if.then5065, %if.end5052, %if.then5047, %if.end5034, %if.then5029, %if.then4994, %if.end4978, %if.then4973, %if.end4961, %if.then4956, %_ZN4llvh9StringRefC2EPKc.exit12092, %if.then4921, %if.then4913, %if.then4905, %_ZN4llvh9StringRefC2EPKc.exit12042, %if.then4874, %if.then4866, %if.then4858, %if.end4832, %if.then4827, %if.then4819, %if.end4803, %if.then4798, %if.then4790, %if.then4782, %if.then4774, %if.then4766, %if.end4750, %if.then4745, %if.end4729, %if.then4724, %if.then4707, %if.then4699, %if.then4691, %if.then4683, %if.then4675, %if.then4667, %if.end4646, %if.then4641, %if.then4633, %if.then4625, %if.then4617, %if.then4609, %if.then4601, %if.end4584, %if.then4579, %_ZN4llvh9StringRefC2EPKc.exit11692, %if.then4553, %_ZN4llvh9StringRefC2EPKc.exit11662, %if.then4526, %if.end4513, %if.then4508, %if.end4496, %if.then4491, %if.then4483, %if.then4475, %if.end4461, %if.then4456, %if.end4443, %if.then4438, %if.then4421, %if.end4397, %if.then4392, %if.then4384, %if.end4371, %if.then4366, %if.then4358, %_ZN4llvh9StringRefC2EPKc.exit11422, %if.then4313, %if.then4305, %_ZN4llvh9StringRefC2EPKc.exit11382, %if.then4275, %if.end4262, %if.then4257, %if.then4249, %if.then4241, %if.then4233, %if.then4216, %if.end4199, %if.then4194, %if.then4186, %if.then4169, %_ZN4llvh9StringRefC2EPKc.exit11212, %if.then4122, %if.end4107, %if.then4102, %if.then4085, %if.end4071, %if.then4066, %if.then4058, %if.then4041, %_ZN4llvh9StringRefC2EPKc.exit11092, %if.then4012, %if.then3995, %if.end3980, %if.then3975, %if.then3958, %_ZN4llvh9StringRefC2EPKc.exit11002, %if.then3930, %if.end3916, %if.then3911, %if.then3894, %if.end3880, %if.then3875, %if.then3867, %if.then3859, %if.then3851, %if.end3835, %if.then3830, %if.then3822, %if.then3814, %if.end3800, %if.then3795, %if.then3787, %_ZN4llvh9StringRefC2EPKc.exit10812, %if.then3760, %if.end3747, %if.then3742, %if.end3730, %if.then3725, %if.end3713, %if.then3708, %if.end3696, %if.then3691, %_ZN4llvh9StringRefC2EPKc.exit10702, %if.then3664, %if.then3656, %if.then3648, %if.end3633, %if.then3628, %if.end3606, %if.then3601, %if.end3589, %if.then3584, %if.then3576, %if.end3563, %if.then3558, %if.then3550, %if.end3537, %if.then3532, %if.end3520, %if.then3515, %if.end3503, %if.then3498, %if.then3490, %if.end3477, %if.then3472, %if.end3459, %if.then3454, %if.then3446, %_ZN4llvh9StringRefC2EPKc.exit10392, %if.then3391, %if.end3375, %if.then3370, %if.then3362, %_ZN4llvh9StringRefC2EPKc.exit10312, %if.then3316, %if.then3299, %if.then3283, %if.then3275, %if.then3267, %if.then3259, %if.then3251, %if.then3243, %if.end3234, %if.then3229, %if.then3221, %if.then3208, %if.end3200, %if.then3195, %if.end3183, %if.then3178, %if.then3170, %if.end3157, %if.then3152, %if.then3144, %if.then3131, %if.then3123, %if.then3115, %if.then3107, %if.then3099, %if.then3091, %if.end3083, %if.then3078, %if.then3070, %if.then3062, %_ZN4llvh9StringRefC2EPKc.exit9982, %if.then3034, %if.then3026, %if.end3012, %if.then3007, %if.then2999, %if.end2986, %if.then2981, %if.then2973, %if.end2960, %if.then2955, %_ZN4llvh9StringRefC2EPKc.exit9862, %if.then2929, %if.end2916, %if.then2911, %_ZN4llvh9StringRefC2EPKc.exit9812, %if.then2884, %if.then2876, %if.then2868, %if.end2853, %if.then2848, %if.end2836, %if.then2831, %if.then2819, %if.end2811, %if.then2806, %if.then2798, %if.end2785, %if.then2780, %if.then2772, %if.end2759, %if.then2754, %if.end2742, %if.then2737, %if.then2729, %if.end2716, %if.then2711, %_ZN4llvh9StringRefC2EPKc.exit9582, %if.then2685, %_ZN4llvh9StringRefC2EPKc.exit9552, %if.then2658, %if.end2645, %if.then2640, %if.then2632, %if.end2619, %if.then2614, %if.end2602, %if.then2597, %if.end2585, %if.then2580, %if.then2572, %if.end2559, %if.then2554, %if.then2537, %if.end2513, %if.then2508, %if.then2500, %if.end2487, %if.then2482, %if.end2470, %if.then2465, %if.end2453, %if.then2448, %if.then2440, %if.then2432, %if.end2418, %if.then2413, %if.then2396, %if.then2388, %if.end2371, %if.then2366, %if.then2358, %if.then2350, %if.then2342, %if.then2334, %_ZN4llvh9StringRefC2EPKc.exit9132, %if.then2283, %if.then2275, %if.then2267, %if.then2250, %_ZN4llvh9StringRefC2EPKc.exit9042, %if.then2195, %if.then2187, %if.then2179, %if.then2171, %if.then2154, %if.end2135, %if.then2130, %if.end2118, %if.then2113, %if.then2105, %if.then2097, %if.end2043, %if.then2038, %if.then2030, %if.then2022, %if.end1965, %if.then1960, %if.then1952, %if.then1944, %if.then1936, %if.then1928, %if.then1920, %if.end1902, %if.then1897, %if.then1880, %if.end1866, %if.then1861, %if.then1853, %if.end1840, %if.then1835, %if.then1827, %if.end1814, %if.then1809, %if.then1801, %if.end1788, %if.then1783, %if.end1761, %if.then1756, %if.end1734, %if.then1729, %if.end1707, %if.then1702, %if.then1694, %if.end1681, %if.then1676, %if.end1663, %if.then1658, %if.then1641, %if.end1627, %if.then1622, %if.end1610, %if.then1605, %if.end1593, %if.then1588, %if.then1580, %if.then1572, %if.end1558, %if.then1553, %if.then1545, %if.then1537, %if.end1523, %if.then1518, %if.then1510, %if.then1502, %if.end1486, %if.then1481, %if.then1473, %if.then1465, %if.then1457, %if.end1441, %if.then1436, %if.then1428, %if.then1420, %if.end1405, %if.then1400, %if.then1392, %if.then1384, %if.end1369, %if.then1364, %if.then1356, %if.then1348, %if.end1334, %if.then1329, %if.then1321, %if.then1313, %if.end1298, %if.then1293, %if.then1285, %if.then1268, %if.end1253, %if.then1248, %if.then1231, %_ZN4llvh9StringRefC2EPKc.exit7942, %if.then1203, %if.end1190, %if.then1185, %if.then1152, %if.end1144, %if.then1139, %if.then1122, %if.end1108, %if.then1103, %if.end1090, %if.then1085, %if.then1077, %if.end1064, %if.then1059, %if.end1047, %if.then1042, %if.then1030, %if.then1022, %if.end1014, %if.then1009, %if.end997, %if.then992, %if.then984, %if.end971, %if.then966, %if.end954, %if.then949, %if.end936, %if.then931, %if.then919, %_ZN4llvh9StringRefC2EPKc.exit7592, %if.then897, %if.then889, %_ZN4llvh9StringRefC2EPKc.exit7542, %if.then852, %_ZN4llvh9StringRefC2EPKc.exit7512, %if.then824, %if.end811, %if.then806, %if.then798, %if.end785, %if.then780, %if.then772, %if.end759, %if.then754, %if.then746, %if.then723, %if.end715, %if.then710, %if.then688, %if.then670, %if.end662, %if.then657, %if.then645, %if.then637, %if.end629, %if.then624, %if.end581, %if.then576, %if.then568, %if.then560, %if.then552, %if.end537, %if.then532, %if.then524, %if.then516, %if.end502, %if.then497, %if.then489, %if.end476, %if.then471, %if.then463, %_ZN4llvh9StringRefC2EPKc.exit7062, %if.then427, %if.then419, %if.then411, %if.end393, %if.then388, %if.then380, %if.then345, %if.then337, %if.end307, %if.then302, %if.then294, %if.then259, %if.then251, %if.end221, %if.then216, %if.then208, %if.then173, %if.then165, %if.end144, %if.then139, %if.then128, %if.then120, %if.end113, %if.then112, %if.end101, %if.then100, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit2487, %if.then4, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
@@ -17401,7 +17401,7 @@ lor.rhs.i.i:                                      ; preds = %entry
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
-  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i64 noundef %size, i64 noundef %alignment) #12
+  %call11.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i64 noundef %size, i64 noundef %alignment) #13
   br label %_ZN6hermes7Context12allocateNodeEmm.exit
 
 if.end.i.i:                                       ; preds = %lor.rhs.i.i
@@ -17449,7 +17449,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_c
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -17473,10 +17473,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i, %entry
   %__first.addr.0.lcssa.i.i.i.i = phi ptr [ %keys_.i.i.i, %entry ], [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ]
-  %cmp.not.i.i = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
+  %cmp.not.i.i = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i, %add.ptr.i.i.i
+  tail call void @llvm.assume(i1 %cmp.not.i.i)
   %5 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i, align 8
   %value_.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %value_.i.i.i, align 8
@@ -17484,68 +17482,63 @@ land.lhs.true.i.i:                                ; preds = %_ZSt11lower_boundIP
   %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i, %name.coerce1
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit
-
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %cmp.i.i.i.i = icmp eq i64 %name.coerce1, 0
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i.i
+if.end.i.i.i.i:                                   ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %agg.tmp4.sroa.0.0.copyload.i.i, ptr %name.coerce0, i64 %name.coerce1)
   %7 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %7, label %if.then.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit
+  tail call void @llvm.assume(i1 %7)
+  br label %if.then.i
 
-if.then.i:                                        ; preds = %if.end.i.i.i.i, %land.rhs.i.i.i
+if.then.i:                                        ; preds = %if.end.i.i.i.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %add.ptr.i.i1.i = getelementptr inbounds i8, ptr %jsObj, i64 16
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 %sub.ptr.sub.i.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  br label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit
-
-_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, %land.lhs.true.i.i, %if.end.i.i.i.i, %if.then.i
-  %retval.0.i = phi ptr [ %8, %if.then.i ], [ null, %land.lhs.true.i.i ], [ null, %if.end.i.i.i.i ], [ null, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i ]
-  %9 = load i32, ptr %retval.0.i, align 4
+  %9 = load i32, ptr %8, align 4
   %cmp.i.i.i.i.i.i.i.not = icmp eq i32 %9, 1
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit
-  %size_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+if.end:                                           ; preds = %if.then.i
+  %size_.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %size_.i, align 8
   %add.ptr.i.idx = shl nsw i64 %10, 3
-  %add.ptr.i.i.i5.add = add nsw i64 %add.ptr.i.idx, 16
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 %add.ptr.i.i.i5.add
+  %11 = getelementptr i8, ptr %8, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr i8, ptr %11, i64 16
   %cmp.not8 = icmp eq i64 %10, 0
   br i1 %cmp.not8, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %add.ptr.i.i.i5.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %add.ptr.i.i.i5.ptr = getelementptr inbounds i8, ptr %8, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end8
   %__begin2.09 = phi ptr [ %incdec.ptr, %if.end8 ], [ %add.ptr.i.i.i5.ptr, %for.body.preheader ]
-  %11 = load ptr, ptr %__begin2.09, align 8
-  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %11)
-  %12 = extractvalue { i64, i8 } %call5, 1
-  %tobool.i = trunc i8 %12 to i1
+  %12 = load ptr, ptr %__begin2.09, align 8
+  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %12)
+  %13 = extractvalue { i64, i8 } %call5, 1
+  %tobool.i = trunc i8 %13 to i1
   br i1 %tobool.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %for.body
-  %13 = extractvalue { i64, i8 } %call5, 0
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load ptr, ptr %result, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %14 = extractvalue { i64, i8 } %call5, 0
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load ptr, ptr %result, align 8
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %result, ptr %Next2.i.i.i.i.i, align 8
-  store ptr %15, ptr %14, align 8
-  %Next2.i7.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %14, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %14, ptr %result, align 8
+  store ptr %16, ptr %15, align 8
+  %Next2.i7.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %15, ptr %Next2.i7.i.i.i.i, align 8
+  store ptr %15, ptr %result, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.09, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %for.body, %if.end8, %if.end, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit
-  %retval.0 = phi i1 [ false, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit ], [ true, %if.end ], [ %tobool.i, %if.end8 ], [ %tobool.i, %for.body ]
+return:                                           ; preds = %for.body, %if.end8, %if.end, %if.then.i
+  %retval.0 = phi i1 [ false, %if.then.i ], [ true, %if.end ], [ %tobool.i, %if.end8 ], [ %tobool.i, %for.body ]
   ret i1 %retval.0
 }
 
@@ -17620,7 +17613,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_c
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -17725,7 +17718,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_c
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -18124,7 +18117,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_c
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef nonnull @.str.129, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -18222,7 +18215,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_c
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #13
+  %call.i4.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, ptr noundef %name.coerce0, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #14
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i32 %call.i4.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -32310,6 +32303,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -32322,8 +32318,9 @@ attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

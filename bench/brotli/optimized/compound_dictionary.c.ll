@@ -51,7 +51,7 @@ if.end21.i:                                       ; preds = %while.end
   br i1 %cmp22.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end21.i
-  %call.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %add14.i) #5
+  %call.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %add14.i) #6
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end21.i
@@ -156,37 +156,31 @@ for.end106.i:                                     ; preds = %if.then97.i
   %add112.i = add nuw nsw i64 %shl5.i, 32
   %add115.i = add nuw i64 %add112.i, %shl9.i
   %add116.i = add i64 %add115.i, %mul114.i
-  %cmp117.not.i = icmp eq i64 %add116.i, 0
-  br i1 %cmp117.not.i, label %cond.end123.i, label %cond.true119.i
-
-cond.true119.i:                                   ; preds = %for.end106.i
-  %call121.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %add116.i) #5
-  br label %cond.end123.i
-
-cond.end123.i:                                    ; preds = %cond.true119.i, %for.end106.i
-  %cond124.i = phi ptr [ %call121.i, %cond.true119.i ], [ null, %for.end106.i ]
-  %arrayidx125.i = getelementptr inbounds i8, ptr %cond124.i, i64 24
+  %cmp117.not.i = icmp ne i64 %add116.i, 0
+  tail call void @llvm.assume(i1 %cmp117.not.i)
+  %call121.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %add116.i) #6
+  %arrayidx125.i = getelementptr inbounds i8, ptr %call121.i, i64 24
   %arrayidx127.i = getelementptr inbounds i32, ptr %arrayidx125.i, i64 %idxprom.i
   %arrayidx129.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %idxprom26.i
   %arrayidx131.i = getelementptr inbounds i32, ptr %arrayidx129.i, i64 %conv113.i
-  store i32 -558043677, ptr %cond124.i, align 4
-  %num_items.i = getelementptr inbounds i8, ptr %cond124.i, i64 4
+  store i32 -558043677, ptr %call121.i, align 4
+  %num_items.i = getelementptr inbounds i8, ptr %call121.i, i64 4
   store i32 %add100.i, ptr %num_items.i, align 4
   %conv132.i = trunc nuw i64 %source_size to i32
-  %source_size133.i = getelementptr inbounds i8, ptr %cond124.i, i64 8
+  %source_size133.i = getelementptr inbounds i8, ptr %call121.i, i64 8
   store i32 %conv132.i, ptr %source_size133.i, align 4
-  %hash_bits134.i = getelementptr inbounds i8, ptr %cond124.i, i64 12
+  %hash_bits134.i = getelementptr inbounds i8, ptr %call121.i, i64 12
   store i32 40, ptr %hash_bits134.i, align 4
-  %bucket_bits135.i = getelementptr inbounds i8, ptr %cond124.i, i64 16
+  %bucket_bits135.i = getelementptr inbounds i8, ptr %call121.i, i64 16
   store i32 %bucket_bits.0.lcssa, ptr %bucket_bits135.i, align 4
-  %slot_bits136.i = getelementptr inbounds i8, ptr %cond124.i, i64 20
+  %slot_bits136.i = getelementptr inbounds i8, ptr %call121.i, i64 20
   store i32 %slot_bits.0.lcssa, ptr %slot_bits136.i, align 4
   store ptr %source, ptr %arrayidx131.i, align 1
   br label %for.body140.i
 
-for.body140.i:                                    ; preds = %for.body140.i, %cond.end123.i
-  %indvars.iv145.i = phi i64 [ 0, %cond.end123.i ], [ %indvars.iv.next146.i, %for.body140.i ]
-  %total_items.1139.i = phi i32 [ 0, %cond.end123.i ], [ %add145.i, %for.body140.i ]
+for.body140.i:                                    ; preds = %for.body140.i, %for.end106.i
+  %indvars.iv145.i = phi i64 [ 0, %for.end106.i ], [ %indvars.iv.next146.i, %for.body140.i ]
+  %total_items.1139.i = phi i32 [ 0, %for.end106.i ], [ %add145.i, %for.body140.i ]
   %arrayidx142.i = getelementptr inbounds i32, ptr %arrayidx125.i, i64 %indvars.iv145.i
   store i32 %total_items.1139.i, ptr %arrayidx142.i, align 4
   %arrayidx144.i = getelementptr inbounds i32, ptr %cond.i, i64 %indvars.iv145.i
@@ -194,14 +188,14 @@ for.body140.i:                                    ; preds = %for.body140.i, %con
   %add145.i = add i32 %4, %total_items.1139.i
   store i32 0, ptr %arrayidx144.i, align 4
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
-  %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %idxprom.i
-  br i1 %exitcond150.not.i, label %for.body154.i, label %for.body140.i, !llvm.loop !9
+  %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %idxprom.i
+  br i1 %exitcond149.not.i, label %for.body154.i, label %for.body140.i, !llvm.loop !9
 
 for.body154.i:                                    ; preds = %for.body140.i, %for.inc204.i
-  %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %for.inc204.i ], [ 0, %for.body140.i ]
-  %5 = trunc nuw i64 %indvars.iv152.i to i32
+  %indvars.iv151.i = phi i64 [ %indvars.iv.next152.i, %for.inc204.i ], [ 0, %for.body140.i ]
+  %5 = trunc nuw i64 %indvars.iv151.i to i32
   %and155.i = and i32 %sub3.i, %5
-  %arrayidx158.i = getelementptr inbounds i16, ptr %arrayidx25.i, i64 %indvars.iv152.i
+  %arrayidx158.i = getelementptr inbounds i16, ptr %arrayidx25.i, i64 %indvars.iv151.i
   %6 = load i16, ptr %arrayidx158.i, align 2
   %conv159.i = zext i16 %6 to i32
   %idxprom161.i = zext i32 %and155.i to i64
@@ -212,7 +206,7 @@ for.body154.i:                                    ; preds = %for.body140.i, %for
   br i1 %cmp172.i, label %if.then174.i, label %if.end177.i
 
 if.then174.i:                                     ; preds = %for.body154.i
-  %arrayidx176.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %indvars.iv152.i
+  %arrayidx176.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %indvars.iv151.i
   store i16 -1, ptr %arrayidx176.i, align 2
   br label %for.inc204.i
 
@@ -221,7 +215,7 @@ if.end177.i:                                      ; preds = %for.body154.i
   %8 = load i32, ptr %arrayidx162.i, align 4
   %conv163.i = zext i32 %8 to i64
   %conv178.i = trunc i32 %8 to i16
-  %arrayidx180.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %indvars.iv152.i
+  %arrayidx180.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %indvars.iv151.i
   store i16 %conv178.i, ptr %arrayidx180.i, align 2
   %arrayidx182.i = getelementptr inbounds i32, ptr %arrayidx125.i, i64 %idxprom161.i
   %9 = load i32, ptr %arrayidx182.i, align 4
@@ -230,7 +224,7 @@ if.end177.i:                                      ; preds = %for.body154.i
   %10 = load i32, ptr %arrayidx162.i, align 4
   %add187.i = add i32 %10, %spec.select125.i
   store i32 %add187.i, ptr %arrayidx162.i, align 4
-  %arrayidx189.i = getelementptr inbounds i32, ptr %arrayidx27.i, i64 %indvars.iv152.i
+  %arrayidx189.i = getelementptr inbounds i32, ptr %arrayidx27.i, i64 %indvars.iv151.i
   %conv191.i = zext nneg i32 %spec.select125.i to i64
   br label %for.body194.i
 
@@ -245,8 +239,8 @@ for.body194.i:                                    ; preds = %for.body194.i, %if.
   %idxprom197.i = zext i32 %pos.0.i to i64
   %arrayidx198.i = getelementptr inbounds i32, ptr %arrayidx29.i, i64 %idxprom197.i
   %inc200.i = add nuw nsw i64 %j160.0141.i, 1
-  %exitcond151.not.i = icmp eq i64 %inc200.i, %conv191.i
-  br i1 %exitcond151.not.i, label %for.end201.i, label %for.body194.i, !llvm.loop !10
+  %exitcond150.not.i = icmp eq i64 %inc200.i, %conv191.i
+  br i1 %exitcond150.not.i, label %for.end201.i, label %for.body194.i, !llvm.loop !10
 
 for.end201.i:                                     ; preds = %for.body194.i
   %arrayidx196.i.le = getelementptr i32, ptr %arrayidx129.i, i64 %cursor.0142.i
@@ -255,16 +249,16 @@ for.end201.i:                                     ; preds = %for.body194.i
   br label %for.inc204.i
 
 for.inc204.i:                                     ; preds = %for.end201.i, %if.then174.i
-  %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
-  %exitcond157.not.i = icmp eq i64 %indvars.iv.next153.i, %idxprom26.i
-  br i1 %exitcond157.not.i, label %for.end206.i, label %for.body154.i, !llvm.loop !11
+  %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 1
+  %exitcond156.not.i = icmp eq i64 %indvars.iv.next152.i, %idxprom26.i
+  br i1 %exitcond156.not.i, label %for.end206.i, label %for.body154.i, !llvm.loop !11
 
 for.end206.i:                                     ; preds = %for.inc204.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond.i) #5
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond.i) #6
   br label %CreatePreparedDictionaryWithParams.exit
 
 CreatePreparedDictionaryWithParams.exit:          ; preds = %while.end, %for.end206.i
-  %retval.0.i = phi ptr [ %cond124.i, %for.end206.i ], [ null, %while.end ]
+  %retval.0.i = phi ptr [ %call121.i, %for.end206.i ], [ null, %while.end ]
   ret ptr %retval.0.i
 }
 
@@ -275,7 +269,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %dictionary) #5
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %dictionary) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -352,18 +346,22 @@ declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #4
+declare i32 @llvm.umin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

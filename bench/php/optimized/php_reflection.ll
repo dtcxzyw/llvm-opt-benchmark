@@ -21208,7 +21208,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   %24 = getelementptr inbounds i8, ptr %11, i64 448
   %25 = load ptr, ptr %24, align 8
   %.not117 = icmp eq ptr %25, null
-  br i1 %.not117, label %109, label %26
+  br i1 %.not117, label %106, label %26
 
 26:                                               ; preds = %23
   %27 = tail call ptr @_zend_new_array_0() #13
@@ -21225,21 +21225,21 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   %32 = getelementptr inbounds i8, ptr %11, i64 440
   br label %33
 
-33:                                               ; preds = %.lr.ph129, %103
-  %34 = phi ptr [ %29, %.lr.ph129 ], [ %104, %103 ]
-  %35 = phi ptr [ %30, %.lr.ph129 ], [ %108, %103 ]
-  %36 = phi i64 [ 0, %.lr.ph129 ], [ %106, %103 ]
-  %.0107128 = phi i32 [ 0, %.lr.ph129 ], [ %105, %103 ]
+33:                                               ; preds = %.lr.ph129, %100
+  %34 = phi ptr [ %29, %.lr.ph129 ], [ %101, %100 ]
+  %35 = phi ptr [ %30, %.lr.ph129 ], [ %105, %100 ]
+  %36 = phi i64 [ 0, %.lr.ph129 ], [ %103, %100 ]
+  %.0107128 = phi i32 [ 0, %.lr.ph129 ], [ %102, %100 ]
   %37 = getelementptr inbounds i8, ptr %35, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not119 = icmp eq ptr %38, null
-  br i1 %.not119, label %103, label %39
+  br i1 %.not119, label %100, label %39
 
 39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %35, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not120 = icmp eq ptr %41, null
-  br i1 %.not120, label %42, label %75
+  br i1 %.not120, label %42, label %72
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %35, align 8
@@ -21248,7 +21248,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   %.not130 = icmp eq i32 %45, 0
   br i1 %.not130, label %.loopexit, label %.lr.ph
 
-46:                                               ; preds = %57
+46:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %31, align 4
   %48 = zext i32 %47 to i64
@@ -21262,106 +21262,98 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   %52 = getelementptr inbounds %struct._zend_class_name, ptr %51, i64 %indvars.iv, i32 1
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @zend_hash_find(ptr noundef %50, ptr noundef %53) #13
-  %.not121 = icmp eq ptr %54, null
-  br i1 %.not121, label %57, label %55
+  %.not121 = icmp ne ptr %54, null
+  tail call void @llvm.assume(i1 %.not121)
+  %55 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
+  %56 = getelementptr inbounds i8, ptr %55, i64 64
+  %57 = tail call ptr @zend_hash_find(ptr noundef nonnull %56, ptr noundef %44) #13
+  %.not122 = icmp eq ptr %57, null
+  br i1 %.not122, label %46, label %58
 
-55:                                               ; preds = %.lr.ph
-  %56 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
-  br label %57
-
-57:                                               ; preds = %.lr.ph, %55
-  %.0 = phi ptr [ %56, %55 ], [ null, %.lr.ph ]
-  %58 = icmp ne ptr %.0, null
-  tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds i8, ptr %.0, i64 64
-  %60 = tail call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %44) #13
-  %.not122 = icmp eq ptr %60, null
-  br i1 %.not122, label %46, label %61
-
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %.0, i64 8
-  %63 = load ptr, ptr %62, align 8
+58:                                               ; preds = %.lr.ph
+  %59 = getelementptr inbounds i8, ptr %55, i64 8
+  %60 = load ptr, ptr %59, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %46, %42, %61
-  %.0108 = phi ptr [ %63, %61 ], [ null, %42 ], [ null, %46 ]
-  %64 = getelementptr inbounds i8, ptr %44, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 64
-  %.not123 = icmp eq i32 %66, 0
-  br i1 %.not123, label %67, label %73
+.loopexit:                                        ; preds = %46, %42, %58
+  %.0108 = phi ptr [ %60, %58 ], [ null, %42 ], [ null, %46 ]
+  %61 = getelementptr inbounds i8, ptr %44, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 64
+  %.not123 = icmp eq i32 %63, 0
+  br i1 %.not123, label %64, label %70
 
-67:                                               ; preds = %.loopexit
-  %68 = load i32, ptr %44, align 4
-  %69 = icmp ne i32 %68, 0
-  tail call void @llvm.assume(i1 %69)
-  %70 = add i32 %68, -1
-  store i32 %70, ptr %44, align 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %73
+64:                                               ; preds = %.loopexit
+  %65 = load i32, ptr %44, align 4
+  %66 = icmp ne i32 %65, 0
+  tail call void @llvm.assume(i1 %66)
+  %67 = add i32 %65, -1
+  store i32 %67, ptr %44, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %70
 
-72:                                               ; preds = %67
+69:                                               ; preds = %64
   tail call void @_efree(ptr noundef nonnull %44) #13
-  br label %73
+  br label %70
 
-73:                                               ; preds = %67, %72, %.loopexit
-  %74 = icmp ne ptr %.0108, null
-  tail call void @llvm.assume(i1 %74)
-  br label %75
+70:                                               ; preds = %64, %69, %.loopexit
+  %71 = icmp ne ptr %.0108, null
+  tail call void @llvm.assume(i1 %71)
+  br label %72
 
-75:                                               ; preds = %73, %39
-  %.1 = phi ptr [ %41, %39 ], [ %.0108, %73 ]
-  %76 = getelementptr inbounds i8, ptr %.1, i64 16
+72:                                               ; preds = %70, %39
+  %.1 = phi ptr [ %41, %39 ], [ %.0108, %70 ]
+  %73 = getelementptr inbounds i8, ptr %.1, i64 16
+  %74 = load i64, ptr %73, align 8
+  %75 = load ptr, ptr %35, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8
-  %78 = load ptr, ptr %35, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, %77
-  %82 = add i64 %81, 2
-  %83 = add i64 %81, 34
-  %84 = and i64 %83, -8
-  %85 = tail call noalias ptr @_emalloc(i64 noundef %84) #14
-  store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
-  store i32 22, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
-  store i64 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 16
-  store i64 %82, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %85, i64 24
-  %90 = add i64 %81, 3
-  %91 = getelementptr inbounds i8, ptr %.1, i64 24
-  %92 = load ptr, ptr %35, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
-  %94 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %89, i64 noundef %90, ptr noundef nonnull @.str.54, ptr noundef nonnull %91, ptr noundef nonnull %93) #13
-  %95 = load ptr, ptr %24, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %36
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  %101 = getelementptr inbounds i8, ptr %99, i64 16
-  %102 = load i64, ptr %101, align 8
-  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull %100, i64 noundef %102, ptr noundef nonnull %85) #13
+  %78 = add i64 %77, %74
+  %79 = add i64 %78, 2
+  %80 = add i64 %78, 34
+  %81 = and i64 %80, -8
+  %82 = tail call noalias ptr @_emalloc(i64 noundef %81) #14
+  store i32 1, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  store i32 22, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %82, i64 8
+  store i64 0, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %82, i64 16
+  store i64 %79, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %82, i64 24
+  %87 = add i64 %78, 3
+  %88 = getelementptr inbounds i8, ptr %.1, i64 24
+  %89 = load ptr, ptr %35, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %91 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %86, i64 noundef %87, ptr noundef nonnull @.str.54, ptr noundef nonnull %88, ptr noundef nonnull %90) #13
+  %92 = load ptr, ptr %24, align 8
+  %93 = getelementptr inbounds ptr, ptr %92, i64 %36
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %98 = getelementptr inbounds i8, ptr %96, i64 16
+  %99 = load i64, ptr %98, align 8
+  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull %97, i64 noundef %99, ptr noundef nonnull %82) #13
   %.pre = load ptr, ptr %24, align 8
-  br label %103
+  br label %100
 
-103:                                              ; preds = %75, %33
-  %104 = phi ptr [ %.pre, %75 ], [ %34, %33 ]
-  %105 = add i32 %.0107128, 1
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %.not118 = icmp eq ptr %108, null
+100:                                              ; preds = %72, %33
+  %101 = phi ptr [ %.pre, %72 ], [ %34, %33 ]
+  %102 = add i32 %.0107128, 1
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds ptr, ptr %101, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  %.not118 = icmp eq ptr %105, null
   br i1 %.not118, label %.loopexit125, label %33
 
-109:                                              ; preds = %23
+106:                                              ; preds = %23
   store ptr @zend_empty_array, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 7, ptr %110, align 8
+  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 7, ptr %107, align 8
   br label %.loopexit125
 
-.loopexit125:                                     ; preds = %103, %26, %15, %109, %20, %5
+.loopexit125:                                     ; preds = %100, %26, %15, %106, %20, %5
   ret void
 }
 

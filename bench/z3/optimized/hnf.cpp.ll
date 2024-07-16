@@ -2828,18 +2828,16 @@ if.then2.i.i.i206._ZN7obj_refI4expr11ast_managerE7dec_refEv.exitthread-pre-split
 _ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201: ; preds = %if.then.i.i.i194, %if.then2.i.i.i206._ZN7obj_refI4expr11ast_managerE7dec_refEv.exitthread-pre-split.i199_crit_edge, %if.then.i192
   %75 = phi ptr [ %72, %if.then.i192 ], [ %.pr.i200.pre, %if.then2.i.i.i206._ZN7obj_refI4expr11ast_managerE7dec_refEv.exitthread-pre-split.i199_crit_edge ], [ %72, %if.then.i.i.i194 ]
   store ptr %75, ptr %head, align 8
-  %tobool.not.i2.i202 = icmp eq ptr %75, null
-  br i1 %tobool.not.i2.i202, label %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit208, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i203
-
-_ZN11ast_manager7inc_refEP3ast.exit.i.i203:       ; preds = %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201
+  %tobool.not.i2.i202 = icmp ne ptr %75, null
+  call void @llvm.assume(i1 %tobool.not.i2.i202)
   %m_ref_count.i.i.i3.i204 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load i32, ptr %m_ref_count.i.i.i3.i204, align 4
   %inc.i.i.i.i205 = add i32 %76, 1
   store i32 %inc.i.i.i.i205, ptr %m_ref_count.i.i.i3.i204, align 4
   br label %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit208
 
-_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit208:  ; preds = %if.end65, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201, %_ZN11ast_manager7inc_refEP3ast.exit.i.i203
-  %77 = phi ptr [ %71, %if.end65 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201 ], [ %75, %_ZN11ast_manager7inc_refEP3ast.exit.i.i203 ]
+_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit208:  ; preds = %if.end65, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201
+  %77 = phi ptr [ %71, %if.end65 ], [ %75, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i201 ]
   %m_kind.i.i.i.i878 = getelementptr inbounds i8, ptr %77, i64 4
   %bf.load.i.i.i.i879 = load i32, ptr %m_kind.i.i.i.i878, align 4
   %bf.clear.i.i.i.i880 = and i32 %bf.load.i.i.i.i879, 65535

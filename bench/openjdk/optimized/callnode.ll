@@ -5523,429 +5523,405 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP16Abstr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16AbstractLockNode18find_matching_lockEP10UnlockNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(132) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
+  br label %.preheader.i.sink.split
+
+.preheader.i.sink.split:                          ; preds = %2, %31
+  %.sink84 = phi ptr [ %32, %31 ], [ %3, %2 ]
+  %4 = load ptr, ptr %.sink84, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZL12next_controlP4Node.exit, label %.preheader.i
+  br label %.preheader.i
 
-.preheader.i:                                     ; preds = %2, %.preheader.i.backedge
-  %.013.i = phi ptr [ %.013.i.be, %.preheader.i.backedge ], [ %5, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.013.i, i64 44
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 63
-  %10 = icmp eq i32 %9, 32
-  br i1 %10, label %11, label %18
+.preheader.i:                                     ; preds = %.preheader.i.sink.split, %_ZNK10RegionNode7is_copyEv.exit.i
+  %.013.i = phi ptr [ %15, %_ZNK10RegionNode7is_copyEv.exit.i ], [ %5, %.preheader.i.sink.split ]
+  %6 = getelementptr inbounds i8, ptr %.013.i, i64 44
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 63
+  %9 = icmp eq i32 %8, 32
+  br i1 %9, label %10, label %17
 
-11:                                               ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %.013.i, i64 8
+10:                                               ; preds = %.preheader.i
+  %11 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZNK10RegionNode7is_copyEv.exit.i, label %_ZL12next_controlP4Node.exit
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %_ZNK10RegionNode7is_copyEv.exit.i, label %_ZL12next_controlP4Node.exit
 
-_ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %11
-  %16 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i) #15
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZL12next_controlP4Node.exit, label %.preheader.i.backedge
+_ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %10
+  %15 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i) #15
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZL12next_controlP4Node.exit, label %.preheader.i, !llvm.loop !29
 
-18:                                               ; preds = %.preheader.i
-  %19 = and i32 %8, 15
-  %20 = icmp eq i32 %19, 8
-  br i1 %20, label %21, label %_ZL12next_controlP4Node.exit
+17:                                               ; preds = %.preheader.i
+  %18 = and i32 %7, 15
+  %19 = icmp eq i32 %18, 8
+  br i1 %19, label %20, label %_ZL12next_controlP4Node.exit
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.013.i, i64 8
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 44
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 127
-  %28 = icmp eq i32 %27, 71
-  br i1 %28, label %29, label %_ZL12next_controlP4Node.exit
+  %24 = getelementptr inbounds i8, ptr %23, i64 44
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 127
+  %27 = icmp eq i32 %26, 71
+  br i1 %27, label %28, label %_ZL12next_controlP4Node.exit
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 128
-  %31 = load i32, ptr %30, align 8
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %_ZL12next_controlP4Node.exit, label %32
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds i8, ptr %23, i64 128
+  %30 = load i32, ptr %29, align 8
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %_ZL12next_controlP4Node.exit, label %31
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  br label %.preheader.i.sink.split, !llvm.loop !29
+
+_ZL12next_controlP4Node.exit:                     ; preds = %17, %20, %28, %10, %_ZNK10RegionNode7is_copyEv.exit.i
+  %33 = getelementptr inbounds i8, ptr %.013.i, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  br label %.preheader.i.backedge
-
-.preheader.i.backedge:                            ; preds = %32, %_ZNK10RegionNode7is_copyEv.exit.i
-  %.013.i.be = phi ptr [ %35, %32 ], [ %16, %_ZNK10RegionNode7is_copyEv.exit.i ]
-  br label %.preheader.i, !llvm.loop !29
-
-_ZL12next_controlP4Node.exit:                     ; preds = %11, %_ZNK10RegionNode7is_copyEv.exit.i, %18, %21, %29, %2
-  %.0.i = phi ptr [ null, %2 ], [ %.013.i, %29 ], [ %.013.i, %21 ], [ %.013.i, %18 ], [ %.013.i, %_ZNK10RegionNode7is_copyEv.exit.i ], [ %.013.i, %11 ]
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %._crit_edge, label %.lr.ph
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL12next_controlP4Node.exit, %_ZL12next_controlP4Node.exit53
-  %.03163 = phi ptr [ %.2, %_ZL12next_controlP4Node.exit53 ], [ %.0.i, %_ZL12next_controlP4Node.exit ]
-  %39 = getelementptr inbounds i8, ptr %.03163, i64 44
-  %40 = load i32, ptr %39, align 4
-  %41 = and i32 %40, 15
-  %42 = icmp eq i32 %41, 8
-  br i1 %42, label %43, label %47
+  %.03163 = phi ptr [ %.2, %_ZL12next_controlP4Node.exit53 ], [ %.013.i, %_ZL12next_controlP4Node.exit ]
+  %36 = getelementptr inbounds i8, ptr %.03163, i64 44
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, 15
+  %39 = icmp eq i32 %38, 8
+  br i1 %39, label %40, label %44
 
-43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %.03163, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %45, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %46, i64 44
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds i8, ptr %.03163, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %42, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 44
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %47
+  br label %44
 
-47:                                               ; preds = %43, %.lr.ph
-  %48 = phi i32 [ %.pre, %43 ], [ %40, %.lr.ph ]
-  %.1 = phi ptr [ %46, %43 ], [ %.03163, %.lr.ph ]
-  %49 = and i32 %48, 3
-  %50 = icmp eq i32 %49, 3
-  br i1 %50, label %._crit_edge, label %51
+44:                                               ; preds = %40, %.lr.ph
+  %45 = phi i32 [ %.pre, %40 ], [ %37, %.lr.ph ]
+  %.1 = phi ptr [ %43, %40 ], [ %.03163, %.lr.ph ]
+  %46 = and i32 %45, 3
+  %47 = icmp eq i32 %46, 3
+  br i1 %47, label %._crit_edge, label %48
 
-51:                                               ; preds = %47
-  %52 = and i32 %48, 63
-  %53 = icmp eq i32 %52, 32
-  br i1 %53, label %54, label %182
+48:                                               ; preds = %44
+  %49 = and i32 %45, 63
+  %50 = icmp eq i32 %49, 32
+  br i1 %50, label %51, label %.preheader.i54.sink.split
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.1, i64 24
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 3
-  br i1 %57, label %58, label %._crit_edge
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %.1, i64 24
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 3
+  br i1 %54, label %55, label %._crit_edge
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.1, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %.1, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %._crit_edge, label %60
+
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %57, i64 16
   %62 = load ptr, ptr %61, align 8
-  %.not = icmp eq ptr %62, null
-  br i1 %.not, label %._crit_edge, label %63
-
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %60, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %.not32 = icmp eq ptr %65, null
+  %.not32 = icmp eq ptr %62, null
   br i1 %.not32, label %._crit_edge, label %.preheader.i33
 
-.preheader.i33:                                   ; preds = %63, %.preheader.i33.backedge
-  %.013.i34 = phi ptr [ %.013.i34.be, %.preheader.i33.backedge ], [ %62, %63 ]
-  %66 = getelementptr inbounds i8, ptr %.013.i34, i64 44
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, 63
-  %69 = icmp eq i32 %68, 32
-  br i1 %69, label %70, label %77
+.preheader.i33:                                   ; preds = %60, %.preheader.i33.backedge
+  %.013.i34 = phi ptr [ %.013.i34.be, %.preheader.i33.backedge ], [ %59, %60 ]
+  %63 = getelementptr inbounds i8, ptr %.013.i34, i64 44
+  %64 = load i32, ptr %63, align 4
+  %65 = and i32 %64, 63
+  %66 = icmp eq i32 %65, 32
+  br i1 %66, label %67, label %74
 
-70:                                               ; preds = %.preheader.i33
-  %71 = getelementptr inbounds i8, ptr %.013.i34, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZNK10RegionNode7is_copyEv.exit.i38, label %_ZL12next_controlP4Node.exit39
+67:                                               ; preds = %.preheader.i33
+  %68 = getelementptr inbounds i8, ptr %.013.i34, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %_ZNK10RegionNode7is_copyEv.exit.i38, label %_ZL12next_controlP4Node.exit39
 
-_ZNK10RegionNode7is_copyEv.exit.i38:              ; preds = %70
-  %75 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i34) #15
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZL12next_controlP4Node.exit39, label %.preheader.i33.backedge
+_ZNK10RegionNode7is_copyEv.exit.i38:              ; preds = %67
+  %72 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i34) #15
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %_ZL12next_controlP4Node.exit39, label %.preheader.i33.backedge
 
-77:                                               ; preds = %.preheader.i33
-  %78 = and i32 %67, 15
-  %79 = icmp eq i32 %78, 8
-  br i1 %79, label %80, label %_ZL12next_controlP4Node.exit39
+74:                                               ; preds = %.preheader.i33
+  %75 = and i32 %64, 15
+  %76 = icmp eq i32 %75, 8
+  br i1 %76, label %77, label %_ZL12next_controlP4Node.exit39
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.013.i34, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 44
-  %85 = load i32, ptr %84, align 4
-  %86 = and i32 %85, 127
-  %87 = icmp eq i32 %86, 71
-  br i1 %87, label %88, label %_ZL12next_controlP4Node.exit39
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %.013.i34, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 44
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, 127
+  %84 = icmp eq i32 %83, 71
+  br i1 %84, label %85, label %_ZL12next_controlP4Node.exit39
 
-88:                                               ; preds = %80
-  %89 = getelementptr inbounds i8, ptr %83, i64 128
-  %90 = load i32, ptr %89, align 8
-  %.not.i36 = icmp eq i32 %90, 0
-  br i1 %.not.i36, label %_ZL12next_controlP4Node.exit39, label %91
+85:                                               ; preds = %77
+  %86 = getelementptr inbounds i8, ptr %80, i64 128
+  %87 = load i32, ptr %86, align 8
+  %.not.i36 = icmp eq i32 %87, 0
+  br i1 %.not.i36, label %_ZL12next_controlP4Node.exit39, label %88
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %83, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %93, align 8
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %80, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %90, align 8
   br label %.preheader.i33.backedge
 
-.preheader.i33.backedge:                          ; preds = %91, %_ZNK10RegionNode7is_copyEv.exit.i38
-  %.013.i34.be = phi ptr [ %94, %91 ], [ %75, %_ZNK10RegionNode7is_copyEv.exit.i38 ]
+.preheader.i33.backedge:                          ; preds = %88, %_ZNK10RegionNode7is_copyEv.exit.i38
+  %.013.i34.be = phi ptr [ %91, %88 ], [ %72, %_ZNK10RegionNode7is_copyEv.exit.i38 ]
   br label %.preheader.i33, !llvm.loop !29
 
-_ZL12next_controlP4Node.exit39:                   ; preds = %70, %_ZNK10RegionNode7is_copyEv.exit.i38, %77, %80, %88
-  %95 = getelementptr inbounds i8, ptr %.013.i34, i64 44
-  %96 = load ptr, ptr %59, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %_ZL12next_controlP4Node.exit46, label %.preheader.i40
+_ZL12next_controlP4Node.exit39:                   ; preds = %67, %_ZNK10RegionNode7is_copyEv.exit.i38, %74, %77, %85
+  %92 = getelementptr inbounds i8, ptr %.013.i34, i64 44
+  %93 = load ptr, ptr %56, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %_ZL12next_controlP4Node.exit46, label %.preheader.i40
 
 .preheader.i40:                                   ; preds = %_ZL12next_controlP4Node.exit39, %.preheader.i40.backedge
-  %.013.i41 = phi ptr [ %.013.i41.be, %.preheader.i40.backedge ], [ %98, %_ZL12next_controlP4Node.exit39 ]
-  %100 = getelementptr inbounds i8, ptr %.013.i41, i64 44
-  %101 = load i32, ptr %100, align 4
-  %102 = and i32 %101, 63
-  %103 = icmp eq i32 %102, 32
-  br i1 %103, label %104, label %111
+  %.013.i41 = phi ptr [ %.013.i41.be, %.preheader.i40.backedge ], [ %95, %_ZL12next_controlP4Node.exit39 ]
+  %97 = getelementptr inbounds i8, ptr %.013.i41, i64 44
+  %98 = load i32, ptr %97, align 4
+  %99 = and i32 %98, 63
+  %100 = icmp eq i32 %99, 32
+  br i1 %100, label %101, label %108
 
-104:                                              ; preds = %.preheader.i40
-  %105 = getelementptr inbounds i8, ptr %.013.i41, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %_ZNK10RegionNode7is_copyEv.exit.i45, label %_ZL12next_controlP4Node.exit46
+101:                                              ; preds = %.preheader.i40
+  %102 = getelementptr inbounds i8, ptr %.013.i41, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %_ZNK10RegionNode7is_copyEv.exit.i45, label %_ZL12next_controlP4Node.exit46
 
-_ZNK10RegionNode7is_copyEv.exit.i45:              ; preds = %104
-  %109 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i41) #15
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %_ZL12next_controlP4Node.exit46, label %.preheader.i40.backedge
+_ZNK10RegionNode7is_copyEv.exit.i45:              ; preds = %101
+  %106 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i41) #15
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %_ZL12next_controlP4Node.exit46, label %.preheader.i40.backedge
 
-111:                                              ; preds = %.preheader.i40
-  %112 = and i32 %101, 15
-  %113 = icmp eq i32 %112, 8
-  br i1 %113, label %114, label %_ZL12next_controlP4Node.exit46
+108:                                              ; preds = %.preheader.i40
+  %109 = and i32 %98, 15
+  %110 = icmp eq i32 %109, 8
+  br i1 %110, label %111, label %_ZL12next_controlP4Node.exit46
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %.013.i41, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 44
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, 127
-  %121 = icmp eq i32 %120, 71
-  br i1 %121, label %122, label %_ZL12next_controlP4Node.exit46
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %.013.i41, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 44
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 127
+  %118 = icmp eq i32 %117, 71
+  br i1 %118, label %119, label %_ZL12next_controlP4Node.exit46
 
-122:                                              ; preds = %114
-  %123 = getelementptr inbounds i8, ptr %117, i64 128
-  %124 = load i32, ptr %123, align 8
-  %.not.i43 = icmp eq i32 %124, 0
-  br i1 %.not.i43, label %_ZL12next_controlP4Node.exit46, label %125
+119:                                              ; preds = %111
+  %120 = getelementptr inbounds i8, ptr %114, i64 128
+  %121 = load i32, ptr %120, align 8
+  %.not.i43 = icmp eq i32 %121, 0
+  br i1 %.not.i43, label %_ZL12next_controlP4Node.exit46, label %122
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %117, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %127, align 8
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %114, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %124, align 8
   br label %.preheader.i40.backedge
 
-.preheader.i40.backedge:                          ; preds = %125, %_ZNK10RegionNode7is_copyEv.exit.i45
-  %.013.i41.be = phi ptr [ %128, %125 ], [ %109, %_ZNK10RegionNode7is_copyEv.exit.i45 ]
+.preheader.i40.backedge:                          ; preds = %122, %_ZNK10RegionNode7is_copyEv.exit.i45
+  %.013.i41.be = phi ptr [ %125, %122 ], [ %106, %_ZNK10RegionNode7is_copyEv.exit.i45 ]
   br label %.preheader.i40, !llvm.loop !29
 
-_ZL12next_controlP4Node.exit46:                   ; preds = %104, %_ZNK10RegionNode7is_copyEv.exit.i45, %111, %114, %122, %_ZL12next_controlP4Node.exit39
-  %.0.i42 = phi ptr [ null, %_ZL12next_controlP4Node.exit39 ], [ %.013.i41, %122 ], [ %.013.i41, %114 ], [ %.013.i41, %111 ], [ %.013.i41, %_ZNK10RegionNode7is_copyEv.exit.i45 ], [ %.013.i41, %104 ]
-  %129 = load i32, ptr %95, align 4
-  %130 = and i32 %129, 255
-  %131 = icmp eq i32 %130, 200
-  %132 = getelementptr inbounds i8, ptr %.0.i42, i64 44
-  %133 = load i32, ptr %132, align 4
-  %134 = and i32 %133, 511
-  %135 = icmp eq i32 %134, 328
-  %or.cond82 = select i1 %131, i1 %135, i1 false
-  br i1 %or.cond82, label %140, label %_ZL12next_controlP4Node.exit46._crit_edge
+_ZL12next_controlP4Node.exit46:                   ; preds = %101, %_ZNK10RegionNode7is_copyEv.exit.i45, %108, %111, %119, %_ZL12next_controlP4Node.exit39
+  %.0.i42 = phi ptr [ null, %_ZL12next_controlP4Node.exit39 ], [ %.013.i41, %119 ], [ %.013.i41, %111 ], [ %.013.i41, %108 ], [ %.013.i41, %_ZNK10RegionNode7is_copyEv.exit.i45 ], [ %.013.i41, %101 ]
+  %126 = load i32, ptr %92, align 4
+  %127 = and i32 %126, 255
+  %128 = icmp eq i32 %127, 200
+  %129 = getelementptr inbounds i8, ptr %.0.i42, i64 44
+  %130 = load i32, ptr %129, align 4
+  %131 = and i32 %130, 511
+  %132 = icmp eq i32 %131, 328
+  %or.cond82 = select i1 %128, i1 %132, i1 false
+  br i1 %or.cond82, label %137, label %_ZL12next_controlP4Node.exit46._crit_edge
 
 _ZL12next_controlP4Node.exit46._crit_edge:        ; preds = %_ZL12next_controlP4Node.exit46
-  %136 = and i32 %133, 255
-  %137 = icmp eq i32 %136, 200
-  %138 = and i32 %129, 511
-  %139 = icmp eq i32 %138, 328
-  %or.cond = and i1 %139, %137
-  br i1 %or.cond, label %140, label %._crit_edge
+  %133 = and i32 %130, 255
+  %134 = icmp eq i32 %133, 200
+  %135 = and i32 %126, 511
+  %136 = icmp eq i32 %135, 328
+  %or.cond = and i1 %136, %134
+  br i1 %or.cond, label %137, label %._crit_edge
 
-140:                                              ; preds = %_ZL12next_controlP4Node.exit46, %_ZL12next_controlP4Node.exit46._crit_edge
-  %141 = getelementptr inbounds i8, ptr %.013.i34, i64 8
+137:                                              ; preds = %_ZL12next_controlP4Node.exit46, %_ZL12next_controlP4Node.exit46._crit_edge
+  %138 = getelementptr inbounds i8, ptr %.013.i34, i64 8
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %.0.i42, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %.0.i42, i64 8
-  %145 = load ptr, ptr %144, align 8
+  %144 = icmp eq ptr %140, %143
+  br i1 %144, label %.preheader.i47.sink.split, label %._crit_edge
+
+.preheader.i47.sink.split:                        ; preds = %137, %170
+  %.sink = phi ptr [ %165, %170 ], [ %140, %137 ]
+  %145 = getelementptr inbounds i8, ptr %.sink, i64 8
   %146 = load ptr, ptr %145, align 8
-  %147 = icmp eq ptr %143, %146
-  br i1 %147, label %148, label %._crit_edge
+  %147 = load ptr, ptr %146, align 8
+  br label %.preheader.i47
 
-148:                                              ; preds = %140
-  %149 = getelementptr inbounds i8, ptr %143, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47
+.preheader.i47:                                   ; preds = %.preheader.i47.sink.split, %_ZNK10RegionNode7is_copyEv.exit.i52
+  %.013.i48 = phi ptr [ %157, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %147, %.preheader.i47.sink.split ]
+  %148 = getelementptr inbounds i8, ptr %.013.i48, i64 44
+  %149 = load i32, ptr %148, align 4
+  %150 = and i32 %149, 63
+  %151 = icmp eq i32 %150, 32
+  br i1 %151, label %152, label %159
 
-.preheader.i47:                                   ; preds = %148, %.preheader.i47.backedge
-  %.013.i48 = phi ptr [ %.013.i48.be, %.preheader.i47.backedge ], [ %151, %148 ]
-  %153 = getelementptr inbounds i8, ptr %.013.i48, i64 44
-  %154 = load i32, ptr %153, align 4
-  %155 = and i32 %154, 63
-  %156 = icmp eq i32 %155, 32
-  br i1 %156, label %157, label %164
+152:                                              ; preds = %.preheader.i47
+  %153 = getelementptr inbounds i8, ptr %.013.i48, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %_ZNK10RegionNode7is_copyEv.exit.i52, label %_ZL12next_controlP4Node.exit53
 
-157:                                              ; preds = %.preheader.i47
-  %158 = getelementptr inbounds i8, ptr %.013.i48, i64 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %_ZNK10RegionNode7is_copyEv.exit.i52, label %_ZL12next_controlP4Node.exit53
+_ZNK10RegionNode7is_copyEv.exit.i52:              ; preds = %152
+  %157 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i48) #15
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47, !llvm.loop !29
 
-_ZNK10RegionNode7is_copyEv.exit.i52:              ; preds = %157
-  %162 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i48) #15
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47.backedge
+159:                                              ; preds = %.preheader.i47
+  %160 = and i32 %149, 15
+  %161 = icmp eq i32 %160, 8
+  br i1 %161, label %162, label %_ZL12next_controlP4Node.exit53
 
-164:                                              ; preds = %.preheader.i47
-  %165 = and i32 %154, 15
-  %166 = icmp eq i32 %165, 8
-  br i1 %166, label %167, label %_ZL12next_controlP4Node.exit53
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds i8, ptr %.013.i48, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 44
+  %167 = load i32, ptr %166, align 4
+  %168 = and i32 %167, 127
+  %169 = icmp eq i32 %168, 71
+  br i1 %169, label %170, label %_ZL12next_controlP4Node.exit53
 
-167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %.013.i48, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 44
-  %172 = load i32, ptr %171, align 4
-  %173 = and i32 %172, 127
-  %174 = icmp eq i32 %173, 71
-  br i1 %174, label %175, label %_ZL12next_controlP4Node.exit53
+170:                                              ; preds = %162
+  %171 = getelementptr inbounds i8, ptr %165, i64 128
+  %172 = load i32, ptr %171, align 8
+  %.not.i50 = icmp eq i32 %172, 0
+  br i1 %.not.i50, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47.sink.split, !llvm.loop !29
 
-175:                                              ; preds = %167
-  %176 = getelementptr inbounds i8, ptr %170, i64 128
-  %177 = load i32, ptr %176, align 8
-  %.not.i50 = icmp eq i32 %177, 0
-  br i1 %.not.i50, label %_ZL12next_controlP4Node.exit53, label %178
+.preheader.i54.sink.split:                        ; preds = %48, %198
+  %.sink88 = phi ptr [ %193, %198 ], [ %.1, %48 ]
+  %173 = getelementptr inbounds i8, ptr %.sink88, i64 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %174, align 8
+  br label %.preheader.i54
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %170, i64 8
-  %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr %180, align 8
-  br label %.preheader.i47.backedge
+.preheader.i54:                                   ; preds = %.preheader.i54.sink.split, %_ZNK10RegionNode7is_copyEv.exit.i59
+  %.013.i55 = phi ptr [ %185, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %175, %.preheader.i54.sink.split ]
+  %176 = getelementptr inbounds i8, ptr %.013.i55, i64 44
+  %177 = load i32, ptr %176, align 4
+  %178 = and i32 %177, 63
+  %179 = icmp eq i32 %178, 32
+  br i1 %179, label %180, label %187
 
-.preheader.i47.backedge:                          ; preds = %178, %_ZNK10RegionNode7is_copyEv.exit.i52
-  %.013.i48.be = phi ptr [ %181, %178 ], [ %162, %_ZNK10RegionNode7is_copyEv.exit.i52 ]
-  br label %.preheader.i47, !llvm.loop !29
+180:                                              ; preds = %.preheader.i54
+  %181 = getelementptr inbounds i8, ptr %.013.i55, i64 8
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %_ZNK10RegionNode7is_copyEv.exit.i59, label %_ZL12next_controlP4Node.exit53
 
-182:                                              ; preds = %51
-  %183 = getelementptr inbounds i8, ptr %.1, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr %184, align 8
+_ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %180
+  %185 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i55) #15
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54
+  br i1 %186, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54, !llvm.loop !29
 
-.preheader.i54:                                   ; preds = %182, %.preheader.i54.backedge
-  %.013.i55 = phi ptr [ %.013.i55.be, %.preheader.i54.backedge ], [ %185, %182 ]
-  %187 = getelementptr inbounds i8, ptr %.013.i55, i64 44
-  %188 = load i32, ptr %187, align 4
-  %189 = and i32 %188, 63
-  %190 = icmp eq i32 %189, 32
-  br i1 %190, label %191, label %198
+187:                                              ; preds = %.preheader.i54
+  %188 = and i32 %177, 15
+  %189 = icmp eq i32 %188, 8
+  br i1 %189, label %190, label %_ZL12next_controlP4Node.exit53
 
-191:                                              ; preds = %.preheader.i54
-  %192 = getelementptr inbounds i8, ptr %.013.i55, i64 8
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds i8, ptr %.013.i55, i64 8
+  %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %192, align 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %_ZNK10RegionNode7is_copyEv.exit.i59, label %_ZL12next_controlP4Node.exit53
+  %194 = getelementptr inbounds i8, ptr %193, i64 44
+  %195 = load i32, ptr %194, align 4
+  %196 = and i32 %195, 127
+  %197 = icmp eq i32 %196, 71
+  br i1 %197, label %198, label %_ZL12next_controlP4Node.exit53
 
-_ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %191
-  %196 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52) %.013.i55) #15
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.backedge
+198:                                              ; preds = %190
+  %199 = getelementptr inbounds i8, ptr %193, i64 128
+  %200 = load i32, ptr %199, align 8
+  %.not.i57 = icmp eq i32 %200, 0
+  br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.sink.split, !llvm.loop !29
 
-198:                                              ; preds = %.preheader.i54
-  %199 = and i32 %188, 15
-  %200 = icmp eq i32 %199, 8
-  br i1 %200, label %201, label %_ZL12next_controlP4Node.exit53
+_ZL12next_controlP4Node.exit53:                   ; preds = %198, %190, %187, %170, %162, %159, %_ZNK10RegionNode7is_copyEv.exit.i59, %180, %_ZNK10RegionNode7is_copyEv.exit.i52, %152
+  %.2 = phi ptr [ %.013.i48, %152 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %180 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %159 ], [ %.013.i48, %162 ], [ %.013.i48, %170 ], [ %.013.i55, %187 ], [ %.013.i55, %190 ], [ %.013.i55, %198 ]
+  %201 = getelementptr inbounds i8, ptr %.2, i64 16
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %.013.i55, i64 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 44
-  %206 = load i32, ptr %205, align 4
-  %207 = and i32 %206, 127
-  %208 = icmp eq i32 %207, 71
-  br i1 %208, label %209, label %_ZL12next_controlP4Node.exit53
+._crit_edge:                                      ; preds = %_ZL12next_controlP4Node.exit53, %44, %137, %_ZL12next_controlP4Node.exit46._crit_edge, %60, %55, %51, %_ZL12next_controlP4Node.exit
+  %.3 = phi ptr [ %.013.i, %_ZL12next_controlP4Node.exit ], [ %.1, %51 ], [ %.1, %55 ], [ %.1, %60 ], [ %.1, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.1, %137 ], [ %.1, %44 ], [ %.2, %_ZL12next_controlP4Node.exit53 ]
+  %204 = getelementptr inbounds i8, ptr %.3, i64 44
+  %205 = load i32, ptr %204, align 4
+  %206 = and i32 %205, 255
+  %207 = icmp eq i32 %206, 199
+  br i1 %207, label %208, label %242
 
-209:                                              ; preds = %201
-  %210 = getelementptr inbounds i8, ptr %204, i64 128
-  %211 = load i32, ptr %210, align 8
-  %.not.i57 = icmp eq i32 %211, 0
-  br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %212
-
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %204, i64 8
-  %214 = load ptr, ptr %213, align 8
+208:                                              ; preds = %._crit_edge
+  %209 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 40
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %.3, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 40
   %215 = load ptr, ptr %214, align 8
-  br label %.preheader.i54.backedge
+  %216 = load ptr, ptr %211, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 168
+  %218 = load ptr, ptr %217, align 8
+  %219 = tail call noundef ptr %218(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef %215) #15
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 40
+  %222 = load ptr, ptr %221, align 8
+  %223 = load ptr, ptr %211, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 168
+  %225 = load ptr, ptr %224, align 8
+  %226 = tail call noundef ptr %225(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef %222) #15
+  %227 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %219, i1 noundef zeroext false) #15
+  %228 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %226, i1 noundef zeroext false) #15
+  %229 = icmp eq ptr %227, %228
+  br i1 %229, label %230, label %242
 
-.preheader.i54.backedge:                          ; preds = %212, %_ZNK10RegionNode7is_copyEv.exit.i59
-  %.013.i55.be = phi ptr [ %215, %212 ], [ %196, %_ZNK10RegionNode7is_copyEv.exit.i59 ]
-  br label %.preheader.i54, !llvm.loop !29
-
-_ZL12next_controlP4Node.exit53:                   ; preds = %209, %201, %198, %_ZNK10RegionNode7is_copyEv.exit.i59, %191, %175, %167, %164, %_ZNK10RegionNode7is_copyEv.exit.i52, %157, %182, %148
-  %.2 = phi ptr [ null, %148 ], [ null, %182 ], [ %.013.i48, %157 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i48, %164 ], [ %.013.i48, %167 ], [ %.013.i48, %175 ], [ %.013.i55, %191 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i55, %198 ], [ %.013.i55, %201 ], [ %.013.i55, %209 ]
-  %216 = getelementptr inbounds i8, ptr %.2, i64 16
-  %217 = load ptr, ptr %216, align 8
-  %218 = icmp eq ptr %217, null
-  br i1 %218, label %._crit_edge, label %.lr.ph, !llvm.loop !30
-
-._crit_edge:                                      ; preds = %_ZL12next_controlP4Node.exit53, %47, %140, %_ZL12next_controlP4Node.exit46._crit_edge, %63, %58, %54, %_ZL12next_controlP4Node.exit
-  %.3 = phi ptr [ %.0.i, %_ZL12next_controlP4Node.exit ], [ %.1, %54 ], [ %.1, %58 ], [ %.1, %63 ], [ %.1, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.1, %140 ], [ %.1, %47 ], [ %.2, %_ZL12next_controlP4Node.exit53 ]
-  %219 = getelementptr inbounds i8, ptr %.3, i64 44
-  %220 = load i32, ptr %219, align 4
-  %221 = and i32 %220, 255
-  %222 = icmp eq i32 %221, 199
-  br i1 %222, label %223, label %257
-
-223:                                              ; preds = %._crit_edge
-  %224 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 40
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %.3, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 40
-  %230 = load ptr, ptr %229, align 8
-  %231 = load ptr, ptr %226, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 168
+230:                                              ; preds = %208
+  %231 = load ptr, ptr %212, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 48
   %233 = load ptr, ptr %232, align 8
-  %234 = tail call noundef ptr %233(ptr noundef nonnull align 8 dereferenceable(8) %226, ptr noundef %230) #15
-  %235 = load ptr, ptr %3, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 40
-  %237 = load ptr, ptr %236, align 8
-  %238 = load ptr, ptr %226, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 168
-  %240 = load ptr, ptr %239, align 8
-  %241 = tail call noundef ptr %240(ptr noundef nonnull align 8 dereferenceable(8) %226, ptr noundef %237) #15
-  %242 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %234, i1 noundef zeroext false) #15
-  %243 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %241, i1 noundef zeroext false) #15
-  %244 = icmp eq ptr %242, %243
-  br i1 %244, label %245, label %257
+  %234 = load ptr, ptr %3, align 8
+  %235 = getelementptr inbounds i8, ptr %234, i64 48
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds i8, ptr %233, i64 52
+  %238 = load i32, ptr %237, align 4
+  %239 = getelementptr inbounds i8, ptr %236, i64 52
+  %240 = load i32, ptr %239, align 4
+  %241 = icmp eq i32 %238, %240
+  %spec.select = select i1 %241, ptr %.3, ptr null
+  br label %242
 
-245:                                              ; preds = %223
-  %246 = load ptr, ptr %227, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 48
-  %248 = load ptr, ptr %247, align 8
-  %249 = load ptr, ptr %3, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 48
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %248, i64 52
-  %253 = load i32, ptr %252, align 4
-  %254 = getelementptr inbounds i8, ptr %251, i64 52
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp eq i32 %253, %255
-  %spec.select = select i1 %256, ptr %.3, ptr null
-  br label %257
-
-257:                                              ; preds = %245, %223, %._crit_edge
-  %.0 = phi ptr [ null, %223 ], [ null, %._crit_edge ], [ %spec.select, %245 ]
+242:                                              ; preds = %230, %208, %._crit_edge
+  %.0 = phi ptr [ null, %208 ], [ null, %._crit_edge ], [ %spec.select, %230 ]
   ret ptr %.0
 }
 

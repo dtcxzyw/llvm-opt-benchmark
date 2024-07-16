@@ -977,8 +977,9 @@ define dso_local noundef zeroext i1 @_ZN13SubprocessSet6DoWorkEv(ptr noundef non
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not6179 = icmp eq ptr %3, %5
-  br i1 %.not6179, label %._crit_edge, label %.lr.ph
+  %.not6179 = icmp ne ptr %3, %5
+  tail call void @llvm.assume(i1 %.not6179)
+  br label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %35
   %6 = phi ptr [ %36, %35 ], [ %5, %1 ]
@@ -1093,7 +1094,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   br label %38
 
 .loopexit.split-lp:                               ; preds = %._crit_edge, %18
-  %.sroa.051.076 = phi ptr [ %.sroa.051.0.lcssa, %._crit_edge ], [ %.sroa.051.083, %18 ]
+  %.sroa.051.076 = phi ptr [ %.sroa.051.2, %._crit_edge ], [ %.sroa.051.083, %18 ]
   %lpad.loopexit.split-lp65 = landingpad { ptr, i32 }
           cleanup
   br label %38
@@ -1105,7 +1106,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   br i1 %.not.i.i.i15, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %38
-  %.sroa.051.077 = phi ptr [ %.sroa.051.075, %38 ], [ %.sroa.051.0.lcssa, %.thread.loopexit ], [ %.sroa.051.0.lcssa, %.thread.loopexit.split-lp ]
+  %.sroa.051.077 = phi ptr [ %.sroa.051.075, %38 ], [ %.sroa.051.2, %.thread.loopexit ], [ %.sroa.051.2, %.thread.loopexit.split-lp ]
   %lpad.phi59 = phi { ptr, i32 } [ %lpad.phi66, %38 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.051.077) #24
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit
@@ -1114,12 +1115,10 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %38, %.thread
   %lpad.phi60 = phi { ptr, i32 } [ %lpad.phi66, %38 ], [ %lpad.phi59, %.thread ]
   resume { ptr, i32 } %lpad.phi60
 
-._crit_edge:                                      ; preds = %35, %1
-  %.sroa.051.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.051.2, %35 ]
-  %.010.lcssa = phi i64 [ 0, %1 ], [ %.1, %35 ]
+._crit_edge:                                      ; preds = %35
   store i32 0, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 560
-  %40 = invoke i32 @ppoll(ptr noundef nonnull %.sroa.051.0.lcssa, i64 noundef %.010.lcssa, ptr noundef null, ptr noundef nonnull %39)
+  %40 = invoke i32 @ppoll(ptr noundef nonnull %.sroa.051.2, i64 noundef %.1, ptr noundef null, ptr noundef nonnull %39)
           to label %41 unwind label %.loopexit.split-lp
 
 41:                                               ; preds = %._crit_edge
@@ -1169,7 +1168,7 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %38, %.thread
   %61 = icmp sgt i32 %60, -1
   call void @llvm.assume(i1 %61)
   %62 = add i64 %.011.ph89, 1
-  %63 = getelementptr inbounds %struct.pollfd, ptr %.sroa.051.0.lcssa, i64 %.011.ph89, i32 2
+  %63 = getelementptr inbounds %struct.pollfd, ptr %.sroa.051.2, i64 %.011.ph89, i32 2
   %64 = load i16, ptr %63, align 2
   %.not = icmp eq i16 %64, 0
   br i1 %.not, label %105, label %65
@@ -1283,12 +1282,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
 
 .outer._crit_edge:                                ; preds = %52, %50, %47, %46
   %.0 = phi i1 [ false, %46 ], [ %49, %47 ], [ true, %50 ], [ false, %52 ]
-  %.not.i.i.i22 = icmp eq ptr %.sroa.051.0.lcssa, null
+  %.not.i.i.i22 = icmp eq ptr %.sroa.051.2, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23, label %108
 
 108:                                              ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
   %.0100 = phi i1 [ %107, %.outer._crit_edge.thread ], [ %.0, %.outer._crit_edge ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.0.lcssa) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.2) #24
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23:          ; preds = %.outer._crit_edge, %108

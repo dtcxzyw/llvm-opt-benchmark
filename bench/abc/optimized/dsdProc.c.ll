@@ -68,14 +68,14 @@ define void @Dsd_Decompose(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %18) #10
+  tail call void @free(ptr noundef nonnull %18) #11
   br label %20
 
 20:                                               ; preds = %19, %16, %14
   store i32 %2, ptr %11, align 8
   %21 = sext i32 %2 to i64
   %22 = shl nsw i64 %21, 3
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #11
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #12
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %23, ptr %24, align 8
   br label %25
@@ -93,7 +93,7 @@ define void @Dsd_Decompose(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
 29:                                               ; preds = %28, %25
   store i32 0, ptr @s_nDecBlocks, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
+  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %Abc_Clock.exit, label %32
 
@@ -128,7 +128,7 @@ Abc_Clock.exit:                                   ; preds = %29, %32
   %.05480 = phi i32 [ 0, %.lr.ph ], [ %.1, %122 ]
   %.05579 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %122 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
+  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %Abc_Clock.exit69, label %44
 
@@ -156,7 +156,7 @@ Abc_Clock.exit69:                                 ; preds = %41, %44
   %55 = load ptr, ptr %39, align 8
   %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
-  call void @Dsd_TreeNodeGetInfoOne(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  call void @Dsd_TreeNodeGetInfoOne(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %58 = load i32, ptr %8, align 4
   %59 = load i32, ptr @s_nCascades, align 4
   %60 = call i32 @llvm.smax.i32(i32 %58, i32 %59)
@@ -177,7 +177,7 @@ Abc_Clock.exit69:                                 ; preds = %41, %44
   %71 = sext i16 %70 to i32
   %72 = getelementptr inbounds i8, ptr %66, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @Extra_bddSuppSize(ptr noundef %10, ptr noundef %73) #10
+  %74 = call i32 @Extra_bddSuppSize(ptr noundef %10, ptr noundef %73) #11
   %.not65 = icmp eq i32 %74, %71
   br i1 %.not65, label %77, label %75
 
@@ -200,17 +200,17 @@ Abc_Clock.exit69:                                 ; preds = %41, %44
   %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %84)
   %86 = load ptr, ptr %47, align 8
-  %87 = call i32 @Cudd_SupportSize(ptr noundef %10, ptr noundef %86) #10
+  %87 = call i32 @Cudd_SupportSize(ptr noundef %10, ptr noundef %86) #11
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %87)
   %89 = load ptr, ptr %39, align 8
   %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
-  %92 = call i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %91) #10
+  %92 = call i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %91) #11
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %92)
   %94 = load ptr, ptr %39, align 8
   %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
-  %97 = call i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %96) #10
+  %97 = call i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %96) #11
   %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %97)
   %99 = load i32, ptr %9, align 4
   %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %99)
@@ -218,7 +218,7 @@ Abc_Clock.exit69:                                 ; preds = %41, %44
   %102 = load i32, ptr %8, align 4
   %103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %102)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %104 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
+  %104 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %Abc_Clock.exit71, label %106
 
@@ -239,7 +239,7 @@ Abc_Clock.exit71:                                 ; preds = %83, %106
   %115 = fpext float %114 to double
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %115)
   %117 = load ptr, ptr %47, align 8
-  %118 = call i32 @Cudd_DagSize(ptr noundef %117) #10
+  %118 = call i32 @Cudd_DagSize(ptr noundef %117) #11
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %118)
   %putchar67 = call i32 @putchar(i32 10)
   %120 = load ptr, ptr @stdout, align 8
@@ -266,7 +266,7 @@ Abc_Clock.exit71:                                 ; preds = %83, %106
   %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.054.lcssa)
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.055.lcssa)
   %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.053.lcssa)
-  %129 = call i32 @Cudd_SharingSize(ptr noundef %1, i32 noundef %2) #10
+  %129 = call i32 @Cudd_SharingSize(ptr noundef %1, i32 noundef %2) #11
   %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %129)
   %131 = getelementptr inbounds i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
@@ -274,7 +274,7 @@ Abc_Clock.exit71:                                 ; preds = %83, %106
   %134 = load i32, ptr %133, align 4
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %134)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %136 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
+  %136 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #11
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %Abc_Clock.exit73, label %138
 
@@ -332,7 +332,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @st__lookup(ptr noundef %22, ptr noundef %20, ptr noundef nonnull %5) #10
+  %23 = call i32 @st__lookup(ptr noundef %22, ptr noundef %20, ptr noundef nonnull %5) #11
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %29, label %24
 
@@ -342,7 +342,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   store i32 %26, ptr @HashSuccess, align 4
   %27 = load ptr, ptr %5, align 8
   %28 = ptrtoint ptr %27 to i64
-  br label %1083
+  br label %1096
 
 29:                                               ; preds = %2
   %30 = load i32, ptr @HashFailure, align 4
@@ -394,7 +394,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %66 = load i32, ptr @s_nDecBlocks, align 4
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr @s_nDecBlocks, align 4
-  %68 = call ptr @Dsd_TreeNodeCreate(i32 noundef 2, i32 noundef 1, i32 noundef %66) #10
+  %68 = call ptr @Dsd_TreeNodeCreate(i32 noundef 2, i32 noundef 1, i32 noundef %66) #11
   %69 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
   store ptr null, ptr %70, align 8
@@ -407,8 +407,8 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %75 = inttoptr i64 %74 to ptr
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %77) #10
-  call void @Cudd_Ref(ptr noundef %78) #10
+  %78 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %77) #11
+  call void @Cudd_Ref(ptr noundef %78) #11
   %79 = load i32, ptr %75, align 8
   %80 = icmp eq i32 %79, 3
   %81 = icmp eq ptr %72, %75
@@ -423,7 +423,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %87 = load i32, ptr @s_nDecBlocks, align 4
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr @s_nDecBlocks, align 4
-  %89 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %86, i32 noundef %87) #10
+  %89 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %86, i32 noundef %87) #11
   %90 = getelementptr inbounds i8, ptr %72, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = load i16, ptr %83, align 8
@@ -452,7 +452,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %100 = load i32, ptr @s_nDecBlocks, align 4
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr @s_nDecBlocks, align 4
-  %102 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %100) #10
+  %102 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %100) #11
   %103 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
   store ptr %50, ptr %104, align 8
@@ -468,8 +468,8 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %111 = inttoptr i64 %110 to ptr
   %112 = getelementptr inbounds i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %113) #10
-  call void @Cudd_Ref(ptr noundef %114) #10
+  %114 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %113) #11
+  call void @Cudd_Ref(ptr noundef %114) #11
   %115 = load ptr, ptr %57, align 8
   %116 = ptrtoint ptr %115 to i64
   %117 = xor i64 %116, 1
@@ -492,7 +492,7 @@ define internal fastcc ptr @dsdKernelDecompose_rec(ptr noundef %0, ptr noundef %
   %128 = load i32, ptr @s_nDecBlocks, align 4
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr @s_nDecBlocks, align 4
-  %130 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %127, i32 noundef %128) #10
+  %130 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %127, i32 noundef %128) #11
   %131 = ptrtoint ptr %50 to i64
   %132 = xor i64 %131, 1
   %133 = inttoptr i64 %132 to ptr
@@ -530,7 +530,7 @@ dsdKernelCopyListPlusOne.exit704:                 ; preds = %.lr.ph.i700, %123
   %147 = load i32, ptr @s_nDecBlocks, align 4
   %148 = add nsw i32 %147, 1
   store i32 %148, ptr @s_nDecBlocks, align 4
-  %149 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %147) #10
+  %149 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %147) #11
   %150 = xor i64 %109, 1
   %151 = inttoptr i64 %150 to ptr
   %152 = ptrtoint ptr %50 to i64
@@ -560,7 +560,7 @@ dsdKernelCopyListPlusOne.exit704:                 ; preds = %.lr.ph.i700, %123
   %169 = load i32, ptr @s_nDecBlocks, align 4
   %170 = add nsw i32 %169, 1
   store i32 %170, ptr @s_nDecBlocks, align 4
-  %171 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %168, i32 noundef %169) #10
+  %171 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %168, i32 noundef %169) #11
   %172 = ptrtoint ptr %50 to i64
   %173 = xor i64 %172, 1
   %174 = inttoptr i64 %173 to ptr
@@ -592,7 +592,7 @@ dsdKernelCopyListPlusOne.exit704:                 ; preds = %.lr.ph.i700, %123
   %185 = load i32, ptr @s_nDecBlocks, align 4
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr @s_nDecBlocks, align 4
-  %187 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %185) #10
+  %187 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %185) #11
   %188 = ptrtoint ptr %50 to i64
   %189 = xor i64 %188, 1
   %190 = inttoptr i64 %189 to ptr
@@ -615,8 +615,8 @@ dsdKernelCopyListPlusOne.exit704:                 ; preds = %.lr.ph.i700, %123
   %201 = inttoptr i64 %200 to ptr
   %202 = getelementptr inbounds i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8
-  %204 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %203) #10
-  call void @Cudd_Ref(ptr noundef %204) #10
+  %204 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %203) #11
+  call void @Cudd_Ref(ptr noundef %204) #11
   %205 = load i32, ptr %201, align 8
   %206 = icmp eq i32 %205, 4
   br i1 %206, label %207, label %229
@@ -629,7 +629,7 @@ dsdKernelCopyListPlusOne.exit704:                 ; preds = %.lr.ph.i700, %123
   %212 = load i32, ptr @s_nDecBlocks, align 4
   %213 = add nsw i32 %212, 1
   store i32 %213, ptr @s_nDecBlocks, align 4
-  %214 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %211, i32 noundef %212) #10
+  %214 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %211, i32 noundef %212) #11
   %215 = getelementptr inbounds i8, ptr %201, i64 24
   %216 = load ptr, ptr %215, align 8
   %217 = load i16, ptr %208, align 8
@@ -668,7 +668,7 @@ dsdKernelCopyListPlusOne.exit730:                 ; preds = %.lr.ph.i726, %207
   %230 = load i32, ptr @s_nDecBlocks, align 4
   %231 = add nsw i32 %230, 1
   store i32 %231, ptr @s_nDecBlocks, align 4
-  %232 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef 2, i32 noundef %230) #10
+  %232 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef 2, i32 noundef %230) #11
   %.not665 = icmp eq ptr %197, %201
   %233 = getelementptr inbounds i8, ptr %232, i64 24
   %234 = load ptr, ptr %233, align 8
@@ -700,22 +700,22 @@ dsdKernelCopyListPlusOne.exit730:                 ; preds = %.lr.ph.i726, %207
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %247, i64 16
   %251 = load ptr, ptr %250, align 8
-  %252 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %249, ptr noundef %251) #10
-  call void @Cudd_Ref(ptr noundef %252) #10
+  %252 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %249, ptr noundef %251) #11
+  call void @Cudd_Ref(ptr noundef %252) #11
   %253 = load ptr, ptr %248, align 8
-  %254 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %253) #10
+  %254 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %253) #11
   %255 = load ptr, ptr %250, align 8
-  %256 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %255) #10
-  %257 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %252) #10
-  %258 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %252, ptr noundef %46) #10
-  call void @Cudd_Ref(ptr noundef %258) #10
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %252) #10
+  %256 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %255) #11
+  %257 = call i32 @Extra_bddSuppSize(ptr noundef nonnull %17, ptr noundef %252) #11
+  %258 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %252, ptr noundef %46) #11
+  call void @Cudd_Ref(ptr noundef %258) #11
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %252) #11
   %.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %259 = load ptr, ptr %248, align 8
   %260 = load ptr, ptr %250, align 8
-  %261 = call i32 @Extra_bddSuppCheckContainment(ptr noundef %.val, ptr noundef %259, ptr noundef %260, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %261 = call i32 @Extra_bddSuppCheckContainment(ptr noundef %.val, ptr noundef %259, ptr noundef %260, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %dsdKernelCheckContainment.exit.thread, label %263
 
@@ -766,7 +766,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %275, align 8
-  %283 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef nonnull %17, ptr noundef %.671, ptr noundef %.670, ptr noundef %281, ptr noundef %282) #10
+  %283 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef nonnull %17, ptr noundef %.671, ptr noundef %.670, ptr noundef %281, ptr noundef %282) #11
   %.not626 = icmp eq i32 %283, 0
   br i1 %.not626, label %285, label %.._crit_edge.loopexit_crit_edge
 
@@ -784,7 +784,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %290 = xor i64 %289, 1
   %291 = inttoptr i64 %290 to ptr
   %292 = load ptr, ptr %275, align 8
-  %293 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef nonnull %17, ptr noundef %.671, ptr noundef %.670, ptr noundef %291, ptr noundef %292) #10
+  %293 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef nonnull %17, ptr noundef %.671, ptr noundef %.670, ptr noundef %291, ptr noundef %292) #11
   %.not627 = icmp eq i32 %293, 0
   br i1 %.not627, label %294, label %.thread
 
@@ -827,7 +827,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 8
   %313 = load ptr, ptr %312, align 8
-  %314 = call ptr @Cudd_bddOr(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %313) #10
+  %314 = call ptr @Cudd_bddOr(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %313) #11
   br label %347
 
 315:                                              ; preds = %305
@@ -841,7 +841,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 8
   %325 = load ptr, ptr %324, align 8
-  %326 = call ptr @Cudd_bddOr(ptr noundef nonnull %17, ptr noundef %318, ptr noundef %325) #10
+  %326 = call ptr @Cudd_bddOr(ptr noundef nonnull %17, ptr noundef %318, ptr noundef %325) #11
   br label %347
 
 327:                                              ; preds = %.thread
@@ -857,7 +857,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %335 = load ptr, ptr %334, align 8
   %336 = getelementptr inbounds i8, ptr %335, i64 8
   %337 = load ptr, ptr %336, align 8
-  %338 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %331, ptr noundef %337) #10
+  %338 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %331, ptr noundef %337) #11
   br label %347
 
 339:                                              ; preds = %327
@@ -867,24 +867,24 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 8
   %345 = load ptr, ptr %344, align 8
-  %346 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %345) #10
+  %346 = call ptr @Cudd_bddAnd(ptr noundef nonnull %17, ptr noundef %46, ptr noundef %345) #11
   br label %347
 
 347:                                              ; preds = %328, %339, %306, %315
   %.0580892 = phi i32 [ %.0580.lcssa, %306 ], [ %.0580.lcssa, %315 ], [ %302, %328 ], [ %302, %339 ]
   %.0560 = phi ptr [ %314, %306 ], [ %326, %315 ], [ %338, %328 ], [ %346, %339 ]
-  call void @Cudd_Ref(ptr noundef %.0560) #10
+  call void @Cudd_Ref(ptr noundef %.0560) #11
   %348 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %.0560)
   %349 = ptrtoint ptr %348 to i64
   %350 = and i64 %349, -2
   %351 = inttoptr i64 %350 to ptr
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.0560) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.0560) #11
   %352 = load i16, ptr %271, align 8
   %353 = sext i16 %352 to i32
   %354 = load i32, ptr @s_nDecBlocks, align 4
   %355 = add nsw i32 %354, 1
   store i32 %355, ptr @s_nDecBlocks, align 4
-  %356 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %353, i32 noundef %354) #10
+  %356 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %353, i32 noundef %354) #11
   %357 = getelementptr inbounds i8, ptr %..i, i64 24
   %358 = load ptr, ptr %357, align 8
   %359 = load i16, ptr %271, align 8
@@ -1030,10 +1030,10 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %426 = select i1 %411, ptr %422, ptr %425
   %427 = getelementptr inbounds i8, ptr %409, i64 16
   %428 = load ptr, ptr %427, align 8
-  %429 = call ptr @Cudd_bddAndAbstract(ptr noundef %17, ptr noundef nonnull %420, ptr noundef %426, ptr noundef %428) #10
-  call void @Cudd_Ref(ptr noundef %429) #10
+  %429 = call ptr @Cudd_bddAndAbstract(ptr noundef %17, ptr noundef nonnull %420, ptr noundef %426, ptr noundef %428) #11
+  call void @Cudd_Ref(ptr noundef %429) #11
   %430 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %429)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %429) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %429) #11
   %431 = icmp eq i32 %.0573842, 1
   br i1 %431, label %432, label %440
 
@@ -1041,7 +1041,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %433 = load i32, ptr @s_nDecBlocks, align 4
   %434 = add nsw i32 %433, 1
   store i32 %434, ptr @s_nDecBlocks, align 4
-  %435 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %433) #10
+  %435 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef 2, i32 noundef %433) #11
   %436 = getelementptr inbounds i8, ptr %435, i64 24
   %437 = load ptr, ptr %436, align 8
   store ptr %430, ptr %437, align 8
@@ -1055,7 +1055,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %240
   %442 = load i32, ptr @s_nDecBlocks, align 4
   %443 = add nsw i32 %442, 1
   store i32 %443, ptr @s_nDecBlocks, align 4
-  %444 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %441, i32 noundef %442) #10
+  %444 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %441, i32 noundef %442) #11
   %445 = getelementptr inbounds i8, ptr %.0572843, i64 24
   %446 = load ptr, ptr %445, align 8
   %447 = getelementptr inbounds i8, ptr %444, i64 24
@@ -1095,10 +1095,10 @@ dsdKernelCopyListPlusOne.exit755:                 ; preds = %.lr.ph.i751, %440, 
   %461 = select i1 %412, ptr %20, ptr %460
   %462 = getelementptr inbounds i8, ptr %.0572843, i64 8
   %463 = load ptr, ptr %462, align 8
-  %464 = call ptr @Cudd_bddXor(ptr noundef %17, ptr noundef nonnull %461, ptr noundef %463) #10
-  call void @Cudd_Ref(ptr noundef %464) #10
+  %464 = call ptr @Cudd_bddXor(ptr noundef %17, ptr noundef nonnull %461, ptr noundef %463) #11
+  call void @Cudd_Ref(ptr noundef %464) #11
   %465 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %464)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %464) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %464) #11
   %466 = icmp eq i32 %.0573842, 1
   br i1 %466, label %467, label %475
 
@@ -1106,7 +1106,7 @@ dsdKernelCopyListPlusOne.exit755:                 ; preds = %.lr.ph.i751, %440, 
   %468 = load i32, ptr @s_nDecBlocks, align 4
   %469 = add nsw i32 %468, 1
   store i32 %469, ptr @s_nDecBlocks, align 4
-  %470 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef 2, i32 noundef %468) #10
+  %470 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef 2, i32 noundef %468) #11
   %471 = getelementptr inbounds i8, ptr %470, i64 24
   %472 = load ptr, ptr %471, align 8
   store ptr %465, ptr %472, align 8
@@ -1120,7 +1120,7 @@ dsdKernelCopyListPlusOne.exit755:                 ; preds = %.lr.ph.i751, %440, 
   %477 = load i32, ptr @s_nDecBlocks, align 4
   %478 = add nsw i32 %477, 1
   store i32 %478, ptr @s_nDecBlocks, align 4
-  %479 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %476, i32 noundef %477) #10
+  %479 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %476, i32 noundef %477) #11
   %480 = getelementptr inbounds i8, ptr %.0572843, i64 24
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds i8, ptr %479, i64 24
@@ -1163,7 +1163,7 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, 
   %496 = load i32, ptr @s_nDecBlocks, align 4
   %497 = add nsw i32 %496, 1
   store i32 %497, ptr @s_nDecBlocks, align 4
-  %498 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef 3, i32 noundef %496) #10
+  %498 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef 3, i32 noundef %496) #11
   %499 = getelementptr inbounds i8, ptr %17, i64 312
   %500 = load ptr, ptr %499, align 8
   %501 = load ptr, ptr %248, align 8
@@ -1181,11 +1181,11 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, 
   %513 = load ptr, ptr %512, align 8
   %514 = getelementptr inbounds i8, ptr %513, i64 8
   %. = select i1 %511, ptr %244, ptr %247
-  %.1083 = select i1 %511, ptr %247, ptr %244
+  %.1085 = select i1 %511, ptr %247, ptr %244
   store ptr %., ptr %514, align 8
   %515 = load ptr, ptr %512, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 16
-  store ptr %.1083, ptr %516, align 8
+  store ptr %.1085, ptr %516, align 8
   %517 = getelementptr inbounds i8, ptr %498, i64 24
   %518 = load ptr, ptr %517, align 8
   store ptr %50, ptr %518, align 8
@@ -1239,9 +1239,9 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, 
   %.val688 = load ptr, ptr %0, align 8
   call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val688, ptr noundef %537, i32 noundef %533, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0)
   %538 = load ptr, ptr %12, align 8
-  call void @Cudd_Ref(ptr noundef %538) #10
+  call void @Cudd_Ref(ptr noundef %538) #11
   %539 = load ptr, ptr %13, align 8
-  call void @Cudd_Ref(ptr noundef %539) #10
+  call void @Cudd_Ref(ptr noundef %539) #11
   %.not662 = icmp eq ptr %197, %244
   %540 = or i64 %18, 1
   %541 = inttoptr i64 %540 to ptr
@@ -1250,16 +1250,16 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, 
   %544 = xor i64 %543, 1
   %545 = inttoptr i64 %544 to ptr
   %546 = load ptr, ptr %13, align 8
-  %547 = call ptr @Cudd_bddAndAbstract(ptr noundef %17, ptr noundef nonnull %542, ptr noundef %545, ptr noundef %546) #10
-  call void @Cudd_Ref(ptr noundef %547) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %538) #10
+  %547 = call ptr @Cudd_bddAndAbstract(ptr noundef %17, ptr noundef nonnull %542, ptr noundef %545, ptr noundef %546) #11
+  call void @Cudd_Ref(ptr noundef %547) #11
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %538) #11
   %548 = load ptr, ptr %13, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %548) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %548) #11
   %549 = add nsw i32 %533, 1
   %550 = load i32, ptr @s_nDecBlocks, align 4
   %551 = add nsw i32 %550, 1
   store i32 %551, ptr @s_nDecBlocks, align 4
-  %552 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %549, i32 noundef %550) #10
+  %552 = call ptr @Dsd_TreeNodeCreate(i32 noundef 3, i32 noundef %549, i32 noundef %550) #11
   %553 = getelementptr inbounds i8, ptr %552, i64 24
   %554 = load ptr, ptr %553, align 8
   store ptr null, ptr %554, align 8
@@ -1283,7 +1283,7 @@ dsdKernelCopyListPlusOne.exit762:                 ; preds = %.lr.ph.i758, %475, 
 
 dsdKernelCopyListPlusOne.exit769:                 ; preds = %.lr.ph.i765, %536
   %560 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %547)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %547) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %547) #11
   %561 = load ptr, ptr %553, align 8
   store ptr %560, ptr %561, align 8
   br i1 %.not662, label %dsdKernelCopyListPlusOne.exit, label %562
@@ -1299,15 +1299,15 @@ dsdKernelCopyListPlusOne.exit769:                 ; preds = %.lr.ph.i765, %536
   %.val689 = load ptr, ptr %0, align 8
   call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val689, ptr noundef %567, i32 noundef %533, ptr noundef nonnull %14, ptr noundef null, i32 noundef 1)
   %568 = load ptr, ptr %14, align 8
-  call void @Cudd_Ref(ptr noundef %568) #10
-  %569 = call ptr @Cudd_bddXor(ptr noundef %17, ptr noundef nonnull %20, ptr noundef %568) #10
-  call void @Cudd_Ref(ptr noundef %569) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %568) #10
+  call void @Cudd_Ref(ptr noundef %568) #11
+  %569 = call ptr @Cudd_bddXor(ptr noundef %17, ptr noundef nonnull %20, ptr noundef %568) #11
+  call void @Cudd_Ref(ptr noundef %569) #11
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %568) #11
   %570 = add nsw i32 %533, 1
   %571 = load i32, ptr @s_nDecBlocks, align 4
   %572 = add nsw i32 %571, 1
   store i32 %572, ptr @s_nDecBlocks, align 4
-  %573 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %570, i32 noundef %571) #10
+  %573 = call ptr @Dsd_TreeNodeCreate(i32 noundef 4, i32 noundef %570, i32 noundef %571) #11
   %574 = getelementptr inbounds i8, ptr %573, i64 24
   %575 = load ptr, ptr %574, align 8
   store ptr null, ptr %575, align 8
@@ -1331,7 +1331,7 @@ dsdKernelCopyListPlusOne.exit769:                 ; preds = %.lr.ph.i765, %536
 
 dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %581 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %569)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %569) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %569) #11
   %582 = ptrtoint ptr %581 to i64
   %583 = and i64 %582, -2
   %584 = inttoptr i64 %583 to ptr
@@ -1387,7 +1387,7 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %615 = ptrtoint ptr %614 to i64
   %616 = xor i64 %615, 1
   %617 = inttoptr i64 %616 to ptr
-  %618 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %612, ptr noundef %617) #10
+  %618 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %612, ptr noundef %617) #11
   %.not641 = icmp eq i32 %618, 0
   br i1 %.not641, label %626, label %619
 
@@ -1397,7 +1397,7 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %622 = xor i64 %621, 1
   %623 = inttoptr i64 %622 to ptr
   %624 = load ptr, ptr %613, align 8
-  %625 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %623, ptr noundef %624) #10
+  %625 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %623, ptr noundef %624) #11
   %.not642 = icmp eq i32 %625, 0
   br i1 %.not642, label %626, label %631
 
@@ -1464,14 +1464,14 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %660 = ptrtoint ptr %659 to i64
   %661 = xor i64 %660, 1
   %662 = inttoptr i64 %661 to ptr
-  %663 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %656, ptr noundef %662) #10
+  %663 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %656, ptr noundef %662) #11
   %.not637 = icmp eq i32 %663, 0
   br i1 %.not637, label %668, label %664
 
 664:                                              ; preds = %648
   %665 = load ptr, ptr %652, align 8
   %666 = load ptr, ptr %658, align 8
-  %667 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %665, ptr noundef %666) #10
+  %667 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %665, ptr noundef %666) #11
   %.not638 = icmp eq i32 %667, 0
   br i1 %.not638, label %668, label %686
 
@@ -1481,7 +1481,7 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %671 = ptrtoint ptr %670 to i64
   %672 = xor i64 %671, 1
   %673 = inttoptr i64 %672 to ptr
-  %674 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %669, ptr noundef %673) #10
+  %674 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %669, ptr noundef %673) #11
   %.not639 = icmp eq i32 %674, 0
   br i1 %.not639, label %.thread859, label %675
 
@@ -1491,7 +1491,7 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   %678 = xor i64 %677, 1
   %679 = inttoptr i64 %678 to ptr
   %680 = load ptr, ptr %658, align 8
-  %681 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %679, ptr noundef %680) #10
+  %681 = call i32 @Dsd_CheckRootFunctionIdentity(ptr noundef %17, ptr noundef %36, ptr noundef nonnull %40, ptr noundef %679, ptr noundef %680) #11
   %.not640 = icmp eq i32 %681, 0
   br i1 %.not640, label %.thread859, label %.thread861
 
@@ -1527,18 +1527,18 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
   br label %698
 
 698:                                              ; preds = %.thread849, %686
-  %.sink1074 = phi ptr [ %697, %.thread849 ], [ %652, %686 ]
-  %.sink1072 = phi ptr [ %696, %.thread849 ], [ %689, %686 ]
+  %.sink1076 = phi ptr [ %697, %.thread849 ], [ %652, %686 ]
+  %.sink1074 = phi ptr [ %696, %.thread849 ], [ %689, %686 ]
   %.2586852 = phi i32 [ %.2586853, %.thread849 ], [ %533, %686 ]
-  %699 = load ptr, ptr %.sink1074, align 8
-  %700 = call ptr @Cudd_bddIte(ptr noundef %17, ptr noundef %46, ptr noundef %.sink1072, ptr noundef %699) #10
-  call void @Cudd_Ref(ptr noundef %700) #10
+  %699 = load ptr, ptr %.sink1076, align 8
+  %700 = call ptr @Cudd_bddIte(ptr noundef %17, ptr noundef %46, ptr noundef %.sink1074, ptr noundef %699) #11
+  call void @Cudd_Ref(ptr noundef %700) #11
   %701 = load i16, ptr %592, align 8
   %702 = sext i16 %701 to i32
   %703 = load i32, ptr @s_nDecBlocks, align 4
   %704 = add nsw i32 %703, 1
   store i32 %704, ptr @s_nDecBlocks, align 4
-  %705 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %702, i32 noundef %703) #10
+  %705 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %702, i32 noundef %703) #11
   %706 = load ptr, ptr %9, align 8
   %707 = getelementptr inbounds i8, ptr %705, i64 24
   %708 = load ptr, ptr %707, align 8
@@ -1563,7 +1563,7 @@ dsdKernelCopyListPlusOne.exit776:                 ; preds = %.lr.ph.i772, %566
 
 dsdKernelCopyListPlusOne.exit783:                 ; preds = %.lr.ph.i779, %698
   %714 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %700)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %700) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %700) #11
   %715 = ptrtoint ptr %714 to i64
   %716 = and i64 %715, -2
   %717 = inttoptr i64 %716 to ptr
@@ -1582,7 +1582,7 @@ dsdKernelCopyListPlusOne.exit783:                 ; preds = %.lr.ph.i779, %698
   %726 = load i32, ptr @s_nDecBlocks, align 4
   %727 = add nsw i32 %726, 1
   store i32 %727, ptr @s_nDecBlocks, align 4
-  %728 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %725, i32 noundef %726) #10
+  %728 = call ptr @Dsd_TreeNodeCreate(i32 noundef 5, i32 noundef %725, i32 noundef %726) #11
   %729 = getelementptr inbounds i8, ptr %728, i64 24
   %730 = load ptr, ptr %729, align 8
   store ptr %50, ptr %730, align 8
@@ -1727,9 +1727,9 @@ dsdKernelCopyListPlusOne.exit783:                 ; preds = %.lr.ph.i779, %698
 810:                                              ; preds = %761, %758, %753, %752
   %811 = load ptr, ptr %248, align 8
   %812 = load ptr, ptr %250, align 8
-  call void @Cudd_Ref(ptr noundef %811) #10
+  call void @Cudd_Ref(ptr noundef %811) #11
   %813 = load ptr, ptr %250, align 8
-  call void @Cudd_Ref(ptr noundef %813) #10
+  call void @Cudd_Ref(ptr noundef %813) #11
   %814 = getelementptr inbounds i8, ptr %17, i64 40
   %815 = load ptr, ptr %814, align 8
   %.not646948 = icmp eq ptr %811, %815
@@ -1744,11 +1744,11 @@ dsdKernelCopyListPlusOne.exit783:                 ; preds = %.lr.ph.i779, %698
   %819 = getelementptr inbounds i8, ptr %244, i64 40
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.lr.ph, %1064
-  %indvars.iv1001 = phi i64 [ 1, %.critedge2.lr.ph ], [ %indvars.iv.next1002, %1064 ]
-  %.0557955 = phi ptr [ null, %.critedge2.lr.ph ], [ %.1558, %1064 ]
-  %.2563954 = phi ptr [ %813, %.critedge2.lr.ph ], [ %.3, %1064 ]
-  %.2566953 = phi ptr [ %811, %.critedge2.lr.ph ], [ %.3567, %1064 ]
+.critedge2:                                       ; preds = %.critedge2.lr.ph, %1077
+  %indvars.iv1001 = phi i64 [ 1, %.critedge2.lr.ph ], [ %indvars.iv.next1002, %1077 ]
+  %.0557955 = phi ptr [ null, %.critedge2.lr.ph ], [ %.1558, %1077 ]
+  %.2563954 = phi ptr [ %813, %.critedge2.lr.ph ], [ %.3, %1077 ]
+  %.2566953 = phi ptr [ %811, %.critedge2.lr.ph ], [ %.3567, %1077 ]
   %820 = load i32, ptr %.2566953, align 8
   %821 = icmp eq i32 %820, 2147483647
   br i1 %821, label %827, label %822
@@ -1789,489 +1789,500 @@ dsdKernelCopyListPlusOne.exit783:                 ; preds = %.lr.ph.i779, %698
   %845 = sext i32 %844 to i64
   %846 = getelementptr inbounds ptr, ptr %840, i64 %845
   %847 = load ptr, ptr %846, align 8
-  br i1 %.not648.not, label %913, label %848
+  br i1 %.not648.not, label %920, label %848
 
 848:                                              ; preds = %836
   %849 = select i1 %838, ptr %812, ptr %811
   %850 = getelementptr inbounds i8, ptr %.1558, i64 16
   %851 = load ptr, ptr %850, align 8
-  %852 = call i32 @Extra_bddSuppOverlapping(ptr noundef nonnull %17, ptr noundef %851, ptr noundef %849) #10
+  %852 = call i32 @Extra_bddSuppOverlapping(ptr noundef nonnull %17, ptr noundef %851, ptr noundef %849) #11
   %.not649917 = icmp eq i32 %852, 0
   br i1 %.not649917, label %._crit_edge921.thread, label %.lr.ph920
 
 .lr.ph920:                                        ; preds = %848, %dsdKernelFindContainingComponent.exit
-  %.0544918 = phi ptr [ %.014.i, %dsdKernelFindContainingComponent.exit ], [ %.1558, %848 ]
+  %.0544918 = phi ptr [ %.lcssa, %dsdKernelFindContainingComponent.exit ], [ %.1558, %848 ]
   %853 = getelementptr inbounds i8, ptr %.0544918, i64 40
   %854 = load i16, ptr %853, align 8
   %or.cond.i = icmp sgt i16 %854, 1
-  br i1 %or.cond.i, label %.lr.ph.i784, label %dsdKernelFindContainingComponent.exit
-
-.lr.ph.i784:                                      ; preds = %.lr.ph920
+  call void @llvm.assume(i1 %or.cond.i)
   %855 = getelementptr inbounds i8, ptr %.0544918, i64 24
-  br label %860
-
-856:                                              ; preds = %860
-  %indvars.iv.next.i787 = add nuw nsw i64 %indvars.iv.i785, 1
-  %857 = load i16, ptr %853, align 8
-  %858 = sext i16 %857 to i64
-  %859 = icmp slt i64 %indvars.iv.next.i787, %858
-  br i1 %859, label %860, label %dsdKernelFindContainingComponent.exit, !llvm.loop !13
-
-860:                                              ; preds = %856, %.lr.ph.i784
-  %indvars.iv.i785 = phi i64 [ 0, %.lr.ph.i784 ], [ %indvars.iv.next.i787, %856 ]
-  %861 = load ptr, ptr %855, align 8
-  %862 = getelementptr inbounds ptr, ptr %861, i64 %indvars.iv.i785
+  %856 = load ptr, ptr %855, align 8
+  %857 = load ptr, ptr %856, align 8
+  %858 = ptrtoint ptr %857 to i64
+  %859 = and i64 %858, -2
+  %860 = inttoptr i64 %859 to ptr
+  %861 = load ptr, ptr %0, align 8
+  %862 = getelementptr inbounds i8, ptr %860, i64 16
   %863 = load ptr, ptr %862, align 8
-  %864 = ptrtoint ptr %863 to i64
-  %865 = and i64 %864, -2
-  %866 = inttoptr i64 %865 to ptr
-  %867 = load ptr, ptr %0, align 8
-  %868 = getelementptr inbounds i8, ptr %866, i64 16
-  %869 = load ptr, ptr %868, align 8
-  %870 = call i32 @Extra_bddSuppContainVar(ptr noundef %867, ptr noundef %869, ptr noundef %847) #10
-  %.not.i786 = icmp eq i32 %870, 0
-  br i1 %.not.i786, label %856, label %dsdKernelFindContainingComponent.exit
+  %864 = call i32 @Extra_bddSuppContainVar(ptr noundef %861, ptr noundef %863, ptr noundef %847) #11
+  %.not.i7861103 = icmp eq i32 %864, 0
+  br i1 %.not.i7861103, label %.lr.ph1105, label %dsdKernelFindContainingComponent.exit
 
-dsdKernelFindContainingComponent.exit:            ; preds = %860, %856, %.lr.ph920
-  %.014.i = phi ptr [ null, %.lr.ph920 ], [ %866, %860 ], [ null, %856 ]
-  %871 = getelementptr inbounds i8, ptr %.014.i, i64 16
-  %872 = load ptr, ptr %871, align 8
-  %873 = call i32 @Extra_bddSuppOverlapping(ptr noundef %17, ptr noundef %872, ptr noundef %849) #10
-  %.not649 = icmp eq i32 %873, 0
-  br i1 %.not649, label %._crit_edge921, label %.lr.ph920, !llvm.loop !14
+.lr.ph1105:                                       ; preds = %.lr.ph920, %.lr.ph1105
+  %indvars.iv.i7851104 = phi i64 [ %indvars.iv.next.i787, %.lr.ph1105 ], [ 0, %.lr.ph920 ]
+  %indvars.iv.next.i787 = add nuw nsw i64 %indvars.iv.i7851104, 1
+  %865 = load i16, ptr %853, align 8
+  %866 = sext i16 %865 to i64
+  %867 = icmp slt i64 %indvars.iv.next.i787, %866
+  call void @llvm.assume(i1 %867)
+  %868 = load ptr, ptr %855, align 8
+  %869 = getelementptr inbounds ptr, ptr %868, i64 %indvars.iv.next.i787
+  %870 = load ptr, ptr %869, align 8
+  %871 = ptrtoint ptr %870 to i64
+  %872 = and i64 %871, -2
+  %873 = inttoptr i64 %872 to ptr
+  %874 = load ptr, ptr %0, align 8
+  %875 = getelementptr inbounds i8, ptr %873, i64 16
+  %876 = load ptr, ptr %875, align 8
+  %877 = call i32 @Extra_bddSuppContainVar(ptr noundef %874, ptr noundef %876, ptr noundef %847) #11
+  %.not.i786 = icmp eq i32 %877, 0
+  br i1 %.not.i786, label %.lr.ph1105, label %dsdKernelFindContainingComponent.exit
+
+dsdKernelFindContainingComponent.exit:            ; preds = %.lr.ph1105, %.lr.ph920
+  %.lcssa = phi ptr [ %860, %.lr.ph920 ], [ %873, %.lr.ph1105 ]
+  %878 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %879 = load ptr, ptr %878, align 8
+  %880 = call i32 @Extra_bddSuppOverlapping(ptr noundef %17, ptr noundef %879, ptr noundef %849) #11
+  %.not649 = icmp eq i32 %880, 0
+  br i1 %.not649, label %._crit_edge921, label %.lr.ph920, !llvm.loop !13
 
 ._crit_edge921:                                   ; preds = %dsdKernelFindContainingComponent.exit
-  %874 = load i32, ptr %.0544918, align 8
-  %875 = icmp eq i32 %874, 5
-  br i1 %875, label %._crit_edge921.thread, label %.preheader877
+  %881 = load i32, ptr %.0544918, align 8
+  %882 = icmp eq i32 %881, 5
+  br i1 %882, label %._crit_edge921.thread, label %.preheader877
 
 .preheader877:                                    ; preds = %._crit_edge921
-  %876 = getelementptr inbounds i8, ptr %.0544918, i64 40
-  %877 = load i16, ptr %876, align 8
-  %878 = icmp sgt i16 %877, 0
-  br i1 %878, label %.lr.ph927, label %._crit_edge928.thread
+  %883 = getelementptr inbounds i8, ptr %.0544918, i64 40
+  %884 = load i16, ptr %883, align 8
+  %885 = icmp sgt i16 %884, 0
+  br i1 %885, label %.lr.ph927, label %._crit_edge928.thread
 
 .lr.ph927:                                        ; preds = %.preheader877
-  %879 = getelementptr inbounds i8, ptr %.0544918, i64 24
-  br label %880
+  %886 = getelementptr inbounds i8, ptr %.0544918, i64 24
+  br label %887
 
-880:                                              ; preds = %.lr.ph927, %897
-  %indvars.iv991 = phi i64 [ 0, %.lr.ph927 ], [ %indvars.iv.next992, %897 ]
-  %.0542926 = phi i32 [ 0, %.lr.ph927 ], [ %.1, %897 ]
-  %881 = load ptr, ptr %879, align 8
-  %882 = getelementptr inbounds ptr, ptr %881, i64 %indvars.iv991
-  %883 = load ptr, ptr %882, align 8
-  %884 = ptrtoint ptr %883 to i64
-  %885 = and i64 %884, -2
-  %886 = inttoptr i64 %885 to ptr
-  %887 = getelementptr inbounds i8, ptr %886, i64 16
-  %888 = load ptr, ptr %887, align 8
-  %889 = call i32 @Extra_bddSuppOverlapping(ptr noundef %17, ptr noundef %888, ptr noundef %849) #10
-  %.not650 = icmp eq i32 %889, 0
-  br i1 %.not650, label %890, label %897
+887:                                              ; preds = %.lr.ph927, %904
+  %indvars.iv991 = phi i64 [ 0, %.lr.ph927 ], [ %indvars.iv.next992, %904 ]
+  %.0542926 = phi i32 [ 0, %.lr.ph927 ], [ %.1, %904 ]
+  %888 = load ptr, ptr %886, align 8
+  %889 = getelementptr inbounds ptr, ptr %888, i64 %indvars.iv991
+  %890 = load ptr, ptr %889, align 8
+  %891 = ptrtoint ptr %890 to i64
+  %892 = and i64 %891, -2
+  %893 = inttoptr i64 %892 to ptr
+  %894 = getelementptr inbounds i8, ptr %893, i64 16
+  %895 = load ptr, ptr %894, align 8
+  %896 = call i32 @Extra_bddSuppOverlapping(ptr noundef %17, ptr noundef %895, ptr noundef %849) #11
+  %.not650 = icmp eq i32 %896, 0
+  br i1 %.not650, label %897, label %904
 
-890:                                              ; preds = %880
-  %891 = load ptr, ptr %879, align 8
-  %892 = getelementptr inbounds ptr, ptr %891, i64 %indvars.iv991
-  %893 = load ptr, ptr %892, align 8
-  %894 = add nsw i32 %.0542926, 1
-  %895 = sext i32 %.0542926 to i64
-  %896 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pNonOverlap, i64 0, i64 %895
-  store ptr %893, ptr %896, align 8
-  br label %897
+897:                                              ; preds = %887
+  %898 = load ptr, ptr %886, align 8
+  %899 = getelementptr inbounds ptr, ptr %898, i64 %indvars.iv991
+  %900 = load ptr, ptr %899, align 8
+  %901 = add nsw i32 %.0542926, 1
+  %902 = sext i32 %.0542926 to i64
+  %903 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pNonOverlap, i64 0, i64 %902
+  store ptr %900, ptr %903, align 8
+  br label %904
 
-897:                                              ; preds = %880, %890
-  %.1 = phi i32 [ %.0542926, %880 ], [ %894, %890 ]
+904:                                              ; preds = %887, %897
+  %.1 = phi i32 [ %.0542926, %887 ], [ %901, %897 ]
   %indvars.iv.next992 = add nuw nsw i64 %indvars.iv991, 1
-  %898 = load i16, ptr %876, align 8
-  %899 = sext i16 %898 to i64
-  %900 = icmp slt i64 %indvars.iv.next992, %899
-  br i1 %900, label %880, label %._crit_edge928, !llvm.loop !15
+  %905 = load i16, ptr %883, align 8
+  %906 = sext i16 %905 to i64
+  %907 = icmp slt i64 %indvars.iv.next992, %906
+  br i1 %907, label %887, label %._crit_edge928, !llvm.loop !14
 
-._crit_edge928:                                   ; preds = %897
-  %901 = icmp eq i32 %.1, 1
-  br i1 %901, label %._crit_edge921.thread, label %._crit_edge928.thread
+._crit_edge928:                                   ; preds = %904
+  %908 = icmp eq i32 %.1, 1
+  br i1 %908, label %._crit_edge921.thread, label %._crit_edge928.thread
 
 ._crit_edge928.thread:                            ; preds = %.preheader877, %._crit_edge928
   %.0542.lcssa1033 = phi i32 [ %.1, %._crit_edge928 ], [ 0, %.preheader877 ]
-  %902 = load i32, ptr %.0544918, align 8
-  %903 = icmp eq i32 %902, 4
-  %904 = zext i1 %903 to i32
+  %909 = load i32, ptr %.0544918, align 8
+  %910 = icmp eq i32 %909, 4
+  %911 = zext i1 %910 to i32
   %.val690 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val690, ptr noundef nonnull @dsdKernelDecompose_rec.pNonOverlap, i32 noundef %.0542.lcssa1033, ptr noundef nonnull %15, ptr noundef null, i32 noundef %904)
-  %905 = load ptr, ptr %15, align 8
-  call void @Cudd_Ref(ptr noundef %905) #10
-  %906 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %905)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %905) #10
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val690, ptr noundef nonnull @dsdKernelDecompose_rec.pNonOverlap, i32 noundef %.0542.lcssa1033, ptr noundef nonnull %15, ptr noundef null, i32 noundef %911)
+  %912 = load ptr, ptr %15, align 8
+  call void @Cudd_Ref(ptr noundef %912) #11
+  %913 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %912)
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %912) #11
   br label %._crit_edge921.thread
 
 ._crit_edge921.thread:                            ; preds = %._crit_edge928, %._crit_edge921, %848, %._crit_edge928.thread
-  %.014.i.lcssa.sink = phi ptr [ %906, %._crit_edge928.thread ], [ %.014.i, %._crit_edge921 ], [ %.1558, %848 ], [ %.014.i, %._crit_edge928 ]
-  %907 = load ptr, ptr %729, align 8
-  %908 = getelementptr inbounds ptr, ptr %907, i64 %indvars.iv1001
-  store ptr %.014.i.lcssa.sink, ptr %908, align 8
-  %.0546.in = getelementptr inbounds i8, ptr %.014.i.lcssa.sink, i64 16
+  %.lcssa1047.lcssa.sink = phi ptr [ %913, %._crit_edge928.thread ], [ %.lcssa, %._crit_edge921 ], [ %.1558, %848 ], [ %.lcssa, %._crit_edge928 ]
+  %914 = load ptr, ptr %729, align 8
+  %915 = getelementptr inbounds ptr, ptr %914, i64 %indvars.iv1001
+  store ptr %.lcssa1047.lcssa.sink, ptr %915, align 8
+  %.0546.in = getelementptr inbounds i8, ptr %.lcssa1047.lcssa.sink, i64 16
   %.0546 = load ptr, ptr %.0546.in, align 8
-  br i1 %838, label %909, label %911
+  br i1 %838, label %916, label %918
 
-909:                                              ; preds = %._crit_edge921.thread
-  %910 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2566953, ptr noundef %.0546) #10
-  br label %1064
+916:                                              ; preds = %._crit_edge921.thread
+  %917 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2566953, ptr noundef %.0546) #11
+  br label %1077
 
-911:                                              ; preds = %._crit_edge921.thread
-  %912 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2563954, ptr noundef %.0546) #10
-  br label %1064
+918:                                              ; preds = %._crit_edge921.thread
+  %919 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2563954, ptr noundef %.0546) #11
+  br label %1077
 
-913:                                              ; preds = %836
-  %914 = load i32, ptr @s_Mark, align 4
-  %915 = add nsw i32 %914, 1
-  store i32 %915, ptr @s_Mark, align 4
-  %916 = sext i32 %915 to i64
-  store i64 %916, ptr %818, align 8
+920:                                              ; preds = %836
+  %921 = load i32, ptr @s_Mark, align 4
+  %922 = add nsw i32 %921, 1
+  store i32 %922, ptr @s_Mark, align 4
+  %923 = sext i32 %922 to i64
+  store i64 %923, ptr %818, align 8
   store ptr %244, ptr @dsdKernelDecompose_rec.pMarkedLeft, align 16
   store i8 0, ptr @dsdKernelDecompose_rec.pMarkedPols, align 16
-  %917 = load i16, ptr %819, align 8
-  %or.cond.i7881101 = icmp sgt i16 %917, 1
-  br i1 %or.cond.i7881101, label %.lr.ph.i790, label %.preheader876
+  %924 = load i16, ptr %819, align 8
+  %or.cond.i7881106 = icmp sgt i16 %924, 1
+  br i1 %or.cond.i7881106, label %.lr.ph.i790, label %.preheader876
 
-.lr.ph.i790:                                      ; preds = %913, %dsdKernelFindContainingComponent.exit794
-  %918 = phi ptr [ %945, %dsdKernelFindContainingComponent.exit794 ], [ %819, %913 ]
-  %indvars.iv.next9961103 = phi i64 [ %indvars.iv.next996, %dsdKernelFindContainingComponent.exit794 ], [ 1, %913 ]
-  %.05401102 = phi ptr [ %930, %dsdKernelFindContainingComponent.exit794 ], [ %244, %913 ]
-  %919 = getelementptr inbounds i8, ptr %.05401102, i64 24
-  br label %924
+.lr.ph.i790:                                      ; preds = %920, %dsdKernelFindContainingComponent.exit794
+  %925 = phi ptr [ %952, %dsdKernelFindContainingComponent.exit794 ], [ %819, %920 ]
+  %indvars.iv.next9961108 = phi i64 [ %indvars.iv.next996, %dsdKernelFindContainingComponent.exit794 ], [ 1, %920 ]
+  %.05401107 = phi ptr [ %937, %dsdKernelFindContainingComponent.exit794 ], [ %244, %920 ]
+  %926 = getelementptr inbounds i8, ptr %.05401107, i64 24
+  br label %931
 
-920:                                              ; preds = %924
+927:                                              ; preds = %931
   %indvars.iv.next.i793 = add nuw nsw i64 %indvars.iv.i791, 1
-  %921 = load i16, ptr %918, align 8
-  %922 = sext i16 %921 to i64
-  %923 = icmp slt i64 %indvars.iv.next.i793, %922
-  br i1 %923, label %924, label %.preheader876, !llvm.loop !13
+  %928 = load i16, ptr %925, align 8
+  %929 = sext i16 %928 to i64
+  %930 = icmp slt i64 %indvars.iv.next.i793, %929
+  br i1 %930, label %931, label %.preheader876, !llvm.loop !15
 
-924:                                              ; preds = %920, %.lr.ph.i790
-  %indvars.iv.i791 = phi i64 [ 0, %.lr.ph.i790 ], [ %indvars.iv.next.i793, %920 ]
-  %925 = load ptr, ptr %919, align 8
-  %926 = getelementptr inbounds ptr, ptr %925, i64 %indvars.iv.i791
-  %927 = load ptr, ptr %926, align 8
-  %928 = ptrtoint ptr %927 to i64
-  %929 = and i64 %928, -2
-  %930 = inttoptr i64 %929 to ptr
-  %931 = load ptr, ptr %0, align 8
-  %932 = getelementptr inbounds i8, ptr %930, i64 16
-  %933 = load ptr, ptr %932, align 8
-  %934 = call i32 @Extra_bddSuppContainVar(ptr noundef %931, ptr noundef %933, ptr noundef %847) #10
-  %.not.i792 = icmp eq i32 %934, 0
-  br i1 %.not.i792, label %920, label %dsdKernelFindContainingComponent.exit794
+931:                                              ; preds = %927, %.lr.ph.i790
+  %indvars.iv.i791 = phi i64 [ 0, %.lr.ph.i790 ], [ %indvars.iv.next.i793, %927 ]
+  %932 = load ptr, ptr %926, align 8
+  %933 = getelementptr inbounds ptr, ptr %932, i64 %indvars.iv.i791
+  %934 = load ptr, ptr %933, align 8
+  %935 = ptrtoint ptr %934 to i64
+  %936 = and i64 %935, -2
+  %937 = inttoptr i64 %936 to ptr
+  %938 = load ptr, ptr %0, align 8
+  %939 = getelementptr inbounds i8, ptr %937, i64 16
+  %940 = load ptr, ptr %939, align 8
+  %941 = call i32 @Extra_bddSuppContainVar(ptr noundef %938, ptr noundef %940, ptr noundef %847) #11
+  %.not.i792 = icmp eq i32 %941, 0
+  br i1 %.not.i792, label %927, label %dsdKernelFindContainingComponent.exit794
 
-dsdKernelFindContainingComponent.exit794:         ; preds = %924
-  %935 = load ptr, ptr %919, align 8
-  %936 = getelementptr inbounds ptr, ptr %935, i64 %indvars.iv.i791
-  %937 = load ptr, ptr %936, align 8
-  %938 = icmp ne ptr %937, %930
-  %939 = zext i1 %938 to i8
-  %940 = load i32, ptr @s_Mark, align 4
-  %941 = sext i32 %940 to i64
-  %942 = getelementptr inbounds i8, ptr %930, i64 32
-  store i64 %941, ptr %942, align 8
-  %943 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv.next9961103
-  store ptr %930, ptr %943, align 8
-  %944 = getelementptr inbounds [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv.next9961103
-  store i8 %939, ptr %944, align 1
-  %indvars.iv.next996 = add nuw nsw i64 %indvars.iv.next9961103, 1
-  %945 = getelementptr inbounds i8, ptr %930, i64 40
-  %946 = load i16, ptr %945, align 8
-  %or.cond.i788 = icmp sgt i16 %946, 1
+dsdKernelFindContainingComponent.exit794:         ; preds = %931
+  %942 = load ptr, ptr %926, align 8
+  %943 = getelementptr inbounds ptr, ptr %942, i64 %indvars.iv.i791
+  %944 = load ptr, ptr %943, align 8
+  %945 = icmp ne ptr %944, %937
+  %946 = zext i1 %945 to i8
+  %947 = load i32, ptr @s_Mark, align 4
+  %948 = sext i32 %947 to i64
+  %949 = getelementptr inbounds i8, ptr %937, i64 32
+  store i64 %948, ptr %949, align 8
+  %950 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv.next9961108
+  store ptr %937, ptr %950, align 8
+  %951 = getelementptr inbounds [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv.next9961108
+  store i8 %946, ptr %951, align 1
+  %indvars.iv.next996 = add nuw nsw i64 %indvars.iv.next9961108, 1
+  %952 = getelementptr inbounds i8, ptr %937, i64 40
+  %953 = load i16, ptr %952, align 8
+  %or.cond.i788 = icmp sgt i16 %953, 1
   br i1 %or.cond.i788, label %.lr.ph.i790, label %.preheader876, !llvm.loop !16
 
-.preheader876:                                    ; preds = %dsdKernelFindContainingComponent.exit794, %920, %913
-  %947 = load i64, ptr %817, align 8
-  %948 = load i32, ptr @s_Mark, align 4
-  %949 = sext i32 %948 to i64
-  %.not652930 = icmp eq i64 %947, %949
+.preheader876:                                    ; preds = %dsdKernelFindContainingComponent.exit794, %927, %920
+  %954 = load i64, ptr %817, align 8
+  %955 = load i32, ptr @s_Mark, align 4
+  %956 = sext i32 %955 to i64
+  %.not652930 = icmp eq i64 %954, %956
   br i1 %.not652930, label %.preheader, label %.lr.ph933
 
-.preheader:                                       ; preds = %dsdKernelFindContainingComponent.exit801, %.preheader876
-  %.0820.lcssa = phi i32 [ 0, %.preheader876 ], [ %.1821, %dsdKernelFindContainingComponent.exit801 ]
-  %.0539.lcssa = phi ptr [ null, %.preheader876 ], [ %.0538932, %dsdKernelFindContainingComponent.exit801 ]
-  %.0538.lcssa = phi ptr [ %247, %.preheader876 ], [ %.014.i796, %dsdKernelFindContainingComponent.exit801 ]
+.preheader.loopexit:                              ; preds = %dsdKernelFindContainingComponent.exit801
+  %957 = load ptr, ptr %964, align 8
+  %958 = getelementptr inbounds ptr, ptr %957, i64 %indvars.iv.i798.lcssa
+  %959 = load ptr, ptr %958, align 8
+  %960 = icmp ne ptr %959, %.lcssa1092
+  %961 = zext i1 %960 to i32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.loopexit, %.preheader876
+  %.0820.lcssa = phi i32 [ 0, %.preheader876 ], [ %961, %.preheader.loopexit ]
+  %.0539.lcssa = phi ptr [ null, %.preheader876 ], [ %.0538932, %.preheader.loopexit ]
+  %.0538.lcssa = phi ptr [ %247, %.preheader876 ], [ %.lcssa1092, %.preheader.loopexit ]
   %.not653937 = icmp eq ptr %.0538.lcssa, %244
   br i1 %.not653937, label %.thread1037, label %.lr.ph940
 
 .lr.ph933:                                        ; preds = %.preheader876, %dsdKernelFindContainingComponent.exit801
-  %.0538932 = phi ptr [ %.014.i796, %dsdKernelFindContainingComponent.exit801 ], [ %247, %.preheader876 ]
-  %.0820931 = phi i32 [ %.1821, %dsdKernelFindContainingComponent.exit801 ], [ 0, %.preheader876 ]
-  %950 = getelementptr inbounds i8, ptr %.0538932, i64 40
-  %951 = load i16, ptr %950, align 8
-  %or.cond.i795 = icmp sgt i16 %951, 1
-  br i1 %or.cond.i795, label %.lr.ph.i797, label %dsdKernelFindContainingComponent.exit801
-
-.lr.ph.i797:                                      ; preds = %.lr.ph933
-  %952 = getelementptr inbounds i8, ptr %.0538932, i64 24
-  br label %957
-
-953:                                              ; preds = %957
-  %indvars.iv.next.i800 = add nuw nsw i64 %indvars.iv.i798, 1
-  %954 = load i16, ptr %950, align 8
-  %955 = sext i16 %954 to i64
-  %956 = icmp slt i64 %indvars.iv.next.i800, %955
-  br i1 %956, label %957, label %dsdKernelFindContainingComponent.exit801, !llvm.loop !13
-
-957:                                              ; preds = %953, %.lr.ph.i797
-  %indvars.iv.i798 = phi i64 [ 0, %.lr.ph.i797 ], [ %indvars.iv.next.i800, %953 ]
-  %958 = load ptr, ptr %952, align 8
-  %959 = getelementptr inbounds ptr, ptr %958, i64 %indvars.iv.i798
-  %960 = load ptr, ptr %959, align 8
-  %961 = ptrtoint ptr %960 to i64
-  %962 = and i64 %961, -2
-  %963 = inttoptr i64 %962 to ptr
-  %964 = load ptr, ptr %0, align 8
-  %965 = getelementptr inbounds i8, ptr %963, i64 16
+  %.0538932 = phi ptr [ %.lcssa1092, %dsdKernelFindContainingComponent.exit801 ], [ %247, %.preheader876 ]
+  %962 = getelementptr inbounds i8, ptr %.0538932, i64 40
+  %963 = load i16, ptr %962, align 8
+  %or.cond.i795 = icmp sgt i16 %963, 1
+  call void @llvm.assume(i1 %or.cond.i795)
+  %964 = getelementptr inbounds i8, ptr %.0538932, i64 24
+  %965 = load ptr, ptr %964, align 8
   %966 = load ptr, ptr %965, align 8
-  %967 = call i32 @Extra_bddSuppContainVar(ptr noundef %964, ptr noundef %966, ptr noundef %847) #10
-  %.not.i799 = icmp eq i32 %967, 0
-  br i1 %.not.i799, label %953, label %968
+  %967 = ptrtoint ptr %966 to i64
+  %968 = and i64 %967, -2
+  %969 = inttoptr i64 %968 to ptr
+  %970 = load ptr, ptr %0, align 8
+  %971 = getelementptr inbounds i8, ptr %969, i64 16
+  %972 = load ptr, ptr %971, align 8
+  %973 = call i32 @Extra_bddSuppContainVar(ptr noundef %970, ptr noundef %972, ptr noundef %847) #11
+  %.not.i7991109 = icmp eq i32 %973, 0
+  br i1 %.not.i7991109, label %.lr.ph1111, label %dsdKernelFindContainingComponent.exit801
 
-968:                                              ; preds = %957
-  %969 = load ptr, ptr %952, align 8
-  %970 = getelementptr inbounds ptr, ptr %969, i64 %indvars.iv.i798
-  %971 = load ptr, ptr %970, align 8
-  %972 = icmp ne ptr %971, %963
-  %973 = zext i1 %972 to i32
-  br label %dsdKernelFindContainingComponent.exit801
+.lr.ph1111:                                       ; preds = %.lr.ph933, %.lr.ph1111
+  %indvars.iv.i7981110 = phi i64 [ %indvars.iv.next.i800, %.lr.ph1111 ], [ 0, %.lr.ph933 ]
+  %indvars.iv.next.i800 = add nuw nsw i64 %indvars.iv.i7981110, 1
+  %974 = load i16, ptr %962, align 8
+  %975 = sext i16 %974 to i64
+  %976 = icmp slt i64 %indvars.iv.next.i800, %975
+  call void @llvm.assume(i1 %976)
+  %977 = load ptr, ptr %964, align 8
+  %978 = getelementptr inbounds ptr, ptr %977, i64 %indvars.iv.next.i800
+  %979 = load ptr, ptr %978, align 8
+  %980 = ptrtoint ptr %979 to i64
+  %981 = and i64 %980, -2
+  %982 = inttoptr i64 %981 to ptr
+  %983 = load ptr, ptr %0, align 8
+  %984 = getelementptr inbounds i8, ptr %982, i64 16
+  %985 = load ptr, ptr %984, align 8
+  %986 = call i32 @Extra_bddSuppContainVar(ptr noundef %983, ptr noundef %985, ptr noundef %847) #11
+  %.not.i799 = icmp eq i32 %986, 0
+  br i1 %.not.i799, label %.lr.ph1111, label %dsdKernelFindContainingComponent.exit801
 
-dsdKernelFindContainingComponent.exit801:         ; preds = %953, %.lr.ph933, %968
-  %.1821 = phi i32 [ %973, %968 ], [ %.0820931, %.lr.ph933 ], [ %.0820931, %953 ]
-  %.014.i796 = phi ptr [ %963, %968 ], [ null, %.lr.ph933 ], [ null, %953 ]
-  %974 = getelementptr inbounds i8, ptr %.014.i796, i64 32
-  %975 = load i64, ptr %974, align 8
-  %976 = load i32, ptr @s_Mark, align 4
-  %977 = sext i32 %976 to i64
-  %.not652 = icmp eq i64 %975, %977
-  br i1 %.not652, label %.preheader, label %.lr.ph933, !llvm.loop !17
+dsdKernelFindContainingComponent.exit801:         ; preds = %.lr.ph1111, %.lr.ph933
+  %indvars.iv.i798.lcssa = phi i64 [ 0, %.lr.ph933 ], [ %indvars.iv.next.i800, %.lr.ph1111 ]
+  %.lcssa1092 = phi ptr [ %969, %.lr.ph933 ], [ %982, %.lr.ph1111 ]
+  %987 = getelementptr inbounds i8, ptr %.lcssa1092, i64 32
+  %988 = load i64, ptr %987, align 8
+  %989 = load i32, ptr @s_Mark, align 4
+  %990 = sext i32 %989 to i64
+  %.not652 = icmp eq i64 %988, %990
+  br i1 %.not652, label %.preheader.loopexit, label %.lr.ph933, !llvm.loop !17
 
 .lr.ph940:                                        ; preds = %.preheader, %.lr.ph940
   %indvars.iv997 = phi i64 [ %indvars.iv.next998, %.lr.ph940 ], [ 1, %.preheader ]
-  %.0535938 = phi ptr [ %979, %.lr.ph940 ], [ %244, %.preheader ]
-  %978 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv997
-  %979 = load ptr, ptr %978, align 8
+  %.0535938 = phi ptr [ %992, %.lr.ph940 ], [ %244, %.preheader ]
+  %991 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv997
+  %992 = load ptr, ptr %991, align 8
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
-  %.not653 = icmp eq ptr %979, %.0538.lcssa
-  br i1 %.not653, label %980, label %.lr.ph940, !llvm.loop !18
+  %.not653 = icmp eq ptr %992, %.0538.lcssa
+  br i1 %.not653, label %993, label %.lr.ph940, !llvm.loop !18
 
-980:                                              ; preds = %.lr.ph940
-  %981 = icmp ne ptr %.0535938, null
-  %982 = icmp ne ptr %.0539.lcssa, null
-  %or.cond = and i1 %982, %981
-  br i1 %or.cond, label %983, label %.thread1037
+993:                                              ; preds = %.lr.ph940
+  %994 = icmp ne ptr %.0535938, null
+  %995 = icmp ne ptr %.0539.lcssa, null
+  %or.cond = and i1 %995, %994
+  br i1 %or.cond, label %996, label %.thread1037
 
-983:                                              ; preds = %980
-  %984 = getelementptr inbounds [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv997
-  %985 = load i8, ptr %984, align 1
-  %986 = sext i8 %985 to i32
-  %987 = load i32, ptr %.0535938, align 8
-  %988 = load i32, ptr %.0539.lcssa, align 8
-  %.not654 = icmp eq i32 %987, %988
-  %989 = icmp ne i32 %987, 5
-  %or.cond686.not871 = and i1 %989, %.not654
-  %.not655 = icmp eq i32 %.0820.lcssa, %986
+996:                                              ; preds = %993
+  %997 = getelementptr inbounds [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv997
+  %998 = load i8, ptr %997, align 1
+  %999 = sext i8 %998 to i32
+  %1000 = load i32, ptr %.0535938, align 8
+  %1001 = load i32, ptr %.0539.lcssa, align 8
+  %.not654 = icmp eq i32 %1000, %1001
+  %1002 = icmp ne i32 %1000, 5
+  %or.cond686.not871 = and i1 %1002, %.not654
+  %.not655 = icmp eq i32 %.0820.lcssa, %999
   %or.cond687 = select i1 %or.cond686.not871, i1 %.not655, i1 false
-  br i1 %or.cond687, label %990, label %.thread1037
+  br i1 %or.cond687, label %1003, label %.thread1037
 
-990:                                              ; preds = %983
-  %991 = getelementptr inbounds i8, ptr %.0535938, i64 40
-  %992 = load i16, ptr %991, align 8
-  %993 = icmp sgt i16 %992, 0
-  br i1 %993, label %.lr.ph.i802, label %.thread1037
+1003:                                             ; preds = %996
+  %1004 = getelementptr inbounds i8, ptr %.0535938, i64 40
+  %1005 = load i16, ptr %1004, align 8
+  %1006 = icmp sgt i16 %1005, 0
+  br i1 %1006, label %.lr.ph.i802, label %.thread1037
 
-.lr.ph.i802:                                      ; preds = %990
-  %994 = getelementptr inbounds i8, ptr %.0539.lcssa, i64 40
-  %995 = getelementptr inbounds i8, ptr %.0535938, i64 24
-  %996 = getelementptr inbounds i8, ptr %.0539.lcssa, i64 24
-  br label %997
+.lr.ph.i802:                                      ; preds = %1003
+  %1007 = getelementptr inbounds i8, ptr %.0539.lcssa, i64 40
+  %1008 = getelementptr inbounds i8, ptr %.0535938, i64 24
+  %1009 = getelementptr inbounds i8, ptr %.0539.lcssa, i64 24
+  br label %1010
 
-997:                                              ; preds = %1049, %.lr.ph.i802
-  %.pre10171022 = phi i16 [ %992, %.lr.ph.i802 ], [ %.pre10171023, %1049 ]
-  %998 = phi i16 [ %992, %.lr.ph.i802 ], [ %1050, %1049 ]
-  %.068.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.1.i803, %1049 ]
-  %.05467.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.155.i, %1049 ]
-  %.05766.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.2.i, %1049 ]
-  %999 = load i16, ptr %994, align 8
-  %1000 = sext i16 %999 to i32
-  %1001 = icmp slt i32 %.068.i, %1000
-  br i1 %1001, label %1002, label %.critedge.i
+1010:                                             ; preds = %1062, %.lr.ph.i802
+  %.pre10171022 = phi i16 [ %1005, %.lr.ph.i802 ], [ %.pre10171023, %1062 ]
+  %1011 = phi i16 [ %1005, %.lr.ph.i802 ], [ %1063, %1062 ]
+  %.068.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.1.i803, %1062 ]
+  %.05467.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.155.i, %1062 ]
+  %.05766.i = phi i32 [ 0, %.lr.ph.i802 ], [ %.2.i, %1062 ]
+  %1012 = load i16, ptr %1007, align 8
+  %1013 = sext i16 %1012 to i32
+  %1014 = icmp slt i32 %.068.i, %1013
+  br i1 %1014, label %1015, label %.critedge.i
 
-1002:                                             ; preds = %997
-  %1003 = load ptr, ptr %995, align 8
-  %1004 = sext i32 %.05467.i to i64
-  %1005 = getelementptr inbounds ptr, ptr %1003, i64 %1004
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = ptrtoint ptr %1006 to i64
-  %1008 = and i64 %1007, -2
-  %1009 = inttoptr i64 %1008 to ptr
-  %1010 = load ptr, ptr %996, align 8
-  %1011 = sext i32 %.068.i to i64
-  %1012 = getelementptr inbounds ptr, ptr %1010, i64 %1011
-  %1013 = load ptr, ptr %1012, align 8
-  %1014 = ptrtoint ptr %1013 to i64
-  %1015 = and i64 %1014, -2
-  %1016 = inttoptr i64 %1015 to ptr
-  %1017 = getelementptr inbounds i8, ptr %1009, i64 16
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = getelementptr inbounds i8, ptr %1016, i64 16
-  %1020 = load ptr, ptr %1019, align 8
-  %1021 = load ptr, ptr %0, align 8
-  %1022 = getelementptr inbounds i8, ptr %1021, i64 312
-  %1023 = load ptr, ptr %1022, align 8
-  %1024 = load i32, ptr %1018, align 8
-  %1025 = zext i32 %1024 to i64
-  %1026 = getelementptr inbounds i32, ptr %1023, i64 %1025
-  %1027 = load i32, ptr %1026, align 4
-  %1028 = load i32, ptr %1020, align 8
-  %1029 = zext i32 %1028 to i64
-  %1030 = getelementptr inbounds i32, ptr %1023, i64 %1029
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = icmp slt i32 %1027, %1031
-  %1033 = icmp eq i32 %1028, %1024
-  %1034 = or i1 %1033, %1032
-  br i1 %1034, label %1035, label %1047
+1015:                                             ; preds = %1010
+  %1016 = load ptr, ptr %1008, align 8
+  %1017 = sext i32 %.05467.i to i64
+  %1018 = getelementptr inbounds ptr, ptr %1016, i64 %1017
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = ptrtoint ptr %1019 to i64
+  %1021 = and i64 %1020, -2
+  %1022 = inttoptr i64 %1021 to ptr
+  %1023 = load ptr, ptr %1009, align 8
+  %1024 = sext i32 %.068.i to i64
+  %1025 = getelementptr inbounds ptr, ptr %1023, i64 %1024
+  %1026 = load ptr, ptr %1025, align 8
+  %1027 = ptrtoint ptr %1026 to i64
+  %1028 = and i64 %1027, -2
+  %1029 = inttoptr i64 %1028 to ptr
+  %1030 = getelementptr inbounds i8, ptr %1022, i64 16
+  %1031 = load ptr, ptr %1030, align 8
+  %1032 = getelementptr inbounds i8, ptr %1029, i64 16
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = load ptr, ptr %0, align 8
+  %1035 = getelementptr inbounds i8, ptr %1034, i64 312
+  %1036 = load ptr, ptr %1035, align 8
+  %1037 = load i32, ptr %1031, align 8
+  %1038 = zext i32 %1037 to i64
+  %1039 = getelementptr inbounds i32, ptr %1036, i64 %1038
+  %1040 = load i32, ptr %1039, align 4
+  %1041 = load i32, ptr %1033, align 8
+  %1042 = zext i32 %1041 to i64
+  %1043 = getelementptr inbounds i32, ptr %1036, i64 %1042
+  %1044 = load i32, ptr %1043, align 4
+  %1045 = icmp slt i32 %1040, %1044
+  %1046 = icmp eq i32 %1041, %1037
+  %1047 = or i1 %1046, %1045
+  br i1 %1047, label %1048, label %1060
 
-1035:                                             ; preds = %1002
-  br i1 %1033, label %1036, label %1045
+1048:                                             ; preds = %1015
+  br i1 %1046, label %1049, label %1058
 
-1036:                                             ; preds = %1035
-  %1037 = icmp eq ptr %1006, %1013
-  br i1 %1037, label %1038, label %1042
+1049:                                             ; preds = %1048
+  %1050 = icmp eq ptr %1019, %1026
+  br i1 %1050, label %1051, label %1055
 
-1038:                                             ; preds = %1036
-  %1039 = add nsw i32 %.05766.i, 1
-  %1040 = sext i32 %.05766.i to i64
-  %1041 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %1040
-  store ptr %1006, ptr %1041, align 8
-  %.pre1017.pre = load i16, ptr %991, align 8
-  br label %1042
+1051:                                             ; preds = %1049
+  %1052 = add nsw i32 %.05766.i, 1
+  %1053 = sext i32 %.05766.i to i64
+  %1054 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %1053
+  store ptr %1019, ptr %1054, align 8
+  %.pre1017.pre = load i16, ptr %1004, align 8
+  br label %1055
 
-1042:                                             ; preds = %1036, %1038
-  %.pre1017 = phi i16 [ %.pre1017.pre, %1038 ], [ %.pre10171022, %1036 ]
-  %.158.i = phi i32 [ %1039, %1038 ], [ %.05766.i, %1036 ]
-  %1043 = add nsw i32 %.05467.i, 1
-  %1044 = add nsw i32 %.068.i, 1
-  br label %1049
+1055:                                             ; preds = %1049, %1051
+  %.pre1017 = phi i16 [ %.pre1017.pre, %1051 ], [ %.pre10171022, %1049 ]
+  %.158.i = phi i32 [ %1052, %1051 ], [ %.05766.i, %1049 ]
+  %1056 = add nsw i32 %.05467.i, 1
+  %1057 = add nsw i32 %.068.i, 1
+  br label %1062
 
-1045:                                             ; preds = %1035
-  %1046 = add nsw i32 %.05467.i, 1
-  br label %1049
+1058:                                             ; preds = %1048
+  %1059 = add nsw i32 %.05467.i, 1
+  br label %1062
 
-1047:                                             ; preds = %1002
-  %1048 = add nsw i32 %.068.i, 1
-  br label %1049
+1060:                                             ; preds = %1015
+  %1061 = add nsw i32 %.068.i, 1
+  br label %1062
 
-1049:                                             ; preds = %1047, %1045, %1042
-  %.pre10171023 = phi i16 [ %.pre1017, %1042 ], [ %.pre10171022, %1045 ], [ %.pre10171022, %1047 ]
-  %1050 = phi i16 [ %.pre1017, %1042 ], [ %998, %1045 ], [ %998, %1047 ]
-  %.2.i = phi i32 [ %.158.i, %1042 ], [ %.05766.i, %1045 ], [ %.05766.i, %1047 ]
-  %.155.i = phi i32 [ %1043, %1042 ], [ %1046, %1045 ], [ %.05467.i, %1047 ]
-  %.1.i803 = phi i32 [ %1044, %1042 ], [ %.068.i, %1045 ], [ %1048, %1047 ]
-  %1051 = sext i16 %1050 to i32
-  %1052 = icmp slt i32 %.155.i, %1051
-  br i1 %1052, label %997, label %.critedge.i, !llvm.loop !19
+1062:                                             ; preds = %1060, %1058, %1055
+  %.pre10171023 = phi i16 [ %.pre1017, %1055 ], [ %.pre10171022, %1058 ], [ %.pre10171022, %1060 ]
+  %1063 = phi i16 [ %.pre1017, %1055 ], [ %1011, %1058 ], [ %1011, %1060 ]
+  %.2.i = phi i32 [ %.158.i, %1055 ], [ %.05766.i, %1058 ], [ %.05766.i, %1060 ]
+  %.155.i = phi i32 [ %1056, %1055 ], [ %1059, %1058 ], [ %.05467.i, %1060 ]
+  %.1.i803 = phi i32 [ %1057, %1055 ], [ %.068.i, %1058 ], [ %1061, %1060 ]
+  %1064 = sext i16 %1063 to i32
+  %1065 = icmp slt i32 %.155.i, %1064
+  br i1 %1065, label %1010, label %.critedge.i, !llvm.loop !19
 
-.critedge.i:                                      ; preds = %997, %1049
-  %.05765.i = phi i32 [ %.2.i, %1049 ], [ %.05766.i, %997 ]
+.critedge.i:                                      ; preds = %1010, %1062
+  %.05765.i = phi i32 [ %.2.i, %1062 ], [ %.05766.i, %1010 ]
   %or.cond5 = icmp ult i32 %.05765.i, 2
-  br i1 %or.cond5, label %.thread1037, label %1053
+  br i1 %or.cond5, label %.thread1037, label %1066
 
-1053:                                             ; preds = %.critedge.i
-  %1054 = load i32, ptr %.0535938, align 8
-  %1055 = icmp eq i32 %1054, 4
-  %1056 = zext i1 %1055 to i32
+1066:                                             ; preds = %.critedge.i
+  %1067 = load i32, ptr %.0535938, align 8
+  %1068 = icmp eq i32 %1067, 4
+  %1069 = zext i1 %1068 to i32
   %.val691 = load ptr, ptr %0, align 8
-  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val691, ptr noundef nonnull @dsdKernelFindCommonComponents.Common, i32 noundef %.05765.i, ptr noundef nonnull %16, ptr noundef null, i32 noundef %1056)
-  %1057 = load ptr, ptr %16, align 8
-  call void @Cudd_Ref(ptr noundef %1057) #10
-  %1058 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %1057)
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %1057) #10
+  call fastcc void @dsdKernelComputeSumOfComponents(ptr %.val691, ptr noundef nonnull @dsdKernelFindCommonComponents.Common, i32 noundef %.05765.i, ptr noundef nonnull %16, ptr noundef null, i32 noundef %1069)
+  %1070 = load ptr, ptr %16, align 8
+  call void @Cudd_Ref(ptr noundef %1070) #11
+  %1071 = call fastcc ptr @dsdKernelDecompose_rec(ptr noundef nonnull %0, ptr noundef %1070)
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef %1070) #11
   br label %.thread1037
 
-.thread1037:                                      ; preds = %.critedge.i, %990, %980, %983, %.preheader, %1053
-  %.lcssa1052.sink1077 = phi ptr [ %1058, %1053 ], [ %.0538.lcssa, %.preheader ], [ %.0538.lcssa, %983 ], [ %.0538.lcssa, %980 ], [ %979, %990 ], [ %979, %.critedge.i ]
-  %1059 = load ptr, ptr %729, align 8
-  %1060 = getelementptr inbounds ptr, ptr %1059, i64 %indvars.iv1001
-  store ptr %.lcssa1052.sink1077, ptr %1060, align 8
-  %1061 = getelementptr inbounds i8, ptr %.lcssa1052.sink1077, i64 16
-  %.1547 = load ptr, ptr %1061, align 8
-  %1062 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2566953, ptr noundef %.1547) #10
-  call void @Cudd_Ref(ptr noundef %1062) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef nonnull %.2566953) #10
-  %1063 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2563954, ptr noundef %.1547) #10
-  br label %1064
+.thread1037:                                      ; preds = %.critedge.i, %1003, %993, %996, %.preheader, %1066
+  %.lcssa1053.sink1079 = phi ptr [ %1071, %1066 ], [ %.0538.lcssa, %.preheader ], [ %.0538.lcssa, %996 ], [ %.0538.lcssa, %993 ], [ %992, %1003 ], [ %992, %.critedge.i ]
+  %1072 = load ptr, ptr %729, align 8
+  %1073 = getelementptr inbounds ptr, ptr %1072, i64 %indvars.iv1001
+  store ptr %.lcssa1053.sink1079, ptr %1073, align 8
+  %1074 = getelementptr inbounds i8, ptr %.lcssa1053.sink1079, i64 16
+  %.1547 = load ptr, ptr %1074, align 8
+  %1075 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2566953, ptr noundef %.1547) #11
+  call void @Cudd_Ref(ptr noundef %1075) #11
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef nonnull %.2566953) #11
+  %1076 = call ptr @Cudd_bddExistAbstract(ptr noundef %17, ptr noundef nonnull %.2563954, ptr noundef %.1547) #11
+  br label %1077
 
-1064:                                             ; preds = %909, %911, %.thread1037
-  %.sink1080 = phi ptr [ %910, %909 ], [ %912, %911 ], [ %1063, %.thread1037 ]
-  %.2566953.sink = phi ptr [ %.2566953, %909 ], [ %.2563954, %911 ], [ %.2563954, %.thread1037 ]
-  %.3567 = phi ptr [ %910, %909 ], [ %.2566953, %911 ], [ %1062, %.thread1037 ]
-  %.3 = phi ptr [ %.2563954, %909 ], [ %912, %911 ], [ %1063, %.thread1037 ]
-  call void @Cudd_Ref(ptr noundef %.sink1080) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef nonnull %.2566953.sink) #10
+1077:                                             ; preds = %916, %918, %.thread1037
+  %.sink1082 = phi ptr [ %917, %916 ], [ %919, %918 ], [ %1076, %.thread1037 ]
+  %.2566953.sink = phi ptr [ %.2566953, %916 ], [ %.2563954, %918 ], [ %.2563954, %.thread1037 ]
+  %.3567 = phi ptr [ %917, %916 ], [ %.2566953, %918 ], [ %1075, %.thread1037 ]
+  %.3 = phi ptr [ %.2563954, %916 ], [ %919, %918 ], [ %1076, %.thread1037 ]
+  call void @Cudd_Ref(ptr noundef %.sink1082) #11
+  call void @Cudd_RecursiveDeref(ptr noundef %17, ptr noundef nonnull %.2566953.sink) #11
   %indvars.iv.next1002 = add nuw nsw i64 %indvars.iv1001, 1
-  %1065 = load ptr, ptr %814, align 8
-  %.not646 = icmp eq ptr %.3567, %1065
-  %.not647 = icmp eq ptr %.3, %1065
+  %1078 = load ptr, ptr %814, align 8
+  %.not646 = icmp eq ptr %.3567, %1078
+  %.not647 = icmp eq ptr %.3, %1078
   %or.cond684 = select i1 %.not646, i1 %.not647, i1 false
   br i1 %or.cond684, label %._crit_edge956.loopexit, label %.critedge2, !llvm.loop !20
 
-._crit_edge956.loopexit:                          ; preds = %1064
-  %1066 = trunc i64 %indvars.iv.next1002 to i16
+._crit_edge956.loopexit:                          ; preds = %1077
+  %1079 = trunc i64 %indvars.iv.next1002 to i16
   br label %._crit_edge956
 
 ._crit_edge956:                                   ; preds = %._crit_edge956.loopexit, %810
-  %.1569.lcssa = phi i16 [ 1, %810 ], [ %1066, %._crit_edge956.loopexit ]
+  %.1569.lcssa = phi i16 [ 1, %810 ], [ %1079, %._crit_edge956.loopexit ]
   %.2566.lcssa = phi ptr [ %811, %810 ], [ %.3567, %._crit_edge956.loopexit ]
   %.2563.lcssa = phi ptr [ %813, %810 ], [ %.3, %._crit_edge956.loopexit ]
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.2566.lcssa) #10
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.2563.lcssa) #10
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.2566.lcssa) #11
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %17, ptr noundef %.2563.lcssa) #11
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %798
-  %1067 = trunc i64 %indvars.iv.next1006 to i16
+  %1080 = trunc i64 %indvars.iv.next1006 to i16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge956
-  %.5 = phi i16 [ %.1569.lcssa, %._crit_edge956 ], [ %1067, %.loopexit.loopexit ]
-  %1068 = getelementptr inbounds i8, ptr %728, i64 40
-  store i16 %.5, ptr %1068, align 8
+  %.5 = phi i16 [ %.1569.lcssa, %._crit_edge956 ], [ %1080, %.loopexit.loopexit ]
+  %1081 = getelementptr inbounds i8, ptr %728, i64 40
+  store i16 %.5, ptr %1081, align 8
   br label %dsdKernelCopyListPlusOne.exit
 
 dsdKernelCopyListPlusOne.exit:                    ; preds = %371, %.lr.ph.i713, %.lr.ph.i, %.lr.ph.i738, %.lr.ph.i719, %.lr.ph.i693, %347, %164, %82, %dsdKernelCopyListPlusOne.exit776, %587, %dsdKernelCopyListPlusOne.exit769, %562, %dsdKernelCopyListPlusOne.exit762, %489, %dsdKernelCopyListPlusOne.exit755, %454, %225, %dsdKernelCopyListPlusOne.exit730, %.lr.ph.i732, %65, %dsdKernelCopyListPlusOne.exit704, %.lr.ph.i706, %.loopexit, %dsdKernelCopyListPlusOne.exit783, %495
   %.2 = phi ptr [ %68, %65 ], [ %146, %dsdKernelCopyListPlusOne.exit704 ], [ %161, %.lr.ph.i706 ], [ %228, %225 ], [ %214, %dsdKernelCopyListPlusOne.exit730 ], [ %239, %.lr.ph.i732 ], [ %457, %454 ], [ %.0548, %dsdKernelCopyListPlusOne.exit755 ], [ %498, %495 ], [ %565, %562 ], [ %552, %dsdKernelCopyListPlusOne.exit769 ], [ %590, %587 ], [ %573, %dsdKernelCopyListPlusOne.exit776 ], [ %705, %dsdKernelCopyListPlusOne.exit783 ], [ %728, %.loopexit ], [ %.1549, %dsdKernelCopyListPlusOne.exit762 ], [ %492, %489 ], [ %89, %82 ], [ %171, %164 ], [ %356, %347 ], [ %102, %.lr.ph.i693 ], [ %187, %.lr.ph.i719 ], [ %232, %.lr.ph.i738 ], [ %89, %.lr.ph.i ], [ %171, %.lr.ph.i713 ], [ %356, %371 ]
   %.0533 = phi ptr [ null, %65 ], [ %114, %dsdKernelCopyListPlusOne.exit704 ], [ %114, %.lr.ph.i706 ], [ %204, %225 ], [ %204, %dsdKernelCopyListPlusOne.exit730 ], [ %204, %.lr.ph.i732 ], [ %258, %454 ], [ %258, %dsdKernelCopyListPlusOne.exit755 ], [ %258, %495 ], [ %258, %562 ], [ %258, %dsdKernelCopyListPlusOne.exit769 ], [ %258, %587 ], [ %258, %dsdKernelCopyListPlusOne.exit776 ], [ %258, %dsdKernelCopyListPlusOne.exit783 ], [ %258, %.loopexit ], [ %258, %dsdKernelCopyListPlusOne.exit762 ], [ %258, %489 ], [ %78, %82 ], [ %114, %164 ], [ %258, %347 ], [ %78, %.lr.ph.i693 ], [ %114, %.lr.ph.i719 ], [ %204, %.lr.ph.i738 ], [ %78, %.lr.ph.i ], [ %114, %.lr.ph.i713 ], [ %258, %371 ]
-  %1069 = ptrtoint ptr %.2 to i64
-  %1070 = and i64 %1069, -2
-  %1071 = inttoptr i64 %1070 to ptr
-  %1072 = icmp eq ptr %.2, %1071
-  %1073 = or i64 %18, 1
-  %1074 = inttoptr i64 %1073 to ptr
-  %.sink = select i1 %1072, ptr %20, ptr %1074
-  %1075 = getelementptr inbounds i8, ptr %1071, i64 8
-  store ptr %.sink, ptr %1075, align 8
-  call void @Cudd_Ref(ptr noundef nonnull %20) #10
-  %1076 = getelementptr inbounds i8, ptr %1071, i64 16
-  store ptr %.0533, ptr %1076, align 8
-  %1077 = load ptr, ptr %21, align 8
-  %1078 = call i32 @st__insert(ptr noundef %1077, ptr noundef nonnull %20, ptr noundef %.2) #10
-  %1079 = load i32, ptr @s_CacheEntries, align 4
-  %1080 = add nsw i32 %1079, 1
-  store i32 %1080, ptr @s_CacheEntries, align 4
-  %1081 = load i32, ptr @Depth, align 4
-  %1082 = add nsw i32 %1081, -1
-  store i32 %1082, ptr @Depth, align 4
-  br label %1083
+  %1082 = ptrtoint ptr %.2 to i64
+  %1083 = and i64 %1082, -2
+  %1084 = inttoptr i64 %1083 to ptr
+  %1085 = icmp eq ptr %.2, %1084
+  %1086 = or i64 %18, 1
+  %1087 = inttoptr i64 %1086 to ptr
+  %.sink = select i1 %1085, ptr %20, ptr %1087
+  %1088 = getelementptr inbounds i8, ptr %1084, i64 8
+  store ptr %.sink, ptr %1088, align 8
+  call void @Cudd_Ref(ptr noundef nonnull %20) #11
+  %1089 = getelementptr inbounds i8, ptr %1084, i64 16
+  store ptr %.0533, ptr %1089, align 8
+  %1090 = load ptr, ptr %21, align 8
+  %1091 = call i32 @st__insert(ptr noundef %1090, ptr noundef nonnull %20, ptr noundef %.2) #11
+  %1092 = load i32, ptr @s_CacheEntries, align 4
+  %1093 = add nsw i32 %1092, 1
+  store i32 %1093, ptr @s_CacheEntries, align 4
+  %1094 = load i32, ptr @Depth, align 4
+  %1095 = add nsw i32 %1094, -1
+  store i32 %1095, ptr @Depth, align 4
+  br label %1096
 
-1083:                                             ; preds = %dsdKernelCopyListPlusOne.exit, %24
-  %.sink1081 = phi i64 [ %1069, %dsdKernelCopyListPlusOne.exit ], [ %28, %24 ]
-  %1084 = icmp ne ptr %20, %1
-  %1085 = zext i1 %1084 to i64
-  %1086 = xor i64 %.sink1081, %1085
-  %.0 = inttoptr i64 %1086 to ptr
+1096:                                             ; preds = %dsdKernelCopyListPlusOne.exit, %24
+  %.sink1083 = phi i64 [ %1082, %dsdKernelCopyListPlusOne.exit ], [ %28, %24 ]
+  %1097 = icmp ne ptr %20, %1
+  %1098 = zext i1 %1097 to i64
+  %1099 = xor i64 %.sink1083, %1098
+  %.0 = inttoptr i64 %1099 to ptr
   ret ptr %.0
 }
 
@@ -2458,7 +2469,7 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  tail call void @Cudd_Ref(ptr noundef %10) #10
+  tail call void @Cudd_Ref(ptr noundef %10) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %.thread
 
@@ -2468,12 +2479,12 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
 
 .thread:                                          ; preds = %5
   %13 = load ptr, ptr %6, align 8
-  tail call void @Cudd_Ref(ptr noundef %13) #10
+  tail call void @Cudd_Ref(ptr noundef %13) #11
   %14 = icmp sgt i32 %1, 0
   br i1 %14, label %.lr.ph.split, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread
-  tail call void @Cudd_Deref(ptr noundef %10) #10
+  tail call void @Cudd_Deref(ptr noundef %10) #11
   store ptr %10, ptr %2, align 8
   br label %69
 
@@ -2497,9 +2508,9 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
   %25 = select i1 %.not46.us.us, ptr %21, ptr %24
-  %26 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us.us, ptr noundef %25) #10
-  tail call void @Cudd_Ref(ptr noundef %26) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us.us) #10
+  %26 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us.us, ptr noundef %25) #11
+  tail call void @Cudd_Ref(ptr noundef %26) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us.us) #11
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !21
@@ -2519,9 +2530,9 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   %35 = xor i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
   %37 = select i1 %.not46.us, ptr %33, ptr %36
-  %38 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392.us, ptr noundef %37) #10
-  tail call void @Cudd_Ref(ptr noundef %38) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us) #10
+  %38 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392.us, ptr noundef %37) #11
+  tail call void @Cudd_Ref(ptr noundef %38) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us) #11
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count39
   br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !21
@@ -2547,14 +2558,14 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   %47 = xor i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
   %49 = select i1 %.not46.us9, ptr %45, ptr %48
-  %50 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us7, ptr noundef %49) #10
-  tail call void @Cudd_Ref(ptr noundef %50) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us7) #10
+  %50 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us7, ptr noundef %49) #11
+  tail call void @Cudd_Ref(ptr noundef %50) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us7) #11
   %51 = getelementptr inbounds i8, ptr %43, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421.us8, ptr noundef %52) #10
-  tail call void @Cudd_Ref(ptr noundef %53) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421.us8) #10
+  %53 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421.us8, ptr noundef %52) #11
+  tail call void @Cudd_Ref(ptr noundef %53) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421.us8) #11
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
   br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
@@ -2575,14 +2586,14 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
   %62 = xor i64 %61, 1
   %63 = inttoptr i64 %62 to ptr
   %64 = select i1 %.not46, ptr %60, ptr %63
-  %65 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392, ptr noundef %64) #10
-  tail call void @Cudd_Ref(ptr noundef %65) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392) #10
+  %65 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392, ptr noundef %64) #11
+  tail call void @Cudd_Ref(ptr noundef %65) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392) #11
   %66 = getelementptr inbounds i8, ptr %58, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421, ptr noundef %67) #10
-  tail call void @Cudd_Ref(ptr noundef %68) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421) #10
+  %68 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421, ptr noundef %67) #11
+  tail call void @Cudd_Ref(ptr noundef %68) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !21
@@ -2590,13 +2601,13 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %11
   %.142.lcssa = phi ptr [ null, %11 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ], [ %68, %.lr.ph.split.split ]
   %.039.lcssa = phi ptr [ %10, %11 ], [ %26, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.us.split ], [ %50, %.lr.ph.split.split.us ], [ %65, %.lr.ph.split.split ]
-  tail call void @Cudd_Deref(ptr noundef %.039.lcssa) #10
+  tail call void @Cudd_Deref(ptr noundef %.039.lcssa) #11
   store ptr %.039.lcssa, ptr %2, align 8
   br i1 %.not, label %70, label %69
 
 69:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.142.lcssa49 = phi ptr [ %13, %._crit_edge.thread ], [ %.142.lcssa, %._crit_edge ]
-  tail call void @Cudd_Deref(ptr noundef %.142.lcssa49) #10
+  tail call void @Cudd_Deref(ptr noundef %.142.lcssa49) #11
   store ptr %.142.lcssa49, ptr %3, align 8
   br label %70
 
@@ -2636,6 +2647,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2646,8 +2660,9 @@ attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #7 = { nofree nounwind }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4101,13 +4101,13 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
-  br i1 %.not, label %5, label %52
+  br i1 %.not, label %5, label %51
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %9, label %52
+  br i1 %8, label %9, label %51
 
 9:                                                ; preds = %5
   %10 = add nsw i32 %7, -1
@@ -4116,89 +4116,85 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
   tail call void @debugMonitorNotifyAll(ptr noundef %11) #6
   %12 = load i32, ptr %6, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %52
+  br i1 %13, label %14, label %51
 
 14:                                               ; preds = %9
   %15 = load i16, ptr %2, align 8
   %16 = and i16 %15, 1
   %.not17 = icmp eq i16 %16, 0
-  br i1 %.not17, label %52, label %17
+  br i1 %.not17, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @gdata, align 8
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %24, label %19
-
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 17
-  %21 = load i8, ptr %20, align 1
-  %.not19 = icmp eq i8 %21, 0
-  %22 = and i16 %15, 8
-  %.not20 = icmp eq i16 %22, 0
+  %18 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
+  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %20 = load i8, ptr %19, align 1
+  %.not19 = icmp eq i8 %20, 0
+  %21 = and i16 %15, 8
+  %.not20 = icmp eq i16 %21, 0
   %or.cond = or i1 %.not20, %.not19
-  br i1 %or.cond, label %24, label %23
+  br i1 %or.cond, label %23, label %22
 
-23:                                               ; preds = %19
+22:                                               ; preds = %17
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 867, ptr noundef nonnull @.str.44) #6
   %.pre = load ptr, ptr @gdata, align 8
-  br label %24
+  br label %23
 
-24:                                               ; preds = %17, %19, %23
-  %25 = phi ptr [ null, %17 ], [ %18, %19 ], [ %.pre, %23 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 8
-  %.not21 = icmp eq i32 %28, 0
-  br i1 %.not21, label %31, label %29
+23:                                               ; preds = %17, %22
+  %24 = phi ptr [ %18, %17 ], [ %.pre, %22 ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 528
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 8
+  %.not21 = icmp eq i32 %27, 0
+  br i1 %.not21, label %30, label %28
 
-29:                                               ; preds = %24
+28:                                               ; preds = %23
   tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 868) #6
-  %30 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %30) #6
+  %29 = load ptr, ptr %0, align 8
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %29) #6
   %.pre24 = load ptr, ptr @gdata, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre24, i64 528
   %.pre25 = load i32, ptr %.phi.trans.insert, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %24, %29
-  %32 = phi i32 [ %27, %24 ], [ %.pre25, %29 ]
-  %33 = phi ptr [ %25, %24 ], [ %.pre24, %29 ]
-  %34 = and i32 %32, 4
-  %.not22 = icmp eq i32 %34, 0
-  br i1 %.not22, label %36, label %35
+30:                                               ; preds = %23, %28
+  %31 = phi i32 [ %26, %23 ], [ %.pre25, %28 ]
+  %32 = phi ptr [ %24, %23 ], [ %.pre24, %28 ]
+  %33 = and i32 %31, 4
+  %.not22 = icmp eq i32 %33, 0
+  br i1 %.not22, label %35, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 869) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #6
   %.pre26 = load ptr, ptr @gdata, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %31, %35
-  %37 = phi ptr [ %33, %31 ], [ %.pre26, %35 ]
+35:                                               ; preds = %30, %34
+  %36 = phi ptr [ %32, %30 ], [ %.pre26, %34 ]
+  %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %0, align 8
-  %43 = tail call i32 %41(ptr noundef nonnull %38, ptr noundef %42) #6
-  %44 = getelementptr inbounds i8, ptr %0, i64 248
-  %45 = load i64, ptr %44, align 8
-  %46 = add nsw i64 %45, 1
-  store i64 %46, ptr %44, align 8
-  %47 = load i16, ptr %2, align 8
-  %48 = and i16 %47, -2
-  store i16 %48, ptr %2, align 8
-  %49 = icmp eq i32 %43, 15
-  br i1 %49, label %50, label %52
+  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %0, align 8
+  %42 = tail call i32 %40(ptr noundef nonnull %37, ptr noundef %41) #6
+  %43 = getelementptr inbounds i8, ptr %0, i64 248
+  %44 = load i64, ptr %43, align 8
+  %45 = add nsw i64 %44, 1
+  store i64 %45, ptr %43, align 8
+  %46 = load i16, ptr %2, align 8
+  %47 = and i16 %46, -2
+  store i16 %47, ptr %2, align 8
+  %48 = icmp eq i32 %42, 15
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %36
-  %51 = and i16 %47, 16
-  %.not23 = icmp eq i16 %51, 0
+49:                                               ; preds = %35
+  %50 = and i16 %46, 16
+  %.not23 = icmp eq i16 %50, 0
   %spec.select = select i1 %.not23, i32 0, i32 15
-  br label %52
+  br label %51
 
-52:                                               ; preds = %50, %5, %36, %14, %9, %1
-  %.013 = phi i32 [ 0, %1 ], [ %43, %36 ], [ 0, %14 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %50 ]
+51:                                               ; preds = %49, %5, %35, %14, %9, %1
+  %.013 = phi i32 [ 0, %1 ], [ %42, %35 ], [ 0, %14 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %49 ]
   ret i32 %.013
 }
 

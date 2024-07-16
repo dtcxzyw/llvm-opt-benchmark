@@ -1213,15 +1213,15 @@ dump_buffer.exit.i:                               ; preds = %78
   %94 = add i64 %93, -1
   store i64 %94, ptr %11, align 8
   %95 = icmp eq i64 %94, 0
-  %.pre182 = load ptr, ptr %14, align 8
+  %.pre180 = load ptr, ptr %14, align 8
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %88
-  %97 = getelementptr inbounds i8, ptr %.pre182, i64 40
+  %97 = getelementptr inbounds i8, ptr %.pre180, i64 40
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 %100(ptr noundef %.pre182) #5
+  %101 = tail call i32 %100(ptr noundef %.pre180) #5
   %.not.i17.i = icmp eq i32 %101, 0
   br i1 %.not.i17.i, label %emit_restart.exit.thread, label %dump_buffer.exit19.i
 
@@ -1234,7 +1234,7 @@ dump_buffer.exit19.i:                             ; preds = %96
   br label %105
 
 105:                                              ; preds = %dump_buffer.exit19.i, %88
-  %106 = getelementptr inbounds i8, ptr %.pre182, i64 324
+  %106 = getelementptr inbounds i8, ptr %.pre180, i64 324
   %107 = load i32, ptr %106, align 4
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph.i, label %emit_restart.exit
@@ -1544,7 +1544,7 @@ emit_bits.exit100:                                ; preds = %270, %226
 
 .backedge.i.outer:                                ; preds = %.thread.i, %274
   %.ph = phi i32 [ %.031.lcssa.i51, %.thread.i ], [ %275, %274 ]
-  %.ph254 = phi i32 [ %.030.lcssa.i52, %.thread.i ], [ %276, %274 ]
+  %.ph250 = phi i32 [ %.030.lcssa.i52, %.thread.i ], [ %276, %274 ]
   %indvars.iv.i41.ph = phi i64 [ %indvars.iv.next107.i, %.thread.i ], [ 1, %274 ]
   br label %.backedge.i
 
@@ -1566,7 +1566,7 @@ emit_bits.exit100:                                ; preds = %270, %226
 
 .lr.ph86.i:                                       ; preds = %.preheader.i, %.loopexit
   %288 = phi i32 [ %.031.lcssa.i77, %.loopexit ], [ %.ph, %.preheader.i ]
-  %289 = phi i32 [ %.030.lcssa.i78, %.loopexit ], [ %.ph254, %.preheader.i ]
+  %289 = phi i32 [ %.030.lcssa.i78, %.loopexit ], [ %.ph250, %.preheader.i ]
   %.185.i = phi i32 [ %349, %.loopexit ], [ %.05597.i, %.preheader.i ]
   %290 = load i32, ptr %277, align 4
   %291 = load i8, ptr %278, align 4
@@ -1680,25 +1680,19 @@ dump_buffer.exit35.i84:                           ; preds = %335
 
 ._crit_edge87.i:                                  ; preds = %.loopexit, %.preheader.i
   %351 = phi i32 [ %.ph, %.preheader.i ], [ %.031.lcssa.i77, %.loopexit ]
-  %352 = phi i32 [ %.ph254, %.preheader.i ], [ %.030.lcssa.i78, %.loopexit ]
+  %352 = phi i32 [ %.ph250, %.preheader.i ], [ %.030.lcssa.i78, %.loopexit ]
   %.1.lcssa.i = phi i32 [ %.05597.i, %.preheader.i ], [ %349, %.loopexit ]
   %.263.i = tail call i32 @llvm.abs.i32(i32 %286, i1 true)
   %.lobit77.i = ashr i16 %284, 15
   %353 = sext i16 %.lobit77.i to i32
   %.160.i = add nsw i32 %353, %286
   %.not7389.i = icmp ult i32 %.263.i, 2
-  br i1 %.not7389.i, label %._crit_edge94.thread.i, label %.lr.ph93.i
+  br i1 %.not7389.i, label %._crit_edge94.thread.i, label %._crit_edge94.i
 
-.lr.ph93.i:                                       ; preds = %._crit_edge87.i, %.lr.ph93.i
-  %.15891.i = phi i32 [ %355, %.lr.ph93.i ], [ 1, %._crit_edge87.i ]
-  %.390.i = phi i32 [ %354, %.lr.ph93.i ], [ %.263.i, %._crit_edge87.i ]
-  %354 = lshr i32 %.390.i, 1
-  %355 = add nuw nsw i32 %.15891.i, 1
-  %.not73.i = icmp ult i32 %.390.i, 4
-  br i1 %.not73.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !34
-
-._crit_edge94.i:                                  ; preds = %.lr.ph93.i
-  %356 = icmp ugt i32 %.15891.i, 9
+._crit_edge94.i:                                  ; preds = %._crit_edge87.i
+  %354 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %.263.i, i1 true)
+  %355 = sub nuw nsw i32 32, %354
+  %356 = icmp ugt i32 %.263.i, 1023
   br i1 %356, label %357, label %._crit_edge94.thread.i
 
 357:                                              ; preds = %._crit_edge94.i
@@ -1912,7 +1906,7 @@ dump_buffer.exit35.i58:                           ; preds = %461
   %476 = add nuw nsw i32 %.05597.i, 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i43, 64
-  br i1 %exitcond.not.i, label %477, label %.backedge.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %477, label %.backedge.i, !llvm.loop !34
 
 .thread.i:                                        ; preds = %471, %.loopexit132
   %.031.lcssa.i51 = phi i32 [ %433, %.loopexit132 ], [ %472, %471 ]
@@ -1921,7 +1915,7 @@ dump_buffer.exit35.i58:                           ; preds = %461
   store i32 %.030.lcssa.i52, ptr %125, align 4
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not108.i = icmp eq i64 %indvars.iv.next107.i, 64
-  br i1 %exitcond.not108.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !35
+  br i1 %exitcond.not108.i, label %encode_one_block.exit, label %.backedge.i.outer, !llvm.loop !34
 
 477:                                              ; preds = %475
   %478 = load i32, ptr %145, align 4
@@ -1945,7 +1939,7 @@ dump_buffer.exit35.i58:                           ; preds = %461
   %notmask.i = shl nsw i32 -1, %480
   %490 = xor i32 %notmask.i, -1
   %491 = and i32 %478, %490
-  %492 = add nsw i32 %.ph254, %480
+  %492 = add nsw i32 %.ph250, %480
   %493 = sub nsw i32 24, %492
   %494 = shl i32 %491, %493
   %495 = or i32 %.ph, %494
@@ -2041,7 +2035,7 @@ encode_one_block.exit:                            ; preds = %.thread.i, %emit_bi
   %540 = load i32, ptr %117, align 8
   %541 = sext i32 %540 to i64
   %542 = icmp slt i64 %indvars.iv.next, %541
-  br i1 %542, label %126, label %._crit_edge, !llvm.loop !36
+  br i1 %542, label %126, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %encode_one_block.exit, %emit_restart.exit
   %543 = load ptr, ptr %3, align 8
@@ -2202,6 +2196,9 @@ declare ptr @jAlcHTable(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2252,4 +2249,3 @@ attributes #5 = { nounwind }
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}

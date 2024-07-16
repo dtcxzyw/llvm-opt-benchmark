@@ -3245,7 +3245,7 @@ subset.exit:                                      ; preds = %getsubdfa.exit71, %
   ret i32 %.040
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @initialize(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -4167,7 +4167,7 @@ hash.exit.thread:                                 ; preds = %344
   ret ptr %.0134
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @getvacant(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -4304,7 +4304,7 @@ pickss.exit.thread88:                             ; preds = %87, %.preheader.i
   %.not.i = icmp eq i32 %91, 0
   %spec.select.i = select i1 %.not.i, i32 15, i32 %91
   store i32 %spec.select.i, ptr %90, align 8
-  br label %173
+  br label %172
 
 pickss.exit.thread.sink.split:                    ; preds = %72, %83
   %.178.i.lcssa.sink = phi ptr [ %.178.i, %83 ], [ %.06377.i, %72 ]
@@ -4354,20 +4354,20 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
   %105 = getelementptr inbounds i8, ptr %.065.i87, i64 48
   br label %106
 
-106:                                              ; preds = %.lr.ph112, %145
-  %107 = phi i32 [ %102, %.lr.ph112 ], [ %146, %145 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next, %145 ]
+106:                                              ; preds = %.lr.ph112, %144
+  %107 = phi i32 [ %102, %.lr.ph112 ], [ %145, %144 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next, %144 ]
   %108 = load ptr, ptr %104, align 8
   %109 = getelementptr ptr, ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %145, label %112
+  br i1 %111, label %144, label %112
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds i8, ptr %110, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %.065.i87
-  br i1 %115, label %116, label %.lr.ph103.preheader
+  br i1 %115, label %116, label %122
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds i8, ptr %110, i64 24
@@ -4375,122 +4375,125 @@ pickss.exit.thread:                               ; preds = %.lr.ph82.i, %pickss
   %119 = sext i16 %118 to i64
   %120 = and i64 %119, 4294967295
   %121 = icmp eq i64 %indvars.iv, %120
-  br i1 %121, label %138, label %.lr.ph103.preheader
+  br i1 %121, label %137, label %122
 
-.lr.ph103.preheader:                              ; preds = %116, %112
-  %.not8197 = icmp ne ptr %114, null
-  tail call void @llvm.assume(i1 %.not8197)
+122:                                              ; preds = %116, %112
   %.sroa.9.0..sroa_idx12 = getelementptr inbounds i8, ptr %110, i64 24
-  %.sroa.9.1101124 = load i16, ptr %.sroa.9.0..sroa_idx12, align 8
-  %122 = icmp ne ptr %114, %.065.i87
-  %123 = sext i16 %.sroa.9.1101124 to i64
-  %124 = and i64 %123, 4294967295
-  %125 = icmp ne i64 %indvars.iv, %124
-  %.not84125 = select i1 %122, i1 true, i1 %125
-  tail call void @llvm.assume(i1 %.not84125)
-  br label %.lr.ph128
+  %.sroa.9.1101132 = load i16, ptr %.sroa.9.0..sroa_idx12, align 8
+  %123 = icmp ne ptr %114, %.065.i87
+  %124 = sext i16 %.sroa.9.1101132 to i64
+  %125 = and i64 %124, 4294967295
+  %126 = icmp ne i64 %indvars.iv, %125
+  %.not84133 = select i1 %123, i1 true, i1 %126
+  tail call void @llvm.assume(i1 %.not84133)
+  br label %.lr.ph137
 
-.lr.ph103:                                        ; preds = %.lr.ph128
-  %.sroa.9.0..sroa_idx14 = getelementptr inbounds i8, ptr %133, i64 8
+.lr.ph103:                                        ; preds = %.lr.ph137
+  %.sroa.9.0..sroa_idx14 = getelementptr inbounds i8, ptr %134, i64 8
   %.sroa.9.1101 = load i16, ptr %.sroa.9.0..sroa_idx14, align 8
-  %126 = icmp ne ptr %.sroa.03.1, %.065.i87
-  %127 = sext i16 %.sroa.9.1101 to i64
-  %128 = and i64 %127, 4294967295
-  %129 = icmp ne i64 %indvars.iv, %128
-  %.not84 = select i1 %126, i1 true, i1 %129
-  br i1 %.not84, label %.lr.ph128, label %.critedge, !llvm.loop !42
+  %127 = icmp ne ptr %.sroa.03.1, %.065.i87
+  %128 = sext i16 %.sroa.9.1101 to i64
+  %129 = and i64 %128, 4294967295
+  %130 = icmp ne i64 %indvars.iv, %129
+  %.not84 = select i1 %127, i1 true, i1 %130
+  br i1 %.not84, label %.lr.ph137, label %.lr.ph103..critedge_crit_edge, !llvm.loop !42
 
-.lr.ph128:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
-  %.sroa.9.1101127 = phi i16 [ %.sroa.9.1101, %.lr.ph103 ], [ %.sroa.9.1101124, %.lr.ph103.preheader ]
-  %.sroa.03.1100126 = phi ptr [ %.sroa.03.1, %.lr.ph103 ], [ %114, %.lr.ph103.preheader ]
-  %130 = getelementptr inbounds i8, ptr %.sroa.03.1100126, i64 48
-  %131 = load ptr, ptr %130, align 8
-  %132 = sext i16 %.sroa.9.1101127 to i64
-  %133 = getelementptr %struct.arcp, ptr %131, i64 %132
-  %.sroa.03.1 = load ptr, ptr %133, align 8
+.lr.ph103..critedge_crit_edge:                    ; preds = %.lr.ph103
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.03.1100134, i64 48
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre118 = sext i16 %.sroa.9.1101135 to i64
+  br label %.critedge
+
+.lr.ph137:                                        ; preds = %122, %.lr.ph103
+  %.sroa.9.1101135 = phi i16 [ %.sroa.9.1101, %.lr.ph103 ], [ %.sroa.9.1101132, %122 ]
+  %.sroa.03.1100134 = phi ptr [ %.sroa.03.1, %.lr.ph103 ], [ %114, %122 ]
+  %131 = getelementptr inbounds i8, ptr %.sroa.03.1100134, i64 48
+  %132 = load ptr, ptr %131, align 8
+  %133 = sext i16 %.sroa.9.1101135 to i64
+  %134 = getelementptr %struct.arcp, ptr %132, i64 %133
+  %.sroa.03.1 = load ptr, ptr %134, align 8
   %.not81 = icmp eq ptr %.sroa.03.1, null
   br i1 %.not81, label %.critedge, label %.lr.ph103, !llvm.loop !42
 
-.critedge:                                        ; preds = %.lr.ph128, %.lr.ph103
-  %134 = getelementptr inbounds i8, ptr %.sroa.03.1100126, i64 48
-  %135 = load ptr, ptr %134, align 8
-  %136 = sext i16 %.sroa.9.1101127 to i64
-  %137 = getelementptr %struct.arcp, ptr %135, i64 %136
-  br label %138
+.critedge:                                        ; preds = %.lr.ph137, %.lr.ph103..critedge_crit_edge
+  %.pre-phi = phi i64 [ %.pre118, %.lr.ph103..critedge_crit_edge ], [ %133, %.lr.ph137 ]
+  %135 = phi ptr [ %.pre, %.lr.ph103..critedge_crit_edge ], [ %132, %.lr.ph137 ]
+  %136 = getelementptr %struct.arcp, ptr %135, i64 %.pre-phi
+  br label %137
 
-138:                                              ; preds = %116, %.critedge
-  %.sink = phi ptr [ %137, %.critedge ], [ %113, %116 ]
-  %139 = load ptr, ptr %105, align 8
-  %140 = getelementptr %struct.arcp, ptr %139, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false)
-  %141 = load ptr, ptr %104, align 8
-  %142 = getelementptr ptr, ptr %141, i64 %indvars.iv
-  store ptr null, ptr %142, align 8
-  %143 = load ptr, ptr %105, align 8
-  %144 = getelementptr %struct.arcp, ptr %143, i64 %indvars.iv
-  store ptr null, ptr %144, align 8
-  %.pre = load i32, ptr %101, align 4
-  br label %145
+137:                                              ; preds = %116, %.critedge
+  %.sink = phi ptr [ %136, %.critedge ], [ %113, %116 ]
+  %138 = load ptr, ptr %105, align 8
+  %139 = getelementptr %struct.arcp, ptr %138, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false)
+  %140 = load ptr, ptr %104, align 8
+  %141 = getelementptr ptr, ptr %140, i64 %indvars.iv
+  store ptr null, ptr %141, align 8
+  %142 = load ptr, ptr %105, align 8
+  %143 = getelementptr %struct.arcp, ptr %142, i64 %indvars.iv
+  store ptr null, ptr %143, align 8
+  %.pre116 = load i32, ptr %101, align 4
+  br label %144
 
-145:                                              ; preds = %106, %138
-  %146 = phi i32 [ %107, %106 ], [ %.pre, %138 ]
+144:                                              ; preds = %106, %137
+  %145 = phi i32 [ %107, %106 ], [ %.pre116, %137 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %106, label %._crit_edge113, !llvm.loop !43
+  %146 = sext i32 %145 to i64
+  %147 = icmp slt i64 %indvars.iv.next, %146
+  br i1 %147, label %106, label %._crit_edge113, !llvm.loop !43
 
-._crit_edge113:                                   ; preds = %145, %._crit_edge
-  %149 = getelementptr inbounds i8, ptr %.065.i87, i64 12
-  %150 = load i32, ptr %149, align 4
-  %151 = and i32 %150, 2
-  %.not77 = icmp eq i32 %151, 0
-  br i1 %.not77, label %161, label %152
+._crit_edge113:                                   ; preds = %144, %._crit_edge
+  %148 = getelementptr inbounds i8, ptr %.065.i87, i64 12
+  %149 = load i32, ptr %148, align 4
+  %150 = and i32 %149, 2
+  %.not77 = icmp eq i32 %150, 0
+  br i1 %.not77, label %160, label %151
 
-152:                                              ; preds = %._crit_edge113
-  %153 = getelementptr inbounds i8, ptr %.065.i87, i64 32
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %1, i64 80
-  %156 = load ptr, ptr %155, align 8
-  %.not78 = icmp eq ptr %154, %156
-  br i1 %.not78, label %161, label %157
+151:                                              ; preds = %._crit_edge113
+  %152 = getelementptr inbounds i8, ptr %.065.i87, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %1, i64 80
+  %155 = load ptr, ptr %154, align 8
+  %.not78 = icmp eq ptr %153, %155
+  br i1 %.not78, label %160, label %156
 
-157:                                              ; preds = %152
-  %158 = icmp eq ptr %156, null
-  %159 = icmp ult ptr %156, %154
-  %or.cond = or i1 %158, %159
-  br i1 %or.cond, label %160, label %161
+156:                                              ; preds = %151
+  %157 = icmp eq ptr %155, null
+  %158 = icmp ult ptr %155, %153
+  %or.cond = or i1 %157, %158
+  br i1 %or.cond, label %159, label %160
 
-160:                                              ; preds = %157
-  store ptr %154, ptr %155, align 8
-  %.pre116 = load i32, ptr %149, align 4
-  br label %161
+159:                                              ; preds = %156
+  store ptr %153, ptr %154, align 8
+  %.pre117 = load i32, ptr %148, align 4
+  br label %160
 
-161:                                              ; preds = %157, %160, %152, %._crit_edge113
-  %162 = phi i32 [ %150, %157 ], [ %.pre116, %160 ], [ %150, %152 ], [ %150, %._crit_edge113 ]
-  %163 = and i32 %162, 8
-  %.not79 = icmp eq i32 %163, 0
-  br i1 %.not79, label %173, label %164
+160:                                              ; preds = %156, %159, %151, %._crit_edge113
+  %161 = phi i32 [ %149, %156 ], [ %.pre117, %159 ], [ %149, %151 ], [ %149, %._crit_edge113 ]
+  %162 = and i32 %161, 8
+  %.not79 = icmp eq i32 %162, 0
+  br i1 %.not79, label %172, label %163
 
-164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %.065.i87, i64 32
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 88
-  %168 = load ptr, ptr %167, align 8
-  %.not80 = icmp eq ptr %166, %168
-  br i1 %.not80, label %173, label %169
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds i8, ptr %.065.i87, i64 32
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %1, i64 88
+  %167 = load ptr, ptr %166, align 8
+  %.not80 = icmp eq ptr %165, %167
+  br i1 %.not80, label %172, label %168
 
-169:                                              ; preds = %164
-  %170 = icmp eq ptr %168, null
-  %171 = icmp ult ptr %168, %166
-  %or.cond85 = or i1 %170, %171
-  br i1 %or.cond85, label %172, label %173
+168:                                              ; preds = %163
+  %169 = icmp eq ptr %167, null
+  %170 = icmp ult ptr %167, %165
+  %or.cond85 = or i1 %169, %170
+  br i1 %or.cond85, label %171, label %172
 
-172:                                              ; preds = %169
-  store ptr %166, ptr %167, align 8
-  br label %173
+171:                                              ; preds = %168
+  store ptr %165, ptr %166, align 8
+  br label %172
 
-173:                                              ; preds = %pickss.exit.thread88, %161, %164, %172, %169
-  %.0 = phi ptr [ %.065.i87, %169 ], [ %.065.i87, %172 ], [ %.065.i87, %164 ], [ %.065.i87, %161 ], [ null, %pickss.exit.thread88 ]
+172:                                              ; preds = %pickss.exit.thread88, %160, %163, %171, %168
+  %.0 = phi ptr [ %.065.i87, %168 ], [ %.065.i87, %171 ], [ %.065.i87, %163 ], [ %.065.i87, %160 ], [ null, %pickss.exit.thread88 ]
   ret ptr %.0
 }
 
@@ -4607,25 +4610,25 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

@@ -18380,25 +18380,19 @@ _ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_ch
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %5
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #24
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i19.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i32 %call4, ptr %add.ptr.i.i, align 4
   %added_length3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   store i32 0, ptr %added_length3.i.i.i.i.i, align 4
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i19.i.i, %invoke.cont.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %__first.addr.0.val.i.i.i.i.i = load i64, ptr %__first.addr.02.i.i.i.i.i, align 4
   store i64 %__first.addr.0.val.i.i.i.i.i, ptr %__cur.03.i.i.i.i.i, align 4, !alias.scope !327
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 8
@@ -18406,8 +18400,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i, label %for.body.i.i.i.i.i, !llvm.loop !330
 
-_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i30.i.i
@@ -18417,9 +18411,9 @@ if.then.i30.i.i:                                  ; preds = %_ZNSt6vectorIN5arro
   br label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i30.i.i, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i
-  store ptr %cond.i19.i.i, ptr %widths, align 8
+  store ptr %call5.i.i.i.i.i, ptr %widths, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr26.i.i = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i, i64 %cond.i.i.i
+  %add.ptr26.i.i = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr26.i.i, ptr %_M_end_of_storage.i, align 8
   br label %sw.epilog
 
@@ -18446,9 +18440,9 @@ if.else.i14:                                      ; preds = %sw.bb
   %sub.ptr.rhs.cast.i.i.i.i17 = ptrtoint ptr %this.val.i.i15 to i64
   %sub.ptr.sub.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i17
   %cmp.i.i.i19 = icmp eq i64 %sub.ptr.sub.i.i.i.i18, 9223372036854775800
-  br i1 %cmp.i.i.i19, label %if.then.i.i.i47, label %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
+  br i1 %cmp.i.i.i19, label %if.then.i.i.i44, label %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
 
-if.then.i.i.i47:                                  ; preds = %if.else.i14
+if.then.i.i.i44:                                  ; preds = %if.else.i14
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.39) #23
   unreachable
 
@@ -18460,130 +18454,118 @@ _ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_ch
   %cmp7.i.i.i25 = icmp ult i64 %add.i.i.i24, %sub.ptr.div.i.i.i.i21
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i24, i64 1152921504606846975)
   %cond.i.i.i26 = select i1 %cmp7.i.i.i25, i64 1152921504606846975, i64 %9
-  %cmp.not.i.i.i27 = icmp eq i64 %cond.i.i.i26, 0
-  br i1 %cmp.not.i.i.i27, label %invoke.cont.i.i31, label %cond.true.i.i.i28
+  %cmp.not.i.i.i27 = icmp ne i64 %cond.i.i.i26, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i27)
+  %mul.i.i.i.i.i28 = shl nuw nsw i64 %cond.i.i.i26, 3
+  %call5.i.i.i.i.i29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i28) #24
+  %add.ptr.i.i30 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i29, i64 %sub.ptr.sub.i.i.i.i18
+  store i32 32, ptr %add.ptr.i.i30, align 4
+  %added_length3.i.i.i.i.i31 = getelementptr inbounds i8, ptr %add.ptr.i.i30, i64 4
+  store i32 1, ptr %added_length3.i.i.i.i.i31, align 4
+  br i1 %cmp.i.i.i.i22, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39, label %for.body.i.i.i.i.i32
 
-cond.true.i.i.i28:                                ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
-  %mul.i.i.i.i.i29 = shl nuw nsw i64 %cond.i.i.i26, 3
-  %call5.i.i.i.i.i30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i29) #24
-  br label %invoke.cont.i.i31
+for.body.i.i.i.i.i32:                             ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20, %for.body.i.i.i.i.i32
+  %__cur.03.i.i.i.i.i33 = phi ptr [ %incdec.ptr1.i.i.i.i.i37, %for.body.i.i.i.i.i32 ], [ %call5.i.i.i.i.i29, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ]
+  %__first.addr.02.i.i.i.i.i34 = phi ptr [ %incdec.ptr.i.i.i.i.i36, %for.body.i.i.i.i.i32 ], [ %this.val.i.i15, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ]
+  %__first.addr.0.val.i.i.i.i.i35 = load i64, ptr %__first.addr.02.i.i.i.i.i34, align 4
+  store i64 %__first.addr.0.val.i.i.i.i.i35, ptr %__cur.03.i.i.i.i.i33, align 4, !alias.scope !331
+  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i34, i64 8
+  %incdec.ptr1.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i33, i64 8
+  %cmp.not.i.i.i.i.i38 = icmp eq ptr %incdec.ptr.i.i.i.i.i36, %6
+  br i1 %cmp.not.i.i.i.i.i38, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39, label %for.body.i.i.i.i.i32, !llvm.loop !330
 
-invoke.cont.i.i31:                                ; preds = %cond.true.i.i.i28, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
-  %cond.i19.i.i32 = phi ptr [ %call5.i.i.i.i.i30, %cond.true.i.i.i28 ], [ null, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ]
-  %add.ptr.i.i33 = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i32, i64 %sub.ptr.div.i.i.i.i21
-  store i32 32, ptr %add.ptr.i.i33, align 4
-  %added_length3.i.i.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i33, i64 4
-  store i32 1, ptr %added_length3.i.i.i.i.i34, align 4
-  br i1 %cmp.i.i.i.i22, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i42, label %for.body.i.i.i.i.i35
+_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39: ; preds = %for.body.i.i.i.i.i32, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
+  %__cur.0.lcssa.i.i.i.i.i40 = phi ptr [ %call5.i.i.i.i.i29, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ], [ %incdec.ptr1.i.i.i.i.i37, %for.body.i.i.i.i.i32 ]
+  %incdec.ptr.i.i41 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i40, i64 8
+  %tobool.not.i.i.i42 = icmp eq ptr %this.val.i.i15, null
+  br i1 %tobool.not.i.i.i42, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i30.i.i43
 
-for.body.i.i.i.i.i35:                             ; preds = %invoke.cont.i.i31, %for.body.i.i.i.i.i35
-  %__cur.03.i.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i40, %for.body.i.i.i.i.i35 ], [ %cond.i19.i.i32, %invoke.cont.i.i31 ]
-  %__first.addr.02.i.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i39, %for.body.i.i.i.i.i35 ], [ %this.val.i.i15, %invoke.cont.i.i31 ]
-  %__first.addr.0.val.i.i.i.i.i38 = load i64, ptr %__first.addr.02.i.i.i.i.i37, align 4
-  store i64 %__first.addr.0.val.i.i.i.i.i38, ptr %__cur.03.i.i.i.i.i36, align 4, !alias.scope !331
-  %incdec.ptr.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i37, i64 8
-  %incdec.ptr1.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i36, i64 8
-  %cmp.not.i.i.i.i.i41 = icmp eq ptr %incdec.ptr.i.i.i.i.i39, %6
-  br i1 %cmp.not.i.i.i.i.i41, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i42, label %for.body.i.i.i.i.i35, !llvm.loop !330
-
-_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i42: ; preds = %for.body.i.i.i.i.i35, %invoke.cont.i.i31
-  %__cur.0.lcssa.i.i.i.i.i43 = phi ptr [ %cond.i19.i.i32, %invoke.cont.i.i31 ], [ %incdec.ptr1.i.i.i.i.i40, %for.body.i.i.i.i.i35 ]
-  %incdec.ptr.i.i44 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i43, i64 8
-  %tobool.not.i.i.i45 = icmp eq ptr %this.val.i.i15, null
-  br i1 %tobool.not.i.i.i45, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i30.i.i46
-
-if.then.i30.i.i46:                                ; preds = %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i42
+if.then.i30.i.i43:                                ; preds = %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i.i15) #26
   br label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i30.i.i46, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i42
-  store ptr %cond.i19.i.i32, ptr %widths, align 8
-  store ptr %incdec.ptr.i.i44, ptr %_M_finish.i8, align 8
-  %add.ptr28.i.i = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i32, i64 %cond.i.i.i26
+_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i30.i.i43, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39
+  store ptr %call5.i.i.i.i.i29, ptr %widths, align 8
+  store ptr %incdec.ptr.i.i41, ptr %_M_finish.i8, align 8
+  %add.ptr28.i.i = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %call5.i.i.i.i.i29, i64 %cond.i.i.i26
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i9, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry, %entry, %entry
-  %_M_finish.i48 = getelementptr inbounds i8, ptr %widths, i64 8
-  %10 = load ptr, ptr %_M_finish.i48, align 8
-  %_M_end_of_storage.i49 = getelementptr inbounds i8, ptr %widths, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i49, align 8
-  %cmp.not.i50 = icmp eq ptr %10, %11
-  br i1 %cmp.not.i50, label %if.else.i54, label %if.then.i51
+  %_M_finish.i45 = getelementptr inbounds i8, ptr %widths, i64 8
+  %10 = load ptr, ptr %_M_finish.i45, align 8
+  %_M_end_of_storage.i46 = getelementptr inbounds i8, ptr %widths, i64 16
+  %11 = load ptr, ptr %_M_end_of_storage.i46, align 8
+  %cmp.not.i47 = icmp eq ptr %10, %11
+  br i1 %cmp.not.i47, label %if.else.i51, label %if.then.i48
 
-if.then.i51:                                      ; preds = %sw.bb10
+if.then.i48:                                      ; preds = %sw.bb10
   store i32 64, ptr %10, align 4
-  %added_length3.i.i.i.i52 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 1, ptr %added_length3.i.i.i.i52, align 4
-  %12 = load ptr, ptr %_M_finish.i48, align 8
-  %incdec.ptr.i53 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %incdec.ptr.i53, ptr %_M_finish.i48, align 8
+  %added_length3.i.i.i.i49 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 1, ptr %added_length3.i.i.i.i49, align 4
+  %12 = load ptr, ptr %_M_finish.i45, align 8
+  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %incdec.ptr.i50, ptr %_M_finish.i45, align 8
   br label %sw.epilog
 
-if.else.i54:                                      ; preds = %sw.bb10
-  %this.val.i.i55 = load ptr, ptr %widths, align 8
-  %sub.ptr.lhs.cast.i.i.i.i56 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i.i.i57 = ptrtoint ptr %this.val.i.i55 to i64
-  %sub.ptr.sub.i.i.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i.i.i56, %sub.ptr.rhs.cast.i.i.i.i57
-  %cmp.i.i.i59 = icmp eq i64 %sub.ptr.sub.i.i.i.i58, 9223372036854775800
-  br i1 %cmp.i.i.i59, label %if.then.i.i.i89, label %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i60
+if.else.i51:                                      ; preds = %sw.bb10
+  %this.val.i.i52 = load ptr, ptr %widths, align 8
+  %sub.ptr.lhs.cast.i.i.i.i53 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i54 = ptrtoint ptr %this.val.i.i52 to i64
+  %sub.ptr.sub.i.i.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i.i.i53, %sub.ptr.rhs.cast.i.i.i.i54
+  %cmp.i.i.i56 = icmp eq i64 %sub.ptr.sub.i.i.i.i55, 9223372036854775800
+  br i1 %cmp.i.i.i56, label %if.then.i.i.i83, label %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57
 
-if.then.i.i.i89:                                  ; preds = %if.else.i54
+if.then.i.i.i83:                                  ; preds = %if.else.i51
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.39) #23
   unreachable
 
-_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i60: ; preds = %if.else.i54
-  %sub.ptr.div.i.i.i.i61 = ashr exact i64 %sub.ptr.sub.i.i.i.i58, 3
-  %cmp.i.i.i.i62 = icmp eq ptr %10, %this.val.i.i55
-  %.sroa.speculated.i.i.i63 = select i1 %cmp.i.i.i.i62, i64 1, i64 %sub.ptr.div.i.i.i.i61
-  %add.i.i.i64 = add nsw i64 %.sroa.speculated.i.i.i63, %sub.ptr.div.i.i.i.i61
-  %cmp7.i.i.i65 = icmp ult i64 %add.i.i.i64, %sub.ptr.div.i.i.i.i61
-  %13 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i64, i64 1152921504606846975)
-  %cond.i.i.i66 = select i1 %cmp7.i.i.i65, i64 1152921504606846975, i64 %13
-  %cmp.not.i.i.i67 = icmp eq i64 %cond.i.i.i66, 0
-  br i1 %cmp.not.i.i.i67, label %invoke.cont.i.i71, label %cond.true.i.i.i68
+_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57: ; preds = %if.else.i51
+  %sub.ptr.div.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i55, 3
+  %cmp.i.i.i.i59 = icmp eq ptr %10, %this.val.i.i52
+  %.sroa.speculated.i.i.i60 = select i1 %cmp.i.i.i.i59, i64 1, i64 %sub.ptr.div.i.i.i.i58
+  %add.i.i.i61 = add nsw i64 %.sroa.speculated.i.i.i60, %sub.ptr.div.i.i.i.i58
+  %cmp7.i.i.i62 = icmp ult i64 %add.i.i.i61, %sub.ptr.div.i.i.i.i58
+  %13 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i61, i64 1152921504606846975)
+  %cond.i.i.i63 = select i1 %cmp7.i.i.i62, i64 1152921504606846975, i64 %13
+  %cmp.not.i.i.i64 = icmp ne i64 %cond.i.i.i63, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i64)
+  %mul.i.i.i.i.i65 = shl nuw nsw i64 %cond.i.i.i63, 3
+  %call5.i.i.i.i.i66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i65) #24
+  %add.ptr.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i66, i64 %sub.ptr.sub.i.i.i.i55
+  store i32 64, ptr %add.ptr.i.i67, align 4
+  %added_length3.i.i.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i67, i64 4
+  store i32 1, ptr %added_length3.i.i.i.i.i68, align 4
+  br i1 %cmp.i.i.i.i59, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76, label %for.body.i.i.i.i.i69
 
-cond.true.i.i.i68:                                ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i60
-  %mul.i.i.i.i.i69 = shl nuw nsw i64 %cond.i.i.i66, 3
-  %call5.i.i.i.i.i70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i69) #24
-  br label %invoke.cont.i.i71
+for.body.i.i.i.i.i69:                             ; preds = %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57, %for.body.i.i.i.i.i69
+  %__cur.03.i.i.i.i.i70 = phi ptr [ %incdec.ptr1.i.i.i.i.i74, %for.body.i.i.i.i.i69 ], [ %call5.i.i.i.i.i66, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57 ]
+  %__first.addr.02.i.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %for.body.i.i.i.i.i69 ], [ %this.val.i.i52, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57 ]
+  %__first.addr.0.val.i.i.i.i.i72 = load i64, ptr %__first.addr.02.i.i.i.i.i71, align 4
+  store i64 %__first.addr.0.val.i.i.i.i.i72, ptr %__cur.03.i.i.i.i.i70, align 4, !alias.scope !334
+  %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i71, i64 8
+  %incdec.ptr1.i.i.i.i.i74 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i70, i64 8
+  %cmp.not.i.i.i.i.i75 = icmp eq ptr %incdec.ptr.i.i.i.i.i73, %10
+  br i1 %cmp.not.i.i.i.i.i75, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76, label %for.body.i.i.i.i.i69, !llvm.loop !330
 
-invoke.cont.i.i71:                                ; preds = %cond.true.i.i.i68, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i60
-  %cond.i19.i.i72 = phi ptr [ %call5.i.i.i.i.i70, %cond.true.i.i.i68 ], [ null, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i60 ]
-  %add.ptr.i.i73 = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i72, i64 %sub.ptr.div.i.i.i.i61
-  store i32 64, ptr %add.ptr.i.i73, align 4
-  %added_length3.i.i.i.i.i74 = getelementptr inbounds i8, ptr %add.ptr.i.i73, i64 4
-  store i32 1, ptr %added_length3.i.i.i.i.i74, align 4
-  br i1 %cmp.i.i.i.i62, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i82, label %for.body.i.i.i.i.i75
+_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76: ; preds = %for.body.i.i.i.i.i69, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57
+  %__cur.0.lcssa.i.i.i.i.i77 = phi ptr [ %call5.i.i.i.i.i66, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57 ], [ %incdec.ptr1.i.i.i.i.i74, %for.body.i.i.i.i.i69 ]
+  %incdec.ptr.i.i78 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i77, i64 8
+  %tobool.not.i.i.i79 = icmp eq ptr %this.val.i.i52, null
+  br i1 %tobool.not.i.i.i79, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i81, label %if.then.i30.i.i80
 
-for.body.i.i.i.i.i75:                             ; preds = %invoke.cont.i.i71, %for.body.i.i.i.i.i75
-  %__cur.03.i.i.i.i.i76 = phi ptr [ %incdec.ptr1.i.i.i.i.i80, %for.body.i.i.i.i.i75 ], [ %cond.i19.i.i72, %invoke.cont.i.i71 ]
-  %__first.addr.02.i.i.i.i.i77 = phi ptr [ %incdec.ptr.i.i.i.i.i79, %for.body.i.i.i.i.i75 ], [ %this.val.i.i55, %invoke.cont.i.i71 ]
-  %__first.addr.0.val.i.i.i.i.i78 = load i64, ptr %__first.addr.02.i.i.i.i.i77, align 4
-  store i64 %__first.addr.0.val.i.i.i.i.i78, ptr %__cur.03.i.i.i.i.i76, align 4, !alias.scope !334
-  %incdec.ptr.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i77, i64 8
-  %incdec.ptr1.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i76, i64 8
-  %cmp.not.i.i.i.i.i81 = icmp eq ptr %incdec.ptr.i.i.i.i.i79, %10
-  br i1 %cmp.not.i.i.i.i.i81, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i82, label %for.body.i.i.i.i.i75, !llvm.loop !330
+if.then.i30.i.i80:                                ; preds = %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76
+  tail call void @_ZdlPv(ptr noundef nonnull %this.val.i.i52) #26
+  br label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i81
 
-_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i82: ; preds = %for.body.i.i.i.i.i75, %invoke.cont.i.i71
-  %__cur.0.lcssa.i.i.i.i.i83 = phi ptr [ %cond.i19.i.i72, %invoke.cont.i.i71 ], [ %incdec.ptr1.i.i.i.i.i80, %for.body.i.i.i.i.i75 ]
-  %incdec.ptr.i.i84 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i83, i64 8
-  %tobool.not.i.i.i85 = icmp eq ptr %this.val.i.i55, null
-  br i1 %tobool.not.i.i.i85, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i87, label %if.then.i30.i.i86
-
-if.then.i30.i.i86:                                ; preds = %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i82
-  tail call void @_ZdlPv(ptr noundef nonnull %this.val.i.i55) #26
-  br label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i87
-
-_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i87: ; preds = %if.then.i30.i.i86, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i82
-  store ptr %cond.i19.i.i72, ptr %widths, align 8
-  store ptr %incdec.ptr.i.i84, ptr %_M_finish.i48, align 8
-  %add.ptr28.i.i88 = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %cond.i19.i.i72, i64 %cond.i.i.i66
-  store ptr %add.ptr28.i.i88, ptr %_M_end_of_storage.i49, align 8
+_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i81: ; preds = %if.then.i30.i.i80, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76
+  store ptr %call5.i.i.i.i.i66, ptr %widths, align 8
+  store ptr %incdec.ptr.i.i78, ptr %_M_finish.i45, align 8
+  %add.ptr28.i.i82 = getelementptr inbounds %"struct.arrow::compute::(anonymous namespace)::BufferPreallocation", ptr %call5.i.i.i.i.i66, i64 %cond.i.i.i63
+  store ptr %add.ptr28.i.i82, ptr %_M_end_of_storage.i46, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i87, %if.then.i51, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i11, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
+sw.epilog:                                        ; preds = %entry, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i81, %if.then.i48, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i11, %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
   ret void
 }
 

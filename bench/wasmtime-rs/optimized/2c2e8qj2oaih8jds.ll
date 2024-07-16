@@ -11,7 +11,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
 
 .lr.ph:                                           ; preds = %2, %.thread16
   %.022 = phi i32 [ %45, %.thread16 ], [ 5381, %2 ]
-  %.sroa.0.021 = phi ptr [ %.sroa.0.4.ph19, %.thread16 ], [ %0, %2 ]
+  %.sroa.0.021 = phi ptr [ %.sroa.0.1.ph19, %.thread16 ], [ %0, %2 ]
   %5 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 1
   %6 = load i8, ptr %.sroa.0.021, align 1, !noalias !4, !noundef !7
   %7 = icmp sgt i8 %6, -1
@@ -75,11 +75,11 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
 
 .thread16:                                        ; preds = %18, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i", %30
   %.sroa.4.0.i.ph20 = phi i32 [ %40, %30 ], [ %19, %18 ], [ %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i" ], [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i" ]
-  %.sroa.0.4.ph19 = phi ptr [ %32, %30 ], [ %5, %18 ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i" ]
+  %.sroa.0.1.ph19 = phi ptr [ %32, %30 ], [ %5, %18 ], [ %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i" ]
   %43 = xor i32 %.sroa.4.0.i.ph20, %.022
   %44 = tail call i32 @llvm.fshl.i32(i32 %.022, i32 %.022, i32 26)
   %45 = add i32 %43, %44
-  %46 = icmp eq ptr %.sroa.0.4.ph19, %3
+  %46 = icmp eq ptr %.sroa.0.1.ph19, %3
   br i1 %46, label %.thread.loopexit, label %.lr.ph
 }
 

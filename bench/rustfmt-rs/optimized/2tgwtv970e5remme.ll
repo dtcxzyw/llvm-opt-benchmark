@@ -9348,7 +9348,7 @@ define noundef zeroext i1 @"_ZN92_$LT$rustfmt_nightly..emitter..checkstyle..xml.
   br label %41
 
 41:                                               ; preds = %.lr.ph, %91
-  %.sroa.0.037 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.4.ph35, %91 ]
+  %.sroa.0.037 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.1.ph35, %91 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 1
   %43 = load i8, ptr %.sroa.0.037, align 1, !noalias !1383, !noundef !10
   %44 = icmp sgt i8 %43, -1
@@ -9403,7 +9403,7 @@ define noundef zeroext i1 @"_ZN92_$LT$rustfmt_nightly..emitter..checkstyle..xml.
 
 .thread32:                                        ; preds = %55, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i", %67
   %.sroa.4.0.i.ph36 = phi i32 [ %77, %67 ], [ %56, %55 ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i" ], [ %53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i" ]
-  %.sroa.0.4.ph35 = phi ptr [ %69, %67 ], [ %42, %55 ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i" ], [ %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i" ]
+  %.sroa.0.1.ph35 = phi ptr [ %69, %67 ], [ %42, %55 ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i" ], [ %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit13.i" ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %.sroa.4.0.i.ph36, ptr %10, align 4
   switch i32 %.sroa.4.0.i.ph36, label %79 [
@@ -9490,7 +9490,7 @@ define noundef zeroext i1 @"_ZN92_$LT$rustfmt_nightly..emitter..checkstyle..xml.
 
 91:                                               ; preds = %81, %83, %85, %87, %79, %89
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %92 = icmp eq ptr %.sroa.0.4.ph35, %14
+  %92 = icmp eq ptr %.sroa.0.1.ph35, %14
   br i1 %92, label %.thread, label %41
 
 93:                                               ; preds = %81, %83, %85, %87, %79, %89

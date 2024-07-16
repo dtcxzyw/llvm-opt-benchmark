@@ -135,7 +135,7 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   br i1 %.not53.us, label %.split75.us, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call ptr @find_parser_by_type(i32 noundef %31) #5
+  %33 = tail call ptr @find_parser_by_type(i32 noundef %31) #6
   br label %.outer.split.us
 
 .outer.split:                                     ; preds = %.outer, %50
@@ -175,7 +175,7 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   %.us-phi73 = phi ptr [ %.041.us, %24 ], [ %.041.us, %24 ], [ %.041.us, %24 ], [ %.041, %39 ], [ %.041, %39 ], [ %.041, %39 ]
   %44 = getelementptr inbounds i8, ptr %.us-phi73, i64 8
   %45 = load i32, ptr %44, align 8
-  %46 = tail call ptr @find_parser_by_type(i32 noundef %45) #5
+  %46 = tail call ptr @find_parser_by_type(i32 noundef %45) #6
   br label %.outer
 
 47:                                               ; preds = %39
@@ -185,7 +185,7 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   br i1 %.not53, label %.split75.us, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call ptr @find_parser_by_type(i32 noundef %49) #5
+  %51 = tail call ptr @find_parser_by_type(i32 noundef %49) #6
   br label %.outer.split
 
 .split75.us:                                      ; preds = %47, %29
@@ -226,7 +226,7 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   br i1 %exitcond.not.i.i, label %_resolve_parser_index.exit.thread.i, label %65, !llvm.loop !6
 
 _resolve_parser_index.exit.i:                     ; preds = %65
-  %70 = tail call i32 @get_log_level() #5
+  %70 = tail call i32 @get_log_level() #6
   %71 = icmp sgt i32 %70, 7
   br i1 %71, label %72, label %_resolve_parser_index.exit._crit_edge.i
 
@@ -242,7 +242,7 @@ _resolve_parser_index.exit._crit_edge.i:          ; preds = %_resolve_parser_ind
   %77 = and i64 %indvars.iv.i.i, 4294967295
   %78 = getelementptr inbounds i32, ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__._should_be_ref, ptr noundef %74, i32 noundef %79) #5
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__._should_be_ref, ptr noundef %74, i32 noundef %79) #6
   br label %80
 
 80:                                               ; preds = %72, %_resolve_parser_index.exit._crit_edge.i
@@ -290,12 +290,12 @@ _should_be_ref.exit.thread60:                     ; preds = %80, %.split75.us, %
   br label %144
 
 _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_resolve_parser_index.exit.thread.i, %_should_be_ref.exit
-  %100 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %100 = tail call i32 @data_get_type(ptr noundef %0) #6
   %101 = icmp eq i32 %100, 1
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %_should_be_ref.exit.thread
-  %103 = tail call ptr @data_set_dict(ptr noundef %0) #5
+  %103 = tail call ptr @data_set_dict(ptr noundef %0) #6
   br label %104
 
 104:                                              ; preds = %102, %_should_be_ref.exit.thread
@@ -307,35 +307,35 @@ _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_res
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %106 = getelementptr inbounds i8, ptr %.041.val57, i64 12
-  %107 = tail call ptr @xstrdup(ptr noundef nonnull %106) #5
+  %107 = tail call ptr @xstrdup(ptr noundef nonnull %106) #6
   store ptr %107, ptr %7, align 8
-  %108 = tail call zeroext i1 @xstrtolower(ptr noundef %107) #5
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef %107) #5
-  call void @slurm_xfree(ptr noundef nonnull %7) #5
+  %108 = tail call zeroext i1 @xstrtolower(ptr noundef %107) #6
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef %107) #6
+  call void @slurm_xfree(ptr noundef nonnull %7) #6
   %109 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store ptr %109, ptr %9, align 8
   store ptr null, ptr %10, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %109) #5
-  call void @slurm_xfree(ptr noundef nonnull %9) #5
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %109) #6
+  call void @slurm_xfree(ptr noundef nonnull %9) #6
   %110 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   store ptr %110, ptr %11, align 8
-  %111 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str) #5
-  %112 = call ptr @_data_set_string_own(ptr noundef %111, ptr noundef nonnull %11) #5
+  %111 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str) #6
+  %112 = call ptr @_data_set_string_own(ptr noundef %111, ptr noundef nonnull %11) #6
   %.not54 = icmp eq ptr %.us-phi78, null
   br i1 %.not54, label %118, label %113
 
 113:                                              ; preds = %104
-  %114 = call ptr @data_key_get(ptr noundef %0, ptr noundef nonnull @.str.1) #5
+  %114 = call ptr @data_key_get(ptr noundef %0, ptr noundef nonnull @.str.1) #6
   %.not55 = icmp eq ptr %114, null
   br i1 %.not55, label %115, label %118
 
 115:                                              ; preds = %113
-  %116 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #5
-  %117 = call ptr @data_set_string(ptr noundef %116, ptr noundef nonnull %.us-phi78) #5
+  %116 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #6
+  %117 = call ptr @data_set_string(ptr noundef %116, ptr noundef nonnull %.us-phi78) #6
   br label %118
 
 118:                                              ; preds = %115, %113, %104
@@ -343,8 +343,8 @@ _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_res
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %118
-  %121 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #5
-  %122 = call ptr @data_set_bool(ptr noundef %121, i1 noundef zeroext true) #5
+  %121 = call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #6
+  %122 = call ptr @data_set_bool(ptr noundef %121, i1 noundef zeroext true) #6
   br label %123
 
 123:                                              ; preds = %120, %118
@@ -353,21 +353,21 @@ _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_res
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %124 = getelementptr inbounds i8, ptr %.041.val, i64 12
-  %125 = call ptr @xstrdup(ptr noundef nonnull %124) #5
+  %125 = call ptr @xstrdup(ptr noundef nonnull %124) #6
   store ptr %125, ptr %5, align 8
-  %126 = call zeroext i1 @xstrtolower(ptr noundef %125) #5
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef %125) #5
-  call void @slurm_xfree(ptr noundef nonnull %5) #5
+  %126 = call zeroext i1 @xstrtolower(ptr noundef %125) #6
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef %125) #6
+  call void @slurm_xfree(ptr noundef nonnull %5) #6
   %127 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store ptr %127, ptr %12, align 8
   %128 = getelementptr inbounds i8, ptr %3, i64 48
   %129 = load ptr, ptr %128, align 8
-  %130 = call ptr @data_key_set(ptr noundef %129, ptr noundef %127) #5
-  %131 = call i32 @data_get_type(ptr noundef %130) #5
+  %130 = call ptr @data_key_set(ptr noundef %129, ptr noundef %127) #6
+  %131 = call i32 @data_get_type(ptr noundef %130) #6
   %132 = icmp eq i32 %131, 1
-  %133 = call i32 @get_log_level() #5
+  %133 = call i32 @get_log_level() #6
   %134 = icmp sgt i32 %133, 7
   br i1 %132, label %135, label %141
 
@@ -375,11 +375,11 @@ _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_res
   br i1 %134, label %136, label %137
 
 136:                                              ; preds = %135
-  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._set_ref, ptr noundef %127) #5
+  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._set_ref, ptr noundef %127) #6
   br label %137
 
 137:                                              ; preds = %136, %135
-  %138 = call ptr @data_set_dict(ptr noundef %130) #5
+  %138 = call ptr @data_set_dict(ptr noundef %130) #6
   %139 = load i16, ptr %52, align 8
   %140 = icmp ne i16 %139, 0
   call fastcc void @_set_openapi_parse(ptr noundef %138, ptr noundef nonnull %.us-phi76, ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext %140)
@@ -389,11 +389,11 @@ _should_be_ref.exit.thread:                       ; preds = %89, %92, %94, %_res
   br i1 %134, label %142, label %143
 
 142:                                              ; preds = %141
-  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._set_ref, ptr noundef %127) #5
+  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._set_ref, ptr noundef %127) #6
   br label %143
 
 143:                                              ; preds = %141, %142, %137
-  call void @slurm_xfree(ptr noundef nonnull %12) #5
+  call void @slurm_xfree(ptr noundef nonnull %12) #6
   br label %144
 
 144:                                              ; preds = %143, %_should_be_ref.exit.thread60
@@ -457,7 +457,7 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br i1 %.not55, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @find_parser_by_type(i32 noundef %30) #5
+  %32 = tail call ptr @find_parser_by_type(i32 noundef %30) #6
   tail call void @_set_ref(ptr noundef nonnull %28, ptr noundef nonnull %1, ptr noundef %32, ptr noundef %2)
   br label %.loopexit
 
@@ -468,7 +468,7 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br i1 %.not56, label %38, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @find_parser_by_type(i32 noundef %35) #5
+  %37 = tail call ptr @find_parser_by_type(i32 noundef %35) #6
   tail call void @_set_ref(ptr noundef nonnull %28, ptr noundef nonnull %1, ptr noundef %37, ptr noundef %2)
   br label %.loopexit
 
@@ -489,8 +489,8 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br i1 %.not58, label %121, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.13) #5
-  %47 = tail call ptr @data_set_list(ptr noundef %46) #5
+  %46 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.13) #6
+  %47 = tail call ptr @data_set_list(ptr noundef %46) #6
   %48 = getelementptr inbounds i8, ptr %1, i64 152
   %49 = load i64, ptr %48, align 8
   %.not66 = icmp eq i64 %49, 0
@@ -512,78 +512,78 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %55
-  %60 = tail call ptr @data_list_append(ptr noundef %47) #5
+  %60 = tail call ptr @data_list_append(ptr noundef %47) #6
   %61 = getelementptr inbounds i8, ptr %51, i64 96
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @data_set_string(ptr noundef %60, ptr noundef %62) #5
+  %63 = tail call ptr @data_set_string(ptr noundef %60, ptr noundef %62) #6
   br label %64
 
 64:                                               ; preds = %59, %55
-  %65 = tail call ptr @data_new() #5
-  %66 = tail call ptr @data_set_list(ptr noundef %65) #5
+  %65 = tail call ptr @data_new() #6
+  %66 = tail call ptr @data_set_list(ptr noundef %65) #6
   %67 = getelementptr inbounds i8, ptr %51, i64 96
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @openapi_append_rel_path(ptr noundef %66, ptr noundef %68) #5
+  %69 = tail call i32 @openapi_append_rel_path(ptr noundef %66, ptr noundef %68) #6
   %.not.i60 = icmp eq i32 %69, 0
   br i1 %.not.i60, label %.preheader.i, label %71
 
 .preheader.i:                                     ; preds = %64
-  %70 = tail call ptr @data_list_dequeue(ptr noundef %66) #5
+  %70 = tail call ptr @data_list_dequeue(ptr noundef %66) #6
   %.not2327.i = icmp eq ptr %70, null
   br i1 %.not2327.i, label %._crit_edge.i, label %.lr.ph.i61
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds i8, ptr %51, i64 96
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call ptr @slurm_strerror(i32 noundef %69) #5
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._resolve_parser_key, ptr noundef %73, ptr noundef %74) #6
+  %74 = tail call ptr @slurm_strerror(i32 noundef %69) #6
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._resolve_parser_key, ptr noundef %73, ptr noundef %74) #7
   unreachable
 
 .lr.ph.i61:                                       ; preds = %.preheader.i, %97
   %75 = phi ptr [ %98, %97 ], [ %70, %.preheader.i ]
   %.028.i = phi ptr [ %92, %97 ], [ %0, %.preheader.i ]
-  %76 = tail call i32 @data_get_type(ptr noundef %.028.i) #5
+  %76 = tail call i32 @data_get_type(ptr noundef %.028.i) #6
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %.lr.ph.i61
-  %79 = tail call ptr @data_set_dict(ptr noundef %.028.i) #5
+  %79 = tail call ptr @data_set_dict(ptr noundef %.028.i) #6
   br label %80
 
 80:                                               ; preds = %78, %.lr.ph.i61
-  %81 = tail call ptr @data_key_get(ptr noundef %.028.i, ptr noundef nonnull @.str.15) #5
+  %81 = tail call ptr @data_key_get(ptr noundef %.028.i, ptr noundef nonnull @.str.15) #6
   %.not25.i = icmp eq ptr %81, null
   br i1 %.not25.i, label %82, label %85
 
 82:                                               ; preds = %80
-  %83 = tail call ptr @data_key_set(ptr noundef %.028.i, ptr noundef nonnull @.str.15) #5
-  %84 = tail call ptr @data_set_string(ptr noundef %83, ptr noundef nonnull @.str.21) #5
+  %83 = tail call ptr @data_key_set(ptr noundef %.028.i, ptr noundef nonnull @.str.15) #6
+  %84 = tail call ptr @data_set_string(ptr noundef %83, ptr noundef nonnull @.str.21) #6
   br label %85
 
 85:                                               ; preds = %82, %80
-  %86 = tail call ptr @data_key_set(ptr noundef %.028.i, ptr noundef nonnull @.str.18) #5
-  %87 = tail call i32 @data_get_type(ptr noundef %86) #5
+  %86 = tail call ptr @data_key_set(ptr noundef %.028.i, ptr noundef nonnull @.str.18) #6
+  %87 = tail call i32 @data_get_type(ptr noundef %86) #6
   %.not26.i = icmp eq i32 %87, 3
   br i1 %.not26.i, label %90, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call ptr @data_set_dict(ptr noundef %86) #5
+  %89 = tail call ptr @data_set_dict(ptr noundef %86) #6
   br label %90
 
 90:                                               ; preds = %88, %85
-  %91 = tail call ptr @data_get_string(ptr noundef nonnull %75) #5
-  %92 = tail call ptr @data_key_set(ptr noundef %86, ptr noundef %91) #5
-  %93 = tail call i32 @data_get_type(ptr noundef %92) #5
+  %91 = tail call ptr @data_get_string(ptr noundef nonnull %75) #6
+  %92 = tail call ptr @data_key_set(ptr noundef %86, ptr noundef %91) #6
+  %93 = tail call i32 @data_get_type(ptr noundef %92) #6
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %90
-  %96 = tail call ptr @data_set_dict(ptr noundef %92) #5
+  %96 = tail call ptr @data_set_dict(ptr noundef %92) #6
   br label %97
 
 97:                                               ; preds = %95, %90
-  tail call void @data_free(ptr noundef nonnull %75) #5
-  %98 = tail call ptr @data_list_dequeue(ptr noundef %66) #5
+  tail call void @data_free(ptr noundef nonnull %75) #6
+  %98 = tail call ptr @data_list_dequeue(ptr noundef %66) #6
   %.not23.i = icmp eq ptr %98, null
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i61, !llvm.loop !8
 
@@ -593,7 +593,7 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br i1 %.not24.i, label %_resolve_parser_key.exit, label %99
 
 99:                                               ; preds = %._crit_edge.i
-  tail call void @data_free(ptr noundef nonnull %66) #5
+  tail call void @data_free(ptr noundef nonnull %66) #6
   br label %_resolve_parser_key.exit
 
 _resolve_parser_key.exit:                         ; preds = %._crit_edge.i, %99
@@ -602,10 +602,10 @@ _resolve_parser_key.exit:                         ; preds = %._crit_edge.i, %99
   br i1 %101, label %102, label %118
 
 102:                                              ; preds = %_resolve_parser_key.exit
-  %103 = tail call ptr @data_key_get(ptr noundef %.0.lcssa.i, ptr noundef nonnull @.str.18) #5
+  %103 = tail call ptr @data_key_get(ptr noundef %.0.lcssa.i, ptr noundef nonnull @.str.18) #6
   %104 = getelementptr i8, ptr %51, i64 8
   %.val.i = load i32, ptr %104, align 8
-  %105 = tail call ptr @find_parser_by_type(i32 noundef %.val.i) #5
+  %105 = tail call ptr @find_parser_by_type(i32 noundef %.val.i) #6
   %106 = getelementptr inbounds i8, ptr %105, i64 136
   %107 = load i8, ptr %106, align 8
   %.not.i = icmp eq i8 %107, 0
@@ -620,7 +620,7 @@ _resolve_parser_key.exit:                         ; preds = %._crit_edge.i, %99
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds %struct.flag_bit_t, ptr %110, i64 %indvars.iv.i, i32 1
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call ptr @data_key_set(ptr noundef %103, ptr noundef %112) #5
+  %113 = tail call ptr @data_key_set(ptr noundef %103, ptr noundef %112) #6
   %114 = tail call fastcc ptr @_set_openapi_props(ptr noundef %113, i32 noundef 9, ptr noundef null)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %115 = load i8, ptr %106, align 8
@@ -650,15 +650,15 @@ _add_field.exit:                                  ; preds = %109, %102, %.lr.ph,
 127:                                              ; preds = %121
   %128 = getelementptr inbounds i8, ptr %1, i64 16
   %129 = load ptr, ptr %128, align 8
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__._set_openapi_parse, ptr noundef %129) #6
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__._set_openapi_parse, ptr noundef %129) #7
   unreachable
 
 .loopexit:                                        ; preds = %_add_field.exit, %45, %31, %41, %121, %36, %23
   br i1 %4, label %130, label %133
 
 130:                                              ; preds = %.loopexit
-  %131 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #5
-  %132 = tail call ptr @data_set_bool(ptr noundef %131, i1 noundef zeroext true) #5
+  %131 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #6
+  %132 = tail call ptr @data_set_bool(ptr noundef %131, i1 noundef zeroext true) #6
   br label %133
 
 133:                                              ; preds = %130, %.loopexit
@@ -698,58 +698,58 @@ define i32 @data_parser_p_specify(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @data_get_type(ptr noundef nonnull %1) #5
+  %7 = tail call i32 @data_get_type(ptr noundef nonnull %1) #6
   %.not9 = icmp eq i32 %7, 3
   br i1 %.not9, label %10, label %8
 
 8:                                                ; preds = %6, %2
-  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #5
+  %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #6
   br label %34
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @data_resolve_dict_path(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #5
+  %11 = tail call ptr @data_resolve_dict_path(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #6
   %12 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @data_resolve_dict_path(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #5
+  %13 = tail call ptr @data_resolve_dict_path(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #6
   %14 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %13, ptr %14, align 8
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @data_get_type(ptr noundef nonnull %11) #5
+  %16 = tail call i32 @data_get_type(ptr noundef nonnull %11) #6
   %.not11 = icmp eq i32 %16, 3
   br i1 %.not11, label %19, label %17
 
 17:                                               ; preds = %15, %10
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #5
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #6
   br label %34
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %3, i64 16
   %21 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @get_parsers(ptr noundef nonnull %20, ptr noundef nonnull %21) #5
+  call void @get_parsers(ptr noundef nonnull %20, ptr noundef nonnull %21) #6
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = call ptr @slurm_xcalloc(i64 noundef %23, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 884, ptr noundef nonnull @__func__.data_parser_p_specify) #5
+  %24 = call ptr @slurm_xcalloc(i64 noundef %23, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 884, ptr noundef nonnull @__func__.data_parser_p_specify) #6
   %25 = getelementptr inbounds i8, ptr %3, i64 80
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %14, align 8
-  %27 = call i32 @data_dict_for_each(ptr noundef %26, ptr noundef nonnull @_foreach_path, ptr noundef nonnull %3) #5
+  %27 = call i32 @data_dict_for_each(ptr noundef %26, ptr noundef nonnull @_foreach_path, ptr noundef nonnull %3) #6
   %28 = getelementptr inbounds i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @data_dict_for_each(ptr noundef %29, ptr noundef nonnull @_foreach_join_path, ptr noundef nonnull %3) #5
+  %30 = call i32 @data_dict_for_each(ptr noundef %29, ptr noundef nonnull @_foreach_join_path, ptr noundef nonnull %3) #6
   %31 = load ptr, ptr %28, align 8
   %.not12 = icmp eq ptr %31, null
   br i1 %.not12, label %33, label %32
 
 32:                                               ; preds = %19
-  call void @data_free(ptr noundef nonnull %31) #5
+  call void @data_free(ptr noundef nonnull %31) #6
   br label %33
 
 33:                                               ; preds = %32, %19
   store ptr null, ptr %28, align 8
-  call void @slurm_xfree(ptr noundef nonnull %25) #5
+  call void @slurm_xfree(ptr noundef nonnull %25) #6
   br label %34
 
 34:                                               ; preds = %33, %17, %8
@@ -774,69 +774,69 @@ declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unn
 define internal range(i32 1, 5) i32 @_foreach_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = tail call ptr @xstrdup(ptr noundef %0) #5
+  %6 = tail call ptr @xstrdup(ptr noundef %0) #6
   store ptr %6, ptr %4, align 8
-  %7 = tail call ptr @xstrstr(ptr noundef %6, ptr noundef nonnull @.str.25) #5
+  %7 = tail call ptr @xstrstr(ptr noundef %6, ptr noundef nonnull @.str.25) #6
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %3
-  call void @slurm_xfree(ptr noundef nonnull %4) #5
+  call void @slurm_xfree(ptr noundef nonnull %4) #6
   br label %36
 
 9:                                                ; preds = %3
   store i8 0, ptr %7, align 1
   %10 = getelementptr inbounds i8, ptr %7, i64 13
-  %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.26, ptr noundef %6, ptr noundef nonnull @.str.27, ptr noundef nonnull %10) #5
+  %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.26, ptr noundef %6, ptr noundef nonnull @.str.27, ptr noundef nonnull %10) #6
   store ptr %11, ptr %5, align 8
-  call void @slurm_xfree(ptr noundef nonnull %4) #5
+  call void @slurm_xfree(ptr noundef nonnull %4) #6
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %14, label %17
 
 14:                                               ; preds = %9
-  %15 = call ptr @data_new() #5
-  %16 = call ptr @data_set_dict(ptr noundef %15) #5
+  %15 = call ptr @data_new() #6
+  %16 = call ptr @data_set_dict(ptr noundef %15) #6
   store ptr %16, ptr %12, align 8
   br label %17
 
 17:                                               ; preds = %14, %9
   %18 = phi ptr [ %16, %14 ], [ %13, %9 ]
-  %19 = call ptr @data_key_set(ptr noundef %18, ptr noundef %11) #5
-  %20 = call ptr @data_copy(ptr noundef %19, ptr noundef %1) #5
-  %21 = call ptr @data_new() #5
-  %22 = call ptr @data_set_dict(ptr noundef %21) #5
+  %19 = call ptr @data_key_set(ptr noundef %18, ptr noundef %11) #6
+  %20 = call ptr @data_copy(ptr noundef %19, ptr noundef %1) #6
+  %21 = call ptr @data_new() #6
+  %22 = call ptr @data_set_dict(ptr noundef %21) #6
   %23 = getelementptr inbounds i8, ptr %2, i64 64
   store ptr %22, ptr %23, align 8
-  %24 = call ptr @parse_url_path(ptr noundef %11, i1 noundef zeroext false, i1 noundef zeroext true) #5
-  %25 = call i32 @data_list_for_each(ptr noundef %24, ptr noundef nonnull @_foreach_path_entry, ptr noundef nonnull %2) #5
+  %24 = call ptr @parse_url_path(ptr noundef %11, i1 noundef zeroext false, i1 noundef zeroext true) #6
+  %25 = call i32 @data_list_for_each(ptr noundef %24, ptr noundef nonnull @_foreach_path_entry, ptr noundef nonnull %2) #6
   %26 = icmp sgt i32 %25, -1
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %28, label %27
 
 27:                                               ; preds = %17
-  call void @data_free(ptr noundef nonnull %24) #5
+  call void @data_free(ptr noundef nonnull %24) #6
   br label %28
 
 28:                                               ; preds = %27, %17
   br i1 %26, label %29, label %32
 
 29:                                               ; preds = %28
-  %30 = call i32 @data_dict_for_each(ptr noundef %19, ptr noundef nonnull @_foreach_path_method, ptr noundef nonnull %2) #5
+  %30 = call i32 @data_dict_for_each(ptr noundef %19, ptr noundef nonnull @_foreach_path_method, ptr noundef nonnull %2) #6
   %31 = icmp slt i32 %30, 0
   %spec.select = select i1 %31, i32 4, i32 1
   br label %32
 
 32:                                               ; preds = %29, %28
   %.not30 = phi i32 [ 4, %28 ], [ %spec.select, %29 ]
-  call void @slurm_xfree(ptr noundef nonnull %5) #5
+  call void @slurm_xfree(ptr noundef nonnull %5) #6
   %33 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %33, null
   br i1 %.not29, label %35, label %34
 
 34:                                               ; preds = %32
-  call void @data_free(ptr noundef nonnull %33) #5
+  call void @data_free(ptr noundef nonnull %33) #6
   br label %35
 
 35:                                               ; preds = %34, %32
@@ -852,27 +852,27 @@ define internal range(i32 1, 5) i32 @_foreach_path(ptr noundef %0, ptr noundef %
 define internal noundef i32 @_foreach_join_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef %0) #5
-  %7 = tail call ptr @data_move(ptr noundef %6, ptr noundef %1) #5
+  %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef %0) #6
+  %7 = tail call ptr @data_move(ptr noundef %6, ptr noundef %1) #6
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_count_refs.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @data_get_type(ptr noundef nonnull %6) #5
+  %9 = tail call i32 @data_get_type(ptr noundef nonnull %6) #6
   %10 = icmp eq i32 %9, 3
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @data_dict_for_each(ptr noundef nonnull %6, ptr noundef nonnull @_count_dict_entry, ptr noundef nonnull %2) #5
+  %12 = tail call i32 @data_dict_for_each(ptr noundef nonnull %6, ptr noundef nonnull @_count_dict_entry, ptr noundef nonnull %2) #6
   br label %_count_refs.exit
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @data_get_type(ptr noundef nonnull %6) #5
+  %14 = tail call i32 @data_get_type(ptr noundef nonnull %6) #6
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %_count_refs.exit
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @data_list_for_each(ptr noundef nonnull %6, ptr noundef nonnull @_count_list_entry, ptr noundef nonnull %2) #5
+  %17 = tail call i32 @data_list_for_each(ptr noundef nonnull %6, ptr noundef nonnull @_count_list_entry, ptr noundef nonnull %2) #6
   br label %_count_refs.exit
 
 _count_refs.exit:                                 ; preds = %3, %11, %13, %16
@@ -912,7 +912,7 @@ _count_refs.exit:                                 ; preds = %3, %11, %13, %16
   %35 = load ptr, ptr %32, align 8
   %36 = getelementptr inbounds %struct.parser_s, ptr %35, i64 %indvars.iv.i, i32 2
   %37 = load i32, ptr %36, align 8
-  %38 = tail call ptr @find_parser_by_type(i32 noundef %37) #5
+  %38 = tail call ptr @find_parser_by_type(i32 noundef %37) #6
   %.not19.i = icmp eq ptr %38, null
   br i1 %.not19.i, label %_increment_ref.exit.i, label %39
 
@@ -924,7 +924,7 @@ _count_refs.exit:                                 ; preds = %3, %11, %13, %16
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
   %42 = phi i32 [ %45, %.lr.ph.i.i ], [ %41, %39 ]
-  %43 = tail call ptr @find_parser_by_type(i32 noundef %42) #5
+  %43 = tail call ptr @find_parser_by_type(i32 noundef %42) #6
   %44 = getelementptr inbounds i8, ptr %43, i64 116
   %45 = load i32, ptr %44, align 4
   %.not.i.i = icmp eq i32 %45, 0
@@ -962,7 +962,7 @@ _resolve_parser_index.exit.i.i:                   ; preds = %51
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4
-  %61 = tail call i32 @get_log_level() #5
+  %61 = tail call i32 @get_log_level() #6
   %62 = icmp sgt i32 %61, 7
   br i1 %62, label %63, label %_increment_ref.exit.i
 
@@ -973,7 +973,7 @@ _resolve_parser_index.exit.i.i:                   ; preds = %51
   %67 = load ptr, ptr %22, align 8
   %68 = getelementptr inbounds i32, ptr %67, i64 %57
   %69 = load i32, ptr %68, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef %64, ptr noundef %66, i32 noundef %69) #5
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef %64, ptr noundef %66, i32 noundef %69) #6
   br label %_increment_ref.exit.i
 
 _increment_ref.exit.i:                            ; preds = %55, %63, %_resolve_parser_index.exit.i.i, %._crit_edge.i.i, %34
@@ -1011,10 +1011,10 @@ define void @set_openapi_schema(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 88
   store i8 1, ptr %7, align 8
-  %8 = tail call ptr @data_set_dict(ptr noundef %0) #5
+  %8 = tail call ptr @data_set_dict(ptr noundef %0) #6
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   %10 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @get_parsers(ptr noundef nonnull %9, ptr noundef nonnull %10) #5
+  call void @get_parsers(ptr noundef nonnull %9, ptr noundef nonnull %10) #6
   call fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef null, i1 noundef zeroext false)
   ret void
 }
@@ -1029,24 +1029,24 @@ define range(i32 0, 9214) i32 @data_parser_p_increment_reference(ptr noundef %0,
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @get_parsers(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  call void @get_parsers(ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %3
-  %10 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 928, ptr noundef nonnull @__func__.data_parser_p_increment_reference) #5
+  %10 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 928, ptr noundef nonnull @__func__.data_parser_p_increment_reference) #6
   store ptr %10, ptr %2, align 8
   store i32 -1433334133, ptr %10, align 8
   %11 = load i32, ptr %8, align 8
   %12 = sext i32 %11 to i64
-  %13 = call ptr @slurm_xcalloc(i64 noundef %12, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 931, ptr noundef nonnull @__func__.data_parser_p_increment_reference) #5
+  %13 = call ptr @slurm_xcalloc(i64 noundef %12, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 931, ptr noundef nonnull @__func__.data_parser_p_increment_reference) #6
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %13, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %9, %3
   %.09 = phi ptr [ %6, %3 ], [ %10, %9 ]
-  %16 = call ptr @find_parser_by_type(i32 noundef %1) #5
+  %16 = call ptr @find_parser_by_type(i32 noundef %1) #6
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %_increment_ref.exit, label %17
 
@@ -1062,7 +1062,7 @@ define range(i32 0, 9214) i32 @data_parser_p_increment_reference(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %23 = phi i32 [ %26, %.lr.ph.i ], [ %22, %17 ]
-  %24 = call ptr @find_parser_by_type(i32 noundef %23) #5
+  %24 = call ptr @find_parser_by_type(i32 noundef %23) #6
   %25 = getelementptr inbounds i8, ptr %24, i64 116
   %26 = load i32, ptr %25, align 4
   %.not.i = icmp eq i32 %26, 0
@@ -1100,7 +1100,7 @@ _resolve_parser_index.exit.i:                     ; preds = %32
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
-  %42 = call i32 @get_log_level() #5
+  %42 = call i32 @get_log_level() #6
   %43 = icmp sgt i32 %42, 7
   br i1 %43, label %44, label %_increment_ref.exit
 
@@ -1110,7 +1110,7 @@ _resolve_parser_index.exit.i:                     ; preds = %32
   %47 = load ptr, ptr %20, align 8
   %48 = getelementptr inbounds i32, ptr %47, i64 %38
   %49 = load i32, ptr %48, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %46, i32 noundef %49) #5
+  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %46, i32 noundef %49) #6
   br label %_increment_ref.exit
 
 _increment_ref.exit:                              ; preds = %36, %44, %_resolve_parser_index.exit.i, %._crit_edge.i, %15
@@ -1141,8 +1141,8 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_schema(ptr noundef %0, i32
   store ptr %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 88
   store i8 0, ptr %17, align 8
-  call void @get_parsers(ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  %18 = call ptr @find_parser_by_type(i32 noundef %1) #5
+  call void @get_parsers(ptr noundef nonnull %8, ptr noundef nonnull %9) #6
+  %18 = call ptr @find_parser_by_type(i32 noundef %1) #6
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
 
@@ -1179,16 +1179,16 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   store ptr %18, ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 88
   store i8 0, ptr %19, align 8
-  %20 = tail call ptr @data_set_list(ptr noundef %4) #5
-  call void @get_parsers(ptr noundef nonnull %9, ptr noundef nonnull %10) #5
-  %21 = call ptr @data_new() #5
-  %22 = call ptr @data_set_dict(ptr noundef %21) #5
+  %20 = tail call ptr @data_set_list(ptr noundef %4) #6
+  call void @get_parsers(ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  %21 = call ptr @data_new() #6
+  %22 = call ptr @data_set_dict(ptr noundef %21) #6
   store ptr %22, ptr %14, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %6
-  %24 = call ptr @find_parser_by_type(i32 noundef %1) #5
+  %24 = call ptr @find_parser_by_type(i32 noundef %1) #6
   %.not57 = icmp eq ptr %24, null
   br i1 %.not57, label %95, label %25
 
@@ -1198,7 +1198,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   br i1 %.not58, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = call ptr @find_parser_by_type(i32 noundef %2) #5
+  %27 = call ptr @find_parser_by_type(i32 noundef %2) #6
   %.not59 = icmp eq ptr %27, null
   br i1 %.not59, label %95, label %28
 
@@ -1215,7 +1215,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %.preheader69, %.lr.ph
   %31 = phi i32 [ %34, %.lr.ph ], [ %30, %.preheader69 ]
-  %32 = call ptr @find_parser_by_type(i32 noundef %31) #5
+  %32 = call ptr @find_parser_by_type(i32 noundef %31) #6
   %33 = getelementptr inbounds i8, ptr %32, i64 116
   %34 = load i32, ptr %33, align 4
   %.not61 = icmp eq i32 %34, 0
@@ -1229,11 +1229,11 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   br i1 %.not62, label %38, label %37
 
 37:                                               ; preds = %._crit_edge
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10) #6
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10) #7
   unreachable
 
 38:                                               ; preds = %._crit_edge
-  %39 = call i32 @get_log_level() #5
+  %39 = call i32 @get_log_level() #6
   %40 = icmp sgt i32 %39, 6
   br i1 %40, label %41, label %47
 
@@ -1243,7 +1243,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   %44 = ptrtoint ptr %.145.lcssa to i64
   %45 = getelementptr inbounds i8, ptr %.145.lcssa, i64 32
   %46 = load ptr, ptr %45, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.data_parser_p_populate_parameters, ptr noundef %43, i64 noundef %44, ptr noundef %46, ptr noundef %4) #5
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.data_parser_p_populate_parameters, ptr noundef %43, i64 noundef %44, ptr noundef %46, ptr noundef %4) #6
   br label %47
 
 47:                                               ; preds = %41, %38
@@ -1270,7 +1270,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   %55 = load ptr, ptr %50, align 8
   %56 = getelementptr inbounds %struct.parser_s, ptr %55, i64 %indvars.iv, i32 13
   %57 = load ptr, ptr %56, align 8
-  %58 = call ptr @data_key_set(ptr noundef %54, ptr noundef %57) #5
+  %58 = call ptr @data_key_set(ptr noundef %54, ptr noundef %57) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i64, ptr %48, align 8
   %60 = icmp ugt i64 %59, %indvars.iv.next
@@ -1298,7 +1298,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
 
 .lr.ph77:                                         ; preds = %.preheader, %.lr.ph77
   %68 = phi i32 [ %71, %.lr.ph77 ], [ %67, %.preheader ]
-  %69 = call ptr @find_parser_by_type(i32 noundef %68) #5
+  %69 = call ptr @find_parser_by_type(i32 noundef %68) #6
   %70 = getelementptr inbounds i8, ptr %69, i64 116
   %71 = load i32, ptr %70, align 4
   %.not64 = icmp eq i32 %71, 0
@@ -1312,11 +1312,11 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   br i1 %.not65, label %75, label %74
 
 74:                                               ; preds = %._crit_edge78
-  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10) #6
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10) #7
   unreachable
 
 75:                                               ; preds = %._crit_edge78
-  %76 = call i32 @get_log_level() #5
+  %76 = call i32 @get_log_level() #6
   %77 = icmp sgt i32 %76, 6
   br i1 %77, label %78, label %84
 
@@ -1326,7 +1326,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   %81 = ptrtoint ptr %.1.lcssa to i64
   %82 = getelementptr inbounds i8, ptr %.1.lcssa, i64 32
   %83 = load ptr, ptr %82, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.data_parser_p_populate_parameters, ptr noundef %80, i64 noundef %81, ptr noundef %83, ptr noundef %4) #5
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.data_parser_p_populate_parameters, ptr noundef %80, i64 noundef %81, ptr noundef %83, ptr noundef %4) #6
   br label %84
 
 84:                                               ; preds = %78, %75
@@ -1355,7 +1355,7 @@ define range(i32 0, 9214) i32 @data_parser_p_populate_parameters(ptr noundef %0,
   br i1 %.not66, label %95, label %94
 
 94:                                               ; preds = %.loopexit
-  call void @data_free(ptr noundef nonnull %93) #5
+  call void @data_free(ptr noundef nonnull %93) #6
   br label %95
 
 95:                                               ; preds = %.loopexit, %94, %26, %23
@@ -1383,7 +1383,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %1, i64 8
   %.val27 = load i32, ptr %7, align 8
-  %8 = tail call ptr @find_parser_by_type(i32 noundef %.val27) #5
+  %8 = tail call ptr @find_parser_by_type(i32 noundef %.val27) #6
   %9 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load i8, ptr %9, align 8
   %.not.i = icmp eq i8 %10, 0
@@ -1405,8 +1405,8 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call ptr @data_list_append(ptr noundef %0) #5
-  %22 = tail call ptr @data_set_dict(ptr noundef %21) #5
+  %21 = tail call ptr @data_list_append(ptr noundef %0) #6
+  %22 = tail call ptr @data_set_dict(ptr noundef %21) #6
   %23 = getelementptr inbounds i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %16, i64 72
@@ -1429,7 +1429,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
 35:                                               ; preds = %3
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = tail call ptr @find_parser_by_type(i32 noundef %37) #5
+  %38 = tail call ptr @find_parser_by_type(i32 noundef %37) #6
   br label %39
 
 39:                                               ; preds = %3, %35
@@ -1441,7 +1441,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %42 = phi i32 [ %45, %.lr.ph ], [ %41, %39 ]
-  %43 = tail call ptr @find_parser_by_type(i32 noundef %42) #5
+  %43 = tail call ptr @find_parser_by_type(i32 noundef %42) #6
   %44 = getelementptr inbounds i8, ptr %43, i64 116
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %45, 0
@@ -1455,8 +1455,8 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   br i1 %48, label %_add_param_eflags.exit, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = tail call ptr @data_list_append(ptr noundef %0) #5
-  %51 = tail call ptr @data_set_dict(ptr noundef %50) #5
+  %50 = tail call ptr @data_list_append(ptr noundef %0) #6
+  %51 = tail call ptr @data_set_dict(ptr noundef %50) #6
   %52 = getelementptr inbounds i8, ptr %1, i64 96
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %.1.lcssa, i64 40
@@ -1480,7 +1480,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
 69:                                               ; preds = %49
   %70 = getelementptr inbounds i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 8
-  %72 = tail call ptr @find_parser_by_type(i32 noundef %71) #5
+  %72 = tail call ptr @find_parser_by_type(i32 noundef %71) #6
   br label %73
 
 73:                                               ; preds = %69, %49
@@ -1509,9 +1509,9 @@ define void @data_parser_p_release_references(ptr nocapture noundef readnone %0,
 5:                                                ; preds = %2
   store ptr null, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @slurm_xfree(ptr noundef nonnull %6) #5
+  tail call void @slurm_xfree(ptr noundef nonnull %6) #6
   store i32 1433334132, ptr %4, align 8
-  call void @slurm_xfree(ptr noundef nonnull %3) #5
+  call void @slurm_xfree(ptr noundef nonnull %3) #6
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -1520,25 +1520,25 @@ define void @data_parser_p_release_references(ptr nocapture noundef readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %4 = tail call i32 @data_get_type(ptr noundef %0) #6
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @data_set_dict(ptr noundef %0) #5
+  %7 = tail call ptr @data_set_dict(ptr noundef %0) #6
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.15) #5
-  %10 = tail call ptr @openapi_type_format_to_type_string(i32 noundef %1) #5
-  %11 = tail call ptr @data_set_string(ptr noundef %9, ptr noundef %10) #5
-  %12 = tail call ptr @openapi_type_format_to_format_string(i32 noundef %1) #5
+  %9 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.15) #6
+  %10 = tail call ptr @openapi_type_format_to_type_string(i32 noundef %1) #6
+  %11 = tail call ptr @data_set_string(ptr noundef %9, ptr noundef %10) #6
+  %12 = tail call ptr @openapi_type_format_to_format_string(i32 noundef %1) #6
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.16) #5
-  %15 = tail call ptr @data_set_string(ptr noundef %14, ptr noundef nonnull %12) #5
+  %14 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.16) #6
+  %15 = tail call ptr @data_set_string(ptr noundef %14, ptr noundef nonnull %12) #6
   br label %16
 
 16:                                               ; preds = %13, %8
@@ -1546,8 +1546,8 @@ define internal fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %1, p
   br i1 %.not19, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #5
-  %19 = tail call ptr @data_set_string(ptr noundef %18, ptr noundef nonnull %2) #5
+  %18 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #6
+  %19 = tail call ptr @data_set_string(ptr noundef %18, ptr noundef nonnull %2) #6
   br label %20
 
 20:                                               ; preds = %17, %16
@@ -1561,8 +1561,8 @@ define internal fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %1, p
 
 .sink.split:                                      ; preds = %20, %21
   %.str.18.sink = phi ptr [ @.str.18, %21 ], [ @.str.17, %20 ]
-  %22 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull %.str.18.sink) #5
-  %23 = tail call ptr @data_set_dict(ptr noundef %22) #5
+  %22 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull %.str.18.sink) #6
+  %23 = tail call ptr @data_set_dict(ptr noundef %22) #6
   br label %24
 
 24:                                               ; preds = %.sink.split, %20
@@ -1572,11 +1572,11 @@ define internal fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_param_flag_enum(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.19) #5
-  %4 = tail call ptr @data_set_list(ptr noundef %3) #5
-  %5 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.15) #5
-  %6 = tail call ptr @openapi_type_format_to_type_string(i32 noundef 7) #5
-  %7 = tail call ptr @data_set_string(ptr noundef %5, ptr noundef %6) #5
+  %3 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.19) #6
+  %4 = tail call ptr @data_set_list(ptr noundef %3) #6
+  %5 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.15) #6
+  %6 = tail call ptr @openapi_type_format_to_type_string(i32 noundef 7) #6
+  %7 = tail call ptr @data_set_string(ptr noundef %5, ptr noundef %6) #6
   %8 = getelementptr inbounds i8, ptr %1, i64 136
   %9 = load i8, ptr %8, align 8
   %.not = icmp eq i8 %9, 0
@@ -1596,11 +1596,11 @@ define internal fastcc void @_add_param_flag_enum(ptr noundef %0, ptr nocapture 
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @data_list_append(ptr noundef %4) #5
+  %18 = tail call ptr @data_list_append(ptr noundef %4) #6
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds %struct.flag_bit_t, ptr %19, i64 %indvars.iv, i32 1
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @data_set_string(ptr noundef %18, ptr noundef %21) #5
+  %22 = tail call ptr @data_set_string(ptr noundef %18, ptr noundef %21) #6
   %.pre = load i8, ptr %8, align 8
   br label %23
 
@@ -1651,20 +1651,20 @@ declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 5) i32 @_foreach_path_entry(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #5
+  %4 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #6
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @data_get_string(ptr noundef %0) #5
-  %7 = tail call ptr @xstrdup(ptr noundef %6) #5
+  %6 = tail call ptr @data_get_string(ptr noundef %0) #6
+  %7 = tail call ptr @xstrdup(ptr noundef %6) #6
   store ptr %7, ptr %3, align 8
   %8 = load i8, ptr %7, align 1
   %.not6 = icmp eq i8 %8, 123
   br i1 %.not6, label %9, label %.sink.split
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @xstrstr(ptr noundef nonnull %7, ptr noundef nonnull @.str.28) #5
+  %10 = tail call ptr @xstrstr(ptr noundef nonnull %7, ptr noundef nonnull @.str.28) #6
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %12, label %11
 
@@ -1678,11 +1678,11 @@ define internal range(i32 1, 5) i32 @_foreach_path_entry(ptr noundef %0, ptr noc
   %14 = getelementptr inbounds i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 1
-  %17 = tail call ptr @data_key_set(ptr noundef %15, ptr noundef nonnull %16) #5
+  %17 = tail call ptr @data_key_set(ptr noundef %15, ptr noundef nonnull %16) #6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %12
-  call void @slurm_xfree(ptr noundef nonnull %3) #5
+  call void @slurm_xfree(ptr noundef nonnull %3) #6
   br label %18
 
 18:                                               ; preds = %.sink.split, %2
@@ -1692,43 +1692,43 @@ define internal range(i32 1, 5) i32 @_foreach_path_entry(ptr noundef %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 5) i32 @_foreach_path_method(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @data_get_type(ptr noundef %1) #5
+  %4 = tail call i32 @data_get_type(ptr noundef %1) #6
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %5, label %30
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @data_key_get(ptr noundef %1, ptr noundef nonnull @.str.29) #5
+  %6 = tail call ptr @data_key_get(ptr noundef %1, ptr noundef nonnull @.str.29) #6
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %30, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @data_get_type(ptr noundef nonnull %6) #5
+  %8 = tail call i32 @data_get_type(ptr noundef nonnull %6) #6
   %.not23 = icmp eq i32 %8, 3
   br i1 %.not23, label %9, label %30
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @data_key_get(ptr noundef nonnull %6, ptr noundef nonnull @.str) #5
+  %10 = tail call ptr @data_key_get(ptr noundef nonnull %6, ptr noundef nonnull @.str) #6
   %.not24 = icmp eq ptr %10, null
   br i1 %.not24, label %30, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @data_new() #5
-  %13 = tail call ptr @data_move(ptr noundef %12, ptr noundef nonnull %10) #5
-  %14 = tail call ptr @data_set_list(ptr noundef nonnull %6) #5
+  %12 = tail call ptr @data_new() #6
+  %13 = tail call ptr @data_move(ptr noundef %12, ptr noundef nonnull %10) #6
+  %14 = tail call ptr @data_set_list(ptr noundef nonnull %6) #6
   %15 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %14, ptr %15, align 8
-  %16 = tail call i32 @data_get_type(ptr noundef %12) #5
+  %16 = tail call i32 @data_get_type(ptr noundef %12) #6
   %17 = icmp eq i32 %16, 2
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %11
-  %19 = tail call i32 @data_list_for_each(ptr noundef %12, ptr noundef nonnull @_foreach_path_method_ref, ptr noundef nonnull %2) #5
+  %19 = tail call i32 @data_list_for_each(ptr noundef %12, ptr noundef nonnull @_foreach_path_method_ref, ptr noundef nonnull %2) #6
   %20 = icmp slt i32 %19, 0
   %spec.select = select i1 %20, i32 4, i32 1
   br label %28
 
 21:                                               ; preds = %11
-  %22 = tail call i32 @data_get_type(ptr noundef %12) #5
+  %22 = tail call i32 @data_get_type(ptr noundef %12) #6
   %23 = icmp eq i32 %22, 5
   br i1 %23, label %24, label %26
 
@@ -1737,7 +1737,7 @@ define internal range(i32 1, 5) i32 @_foreach_path_method(ptr nocapture readnone
   br label %28
 
 26:                                               ; preds = %21
-  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30) #5
+  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30) #6
   br label %30
 
 28:                                               ; preds = %18, %24
@@ -1746,7 +1746,7 @@ define internal range(i32 1, 5) i32 @_foreach_path_method(ptr nocapture readnone
   br i1 %.not25, label %30, label %29
 
 29:                                               ; preds = %28
-  tail call void @data_free(ptr noundef nonnull %12) #5
+  tail call void @data_free(ptr noundef nonnull %12) #6
   br label %30
 
 30:                                               ; preds = %28, %29, %9, %7, %5, %3, %26
@@ -1760,7 +1760,7 @@ declare ptr @data_move(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 5) i32 @_foreach_path_method_ref(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = tail call ptr @data_get_string(ptr noundef %0) #5
+  %3 = tail call ptr @data_get_string(ptr noundef %0) #6
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -1782,7 +1782,7 @@ define internal range(i32 1, 5) i32 @_foreach_path_method_ref(ptr noundef %0, pt
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds %struct.parser_s, ptr %13, i64 %indvars.iv.i, i32 3
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @xstrcmp(ptr noundef %15, ptr noundef %3) #5
+  %16 = tail call i32 @xstrcmp(ptr noundef %15, ptr noundef %3) #6
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_resolve_parser.exit, label %8
 
@@ -1793,8 +1793,8 @@ _resolve_parser.exit:                             ; preds = %12
   br i1 %.not, label %_resolve_parser.exit.thread, label %21
 
 _resolve_parser.exit.thread:                      ; preds = %8, %2, %_resolve_parser.exit
-  %19 = tail call ptr @data_get_string(ptr noundef %0) #5
-  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._foreach_path_method_ref, ptr noundef %19) #5
+  %19 = tail call ptr @data_get_string(ptr noundef %0) #6
+  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._foreach_path_method_ref, ptr noundef %19) #6
   br label %.loopexit
 
 21:                                               ; preds = %_resolve_parser.exit
@@ -1806,7 +1806,7 @@ _resolve_parser.exit.thread:                      ; preds = %8, %2, %_resolve_pa
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %18, i64 116
   %27 = load i32, ptr %26, align 4
-  %28 = tail call ptr @find_parser_by_type(i32 noundef %27) #5
+  %28 = tail call ptr @find_parser_by_type(i32 noundef %27) #6
   %.phi.trans.insert = getelementptr inbounds i8, ptr %28, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %29
@@ -1818,22 +1818,22 @@ _resolve_parser.exit.thread:                      ; preds = %8, %2, %_resolve_pa
   br i1 %.not22, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #5
+  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #6
   br label %.loopexit
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @get_log_level() #5
+  %34 = tail call i32 @get_log_level() #6
   %35 = icmp sgt i32 %34, 6
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @data_get_string(ptr noundef %0) #5
+  %37 = tail call ptr @data_get_string(ptr noundef %0) #6
   %38 = getelementptr inbounds i8, ptr %.018, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %.018 to i64
   %41 = getelementptr inbounds i8, ptr %.018, i64 32
   %42 = load ptr, ptr %41, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef %37, ptr noundef %39, i64 noundef %40, ptr noundef %42) #5
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef %37, ptr noundef %39, i64 noundef %40, ptr noundef %42) #6
   br label %43
 
 43:                                               ; preds = %36, %33
@@ -1871,32 +1871,32 @@ define internal fastcc void @_replace_refs(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not, label %44, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @data_get_type(ptr noundef nonnull %0) #5
+  %4 = tail call i32 @data_get_type(ptr noundef nonnull %0) #6
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @data_list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_convert_list_entry, ptr noundef %1) #5
+  %7 = tail call i32 @data_list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_convert_list_entry, ptr noundef %1) #6
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = tail call i32 @data_get_type(ptr noundef nonnull %0) #5
+  %9 = tail call i32 @data_get_type(ptr noundef nonnull %0) #6
   %.not26 = icmp eq i32 %9, 3
   br i1 %.not26, label %10, label %44
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @data_key_get(ptr noundef nonnull %0, ptr noundef nonnull @.str) #5
+  %11 = tail call ptr @data_key_get(ptr noundef nonnull %0, ptr noundef nonnull @.str) #6
   %.not27 = icmp eq ptr %11, null
   br i1 %.not27, label %42, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @data_get_type(ptr noundef nonnull %11) #5
+  %13 = tail call i32 @data_get_type(ptr noundef nonnull %11) #6
   %14 = icmp eq i32 %13, 5
   br i1 %14, label %15, label %42
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @data_get_string(ptr noundef nonnull %11) #5
-  %17 = tail call i32 @xstrncmp(ptr noundef %16, ptr noundef nonnull @.str.34, i64 noundef 12) #5
+  %16 = tail call ptr @data_get_string(ptr noundef nonnull %11) #6
+  %17 = tail call i32 @xstrncmp(ptr noundef %16, ptr noundef nonnull @.str.34, i64 noundef 12) #6
   %.not28 = icmp eq i32 %17, 0
   br i1 %.not28, label %.preheader, label %42
 
@@ -1922,8 +1922,8 @@ define internal fastcc void @_replace_refs(ptr noundef %0, ptr noundef %1) unnam
   %27 = load ptr, ptr %21, align 8
   %28 = getelementptr inbounds %struct.parser_s, ptr %27, i64 %indvars.iv, i32 3
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @data_get_string(ptr noundef nonnull %11) #5
-  %31 = tail call i32 @xstrcmp(ptr noundef %29, ptr noundef %30) #5
+  %30 = tail call ptr @data_get_string(ptr noundef nonnull %11) #6
+  %31 = tail call i32 @xstrcmp(ptr noundef %29, ptr noundef %30) #6
   %.not29 = icmp eq i32 %31, 0
   br i1 %.not29, label %32, label %22
 
@@ -1933,17 +1933,17 @@ define internal fastcc void @_replace_refs(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not30, label %.thread, label %40
 
 .thread:                                          ; preds = %22, %.preheader, %32
-  %34 = tail call i32 @get_log_level() #5
+  %34 = tail call i32 @get_log_level() #6
   %35 = icmp sgt i32 %34, 4
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %.thread
-  %37 = tail call ptr @data_get_string(ptr noundef nonnull %0) #5
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__._replace_refs, ptr noundef %37) #5
+  %37 = tail call ptr @data_get_string(ptr noundef nonnull %0) #6
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__._replace_refs, ptr noundef %37) #6
   br label %38
 
 38:                                               ; preds = %36, %.thread
-  %39 = tail call ptr @data_set_null(ptr noundef nonnull %0) #5
+  %39 = tail call ptr @data_set_null(ptr noundef nonnull %0) #6
   br label %44
 
 40:                                               ; preds = %32
@@ -1952,7 +1952,7 @@ define internal fastcc void @_replace_refs(ptr noundef %0, ptr noundef %1) unnam
   br label %44
 
 42:                                               ; preds = %15, %12, %10
-  %43 = tail call i32 @data_dict_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_convert_dict_entry, ptr noundef %1) #5
+  %43 = tail call i32 @data_dict_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_convert_dict_entry, ptr noundef %1) #6
   br label %44
 
 44:                                               ; preds = %8, %2, %42, %40, %38
@@ -1961,161 +1961,158 @@ define internal fastcc void @_replace_refs(ptr noundef %0, ptr noundef %1) unnam
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_count_dict_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef nonnull @.str) #5
+  %4 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef nonnull @.str) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %_increment_ref.exit
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @data_get_type(ptr noundef %1) #5
+  %6 = tail call i32 @data_get_type(ptr noundef %1) #6
   %7 = icmp eq i32 %6, 5
   br i1 %7, label %8, label %_increment_ref.exit
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @data_get_string(ptr noundef %1) #5
-  %10 = tail call i32 @xstrncmp(ptr noundef %9, ptr noundef nonnull @.str.34, i64 noundef 12) #5
+  %9 = tail call ptr @data_get_string(ptr noundef %1) #6
+  %10 = tail call i32 @xstrncmp(ptr noundef %9, ptr noundef nonnull @.str.34, i64 noundef 12) #6
   %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %11, label %_increment_ref.exit
+  br i1 %.not11, label %.lr.ph.i, label %_increment_ref.exit
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @data_get_string(ptr noundef %1) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.i, label %_resolve_parser.exit
+.lr.ph.i:                                         ; preds = %8
+  %11 = tail call ptr @data_get_string(ptr noundef %1) #6
+  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp sgt i32 %13, 0
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 @xstrcmp(ptr noundef %18, ptr noundef %11) #6
+  %.not.i16 = icmp eq i32 %19, 0
+  br i1 %.not.i16, label %_resolve_parser.exit, label %.lr.ph
 
-.lr.ph.i:                                         ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %21
+.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
+  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i17, 1
+  %20 = load i32, ptr %12, align 8
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next.i, %21
+  tail call void @llvm.assume(i1 %22)
+  %23 = load ptr, ptr %15, align 8
+  %24 = getelementptr inbounds %struct.parser_s, ptr %23, i64 %indvars.iv.next.i, i32 3
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 @xstrcmp(ptr noundef %25, ptr noundef %11) #6
+  %.not.i = icmp eq i32 %26, 0
+  br i1 %.not.i, label %_resolve_parser.exit, label %.lr.ph
 
-17:                                               ; preds = %21
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = load i32, ptr %13, align 8
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next.i, %19
-  br i1 %20, label %21, label %_resolve_parser.exit, !llvm.loop !22
-
-21:                                               ; preds = %17, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds %struct.parser_s, ptr %22, i64 %indvars.iv.i, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @xstrcmp(ptr noundef %24, ptr noundef %12) #5
-  %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %26, label %17
-
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds %struct.parser_s, ptr %27, i64 %indvars.iv.i
-  br label %_resolve_parser.exit
-
-_resolve_parser.exit:                             ; preds = %17, %11, %26
-  %.08.i = phi ptr [ %28, %26 ], [ null, %11 ], [ null, %17 ]
-  %29 = getelementptr inbounds i8, ptr %.08.i, i64 116
+_resolve_parser.exit:                             ; preds = %.lr.ph, %.lr.ph.i
+  %indvars.iv.i.lcssa = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.lr.ph ]
+  %27 = load ptr, ptr %15, align 8
+  %28 = getelementptr inbounds %struct.parser_s, ptr %27, i64 %indvars.iv.i.lcssa
+  %29 = getelementptr inbounds i8, ptr %28, i64 116
   %30 = load i32, ptr %29, align 4
   %.not18.i = icmp eq i32 %30, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %_resolve_parser.exit, %.lr.ph.i12
   %31 = phi i32 [ %34, %.lr.ph.i12 ], [ %30, %_resolve_parser.exit ]
-  %32 = tail call ptr @find_parser_by_type(i32 noundef %31) #5
+  %32 = tail call ptr @find_parser_by_type(i32 noundef %31) #6
   %33 = getelementptr inbounds i8, ptr %32, i64 116
   %34 = load i32, ptr %33, align 4
   %.not.i13 = icmp eq i32 %34, 0
   br i1 %.not.i13, label %._crit_edge.i, label %.lr.ph.i12, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %_resolve_parser.exit
-  %.0.lcssa.i = phi ptr [ %.08.i, %_resolve_parser.exit ], [ %32, %.lr.ph.i12 ]
-  %35 = load i32, ptr %13, align 8
+  %.0.lcssa.i = phi ptr [ %28, %_resolve_parser.exit ], [ %32, %.lr.ph.i12 ]
+  %35 = load i32, ptr %12, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i.i, label %_increment_ref.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i
   %37 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
+  %39 = load ptr, ptr %15, align 8
   %wide.trip.count.i.i = zext nneg i32 %35 to i64
-  br label %41
+  br label %40
 
-41:                                               ; preds = %45, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
-  %42 = getelementptr inbounds %struct.parser_s, ptr %40, i64 %indvars.iv.i.i, i32 2
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %38, %43
-  br i1 %44, label %_resolve_parser_index.exit.i, label %45
+40:                                               ; preds = %44, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %44 ]
+  %41 = getelementptr inbounds %struct.parser_s, ptr %39, i64 %indvars.iv.i.i, i32 2
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %38, %42
+  br i1 %43, label %_resolve_parser_index.exit.i, label %44
 
-45:                                               ; preds = %41
+44:                                               ; preds = %40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_increment_ref.exit, label %41, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_increment_ref.exit, label %40, !llvm.loop !6
 
-_resolve_parser_index.exit.i:                     ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %2, i64 80
-  %47 = load ptr, ptr %46, align 8
-  %48 = and i64 %indvars.iv.i.i, 4294967295
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = tail call i32 @get_log_level() #5
-  %53 = icmp sgt i32 %52, 7
-  br i1 %53, label %54, label %_increment_ref.exit
+_resolve_parser_index.exit.i:                     ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %2, i64 80
+  %46 = load ptr, ptr %45, align 8
+  %47 = and i64 %indvars.iv.i.i, 4294967295
+  %48 = getelementptr inbounds i32, ptr %46, i64 %47
+  %49 = load i32, ptr %48, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %48, align 4
+  %51 = tail call i32 @get_log_level() #6
+  %52 = icmp sgt i32 %51, 7
+  br i1 %52, label %53, label %_increment_ref.exit
 
-54:                                               ; preds = %_resolve_parser_index.exit.i
-  %55 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %46, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %48
-  %59 = load i32, ptr %58, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %56, i32 noundef %59) #5
+53:                                               ; preds = %_resolve_parser_index.exit.i
+  %54 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %45, align 8
+  %57 = getelementptr inbounds i32, ptr %56, i64 %47
+  %58 = load i32, ptr %57, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %55, i32 noundef %58) #6
   br label %_increment_ref.exit
 
-_increment_ref.exit:                              ; preds = %45, %54, %_resolve_parser_index.exit.i, %._crit_edge.i, %8, %5, %3
-  %60 = tail call i32 @data_get_type(ptr noundef %1) #5
-  %61 = icmp eq i32 %60, 2
-  br i1 %61, label %65, label %62
+_increment_ref.exit:                              ; preds = %44, %53, %_resolve_parser_index.exit.i, %._crit_edge.i, %8, %5, %3
+  %59 = tail call i32 @data_get_type(ptr noundef %1) #6
+  %60 = icmp eq i32 %59, 2
+  br i1 %60, label %64, label %61
 
-62:                                               ; preds = %_increment_ref.exit
-  %63 = tail call i32 @data_get_type(ptr noundef %1) #5
-  %64 = icmp ne i32 %63, 3
+61:                                               ; preds = %_increment_ref.exit
+  %62 = tail call i32 @data_get_type(ptr noundef %1) #6
+  %63 = icmp ne i32 %62, 3
   %.not.i14 = icmp eq ptr %1, null
-  %or.cond = or i1 %.not.i14, %64
-  br i1 %or.cond, label %_count_refs.exit, label %66
+  %or.cond = or i1 %.not.i14, %63
+  br i1 %or.cond, label %_count_refs.exit, label %65
 
-65:                                               ; preds = %_increment_ref.exit
+64:                                               ; preds = %_increment_ref.exit
   %.not.i14.old = icmp eq ptr %1, null
-  br i1 %.not.i14.old, label %_count_refs.exit, label %66
+  br i1 %.not.i14.old, label %_count_refs.exit, label %65
 
-66:                                               ; preds = %62, %65
-  %67 = tail call i32 @data_get_type(ptr noundef nonnull %1) #5
-  %68 = icmp eq i32 %67, 3
-  br i1 %68, label %69, label %71
+65:                                               ; preds = %61, %64
+  %66 = tail call i32 @data_get_type(ptr noundef nonnull %1) #6
+  %67 = icmp eq i32 %66, 3
+  br i1 %67, label %68, label %70
 
-69:                                               ; preds = %66
-  %70 = tail call i32 @data_dict_for_each(ptr noundef nonnull %1, ptr noundef nonnull @_count_dict_entry, ptr noundef %2) #5
+68:                                               ; preds = %65
+  %69 = tail call i32 @data_dict_for_each(ptr noundef nonnull %1, ptr noundef nonnull @_count_dict_entry, ptr noundef %2) #6
   br label %_count_refs.exit
 
-71:                                               ; preds = %66
-  %72 = tail call i32 @data_get_type(ptr noundef nonnull %1) #5
-  %73 = icmp eq i32 %72, 2
-  br i1 %73, label %74, label %_count_refs.exit
+70:                                               ; preds = %65
+  %71 = tail call i32 @data_get_type(ptr noundef nonnull %1) #6
+  %72 = icmp eq i32 %71, 2
+  br i1 %72, label %73, label %_count_refs.exit
 
-74:                                               ; preds = %71
-  %75 = tail call i32 @data_list_for_each(ptr noundef nonnull %1, ptr noundef nonnull @_count_list_entry, ptr noundef %2) #5
+73:                                               ; preds = %70
+  %74 = tail call i32 @data_list_for_each(ptr noundef nonnull %1, ptr noundef nonnull @_count_list_entry, ptr noundef %2) #6
   br label %_count_refs.exit
 
-_count_refs.exit:                                 ; preds = %74, %71, %69, %65, %62
+_count_refs.exit:                                 ; preds = %73, %70, %68, %64, %61
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_count_list_entry(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %3 = tail call i32 @data_get_type(ptr noundef %0) #6
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %6 = tail call i32 @data_get_type(ptr noundef %0) #6
   %7 = icmp ne i32 %6, 3
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %7
@@ -2126,21 +2123,21 @@ define internal noundef i32 @_count_list_entry(ptr noundef %0, ptr noundef %1) #
   br i1 %.not.i.old, label %_count_refs.exit, label %9
 
 9:                                                ; preds = %5, %8
-  %10 = tail call i32 @data_get_type(ptr noundef nonnull %0) #5
+  %10 = tail call i32 @data_get_type(ptr noundef nonnull %0) #6
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @data_dict_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_count_dict_entry, ptr noundef %1) #5
+  %13 = tail call i32 @data_dict_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_count_dict_entry, ptr noundef %1) #6
   br label %_count_refs.exit
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @data_get_type(ptr noundef nonnull %0) #5
+  %15 = tail call i32 @data_get_type(ptr noundef nonnull %0) #6
   %16 = icmp eq i32 %15, 2
   br i1 %16, label %17, label %_count_refs.exit
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @data_list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_count_list_entry, ptr noundef %1) #5
+  %18 = tail call i32 @data_list_for_each(ptr noundef nonnull %0, ptr noundef nonnull @_count_list_entry, ptr noundef %1) #6
   br label %_count_refs.exit
 
 _count_refs.exit:                                 ; preds = %17, %14, %12, %8, %5
@@ -2151,12 +2148,12 @@ declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_convert_list_entry(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %3 = tail call i32 @data_get_type(ptr noundef %0) #6
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @data_get_type(ptr noundef %0) #5
+  %6 = tail call i32 @data_get_type(ptr noundef %0) #6
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %8, label %9
 
@@ -2172,12 +2169,12 @@ declare ptr @data_set_null(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_convert_dict_entry(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @data_get_type(ptr noundef %1) #5
+  %4 = tail call i32 @data_get_type(ptr noundef %1) #6
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @data_get_type(ptr noundef %1) #5
+  %7 = tail call i32 @data_get_type(ptr noundef %1) #6
   %8 = icmp eq i32 %7, 3
   br i1 %8, label %9, label %10
 
@@ -2191,46 +2188,46 @@ define internal noundef i32 @_convert_dict_entry(ptr nocapture readnone %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_add_param(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr %.64.val) unnamed_addr #0 {
-  %7 = tail call ptr @data_key_get(ptr noundef %.64.val, ptr noundef %1) #5
+  %7 = tail call ptr @data_key_get(ptr noundef %.64.val, ptr noundef %1) #6
   %8 = icmp ne ptr %7, null
-  %9 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.38) #5
+  %9 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.38) #6
   %10 = select i1 %8, ptr @.str.39, ptr @.str.40
-  %11 = tail call ptr @data_set_string(ptr noundef %9, ptr noundef nonnull %10) #5
-  %12 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.41) #5
-  %13 = tail call ptr @data_set_string(ptr noundef %12, ptr noundef %1) #5
-  %14 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.42) #5
+  %11 = tail call ptr @data_set_string(ptr noundef %9, ptr noundef nonnull %10) #6
+  %12 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.41) #6
+  %13 = tail call ptr @data_set_string(ptr noundef %12, ptr noundef %1) #6
+  %14 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.42) #6
   %15 = select i1 %8, ptr @.str.43, ptr @.str.44
-  %16 = tail call ptr @data_set_string(ptr noundef %14, ptr noundef nonnull %15) #5
-  %17 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.45) #5
-  %18 = tail call ptr @data_set_bool(ptr noundef %17, i1 noundef zeroext false) #5
+  %16 = tail call ptr @data_set_string(ptr noundef %14, ptr noundef nonnull %15) #6
+  %17 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.45) #6
+  %18 = tail call ptr @data_set_bool(ptr noundef %17, i1 noundef zeroext false) #6
   br i1 %4, label %19, label %22
 
 19:                                               ; preds = %6
-  %20 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #5
-  %21 = tail call ptr @data_set_bool(ptr noundef %20, i1 noundef zeroext true) #5
+  %20 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.2) #6
+  %21 = tail call ptr @data_set_bool(ptr noundef %20, i1 noundef zeroext true) #6
   br label %22
 
 22:                                               ; preds = %19, %6
-  %23 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.46) #5
-  %24 = tail call ptr @data_set_bool(ptr noundef %23, i1 noundef zeroext %2) #5
-  %25 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.47) #5
-  %26 = tail call ptr @data_set_bool(ptr noundef %25, i1 noundef zeroext false) #5
+  %23 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.46) #6
+  %24 = tail call ptr @data_set_bool(ptr noundef %23, i1 noundef zeroext %2) #6
+  %25 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.47) #6
+  %26 = tail call ptr @data_set_bool(ptr noundef %25, i1 noundef zeroext false) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #5
-  %29 = tail call ptr @data_set_string(ptr noundef %28, ptr noundef nonnull %3) #5
+  %28 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.1) #6
+  %29 = tail call ptr @data_set_string(ptr noundef %28, ptr noundef nonnull %3) #6
   br label %30
 
 30:                                               ; preds = %27, %22
-  %31 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.13) #5
+  %31 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.13) #6
   %32 = or i1 %8, %5
-  %33 = tail call ptr @data_set_bool(ptr noundef %31, i1 noundef zeroext %32) #5
-  %34 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.48) #5
-  %35 = tail call ptr @data_set_dict(ptr noundef %34) #5
-  %36 = tail call ptr @data_key_set(ptr noundef %35, ptr noundef nonnull @.str.15) #5
-  %37 = tail call ptr @data_set_string(ptr noundef %36, ptr noundef nonnull @.str.49) #5
+  %33 = tail call ptr @data_set_bool(ptr noundef %31, i1 noundef zeroext %32) #6
+  %34 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.48) #6
+  %35 = tail call ptr @data_set_dict(ptr noundef %34) #6
+  %36 = tail call ptr @data_key_set(ptr noundef %35, ptr noundef nonnull @.str.15) #6
+  %37 = tail call ptr @data_set_string(ptr noundef %36, ptr noundef nonnull @.str.49) #6
   ret ptr %35
 }
 
@@ -2240,13 +2237,17 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

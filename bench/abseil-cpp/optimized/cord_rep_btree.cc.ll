@@ -6792,25 +6792,23 @@ if.then:                                          ; preds = %sw.bb
   call void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(ptr noundef nonnull %stack.i, ptr noundef nonnull %call.i, i1 noundef zeroext true)
   %3 = load ptr, ptr %stack.i, align 16
   %cmp3.i9 = icmp eq ptr %3, null
-  br i1 %cmp3.i9, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.body.i
+  br i1 %cmp3.i9, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.add.i12, 8
-  %cmp.not.i = icmp eq i64 %__begin2.0.add.i, 104
-  br i1 %cmp.not.i, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.body.i
-
-for.body.i:                                       ; preds = %if.then, %for.cond.i
-  %__begin2.0.add.i12 = phi i64 [ %__begin2.0.add.i, %for.cond.i ], [ 8, %if.then ]
+for.cond.i:                                       ; preds = %if.then, %for.cond.i
   %4 = phi ptr [ %5, %for.cond.i ], [ %3, %if.then ]
-  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr %stack.i, i64 %__begin2.0.add.i12
+  %__begin2.0.idx6.i10 = phi i64 [ %__begin2.0.add.i, %for.cond.i ], [ 0, %if.then ]
+  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.idx6.i10, 8
+  %cmp.not.i = icmp ne i64 %__begin2.0.add.i, 104
+  tail call void @llvm.assume(i1 %cmp.not.i)
+  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr %stack.i, i64 %__begin2.0.add.i
   %5 = load ptr, ptr %__begin2.0.ptr.i, align 8
   %cmp3.i = icmp eq ptr %5, null
   br i1 %cmp3.i, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.cond.i
 
-_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit: ; preds = %for.body.i, %for.cond.i, %if.then
-  %retval.0.i = phi ptr [ %call.i.i, %if.then ], [ null, %for.cond.i ], [ %4, %for.body.i ]
+_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit: ; preds = %for.cond.i, %if.then
+  %node.07.i.lcssa = phi ptr [ %call.i.i, %if.then ], [ %4, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %stack.i)
-  %storage.i7 = getelementptr inbounds i8, ptr %retval.0.i, i64 13
+  %storage.i7 = getelementptr inbounds i8, ptr %node.07.i.lcssa, i64 13
   %6 = load i8, ptr %storage.i7, align 1
   %cmp5 = icmp ugt i8 %6, 11
   br i1 %cmp5, label %do.body7, label %return
@@ -6833,7 +6831,7 @@ do.body15:                                        ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.then.i, %sw.bb12, %entry, %sw.bb, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit
-  %retval.0 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit ], [ %call.i, %sw.bb ], [ %result.coerce0, %entry ], [ %result.coerce0, %sw.bb12 ], [ %result.coerce0, %if.then.i ]
+  %retval.0 = phi ptr [ %node.07.i.lcssa, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit ], [ %call.i, %sw.bb ], [ %result.coerce0, %entry ], [ %result.coerce0, %sw.bb12 ], [ %result.coerce0, %if.then.i ]
   ret ptr %retval.0
 }
 
@@ -6886,25 +6884,23 @@ if.then:                                          ; preds = %sw.bb
   call void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(ptr noundef nonnull %stack.i, ptr noundef nonnull %call.i, i1 noundef zeroext true)
   %3 = load ptr, ptr %stack.i, align 16
   %cmp3.i9 = icmp eq ptr %3, null
-  br i1 %cmp3.i9, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.body.i
+  br i1 %cmp3.i9, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i
-  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.add.i12, 8
-  %cmp.not.i = icmp eq i64 %__begin2.0.add.i, 104
-  br i1 %cmp.not.i, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.body.i
-
-for.body.i:                                       ; preds = %if.then, %for.cond.i
-  %__begin2.0.add.i12 = phi i64 [ %__begin2.0.add.i, %for.cond.i ], [ 8, %if.then ]
+for.cond.i:                                       ; preds = %if.then, %for.cond.i
   %4 = phi ptr [ %5, %for.cond.i ], [ %3, %if.then ]
-  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr %stack.i, i64 %__begin2.0.add.i12
+  %__begin2.0.idx6.i10 = phi i64 [ %__begin2.0.add.i, %for.cond.i ], [ 0, %if.then ]
+  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.idx6.i10, 8
+  %cmp.not.i = icmp ne i64 %__begin2.0.add.i, 104
+  tail call void @llvm.assume(i1 %cmp.not.i)
+  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr %stack.i, i64 %__begin2.0.add.i
   %5 = load ptr, ptr %__begin2.0.ptr.i, align 8
   %cmp3.i = icmp eq ptr %5, null
   br i1 %cmp3.i, label %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit, label %for.cond.i
 
-_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit: ; preds = %for.body.i, %for.cond.i, %if.then
-  %retval.0.i = phi ptr [ %call.i.i, %if.then ], [ null, %for.cond.i ], [ %4, %for.body.i ]
+_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit: ; preds = %for.cond.i, %if.then
+  %node.07.i.lcssa = phi ptr [ %call.i.i, %if.then ], [ %4, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %stack.i)
-  %storage.i7 = getelementptr inbounds i8, ptr %retval.0.i, i64 13
+  %storage.i7 = getelementptr inbounds i8, ptr %node.07.i.lcssa, i64 13
   %6 = load i8, ptr %storage.i7, align 1
   %cmp5 = icmp ugt i8 %6, 11
   br i1 %cmp5, label %do.body7, label %return
@@ -6927,7 +6923,7 @@ do.body15:                                        ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.then.i, %sw.bb12, %entry, %sw.bb, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit
-  %retval.0 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit ], [ %call.i, %sw.bb ], [ %result.coerce0, %entry ], [ %result.coerce0, %sw.bb12 ], [ %result.coerce0, %if.then.i ]
+  %retval.0 = phi ptr [ %node.07.i.lcssa, %_ZN4absl13cord_internal12CordRepBtree7RebuildEPS1_.exit ], [ %call.i, %sw.bb ], [ %result.coerce0, %entry ], [ %result.coerce0, %sw.bb12 ], [ %result.coerce0, %if.then.i ]
   ret ptr %retval.0
 }
 

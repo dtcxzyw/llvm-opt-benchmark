@@ -21,117 +21,80 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = icmp ult i32 %1, 2
-  br i1 %5, label %Abc_Base2Log.exit.thread, label %.lr.ph.preheader.i
-
-Abc_Base2Log.exit.thread:                         ; preds = %2
-  %notmask41 = shl nsw i32 -1, %1
-  %6 = xor i32 %notmask41, -1
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 %6, ptr %7, align 8
-  br label %Abc_Base2Log.exit39
-
-.lr.ph.preheader.i:                               ; preds = %2
-  %8 = add i32 %1, -1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.013.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0812.i = phi i32 [ %9, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
-  %9 = lshr i32 %.0812.i, 1
-  %10 = add nuw nsw i32 %.013.i, 1
-  %.not.i = icmp ult i32 %.0812.i, 2
-  br i1 %.not.i, label %Abc_Base2Log.exit, label %.lr.ph.i, !llvm.loop !4
-
-Abc_Base2Log.exit:                                ; preds = %.lr.ph.i
-  %notmask = shl nsw i32 -2, %.013.i
-  %11 = xor i32 %notmask, -1
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 %11, ptr %12, align 8
-  br label %.lr.ph.i34
-
-.lr.ph.i34:                                       ; preds = %.lr.ph.i34, %Abc_Base2Log.exit
-  %.013.i35 = phi i32 [ %14, %.lr.ph.i34 ], [ 0, %Abc_Base2Log.exit ]
-  %.0812.i36 = phi i32 [ %13, %.lr.ph.i34 ], [ %8, %Abc_Base2Log.exit ]
-  %13 = lshr i32 %.0812.i36, 1
-  %14 = add nuw nsw i32 %.013.i35, 1
-  %.not.i37 = icmp ult i32 %.0812.i36, 2
-  br i1 %.not.i37, label %Abc_Base2Log.exit39.loopexit, label %.lr.ph.i34, !llvm.loop !4
-
-Abc_Base2Log.exit39.loopexit:                     ; preds = %.lr.ph.i34
-  %.pre45 = shl nsw i32 -2, %.013.i35
-  %.pre46 = xor i32 %.pre45, -1
-  br label %Abc_Base2Log.exit39
-
-Abc_Base2Log.exit39:                              ; preds = %Abc_Base2Log.exit39.loopexit, %Abc_Base2Log.exit.thread
-  %.pre-phi = phi i32 [ %.pre46, %Abc_Base2Log.exit39.loopexit ], [ %6, %Abc_Base2Log.exit.thread ]
-  %15 = phi ptr [ %12, %Abc_Base2Log.exit39.loopexit ], [ %7, %Abc_Base2Log.exit.thread ]
-  %16 = phi i32 [ %11, %Abc_Base2Log.exit39.loopexit ], [ %6, %Abc_Base2Log.exit.thread ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 %.pre-phi, ptr %17, align 4
-  %18 = add i32 %16, 1
-  %19 = zext i32 %18 to i64
-  %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 4) #12
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %20, ptr %21, align 8
-  %22 = sext i32 %1 to i64
-  %23 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 4) #12
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %23, ptr %24, align 8
-  %25 = mul i32 %.pre-phi, 3
-  %26 = add i32 %25, 3
-  %27 = zext i32 %26 to i64
-  %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 4) #12
-  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = add i32 %1, -1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
+  %8 = sub nuw nsw i32 32, %7
+  %.09.i = select i1 %5, i32 %1, i32 %8
+  %notmask = shl nsw i32 -1, %.09.i
+  %9 = xor i32 %notmask, -1
+  %10 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 %9, ptr %11, align 4
+  %12 = sub i32 0, %notmask
+  %13 = zext i32 %12 to i64
+  %14 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 4) #12
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %14, ptr %15, align 8
+  %16 = sext i32 %1 to i64
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #12
+  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %17, ptr %18, align 8
+  %19 = mul i32 %9, 3
+  %20 = add i32 %19, 3
+  %21 = zext i32 %20 to i64
+  %22 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 4) #12
+  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %22, ptr %23, align 8
+  %24 = shl nsw i32 %1, 1
+  %25 = sext i32 %24 to i64
+  %26 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 4) #12
+  %27 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %26, ptr %27, align 8
+  %28 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 1) #12
+  %29 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %28, ptr %29, align 8
-  %30 = shl nsw i32 %1, 1
-  %31 = sext i32 %30 to i64
-  %32 = tail call noalias ptr @calloc(i64 noundef %31, i64 noundef 4) #12
-  %33 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr %32, ptr %33, align 8
-  %34 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 1) #12
-  %35 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr %34, ptr %35, align 8
-  %36 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 1) #12
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %36, ptr %37, align 8
-  store i8 -1, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 1, ptr %38, align 4
-  %39 = icmp sgt i32 %0, 0
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  %30 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 1) #12
+  %31 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %30, ptr %31, align 8
+  store i8 -1, ptr %30, align 1
+  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %32, align 4
+  %33 = icmp sgt i32 %0, 0
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %Abc_Base2Log.exit39, %.lr.ph
-  %.042 = phi i32 [ %41, %.lr.ph ], [ 0, %Abc_Base2Log.exit39 ]
-  %40 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %3, i32 noundef %.042, i32 noundef 1, i32 noundef 0)
-  %41 = add nuw nsw i32 %.042, 1
-  %exitcond.not = icmp eq i32 %41, %0
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.034 = phi i32 [ %35, %.lr.ph ], [ 0, %2 ]
+  %34 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %3, i32 noundef %.034, i32 noundef 1, i32 noundef 0)
+  %35 = add nuw nsw i32 %.034, 1
+  %exitcond.not = icmp eq i32 %35, %0
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %15, align 8
-  %.pre43 = load i32, ptr %4, align 8
-  %.pre44 = load i32, ptr %17, align 4
-  %.pre47 = sext i32 %.pre43 to i64
-  %.pre49 = mul i32 %.pre44, 3
-  %.pre51 = add i32 %.pre49, 3
-  %.pre53 = zext i32 %.pre51 to i64
-  %.pre55 = shl nsw i32 %.pre43, 1
-  %.pre57 = sext i32 %.pre55 to i64
+  %.pre = load i32, ptr %10, align 8
+  %.pre35 = load i32, ptr %4, align 8
+  %.pre36 = load i32, ptr %11, align 4
+  %.pre37 = sext i32 %.pre35 to i64
+  %.pre38 = mul i32 %.pre36, 3
+  %.pre40 = add i32 %.pre38, 3
+  %.pre42 = zext i32 %.pre40 to i64
+  %.pre44 = shl nsw i32 %.pre35, 1
+  %.pre46 = sext i32 %.pre44 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Abc_Base2Log.exit39
-  %.pre-phi58 = phi i64 [ %.pre57, %._crit_edge.loopexit ], [ %31, %Abc_Base2Log.exit39 ]
-  %.pre-phi54 = phi i64 [ %.pre53, %._crit_edge.loopexit ], [ %27, %Abc_Base2Log.exit39 ]
-  %.pre-phi48 = phi i64 [ %.pre47, %._crit_edge.loopexit ], [ %22, %Abc_Base2Log.exit39 ]
-  %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %Abc_Base2Log.exit39 ]
-  %43 = zext i32 %42 to i64
-  %44 = add nuw nsw i64 %43, 23
-  %45 = add nsw i64 %44, %.pre-phi48
-  %46 = and i64 %.pre-phi58, 4611686018427387902
-  %47 = add nsw i64 %45, %46
-  %48 = add nsw i64 %47, %.pre-phi54
-  %49 = getelementptr inbounds i8, ptr %3, i64 80
-  store i64 %48, ptr %49, align 8
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.pre-phi47 = phi i64 [ %.pre46, %._crit_edge.loopexit ], [ %25, %2 ]
+  %.pre-phi43 = phi i64 [ %.pre42, %._crit_edge.loopexit ], [ %21, %2 ]
+  %.pre-phi = phi i64 [ %.pre37, %._crit_edge.loopexit ], [ %16, %2 ]
+  %36 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %2 ]
+  %37 = zext i32 %36 to i64
+  %38 = add nuw nsw i64 %37, 23
+  %39 = add nsw i64 %38, %.pre-phi
+  %40 = and i64 %.pre-phi47, 4611686018427387902
+  %41 = add nsw i64 %39, %40
+  %42 = add nsw i64 %41, %.pre-phi43
+  %43 = getelementptr inbounds i8, ptr %3, i64 80
+  store i64 %42, ptr %43, align 8
   ret ptr %3
 }
 
@@ -548,7 +511,7 @@ define i32 @Abc_BddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapt
   %.val = load i32, ptr %3, align 4
   %13 = sext i32 %.val to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %8, label %.critedge.preheader, !llvm.loop !7
+  br i1 %14, label %8, label %.critedge.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph26, %.critedge
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %.critedge ]
@@ -560,7 +523,7 @@ define i32 @Abc_BddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapt
   %.val18 = load i32, ptr %3, align 4
   %17 = sext i32 %.val18 to i64
   %18 = icmp slt i64 %indvars.iv.next29, %17
-  br i1 %18, label %.critedge, label %.critedge2, !llvm.loop !8
+  br i1 %18, label %.critedge, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.critedge, %2, %.critedge.preheader
   %.0.lcssa34 = phi i32 [ %12, %.critedge.preheader ], [ 0, %2 ], [ %12, %.critedge ]
@@ -591,7 +554,7 @@ define i32 @Abc_BddCountNodesArray2(ptr nocapture noundef readonly %0, ptr nocap
   %.val = load i32, ptr %3, align 4
   %11 = sext i32 %.val to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %6, label %.critedge, !llvm.loop !9
+  br i1 %12, label %6, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %6, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %6 ]
@@ -631,7 +594,7 @@ define void @Abc_BddPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %putchar = tail call i32 @putchar(i32 32)
@@ -771,7 +734,7 @@ define void @Abc_BddGiaTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.lr.ph120
   %.val66 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.val66, null
-  br i1 %.not, label %.critedge, label %.lr.ph120, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph120, !llvm.loop !10
 
 .lr.ph120:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.val66119 = phi ptr [ %.val66, %.lr.ph ], [ %.val66116, %.lr.ph.preheader ]
@@ -793,7 +756,7 @@ define void @Abc_BddGiaTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.val62 = load i32, ptr %20, align 4
   %21 = sext i32 %.val62 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph120, %.lr.ph, %.lr.ph.preheader, %2
   %.val62.lcssa = phi i32 [ %.val6281, %2 ], [ %.val6281, %.lr.ph.preheader ], [ %.val62, %.lr.ph ], [ %.val62, %.lr.ph120 ]
@@ -874,7 +837,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %34
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next99, %68
-  br i1 %69, label %.lr.ph87, label %.critedge2.loopexit, !llvm.loop !12
+  br i1 %69, label %.lr.ph87, label %.critedge2.loopexit, !llvm.loop !11
 
 .critedge2.loopexit:                              ; preds = %66, %.lr.ph87
   %.pre107 = load ptr, ptr %25, align 8
@@ -896,7 +859,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %34
 .lr.ph91:                                         ; preds = %.lr.ph126
   %.val72 = load ptr, ptr %6, align 8
   %.not57 = icmp eq ptr %.val72, null
-  br i1 %.not57, label %.critedge4.loopexit, label %.lr.ph126, !llvm.loop !13
+  br i1 %.not57, label %.critedge4.loopexit, label %.lr.ph126, !llvm.loop !12
 
 .lr.ph126:                                        ; preds = %.lr.ph91.preheader, %.lr.ph91
   %.val72125 = phi ptr [ %.val72, %.lr.ph91 ], [ %.val72122, %.lr.ph91.preheader ]
@@ -925,7 +888,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %34
   %.val61 = load i32, ptr %89, align 4
   %90 = sext i32 %.val61 to i64
   %91 = icmp slt i64 %indvars.iv.next102, %90
-  br i1 %91, label %.lr.ph91, label %.critedge4.loopexit, !llvm.loop !13
+  br i1 %91, label %.lr.ph91, label %.critedge4.loopexit, !llvm.loop !12
 
 .critedge4.loopexit:                              ; preds = %.lr.ph91, %.lr.ph126
   %92 = icmp sgt i32 %.val61, 0
@@ -1047,7 +1010,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %142, align 4
   %143 = sext i32 %.val to i64
   %144 = icmp slt i64 %indvars.iv.next105, %143
-  br i1 %144, label %94, label %.critedge6, !llvm.loop !14
+  br i1 %144, label %94, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %94, %Vec_IntPush.exit
   %.val12.i.pre = load i32, ptr %33, align 4
@@ -1069,7 +1032,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   tail call void @Abc_BddUnmark_rec(ptr noundef readonly %5, i32 noundef %148)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %146
-  br i1 %exitcond.not, label %Abc_BddCountNodesArray2.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not, label %Abc_BddCountNodesArray2.exit, label %.lr.ph.i, !llvm.loop !8
 
 Abc_BddCountNodesArray2.exit:                     ; preds = %.lr.ph.i, %.critedge2, %.critedge4, %.critedge6
   %.0.lcssa.i = phi i32 [ 0, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %.critedge2 ], [ %150, %.lr.ph.i ]
@@ -1146,7 +1109,7 @@ define internal fastcc i32 @Abc_BddUniqueCreateInt(ptr nocapture noundef %0, i32
   %44 = getelementptr inbounds i32, ptr %43, i64 %24
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %22, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %22, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %42
   %46 = getelementptr inbounds i32, ptr %43, i64 %24
@@ -1212,6 +1175,9 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #11
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1248,4 +1214,3 @@ attributes #15 = { nounwind allocsize(1) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

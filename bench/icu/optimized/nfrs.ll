@@ -1289,9 +1289,9 @@ cond.true.i26.i:                                  ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %cond.true.i26.i
   %cmp30.i = icmp eq i32 %hi.1.i, 0
-  br i1 %cmp30.i, label %if.end3, label %_ZNK6icu_7510NFRuleListixEj.exit36.i
+  br i1 %cmp30.i, label %if.end3, label %if.end32.i
 
-_ZNK6icu_7510NFRuleListixEj.exit36.i:             ; preds = %while.end.i
+if.end32.i:                                       ; preds = %while.end.i
   %sub34.i = add nsw i32 %hi.1.i, -1
   %idxprom.i33.i = zext i32 %sub34.i to i64
   %arrayidx.i34.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i33.i
@@ -1300,7 +1300,7 @@ _ZNK6icu_7510NFRuleListixEj.exit36.i:             ; preds = %while.end.i
   %tobool37.not.i = icmp eq i8 %call36.i, 0
   br i1 %tobool37.not.i, label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit, label %if.then38.i
 
-if.then38.i:                                      ; preds = %_ZNK6icu_7510NFRuleListixEj.exit36.i
+if.then38.i:                                      ; preds = %if.end32.i
   %cmp39.i = icmp eq i32 %hi.1.i, 1
   br i1 %cmp39.i, label %if.end3, label %if.end41.i
 
@@ -1321,8 +1321,8 @@ if.end46.i:                                       ; preds = %if.end8.i
   %9 = load ptr, ptr %arrayidx48.i, align 8
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
-_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %_ZNK6icu_7510NFRuleListixEj.exit36.i, %cond.true.i38.i, %if.end46.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit36.i ], [ %8, %cond.true.i38.i ]
+_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %if.end32.i, %cond.true.i38.i, %if.end46.i
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %6, %if.end32.i ], [ %8, %cond.true.i38.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %if.end3, label %if.then2
 
@@ -1397,9 +1397,9 @@ cond.true.i26:                                    ; preds = %while.body
 
 while.end:                                        ; preds = %cond.true.i26
   %cmp30 = icmp eq i32 %hi.1, 0
-  br i1 %cmp30, label %return, label %_ZNK6icu_7510NFRuleListixEj.exit36
+  br i1 %cmp30, label %return, label %if.end32
 
-_ZNK6icu_7510NFRuleListixEj.exit36:               ; preds = %while.end
+if.end32:                                         ; preds = %while.end
   %sub34 = add nsw i32 %hi.1, -1
   %idxprom.i33 = zext i32 %sub34 to i64
   %arrayidx.i34 = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i33
@@ -1408,7 +1408,7 @@ _ZNK6icu_7510NFRuleListixEj.exit36:               ; preds = %while.end
   %tobool37.not = icmp eq i8 %call36, 0
   br i1 %tobool37.not, label %return, label %if.then38
 
-if.then38:                                        ; preds = %_ZNK6icu_7510NFRuleListixEj.exit36
+if.then38:                                        ; preds = %if.end32
   %cmp39 = icmp eq i32 %hi.1, 1
   br i1 %cmp39, label %return, label %if.end41
 
@@ -1429,8 +1429,8 @@ if.end46:                                         ; preds = %if.end8
   %9 = load ptr, ptr %arrayidx48, align 8
   br label %return
 
-return:                                           ; preds = %while.body, %cond.true.i38, %if.end41, %_ZNK6icu_7510NFRuleListixEj.exit36, %if.then38, %while.end, %if.then2, %if.end46, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %9, %if.end46 ], [ %1, %if.then2 ], [ null, %while.end ], [ null, %if.then38 ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit36 ], [ %8, %cond.true.i38 ], [ null, %if.end41 ], [ %4, %while.body ]
+return:                                           ; preds = %while.body, %cond.true.i38, %if.end41, %if.end32, %if.then38, %while.end, %if.then2, %if.end46, %if.then
+  %retval.0 = phi ptr [ %call, %if.then ], [ %9, %if.end46 ], [ %1, %if.then2 ], [ null, %while.end ], [ null, %if.then38 ], [ %6, %if.end32 ], [ %8, %cond.true.i38 ], [ null, %if.end41 ], [ %4, %while.body ]
   ret ptr %retval.0
 }
 

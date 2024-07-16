@@ -28,7 +28,7 @@ define void @ADIO_Close(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %14 = tail call ptr @strerror(i32 noundef %13) #5
   %15 = tail call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_Close.myname, i32 noundef 19, i32 noundef 35, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %14) #5
   store i32 %15, ptr %1, align 4
-  br label %114
+  br label %112
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %0, i64 136
@@ -118,89 +118,81 @@ define void @ADIO_Close(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %69
 
 69:                                               ; preds = %65, %62
-  %70 = load ptr, ptr %17, align 8
-  %.not47 = icmp eq ptr %70, null
-  br i1 %.not47, label %.thread, label %71
+  %70 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %71 = getelementptr inbounds i8, ptr %70, i64 88
+  %72 = load ptr, ptr %71, align 8
+  call void @ADIOI_Free_fn(ptr noundef %72, i32 noundef 62, ptr noundef nonnull @.str.2) #5
+  %.pr = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %73 = getelementptr inbounds i8, ptr %.pr, i64 80
+  %74 = load ptr, ptr %73, align 8
+  %.not49 = icmp eq ptr %74, null
+  br i1 %.not49, label %.thread, label %75
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %70, i64 88
-  %73 = load ptr, ptr %72, align 8
-  call void @ADIOI_Free_fn(ptr noundef %73, i32 noundef 62, ptr noundef nonnull @.str.2) #5
-  %.pr = load ptr, ptr %17, align 8
-  %.not48 = icmp eq ptr %.pr, null
-  br i1 %.not48, label %.thread, label %74
-
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %.pr, i64 80
-  %76 = load ptr, ptr %75, align 8
-  %.not49 = icmp eq ptr %76, null
-  br i1 %.not49, label %.thread, label %77
-
-77:                                               ; preds = %74
-  call void @ADIOI_Free_fn(ptr noundef nonnull %76, i32 noundef 64, ptr noundef nonnull @.str.2) #5
+75:                                               ; preds = %69
+  call void @ADIOI_Free_fn(ptr noundef nonnull %74, i32 noundef 64, ptr noundef nonnull @.str.2) #5
   %.pre = load ptr, ptr %17, align 8
   br label %.thread
 
-.thread:                                          ; preds = %69, %77, %74, %71
-  %78 = phi ptr [ null, %69 ], [ %.pre, %77 ], [ %.pr, %74 ], [ null, %71 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %89
+.thread:                                          ; preds = %75, %69
+  %76 = phi ptr [ %.pre, %75 ], [ %.pr, %69 ]
+  %77 = getelementptr inbounds i8, ptr %76, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %78, 1
+  br i1 %79, label %80, label %87
 
-82:                                               ; preds = %.thread
-  %83 = getelementptr inbounds i8, ptr %0, i64 248
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i32 @PMPI_Type_free(ptr noundef %84) #5
-  %86 = getelementptr inbounds i8, ptr %0, i64 240
-  %87 = load ptr, ptr %86, align 8
-  call void @ADIOI_Free_fn(ptr noundef %87, i32 noundef 90, ptr noundef nonnull @.str.2) #5
-  %88 = load ptr, ptr %83, align 8
-  call void @ADIOI_Free_fn(ptr noundef %88, i32 noundef 91, ptr noundef nonnull @.str.2) #5
+80:                                               ; preds = %.thread
+  %81 = getelementptr inbounds i8, ptr %0, i64 248
+  %82 = load ptr, ptr %81, align 8
+  %83 = call i32 @PMPI_Type_free(ptr noundef %82) #5
+  %84 = getelementptr inbounds i8, ptr %0, i64 240
+  %85 = load ptr, ptr %84, align 8
+  call void @ADIOI_Free_fn(ptr noundef %85, i32 noundef 90, ptr noundef nonnull @.str.2) #5
+  %86 = load ptr, ptr %81, align 8
+  call void @ADIOI_Free_fn(ptr noundef %86, i32 noundef 91, ptr noundef nonnull @.str.2) #5
   %.pre53 = load ptr, ptr %17, align 8
-  br label %89
+  br label %87
 
-89:                                               ; preds = %82, %.thread
-  %90 = phi ptr [ %.pre53, %82 ], [ %78, %.thread ]
-  call void @ADIOI_Free_fn(ptr noundef %90, i32 noundef 93, ptr noundef nonnull @.str.2) #5
-  %91 = getelementptr inbounds i8, ptr %0, i64 64
-  %92 = call i32 @PMPI_Comm_free(ptr noundef nonnull %91) #5
-  %93 = getelementptr inbounds i8, ptr %0, i64 80
+87:                                               ; preds = %80, %.thread
+  %88 = phi ptr [ %.pre53, %80 ], [ %76, %.thread ]
+  call void @ADIOI_Free_fn(ptr noundef %88, i32 noundef 93, ptr noundef nonnull @.str.2) #5
+  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %90 = call i32 @PMPI_Comm_free(ptr noundef nonnull %89) #5
+  %91 = getelementptr inbounds i8, ptr %0, i64 80
+  %92 = load ptr, ptr %91, align 8
+  call void @ADIOI_Free_fn(ptr noundef %92, i32 noundef 98, ptr noundef nonnull @.str.2) #5
+  %93 = getelementptr inbounds i8, ptr %0, i64 112
   %94 = load ptr, ptr %93, align 8
-  call void @ADIOI_Free_fn(ptr noundef %94, i32 noundef 98, ptr noundef nonnull @.str.2) #5
-  %95 = getelementptr inbounds i8, ptr %0, i64 112
-  %96 = load ptr, ptr %95, align 8
-  %97 = call i32 @PMPI_Type_get_envelope(ptr noundef %96, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %98 = load i32, ptr %6, align 4
-  %.not50 = icmp eq i32 %98, 0
-  br i1 %.not50, label %101, label %99
+  %95 = call i32 @PMPI_Type_get_envelope(ptr noundef %94, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %96 = load i32, ptr %6, align 4
+  %.not50 = icmp eq i32 %96, 0
+  br i1 %.not50, label %99, label %97
 
-99:                                               ; preds = %89
-  %100 = call i32 @PMPI_Type_free(ptr noundef nonnull %95) #5
-  br label %101
+97:                                               ; preds = %87
+  %98 = call i32 @PMPI_Type_free(ptr noundef nonnull %93) #5
+  br label %99
 
-101:                                              ; preds = %99, %89
-  %102 = getelementptr inbounds i8, ptr %0, i64 120
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i32 @PMPI_Type_get_envelope(ptr noundef %103, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %105 = load i32, ptr %6, align 4
-  %.not51 = icmp eq i32 %105, 0
-  br i1 %.not51, label %108, label %106
+99:                                               ; preds = %97, %87
+  %100 = getelementptr inbounds i8, ptr %0, i64 120
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @PMPI_Type_get_envelope(ptr noundef %101, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %103 = load i32, ptr %6, align 4
+  %.not51 = icmp eq i32 %103, 0
+  br i1 %.not51, label %106, label %104
 
-106:                                              ; preds = %101
-  %107 = call i32 @PMPI_Type_free(ptr noundef nonnull %102) #5
-  br label %108
+104:                                              ; preds = %99
+  %105 = call i32 @PMPI_Type_free(ptr noundef nonnull %100) #5
+  br label %106
 
-108:                                              ; preds = %106, %101
-  %109 = getelementptr inbounds i8, ptr %0, i64 144
-  %110 = call i32 @PMPI_Info_free(ptr noundef nonnull %109) #5
-  %111 = getelementptr inbounds i8, ptr %0, i64 264
-  %112 = load ptr, ptr %111, align 8
-  call void @ADIOI_Free_fn(ptr noundef %112, i32 noundef 110, ptr noundef nonnull @.str.2) #5
-  %113 = call i32 @ADIOI_OneSidedCleanup(ptr noundef nonnull %0) #5
-  br label %114
+106:                                              ; preds = %104, %99
+  %107 = getelementptr inbounds i8, ptr %0, i64 144
+  %108 = call i32 @PMPI_Info_free(ptr noundef nonnull %107) #5
+  %109 = getelementptr inbounds i8, ptr %0, i64 264
+  %110 = load ptr, ptr %109, align 8
+  call void @ADIOI_Free_fn(ptr noundef %110, i32 noundef 110, ptr noundef nonnull @.str.2) #5
+  %111 = call i32 @ADIOI_OneSidedCleanup(ptr noundef nonnull %0) #5
+  br label %112
 
-114:                                              ; preds = %108, %11
+112:                                              ; preds = %106, %11
   ret void
 }
 
@@ -241,3 +233,4 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{}

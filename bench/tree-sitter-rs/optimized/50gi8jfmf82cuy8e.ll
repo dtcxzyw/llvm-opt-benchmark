@@ -3084,9 +3084,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1163)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
   %.pre.i.i.us = load i64, ptr %.promoted, align 8, !range !169, !alias.scope !1156, !noalias !4
-  br i1 %.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.preheader
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph
   %8 = icmp ne i64 %.pre.i.i.us, -9223372036854775808
   %9 = getelementptr inbounds i8, ptr %.promoted, i64 8
   %.val4.i.i.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !1168, !noalias !1163
@@ -3099,10 +3099,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %15 = trunc i64 %.val5.i.i.i.i.i.i to i8
   br label %16
 
-16:                                               ; preds = %.thread45.i.i.i, %.lr.ph.i.i.i.preheader
-  %.053.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.preheader ], [ %59, %.thread45.i.i.i ]
-  %.01952.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.preheader ], [ %58, %.thread45.i.i.i ]
-  %.02051.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.preheader ], [ %57, %.thread45.i.i.i ]
+16:                                               ; preds = %.thread45.i.i.i, %.lr.ph.i.i.i
+  %.053.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i ], [ %59, %.thread45.i.i.i ]
+  %.01952.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %58, %.thread45.i.i.i ]
+  %.02051.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i ], [ %57, %.thread45.i.i.i ]
   %17 = lshr i64 %.053.i.i.i, 1
   %18 = add i64 %17, %.01952.i.i.i
   %19 = icmp ult i64 %18, %7

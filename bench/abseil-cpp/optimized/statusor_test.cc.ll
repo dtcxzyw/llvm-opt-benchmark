@@ -24521,17 +24521,11 @@ _ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_c
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i21.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.testing::Matcher.231", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %vtable_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
@@ -24544,13 +24538,13 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
 
-invoke.cont14.i.thread.i:                         ; preds = %invoke.cont.i.i
-  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %cond.i21.i.i, i64 24
+invoke.cont14.i.thread.i:                         ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 24
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i, %for.inc.i.i.i.i.i.i.i
-  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %invoke.cont.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %for.inc.i.i.i.i.i.i.i
+  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 8
   %vtable_2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -24603,9 +24597,9 @@ if.then.i41.i.i:                                  ; preds = %_ZSt8_DestroyIPN7te
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i
-  store ptr %cond.i21.i.i, ptr %this, align 8
+  store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i5.i, ptr %_M_finish.i, align 8
-  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.231", ptr %cond.i21.i.i, i64 %cond.i.i.i
+  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.231", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr29.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -35646,17 +35640,11 @@ _ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i21.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.testing::Matcher.468", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %vtable_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
@@ -35669,13 +35657,13 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEE, i64 16), ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
 
-invoke.cont14.i.thread.i:                         ; preds = %invoke.cont.i.i
-  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %cond.i21.i.i, i64 24
+invoke.cont14.i.thread.i:                         ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 24
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i, %for.inc.i.i.i.i.i.i.i
-  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %invoke.cont.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %for.inc.i.i.i.i.i.i.i
+  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 8
   %vtable_2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -35728,9 +35716,9 @@ if.then.i41.i.i:                                  ; preds = %_ZSt8_DestroyIPN7te
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i
-  store ptr %cond.i21.i.i, ptr %this, align 8
+  store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i5.i, ptr %_M_finish.i, align 8
-  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.468", ptr %cond.i21.i.i, i64 %cond.i.i.i
+  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.468", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr29.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -52013,17 +52001,11 @@ _ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEE
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i21.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.testing::Matcher.613", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %vtable_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
@@ -52036,13 +52018,13 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEE, i64 16), ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
 
-invoke.cont14.i.thread.i:                         ; preds = %invoke.cont.i.i
-  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %cond.i21.i.i, i64 24
+invoke.cont14.i.thread.i:                         ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 24
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i, %for.inc.i.i.i.i.i.i.i
-  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %invoke.cont.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %for.inc.i.i.i.i.i.i.i
+  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 8
   %vtable_2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -52095,9 +52077,9 @@ if.then.i41.i.i:                                  ; preds = %_ZSt8_DestroyIPN7te
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
-  store ptr %cond.i21.i.i, ptr %this, align 8
+  store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i5.i, ptr %_M_finish.i, align 8
-  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.613", ptr %cond.i21.i.i, i64 %cond.i.i.i
+  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.613", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr29.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -56271,17 +56253,11 @@ _ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEE
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 24
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #27
-  br label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i21.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.testing::Matcher.687", ptr %cond.i21.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %vtable_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %vtable_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %6 = load ptr, ptr %vtable_2.i.i.i.i.i.i, align 8
@@ -56294,13 +56270,13 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEE, i64 16), ptr %add.ptr.i.i, align 8
   br i1 %cmp.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
 
-invoke.cont14.i.thread.i:                         ; preds = %invoke.cont.i.i
-  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %cond.i21.i.i, i64 24
+invoke.cont14.i.thread.i:                         ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 24
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i, %for.inc.i.i.i.i.i.i.i
-  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %cond.i21.i.i, %invoke.cont.i.i ]
-  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i, %for.inc.i.i.i.i.i.i.i
+  %__cur.09.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i ]
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 8
   %vtable_2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -56353,9 +56329,9 @@ if.then.i41.i.i:                                  ; preds = %_ZSt8_DestroyIPN7te
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
-  store ptr %cond.i21.i.i, ptr %this, align 8
+  store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i5.i, ptr %_M_finish.i, align 8
-  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.687", ptr %cond.i21.i.i, i64 %cond.i.i.i
+  %add.ptr29.i.i = getelementptr inbounds %"class.testing::Matcher.687", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr29.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 

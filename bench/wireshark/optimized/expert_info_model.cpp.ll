@@ -1661,7 +1661,7 @@ define void @_ZNK15ExpertInfoModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  br label %111
+  br label %105
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %4, align 8
@@ -1683,7 +1683,7 @@ define void @_ZNK15ExpertInfoModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %89
+  br i1 %26, label %27, label %83
 
 27:                                               ; preds = %10
   %28 = icmp eq ptr %.043, %23
@@ -1699,164 +1699,152 @@ define void @_ZNK15ExpertInfoModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
 .lr.ph:                                           ; preds = %.preheader
   %33 = getelementptr inbounds i8, ptr %.043, i64 104
   %wide.trip.count = and i64 %30, 2147483647
-  br label %35
-
-34:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit50
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !11
-
-35:                                               ; preds = %.lr.ph, %34
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.04464 = phi i32 [ 0, %.lr.ph ], [ %52, %34 ]
-  %36 = icmp ugt i64 %30, %indvars.iv
-  br i1 %36, label %37, label %_ZN16ExpertPacketItem5childEi.exit
-
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr ptr, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
+  %.pre = load ptr, ptr %33, align 8
   br label %_ZN16ExpertPacketItem5childEi.exit
 
-_ZN16ExpertPacketItem5childEi.exit:               ; preds = %35, %37
-  %41 = phi ptr [ %40, %37 ], [ null, %35 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 112
-  %43 = load i64, ptr %42, align 8
-  %.not58 = icmp eq i64 %43, 0
-  br i1 %.not58, label %_ZN16ExpertPacketItem5childEi.exit50, label %44
+34:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN16ExpertPacketItem5childEi.exit, !llvm.loop !11
 
-44:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit
-  %45 = getelementptr inbounds i8, ptr %41, i64 104
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %46, align 8
-  br label %_ZN16ExpertPacketItem5childEi.exit50
+_ZN16ExpertPacketItem5childEi.exit:               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %.04464 = phi i32 [ 0, %.lr.ph ], [ %46, %34 ]
+  %35 = icmp ugt i64 %30, %indvars.iv
+  tail call void @llvm.assume(i1 %35)
+  %36 = getelementptr ptr, ptr %.pre, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %39 = load i64, ptr %38, align 8
+  %.not58 = icmp ne i64 %39, 0
+  tail call void @llvm.assume(i1 %.not58)
+  %40 = getelementptr inbounds i8, ptr %37, i64 104
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 112
+  %44 = load i64, ptr %43, align 8
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %.04464, %45
+  %47 = icmp sgt i32 %46, %2
+  br i1 %47, label %48, label %34
 
-_ZN16ExpertPacketItem5childEi.exit50:             ; preds = %_ZN16ExpertPacketItem5childEi.exit, %44
-  %48 = phi ptr [ %47, %44 ], [ null, %_ZN16ExpertPacketItem5childEi.exit ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 112
-  %50 = load i64, ptr %49, align 8
-  %51 = trunc i64 %50 to i32
-  %52 = add i32 %.04464, %51
-  %53 = icmp sgt i32 %52, %2
-  br i1 %53, label %54, label %34
+48:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit
+  %49 = sub i32 %2, %.04464
+  %50 = sext i32 %49 to i64
+  %51 = icmp ugt i64 %44, %50
+  br i1 %51, label %52, label %_ZN16ExpertPacketItem5childEi.exit51
 
-54:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit50
-  %55 = sub i32 %2, %.04464
-  %56 = sext i32 %55 to i64
-  %57 = icmp ugt i64 %50, %56
-  br i1 %57, label %58, label %_ZN16ExpertPacketItem5childEi.exit51
-
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %48, i64 104
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr ptr, ptr %60, i64 %56
-  %62 = load ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %62 to i64
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds i8, ptr %42, i64 104
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr ptr, ptr %54, i64 %50
+  %56 = load ptr, ptr %55, align 8
+  %57 = ptrtoint ptr %56 to i64
   br label %_ZN16ExpertPacketItem5childEi.exit51
 
-_ZN16ExpertPacketItem5childEi.exit51:             ; preds = %54, %58
-  %64 = phi i64 [ %63, %58 ], [ 0, %54 ]
+_ZN16ExpertPacketItem5childEi.exit51:             ; preds = %48, %52
+  %58 = phi i64 [ %57, %52 ], [ 0, %48 ]
   store i32 %2, ptr %0, align 8, !alias.scope !12
-  %65 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %3, ptr %65, align 4, !alias.scope !12
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %64, ptr %66, align 8, !alias.scope !12
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %67, align 8, !alias.scope !12
-  br label %111
+  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %3, ptr %59, align 4, !alias.scope !12
+  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %58, ptr %60, align 8, !alias.scope !12
+  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %61, align 8, !alias.scope !12
+  br label %105
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   store i32 -1, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 -1, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  br label %111
+  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  br label %105
 
 .preheader59:                                     ; preds = %27, %.preheader59
-  %.063 = phi ptr [ %72, %.preheader59 ], [ %.043, %27 ]
-  %.04162 = phi i32 [ %70, %.preheader59 ], [ 0, %27 ]
-  %70 = add i32 %.04162, 1
-  %71 = getelementptr inbounds i8, ptr %.063, i64 120
-  %72 = load ptr, ptr %71, align 8
-  %.not48 = icmp eq ptr %72, %23
-  br i1 %.not48, label %73, label %.preheader59, !llvm.loop !15
+  %.063 = phi ptr [ %66, %.preheader59 ], [ %.043, %27 ]
+  %.04162 = phi i32 [ %64, %.preheader59 ], [ 0, %27 ]
+  %64 = add i32 %.04162, 1
+  %65 = getelementptr inbounds i8, ptr %.063, i64 120
+  %66 = load ptr, ptr %65, align 8
+  %.not48 = icmp eq ptr %66, %23
+  br i1 %.not48, label %67, label %.preheader59, !llvm.loop !15
 
-73:                                               ; preds = %.preheader59
-  %74 = icmp eq i32 %70, 3
-  br i1 %74, label %75, label %_ZN16ExpertPacketItem5childEi.exit52.thread
+67:                                               ; preds = %.preheader59
+  %68 = icmp eq i32 %64, 3
+  br i1 %68, label %69, label %_ZN16ExpertPacketItem5childEi.exit52.thread
 
-75:                                               ; preds = %73
-  %76 = sext i32 %2 to i64
-  %77 = getelementptr inbounds i8, ptr %.043, i64 112
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp ugt i64 %78, %76
-  br i1 %79, label %_ZN16ExpertPacketItem5childEi.exit52, label %_ZN16ExpertPacketItem5childEi.exit52.thread
+69:                                               ; preds = %67
+  %70 = sext i32 %2 to i64
+  %71 = getelementptr inbounds i8, ptr %.043, i64 112
+  %72 = load i64, ptr %71, align 8
+  %73 = icmp ugt i64 %72, %70
+  br i1 %73, label %_ZN16ExpertPacketItem5childEi.exit52, label %_ZN16ExpertPacketItem5childEi.exit52.thread
 
-_ZN16ExpertPacketItem5childEi.exit52:             ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %.043, i64 104
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr ptr, ptr %81, i64 %76
-  %83 = load ptr, ptr %82, align 8
-  %.not49 = icmp eq ptr %83, null
-  br i1 %.not49, label %_ZN16ExpertPacketItem5childEi.exit52.thread, label %84
+_ZN16ExpertPacketItem5childEi.exit52:             ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %.043, i64 104
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr ptr, ptr %75, i64 %70
+  %77 = load ptr, ptr %76, align 8
+  %.not49 = icmp eq ptr %77, null
+  br i1 %.not49, label %_ZN16ExpertPacketItem5childEi.exit52.thread, label %78
 
-84:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit52
+78:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit52
   store i32 %2, ptr %0, align 8, !alias.scope !16
-  %85 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %3, ptr %85, align 4, !alias.scope !16
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = ptrtoint ptr %83 to i64
-  store i64 %87, ptr %86, align 8, !alias.scope !16
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %88, align 8, !alias.scope !16
-  br label %111
+  %79 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %3, ptr %79, align 4, !alias.scope !16
+  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = ptrtoint ptr %77 to i64
+  store i64 %81, ptr %80, align 8, !alias.scope !16
+  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %82, align 8, !alias.scope !16
+  br label %105
 
-89:                                               ; preds = %10
-  %90 = sext i32 %2 to i64
-  %91 = getelementptr inbounds i8, ptr %.043, i64 112
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp ugt i64 %92, %90
-  br i1 %93, label %_ZN16ExpertPacketItem5childEi.exit53, label %_ZN16ExpertPacketItem5childEi.exit52.thread
+83:                                               ; preds = %10
+  %84 = sext i32 %2 to i64
+  %85 = getelementptr inbounds i8, ptr %.043, i64 112
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ugt i64 %86, %84
+  br i1 %87, label %_ZN16ExpertPacketItem5childEi.exit53, label %_ZN16ExpertPacketItem5childEi.exit52.thread
 
-_ZN16ExpertPacketItem5childEi.exit53:             ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.043, i64 104
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr ptr, ptr %95, i64 %90
-  %97 = load ptr, ptr %96, align 8
-  %.not = icmp eq ptr %97, null
-  br i1 %.not, label %_ZN16ExpertPacketItem5childEi.exit52.thread, label %98
+_ZN16ExpertPacketItem5childEi.exit53:             ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %.043, i64 104
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr ptr, ptr %89, i64 %84
+  %91 = load ptr, ptr %90, align 8
+  %.not = icmp eq ptr %91, null
+  br i1 %.not, label %_ZN16ExpertPacketItem5childEi.exit52.thread, label %92
 
-98:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit53
-  %99 = icmp eq ptr %.043, %23
-  br i1 %99, label %104, label %100
+92:                                               ; preds = %_ZN16ExpertPacketItem5childEi.exit53
+  %93 = icmp eq ptr %.043, %23
+  br i1 %93, label %98, label %94
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %.043, i64 120
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %23
-  br i1 %103, label %104, label %_ZN16ExpertPacketItem5childEi.exit52.thread
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds i8, ptr %.043, i64 120
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, %23
+  br i1 %97, label %98, label %_ZN16ExpertPacketItem5childEi.exit52.thread
 
-104:                                              ; preds = %100, %98
+98:                                               ; preds = %94, %92
   store i32 %2, ptr %0, align 8, !alias.scope !19
-  %105 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %3, ptr %105, align 4, !alias.scope !19
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
-  %107 = ptrtoint ptr %97 to i64
-  store i64 %107, ptr %106, align 8, !alias.scope !19
-  %108 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %108, align 8, !alias.scope !19
-  br label %111
+  %99 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %3, ptr %99, align 4, !alias.scope !19
+  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = ptrtoint ptr %91 to i64
+  store i64 %101, ptr %100, align 8, !alias.scope !19
+  %102 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %102, align 8, !alias.scope !19
+  br label %105
 
-_ZN16ExpertPacketItem5childEi.exit52.thread:      ; preds = %89, %75, %_ZN16ExpertPacketItem5childEi.exit53, %100, %73, %_ZN16ExpertPacketItem5childEi.exit52
+_ZN16ExpertPacketItem5childEi.exit52.thread:      ; preds = %83, %69, %_ZN16ExpertPacketItem5childEi.exit53, %94, %67, %_ZN16ExpertPacketItem5childEi.exit52
   store i32 -1, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 -1, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  br label %111
+  %103 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1, ptr %103, align 4
+  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  br label %105
 
-111:                                              ; preds = %_ZN16ExpertPacketItem5childEi.exit52.thread, %104, %84, %._crit_edge, %_ZN16ExpertPacketItem5childEi.exit51, %7
+105:                                              ; preds = %_ZN16ExpertPacketItem5childEi.exit52.thread, %98, %78, %._crit_edge, %_ZN16ExpertPacketItem5childEi.exit51, %7
   ret void
 }
 
