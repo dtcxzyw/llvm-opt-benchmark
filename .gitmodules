@@ -614,3 +614,6 @@
 [submodule "bench/openjdk/jdk"]
 	path = bench/openjdk/jdk
 	url = git@github.com:openjdk/jdk.git
+[submodule "bench/wasmedge/WasmEdge"]
+	path = bench/wasmedge/WasmEdge
+	url = git@github.com:WasmEdge/WasmEdge.git
