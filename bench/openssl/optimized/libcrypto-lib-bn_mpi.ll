@@ -22,15 +22,15 @@ entry:
 
 if.end7:                                          ; preds = %entry
   %add8 = add nsw i32 %div, %ext.0
-  %conv11 = lshr i32 %add8, 24
-  %conv13 = trunc nuw i32 %conv11 to i8
+  %0 = lshr i32 %add8, 24
+  %conv13 = trunc nuw i32 %0 to i8
   store i8 %conv13, ptr %d, align 1
-  %0 = lshr i32 %add8, 16
-  %conv18 = trunc i32 %0 to i8
+  %1 = lshr i32 %add8, 16
+  %conv18 = trunc i32 %1 to i8
   %arrayidx19 = getelementptr inbounds i8, ptr %d, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
-  %1 = lshr i32 %add8, 8
-  %conv24 = trunc i32 %1 to i8
+  %2 = lshr i32 %add8, 8
+  %conv24 = trunc i32 %2 to i8
   %arrayidx25 = getelementptr inbounds i8, ptr %d, i64 2
   store i8 %conv24, ptr %arrayidx25, align 1
   %conv29 = trunc i32 %add8 to i8
@@ -49,15 +49,15 @@ if.end33:                                         ; preds = %if.then31, %if.end7
   %arrayidx35 = getelementptr inbounds i8, ptr %d, i64 %idxprom
   %call36 = tail call i32 @BN_bn2bin(ptr noundef %a, ptr noundef nonnull %arrayidx35) #2
   %neg = getelementptr inbounds i8, ptr %a, i64 16
-  %2 = load i32, ptr %neg, align 8
-  %tobool37.not = icmp eq i32 %2, 0
+  %3 = load i32, ptr %neg, align 8
+  %tobool37.not = icmp eq i32 %3, 0
   br i1 %tobool37.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end33
   %arrayidx39 = getelementptr inbounds i8, ptr %d, i64 4
-  %3 = load i8, ptr %arrayidx39, align 1
-  %4 = or i8 %3, -128
-  store i8 %4, ptr %arrayidx39, align 1
+  %4 = load i8, ptr %arrayidx39, align 1
+  %5 = or i8 %4, -128
+  store i8 %5, ptr %arrayidx39, align 1
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then38, %entry

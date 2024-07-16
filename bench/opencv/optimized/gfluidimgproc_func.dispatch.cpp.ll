@@ -780,22 +780,22 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline19run_rgb2yuv422_implEPhPKhi(
   %24 = lshr i32 %23, 16
   %25 = sub nsw i32 %18, %24
   %26 = mul nsw i32 %25, 2015
-  %27 = lshr i32 %26, 16
-  %28 = sub nsw i32 %10, %24
-  %29 = mul nsw i32 %28, 3592
-  %30 = ashr i32 %29, 16
-  %31 = add nuw nsw i32 %27, 1028
-  %32 = lshr i32 %31, 3
-  %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv40
-  store i8 %33, ptr %34, align 1
-  %35 = add nuw nsw i32 %24, 64
-  %36 = lshr i32 %35, 7
-  %37 = trunc nuw i32 %36 to i8
-  %38 = or disjoint i64 %indvars.iv40, 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
-  store i8 %37, ptr %39, align 1
-  %40 = add nsw i32 %30, 1028
+  %27 = sub nsw i32 %10, %24
+  %28 = mul nsw i32 %27, 3592
+  %29 = lshr i32 %26, 16
+  %30 = add nuw nsw i32 %29, 1028
+  %31 = lshr i32 %30, 3
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv40
+  store i8 %32, ptr %33, align 1
+  %34 = add nuw nsw i32 %24, 64
+  %35 = lshr i32 %34, 7
+  %36 = trunc nuw i32 %35 to i8
+  %37 = or disjoint i64 %indvars.iv40, 1
+  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  store i8 %36, ptr %38, align 1
+  %39 = ashr i32 %28, 16
+  %40 = add nsw i32 %39, 1028
   %41 = ashr i32 %40, 3
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 255)
@@ -9243,22 +9243,22 @@ define hidden void @_ZN2cv4gapi5fluid19run_rgb2yuv422_implEPhPKhi(ptr nocapture 
   %24 = lshr i32 %23, 16
   %25 = sub nsw i32 %18, %24
   %26 = mul nsw i32 %25, 2015
-  %27 = lshr i32 %26, 16
-  %28 = sub nsw i32 %10, %24
-  %29 = mul nsw i32 %28, 3592
-  %30 = ashr i32 %29, 16
-  %31 = add nuw nsw i32 %27, 1028
-  %32 = lshr i32 %31, 3
-  %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv40.i
-  store i8 %33, ptr %34, align 1
-  %35 = add nuw nsw i32 %24, 64
-  %36 = lshr i32 %35, 7
-  %37 = trunc nuw i32 %36 to i8
-  %38 = or disjoint i64 %indvars.iv40.i, 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
-  store i8 %37, ptr %39, align 1
-  %40 = add nsw i32 %30, 1028
+  %27 = sub nsw i32 %10, %24
+  %28 = mul nsw i32 %27, 3592
+  %29 = lshr i32 %26, 16
+  %30 = add nuw nsw i32 %29, 1028
+  %31 = lshr i32 %30, 3
+  %32 = trunc i32 %31 to i8
+  %33 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv40.i
+  store i8 %32, ptr %33, align 1
+  %34 = add nuw nsw i32 %24, 64
+  %35 = lshr i32 %34, 7
+  %36 = trunc nuw i32 %35 to i8
+  %37 = or disjoint i64 %indvars.iv40.i, 1
+  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  store i8 %36, ptr %38, align 1
+  %39 = ashr i32 %28, 16
+  %40 = add nsw i32 %39, 1028
   %41 = ashr i32 %40, 3
   %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 255)

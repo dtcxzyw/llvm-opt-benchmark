@@ -455,8 +455,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
   %12 = load i16, ptr %4, align 2
   %13 = zext i16 %12 to i32
   %14 = sub nsw i32 2048, %13
-  %15 = ashr i32 %14, 5
-  %16 = trunc nsw i32 %15 to i16
+  %15 = lshr i32 %14, 5
+  %16 = trunc i32 %15 to i16
   %17 = add i16 %12, %16
   store i16 %17, ptr %4, align 2
   %18 = getelementptr i8, ptr %3, i64 3692
@@ -587,8 +587,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %29 = load i16, ptr %24, align 2
   %30 = zext i16 %29 to i32
   %31 = sub nsw i32 2048, %30
-  %32 = ashr i32 %31, 5
-  %33 = trunc nsw i32 %32 to i16
+  %32 = lshr i32 %31, 5
+  %33 = trunc i32 %32 to i16
   %34 = add i16 %29, %33
   store i16 %34, ptr %24, align 2
   %35 = getelementptr inbounds i8, ptr %2, i64 12
@@ -631,8 +631,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %61 = load i16, ptr %56, align 2
   %62 = zext i16 %61 to i32
   %63 = sub nsw i32 2048, %62
-  %64 = ashr i32 %63, 5
-  %65 = trunc nsw i32 %64 to i16
+  %64 = lshr i32 %63, 5
+  %65 = trunc i32 %64 to i16
   %66 = add i16 %61, %65
   store i16 %66, ptr %56, align 2
   %67 = getelementptr i8, ptr %3, i64 480
@@ -652,8 +652,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %78 = load i16, ptr %73, align 2
   %79 = zext i16 %78 to i32
   %80 = sub nsw i32 2048, %79
-  %81 = ashr i32 %80, 5
-  %82 = trunc nsw i32 %81 to i16
+  %81 = lshr i32 %80, 5
+  %82 = trunc i32 %81 to i16
   %83 = add i16 %78, %82
   store i16 %83, ptr %73, align 2
   %84 = load i32, ptr %2, align 4
@@ -704,8 +704,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %115 = load i16, ptr %110, align 2
   %116 = zext i16 %115 to i32
   %117 = sub nsw i32 2048, %116
-  %118 = ashr i32 %117, 5
-  %119 = trunc nsw i32 %118 to i16
+  %118 = lshr i32 %117, 5
+  %119 = trunc i32 %118 to i16
   %120 = add i16 %115, %119
   store i16 %120, ptr %110, align 2
   %121 = getelementptr inbounds i8, ptr %2, i64 8
@@ -737,8 +737,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %139 = load i16, ptr %134, align 2
   %140 = zext i16 %139 to i32
   %141 = sub nsw i32 2048, %140
-  %142 = ashr i32 %141, 5
-  %143 = trunc nsw i32 %142 to i16
+  %142 = lshr i32 %141, 5
+  %143 = trunc i32 %142 to i16
   %144 = add i16 %139, %143
   store i16 %144, ptr %134, align 2
   %145 = getelementptr inbounds i8, ptr %2, i64 12
@@ -801,8 +801,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %181 = load i16, ptr %176, align 2
   %182 = zext i16 %181 to i32
   %183 = sub nsw i32 2048, %182
-  %184 = ashr i32 %183, 5
-  %185 = trunc nsw i32 %184 to i16
+  %184 = lshr i32 %183, 5
+  %185 = trunc i32 %184 to i16
   %186 = add i16 %181, %185
   store i16 %186, ptr %176, align 2
   %187 = getelementptr i8, ptr %176, i64 4
@@ -833,8 +833,8 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %204 = load i16, ptr %199, align 2
   %205 = zext i16 %204 to i32
   %206 = sub nsw i32 2048, %205
-  %207 = ashr i32 %206, 5
-  %208 = trunc nsw i32 %207 to i16
+  %207 = lshr i32 %206, 5
+  %208 = trunc i32 %207 to i16
   %209 = add i16 %204, %208
   store i16 %209, ptr %199, align 2
   %210 = getelementptr i8, ptr %176, i64 260
@@ -1187,8 +1187,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @rc_get_bit(ptr nocapture nou
   %10 = load i16, ptr %1, align 2
   %11 = zext i16 %10 to i32
   %12 = sub nsw i32 2048, %11
-  %13 = ashr i32 %12, 5
-  %14 = trunc nsw i32 %13 to i16
+  %13 = lshr i32 %12, 5
+  %14 = trunc i32 %13 to i16
   %15 = add i16 %10, %14
   store i16 %15, ptr %1, align 2
   %16 = load i32, ptr %2, align 4

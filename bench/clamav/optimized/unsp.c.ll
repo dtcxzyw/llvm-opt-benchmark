@@ -293,8 +293,8 @@ get_byte.exit.thread:                             ; preds = %34
 83:                                               ; preds = %77
   store i32 %81, ptr %27, align 8
   %84 = sub nsw i32 2048, %79
-  %85 = ashr i32 %84, 5
-  %86 = trunc nsw i32 %85 to i16
+  %85 = lshr i32 %84, 5
+  %86 = trunc i32 %85 to i16
   %87 = add i16 %78, %86
   store i16 %87, ptr %71, align 2
   %88 = icmp ult i32 %81, 16777216
@@ -459,8 +459,8 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
 168:                                              ; preds = %162
   store i32 %166, ptr %27, align 8
   %169 = sub nsw i32 2048, %164
-  %170 = ashr i32 %169, 5
-  %171 = trunc nsw i32 %170 to i16
+  %170 = lshr i32 %169, 5
+  %171 = trunc i32 %170 to i16
   %172 = add i16 %163, %171
   store i16 %172, ptr %155, align 2
   %173 = icmp ult i32 %166, 16777216
@@ -597,8 +597,8 @@ getbit_from_table.exit452:                        ; preds = %161, %168, %get_byt
 233:                                              ; preds = %227
   store i32 %231, ptr %27, align 8
   %234 = sub nsw i32 2048, %229
-  %235 = ashr i32 %234, 5
-  %236 = trunc nsw i32 %235 to i16
+  %235 = lshr i32 %234, 5
+  %236 = trunc i32 %235 to i16
   %237 = add i16 %228, %236
   store i16 %237, ptr %221, align 2
   %238 = icmp ult i32 %231, 16777216
@@ -701,8 +701,8 @@ get_byte.exit57.i368:                             ; preds = %257, %256
 281:                                              ; preds = %275
   store i32 %279, ptr %27, align 8
   %282 = sub nsw i32 2048, %277
-  %283 = ashr i32 %282, 5
-  %284 = trunc nsw i32 %283 to i16
+  %283 = lshr i32 %282, 5
+  %284 = trunc i32 %283 to i16
   %285 = add i16 %276, %284
   store i16 %285, ptr %269, align 2
   %286 = icmp ult i32 %279, 16777216
@@ -807,8 +807,8 @@ get_byte.exit57.i381:                             ; preds = %307, %306
 335:                                              ; preds = %329
   store i32 %333, ptr %27, align 8
   %336 = sub nsw i32 2048, %331
-  %337 = ashr i32 %336, 5
-  %338 = trunc nsw i32 %337 to i16
+  %337 = lshr i32 %336, 5
+  %338 = trunc i32 %337 to i16
   %339 = add i16 %330, %338
   store i16 %339, ptr %322, align 2
   %340 = icmp ult i32 %333, 16777216
@@ -952,8 +952,8 @@ getbit_from_table.exit399:                        ; preds = %get_byte.exit.i397,
 407:                                              ; preds = %401
   store i32 %405, ptr %27, align 8
   %408 = sub nsw i32 2048, %403
-  %409 = ashr i32 %408, 5
-  %410 = trunc nsw i32 %409 to i16
+  %409 = lshr i32 %408, 5
+  %410 = trunc i32 %409 to i16
   %411 = add i16 %402, %410
   store i16 %411, ptr %395, align 2
   %412 = icmp ult i32 %405, 16777216
@@ -1061,8 +1061,8 @@ get_byte.exit57.i407:                             ; preds = %431, %430
 455:                                              ; preds = %449
   store i32 %453, ptr %27, align 8
   %456 = sub nsw i32 2048, %451
-  %457 = ashr i32 %456, 5
-  %458 = trunc nsw i32 %457 to i16
+  %457 = lshr i32 %456, 5
+  %458 = trunc i32 %457 to i16
   %459 = add i16 %450, %458
   store i16 %459, ptr %441, align 2
   %460 = icmp ult i32 %453, 16777216
@@ -1202,8 +1202,8 @@ get_n_bits_from_table.exit.thread:                ; preds = %getbit_from_table.e
 522:                                              ; preds = %516
   store i32 %520, ptr %27, align 8
   %523 = sub nsw i32 2048, %518
-  %524 = ashr i32 %523, 5
-  %525 = trunc nsw i32 %524 to i16
+  %524 = lshr i32 %523, 5
+  %525 = trunc i32 %524 to i16
   %526 = add i16 %517, %525
   store i16 %526, ptr %509, align 2
   %527 = icmp ult i32 %520, 16777216
@@ -1345,8 +1345,8 @@ get_n_bits_from_table.exit:                       ; preds = %getbit_from_table.e
 590:                                              ; preds = %584
   store i32 %588, ptr %27, align 8
   %591 = sub nsw i32 2048, %586
-  %592 = ashr i32 %591, 5
-  %593 = trunc nsw i32 %592 to i16
+  %592 = lshr i32 %591, 5
+  %593 = trunc i32 %592 to i16
   %594 = add i16 %585, %593
   store i16 %594, ptr %577, align 2
   %595 = icmp ult i32 %588, 16777216
@@ -1533,8 +1533,8 @@ get_bitmap.exit:                                  ; preds = %655
 674:                                              ; preds = %668
   store i32 %672, ptr %27, align 8
   %675 = sub nsw i32 2048, %670
-  %676 = ashr i32 %675, 5
-  %677 = trunc nsw i32 %676 to i16
+  %676 = lshr i32 %675, 5
+  %677 = trunc i32 %676 to i16
   %678 = add i16 %669, %677
   store i16 %678, ptr %661, align 2
   %679 = icmp ult i32 %672, 16777216
@@ -1778,8 +1778,8 @@ define range(i32 0, 256) i32 @getbit_from_table(ptr noundef %0, ptr nocapture no
   %29 = load i16, ptr %0, align 2
   %30 = zext i16 %29 to i32
   %31 = sub nsw i32 2048, %30
-  %32 = ashr i32 %31, 5
-  %33 = trunc nsw i32 %32 to i16
+  %32 = lshr i32 %31, 5
+  %33 = trunc i32 %32 to i16
   %34 = add i16 %29, %33
   store i16 %34, ptr %0, align 2
   %35 = load i32, ptr %21, align 8
@@ -1958,8 +1958,8 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
   %53 = load i16, ptr %32, align 2
   %54 = zext i16 %53 to i32
   %55 = sub nsw i32 2048, %54
-  %56 = ashr i32 %55, 5
-  %57 = trunc nsw i32 %56 to i16
+  %56 = lshr i32 %55, 5
+  %57 = trunc i32 %56 to i16
   %58 = add i16 %53, %57
   store i16 %58, ptr %32, align 2
   %59 = load i32, ptr %6, align 8

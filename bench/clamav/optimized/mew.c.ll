@@ -142,7 +142,7 @@ define range(i32 -1, 1) i32 @mew_lzma(ptr noundef %0, ptr noundef %1, i32 nounde
 
 66:                                               ; preds = %53
   %67 = sub nsw i32 2048, %57
-  %68 = ashr i32 %67, 5
+  %68 = lshr i32 %67, 5
   %69 = add i32 %68, %56
   br label %70
 
@@ -222,7 +222,7 @@ lzma_486248.exit.us.us:                           ; preds = %76, %70
 
 111:                                              ; preds = %101
   %112 = sub nsw i32 2048, %104
-  %113 = ashr i32 %112, 5
+  %113 = lshr i32 %112, 5
   %114 = add i32 %113, %103
   br label %115
 
@@ -299,7 +299,7 @@ lzma_486248.exit571.us.us:                        ; preds = %121, %115
 
 153:                                              ; preds = %142
   %154 = sub nsw i32 2048, %145
-  %155 = ashr i32 %154, 5
+  %155 = lshr i32 %154, 5
   %156 = add i32 %155, %144
   br label %157
 
@@ -376,7 +376,7 @@ lzma_486248.exit587.us.us:                        ; preds = %163, %157
 
 195:                                              ; preds = %184
   %196 = sub nsw i32 2048, %187
-  %197 = ashr i32 %196, 5
+  %197 = lshr i32 %196, 5
   %198 = add i32 %197, %186
   br label %199
 
@@ -479,7 +479,7 @@ lzma_486248.exit599.us.us:                        ; preds = %205, %199
 
 245:                                              ; preds = %234
   %246 = sub nsw i32 2048, %237
-  %247 = ashr i32 %246, 5
+  %247 = lshr i32 %246, 5
   %248 = add i32 %247, %236
   br label %249
 
@@ -648,7 +648,7 @@ lzma_486248.exit611.us.us:                        ; preds = %255, %249
 
 327:                                              ; preds = %316
   %328 = sub nsw i32 2048, %319
-  %329 = ashr i32 %328, 5
+  %329 = lshr i32 %328, 5
   %330 = add i32 %329, %318
   br label %331
 
@@ -782,7 +782,7 @@ lzma_486248.exit638.us.us:                        ; preds = %337, %331
 
 401:                                              ; preds = %390
   %402 = sub nsw i32 2048, %393
-  %403 = ashr i32 %402, 5
+  %403 = lshr i32 %402, 5
   %404 = add i32 %403, %392
   br label %405
 
@@ -1049,7 +1049,7 @@ lzma_486248.exit650.us.us:                        ; preds = %411, %405
 
 540:                                              ; preds = %529
   %541 = sub nsw i32 2048, %532
-  %542 = ashr i32 %541, 5
+  %542 = lshr i32 %541, 5
   %543 = add i32 %542, %531
   br label %544
 
@@ -1147,7 +1147,7 @@ lzma_486248.exit686.us.us:                        ; preds = %550, %544
 
 592:                                              ; preds = %581
   %593 = sub nsw i32 2048, %584
-  %594 = ashr i32 %593, 5
+  %594 = lshr i32 %593, 5
   %595 = add i32 %594, %583
   br label %596
 
@@ -1249,7 +1249,7 @@ lzma_486248.exit674.us.us:                        ; preds = %602, %596
 
 644:                                              ; preds = %633
   %645 = sub nsw i32 2048, %636
-  %646 = ashr i32 %645, 5
+  %646 = lshr i32 %645, 5
   %647 = add i32 %646, %635
   br label %648
 
@@ -1364,7 +1364,7 @@ lzma_486248.exit662.us.us:                        ; preds = %654, %648
 
 704:                                              ; preds = %693
   %705 = sub nsw i32 2048, %696
-  %706 = ashr i32 %705, 5
+  %706 = lshr i32 %705, 5
   %707 = add i32 %706, %695
   br label %708
 
@@ -1780,7 +1780,7 @@ define internal fastcc range(i32 -1, 2) i32 @lzma_486248(ptr nocapture noundef %
 33:                                               ; preds = %23
   store i32 %29, ptr %24, align 8
   %34 = sub nsw i32 2048, %28
-  %35 = ashr i32 %34, 5
+  %35 = lshr i32 %34, 5
   %36 = add i32 %35, %27
   br label %42
 
