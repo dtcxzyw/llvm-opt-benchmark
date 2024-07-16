@@ -1,0 +1,130 @@
+; ModuleID = 'bench/libpng/original/pngwio.c.ll'
+source_filename = "bench/libpng/original/pngwio.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [28 x i8] c"Call to NULL write function\00", align 1
+@.str.1 = private unnamed_addr constant [12 x i8] c"Write Error\00", align 1
+@.str.2 = private unnamed_addr constant [68 x i8] c"Can't set both read_data_fn and write_data_fn in the same structure\00", align 1
+
+; Function Attrs: nounwind uwtable
+define void @png_write_data(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %7, label %6
+
+6:                                                ; preds = %3
+  tail call void %5(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #5
+  ret void
+
+7:                                                ; preds = %3
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #6
+  unreachable
+}
+
+; Function Attrs: noreturn
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define void @png_default_write_data(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %10, label %5
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %7)
+  %.not = icmp eq i64 %8, %2
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %5
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #6
+  unreachable
+
+10:                                               ; preds = %3, %5
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define void @png_flush(ptr noalias noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 656
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %5, label %4
+
+4:                                                ; preds = %1
+  tail call void %3(ptr noundef nonnull %0) #5
+  br label %5
+
+5:                                                ; preds = %4, %1
+  ret void
+}
+
+; Function Attrs: nofree nounwind uwtable
+define void @png_default_flush(ptr noundef readonly %0) #3 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %7, label %3
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 @fflush(ptr noundef %5)
+  br label %7
+
+7:                                                ; preds = %1, %3
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define void @png_set_write_fn(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %13, label %6
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  store ptr %1, ptr %7, align 8
+  %.not = icmp eq ptr %2, null
+  %spec.select = select i1 %.not, ptr @png_default_write_data, ptr %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr %spec.select, ptr %8, align 8
+  %.not16 = icmp eq ptr %3, null
+  %.sink18 = select i1 %.not16, ptr @png_default_flush, ptr %3
+  %9 = getelementptr inbounds i8, ptr %0, i64 656
+  store ptr %.sink18, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = load ptr, ptr %10, align 8
+  %.not17 = icmp eq ptr %11, null
+  br i1 %.not17, label %13, label %12
+
+12:                                               ; preds = %6
+  store ptr null, ptr %10, align 8
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #5
+  br label %13
+
+13:                                               ; preds = %4, %12, %6
+  ret void
+}
+
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

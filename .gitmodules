@@ -623,3 +623,6 @@
 [submodule "bench/xgboost/xgboost"]
 	path = bench/xgboost/xgboost
 	url = git@github.com:dmlc/xgboost.git
+[submodule "bench/libpng/libpng"]
+	path = bench/libpng/libpng
+	url = git@github.com:pnggroup/libpng.git
