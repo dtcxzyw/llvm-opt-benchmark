@@ -483,27 +483,36 @@ _ZN3dap13ContentReader5matchEPKc.exit.thread:     ; preds = %_ZNSt5dequeIhSaIhEE
 
 54:                                               ; preds = %_ZN3dap13ContentReader8matchAnyEPKc.exit, %_ZN3dap13ContentReader5matchEPKc.exit.thread
   %55 = tail call noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef nonnull align 8 dereferenceable(100) %1, i64 noundef 1)
-  br i1 %55, label %56, label %.preheader62
+  br i1 %55, label %56, label %.preheader65
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %50, align 8
   %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2, i32 %59, i64 3)
-  %.not.i = icmp eq ptr %memchr, null
-  br i1 %.not.i, label %.preheader62, label %60
+  switch i8 %58, label %.preheader65 [
+    i8 32, label %59
+    i8 9, label %memchr.case61
+    i8 0, label %memchr.case62
+  ]
 
-60:                                               ; preds = %56
+memchr.case61:                                    ; preds = %56
+  br label %59
+
+memchr.case62:                                    ; preds = %56
+  br label %59
+
+59:                                               ; preds = %56, %memchr.case62, %memchr.case61
+  %memchr.idx = phi i64 [ 1, %memchr.case61 ], [ 2, %memchr.case62 ], [ 0, %56 ]
+  %60 = getelementptr inbounds i8, ptr @.str.2, i64 %memchr.idx
   %61 = load ptr, ptr %51, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 -1
   %.not.i.i18 = icmp eq ptr %57, %62
   br i1 %.not.i.i18, label %65, label %63
 
-63:                                               ; preds = %60
+63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %57, i64 1
   br label %_ZN3dap13ContentReader8matchAnyEPKc.exit
 
-65:                                               ; preds = %60
+65:                                               ; preds = %59
   %66 = load ptr, ptr %52, align 8
   tail call void @_ZdlPv(ptr noundef %66) #16
   %67 = load ptr, ptr %53, align 8
@@ -518,16 +527,16 @@ _ZN3dap13ContentReader5matchEPKc.exit.thread:     ; preds = %_ZNSt5dequeIhSaIhEE
 _ZN3dap13ContentReader8matchAnyEPKc.exit:         ; preds = %63, %65
   %storemerge.i.i = phi ptr [ %64, %63 ], [ %69, %65 ]
   store ptr %storemerge.i.i, ptr %50, align 8
-  %71 = load i8, ptr %memchr, align 1
+  %71 = load i8, ptr %60, align 1
   %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %.preheader62, label %54, !llvm.loop !15
+  br i1 %.not, label %.preheader65, label %54, !llvm.loop !15
 
-.preheader62:                                     ; preds = %56, %54, %_ZN3dap13ContentReader8matchAnyEPKc.exit
+.preheader65:                                     ; preds = %56, %54, %_ZN3dap13ContentReader8matchAnyEPKc.exit
   %72 = tail call noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef nonnull align 8 dereferenceable(100) %1, i64 noundef 1)
   br i1 %72, label %.lr.ph, label %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread.thread
 
-.lr.ph:                                           ; preds = %.preheader62, %89
-  %.01463 = phi i64 [ %93, %89 ], [ 0, %.preheader62 ]
+.lr.ph:                                           ; preds = %.preheader65, %89
+  %.01466 = phi i64 [ %93, %89 ], [ 0, %.preheader65 ]
   %73 = load ptr, ptr %50, align 8
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
@@ -565,7 +574,7 @@ _ZN3dap13ContentReader8matchAnyEPKc.exit24:       ; preds = %79, %81
   br i1 %88, label %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread, label %89
 
 89:                                               ; preds = %_ZN3dap13ContentReader8matchAnyEPKc.exit24
-  %90 = mul i64 %.01463, 10
+  %90 = mul i64 %.01466, 10
   %91 = sext i8 %87 to i64
   %92 = add i64 %90, -48
   %93 = add i64 %92, %91
@@ -573,11 +582,11 @@ _ZN3dap13ContentReader8matchAnyEPKc.exit24:       ; preds = %79, %81
   br i1 %94, label %.lr.ph, label %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread, !llvm.loop !16
 
 _ZN3dap13ContentReader8matchAnyEPKc.exit24.thread: ; preds = %_ZN3dap13ContentReader8matchAnyEPKc.exit24, %89, %.lr.ph
-  %.014.lcssa = phi i64 [ %.01463, %_ZN3dap13ContentReader8matchAnyEPKc.exit24 ], [ %93, %89 ], [ %.01463, %.lr.ph ]
+  %.014.lcssa = phi i64 [ %.01466, %_ZN3dap13ContentReader8matchAnyEPKc.exit24 ], [ %93, %89 ], [ %.01466, %.lr.ph ]
   %95 = icmp eq i64 %.014.lcssa, 0
   br i1 %95, label %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread.thread, label %101
 
-_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread.thread: ; preds = %.preheader62, %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread
+_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread.thread: ; preds = %.preheader65, %_ZN3dap13ContentReader8matchAnyEPKc.exit24.thread
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   %96 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc25 unwind label %99
@@ -734,10 +743,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55: ; 
 
 139:                                              ; preds = %.preheader, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
   %140 = phi ptr [ %.pre, %.preheader ], [ %storemerge.i, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
-  %.067 = phi i64 [ 0, %.preheader ], [ %154, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
+  %.070 = phi i64 [ 0, %.preheader ], [ %154, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit ]
   %141 = load i8, ptr %140, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %141)
-          to label %142 unwind label %.loopexit61
+          to label %142 unwind label %.loopexit64
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %50, align 8
@@ -765,11 +774,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55: ; 
 _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %146, %148
   %storemerge.i = phi ptr [ %147, %146 ], [ %152, %148 ]
   store ptr %storemerge.i, ptr %50, align 8
-  %154 = add nuw i64 %.067, 1
+  %154 = add nuw i64 %.070, 1
   %exitcond.not = icmp eq i64 %154, %.014.lcssa
   br i1 %exitcond.not, label %.loopexit, label %139, !llvm.loop !26
 
-.loopexit61:                                      ; preds = %139
+.loopexit64:                                      ; preds = %139
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %155
@@ -779,8 +788,8 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %146, %148
           cleanup
   br label %155
 
-155:                                              ; preds = %.loopexit.split-lp, %.loopexit61
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit61 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+155:                                              ; preds = %.loopexit.split-lp, %.loopexit64
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit64 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   br label %156
 

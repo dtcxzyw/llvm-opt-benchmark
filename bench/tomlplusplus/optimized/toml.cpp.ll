@@ -1078,7 +1078,6 @@ $_ZSt19piecewise_construct = comdat any
 @.str.5 = private unnamed_addr constant [6 x i8] c" of '\00", align 1
 @_ZTVN4toml2v34nodeE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v34nodeE, ptr @_ZN4toml2v34nodeD1Ev, ptr @_ZN4toml2v34nodeD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @.str.6 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.7 = private unnamed_addr constant [4 x i8] c".[]\00", align 1
 @_ZTVN4toml2v35arrayE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v35arrayE, ptr @_ZN4toml2v35arrayD1Ev, ptr @_ZN4toml2v35arrayD0Ev, ptr @_ZN4toml2v35array14is_homogeneousENS0_9node_typeERPNS0_4nodeE, ptr @_ZNK4toml2v35array14is_homogeneousENS0_9node_typeERPKNS0_4nodeE, ptr @_ZNK4toml2v35array14is_homogeneousENS0_9node_typeE, ptr @_ZNK4toml2v35array4typeEv, ptr @_ZNK4toml2v35array8is_tableEv, ptr @_ZNK4toml2v35array8is_arrayEv, ptr @_ZNK4toml2v35array18is_array_of_tablesEv, ptr @_ZNK4toml2v35array8is_valueEv, ptr @_ZNK4toml2v35array9is_stringEv, ptr @_ZNK4toml2v35array10is_integerEv, ptr @_ZNK4toml2v35array17is_floating_pointEv, ptr @_ZNK4toml2v35array9is_numberEv, ptr @_ZNK4toml2v35array10is_booleanEv, ptr @_ZNK4toml2v35array7is_dateEv, ptr @_ZNK4toml2v35array7is_timeEv, ptr @_ZNK4toml2v35array12is_date_timeEv, ptr @_ZN4toml2v35array8as_tableEv, ptr @_ZN4toml2v35array8as_arrayEv, ptr @_ZN4toml2v35array9as_stringB5cxx11Ev, ptr @_ZN4toml2v35array10as_integerEv, ptr @_ZN4toml2v35array17as_floating_pointEv, ptr @_ZN4toml2v35array10as_booleanEv, ptr @_ZN4toml2v35array7as_dateEv, ptr @_ZN4toml2v35array7as_timeEv, ptr @_ZN4toml2v35array12as_date_timeEv, ptr @_ZNK4toml2v35array8as_tableEv, ptr @_ZNK4toml2v35array8as_arrayEv, ptr @_ZNK4toml2v35array9as_stringB5cxx11Ev, ptr @_ZNK4toml2v35array10as_integerEv, ptr @_ZNK4toml2v35array17as_floating_pointEv, ptr @_ZNK4toml2v35array10as_booleanEv, ptr @_ZNK4toml2v35array7as_dateEv, ptr @_ZNK4toml2v35array7as_timeEv, ptr @_ZNK4toml2v35array12as_date_timeEv] }, align 8
 @_ZTVN4toml2v35tableE = unnamed_addr constant { [38 x ptr] } { [38 x ptr] [ptr null, ptr @_ZTIN4toml2v35tableE, ptr @_ZN4toml2v35tableD1Ev, ptr @_ZN4toml2v35tableD0Ev, ptr @_ZN4toml2v35table14is_homogeneousENS0_9node_typeERPNS0_4nodeE, ptr @_ZNK4toml2v35table14is_homogeneousENS0_9node_typeERPKNS0_4nodeE, ptr @_ZNK4toml2v35table14is_homogeneousENS0_9node_typeE, ptr @_ZNK4toml2v35table4typeEv, ptr @_ZNK4toml2v35table8is_tableEv, ptr @_ZNK4toml2v35table8is_arrayEv, ptr @_ZNK4toml2v35table18is_array_of_tablesEv, ptr @_ZNK4toml2v35table8is_valueEv, ptr @_ZNK4toml2v35table9is_stringEv, ptr @_ZNK4toml2v35table10is_integerEv, ptr @_ZNK4toml2v35table17is_floating_pointEv, ptr @_ZNK4toml2v35table9is_numberEv, ptr @_ZNK4toml2v35table10is_booleanEv, ptr @_ZNK4toml2v35table7is_dateEv, ptr @_ZNK4toml2v35table7is_timeEv, ptr @_ZNK4toml2v35table12is_date_timeEv, ptr @_ZN4toml2v35table8as_tableEv, ptr @_ZN4toml2v35table8as_arrayEv, ptr @_ZN4toml2v35table9as_stringB5cxx11Ev, ptr @_ZN4toml2v35table10as_integerEv, ptr @_ZN4toml2v35table17as_floating_pointEv, ptr @_ZN4toml2v35table10as_booleanEv, ptr @_ZN4toml2v35table7as_dateEv, ptr @_ZN4toml2v35table7as_timeEv, ptr @_ZN4toml2v35table12as_date_timeEv, ptr @_ZNK4toml2v35table8as_tableEv, ptr @_ZNK4toml2v35table8as_arrayEv, ptr @_ZNK4toml2v35table9as_stringB5cxx11Ev, ptr @_ZNK4toml2v35table10as_integerEv, ptr @_ZNK4toml2v35table17as_floating_pointEv, ptr @_ZNK4toml2v35table10as_booleanEv, ptr @_ZNK4toml2v35table7as_dateEv, ptr @_ZNK4toml2v35table7as_timeEv, ptr @_ZNK4toml2v35table12as_date_timeEv] }, align 8
 @.str.9 = private unnamed_addr constant [6 x i8] c"key '\00", align 1
@@ -5750,13 +5749,13 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp5, label %while.body8.preheader, label %if.else126
 
 while.body8.preheader:                            ; preds = %while.body
-  %index_start.0159 = add nuw i64 %pos.0, 1
-  %cmp10.not160 = icmp ult i64 %index_start.0159, %path.coerce0
-  br i1 %cmp10.not160, label %if.end14.preheader, label %return
+  %index_start.0162 = add nuw i64 %pos.0, 1
+  %cmp10.not163 = icmp ult i64 %index_start.0162, %path.coerce0
+  br i1 %cmp10.not163, label %if.end14.preheader, label %return
 
 if.end14.preheader:                               ; preds = %while.body8.preheader
-  %add.ptr.i58261 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0159
-  %1 = load i8, ptr %add.ptr.i58261, align 1
+  %add.ptr.i58265 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0162
+  %1 = load i8, ptr %add.ptr.i58265, align 1
   %2 = add i8 %1, -48
   %3 = icmp ult i8 %2, 10
   br i1 %3, label %while.end, label %if.else
@@ -5770,36 +5769,36 @@ if.end14:                                         ; preds = %if.then28
 
 if.else:                                          ; preds = %if.end14.preheader, %if.end14
   %7 = phi i8 [ %4, %if.end14 ], [ %1, %if.end14.preheader ]
-  %index_start.0162262 = phi i64 [ %index_start.0, %if.end14 ], [ %index_start.0159, %if.end14.preheader ]
+  %index_start.0165266 = phi i64 [ %index_start.0, %if.end14 ], [ %index_start.0162, %if.end14.preheader ]
   switch i8 %7, label %return [
     i8 32, label %if.then28
     i8 9, label %if.then28
   ]
 
 if.then28:                                        ; preds = %if.else, %if.else
-  %index_start.0 = add i64 %index_start.0162262, 1
+  %index_start.0 = add i64 %index_start.0165266, 1
   %exitcond.not = icmp eq i64 %index_start.0, %path.coerce0
   br i1 %exitcond.not, label %return, label %if.end14, !llvm.loop !50
 
 while.end:                                        ; preds = %if.end14, %if.end14.preheader
-  %index_start.0162.lcssa = phi i64 [ %index_start.0159, %if.end14.preheader ], [ %index_start.0, %if.end14 ]
-  %index_start.0.in161.lcssa = phi i64 [ %pos.0, %if.end14.preheader ], [ %index_start.0162262, %if.end14 ]
+  %index_start.0165.lcssa = phi i64 [ %index_start.0162, %if.end14.preheader ], [ %index_start.0, %if.end14 ]
+  %index_start.0.in164.lcssa = phi i64 [ %pos.0, %if.end14.preheader ], [ %index_start.0165266, %if.end14 ]
   %.lcssa = phi i8 [ %1, %if.end14.preheader ], [ %4, %if.end14 ]
-  %add.ptr.i58.le = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0162.lcssa
-  %add32 = add nuw i64 %index_start.0.in161.lcssa, 2
-  %cmp36.not163 = icmp ult i64 %add32, %path.coerce0
-  br i1 %cmp36.not163, label %if.end41, label %while.end68
+  %add.ptr.i58.le = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_start.0165.lcssa
+  %add32 = add nuw i64 %index_start.0.in164.lcssa, 2
+  %cmp36.not166 = icmp ult i64 %add32, %path.coerce0
+  br i1 %cmp36.not166, label %if.end41, label %while.end68
 
 if.end41:                                         ; preds = %while.end, %if.then48
-  %index_end.0164 = phi i64 [ %inc49, %if.then48 ], [ %add32, %while.end ]
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_end.0164
+  %index_end.0167 = phi i64 [ %inc49, %if.then48 ], [ %add32, %while.end ]
+  %add.ptr.i60 = getelementptr inbounds i8, ptr %path.coerce1, i64 %index_end.0167
   %8 = load i8, ptr %add.ptr.i60, align 1
   %9 = add i8 %8, -48
   %or.cond1 = icmp ult i8 %9, 10
   br i1 %or.cond1, label %if.then48, label %if.else50
 
 if.then48:                                        ; preds = %if.end41
-  %inc49 = add nuw i64 %index_end.0164, 1
+  %inc49 = add nuw i64 %index_end.0167, 1
   %cmp36.not = icmp ult i64 %inc49, %path.coerce0
   br i1 %cmp36.not, label %if.end41, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, !llvm.loop !51
 
@@ -5813,13 +5812,13 @@ if.else50:                                        ; preds = %if.end41
   ]
 
 while.end68:                                      ; preds = %while.end, %if.else50, %if.else50, %if.else50, %if.else50, %if.else50
-  %index_end.0154 = phi i64 [ %index_end.0164, %if.else50 ], [ %index_end.0164, %if.else50 ], [ %index_end.0164, %if.else50 ], [ %index_end.0164, %if.else50 ], [ %index_end.0164, %if.else50 ], [ %add32, %while.end ]
-  %cmp72.not165 = icmp ult i64 %index_end.0154, %path.coerce0
-  br i1 %cmp72.not165, label %if.end77, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %index_end.0157 = phi i64 [ %index_end.0167, %if.else50 ], [ %index_end.0167, %if.else50 ], [ %index_end.0167, %if.else50 ], [ %index_end.0167, %if.else50 ], [ %index_end.0167, %if.else50 ], [ %add32, %while.end ]
+  %cmp72.not168 = icmp ult i64 %index_end.0157, %path.coerce0
+  br i1 %cmp72.not168, label %if.end77, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.end77:                                         ; preds = %while.end68, %if.then99
-  %pos.1166 = phi i64 [ %inc100, %if.then99 ], [ %index_end.0154, %while.end68 ]
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %path.coerce1, i64 %pos.1166
+  %pos.1169 = phi i64 [ %inc100, %if.then99 ], [ %index_end.0157, %while.end68 ]
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %path.coerce1, i64 %pos.1169
   %10 = load i8, ptr %add.ptr.i62, align 1
   switch i8 %10, label %return [
     i8 93, label %if.then82
@@ -5830,19 +5829,19 @@ if.end77:                                         ; preds = %while.end68, %if.th
   ]
 
 if.then82:                                        ; preds = %if.end77
-  %inc83 = add nuw i64 %pos.1166, 1
+  %inc83 = add nuw i64 %pos.1169, 1
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 if.then99:                                        ; preds = %if.end77, %if.end77
-  %inc100 = add i64 %pos.1166, 1
-  %exitcond199.not = icmp eq i64 %inc100, %path.coerce0
-  br i1 %exitcond199.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %if.end77, !llvm.loop !52
+  %inc100 = add i64 %pos.1169, 1
+  %exitcond202.not = icmp eq i64 %inc100, %path.coerce0
+  br i1 %exitcond202.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, label %if.end77, !llvm.loop !52
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.then48, %if.end77, %if.end77, %if.then99, %if.then82, %while.end68
-  %index_end.0154202 = phi i64 [ %index_end.0154, %if.then82 ], [ %index_end.0154, %while.end68 ], [ %index_end.0154, %if.then99 ], [ %index_end.0154, %if.end77 ], [ %index_end.0154, %if.end77 ], [ %path.coerce0, %if.then48 ]
-  %pos.2 = phi i64 [ %inc83, %if.then82 ], [ %index_end.0154, %while.end68 ], [ %pos.1166, %if.end77 ], [ %pos.1166, %if.end77 ], [ %path.coerce0, %if.then99 ], [ %path.coerce0, %if.then48 ]
-  %sub = sub i64 %index_end.0154202, %index_start.0162.lcssa
-  %sub.i = sub i64 %path.coerce0, %index_start.0162.lcssa
+  %index_end.0157205 = phi i64 [ %index_end.0157, %if.then82 ], [ %index_end.0157, %while.end68 ], [ %index_end.0157, %if.then99 ], [ %index_end.0157, %if.end77 ], [ %index_end.0157, %if.end77 ], [ %path.coerce0, %if.then48 ]
+  %pos.2 = phi i64 [ %inc83, %if.then82 ], [ %index_end.0157, %while.end68 ], [ %pos.1169, %if.end77 ], [ %pos.1169, %if.end77 ], [ %path.coerce0, %if.then99 ], [ %path.coerce0, %if.then48 ]
+  %sub = sub i64 %index_end.0157205, %index_start.0165.lcssa
+  %sub.i = sub i64 %path.coerce0, %index_start.0165.lcssa
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub)
   %cmp108 = icmp eq i64 %.sroa.speculated.i, 1
   br i1 %cmp108, label %if.then109, label %if.else114
@@ -5933,18 +5932,19 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %if.else146, %for.in
   %__pos.addr.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i75 ], [ %add149, %if.else146 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %path.coerce1, i64 %__pos.addr.07.i.i
   %19 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i.i = sext i8 %19 to i32
-  %call.i.i.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv.i.i.i, i64 noundef 3) #39
-  %tobool2.not.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool2.not.i.i, label %for.inc.i.i75, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+  switch i8 %19, label %for.inc.i.i75 [
+    i8 46, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+    i8 91, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+    i8 93, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit
+  ]
 
 for.inc.i.i75:                                    ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %inc.i.i = add i64 %__pos.addr.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %path.coerce0
   br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !54
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %for.inc.i.i75, %if.else146
-  %retval.0.i.i = phi i64 [ -1, %if.else146 ], [ -1, %for.inc.i.i75 ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofES2_m.exit: ; preds = %for.inc.i.i75, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %if.else146
+  %retval.0.i.i = phi i64 [ -1, %if.else146 ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %__pos.addr.07.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %for.inc.i.i75 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i, i64 %path.coerce0)
   %sub154 = sub i64 %.sroa.speculated, %pos.0
   %sub.i77 = sub i64 %path.coerce0, %pos.0
@@ -21040,9 +21040,6 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: noreturn
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #24
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZZN4toml2v37at_pathERNS0_4nodeESt17basic_string_viewIcSt11char_traitsIcEEEN3$_08__invokeEPvS6_"(ptr nocapture noundef %data, i64 %key.coerce0, ptr %key.coerce1) #4 align 2 personality ptr @__gxx_personality_v0 {
