@@ -32,6 +32,8 @@ def run_opt(task):
             diff_ret = subprocess.run(['diff', '-q', tmp_output, output_file], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             if diff_ret.returncode != 0:
                 os.replace(tmp_output, output_file)
+            else:
+                os.remove(tmp_output)
         else:
             cmd = ['perf', 'stat', '-e', 'instructions:u'] + cmd + ['-disable-output']
             ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, timeout=600.0, capture_output=True)
