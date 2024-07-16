@@ -7,7 +7,6 @@ cmake ../llvm-project/llvm -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -G 
     -DLLVM_ENABLE_WARNINGS=OFF -DLLVM_APPEND_VC_REV=OFF -DLLVM_TARGETS_TO_BUILD="X86;" \
     -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
 cmake --build . -j -t opt
-cmake --build . -j -t llvm-diff
 cd ../..
 
 scripts/gen_optimized.py bench llvm/llvm-build/bin/opt
@@ -15,7 +14,8 @@ ret=$?
 if [ $PRE_COMMIT_MODE -eq 0 ]
 then
   llvm_commit=$(git -C llvm/llvm-project rev-parse HEAD)
-  git commit -a -m "llvm: Update baseline to $llvm_commit"
+  git add .
+  git commit -m "llvm: Update baseline to $llvm_commit"
   if [ $? -eq 0 ] || [ $ret -ne 0 ]
   then
     git pull --rebase
