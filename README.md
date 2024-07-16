@@ -46,6 +46,8 @@ Currently, this repository contains the following libraries/applications:
 |[kcp](https://github.com/skywind3000/kcp)|C|![stars](https://img.shields.io/github/stars/skywind3000/kcp?style=flat)|
 |[libdeflate](https://github.com/ebiggers/libdeflate)|C|![stars](https://img.shields.io/github/stars/ebiggers/libdeflate?style=flat)|
 |[libevent](https://github.com/libevent/libevent)|C|![stars](https://img.shields.io/github/stars/libevent/libevent?style=flat)|
+|[libjpeg-turbo](https://github.com/libjpeg-turbo/libjpeg-turbo)|C|![stars](https://img.shields.io/github/stars/libjpeg-turbo/libjpeg-turbo?style=flat)|
+|[libpng](https://github.com/pnggroup/libpng)|C|![stars](https://img.shields.io/github/stars/pnggroup/libpng?style=flat)|
 |[libquic](https://github.com/devsisters/libquic)|C|![stars](https://img.shields.io/github/stars/devsisters/libquic?style=flat)|
 |[libsodium](https://github.com/jedisct1/libsodium)|C|![stars](https://img.shields.io/github/stars/jedisct1/libsodium?style=flat)|
 |[libuv](https://github.com/libuv/libuv)|C|![stars](https://img.shields.io/github/stars/libuv/libuv?style=flat)|
@@ -122,6 +124,7 @@ Currently, this repository contains the following libraries/applications:
 |[libphonenumber](https://github.com/google/libphonenumber)|C++|![stars](https://img.shields.io/github/stars/google/libphonenumber?style=flat)|
 |[libzmq](https://github.com/zeromq/libzmq)|C++|![stars](https://img.shields.io/github/stars/zeromq/libzmq?style=flat)|
 |[lief](https://github.com/lief-project/LIEF)|C++|![stars](https://img.shields.io/github/stars/lief-project/LIEF?style=flat)|
+|[lightgbm](https://github.com/microsoft/LightGBM)|C++|![stars](https://img.shields.io/github/stars/microsoft/LightGBM?style=flat)|
 |[llama.cpp](https://github.com/ggerganov/llama.cpp)|C++|![stars](https://img.shields.io/github/stars/ggerganov/llama.cpp?style=flat)|
 |[lodepng](https://github.com/lvandeve/lodepng)|C++|![stars](https://img.shields.io/github/stars/lvandeve/lodepng?style=flat)|
 |[luau](https://github.com/luau-lang/luau)|C++|![stars](https://img.shields.io/github/stars/luau-lang/luau?style=flat)|
@@ -141,8 +144,10 @@ Currently, this repository contains the following libraries/applications:
 |[nori](https://github.com/wjakob/nori)|C++|![stars](https://img.shields.io/github/stars/wjakob/nori?style=flat)|
 |[opencc](https://github.com/BYVoid/OpenCC)|C++|![stars](https://img.shields.io/github/stars/BYVoid/OpenCC?style=flat)|
 |[opencolorio](https://github.com/AcademySoftwareFoundation/OpenColorIO)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/OpenColorIO?style=flat)|
+|[opencv](https://github.com/opencv/opencv)|C++|![stars](https://img.shields.io/github/stars/opencv/opencv?style=flat)|
 |[openexr](https://github.com/AcademySoftwareFoundation/openexr)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/openexr?style=flat)|
 |[openimageio](https://github.com/AcademySoftwareFoundation/OpenImageIO)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/OpenImageIO?style=flat)|
+|[openjdk](https://github.com/openjdk/jdk)|C++|![stars](https://img.shields.io/github/stars/openjdk/jdk?style=flat)|
 |[openvdb](https://github.com/AcademySoftwareFoundation/openvdb)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/openvdb?style=flat)|
 |[ozz-animation](https://github.com/guillaumeblanc/ozz-animation)|C++|![stars](https://img.shields.io/github/stars/guillaumeblanc/ozz-animation?style=flat)|
 |[pbrt-v4](https://github.com/mmp/pbrt-v4)|C++|![stars](https://img.shields.io/github/stars/mmp/pbrt-v4?style=flat)|
@@ -175,6 +180,8 @@ Currently, this repository contains the following libraries/applications:
 |[vcpkg-tool](https://github.com/microsoft/vcpkg-tool)|C++|![stars](https://img.shields.io/github/stars/microsoft/vcpkg-tool?style=flat)|
 |[velox](https://github.com/facebookincubator/velox)|C++|![stars](https://img.shields.io/github/stars/facebookincubator/velox?style=flat)|
 |[verilator](https://github.com/verilator/verilator)|C++|![stars](https://img.shields.io/github/stars/verilator/verilator?style=flat)|
+|[wasmedge](https://github.com/WasmEdge/WasmEdge)|C++|![stars](https://img.shields.io/github/stars/WasmEdge/WasmEdge?style=flat)|
+|[xgboost](https://github.com/dmlc/xgboost)|C++|![stars](https://img.shields.io/github/stars/dmlc/xgboost?style=flat)|
 |[yalantinglibs](https://github.com/alibaba/yalantinglibs)|C++|![stars](https://img.shields.io/github/stars/alibaba/yalantinglibs?style=flat)|
 |[yaml-cpp](https://github.com/jbeder/yaml-cpp)|C++|![stars](https://img.shields.io/github/stars/jbeder/yaml-cpp?style=flat)|
 |[yoga](https://github.com/facebook/yoga)|C++|![stars](https://img.shields.io/github/stars/facebook/yoga?style=flat)|

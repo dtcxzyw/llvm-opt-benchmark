@@ -25,12 +25,14 @@ filters = ['third-party','third_party','thirdparty','deps']
 
 def guess_language(dir):
     for subdir in os.listdir(dir):
-        if subdir == 'original' or subdir == 'optimized' or subdir == 'build.sh':
+        if subdir == 'original' or subdir == 'optimized' or subdir == 'contrib' or subdir == 'build.sh':
             continue
         if not os.path.isdir(os.path.join(dir, subdir)):
             continue
         url = get_url(subdir, os.path.join(dir, subdir))
         name = subdir.lower()
+        if name == 'jdk':
+            name = 'openjdk'
         
         count_c = 0
         count_cpp = 0
