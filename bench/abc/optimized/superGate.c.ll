@@ -836,7 +836,7 @@ Abc_Clock.exit.i:                                 ; preds = %284, %278
   br i1 %or.cond43.i, label %.critedge.i, label %360
 
 360:                                              ; preds = %.lr.ph1151.i
-  %361 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %361 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   br i1 %.not770.i, label %366, label %362
 
 362:                                              ; preds = %360
@@ -984,7 +984,7 @@ Super_AddGateToTable.exit.i94:                    ; preds = %405, %383
   br i1 %.not767.i, label %434, label %.thread.i
 
 434:                                              ; preds = %433
-  %435 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %435 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %436 = getelementptr inbounds i8, ptr %431, i64 72
   %437 = load float, ptr %436, align 8
   %438 = fadd float %422, %437
@@ -1166,7 +1166,7 @@ Super_AddGateToTable.exit851.i:                   ; preds = %474, %452
   br i1 %.not761.us.i, label %517, label %.thread.i
 
 517:                                              ; preds = %516
-  %518 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %518 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %519 = getelementptr inbounds i8, ptr %514, i64 72
   %520 = load float, ptr %519, align 8
   %521 = fadd float %505, %520
@@ -1405,7 +1405,7 @@ Super_AddGateToTable.exit853.us.i:                ; preds = %559, %537
   br i1 %.not752.us.us.i, label %618, label %.thread.i
 
 618:                                              ; preds = %617
-  %619 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %619 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %620 = getelementptr inbounds i8, ptr %615, i64 72
   %621 = load float, ptr %620, align 8
   %622 = fadd float %604, %621
@@ -1693,7 +1693,7 @@ Super_AddGateToTable.exit855.us.us.i:             ; preds = %660, %638
   br i1 %.not739.us.us.us.i, label %735, label %.thread.i
 
 735:                                              ; preds = %734
-  %736 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %736 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %737 = getelementptr inbounds i8, ptr %732, i64 72
   %738 = load float, ptr %737, align 8
   %739 = fadd float %721, %738
@@ -1990,7 +1990,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %777, %755
   br i1 %.not788.us.us.us.us.i, label %852, label %.critedge38.us.us.us.i
 
 852:                                              ; preds = %851
-  %853 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %853 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %854 = getelementptr inbounds i8, ptr %849, i64 72
   %855 = load float, ptr %854, align 8
   %856 = fadd float %838, %855
@@ -2037,7 +2037,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %777, %755
   br i1 %.not795.us.us.us.us.i, label %870, label %.thread.i
 
 870:                                              ; preds = %869
-  %871 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef %55)
+  %871 = call fastcc i32 @Super_CheckTimeout(ptr noundef %281, ptr noundef nonnull %55)
   %872 = getelementptr inbounds i8, ptr %867, i64 72
   %873 = load float, ptr %872, align 8
   %874 = fadd float %856, %873

@@ -214,8 +214,6 @@ $_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm = comdat any
 
 $_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EE17_M_default_appendEm = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail18GraphCutSeamFinder4ImplEEET_ = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -13933,7 +13931,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
   %316 = mul nsw i32 %315, %59
   %317 = add nsw i32 %.sroa.13.8.extract.trunc, 19
   %318 = mul nsw i32 %58, %317
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %24, i8 0, i64 48, i1 false)
   %319 = zext i32 %314 to i64
   %320 = getelementptr inbounds i8, ptr %24, i64 16
   %.not = icmp eq i32 %314, 0
@@ -15712,26 +15710,66 @@ _ZNSt10shared_ptrIN2cv6detail18PairwiseSeamFinderEED2Ev.exit: ; preds = %1, %20,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZN2cv3PtrINS_6detail18PairwiseSeamFinderEEC2INS1_18GraphCutSeamFinder4ImplEEEPT_.exit:
+define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #25
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 104
-  %8 = getelementptr inbounds i8, ptr %4, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 156
-  store float %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 160
-  store float %3, ptr %10, align 8
-  store ptr %4, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail18GraphCutSeamFinder4ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)
+  %5 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #25
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 104
+  %9 = getelementptr inbounds i8, ptr %5, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
+  store i32 %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 156
+  store float %2, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 160
+  store float %3, ptr %11, align 8
+  store ptr %5, ptr %6, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %12, align 8
+  %13 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
+          to label %24 unwind label %14
+
+14:                                               ; preds = %4
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #27
+  tail call void @_ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
+  invoke void @__cxa_rethrow() #28
+          to label %23 unwind label %18
+
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %20
+
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
+          catch ptr null
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #29
+  unreachable
+
+23:                                               ; preds = %14
+  unreachable
+
+24:                                               ; preds = %4
+  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 1, ptr %26, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
+  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %5, ptr %27, align 8
+  store ptr %13, ptr %12, align 8
   ret void
+
+.body:                                            ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16166,7 +16204,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i7.i: ; preds = %_ZSt8_DestroyIP
   br label %_ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev.exit
 
 _ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev.exit:  ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i7.i, %15
-  tail call void @_ZN2cv6detail18PairwiseSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
+  tail call void @_ZN2cv6detail18PairwiseSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -18884,60 +18922,6 @@ _ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE4EdgeESaIS4_EE13_M_deallocateEPS4_m.ex
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv6detail18GraphCutSeamFinder4ImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #27
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %1) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #28
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #29
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   ret void
@@ -19013,7 +18997,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i7.i: ; preds = %_ZSt8_DestroyIP
   br label %_ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev.exit
 
 _ZN2cv6detail18GraphCutSeamFinder4ImplD2Ev.exit:  ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i7.i, %19
-  tail call void @_ZN2cv6detail18PairwiseSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #27
+  tail call void @_ZN2cv6detail18PairwiseSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #27
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %20
 

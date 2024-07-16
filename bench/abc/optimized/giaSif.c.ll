@@ -3062,7 +3062,7 @@ Vec_IntPush.exit627:                              ; preds = %.Vec_IntGrow.exit10
   %843 = load i32, ptr %842, align 4
   %.val.i628 = load ptr, ptr %345, align 8
   %844 = sext i32 %843 to i64
-  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #22
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #22
   %.val2328.i = load ptr, ptr %826, align 8
   %845 = getelementptr i8, ptr %.val2328.i, i64 8
   %.val23.val29.i = load ptr, ptr %845, align 8
@@ -3244,7 +3244,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge46, %.crit
   %931 = load i32, ptr %930, align 4
   %.val.i638 = load ptr, ptr %345, align 8
   %932 = sext i32 %931 to i64
-  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #22
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #22
   %.val2328.i639 = load ptr, ptr %894, align 8
   %933 = getelementptr i8, ptr %.val2328.i639, i64 8
   %.val23.val29.i640 = load ptr, ptr %933, align 8
@@ -3384,7 +3384,7 @@ Gia_ManSifDupNode.exit653:                        ; preds = %Gia_ObjUpdateTravId
   %1004 = load i32, ptr %1003, align 4
   %.val.i661 = load ptr, ptr %345, align 8
   %1005 = sext i32 %1004 to i64
-  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #22
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #22
   %.val2328.i662 = load ptr, ptr %970, align 8
   %1006 = getelementptr i8, ptr %.val2328.i662, i64 8
   %.val23.val29.i663 = load ptr, ptr %1006, align 8

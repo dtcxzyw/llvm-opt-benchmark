@@ -2654,7 +2654,7 @@ lpad:                                             ; preds = %if.then35
   resume { ptr, i32 } %28
 
 if.end36:                                         ; preds = %if.end33
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin0, ptr noundef nonnull %src)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin0, ptr noundef nonnull align 8 dereferenceable(16) %src)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
   %29 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i42.not68 = icmp eq i64 %29, 0
@@ -2952,7 +2952,7 @@ lpad:                                             ; preds = %if.then35
   resume { ptr, i32 } %29
 
 if.end36:                                         ; preds = %if.end33
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin0, ptr noundef nonnull %src)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin0, ptr noundef nonnull align 8 dereferenceable(16) %src)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin0, i64 24
   %30 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i41.not74 = icmp eq i64 %30, 0
@@ -3867,7 +3867,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -4385,7 +4385,7 @@ invoke.cont22:                                    ; preds = %if.end18
   %conv.i.i.i = shl nuw nsw i8 %size.tr.i.i.i, 1
   store i8 %conv.i.i.i, ptr %agg.result, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
-  invoke void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %it, ptr noundef nonnull %this)
+  invoke void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %it, ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %invoke.cont22
@@ -5174,7 +5174,7 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %2 = load ptr, ptr %this, align 8
   %rep = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep.i, ptr noundef nonnull align 8 dereferenceable(12) %rep, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rep.i, ptr noundef nonnull align 8 dereferenceable(96) %rep, i64 12, i1 false)
   %prefix_crc3.i = getelementptr inbounds i8, ptr %2, i64 24
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc3.i)
   %3 = load ptr, ptr %this, align 8
@@ -5477,7 +5477,7 @@ if.then:                                          ; preds = %_ZN4absl4Cord13GetF
 
 if.end:                                           ; preds = %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lhs_it.i)
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it.i, ptr noundef nonnull %lhs)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it.i, ptr noundef nonnull align 8 dereferenceable(16) %lhs)
   %bytes_remaining_.i = getelementptr inbounds i8, ptr %lhs_it.i, i64 24
   %25 = load i64, ptr %bytes_remaining_.i, align 8
   %cmp.not.i = icmp eq i64 %25, 0
@@ -6345,7 +6345,7 @@ if.then.i:                                        ; preds = %_ZNK4absl4Cord4size
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit
 
 if.end.i:                                         ; preds = %_ZNK4absl4Cord4sizeEv.exit
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i, ptr noundef nonnull %src)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %src)
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin1.i, i64 24
   %10 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not7.i = icmp eq i64 %10, 0
@@ -6398,7 +6398,7 @@ if.then:                                          ; preds = %entry
   br label %for.end
 
 if.end:                                           ; preds = %entry
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin1, i64 24
   %5 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not7 = icmp eq i64 %5, 0
@@ -7368,7 +7368,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull %this)
+  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7414,7 +7414,7 @@ _ZN4absleqERKNS_4CordESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds =
   br i1 %call.i.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZN4absleqERKNS_4CordESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
 
 cond.false:                                       ; preds = %_ZN4absleqERKNS_4CordESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -7424,7 +7424,7 @@ cond.false:                                       ; preds = %_ZN4absleqERKNS_4Co
   br label %return
 
 if.end11:                                         ; preds = %_ZNK4absl4Cord4sizeEv.exit8.thread, %_ZNK4absl4Cord4sizeEv.exit8
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp12, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZNK4absl4Cord8FindImplENS0_12CharIteratorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::Cord::CharIterator") align 8 %agg.result, ptr nonnull align 8 poison, ptr noundef nonnull byval(%"class.absl::Cord::CharIterator") align 8 %agg.tmp12, i64 %needle.coerce0, ptr %needle.coerce1)
   br label %return
 
@@ -7463,7 +7463,7 @@ _ZNK4absl4Cord5emptyEv.exit.thread:               ; preds = %entry
   br i1 %cmp.i98, label %if.then, label %_ZNK4absl4Cord4sizeEv.exit
 
 if.then:                                          ; preds = %_ZNK4absl4Cord5emptyEv.exit.thread, %_ZNK4absl4Cord5emptyEv.exit
-  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull %this)
+  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
 
 cond.false.i.i:                                   ; preds = %_ZNK4absl4Cord5emptyEv.exit
@@ -7503,7 +7503,7 @@ _ZNK4absl4Cord4sizeEv.exit26:                     ; preds = %_ZNK4absl4Cord4size
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %_ZNK4absl4Cord4sizeEv.exit26
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %this, ptr noundef nonnull dereferenceable(16) %needle, i64 16)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %needle, i64 16)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i, label %cond.true, label %if.end.i
 
@@ -7546,7 +7546,7 @@ _ZN4absleqERKNS_4CordES2_.exit:                   ; preds = %_ZNK4absl4Cord4size
   br i1 %call.i.i, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then8, %_ZN4absleqERKNS_4CordES2_.exit
-  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull %this)
+  tail call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
 
 cond.false:                                       ; preds = %_ZNK4absl4Cord4sizeEv.exit13.i, %_ZN4absleqERKNS_4CordES2_.exit
@@ -7556,11 +7556,11 @@ cond.false:                                       ; preds = %_ZNK4absl4Cord4size
   br label %return
 
 if.end10:                                         ; preds = %_ZNK4absl4Cord4sizeEv.exit26
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp, ptr noundef nonnull %needle)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %needle)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %ref.tmp, align 8
   %retval.sroa.2.0.current_chunk_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.current_chunk_.sroa_idx.i.i, align 8
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %haystack_it, i64 24
   %cmp2.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i, 0
   %navigator_.i.i.i = getelementptr inbounds i8, ptr %haystack_advanced_it, i64 40
@@ -7595,7 +7595,7 @@ while.body:                                       ; preds = %if.end31, %if.end10
 
 if.end18:                                         ; preds = %while.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %haystack_advanced_it, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp12, i64 152, i1 false)
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %needle_it, ptr noundef nonnull %needle)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %needle_it, ptr noundef nonnull align 8 dereferenceable(16) %needle)
   %14 = load i64, ptr %haystack_advanced_it, align 8
   %cmp.i.i36 = icmp ugt i64 %14, %retval.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i36, label %if.then.i.i, label %if.else.i.i
@@ -7862,7 +7862,7 @@ if.then35:                                        ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp3688.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp3688.sroa.0, ptr noundef nonnull align 8 dereferenceable(152) %haystack_it, i64 152, i1 false)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp1.i)
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp1.i, ptr noundef nonnull %needle)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(16) %needle)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp14.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp14.i, ptr noundef nonnull align 8 dereferenceable(152) %agg.tmp1.i, i64 152, i1 false)
@@ -8151,7 +8151,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit
 
 if.end.i:                                         ; preds = %if.then
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin1.i, i64 24
   %11 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not7.i = icmp eq i64 %11, 0
@@ -8215,7 +8215,7 @@ if.then.i34:                                      ; preds = %invoke.cont
   br label %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit36
 
 if.end.i22:                                       ; preds = %invoke.cont
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i17, ptr noundef nonnull %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1.i17, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %bytes_remaining_.i.i.i23 = getelementptr inbounds i8, ptr %__begin1.i17, i64 24
   %18 = load i64, ptr %bytes_remaining_.i.i.i23, align 8
   %cmp.i.i.not7.i24 = icmp eq i64 %18, 0
@@ -8356,7 +8356,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
   %bytes_remaining_.i = getelementptr inbounds i8, ptr %it, i64 24
   %btree_reader_.i = getelementptr inbounds i8, ptr %it, i64 32
   %navigator_.i.i = getelementptr inbounds i8, ptr %it, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %it, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %it, i8 0, i64 40, i1 false)
   %4 = load i64, ptr %retval.0.i, align 8
   store i64 %4, ptr %bytes_remaining_.i, align 8
   %storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 13
@@ -8478,7 +8478,7 @@ if.end11:                                         ; preds = %while.body, %_ZN4ab
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoRKNS_4CordE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %cord) local_unnamed_addr #3 {
 entry:
   %__begin1 = alloca %"class.absl::Cord::ChunkIterator", align 8
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1, ptr noundef nonnull %cord)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %__begin1, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin1, i64 24
   %0 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not4 = icmp eq i64 %0, 0
@@ -12885,8 +12885,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK4absl4Cord15CompareSlowPathERKS0_
 entry:
   %lhs_it = alloca %"class.absl::Cord::ChunkIterator", align 8
   %rhs_it = alloca %"class.absl::Cord::ChunkIterator", align 8
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it, ptr noundef nonnull %this)
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %rhs_it, ptr noundef nonnull %rhs)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %rhs_it, ptr noundef nonnull align 8 dereferenceable(16) %rhs)
   %bytes_remaining_ = getelementptr inbounds i8, ptr %lhs_it, i64 24
   %0 = load i64, ptr %bytes_remaining_, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -13151,7 +13151,7 @@ _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5empt
 
 if.end:                                           ; preds = %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lhs_it.i)
-  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it.i, ptr noundef nonnull %lhs)
+  call void @_ZN4absl4Cord13ChunkIteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(152) %lhs_it.i, ptr noundef nonnull align 8 dereferenceable(16) %lhs)
   %bytes_remaining_.i = getelementptr inbounds i8, ptr %lhs_it.i, i64 24
   %25 = load i64, ptr %bytes_remaining_.i, align 8
   %cmp.not.i = icmp eq i64 %25, 0

@@ -9335,7 +9335,7 @@ Abc_TgFlipVar.exit.i.us.us.us.us.i:               ; preds = %.lr.ph.i.us.us.us.i
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %Abc_TgFlipSymGroupByVar.exit.us.us.us.i
   store i32 %.us-phi28.us.us.us.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef nonnull %1)
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %.val.us.us.i = load i32, ptr %38, align 4
   %93 = sext i32 %.val.us.us.i to i64
@@ -9402,7 +9402,7 @@ Abc_TgFlipVar.exit.i.us.us.us50.us.us.us.us.i:    ; preds = %.lr.ph.i.us41.us.us
 
 ._crit_edge.split.us44.split.us.split.us.us.us.i: ; preds = %Abc_TgFlipSymGroupByVar.exit.us42.us.us.us.us.i
   store i32 %.us-phi28.us43.us.us.us.us.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef nonnull %1)
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %.val.us.us66.us.i = load i32, ptr %38, align 4
   %119 = sext i32 %.val.us.us66.us.i to i64
@@ -9528,7 +9528,7 @@ Abc_TgFlipSymGroupByVar.exit.us42.i:              ; preds = %168, %128, %124
 
 ._crit_edge.split.us44.split.i:                   ; preds = %Abc_TgFlipSymGroupByVar.exit.us42.i
   store i32 %.us-phi28.us43.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef nonnull %1)
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %.val.us.i = load i32, ptr %38, align 4
   %173 = sext i32 %.val.us.i to i64
@@ -9537,7 +9537,7 @@ Abc_TgFlipSymGroupByVar.exit.us42.i:              ; preds = %168, %128, %124
 
 .lr.ph35.split.i:                                 ; preds = %.lr.ph35.i, %.lr.ph35.split.i
   %.034.i = phi i32 [ %175, %.lr.ph35.split.i ], [ 0, %.lr.ph35.i ]
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull %4, ptr noundef nonnull %1)
   %175 = add nuw nsw i32 %.034.i, 1
   %.val.i = load i32, ptr %38, align 4
   %176 = icmp slt i32 %175, %.val.i

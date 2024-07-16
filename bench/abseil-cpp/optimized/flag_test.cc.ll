@@ -1322,7 +1322,7 @@ invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i, %entry
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_second, ptr noundef nonnull %u.i.i.i)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_second, ptr noundef nonnull %u.i.i.i)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i
@@ -1492,7 +1492,7 @@ invoke.cont.i.i.i61:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i62, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %invoke.cont.i.i.i61, %_ZN7testing15AssertionResultD2Ev.exit
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_minute, ptr noundef nonnull %u.i.i.i43)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_minute, ptr noundef nonnull %u.i.i.i43)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i61, %if.then.i.i.i46
@@ -1662,7 +1662,7 @@ invoke.cont.i.i.i128:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i129, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i113
 
 if.then.i.i.i113:                                 ; preds = %invoke.cont.i.i.i128, %_ZN7testing15AssertionResultD2Ev.exit105
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_hour, ptr noundef nonnull %u.i.i.i110)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_hour, ptr noundef nonnull %u.i.i.i110)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i128, %if.then.i.i.i113
@@ -1832,7 +1832,7 @@ invoke.cont.i.i.i195:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i196, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %invoke.cont.i.i.i195, %_ZN7testing15AssertionResultD2Ev.exit172
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_day, ptr noundef nonnull %u.i.i.i177)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_day, ptr noundef nonnull %u.i.i.i177)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i195, %if.then.i.i.i180
@@ -2002,7 +2002,7 @@ invoke.cont.i.i.i262:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i263, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i247
 
 if.then.i.i.i247:                                 ; preds = %invoke.cont.i.i.i262, %_ZN7testing15AssertionResultD2Ev.exit239
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_month, ptr noundef nonnull %u.i.i.i244)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_month, ptr noundef nonnull %u.i.i.i244)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i262, %if.then.i.i.i247
@@ -2172,7 +2172,7 @@ invoke.cont.i.i.i326:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i327, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit, label %if.then.i.i.i311
 
 if.then.i.i.i311:                                 ; preds = %invoke.cont.i.i.i326, %_ZN7testing15AssertionResultD2Ev.exit306
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_year, ptr noundef nonnull %u.i.i.i308)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_year, ptr noundef nonnull %u.i.i.i308)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit: ; preds = %invoke.cont.i.i.i326, %if.then.i.i.i311
@@ -2317,33 +2317,33 @@ _ZN7testing15AssertionResultD2Ev.exit370:         ; preds = %if.end127, %_ZNKSt1
   store i64 2016, ptr %ref.tmp129, align 8
   %kNewSec.sroa.13.0.ref.tmp129.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp129, i64 8
   store i64 43101193990, ptr %kNewSec.sroa.13.0.ref.tmp129.sroa_idx, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_second, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_second, ptr noundef nonnull %ref.tmp129)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_second, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_second, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp129)
   store i64 2016, ptr %ref.tmp130, align 8
   %179 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
   store i64 151521030, ptr %179, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_minute, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_minute, ptr noundef nonnull %ref.tmp130)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_minute, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_minute, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp130)
   store i64 2016, ptr %ref.tmp131, align 8
   %180 = getelementptr inbounds i8, ptr %ref.tmp131, i64 8
   store i64 526086, ptr %180, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_hour, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_hour, ptr noundef nonnull %ref.tmp131)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_hour, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_hour, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp131)
   store i64 2016, ptr %ref.tmp132, align 8
   %181 = getelementptr inbounds i8, ptr %ref.tmp132, i64 8
   store i64 1798, ptr %181, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_day, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_day, ptr noundef nonnull %ref.tmp132)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_day, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_day, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp132)
   store i64 2016, ptr %ref.tmp133, align 8
   %182 = getelementptr inbounds i8, ptr %ref.tmp133, i64 8
   store i64 262, ptr %182, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_month, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_month, ptr noundef nonnull %ref.tmp133)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_month, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_month, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp133)
   store i64 2016, ptr %ref.tmp134, align 8
   %183 = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
   store i64 257, ptr %183, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_year, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_year, ptr noundef nonnull %ref.tmp134)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_year, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_year, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp134)
   store i64 2016, ptr %ref.tmp136, align 8
   %kNewSec.sroa.13.0.ref.tmp136.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp136, i64 8
   store i64 43101193990, ptr %kNewSec.sroa.13.0.ref.tmp136.sroa_idx, align 8
@@ -2372,7 +2372,7 @@ invoke.cont.i.i.i408:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i409, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit410, label %if.then.i.i.i393
 
 if.then.i.i.i393:                                 ; preds = %invoke.cont.i.i.i408, %_ZN7testing15AssertionResultD2Ev.exit370
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_second, ptr noundef nonnull %u.i.i.i390)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_second, ptr noundef nonnull %u.i.i.i390)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit410
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit410: ; preds = %invoke.cont.i.i.i408, %if.then.i.i.i393
@@ -2542,7 +2542,7 @@ invoke.cont.i.i.i478:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i479, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit480, label %if.then.i.i.i463
 
 if.then.i.i.i463:                                 ; preds = %invoke.cont.i.i.i478, %_ZN7testing15AssertionResultD2Ev.exit455
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_minute, ptr noundef nonnull %u.i.i.i460)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_minute, ptr noundef nonnull %u.i.i.i460)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit480
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_10minute_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit480: ; preds = %invoke.cont.i.i.i478, %if.then.i.i.i463
@@ -2712,7 +2712,7 @@ invoke.cont.i.i.i548:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i549, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit550, label %if.then.i.i.i533
 
 if.then.i.i.i533:                                 ; preds = %invoke.cont.i.i.i548, %_ZN7testing15AssertionResultD2Ev.exit525
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_hour, ptr noundef nonnull %u.i.i.i530)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_hour, ptr noundef nonnull %u.i.i.i530)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit550
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8hour_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit550: ; preds = %invoke.cont.i.i.i548, %if.then.i.i.i533
@@ -2882,7 +2882,7 @@ invoke.cont.i.i.i618:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i619, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit620, label %if.then.i.i.i603
 
 if.then.i.i.i603:                                 ; preds = %invoke.cont.i.i.i618, %_ZN7testing15AssertionResultD2Ev.exit595
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_day, ptr noundef nonnull %u.i.i.i600)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_day, ptr noundef nonnull %u.i.i.i600)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit620
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_7day_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit620: ; preds = %invoke.cont.i.i.i618, %if.then.i.i.i603
@@ -3052,7 +3052,7 @@ invoke.cont.i.i.i689:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i690, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit691, label %if.then.i.i.i674
 
 if.then.i.i.i674:                                 ; preds = %invoke.cont.i.i.i689, %_ZN7testing15AssertionResultD2Ev.exit665
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_month, ptr noundef nonnull %u.i.i.i671)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_month, ptr noundef nonnull %u.i.i.i671)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit691
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_9month_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit691: ; preds = %invoke.cont.i.i.i689, %if.then.i.i.i674
@@ -3222,7 +3222,7 @@ invoke.cont.i.i.i756:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i757, label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit758, label %if.then.i.i.i741
 
 if.then.i.i.i741:                                 ; preds = %invoke.cont.i.i.i756, %_ZN7testing15AssertionResultD2Ev.exit736
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_flag_civil_year, ptr noundef nonnull %u.i.i.i738)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_year, ptr noundef nonnull %u.i.i.i738)
   br label %_ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit758
 
 _ZN4absl7GetFlagINS_13time_internal4cctz6detail10civil_timeINS1_8year_tagEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit758: ; preds = %invoke.cont.i.i.i756, %if.then.i.i.i741
@@ -4078,7 +4078,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i, %entry
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i)
   br label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit
 
 _ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i
@@ -4198,8 +4198,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store i64 10, ptr %ref.tmp15, align 8
   %tmp.coerce17.sroa.2.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store i32 0, ptr %tmp.coerce17.sroa.2.0.ref.tmp15.sroa_idx, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_duration_flag, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_8DurationEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_duration_flag, ptr noundef nonnull %ref.tmp15)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_8DurationEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_8DurationEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp15)
   store i64 10, ptr %ref.tmp19, align 8
   %tmp.coerce21.sroa.2.0.ref.tmp19.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i32 0, ptr %tmp.coerce21.sroa.2.0.ref.tmp19.sroa_idx, align 8
@@ -4222,7 +4222,7 @@ invoke.cont.i.i.i37:                              ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i40, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit41, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %invoke.cont.i.i.i37, %_ZN7testing15AssertionResultD2Ev.exit
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i28)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i28)
   br label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit41
 
 _ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit41: ; preds = %invoke.cont.i.i.i37, %if.then.i.i.i31
@@ -4496,7 +4496,7 @@ invoke.cont.i.i.i102:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i105, label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit106, label %if.then.i.i.i96
 
 if.then.i.i.i96:                                  ; preds = %invoke.cont.i.i.i102, %_ZN7testing15AssertionResultD2Ev.exit92
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i93)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull %u.i.i.i93)
   br label %_ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit106
 
 _ZN4absl7GetFlagINS_8DurationEEET_RKNS_14flags_internal4FlagIS2_EE.exit106: ; preds = %invoke.cont.i.i.i102, %if.then.i.i.i96
@@ -4745,7 +4745,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end115.thread, %if.end115, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   %message_.i147203207 = phi ptr [ %message_.i147201, %if.end115.thread ], [ %message_.i147, %if.end115 ], [ %message_.i147, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161 ]
   store ptr null, ptr %message_.i147203207, align 8
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %current_flag_value, ptr noundef nonnull @.str.46) #17, !noalias !218
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %current_flag_value, ptr noundef nonnull align 1 dereferenceable(4) @.str.46) #17, !noalias !218
   %cmp.i.i.i163 = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i163, label %if.then.i.i165, label %if.end.i.i164
 
@@ -4980,7 +4980,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i.i), !noalias !223
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i), !noalias !230
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i.i, i64 16
-  invoke void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef nonnull %lhs, ptr noundef nonnull %add.ptr.i.i.i.i)
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef nonnull align 1 dereferenceable(4) %lhs, ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i, !noalias !230
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -5068,13 +5068,13 @@ if.else:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %if.end.i unwind label %lpad
 
 lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -5335,7 +5335,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br i1 %cmp4.i.i.i.i.i, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i, %entry
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i
@@ -5474,8 +5474,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store i64 %retval.sroa.0.0.i, ptr %t, align 8
   %tmp.coerce24.sroa.2.0.coerce.dive23.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
   store i32 %retval.sroa.3.0.i, ptr %tmp.coerce24.sroa.2.0.coerce.dive23.sroa_idx, align 8
-  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_4TimeEEEPKSt9type_infov)
-  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %t)
+  call void @_ZNK4absl14flags_internal8FlagImpl15AssertValidTypeEPKvPFPKSt9type_infovE(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull @_ZN4absl13base_internal11FastTypeTagINS_4TimeEE9dummy_varE, ptr noundef nonnull @_ZN4absl14flags_internal16GenRuntimeTypeIdINS_4TimeEEEPKSt9type_infov)
+  call void @_ZN4absl14flags_internal8FlagImpl5WriteEPKv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull align 4 dereferenceable(12) %t)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %u.i.i.i102)
   %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @FLAGS_test_time_flag, i64 48) acquire, align 8
   %and.i.i.i.i.i103 = and i64 %15, 1
@@ -5495,7 +5495,7 @@ invoke.cont.i.i.i111:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i114, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit115, label %if.then.i.i.i105
 
 if.then.i.i.i105:                                 ; preds = %invoke.cont.i.i.i111, %_ZN7testing15AssertionResultD2Ev.exit
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i102)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i102)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit115
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit115: ; preds = %invoke.cont.i.i.i111, %if.then.i.i.i105
@@ -5779,7 +5779,7 @@ invoke.cont.i.i.i181:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i184, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit185, label %if.then.i.i.i175
 
 if.then.i.i.i175:                                 ; preds = %invoke.cont.i.i.i181, %_ZN7testing15AssertionResultD2Ev.exit167
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i172)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i172)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit185
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit185: ; preds = %invoke.cont.i.i.i181, %if.then.i.i.i175
@@ -6059,7 +6059,7 @@ invoke.cont.i.i.i265:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i268, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit269, label %if.then.i.i.i259
 
 if.then.i.i.i259:                                 ; preds = %invoke.cont.i.i.i265, %_ZN7testing15AssertionResultD2Ev.exit248
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i256)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i256)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit269
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit269: ; preds = %invoke.cont.i.i.i265, %if.then.i.i.i259
@@ -6339,7 +6339,7 @@ invoke.cont.i.i.i349:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i352, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit353, label %if.then.i.i.i343
 
 if.then.i.i.i343:                                 ; preds = %invoke.cont.i.i.i349, %_ZN7testing15AssertionResultD2Ev.exit332
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i340)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i340)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit353
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit353: ; preds = %invoke.cont.i.i.i349, %if.then.i.i.i343
@@ -6619,7 +6619,7 @@ invoke.cont.i.i.i433:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i436, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit437, label %if.then.i.i.i427
 
 if.then.i.i.i427:                                 ; preds = %invoke.cont.i.i.i433, %_ZN7testing15AssertionResultD2Ev.exit416
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i424)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i424)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit437
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit437: ; preds = %invoke.cont.i.i.i433, %if.then.i.i.i427
@@ -6899,7 +6899,7 @@ invoke.cont.i.i.i517:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i520, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit521, label %if.then.i.i.i511
 
 if.then.i.i.i511:                                 ; preds = %invoke.cont.i.i.i517, %_ZN7testing15AssertionResultD2Ev.exit500
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i508)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i508)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit521
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit521: ; preds = %invoke.cont.i.i.i517, %if.then.i.i.i511
@@ -7187,7 +7187,7 @@ invoke.cont.i.i.i608:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i611, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit612, label %if.then.i.i.i602
 
 if.then.i.i.i602:                                 ; preds = %invoke.cont.i.i.i608, %_ZN7testing15AssertionResultD2Ev.exit584
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i599)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i599)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit612
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit612: ; preds = %invoke.cont.i.i.i608, %if.then.i.i.i602
@@ -7457,7 +7457,7 @@ invoke.cont.i.i.i685:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i688, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit689, label %if.then.i.i.i679
 
 if.then.i.i.i679:                                 ; preds = %invoke.cont.i.i.i685, %_ZN7testing15AssertionResultD2Ev.exit675
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i676)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i676)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit689
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit689: ; preds = %invoke.cont.i.i.i685, %if.then.i.i.i679
@@ -7727,7 +7727,7 @@ invoke.cont.i.i.i762:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp4.i.i.i.i.i765, label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit766, label %if.then.i.i.i756
 
 if.then.i.i.i756:                                 ; preds = %invoke.cont.i.i.i762, %_ZN7testing15AssertionResultD2Ev.exit752
-  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(80) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i753)
+  call void @_ZNK4absl14flags_internal8FlagImpl4ReadEPv(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull %u.i.i.i753)
   br label %_ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit766
 
 _ZN4absl7GetFlagINS_4TimeEEET_RKNS_14flags_internal4FlagIS2_EE.exit766: ; preds = %invoke.cont.i.i.i762, %if.then.i.i.i756
@@ -8732,7 +8732,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1002:        ; preds = %if.end678.thread, %if.end678, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1001
   %message_.i98711881192 = phi ptr [ %message_.i9871186, %if.end678.thread ], [ %message_.i987, %if.end678 ], [ %message_.i987, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1001 ]
   store ptr null, ptr %message_.i98711881192, align 8
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %current_flag_value, ptr noundef nonnull @.str.95) #17, !noalias !291
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %current_flag_value, ptr noundef nonnull align 1 dereferenceable(26) @.str.95) #17, !noalias !291
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i1004, label %if.end.i.i1003
 
@@ -8958,7 +8958,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i.i.i), !noalias !296
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i), !noalias !303
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss.i.i.i.i, i64 16
-  invoke void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef nonnull %lhs, ptr noundef nonnull %add.ptr.i.i.i.i)
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef nonnull align 1 dereferenceable(26) %lhs, ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i, !noalias !303
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
@@ -9178,14 +9178,14 @@ entry:
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
-  %call.i.i = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_second, ptr noundef nonnull @.str.1)
-  %call.i.i1 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_minute, ptr noundef nonnull @.str.1)
-  %call.i.i2 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_hour, ptr noundef nonnull @.str.1)
-  %call.i.i3 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_day, ptr noundef nonnull @.str.1)
-  %call.i.i4 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_month, ptr noundef nonnull @.str.1)
-  %call.i.i5 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_flag_civil_year, ptr noundef nonnull @.str.1)
-  %call.i.i6 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_duration_flag, ptr noundef nonnull @.str.1)
-  %call.i.i7 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(8) @FLAGS_test_time_flag, ptr noundef nonnull @.str.1)
+  %call.i.i = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_second, ptr noundef nonnull @.str.1)
+  %call.i.i1 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_minute, ptr noundef nonnull @.str.1)
+  %call.i.i2 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_hour, ptr noundef nonnull @.str.1)
+  %call.i.i3 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_day, ptr noundef nonnull @.str.1)
+  %call.i.i4 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_month, ptr noundef nonnull @.str.1)
+  %call.i.i5 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_flag_civil_year, ptr noundef nonnull @.str.1)
+  %call.i.i6 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_duration_flag, ptr noundef nonnull @.str.1)
+  %call.i.i7 = tail call noundef zeroext i1 @_ZN4absl14flags_internal23RegisterCommandLineFlagERNS_15CommandLineFlagEPKc(ptr noundef nonnull align 8 dereferenceable(96) @FLAGS_test_time_flag, ptr noundef nonnull @.str.1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -9194,7 +9194,7 @@ entry:
           to label %call.i.noexc.i unwind label %lpad.i
 
 call.i.noexc.i:                                   ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef %call.i4.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i4.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
@@ -9204,11 +9204,11 @@ call.i.noexc.i:                                   ; preds = %entry
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   br label %common.resume
 
 invoke.cont.i:                                    ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
@@ -9247,7 +9247,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 lpad4.i:                                          ; preds = %invoke.cont13.i, %invoke.cont8.i, %invoke.cont6.i, %invoke.cont5.i, %invoke.cont3.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i) #17
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %lpad4.i, %lpad2.i
@@ -9262,7 +9262,7 @@ common.resume:                                    ; preds = %lpad.i.i40, %lpad.i
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont13.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #17
   store ptr %call15.i, ptr @_ZN12_GLOBAL__N_126CivilTime_FlagSupport_Test10test_info_E, align 8
@@ -9277,7 +9277,7 @@ __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont13.i
           to label %call.i.noexc.i14 unwind label %lpad.i11
 
 call.i.noexc.i14:                                 ; preds = %__cxx_global_var_init.17.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i9, ptr noundef %call.i3.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9, ptr noundef %call.i3.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i10)
           to label %.noexc.i15 unwind label %lpad.i11
 
 .noexc.i15:                                       ; preds = %call.i.noexc.i14
@@ -9287,11 +9287,11 @@ call.i.noexc.i14:                                 ; preds = %__cxx_global_var_in
 lpad.i.i16:                                       ; preds = %.noexc.i15
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9) #17
   br label %common.resume
 
 invoke.cont.i17:                                  ; preds = %.noexc.i15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9)
           to label %invoke.cont3.i20 unwind label %lpad2.i18
 
 invoke.cont3.i20:                                 ; preds = %invoke.cont.i17
@@ -9330,7 +9330,7 @@ lpad2.i18:                                        ; preds = %invoke.cont.i17
 lpad4.i23:                                        ; preds = %invoke.cont10.i, %invoke.cont8.i28, %invoke.cont6.i26, %invoke.cont5.i24, %invoke.cont3.i20
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i8) #17
   br label %ehcleanup16.i19
 
 ehcleanup16.i19:                                  ; preds = %lpad4.i23, %lpad2.i18
@@ -9339,7 +9339,7 @@ ehcleanup16.i19:                                  ; preds = %lpad4.i23, %lpad2.i
   br label %common.resume
 
 __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i8) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i8) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i9) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i10) #17
   store ptr %call15.i30, ptr @_ZN12_GLOBAL__N_125Duration_FlagSupport_Test10test_info_E, align 8
@@ -9354,7 +9354,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %invoke.cont10.i
           to label %call.i.noexc.i38 unwind label %lpad.i35
 
 call.i.noexc.i38:                                 ; preds = %__cxx_global_var_init.20.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i32, ptr noundef %call.i3.i34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i33)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32, ptr noundef %call.i3.i34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i33)
           to label %.noexc.i39 unwind label %lpad.i35
 
 .noexc.i39:                                       ; preds = %call.i.noexc.i38
@@ -9364,11 +9364,11 @@ call.i.noexc.i38:                                 ; preds = %__cxx_global_var_in
 lpad.i.i40:                                       ; preds = %.noexc.i39
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i32) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32) #17
   br label %common.resume
 
 invoke.cont.i41:                                  ; preds = %.noexc.i39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32)
           to label %invoke.cont3.i45 unwind label %lpad2.i42
 
 invoke.cont3.i45:                                 ; preds = %invoke.cont.i41
@@ -9407,7 +9407,7 @@ lpad2.i42:                                        ; preds = %invoke.cont.i41
 lpad4.i48:                                        ; preds = %invoke.cont10.i55, %invoke.cont8.i53, %invoke.cont6.i51, %invoke.cont5.i49, %invoke.cont3.i45
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i31) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i31) #17
   br label %ehcleanup16.i43
 
 ehcleanup16.i43:                                  ; preds = %lpad4.i48, %lpad2.i42
@@ -9416,7 +9416,7 @@ ehcleanup16.i43:                                  ; preds = %lpad4.i48, %lpad2.i
   br label %common.resume
 
 __cxx_global_var_init.22.exit:                    ; preds = %invoke.cont10.i55
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i31) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp.i31) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i32) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i33) #17
   store ptr %call15.i56, ptr @_ZN12_GLOBAL__N_121Time_FlagSupport_Test10test_info_E, align 8

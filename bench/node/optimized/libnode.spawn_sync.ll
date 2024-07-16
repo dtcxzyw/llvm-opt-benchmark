@@ -619,7 +619,7 @@ for.body.i4:                                      ; preds = %_ZN2v810MaybeLocalI
   %used_.i.i.i = getelementptr inbounds i8, ptr %buf.07.i5, i64 65536
   %1 = load i32, ptr %used_.i.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 %buf.07.i5, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 dereferenceable(65552) %buf.07.i5, i64 %conv.i.i, i1 false)
   %2 = load i32, ptr %used_.i.i.i, align 8
   %conv3.i.i = zext i32 %2 to i64
   %add.i6 = add i64 %offset.06.i, %conv3.i.i
@@ -773,7 +773,7 @@ if.then:                                          ; preds = %if.end.i
 do.end:                                           ; preds = %entry, %if.end.i
   call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %11) #25
   %kill_signal_.i = getelementptr inbounds i8, ptr %p, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %p, i8 0, i64 16, i1 false)
   store i32 15, ptr %kill_signal_.i, align 8
   %uv_loop_.i = getelementptr inbounds i8, ptr %p, i64 24
   store ptr null, ptr %uv_loop_.i, align 8
@@ -2852,7 +2852,7 @@ for.body.i4.i:                                    ; preds = %_ZN2v810MaybeLocalI
   %used_.i.i.i.i = getelementptr inbounds i8, ptr %buf.07.i5.i, i64 65536
   %15 = load i32, ptr %used_.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %15 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 8 %buf.07.i5.i, i64 %conv.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 8 dereferenceable(65552) %buf.07.i5.i, i64 %conv.i.i.i, i1 false)
   %16 = load i32, ptr %used_.i.i.i.i, align 8
   %conv3.i.i.i = zext i32 %16 to i64
   %add.i6.i = add i64 %offset.06.i.i, %conv3.i.i.i
@@ -3818,7 +3818,7 @@ do.body6.i.i.i.i:                                 ; preds = %delete.notnull.i.i.
 do.end7.i.i.i.i:                                  ; preds = %delete.notnull.i.i.i
   %7 = load ptr, ptr %first_output_buffer_.i, align 8
   %cmp8.not3.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp8.not3.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EE5resetEPS1_.exit, label %for.body.i.i.i.i
+  br i1 %cmp8.not3.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %do.end7.i.i.i.i, %for.body.i.i.i.i
   %buf.04.i.i.i.i = phi ptr [ %8, %for.body.i.i.i.i ], [ %7, %do.end7.i.i.i.i ]
@@ -3826,11 +3826,7 @@ for.body.i.i.i.i:                                 ; preds = %do.end7.i.i.i.i, %f
   %8 = load ptr, ptr %next_.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %buf.04.i.i.i.i) #27
   %cmp8.not.i.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp8.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EE5resetEPS1_.exit, label %for.body.i.i.i.i, !llvm.loop !5
-
-_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %for.body.i.i.i.i, %do.end7.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call19) #27
-  br label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit
+  br i1 %cmp8.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split, label %for.body.i.i.i.i, !llvm.loop !5
 
 if.end25:                                         ; preds = %if.end9.i
   store ptr %call19, ptr %uv_pipe_.i.i, align 8
@@ -3882,7 +3878,7 @@ do.end7.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i.
   %first_output_buffer_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   %18 = load ptr, ptr %first_output_buffer_.i.i.i.i.i.i, align 8
   %cmp8.not3.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %cmp8.not3.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp8.not3.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %do.end7.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %buf.04.i.i.i.i.i.i = phi ptr [ %19, %for.body.i.i.i.i.i.i ], [ %18, %do.end7.i.i.i.i.i.i ]
@@ -3890,14 +3886,16 @@ for.body.i.i.i.i.i.i:                             ; preds = %do.end7.i.i.i.i.i.i
   %19 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %buf.04.i.i.i.i.i.i) #27
   %cmp8.not.i.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp8.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !5
+  br i1 %cmp8.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
-_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %do.end7.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %15) #27
+_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i, %do.end7.i.i.i.i.i.i, %do.end7.i.i.i.i
+  %call19.sink = phi ptr [ %call19, %do.end7.i.i.i.i ], [ %15, %do.end7.i.i.i.i.i.i ], [ %call19, %for.body.i.i.i.i ], [ %15, %for.body.i.i.i.i.i.i ]
+  %retval.0.ph = phi i32 [ %call6.i, %do.end7.i.i.i.i ], [ 0, %do.end7.i.i.i.i.i.i ], [ %call6.i, %for.body.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ]
+  tail call void @_ZdlPv(ptr noundef nonnull %call19.sink) #27
   br label %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit, %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i
-  %retval.0 = phi i32 [ %call6.i, %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 0, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit ], [ 0, %_ZNKSt14default_deleteIN4node20SyncProcessStdioPipeEEclEPS1_.exit.i.i.i.i ]
+_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit
+  %retval.0 = phi i32 [ 0, %_ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit ], [ %retval.0.ph, %_ZNSt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_deleteIS1_EED2Ev.exit.sink.split ]
   ret i32 %retval.0
 }
 

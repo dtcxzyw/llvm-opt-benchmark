@@ -207,7 +207,7 @@ define linkonce_odr void @_ZN7QVectorIP7XMLNodeE7reallocEi6QFlagsIN10QArrayData1
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #11
   tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef null, i64 noundef 8, i64 noundef 8) #11
   invoke void @__cxa_rethrow() #14
-          to label %46 unwind label %39
+          to label %48 unwind label %39
 
 13:                                               ; preds = %3, %8
   %14 = load ptr, ptr %0, align 8
@@ -252,28 +252,36 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %13
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %42 unwind label %43
+          to label %44 unwind label %45
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread23:     ; preds = %13, %_ZN9QtPrivate8RefCount5derefEv.exit
+  %.not21 = icmp eq i32 %1, 0
   %41 = load ptr, ptr %0, align 8
+  br i1 %.not21, label %43, label %42
+
+42:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23
   tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %41, i64 noundef 8, i64 noundef 8) #11
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23, %13, %_ZN9QtPrivate8RefCount5derefEv.exit
+43:                                               ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread23
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %41, i64 noundef 8, i64 noundef 8) #11
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %13, %43, %42, %_ZN9QtPrivate8RefCount5derefEv.exit
   store ptr %7, ptr %0, align 8
   ret void
 
-42:                                               ; preds = %39
+44:                                               ; preds = %39
   resume { ptr, i32 } %40
 
-43:                                               ; preds = %39
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #10
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #10
   unreachable
 
-46:                                               ; preds = %9
+48:                                               ; preds = %9
   unreachable
 }
 
@@ -519,7 +527,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %45
   %48 = phi ptr [ %.pre.i8, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %28, %45 ]
-  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %48, i64 noundef 8, i64 noundef 8) #11
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef nonnull %48, i64 noundef 8, i64 noundef 8) #11
   br label %_ZN7QVectorIP7XMLNodeED2Ev.exit
 
 _ZN7QVectorIP7XMLNodeED2Ev.exit:                  ; preds = %45, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i

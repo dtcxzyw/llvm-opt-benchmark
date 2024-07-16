@@ -12185,7 +12185,7 @@ ma_copy_pcm_frames.exit.i.i:                      ; preds = %ma_copy_pcm_frames.
 
 ma_device__on_data_inner.exit130.i.i:             ; preds = %.preheader.i123.i.i, %656, %.lr.ph36.preheader.i.i129.i.i, %653, %642
   %665 = load ptr, ptr %58, align 8
-  call void %665(ptr noundef %0, ptr noundef %643, ptr noundef %644, i32 noundef %639) #68
+  call void %665(ptr noundef nonnull %0, ptr noundef %643, ptr noundef %644, i32 noundef %639) #68
   %666 = load i32, ptr %68, align 8
   store i32 %666, ptr %64, align 4
   store i32 0, ptr %61, align 4
@@ -35815,23 +35815,100 @@ define hidden i32 @ma_linear_resampler_set_rate(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ma_linear_resampler_set_rate_ratio(ptr noundef %0, float noundef %1) local_unnamed_addr #5 {
-  %3 = icmp ne ptr %0, null
-  %4 = fcmp ugt float %1, 0.000000e+00
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %11
+  %3 = alloca %struct.ma_lpf_config, align 8
+  %4 = icmp ne ptr %0, null
+  %5 = fcmp ugt float %1, 0.000000e+00
+  %or.cond = and i1 %4, %5
+  br i1 %or.cond, label %6, label %53
 
-5:                                                ; preds = %2
-  %6 = fmul float %1, 1.000000e+06
-  %7 = fptoui float %6 to i32
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+6:                                                ; preds = %2
+  %7 = fmul float %1, 1.000000e+06
+  %8 = fptoui float %7 to i32
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %53, label %10
 
-9:                                                ; preds = %5
-  %10 = tail call fastcc i32 @ma_linear_resampler_set_rate_internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %7, i32 noundef 1000000, i32 noundef 1)
-  br label %11
+10:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4
+  br label %13
 
-11:                                               ; preds = %5, %2, %9
-  %.0 = phi i32 [ %10, %9 ], [ -2, %2 ], [ -2, %5 ]
+13:                                               ; preds = %13, %10
+  %.065.i = phi i32 [ %8, %10 ], [ %.05264.i, %13 ]
+  %.05264.i = phi i32 [ 1000000, %10 ], [ %14, %13 ]
+  %14 = urem i32 %.065.i, %.05264.i
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %13
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = udiv i32 %8, %.05264.i
+  store i32 %18, ptr %17, align 8
+  %19 = udiv i32 1000000, %.05264.i
+  store i32 %19, ptr %11, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ugt i32 %21, 8
+  br i1 %22, label %ma_linear_resampler_set_rate_internal.exit, label %23
+
+23:                                               ; preds = %16
+  %..i = tail call i32 @llvm.umax.i32(i32 %18, i32 %19)
+  %24 = tail call i32 @llvm.umin.i32(i32 %18, i32 %19)
+  %25 = uitofp nneg i32 %24 to double
+  %26 = fmul double %25, 5.000000e-01
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = load double, ptr %27, align 8
+  %29 = fmul double %26, %28
+  %30 = load <2 x i32>, ptr %0, align 8
+  store <2 x i32> %30, ptr %3, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %..i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %.sroa.563.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  store double %29, ptr %.sroa.563.0..sroa_idx.i, align 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %21, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = call fastcc i32 @ma_lpf_reinit__internal(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %31, i32 noundef 0)
+  %.not62.i = icmp eq i32 %32, 0
+  br i1 %.not62.i, label %33, label %ma_linear_resampler_set_rate_internal.exit
+
+33:                                               ; preds = %23
+  %34 = load i32, ptr %17, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = udiv i32 %34, %35
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %36, ptr %37, align 8
+  %38 = urem i32 %34, %35
+  %39 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = load i32, ptr %40, align 4
+  %42 = udiv i32 %41, %12
+  %43 = urem i32 %41, %12
+  %44 = mul i32 %42, %35
+  %45 = mul i32 %43, %35
+  %46 = udiv i32 %45, %12
+  %47 = add i32 %46, %44
+  %48 = udiv i32 %47, %35
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = add i32 %50, %48
+  store i32 %51, ptr %49, align 8
+  %52 = urem i32 %47, %35
+  store i32 %52, ptr %40, align 4
+  br label %ma_linear_resampler_set_rate_internal.exit
+
+ma_linear_resampler_set_rate_internal.exit:       ; preds = %16, %23, %33
+  %.053.i = phi i32 [ 0, %33 ], [ -2, %16 ], [ %32, %23 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  br label %53
+
+53:                                               ; preds = %6, %2, %ma_linear_resampler_set_rate_internal.exit
+  %.0 = phi i32 [ %.053.i, %ma_linear_resampler_set_rate_internal.exit ], [ -2, %2 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -69373,7 +69450,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   br i1 %exitcond15.not.i, label %crc32_init.exit, label %198
 
 crc32_init.exit:                                  ; preds = %206
-  %208 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef %0)
+  %208 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
   store i32 0, ptr %117, align 8
   %.not1016 = icmp eq i32 %208, 5
   br i1 %.not1016, label %.preheader1137, label %209
@@ -69686,7 +69763,7 @@ crc32_init.exit:                                  ; preds = %206
   br label %setup_temp_free.exit
 
 361:                                              ; preds = %351
-  tail call void @free(ptr noundef %.0936) #68
+  tail call void @free(ptr noundef nonnull %.0936) #68
   br label %setup_temp_free.exit
 
 setup_temp_free.exit:                             ; preds = %355, %361
@@ -70290,7 +70367,7 @@ setup_temp_free.exit1093:                         ; preds = %617, %624
   br label %setup_temp_free.exit1095
 
 647:                                              ; preds = %.loopexit1131
-  tail call void @free(ptr noundef %504) #68
+  tail call void @free(ptr noundef nonnull %504) #68
   br label %setup_temp_free.exit1095
 
 setup_temp_free.exit1095:                         ; preds = %647, %640, %470
@@ -82249,7 +82326,7 @@ drmp3__on_seek_64.exit.i:                         ; preds = %.thread.i.i, %48
   %indvars.iv = phi i32 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph54.i ]
   %84 = icmp eq i32 %80, %indvars.iv
   %spec.select.i = select i1 %84, ptr %81, ptr null
-  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef %0, ptr noundef %spec.select.i)
+  %85 = tail call fastcc i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef %spec.select.i)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %drmp3_seek_to_start_of_stream.exit, label %82
 

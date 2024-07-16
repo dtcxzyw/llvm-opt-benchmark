@@ -5149,7 +5149,7 @@ Psr_ManUtilSkipSpaces.exit92.i.i:                 ; preds = %.preheader.i74.i.i,
   br i1 %exitcond.i.i31, label %Psr_ManIsVerilogModule.exit.thread.i, label %1224, !llvm.loop !23
 
 Psr_ManIsVerilogModule.exit.i:                    ; preds = %1224
-  %1230 = tail call i32 @Psr_ManReadSignalList(ptr noundef %24, ptr noundef nonnull %53, i8 noundef signext 41, i32 noundef 1)
+  %1230 = tail call i32 @Psr_ManReadSignalList(ptr noundef nonnull %24, ptr noundef nonnull %53, i8 noundef signext 41, i32 noundef 1)
   %1231 = icmp eq i32 %1230, 0
   br i1 %1231, label %Psr_ManReadSignalList2.exit.thread.i, label %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread138_crit_edge.i
 

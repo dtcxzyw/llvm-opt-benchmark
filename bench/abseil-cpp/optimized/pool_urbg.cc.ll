@@ -137,11 +137,11 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
@@ -202,7 +202,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i32 noundef 3, ptr noundef nonnull @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
 
@@ -252,7 +252,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_inte
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
   %next_.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 280
   store i64 64, ptr %next_.i.i, align 8
   %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
@@ -284,7 +284,7 @@ _ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit: ; preds = %_ZN4abs
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
 
 if.then5.i.i:                                     ; preds = %_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit
-  call void @AbslInternalSpinLockWake(ptr noundef nonnull @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i1 noundef zeroext true)
+  call void @AbslInternalSpinLockWake(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE, i1 noundef zeroext true)
   br label %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit
 
 _ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit: ; preds = %entry, %lor.lhs.false.i.i, %_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv.exit, %if.then5.i.i
@@ -355,11 +355,11 @@ if.then.i:                                        ; preds = %while.body
   br i1 %tobool.i.i, label %if.then.i.i6, label %if.else.i.i
 
 if.then.i.i6:                                     ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %this)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont unwind label %lpad
 
 if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %this)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body, %if.then.i.i6, %if.else.i.i
@@ -474,11 +474,11 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
@@ -592,11 +592,11 @@ if.then.i.i:                                      ; preds = %_ZN4absl13base_inte
   br i1 %tobool.i.i.i, label %if.then.i.i1.i, label %if.else.i.i.i
 
 if.then.i.i1.i:                                   ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i1.i, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
@@ -709,11 +709,11 @@ if.then.i:                                        ; preds = %_ZN4absl13base_inte
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %if.end.i unwind label %lpad.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull %call)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(288) %call)
           to label %if.end.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.else.i.i, %if.then.i.i
